@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>법률칼럼 | 산 법무사·김재섭 행정사 사무소</title>
+<meta name="description" content="산 법무사·김재섭 행정사 사무소가 전하는 생활 속 법률 정보. 민사·상속·가사·행정 등 실무 칼럼을 정리합니다.">
+<meta property="og:title" content="법률칼럼 | 산 법무사·김재섭 행정사 사무소">
+<meta property="og:description" content="생활 속 법률 정보를 쉽게 풀어 전하는 법률칼럼 모음입니다.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a1714; --ink-soft:#403a33; --paper:#f7f3ec; --paper-2:#efe8dc;
+    --line:#d8cdb9; --seal:#9c2b1f; --seal-deep:#7a1f15; --muted:#6b6157;
+    --serif:'Nanum Myeongjo', serif; --sans:'Noto Sans KR', sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.8;font-weight:300;-webkit-font-smoothing:antialiased;letter-spacing:-0.01em;}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background-image:radial-gradient(rgba(120,100,70,0.04) 1px,transparent 1px);background-size:4px 4px;opacity:.6;}
+
+  /* top bar */
+  .topbar{border-bottom:1px solid var(--line);background:var(--paper);position:relative;z-index:2;}
+  .topbar-inner{max-width:980px;margin:0 auto;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);}
+  .brand .seal{width:42px;height:42px;border-radius:6px;background:var(--seal);color:#fff;display:grid;place-items:center;font-family:var(--serif);font-weight:800;font-size:24px;box-shadow:0 2px 0 var(--seal-deep);}
+  .brand .name{font-family:var(--serif);font-weight:700;font-size:17px;line-height:1.3;}
+  .brand .name small{display:block;font-family:var(--sans);font-weight:300;font-size:11.5px;color:var(--muted);letter-spacing:0;}
+  .topbar .home{font-size:13px;color:var(--muted);text-decoration:none;border:1px solid var(--line);padding:7px 14px;border-radius:30px;transition:.2s;}
+  .topbar .home:hover{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+
+  .wrap{max-width:980px;margin:0 auto;padding:0 24px;position:relative;z-index:1;}
+
+  /* page hero */
+  .page-hero{padding:54px 0 34px;border-bottom:2px solid var(--ink);text-align:center;position:relative;}
+  .page-hero::after{content:"山";position:absolute;right:0;top:30px;font-family:var(--serif);font-size:120px;color:rgba(156,43,31,0.05);font-weight:800;line-height:1;z-index:-1;}
+  .page-hero .kicker{display:inline-block;font-size:12px;font-weight:500;letter-spacing:0.18em;color:var(--seal);margin-bottom:14px;}
+  .page-hero h1{font-family:var(--serif);font-weight:800;font-size:clamp(30px,5vw,44px);letter-spacing:-0.02em;color:var(--ink);}
+  .page-hero p{margin-top:14px;font-size:15.5px;color:var(--muted);word-break:keep-all;}
+
+  /* card grid */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px;padding:40px 0 20px;}
+  .card{
+    display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);
+    border-radius:14px;overflow:hidden;text-decoration:none;color:var(--ink);
+    transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;
+    position:relative;
+  }
+  .card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(40,30,20,0.10);border-color:#c9b89a;}
+  .card .band{height:6px;background:linear-gradient(90deg,var(--seal),var(--seal-deep));}
+  .card .pad{padding:24px 24px 22px;display:flex;flex-direction:column;flex:1;}
+  .card .tag{align-self:flex-start;font-size:11.5px;font-weight:500;letter-spacing:0.06em;color:var(--seal);border:1px solid var(--seal);border-radius:30px;padding:4px 12px;margin-bottom:16px;}
+  .card h2{font-family:var(--serif);font-weight:800;font-size:21px;line-height:1.42;color:var(--ink);word-break:keep-all;margin-bottom:12px;}
+  .card .excerpt{font-size:14.5px;color:var(--ink-soft);line-height:1.78;flex:1;word-break:keep-all;}
+  .card .foot{margin-top:20px;padding-top:16px;border-top:1px dashed var(--line);display:flex;align-items:center;justify-content:space-between;font-size:12.5px;color:var(--muted);}
+  .card .read{color:var(--seal);font-weight:500;}
+  .card .read::after{content:" →";transition:.2s;}
+  .card:hover .read::after{margin-left:4px;}
+
+  /* empty/coming-soon card */
+  .soon{border-style:dashed;background:transparent;align-items:center;justify-content:center;text-align:center;cursor:default;}
+  .soon:hover{transform:none;box-shadow:none;border-color:var(--line);}
+  .soon .pad{justify-content:center;align-items:center;color:var(--muted);}
+  .soon .ico{font-size:30px;color:var(--line);margin-bottom:10px;}
+
+  .cta{margin:30px 0 60px;padding:34px 28px;border-radius:16px;background:linear-gradient(135deg,#1f1b17,#2c251e);color:var(--paper);text-align:center;position:relative;overflow:hidden;}
+  .cta::after{content:"山";position:absolute;right:-10px;bottom:-30px;font-family:var(--serif);font-size:170px;color:rgba(255,255,255,0.05);font-weight:800;line-height:1;}
+  .cta h3{font-family:var(--serif);color:#fff;font-size:21px;margin-bottom:10px;font-weight:700;}
+  .cta p{color:#cfc6b8;font-size:14.5px;margin:0 0 22px;}
+  .cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1;}
+  .cta a{text-decoration:none;font-size:15px;font-weight:500;padding:13px 26px;border-radius:30px;transition:.22s;}
+  .cta .b1{background:var(--seal);color:#fff;} .cta .b1:hover{background:#b6362a;transform:translateY(-2px);}
+  .cta .b2{background:transparent;color:var(--paper);border:1px solid rgba(255,255,255,.4);} .cta .b2:hover{background:rgba(255,255,255,.1);}
+
+  footer.site{border-top:1px solid var(--line);padding:26px 0 40px;text-align:center;font-size:12.5px;color:var(--muted);}
+
+  @media (max-width:560px){ .topbar .home{display:none;} .page-hero{padding:40px 0 28px;} }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="/index.html">
+        <span class="seal">山</span>
+        <span class="name">산 법무사·김재섭 행정사 사무소
+          <small>법무사 · 행정사 | 서울 구로구 신도림</small>
+        </span>
+      </a>
+      <a class="home" href="/index.html">홈으로</a>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="page-hero">
+      <span class="kicker">LEGAL COLUMN</span>
+      <h1>법률칼럼</h1>
+      <p>생활 속에서 마주치는 법률 문제를, 실무 경험을 바탕으로 쉽게 풀어 전해드립니다.</p>
+    </div>
+
+    <div class="grid">
+
+      <!-- ===== 칼럼 카드 1 ===== -->
+      <a class="card" href="/column-insurance-clawback.html">
+        <div class="band"></div>
+        <div class="pad">
+          <span class="tag">민사 · 보험설계사 분쟁</span>
+          <h2>보험설계사 환수수수료 청구,<br>일률적 환수가 정당한가</h2>
+          <p class="excerpt">회사의 환수 청구가 늘 정당한 것은 아닙니다. 약관 무효·부정모집·사용자책임의 관점에서 다툴 수 있는 방어 포인트를 정리했습니다.</p>
+          <div class="foot">
+            <span>일반 법률정보</span>
+            <span class="read">자세히 보기</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- ===== 새 칼럼 추가 방법 =====
+           아래 한 칸(주석 시작 표시와 끝 표시 사이)을 통째로 복사해서
+           이 위쪽 "칼럼 카드 1" 아래에 붙여넣은 뒤,
+           href / tag / h2 / excerpt 네 군데 내용만 바꾸면 새 카드가 생깁니다.
+           복사할 때는 맨 앞의 [복사시작] 줄과 맨 뒤의 [복사끝] 줄은 빼고,
+           가운데 a 태그 부분만 붙여넣으세요. =====
+
+      [복사시작]
+      <a class="card" href="새-칼럼-파일명.html">
+        <div class="band"></div>
+        <div class="pad">
+          <span class="tag">분류 - 세부분류</span>
+          <h2>여기에 칼럼 제목</h2>
+          <p class="excerpt">여기에 한두 문장으로 칼럼 요약.</p>
+          <div class="foot">
+            <span>일반 법률정보</span>
+            <span class="read">자세히 보기</span>
+          </div>
+        </div>
+      </a>
+      [복사끝]
+      ===== 추가 방법 끝 ===== -->
+
+      <!-- 준비중 안내 카드 (칼럼이 쌓이면 이 카드 한 줄을 지우셔도 됩니다) -->
+      <div class="card soon">
+        <div class="pad">
+          <div class="ico">✎</div>
+          <div>새로운 칼럼을 준비하고 있습니다.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="cta">
+      <h3>법률 문제로 고민이 있으신가요?</h3>
+      <p>혼자 끙끙 앓기 전에, 사실관계와 증거를 함께 정리해 보세요.</p>
+      <div class="cta-btns">
+        <a class="b1" href="https://sanlaw.co.kr">상담 문의 · sanlaw.co.kr</a>
+        <a class="b2" href="tel:010-3748-0825">전화 010-3748-0825</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site">
+    산 법무사·김재섭 행정사 사무소 &nbsp;|&nbsp; 서울 구로구 신도림 &nbsp;|&nbsp; sanlaw.co.kr<br>
+    ⓒ 산 법무사·김재섭 행정사 사무소. 무단 전재·복제를 금합니다.
+  </footer>
+
+</body>
+</html>
