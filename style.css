@@ -433,3 +433,49 @@
     .gov-links-sec{padding:40px 0 30px}
     .gov-links-sec .sec-head h2{font-size:22px}
   }
+
+
+  /* ===== 생활 사례 아코디언 (업무분야 페이지) ===== */
+  .case-list{display:flex;flex-direction:column;gap:10px;margin:10px 0 8px}
+  .case-item{border:1px solid var(--line);border-radius:4px;background:#fff;overflow:hidden;transition:.3s}
+  .case-item:hover{border-color:var(--gold-soft)}
+  .case-q{width:100%;display:flex;align-items:center;gap:14px;padding:18px 20px;background:none;border:none;cursor:pointer;text-align:left;font-family:var(--sans)}
+  .case-ic{flex:none;width:34px;height:34px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:800;color:var(--gold);font-size:15px;transition:.3s}
+  .case-item.open .case-ic{background:var(--gold);color:#fff}
+  .case-tt{flex:1;font-family:var(--serif);font-size:16.5px;font-weight:800;color:var(--ink);line-height:1.45}
+  .case-ar{flex:none;font-size:24px;color:var(--gold);font-weight:300;line-height:1;transition:.3s}
+  .case-item.open .case-ar{transform:rotate(45deg)}
+  .case-a{max-height:0;overflow:hidden;transition:max-height .45s ease;padding:0 20px}
+  .case-item.open .case-a{max-height:1200px;padding:0 20px 22px 70px}
+  .case-sit{font-family:var(--batang);color:#3c4452;font-size:15px;line-height:1.8;margin:0 0 14px}
+  .case-meta{display:flex;flex-direction:column;gap:9px;margin-bottom:16px;border-top:1px solid var(--line);padding-top:14px}
+  .case-meta>div{font-size:14px;color:#3c4452;line-height:1.65}
+  .cm-l{display:inline-block;min-width:78px;color:var(--gold);font-weight:700;font-size:12px;letter-spacing:.3px;vertical-align:top}
+  .case-scope{display:grid;gap:10px}
+  .cs-do,.cs-law{padding:12px 15px;border-radius:3px;font-size:13.6px;line-height:1.65;color:#54607a}
+  .cs-do{background:var(--cream);border-left:3px solid var(--gold)}
+  .cs-law{background:#fbf2ee;border-left:3px solid #b5503e}
+  .cs-do b{color:var(--ink);display:block;margin-bottom:3px}
+  .cs-law b{color:#9c3b2e;display:block;margin-bottom:3px}
+  @media(max-width:600px){
+    .case-q{padding:15px 16px;gap:11px}
+    .case-tt{font-size:15px}
+    .case-item.open .case-a{padding:0 16px 18px 16px}
+    .cm-l{display:block;min-width:0;margin-bottom:2px}
+  }
+
+
+  /* ===== 메인: 빠른 상황 진입 밴드 + 사례 딥링크 ===== */
+  .case-quick{max-width:860px;margin:0 auto 30px;background:var(--cream);border:1px solid var(--line);border-radius:6px;padding:22px 24px}
+  .cq-label{font-family:var(--serif);font-size:15px;font-weight:800;color:var(--ink);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+  .cq-label::before{content:'';width:4px;height:15px;background:var(--gold);border-radius:2px}
+  .cq-chips{display:flex;flex-wrap:wrap;gap:9px}
+  .cq-chips a{display:inline-block;background:#fff;border:1px solid var(--line);border-radius:30px;padding:9px 16px;font-size:13.5px;color:#3c4452;font-weight:500;transition:.25s;text-decoration:none}
+  .cq-chips a::before{content:'\203A';color:var(--gold);font-weight:700;margin-right:7px}
+  .cq-chips a:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);box-shadow:0 6px 16px rgba(22,32,46,.08)}
+  .acc-more.acc-cases{margin-left:18px;color:var(--gold)}
+  @media(max-width:600px){
+    .case-quick{padding:18px 16px}
+    .cq-chips a{font-size:12.5px;padding:8px 13px}
+    .acc-more.acc-cases{margin-left:0;display:inline-block;margin-top:8px}
+  }
