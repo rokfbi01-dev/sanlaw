@@ -92,6 +92,25 @@
   <ul class="sub-list"><li>상속재산분할협의서 작성</li><li>협의분할·법정상속분에 의한 <b>상속등기</b> 신청</li><li>상속포기·한정승인 신고 서류 작성(가정법원 제출)</li><li><b>재외국민·외국인 상속등기</b> 전반</li><li>상속 관련 부동산등기용등록번호 부여 신청 지원</li></ul>
   <h2>상속등기 진행 절차</h2>
   <div class="flow"><div class="flow-step"><span class="fs-n">1</span><div class="fs-t">상속인·상속재산 확인 (가족관계·등기부 등)</div></div><div class="flow-step"><span class="fs-n">2</span><div class="fs-t">상속재산분할협의 또는 법정상속분 확정</div></div><div class="flow-step"><span class="fs-n">3</span><div class="fs-t">취득세 등 신고·납부</div></div><div class="flow-step"><span class="fs-n">4</span><div class="fs-t">등기 신청서 및 첨부서류 준비</div></div><div class="flow-step"><span class="fs-n">5</span><div class="fs-t">관할 등기소 신청 → 완료</div></div></div>
+  <!-- ▼▼▼ 상속·유류분 계산기 (페이지 내 임베드) ▼▼▼ -->
+  <h2>상속분 · 유류분 미리 계산해보기</h2>
+  <p>아래 계산기에 적극재산·채무·상속인을 입력하면 <b>법정상속분과 유류분</b>이 자동으로 계산됩니다. 일반적인 개산(槪算) 보조용이며, 특별수익·기여분 등에 따라 실제 결과는 달라질 수 있으므로 구체적 사안은 상담을 통해 확정합니다.</p>
+  <div style="border:1px solid #e3e6ea;border-radius:14px;overflow:hidden;margin:14px 0 30px;box-shadow:0 2px 12px rgba(0,0,0,.06);background:#f4f6f9">
+    <iframe id="calcFrame" src="inheritance-calculator.html" title="상속·유류분 계산기"
+      style="width:100%;border:0;display:block" scrolling="no" onload="fitCalc()"></iframe>
+  </div>
+  <script>
+  function fitCalc(){
+    var f=document.getElementById('calcFrame');
+    if(!f) return;
+    try{ f.style.height=(f.contentWindow.document.documentElement.scrollHeight+24)+'px'; }
+    catch(e){ f.style.height='1400px'; }
+  }
+  setInterval(fitCalc,600);
+  window.addEventListener('resize',fitCalc);
+  </script>
+  <!-- ▲▲▲ 계산기 끝 ▲▲▲ -->
+
   <h2>상속포기 · 한정승인</h2>
   <p>피상속인이 빚을 남겼거나 재산보다 채무가 많을 가능성이 있을 때, 상속인은 <b>3개월 이내</b>에 다음 중 하나를 선택해야 합니다(민법 §1019). 이 기간이 지나면 <b>단순승인</b>으로 의제되어 빚도 함께 떠안게 됩니다.</p>
 
