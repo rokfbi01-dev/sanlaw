@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>상속·유류분 계산기 | 산 법무사 김재섭 행정사 사무소</title>
+<style>
+  :root{
+    --navy:#1f3a5f; --navy2:#2c5282; --gold:#b8860b;
+    --bg:#f4f6f9; --line:#d6dde6; --ink:#1a2332; --muted:#5a6b80;
+    --red:#c0392b; --green:#1e7e4f;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Malgun Gothic','맑은 고딕',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;padding:16px}
+  .wrap{max-width:760px;margin:0 auto}
+  header{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;border-radius:14px;padding:24px;margin-bottom:18px;box-shadow:0 4px 18px rgba(31,58,95,.18)}
+  header h1{font-size:1.4rem;letter-spacing:-.5px}
+  header p{opacity:.88;font-size:.86rem;margin-top:6px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:16px;box-shadow:0 2px 10px rgba(0,0,0,.04)}
+  .card h2{font-size:1.05rem;color:var(--navy);margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--gold)}
+  label{display:block;font-size:.86rem;font-weight:600;color:var(--muted);margin-bottom:6px}
+  input[type=text]{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:9px;font-size:1rem;font-family:inherit}
+  input:focus{outline:none;border-color:var(--navy2);box-shadow:0 0 0 3px rgba(44,82,130,.12)}
+  .row{display:flex;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+  .row > div{flex:1;min-width:200px}
+  .toggle{display:flex;gap:8px}
+  .toggle button{flex:1;padding:11px;border:1px solid var(--line);background:#fcfdfe;border-radius:9px;cursor:pointer;font-family:inherit;font-size:.92rem;font-weight:600;color:var(--muted);transition:.15s}
+  .toggle button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .heir{display:flex;gap:8px;margin-bottom:9px;align-items:center}
+  .heir input{flex:2}
+  .heir select{flex:1.4;padding:12px 8px;border:1px solid var(--line);border-radius:9px;font-family:inherit;font-size:.9rem;background:#fff}
+  .heir .del{flex:0 0 40px;border:none;background:#f0e3e1;color:var(--red);border-radius:9px;cursor:pointer;font-size:1.1rem;font-weight:700}
+  .btn-add{width:100%;padding:11px;border:1px dashed var(--navy2);background:#f5f8fc;color:var(--navy2);border-radius:9px;cursor:pointer;font-family:inherit;font-weight:600;margin-top:4px}
+  .btn-calc{width:100%;padding:15px;border:none;background:var(--gold);color:#fff;border-radius:11px;cursor:pointer;font-size:1.05rem;font-weight:700;font-family:inherit;margin-top:6px;transition:.15s}
+  .btn-calc:hover{filter:brightness(1.08)}
+  .result{display:none;margin-top:4px}
+  .result.show{display:block;animation:fade .3s}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1}}
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9rem}
+  th,td{padding:10px 12px;border:1px solid var(--line);text-align:right}
+  th{background:#eef3f8;color:var(--navy);font-weight:700}
+  td:first-child,th:first-child{text-align:left}
+  .sum{font-size:.92rem;color:var(--ink);background:#f7fafd;border-left:4px solid var(--navy);padding:14px 16px;border-radius:8px;margin-top:8px;line-height:1.7}
+  .sum b{color:var(--navy)}
+  .warn{background:#fdf4ee;border-left:4px solid var(--gold);padding:13px 15px;border-radius:8px;font-size:.84rem;color:#7a5a13;margin-top:12px;line-height:1.6}
+  .note{font-size:.78rem;color:var(--muted);margin-top:14px;line-height:1.6;border-top:1px dashed var(--line);padding-top:12px}
+  .badge{display:inline-block;font-size:.72rem;background:var(--navy);color:#fff;padding:2px 8px;border-radius:10px;margin-left:6px;vertical-align:middle}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>상속·유류분 계산기</h1>
+    <p>법정상속분(민법 §1009)과 유류분(민법 §1112·§1113)을 자동 계산합니다 · 산 법무사 김재섭 행정사 사무소</p>
+  </header>
+
+  <div class="card">
+    <h2>1. 재산 입력</h2>
+    <div class="row">
+      <div>
+        <label>적극재산 (상속재산 총액, 원)</label>
+        <input type="text" id="asset" inputmode="numeric" placeholder="예: 1,000,000,000">
+      </div>
+      <div>
+        <label>상속채무 (원)</label>
+        <input type="text" id="debt" inputmode="numeric" placeholder="예: 160,000,000">
+      </div>
+    </div>
+    <div>
+      <label>생전 증여·특별수익 합계 (선택, 원) <span style="font-weight:400">— 유류분 기초재산에 합산</span></label>
+      <input type="text" id="gift" inputmode="numeric" placeholder="모르면 비워두세요">
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>2. 배우자 유무</h2>
+    <div class="toggle" id="spouseToggle">
+      <button class="on" data-v="1" onclick="setSpouse(1)">배우자 있음</button>
+      <button data-v="0" onclick="setSpouse(0)">배우자 없음</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>3. 상속인 입력 <span class="badge">배우자 제외</span></h2>
+    <div id="heirs"></div>
+    <button class="btn-add" onclick="addHeir()">+ 상속인 추가</button>
+    <p class="note" style="border:0;padding-top:8px;margin-top:6px">
+      유형: <b>자녀(직계비속)</b> → 1순위 / <b>부모(직계존속)</b> → 자녀 없을 때 / <b>형제자매</b> → 자녀·부모·배우자 모두 없을 때.
+    </p>
+  </div>
+
+  <button class="btn-calc" onclick="calc()">계산하기</button>
+
+  <div class="card result" id="result">
+    <h2>계산 결과</h2>
+    <div id="out"></div>
+  </div>
+
+  <p class="note">
+    ⚖ 본 계산기는 일반적인 개산(槪算) 보조용입니다. 실제 사건은 특별수익·기여분·증여 시기·평가액 등에 따라 결과가 달라질 수 있으므로 개별 검토가 필요합니다.<br>
+    ※ <b>형제자매의 유류분은 2024. 4. 25. 헌법재판소 위헌결정(2020헌가4 등)으로 폐지</b>되어, 형제자매는 상속분은 인정되나 유류분은 0으로 계산됩니다.
+  </p>
+</div>
+
+<script>
+let spouse = 1;
+const heirsBox = document.getElementById('heirs');
+
+function setSpouse(v){
+  spouse = v;
+  document.querySelectorAll('#spouseToggle button').forEach(b=>{
+    b.classList.toggle('on', Number(b.dataset.v)===v);
+  });
+}
+
+function addHeir(name='', type='child'){
+  const div = document.createElement('div');
+  div.className = 'heir';
+  div.innerHTML = `
+    <input type="text" placeholder="상속인 이름 (예: 자녀A)" value="${name}">
+    <select>
+      <option value="child"${type==='child'?' selected':''}>자녀(직계비속)</option>
+      <option value="parent"${type==='parent'?' selected':''}>부모(직계존속)</option>
+      <option value="sibling"${type==='sibling'?' selected':''}>형제자매</option>
+    </select>
+    <button class="del" onclick="this.parentElement.remove()" title="삭제">×</button>`;
+  heirsBox.appendChild(div);
+}
+
+// 천단위 콤마
+function commafy(el){
+  el.addEventListener('input', ()=>{
+    let v = el.value.replace(/[^0-9]/g,'');
+    el.value = v ? Number(v).toLocaleString('ko-KR') : '';
+  });
+}
+['asset','debt','gift'].forEach(id=>commafy(document.getElementById(id)));
+
+function num(id){ return Number((document.getElementById(id).value||'').replace(/[^0-9]/g,'')) || 0; }
+function fmt(n){ return Math.round(n).toLocaleString('ko-KR'); }
+
+// 기약분수
+function gcd(a,b){ return b? gcd(b,a%b):a; }
+function frac(numr,den){ const g=gcd(numr,den)||1; return `${numr/g}/${den/g}`; }
+
+function calc(){
+  const asset = num('asset');
+  const debt  = num('debt');
+  const gift  = num('gift');
+  const net = asset - debt;                 // 순상속재산
+  const base = asset + gift - debt;          // 유류분 산정 기초재산
+
+  // 상속인 수집
+  const rows = [...heirsBox.querySelectorAll('.heir')].map(d=>({
+    name: d.querySelector('input').value.trim() || '(이름미입력)',
+    type: d.querySelector('select').value
+  })).filter(r=>r.name);
+
+  const children = rows.filter(r=>r.type==='child');
+  const parents  = rows.filter(r=>r.type==='parent');
+  const siblings = rows.filter(r=>r.type==='sibling');
+
+  if(asset===0 && gift===0){ alert('적극재산(또는 증여)을 입력해 주세요.'); return; }
+  if(rows.length===0 && spouse===0){ alert('상속인을 입력해 주세요.'); return; }
+
+  // 상속 순위 판정
+  let group=[], hasSpouseShare = (spouse===1);
+  let label='';
+  if(children.length){ group=children; label='직계비속'; }
+  else if(parents.length){ group=parents; label='직계존속'; }
+  else if(spouse===1){ group=[]; label='배우자 단독'; } // 배우자만
+  else if(siblings.length){ group=siblings; label='형제자매'; hasSpouseShare=false; }
+  else { alert('상속인 구성을 확인해 주세요.'); return; }
+
+  // 형제자매는 배우자가 있으면 상속 제외(배우자 단독)
+  if(label==='형제자매' && spouse===1){ group=[]; label='배우자 단독'; }
+
+  // 법정상속분 비율 계산 (배우자 1.5, 그 외 1)
+  // 단위: 분모 = 2*group.length + (배우자? 3:0)  (배우자 1.5 = 3/2)
+  let shares=[]; // {name, ratioNumer, denom, type, isSpouse}
+  let denom;
+  if(label==='배우자 단독'){
+    denom = 1;
+    shares.push({name:'배우자', numer:1, type:'spouse', isSpouse:true});
+  } else {
+    const n = group.length;
+    if(hasSpouseShare){
+      denom = 2*n + 3;                 // 각 1 = 2/2, 배우자 1.5 = 3/2 → 공통분모 2
+      group.forEach(g=> shares.push({name:g.name, numer:2, type:g.type, isSpouse:false}));
+      shares.push({name:'배우자', numer:3, type:'spouse', isSpouse:true});
+    } else {
+      denom = n;
+      group.forEach(g=> shares.push({name:g.name, numer:1, type:g.type, isSpouse:false}));
+    }
+  }
+
+  // 유류분율: 직계비속·배우자 1/2, 직계존속 1/3, 형제자매 0
+  function yuRate(type){
+    if(type==='child'||type==='spouse') return 1/2;
+    if(type==='parent') return 1/3;
+    return 0; // sibling 폐지
+  }
+
+  // 표 작성
+  let html = `<table><thead><tr><th>상속인</th><th>법정상속분</th><th>상속액</th><th>유류분율</th><th>유류분액</th></tr></thead><tbody>`;
+  let totalYu = 0;
+  shares.forEach(s=>{
+    const ratio = s.numer/denom;
+    const amount = net * ratio;
+    const yr = yuRate(s.type);
+    const yu = base * ratio * yr;
+    totalYu += yu;
+    const typeKor = s.isSpouse?'배우자':(s.type==='child'?'자녀':s.type==='parent'?'부모':'형제자매');
+    html += `<tr>
+      <td>${s.name} <span style="color:#5a6b80;font-size:.8rem">(${typeKor})</span></td>
+      <td>${frac(s.numer,denom)}</td>
+      <td>${fmt(amount)}원</td>
+      <td>${yr? (yr===0.5?'1/2':'1/3') : '— (폐지)'}</td>
+      <td>${yr? fmt(yu)+'원' : '0원'}</td>
+    </tr>`;
+  });
+  html += `</tbody></table>`;
+
+  let giftLine = gift? ` + 증여·특별수익 ${fmt(gift)}원` : '';
+  html += `<div class="sum">
+    순상속재산 = 적극재산 ${fmt(asset)}원 − 채무 ${fmt(debt)}원 = <b>${fmt(net)}원</b><br>
+    유류분 산정 기초재산 = 적극재산${giftLine} − 채무 = <b>${fmt(base)}원</b><br>
+    상속인 전체 유류분 합계 ≈ <b>${fmt(totalYu)}원</b>
+  </div>`;
+
+  if(siblings.length){
+    html += `<div class="warn">⚠ 형제자매는 2024.4.25. 헌재 위헌결정으로 <b>유류분이 폐지</b>되었습니다(상속분은 인정). 위 표에서 형제자매 유류분은 0으로 표시됩니다.</div>`;
+  }
+  html += `<div class="warn" style="background:#f5f8fc;border-color:var(--navy2);color:var(--navy)">유류분 침해 여부는 각 상속인이 <b>실제 받은 재산 + 본인의 특별수익</b>과 위 유류분액을 비교하여 판단합니다. 근거: 민법 §1112·§1113·§1115.</div>`;
+
+  document.getElementById('out').innerHTML = html;
+  document.getElementById('result').classList.add('show');
+  document.getElementById('result').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+// 초기 상속인 2명
+addHeir('자녀A','child');
+addHeir('자녀B','child');
+</script>
+</body>
+</html>
