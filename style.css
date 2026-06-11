@@ -30,8 +30,8 @@
   .logo .mk{color:var(--gold)}
   header.scrolled .logo{color:var(--ink)}
   .logo small{display:block;font-family:var(--sans);font-weight:400;font-size:11px;letter-spacing:3px;opacity:.7;margin-top:2px}
-  .menu{display:flex;gap:34px;align-items:center}
-  .menu a{font-size:15px;color:rgba(255,255,255,.85);font-weight:500;transition:.3s;position:relative}
+  .menu{display:flex;gap:20px;align-items:center;flex-wrap:nowrap}
+  .menu a{font-size:15px;color:rgba(255,255,255,.85);font-weight:500;transition:.3s;position:relative;white-space:nowrap}
   header.scrolled .menu a{color:var(--text)}
   .menu a:hover{color:var(--gold)}
   .menu a::after{content:'';position:absolute;left:0;bottom:-6px;width:0;height:1.5px;background:var(--gold);transition:.3s}
@@ -258,6 +258,9 @@
   .logo .name-text .nm{font-family:var(--serif);font-weight:800;font-size:17px;letter-spacing:-.3px;white-space:nowrap}
   .logo .name-text .nm .mk{color:var(--gold)}
   .logo .name-text .sub{font-family:var(--sans);font-weight:400;font-size:10px;letter-spacing:1.5px;opacity:.7;margin-top:2px;white-space:nowrap}
+  /* 메인 헤더: 로고 이미지 위 / 상호 아래(세로 배치) — 메뉴 공간 확보 */
+  #hd .logo{flex-direction:column;align-items:center;gap:6px}
+  #hd .logo .name-text{align-items:center;text-align:center}
   header.scrolled .logo .name-text .sub{opacity:.6}
   @media(max-width:600px){
     .logo .name-text .nm{font-size:14px}
