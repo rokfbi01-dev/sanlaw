@@ -328,18 +328,18 @@
     .gov-card .gc-go{font-size:11.5px}
   }
 
-  /* ===== HERO NAV CARDS (첫 화면 버튼 3개) ===== */
-  .hero-nav{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:38px;max-width:620px}
-  .hnav-card{display:flex;flex-direction:column;gap:4px;padding:22px 20px;border:1px solid rgba(255,255,255,.25);border-radius:4px;background:rgba(255,255,255,.04);backdrop-filter:blur(4px);transition:.35s;text-decoration:none;color:#fff}
+  /* ===== HERO NAV CARDS (첫 화면 버튼 4개 · 1열) ===== */
+  .hero-nav{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:38px;max-width:800px}
+  .hnav-card{display:flex;flex-direction:column;gap:4px;padding:16px 14px;border:1px solid rgba(255,255,255,.25);border-radius:4px;background:rgba(255,255,255,.04);backdrop-filter:blur(4px);transition:.35s;text-decoration:none;color:#fff}
   .hnav-card:hover{transform:translateY(-4px);border-color:var(--gold);background:rgba(176,141,87,.12)}
-  .hnav-card .hnav-ico{font-size:24px;margin-bottom:6px}
-  .hnav-card .hnav-t{font-family:var(--serif);font-size:18px;font-weight:800}
-  .hnav-card .hnav-s{font-size:12.5px;color:rgba(255,255,255,.6)}
+  .hnav-card .hnav-ico{font-size:21px;margin-bottom:4px}
+  .hnav-card .hnav-t{font-family:var(--serif);font-size:15.5px;font-weight:800;white-space:nowrap}
+  .hnav-card .hnav-s{font-size:11px;color:rgba(255,255,255,.6);line-height:1.35}
   .hnav-card.hnav-gold{background:var(--gold);border-color:var(--gold)}
   .hnav-card.hnav-gold:hover{background:var(--gold-soft);border-color:var(--gold-soft)}
   .hnav-card.hnav-gold .hnav-s{color:rgba(255,255,255,.85)}
   @media(max-width:600px){
-    .hero-nav{grid-template-columns:repeat(3,1fr);gap:7px;max-width:100%}
+    .hero-nav{grid-template-columns:repeat(2,1fr);gap:7px;max-width:100%}
     .hnav-card{padding:12px 8px;gap:2px}
     .hnav-card .hnav-ico{font-size:19px;margin-bottom:2px}
     .hnav-card .hnav-t{font-size:13px}
@@ -372,9 +372,10 @@
     .acc-one{font-size:12.5px}
   }
 
-  /* hero nav: keep 3 columns on mobile (override) */
+  /* hero nav: 2 columns (2x2) on mobile (override) */
   @media(max-width:600px){
-    .hero-nav{grid-template-columns:repeat(3,1fr) !important;gap:8px !important;max-width:100% !important}
+    .hero-nav{grid-template-columns:repeat(2,1fr) !important;gap:8px !important;max-width:100% !important}
+    .hnav-card .hnav-t{white-space:normal !important}
     .hnav-card{padding:14px 8px !important;gap:2px !important;flex-direction:column !important;align-items:flex-start !important}
     .hnav-card .hnav-ico{margin-bottom:2px !important;font-size:20px !important}
     .hnav-card .hnav-t{font-size:13px !important;line-height:1.2 !important}
