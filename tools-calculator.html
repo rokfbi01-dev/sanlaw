@@ -112,6 +112,48 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js"></script>
 </head>
 <body>
+<!-- ===== 상담 신청 게이트 (신청 후 자동 사용) ===== -->
+<div id="leadGate" style="position:fixed;inset:0;z-index:99999;background:linear-gradient(135deg,#2a2118,#3a2f22);display:flex;align-items:center;justify-content:center;padding:20px;overflow:auto;font-family:'맑은 고딕','Malgun Gothic',sans-serif;">
+  <div style="max-width:440px;width:100%;background:#fbf8f1;border:1px solid #e0d6c2;border-radius:14px;padding:32px 28px;box-shadow:0 20px 50px rgba(0,0,0,.45);">
+    <div style="text-align:center;font-size:13px;letter-spacing:3px;color:#a86b1f;font-weight:700;">산 법무사 · 행정사 사무소</div>
+    <h2 style="margin:10px 0 6px;font-size:21px;color:#2a2118;text-align:center;">수수료 계산기 · 상담 신청</h2>
+    <p style="margin:0 0 18px;font-size:13.5px;color:#6b5d49;line-height:1.6;text-align:center;">간단히 신청하시면 <b>바로 계산기를 사용</b>하실 수 있습니다.<br>남겨주신 내용은 상담 안내에만 사용됩니다.</p>
+    <form id="leadForm" onsubmit="return submitLead(event)">
+      <input type="hidden" name="_subject" value="[홈페이지] 수수료 계산기 상담 신청">
+      <input name="이름" id="lf_name" type="text" placeholder="이름 *" required style="width:100%;padding:12px 13px;margin-bottom:9px;font-size:15px;border:1.5px solid #cfc2a8;border-radius:8px;box-sizing:border-box;outline:none;">
+      <input name="연락처" id="lf_phone" type="tel" placeholder="연락처 (휴대폰) *" required style="width:100%;padding:12px 13px;margin-bottom:9px;font-size:15px;border:1.5px solid #cfc2a8;border-radius:8px;box-sizing:border-box;outline:none;">
+      <input name="email" id="lf_email" type="email" placeholder="이메일 (선택 · 회신용)" style="width:100%;padding:12px 13px;margin-bottom:9px;font-size:15px;border:1.5px solid #cfc2a8;border-radius:8px;box-sizing:border-box;outline:none;">
+      <textarea name="상담내용" id="lf_msg" placeholder="상담 내용 (선택)" rows="3" style="width:100%;padding:12px 13px;margin-bottom:4px;font-size:15px;border:1.5px solid #cfc2a8;border-radius:8px;box-sizing:border-box;outline:none;resize:vertical;"></textarea>
+      <div id="lf_err" style="display:none;color:#b3261e;font-size:13px;margin:6px 0;"></div>
+      <button id="lf_btn" type="submit" style="margin-top:10px;width:100%;padding:13px;background:#a86b1f;color:#fff;border:none;border-radius:8px;font-size:16px;font-weight:700;cursor:pointer;">신청하고 계산기 사용하기</button>
+    </form>
+    <div style="margin-top:16px;padding-top:13px;border-top:1px solid #ece3d2;font-size:12.5px;color:#8a7c66;text-align:center;line-height:1.6;">제출 즉시 계산기가 열립니다. 계산 결과는 개산(예상) 금액이며, 정확한 견적은 상담을 통해 안내드립니다.</div>
+  </div>
+</div>
+<script>
+(function(){
+  var ENDPOINT="https://formspree.io/f/xnjrwlpb", TTL=12*60*60*1000, KEY="sanlaw_calc_unlock", HTML=document.documentElement;
+  function unlock(){var g=document.getElementById('leadGate'); if(g&&g.parentNode)g.parentNode.removeChild(g); HTML.style.overflow='';}
+  try{ var t=parseInt(localStorage.getItem(KEY)||"0",10); if(t && (Date.now()-t)<TTL){ unlock(); return; } }catch(e){}
+  HTML.style.overflow='hidden';
+  function showErr(m){var e=document.getElementById('lf_err'); e.textContent=m; e.style.display='block';}
+  window.submitLead=function(ev){
+    ev.preventDefault();
+    var name=(document.getElementById('lf_name').value||"").trim();
+    var phone=(document.getElementById('lf_phone').value||"").trim();
+    if(!name||!phone){ showErr("이름과 연락처를 입력해 주세요."); return false; }
+    var btn=document.getElementById('lf_btn'); btn.disabled=true; btn.textContent="전송 중...";
+    fetch(ENDPOINT,{method:"POST",headers:{"Accept":"application/json"},body:new FormData(document.getElementById('leadForm'))})
+      .then(function(r){
+        if(r.ok){ try{ localStorage.setItem(KEY,String(Date.now())); }catch(e){} unlock(); }
+        else { btn.disabled=false; btn.textContent="신청하고 계산기 사용하기"; showErr("전송에 실패했습니다. 잠시 후 다시 시도하시거나 상담 문의로 연락 주세요."); }
+      })
+      .catch(function(){ btn.disabled=false; btn.textContent="신청하고 계산기 사용하기"; showErr("네트워크 오류로 전송하지 못했습니다. 다시 시도해 주세요."); });
+    return false;
+  };
+  setTimeout(function(){var i=document.getElementById('lf_name'); if(i)i.focus();},120);
+})();
+</script>
 <header>
   <div class="wrap">
     <div class="brand">
@@ -124,8 +166,9 @@
     <div class="ratebar">
       <a href="index.html" style="color:#d9cfb6;text-decoration:none;font-weight:700;margin-right:12px;">🏠 사무소 홈</a>
       기준일 <b id="today"></b> · 국민주택채권 할인율
-      <input type="number" id="bondRate" value="15.66563" step="0.00001" oninput="recalc()">%
-      <span class="hint" style="color:#bcb29c;">(매도일 기준 직접 입력)</span>
+      <input type="number" id="bondRate" value="15.66563" step="0.00001" oninput="recalc();saveBondRate()">%
+      <a href="https://nhuf.molit.go.kr/FP/FP03/FP0301.jsp" target="_blank" rel="noopener" style="margin-left:8px;color:#f3d27a;font-weight:700;text-decoration:none;border:1px solid #5a534a;border-radius:4px;padding:2px 8px;">🔎 오늘 고시율 보기</a>
+      <span class="hint" style="color:#bcb29c;">(매도일 기준 · 마지막 입력값 자동 저장)</span>
     </div>
   </div>
 </header>
@@ -152,6 +195,46 @@
         <div class="line"><span class="lbl">전화</span><input type="text" id="of_tel" placeholder="02-0000-0000" style="width:100%;"></div>
         <div class="line"><span class="lbl">취급자</span><input type="text" id="of_agent" value="김재섭" style="width:100%;"></div>
         <div class="hint" style="margin-top:6px;">※ 입력하신 정보는 엑셀/한셀 출력 시 영수증 하단에 자동으로 들어갑니다.</div>
+      </div>
+    </details>
+    <details class="exempt-set" style="margin-top:14px;background:#fffdf8;border:1px solid var(--line);border-radius:10px;padding:4px 14px;">
+      <summary style="cursor:pointer;font-weight:700;color:var(--ink);padding:8px 0;">📋 채권·세금 면제·감면 기준 안내 <span class="hint">(의뢰인용 · 펼쳐보기)</span></summary>
+      <div style="padding:6px 0 16px;font-size:13.5px;line-height:1.65;color:var(--ink);">
+        <div style="background:#f3ead9;border:1px solid #e0c89a;border-radius:8px;padding:9px 12px;margin-bottom:14px;font-size:12.5px;color:#6b4f2a;">
+          아래는 실무에서 자주 적용되는 면제·감면 사유를 정리한 <b>개산 안내</b>입니다. 요건·금액은 <b>신청 시점의 현행 법령·관할 기관 기준</b>에 따라 달라질 수 있으며, 최종 적용 여부는 <b>상담·접수 시 확인</b>해 드립니다.
+        </div>
+
+        <div style="font-weight:800;color:var(--seal);margin:6px 0 6px;">① 국민주택채권 매입 면제 <span style="font-size:11px;color:#1d7a46;font-weight:700;">[A]</span></div>
+        <ul style="margin:0 0 14px;padding-left:18px;">
+          <li><b>소액 면제</b> : 시가표준액이 별표 최저구간 미만이면 매입 면제(계산기에 자동 반영). <b>근저당권 설정</b>은 채권최고액 <b>2천만원 미만이면 면제</b>.</li>
+          <li><b>주체 면제</b> : 국가·지방자치단체, 종교단체·사회복지법인(종교·복지용), 사립학교법인(교육용), 외국인투자기업(업무용), 보훈기금 대부 근저당, 주택연금(주택담보노후연금)·장기주택저당대출 근저당 등.</li>
+          <li>1영업일에 동일 용도 1건당 채권 발행은 1건을 초과할 수 없습니다.</li>
+          <li style="color:#8a7c66;">근거: 주택도시기금법 제8조·시행령 제8조 [별표].</li>
+        </ul>
+
+        <div style="font-weight:800;color:var(--seal);margin:6px 0 6px;">② 취득세 감면·면제 <span style="font-size:11px;color:#1d7a46;font-weight:700;">[A]</span></div>
+        <ul style="margin:0 0 14px;padding-left:18px;">
+          <li><b>생애최초 주택</b> : 본인·배우자 <b>무주택</b> + 본인 <b>거주 목적</b> + 취득가액 <b>12억원 이하</b> + 유상거래(부담부증여 제외) → 취득세 <b>200만원 한도 감면</b>(세액 200만원 이하면 전액 면제, 초과분은 납부). <b>인구감소지역은 300만원 한도</b>. <b>3년 실거주 의무</b> 위반 시 추징. (2028.12.31까지) — 지방세특례제한법 §36조의3.</li>
+          <li><b>출산·양육 목적 주택</b> : 100% 감면(500만원 한도) <span style="font-size:11px;color:#c66600;font-weight:700;">[확인필요]</span> — 세부 요건·기간 재확인.</li>
+          <li>그 밖에 상속 농지·서민주택·임대주택 등 개별 감면 규정이 많습니다 → 사안별 확인. <span style="font-size:11px;color:#c66600;font-weight:700;">[확인필요]</span></li>
+        </ul>
+
+        <div style="font-weight:800;color:var(--seal);margin:6px 0 6px;">③ 등록면허세 면제·감면 <span style="font-size:11px;color:#c66600;font-weight:700;">[확인필요]</span></div>
+        <ul style="margin:0 0 14px;padding-left:18px;">
+          <li>공익·정책 목적(지방세특례제한법 개별규정)에 따라 면제·감면됩니다. 등기 유형별 정액·세율은 사안에 따라 달라 <b>상담 시 확인</b>합니다.</li>
+        </ul>
+
+        <div style="font-weight:800;color:var(--seal);margin:6px 0 6px;">④ 등기신청수수료·인지세 감액 <span style="font-size:11px;color:#1d7a46;font-weight:700;">[A]</span></div>
+        <ul style="margin:0 0 8px;padding-left:18px;">
+          <li><b>등기신청수수료(부동산 1건당, 소유권이전)</b> : 서면 방문 <b>18,000원</b> → 전자표준양식(e-form) <b>15,000원</b> → 전자신청 <b>10,000원</b>. 전자 이용 시 감액됩니다.</li>
+          <li>그 밖 등기(설정 등 15,000원 항목) : e-form <b>13,000원</b> / 전자 <b>10,000원</b>.</li>
+          <li>인지세(인지세법 §3) : 부동산 소유권이전 증서에 기재금액별 정액(전자수입인지)으로 부과됩니다.</li>
+          <li style="color:#8a7c66;">근거: 「등기신청수수료 징수에 관한 예규」, 「인지세법」.</li>
+        </ul>
+
+        <div style="margin-top:12px;padding-top:10px;border-top:1px solid var(--line);font-size:11.5px;color:#8a7c66;">
+          출처등급 — <b>[A]</b> 현행 법령·예규 / <b>[확인필요]</b> 요건·금액 변동 가능(신청 시점 재확인). 본 안내는 일반 정보이며 개별 사건의 결과를 보장하지 않습니다.
+        </div>
       </div>
     </details>
   </div>
@@ -1918,6 +2001,8 @@ function chk(id){const e=document.getElementById(id);return e&&e.checked;}
 function step(id,d,fn){const el=document.getElementById(id);el.value=Math.max(1,(parseInt(el.value)||1)+d);if(fn)fn();}
 function tierFee(key,a){const t=TIERS[key];if(!t)return 0;for(const[l,b,o,r]of t){if(a<=l)return b+(a-o)*r;}return 0;}
 document.getElementById('today').textContent=(()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');})();
+function saveBondRate(){try{localStorage.setItem('sanlaw_bondRate',document.getElementById('bondRate').value);}catch(e){}}
+(function(){try{var s=localStorage.getItem('sanlaw_bondRate');if(s!==null&&s!==''&&!isNaN(parseFloat(s)))document.getElementById('bondRate').value=s;}catch(e){}})();
 
 /* ===================== 메인메뉴 ===================== */
 function buildMenu(){
@@ -3537,7 +3622,18 @@ function collectRows(card,stripParen){
     const cb=tr.querySelector('input[type=checkbox]');if(cb&&!cb.checked)return;
     const tds=tr.querySelectorAll('td');if(tds.length<2)return;
     let name=mapName(cellName(tds[0]),stripParen);
-    const amt=numFrom(tds[tds.length-1]);
+    let amt;
+    if(cb){
+      // 대행료 행: 단가(라벨 내 굵은 '○○원') × 수량(숫자칸)
+      const b=tds[0].querySelector('b');
+      const unit=b?(parseFloat(b.textContent.replace(/[^0-9.]/g,''))||0):0;
+      const qi=tr.querySelector('input[type=number]');
+      const qty=qi?Math.max(1,parseInt(qi.value)||1):1;
+      amt=unit?unit*qty:numFrom(tds[tds.length-1]);
+      if(qty>1) name+=' ×'+qty;
+    } else {
+      amt=numFrom(tds[tds.length-1]);
+    }
     if(amt>0&&name)rows.push([name,amt]);
   });
   return rows;
@@ -3584,7 +3680,7 @@ function buildReceiptSheet(ws,caseName,base,feeRows,pubRows,vat,office,off){
   off=off||0;
   const FN='맑은 고딕';
   [16,12,8,16,12,11].forEach((w,i)=>{ws.getColumn(off+i+1).width=w;});
-  const HDR=6,COL=7,DATA=8,ROWS=18,VAT=DATA+ROWS,SUM=VAT+1,TOT=SUM+1;
+  const HDR=6,COL=7,DATA=8,ROWS=Math.max(feeRows.length,pubRows.length,8)+1,VAT=DATA+ROWS,SUM=VAT+1,TOT=SUM+1;
   const con=TOT+1,d=con+1,biz=d+1,offr=biz+1,nm=offr+1;
   const feeSum=feeRows.reduce((a,r)=>a+r[1],0);
   const pubSum=pubRows.reduce((a,r)=>a+r[1],0);
@@ -3678,6 +3774,8 @@ async function exportExcel(){
   const last=Math.max(last1,last2);
   ws.getColumn(7).width=3; ws.getColumn(8).width=3;  // 중간 여백 2칸
   for(let r=1;r<=last;r++){ ws.getCell(r,7).border={right:{style:'dashed'}}; } // 정중앙 분리 점선
+  // 인쇄: A4 가로 1장에 전체(2부) 맞춤
+  ws.pageSetup={paperSize:9,orientation:'landscape',fitToPage:true,fitToWidth:1,fitToHeight:1,horizontalCentered:true,verticalCentered:true,printArea:'A1:N'+last,margins:{left:0.2,right:0.2,top:0.3,bottom:0.3,header:0.1,footer:0.1}};
   const buf=await wb.xlsx.writeBuffer();
   const blob=new Blob([buf],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
   const url=URL.createObjectURL(blob);
