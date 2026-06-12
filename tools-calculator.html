@@ -3751,7 +3751,8 @@ function buildReceiptSheet(ws,caseName,base,feeRows,pubRows,vat,office,off){
   // 진행번호(1행)부터 상호줄(nm)까지 전체 둘레(외곽) 박스 — 병합셀은 마스터 기준, 내부 격자는 유지
   (function(){
     function add(cc,side){ const m=cc.master||cc; const bd=Object.assign({},m.border); bd[side]=med; m.border=bd; }
-    for(let c=1;c<=6;c++){ add(cell(1,c),'top'); }                 // 윗변(진행번호 위)
+    for(let c=1;c<=6;c++){ const tc=cell(1,c); if(tc.value==null||tc.value==='') tc.value=' '; add(tc,'top'); }  // 윗변(진행번호 위) — 빈 셀 실체화로 엑셀 렌더 보장
+    ws.getRow(1).height=16;
     for(let r=1;r<=nm;r++){ add(cell(r,1),'left'); add(cell(r,6),'right'); } // 좌·우변 (아랫변은 nm행에 이미 medium)
   })();
   const notes=[
