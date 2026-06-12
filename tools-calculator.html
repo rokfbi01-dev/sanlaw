@@ -127,7 +127,7 @@
       <div id="lf_err" style="display:none;color:#b3261e;font-size:13px;margin:6px 0;"></div>
       <button id="lf_btn" type="submit" style="margin-top:10px;width:100%;padding:13px;background:#a86b1f;color:#fff;border:none;border-radius:8px;font-size:16px;font-weight:700;cursor:pointer;">신청하고 계산기 사용하기</button>
     </form>
-    <div style="margin-top:16px;padding-top:13px;border-top:1px solid #ece3d2;font-size:12.5px;color:#8a7c66;text-align:center;line-height:1.6;">제출 즉시 계산기가 열립니다. 계산 결과는 개산(예상) 금액이며, 정확한 견적은 상담을 통해 안내드립니다.</div>
+    <div style="margin-top:16px;padding-top:13px;border-top:1px solid #ece3d2;font-size:12.5px;color:#8a7c66;text-align:center;line-height:1.6;">제출 즉시 계산기가 열립니다. 계산 결과는 개산(예상) 금액이며, 정확한 견적은 상담을 통해 안내드립니다.<br><a href="index.html" style="display:inline-block;margin-top:8px;color:#a86b1f;font-weight:700;text-decoration:none;">← 사무소 홈으로 돌아가기</a></div>
   </div>
 </div>
 <script>
@@ -167,7 +167,7 @@
       <a href="index.html" style="color:#d9cfb6;text-decoration:none;font-weight:700;margin-right:12px;">🏠 사무소 홈</a>
       기준일 <b id="today"></b> · 국민주택채권 할인율
       <input type="number" id="bondRate" value="15.66563" step="0.00001" oninput="recalc();saveBondRate()">%
-      <a href="https://nhuf.molit.go.kr/FP/FP03/FP0301.jsp" target="_blank" rel="noopener" style="margin-left:8px;color:#f3d27a;font-weight:700;text-decoration:none;border:1px solid #5a534a;border-radius:4px;padding:2px 8px;">🔎 오늘 고시율 보기</a>
+      <a href="https://svc.wooribank.com/svc/Dream?withyou=HBNHB0036&cc=c004893:c004893" target="_blank" rel="noopener" style="margin-left:8px;color:#f3d27a;font-weight:700;text-decoration:none;border:1px solid #5a534a;border-radius:4px;padding:2px 8px;">🔎 오늘 고시율 조회</a>
       <span class="hint" style="color:#bcb29c;">(매도일 기준 · 마지막 입력값 자동 저장)</span>
     </div>
   </div>
@@ -205,32 +205,39 @@
         </div>
 
         <div style="font-weight:800;color:var(--seal);margin:6px 0 6px;">① 국민주택채권 매입 면제 <span style="font-size:11px;color:#1d7a46;font-weight:700;">[A]</span></div>
-        <ul style="margin:0 0 14px;padding-left:18px;">
-          <li><b>소액 면제</b> : 시가표준액이 별표 최저구간 미만이면 매입 면제(계산기에 자동 반영). <b>근저당권 설정</b>은 채권최고액 <b>2천만원 미만이면 면제</b>.</li>
-          <li><b>주체 면제</b> : 국가·지방자치단체, 종교단체·사회복지법인(종교·복지용), 사립학교법인(교육용), 외국인투자기업(업무용), 보훈기금 대부 근저당, 주택연금(주택담보노후연금)·장기주택저당대출 근저당 등.</li>
-          <li>1영업일에 동일 용도 1건당 채권 발행은 1건을 초과할 수 없습니다.</li>
-          <li style="color:#8a7c66;">근거: 주택도시기금법 제8조·시행령 제8조 [별표].</li>
-        </ul>
+        <table style="width:100%;border-collapse:collapse;font-size:12.5px;margin:0 0 4px;">
+          <tr><th style="border:1px solid #d8d2c4;padding:5px 8px;text-align:left;background:#efece2;width:30%;">구분</th><th style="border:1px solid #d8d2c4;padding:5px 8px;text-align:left;background:#efece2;">면제 내용</th></tr>
+          <tr><td style="border:1px solid #d8d2c4;padding:5px 8px;font-weight:700;">소액 면제</td><td style="border:1px solid #d8d2c4;padding:5px 8px;">시가표준액이 별표 최저구간 미만이면 매입 면제(계산기에 자동 반영)</td></tr>
+          <tr><td style="border:1px solid #d8d2c4;padding:5px 8px;font-weight:700;">근저당권 설정</td><td style="border:1px solid #d8d2c4;padding:5px 8px;">채권최고액 <b>2천만원 미만이면 면제</b></td></tr>
+          <tr><td style="border:1px solid #d8d2c4;padding:5px 8px;font-weight:700;">주체 면제</td><td style="border:1px solid #d8d2c4;padding:5px 8px;">국가·지방자치단체, 종교·사회복지법인(종교·복지용), 사립학교법인(교육용), 외국인투자기업(업무용), 보훈기금 대부 근저당, 주택연금·장기주택저당대출 근저당 등</td></tr>
+          <tr><td style="border:1px solid #d8d2c4;padding:5px 8px;font-weight:700;">발행 제한</td><td style="border:1px solid #d8d2c4;padding:5px 8px;">1영업일·동일 용도 1건당 채권 발행은 1건 초과 불가</td></tr>
+        </table>
+        <div style="font-size:11.5px;color:#8a7c66;margin:0 0 14px;">근거 : <a href="https://www.law.go.kr/법령/주택도시기금법시행령" target="_blank" rel="noopener" style="color:#1d6fb8;font-weight:700;text-decoration:none;">주택도시기금법 시행령 제8조 [별표] →</a></div>
 
         <div style="font-weight:800;color:var(--seal);margin:6px 0 6px;">② 취득세 감면·면제 <span style="font-size:11px;color:#1d7a46;font-weight:700;">[A]</span></div>
-        <ul style="margin:0 0 14px;padding-left:18px;">
-          <li><b>생애최초 주택</b> : 본인·배우자 <b>무주택</b> + 본인 <b>거주 목적</b> + 취득가액 <b>12억원 이하</b> + 유상거래(부담부증여 제외) → 취득세 <b>200만원 한도 감면</b>(세액 200만원 이하면 전액 면제, 초과분은 납부). <b>인구감소지역은 300만원 한도</b>. <b>3년 실거주 의무</b> 위반 시 추징. (2028.12.31까지) — 지방세특례제한법 §36조의3.</li>
-          <li><b>출산·양육 목적 주택</b> : 100% 감면(500만원 한도) <span style="font-size:11px;color:#c66600;font-weight:700;">[확인필요]</span> — 세부 요건·기간 재확인.</li>
-          <li>그 밖에 상속 농지·서민주택·임대주택 등 개별 감면 규정이 많습니다 → 사안별 확인. <span style="font-size:11px;color:#c66600;font-weight:700;">[확인필요]</span></li>
-        </ul>
+        <table style="width:100%;border-collapse:collapse;font-size:12.5px;margin:0 0 4px;">
+          <tr><th style="border:1px solid #d8d2c4;padding:5px 8px;text-align:left;background:#efece2;width:30%;">구분</th><th style="border:1px solid #d8d2c4;padding:5px 8px;text-align:left;background:#efece2;">감면·면제 내용</th></tr>
+          <tr><td style="border:1px solid #d8d2c4;padding:5px 8px;font-weight:700;">생애최초 주택</td><td style="border:1px solid #d8d2c4;padding:5px 8px;">무주택 + 거주 목적 + 취득가액 <b>12억원 이하</b> + 유상거래(부담부증여 제외) → <b>200만원 한도 감면</b>(인구감소지역 300만원). 3년 실거주 의무 위반 시 추징. (2028.12.31까지)</td></tr>
+          <tr><td style="border:1px solid #d8d2c4;padding:5px 8px;font-weight:700;">출산·양육 주택 <span style="font-size:10px;color:#c66600;">[확인필요]</span></td><td style="border:1px solid #d8d2c4;padding:5px 8px;">100% 감면(500만원 한도) — 세부 요건·기간 재확인</td></tr>
+          <tr><td style="border:1px solid #d8d2c4;padding:5px 8px;font-weight:700;">기타 <span style="font-size:10px;color:#c66600;">[확인필요]</span></td><td style="border:1px solid #d8d2c4;padding:5px 8px;">상속 농지·서민주택·임대주택 등 개별 감면 규정 다수 → 사안별 확인</td></tr>
+        </table>
+        <div style="font-size:11.5px;color:#8a7c66;margin:0 0 14px;">근거 : <a href="https://www.law.go.kr/법령/지방세특례제한법" target="_blank" rel="noopener" style="color:#1d6fb8;font-weight:700;text-decoration:none;">지방세특례제한법 제36조의3 →</a></div>
 
         <div style="font-weight:800;color:var(--seal);margin:6px 0 6px;">③ 등록면허세 면제·감면 <span style="font-size:11px;color:#c66600;font-weight:700;">[확인필요]</span></div>
-        <ul style="margin:0 0 14px;padding-left:18px;">
-          <li>공익·정책 목적(지방세특례제한법 개별규정)에 따라 면제·감면됩니다. 등기 유형별 정액·세율은 사안에 따라 달라 <b>상담 시 확인</b>합니다.</li>
-        </ul>
+        <table style="width:100%;border-collapse:collapse;font-size:12.5px;margin:0 0 4px;">
+          <tr><th style="border:1px solid #d8d2c4;padding:5px 8px;text-align:left;background:#efece2;width:30%;">구분</th><th style="border:1px solid #d8d2c4;padding:5px 8px;text-align:left;background:#efece2;">면제·감면 내용</th></tr>
+          <tr><td style="border:1px solid #d8d2c4;padding:5px 8px;font-weight:700;">공익·정책 목적</td><td style="border:1px solid #d8d2c4;padding:5px 8px;">지방세특례제한법 개별규정에 따라 면제·감면. 등기 유형별 정액·세율은 사안에 따라 상이 → 상담 시 확인</td></tr>
+        </table>
+        <div style="font-size:11.5px;color:#8a7c66;margin:0 0 14px;">근거 : <a href="https://www.law.go.kr/법령/지방세특례제한법" target="_blank" rel="noopener" style="color:#1d6fb8;font-weight:700;text-decoration:none;">지방세특례제한법 →</a></div>
 
         <div style="font-weight:800;color:var(--seal);margin:6px 0 6px;">④ 등기신청수수료·인지세 감액 <span style="font-size:11px;color:#1d7a46;font-weight:700;">[A]</span></div>
-        <ul style="margin:0 0 8px;padding-left:18px;">
-          <li><b>등기신청수수료(부동산 1건당, 소유권이전)</b> : 서면 방문 <b>18,000원</b> → 전자표준양식(e-form) <b>15,000원</b> → 전자신청 <b>10,000원</b>. 전자 이용 시 감액됩니다.</li>
-          <li>그 밖 등기(설정 등 15,000원 항목) : e-form <b>13,000원</b> / 전자 <b>10,000원</b>.</li>
-          <li>인지세(인지세법 §3) : 부동산 소유권이전 증서에 기재금액별 정액(전자수입인지)으로 부과됩니다.</li>
-          <li style="color:#8a7c66;">근거: 「등기신청수수료 징수에 관한 예규」, 「인지세법」.</li>
-        </ul>
+        <table style="width:100%;border-collapse:collapse;font-size:12.5px;margin:0 0 4px;">
+          <tr><th style="border:1px solid #d8d2c4;padding:5px 8px;text-align:left;background:#efece2;width:38%;">구분</th><th style="border:1px solid #d8d2c4;padding:5px 8px;text-align:left;background:#efece2;">금액(1건당)</th></tr>
+          <tr><td style="border:1px solid #d8d2c4;padding:5px 8px;font-weight:700;">소유권이전 등기수수료</td><td style="border:1px solid #d8d2c4;padding:5px 8px;">서면 방문 <b>18,000원</b> · e-form <b>15,000원</b> · 전자신청 <b>10,000원</b></td></tr>
+          <tr><td style="border:1px solid #d8d2c4;padding:5px 8px;font-weight:700;">그 밖 등기(설정 등)</td><td style="border:1px solid #d8d2c4;padding:5px 8px;">e-form <b>13,000원</b> · 전자 <b>10,000원</b></td></tr>
+          <tr><td style="border:1px solid #d8d2c4;padding:5px 8px;font-weight:700;">인지세</td><td style="border:1px solid #d8d2c4;padding:5px 8px;">부동산 소유권이전 증서에 기재금액별 정액(전자수입인지)</td></tr>
+        </table>
+        <div style="font-size:11.5px;color:#8a7c66;margin:0 0 8px;">근거 : <a href="https://www.law.go.kr/행정규칙/등기신청수수료징수에관한예규" target="_blank" rel="noopener" style="color:#1d6fb8;font-weight:700;text-decoration:none;">등기신청수수료 징수 예규 →</a> · <a href="https://www.law.go.kr/법령/인지세법" target="_blank" rel="noopener" style="color:#1d6fb8;font-weight:700;text-decoration:none;">인지세법 →</a></div>
 
         <div style="margin-top:12px;padding-top:10px;border-top:1px solid var(--line);font-size:11.5px;color:#8a7c66;">
           출처등급 — <b>[A]</b> 현행 법령·예규 / <b>[확인필요]</b> 요건·금액 변동 가능(신청 시점 재확인). 본 안내는 일반 정보이며 개별 사건의 결과를 보장하지 않습니다.
@@ -3630,7 +3637,9 @@ function collectRows(card,stripParen){
       const qi=tr.querySelector('input[type=number]');
       const qty=qi?Math.max(1,parseInt(qi.value)||1):1;
       amt=unit?unit*qty:numFrom(tds[tds.length-1]);
-      if(qty>1) name+=' ×'+qty;
+      // 적요는 항목명만 — 단가('○○원')·수량 표기 제거
+      const lc=tds[0].cloneNode(true); const bb=lc.querySelector('b'); if(bb)bb.remove();
+      name=mapName(lc.textContent.replace(/\s+/g,' ').trim(),stripParen);
     } else {
       amt=numFrom(tds[tds.length-1]);
     }
@@ -3680,7 +3689,7 @@ function buildReceiptSheet(ws,caseName,base,feeRows,pubRows,vat,office,off){
   off=off||0;
   const FN='맑은 고딕';
   [16,12,8,16,12,11].forEach((w,i)=>{ws.getColumn(off+i+1).width=w;});
-  const HDR=6,COL=7,DATA=8,ROWS=Math.max(feeRows.length,pubRows.length,8)+1,VAT=DATA+ROWS,SUM=VAT+1,TOT=SUM+1;
+  const HDR=6,COL=7,DATA=8,ROWS=Math.max(feeRows.length,pubRows.length,4),VAT=DATA+ROWS,SUM=VAT+1,TOT=SUM+1;
   const con=TOT+1,d=con+1,biz=d+1,offr=biz+1,nm=offr+1;
   const feeSum=feeRows.reduce((a,r)=>a+r[1],0);
   const pubSum=pubRows.reduce((a,r)=>a+r[1],0);
