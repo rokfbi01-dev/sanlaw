@@ -11,6 +11,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 <link rel="stylesheet" href="style.css">
+<style>
+  /* 상담폼 placeholder 또렷하게 (계산기 폼과 동일) */
+  .form input::placeholder,
+  .form textarea::placeholder{ color:#9b8d76; opacity:1; }
+  .form input::-webkit-input-placeholder,
+  .form textarea::-webkit-input-placeholder{ color:#9b8d76; }
+  .form input:-ms-input-placeholder,
+  .form textarea:-ms-input-placeholder{ color:#9b8d76; }
+</style>
 
 <meta name="description" content="검찰 33년 경력. 민사·가사·노동·행정심판·비영리법인 설립·상속등기(외국인 상속등기 전문)·개인회생·후견까지. 의뢰인의 권리 보호를 위해 최선을 다합니다.">
 <meta name="keywords" content="신도림 법무사,구로구 법무사,신도림 행정사,구로구 행정사,법무사 김재섭,산 법무사,외국인 상속등기,개인회생,성년후견,비영리법인 설립">
@@ -405,7 +414,7 @@
             <summary style="cursor:pointer;padding:9px 12px;font-size:12.5px;font-weight:700;color:#a86b1f;list-style:none;">📝 상담 내용 작성 예시 보기</summary>
             <div style="padding:0 12px 10px;font-size:12px;line-height:1.65;color:#6b5232;">· <b>상속</b> : 부친 2024년 사망, 상속인 배우자+자녀 3명, 아파트 1채. 협의분할로 모친 단독명의 희망.<br>· <b>등기</b> : 매매 소유권이전 / 근저당 설정·말소 / 증여.<br>· <b>소송·기타</b> : 소송비용 확정, 지급명령, 개인회생, 후견 등.</div>
           </details>
-          <textarea name="상담내용" rows="6" placeholder="간단한 사건 내용을 적어주세요." required style="width:100%;padding:13px 14px;margin-bottom:4px;font-size:15px;line-height:1.6;min-height:140px;border:1.5px solid #cfc2a8;border-radius:8px;box-sizing:border-box;outline:none;resize:vertical;"></textarea>
+          <textarea name="상담내용" rows="6" placeholder="예) 부친 사망으로 상속등기를 하려 합니다. 상속인은 배우자와 자녀 3명이고, 부동산은 아파트 1채입니다. 협의분할로 어머니 단독명의로 진행하고 싶습니다. 필요한 서류와 비용을 알고 싶습니다." required style="width:100%;padding:13px 14px;margin-bottom:4px;font-size:15px;line-height:1.6;min-height:140px;border:1.5px solid #cfc2a8;border-radius:8px;box-sizing:border-box;outline:none;resize:vertical;"></textarea>
           <label style="display:flex;align-items:flex-start;gap:8px;margin:10px 0 2px;font-size:12.5px;color:#6b5d49;line-height:1.55;cursor:pointer;">
             <input type="checkbox" name="개인정보동의" value="동의함" required style="margin-top:2px;flex-shrink:0;width:16px;height:16px;">
             <span>(필수) 상담 접수·안내를 위해 <b>성명·연락처·이메일·상담내용</b>을 수집·이용하는 데 동의합니다. 수집한 정보는 <b>접수일로부터 7일(일주일) 후 파기</b>하며, 동의를 거부하실 수 있으나 거부 시 상담 신청이 제한됩니다.</span>

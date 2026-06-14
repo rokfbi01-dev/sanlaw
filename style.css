@@ -45,9 +45,9 @@
   /* ===== HERO ===== */
   .hero{position:relative;min-height:100vh;display:flex;align-items:flex-start;
     background:
-      linear-gradient(115deg, rgba(18,26,38,.94) 0%, rgba(22,32,46,.78) 55%, rgba(31,44,62,.55) 100%),
-      radial-gradient(circle at 80% 20%, rgba(176,141,87,.25), transparent 45%),
-      var(--ink);
+      linear-gradient(115deg, rgba(46,63,87,.92) 0%, rgba(56,76,104,.80) 55%, rgba(66,89,122,.60) 100%),
+      radial-gradient(circle at 80% 20%, rgba(176,141,87,.28), transparent 45%),
+      #34465f;
     overflow:hidden}
   .hero::before{content:'';position:absolute;inset:0;
     background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.03' stroke-width='1'%3E%3Cpath d='M30 0v60M0 30h60'/%3E%3C/g%3E%3C/svg%3E");
@@ -172,6 +172,7 @@
     .menu{position:fixed;inset:0 0 0 auto;width:74%;max-width:320px;background:var(--ink);flex-direction:column;justify-content:center;gap:28px;transform:translateX(100%);transition:.4s;padding:40px}
     .menu.open{transform:none}
     .menu a{color:#fff!important;font-size:18px}
+    header.scrolled .menu a{color:#fff!important}
     .burger{display:flex}
     header.scrolled .burger span{background:var(--ink)}
     .menu.open ~ .burger span{background:#fff}
