@@ -132,6 +132,9 @@
     <div style="text-align:center;font-size:13px;letter-spacing:3px;color:#a86b1f;font-weight:700;">산 법무사 · 행정사 사무소</div>
     <h2 style="margin:10px 0 6px;font-size:21px;color:#2a2118;text-align:center;">수수료 계산기 · 상담 신청</h2>
     <p style="margin:0 0 18px;font-size:13.5px;color:#6b5d49;line-height:1.6;text-align:center;">선택하신 계산을 이용하시려면 <b>간단한 상담 신청</b> 후 바로 사용하실 수 있습니다.<br>남겨주신 내용은 상담 안내에만 사용됩니다.</p>
+    <!-- 카카오톡 바로 상담 -->
+    <a href="https://pf.kakao.com/_znJqX/chat" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:15px;margin:4px 0 14px;background:#FEE500;color:#3c1e1e;font-size:15.5px;font-weight:700;border-radius:8px;text-decoration:none;box-sizing:border-box;">💬 카카오톡으로 바로 상담</a>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;color:#a99878;font-size:12.5px;"><span style="flex:1;height:1px;background:#e0d6c2;"></span>또는 아래 폼으로 문의 남기기<span style="flex:1;height:1px;background:#e0d6c2;"></span></div>
     <form id="leadForm" onsubmit="return submitLead(event)">
       <input type="hidden" name="_subject" value="[홈페이지] 수수료 계산기 상담 신청">
       <input name="이름" id="lf_name" type="text" placeholder="이름 *" required style="width:100%;padding:13px 14px;margin-bottom:10px;font-size:15.5px;border:1.5px solid #cfc2a8;border-radius:8px;box-sizing:border-box;outline:none;">
@@ -146,6 +149,10 @@
         </div>
       </details>
       <textarea name="상담내용" id="lf_msg" placeholder="예) 부친 사망으로 상속등기를 하려 합니다. 상속인은 배우자와 자녀 3명이고, 부동산은 아파트 1채입니다. 협의분할로 어머니 단독명의로 진행하고 싶습니다. 필요한 서류와 비용을 알고 싶습니다." rows="6" required style="width:100%;padding:13px 14px;margin-bottom:4px;font-size:15px;line-height:1.6;min-height:140px;border:1.5px solid #cfc2a8;border-radius:8px;box-sizing:border-box;outline:none;resize:vertical;"></textarea>
+      <label style="display:flex;align-items:flex-start;gap:8px;margin:10px 0 2px;font-size:12.5px;color:#6b5d49;line-height:1.55;cursor:pointer;">
+        <input type="checkbox" name="개인정보동의" value="동의함" required style="margin-top:2px;flex-shrink:0;width:16px;height:16px;">
+        <span>(필수) 상담 접수·안내를 위해 <b>성명·연락처·이메일·상담내용</b>을 수집·이용하는 데 동의합니다. 수집한 정보는 <b>접수일로부터 7일(일주일) 후 파기</b>하며, 동의를 거부하실 수 있으나 거부 시 상담 신청이 제한됩니다.</span>
+      </label>
       <div id="lf_err" style="display:none;color:#b3261e;font-size:13px;margin:6px 0;"></div>
       <button id="lf_btn" type="submit" style="margin-top:10px;width:100%;padding:13px;background:#a86b1f;color:#fff;border:none;border-radius:8px;font-size:16px;font-weight:700;cursor:pointer;">신청하고 계산기 사용하기</button>
     </form>
