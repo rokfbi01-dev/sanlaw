@@ -147,6 +147,9 @@
   .contact h2{font-size:clamp(28px,3.4vw,38px);font-weight:800;line-height:1.4;margin-bottom:20px}
   .contact .lead{font-family:var(--batang);color:rgba(255,255,255,.8);font-size:17px;margin-bottom:34px}
   .info-row{display:flex;gap:14px;align-items:center;margin-bottom:18px;font-size:16px}
+  .info-duo{display:flex;gap:28px;flex-wrap:wrap}
+  .info-duo .info-row{margin-bottom:18px}
+  .info-duo .k{width:auto}
   .info-row .k{color:var(--gold-soft);font-weight:600;width:70px;flex:none}
   .form{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);padding:38px;border-radius:4px;backdrop-filter:blur(6px)}
   .form label{display:block;font-size:13px;color:var(--gold-soft);margin-bottom:7px;font-weight:600}
@@ -179,6 +182,14 @@
     .stats-grid{grid-template-columns:repeat(2,1fr)}
     .stat:nth-child(2){border-right:none}
     .about-grid,.contact-inner{grid-template-columns:1fr;gap:40px}
+    /* 모바일: 상담폼을 위로, 안내문을 아래로 */
+    .contact-inner{gap:28px}
+    .contact-inner > .fu{order:2}
+    .contact-inner > .form{order:1}
+    /* 모바일: 폼 여백·높이 압축 */
+    .contact-inner > .form > div{padding:22px 18px!important}
+    .contact-inner > .form textarea{min-height:96px!important}
+    .info-duo{gap:10px 24px}
     .cards,.why-grid,.steps{grid-template-columns:1fr}
     .why-item{border-left:none;border-top:1px solid rgba(255,255,255,.1)}
     .steps .step::after{display:none}
