@@ -20,6 +20,56 @@
   .form input:-ms-input-placeholder,
   .form textarea:-ms-input-placeholder{ color:#9b8d76; }
 
+  /* ===== 모바일 히어로 압축 (메뉴 추가로 밀린 공간 보정) ===== */
+  @media (max-width: 768px) {
+    /* 히어로 섹션 상하 여백 줄이기 */
+    section.hero {
+      padding-top: 28px !important;
+      padding-bottom: 24px !important;
+      min-height: 0 !important;
+    }
+    /* scale-mark (배경 저울 아이콘) 크기 축소 */
+    .scale-mark {
+      font-size: 120px !important;
+      top: 10px !important;
+    }
+    /* eyebrow 줄 여백 */
+    .eyebrow {
+      font-size: 11px !important;
+      margin-bottom: 8px !important;
+    }
+    /* h1 폰트 축소 */
+    section.hero h1 {
+      font-size: 28px !important;
+      line-height: 1.3 !important;
+      margin-bottom: 12px !important;
+    }
+    /* lead 문단 폰트·여백 축소 */
+    section.hero .lead {
+      font-size: 13px !important;
+      line-height: 1.6 !important;
+      margin-bottom: 20px !important;
+    }
+    /* 하단 4개 카드 그리드 압축 */
+    .hero-nav {
+      gap: 8px !important;
+      margin-top: 0 !important;
+    }
+    .hnav-card {
+      padding: 12px 10px !important;
+    }
+    .hnav-ico {
+      font-size: 20px !important;
+      margin-bottom: 4px !important;
+    }
+    .hnav-t {
+      font-size: 13px !important;
+    }
+    .hnav-s {
+      font-size: 11px !important;
+    }
+  }
+
   /* ===== 모바일 가로스크롤 고정 메뉴 ===== */
   @media (max-width: 768px) {
     /* 햄버거 버튼 숨기기 */
