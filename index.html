@@ -19,6 +19,76 @@
   .form textarea::-webkit-input-placeholder{ color:#9b8d76; }
   .form input:-ms-input-placeholder,
   .form textarea:-ms-input-placeholder{ color:#9b8d76; }
+
+  /* ===== 모바일 가로스크롤 고정 메뉴 ===== */
+  @media (max-width: 768px) {
+    /* 햄버거 버튼 숨기기 */
+    .burger { display: none !important; }
+
+    /* 헤더 고정 */
+    #hd {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    /* 메뉴를 가로 스크롤 바로 표시 */
+    .menu {
+      display: flex !important;
+      flex-direction: row !important;
+      position: static !important;
+      transform: none !important;
+      width: 100% !important;
+      height: auto !important;
+      background: transparent !important;
+      overflow-x: auto !important;
+      overflow-y: hidden !important;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding: 0 !important;
+      gap: 0;
+      align-items: stretch;
+    }
+    .menu::-webkit-scrollbar { display: none; }
+
+    /* 닫기 버튼 숨기기 */
+    .menu-close { display: none !important; }
+
+    /* 메뉴 링크 스타일 */
+    .menu a {
+      flex: 0 0 auto;
+      white-space: nowrap;
+      font-size: 12px !important;
+      padding: 10px 11px !important;
+      border-bottom: 2px solid transparent;
+      display: flex;
+      align-items: center;
+      color: rgba(255,255,255,0.82) !important;
+      text-decoration: none !important;
+    }
+    .menu a:hover,
+    .menu a.active {
+      color: #fff !important;
+      border-bottom-color: #c9a84c;
+    }
+
+    /* 상담 문의 버튼 */
+    .menu .nav-cta {
+      flex: 0 0 auto;
+      margin: 5px 10px 5px 4px !important;
+      padding: 5px 12px !important;
+      border-radius: 4px;
+      border-bottom: none !important;
+      align-self: center;
+    }
+
+    /* nav wrap 레이아웃 */
+    .wrap.nav {
+      flex-direction: column;
+      align-items: stretch;
+      padding: 0;
+    }
+  }
 </style>
 
 <meta name="description" content="검찰 33년 경력. 민사·가사·노동·행정심판·비영리법인 설립·상속등기(외국인 상속등기 전문)·개인회생·후견까지. 의뢰인의 권리 보호를 위해 최선을 다합니다.">
