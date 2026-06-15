@@ -171,7 +171,7 @@
   .disclaimer{font-size:12px;color:rgba(255,255,255,.35);margin-top:16px;line-height:1.7;max-width:760px}
 
   /* ===== RESPONSIVE ===== */
-  @media(max-width:900px) and (min-width:769px){
+  @media(max-width:900px){
     .menu{position:fixed;inset:0 0 0 auto;width:74%;max-width:320px;background:var(--ink);flex-direction:column;justify-content:center;gap:28px;transform:translateX(100%);transition:.4s;padding:40px}
     .menu.open{transform:none}
     .menu a{color:#fff!important;font-size:18px}
@@ -179,8 +179,12 @@
     .burger{display:flex}
     header.scrolled .burger span{background:var(--ink)}
     .menu.open ~ .burger span{background:#fff}
-    .stats-grid{grid-template-columns:repeat(2,1fr)}
-    .stat:nth-child(2){border-right:none}
+    /* 모바일에서도 데스크탑과 동일: 4칸 가로 한 줄 유지 */
+    .stats-grid{grid-template-columns:repeat(4,1fr)}
+    .stat{padding:30px 6px}
+    .stat .num{font-size:30px}
+    .stat .num small{font-size:14px}
+    .stat .lbl{font-size:11px;letter-spacing:0;word-break:keep-all;margin-top:8px}
     .about-grid,.contact-inner{grid-template-columns:1fr;gap:40px}
     /* 모바일: 상담폼을 위로, 안내문을 아래로 */
     .contact-inner{gap:28px}
@@ -415,16 +419,12 @@
   .subbar .slinks a.nav-cta{background:var(--gold);color:#fff;padding:9px 18px;border-radius:2px;font-weight:600}
   .subbar .slinks a.nav-cta:hover{background:var(--gold-soft)}
 
-  /* ===== MOBILE: slinks도 햄버거처럼 (769px 이상에서만) ===== */
-  @media(max-width:900px) and (min-width:769px){
+  /* ===== MOBILE: slinks도 햄버거처럼 ===== */
+  @media(max-width:900px){
     .menu-close{display:block}
     .subbar .slinks{position:fixed;inset:0 0 0 auto;width:74%;max-width:320px;background:var(--ink);flex-direction:column;justify-content:center;gap:28px;transform:translateX(100%);transition:transform .35s ease;z-index:1000;padding:60px 30px 30px;box-shadow:-20px 0 40px rgba(0,0,0,.3)}
     .subbar .slinks.open{transform:none}
     .subbar .slinks a{color:#fff !important;font-size:18px;text-align:center}
-  }
-  /* 768px 이하: menu-close 숨김 (가로스크롤 메뉴 모드) */
-  @media(max-width:768px){
-    .menu-close{display:none !important}
   }
 
   /* ===== GOV LINKS COMPACT MODE (한 화면에 다 보이게) ===== */
@@ -498,17 +498,4 @@
     .case-quick{padding:18px 16px}
     .cq-chips a{font-size:12.5px;padding:8px 13px}
     .acc-more.acc-cases{margin-left:0;display:inline-block;margin-top:8px}
-  }
-
-  /* ===== 모바일 메뉴 가로스크롤 보정 ===== */
-  @media (max-width: 768px) {
-    body {
-      overflow-x: hidden;
-    }
-    #hd {
-      overflow: visible !important;
-    }
-    .wrap.nav {
-      overflow: visible !important;
-    }
   }
