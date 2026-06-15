@@ -25,68 +25,80 @@
     /* 햄버거 버튼 숨기기 */
     .burger { display: none !important; }
 
-    /* 헤더 고정 */
+    /* 헤더 고정 + 배경색 명시 */
     #hd {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      position: sticky !important;
+      top: 0 !important;
+      z-index: 1000 !important;
+      background: #1a2c4e !important;
     }
 
-    /* 메뉴를 가로 스크롤 바로 표시 */
+    /* nav wrap 세로 배치 */
+    .wrap.nav {
+      flex-direction: column !important;
+      align-items: stretch !important;
+      padding: 0 !important;
+    }
+
+    /* 메뉴: 오버레이 해제 → 가로 스크롤 바 */
     .menu {
       display: flex !important;
       flex-direction: row !important;
       position: static !important;
+      top: auto !important;
+      left: auto !important;
+      right: auto !important;
+      bottom: auto !important;
       transform: none !important;
       width: 100% !important;
+      max-width: 100% !important;
       height: auto !important;
-      background: transparent !important;
+      min-height: 0 !important;
+      background: #1a2c4e !important;
+      border-top: 1px solid rgba(255,255,255,0.12) !important;
       overflow-x: auto !important;
       overflow-y: hidden !important;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
       padding: 0 !important;
-      gap: 0;
-      align-items: stretch;
+      margin: 0 !important;
+      gap: 0 !important;
+      align-items: stretch !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+      box-shadow: none !important;
     }
     .menu::-webkit-scrollbar { display: none; }
 
-    /* 닫기 버튼 숨기기 */
+    /* 닫기(X) 버튼 숨기기 */
     .menu-close { display: none !important; }
 
-    /* 메뉴 링크 스타일 */
+    /* 메뉴 링크 */
     .menu a {
-      flex: 0 0 auto;
-      white-space: nowrap;
+      flex: 0 0 auto !important;
+      white-space: nowrap !important;
       font-size: 12px !important;
       padding: 10px 11px !important;
-      border-bottom: 2px solid transparent;
-      display: flex;
-      align-items: center;
+      border-bottom: 2px solid transparent !important;
+      display: flex !important;
+      align-items: center !important;
       color: rgba(255,255,255,0.82) !important;
       text-decoration: none !important;
+      background: transparent !important;
     }
-    .menu a:hover,
-    .menu a.active {
+    .menu a:active {
       color: #fff !important;
-      border-bottom-color: #c9a84c;
+      border-bottom-color: #c9a84c !important;
     }
 
-    /* 상담 문의 버튼 */
+    /* 상담 문의 골드 버튼 */
     .menu .nav-cta {
-      flex: 0 0 auto;
-      margin: 5px 10px 5px 4px !important;
-      padding: 5px 12px !important;
-      border-radius: 4px;
+      margin: 5px 10px 5px 6px !important;
+      padding: 6px 13px !important;
+      border-radius: 4px !important;
       border-bottom: none !important;
-      align-self: center;
-    }
-
-    /* nav wrap 레이아웃 */
-    .wrap.nav {
-      flex-direction: column;
-      align-items: stretch;
-      padding: 0;
+      align-self: center !important;
     }
   }
 </style>
