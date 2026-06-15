@@ -128,6 +128,8 @@
       pointer-events: auto !important;
       box-shadow: none !important;
       box-sizing: border-box !important;
+      scroll-padding-left: 0 !important;
+      justify-content: flex-start !important;
     }
     .menu::-webkit-scrollbar { display: none; }
 
@@ -882,6 +884,14 @@
   const menuClose=document.getElementById('menuClose');
   if(menuClose) menuClose.onclick=()=>menu.classList.remove('open');
   menu.querySelectorAll('a').forEach(a=>a.onclick=()=>menu.classList.remove('open'));
+  // 모바일 가로스크롤 메뉴: 항상 맨 왼쪽(사무소 소개)부터 시작하도록 초기화
+  function resetMenuScroll(){
+    if(window.innerWidth <= 768){ menu.scrollLeft = 0; }
+  }
+  resetMenuScroll();
+  window.addEventListener('load', resetMenuScroll);
+  window.addEventListener('orientationchange', ()=>setTimeout(resetMenuScroll, 100));
+  window.addEventListener('resize', resetMenuScroll);
   // fade-up reveal
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
   document.querySelectorAll('.fu:not(.in)').forEach(el=>io.observe(el));
