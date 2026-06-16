@@ -364,28 +364,39 @@
   }
 
   /* ===== ACCORDION (업무분야) ===== */
-  .accordion{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+  .accordion{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:start}
   .acc-item{border:1px solid var(--line);border-radius:4px;overflow:hidden;background:#fff;transition:.3s}
   .acc-item:hover{border-color:var(--gold-soft)}
-  .acc-head{width:100%;display:flex;align-items:center;gap:16px;padding:20px 22px;background:none;border:none;cursor:pointer;text-align:left;font-family:var(--sans)}
+  .acc-head{width:100%;display:flex;flex-direction:column;align-items:center;gap:8px;padding:22px 16px;background:none;border:none;cursor:pointer;text-align:center;font-family:var(--sans);position:relative}
   .acc-mk{flex:none;width:44px;height:44px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:20px;font-weight:800;color:var(--gold);transition:.3s}
   .acc-item.open .acc-mk{background:var(--gold);color:#fff}
-  .acc-titles{flex:1;display:flex;flex-direction:column;gap:2px}
+  /* 펼치면 가로 전체 폭으로 확장(읽기 편하게) */
+  .acc-item.open{grid-column:1/-1}
+  .acc-item.open .acc-head{flex-direction:row;align-items:center;text-align:left;gap:16px}
+  .acc-item.open .acc-titles{align-items:flex-start}
+  .acc-item.open .acc-body{max-width:760px;margin:0 auto}
+  .acc-titles{flex:1;display:flex;flex-direction:column;gap:4px;align-items:center}
   .acc-title{font-family:var(--serif);font-size:18px;font-weight:800;color:var(--ink)}
-  .acc-one{font-size:13.5px;color:var(--muted)}
-  .acc-arrow{flex:none;font-size:24px;color:var(--gold);font-weight:300;transition:.3s;line-height:1}
+  .acc-one{font-size:13px;color:var(--muted);word-break:keep-all;line-height:1.5}
+  .acc-arrow{position:absolute;top:14px;right:16px;font-size:24px;color:var(--gold);font-weight:300;transition:.3s;line-height:1}
   .acc-item.open .acc-arrow{transform:rotate(45deg)}
   .acc-body{max-height:0;overflow:hidden;transition:max-height .4s ease;padding:0 22px}
-  .acc-item.open .acc-body{max-height:400px;padding:0 22px 22px 22px}
+  .acc-item.open .acc-body{max-height:600px;padding:0 18px 20px 18px}
   .acc-body p{font-size:15px;color:#3c4452;line-height:1.8;margin:0 0 14px;font-family:var(--batang)}
   .acc-more{display:inline-block;color:var(--gold);font-weight:600;font-size:14px}
   .acc-more:hover{color:var(--ink)}
   .acc-soon{display:inline-block;font-size:11px;background:var(--cream-2);color:var(--gold);padding:2px 9px;border-radius:20px;font-weight:600;margin-left:8px;vertical-align:middle}
   @media(max-width:600px){
-    .acc-head{padding:16px 16px;gap:12px}
-    .acc-mk{width:38px;height:38px;font-size:17px}
-    .acc-title{font-size:16px}
-    .acc-one{font-size:12.5px}
+    /* 모바일에서도 데스크탑과 동일: 3열 격자 유지(작게) */
+    .accordion{grid-template-columns:repeat(3,1fr);gap:8px}
+    .acc-head{padding:14px 6px;gap:6px}
+    .acc-mk{width:30px;height:30px;font-size:14px}
+    .acc-title{font-size:12.5px;word-break:keep-all}
+    .acc-one{font-size:10px;line-height:1.4}
+    .acc-arrow{top:8px;right:8px;font-size:18px}
+    .acc-item.open .acc-body{padding:0 10px 14px 10px}
+    .acc-body p{font-size:13px;line-height:1.6}
+    .acc-more,.acc-more.acc-cases{font-size:12px}
   }
 
   /* hero nav: 2 columns (2x2) on mobile (override) */
