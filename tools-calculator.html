@@ -204,11 +204,14 @@
         <p id="hsub">산 법무사 김재섭 행정사 사무소 · 의뢰인 안내용</p>
       </div>
     </div>
-    <div class="ratebar">
-      <a href="index.html" style="color:#d9cfb6;text-decoration:none;font-weight:700;margin-right:12px;">🏠 사무소 홈</a>
-      기준일 <b id="today"></b> · 국민주택채권 할인율
-      <input type="number" id="bondRate" value="15.66563" step="0.00001" oninput="recalc();saveBondRate()">%
-      <a href="https://svc.wooribank.com/svc/Dream?withyou=HBNHB0036&cc=c004893:c004893" target="_blank" rel="noopener" style="margin-left:8px;color:#f3d27a;font-weight:700;text-decoration:none;border:1px solid #5a534a;border-radius:4px;padding:2px 8px;">🔎 오늘 고시율 조회</a>
+    <div class="ratebar" style="display:flex;align-items:center;flex-wrap:wrap;gap:8px;">
+      <a href="index.html" style="color:#d9cfb6;text-decoration:none;font-weight:700;">🏠 사무소 홈</a>
+      <span>기준일 <b id="today"></b> · 국민주택채권 할인율</span>
+      <span style="display:inline-flex;align-items:center;gap:4px;">
+        <input type="number" id="bondRate" value="15.66563" step="0.00001" oninput="recalc();saveBondRate()" style="width:110px;">
+        <span>%</span>
+      </span>
+      <a href="https://svc.wooribank.com/svc/Dream?withyou=HBNHB0036&cc=c004893:c004893" target="_blank" rel="noopener" style="color:#f3d27a;font-weight:700;text-decoration:none;border:1px solid #5a534a;border-radius:4px;padding:2px 8px;">🔎 오늘 고시율 조회</a>
       <span class="hint" style="color:#bcb29c;">(매도일 기준 · 마지막 입력값 자동 저장)</span>
     </div>
   </div>
