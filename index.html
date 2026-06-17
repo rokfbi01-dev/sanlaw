@@ -551,7 +551,7 @@
         <!-- 카카오톡 바로 상담 -->
         <a href="https://pf.kakao.com/_znJqX/chat" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:15px;margin:4px 0 14px;background:#FEE500;color:#3c1e1e;font-size:15.5px;font-weight:700;border-radius:8px;text-decoration:none;box-sizing:border-box;">💬 카카오톡으로 바로 상담</a>
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;color:#a99878;font-size:12.5px;"><span style="flex:1;height:1px;background:#e0d6c2;"></span>또는 아래 폼으로 문의 남기기<span style="flex:1;height:1px;background:#e0d6c2;"></span></div>
-        <form action="https://formspree.io/f/xnjrwlpb" method="POST" enctype="multipart/form-data" id="consultForm">
+        <form action="https://formspree.io/f/xnjrwlpb" method="POST" enctype="multipart/form-data" id="consultForm" onsubmit="markConsultUnlock()">
           <input type="hidden" name="_subject" value="[홈페이지] 상담 문의">
           <input type="hidden" name="감지된분야" id="detectedField" value="">
           <input name="성함" type="text" placeholder="이름 *" required style="width:100%;padding:13px 14px;margin-bottom:10px;font-size:15.5px;border:1.5px solid #cfc2a8;border-radius:8px;box-sizing:border-box;outline:none;">
@@ -872,6 +872,14 @@
 </footer>
 
 <script>
+
+  // ===== 상담 신청 시 계산기 잠금 해제 플래그 저장 =====
+  // tools-calculator.html의 상담 게이트가 확인하는 것과 같은 키(sanlaw_calc_unlock)를 사용합니다.
+  // 이 폼으로 상담을 신청하면, 이후 12시간 동안은 계산기 페이지에서 상담폼이 다시 뜨지 않고 바로 계산기를 사용할 수 있습니다.
+  function markConsultUnlock(){
+    try{ localStorage.setItem('sanlaw_calc_unlock', String(Date.now())); }catch(e){}
+    return true; // 정상 제출(폼 액션)은 그대로 진행
+  }
 
   // ===== 상담내용 키워드 감지 → 업무분야 안내 =====
   var fieldKeywords = [
