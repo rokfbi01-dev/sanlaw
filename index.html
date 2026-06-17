@@ -341,7 +341,7 @@
           <span class="acc-arrow">+</span>
         </button>
         <div class="acc-body">
-          <p>민사 소송 서류(소장·답변서·준비서면·지급명령·내용증명)와 형사 관련 서류(고소장·고발장·진술서·진정서·검찰항고이유서·이의신청서)를 검찰 33년 경력으로 정확하게 준비합니다. 본 사무소는 법무사법 제2조에 따른 <b>서류 작성</b>의 범위에서 지원하며, 형사 본안의 변호인 선임은 변호사를 안내드립니다.</p>
+          <p>민사 소송 서류(소장·답변서·준비서면·지급명령·내용증명)와 형사 관련 서류(고소장·고발장·진술서·진정서·검찰항고이유서·이의신청서)를 검찰 33년 경력으로 정확하게 준비합니다. 본인소송으로 끝까지 진행하실 수 있도록 지원하며, 형사재판 단계로 가더라도 그 단계에 맞는 서류 준비와 작성을 계속 도와드립니다.</p>
           <a href="practice-civil.html" class="acc-more">상세 내용·첨부서류·법령 보기 →</a>
           <a href="practice-civil.html#cases" class="acc-more acc-cases">📋 자주 묻는 상황 사례 보기 →</a>
         </div>
@@ -417,7 +417,7 @@
           <span class="acc-arrow">+</span>
         </button>
         <div class="acc-body">
-          <p>이혼·상속·친권 등 가사 사건의 서류 작성과 절차 안내. 본안은 변호사 선임을 정직하게 권고합니다.</p>
+          <p>이혼·양육비·재산분할 등 가사 사건의 서류 작성과 본인소송 진행을 끝까지 지원합니다. 소송이 본격화되는 단계로 가더라도, 그 단계에 맞는 서류 준비와 작성을 계속 도와드립니다.</p>
           <a href="practice-family.html" class="acc-more">상세 내용·첨부서류·법령 보기 →</a>
           <a href="practice-family.html#cases" class="acc-more acc-cases">📋 자주 묻는 상황 사례 보기 →</a>
         </div>
@@ -551,8 +551,9 @@
         <!-- 카카오톡 바로 상담 -->
         <a href="https://pf.kakao.com/_znJqX/chat" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:15px;margin:4px 0 14px;background:#FEE500;color:#3c1e1e;font-size:15.5px;font-weight:700;border-radius:8px;text-decoration:none;box-sizing:border-box;">💬 카카오톡으로 바로 상담</a>
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;color:#a99878;font-size:12.5px;"><span style="flex:1;height:1px;background:#e0d6c2;"></span>또는 아래 폼으로 문의 남기기<span style="flex:1;height:1px;background:#e0d6c2;"></span></div>
-        <form action="https://formspree.io/f/xnjrwlpb" method="POST">
+        <form action="https://formspree.io/f/xnjrwlpb" method="POST" enctype="multipart/form-data" id="consultForm">
           <input type="hidden" name="_subject" value="[홈페이지] 상담 문의">
+          <input type="hidden" name="감지된분야" id="detectedField" value="">
           <input name="성함" type="text" placeholder="이름 *" required style="width:100%;padding:13px 14px;margin-bottom:10px;font-size:15.5px;border:1.5px solid #cfc2a8;border-radius:8px;box-sizing:border-box;outline:none;">
           <input name="연락처" type="tel" placeholder="연락처 (휴대폰) *" required style="width:100%;padding:13px 14px;margin-bottom:10px;font-size:15.5px;border:1.5px solid #cfc2a8;border-radius:8px;box-sizing:border-box;outline:none;">
           <input name="email" type="email" placeholder="이메일 (회신용) *" required style="width:100%;padding:13px 14px;margin-bottom:10px;font-size:15.5px;border:1.5px solid #cfc2a8;border-radius:8px;box-sizing:border-box;outline:none;">
@@ -560,10 +561,20 @@
             <summary style="cursor:pointer;padding:9px 12px;font-size:12.5px;font-weight:700;color:#a86b1f;list-style:none;">📝 상담 내용 작성 예시 보기</summary>
             <div style="padding:0 12px 10px;font-size:12px;line-height:1.65;color:#6b5232;">· <b>상속</b> : 부친 2024년 사망, 상속인 배우자+자녀 3명, 아파트 1채. 협의분할로 모친 단독명의 희망.<br>· <b>등기</b> : 매매 소유권이전 / 근저당 설정·말소 / 증여.<br>· <b>소송·기타</b> : 소송비용 확정, 지급명령, 개인회생, 후견 등.</div>
           </details>
-          <textarea name="상담내용" rows="6" placeholder="예) 부친 사망으로 상속등기를 하려 합니다. 상속인은 배우자와 자녀 3명이고, 부동산은 아파트 1채입니다. 협의분할로 어머니 단독명의로 진행하고 싶습니다. 필요한 서류와 비용을 알고 싶습니다." required style="width:100%;padding:13px 14px;margin-bottom:4px;font-size:15px;line-height:1.6;min-height:140px;border:1.5px solid #cfc2a8;border-radius:8px;box-sizing:border-box;outline:none;resize:vertical;"></textarea>
+          <textarea name="상담내용" id="consultContent" oninput="detectField(this.value)" rows="6" placeholder="예) 부친 사망으로 상속등기를 하려 합니다. 상속인은 배우자와 자녀 3명이고, 부동산은 아파트 1채입니다. 협의분할로 어머니 단독명의로 진행하고 싶습니다. 필요한 서류와 비용을 알고 싶습니다." required style="width:100%;padding:13px 14px;margin-bottom:4px;font-size:15px;line-height:1.6;min-height:140px;border:1.5px solid #cfc2a8;border-radius:8px;box-sizing:border-box;outline:none;resize:vertical;"></textarea>
+
+          <div id="fieldHint" style="display:none;margin:10px 0 4px;padding:14px 16px;background:#f3ead9;border-left:3px solid #a86b1f;border-radius:6px;font-size:13px;line-height:1.7;color:#4a3f2e;"></div>
+
+          <div style="margin:14px 0 4px;">
+            <label style="display:block;font-size:13px;font-weight:700;color:#4a3f2e;margin-bottom:6px;">📎 관련 자료 첨부 (선택)</label>
+            <input type="file" name="첨부파일" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" multiple style="width:100%;padding:10px 12px;font-size:13.5px;border:1.5px solid #cfc2a8;border-radius:8px;box-sizing:border-box;background:#fff;">
+            <p style="margin:6px 0 0;font-size:11.5px;color:#8a7c66;line-height:1.6;">⚠️ 주민등록번호·계좌번호 등 민감정보는 가려서 첨부해 주세요. (이름·날짜·금액은 상담에 필요하니 남겨두셔도 됩니다)<br>파일당 최대 10MB · PDF, 이미지, 워드 파일 가능</p>
+            <p style="margin:8px 0 0;font-size:12px;color:#6b5232;line-height:1.65;background:#f3ead9;border-left:3px solid #a86b1f;border-radius:4px;padding:8px 10px;">📌 <b>법원으로부터 송달받은 서류</b>(결정문·소장·심문기일통지서 등)가 있다면 함께 첨부해 주시면 상담이 한층 더 구체적으로 진행될 수 있습니다.</p>
+          </div>
+
           <label style="display:flex;align-items:flex-start;gap:8px;margin:10px 0 2px;font-size:12.5px;color:#6b5d49;line-height:1.55;cursor:pointer;">
             <input type="checkbox" name="개인정보동의" value="동의함" required style="margin-top:2px;flex-shrink:0;width:16px;height:16px;">
-            <span>(필수) 상담 접수·안내를 위해 <b>성명·연락처·이메일·상담내용</b>을 수집·이용하는 데 동의합니다. 수집한 정보는 <b>접수일로부터 7일(일주일) 후 파기</b>하며, 동의를 거부하실 수 있으나 거부 시 상담 신청이 제한됩니다.</span>
+            <span>(필수) 상담 접수·안내를 위해 <b>성명·연락처·이메일·상담내용·첨부파일</b>을 수집·이용하는 데 동의합니다. 수집한 정보는 <b>접수일로부터 7일(일주일) 후 파기</b>하며, 동의를 거부하실 수 있으나 거부 시 상담 신청이 제한됩니다.</span>
           </label>
           <button type="submit" style="margin-top:10px;width:100%;padding:13px;background:#a86b1f;color:#fff;border:none;border-radius:8px;font-size:16px;font-weight:700;cursor:pointer;">상담 신청하기</button>
         </form>
@@ -862,6 +873,66 @@
 
 <script>
 
+  // ===== 상담내용 키워드 감지 → 업무분야 안내 =====
+  var fieldKeywords = [
+    { key:'civil', file:'practice-civil.html', label:'민사·형사',
+      words:['보증금','전세금','월세','임대차','명도','빌려준 돈','빌린 돈','채권','채무','대여금','손해배상','고소','형사','진정서','검찰항고'],
+      docs:['임대차계약서(또는 대여 관련 증빙)','입금 내역·문자 등 증거자료','상대방 인적사항(이름, 연락처, 주소 등 아는 정보)'] },
+    { key:'inheritance', file:'practice-inheritance.html', label:'상속',
+      words:['상속','유류분','상속포기','상속재산분할','상속등기','사망신고','제적등본'],
+      docs:['가족관계증명서·기본증명서','사망자 제적등본(또는 기본증명서)','부동산 등기사항증명서(있을 경우)'] },
+    { key:'registry', file:'practice-registry.html', label:'각종 등기',
+      words:['등기','소유권이전','근저당','매매','증여','등기부등본','법인등기'],
+      docs:['매매계약서(또는 증여계약서)','등기사항증명서','신분증·도장(인감 또는 막도장)'] },
+    { key:'rehab', file:'practice-rehab.html', label:'개인회생·파산',
+      words:['개인회생','파산','면책','빚','채무조정','신용회복'],
+      docs:['최근 채무 현황(카드사·은행 등 채권자 목록)','소득 증빙(재직증명서·소득금액증명원 등)','가족관계증명서'] },
+    { key:'guardian', file:'practice-guardian.html', label:'후견',
+      words:['후견','성년후견','한정후견','치매','정신질환','의사결정'],
+      docs:['가족관계증명서','진단서(치매 등 후견 필요 사유 관련)','피후견인 재산 관련 자료(있을 경우)'] },
+    { key:'family', file:'practice-family.html', label:'가사 사건',
+      words:['이혼','양육비','친권','면접교섭','재산분할','가사'],
+      docs:['혼인관계증명서','자녀 가족관계증명서(자녀가 있는 경우)','재산 관련 자료(부동산, 통장 내역 등)'] },
+    { key:'labor', file:'practice-labor.html', label:'노동·노무',
+      words:['임금체불','퇴직금','부당해고','산재','근로계약','월급 안','노동청'],
+      docs:['근로계약서','급여 명세서·통장 입금 내역','해고통지서(부당해고인 경우)'] },
+    { key:'admin', file:'practice-admin.html', label:'행정심판·인허가',
+      words:['행정심판','면허취소','음주운전','과징금','인허가','행정처분'],
+      docs:['행정처분 통지서(처분서)','관련 경위서·증빙자료','신분증 사본'] },
+    { key:'nonprofit', file:'practice-nonprofit.html', label:'비영리법인 설립',
+      words:['비영리법인','사단법인','재단법인','법인설립'],
+      docs:['정관(초안이 있는 경우)','설립자·임원 명단','목적사업 관련 자료'] }
+  ];
+
+  var lastDetectedKey = '';
+  function detectField(text){
+    var hint = document.getElementById('fieldHint');
+    var hidden = document.getElementById('detectedField');
+    var matched = null;
+    for (var i=0; i<fieldKeywords.length; i++){
+      var f = fieldKeywords[i];
+      for (var j=0; j<f.words.length; j++){
+        if (text.indexOf(f.words[j]) !== -1){ matched = f; break; }
+      }
+      if (matched) break;
+    }
+    if (!matched){
+      hint.style.display = 'none';
+      hidden.value = '';
+      lastDetectedKey = '';
+      return;
+    }
+    if (matched.key === lastDetectedKey) return; // 같은 분야면 다시 그리지 않음
+    lastDetectedKey = matched.key;
+    hidden.value = matched.label;
+    var docsHtml = matched.docs.map(function(d){ return '· '+d; }).join('<br>');
+    hint.innerHTML =
+      '<b>'+matched.label+'</b> 관련 상담이시군요. 아래 자료를 함께 보내주시면 상담이 더 빠르고 정확해집니다.<br>'+
+      docsHtml+
+      '<br><a href="'+matched.file+'" target="_blank" rel="noopener" style="color:#a86b1f;font-weight:700;text-decoration:underline;">'+matched.label+' 안내 자세히 보기 →</a>';
+    hint.style.display = 'block';
+  }
+
   // 업무분야 아코디언
   function toggleAcc(btn){
     var item = btn.parentElement;
@@ -873,6 +944,7 @@
     item.classList.toggle('open');
     btn.setAttribute('aria-expanded', !open);
   }
+
 
   // nav scroll
   const hd=document.getElementById('hd');
