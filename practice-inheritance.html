@@ -97,17 +97,15 @@
   <p>아래 계산기에 적극재산·채무·상속인을 입력하면 <b>법정상속분과 유류분</b>이 자동으로 계산됩니다. 일반적인 개산(槪算) 보조용이며, 특별수익·기여분 등에 따라 실제 결과는 달라질 수 있으므로 구체적 사안은 상담을 통해 확정합니다.</p>
   <div style="border:1px solid #e3e6ea;border-radius:14px;overflow:hidden;margin:14px 0 30px;box-shadow:0 2px 12px rgba(0,0,0,.06);background:#f4f6f9">
     <iframe id="calcFrame" src="inheritance-calculator.html" title="상속·유류분 계산기"
-      style="width:100%;border:0;display:block" scrolling="no" onload="fitCalc()"></iframe>
+      style="width:100%;border:0;display:block;height:900px" scrolling="no"></iframe>
   </div>
   <script>
-  function fitCalc(){
-    var f=document.getElementById('calcFrame');
-    if(!f) return;
-    try{ f.style.height=(f.contentWindow.document.documentElement.scrollHeight+24)+'px'; }
-    catch(e){ f.style.height='1400px'; }
-  }
-  setInterval(fitCalc,600);
-  window.addEventListener('resize',fitCalc);
+  window.addEventListener('message', function(e){
+    if(e.data && e.data.type === 'calcHeight'){
+      var f = document.getElementById('calcFrame');
+      if(f) f.style.height = (e.data.height + 24) + 'px';
+    }
+  });
   </script>
   <!-- ▲▲▲ 계산기 끝 ▲▲▲ -->
 
@@ -120,7 +118,7 @@
     <li><b>특별한정승인</b> (민법 §1019 ③) — 뒤늦게 채무 초과 사실을 안 경우, 안 날부터 3개월 내 신고 가능.</li>
   </ul>
 
-  <p><b>본 사무소</b>는 상속포기·한정승인 신고서, 상속재산목록, 청산절차 안내 등의 서류 작성을 직무 범위 내에서 지원합니다. 채권자와의 본격 분쟁이 발생한 경우 변호사 선임을 안내드립니다.</p>
+  <p><b>본 사무소</b>는 상속포기·한정승인 신고서, 상속재산목록, 청산절차 안내 등의 서류 작성을 직무 범위 내에서 지원합니다. 채권자와의 본격적인 분쟁으로 이어지더라도, 정리에 필요한 서류 작성은 계속 도와드립니다.</p>
 
   <div class="law-links" style="margin:18px 0 30px">
     <div class="ll-head">상속포기·한정승인 — 관련 사이트</div>
@@ -155,7 +153,7 @@
             <div><span class="cm-l">일반 절차</span>사망신고 → 상속인 확정(가족관계·제적등본) → 상속재산 분할협의서 작성(전원 인감) → 취득세 납부 → 상속등기 신청.</div>
             <div><span class="cm-l">알아둘 점</span>협의분할에는 상속인 전원의 동의와 인감증명이 필요하고, 미성년 상속인이 있으면 특별대리인 선임이 필요합니다.</div>
           </div>
-          <div class="case-scope"><div class="cs-do"><b>본 사무소가 도와드리는 일</b>상속재산 분할협의서·상속등기 신청서류 작성 및 등기 접수 대행(등기는 법무사 고유업무).</div><div class="cs-law"><b>변호사 상담이 필요한 부분</b>상속인 사이에 유류분·기여분 등 다툼이 생기면 변호사 상담을 권합니다.</div></div>
+          <div class="case-scope"><div class="cs-do"><b>본 사무소가 도와드리는 일</b>상속재산 분할협의서·상속등기 신청서류 작성 및 등기 접수 대행(등기는 법무사 고유업무).</div><div class="cs-law"><b>다툼이 깊어지더라도</b>상속인 사이에 유류분·기여분 등 다툼이 생기더라도, 분할협의서·등기 서류 작성을 계속 도와드립니다.</div></div>
         </div>
       </div>
       <div class="case-item">
@@ -171,7 +169,7 @@
             <div><span class="cm-l">일반 절차</span>가계도 정리 → 대습상속인 확정 → 제적·기본증명서 등 수집 → 지분 산정 → 상속등기 신청.</div>
             <div><span class="cm-l">알아둘 점</span>대습상속 사안은 제적등본 누락으로 등기소 보정명령을 받는 경우가 잦으므로, 가족관계 자료를 빠짐없이 갖추는 것이 중요합니다.</div>
           </div>
-          <div class="case-scope"><div class="cs-do"><b>본 사무소가 도와드리는 일</b>가계도 정리, 대습상속 지분 반영 상속등기 서류 작성·접수 대행.</div><div class="cs-law"><b>변호사 상담이 필요한 부분</b>대습 여부나 지분을 둘러싼 다툼은 변호사 상담이 필요합니다.</div></div>
+          <div class="case-scope"><div class="cs-do"><b>본 사무소가 도와드리는 일</b>가계도 정리, 대습상속 지분 반영 상속등기 서류 작성·접수 대행.</div><div class="cs-law"><b>다툼이 깊어지더라도</b>대습 여부나 지분을 둘러싼 다툼이 있더라도, 관련 서류 작성을 계속 도와드립니다.</div></div>
         </div>
       </div>
       <div class="case-item">
@@ -187,7 +185,7 @@
             <div><span class="cm-l">일반 절차</span>사망 인지 → 3개월 내 가정법원에 신고(포기 또는 한정승인) → 한정승인 시 청산절차.</div>
             <div><span class="cm-l">알아둘 점</span>3개월(숙려기간)을 넘기면 단순승인으로 간주되어 빚까지 떠안을 수 있으니, 기한 관리가 가장 중요합니다.</div>
           </div>
-          <div class="case-scope"><div class="cs-do"><b>본 사무소가 도와드리는 일</b>상속포기·한정승인 심판청구서 작성 및 가정법원 제출 대행.</div><div class="cs-law"><b>변호사 상담이 필요한 부분</b>채무 규모 판단, 채권자와의 소송 대응이 필요하면 변호사 상담을 권합니다.</div></div>
+          <div class="case-scope"><div class="cs-do"><b>본 사무소가 도와드리는 일</b>상속포기·한정승인 심판청구서 작성 및 가정법원 제출 대행.</div><div class="cs-law"><b>다툼이 깊어지더라도</b>채무 규모 판단이 까다롭거나 채권자 대응이 필요한 경우에도, 심판청구서 작성을 계속 도와드립니다.</div></div>
         </div>
       </div>
   </div>

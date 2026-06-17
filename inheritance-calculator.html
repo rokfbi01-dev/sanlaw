@@ -241,6 +241,27 @@ function calc(){
 // 초기 상속인 2명
 addHeir('자녀A','child');
 addHeir('자녀B','child');
+
+// ===== 부모 페이지에 실제 높이 보고 (postMessage 방식 — cross-origin/타이밍 문제 없음) =====
+// 주의: document.documentElement.scrollHeight는 "콘텐츠 높이 vs 현재 뷰포트 높이 중 큰 값"을 반환하므로
+// 측정 → 적용 → 재측정을 반복하면 계속 부풀어 오른다(무한 증식 버그의 원인).
+// 뷰포트 크기와 무관하게 실제 콘텐츠 높이만 갖는 .wrap 요소를 기준으로 측정한다.
+function reportHeight(){
+  try{
+    var wrap = document.querySelector('.wrap');
+    var h = wrap ? wrap.getBoundingClientRect().height : document.body.scrollHeight;
+    window.parent.postMessage({type:'calcHeight', height: Math.ceil(h)}, '*');
+  }catch(e){}
+}
+window.addEventListener('load', reportHeight);
+document.addEventListener('input', ()=> setTimeout(reportHeight, 30));
+document.addEventListener('click', ()=> setTimeout(reportHeight, 60));
+if (window.ResizeObserver){
+  new ResizeObserver(reportHeight).observe(document.querySelector('.wrap'));
+} else {
+  setInterval(reportHeight, 800);
+}
+reportHeight();
 </script>
 </body>
 </html>
