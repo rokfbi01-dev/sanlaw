@@ -205,7 +205,7 @@
   .subbar{background:var(--ink);padding:18px 0;position:sticky;top:0;z-index:100}
   .subbar .nav a.logo{color:#fff}
   .subbar .slinks{display:flex;gap:20px;align-items:center}
-  .subbar .slinks a{color:rgba(255,255,255,.85);font-size:14px;font-weight:500}
+  .subbar .slinks a{color:rgba(255,255,255,.85);font-size:14px;font-weight:500;white-space:nowrap;flex-shrink:0}
   .subbar .slinks a.nav-cta{color:#fff}
   .subhero{background:linear-gradient(115deg,rgba(18,26,38,.95),rgba(31,44,62,.65)),radial-gradient(circle at 80% 30%,rgba(176,141,87,.22),transparent 50%),var(--ink);color:#fff;padding:90px 0 78px;text-align:center;position:relative}
   .subhero .ic-big{font-family:var(--serif);font-size:40px;color:var(--gold-soft);border:1px solid var(--gold);width:74px;height:74px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 22px}
@@ -424,8 +424,9 @@
   header.scrolled .menu a.nav-cta{color:#fff !important}
   
   /* ===== SUBBAR slinks 일관성 ===== */
-  .subbar .slinks{display:flex;align-items:center;gap:24px}
-  .subbar .slinks a{color:rgba(255,255,255,.85);font-size:14.5px;font-weight:500;transition:.3s;text-decoration:none}
+  .subbar .slinks{display:flex;align-items:center;gap:18px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .subbar .slinks::-webkit-scrollbar{display:none}
+  .subbar .slinks a{color:rgba(255,255,255,.85);font-size:14.5px;font-weight:500;transition:.3s;text-decoration:none;white-space:nowrap;flex-shrink:0}
   .subbar .slinks a:hover{color:var(--gold-soft)}
   .subbar .slinks a.nav-cta{background:var(--gold);color:#fff;padding:9px 18px;border-radius:2px;font-weight:600}
   .subbar .slinks a.nav-cta:hover{background:var(--gold-soft)}

@@ -5,6 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>법무사 보수·등기비용 종합 계산기 — 산 법무사 김재섭 행정사 사무소</title>
 <style>
+  /* ===== 상단 사이트 메뉴 (서브페이지와 동일한 모양 — 이 페이지 전용 독립 스타일) ===== */
+  .subbar{background:#16202e;padding:14px 0}
+  .subbar .wrap.nav{display:flex;align-items:center;justify-content:space-between;max-width:1180px;margin:0 auto;padding:0 24px;box-sizing:border-box;gap:18px}
+  .subbar .logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
+  .subbar .logo .name-text .nm{color:#fff;font-weight:800;font-size:15.5px;font-family:inherit}
+  .subbar .logo .mk{color:#caa45c}
+  .subbar .slinks{display:flex;align-items:center;gap:18px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .subbar .slinks::-webkit-scrollbar{display:none}
+  .subbar .slinks a{color:rgba(255,255,255,.85);font-size:14.5px;font-weight:500;text-decoration:none;white-space:nowrap;flex-shrink:0;font-family:inherit}
+  .subbar .slinks a:hover{color:#caa45c}
+  .subbar .slinks a.nav-cta{background:#b08d57;color:#fff;padding:9px 18px;border-radius:2px;font-weight:600}
+  .subbar .slinks a.nav-cta:hover{background:#caa45c}
+  @media(max-width:900px){
+    .subbar .wrap.nav{flex-direction:column;align-items:stretch;padding:0;gap:0}
+    .subbar .logo{padding:12px 16px}
+    .subbar .slinks{width:100vw;max-width:100vw;border-top:1px solid rgba(255,255,255,.12);padding:0;margin:0;gap:0;justify-content:flex-start}
+    .subbar .slinks a{flex:0 0 auto;font-size:12px;padding:10px 11px;border-bottom:2px solid transparent;display:flex;align-items:center;background:transparent}
+    .subbar .slinks a:active{color:#fff;border-bottom-color:#c9a84c}
+    .subbar .slinks a.nav-cta{margin:5px 10px 5px 6px;padding:6px 13px;border-radius:4px;border-bottom:none;align-self:center}
+  }
+</style>
+<style>
   :root{
     --ink:#1c1a17;--ink-soft:#3a352f;--paper:#f4efe4;--paper-2:#ece5d6;
     --line:#cbbfa6;--seal:#9a2b22;--seal-soft:#b5483f;--gold:#8a6d24;
@@ -204,6 +226,22 @@
   };
 })();
 </script>
+<header class="subbar">
+  <div class="wrap nav">
+    <a href="index.html" class="logo" aria-label="산 법무사·행정사 사무소 — 홈"><span class="name-text"><span class="nm">산 <span class="mk">법무사</span> 김재섭 행정사 사무소</span></span></a>
+    <div class="slinks">
+      <a href="index.html#about">소개</a>
+      <a href="index.html#practice">업무 분야</a>
+      <a href="tools-calculator.html">수수료 계산기</a>
+      <a href="index.html#gov-links">유용한 링크</a>
+      <a href="index.html#column">법률 칼럼</a>
+      <a href="index.html#contact" class="nav-cta">상담 문의</a>
+      <a href="index.html#why">선택 이유</a>
+      <a href="index.html#process">상담 절차</a>
+      <a href="index.html#location">찾아오시는 길</a>
+    </div>
+  </div>
+</header>
 <header>
   <div class="wrap">
     <div class="brand">
