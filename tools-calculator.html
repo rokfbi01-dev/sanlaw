@@ -187,10 +187,10 @@
   var ENDPOINT="https://formspree.io/f/xnjrwlpb", TTL=12*60*60*1000, KEY="sanlaw_calc_unlock", HTML=document.documentElement;
   var ADMIN_KEY="sanlaw_calc_admin";
   // 관리자(대표님) 전용 우회: 아래 주소로 한 번만 접속하면 이 기기에서는 영구적으로 상담폼 없이 계산기를 바로 사용합니다.
-  // https://sanlaw.co.kr/tools-calculator.html?staff=1
+  // https://sanlaw.co.kr/tools-calculator.html?admin=san0622
   try{
     var qs=new URLSearchParams(location.search);
-    if(qs.get('staff')==='1'){ localStorage.setItem(ADMIN_KEY,'1'); }
+    if(qs.get('admin')==='san0622'){ localStorage.setItem(ADMIN_KEY,'1'); }
   }catch(e){}
   function isAdmin(){ try{ return localStorage.getItem(ADMIN_KEY)==='1'; }catch(e){ return false; } }
   var pending=null;
