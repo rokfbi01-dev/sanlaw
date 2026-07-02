@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[상속 1-1] 상속인들끼리 재산을 어떻게 나눌지 합의가 안 돼요 — 법원이 대신 나눠주는 상속재산분할심판 | 산 법무사 김재섭</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(280px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.case{background:var(--box); border-radius:10px; padding:14px 16px; margin:14px 0; border-left:4px solid #b9a98c;}
+.case .ct{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+.sit-wrap{display:flex; gap:12px; margin:14px 0;}
+.sit{flex:1; background:#f8f5ee; border:1px solid var(--line); border-top:3px solid var(--gold); border-radius:10px; padding:13px 15px; font-size:14.5px; line-height:1.75;}
+.sit .sl{display:block; font-weight:700; color:var(--gold-d); margin-bottom:6px; font-size:14px;}
+@media (max-width:680px){ .sit-wrap{flex-direction:column;} }
+/* 전체 길 흐름도 */
+.flow{background:linear-gradient(180deg,#faf7f0,#f6f1e6); border:1px solid var(--line); border-radius:14px; padding:22px 20px; margin:16px 0;}
+.flow .fl-t{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:18px; text-align:center; letter-spacing:.3px;}
+.flow .node{position:relative; background:#fff; border:1px solid #e3d8c4; border-radius:11px; padding:15px 18px 15px 56px; font-size:14.5px; line-height:1.72; box-shadow:0 2px 6px rgba(122,82,48,.07);}
+.flow .node .num{position:absolute; left:15px; top:14px; width:30px; height:30px; line-height:30px; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; border-radius:50%; font-weight:800; font-size:15px; font-family:'Nanum Myeongjo',serif; box-shadow:0 2px 5px rgba(122,82,48,.3);}
+.flow .node b{color:#241a10;}
+.flow .down{display:flex; justify-content:center; align-items:center; padding:7px 0;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+/* 작성례 박스 */
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:15px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .tag{margin-bottom:0;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;}
+.tag.cred{background:#5a9a72;}
+.tag.debt{background:#d9694a;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:18px;margin:12px 0;font-family:'D2Coding','Courier New',monospace;font-size:13px;line-height:1.6;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:16px;letter-spacing:2px;margin-bottom:12px;color:#241a10;}
+.howto{font-size:14px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0 4px;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:13px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:7px 13px;cursor:pointer;transition:.15s;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.75;}
+.lawbox .ll{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:#241a10;border-radius:5px;padding:2px 9px;margin-right:7px;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.hire p{margin:7px 0; font-size:15px; line-height:1.8;}
+.cta{display:block;text-align:center;background:var(--gold-d);color:#fff;font-weight:700;font-size:17px;text-decoration:none;padding:15px;border-radius:11px;margin:18px 0;font-family:'Nanum Myeongjo',serif;letter-spacing:1px;}
+.cta:hover{background:#5e3f24;}
+@media print{
+  body{background:#fff; max-width:100%;}
+  .tldr,.case,.warn,.tip,.cost,.steps li,.tnote,.sit,.flow,.flow li,.lawbox,.hire{background:#fff !important; border-color:#ccc !important;}
+  .tnote{display:none;}
+  .term{border:none; color:inherit; font-weight:inherit;}
+  .term>.bub{display:inline !important; position:static; width:auto; background:none; color:inherit; box-shadow:none; padding:0; font-size:inherit; line-height:inherit;}
+  .term>.bub::before{content:" ("; }
+  .term>.bub::after{content:")"; border:none; position:static;}
+  .fold-body{display:block !important;}.fold-btn .chev{display:none;}.form-tools{display:none;}
+  .cta{background:#fff !important; color:#241a10 !important; border:1px solid #ccc;}
+}
+</style>
+</head>
+<body>
+<!-- ===== 공통 상단 메뉴 (전 페이지 공통) ===== -->
+<style>
+.subbar{background:#16202e;padding:13px 0;position:sticky;top:0;z-index:100;font-family:'Pretendard','Malgun Gothic','맑은 고딕',sans-serif}
+.subbar .sb-in{max-width:1180px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.subbar a.sb-logo{color:#fff;text-decoration:none;font-weight:800;font-size:15.5px;white-space:nowrap;letter-spacing:-.3px}
+.subbar a.sb-logo .mk{color:#b08d57}
+.subbar .slinks{display:flex;align-items:center;gap:18px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.subbar .slinks::-webkit-scrollbar{display:none}
+.subbar .slinks a{color:rgba(255,255,255,.85);font-size:14px;font-weight:500;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:.3s}
+.subbar .slinks a:hover{color:#c9a878}
+.subbar .slinks a.nav-cta{background:#b08d57;color:#fff;padding:8px 15px;border-radius:2px;font-weight:600}
+.subbar .slinks a.nav-cta:hover{background:#c9a878}
+@media(max-width:640px){.subbar{padding:10px 0}.subbar .sb-in{flex-direction:column;align-items:stretch;gap:8px;padding:0 12px}.subbar a.sb-logo{text-align:center;font-size:14px}.subbar .slinks{gap:14px}}
+@media print{.subbar{display:none}}
+</style>
+<header class="subbar">
+  <div class="sb-in">
+    <a href="index.html" class="sb-logo">산 <span class="mk">법무사</span> 김재섭 행정사 사무소</a>
+    <nav class="slinks" aria-label="주요 메뉴">
+      <a href="index.html#about">사무소 소개</a>
+      <a href="index.html#practice">업무 분야</a>
+      <a href="tools-calculator.html">수수료 계산기</a>
+      <a href="index.html#gov-links">유용한 링크</a>
+      <a href="column.html">법률 칼럼</a>
+      <a href="index.html#contact" class="nav-cta">상담 문의</a>
+      <a href="index.html#why">선택 이유</a>
+      <a href="index.html#process">상담 절차</a>
+      <a href="index.html#location">찾아오시는 길</a>
+    </nav>
+  </div>
+</header>
+
+
+<h1>[상속 1-1] 상속인들끼리 재산을 어떻게 나눌지 합의가 안 돼요 — 법원이 대신 나눠주는 '상속재산분할심판'</h1>
+
+<div class="tnote">어려운 법률용어에는 <b>점선 밑줄</b>이 그어져 있습니다. <b>PC는 마우스를 올리면</b>, <b>휴대폰은 손가락으로 톡 터치하면</b> 쉬운 설명이 뜹니다. (인쇄하면 괄호로 함께 나옵니다.)</div>
+
+<div class="hire">
+<div class="ht">이 매뉴얼을 끝까지 읽으시는 분께</div>
+<p>이 매뉴얼은 <b>의뢰인이 직접 법원에 신청할 수 있도록 모든 서류 양식·비용·요건을 구체적으로 담았습니다.</b> 하지만 소송은 살아있는 생물과 같아 상대방의 격렬한 저항이 뒤따릅니다. 혼자 진행하시다가 막히는 부분이 생기거나 방어막이 필요할 때, 언제든 이 매뉴얼을 들고 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</p>
+</div>
+
+<div class="tldr">
+<div class="tt">⭐ 30초 결론부터</div>
+<ul>
+<li>형제(상속인)들끼리 재산을 어떻게 나눌지 합의가 안 되면, <b>「상속재산분할심판청구서」 한 장을 상대방(나를 제외한 다른 상속인)이 사는 곳의 <span class="term">가정법원<span class="bub">이혼·상속 등 가족 문제를 전담하는 법원. 가정법원이 없는 지역은 지방법원(가사부)이 그 역할을 합니다.</span></span>에 내면 됩니다.</b> 그러면 법원이 대신 나눠줍니다.</li>
+<li><b>어디에</b>: 상대방 주소지 관할 가정법원 (상대방이 여러 명이면 그중 한 명 주소지) · <b>무엇을</b>: 상속재산분할심판청구서 + 첨부서류 (아래에 양식과 목록 있음)</li>
+<li><b>비용</b>: <span class="term">인지액<span class="bub">법원에 신청서를 낼 때 내는 수수료. 수입인지를 사서 붙이거나 전자소송에서 카드로 냅니다. 나누려는 재산이 클수록 커집니다.</span></span>(재산 규모에 따라 다름) + <span class="term">송달료<span class="bub">법원이 상대방에게 서류를 우편으로 보내는 비용. 신청할 때 미리 냅니다(예납). 남으면 사건이 끝난 뒤 돌려받습니다.</span></span>(사람당 약 66,000원) · <b>걸리는 시간</b>: 보통 6개월~1년</li>
+<li><b>무조건 똑같이 1/n이 아닙니다.</b> 생전에 미리 받은 사람은 빼고, 부모님을 특별히 모신 사람은 더해서 — 법원이 <b>실제 몫</b>을 계산해 나눠줍니다.</li>
+</ul>
+</div>
+
+<h2>지금 어떤 상황인가요?</h2>
+<p>부모님이 돌아가시고 남긴 집·땅·예금을 형제들이 어떻게 나눌지 이야기하다가, 한 사람이라도 "그렇게는 못 한다"고 하면 한 발짝도 못 나갑니다. 상속재산은 원칙적으로 <b>상속인 전원이 동의</b>하여야 나눌 수 있어서, 한 명만 반대해도 막히기 때문입니다. 이때 법원에 "대신 나눠 주세요"라고 신청하는 것이 <b>상속재산분할심판청구</b>입니다.</p>
+<div class="sit-wrap">
+<div class="sit"><span class="sl">상황 ① · 분할을 신청하려는 분 (청구인)</span>합의가 계속 안 되어 <b>내가 법원에 신청하려는</b> 경우. → 아래 <b>흐름도 0~2단계</b>부터 차례로 따라가면 됩니다. 서류는 <b>작성례 ①</b>, 부모님을 특별히 모셨다면 <b>작성례 ③(기여분)</b>을 함께 냅니다.</div>
+<div class="sit"><span class="sl">상황 ② · 신청을 당한 분 (상대방)</span>법원에서 서류가 날아온 경우. 가만히 있으면 상대(청구인) 주장대로 흘러갈 수 있습니다. <b>서류를 받은 날부터 30일 안에 답변서</b>를 내세요. → 분할안에 동의하면 <b>작성례 ②-가</b>, 받아들일 수 없으면 <b>작성례 ②-나</b>(+ 기여분 주장 시 <b>작성례 ③</b>)입니다.</div>
+</div>
+
+<h2>먼저 알아두면 쉬운 4가지</h2>
+<ol class="steps">
+<li><b>나누는 방법은 세 가지입니다.</b> ① 돌아가신 분이 유언으로 나누는 법을 정해둔 경우 → 그대로 따릅니다(지정분할). ② 유언이 없으면 → 상속인 전원이 합의해서 나눕니다(협의분할). ③ 합의가 안 되면 → 법원이 정해줍니다(심판분할). <b>지금 이 매뉴얼이 다루는 경우입니다.</b></li>
+<li><b>무조건 똑같이 1/n로 나누는 게 아닙니다.</b> 법원은 ① 생전에 미리 더 받은 사람(이를 <span class="term">특별수익<span class="bub">돌아가신 분에게서 생전에 미리 받은 재산. 예: 결혼할 때 받은 집, 사업자금으로 받은 현금. 그만큼 미리 상속받은 것으로 보고 그 사람 몫에서 뺍니다(민법 §1008).</span></span>이라 합니다)과 ② 부모를 특별히 모시거나 재산을 늘리는 데 기여한 사람(이를 <span class="term">기여분<span class="bub">돌아가신 분을 특별히 부양하였거나 재산을 지키고 늘리는 데 특별히 기여한 상속인에게 더 주는 몫(민법 §1008의2). 예: 10년간 함께 살며 간병하고 생활비를 댄 자녀.</span></span>이라 합니다)을 따져서, 그만큼 가감한 <b>실제 몫(<span class="term">구체적 상속분<span class="bub">법에 정해진 비율(법정상속분)에서 미리 받은 것은 빼고 기여한 것은 더해 계산한, 그 사람이 실제로 받을 몫.</span></span>)</b>으로 나눠줍니다. 그래서 "형이 생전에 집 살 때 도움받았잖아" 같은 사정이 반영될 수 있습니다.</li>
+<li><b>빚은 이 신청으로 나누지 않습니다.</b> 이 절차는 집·땅·예금 같은 '받을 재산'만 나눕니다. 빚은 법에 따라 자동으로 각자 몫만큼 나뉘어 떠안게 됩니다. (빚이 더 많다면 이 매뉴얼이 아니라 <b>'상속포기'·'한정승인'</b> 항목을 보세요 — <a href="index.html#practice" style="color:var(--gold-d)">업무 분야 → 상속</a>에 있습니다.)</li>
+<li><b>신청에는 기한이 없습니다.</b> 언제든 할 수 있습니다. 다만 오래 두면 증거(누가 얼마를 미리 받았는지, 누가 모셨는지)를 모으기 어려워지니 빠를수록 좋습니다.</li>
+</ol>
+
+<h2>실제로 해결하는 절차 — 전체 길 한눈에 보기</h2>
+<div class="flow">
+<div class="fl-t">서류 준비부터 등기(정산)까지 — 이 길을 그대로 따라가면 됩니다</div>
+<div class="node"><span class="num">0</span><b>재산과 상속인을 확인합니다</b> — 정부24의 <b>'안심상속 원스톱서비스'</b>로 돌아가신 분의 예금·보험·주식·빚을 한 번에 조회하고, 가족관계증명서(<b>반드시 '상세'</b>)로 상속인이 누구누구인지 확정합니다. 재산을 하나라도 빠뜨리면 그 재산은 나중에 다시 절차를 밟아야 합니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">1</span><b>(선택) 마지막으로 협의를 시도합니다</b> — 다른 상속인들에게 <span class="term">내용증명<span class="bub">"이런 내용의 편지를 이날 보냈다"는 것을 우체국이 증명해 주는 우편. 나중에 "협의하려고 했다"는 증거가 됩니다. 우체국 창구나 인터넷우체국에서 보낼 수 있습니다.</span></span>으로 분할 협의를 제안해 둡니다. 필수는 아니지만, 조정 단계에서 "나는 협의하려고 노력했다"는 좋은 자료가 됩니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">2</span><b>가정법원에 심판청구서를 접수합니다</b> — <b>상대방 주소지 관할 가정법원</b>에 상속재산분할심판청구서(작성례 ①)와 첨부서류를 냅니다. 부모님을 특별히 모신 사정이 있으면 <b>기여분 결정 청구서(작성례 ③)를 반드시 함께</b> 냅니다. 접수는 법원 방문 또는 <a href="https://ecfs.scourt.go.kr" target="_blank">대법원 전자소송</a>으로 할 수 있습니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">3</span><b>법원이 상대방에게 서류를 보냅니다</b> — 상대방은 서류를 <b>받은 날부터 30일 안에 답변서</b>를 내야 합니다(작성례 ②-가·②-나). 답변서를 내지 않고 버티면 청구인의 주장 위주로 절차가 진행될 수 있습니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">4</span><b>먼저 '조정' 자리가 열립니다</b> — 가정법원은 바로 재판하지 않고, 우선 서로 대화로 풀어보는 <span class="term">조정<span class="bub">법원이 마련한 대화 자리에서 조정위원의 도움을 받아 합의를 시도하는 절차. 여기서 합의가 되면 그 합의문(조정조서)은 판결과 똑같은 힘이 있습니다.</span></span>에 부칩니다(<span class="term">조정전치주의<span class="bub">"재판보다 조정(대화)이 먼저"라는 원칙(가사소송법 §50). 심판청구서를 내면 법원이 알아서 먼저 조정 자리를 마련하므로, 조정신청서를 따로 낼 필요가 없습니다.</span></span>). 여기서 합의가 되면 그 합의문(조정조서)은 <b>판결과 똑같은 힘</b>이 있어 바로 등기 등으로 넘어갈 수 있습니다. <b>→ 실무상 신청인은 처음부터 '심판청구서'를 내면 되고, 조정 회부는 법원이 알아서 합니다.</b></div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">5</span><b>합의가 안 되면 심문기일이 열립니다</b> — <span class="term">심문기일<span class="bub">판사 앞에서 양쪽이 주장과 증거를 내며 심리하는 날. 일반 재판의 '변론기일'에 해당합니다. 보통 여러 차례 열립니다.</span></span>이 보통 3~6회 진행되고, 부동산 시세 확인이 필요하면 <span class="term">감정<span class="bub">전문가(감정평가사)가 부동산 등의 값어치를 공식적으로 평가하는 절차. 비용은 대상에 따라 다르며 보통 신청한 쪽이 먼저 냅니다.</span></span>을 합니다. 여기서 특별수익·기여분 증거를 다툽니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">6</span><b>법원의 결정(심판) → 불복은 14일 안에</b> — 심판문을 <b>받은 날부터 14일 안에</b> <span class="term">즉시항고<span class="bub">법원의 결정에 불복해 상급법원에 다시 판단해 달라고 하는 절차. 기간(14일)을 넘기면 결정이 그대로 확정됩니다.</span></span>할 수 있습니다. 아무도 불복하지 않으면 확정됩니다. 보통 1심에 6개월~1년 이상 걸립니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">7</span><b>확정된 내용대로 마무리(정산)합니다</b> — 확정된 심판문(또는 조정조서)으로 <b>부동산은 상속등기</b>(인터넷등기소·등기소), <b>예금은 은행에서 지급 청구</b>를 하여 각자 몫을 실제로 받습니다. 상대가 심판 내용대로 이행하지 않으면 심판문으로 <b>강제집행</b>도 할 수 있습니다.</div>
+</div>
+
+<h2>관련 법령 — 쉬운 풀이</h2>
+<div class="lawbox"><span class="ll">민법 §1013</span><b>협의가 안 되면 법원에 청구</b> — 상속재산은 상속인들의 협의로 나누되, <b>협의가 이루어지지 아니하면 가정법원에 분할을 청구</b>할 수 있습니다. 이 매뉴얼 전체의 출발점이 되는 조문입니다.</div>
+<div class="lawbox"><span class="ll">민법 §1008</span><b>특별수익 — 미리 받은 사람은 그만큼 빼고</b> — 생전에 증여받거나 유언으로 받은 상속인은, 그 가액만큼 <b>미리 상속받은 것으로 보아</b> 남은 몫에서 뺍니다. "형은 결혼할 때 집을 받았잖아"가 법적으로 반영되는 근거입니다.</div>
+<div class="lawbox"><span class="ll">민법 §1008의2</span><b>기여분 — 특별히 모신 사람은 그만큼 더</b> — 돌아가신 분을 <b>특별히 부양</b>하였거나 재산의 유지·증가에 <b>특별히 기여</b>한 상속인에게는 그 몫을 더 줍니다. 단, <b>따로 '기여분 결정 청구'를 하여야</b> 법원이 판단합니다(아래 작성례 ③ 참조).</div>
+<div class="lawbox"><span class="ll">가사소송법 §50</span><b>조정이 먼저(조정전치주의)</b> — 상속재산분할은 재판 전에 <b>먼저 조정(대화) 절차</b>를 거칩니다. 심판청구서만 내면 조정 회부는 법원이 알아서 하므로, 조정신청서를 따로 낼 필요는 없습니다.</div>
+
+<h2>판례는 이렇게 말합니다 — 이것만은 조심하세요</h2>
+<div class="case">
+<span class="ct">○ 한 명이라도 빼고 도장 찍으면 전부 무효 — 대법원 1987. 3. 13. 선고 85므80 판결</span>
+"반대하는 형제 한 명만 빼고 나머지끼리 나누자"는 합의는 <b>효력이 전혀 없다</b>고 본 사안입니다. 상속인이 아닌 사람을 끼워 넣은 경우도 마찬가지로 무효입니다. <b>협의분할이든 심판청구든 반드시 상속인 전원이 참여</b>하여야 합니다. (→ 심판청구서의 '상대방' 칸에 나를 뺀 상속인 <b>전원</b>을 적어야 하는 이유입니다.)
+</div>
+<div class="case">
+<span class="ct">○ 예금만 남았는데 누구는 미리 많이 받았다면 — 대법원 2016. 5. 4.자 2014스122 결정</span>
+예금은 원래 사망과 동시에 각자 몫으로 자동으로 나뉘어 따로 분할할 게 없는 게 원칙입니다. 하지만 <b>한 사람이 생전에 많이 증여받아 그대로 두면 불공평할 때는, 예금도 분할 대상에 넣어 정산할 수 있다</b>고 본 사안입니다. (→ "남은 건 예금뿐이니 신청해도 소용없다"고 지레 포기하지 마세요.)
+</div>
+
+<div class="warn">
+<span class="wt">⚠ 함정 — "부모님을 모셨다"고 적기만 하면 기여분은 반영되지 않습니다</span>
+답변서나 청구서에 "내가 부모님을 모셨으니 기여분을 인정해 달라"고 <b>적기만 해서는, 법원이 기여분을 계산해 주지 않습니다.</b> 기여분은 "재산을 나눠 달라"는 분할심판과는 <b>별개의 요청</b>이기 때문입니다(민법 §1008의2). 쉽게 말하면 — 식당에서 "이 음식 좀 짜네요"라고 말만 하는 것(서면 속 언급)과 "소금 빼고 다시 만들어 주세요"라고 정식으로 주문하는 것(기여분 결정 청구)은 다릅니다. 불만을 말한다고 새 음식이 자동으로 나오지 않듯, <b>「기여분 결정 청구서」(작성례 ③)를 따로 내야</b> 법원이 그 몫을 계산합니다.
+</div>
+
+<div class="tip">
+<span class="pt">💡 서류 뗄 때 꿀팁 두 가지</span>
+<b>① 증명서는 꼭 '상세'를 고르세요.</b> 가족관계증명서·기본증명서는 발급 화면에서 '일반'과 '상세' 중 고를 수 있는데, 상속에서는 <b>반드시 '상세'</b>여야 합니다. '일반'은 현재 정보만 나와서, 사망·혼인·입양 등 상속인을 확정하는 데 필요한 과거 기록이 빠집니다.<br>
+<b>② '안심상속 원스톱서비스'를 꼭 기억하세요.</b> 돌아가신 분의 예금·보험·주식·빚이 어디에 얼마나 있는지 한 번에 조회해 주는 정부 서비스입니다. 사망신고를 할 때 주민센터에서 함께 신청할 수도 있습니다. 놓치면 재산을 빠뜨릴 수 있어 매우 중요합니다.
+</div>
+
+<h2>내 상황에 맞는 서류 고르기</h2>
+<table>
+<tr><th>나의 상황</th><th>내야 할 서류</th><th>작성례</th></tr>
+<tr><td>합의가 안 되어 <b>내가 법원에 신청</b>하려 한다</td><td><b>상속재산분할심판청구서</b></td><td>작성례 ①</td></tr>
+<tr><td>신청을 당했는데 <b>그 분할안에 동의</b>한다</td><td><b>답변서(동의)</b> — 조정으로 빠르게 마무리</td><td>작성례 ②-가</td></tr>
+<tr><td>신청을 당했는데 <b>받아들일 수 없다</b></td><td><b>답변서(다툼)</b> — 특별수익·기여분 주장</td><td>작성례 ②-나</td></tr>
+<tr><td>부모님을 특별히 모셨다 — <b>내 몫을 더 인정받고 싶다</b></td><td><b>기여분 결정 청구서</b> (①이나 ②-나와 반드시 함께)</td><td>작성례 ③</td></tr>
+</table>
+
+<h2>신청서·서면 작성례 — 양 당사자(청구인·상대방) 모두</h2>
+<p style="font-size:13.5px;color:var(--muted)">아래 작성례의 빈칸(○○○)을 본인 상황에 맞게 채우면 그대로 제출할 수 있습니다. 제목은 가운데 정렬된 법원 제출 양식입니다(대법원·법률구조공단 공개 서식 기준). <b>복사·인쇄·다운로드</b> 버튼을 활용하십시오.</p>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ① · 신청하는 분</span>상속재산분할심판청구서<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f1"><span class="ft">상 속 재 산 분 할 심 판 청 구</span>청 구 인   ○○○   (주민등록번호: ○○○○○○-○○○○○○○)
+          주소: ○○○
+          송달장소: ○○○ (우편물 받을 곳)   (☎: ○○○-○○○○-○○○○)
+
+상 대 방   1. ○○○ (다른 상속인)   (주민등록번호: ○○○○○○-○○○○○○○)
+             주소: ○○○
+          2. ○○○ (또 다른 상속인)
+             주소: ○○○
+
+사건본인(피상속인)   망 ○○○   (주민등록번호: ○○○○○○-○○○○○○○)
+          최후주소: ○○○
+          사망일자: 20○○. ○○. ○○.
+
+         청 구 취 지
+
+  1. 별지 목록 기재 상속재산을 다음과 같이 분할한다.
+     가. 별지 목록 제1항 부동산은 청구인의 소유로 한다.
+     나. 별지 목록 제2항 예금은 청구인과 상대방들이 각 ○분의 ○로
+         분할한다.
+  2. 심판비용은 각자 부담한다.
+     라는 심판을 구합니다.
+
+         청 구 원 인
+
+  1. 당사자들의 관계
+     피상속인 망 ○○○은 20○○. ○○. ○○. 사망하였고, 상속인으로는
+     청구인과 상대방들이 있습니다.
+  2. 상속재산
+     피상속인이 남긴 재산은 별지 목록 기재와 같습니다.
+  3. 협의 경과
+     상속인들끼리 분할을 협의하였으나 ○○○(예: 상대방 ○○○의
+     반대)으로 합의에 이르지 못하였습니다.
+  4. 분할 방법에 관한 의견
+     ○○○(원하는 분할 방법과 그 이유. 예: 청구인은 피상속인을
+     ○년간 부양하였으므로 기여분이 반영되어야 합니다 — 이 경우
+     기여분 결정 청구를 함께 제출)
+  5. 결론
+     이에 상속재산의 분할을 구하고자 이 청구에 이르렀습니다.
+
+         입 증 방 법
+  1. 갑 제1호증   피상속인 기본증명서(상세)
+  2. 갑 제2호증   가족관계증명서(상세)
+  3. 갑 제3호증   부동산 등기사항전부증명서
+  4. 갑 제4호증   예금 잔액증명서
+
+         첨 부 서 류
+  1. 위 입증방법   각 1통
+  2. 청구서 부본   상대방 수만큼
+  3. 인지·송달료 납부서   각 1통
+
+              20○○. ○○. ○○.
+                위 청구인  ○○○ (인)
+
+○○가정법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1')">📋 복사</button><button type="button" onclick="printForm('f1')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1','상속재산분할심판청구서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>누가 누구인지부터</b> — '청구인'은 신청하는 나, '상대방'은 <b>나를 뺀 나머지 상속인 전원</b>(한 명도 빠뜨리면 안 됩니다 — 위 85므80 판례), '사건본인'은 돌아가신 분입니다. <b>'청구취지'</b>는 "내가 법원에 바라는 결론"입니다 — 어떻게 나눠달라는지(누가 무엇을 갖는지)를 적습니다. 위는 예시이니 본인이 원하는 분할 방법으로 바꾸세요. <b>'청구원인'</b>은 "왜 이렇게 나눠야 하는지 이유"입니다 — 누가 상속인인지, 무슨 재산이 있는지, 합의가 왜 안 됐는지, 어떻게 나누고 싶은지를 순서대로 적습니다. <b>'입증방법'</b>은 내 주장을 뒷받침하는 증거 서류 목록인데, '갑 제1호증'은 그냥 "내가 내는 증거 1번"이라는 뜻입니다(신청하는 쪽은 '갑', 상대방은 '을'을 씁니다). 맨 끝에 날짜·이름을 쓰고 도장(또는 서명)을 찍고, '귀중' 앞에는 접수할 가정법원 이름을 적습니다. <b>관할은 상대방 주소지 가정법원</b>입니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ②-가 · 신청을 당한 분</span>답변서 (분할안에 동의하는 경우)<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f2"><span class="ft">답 변 서</span>사  건   20○○느합○○○○   상속재산분할
+청구인   ○○○
+상대방   ○○○   (☎: ○○○-○○○○-○○○○)
+
+         청구취지에 대한 답변
+
+  1. 청구인의 청구취지에 동의합니다.
+  2. 원만한 조정 성립을 희망합니다.
+
+         답 변 이 유
+
+  상대방은 청구인이 제시한 분할 방법에 이의가 없으며, 조속히
+  상속관계가 정리되기를 바랍니다.
+
+              20○○. ○○. ○○.
+                위 상대방  ○○○ (인)
+
+○○가정법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f2')">📋 복사</button><button type="button" onclick="printForm('f2')">🖨 인쇄</button><button type="button" onclick="downloadForm('f2','상속재산분할_답변서_동의.txt')">⬇ 다운로드</button></div>
+<div class="howto">'사건' 칸의 번호(20○○느합○○○○)는 <b>법원이 보낸 서류 맨 위에 찍혀 있으니 그대로 옮겨</b> 적습니다. 분할안에 동의하면 이 답변서 한 장으로 조정에서 빠르게 마무리될 수 있습니다. <b>서류를 받은 날부터 30일 안에</b> 내세요. ※ 사건번호 부호(느합/느단)는 사건 규모에 따라 다를 수 있으니, 받은 서류에 적힌 그대로 쓰면 됩니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ②-나 · 신청을 당한 분</span>답변서 (받아들일 수 없어 다투는 경우)<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f3"><span class="ft">답 변 서</span>사  건   20○○느합○○○○   상속재산분할
+청구인   ○○○
+상대방   ○○○   (☎: ○○○-○○○○-○○○○)
+
+         청구취지에 대한 답변
+
+  1. 청구인의 청구를 기각한다.
+  2. 별지 목록 상속재산을 상대방의 기여분 ○○%를 공제한 후
+     분할한다.  라는 심판을 구합니다.
+
+         답 변 이 유
+
+  (유형 A — 내가 부모님을 더 모셨다)
+  상대방은 피상속인을 20○○. ○○.부터 20○○. ○○.까지 ○○○
+  (동거 부양 / 간병 / 사업 무상 조력 등) 하였으므로, 그 기여가
+  반영되어야 합니다(민법 제1008조의2). 이에 기여분 결정 청구를
+  함께 제출합니다.
+
+  (유형 B — 청구인이 생전에 더 받았다)
+  청구인은 피상속인 생전에 ○○○(부동산 / 현금 등)을 증여받았으
+  므로(민법 제1008조), 이는 청구인의 몫에서 공제되어야 합니다.
+
+         입 증 방 법
+  1. 을 제1호증   ○○○ (간병기록 / 계좌이체내역 / 증여계약서 등)
+
+              20○○. ○○. ○○.
+                위 상대방  ○○○ (인)
+
+○○가정법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f3')">📋 복사</button><button type="button" onclick="printForm('f3')">🖨 인쇄</button><button type="button" onclick="downloadForm('f3','상속재산분할_답변서_다툼.txt')">⬇ 다운로드</button></div>
+<div class="howto">둘 중 <b>내 상황에 맞는 유형만 골라</b> 쓰면 됩니다(둘 다 해당하면 둘 다). 내가 내는 증거는 '을 제○호증'으로 번호를 붙입니다(신청한 쪽이 '갑', 나는 '을'). <b>유형 A(기여분)를 주장한다면 이 답변서만으로는 부족합니다</b> — 반드시 <b>기여분 결정 청구서(작성례 ③)를 함께</b> 내야 법원이 계산해 줍니다. <b>다른 상속인 서류는 못 떼도 괜찮습니다.</b> 나와 돌아가신 분의 서류는 내가 뗄 수 있지만 다른 상속인 서류는 직접 못 떼는데, 일단 답변서를 내면 법원이 "이 서류 보완하세요"(<span class="term">보정명령<span class="bub">법원이 "서류가 부족하니 채워 내라"고 알려주는 명령. 이 명령서가 있으면 평소 못 떼는 다른 사람 서류도 뗄 수 있게 됩니다.</span></span>)라고 알려주거나 직접 조회해 줍니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag">작성례 ③ · 기여를 주장하는 분</span>기여분 결정 청구서 (①이나 ②-나와 반드시 함께)<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f4"><span class="ft">기 여 분 결 정 청 구</span>청 구 인   ○○○   (주민등록번호: ○○○○○○-○○○○○○○)
+          주소: ○○○   (☎: ○○○-○○○○-○○○○)
+
+상 대 방   1. ○○○ (나를 뺀 나머지 상속인)
+             주소: ○○○
+          2. ○○○ (또 다른 상속인)
+             주소: ○○○
+
+사건본인(피상속인)   망 ○○○
+          사망일자: 20○○. ○○. ○○.
+
+         청 구 취 지
+
+  청구인의 기여분을 상속재산의 ○○%(또는 금 ○○○원)로 정한다.
+  라는 심판을 구합니다.
+
+         청 구 원 인
+
+  1. 청구인은 피상속인의 ○○○(자녀 등)으로서 공동상속인입니다.
+  2. 청구인은 20○○. ○○.부터 20○○. ○○.까지 ○○○(동거하며
+     간병 / 생활비 부담 / 사업 무상 조력 등) 피상속인을 특별히
+     부양(또는 재산 유지·증가에 기여)하였습니다.
+  3. 이는 자녀로서 통상 기대되는 정도를 넘는 특별한 기여로서, 그
+     결과 피상속인의 재산이 유지·증가되었습니다.
+  4. 이에 청구인의 기여분 결정을 구합니다.
+
+         입 증 방 법
+  1. 을 제1호증   간병 기록·진료비 영수증
+  2. 을 제2호증   계좌이체 내역(생활비·치료비 송금)
+  3. 을 제3호증   인우보증서(이웃·친지의 확인서) 등
+
+         첨 부 서 류
+  1. 위 입증방법   각 1통
+  2. 청구서 부본   상대방 수만큼
+
+              20○○. ○○. ○○.
+                위 청구인  ○○○ (인)
+
+○○가정법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f4')">📋 복사</button><button type="button" onclick="printForm('f4')">🖨 인쇄</button><button type="button" onclick="downloadForm('f4','기여분결정청구서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>꼭 기억할 세 가지.</b> ① <b>혼자서는 못 냅니다</b> — 기여분 결정 청구는 상속재산분할 청구가 있을 때에만 할 수 있습니다(민법 §1008의2 제4항). 내가 먼저 분할심판을 청구하면서 함께 내거나, 상대가 걸어왔을 때 답변서와 함께 냅니다. 따로 떼어 내면 법원이 받아주지 않습니다(각하). ② <b>같은 가정법원에 내면 됩니다</b> — 분할심판과 기여분 청구는 한 사건으로 묶여 함께 판단됩니다(가사소송규칙 §112②). ③ <b>핵심은 "통상 기대되는 수준을 넘는 특별한 기여"</b>임을 보여주는 것입니다 — 가끔 찾아뵌 정도가 아니라, 오래 함께 살며 간병했다거나 생활비·치료비를 댔다거나 부모 사업을 무상으로 도왔다는 <b>구체적 사실을 기간과 함께</b> 적고, 진료비 영수증·이체내역·동거 이력(주민등록 초본) 같은 자료로 뒷받침합니다. 청구취지의 수치(%)가 어려우면 대략 적으세요 — 심리 과정에서 조정됩니다. ※ 상속을 포기한 사람, 상속분을 남에게 넘긴 사람, 사실혼 배우자, 상속인의 배우자는 기여분을 주장할 수 없습니다.</div>
+</div></div>
+
+<h2>준비할 서류와 발급처</h2>
+<p style="font-size:13.5px;color:var(--muted)">아래 '바로가기'를 클릭하면 발급·조회 화면으로 이동합니다. 만약 첫 화면으로 연결되면, 옆의 <b>찾아가기 경로</b>를 따라 메뉴를 클릭하면 됩니다.</p>
+<table>
+<tr><th>서류</th><th>어디서</th><th>바로가기 · 찾아가기 경로</th></tr>
+<tr><td>돌아가신 분의 제적등본, 가족관계증명서(<b>상세</b>), 기본증명서(<b>상세</b>)</td><td>대법원 전자가족관계등록시스템</td><td><a href="https://efamily.scourt.go.kr" target="_blank">efamily.scourt.go.kr</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 증명서 발급 → 가족관계증명서 등 선택 → <b>'상세'</b> 선택</span></td></tr>
+<tr><td>돌아가신 분의 말소된 주민등록표 초본(주소 이력 포함)</td><td>정부24</td><td><a href="https://www.gov.kr" target="_blank">gov.kr</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 검색창에 '주민등록표초본' 검색 → 발급</span></td></tr>
+<tr><td>내(청구인) 가족관계증명서·주민등록표 초본</td><td>위와 동일</td><td><span style="font-size:12.5px;color:var(--muted)">위 두 곳에서 각각 발급</span></td></tr>
+<tr><td>나눌 부동산의 등기사항전부증명서</td><td>인터넷등기소</td><td><a href="https://www.iros.go.kr" target="_blank">iros.go.kr</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 부동산 등기 → 열람/발급 → 주소 검색</span></td></tr>
+<tr><td>나눌 부동산의 토지대장·건축물대장</td><td>정부24</td><td><a href="https://www.gov.kr" target="_blank">gov.kr</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 검색창에 '토지대장' 또는 '건축물대장' 검색 → 발급</span></td></tr>
+<tr><td>돌아가신 분의 예금·보험 등 금융재산 내역</td><td>정부24 '안심상속 원스톱서비스'</td><td><a href="https://www.gov.kr" target="_blank">gov.kr</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 검색창에 '안심상속' 검색 → 신청 (사망신고 시 주민센터에서 함께 신청 가능)</span></td></tr>
+<tr><td>심판청구서·답변서 제출 (전자 접수)</td><td>대법원 전자소송</td><td><a href="https://ecfs.scourt.go.kr" target="_blank">ecfs.scourt.go.kr</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 서류제출 → 가사 서류 → 가사비송 → 상속재산분할심판청구</span></td></tr>
+</table>
+
+<div class="cost">
+<span class="ct">💰 비용 — 인지액·송달료·감정료</span>
+<b>① 인지액</b>: 나누려는 재산이 많을수록 커집니다. 보통 수만 원대에서 시작해 재산이 크면 수십만 원~백만 원대까지 갈 수 있습니다. [사건별로 달라 확인필요]<br>
+<b>② 송달료</b>: 당사자 1명당 12회분을 미리 냅니다. 1회분 5,500원(2025년 기준)이라 <b>1명당 약 66,000원</b>이고, 사람 수만큼 늘어납니다. (예: 나 + 상대방 2명 = 3명 × 66,000원 = 약 198,000원)<br>
+<b>③ 감정료</b>: 부동산 시세 확인이 필요하면 별도로 듭니다(대상에 따라 다름).
+<div style="margin-top:11px; padding-top:10px; border-top:1px dashed #cfe6d6; color:#c0392b; font-weight:600; line-height:1.8;">※ 사건 정보를 입력하면 인지대·송달료를 포함한 예상 금액을 <a href="https://sanlaw.co.kr/tools-calculator.html" style="color:#c0392b; text-decoration:underline; font-weight:700;">🧮 수수료 계산기</a>에서 미리 확인할 수 있습니다.</div>
+</div>
+
+<h2>본 사무소가 도와드리는 일</h2>
+<div class="hire">
+<p>본 사무소에서는 의뢰인들의 고충은 덜어드리고, 함께 소송을 진행하여 원하는 결과에 도달할 수 있도록 성심을 다하겠습니다.</p>
+<p style="margin-top:12px"><b>· 분할을 신청하려는 분(청구인)의 경우</b><br>① <b>상속재산분할심판청구서</b> 작성(재산목록·분할안 설계 포함), ② 특별수익·기여분 주장 정리와 <b>기여분 결정 청구서</b> 작성, ③ 안심상속 조회 결과를 토대로 한 <b>재산 누락 점검</b>, ④ 조정·심문 단계의 <b>준비서면</b> 작성과 심판 확정 후 <b>상속등기</b>까지 — <b>본인소송의 전 과정을 함께</b> 준비해 드립니다.</p>
+<p style="margin-top:10px"><b>· 신청을 당한 분(상대방)의 경우</b><br>① 30일 기한 안의 <b>답변서</b>(동의/다툼) 작성, ② 상대 주장의 허점 분석과 <b>특별수익 입증자료</b> 정리, ③ <b>기여분 결정 청구서</b> 작성까지 함께합니다.</p>
+</div>
+<div class="warn"><span class="wt">⚠ 임의로 나누거나 빼돌리면 안 됩니다</span>합의가 안 됐다고 해서 일부 상속인끼리만 도장을 찍어 등기하거나(위 85므80 판례 — <b>전부 무효</b>), 돌아가신 분 계좌에서 <b>다른 상속인 동의 없이 예금을 임의로 인출</b>하는 것은 나중에 반환 청구·형사 문제까지 번질 수 있습니다. 반드시 위 합법적 절차(협의 → 조정 → 심판)에 따라야 합니다.</div>
+
+<a href="https://sanlaw.co.kr/tools-calculator.html" class="cta">🧮 내 사건 비용 미리 계산하기</a>
+<div style="text-align:center; background:#f6ecd8; border:1px solid var(--gold); border-radius:11px; padding:14px; margin:18px 0; font-size:15px; color:var(--gold-d); font-weight:700;">📞 상담은 홈 화면의 상담 창구를 이용하시면 됩니다.</div>
+
+<div class="tip"><span class="pt">💡 이어지는 카드</span> 빚이 더 많을 때의 <b>상속포기·한정승인</b>, 한 자녀에게 몰아준 경우의 <b>유류분</b>, 누가 내 상속분을 가로챈 경우의 <b>상속회복청구</b>는 <a href="index.html#practice" style="color:var(--tip-ink);font-weight:700">업무 분야 → 상속</a>에서 준비되는 대로 차례로 게시됩니다.</div>
+
+<div class="src">
+근거 — 민법 제1008조(특별수익자의 상속분)·제1008조의2(기여분)·제1013조(협의에 의한 분할) · 가사소송법 제50조(조정전치주의) · 가사소송규칙 제112조 제2항(기여분 청구의 병합) · 대법원 1987. 3. 13. 선고 85므80 판결(상속인 전원이 참여하지 아니한 협의분할은 무효) · 대법원 2016. 5. 4.자 2014스122 결정(특별수익 등 형평을 위하여 필요한 경우 예금채권도 분할 대상에 포함 가능) · 대한법률구조공단(klac.or.kr) 상담사례·서식 · 법제처 찾기쉬운 생활법령정보(easylaw.go.kr) · 대법원 전자민원센터 양식. 본 자료는 일반적인 법률정보로, 개별 사건의 법률자문이 아닙니다.
+</div>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+})();
+function toggleFold(b){var fb=b.parentElement;var body=b.nextElementSibling;var open=fb.classList.toggle('open');if(body){body.style.display=open?'block':'none';}}
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('작성례가 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('작성례가 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('작성례를 내려받았습니다');}
+</script>
+
+</body>
+</html>
