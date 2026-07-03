@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[상속 3-4] 자녀가 모두 상속을 포기하면 손주에게 빚이 넘어가나요 | 산 법무사 김재섭</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(280px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.case{background:var(--box); border-radius:10px; padding:14px 16px; margin:14px 0; border-left:4px solid #b9a98c;}
+.case .ct{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+.sit-wrap{display:flex; gap:12px; margin:14px 0;}
+.sit{flex:1; background:#f8f5ee; border:1px solid var(--line); border-top:3px solid var(--gold); border-radius:10px; padding:13px 15px; font-size:14.5px; line-height:1.75;}
+.sit .sl{display:block; font-weight:700; color:var(--gold-d); margin-bottom:6px; font-size:14px;}
+@media (max-width:680px){ .sit-wrap{flex-direction:column;} }
+/* 전체 길 흐름도 */
+.flow{background:linear-gradient(180deg,#faf7f0,#f6f1e6); border:1px solid var(--line); border-radius:14px; padding:22px 20px; margin:16px 0;}
+.flow .fl-t{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:18px; text-align:center; letter-spacing:.3px;}
+.flow .node{position:relative; background:#fff; border:1px solid #e3d8c4; border-radius:11px; padding:15px 18px 15px 56px; font-size:14.5px; line-height:1.72; box-shadow:0 2px 6px rgba(122,82,48,.07);}
+.flow .node .num{position:absolute; left:15px; top:14px; width:30px; height:30px; line-height:30px; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; border-radius:50%; font-weight:800; font-size:15px; font-family:'Nanum Myeongjo',serif; box-shadow:0 2px 5px rgba(122,82,48,.3);}
+.flow .node b{color:#241a10;}
+.flow .down{display:flex; justify-content:center; align-items:center; padding:7px 0;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+/* 작성례 박스 */
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:15px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .tag{margin-bottom:0;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;}
+.tag.cred{background:#5a9a72;}
+.tag.debt{background:#d9694a;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:18px;margin:12px 0;font-family:'D2Coding','Courier New',monospace;font-size:13px;line-height:1.6;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:16px;letter-spacing:2px;margin-bottom:12px;color:#241a10;}
+.howto{font-size:14px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0 4px;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:13px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:7px 13px;cursor:pointer;transition:.15s;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.75;}
+.lawbox .ll{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:#241a10;border-radius:5px;padding:2px 9px;margin-right:7px;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.hire p{margin:7px 0; font-size:15px; line-height:1.8;}
+.cta{display:block;text-align:center;background:var(--gold-d);color:#fff;font-weight:700;font-size:17px;text-decoration:none;padding:15px;border-radius:11px;margin:18px 0;font-family:'Nanum Myeongjo',serif;letter-spacing:1px;}
+.cta:hover{background:#5e3f24;}
+@media print{
+  body{background:#fff; max-width:100%;}
+  .tldr,.case,.warn,.tip,.cost,.steps li,.tnote,.sit,.flow,.flow li,.lawbox,.hire{background:#fff !important; border-color:#ccc !important;}
+  .tnote{display:none;}
+  .term{border:none; color:inherit; font-weight:inherit;}
+  .term>.bub{display:inline !important; position:static; width:auto; background:none; color:inherit; box-shadow:none; padding:0; font-size:inherit; line-height:inherit;}
+  .term>.bub::before{content:" ("; }
+  .term>.bub::after{content:")"; border:none; position:static;}
+  .fold-body{display:block !important;}.fold-btn .chev{display:none;}.form-tools{display:none;}
+  .cta{background:#fff !important; color:#241a10 !important; border:1px solid #ccc;}
+}
+</style>
+</head>
+<body>
+<!-- ===== 공통 상단 메뉴 (전 페이지 공통) ===== -->
+<style>
+.subbar{background:#16202e;padding:13px 0;position:sticky;top:0;z-index:100;font-family:'Pretendard','Malgun Gothic','맑은 고딕',sans-serif}
+.subbar .sb-in{max-width:1180px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.subbar a.sb-logo{color:#fff;text-decoration:none;font-weight:800;font-size:15.5px;white-space:nowrap;letter-spacing:-.3px}
+.subbar a.sb-logo .mk{color:#b08d57}
+.subbar .slinks{display:flex;align-items:center;gap:18px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.subbar .slinks::-webkit-scrollbar{display:none}
+.subbar .slinks a{color:rgba(255,255,255,.85);font-size:14px;font-weight:500;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:.3s}
+.subbar .slinks a:hover{color:#c9a878}
+.subbar .slinks a.nav-cta{background:#b08d57;color:#fff;padding:8px 15px;border-radius:2px;font-weight:600}
+.subbar .slinks a.nav-cta:hover{background:#c9a878}
+@media(max-width:640px){.subbar{padding:10px 0}.subbar .sb-in{flex-direction:column;align-items:stretch;gap:8px;padding:0 12px}.subbar a.sb-logo{text-align:center;font-size:14px}.subbar .slinks{gap:14px}}
+@media print{.subbar{display:none}}
+</style>
+<header class="subbar">
+  <div class="sb-in">
+    <a href="index.html" class="sb-logo">산 <span class="mk">법무사</span> 김재섭 행정사 사무소</a>
+    <nav class="slinks" aria-label="주요 메뉴">
+      <a href="index.html#about">사무소 소개</a>
+      <a href="index.html#practice">업무 분야</a>
+      <a href="tools-calculator.html">수수료 계산기</a>
+      <a href="index.html#gov-links">유용한 링크</a>
+      <a href="column.html">법률 칼럼</a>
+      <a href="index.html#contact" class="nav-cta">상담 문의</a>
+      <a href="index.html#why">선택 이유</a>
+      <a href="index.html#process">상담 절차</a>
+      <a href="index.html#location">찾아오시는 길</a>
+    </nav>
+  </div>
+</header>
+
+
+<h1>[상속 3-4] 자녀가 모두 상속을 포기하면 손주에게 빚이 넘어가나요</h1>
+
+<div class="tnote">어려운 법률용어에는 <b>점선 밑줄</b>이 그어져 있습니다. <b>PC는 마우스를 올리면</b>, <b>휴대폰은 손가락으로 톡 터치하면</b> 쉬운 설명이 뜹니다. (인쇄하면 괄호로 함께 나옵니다.)</div>
+
+<div class="hire">
+<div class="ht">이 매뉴얼을 끝까지 읽으시는 분께</div>
+<p>이 매뉴얼은 <b>의뢰인이 직접 법원에 신청할 수 있도록 모든 서류 양식·비용·요건을 구체적으로 담았습니다.</b> 하지만 소송은 살아있는 생물과 같아 상대방의 격렬한 저항이 뒤따릅니다. 혼자 진행하시다가 막히는 부분이 생기거나 방어막이 필요할 때, 언제든 이 매뉴얼을 들고 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</p>
+</div>
+
+<div class="tldr">
+<div class="tt">⭐ 30초 결론부터</div>
+<ul>
+<li><b>자녀가 전부 포기 + 배우자 생존 → 배우자 단독상속.</b> 이때 빚은 <b>손주에게 내려가지 않습니다.</b> 배우자가 <span class="term">단독상속<span class="bub">상속인이 한 사람뿐인 상속. 다른 사람과 나누지 않습니다.</span></span>인이 되기 때문입니다(대법원 2023. 3. 23.자 2020그42 전원합의체 — 종전 판례 변경).</li>
+<li><b>★단, 배우자도 없거나 배우자까지 포기하면 → 손주에게 내려갑니다.</b> 이때는 <span class="term">상속포기의 소급효<span class="bub">상속을 포기하면 처음부터 상속인이 아니었던 것으로 거슬러 봅니다(민법 §1042). 그래서 그다음 순위로 상속이 넘어갑니다.</span></span>로 손주(직계비속)가 <span class="term">후순위 상속인<span class="bub">앞 순위 상속인이 모두 포기하면 그다음 순위로 상속인이 되는 사람.</span></span>이 되므로, <b>손주도 포기하여야</b> 합니다.</li>
+<li><b>빚 상속의 정석 설계</b>: 배우자가 있으면 <b>배우자가 <span class="term">한정승인<span class="bub">"물려받는 재산의 범위 안에서만 빚을 갚겠다"고 법원에 신고하는 것(민법 §1028). 내 재산으로 물려받은 빚을 갚을 의무가 없어집니다.</span></span> + 자녀 전원 포기</b>가 가장 간명합니다. 배우자가 청산을 맡고, 손주·친척으로 빚이 번지지 않습니다.</li>
+<li><b>이미 손주에게 청구가 왔다면?</b> 채권자가 손주에게 <span class="term">승계집행문<span class="bub">판결 등의 효력을 상속인 등 승계인에게 미치게 하기 위해 법원이 덧붙여 주는 집행문. 이것이 있어야 상속인의 재산에 강제집행을 할 수 있습니다.</span></span>으로 집행해 오면, <b>"배우자 단독상속이라 손주는 상속인이 아니다"</b>라며 이의신청(작성례 ②)으로 막을 수 있습니다.</li>
+</ul>
+</div>
+
+<h2>지금 어떤 상황인가요?</h2>
+<p>돌아가신 분이 남긴 것이 재산보다 빚이 많아 자녀들이 모두 상속을 포기하려는 집이 많습니다. 그런데 "우리가 포기하면 그 빚이 어린 손주에게 넘어가는 것 아니냐"는 걱정에 밤잠을 설치게 됩니다. 결론부터 말씀드리면 — <b>배우자(할머니·할아버지 중 생존한 분)가 계신지에 따라 답이 완전히 달라집니다.</b> 2023년 대법원이 판례를 바꿔 많은 가정의 걱정을 덜어 주었습니다.</p>
+<div class="sit-wrap">
+<div class="sit"><span class="sl">상황 ① · 손주 걱정 (설계 단계)</span>빚 때문에 자녀가 다 포기하려는데, 어린 <b>손주에게 빚이 넘어갈까</b> 걱정인 경우. → 배우자 생존 여부에 따라 설계가 갈립니다. 아래 <b>흐름도 0~3단계</b>와 <b>유형별 사례</b>를 보세요.</div>
+<div class="sit"><span class="sl">상황 ② · 손주에게 이미 청구 (방어 단계)</span>자녀가 다 포기했는데 채권자가 <b>손주에게 승계집행문·독촉장·소장</b>을 보내온 경우. → <b>작성례 ②</b>(이의신청)로 막거나, 실제로 상속인이 된 경우라면 그때부터 3개월 안에 <b>작성례 ①</b>(포기)을 냅니다.</div>
+</div>
+
+<h2>먼저 알아두면 쉬운 5가지</h2>
+<ol class="steps">
+<li><b>상속에는 순위가 있습니다.</b> ① <span class="term">직계비속<span class="bub">나로부터 아래로 이어지는 혈족 — 자녀, 손자녀, 증손자녀.</span></span>(자녀·손주) → ② <span class="term">직계존속<span class="bub">나로부터 위로 이어지는 혈족 — 부모, 조부모.</span></span>(부모·조부모) → ③ 형제자매 → ④ 4촌 이내 <span class="term">방계혈족<span class="bub">형제자매나 그 자녀처럼 옆으로 갈라져 나간 혈족 — 삼촌, 고모, 조카, 사촌 등.</span></span> 순서이고(민법 §1000), <b>배우자는 ①·②순위와는 공동으로, 그들이 없으면 단독으로</b> 상속합니다(§1003).</li>
+<li><b>포기하면 '처음부터 상속인이 아니었던 것'이 됩니다.</b> 그래서 앞 순위가 전부 포기하면 상속은 그다음 순위로 내려갑니다(§1042·§1043). 빚만 있는 상속에서 "나만 포기하면 끝"이 아닌 이유입니다.</li>
+<li><b>'자녀 전부 포기 + 배우자 생존' = 배우자 단독상속.</b> 2023년 대법원 전원합의체가 종전 판례를 바꿔, 이 경우 포기한 자녀들의 몫은 <b>남아 있는 배우자에게 귀속</b>되어 배우자가 단독상속인이 되고, 손주·조부모와 공동상속이 되지 않는다고 정리했습니다(2020그42). 그래서 이 구도에서는 <b>손주가 별도로 포기하지 않아도</b> 빚을 떠안지 않습니다.</li>
+<li><b>후순위의 3개월은 '안 날'부터 따로 셉니다.</b> 손주 등 후순위는 '<b>앞 순위가 모두 포기하여 자신이 상속인이 된 사실을 안 날</b>'부터 3개월 안에 포기·한정승인을 하면 됩니다(§1019①, 대법원 2003다43681). 채권자의 소장·독촉장을 받고서야 알았다면 <b>그 받은 날부터</b> 세는 것이 실무입니다.</li>
+<li><b>포기 전에 재산에 손대면 안 됩니다.</b> 돌아가신 분의 예금을 찾아 쓰거나 재산을 처분하면 <b>상속을 받아들인 것(<span class="term">법정단순승인<span class="bub">상속재산을 처분하는 등 일정한 행동을 하면, 포기·한정승인을 하지 않았어도 "빚까지 전부 상속받겠다"고 한 것으로 법이 간주하는 것(민법 §1026).</span></span>)으로 간주</b>되어 포기가 막힐 수 있습니다(§1026). 장례비 정도를 제외하고는 일절 손대지 마세요.</li>
+</ol>
+
+<h2>실제로 해결하는 절차 — 전체 길 한눈에 보기</h2>
+<div class="flow">
+<div class="fl-t">가족 확인부터 채권자 방어까지 — 이 길을 그대로 따라가면 됩니다</div>
+<div class="node"><span class="num">0</span><b>재산·빚·가족(순위)을 확인합니다</b> — 정부24의 <b>'안심상속 원스톱서비스'</b>로 돌아가신 분의 예금·보험·대출·세금 체납을 한 번에 조회하고, 가족관계증명서(<b>반드시 '상세'</b>)·제적등본으로 배우자 생존 여부와 자녀·손주·직계존속·형제자매를 확정합니다. <b>배우자가 계신지가 설계의 갈림길</b>입니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">1</span><b>설계를 정합니다</b> — <b>배우자가 있으면</b>: '배우자 한정승인 + 자녀 전원 포기'(→ 손주로 안 내려감, 2020그42). <b>배우자가 없으면</b>: '자녀 중 1명 한정승인 + 나머지 포기'(연쇄 차단) 또는 '전원 포기 + 후순위(손주 등)까지 함께 포기'. <b>누군가 한 명이 한정승인으로 매듭을 지으면 후순위 연쇄가 멈춘다</b>는 것이 핵심입니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">2</span><b>가정법원에 심판청구를 냅니다 (3개월 안)</b> — 포기하는 사람은 <b>상속재산포기 심판청구서</b>(후순위용은 작성례 ①), 한정승인하는 사람은 한정승인 심판청구서를 <b>돌아가신 분의 마지막 주소지 관할 가정법원</b>에 냅니다. 방문·우편 또는 <a href="https://ecfs.scourt.go.kr" target="_blank">대법원 전자소송</a>으로 접수할 수 있습니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">3</span><b><span class="term">수리심판<span class="bub">법원이 "포기(또는 한정승인) 신고를 받아들인다"고 결정하는 것. 이 심판문(증명서)이 포기 사실의 공식 증거가 됩니다.</span></span>을 받아 보관합니다</b> — 심판문과 그 증명서는 채권자가 나중에 청구해 올 때 "나는 상속인이 아니다"를 증명하는 <b>평생의 방패</b>입니다. 여러 통 발급받아 두고, 독촉하는 채권자에게는 사본을 보내 청구를 멈추게 합니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">4</span><b>(방어) 손주에게 청구가 오면 두 갈래로 대응합니다</b> — ① 배우자가 단독상속인인 구도인데도 채권자가 손주에게 승계집행문을 받아 왔다면 → <b>승계집행문 부여에 대한 이의신청</b>(작성례 ②, 민사집행법 §34)으로 집행을 막습니다. ② 배우자가 없어 손주가 실제 상속인이 된 경우라면 → 소장·독촉장을 <b>받은 날부터 3개월 안에</b> 포기(작성례 ①) 또는 한정승인을 합니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">5</span><b>마무리 — 연쇄를 점검합니다</b> — 전원 포기 설계라면 다음 순위(직계존속 → 형제자매 → 4촌 이내 방계혈족)에게 <b>미리 알려</b> 각자 '안 날'부터 3개월 안에 포기하도록 안내합니다. 한정승인으로 매듭지은 경우에는 한정승인자가 신문공고·채권자 통지 등 청산 절차를 진행합니다.</div>
+</div>
+
+<h2>내 경우는 어디에 해당하나요? — 유형별 사례</h2>
+<div class="case">
+<span class="ct">사례 ① 자녀 전부 포기 + 배우자 한정승인 → 손주에게 온 집행은 부당 — 대법원 2023. 3. 23.자 2020그42 전원합의체 결정</span>
+빚이 많은 분이 사망하여 <b>배우자는 한정승인, 자녀 4명은 전원 포기</b>의 수리심판을 받았는데, 채권자가 "자녀들이 포기했으니 손자녀들이 배우자와 공동상속인이 되었다"며 손자녀들에 대한 승계집행문을 받아 집행하려 한 사안입니다. 대법원은 포기한 자녀들의 상속분은 민법 §1043에 따라 <b>남아 있는 '다른 상속인'인 배우자에게 귀속되어 배우자가 단독상속인이 되고, 손자녀는 상속인이 아니다</b>라고 하면서, 종전 판례(2015년 2013다48852 — 배우자와 손자녀가 공동상속한다고 본 판결)를 <b>변경</b>했습니다. 손주에 대한 집행을 허용했던 원심도 이 법리에 따라 바로잡혔습니다.
+</div>
+<div class="case">
+<span class="ct">사례 ② 배우자가 없는 경우 — 손주도 포기하여야 합니다</span>
+배우자가 이미 사망했고 자녀만 있는 집에서 <b>자녀가 전부 포기</b>하면, 포기의 소급효(§1042)에 따라 상속은 다음 순위 직계비속인 <b>손주에게 내려갑니다.</b> 이때 손주는 '자신이 상속인이 된 사실을 안 날'부터 3개월 안에 <b>포기 또는 한정승인</b>을 하여야 합니다(작성례 ①). 손주가 미성년이면 법정대리인(부모)이 대신 신청합니다.
+</div>
+<div class="case">
+<span class="ct">사례 ③ 후순위 연쇄 — 부모·형제·조카까지 갈 수 있습니다</span>
+배우자·자녀·손주가 모두 포기하면, 다음으로 피상속인의 <b>부모·조부모(직계존속)</b>, 그다음 <b>형제자매</b>, 그다음 <b>4촌 이내 방계혈족(삼촌·고모·조카 등)</b>까지 순서대로 내려갑니다. 빚만 있는 상속이라면 <b>관련 친족이 각자 3개월 안에 모두 포기</b>하거나, <b>한 사람이 한정승인으로 매듭</b>지어야 연쇄가 멈춥니다. 친족들에게 미리 알리는 것이 도리이자 안전장치입니다.
+</div>
+<div class="case">
+<span class="ct">사례 ④ 소장을 받고서야 알았다면 — 대법원 2005. 7. 22. 선고 2003다43681 판결</span>
+처와 자녀들이 상속을 포기하여 손자녀가 상속인이 된 사안에서, 대법원은 일반인의 입장에서 <b>앞 순위의 포기로 자신이 상속인이 되었다는 사실까지 알기는 어렵다</b>고 보아, 3개월의 기산점을 상속 개시나 앞 순위의 포기 시점이 아니라 <b>자신이 상속인이 된 사실을 안 날</b>로 판단했습니다. 실무상 채권자의 <b>소장·독촉장을 받은 날</b>이 그 '안 날'로 인정되는 경우가 많아, "이미 몇 년 지났으니 끝났다"고 지레 포기할 일이 아닙니다(같은 취지: 대법원 2013다15869).
+</div>
+<div class="warn">
+<span class="wt">★ '전원 포기'가 오히려 손주에게 빚을 보낼 수 있습니다</span>
+배우자가 있는데 <b>배우자까지 같이 포기</b>해 버리면, 모처럼 배우자 단독상속으로 끝날 수 있던 것이 다시 손주·친족에게 내려갑니다. 빚 상속에서는 <b>배우자가 한정승인으로 남아 매듭짓는</b> 설계가 거의 항상 유리합니다. 가족끼리 상의 없이 '무작정 다 같이 포기'는 금물입니다.
+</div>
+
+<h2>⏰ 기한 정리 — 놓치면 안 되는 날짜들</h2>
+<table>
+<tr><th>구분</th><th>① 언제부터 (기산일)</th><th>② 근거 조문</th><th>③ 말일이 휴일이면</th><th>④ 최종 만료일</th></tr>
+<tr><td><b>본래 상속인의 3개월</b> (배우자·자녀)</td><td>상속 개시 있음을 <b>안 날</b>(보통 사망을 안 날)의 다음 날부터 계산(초일 불산입)</td><td>민법 §1019① / §157</td><td>토·일·공휴일이면 그 다음 날로 연장(§161)</td><td>안 날 + 3개월</td></tr>
+<tr><td><b>후순위 상속인의 3개월</b> (손주·직계존속·형제 등)</td><td>앞 순위가 모두 포기하여 <b>자신이 상속인이 된 사실을 안 날</b>(소장·독촉장 받은 날 등)의 다음 날부터 계산</td><td>민법 §1019① / 대법원 2003다43681</td><td>위와 같음(§161)</td><td>안 날 + 3개월</td></tr>
+</table>
+<div class="tip"><span class="pt">💡 후순위는 각자 별도로 계산합니다</span> 손주·형제 등 후순위는 사람마다 '안 날'이 다를 수 있어 <b>각자의 날짜로</b> 3개월을 셉니다. 앞 순위가 포기한 날이 기준이 아닙니다. 그리고 3개월이 이미 지난 것처럼 보여도, 빚의 존재를 중대한 과실 없이 몰랐다면 <b>특별한정승인</b>(§1019④)의 길이 남아 있을 수 있으니 포기하지 말고 상담해 보세요.</div>
+
+<h2>관련 법령 — 쉬운 풀이</h2>
+<div class="lawbox"><span class="ll">민법 §1000·§1003</span><b>누가, 어떤 순서로 상속하나</b> — ① 자녀·손주(직계비속) ② 부모·조부모(직계존속) ③ 형제자매 ④ 4촌 이내 방계혈족 순서이고, 배우자는 ①·② 순위와 공동으로, 그들이 없으면 단독으로 상속합니다.</div>
+<div class="lawbox"><span class="ll">민법 §1019①</span><b>3개월 안에 정하라</b> — 상속인은 상속 개시 있음을 안 날부터 3개월 안에 단순승인·한정승인·포기를 할 수 있습니다. 후순위 상속인에게는 이 '안 날'이 <b>자신이 상속인이 된 사실을 안 날</b>로 해석됩니다(2003다43681).</div>
+<div class="lawbox"><span class="ll">민법 §1026</span><b>재산에 손대면 승인으로 간주</b> — 상속재산을 처분하거나 숨기면, 포기·한정승인을 하지 않았어도 <b>빚까지 전부 상속받는 것(단순승인)으로 간주</b>됩니다. 포기 전에는 돌아가신 분의 예금·물건에 손대지 마세요.</div>
+<div class="lawbox"><span class="ll">민법 §1042·§1043</span><b>포기의 소급효와 몫의 귀속</b> — 포기하면 처음부터 상속인이 아니었던 것으로 되고(§1042), 여러 상속인 중 일부가 포기하면 그 몫은 <b>남아 있는 다른 상속인</b>에게 돌아갑니다(§1043). 2020그42 전원합의체는 이 '다른 상속인'에 <b>배우자도 포함</b>된다고 보아 배우자 단독상속 결론을 이끌었습니다.</div>
+<div class="lawbox"><span class="ll">민사집행법 §34</span><b>잘못된 승계집행문은 이의로 막는다</b> — 집행문이 잘못 부여된 경우 채무자로 기재된 사람은 <b>집행문 부여에 대한 이의신청</b>으로 다툴 수 있습니다. "손주는 상속인이 아니다"라는 방어(작성례 ②)의 절차적 근거입니다.</div>
+
+<h2>내 상황에 맞는 서류 고르기</h2>
+<table>
+<tr><th>나의 상황</th><th>내야 할 서류</th><th>작성례</th></tr>
+<tr><td>앞 순위가 모두 포기하여 <b>내가(손주 등) 상속인이 되었다</b> — 포기하고 싶다</td><td><b>상속재산포기 심판청구서</b> (가정법원)</td><td>작성례 ①</td></tr>
+<tr><td>배우자 단독상속 구도인데 <b>채권자가 손주에게 집행</b>해 온다</td><td><b>승계집행문 부여에 대한 이의신청서</b> (집행문을 내준 법원)</td><td>작성례 ②</td></tr>
+<tr><td>본래 상속인(배우자·자녀)으로서 <b>포기·한정승인</b>을 하려 한다</td><td>상속재산포기·한정승인 심판청구서 — 작성례 ①과 같은 틀이며, 청구원인의 '후순위' 문구만 본인 상황으로 바꿉니다</td><td>작성례 ① 응용 (상세 카드 준비 중)</td></tr>
+</table>
+
+<h2>신청서 작성례 — 빈칸(○○○)만 채우면 됩니다</h2>
+<p style="font-size:13.5px;color:var(--muted)">아래 작성례의 빈칸(○○○)을 본인 상황에 맞게 채우면 그대로 제출할 수 있습니다. 제목은 가운데 정렬된 법원 제출 양식입니다(대법원·법률구조공단 공개 서식 기준). <b>복사·인쇄·다운로드</b> 버튼을 활용하십시오.</p>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag">작성례 ① · 후순위 상속인용</span>상속재산포기 심판청구서<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f1"><span class="ft">상 속 재 산 포 기 심 판 청 구</span>청구인(상속인)   ○○○   (☎: ○○○-○○○○-○○○○)
+          주민등록번호  ○○○○○○-○○○○○○○
+          주소  ○○○
+          송달장소  ○○○ (주소와 같으면 생략 가능)
+          등록기준지  ○○○
+
+사건본인(피상속인)   망 ○○○
+          주민등록번호  ○○○○○○-○○○○○○○
+          사망일자  20○○. ○○. ○○.
+          최후주소  ○○○
+          등록기준지  ○○○
+
+         청 구 취 지
+
+  청구인이 피상속인 망 ○○○의 재산상속을 포기하는 신고는
+  이를 수리한다.
+  라는 심판을 구합니다.
+
+         청 구 원 인
+
+  청구인은 피상속인 망 ○○○의 ○○(예: 손자녀)로서, 선순위
+  상속인 전원이 상속을 포기함으로써 청구인이 상속인이 되었고,
+  20○○. ○○. ○○. ○○○(예: 채권자 ○○○의 독촉장을 받고)
+  그 사실을 알았는바, 민법 제1019조 제1항에 따라 그 기간 내에
+  재산상속을 포기하고자 이 심판청구에 이른 것입니다.
+
+         첨 부 서 류
+
+  1. 피상속인 기본증명서(상세)·가족관계증명서(상세)·
+     말소된 주민등록초본                              각 1통
+  2. 청구인 가족관계증명서(상세)·주민등록초본          각 1통
+  3. 선순위 상속인의 상속포기 수리심판(증명)           각 1통
+  4. (청구인이 미성년자인 경우) 법정대리인의
+     가족관계증명서·인감증명서                         각 1통
+
+              20○○. ○○. ○○.
+                청구인  ○○○ (인 또는 서명)
+                (미성년자인 경우) 청구인의 법정대리인
+                  친권자 부 ○○○ (인)  모 ○○○ (인)
+
+○○가정법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1')">📋 복사</button><button type="button" onclick="printForm('f1')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1','상속재산포기_심판청구서_후순위.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>후순위 포기의 핵심은 청구원인의 한 문장</b> — "선순위 전원이 포기하여 내가 상속인이 되었고, 그 사실을 20○○. ○○. ○○. 알았다"입니다. 이 <b>'안 날'부터 3개월</b>을 지켜야 하므로, 어떻게 알게 되었는지(독촉장·소장을 받은 날 등)를 구체적으로 적고 그 우편물을 보관하세요. 선순위 상속인들의 <b>포기 수리심판 증명</b>을 함께 붙입니다(사건번호를 알면 해당 가정법원에서 발급). 관할은 <b>돌아가신 분의 마지막 주소지 가정법원</b>이고, 손주가 여러 명이면 한 청구서에 함께 적어 낼 수 있습니다. 미성년 손주는 법정대리인(부모)이 대신 서명합니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ② · 집행 방어용</span>승계집행문 부여에 대한 이의신청서<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f2"><span class="ft">승계집행문 부여에 대한 이의신청</span>신청인(채무자로 기재된 자)   ○○○   (☎: ○○○-○○○○-○○○○)
+          주소  ○○○
+피신청인(채권자)   ○○○
+          주소  ○○○
+
+         신 청 취 지
+
+  피신청인이 ○○지방법원 20○○가○○○○호 집행력 있는 판결
+  정본에 대하여 20○○. ○○. ○○. 부여받은 승계집행문에 기한
+  강제집행은 이를 불허한다.
+  라는 재판을 구합니다.
+
+         신 청 이 유
+
+  1. 피신청인은 망 ○○○에 대한 위 판결의 효력이 신청인에게
+     승계되었다며 신청인(피상속인의 손자녀)에 대한 승계집행문을
+     부여받았습니다.
+  2. 그러나 망인의 자녀 전원이 상속을 포기하였고 배우자
+     ○○○이 생존하여 있으므로, 대법원 2023. 3. 23.자 2020그42
+     전원합의체 결정에 따라 민법 제1043조에 의하여 포기한
+     자녀들의 상속분은 배우자에게 귀속되어 배우자가 단독상속인이
+     되고, 신청인(손자녀)은 상속인이 아닙니다.
+  3. 따라서 신청인에 대한 승계는 부당하므로, 위 승계집행문에
+     기한 강제집행은 불허되어야 합니다.
+
+         소 명 자 료
+
+  1. 자녀 전원의 상속포기 수리심판(증명)          각 1통
+  2. 배우자의 한정승인(또는 단순승인) 소명자료      1통
+  3. 가족관계증명서(상세)                          1통
+
+              20○○. ○○. ○○.
+                신청인  ○○○ (인 또는 서명)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f2')">📋 복사</button><button type="button" onclick="printForm('f2')">🖨 인쇄</button><button type="button" onclick="downloadForm('f2','승계집행문_이의신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto">핵심은 신청이유 2번 — <b>"자녀 전원 포기 + 배우자 생존 = 배우자 단독상속(2020그42)"</b>이라 손주는 상속인이 아니라는 점입니다. 자녀들의 포기 수리증명과 가족관계증명서(상세)를 소명자료로 붙이세요. 제출처는 <b>승계집행문을 내어 준 법원</b>이며, 절차 근거는 민사집행법 제34조(집행문 부여에 대한 이의신청)입니다. 집행이 임박했다면 이의신청과 함께 <b>강제집행정지 신청</b>도 할 수 있으니, 급한 경우 바로 상담해 주세요.</div>
+</div></div>
+
+<h2>준비할 서류와 발급처</h2>
+<p style="font-size:13.5px;color:var(--muted)">아래 '바로가기'를 클릭하면 발급·조회 화면으로 이동합니다. 만약 첫 화면으로 연결되면, 옆의 <b>찾아가기 경로</b>를 따라 메뉴를 클릭하면 됩니다.</p>
+<table>
+<tr><th>무엇을</th><th>서류</th><th>어디서 · 찾아가기 경로</th></tr>
+<tr><td>가족·순위 확인</td><td>피상속인 기본증명서(<b>상세</b>)·가족관계증명서(<b>상세</b>)·제적등본</td><td><a href="https://efamily.scourt.go.kr" target="_blank">전자가족관계등록시스템 (efamily.scourt.go.kr)</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 증명서 발급 → 종류 선택 → <b>'상세'</b> 선택 ('일반'은 과거 기록이 빠집니다)</span></td></tr>
+<tr><td>사망·주소 확인</td><td>피상속인의 말소된 주민등록초본</td><td><a href="https://www.gov.kr" target="_blank">정부24 (gov.kr)</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 검색창에 '주민등록표초본' 검색 → 발급</span></td></tr>
+<tr><td>재산·빚 전체 조회</td><td>안심상속 원스톱서비스 조회 결과</td><td><a href="https://www.gov.kr" target="_blank">정부24 (gov.kr)</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 검색창에 '안심상속' 검색 → 신청 (사망신고 시 주민센터에서 함께 신청 가능)</span></td></tr>
+<tr><td>앞 순위 포기 확인</td><td>선순위 상속인의 상속포기 수리심판(증명)</td><td>각 포기 사건을 처리한 가정법원 민원실 (사건번호 지참)</td></tr>
+<tr><td>방어용(이의신청)</td><td>판결문·승계집행문 사본, 배우자의 한정승인 수리증명</td><td>해당 법원 민원실 / 채권자가 보낸 서류 보관</td></tr>
+<tr><td>심판청구 제출 (전자 접수)</td><td>—</td><td><a href="https://ecfs.scourt.go.kr" target="_blank">대법원 전자소송 (ecfs.scourt.go.kr)</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 서류제출 → 가사 서류 → 가사비송 → 상속포기(한정승인) 심판청구</span></td></tr>
+</table>
+<div class="tip"><span class="pt">💡 미성년 손주는 부모가 대신 — 단, 이해충돌 주의</span> 손주가 미성년이면 <span class="term">법정대리인<span class="bub">미성년자를 대신하여 법률행위를 할 수 있는 사람. 보통 친권자인 부모입니다.</span></span>(부모)이 대신 신청합니다. 다만 부모와 자녀가 함께 상속인인데 <b>부모는 승인하면서 자녀만 포기시키는 등 이해가 충돌</b>하는 구도라면 법원에 <span class="term">특별대리인<span class="bub">부모와 미성년 자녀의 이해가 서로 부딪힐 때, 자녀를 위해 법원이 따로 정해 주는 대리인(민법 §921).</span></span> 선임을 신청해야 할 수 있습니다 — 이런 경우는 접수 전에 꼭 상담해 주세요.</div>
+
+<div class="cost">
+<span class="ct">💰 비용 — 포기·이의신청 모두 소액입니다</span>
+<b>① 상속포기 심판청구</b>: <span class="term">인지액<span class="bub">법원에 신청서를 낼 때 내는 수수료. 수입인지를 사서 붙이거나 전자소송에서 카드로 냅니다.</span></span> 청구인 1명당 5,000원 + <span class="term">송달료<span class="bub">법원이 서류를 우편으로 보내는 비용. 신청할 때 미리 냅니다(예납). 남으면 돌려받습니다.</span></span>(청구인 수 × 우편료 × 수 회분 — 접수 시 법원이 정확한 금액을 안내합니다).<br>
+<b>② 승계집행문 이의신청</b>: 인지·송달료가 소액입니다(접수 법원 안내 기준).<br>
+<b>③ 한정승인</b>: 인지·송달료 외에 청산 단계에서 신문공고 비용이 별도로 듭니다.
+<div style="margin-top:11px; padding-top:10px; border-top:1px dashed #cfe6d6; color:#c0392b; font-weight:600; line-height:1.8;">※ 사건 정보를 입력하면 인지대·송달료를 포함한 예상 금액을 <a href="https://sanlaw.co.kr/tools-calculator.html" style="color:#c0392b; text-decoration:underline; font-weight:700;">🧮 수수료 계산기</a>에서 미리 확인할 수 있습니다.</div>
+</div>
+
+<h2>본 사무소가 도와드리는 일</h2>
+<div class="hire">
+<p>본 사무소에서는 의뢰인들의 고충은 덜어드리고, 함께 절차를 진행하여 원하는 결과에 도달할 수 있도록 성심을 다하겠습니다.</p>
+<p style="margin-top:12px"><b>· 설계 단계(손주 걱정)의 경우</b><br>① 안심상속 조회를 토대로 한 <b>재산·빚 전수 점검</b>, ② 배우자 생존 여부에 따른 <b>가족 전체의 포기·한정승인 설계</b>(누가 남아 매듭짓고 누가 포기할지), ③ <b>상속포기·한정승인 심판청구서</b> 작성과 접수 대리, ④ 후순위 친족 안내문 작성까지 — <b>가족 단위의 전 과정을 함께</b> 준비해 드립니다.</p>
+<p style="margin-top:10px"><b>· 방어 단계(손주에게 이미 청구)의 경우</b><br>① 승계집행문·판결문 분석과 <b>이의신청서</b> 작성, ② 급박한 집행에 대한 <b>강제집행정지 신청서</b> 작성, ③ 실제로 상속인이 된 경우의 <b>기한 내 포기·한정승인 심판청구</b>, ④ 채권자에 대한 <b>수리심판 증명 회신문</b> 작성까지 함께합니다.</p>
+</div>
+<div class="warn"><span class="wt">⚠ 포기 전에 재산에 손대면 모든 설계가 무너집니다</span>돌아가신 분의 예금을 인출해 쓰거나, 차·물건을 팔거나, 보험금·합의금을 수령하는 행위는 <b>단순승인으로 간주</b>되어(민법 §1026) 포기·한정승인이 막힐 수 있습니다. 장례비 지출 정도를 제외하고는 <b>수리심판을 받기 전까지 일절 손대지 마시고</b>, 애매한 지출은 반드시 먼저 상담해 주세요.</div>
+
+<a href="https://sanlaw.co.kr/tools-calculator.html" class="cta">🧮 내 사건 비용 미리 계산하기</a>
+<div style="text-align:center; background:#f6ecd8; border:1px solid var(--gold); border-radius:11px; padding:14px; margin:18px 0; font-size:15px; color:var(--gold-d); font-weight:700;">📞 상담은 홈 화면의 상담 창구를 이용하시면 됩니다.</div>
+
+<div class="tip"><span class="pt">💡 이어지는 카드</span> 빚이 더 많을 때의 <b>포기 vs 한정승인 선택</b>, 3개월이 지난 뒤 빚을 안 경우의 <b>특별한정승인</b>, 포기 후 <b>관리 책임</b>은 <a href="index.html#practice" style="color:var(--tip-ink);font-weight:700">업무 분야 → 상속 → 상속포기·한정승인</a>에서 준비되는 대로 게시됩니다. 상속인들끼리 재산을 나누다 막힌 경우는 <a href="1-1_상속재산분할심판.html" style="color:var(--tip-ink);font-weight:700">상속 1-1 카드</a>를 보세요.</div>
+
+<div class="src">
+근거 — 민법 제1000조(상속의 순위)·제1003조(배우자의 상속순위)·제1019조(승인, 포기의 기간)·제1026조(법정단순승인)·제1042조(포기의 소급효)·제1043조(포기한 상속재산의 귀속)·제921조(특별대리인) · 민사집행법 제34조(집행문 부여 등에 관한 이의신청) · 대법원 2023. 3. 23.자 2020그42 전원합의체 결정(자녀 전원 포기 시 배우자 단독상속 — 종전 대법원 2015. 5. 14. 선고 2013다48852 판결 변경) · 대법원 2005. 7. 22. 선고 2003다43681 판결(후순위 상속인의 고려기간 기산점 = 자신이 상속인이 된 사실을 안 날) · 대법원 2013다15869 판결(같은 취지) · 대한법률구조공단(klac.or.kr) 상담사례·서식 · 법제처 찾기쉬운 생활법령정보(easylaw.go.kr) · 국가법령정보센터(law.go.kr) · 대법원 전자민원센터 양식. 본 자료는 일반적인 법률정보로, 개별 사건의 법률자문이 아니며 개별 사건의 결과를 보장하지 않습니다.
+</div>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+})();
+function toggleFold(b){var fb=b.parentElement;var body=b.nextElementSibling;var open=fb.classList.toggle('open');if(body){body.style.display=open?'block':'none';}}
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('작성례가 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('작성례가 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['﻿'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('작성례를 내려받았습니다');}
+</script>
+
+</body>
+</html>
