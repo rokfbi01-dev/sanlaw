@@ -378,13 +378,13 @@
 
     <!-- 2단: 상속 -->
     <div id="view-cat" class="pa-hidden">
-      <div class="pa-head"><span class="pa-ttl" id="catTitle">상속</span><span class="pa-back" data-go="biz">‹ 전체 업무</span><span class="pa-crumb"><a data-go="biz">취급 업무</a><span class="pa-sep">›</span>상속</span></div>
+      <div class="pa-head"><span class="pa-ttl" id="catTitle">상속</span><span class="pa-back" data-go="biz">‹ 전체 업무</span><span class="pa-crumb"><a data-go="biz">취급 업무</a><span class="pa-sep">›</span><span id="catCrumb">상속</span></span></div>
       <div class="pa-grid pa-g4" id="catGrid"></div>
     </div>
 
     <!-- 3단: 세부 항목 -->
     <div id="view-item" class="pa-hidden">
-      <div class="pa-head"><span class="pa-ttl" id="itemTitle"></span><span class="pa-back" data-go="cat">‹ 뒤로</span><span class="pa-crumb"><a data-go="biz">취급 업무</a><span class="pa-sep">›</span><a data-go="cat">상속</a><span class="pa-sep">›</span><span id="itemCrumb"></span></span></div>
+      <div class="pa-head"><span class="pa-ttl" id="itemTitle"></span><span class="pa-back" data-go="cat">‹ 뒤로</span><span class="pa-crumb"><a data-go="biz">취급 업무</a><span class="pa-sep">›</span><a data-go="cat" id="itemCatCrumb">상속</a><span class="pa-sep">›</span><span id="itemCrumb"></span></span></div>
       <div class="pa-grid pa-g3" id="itemGrid"></div>
     </div>
 
@@ -400,7 +400,7 @@
 var BIZ=[
  {han:"民",t:"민사·형사",d:"소장 작성·교도소 접견·집행유예",open:false},
  {han:"相",t:"상속",d:"분할·유류분·포기·등기·유언·회복",open:true,key:"sangsok"},
- {han:"登",t:"각종 등기",d:"부동산 권리·신탁 등기 대리",open:false},
+ {han:"登",t:"각종 등기",d:"부동산 권리·법인(상업) 등기 대리",open:true,key:"deunggi"},
  {han:"免",t:"개인회생·파산면책",d:"빚 분석·압류 해방·면책",open:false},
  {han:"後",t:"후견",d:"성년·한정·특정후견 신청",open:false},
  {han:"家",t:"가사 사건",d:"이혼·친권·양육 서면",open:false},
@@ -427,6 +427,30 @@ var SANGSOK=[
    {t:"제3자에게 넘어간 재산 되찾기",u:"8-2_제3자_상속재산_회복.html",r:false},
    {t:"위조 협의분할·무단 상속등기 바로잡기",u:"8-3_위조_협의분할_상속등기.html",r:false}]}
 ];
+var DEUNGGI=[
+ {n:1,t:"부동산 등기",d:"매매·증여·상속·근저당·전세권·가등기·신탁",items:[
+   {t:"매매 (소유권이전등기)",r:false},
+   {t:"증여 (소유권이전등기)",r:false},
+   {t:"부담부증여",r:false},
+   {t:"상속 (상속등기)",r:false},
+   {t:"소유권보존등기",r:false},
+   {t:"근저당권설정",r:false},
+   {t:"근저당권말소",r:false},
+   {t:"전세권·지상권 설정",r:false},
+   {t:"가등기",r:false},
+   {t:"신탁등기",r:false},
+   {t:"담보권추가설정",r:false}]},
+ {n:2,t:"법인 (상업등기)",d:"설립·증자·임원변경·이전·해산까지",items:[
+   {t:"법인설립",r:false},
+   {t:"자본증감 (증자)",r:false},
+   {t:"전환사채발행",r:false},
+   {t:"임원 선임·변경",r:false},
+   {t:"상호·목적·정관변경",r:false},
+   {t:"본점 관내이전",r:false},
+   {t:"본점 관외이전",r:false},
+   {t:"지점설치·이전",r:false},
+   {t:"법인 해산·청산",r:false}]}
+];
 var vBiz=document.getElementById('view-biz'),vCat=document.getElementById('view-cat'),vItem=document.getElementById('view-item');
 function show(v){[vBiz,vCat,vItem].forEach(function(x){x.classList.add('pa-hidden');});v.classList.remove('pa-hidden');
   var sec=document.getElementById('practice');if(sec)sec.scrollIntoView({behavior:'smooth',block:'start'});}
@@ -435,19 +459,24 @@ var bizGrid=document.getElementById('bizGrid');
 BIZ.forEach(function(b){
   var c=document.createElement('div');c.className='pa-card lock';
   c.innerHTML='<span class="pa-b '+(b.open?'r">게시':'s">준비중')+'</span><div class="pa-han">'+b.han+'</div><div class="pa-tx"><h3>'+b.t+'</h3><p>'+b.d+'</p></div>';
-  c.addEventListener('click',function(){if(!agreed)return;if(b.open&&b.key==='sangsok')openSangsok();});
+  c.addEventListener('click',function(){if(!agreed)return;if(b.open&&b.key==='sangsok')openCat('상속',SANGSOK);else if(b.open&&b.key==='deunggi')openCat('각종 등기',DEUNGGI);});
   bizGrid.appendChild(c);
 });
 var catGrid=document.getElementById('catGrid');
-function openSangsok(){
+var curCatName='상속';
+function openCat(name,cats){
+  curCatName=name;
+  document.getElementById('catTitle').textContent=name;
+  document.getElementById('catCrumb').textContent=name;
   catGrid.innerHTML='';
-  SANGSOK.forEach(function(s){var has=s.items.length>0;var rd=s.items.filter(function(i){return i.r!==false;}).length;var c=document.createElement('div');c.className='pa-card'+(has?'':' lock');
+  cats.forEach(function(s){var has=s.items.length>0;var rd=s.items.filter(function(i){return i.r!==false;}).length;var c=document.createElement('div');c.className='pa-card'+(has?'':' lock');
     c.innerHTML='<span class="pa-b '+(has&&rd>0?'r">'+rd+'개':'s">준비중')+'</span><div class="pa-han">'+s.n+'</div><div class="pa-tx"><h3>'+s.t+'</h3><p>'+s.d+'</p></div>';
     if(has)c.addEventListener('click',function(){openItems(s);});catGrid.appendChild(c);});
   show(vCat);
 }
 function openItems(s){
   document.getElementById('itemTitle').textContent=s.t;document.getElementById('itemCrumb').textContent=s.t;
+  document.getElementById('itemCatCrumb').textContent=curCatName;
   var g=document.getElementById('itemGrid');g.innerHTML='';
   if(!s.items.length){g.innerHTML='<div class="pa-empty">이 카테고리는 현재 준비 중입니다. 곧 찾아뵙겠습니다.</div>';}
   else s.items.forEach(function(it){
