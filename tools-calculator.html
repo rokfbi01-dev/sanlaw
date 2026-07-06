@@ -454,6 +454,10 @@
         <label><input type="radio" name="s_ptype" value="house" checked> 주택</label>
         <label><input type="radio" name="s_ptype" value="etc"> 주택외</label>
         <label><input type="radio" name="s_ptype" value="farm"> 농지</label></div></div>
+      <div class="line"><span class="lbl">세목 기준 <span class="tag A">A</span></span><div class="radios" onchange="calcInherit()">
+        <label><input type="radio" name="s_taxMode" value="acq" checked> 2011.1.1.〜 상속개시(취득세)</label>
+        <label><input type="radio" name="s_taxMode" value="reg"> 〜2010.12.31. 상속개시(舊 등록세)</label></div></div>
+      <div class="line" id="s_regTaxNote" style="display:none;border-top:1px dashed var(--line);padding-top:8px;"><span class="hint" style="color:var(--seal);line-height:1.55;">▸ 2011.1.1. 취득세·등록세 통합 <b>이전</b> 상속개시분은 종전 <b>등록세</b> 적용(2011년 개정 지방세법 부칙 §6). 세율 <b>농지외 0.8%·농지 0.3%</b> + 지방교육세 20%, 농특세 없음. 취득세 부과제척기간(상속 무신고 10년) 도과분 포함(지방세법 §23①1호 단서).</span></div>
       <div class="line"><span class="lbl">감면·가산 등</span><div class="checks" onchange="calcInherit()">
         <label><input type="checkbox" id="s_oneHouse"> 무주택 1가구 1주택 특례(0.8%)</label>
         <label><input type="checkbox" id="s_over85"> 85㎡ 초과(농특세)</label>
@@ -474,9 +478,9 @@
     </div></div>
 
     <div class="card blue"><h2>③ 공과금 (VAT 비과세) <span class="tag chk">확인필요</span></h2><div class="body">
-      <div class="note">상속 취득세 자동(농지외 2.8% / 농지 2.3% / 무주택1주택 특례 0.8%·확인필요). 등기수수료 상속 <b>매 부동산 20,000(수기)·17,000(e-Form)·전자불가</b>.</div>
+      <div class="note" id="s_taxNote">상속 취득세 자동(농지외 2.8% / 농지 2.3% / 무주택1주택 특례 0.8%·확인필요). 등기수수료 상속 <b>매 부동산 20,000(수기)·17,000(e-Form)·전자불가</b>.</div>
       <table class="t">
-        <tr><td>취득세 <span id="s_acqRate" class="hint"></span></td><td><input class="cell" id="s_acqTax" type="number" oninput="calcInherit(true)"></td></tr>
+        <tr><td><span id="s_taxLabel">취득세</span> <span id="s_acqRate" class="hint"></span></td><td><input class="cell" id="s_acqTax" type="number" oninput="calcInherit(true)"></td></tr>
         <tr><td>지방교육세</td><td><input class="cell" id="s_eduTax" type="number" oninput="calcInherit(true)"></td></tr>
         <tr><td>농어촌특별세</td><td><input class="cell" id="s_ruralTax" type="number" oninput="calcInherit(true)"></td></tr>
         <tr><td>채권 할인손실</td><td class="auto" id="s_bondLossCell">0 원</td></tr>
@@ -490,7 +494,7 @@
       <table class="t">
         <tr><td>기본보수 <span class="hint" id="s_feeBaseNote"></span></td><td class="auto" id="s_feeBaseCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="s_f_origin" checked onchange="calcInherit()"> 등기원인증서(협의분할계약서 등) 작성 (50,000)</label></td><td class="auto">50,000 원</td></tr>
-        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="s_f_tax" checked onchange="calcInherit()"> 취득세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="s_f_tax" checked onchange="calcInherit()"> <span id="s_taxAgentLabel">취득세 신고대행</span> (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="s_f_bond" checked onchange="calcInherit()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="s_f_same" onchange="calcInherit()"> 동일인 보증서 (200,000+)</label> <span class="hint">대상</span> <input type="number" id="s_sameN" value="1" min="1" style="width:54px;" oninput="calcInherit()"></td><td class="auto" id="s_sameCell">0 원</td></tr>
         <tr id="s_verifyRow" style="display:none;"><td>확인서면 가산(권리증 분실) <span class="hint" id="s_verifyNote"></span></td><td class="auto" id="s_verifyCell">0 원</td></tr>
@@ -2283,15 +2287,33 @@ function renderDocsInherit(){const f=radio('s_bform');let ledger='';
 function calcInherit(fromEdit){
   renderBondUIInherit();
   const price=val('s_price');
+  const regMode=(radio('s_taxMode')==='reg');
   if(!fromEdit){
-    const rate=inheritAcqRate();const acq=price*rate;
-    let edu;if(rate===0.028)edu=price*0.0016;else if(rate===0.023)edu=price*0.0006;else edu=price*0.0016;
-    let rural=0;if(radio('s_ptype')==='house')rural=chk('s_over85')?price*0.002:0;else rural=price*0.002;
-    document.getElementById('s_acqTax').value=Math.round(acq);
-    document.getElementById('s_eduTax').value=Math.round(edu);
-    document.getElementById('s_ruralTax').value=Math.round(rural);
-    document.getElementById('s_acqRate').textContent='('+(rate*100).toFixed(rate*100%1?1:0)+'%'+(rate===0.008?' 무주택1주택특례':'')+')';
+    if(regMode){
+      // 舊 등록세(2011년 취득세·등록세 통합 이전 상속개시분·부칙 §6): 농지외 0.8% / 농지 0.3% + 지방교육세 20% · 농특세 0
+      const rrate=(radio('s_ptype')==='farm')?0.003:0.008;
+      const regTax=price*rrate;
+      document.getElementById('s_acqTax').value=Math.round(regTax);
+      document.getElementById('s_eduTax').value=Math.round(regTax*0.2);
+      document.getElementById('s_ruralTax').value=0;
+      document.getElementById('s_acqRate').textContent='('+(rrate*100).toFixed(1)+'% '+(radio('s_ptype')==='farm'?'농지':'농지외')+' · 舊등록세)';
+    }else{
+      const rate=inheritAcqRate();const acq=price*rate;
+      let edu;if(rate===0.028)edu=price*0.0016;else if(rate===0.023)edu=price*0.0006;else edu=price*0.0016;
+      let rural=0;if(radio('s_ptype')==='house')rural=chk('s_over85')?price*0.002:0;else rural=price*0.002;
+      document.getElementById('s_acqTax').value=Math.round(acq);
+      document.getElementById('s_eduTax').value=Math.round(edu);
+      document.getElementById('s_ruralTax').value=Math.round(rural);
+      document.getElementById('s_acqRate').textContent='('+(rate*100).toFixed(rate*100%1?1:0)+'%'+(rate===0.008?' 무주택1주택특례':'')+')';
+    }
   }
+  // 세목 모드에 따른 라벨·안내 전환
+  const _tl=document.getElementById('s_taxLabel');if(_tl)_tl.textContent=regMode?'등록세(부동산)':'취득세';
+  const _ta=document.getElementById('s_taxAgentLabel');if(_ta)_ta.textContent=regMode?'등록세 신고대행':'취득세 신고대행';
+  const _rn=document.getElementById('s_regTaxNote');if(_rn)_rn.style.display=regMode?'flex':'none';
+  const _tn=document.getElementById('s_taxNote');if(_tn)_tn.innerHTML=regMode
+    ?'舊 등록세 자동(농지외 <b>0.8%</b> / 농지 <b>0.3%</b>) + 지방교육세 20% · 농특세 없음. 2011년 통합 이전 상속개시분(부칙 §6). 등기수수료 상속 <b>매 부동산 20,000(수기)·17,000(e-Form)·전자불가</b>.'
+    :'상속 취득세 자동(농지외 2.8% / 농지 2.3% / 무주택1주택 특례 0.8%·확인필요). 등기수수료 상속 <b>매 부동산 20,000(수기)·17,000(e-Form)·전자불가</b>.';
   const bondLoss=Math.round(val('s_bondBuy')*val('bondRate')/100);
   document.getElementById('s_bondLossCell').textContent=won(bondLoss)+' ('+val('bondRate')+'%)';
   const cntE=Math.max(1,val('s_cntEstate'));
