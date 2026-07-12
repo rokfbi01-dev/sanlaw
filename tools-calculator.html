@@ -880,25 +880,25 @@
   <!-- ===== 부부재산약정등기 (신설) Ⅶ-1① 기본보수 + 약정서작성 별도 · 등록면허세 §28①14호 정액 ===== -->
   <div class="scene" id="scene-부부재산약정">
     <button class="back" onclick="goMenu()">‹ 메인메뉴</button>
-    <h2 class="stitle">부부재산약정등기 <small>비송사건절차법 §70 · 등록면허세 12,000원(§28①14호) · 보수 Ⅶ-1①</small></h2>
+    <h2 class="stitle">부부재산약정등기 <small>비송사건절차법 §70 · 등록면허세 12,000원(§28①14호) · 신청수수료 2,000원(수수료규칙 §5의4③) · 보수 정액 50만원+난이도</small></h2>
 
     <div class="card blue"><h2>① 약정 정보</h2><div class="body">
-      <div class="line"><span class="lbl">약정 재산가액(원)</span><input type="number" class="amt" id="mr_base" placeholder="0" oninput="calcMarital()"><span class="hint">없으면 5천만 의제(보수)</span></div>
+      <div class="note">부부재산약정등기의 보수는 재산가액이 아니라 <b>약정서 문안의 난이도</b>로 산정합니다. 기본보수 50만원을 기준으로, 전문직·사업가 등 재산관계가 복잡한 경우 난이도를 150~200%로 조정하세요.</div>
       <div class="line"><span class="lbl">신청 건수</span><div class="stepper"><button onclick="step('mr_cnt',-1,calcMarital)">−</button><input type="number" id="mr_cnt" value="1" min="1" oninput="calcMarital()"><button onclick="step('mr_cnt',1,calcMarital)">+</button></div></div>
-      <div class="line"><span class="lbl">난이도(전문직·사업가 등)</span><select id="mr_adjust" onchange="calcMarital()">
-        <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
-        <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
-        <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130% (복합자산 권장)</option>
-        <option value="1.4">140%</option><option value="1.5">150% (전문직·사업가 권장)</option><option value="1.6">160%</option>
-        <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
+      <div class="line"><span class="lbl">문안 난이도</span><select id="mr_adjust" onchange="calcMarital()">
+        <option value="0.8">80% (DC)</option><option value="0.9">90%</option>
+        <option value="1" selected>100% (기본·50만원)</option>
+        <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
+        <option value="1.4">140%</option><option value="1.5">150% (복합자산 권장)</option><option value="1.6">160%</option>
+        <option value="1.7">170%</option><option value="1.8">180% (전문직·사업가 권장)</option><option value="1.9">190%</option><option value="2">200% (최고난이도)</option></select></div>
     </div></div>
 
     <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
-      <div class="note">부부재산약정등기는 부동산등기가 아니므로 <b>등록면허세는 건당 12,000원 정액</b>입니다(그 밖의 등기). 지방교육세는 그 20%(2,400원). 소유권이전이 아니므로 국민주택채권 매입·농특세는 없습니다. <span class="hint">[A] 지방세법 §28①14호·§151①2호</span></div>
+      <div class="note">부부재산약정등기는 부동산등기가 아니므로 <b>등록면허세는 건당 12,000원 정액</b>입니다(그 밖의 등기). 지방교육세는 그 20%(2,400원). 등기신청수수료는 <b>매 건 2,000원</b>입니다. 소유권이전이 아니므로 국민주택채권 매입·농특세는 없습니다. <span class="hint">[A] 지방세법 §28①14호·§151①2호 / 등기사항증명서 등 수수료규칙 §5의4③</span></div>
       <table class="t">
         <tr><td>등록면허세 (정액) <span class="hint">건당 12,000</span></td><td><input class="cell" id="mr_regTax" type="number" oninput="calcMarital(true)"></td></tr>
         <tr><td>지방교육세 (20%)</td><td><input class="cell" id="mr_eduTax" type="number" oninput="calcMarital(true)"></td></tr>
-        <tr><td>등기신청수수료 <span class="hint tag chk">확인필요</span></td><td><input class="cell" id="mr_regFee" type="number" value="3000" oninput="calcMarital(true)"></td></tr>
+        <tr><td>등기신청수수료 <span class="hint">건당 2,000</span></td><td><input class="cell" id="mr_regFee" type="number" oninput="calcMarital(true)"></td></tr>
         <tr><td>대장·등본 우편 등</td><td><input class="cell" id="mr_postFee" type="number" value="6000" oninput="calcMarital(true)"></td></tr>
         <tr class="subtot"><td>공과금계</td><td id="mr_publicSum">0 원</td></tr>
       </table>
@@ -906,8 +906,7 @@
 
     <div class="card pink"><h2>③ 수수료 (법무사 보수, VAT 별도) <span class="tag A">A</span></h2><div class="body">
       <table class="t">
-        <tr><td>기본보수 <span class="hint" id="mr_feeBaseNote"></span></td><td class="auto" id="mr_feeBaseCell">0 원</td></tr>
-        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="mr_f_deed" checked onchange="calcMarital()"> 부부재산약정서 작성</label> <span class="hint">(핵심 노동·직접입력)</span></td><td><input class="cell" id="mr_deedFee" type="number" value="300000" oninput="calcMarital(true)"></td></tr>
+        <tr><td>기본보수 (약정서 작성) <span class="hint" id="mr_feeBaseNote"></span></td><td class="auto" id="mr_feeBaseCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="mr_f_tax" checked onchange="calcMarital()"> 등록면허세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="mr_f_trip" checked onchange="calcMarital()"> 교통비 및 일당</label></td><td><input class="cell" id="mr_tripFee" type="number" value="160000" oninput="calcMarital(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
@@ -924,7 +923,7 @@
 
     <div class="card green"><h2>④ 안내 및 준비서류</h2><div class="body">
       <div class="note"><b>혼인 성립 전</b>에 약정자 <b>쌍방이 공동으로</b> 신청해야 합니다(비송사건절차법 §70). 혼인신고 후 신청은 효력이 없습니다. 관할은 <b>남편이 될 사람의 주소지 관할 지방법원 등기과·등기소</b>(입부혼인 시 처가 될 사람 주소지)입니다. 등기 후 변경은 원칙적으로 불가하며, 정당한 사유가 있으면 법원 허가를 받아 변경할 수 있습니다(민법 §829②).</div>
-      <div class="note" style="background:#fff7e6;border-left-color:var(--gold);"><b>[확인필요]</b> 등기신청수수료는 부부재산약정등기가 등기수수료 예규 별표에 명시되어 있지 않아, 「그 밖의 등기」 기준(3,000원)을 임시 표시치로 두었습니다. 실제 관할 등기과 납부액으로 확인·수정하세요. 기본보수(Ⅶ-1①)는 소가 없으면 5천만원 의제이며, 약정서 작성은 별도 항목으로 계상합니다(법무사보수기준 §3② 협의).</div>
+      <div class="note" style="background:#fff7e6;border-left-color:var(--gold);">기본보수는 재산가액이 아니라 <b>약정서 문안 난이도</b>로 산정합니다. 정액 500,000원을 기준으로, 전문직·사업가 등 재산관계가 복잡한 경우 150~200%로 조정하세요(법무사보수기준 §2②·§3② 협의). 공과금(등록면허세 12,000·지방교육세 2,400·등기신청수수료 2,000)은 건수에 따라 자동 계산됩니다.</div>
       <div class="docs">
         <b>약정자 쌍방</b> — 기본증명서, 가족관계증명서, 혼인관계증명서 각 1통, 주민등록초본, 인감증명서, 인감도장, 신분증<br>
         <b>공통</b> — 부부재산약정서, 재산목록·소명자료, 등록면허세 영수필확인서, 등기신청수수료 영수필확인서, 위임장
@@ -2136,7 +2135,7 @@ const SCENARIO={
  "재산조회신청":{cat:'civil',kind:'tier',tier:'Ⅶ-1①',baseLabel:'집행채권액 ([B] Ⅶ-1①·집행신청)',noSga:true,prof:{injiKind:'flat',injiFlat:1000,songCnt:2,songParty:'신청인',partyDef:1}},
  "공시최고·소송비용확정":{cat:'civil',kind:'tier',tier:'Ⅶ-1②',noSga:true,prof:{injiKind:'flat',injiFlat:1000,songCnt:5,songParty:'신청인+상대방',partyDef:2}},
  "지급명령·조정신청":{cat:'civil',full:'payorder'},
- "공탁":{cat:'civil',kind:'tier',tier:'Ⅴ',baseLabel:'공탁가액',addFee:'집행공탁 사유신고서 작성 가산보수 (집행공탁 시·협의액 직접입력)',prof:{injiKind:'none',songCnt:0,guide:'<b>변제공탁</b>(민법§487)과 <b>집행공탁</b>(민사집행법§248 등)을 구분하세요. ① <b>변제공탁</b> — 피공탁자에게 공탁통지, 초본발급·보정 중심. ② <b>집행공탁</b> — 공탁 후 집행법원에 <b>사유신고</b>를 하며(민집§248④), 사유신고 시점이 배당요구 종기입니다(민집§247①1호). 집행공탁이면 아래 수수료의 <b>「사유신고서 가산보수」</b> 칸에 협의액을 입력하세요. <span class="tag chk">확인필요</span> 사유신고 보수는 협회 정액이 아니라 사안별 협의액입니다(법무사보수기준§19②).'}},
+ "공탁":{cat:'civil',kind:'tier',tier:'Ⅴ',baseLabel:'공탁가액',addFee:'집행공탁 사유신고서 작성 가산보수',addFeeDefault:580000,addFeeGuide:'<b>변제공탁</b>(민법§487)과 <b>집행공탁</b>(민사집행법§248 등)을 구분하세요. ① <b>변제공탁</b> — 피공탁자에게 공탁통지, 초본발급·보정 중심(사유신고 불요). ② <b>집행공탁</b> — 공탁 후 집행법원에 <b>사유신고</b>를 하며(민집§248④), 사유신고 시점이 배당요구 종기입니다(민집§247①1호). <b>집행공탁이면 아래 「사유신고서 가산보수」를 체크</b>하세요(기본 580,000·사안별 협의 조정). <span class="tag chk">확인필요</span> 협회 정액이 아니라 협의 가산보수입니다(법무사보수기준§19②).',prof:{injiKind:'none',songCnt:0}},
  "부동산경매 상담":{cat:'civil',kind:'tier',tier:'Ⅵ-1',baseLabel:'감정가액'},
  "경매 매수신청대리":{cat:'civil',full:'auction'},
  "부동산경매(신청)":{cat:'civil',full:'auctionFile'},
@@ -2720,22 +2719,20 @@ function calcGadeungi(fromEdit){
 
 /* ===================== 부부재산약정등기 (신설) ===================== */
 function calcMarital(fromEdit){
-  const base=val('mr_base');
   const cnt=Math.max(1,val('mr_cnt'));
   if(!fromEdit){
     const reg=12000*cnt; // 지방세법 §28①14호: 그 밖의 등기 건당 12,000원 [A]
     document.getElementById('mr_regTax').value=reg;
     document.getElementById('mr_eduTax').value=Math.round(reg*0.2); // §151①2호 [A]
+    document.getElementById('mr_regFee').value=2000*cnt; // 등기사항증명서등수수료규칙 §5의4③: 부부재산약정등기 매 건 2,000원 [A]
   }
   const publicSum=val('mr_regTax')+val('mr_eduTax')+val('mr_regFee')+val('mr_postFee')+pubCustomSum('scene-부부재산약정');
   document.getElementById('mr_publicSum').textContent=won(publicSum);
   const adj=parseFloat(document.getElementById('mr_adjust').value)||1;
-  const baseForFee=base>0?base:5e7; // 소가 없으면 5천만 의제
-  const feeBase=Math.round(tierFee('Ⅶ-1①',baseForFee)*adj);
+  const feeBase=Math.round(500000*adj); // 약정서 작성 정액 50만원 × 문안 난이도 (재산가액 무관)
   document.getElementById('mr_feeBaseCell').textContent=won(feeBase);
-  document.getElementById('mr_feeBaseNote').textContent='(Ⅶ-1①'+(base<=0?' ·5천만의제':'')+(adj!==1?' ×'+(adj*100)+'%':'')+')';
+  document.getElementById('mr_feeBaseNote').textContent='(정액 500,000'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   let fee=feeBase;
-  if(chk('mr_f_deed'))fee+=val('mr_deedFee');
   if(chk('mr_f_tax'))fee+=50000;
   if(chk('mr_f_trip'))fee+=val('mr_tripFee');
   EXTRA_AGENT.filter(a=>a[3].includes('civil')&&!['ea5','ea6','ea7'].includes(a[0])).forEach(([id,name,code])=>{const c=document.getElementById('mra_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('mraq_'+id).value)||1);fee+=FLAT[code]*q;}});
@@ -3584,7 +3581,12 @@ function buildGeneric(name){
   const grp=def.cat==='re'?'reTransfer':(def.cat==='family'?'family':def.cat);
   let e='';
   EXTRA_AGENT.filter(a=>a[3].includes(grp)).forEach(a=>{const [id,nm,code]=a;e+='<tr><td><label class="checks" style="display:inline-flex;align-items:flex-start;"><input type="checkbox" id="gck_'+id+'" onchange="calcGeneric()" style="margin-top:2px;"> <span style="font-size:12.5px;">'+eaLabel(a,grp)+' <b style="color:var(--seal);">'+FLAT[code].toLocaleString()+'원</b></span></label></td><td><input type="number" id="gqt_'+id+'" value="1" min="1" style="width:54px;text-align:center;" oninput="calcGeneric()"></td></tr>';});
-  if(def.addFee)e+='<tr><td><label class="checks" style="display:inline-flex;align-items:flex-start;"><input type="checkbox" id="g_addFeeChk" onchange="calcGeneric()" style="margin-top:2px;"> <span style="font-size:12.5px;">'+def.addFee+'</span></label></td><td><input type="number" class="cell" id="g_addFee" value="0" oninput="calcGeneric(true)"></td></tr>';
+  if(def.addFee){
+    let g=def.addFeeGuide?('<tr><td colspan="2" style="padding:8px 6px 6px;"><div class="note" style="margin:0;">'+def.addFeeGuide+'</div></td></tr>'):'';
+    const dv=def.addFeeDefault||0;
+    g+='<tr><td><label class="checks" style="display:inline-flex;align-items:flex-start;"><input type="checkbox" id="g_addFeeChk" onchange="calcGeneric()" style="margin-top:2px;"> <span style="font-size:12.5px;">'+def.addFee+' <span class="hint">(기본 '+dv.toLocaleString()+'·수정가능)</span></span></label></td><td><input type="number" class="cell" id="g_addFee" value="'+dv+'" oninput="calcGeneric(true)"></td></tr>';
+    e=g+e; // 보수표(기본보수) 바로 아래에 오도록 맨 앞 배치
+  }
   document.getElementById('g_extra').innerHTML=e;
   // ③ 공과금
   const pc=document.getElementById('g_publicCard');
