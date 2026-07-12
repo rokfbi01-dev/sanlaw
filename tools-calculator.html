@@ -325,7 +325,8 @@
         <table style="width:100%;border-collapse:collapse;font-size:12.5px;margin:0 0 4px;">
           <tr><th style="border:1px solid #d8d2c4;padding:5px 8px;text-align:left;background:#efece2;width:38%;">구분</th><th style="border:1px solid #d8d2c4;padding:5px 8px;text-align:left;background:#efece2;">금액(1건당)</th></tr>
           <tr><td style="border:1px solid #d8d2c4;padding:5px 8px;font-weight:700;">소유권이전 등기수수료</td><td style="border:1px solid #d8d2c4;padding:5px 8px;">서면 방문 <b>18,000원</b> · e-form <b>15,000원</b> · 전자신청 <b>10,000원</b></td></tr>
-          <tr><td style="border:1px solid #d8d2c4;padding:5px 8px;font-weight:700;">그 밖 등기(설정 등)</td><td style="border:1px solid #d8d2c4;padding:5px 8px;">e-form <b>13,000원</b> · 전자 <b>10,000원</b></td></tr>
+          <tr><td style="border:1px solid #d8d2c4;padding:5px 8px;font-weight:700;">소유권 외 권리설정·이전</td><td style="border:1px solid #d8d2c4;padding:5px 8px;">서면 방문 <b>18,000원</b> · e-form <b>15,000원</b> · 전자신청 <b>10,000원</b></td></tr>
+          <tr><td style="border:1px solid #d8d2c4;padding:5px 8px;font-weight:700;">그 밖의 기타 등기</td><td style="border:1px solid #d8d2c4;padding:5px 8px;">서면 <b>4,000원</b> · e-form <b>3,000원</b> · 전자 <b>1,000원</b></td></tr>
           <tr><td style="border:1px solid #d8d2c4;padding:5px 8px;font-weight:700;">인지세</td><td style="border:1px solid #d8d2c4;padding:5px 8px;">부동산 소유권이전 증서에 기재금액별 정액(전자수입인지)</td></tr>
         </table>
         <div style="font-size:11.5px;color:#8a7c66;margin:0 0 8px;">근거 : <a href="https://www.law.go.kr/행정규칙/등기신청수수료징수에관한예규" target="_blank" rel="noopener" style="color:#1d6fb8;font-weight:700;text-decoration:none;">등기신청수수료 징수 예규 →</a> · <a href="https://www.law.go.kr/법령/인지세법" target="_blank" rel="noopener" style="color:#1d6fb8;font-weight:700;text-decoration:none;">인지세법 →</a></div>
@@ -876,6 +877,61 @@
     </div></div>
   </div>
 
+  <!-- ===== 부부재산약정등기 (신설) Ⅶ-1① 기본보수 + 약정서작성 별도 · 등록면허세 §28①14호 정액 ===== -->
+  <div class="scene" id="scene-부부재산약정">
+    <button class="back" onclick="goMenu()">‹ 메인메뉴</button>
+    <h2 class="stitle">부부재산약정등기 <small>비송사건절차법 §70 · 등록면허세 12,000원(§28①14호) · 보수 Ⅶ-1①</small></h2>
+
+    <div class="card blue"><h2>① 약정 정보</h2><div class="body">
+      <div class="line"><span class="lbl">약정 재산가액(원)</span><input type="number" class="amt" id="mr_base" placeholder="0" oninput="calcMarital()"><span class="hint">없으면 5천만 의제(보수)</span></div>
+      <div class="line"><span class="lbl">신청 건수</span><div class="stepper"><button onclick="step('mr_cnt',-1,calcMarital)">−</button><input type="number" id="mr_cnt" value="1" min="1" oninput="calcMarital()"><button onclick="step('mr_cnt',1,calcMarital)">+</button></div></div>
+      <div class="line"><span class="lbl">난이도(전문직·사업가 등)</span><select id="mr_adjust" onchange="calcMarital()">
+        <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
+        <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
+        <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130% (복합자산 권장)</option>
+        <option value="1.4">140%</option><option value="1.5">150% (전문직·사업가 권장)</option><option value="1.6">160%</option>
+        <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
+    </div></div>
+
+    <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
+      <div class="note">부부재산약정등기는 부동산등기가 아니므로 <b>등록면허세는 건당 12,000원 정액</b>입니다(그 밖의 등기). 지방교육세는 그 20%(2,400원). 소유권이전이 아니므로 국민주택채권 매입·농특세는 없습니다. <span class="hint">[A] 지방세법 §28①14호·§151①2호</span></div>
+      <table class="t">
+        <tr><td>등록면허세 (정액) <span class="hint">건당 12,000</span></td><td><input class="cell" id="mr_regTax" type="number" oninput="calcMarital(true)"></td></tr>
+        <tr><td>지방교육세 (20%)</td><td><input class="cell" id="mr_eduTax" type="number" oninput="calcMarital(true)"></td></tr>
+        <tr><td>등기신청수수료 <span class="hint tag chk">확인필요</span></td><td><input class="cell" id="mr_regFee" type="number" value="3000" oninput="calcMarital(true)"></td></tr>
+        <tr><td>대장·등본 우편 등</td><td><input class="cell" id="mr_postFee" type="number" value="6000" oninput="calcMarital(true)"></td></tr>
+        <tr class="subtot"><td>공과금계</td><td id="mr_publicSum">0 원</td></tr>
+      </table>
+    </div></div>
+
+    <div class="card pink"><h2>③ 수수료 (법무사 보수, VAT 별도) <span class="tag A">A</span></h2><div class="body">
+      <table class="t">
+        <tr><td>기본보수 <span class="hint" id="mr_feeBaseNote"></span></td><td class="auto" id="mr_feeBaseCell">0 원</td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="mr_f_deed" checked onchange="calcMarital()"> 부부재산약정서 작성</label> <span class="hint">(핵심 노동·직접입력)</span></td><td><input class="cell" id="mr_deedFee" type="number" value="300000" oninput="calcMarital(true)"></td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="mr_f_tax" checked onchange="calcMarital()"> 등록면허세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="mr_f_trip" checked onchange="calcMarital()"> 교통비 및 일당</label></td><td><input class="cell" id="mr_tripFee" type="number" value="160000" oninput="calcMarital(true)"></td></tr>
+        <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
+        <tbody id="mr_extraAgent"></tbody>
+        <tr class="subtot"><td>수수료계 (보수)</td><td id="mr_feeSum">0 원</td></tr>
+      </table>
+    </div></div>
+
+    <div class="total"><div class="row"><span>법무사 보수 소계</span><span id="mr_t_fee">0 원</span></div>
+      <div class="row sub"><span>부가가치세 (10%)</span><span id="mr_t_vat">0 원</span></div>
+      <div class="row"><span>공과금계</span><span id="mr_t_public">0 원</span></div>
+      <div class="row grand"><span>총 합계</span><span id="mr_t_grand">0 원</span></div></div>
+    <div class="actions"><button class="btn" onclick="calcMarital()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+
+    <div class="card green"><h2>④ 안내 및 준비서류</h2><div class="body">
+      <div class="note"><b>혼인 성립 전</b>에 약정자 <b>쌍방이 공동으로</b> 신청해야 합니다(비송사건절차법 §70). 혼인신고 후 신청은 효력이 없습니다. 관할은 <b>남편이 될 사람의 주소지 관할 지방법원 등기과·등기소</b>(입부혼인 시 처가 될 사람 주소지)입니다. 등기 후 변경은 원칙적으로 불가하며, 정당한 사유가 있으면 법원 허가를 받아 변경할 수 있습니다(민법 §829②).</div>
+      <div class="note" style="background:#fff7e6;border-left-color:var(--gold);"><b>[확인필요]</b> 등기신청수수료는 부부재산약정등기가 등기수수료 예규 별표에 명시되어 있지 않아, 「그 밖의 등기」 기준(3,000원)을 임시 표시치로 두었습니다. 실제 관할 등기과 납부액으로 확인·수정하세요. 기본보수(Ⅶ-1①)는 소가 없으면 5천만원 의제이며, 약정서 작성은 별도 항목으로 계상합니다(법무사보수기준 §3② 협의).</div>
+      <div class="docs">
+        <b>약정자 쌍방</b> — 기본증명서, 가족관계증명서, 혼인관계증명서 각 1통, 주민등록초본, 인감증명서, 인감도장, 신분증<br>
+        <b>공통</b> — 부부재산약정서, 재산목록·소명자료, 등록면허세 영수필확인서, 등기신청수수료 영수필확인서, 위임장
+      </div>
+    </div></div>
+  </div>
+
   <!-- ===== 신탁등기 (풀기능) ===== -->
   <div class="scene" id="scene-신탁등기">
     <button class="back" onclick="goMenu()">‹ 메인메뉴</button>
@@ -1092,7 +1148,9 @@
         <label><input type="radio" name="pr_ptype" value="etc"> 주택외</label></div></div>
       <div class="line"><span class="lbl">감면·가산 등</span><div class="checks" onchange="calcPreserve()">
         <label><input type="checkbox" id="pr_over85"> 85㎡ 초과(농특세)</label>
+        <label><input type="checkbox" id="pr_metro"> 대도시 내 취득 중과(취득세)</label>
         <label><input type="checkbox" id="pr_verify"> 확인서면(등기권리증 분실·법§51)</label></div></div>
+      <div id="pr_metroWarn" style="display:none;margin:6px 0;padding:8px 10px;background:#fff7e6;border:1px solid var(--gold);border-radius:6px;font-size:12.5px;color:#8a6d1c;">⚠ <b>대도시 취득 중과 [확인필요]</b> — 지방세법 §13②에 따라 대도시(과밀억제권역) 내 법인 설립·전입 후 5년 내 부동산 취득 등은 취득세가 중과될 수 있습니다. 다만 <b>원시취득 보존등기의 중과 해당 여부는 취득 주체·용도에 따라 달라</b> 자동 적용하지 않습니다. 해당 시 <b>취득세를 직접 재산정·입력</b>하세요(표준세율 + 중과기준세율 2배 등).</div>
       <div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="pr_adjust" onchange="calcPreserve()">
         <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
@@ -1102,7 +1160,7 @@
     </div></div>
 
     <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span></h2><div class="body">
-      <div class="note">시가표준액 기준 매입(주택/주택외=토지+건물 분리). 매입률 직접 입력.</div>
+      <div class="note">시가표준액 기준 매입(주택/주택외=토지+건물 분리). 매입률 직접 입력. <b>집합건물(아파트·빌라)은 세대(구분건물)마다 과세표준이 다르므로, 국민주택채권은 세대별 시가표준액으로 각각 산정 후 합산</b>하세요. 취득세는 전체 과세표준 합계 기준으로 계산됩니다.</div>
       <div id="pr_bondBody"></div>
       <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="pr_region" value="metro" checked onchange="calcBondPreserve()"> 특별시·광역시</label><label><input type="radio" name="pr_region" value="other" onchange="calcBondPreserve()"> 기타지역</label></div></div>
       <div class="line"><span class="lbl">채권 매입금(원)</span><input type="number" class="amt" id="pr_bondBuy" placeholder="0" oninput="calcPreserve(true)"><span class="hint">자동 합산(직접 수정 가능)</span></div>
@@ -1477,6 +1535,7 @@
       <table class="t">
         <tr><td>기본료 <span class="hint" id="cs_feeBaseNote"></span></td><td class="auto" id="cs_feeBaseCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="cs_submit" checked onchange="calcSeizure()"> 제출대행 (Ⅸ-8 40,000)</label></td><td class="auto">40,000 원</td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="cs_statement" onchange="calcSeizure()"> 진술최고신청 <span class="hint">(문안작성·인지송달 직접입력)</span></label></td><td><input class="cell" id="cs_statementFee" type="number" value="0" oninput="calcSeizure(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (Ⅸ)</td></tr>
         <tbody id="cs_extraAgent"></tbody>
         <tr class="subtot"><td>수수료계</td><td id="cs_feeSum">0 원</td></tr>
@@ -1606,6 +1665,7 @@
         <tr><td>기본료 <span class="hint" id="ac_feeBaseNote"></span></td><td class="auto" id="ac_feeBaseCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ac_submit" checked onchange="calcAttachClaim()"> 제출대행 (Ⅸ-8 40,000)</label></td><td class="auto">40,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ac_cert" checked onchange="calcAttachClaim()"> 증권발급대행</label> <span class="hint">[화면표기·수정가능]</span></td><td><input class="cell" id="ac_certFee" type="number" value="100000" oninput="calcAttachClaim(true)"></td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ac_statement" onchange="calcAttachClaim()"> 진술최고신청 <span class="hint">(민집§291·§237 준용·직접입력)</span></label></td><td><input class="cell" id="ac_statementFee" type="number" value="0" oninput="calcAttachClaim(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="ac_extraAgent"></tbody>
         <tr class="subtot"><td>수수료계 (보수)</td><td id="ac_feeSum">0 원</td></tr>
@@ -2052,6 +2112,7 @@ const SCENARIO={
  "가등기":{cat:'re',full:'gadeungi'},
  "신탁등기":{cat:'re',full:'sintak'},
  "담보권추가설정":{cat:'re',full:'mortgageAdd'},
+ "부부재산약정등기":{cat:'re',full:'marital',ref:'§28①14호'},
  // 법인
  "법인설립":{cat:'corp',full:'corp'},
  "자본증감(증자)":{cat:'corp',full:'corpChange'},
@@ -2075,7 +2136,7 @@ const SCENARIO={
  "재산조회신청":{cat:'civil',kind:'tier',tier:'Ⅶ-1①',baseLabel:'집행채권액 ([B] Ⅶ-1①·집행신청)',noSga:true,prof:{injiKind:'flat',injiFlat:1000,songCnt:2,songParty:'신청인',partyDef:1}},
  "공시최고·소송비용확정":{cat:'civil',kind:'tier',tier:'Ⅶ-1②',noSga:true,prof:{injiKind:'flat',injiFlat:1000,songCnt:5,songParty:'신청인+상대방',partyDef:2}},
  "지급명령·조정신청":{cat:'civil',full:'payorder'},
- "공탁":{cat:'civil',kind:'tier',tier:'Ⅴ',baseLabel:'공탁가액',prof:{injiKind:'none',songCnt:0}},
+ "공탁":{cat:'civil',kind:'tier',tier:'Ⅴ',baseLabel:'공탁가액',addFee:'집행공탁 사유신고서 작성 가산보수 (집행공탁 시·협의액 직접입력)',prof:{injiKind:'none',songCnt:0,guide:'<b>변제공탁</b>(민법§487)과 <b>집행공탁</b>(민사집행법§248 등)을 구분하세요. ① <b>변제공탁</b> — 피공탁자에게 공탁통지, 초본발급·보정 중심. ② <b>집행공탁</b> — 공탁 후 집행법원에 <b>사유신고</b>를 하며(민집§248④), 사유신고 시점이 배당요구 종기입니다(민집§247①1호). 집행공탁이면 아래 수수료의 <b>「사유신고서 가산보수」</b> 칸에 협의액을 입력하세요. <span class="tag chk">확인필요</span> 사유신고 보수는 협회 정액이 아니라 사안별 협의액입니다(법무사보수기준§19②).'}},
  "부동산경매 상담":{cat:'civil',kind:'tier',tier:'Ⅵ-1',baseLabel:'감정가액'},
  "경매 매수신청대리":{cat:'civil',full:'auction'},
  "부동산경매(신청)":{cat:'civil',full:'auctionFile'},
@@ -2145,6 +2206,7 @@ function _doOpenScenario(name){
   else if(SCENARIO[name].full==='seizure'){document.getElementById('scene-압류추심').classList.add('active');calcSeizure();}
   else if(SCENARIO[name].full==='misc'){document.getElementById('scene-기타신청').classList.add('active');buildMisc();}
   else if(SCENARIO[name].full==='gadeungi'){document.getElementById('scene-가등기').classList.add('active');calcGadeungi();}
+  else if(SCENARIO[name].full==='marital'){document.getElementById('scene-부부재산약정').classList.add('active');calcMarital();}
   else if(SCENARIO[name].full==='sintak'){document.getElementById('scene-신탁등기').classList.add('active');calcSintak();}
   else if(SCENARIO[name].full==='auction'){document.getElementById('scene-매수신청대리').classList.add('active');calcAuction();}
   else if(SCENARIO[name].full==='auctionFile'){document.getElementById('scene-부동산경매신청').classList.add('active');calcAuctionFile();}
@@ -2655,8 +2717,42 @@ function calcGadeungi(fromEdit){
   document.getElementById('ga_t_public').textContent=won(publicSum);
   document.getElementById('ga_t_grand').textContent=won(fee+vat+publicSum);
 }
+
+/* ===================== 부부재산약정등기 (신설) ===================== */
+function calcMarital(fromEdit){
+  const base=val('mr_base');
+  const cnt=Math.max(1,val('mr_cnt'));
+  if(!fromEdit){
+    const reg=12000*cnt; // 지방세법 §28①14호: 그 밖의 등기 건당 12,000원 [A]
+    document.getElementById('mr_regTax').value=reg;
+    document.getElementById('mr_eduTax').value=Math.round(reg*0.2); // §151①2호 [A]
+  }
+  const publicSum=val('mr_regTax')+val('mr_eduTax')+val('mr_regFee')+val('mr_postFee')+pubCustomSum('scene-부부재산약정');
+  document.getElementById('mr_publicSum').textContent=won(publicSum);
+  const adj=parseFloat(document.getElementById('mr_adjust').value)||1;
+  const baseForFee=base>0?base:5e7; // 소가 없으면 5천만 의제
+  const feeBase=Math.round(tierFee('Ⅶ-1①',baseForFee)*adj);
+  document.getElementById('mr_feeBaseCell').textContent=won(feeBase);
+  document.getElementById('mr_feeBaseNote').textContent='(Ⅶ-1①'+(base<=0?' ·5천만의제':'')+(adj!==1?' ×'+(adj*100)+'%':'')+')';
+  let fee=feeBase;
+  if(chk('mr_f_deed'))fee+=val('mr_deedFee');
+  if(chk('mr_f_tax'))fee+=50000;
+  if(chk('mr_f_trip'))fee+=val('mr_tripFee');
+  EXTRA_AGENT.filter(a=>a[3].includes('civil')&&!['ea5','ea6','ea7'].includes(a[0])).forEach(([id,name,code])=>{const c=document.getElementById('mra_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('mraq_'+id).value)||1);fee+=FLAT[code]*q;}});
+  fee+=customSum('mr_extraAgent');
+  document.getElementById('mr_feeSum').textContent=won(fee);
+  const vat=Math.round(fee*0.1);
+  document.getElementById('mr_t_fee').textContent=won(fee);
+  document.getElementById('mr_t_vat').textContent=won(vat);
+  document.getElementById('mr_t_public').textContent=won(publicSum);
+  document.getElementById('mr_t_grand').textContent=won(fee+vat+publicSum);
+}
 (function(){const tb=document.getElementById('ga_extraAgent');EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const tr=document.createElement('tr');
   tr.innerHTML='<td><label class="checks" style="display:inline-flex;align-items:flex-start;"><input type="checkbox" id="gaa_'+id+'" onchange="calcGadeungi()" style="margin-top:2px;"> <span style="font-size:12.5px;">'+name+' <b style="color:var(--seal);">'+FLAT[code].toLocaleString()+'원</b></span></label></td><td><input type="number" id="gaaq_'+id+'" value="1" min="1" style="width:54px;text-align:center;" oninput="calcGadeungi()"></td>';
+  tb.appendChild(tr);});})();
+
+(function(){const tb=document.getElementById('mr_extraAgent');if(!tb)return;EXTRA_AGENT.filter(a=>a[3].includes('civil')&&!['ea5','ea6','ea7'].includes(a[0])).forEach(([id,name,code])=>{const tr=document.createElement('tr');
+  tr.innerHTML='<td><label class="checks" style="display:inline-flex;align-items:flex-start;"><input type="checkbox" id="mra_'+id+'" onchange="calcMarital()" style="margin-top:2px;"> <span style="font-size:12.5px;">'+name+' <b style="color:var(--seal);">'+FLAT[code].toLocaleString()+'원</b></span></label></td><td><input type="number" id="mraq_'+id+'" value="1" min="1" style="width:54px;text-align:center;" oninput="calcMarital()"></td>';
   tb.appendChild(tr);});})();
 
 /* ===================== 신탁등기 (풀기능) ===================== */
@@ -2803,6 +2899,7 @@ function renderDocsPreserve(){const f=radio('pr_bform');let ledger='';
     '<div class="dl">'+ledger+'</div>';}
 function calcPreserve(fromEdit){
   renderBondUIPreserve();
+  const mw=document.getElementById('pr_metroWarn');if(mw)mw.style.display=chk('pr_metro')?'block':'none';
   const price=val('pr_price');
   if(!fromEdit){
     const acq=price*0.028, edu=price*0.0016;
@@ -3255,6 +3352,7 @@ function calcSeizure(fromEdit){
   document.getElementById('cs_feeBaseCell').textContent=won(feeBase);
   document.getElementById('cs_feeBaseNote').textContent='(Ⅶ-1①·청구채권액'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   let fee=feeBase; if(chk('cs_submit'))fee+=40000;
+  if(chk('cs_statement'))fee+=val('cs_statementFee'); // 진술최고신청(민집§237) 문안작성 [A]
   EXTRA_AGENT.filter(a=>a[3].includes('civil')&&a[0]!=='ea5').forEach(a=>{const c=document.getElementById('csa_'+a[0]);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('csaq_'+a[0]).value)||1);fee+=FLAT[a[2]]*q;}});
   fee+=customSum('cs_extraAgent');
   document.getElementById('cs_feeSum').textContent=won(fee);
@@ -3344,6 +3442,7 @@ function calcAttachClaim(fromEdit){
   let fee=feeBase;
   if(chk('ac_submit'))fee+=40000;
   if(chk('ac_cert'))fee+=val('ac_certFee');
+  if(chk('ac_statement'))fee+=val('ac_statementFee'); // 진술최고신청(민집§291→§237 준용) 문안작성 [A]
   EXTRA_AGENT.filter(a=>a[3].includes('civil')&&a[0]!=='ea5').forEach(a=>{const c=document.getElementById('aca_'+a[0]);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('acaq_'+a[0]).value)||1);fee+=FLAT[a[2]]*q;}});
   fee+=customSum('ac_extraAgent');
   document.getElementById('ac_feeSum').textContent=won(fee);
@@ -3485,6 +3584,7 @@ function buildGeneric(name){
   const grp=def.cat==='re'?'reTransfer':(def.cat==='family'?'family':def.cat);
   let e='';
   EXTRA_AGENT.filter(a=>a[3].includes(grp)).forEach(a=>{const [id,nm,code]=a;e+='<tr><td><label class="checks" style="display:inline-flex;align-items:flex-start;"><input type="checkbox" id="gck_'+id+'" onchange="calcGeneric()" style="margin-top:2px;"> <span style="font-size:12.5px;">'+eaLabel(a,grp)+' <b style="color:var(--seal);">'+FLAT[code].toLocaleString()+'원</b></span></label></td><td><input type="number" id="gqt_'+id+'" value="1" min="1" style="width:54px;text-align:center;" oninput="calcGeneric()"></td></tr>';});
+  if(def.addFee)e+='<tr><td><label class="checks" style="display:inline-flex;align-items:flex-start;"><input type="checkbox" id="g_addFeeChk" onchange="calcGeneric()" style="margin-top:2px;"> <span style="font-size:12.5px;">'+def.addFee+'</span></label></td><td><input type="number" class="cell" id="g_addFee" value="0" oninput="calcGeneric(true)"></td></tr>';
   document.getElementById('g_extra').innerHTML=e;
   // ③ 공과금
   const pc=document.getElementById('g_publicCard');
@@ -3533,6 +3633,7 @@ function calcGeneric(fromEdit){
   document.getElementById('g_feeNote').textContent=note+(adj!==1?' ×'+(adj*100)+'%':'');
   let fee=feeBase;
   EXTRA_AGENT.forEach(([id,nm,code])=>{const c=document.getElementById('gck_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('gqt_'+id).value)||1);fee+=FLAT[code]*q;}});
+  if(def.addFee&&document.getElementById('g_addFeeChk')&&chk('g_addFeeChk'))fee+=val('g_addFee'); // 집행공탁 사유신고 가산보수(§19② 협의) [A]
   document.getElementById('g_feeSum').textContent=won(fee);
   // 공과금
   let pub=0;
@@ -3656,7 +3757,7 @@ const CUSTOM_MAP={extraAgent:calcSale,s_extraAgent:calcInherit,gv_extraAgent:cal
 /* ===================== 공과금 직접추가 + 준비서류 수기편집 ===================== */
 function pubCustomSum(sceneId){let s=0;const sc=document.getElementById(sceneId);if(sc)sc.querySelectorAll('.pub-custom .custom-amt').forEach(i=>{s+=parseFloat(i.value)||0;});return s;}
 (function addPubCustomAndDocs(){
-  const map={'scene-매매':calcSale,'scene-상속':calcInherit,'scene-증여':calcGift,'scene-부담부증여':calcBurden,'scene-근저당설정':calcMortgage,'scene-근저당말소':calcMortCancel,'scene-보존':calcPreserve,'scene-권리설정':calcRight,'scene-법인설립':calcCorp,'scene-법인변경':calcCorpChange,'scene-가등기':calcGadeungi,'scene-신탁등기':calcSintak,'scene-담보권추가설정':calcMortgageAdd,'scene-소장':calcLawsuit,'scene-부동산가압류':calcAttach,'scene-가처분':calcInjunction,'scene-부동산경매신청':calcAuctionFile,'scene-채권가압류':calcAttachClaim,'scene-유체동산가압류':calcAttachGoods,'scene-자동차가압류':calcAttachCar,'scene-압류추심':calcSeizure,'scene-기타신청':calcMisc};
+  const map={'scene-매매':calcSale,'scene-상속':calcInherit,'scene-증여':calcGift,'scene-부담부증여':calcBurden,'scene-근저당설정':calcMortgage,'scene-근저당말소':calcMortCancel,'scene-보존':calcPreserve,'scene-권리설정':calcRight,'scene-법인설립':calcCorp,'scene-법인변경':calcCorpChange,'scene-가등기':calcGadeungi,'scene-부부재산약정':calcMarital,'scene-신탁등기':calcSintak,'scene-담보권추가설정':calcMortgageAdd,'scene-소장':calcLawsuit,'scene-부동산가압류':calcAttach,'scene-가처분':calcInjunction,'scene-부동산경매신청':calcAuctionFile,'scene-채권가압류':calcAttachClaim,'scene-유체동산가압류':calcAttachGoods,'scene-자동차가압류':calcAttachCar,'scene-압류추심':calcSeizure,'scene-기타신청':calcMisc};
   Object.keys(map).forEach(sid=>{
     const sc=document.getElementById(sid);if(!sc)return;
     let pubTable=null;
