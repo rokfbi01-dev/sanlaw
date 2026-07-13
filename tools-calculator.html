@@ -410,6 +410,7 @@
     <div class="card pink"><h2>④ 수수료 (법무사 보수, VAT 별도) <span class="tag A">A</span></h2><div class="body">
       <table class="t" id="feeTable">
         <tr><td>기본보수 <span class="hint" id="feeBaseNote"></span></td><td class="auto" id="feeBaseCell">0 원</td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="f_foreign" onchange="calcSale()"> <b style="color:#9a2b22;">외국인·재외국민 포함 (보수 100% 가산)</b> <span class="hint">보수기준 §10</span></label></td><td class="auto" id="f_foreignCell">미적용</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="f_origin" checked onchange="calcSale()"> 등기원인증서 작성·검인 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="f_tax" checked onchange="calcSale()"> 취득세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="f_bond" checked onchange="calcSale()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
@@ -490,6 +491,7 @@
     <div class="card pink"><h2>④ 수수료 (법무사 보수, VAT 별도) <span class="tag A">A</span></h2><div class="body">
       <table class="t">
         <tr><td>기본보수 <span class="hint" id="s_feeBaseNote"></span></td><td class="auto" id="s_feeBaseCell">0 원</td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="s_f_foreign" onchange="calcInherit()"> <b style="color:#9a2b22;">외국인·재외국민 포함 (보수 100% 가산)</b> <span class="hint">보수기준 §10</span></label></td><td class="auto" id="s_f_foreignCell">미적용</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="s_f_origin" checked onchange="calcInherit()"> 등기원인증서(협의분할계약서 등) 작성 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="s_f_tax" checked onchange="calcInherit()"> <span id="s_taxAgentLabel">취득세 신고대행</span> (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="s_f_bond" checked onchange="calcInherit()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
@@ -538,6 +540,9 @@
         <input type="number" class="cell" id="gd_estate" placeholder="재산가액(원)" style="width:160px;" oninput="calcGuardian()"></div>
         <span class="hint">미체크 시 비재산사건 → <b>5천만원 의제</b>(보수표 Ⅶ 단서)</span></div>
       <div class="line"><span class="lbl">청구인·후보자(인)</span><div class="stepper"><button onclick="step('gd_cntP',-1,calcGuardian)">−</button><input type="number" id="gd_cntP" value="1" min="1" oninput="calcGuardian()"><button onclick="step('gd_cntP',1,calcGuardian)">+</button></div></div>
+      <div class="line"><span class="lbl">전자소송·송달</span><div class="checks" style="gap:10px;align-items:center;">
+        <label><input type="checkbox" id="gd_elec" checked onchange="calcGuardian()"> 전자소송(인지 10%↓)</label>
+        <span class="hint">송달 회차</span><input type="number" class="cell" id="gd_songN" value="10" min="1" style="width:70px;" oninput="calcGuardian()"><span class="hint">회 [확인필요·법원별]</span></div></div>
       <div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="gd_adjust" onchange="calcGuardian()">
         <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
@@ -560,6 +565,8 @@
     <div class="card blue"><h2>③ 공과금·실비 <span class="tag chk">확인필요</span></h2><div class="body">
       <div class="note">후견등기는 등록면허세·증지가 소액입니다. <b>정신감정</b>은 ① <b>진료기록 감정</b>(법원에 진료기록 송부, 비용·신속성 유리 — 실무 선호) ② <b>신체감정</b>(외래·입원·출장)이 있으며, 법원이 정하는 실비입니다(진단서로 명확하면 감정 생략 가능). 직접 입력하세요.</div>
       <table class="t">
+        <tr><td>인지대 <span class="hint">(개시심판 라류 가사비송 정액)</span></td><td><input class="cell" id="gd_inji" type="number" value="0" oninput="calcGuardian(true)"></td></tr>
+        <tr><td>송달료 <span class="hint">((청구인+사건본인)×회차×5,640)</span></td><td><input class="cell" id="gd_song" type="number" value="0" oninput="calcGuardian(true)"></td></tr>
         <tr><td>후견등기 등록면허세·증지 <span class="hint">(등기 신청 시)</span></td><td><input class="cell" id="gd_regTax" type="number" value="0" oninput="calcGuardian()"></td></tr>
         <tr><td>정신감정비(법원) <span class="hint">실비·사안별</span></td><td><input class="cell" id="gd_eval" type="number" value="0" oninput="calcGuardian()"></td></tr>
         <tr><td>후견등기사항(부존재)증명서·제증명 <span class="hint">실비</span></td><td><input class="cell" id="gd_cert" type="number" value="0" oninput="calcGuardian()"></td></tr>
@@ -636,6 +643,7 @@
     <div class="card pink"><h2>④ 수수료 (법무사 보수, VAT 별도) <span class="tag A">A</span></h2><div class="body">
       <table class="t">
         <tr><td>기본보수 <span class="hint" id="gv_feeBaseNote"></span></td><td class="auto" id="gv_feeBaseCell">0 원</td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="gv_f_foreign" onchange="calcGift()"> <b style="color:#9a2b22;">외국인·재외국민 포함 (보수 100% 가산)</b> <span class="hint">보수기준 §10</span></label></td><td class="auto" id="gv_f_foreignCell">미적용</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="gv_f_origin" checked onchange="calcGift()"> 등기원인증서(증여계약서) 작성 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="gv_f_inspect" checked onchange="calcGift()"> 증여계약서 검인대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="gv_f_tax" checked onchange="calcGift()"> 취득세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
@@ -720,6 +728,7 @@
     <div class="card pink"><h2>④ 수수료 (법무사 보수, VAT 별도) <span class="tag A">A</span></h2><div class="body">
       <table class="t">
         <tr><td>기본보수 <span class="hint" id="bv_feeBaseNote"></span></td><td class="auto" id="bv_feeBaseCell">0 원</td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bv_f_foreign" onchange="calcBurden()"> <b style="color:#9a2b22;">외국인·재외국민 포함 (보수 100% 가산)</b> <span class="hint">보수기준 §10</span></label></td><td class="auto" id="bv_f_foreignCell">미적용</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bv_f_origin" checked onchange="calcBurden()"> 등기원인증서(부담부증여계약서) 작성 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bv_f_inspect" checked onchange="calcBurden()"> 계약서 검인대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bv_f_tax" checked onchange="calcBurden()"> 취득세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
@@ -788,6 +797,7 @@
     <div class="card pink"><h2>④ 수수료 (법무사 보수, VAT 별도) <span class="tag A">A</span></h2><div class="body">
       <table class="t">
         <tr><td>기본보수 <span class="hint" id="mt_feeBaseNote"></span></td><td class="auto" id="mt_feeBaseCell">0 원</td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="mt_f_foreign" onchange="calcMortgage()"> <b style="color:#9a2b22;">외국인·재외국민 포함 (보수 100% 가산)</b> <span class="hint">보수기준 §10</span></label></td><td class="auto" id="mt_f_foreignCell">미적용</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="mt_f_origin" checked onchange="calcMortgage()"> 등기원인증서(근저당권설정계약서) 작성 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="mt_f_tax" checked onchange="calcMortgage()"> 등록면허세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="mt_f_bond" checked onchange="calcMortgage()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
@@ -850,6 +860,7 @@
     <div class="card pink"><h2>③ 수수료 (법무사 보수, VAT 별도) <span class="tag A">A</span></h2><div class="body">
       <table class="t">
         <tr><td>기본보수 <span class="hint" id="ga_feeBaseNote"></span></td><td class="auto" id="ga_feeBaseCell">0 원</td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ga_f_foreign" onchange="calcGadeungi()"> <b style="color:#9a2b22;">외국인·재외국민 포함 (보수 100% 가산)</b> <span class="hint">보수기준 §10</span></label></td><td class="auto" id="ga_f_foreignCell">미적용</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ga_f_origin" checked onchange="calcGadeungi()"> 등기원인증서(매매예약서 등) 작성 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ga_f_tax" checked onchange="calcGadeungi()"> 등록면허세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr id="ga_verifyRow" style="display:none;"><td>확인서면 가산(권리증 분실)</td><td class="auto" id="ga_verifyCell">0 원</td></tr>
@@ -946,7 +957,7 @@
     </div></div>
 
     <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag chk">확인필요</span></h2><div class="body">
-      <div class="note">신탁으로 인한 <b>소유권이전분은 등록면허세 비과세</b>(지방세법 §26②, 형식적 소유권취득) [A]. <b>신탁등기 자체는 건당 6,000원</b>·지방교육세 1,200원 [B 법제처 해석례]. 등기수수료는 신탁등기 기준. <span class="hint">신탁보수 기준은 사무소 정책에 따라 조정 가능 [확인필요]</span></div>
+      <div class="note">신탁으로 인한 위탁자→수탁자 <b>소유권이전은 취득세 비과세</b>(지방세법 §9③, 형식적 소유권취득) [A]. 이전 자체는 등록면허세 과세대상이 아니며, <b>신탁등기는 건당 6,000원</b>·지방교육세 1,200원 [B 법제처 해석례]. 등기수수료는 신탁등기 기준. <span class="hint">신탁보수 기준은 사무소 정책에 따라 조정 가능 [확인필요]</span></div>
       <table class="t">
         <tr><td>등록면허세 (신탁 건당 6,000)</td><td><input class="cell" id="st_regTax" type="number" oninput="calcSintak(true)"></td></tr>
         <tr><td>지방교육세 (건당 1,200)</td><td><input class="cell" id="st_eduTax" type="number" oninput="calcSintak(true)"></td></tr>
@@ -1179,6 +1190,7 @@
     <div class="card pink"><h2>④ 수수료 (법무사 보수, VAT 별도) <span class="tag A">A</span></h2><div class="body">
       <table class="t">
         <tr><td>기본보수 <span class="hint" id="pr_feeBaseNote"></span></td><td class="auto" id="pr_feeBaseCell">0 원</td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pr_f_foreign" onchange="calcPreserve()"> <b style="color:#9a2b22;">외국인·재외국민 포함 (보수 100% 가산)</b> <span class="hint">보수기준 §10</span></label></td><td class="auto" id="pr_f_foreignCell">미적용</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pr_f_tax" checked onchange="calcPreserve()"> 취득세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pr_f_bond" checked onchange="calcPreserve()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pr_f_same" onchange="calcPreserve()"> 동일인 보증서 (200,000+)</label> <span class="hint">대상</span> <input type="number" id="pr_sameN" value="1" min="1" style="width:54px;" oninput="calcPreserve()"></td><td class="auto" id="pr_sameCell">0 원</td></tr>
@@ -1218,6 +1230,7 @@
       <div class="line"><span class="lbl" id="rt_baseLbl">전세금(원)</span><input type="number" class="amt" id="rt_price" placeholder="0" oninput="calcRight()"></div>
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('rt_cntEstate',-1,calcRight)">−</button><input type="number" id="rt_cntEstate" value="1" min="1" oninput="calcRight()"><button onclick="step('rt_cntEstate',1,calcRight)">+</button></div></div>
       <div class="line"><span class="lbl">감면·가산 등</span><div class="checks" onchange="calcRight()">
+        <label><input type="checkbox" id="rt_f_foreign"> <b style="color:#9a2b22;">외국인·재외국민 포함(보수 100%↑)</b></label>
         <label><input type="checkbox" id="rt_verify"> 확인서면(등기권리증 분실·법§51)</label>
         <label><input type="checkbox" id="rt_same"> 동일인 보증서</label></div></div>
       <div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="rt_adjust" onchange="calcRight()">
@@ -2330,7 +2343,7 @@ function calcSale(fromEdit){
   const publicSum=val('acqTax')+val('eduTax')+val('ruralTax')+bondLoss+regFee+val('stampDuty')+post+pubCustomSum('scene-매매');
   document.getElementById('publicSum').textContent=won(publicSum);
   const adj=parseFloat(document.getElementById('feeAdjust').value)||1;
-  const feeBase=Math.round(tierFee('Ⅰ-1',price)*adj);
+  const feeBase=Math.round(tierFee('Ⅰ-1',price)*adj*(chk('f_foreign')?2:1));
   document.getElementById('feeBaseCell').textContent=won(feeBase);
   document.getElementById('feeBaseNote').textContent='(보수표 Ⅰ-1'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   let fee=feeBase;
@@ -2432,7 +2445,7 @@ function calcInherit(fromEdit){
   const publicSum=val('s_acqTax')+val('s_eduTax')+val('s_ruralTax')+bondLoss+regFee+post+pubCustomSum('scene-상속');
   document.getElementById('s_publicSum').textContent=won(publicSum);
   const adj=parseFloat(document.getElementById('s_adjust').value)||1;
-  const feeBase=Math.round(tierFee('Ⅰ-1',price)*adj);
+  const feeBase=Math.round(tierFee('Ⅰ-1',price)*adj*(chk('s_f_foreign')?2:1));
   document.getElementById('s_feeBaseCell').textContent=won(feeBase);
   document.getElementById('s_feeBaseNote').textContent='(보수표 Ⅰ-1'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   let fee=feeBase;
@@ -2477,8 +2490,14 @@ function renderDocsGuardian(){
   else add='<b>임의후견</b> — <b>후견계약 공정증서</b>(등기 필요), 임의후견감독인 선임청구서. 감독인 선임 시부터 효력 발생(민법 §959의15)';
   document.getElementById('gd_docsBox').innerHTML=common+'<div class="dl">'+add+'</div>';
 }
-function calcGuardian(){
+function calcGuardian(fromEdit){
   const adj=parseFloat(document.getElementById('gd_adjust').value)||1;
+  if(!fromEdit){
+    // 개시심판 인지: 라류 가사비송 5,000원(전자 10% 할인 4,500원) · 송달료: (청구인+사건본인)×회차×5,640
+    document.getElementById('gd_inji').value=chk('gd_elec')?4500:5000;
+    const parties=Math.max(1,val('gd_cntP'))+1;
+    document.getElementById('gd_song').value=parties*Math.max(1,val('gd_songN'))*5640;
+  }
   let fee=0;
   // 심판청구서 Ⅶ-1①
   const petRow=document.getElementById('gd_petRow');
@@ -2502,7 +2521,7 @@ function calcGuardian(){
   fee+=customSum('gd_extraAgent');
   document.getElementById('gd_feeSum').textContent=won(fee);
   // 공과금·실비
-  const pub=val('gd_regTax')+val('gd_eval')+val('gd_cert');
+  const pub=val('gd_inji')+val('gd_song')+val('gd_regTax')+val('gd_eval')+val('gd_cert');
   document.getElementById('gd_pubSum').textContent=won(pub);
   const vat=Math.round(fee*0.1);
   document.getElementById('gd_t_fee').textContent=won(fee);
@@ -2573,7 +2592,7 @@ function calcGift(fromEdit){
   const publicSum=val('gv_acqTax')+val('gv_eduTax')+val('gv_ruralTax')+bondLoss+regFee+post+pubCustomSum('scene-증여');
   document.getElementById('gv_publicSum').textContent=won(publicSum);
   const adj=parseFloat(document.getElementById('gv_adjust').value)||1;
-  const feeBase=Math.round(tierFee('Ⅰ-1',price)*adj);
+  const feeBase=Math.round(tierFee('Ⅰ-1',price)*adj*(chk('gv_f_foreign')?2:1));
   document.getElementById('gv_feeBaseCell').textContent=won(feeBase);
   document.getElementById('gv_feeBaseNote').textContent='(보수표 Ⅰ-1 · 시가인정액'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   let fee=feeBase;
@@ -2654,7 +2673,7 @@ function calcBurden(fromEdit){
   document.getElementById('bv_publicSum').textContent=won(publicSum);
   // 보수: Ⅰ-1 신고금액 전체 기준
   const adj=parseFloat(document.getElementById('bv_adjust').value)||1;
-  const feeBase=Math.round(tierFee('Ⅰ-1',total)*adj);
+  const feeBase=Math.round(tierFee('Ⅰ-1',total)*adj*(chk('bv_f_foreign')?2:1));
   document.getElementById('bv_feeBaseCell').textContent=won(feeBase);
   document.getElementById('bv_feeBaseNote').textContent='(보수표 Ⅰ-1 · 신고금액 전체'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   let fee=feeBase;
@@ -2707,7 +2726,7 @@ function calcMortgage(mode){
   const publicSum=val('mt_regTax')+val('mt_eduTax')+bondLoss+regFee+post+pubCustomSum('scene-근저당설정');
   document.getElementById('mt_publicSum').textContent=won(publicSum);
   const adj=parseFloat(document.getElementById('mt_adjust').value)||1;
-  const feeBase=Math.round(tierFee('Ⅰ-1',max)*adj);
+  const feeBase=Math.round(tierFee('Ⅰ-1',max)*adj*(chk('mt_f_foreign')?2:1));
   document.getElementById('mt_feeBaseCell').textContent=won(feeBase);
   document.getElementById('mt_feeBaseNote').textContent='(보수표 Ⅰ-1 · 채권최고액'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   let fee=feeBase;
@@ -2748,7 +2767,7 @@ function calcGadeungi(fromEdit){
   const publicSum=val('ga_regTax')+val('ga_eduTax')+regFee+post+pubCustomSum('scene-가등기');
   document.getElementById('ga_publicSum').textContent=won(publicSum);
   const adj=parseFloat(document.getElementById('ga_adjust').value)||1;
-  const feeBase=Math.round(tierFee('Ⅰ-1',base)*adj);
+  const feeBase=Math.round(tierFee('Ⅰ-1',base)*adj*(chk('ga_f_foreign')?2:1));
   document.getElementById('ga_feeBaseCell').textContent=won(feeBase);
   document.getElementById('ga_feeBaseNote').textContent='(보수표 Ⅰ-1'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   let fee=feeBase;
@@ -2966,7 +2985,7 @@ function calcPreserve(fromEdit){
   const publicSum=val('pr_acqTax')+val('pr_eduTax')+val('pr_ruralTax')+bondLoss+regFee+post+pubCustomSum('scene-보존');
   document.getElementById('pr_publicSum').textContent=won(publicSum);
   const adj=parseFloat(document.getElementById('pr_adjust').value)||1;
-  const feeBase=Math.round(tierFee('Ⅰ-1',price)*adj);
+  const feeBase=Math.round(tierFee('Ⅰ-1',price)*adj*(chk('pr_f_foreign')?2:1));
   document.getElementById('pr_feeBaseCell').textContent=won(feeBase);
   document.getElementById('pr_feeBaseNote').textContent='(보수표 Ⅰ-1'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   let fee=feeBase;
@@ -3020,7 +3039,7 @@ function calcRight(fromEdit){
   const publicSum=val('rt_regTax')+val('rt_eduTax')+regFee+post+pubCustomSum('scene-권리설정');
   document.getElementById('rt_publicSum').textContent=won(publicSum);
   const adj=parseFloat(document.getElementById('rt_adjust').value)||1;
-  const feeBase=Math.round(tierFee('Ⅰ-1',price)*adj);
+  const feeBase=Math.round(tierFee('Ⅰ-1',price)*adj*(chk('rt_f_foreign')?2:1));
   document.getElementById('rt_feeBaseCell').textContent=won(feeBase);
   document.getElementById('rt_feeBaseNote').textContent='(보수표 Ⅰ-1 · '+radio('rt_type')+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   let fee=feeBase;
