@@ -377,13 +377,8 @@
       <div id="bondBody"></div>
       <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="region" value="metro" checked onchange="calcBondSale()"> 특별시·광역시</label><label><input type="radio" name="region" value="other" onchange="calcBondSale()"> 기타지역</label></div></div>
       <div class="line"><span class="lbl">채권 매입금(원)</span><input type="number" class="amt" id="bondBuy" placeholder="0" oninput="calcSale()"><span class="hint">자동 합산(직접 수정 가능)</span></div>
-      <details class="ref"><summary>매입률·면제 참고표 <span class="reftag">확인필요</span></summary><div class="refbody">
-        <table class="ref"><tr><th>주택 시가표준액</th><th class="r">특·광역시</th><th class="r">기타</th></tr>
-        <tr><td>1.6억~2.6억</td><td class="r">23/1,000</td><td class="r na">확인필요</td></tr>
-        <tr><td>2.6억~6억</td><td class="r">26/1,000</td><td class="r na">확인필요</td></tr>
-        <tr><td>그 외 구간·토지·건물(상가)</td><td class="r na" colspan="2">현행 별표 확인 후 내장 (토지·건물 매입률 각각 다름)</td></tr></table>
-        <p style="margin:8px 0 0;font-size:11.5px;color:#8a8270;">계산규칙: 5천원 미만 절사/5천원 이상 올림 → 만원 단위 · 최저 1만원 · 주택외는 토지·건물 각 요율 적용 후 합산</p>
-      </div></details>
+      <div id="bondTable"></div>
+      <p style="margin:6px 2px 0;font-size:11px;color:#8a8270;">계산규칙: 5천원 미만 절사 / 5천원 이상 올림 → 만원 단위 · 최저 1만원 · 주택외는 토지·건물 각 요율 적용 후 합산</p>
     </div></div>
 
     <div class="card blue"><h2>③ 공과금 (VAT 비과세) <span class="tag chk">확인필요</span></h2><div class="body">
@@ -475,6 +470,7 @@
       <div class="note">부동산 종류에 따라 입력칸 전환(주택/주택외=토지+건물/농지). 상속도 매입대상이며, 일부 면제·감액 케이스는 직접 조정.</div>
       <div id="s_bondBody"></div>
       <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="s_region" value="metro" checked onchange="calcBondInherit()"> 특별시·광역시</label><label><input type="radio" name="s_region" value="other" onchange="calcBondInherit()"> 기타지역</label></div></div>
+      <div id="s_bondTable"></div>
       <div class="line"><span class="lbl">채권 매입금(원)</span><input type="number" class="amt" id="s_bondBuy" placeholder="0" oninput="calcInherit()"><span class="hint">자동 합산(직접 수정 가능)</span></div>
     </div></div>
 
@@ -620,6 +616,7 @@
       <div class="note">증여는 <b>시가표준액</b> 기준 매입(주택/주택외=토지+건물 분리). 매입률 직접 입력.</div>
       <div id="gv_bondBody"></div>
       <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="gv_region" value="metro" checked onchange="calcBondGift()"> 특별시·광역시</label><label><input type="radio" name="gv_region" value="other" onchange="calcBondGift()"> 기타지역</label></div></div>
+      <div id="gv_bondTable"></div>
       <div class="line"><span class="lbl">채권 매입금(원)</span><input type="number" class="amt" id="gv_bondBuy" placeholder="0" oninput="calcGift()"><span class="hint">자동 합산(직접 수정 가능)</span></div>
     </div></div>
 
@@ -700,6 +697,7 @@
       <div class="line"><span class="lbl">부담부분 매입률(‰)</span><input type="number" id="bv_pctDebt" placeholder="예: 31" step="0.1" style="width:120px;" oninput="calcBondBurden()"><span class="hint">유상분 비율 × 시가표준액</span></div>
       <div class="line"><span class="lbl">증여분 매입률(‰)</span><input type="number" id="bv_pctGift" placeholder="예: 42" step="0.1" style="width:120px;" oninput="calcBondBurden()"><span class="hint">무상분 비율 × 시가표준액</span></div>
       <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="bv_region" value="metro" checked onchange="calcBondBurden()"> 특별시·광역시</label><label><input type="radio" name="bv_region" value="other" onchange="calcBondBurden()"> 기타지역</label></div></div>
+      <div id="bv_bondTable"></div>
       <div class="line"><span class="lbl">채권 매입금(원)</span><input type="number" class="amt" id="bv_bondBuy" placeholder="0" oninput="calcBurden()"><span class="hint" id="bv_bondNote">자동 합산</span></div>
     </div></div>
 
@@ -1162,6 +1160,7 @@
       <div class="note">시가표준액 기준 매입(주택/주택외=토지+건물 분리). 매입률 직접 입력. <b>집합건물(아파트·빌라)은 세대(구분건물)마다 과세표준이 다르므로, 국민주택채권은 세대별 시가표준액으로 각각 산정 후 합산</b>하세요. 취득세는 전체 과세표준 합계 기준으로 계산됩니다.</div>
       <div id="pr_bondBody"></div>
       <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="pr_region" value="metro" checked onchange="calcBondPreserve()"> 특별시·광역시</label><label><input type="radio" name="pr_region" value="other" onchange="calcBondPreserve()"> 기타지역</label></div></div>
+      <div id="pr_bondTable"></div>
       <div class="line"><span class="lbl">채권 매입금(원)</span><input type="number" class="amt" id="pr_bondBuy" placeholder="0" oninput="calcPreserve(true)"><span class="hint">자동 합산(직접 수정 가능)</span></div>
     </div></div>
 
@@ -2060,10 +2059,54 @@ const BOND_RATE={
 };
 function bondRate(type,std,metro){const t=BOND_RATE[type];if(!t||std<=0)return 0;for(const[cap,m,o]of t){if(std<cap)return metro?m:o;}return 0;}
 function bondAmount(std,rate){if(std<=0||rate<=0)return 0;let amt=std*rate/1000;const frac=amt%10000;amt=(frac<5000)?Math.floor(amt/10000)*10000:Math.ceil(amt/10000)*10000;return amt;}
+/* ▼ 채권 매입률 공시표 — 계산에 쓰는 BOND_RATE를 그대로 표로 렌더(표=계산, 불일치 불가) */
+function bondFmtWon(c){if(c===Infinity)return '';if(c>=억){const v=c/억;return (Number.isInteger(v)?v:v.toFixed(1))+'억';}return (c/만).toLocaleString()+'만';}
+function bondTableHTML(type,stds,metro){
+  const t=BOND_RATE[type];if(!t)return '';
+  const label={주택:'매매·주택',토지:'매매·토지',건물:'매매·건물/상가',상속:'상속·증여·무상취득'}[type]||type;
+  let rows='',prev=0;
+  for(const[cap,m,o]of t){
+    const active=stds.some(s=>s>0&&s>=prev&&s<cap);
+    const range=(cap===Infinity)?(bondFmtWon(prev)+'원 이상'):(prev===0?(bondFmtWon(cap)+'원 미만'):(bondFmtWon(prev)+'원 ~ '+bondFmtWon(cap)+'원 미만'));
+    const exempt=(m===0&&o===0);
+    const hl=active?'background:#fbe7c6;font-weight:800;color:#9a2b22;':'';
+    const mCol=metro&&active?'font-weight:800;':'';const oCol=!metro&&active?'font-weight:800;':'';
+    rows+=`<tr style="${hl}"><td style="padding:4px 8px;border-bottom:1px solid #eee6d5;text-align:left;">${range}${active?' ◀':''}</td>`+
+      `<td style="padding:4px 8px;border-bottom:1px solid #eee6d5;text-align:center;${mCol}">${exempt?'면제':m+'‰'}</td>`+
+      `<td style="padding:4px 8px;border-bottom:1px solid #eee6d5;text-align:center;${oCol}">${exempt?'면제':o+'‰'}</td></tr>`;
+    prev=cap;
+  }
+  return `<div style="margin:8px 0 4px;border:1px solid #cbbfa6;border-radius:10px;overflow:hidden;background:#fffdf8;">`+
+    `<div style="font-weight:800;font-size:12px;color:#9a2b22;padding:7px 10px;background:#f6efe0;border-bottom:1px solid #cbbfa6;">📊 적용 매입률표 · ${label} <span style="font-size:10px;color:#1d7a46;font-weight:700;margin-left:4px;">A 시행령 별표</span></div>`+
+    `<table style="width:100%;border-collapse:collapse;font-size:11.5px;"><thead><tr>`+
+    `<th style="background:#faf6ec;color:#7a6a4a;font-weight:700;padding:4px 8px;border-bottom:1px solid #cbbfa6;text-align:left;">시가표준액</th>`+
+    `<th style="background:#faf6ec;color:#7a6a4a;font-weight:700;padding:4px 8px;border-bottom:1px solid #cbbfa6;">특별시·광역시</th>`+
+    `<th style="background:#faf6ec;color:#7a6a4a;font-weight:700;padding:4px 8px;border-bottom:1px solid #cbbfa6;">기타지역</th></tr></thead><tbody>${rows}</tbody></table>`+
+    `<div style="font-size:10.5px;color:#8a7c66;padding:5px 10px;">※ 입력 시가표준액 구간을 <b>자동 강조(◀)</b>. <b>이 표의 요율이 그대로 계산에 적용</b>되므로 표와 계산 결과가 어긋날 수 없습니다.</div></div>`;
+}
+/* scene별 채권 요율표 렌더: 매매·보존=물건종류별 매매요율 / 상속·증여=상속표 */
+function renderBondFor(scene,t,metro){
+  const P={sale:'',inherit:'s_',gift:'gv_',preserve:'pr_'}[scene];if(P===undefined)return;
+  const el=document.getElementById(P+'bondTable');if(!el)return;
+  const useInherit=(scene==='inherit'||scene==='gift');let html='';
+  if(t==='house'){const s=val(P+'bondStdHouse');html=bondTableHTML(useInherit?'상속':'주택',[s],metro);}
+  else if(t==='etc'){const sl=val(P+'bondStdLand'),sb=val(P+'bondStdBldg');
+    html=useInherit?bondTableHTML('상속',[sl,sb],metro):(bondTableHTML('토지',[sl],metro)+bondTableHTML('건물',[sb],metro));}
+  else{const sl=val(P+'bondStdLand');html=bondTableHTML(useInherit?'상속':'토지',[sl],metro);}
+  el.innerHTML=html;
+}
+/* 부담부증여: 유상분=매매요율, 무상분=상속요율 — 양쪽 표를 참고용으로 표시(직접입력 보조) */
+function renderBondForBurden(){
+  const el=document.getElementById('bv_bondTable');if(!el)return;
+  el.innerHTML='<div style="font-size:11px;color:#8a6d24;font-weight:800;margin:8px 0 2px;">▸ 유상분(부담부분) = 매매 요율</div>'+
+    bondTableHTML('주택',[],true)+bondTableHTML('토지',[],true)+bondTableHTML('건물',[],true)+
+    '<div style="font-size:11px;color:#8a6d24;font-weight:800;margin:10px 0 2px;">▸ 무상분(증여분) = 상속·증여 요율</div>'+
+    bondTableHTML('상속',[],true);
+}
 
 /* 부동산 등기신청수수료 (붙임1/붙임3, 2025.8.1) — [수기,e-Form,전자] */
 const REG_RE={
- 일반:[18000,15000,10000], 상속:[20000,17000,null], 신탁:[8000,6000,4000], 기타:[4000,3000,1000], 없음:[0,0,0]
+ 일반:[18000,15000,10000], 상속:[20000,17000,null], 신탁:[6000,6000,4000], 기타:[4000,3000,1000], 없음:[0,0,0]
 };
 /* 상업 등기신청수수료 (상업등기규칙 §5의3, 현행) — [서면, e-Form, 전자] */
 const REG_CORP={설립:[35000,28000,20000], 변경:[7000,5000,2000]};
@@ -2247,6 +2290,7 @@ function calcBondSale(){
   else if(t==='etc'){const sl=val('bondStdLand'),sb=val('bondStdBldg');const rl=bondRate('토지',sl,metro),rb=bondRate('건물',sb,metro);if(document.getElementById('bondPctLand'))document.getElementById('bondPctLand').value=rl;if(document.getElementById('bondPctBldg'))document.getElementById('bondPctBldg').value=rb;buy=bondAmount(sl,rl)+bondAmount(sb,rb);}
   else{const sl=val('bondStdLand');const r=bondRate('토지',sl,metro);if(document.getElementById('bondPctLand'))document.getElementById('bondPctLand').value=r;buy=bondAmount(sl,r);}
   document.getElementById('bondBuy').value=buy;
+  renderBondFor('sale',t,metro);
   calcSale();
 }
 function houseBaseRate(p){if(p<=6*억)return 0.01;if(p<=9*억)return(p*2/(3*억)-3)/100;return 0.03;}
@@ -2334,6 +2378,7 @@ function calcBondInherit(){
   else if(t==='etc'){const sl=val('s_bondStdLand'),sb=val('s_bondStdBldg');const rl=bondRate('상속',sl,metro),rb=bondRate('상속',sb,metro);if(document.getElementById('s_bondPctLand'))document.getElementById('s_bondPctLand').value=rl;if(document.getElementById('s_bondPctBldg'))document.getElementById('s_bondPctBldg').value=rb;buy=bondAmount(sl,rl)+bondAmount(sb,rb);}
   else{const sl=val('s_bondStdLand');const r=bondRate('상속',sl,metro);if(document.getElementById('s_bondPctLand'))document.getElementById('s_bondPctLand').value=r;buy=bondAmount(sl,r);}
   document.getElementById('s_bondBuy').value=buy;
+  renderBondFor('inherit',t,metro);
   calcInherit();
 }
 function inheritAcqRate(){const t=radio('s_ptype'),one=chk('s_oneHouse');if(t==='farm')return 0.023;if(t==='house'&&one)return 0.008;return 0.028;}
@@ -2492,6 +2537,7 @@ function calcBondGift(){
   if(t==='house'){const s=val('gv_bondStdHouse');const r=bondRate('상속',s,metro);if(document.getElementById('gv_bondPctHouse'))document.getElementById('gv_bondPctHouse').value=r;buy=bondAmount(s,r);}
   else{const sl=val('gv_bondStdLand'),sb=val('gv_bondStdBldg');const rl=bondRate('상속',sl,metro),rb=bondRate('상속',sb,metro);if(document.getElementById('gv_bondPctLand'))document.getElementById('gv_bondPctLand').value=rl;if(document.getElementById('gv_bondPctBldg'))document.getElementById('gv_bondPctBldg').value=rb;buy=bondAmount(sl,rl)+bondAmount(sb,rb);}
   document.getElementById('gv_bondBuy').value=buy;
+  renderBondFor('gift',t,metro);
   calcGift();
 }
 function giftAcqRate(value){const t=radio('gv_ptype'),adj3=chk('gv_adj3');if(t==='house'&&adj3&&value>=3*억)return 0.12;return 0.035;}
@@ -2884,6 +2930,7 @@ function calcBondPreserve(){
   if(t==='house'){const s=val('pr_bondStdHouse');const r=bondRate('주택',s,metro);if(document.getElementById('pr_bondPctHouse'))document.getElementById('pr_bondPctHouse').value=r;buy=bondAmount(s,r);}
   else{const sl=val('pr_bondStdLand'),sb=val('pr_bondStdBldg');const rl=bondRate('토지',sl,metro),rb=bondRate('건물',sb,metro);if(document.getElementById('pr_bondPctLand'))document.getElementById('pr_bondPctLand').value=rl;if(document.getElementById('pr_bondPctBldg'))document.getElementById('pr_bondPctBldg').value=rb;buy=bondAmount(sl,rl)+bondAmount(sb,rb);}
   document.getElementById('pr_bondBuy').value=buy;
+  renderBondFor('preserve',t,metro);
   calcPreserve(true);
 }
 function renderDocsPreserve(){const f=radio('pr_bform');let ledger='';
@@ -4021,6 +4068,7 @@ async function exportExcel(){
   document.body.appendChild(a);a.click();document.body.removeChild(a);
   setTimeout(()=>URL.revokeObjectURL(url),1000);
 }
+try{renderBondForBurden();}catch(e){}
 </script>
 </body>
 </html>
