@@ -1544,7 +1544,7 @@
       <div class="row"><span>공과금계</span><span id="cs_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계 <span class="hint" id="cs_t_ratio"></span></span><span id="cs_t_grand">0 원</span></div></div>
     <div class="actions"><button class="btn" onclick="calcSeizure()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
-    <div class="card green"><h2>④ 안내</h2><div class="body"><div class="docs"><b>인지</b> — 전자소송 포털 기준 압류 1,800·추심 1,800(전자), 종이 각 2,000원. 압류와 추심을 함께 신청하면 합산됩니다.<br><b>송달</b> — (채권자+채무자+제3채무자)×2회×5,500 [A·전자소송 포털].<br><b>담보 없음</b> — 본집행이므로 보증보험료·공탁금이 없습니다.</div></div></div>
+    <div class="card green"><h2>④ 안내</h2><div class="body"><div class="docs"><b>인지</b> — 전자소송 포털 기준 압류 1,800·추심 1,800(전자), 종이 각 2,000원. 압류와 추심을 함께 신청하면 합산됩니다.<br><b>송달</b> — (채권자+채무자+제3채무자)×2회×5,640 [A·전자소송 포털].<br><b>담보 없음</b> — 본집행이므로 보증보험료·공탁금이 없습니다.</div></div></div>
   </div>
 
   <!-- ===== 유체동산가압류 (풀기능) Ⅶ-1① · 등기 없음 ===== -->
@@ -1842,7 +1842,7 @@
     </div></div>
 
     <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
-      <div class="note">인지대(민사소송등인지법)·송달료(1회 5,500원)는 자동 계산됩니다. 특별송달료·보정료는 직접 입력하세요. <span class="hint">[A] 인지법 / [B] 송달료 조견표</span></div>
+      <div class="note">인지대(민사소송등인지법)·송달료(1회 5,640원)는 자동 계산됩니다. 특별송달료·보정료는 직접 입력하세요. <span class="hint">[A] 인지법 / [B] 송달료 조견표</span></div>
       <table class="t">
         <tr><td>인지대 <span id="so_injiNote" class="hint"></span></td><td><input class="cell" id="so_inji" type="number" oninput="calcLawsuit(true)"></td></tr>
         <tr><td>송달료 <span id="so_songNote" class="hint"></span></td><td><input class="cell" id="so_song" type="number" oninput="calcLawsuit(true)"></td></tr>
@@ -1883,7 +1883,7 @@
     <div class="card green"><h2>④ 안내</h2><div class="body">
       <div class="docs">
         <b>인지대</b> — 소가별 누진(1심), 항소 ×1.5, 상고 ×2, 제소전화해 ×1/5, 조정·지급명령 ×1/10, 전자소송 10% 할인, 100원 미만 절사<br>
-        <b>송달료</b> — 당사자수 × 회차 × 5,500원 (소액10·단독합의15·항소12·상고8·항고5·화해4·조정5·독촉6회)<br>
+        <b>송달료</b> — 당사자수 × 회차 × 5,640원 (소액10·단독합의15·항소12·상고8·항고5·화해4·조정5·독촉6회)<br>
         <b>주의</b> — 답변서·준비서면은 인지대가 없으므로 인지대 0으로 수정하세요. 송달료 회차는 법원별 조견표로 재확인 권장 [B].
       </div>
     </div></div>
@@ -2419,7 +2419,7 @@ function calcInherit(fromEdit){
   const _ta=document.getElementById('s_taxAgentLabel');if(_ta)_ta.textContent=regMode?'등록세 신고대행':'취득세 신고대행';
   const _rn=document.getElementById('s_regTaxNote');if(_rn)_rn.style.display=regMode?'flex':'none';
   const _tn=document.getElementById('s_taxNote');if(_tn)_tn.innerHTML=regMode
-    ?'舊 등록세 자동(농지외 <b>0.8%</b> / 농지 <b>0.3%</b>) + 지방교육세 20% · 농특세 없음. 2011년 통합 이전 상속개시분(부칙 §6). 등기수수료 상속 <b>매 부동산 20,000(수기)·17,000(e-Form)·전자불가</b>.'
+    ?'舊 등록세 자동(농지외 <b>0.8%</b> / 농지 <b>0.3%</b>) + 지방교육세 20% · 농특세 없음. 2011년 통합 이전 상속개시분. <b>구 취득세(2%)는 부과제척기간(상속 무신고 통상 7년) 도과 시 제외</b>되어 등기 시 등록세만 납부하나, <b>제척기간 미도과분은 구 취득세 2%가 별도 부과</b>될 수 있으니 관할 세무과 확인. 등기수수료 상속 <b>매 부동산 20,000(수기)·17,000(e-Form)·전자불가</b>. [확인필요]'
     :'상속 취득세 자동(농지외 2.8% / 농지 2.3% / 무주택1주택 특례 0.8%·확인필요). 등기수수료 상속 <b>매 부동산 20,000(수기)·17,000(e-Form)·전자불가</b>.';
   const bondLoss=Math.round(val('s_bondBuy')*val('bondRate')/100);
   document.getElementById('s_bondLossCell').textContent=won(bondLoss)+' ('+val('bondRate')+'%)';
@@ -2681,8 +2681,9 @@ function calcMortgage(mode){
   // mode: undefined/false=채권최고액변경·초기(전체자동) / 'pct'=매입률 직접편집(매입금만 재산정) / true=공과금셀 직접편집(자동안함)
   const max=val('mt_max');
   if(mode===undefined||mode===false){
-    document.getElementById('mt_regTax').value=Math.round(max*0.002);
-    document.getElementById('mt_eduTax').value=Math.round(max*0.002*0.2);
+    let mtReg=Math.round(max*0.002); if(max>0&&mtReg<6000)mtReg=6000;  /* 등록면허세 최저 6,000원 §28①1 단서 */
+    document.getElementById('mt_regTax').value=max>0?mtReg:0;
+    document.getElementById('mt_eduTax').value=Math.round((max>0?mtReg:0)*0.2);
     document.getElementById('mt_regRate').textContent='(채권최고액 × 0.2%)';
     // 국민주택채권 매입률 자동: 저당권설정금액 2천만원 이상 → 10/1,000(지역무관). 2천만 미만 면제. [A: 주택도시기금법 시행령 별표]
     document.getElementById('mt_bondPct').value=(max>=20000000)?10:0;
@@ -2837,8 +2838,9 @@ function calcSintak(fromEdit){
 function calcMortgageAdd(fromEdit){
   const max=val('ma_max');
   if(!fromEdit){
-    document.getElementById('ma_regTax').value=Math.round(max*0.002);
-    document.getElementById('ma_eduTax').value=Math.round(max*0.002*0.2);
+    let maReg=Math.round(max*0.002); if(max>0&&maReg<6000)maReg=6000;  /* 등록면허세 최저 6,000원 §28①1 단서 */
+    document.getElementById('ma_regTax').value=max>0?maReg:0;
+    document.getElementById('ma_eduTax').value=Math.round((max>0?maReg:0)*0.2);
     document.getElementById('ma_regRate').textContent='(채권최고액 × 0.2%)';
     const pct=val('ma_bondPct');
     if(max>0&&pct>0)document.getElementById('ma_bondBuy').value=Math.round(max*pct/1000);
@@ -3003,8 +3005,9 @@ function renderDocsRight(){
 function calcRight(fromEdit){
   const price=val('rt_price');
   if(!fromEdit){
-    document.getElementById('rt_regTax').value=Math.round(price*0.002);
-    document.getElementById('rt_eduTax').value=Math.round(price*0.002*0.2);
+    let rtReg=Math.round(price*0.002); if(price>0&&rtReg<6000)rtReg=6000;  /* 등록면허세 최저 6,000원 §28①1 단서 */
+    document.getElementById('rt_regTax').value=price>0?rtReg:0;
+    document.getElementById('rt_eduTax').value=Math.round((price>0?rtReg:0)*0.2);
     document.getElementById('rt_regRate').textContent='(설정금액 × 0.2%)';
     // 전세권·지상권 설정은 국민주택채권 매입 대상 아님 → 0원(예외 시 사용자가 직접 입력)
   }
@@ -3214,9 +3217,9 @@ function calcLawsuit(fromEdit){
     inji=(inji<1000)?1000:Math.floor(inji/100)*100; // 1,000원 미만→1,000원, 이상→100원 미만 버림 [A]
     document.getElementById('so_inji').value=sga>0?Math.round(inji):0;
     document.getElementById('so_injiNote').textContent='(소가 기준'+(INJI_MULT[ty]!==1?' ×'+INJI_MULT[ty]:'')+(chk('so_e')?' ·전자10%할인':'')+')';
-    const song=party*SONG_CNT[ty]*5500;
+    const song=party*SONG_CNT[ty]*5640;
     document.getElementById('so_song').value=song;
-    document.getElementById('so_songNote').textContent='('+party+'인 × '+SONG_CNT[ty]+'회 × 5,500)';
+    document.getElementById('so_songNote').textContent='('+party+'인 × '+SONG_CNT[ty]+'회 × 5,640)';
   }
   const publicSum=val('so_inji')+val('so_song')+val('so_specialFee')+val('so_correct')+pubCustomSum('scene-소장');
   document.getElementById('so_publicSum').textContent=won(publicSum);
@@ -3246,7 +3249,7 @@ function calcLawsuit(fromEdit){
     adjBox.style.display='block';
     const mainInji=Math.floor(injiBase(sga)*(chk('so_e')?0.9:1)/100)*100;
     const addInji=Math.max(0,mainInji-val('so_inji'));
-    const mainSong=party*15*5500;
+    const mainSong=party*15*5640;
     const addSong=Math.max(0,mainSong-val('so_song'));
     document.getElementById('so_adjInji').textContent=won(addInji);
     document.getElementById('so_adjInjiNote').textContent='(본안 '+won(mainInji)+' − 현재)';
@@ -3309,8 +3312,8 @@ function calcAuctionFile(fromEdit){
     document.getElementById('am_regTax').value=Math.floor(claim*0.002);
     document.getElementById('am_eduTax').value=Math.floor(val('am_regTax')*0.2);
     document.getElementById('am_inji').value=5000*Math.max(1,val('am_titleN'));
-    document.getElementById('am_song').value=(party+3)*10*5500;
-    document.getElementById('am_songNote').textContent='((이해관계인'+party+'+3)×10회×5,500)';
+    document.getElementById('am_song').value=(party+3)*10*5640;
+    document.getElementById('am_songNote').textContent='((이해관계인'+party+'+3)×10회×5,640)';
     document.getElementById('am_regFee').value=4000*cntE;
     document.getElementById('am_court').value=courtDeposit(estV,isApt);
     document.getElementById('am_courtNote').textContent=estV>0?'(서울중앙·'+(isApt?'아파트':'아파트외')+'·자동)':'(부동산가액 입력 시 자동)';
@@ -3356,16 +3359,16 @@ function buildMisc(){
   const idx=parseInt(sel.value)||0, app=MISC_APPS[idx], e=chk('mi_e');
   document.getElementById('mi_inji').value=Math.floor(app[1]*(e?0.9:1)/100)*100;
   document.getElementById('mi_injiNote').textContent='(포털 '+app[1].toLocaleString()+(e?'·전자10%':'')+')';
-  document.getElementById('mi_song').value=Math.max(1,val('mi_party'))*app[2]*5500;
-  document.getElementById('mi_songNote').textContent='('+Math.max(1,val('mi_party'))+'×'+app[2]+'회×5,500)';
+  document.getElementById('mi_song').value=Math.max(1,val('mi_party'))*app[2]*5640;
+  document.getElementById('mi_songNote').textContent='('+Math.max(1,val('mi_party'))+'×'+app[2]+'회×5,640)';
   calcMisc(true);
 }
 function calcMisc(fromEdit){
   const claim=val('mi_claim');
   if(!fromEdit){
     const idx=parseInt(document.getElementById('mi_type').value)||0, app=MISC_APPS[idx];
-    document.getElementById('mi_song').value=Math.max(1,val('mi_party'))*app[2]*5500;
-    document.getElementById('mi_songNote').textContent='('+Math.max(1,val('mi_party'))+'×'+app[2]+'회×5,500)';
+    document.getElementById('mi_song').value=Math.max(1,val('mi_party'))*app[2]*5640;
+    document.getElementById('mi_songNote').textContent='('+Math.max(1,val('mi_party'))+'×'+app[2]+'회×5,640)';
   }
   const publicSum=val('mi_inji')+val('mi_song')+val('mi_etc')+pubCustomSum('scene-기타신청');
   document.getElementById('mi_publicSum').textContent=won(publicSum);
@@ -3387,8 +3390,8 @@ function calcSeizure(fromEdit){
     const injiPaper=2000*units; // 압류2,000+추심2,000(종이)
     document.getElementById('cs_inji').value=Math.round(injiPaper*(e?0.9:1));
     document.getElementById('cs_injiNote').textContent='(압류/추심 '+units+'건×'+(e?'1,800':'2,000')+')';
-    document.getElementById('cs_song').value=party*2*5500;
-    document.getElementById('cs_songNote').textContent='('+party+'인×2회×5,500)';
+    document.getElementById('cs_song').value=party*2*5640;
+    document.getElementById('cs_songNote').textContent='('+party+'인×2회×5,640)';
   }
   const publicSum=val('cs_inji')+val('cs_song')+val('cs_correct')+pubCustomSum('scene-압류추심');
   document.getElementById('cs_publicSum').textContent=won(publicSum);
@@ -3415,8 +3418,8 @@ function calcAttachGoods(fromEdit){
   if(!fromEdit){
     document.getElementById('ad_deposit').value=Math.round(claim*0.8);
     document.getElementById('ad_inji').value=10000;
-    document.getElementById('ad_song').value=party*3*5500;
-    document.getElementById('ad_songNote').textContent='('+party+'인×3회×5,500)';
+    document.getElementById('ad_song').value=party*3*5640;
+    document.getElementById('ad_songNote').textContent='('+party+'인×3회×5,640)';
     document.getElementById('ad_bond').value=bondFee(val('ad_deposit'));
   }
   const publicSum=val('ad_inji')+val('ad_song')+val('ad_bond')+val('ad_correct')+pubCustomSum('scene-유체동산가압류');
@@ -3444,8 +3447,8 @@ function calcAttachCar(fromEdit){
     document.getElementById('av_regTax').value=15000*cnt;
     document.getElementById('av_eduTax').value=0;
     document.getElementById('av_inji').value=10000;
-    document.getElementById('av_song').value=party*3*5500;
-    document.getElementById('av_songNote').textContent='('+party+'인×3회×5,500)';
+    document.getElementById('av_song').value=party*3*5640;
+    document.getElementById('av_songNote').textContent='('+party+'인×3회×5,640)';
     document.getElementById('av_deposit').value=Math.round(claim*0.1);
     document.getElementById('av_bond').value=bondFee(val('av_deposit'));
   }
@@ -3474,8 +3477,8 @@ function calcAttachClaim(fromEdit){
   if(!fromEdit){
     document.getElementById('ac_deposit').value=Math.round(claim*0.4);
     document.getElementById('ac_inji').value=10000;
-    document.getElementById('ac_song').value=party*3*5500;
-    document.getElementById('ac_songNote').textContent='('+party+'인×3회×5,500)';
+    document.getElementById('ac_song').value=party*3*5640;
+    document.getElementById('ac_songNote').textContent='('+party+'인×3회×5,640)';
     document.getElementById('ac_bond').value=bondFee(val('ac_deposit'));
   }
   const publicSum=val('ac_inji')+val('ac_song')+val('ac_bond')+val('ac_correct')+pubCustomSum('scene-채권가압류');
@@ -3512,8 +3515,8 @@ function calcAttach(fromEdit){
     document.getElementById('at_regTax').value=Math.floor(claim*0.002);
     document.getElementById('at_eduTax').value=Math.floor(val('at_regTax')*0.2);
     document.getElementById('at_inji').value=10000;
-    document.getElementById('at_song').value=party*3*5500;
-    document.getElementById('at_songNote').textContent='('+party+'인×3회×5,500)';
+    document.getElementById('at_song').value=party*3*5640;
+    document.getElementById('at_songNote').textContent='('+party+'인×3회×5,640)';
     document.getElementById('at_bond').value=bondFee(val('at_deposit'));
     document.getElementById('at_regFee').value=4000*cntE;
   }
@@ -3573,8 +3576,8 @@ function calcInjunction(fromEdit){
     // 등록면허세 (처분금지만)
     if(isDisposal){const rt=Math.max(Math.floor((claim>0?claim:0)*0.002),6000);document.getElementById('inj_regTax').value=rt;document.getElementById('inj_eduTax').value=Math.floor(rt*0.2);document.getElementById('inj_regFee').value=4000*cntE;}
     else{document.getElementById('inj_regTax').value=0;document.getElementById('inj_eduTax').value=0;document.getElementById('inj_regFee').value=0;}
-    document.getElementById('inj_song').value=party*3*5500;
-    document.getElementById('inj_songNote').textContent='('+party+'인×3회×5,500)';
+    document.getElementById('inj_song').value=party*3*5640;
+    document.getElementById('inj_songNote').textContent='('+party+'인×3회×5,640)';
     document.getElementById('inj_bond').value=bondFee(val('inj_deposit'));
   }
   const regTax=isDisposal?val('inj_regTax'):0, eduTax=isDisposal?val('inj_eduTax'):0, regFee=isDisposal?val('inj_regFee'):0;
@@ -3700,8 +3703,8 @@ function calcGeneric(fromEdit){
       const note=document.getElementById('g_injiNote');
       if(note)note.textContent=def.prof.injiKind==='flat'?('정액'+(e?'·전자10%':'')+(def.prof.chk?' [확인필요]':'')):'(소가 기준'+(def.prof.injiKind==='half'?'×0.5':'')+(e?'·전자10%':'')+')';
       if(document.getElementById('g_song')){
-        document.getElementById('g_song').value=party*def.prof.songCnt*5500;
-        document.getElementById('g_songNote').textContent='('+party+'×'+def.prof.songCnt+'회×5,500)';
+        document.getElementById('g_song').value=party*def.prof.songCnt*5640;
+        document.getElementById('g_songNote').textContent='('+party+'×'+def.prof.songCnt+'회×5,640)';
       }
     }
     pub+=val('g_inji');
