@@ -2055,9 +2055,10 @@ const FLAT={
 const BOND_RATE={
  주택:[[2000*만,0,0],[5000*만,13,13],[1*억,19,14],[1.6*억,21,16],[2.6*억,23,18],[6*억,26,21],[Infinity,31,26]],
  토지:[[500*만,0,0],[5000*만,25,20],[1*억,40,35],[Infinity,50,45]],
- 건물:[[1000*만,0,0],[1.3*억,10,8],[2.5*억,16,14],[Infinity,20,18]]
+ 건물:[[1000*만,0,0],[1.3*억,10,8],[2.5*억,16,14],[Infinity,20,18]],
+ 상속:[[1000*만,0,0],[5000*만,18,14],[1.5*억,28,25],[Infinity,42,39]]  /* 상속·증여·무상취득 단일표(물건종류 무관) [A: 주택도시기금법 시행령 별표 나목] */
 };
-function bondRate(type,std,metro){const t=BOND_RATE[type];if(!t||std<=0)return 0;for(const[cap,m,o]of t){if(std<=cap)return metro?m:o;}return 0;}
+function bondRate(type,std,metro){const t=BOND_RATE[type];if(!t||std<=0)return 0;for(const[cap,m,o]of t){if(std<cap)return metro?m:o;}return 0;}
 function bondAmount(std,rate){if(std<=0||rate<=0)return 0;let amt=std*rate/1000;const frac=amt%10000;amt=(frac<5000)?Math.floor(amt/10000)*10000:Math.ceil(amt/10000)*10000;return amt;}
 
 /* 부동산 등기신청수수료 (붙임1/붙임3, 2025.8.1) — [수기,e-Form,전자] */
@@ -2329,9 +2330,9 @@ function renderBondUIInherit(){
 }
 function calcBondInherit(){
   const t=radio('s_ptype');const metro=radio('s_region')==='metro';let buy=0;
-  if(t==='house'){const s=val('s_bondStdHouse');const r=bondRate('주택',s,metro);if(document.getElementById('s_bondPctHouse'))document.getElementById('s_bondPctHouse').value=r;buy=bondAmount(s,r);}
-  else if(t==='etc'){const sl=val('s_bondStdLand'),sb=val('s_bondStdBldg');const rl=bondRate('토지',sl,metro),rb=bondRate('건물',sb,metro);if(document.getElementById('s_bondPctLand'))document.getElementById('s_bondPctLand').value=rl;if(document.getElementById('s_bondPctBldg'))document.getElementById('s_bondPctBldg').value=rb;buy=bondAmount(sl,rl)+bondAmount(sb,rb);}
-  else{const sl=val('s_bondStdLand');const r=bondRate('토지',sl,metro);if(document.getElementById('s_bondPctLand'))document.getElementById('s_bondPctLand').value=r;buy=bondAmount(sl,r);}
+  if(t==='house'){const s=val('s_bondStdHouse');const r=bondRate('상속',s,metro);if(document.getElementById('s_bondPctHouse'))document.getElementById('s_bondPctHouse').value=r;buy=bondAmount(s,r);}
+  else if(t==='etc'){const sl=val('s_bondStdLand'),sb=val('s_bondStdBldg');const rl=bondRate('상속',sl,metro),rb=bondRate('상속',sb,metro);if(document.getElementById('s_bondPctLand'))document.getElementById('s_bondPctLand').value=rl;if(document.getElementById('s_bondPctBldg'))document.getElementById('s_bondPctBldg').value=rb;buy=bondAmount(sl,rl)+bondAmount(sb,rb);}
+  else{const sl=val('s_bondStdLand');const r=bondRate('상속',sl,metro);if(document.getElementById('s_bondPctLand'))document.getElementById('s_bondPctLand').value=r;buy=bondAmount(sl,r);}
   document.getElementById('s_bondBuy').value=buy;
   calcInherit();
 }
@@ -2488,8 +2489,8 @@ function renderBondUIGift(){
 }
 function calcBondGift(){
   const t=radio('gv_ptype');const metro=radio('gv_region')==='metro';let buy=0;
-  if(t==='house'){const s=val('gv_bondStdHouse');const r=bondRate('주택',s,metro);if(document.getElementById('gv_bondPctHouse'))document.getElementById('gv_bondPctHouse').value=r;buy=bondAmount(s,r);}
-  else{const sl=val('gv_bondStdLand'),sb=val('gv_bondStdBldg');const rl=bondRate('토지',sl,metro),rb=bondRate('건물',sb,metro);if(document.getElementById('gv_bondPctLand'))document.getElementById('gv_bondPctLand').value=rl;if(document.getElementById('gv_bondPctBldg'))document.getElementById('gv_bondPctBldg').value=rb;buy=bondAmount(sl,rl)+bondAmount(sb,rb);}
+  if(t==='house'){const s=val('gv_bondStdHouse');const r=bondRate('상속',s,metro);if(document.getElementById('gv_bondPctHouse'))document.getElementById('gv_bondPctHouse').value=r;buy=bondAmount(s,r);}
+  else{const sl=val('gv_bondStdLand'),sb=val('gv_bondStdBldg');const rl=bondRate('상속',sl,metro),rb=bondRate('상속',sb,metro);if(document.getElementById('gv_bondPctLand'))document.getElementById('gv_bondPctLand').value=rl;if(document.getElementById('gv_bondPctBldg'))document.getElementById('gv_bondPctBldg').value=rb;buy=bondAmount(sl,rl)+bondAmount(sb,rb);}
   document.getElementById('gv_bondBuy').value=buy;
   calcGift();
 }
