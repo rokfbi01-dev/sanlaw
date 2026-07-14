@@ -260,6 +260,7 @@
       </span>
       <a href="https://svc.wooribank.com/svc/Dream?withyou=HBNHB0036&cc=c004893:c004893" target="_blank" rel="noopener" style="color:#f3d27a;font-weight:700;text-decoration:none;border:1px solid #5a534a;border-radius:4px;padding:2px 8px;">🔎 오늘 고시율 조회</a>
       <span class="hint" style="color:#bcb29c;">(매도일 기준 · 마지막 입력값 자동 저장)</span>
+      <span id="bondRateWarn" style="font-weight:800;font-size:12px;"></span>
     </div>
   </div>
 </header>
@@ -2219,9 +2220,11 @@ function radio(name){const el=document.querySelector('input[name="'+name+'"]:che
 function chk(id){const e=document.getElementById(id);return e&&e.checked;}
 function step(id,d,fn){const el=document.getElementById(id);el.value=Math.max(1,(parseInt(el.value)||1)+d);if(fn)fn();}
 function tierFee(key,a){const t=TIERS[key];if(!t)return 0;for(const[l,b,o,r]of t){if(a<=l)return b+(a-o)*r;}return 0;}
-document.getElementById('today').textContent=(()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');})();
-function saveBondRate(){try{localStorage.setItem('sanlaw_bondRate',document.getElementById('bondRate').value);}catch(e){}}
-(function(){try{var s=localStorage.getItem('sanlaw_bondRate');if(s!==null&&s!==''&&!isNaN(parseFloat(s)))document.getElementById('bondRate').value=s;}catch(e){}})();
+function todayStr(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+document.getElementById('today').textContent=todayStr();
+function checkBondRateAge(){var el=document.getElementById('bondRateWarn');if(!el)return;var saved=null;try{saved=localStorage.getItem('sanlaw_bondRateDate');}catch(e){}var today=todayStr();if(!saved){el.innerHTML='<span style="color:#c0392b;">⚠ 오늘 고시율 확인 후 입력하세요</span>';return;}if(saved===today){el.innerHTML='<span style="color:#1d7a46;">✓ 오늘('+today+') 확인됨</span>';}else{var days=Math.round((new Date(today)-new Date(saved))/86400000);el.innerHTML='<span style="color:#c0392b;">⚠ '+saved+' 입력값'+(days>0?'('+days+'일 경과)':'')+' — 오늘 고시율 재확인 필수</span>';}}
+function saveBondRate(){try{localStorage.setItem('sanlaw_bondRate',document.getElementById('bondRate').value);localStorage.setItem('sanlaw_bondRateDate',todayStr());}catch(e){}checkBondRateAge();}
+(function(){try{var s=localStorage.getItem('sanlaw_bondRate');if(s!==null&&s!==''&&!isNaN(parseFloat(s)))document.getElementById('bondRate').value=s;}catch(e){}checkBondRateAge();})();
 
 /* ===================== 메인메뉴 ===================== */
 function buildMenu(){
@@ -2327,12 +2330,12 @@ function calcSale(fromEdit){
     if(farmCut)acq=acq*0.5; // 자경농지 50% 감면(지방세특례제한법·확인필요)
     const mid=(rate>=0.08);const edu=mid?price*0.004:price*rate*0.1;
     let rural=0;if(radio('ptype')==='house')rural=chk('over85')?price*0.002:0;else rural=price*0.002;
-    document.getElementById('acqTax').value=Math.round(acq);
-    document.getElementById('eduTax').value=Math.round(edu);
-    document.getElementById('ruralTax').value=Math.round(rural);
+    document.getElementById('acqTax').value=Math.floor((acq)/10)*10;
+    document.getElementById('eduTax').value=Math.floor((edu)/10)*10;
+    document.getElementById('ruralTax').value=Math.floor((rural)/10)*10;
     document.getElementById('acqRate').textContent='('+(rate*100).toFixed(rate*100%1?2:0)+'%'+(mid?' 중과':'')+(chk('firstHome')&&price<=12*억?' 생애최초':'')+(farmCut?' 자경50%':'')+')';
   }
-  const bondLoss=Math.round(val('bondBuy')*val('bondRate')/100);
+  const bondLoss=Math.floor(val('bondBuy')*val('bondRate')/100);
   document.getElementById('bondLossCell').textContent=won(bondLoss)+' ('+val('bondRate')+'%)';
   const cntE=Math.max(1,val('cntEstate'));
   const m=document.getElementById('regMethod').value;const idx=m==='p'?0:(m==='o'?2:1);
@@ -2413,17 +2416,17 @@ function calcInherit(fromEdit){
       // 舊 등록세(2011년 취득세·등록세 통합 이전 상속개시분·부칙 §6): 농지외 0.8% / 농지 0.3% + 지방교육세 20% · 농특세 0
       const rrate=(radio('s_ptype')==='farm')?0.003:0.008;
       const regTax=price*rrate;
-      document.getElementById('s_acqTax').value=Math.round(regTax);
-      document.getElementById('s_eduTax').value=Math.round(regTax*0.2);
+      document.getElementById('s_acqTax').value=Math.floor((regTax)/10)*10;
+      document.getElementById('s_eduTax').value=Math.floor((regTax*0.2)/10)*10;
       document.getElementById('s_ruralTax').value=0;
       document.getElementById('s_acqRate').textContent='('+(rrate*100).toFixed(1)+'% '+(radio('s_ptype')==='farm'?'농지':'농지외')+' · 舊등록세)';
     }else{
       const rate=inheritAcqRate();const acq=price*rate;
       let edu;if(rate===0.028)edu=price*0.0016;else if(rate===0.023)edu=price*0.0006;else edu=price*0.0016;
       let rural=0;if(radio('s_ptype')==='house')rural=chk('s_over85')?price*0.002:0;else rural=price*0.002;
-      document.getElementById('s_acqTax').value=Math.round(acq);
-      document.getElementById('s_eduTax').value=Math.round(edu);
-      document.getElementById('s_ruralTax').value=Math.round(rural);
+      document.getElementById('s_acqTax').value=Math.floor((acq)/10)*10;
+      document.getElementById('s_eduTax').value=Math.floor((edu)/10)*10;
+      document.getElementById('s_ruralTax').value=Math.floor((rural)/10)*10;
       document.getElementById('s_acqRate').textContent='('+(rate*100).toFixed(rate*100%1?1:0)+'%'+(rate===0.008?' 무주택1주택특례':'')+')';
     }
   }
@@ -2434,7 +2437,7 @@ function calcInherit(fromEdit){
   const _tn=document.getElementById('s_taxNote');if(_tn)_tn.innerHTML=regMode
     ?'舊 등록세 자동(농지외 <b>0.8%</b> / 농지 <b>0.3%</b>) + 지방교육세 20% · 농특세 없음. 2011년 통합 이전 상속개시분. <b>구 취득세(2%)는 부과제척기간(상속 무신고 통상 7년) 도과 시 제외</b>되어 등기 시 등록세만 납부하나, <b>제척기간 미도과분은 구 취득세 2%가 별도 부과</b>될 수 있으니 관할 세무과 확인. 등기수수료 상속 <b>매 부동산 20,000(수기)·17,000(e-Form)·전자불가</b>. [확인필요]'
     :'상속 취득세 자동(농지외 2.8% / 농지 2.3% / 무주택1주택 특례 0.8%·확인필요). 등기수수료 상속 <b>매 부동산 20,000(수기)·17,000(e-Form)·전자불가</b>.';
-  const bondLoss=Math.round(val('s_bondBuy')*val('bondRate')/100);
+  const bondLoss=Math.floor(val('s_bondBuy')*val('bondRate')/100);
   document.getElementById('s_bondLossCell').textContent=won(bondLoss)+' ('+val('bondRate')+'%)';
   const cntE=Math.max(1,val('s_cntEstate'));
   const m=document.getElementById('s_regMethod').value;const idx=(m==='p')?0:1; // 전자불가(e/p만)
@@ -2576,12 +2579,12 @@ function calcGift(fromEdit){
     const rate=giftAcqRate(price);const acq=price*rate;
     const mid=(rate>=0.12);const edu=mid?price*0.004:price*0.003;
     let rural=0;if(radio('gv_ptype')==='house')rural=chk('gv_over85')?price*0.002:0;else rural=price*0.002;
-    document.getElementById('gv_acqTax').value=Math.round(acq);
-    document.getElementById('gv_eduTax').value=Math.round(edu);
-    document.getElementById('gv_ruralTax').value=Math.round(rural);
+    document.getElementById('gv_acqTax').value=Math.floor((acq)/10)*10;
+    document.getElementById('gv_eduTax').value=Math.floor((edu)/10)*10;
+    document.getElementById('gv_ruralTax').value=Math.floor((rural)/10)*10;
     document.getElementById('gv_acqRate').textContent='('+(rate*100).toFixed(1)+'%'+(mid?' 조정3억↑ 중과':' 무상')+')';
   }
-  const bondLoss=Math.round(val('gv_bondBuy')*val('bondRate')/100);
+  const bondLoss=Math.floor(val('gv_bondBuy')*val('bondRate')/100);
   document.getElementById('gv_bondLossCell').textContent=won(bondLoss)+' ('+val('bondRate')+'%)';
   const cntE=Math.max(1,val('gv_cntEstate'));
   const m=document.getElementById('gv_regMethod').value;const idx=m==='p'?0:(m==='o'?2:1);
@@ -2648,20 +2651,20 @@ function calcBurden(fromEdit){
     const rateY=(radio('bv_ptype')==='etc')?0.04:houseBaseRate(total);
     const acqY=debt*rateY, eduY=debt*rateY*0.1;
     let ruralY=0; if(radio('bv_ptype')==='house')ruralY=chk('bv_over85')?debt*0.002:0; else ruralY=debt*0.002;
-    document.getElementById('bv_acqY').value=Math.round(acqY);
-    document.getElementById('bv_eduY').value=Math.round(eduY);
-    document.getElementById('bv_ruralY').value=Math.round(ruralY);
+    document.getElementById('bv_acqY').value=Math.floor((acqY)/10)*10;
+    document.getElementById('bv_eduY').value=Math.floor((eduY)/10)*10;
+    document.getElementById('bv_ruralY').value=Math.floor((ruralY)/10)*10;
     document.getElementById('bv_acqRateY').textContent='(전체가액 기준 '+(rateY*100).toFixed(2)+'%)';
     // 무상분: 증여분 × 3.5%(조정3억↑ 12%)
     const rateN=(radio('bv_ptype')==='house'&&chk('bv_adj3')&&total>=3*억)?0.12:0.035;
     const acqN=gift*rateN, eduN=(rateN>=0.12?gift*0.004:gift*0.003);
     let ruralN=0; if(radio('bv_ptype')==='house')ruralN=chk('bv_over85')?gift*0.002:0; else ruralN=gift*0.002;
-    document.getElementById('bv_acqN').value=Math.round(acqN);
-    document.getElementById('bv_eduN').value=Math.round(eduN);
-    document.getElementById('bv_ruralN').value=Math.round(ruralN);
+    document.getElementById('bv_acqN').value=Math.floor((acqN)/10)*10;
+    document.getElementById('bv_eduN').value=Math.floor((eduN)/10)*10;
+    document.getElementById('bv_ruralN').value=Math.floor((ruralN)/10)*10;
     document.getElementById('bv_acqRateN').textContent='('+(rateN*100).toFixed(1)+'%'+(rateN>=0.12?' 중과':' 무상')+')';
   }
-  const bondLoss=Math.round(val('bv_bondBuy')*val('bondRate')/100);
+  const bondLoss=Math.floor(val('bv_bondBuy')*val('bondRate')/100);
   document.getElementById('bv_bondLossCell').textContent=won(bondLoss)+' ('+val('bondRate')+'%)';
   const cntE=Math.max(1,val('bv_cntEstate'));
   const m=document.getElementById('bv_regMethod').value;const idx=m==='p'?0:(m==='o'?2:1);
@@ -2700,9 +2703,9 @@ function calcMortgage(mode){
   // mode: undefined/false=채권최고액변경·초기(전체자동) / 'pct'=매입률 직접편집(매입금만 재산정) / true=공과금셀 직접편집(자동안함)
   const max=val('mt_max');
   if(mode===undefined||mode===false){
-    let mtReg=Math.round(max*0.002); if(max>0&&mtReg<6000)mtReg=6000;  /* 등록면허세 최저 6,000원 §28①1 단서 */
+    let mtReg=Math.floor((max*0.002)/10)*10; if(max>0&&mtReg<6000)mtReg=6000;  /* 등록면허세 최저 6,000원 §28①1 단서 */
     document.getElementById('mt_regTax').value=max>0?mtReg:0;
-    document.getElementById('mt_eduTax').value=Math.round((max>0?mtReg:0)*0.2);
+    document.getElementById('mt_eduTax').value=Math.floor(((max>0?mtReg:0)*0.2)/10)*10;
     document.getElementById('mt_regRate').textContent='(채권최고액 × 0.2%)';
     // 국민주택채권 매입률 자동: 저당권설정금액 2천만원 이상 → 10/1,000(지역무관). 2천만 미만 면제. [A: 주택도시기금법 시행령 별표]
     document.getElementById('mt_bondPct').value=(max>=20000000)?10:0;
@@ -2715,7 +2718,7 @@ function calcMortgage(mode){
     document.getElementById('mt_bondBuy').value=(max>0&&pct>0)?buy:0;
     document.getElementById('mt_bondNote').textContent=(max>0&&max<20000000)?'채권최고액 2천만원 미만 → 채권매입 면제 [A]':'채권최고액×'+(pct||0)+'‰ 자동·만원반올림·매입10억한도 [A]';
   }
-  const bondLoss=Math.round(val('mt_bondBuy')*val('bondRate')/100);
+  const bondLoss=Math.floor(val('mt_bondBuy')*val('bondRate')/100);
   document.getElementById('mt_bondLossCell').textContent=won(bondLoss)+' ('+val('bondRate')+'%)';
   const cntE=Math.max(1,val('mt_cntEstate'));
   const m=document.getElementById('mt_regMethod').value;const idx=m==='p'?0:(m==='o'?2:1);
@@ -2754,7 +2757,7 @@ function calcGadeungi(fromEdit){
   if(!fromEdit){
     let reg=Math.round(base*0.002); if(base>0&&reg<6000)reg=6000;
     document.getElementById('ga_regTax').value=base>0?reg:0;
-    document.getElementById('ga_eduTax').value=Math.round((base>0?reg:0)*0.2);
+    document.getElementById('ga_eduTax').value=Math.floor(((base>0?reg:0)*0.2)/10)*10;
     const ty=radio('ga_type');
     document.getElementById('ga_regRate').textContent=ty==='debt'?'(채권액 × 0.2%)':'(부동산가액 × 0.2%)';
   }
@@ -2790,7 +2793,7 @@ function calcMarital(fromEdit){
   if(!fromEdit){
     const reg=12000*cnt; // 지방세법 §28①14호: 그 밖의 등기 건당 12,000원 [A]
     document.getElementById('mr_regTax').value=reg;
-    document.getElementById('mr_eduTax').value=Math.round(reg*0.2); // §151①2호 [A]
+    document.getElementById('mr_eduTax').value=Math.floor((reg*0.2)/10)*10; // §151①2호 [A]
     document.getElementById('mr_regFee').value=2000*cnt; // 등기사항증명서등수수료규칙 §5의4③: 부부재산약정등기 매 건 2,000원 [A]
   }
   const publicSum=val('mr_regTax')+val('mr_eduTax')+val('mr_regFee')+val('mr_postFee')+pubCustomSum('scene-부부재산약정');
@@ -2857,14 +2860,14 @@ function calcSintak(fromEdit){
 function calcMortgageAdd(fromEdit){
   const max=val('ma_max');
   if(!fromEdit){
-    let maReg=Math.round(max*0.002); if(max>0&&maReg<6000)maReg=6000;  /* 등록면허세 최저 6,000원 §28①1 단서 */
+    let maReg=Math.floor((max*0.002)/10)*10; if(max>0&&maReg<6000)maReg=6000;  /* 등록면허세 최저 6,000원 §28①1 단서 */
     document.getElementById('ma_regTax').value=max>0?maReg:0;
-    document.getElementById('ma_eduTax').value=Math.round((max>0?maReg:0)*0.2);
+    document.getElementById('ma_eduTax').value=Math.floor(((max>0?maReg:0)*0.2)/10)*10;
     document.getElementById('ma_regRate').textContent='(채권최고액 × 0.2%)';
     const pct=val('ma_bondPct');
     if(max>0&&pct>0)document.getElementById('ma_bondBuy').value=Math.round(max*pct/1000);
   }
-  const bondLoss=Math.round(val('ma_bondBuy')*val('bondRate')/100);
+  const bondLoss=Math.floor(val('ma_bondBuy')*val('bondRate')/100);
   document.getElementById('ma_bondLossCell').textContent=won(bondLoss)+' ('+val('bondRate')+'%)';
   const cntE=Math.max(1,val('ma_cntEstate'));
   const m=document.getElementById('ma_regMethod').value;const idx=m==='p'?0:(m==='o'?2:1);
@@ -2902,7 +2905,7 @@ function calcMortCancel(fromEdit){
   const cnt=Math.max(1,val('mtc_cnt'));
   if(!fromEdit){
     document.getElementById('mtc_regTax').value=6000*cnt;
-    document.getElementById('mtc_eduTax').value=Math.round(6000*cnt*0.2);
+    document.getElementById('mtc_eduTax').value=Math.floor((6000*cnt*0.2)/10)*10;
   }
   const m=document.getElementById('mtc_regMethod').value;const idx=m==='p'?0:(m==='o'?2:1);
   const unit=REG_RE.기타[idx];const regFee=unit*cnt;
@@ -2970,11 +2973,11 @@ function calcPreserve(fromEdit){
   if(!fromEdit){
     const acq=price*0.028, edu=price*0.0016;
     let rural=chk('pr_over85')?price*0.002:(radio('pr_ptype')==='etc'?price*0.002:0);
-    document.getElementById('pr_acqTax').value=Math.round(acq);
-    document.getElementById('pr_eduTax').value=Math.round(edu);
-    document.getElementById('pr_ruralTax').value=Math.round(rural);
+    document.getElementById('pr_acqTax').value=Math.floor((acq)/10)*10;
+    document.getElementById('pr_eduTax').value=Math.floor((edu)/10)*10;
+    document.getElementById('pr_ruralTax').value=Math.floor((rural)/10)*10;
   }
-  const bondLoss=Math.round(val('pr_bondBuy')*val('bondRate')/100);
+  const bondLoss=Math.floor(val('pr_bondBuy')*val('bondRate')/100);
   document.getElementById('pr_bondLossCell').textContent=won(bondLoss)+' ('+val('bondRate')+'%)';
   const cntE=Math.max(1,val('pr_cntEstate'));
   const m=document.getElementById('pr_regMethod').value;const idx=m==='p'?0:(m==='o'?2:1);
@@ -3024,9 +3027,9 @@ function renderDocsRight(){
 function calcRight(fromEdit){
   const price=val('rt_price');
   if(!fromEdit){
-    let rtReg=Math.round(price*0.002); if(price>0&&rtReg<6000)rtReg=6000;  /* 등록면허세 최저 6,000원 §28①1 단서 */
+    let rtReg=Math.floor((price*0.002)/10)*10; if(price>0&&rtReg<6000)rtReg=6000;  /* 등록면허세 최저 6,000원 §28①1 단서 */
     document.getElementById('rt_regTax').value=price>0?rtReg:0;
-    document.getElementById('rt_eduTax').value=Math.round((price>0?rtReg:0)*0.2);
+    document.getElementById('rt_eduTax').value=Math.floor(((price>0?rtReg:0)*0.2)/10)*10;
     document.getElementById('rt_regRate').textContent='(설정금액 × 0.2%)';
     // 전세권·지상권 설정은 국민주택채권 매입 대상 아님 → 0원(예외 시 사용자가 직접 입력)
   }
@@ -3069,8 +3072,8 @@ function calcCorp(fromEdit){
     let reg=Math.max(cap*0.004,112500);
     const metro=chk('co_metro')&&!chk('co_exclude');
     if(metro)reg*=3;
-    document.getElementById('co_regTax').value=Math.round(reg);
-    document.getElementById('co_eduTax').value=Math.round(reg*0.2);
+    document.getElementById('co_regTax').value=Math.floor((reg)/10)*10;
+    document.getElementById('co_eduTax').value=Math.floor((reg*0.2)/10)*10;
     document.getElementById('co_regRate').textContent='(자본금 0.4%·최저 112,500'+(metro?' ·대도시 ×3':'')+')';
   }
   const cm=document.getElementById('co_regMethod').value;const cidx=cm==='p'?0:(cm==='o'?2:1);
@@ -3132,8 +3135,8 @@ function calcCorpChange(fromEdit){
     else if(def.reg==='112500'){reg=112500;note='(본점이전 112,500)';}
     else{reg=40200*cnt;note='(변경 정액 40,200 × '+cnt+'건)';}
     if(metro&&def.reg==='40200'){reg*=3;note='(변경 40,200 ×3 중과 × '+cnt+'건)';}
-    document.getElementById('cv_regTax').value=Math.round(reg);
-    document.getElementById('cv_eduTax').value=Math.round(reg*0.2);
+    document.getElementById('cv_regTax').value=Math.floor((reg)/10)*10;
+    document.getElementById('cv_eduTax').value=Math.floor((reg*0.2)/10)*10;
     document.getElementById('cv_regRate').textContent=note;
   }
   // 등기신청수수료 (변경/설립)
