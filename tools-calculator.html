@@ -381,6 +381,8 @@
         <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option>
       </select></div>
       <div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="frAdd" onchange="calcSale()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§10⑥</b> — 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는</b> 등기 → <b>기본보수의 100%까지</b> 가산</span></div>
+      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="moAdd" onchange="calcSale()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
+      <div class="note" style="border-left:3px solid var(--gold);">▸ <b>보수기준 §9⑥</b> <span class="tag A">A</span> — ① <b>1건의 신청서로 수개의 부동산</b>에 관한 소유권 보존·이전 등기를 하는 경우 <b>각 부동산의 과세표준액을 합산</b>하여 기본보수를 산정합니다(위 과세표준란에 <b>합산액</b>을 입력하십시오). ② <b>쌍방대리</b>(등기의무자·등기권리자 양쪽을 함께 대리)의 경우에도 <b>1건으로 보아</b> 기본보수를 산정합니다 — <b>매도인·매수인에게 각각 기본보수를 청구할 수 없습니다.</b></div>
     </div></div>
 
     <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span></h2><div class="body">
@@ -428,6 +430,7 @@
       <table class="t" id="feeTable">
         <tr><td>기본보수 <span class="hint" id="feeBaseNote"></span></td><td class="auto" id="feeBaseCell">0 원</td></tr>
         <tr id="feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="feeForeignNote"></span></td><td class="auto" id="feeForeignCell">0 원</td></tr>
+        <tr id="feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="feeMultiNote"></span></td><td class="auto" id="feeMultiCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="f_origin" checked onchange="calcSale()"> 등기원인증서 작성·검인 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="f_tax" checked onchange="calcSale()"> 취득세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="f_bond" checked onchange="calcSale()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
@@ -498,6 +501,7 @@
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
         <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
       <div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="s_frAdd" onchange="calcInherit()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§10⑥</b> — 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는</b> 등기 → <b>기본보수의 100%까지</b> 가산</span></div>
+      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="s_moAdd" onchange="calcInherit()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
     </div></div>
 
     <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span></h2><div class="body">
@@ -524,6 +528,7 @@
       <table class="t">
         <tr><td>기본보수 <span class="hint" id="s_feeBaseNote"></span></td><td class="auto" id="s_feeBaseCell">0 원</td></tr>
         <tr id="s_feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="s_feeForeignNote"></span></td><td class="auto" id="s_feeForeignCell">0 원</td></tr>
+        <tr id="s_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="s_feeMultiNote"></span></td><td class="auto" id="s_feeMultiCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="s_f_origin" checked onchange="calcInherit()"> 등기원인증서(협의분할계약서 등) 작성 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="s_f_tax" checked onchange="calcInherit()"> <span id="s_taxAgentLabel">취득세 신고대행</span> (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="s_f_bond" checked onchange="calcInherit()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
@@ -662,6 +667,8 @@
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
         <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
       <div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="gv_frAdd" onchange="calcGift()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§10⑥</b> — 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는</b> 등기 → <b>기본보수의 100%까지</b> 가산</span></div>
+      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="gv_moAdd" onchange="calcGift()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
+      <div class="note" style="border-left:3px solid var(--gold);">▸ <b>보수기준 §9⑥</b> <span class="tag A">A</span> — ① <b>1건의 신청서로 수개의 부동산</b>에 관한 소유권 보존·이전 등기를 하는 경우 <b>각 부동산의 과세표준액을 합산</b>하여 기본보수를 산정합니다(위 과세표준란에 <b>합산액</b>을 입력하십시오). ② <b>쌍방대리</b>(등기의무자·등기권리자 양쪽을 함께 대리)의 경우에도 <b>1건으로 보아</b> 기본보수를 산정합니다 — <b>매도인·매수인에게 각각 기본보수를 청구할 수 없습니다.</b></div>
     </div></div>
 
     <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span></h2><div class="body">
@@ -688,6 +695,7 @@
       <table class="t">
         <tr><td>기본보수 <span class="hint" id="gv_feeBaseNote"></span></td><td class="auto" id="gv_feeBaseCell">0 원</td></tr>
         <tr id="gv_feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="gv_feeForeignNote"></span></td><td class="auto" id="gv_feeForeignCell">0 원</td></tr>
+        <tr id="gv_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="gv_feeMultiNote"></span></td><td class="auto" id="gv_feeMultiCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="gv_f_origin" checked onchange="calcGift()"> 등기원인증서(증여계약서) 작성 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="gv_f_inspect" checked onchange="calcGift()"> 증여계약서 검인대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="gv_f_tax" checked onchange="calcGift()"> 취득세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
@@ -833,6 +841,8 @@
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
         <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
       <div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="ea_frAdd" onchange="calcEtcAcq()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§10⑥</b> — 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는</b> 등기 → <b>기본보수의 100%까지</b> 가산</span></div>
+      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="ea_moAdd" onchange="calcEtcAcq()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
+      <div class="note" style="border-left:3px solid var(--gold);">▸ <b>보수기준 §9⑥</b> <span class="tag A">A</span> — ① <b>1건의 신청서로 수개의 부동산</b>에 관한 소유권 보존·이전 등기를 하는 경우 <b>각 부동산의 과세표준액을 합산</b>하여 기본보수를 산정합니다(위 과세표준란에 <b>합산액</b>을 입력하십시오). ② <b>쌍방대리</b>(등기의무자·등기권리자 양쪽을 함께 대리)의 경우에도 <b>1건으로 보아</b> 기본보수를 산정합니다 — <b>매도인·매수인에게 각각 기본보수를 청구할 수 없습니다.</b></div>
     </div></div>
 
     <div class="card blue"><h2>② 공과금 (VAT 비과세)</h2><div class="body">
@@ -875,6 +885,7 @@
       <table class="t">
         <tr><td>기본보수 <span class="hint" id="ea_feeBaseNote"></span></td><td class="auto" id="ea_feeBaseCell">0 원</td></tr>
         <tr id="ea_feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="ea_feeForeignNote"></span></td><td class="auto" id="ea_feeForeignCell">0 원</td></tr>
+        <tr id="ea_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="ea_feeMultiNote"></span></td><td class="auto" id="ea_feeMultiCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ea_f_origin" checked onchange="calcEtcAcq()"> 등기원인증서 작성 (50,000)</label></td><td class="auto" id="ea_originCell">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ea_f_tax" checked onchange="calcEtcAcq()"> 취득세 신고대행 (50,000)</label></td><td class="auto" id="ea_taxCell">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ea_f_bond" onchange="calcEtcAcq()"> 채권 매입대행 (40,000)</label></td><td class="auto" id="ea_bondCell">0 원</td></tr>
@@ -928,6 +939,8 @@
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
         <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
       <div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="pt_frAdd" onchange="calcPartition()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§10⑥</b> — 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는</b> 등기 → <b>기본보수의 100%까지</b> 가산</span></div>
+      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="pt_moAdd" onchange="calcPartition()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
+      <div class="note" style="border-left:3px solid var(--gold);">▸ <b>보수기준 §9⑥</b> <span class="tag A">A</span> — ① <b>1건의 신청서로 수개의 부동산</b>에 관한 소유권 보존·이전 등기를 하는 경우 <b>각 부동산의 과세표준액을 합산</b>하여 기본보수를 산정합니다(위 과세표준란에 <b>합산액</b>을 입력하십시오). ② <b>쌍방대리</b>(등기의무자·등기권리자 양쪽을 함께 대리)의 경우에도 <b>1건으로 보아</b> 기본보수를 산정합니다 — <b>매도인·매수인에게 각각 기본보수를 청구할 수 없습니다.</b></div>
     </div></div>
 
     <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span></h2><div class="body">
@@ -978,6 +991,7 @@
       <table class="t">
         <tr><td>기본보수 <span class="hint" id="pt_feeBaseNote"></span></td><td class="auto" id="pt_feeBaseCell">0 원</td></tr>
         <tr id="pt_feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="pt_feeForeignNote"></span></td><td class="auto" id="pt_feeForeignCell">0 원</td></tr>
+        <tr id="pt_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="pt_feeMultiNote"></span></td><td class="auto" id="pt_feeMultiCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pt_f_origin" checked onchange="calcPartition()"> 등기원인증서(공유물분할계약서) 작성 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pt_f_inspect" onchange="calcPartition()"> 분할계약서 검인대행 (50,000)</label> <span class="hint">판결·조정조서는 불요</span></td><td class="auto" id="pt_inspectCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pt_f_tax" checked onchange="calcPartition()"> 취득세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
@@ -1040,6 +1054,8 @@
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
         <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
       <div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="dv_frAdd" onchange="calcDivision()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§10⑥</b> — 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는</b> 등기 → <b>기본보수의 100%까지</b> 가산</span></div>
+      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="dv_moAdd" onchange="calcDivision()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
+      <div class="note" style="border-left:3px solid var(--gold);">▸ <b>보수기준 §9⑥</b> <span class="tag A">A</span> — ① <b>1건의 신청서로 수개의 부동산</b>에 관한 소유권 보존·이전 등기를 하는 경우 <b>각 부동산의 과세표준액을 합산</b>하여 기본보수를 산정합니다(위 과세표준란에 <b>합산액</b>을 입력하십시오). ② <b>쌍방대리</b>(등기의무자·등기권리자 양쪽을 함께 대리)의 경우에도 <b>1건으로 보아</b> 기본보수를 산정합니다 — <b>매도인·매수인에게 각각 기본보수를 청구할 수 없습니다.</b></div>
     </div></div>
 
     <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span></h2><div class="body">
@@ -1082,6 +1098,7 @@
       <table class="t">
         <tr><td>기본보수 <span class="hint" id="dv_feeBaseNote"></span></td><td class="auto" id="dv_feeBaseCell">0 원</td></tr>
         <tr id="dv_feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="dv_feeForeignNote"></span></td><td class="auto" id="dv_feeForeignCell">0 원</td></tr>
+        <tr id="dv_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="dv_feeMultiNote"></span></td><td class="auto" id="dv_feeMultiCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="dv_f_origin" checked onchange="calcDivision()"> 등기원인증서(재산분할협의서) 작성 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="dv_f_inspect" onchange="calcDivision()"> 협의서 검인대행 (50,000)</label> <span class="hint">판결·조정조서는 불요</span></td><td class="auto" id="dv_inspectCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="dv_f_tax" checked onchange="calcDivision()"> 취득세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
@@ -1140,6 +1157,8 @@
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
         <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
       <div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="bv_frAdd" onchange="calcBurden()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§10⑥</b> — 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는</b> 등기 → <b>기본보수의 100%까지</b> 가산</span></div>
+      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="bv_moAdd" onchange="calcBurden()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
+      <div class="note" style="border-left:3px solid var(--gold);">▸ <b>보수기준 §9⑥</b> <span class="tag A">A</span> — ① <b>1건의 신청서로 수개의 부동산</b>에 관한 소유권 보존·이전 등기를 하는 경우 <b>각 부동산의 과세표준액을 합산</b>하여 기본보수를 산정합니다(위 과세표준란에 <b>합산액</b>을 입력하십시오). ② <b>쌍방대리</b>(등기의무자·등기권리자 양쪽을 함께 대리)의 경우에도 <b>1건으로 보아</b> 기본보수를 산정합니다 — <b>매도인·매수인에게 각각 기본보수를 청구할 수 없습니다.</b></div>
     </div></div>
 
     <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span></h2><div class="body">
@@ -1171,6 +1190,7 @@
       <table class="t">
         <tr><td>기본보수 <span class="hint" id="bv_feeBaseNote"></span></td><td class="auto" id="bv_feeBaseCell">0 원</td></tr>
         <tr id="bv_feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="bv_feeForeignNote"></span></td><td class="auto" id="bv_feeForeignCell">0 원</td></tr>
+        <tr id="bv_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="bv_feeMultiNote"></span></td><td class="auto" id="bv_feeMultiCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bv_f_origin" checked onchange="calcBurden()"> 등기원인증서(부담부증여계약서) 작성 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bv_f_inspect" checked onchange="calcBurden()"> 계약서 검인대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bv_f_tax" checked onchange="calcBurden()"> 취득세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
@@ -1238,6 +1258,7 @@
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
         <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
       <div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="mt_frAdd" onchange="calcMortgage()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§10⑥</b> — 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는</b> 등기 → <b>기본보수의 100%까지</b> 가산</span></div>
+      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="mt_moAdd" onchange="calcMortgage()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
     </div></div>
 
     <div class="card pink"><h2>② 국민주택채권 <span class="tag A">A</span></h2><div class="body">
@@ -1262,6 +1283,7 @@
       <table class="t">
         <tr><td>기본보수 <span class="hint" id="mt_feeBaseNote"></span></td><td class="auto" id="mt_feeBaseCell">0 원</td></tr>
         <tr id="mt_feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="mt_feeForeignNote"></span></td><td class="auto" id="mt_feeForeignCell">0 원</td></tr>
+        <tr id="mt_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="mt_feeMultiNote"></span></td><td class="auto" id="mt_feeMultiCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="mt_f_origin" checked onchange="calcMortgage()"> 등기원인증서(근저당권설정계약서) 작성 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="mt_f_tax" checked onchange="calcMortgage()"> 등록면허세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="mt_f_bond" checked onchange="calcMortgage()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
@@ -1309,6 +1331,7 @@
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
         <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
       <div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="ga_frAdd" onchange="calcGadeungi()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§10⑥</b> — 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는</b> 등기 → <b>기본보수의 100%까지</b> 가산</span></div>
+      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="ga_moAdd" onchange="calcGadeungi()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
     </div></div>
 
     <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
@@ -1326,6 +1349,7 @@
       <table class="t">
         <tr><td>기본보수 <span class="hint" id="ga_feeBaseNote"></span></td><td class="auto" id="ga_feeBaseCell">0 원</td></tr>
         <tr id="ga_feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="ga_feeForeignNote"></span></td><td class="auto" id="ga_feeForeignCell">0 원</td></tr>
+        <tr id="ga_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="ga_feeMultiNote"></span></td><td class="auto" id="ga_feeMultiCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ga_f_origin" checked onchange="calcGadeungi()"> 등기원인증서(매매예약서 등) 작성 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ga_f_tax" checked onchange="calcGadeungi()"> 등록면허세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr id="ga_verifyRow" style="display:none;"><td>확인서면 가산(권리증 분실)</td><td class="auto" id="ga_verifyCell">0 원</td></tr>
@@ -1420,6 +1444,7 @@
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
         <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
       <div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="st_frAdd" onchange="calcSintak()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§10⑥</b> — 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는</b> 등기 → <b>기본보수의 100%까지</b> 가산</span></div>
+      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="st_moAdd" onchange="calcSintak()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
     </div></div>
 
     <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag chk">확인필요</span></h2><div class="body">
@@ -1437,6 +1462,7 @@
       <table class="t">
         <tr><td>기본보수 <span class="hint" id="st_feeBaseNote"></span></td><td class="auto" id="st_feeBaseCell">0 원</td></tr>
         <tr id="st_feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="st_feeForeignNote"></span></td><td class="auto" id="st_feeForeignCell">0 원</td></tr>
+        <tr id="st_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="st_feeMultiNote"></span></td><td class="auto" id="st_feeMultiCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="st_f_origin" checked onchange="calcSintak()"> 등기원인증서(신탁계약서) 작성 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="st_f_tax" checked onchange="calcSintak()"> 등록면허세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="st_f_trip" checked onchange="calcSintak()"> 교통비 및 일당</label></td><td><input class="cell" id="st_tripFee" type="number" value="160000" oninput="calcSintak(true)"></td></tr>
@@ -1507,6 +1533,7 @@
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
         <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
       <div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="ma_frAdd" onchange="calcMortgageAdd()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§10⑥</b> — 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는</b> 등기 → <b>기본보수의 100%까지</b> 가산</span></div>
+      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="ma_moAdd" onchange="calcMortgageAdd()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
     </div></div>
 
     <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span></h2><div class="body">
@@ -1532,6 +1559,7 @@
       <table class="t">
         <tr><td>기본보수 <span class="hint" id="ma_feeBaseNote"></span></td><td class="auto" id="ma_feeBaseCell">0 원</td></tr>
         <tr id="ma_feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="ma_feeForeignNote"></span></td><td class="auto" id="ma_feeForeignCell">0 원</td></tr>
+        <tr id="ma_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="ma_feeMultiNote"></span></td><td class="auto" id="ma_feeMultiCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ma_f_origin" checked onchange="calcMortgageAdd()"> 등기원인증서(근저당권 추가설정계약서) 작성 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ma_f_tax" checked onchange="calcMortgageAdd()"> 등록면허세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ma_f_bond" checked onchange="calcMortgageAdd()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
@@ -1574,6 +1602,7 @@
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
         <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
       <div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="mtc_frAdd" onchange="calcMortCancel()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§10⑥</b> — 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는</b> 등기 → <b>기본보수의 100%까지</b> 가산</span></div>
+      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="mtc_moAdd" onchange="calcMortCancel()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
     </div></div>
 
     <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag chk">확인필요</span></h2><div class="body">
@@ -1590,6 +1619,7 @@
       <table class="t">
         <tr><td>기본보수 <span class="hint" id="mtc_feeBaseNote"></span></td><td class="auto" id="mtc_feeBaseCell">0 원</td></tr>
         <tr id="mtc_feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="mtc_feeForeignNote"></span></td><td class="auto" id="mtc_feeForeignCell">0 원</td></tr>
+        <tr id="mtc_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="mtc_feeMultiNote"></span></td><td class="auto" id="mtc_feeMultiCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="mtc_f_trip" checked onchange="calcMortCancel()"> 교통비 및 일당</label></td><td><input class="cell" id="mtc_tripFee" type="number" value="160000" oninput="calcMortCancel(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="mtc_extraAgent"></tbody>
@@ -1637,6 +1667,7 @@
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
         <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
       <div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="pr_frAdd" onchange="calcPreserve()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§10⑥</b> — 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는</b> 등기 → <b>기본보수의 100%까지</b> 가산</span></div>
+      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="pr_moAdd" onchange="calcPreserve()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
     </div></div>
 
     <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span></h2><div class="body">
@@ -1662,6 +1693,7 @@
       <table class="t">
         <tr><td>기본보수 <span class="hint" id="pr_feeBaseNote"></span></td><td class="auto" id="pr_feeBaseCell">0 원</td></tr>
         <tr id="pr_feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="pr_feeForeignNote"></span></td><td class="auto" id="pr_feeForeignCell">0 원</td></tr>
+        <tr id="pr_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="pr_feeMultiNote"></span></td><td class="auto" id="pr_feeMultiCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pr_f_tax" checked onchange="calcPreserve()"> 취득세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pr_f_bond" checked onchange="calcPreserve()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pr_f_same" onchange="calcPreserve()"> 동일인 보증서 (200,000+)</label> <span class="hint">대상</span> <input type="number" id="pr_sameN" value="1" min="1" style="width:54px;" oninput="calcPreserve()"></td><td class="auto" id="pr_sameCell">0 원</td></tr>
@@ -1710,6 +1742,7 @@
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
         <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
       <div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="rt_frAdd" onchange="calcRight()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§10⑥</b> — 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는</b> 등기 → <b>기본보수의 100%까지</b> 가산</span></div>
+      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="rt_moAdd" onchange="calcRight()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
     </div></div>
 
     <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
@@ -1727,6 +1760,7 @@
       <table class="t">
         <tr><td>기본보수 <span class="hint" id="rt_feeBaseNote"></span></td><td class="auto" id="rt_feeBaseCell">0 원</td></tr>
         <tr id="rt_feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="rt_feeForeignNote"></span></td><td class="auto" id="rt_feeForeignCell">0 원</td></tr>
+        <tr id="rt_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="rt_feeMultiNote"></span></td><td class="auto" id="rt_feeMultiCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="rt_f_origin" checked onchange="calcRight()"> 등기원인증서(설정계약서) 작성 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="rt_f_tax" checked onchange="calcRight()"> 등록면허세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr id="rt_sameRow" style="display:none;"><td>동일인 보증서 (200,000)</td><td class="auto" id="rt_sameCell">0 원</td></tr>
@@ -1851,6 +1885,10 @@
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
         <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
+      <div class="line" id="cv_rowPurpose"><span class="lbl">등기 목적 수</span><div class="stepper"><button onclick="step('cv_purposeN',-1,calcCorpChange)">−</button><input type="number" id="cv_purposeN" value="1" min="1" oninput="calcCorpChange()"><button onclick="step('cv_purposeN',1,calcCorpChange)">+</button></div><span class="hint">보수기준 <b>§14③</b> — 등기의 목적이 <b>1개를 초과</b>하면 초과 1개마다 <b>50,000원</b> 가산 <b>(임원변경은 제외)</b> <span class="tag A">A</span></span></div>
+      <div class="line" id="cv_rowOfficer" style="display:none;"><span class="lbl">임원 수(선임·변경)</span><div class="stepper"><button onclick="step('cv_officerN',-1,calcCorpChange)">−</button><input type="number" id="cv_officerN" value="1" min="1" oninput="calcCorpChange()"><button onclick="step('cv_officerN',1,calcCorpChange)">+</button></div><span class="hint">보수기준 <b>§14④</b> — 임원이 <b>4인을 초과</b>하면 초과 1인마다 <b>20,000원</b> 가산 <span class="tag A">A</span></span></div>
+      <div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="cv_frAdd" onchange="calcCorpChange()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§14②</b> — <b>임원 중</b> 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는 변경등기</b> → <b>기본보수의 100%까지</b> 가산 <span class="tag A">A</span></span></div>
+      <div class="line" id="cv_rowFar" style="display:none;"><span class="lbl">관외 본점이전 가산</span><select id="cv_farAdd" onchange="calcCorpChange()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§14⑤</b> — <b>다른 등기소 관내로의 본점이전등기</b> → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
     </div></div>
 
     <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag chk">확인필요</span></h2><div class="body">
@@ -1869,6 +1907,10 @@
     <div class="card pink"><h2>③ 수수료 (법무사 보수, VAT 별도) <span class="tag A">A</span></h2><div class="body">
       <table class="t">
         <tr><td>기본료 <span class="hint" id="cv_feeBaseNote"></span></td><td class="auto" id="cv_feeBaseCell">0 원</td></tr>
+        <tr id="cv_feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="cv_feeForeignNote"></span></td><td class="auto" id="cv_feeForeignCell">0 원</td></tr>
+        <tr id="cv_feeFarRow" style="display:none;"><td>관외 본점이전 가산 <span class="hint" id="cv_feeFarNote"></span></td><td class="auto" id="cv_feeFarCell">0 원</td></tr>
+        <tr id="cv_feePurposeRow" style="display:none;"><td>등기목적 초과 가산 <span class="hint" id="cv_feePurposeNote"></span></td><td class="auto" id="cv_feePurposeCell">0 원</td></tr>
+        <tr id="cv_feeOfficerRow" style="display:none;"><td>임원 초과 가산 <span class="hint" id="cv_feeOfficerNote"></span></td><td class="auto" id="cv_feeOfficerCell">0 원</td></tr>
         <tr><td>문서작성료 <span class="hint" id="cv_docNote"></span></td><td class="auto" id="cv_docCell">0 원</td></tr>
         <tr id="cv_certAgentRow" style="display:none;"><td>의사록 공증 대행 <span class="hint">(Ⅸ-6 50,000)</span></td><td class="auto" id="cv_certAgentCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="cv_f_tax" checked onchange="calcCorpChange()"> 등록면허세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
@@ -1974,7 +2016,7 @@
     <div class="card blue"><h2>① 신청 종류 선택 <span class="tag A">전자소송 포털</span></h2><div class="body">
       <div class="note">전자소송 포털 "신청사건 종류"를 그대로 담았습니다. 종류를 고르면 인지가 자동 세팅됩니다. 포털 금액과 다르면 인지칸을 직접 수정하세요(대부분 1,000원·전자 900원, 보전처분 10,000원·전자 9,000원).</div>
       <div class="line"><span class="lbl">신청 종류</span><select id="mi_type" onchange="buildMisc()" style="max-width:none;flex:1;"></select></div>
-      <div class="line"><span class="lbl">청구(소송목적)금액(원)</span><input type="number" class="amt" id="mi_claim" placeholder="0" oninput="calcMisc()"><span class="hint">보수 Ⅶ-1② 기준(없으면 기본 260,000)</span></div>
+      <div class="line"><span class="lbl">청구(소송목적)금액(원)</span><input type="number" class="amt" id="mi_claim" placeholder="0" oninput="calcMisc()"><span class="hint">보수 Ⅶ-1② 기준 · <b>소송물가액이 없거나 산정할 수 없으면 5천만원으로 의제</b>(보수기준 <b>§23①</b> 후단 → 262,000원) <span class="tag A">A</span></span></div>
       <div class="line"><span class="lbl">당사자 수</span><div class="stepper"><button onclick="step('mi_party',-1,calcMisc)">−</button><input type="number" id="mi_party" value="2" min="1" oninput="calcMisc()"><button onclick="step('mi_party',1,calcMisc)">+</button></div><span class="hint">신청인+상대방</span></div>
       <div class="line"><span class="lbl">전자소송 진행</span><label class="checks" style="display:inline-flex;"><input type="checkbox" id="mi_e" checked onchange="buildMisc()"> 예(인지 10% 할인)</label></div>
       <div class="line"><span class="lbl">보수 조정</span><select id="mi_adjust" onchange="calcMisc()">
@@ -2597,6 +2639,16 @@ const REG_RE={
 const REG_CORP={설립:[35000,28000,20000], 변경:[7000,5000,2000]};
 
 /* 법인 변경등기 유형별 기준 — 보수표 Ⅱ + 등록면허세(지방세법 §28)
+   [★ 기본보수 — 법무사보수기준(2024.9.12. 시행) §13④] 2026-07 감사 정정 [A]
+     4호 = 해산·청산종결·계속, 상호의 신설·가등기, 「본점(주사무소)의 이전」,
+          「지점(분사무소)의 설치·이전」, 상호·목적의 변경        → 120,000원 (Ⅱ-4(4))
+     7호 = 「지점 및 분사무소 소재지에서의 등기」                  →  60,000원 (Ⅱ-4(7))
+     → 지점 「설치·이전」 자체는 4호(120,000)다. 7호는 (본점 등기와 별도로) 지점 소재지
+       관할 등기소에서 하던 등기를 말하는 것으로 전혀 다른 항목이다.
+       종전 코드는 지점 설치·이전에 7호(60,000)를 적용하고 있어 이를 4호로 정정한다.
+     ※ 「상법」(법률 제20436호, 2024.9.20. 공포 / 2025.1.31. 시행) §181·§182②로
+        지점등기부가 폐지되어 지점 설치·이전 등기는 「본점 소재지 등기소」에서만 한다.
+        → 7호(지점 소재지에서의 등기)는 현행법상 적용 여지가 사실상 소멸했다.
    [등록면허세 §28①6호]
      가. 상사회사·영리법인 설립·납입 → 납입액 1,000분의 4 (최저 112,500)
      다. 자본증가·출자증가        → 납입액 1,000분의 4 (최저 112,500)
@@ -2620,7 +2672,7 @@ const CORP_CHG={
  '상호·목적·정관 변경': {feeMode:'flat', flat:'Ⅱ-4(4)', reg:'40200', regFee:'변경', mid:false},
  '본점 관내이전':       {feeMode:'flat', flat:'Ⅱ-4(4)', reg:'112500', regFee:'변경', mid:false},
  '본점 관외이전':       {feeMode:'flat', flat:'Ⅱ-4(4)', reg:'112500', regFee:'설립', mid:'transfer'},
- '지점 설치·이전':      {feeMode:'flat', flat:'Ⅱ-4(7)', reg:'40200', regFee:'변경', mid:'branch'},
+ '지점 설치·이전':      {feeMode:'flat', flat:'Ⅱ-4(4)', reg:'40200', regFee:'변경', mid:'branch'},
  '법인 해산·청산':      {feeMode:'flat', flat:'Ⅱ-4(4)', reg:'40200', regFee:'변경', mid:false}
 };
 
@@ -2909,7 +2961,12 @@ function calcSale(fromEdit){
   document.getElementById('feeBaseNote').textContent='(보수표 Ⅰ-1'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   const _frCell=document.getElementById('feeForeignRow');
   if(_frCell){_frCell.style.display=feeForeign>0?'table-row':'none';document.getElementById('feeForeignCell').textContent=won(feeForeign);document.getElementById('feeForeignNote').textContent='(기본보수 '+won(feeBase)+' × '+(_fr*100)+'% · §10⑥)';}
-  let fee=feeBase+feeForeign;
+  /* 보수기준 §10④ — 등기원인·등기목적이 동일한 여러 부동산이 여러 등기소 관할에 걸친 경우
+     → 당해 기본보수의 50% 상당액까지 가산 [A] */
+  const _mo=frAddRate('moAdd'), feeMulti=Math.round(feeBase*_mo);
+  const _moR=document.getElementById('feeMultiRow');
+  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('feeMultiCell').textContent=won(feeMulti);document.getElementById('feeMultiNote').textContent='(기본보수 '+won(feeBase)+' × '+Math.round(_mo*100)+'% · §10④)';}
+  let fee=feeBase+feeForeign+feeMulti;
   if(chk('f_origin'))fee+=50000;if(chk('f_tax'))fee+=50000;if(chk('f_bond'))fee+=40000;if(chk('f_trip'))fee+=val('tripFee');
   if(chk('f_same')){const n=Math.max(1,val('sameN')),e=Math.max(1,val('cntEstate'));const v=200000+((n-1)+(e-1))*30000;document.getElementById('sameCell').textContent=won(v);fee+=v;}else document.getElementById('sameCell').textContent='0 원';
   const vRow=document.getElementById('verifyRow');
@@ -3064,7 +3121,12 @@ function calcInherit(fromEdit){
   document.getElementById('s_feeBaseNote').textContent='(보수표 Ⅰ-1'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   const _frCell=document.getElementById('s_feeForeignRow');
   if(_frCell){_frCell.style.display=feeForeign>0?'table-row':'none';document.getElementById('s_feeForeignCell').textContent=won(feeForeign);document.getElementById('s_feeForeignNote').textContent='(기본보수 '+won(feeBase)+' × '+(_fr*100)+'% · §10⑥)';}
-  let fee=feeBase+feeForeign;
+  /* 보수기준 §10④ — 등기원인·등기목적이 동일한 여러 부동산이 여러 등기소 관할에 걸친 경우
+     → 당해 기본보수의 50% 상당액까지 가산 [A] */
+  const _mo=frAddRate('s_moAdd'), feeMulti=Math.round(feeBase*_mo);
+  const _moR=document.getElementById('s_feeMultiRow');
+  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('s_feeMultiCell').textContent=won(feeMulti);document.getElementById('s_feeMultiNote').textContent='(기본보수 '+won(feeBase)+' × '+Math.round(_mo*100)+'% · §10④)';}
+  let fee=feeBase+feeForeign+feeMulti;
   if(chk('s_f_origin'))fee+=50000;if(chk('s_f_tax'))fee+=50000;if(chk('s_f_bond'))fee+=40000;if(chk('s_f_trip'))fee+=val('s_tripFee');
   if(chk('s_f_same')){const n=Math.max(1,val('s_sameN')),e=Math.max(1,val('s_cntEstate'));const v=200000+((n-1)+(e-1))*30000;document.getElementById('s_sameCell').textContent=won(v);fee+=v;}else document.getElementById('s_sameCell').textContent='0 원';
   const vRow=document.getElementById('s_verifyRow');
@@ -3258,7 +3320,12 @@ function calcGift(fromEdit){
   document.getElementById('gv_feeBaseNote').textContent='(보수표 Ⅰ-1 · 시가인정액'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   const _frCell=document.getElementById('gv_feeForeignRow');
   if(_frCell){_frCell.style.display=feeForeign>0?'table-row':'none';document.getElementById('gv_feeForeignCell').textContent=won(feeForeign);document.getElementById('gv_feeForeignNote').textContent='(기본보수 '+won(feeBase)+' × '+(_fr*100)+'% · §10⑥)';}
-  let fee=feeBase+feeForeign;
+  /* 보수기준 §10④ — 등기원인·등기목적이 동일한 여러 부동산이 여러 등기소 관할에 걸친 경우
+     → 당해 기본보수의 50% 상당액까지 가산 [A] */
+  const _mo=frAddRate('gv_moAdd'), feeMulti=Math.round(feeBase*_mo);
+  const _moR=document.getElementById('gv_feeMultiRow');
+  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('gv_feeMultiCell').textContent=won(feeMulti);document.getElementById('gv_feeMultiNote').textContent='(기본보수 '+won(feeBase)+' × '+Math.round(_mo*100)+'% · §10④)';}
+  let fee=feeBase+feeForeign+feeMulti;
   if(chk('gv_f_origin'))fee+=50000;if(chk('gv_f_inspect'))fee+=50000;if(chk('gv_f_tax'))fee+=50000;if(chk('gv_f_bond'))fee+=40000;if(chk('gv_f_trip'))fee+=val('gv_tripFee');
   if(chk('gv_f_same')){const n=Math.max(1,val('gv_sameN')),e=Math.max(1,val('gv_cntEstate'));const v=200000+((n-1)+(e-1))*30000;document.getElementById('gv_sameCell').textContent=won(v);fee+=v;}else document.getElementById('gv_sameCell').textContent='0 원';
   const vRow=document.getElementById('gv_verifyRow');
@@ -3372,7 +3439,12 @@ function calcDivision(fromEdit){
   document.getElementById('dv_feeBaseNote').textContent='(보수표 Ⅰ-1 · 과세표준'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   const _frCell=document.getElementById('dv_feeForeignRow');
   if(_frCell){_frCell.style.display=feeForeign>0?'table-row':'none';document.getElementById('dv_feeForeignCell').textContent=won(feeForeign);document.getElementById('dv_feeForeignNote').textContent='(기본보수 '+won(feeBase)+' × '+(_fr*100)+'% · §10⑥)';}
-  let fee=feeBase+feeForeign;
+  /* 보수기준 §10④ — 등기원인·등기목적이 동일한 여러 부동산이 여러 등기소 관할에 걸친 경우
+     → 당해 기본보수의 50% 상당액까지 가산 [A] */
+  const _mo=frAddRate('dv_moAdd'), feeMulti=Math.round(feeBase*_mo);
+  const _moR=document.getElementById('dv_feeMultiRow');
+  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('dv_feeMultiCell').textContent=won(feeMulti);document.getElementById('dv_feeMultiNote').textContent='(기본보수 '+won(feeBase)+' × '+Math.round(_mo*100)+'% · §10④)';}
+  let fee=feeBase+feeForeign+feeMulti;
   if(chk('dv_f_origin'))fee+=50000;
   if(chk('dv_f_inspect')){fee+=50000;document.getElementById('dv_inspectCell').textContent='50,000 원';}else document.getElementById('dv_inspectCell').textContent='0 원';
   if(chk('dv_f_tax'))fee+=50000;if(chk('dv_f_bond'))fee+=40000;if(chk('dv_f_trip'))fee+=val('dv_tripFee');
@@ -3721,7 +3793,12 @@ function calcEtcAcqTail(){
   document.getElementById('ea_feeBaseNote').textContent='(보수표 Ⅰ-1 · 과세표준'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   const _frCell=document.getElementById('ea_feeForeignRow');
   if(_frCell){_frCell.style.display=feeForeign>0?'table-row':'none';document.getElementById('ea_feeForeignCell').textContent=won(feeForeign);document.getElementById('ea_feeForeignNote').textContent='(기본보수 '+won(feeBase)+' × '+(_fr*100)+'% · §10⑥)';}
-  let fee=feeBase+feeForeign;
+  /* 보수기준 §10④ — 등기원인·등기목적이 동일한 여러 부동산이 여러 등기소 관할에 걸친 경우
+     → 당해 기본보수의 50% 상당액까지 가산 [A] */
+  const _mo=frAddRate('ea_moAdd'), feeMulti=Math.round(feeBase*_mo);
+  const _moR=document.getElementById('ea_feeMultiRow');
+  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('ea_feeMultiCell').textContent=won(feeMulti);document.getElementById('ea_feeMultiNote').textContent='(기본보수 '+won(feeBase)+' × '+Math.round(_mo*100)+'% · §10④)';}
+  let fee=feeBase+feeForeign+feeMulti;
   if(chk('ea_f_origin')){fee+=50000;document.getElementById('ea_originCell').textContent='50,000 원';}else document.getElementById('ea_originCell').textContent='0 원';
   if(chk('ea_f_tax')){fee+=50000;document.getElementById('ea_taxCell').textContent='50,000 원';}else document.getElementById('ea_taxCell').textContent='0 원';
   if(chk('ea_f_bond')){fee+=40000;document.getElementById('ea_bondCell').textContent='40,000 원';}else document.getElementById('ea_bondCell').textContent='0 원';
@@ -3818,7 +3895,12 @@ function calcPartition(fromEdit){
   document.getElementById('pt_feeBaseNote').textContent='(보수표 Ⅰ-1 · 과세표준'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   const _frCell=document.getElementById('pt_feeForeignRow');
   if(_frCell){_frCell.style.display=feeForeign>0?'table-row':'none';document.getElementById('pt_feeForeignCell').textContent=won(feeForeign);document.getElementById('pt_feeForeignNote').textContent='(기본보수 '+won(feeBase)+' × '+(_fr*100)+'% · §10⑥)';}
-  let fee=feeBase+feeForeign;
+  /* 보수기준 §10④ — 등기원인·등기목적이 동일한 여러 부동산이 여러 등기소 관할에 걸친 경우
+     → 당해 기본보수의 50% 상당액까지 가산 [A] */
+  const _mo=frAddRate('pt_moAdd'), feeMulti=Math.round(feeBase*_mo);
+  const _moR=document.getElementById('pt_feeMultiRow');
+  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('pt_feeMultiCell').textContent=won(feeMulti);document.getElementById('pt_feeMultiNote').textContent='(기본보수 '+won(feeBase)+' × '+Math.round(_mo*100)+'% · §10④)';}
+  let fee=feeBase+feeForeign+feeMulti;
   if(chk('pt_f_origin'))fee+=50000;
   if(chk('pt_f_inspect')){fee+=50000;document.getElementById('pt_inspectCell').textContent='50,000 원';}else document.getElementById('pt_inspectCell').textContent='0 원';
   if(chk('pt_f_tax'))fee+=50000;if(chk('pt_f_bond'))fee+=40000;if(chk('pt_f_trip'))fee+=val('pt_tripFee');
@@ -3972,7 +4054,12 @@ function calcBurden(fromEdit){
   document.getElementById('bv_feeBaseNote').textContent='(보수표 Ⅰ-1 · 신고금액 전체'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   const _frCell=document.getElementById('bv_feeForeignRow');
   if(_frCell){_frCell.style.display=feeForeign>0?'table-row':'none';document.getElementById('bv_feeForeignCell').textContent=won(feeForeign);document.getElementById('bv_feeForeignNote').textContent='(기본보수 '+won(feeBase)+' × '+(_fr*100)+'% · §10⑥)';}
-  let fee=feeBase+feeForeign;
+  /* 보수기준 §10④ — 등기원인·등기목적이 동일한 여러 부동산이 여러 등기소 관할에 걸친 경우
+     → 당해 기본보수의 50% 상당액까지 가산 [A] */
+  const _mo=frAddRate('bv_moAdd'), feeMulti=Math.round(feeBase*_mo);
+  const _moR=document.getElementById('bv_feeMultiRow');
+  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('bv_feeMultiCell').textContent=won(feeMulti);document.getElementById('bv_feeMultiNote').textContent='(기본보수 '+won(feeBase)+' × '+Math.round(_mo*100)+'% · §10④)';}
+  let fee=feeBase+feeForeign+feeMulti;
   if(chk('bv_f_origin'))fee+=50000;if(chk('bv_f_inspect'))fee+=50000;if(chk('bv_f_tax'))fee+=50000;if(chk('bv_f_bond'))fee+=40000;if(chk('bv_f_trip'))fee+=val('bv_tripFee');
   if(chk('bv_f_same')){const n=Math.max(1,val('bv_sameN')),e=Math.max(1,val('bv_cntEstate'));const v=200000+((n-1)+(e-1))*30000;document.getElementById('bv_sameCell').textContent=won(v);fee+=v;}else document.getElementById('bv_sameCell').textContent='0 원';
   const vRow=document.getElementById('bv_verifyRow');
@@ -4032,7 +4119,12 @@ function calcMortgage(mode){
   document.getElementById('mt_feeBaseNote').textContent='(보수표 Ⅰ-1 · 채권최고액'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   const _frCell=document.getElementById('mt_feeForeignRow');
   if(_frCell){_frCell.style.display=feeForeign>0?'table-row':'none';document.getElementById('mt_feeForeignCell').textContent=won(feeForeign);document.getElementById('mt_feeForeignNote').textContent='(기본보수 '+won(feeBase)+' × '+(_fr*100)+'% · §10⑥)';}
-  let fee=feeBase+feeForeign;
+  /* 보수기준 §10④ — 등기원인·등기목적이 동일한 여러 부동산이 여러 등기소 관할에 걸친 경우
+     → 당해 기본보수의 50% 상당액까지 가산 [A] */
+  const _mo=frAddRate('mt_moAdd'), feeMulti=Math.round(feeBase*_mo);
+  const _moR=document.getElementById('mt_feeMultiRow');
+  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('mt_feeMultiCell').textContent=won(feeMulti);document.getElementById('mt_feeMultiNote').textContent='(기본보수 '+won(feeBase)+' × '+Math.round(_mo*100)+'% · §10④)';}
+  let fee=feeBase+feeForeign+feeMulti;
   if(chk('mt_f_origin'))fee+=50000;if(chk('mt_f_tax'))fee+=50000;if(chk('mt_f_bond'))fee+=40000;if(chk('mt_f_trip'))fee+=val('mt_tripFee');
   const sameRow=document.getElementById('mt_sameRow');
   if(chk('mt_same')){sameRow.style.display='table-row';document.getElementById('mt_sameCell').textContent=won(200000);fee+=200000;}else sameRow.style.display='none';
@@ -4079,7 +4171,12 @@ function calcGadeungi(fromEdit){
   document.getElementById('ga_feeBaseNote').textContent='(보수표 Ⅰ-1'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   const _frCell=document.getElementById('ga_feeForeignRow');
   if(_frCell){_frCell.style.display=feeForeign>0?'table-row':'none';document.getElementById('ga_feeForeignCell').textContent=won(feeForeign);document.getElementById('ga_feeForeignNote').textContent='(기본보수 '+won(feeBase)+' × '+(_fr*100)+'% · §10⑥)';}
-  let fee=feeBase+feeForeign;
+  /* 보수기준 §10④ — 등기원인·등기목적이 동일한 여러 부동산이 여러 등기소 관할에 걸친 경우
+     → 당해 기본보수의 50% 상당액까지 가산 [A] */
+  const _mo=frAddRate('ga_moAdd'), feeMulti=Math.round(feeBase*_mo);
+  const _moR=document.getElementById('ga_feeMultiRow');
+  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('ga_feeMultiCell').textContent=won(feeMulti);document.getElementById('ga_feeMultiNote').textContent='(기본보수 '+won(feeBase)+' × '+Math.round(_mo*100)+'% · §10④)';}
+  let fee=feeBase+feeForeign+feeMulti;
   if(chk('ga_f_origin'))fee+=50000;if(chk('ga_f_tax'))fee+=50000;if(chk('ga_f_trip'))fee+=val('ga_tripFee');
   const vRow=document.getElementById('ga_verifyRow');
   if(chk('ga_verify')){const v=120000+(cntE-1)*30000;vRow.style.display='table-row';document.getElementById('ga_verifyCell').textContent=won(v);fee+=v;}else vRow.style.display='none';
@@ -4155,7 +4252,12 @@ function calcSintak(fromEdit){
   document.getElementById('st_feeBaseNote').textContent='(보수표 Ⅰ-4(1) 신탁등기 정액 150,000'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   const _frR=document.getElementById('st_feeForeignRow');
   if(_frR){_frR.style.display=feeForeign>0?'table-row':'none';document.getElementById('st_feeForeignCell').textContent=won(feeForeign);document.getElementById('st_feeForeignNote').textContent='(기본보수 '+won(feeBase)+' × '+(_fr*100)+'% · §10⑥)';}
-  let fee=feeBase+feeForeign;
+  /* 보수기준 §10④ — 등기원인·등기목적이 동일한 여러 부동산이 여러 등기소 관할에 걸친 경우
+     → 당해 기본보수의 50% 상당액까지 가산 [A] */
+  const _mo=frAddRate('st_moAdd'), feeMulti=Math.round(feeBase*_mo);
+  const _moR=document.getElementById('st_feeMultiRow');
+  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('st_feeMultiCell').textContent=won(feeMulti);document.getElementById('st_feeMultiNote').textContent='(기본보수 '+won(feeBase)+' × '+Math.round(_mo*100)+'% · §10④)';}
+  let fee=feeBase+feeForeign+feeMulti;
   if(chk('st_f_origin'))fee+=50000;if(chk('st_f_tax'))fee+=50000;if(chk('st_f_trip'))fee+=val('st_tripFee');
   EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const c=document.getElementById('sta_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('staq_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('st_extraAgent');
@@ -4201,7 +4303,12 @@ function calcMortgageAdd(fromEdit){
   document.getElementById('ma_feeBaseNote').textContent='(보수표 Ⅰ-2 · 채권최고액'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   const _frCell=document.getElementById('ma_feeForeignRow');
   if(_frCell){_frCell.style.display=feeForeign>0?'table-row':'none';document.getElementById('ma_feeForeignCell').textContent=won(feeForeign);document.getElementById('ma_feeForeignNote').textContent='(기본보수 '+won(feeBase)+' × '+(_fr*100)+'% · §10⑥)';}
-  let fee=feeBase+feeForeign;
+  /* 보수기준 §10④ — 등기원인·등기목적이 동일한 여러 부동산이 여러 등기소 관할에 걸친 경우
+     → 당해 기본보수의 50% 상당액까지 가산 [A] */
+  const _mo=frAddRate('ma_moAdd'), feeMulti=Math.round(feeBase*_mo);
+  const _moR=document.getElementById('ma_feeMultiRow');
+  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('ma_feeMultiCell').textContent=won(feeMulti);document.getElementById('ma_feeMultiNote').textContent='(기본보수 '+won(feeBase)+' × '+Math.round(_mo*100)+'% · §10④)';}
+  let fee=feeBase+feeForeign+feeMulti;
   if(chk('ma_f_origin'))fee+=50000;if(chk('ma_f_tax'))fee+=50000;if(chk('ma_f_bond'))fee+=40000;if(chk('ma_f_trip'))fee+=val('ma_tripFee');
   const sameRow=document.getElementById('ma_sameRow');
   if(chk('ma_same')){sameRow.style.display='table-row';document.getElementById('ma_sameCell').textContent=won(200000);fee+=200000;}else sameRow.style.display='none';
@@ -4242,7 +4349,12 @@ function calcMortCancel(fromEdit){
   document.getElementById('mtc_feeBaseNote').textContent='(보수표 Ⅰ-3(4) 80,000 × '+cnt+'건'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   const _frR=document.getElementById('mtc_feeForeignRow');
   if(_frR){_frR.style.display=feeForeign>0?'table-row':'none';document.getElementById('mtc_feeForeignCell').textContent=won(feeForeign);document.getElementById('mtc_feeForeignNote').textContent='(기본보수 '+won(feeBase)+' × '+(_fr*100)+'% · §10⑥)';}
-  let fee=feeBase+feeForeign;
+  /* 보수기준 §10④ — 등기원인·등기목적이 동일한 여러 부동산이 여러 등기소 관할에 걸친 경우
+     → 당해 기본보수의 50% 상당액까지 가산 [A] */
+  const _mo=frAddRate('mtc_moAdd'), feeMulti=Math.round(feeBase*_mo);
+  const _moR=document.getElementById('mtc_feeMultiRow');
+  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('mtc_feeMultiCell').textContent=won(feeMulti);document.getElementById('mtc_feeMultiNote').textContent='(기본보수 '+won(feeBase)+' × '+Math.round(_mo*100)+'% · §10④)';}
+  let fee=feeBase+feeForeign+feeMulti;
   if(chk('mtc_f_trip'))fee+=val('mtc_tripFee');
   EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const c=document.getElementById('mtca_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('mtcaq_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('mtc_extraAgent');
@@ -4320,7 +4432,12 @@ function calcPreserve(fromEdit){
   document.getElementById('pr_feeBaseNote').textContent='(보수표 Ⅰ-1'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   const _frCell=document.getElementById('pr_feeForeignRow');
   if(_frCell){_frCell.style.display=feeForeign>0?'table-row':'none';document.getElementById('pr_feeForeignCell').textContent=won(feeForeign);document.getElementById('pr_feeForeignNote').textContent='(기본보수 '+won(feeBase)+' × '+(_fr*100)+'% · §10⑥)';}
-  let fee=feeBase+feeForeign;
+  /* 보수기준 §10④ — 등기원인·등기목적이 동일한 여러 부동산이 여러 등기소 관할에 걸친 경우
+     → 당해 기본보수의 50% 상당액까지 가산 [A] */
+  const _mo=frAddRate('pr_moAdd'), feeMulti=Math.round(feeBase*_mo);
+  const _moR=document.getElementById('pr_feeMultiRow');
+  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('pr_feeMultiCell').textContent=won(feeMulti);document.getElementById('pr_feeMultiNote').textContent='(기본보수 '+won(feeBase)+' × '+Math.round(_mo*100)+'% · §10④)';}
+  let fee=feeBase+feeForeign+feeMulti;
   if(chk('pr_f_tax'))fee+=50000;if(chk('pr_f_bond'))fee+=40000;if(chk('pr_f_trip'))fee+=val('pr_tripFee');
   if(chk('pr_f_same')){const n=Math.max(1,val('pr_sameN')),e=Math.max(1,val('pr_cntEstate'));const v=200000+((n-1)+(e-1))*30000;document.getElementById('pr_sameCell').textContent=won(v);fee+=v;}else document.getElementById('pr_sameCell').textContent='0 원';
   const vRow=document.getElementById('pr_verifyRow');
@@ -4381,7 +4498,12 @@ function calcRight(fromEdit){
   document.getElementById('rt_feeBaseNote').textContent='(보수표 Ⅰ-1 · '+radio('rt_type')+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   const _frCell=document.getElementById('rt_feeForeignRow');
   if(_frCell){_frCell.style.display=feeForeign>0?'table-row':'none';document.getElementById('rt_feeForeignCell').textContent=won(feeForeign);document.getElementById('rt_feeForeignNote').textContent='(기본보수 '+won(feeBase)+' × '+(_fr*100)+'% · §10⑥)';}
-  let fee=feeBase+feeForeign;
+  /* 보수기준 §10④ — 등기원인·등기목적이 동일한 여러 부동산이 여러 등기소 관할에 걸친 경우
+     → 당해 기본보수의 50% 상당액까지 가산 [A] */
+  const _mo=frAddRate('rt_moAdd'), feeMulti=Math.round(feeBase*_mo);
+  const _moR=document.getElementById('rt_feeMultiRow');
+  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('rt_feeMultiCell').textContent=won(feeMulti);document.getElementById('rt_feeMultiNote').textContent='(기본보수 '+won(feeBase)+' × '+Math.round(_mo*100)+'% · §10④)';}
+  let fee=feeBase+feeForeign+feeMulti;
   if(chk('rt_f_origin'))fee+=50000;if(chk('rt_f_tax'))fee+=50000;if(chk('rt_f_trip'))fee+=val('rt_tripFee');
   const sameRow=document.getElementById('rt_sameRow');
   if(chk('rt_same')){sameRow.style.display='table-row';document.getElementById('rt_sameCell').textContent=won(200000);fee+=200000;}else sameRow.style.display='none';
@@ -4430,8 +4552,14 @@ function calcCorp(fromEdit){
   const feeBase=Math.round(tierFee('Ⅱ-1',cap)*adj);
   document.getElementById('co_feeBaseCell').textContent=won(feeBase);
   document.getElementById('co_feeBaseNote').textContent='(보수표 Ⅱ-1 · 자본금'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
+  /* ★ 24회차 긴급복구 — 23회차에서 표시행만 넣고 아래 선언이 누락되어 calcCorp가
+     ReferenceError로 중단, 「법인설립」 화면 전체가 계산 불능이었다.
+     보수기준 §14① — 외국인투자촉진법 설립·자본증가, 현물출자, 분할·합병·주식이전·조직변경에 의한 설립,
+     흡수합병·분할합병·주식교환에 의한 자본증가, 종류주식·주식매수선택권 규정 포함
+     → 당해 기본보수의 150% 상당액까지 가산 [A] */
+  const _fr1=frAddRate('co_fr14_1'), feeForeign=Math.round(feeBase*_fr1);
   const _c1=document.getElementById('co_feeForeignRow');
-  if(_c1){_c1.style.display=feeForeign>0?'table-row':'none';document.getElementById('co_feeForeignCell').textContent=won(feeForeign);document.getElementById('co_feeForeignNote').textContent='(기본보수 '+won(feeBase)+' × '+(_fr1*100)+'% · §14①)';}
+  if(_c1){_c1.style.display=feeForeign>0?'table-row':'none';document.getElementById('co_feeForeignCell').textContent=won(feeForeign);document.getElementById('co_feeForeignNote').textContent='(기본보수 '+won(feeBase)+' × '+Math.round(_fr1*100)+'% · §14①)';}
   const docN=Math.max(1,val('co_docN'));
   const docFee=Math.round(FLAT['Ⅸ-5']*docN*adj);
   document.getElementById('co_docCell').textContent=won(docFee);
@@ -4522,7 +4650,34 @@ function calcCorpChange(fromEdit){
   if(def.feeMode==='tier'){feeBase=Math.round(tierFee(def.tier,val('cv_cap'))*adj);document.getElementById('cv_feeBaseNote').textContent='(보수표 '+def.tier+(adj!==1?' ×'+(adj*100)+'%':'')+')';}
   else{feeBase=Math.round(FLAT[def.flat]*adj);document.getElementById('cv_feeBaseNote').textContent='(보수표 '+def.flat+(adj!==1?' ×'+(adj*100)+'%':'')+')';}
   document.getElementById('cv_feeBaseCell').textContent=won(feeBase);
-  let fee=feeBase;
+  /* ===== 가산보수 — 법무사보수기준 §14②③④⑤ [A] (2026-07 감사 신설) =====
+     ② 임원 중 외국인·재외국민 포함 또는 등기원인 관련 서류를 외국에서 받아야 하는 변경등기 → 기본보수의 100%까지
+     ③ 등기의 목적이 1개를 초과(임원변경 제외) → 초과 1개마다 50,000원
+     ④ 임원의 선임·변경등기에서 임원이 4인을 초과 → 초과 1인마다 20,000원
+     ⑤ 다른 등기소 관내로의 본점이전등기 → 기본보수의 50%까지
+     ※ ①(외국인투자촉진법·현물출자·조직변경 설립 등 150%)은 「법인설립」 화면 소관 */
+  const _isOfficer=(document.getElementById('cv_type').value==='임원 선임·변경');
+  const _isFar=(document.getElementById('cv_type').value==='본점 관외이전');
+  const _rowP=document.getElementById('cv_rowPurpose'); if(_rowP)_rowP.style.display=_isOfficer?'none':'flex';
+  const _rowO=document.getElementById('cv_rowOfficer'); if(_rowO)_rowO.style.display=_isOfficer?'flex':'none';
+  const _rowF=document.getElementById('cv_rowFar');     if(_rowF)_rowF.style.display=_isFar?'flex':'none';
+  // ② 외국인·재외국민
+  const _fr=frAddRate('cv_frAdd'), feeForeign=Math.round(feeBase*_fr);
+  const _r1=document.getElementById('cv_feeForeignRow');
+  if(_r1){_r1.style.display=feeForeign>0?'table-row':'none';document.getElementById('cv_feeForeignCell').textContent=won(feeForeign);document.getElementById('cv_feeForeignNote').textContent='(기본보수 '+won(feeBase)+' × '+Math.round(_fr*100)+'% · §14②)';}
+  // ⑤ 관외 본점이전
+  const _far=_isFar?frAddRate('cv_farAdd'):0, feeFar=Math.round(feeBase*_far);
+  const _r2=document.getElementById('cv_feeFarRow');
+  if(_r2){_r2.style.display=feeFar>0?'table-row':'none';document.getElementById('cv_feeFarCell').textContent=won(feeFar);document.getElementById('cv_feeFarNote').textContent='(기본보수 '+won(feeBase)+' × '+Math.round(_far*100)+'% · §14⑤)';}
+  // ③ 등기목적 초과 (임원변경 제외)
+  const _pn=_isOfficer?1:Math.max(1,val('cv_purposeN')), feePurpose=(_pn-1)*50000;
+  const _r3=document.getElementById('cv_feePurposeRow');
+  if(_r3){_r3.style.display=feePurpose>0?'table-row':'none';document.getElementById('cv_feePurposeCell').textContent=won(feePurpose);document.getElementById('cv_feePurposeNote').textContent='(§14③ 초과 '+(_pn-1)+'개 × 50,000)';}
+  // ④ 임원 4인 초과
+  const _on=_isOfficer?Math.max(1,val('cv_officerN')):0, feeOfficer=Math.max(0,_on-4)*20000;
+  const _r4=document.getElementById('cv_feeOfficerRow');
+  if(_r4){_r4.style.display=feeOfficer>0?'table-row':'none';document.getElementById('cv_feeOfficerCell').textContent=won(feeOfficer);document.getElementById('cv_feeOfficerNote').textContent='(§14④ 초과 '+Math.max(0,_on-4)+'인 × 20,000)';}
+  let fee=feeBase+feeForeign+feeFar+feePurpose+feeOfficer;
   // 문서작성료
   const docN=Math.max(0,val('cv_docN'));
   const docFee=Math.round(FLAT['Ⅸ-5']*docN*adj);
@@ -4793,9 +4948,10 @@ function calcMisc(fromEdit){
   const publicSum=val('mi_inji')+val('mi_song')+val('mi_etc')+pubCustomSum('scene-기타신청');
   document.getElementById('mi_publicSum').textContent=won(publicSum);
   const adj=parseFloat(document.getElementById('mi_adjust').value)||1;
-  const feeBase=Math.round(tierFee('Ⅶ-1②',claim>0?claim:0)*adj);
+  /* 보수기준 §23① 후단 — 「소송물가액이 없거나 소송물가액을 산정할 수 없는 경우에는 5천만원으로 한다」 [A] */
+  const feeBase=Math.round(tierFee('Ⅶ-1②',claim>0?claim:5e7)*adj);
   document.getElementById('mi_feeBaseCell').textContent=won(feeBase);
-  document.getElementById('mi_feeBaseNote').textContent='(Ⅶ-1②'+(claim<=0?'·기본':'·청구액')+(adj!==1?' ×'+(adj*100)+'%':'')+')';
+  document.getElementById('mi_feeBaseNote').textContent='(Ⅶ-1②'+(claim<=0?'·5천만 의제 §23①':'·청구액')+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   let fee=feeBase; if(chk('mi_submit'))fee+=40000;
   document.getElementById('mi_feeSum').textContent=won(fee);
   const vat=Math.round(fee*0.1);
@@ -5040,9 +5196,11 @@ function buildGeneric(name){
   let h='';
   if(def.kind==='tier'){
     if(def.noSga){
-      h+='<div class="line"><span class="lbl">소가</span><span class="auto" style="font-weight:600;">소송물가액 없음 → 5천만원 의제</span> <span class="hint">보수표 Ⅶ 단서</span></div>';
+      h+='<div class="line"><span class="lbl">소가</span><span class="auto" style="font-weight:600;">소송물가액 없음 → 5천만원 의제</span> <span class="hint">보수기준 <b>§23①</b> 후단 <span class="tag A">A</span></span></div>';
     }else{
+      const _s23=(def.tier==='Ⅶ-1①'||def.tier==='Ⅶ-1②');
       h+='<div class="line"><span class="lbl">'+def.baseLabel+'(원)</span><input type="number" class="amt" id="g_base" placeholder="0" oninput="calcGeneric()"></div>';
+      if(_s23)h+='<div class="line"><span class="lbl"></span><span class="hint">비워두면 <b>소송물가액이 없거나 산정할 수 없는 경우</b>로 보아 <b>5천만원으로 의제</b>합니다(보수기준 <b>§23①</b> 후단). <span class="tag A">A</span></span></div>';
     }
   }else{
     h+='<div class="line"><span class="lbl">건수</span><div class="stepper"><button onclick="step(\'g_cnt\',-1,calcGeneric)">−</button><input type="number" id="g_cnt" value="1" min="1" oninput="calcGeneric()"><button onclick="step(\'g_cnt\',1,calcGeneric)">+</button></div><span class="hint">정액 '+(FLAT[def.flat]||0).toLocaleString()+'원 × 건수</span></div>';
@@ -5103,7 +5261,16 @@ function buildGeneric(name){
 function calcGeneric(fromEdit){
   if(!CUR)return;const def=SCENARIO[CUR];
   let feeBase=0,note='';
-  if(def.kind==='tier'){const base=def.noSga?50000000:val('g_base');feeBase=tierFee(def.tier,base);note='(보수표 '+def.tier+(def.noSga?' · 5천만 의제':'')+')';}
+  if(def.kind==='tier'){
+    /* 보수기준 §23① 후단 — 「이 경우 소송물가액이 없거나 소송물가액을 산정할 수 없는 경우에는
+       5천만원으로 한다」 → 제8장 표(Ⅶ-1①·Ⅶ-1②)에만 적용한다.
+       Ⅴ(공탁 §19)·Ⅵ-1(경매 §21)·Ⅷ(개인파산·회생 §24의1)은 §23 적용 대상이 아니므로 제외 [A] */
+    const _s23=(def.tier==='Ⅶ-1①'||def.tier==='Ⅶ-1②');
+    let base=def.noSga?50000000:val('g_base');
+    const _imp=_s23&&base<=0; if(_imp)base=50000000;
+    feeBase=tierFee(def.tier,base);
+    note='(보수표 '+def.tier+((def.noSga||_imp)?' · 5천만 의제 §23①':'')+')';
+  }
   else{feeBase=(FLAT[def.flat]||0)*Math.max(1,val('g_cnt'));note='(보수표 '+def.flat+' 정액)';}
   const adj=parseFloat(document.getElementById('g_adjust').value)||1;
   feeBase=Math.round(feeBase*adj);
