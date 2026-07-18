@@ -476,7 +476,7 @@
       <table class="t" id="feeTable">
         <tr><td>기본보수 <span class="hint" id="feeBaseNote"></span></td><td class="auto" id="feeBaseCell">0 원</td></tr>
         <tr id="feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="feeForeignNote"></span></td><td class="auto" id="feeForeignCell">0 원</td></tr>
-        <tr id="feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="feeMultiNote"></span></td><td class="auto" id="feeMultiCell">0 원</td></tr>
+        <tr id="feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="feeMultiNote"></span></td><td class="auto" id="feeMultiCell">0 원</td></tr><tr id="feeCntRow" style="display:none;"><td>부동산 개수 가산 <span class="hint" id="feeCntNote"></span><span class="law" title="법무사보수기준 §10① — 대상 부동산이 1개를 초과하는 경우 초과하는 1개마다 20,000원을 가산합니다. (환지등기는 종전 토지 10필지 초과분)">보수기준 §10①</span></td><td class="auto" id="feeCntCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="f_origin" checked onchange="calcSale()"> 등기원인증서 작성·검인 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="f_tax" checked onchange="calcSale()"> 취득세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="f_bond" checked onchange="calcSale()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
@@ -576,7 +576,7 @@
       <table class="t">
         <tr><td>기본보수 <span class="hint" id="s_feeBaseNote"></span></td><td class="auto" id="s_feeBaseCell">0 원</td></tr>
         <tr id="s_feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="s_feeForeignNote"></span></td><td class="auto" id="s_feeForeignCell">0 원</td></tr>
-        <tr id="s_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="s_feeMultiNote"></span></td><td class="auto" id="s_feeMultiCell">0 원</td></tr>
+        <tr id="s_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="s_feeMultiNote"></span></td><td class="auto" id="s_feeMultiCell">0 원</td></tr><tr id="s_feeCntRow" style="display:none;"><td>부동산 개수 가산 <span class="hint" id="s_feeCntNote"></span><span class="law" title="법무사보수기준 §10① — 대상 부동산이 1개를 초과하는 경우 초과하는 1개마다 20,000원을 가산합니다. (환지등기는 종전 토지 10필지 초과분)">보수기준 §10①</span></td><td class="auto" id="s_feeCntCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="s_f_origin" checked onchange="calcInherit()"> 등기원인증서(협의분할계약서 등) 작성 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="s_f_tax" checked onchange="calcInherit()"> <span id="s_taxAgentLabel">취득세 신고대행</span> (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="s_f_bond" checked onchange="calcInherit()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
@@ -745,7 +745,7 @@
       <table class="t">
         <tr><td>기본보수 <span class="hint" id="gv_feeBaseNote"></span></td><td class="auto" id="gv_feeBaseCell">0 원</td></tr>
         <tr id="gv_feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="gv_feeForeignNote"></span></td><td class="auto" id="gv_feeForeignCell">0 원</td></tr>
-        <tr id="gv_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="gv_feeMultiNote"></span></td><td class="auto" id="gv_feeMultiCell">0 원</td></tr>
+        <tr id="gv_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="gv_feeMultiNote"></span></td><td class="auto" id="gv_feeMultiCell">0 원</td></tr><tr id="gv_feeCntRow" style="display:none;"><td>부동산 개수 가산 <span class="hint" id="gv_feeCntNote"></span><span class="law" title="법무사보수기준 §10① — 대상 부동산이 1개를 초과하는 경우 초과하는 1개마다 20,000원을 가산합니다. (환지등기는 종전 토지 10필지 초과분)">보수기준 §10①</span></td><td class="auto" id="gv_feeCntCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="gv_f_origin" checked onchange="calcGift()"> 등기원인증서(증여계약서) 작성 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="gv_f_inspect" checked onchange="calcGift()"> 증여계약서 검인대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="gv_f_tax" checked onchange="calcGift()"> 취득세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
@@ -935,7 +935,7 @@
       <table class="t">
         <tr><td>기본보수 <span class="hint" id="ea_feeBaseNote"></span></td><td class="auto" id="ea_feeBaseCell">0 원</td></tr>
         <tr id="ea_feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="ea_feeForeignNote"></span></td><td class="auto" id="ea_feeForeignCell">0 원</td></tr>
-        <tr id="ea_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="ea_feeMultiNote"></span></td><td class="auto" id="ea_feeMultiCell">0 원</td></tr>
+        <tr id="ea_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="ea_feeMultiNote"></span></td><td class="auto" id="ea_feeMultiCell">0 원</td></tr><tr id="ea_feeCntRow" style="display:none;"><td>부동산 개수 가산 <span class="hint" id="ea_feeCntNote"></span><span class="law" title="법무사보수기준 §10① — 대상 부동산이 1개를 초과하는 경우 초과하는 1개마다 20,000원을 가산합니다. (환지등기는 종전 토지 10필지 초과분)">보수기준 §10①</span></td><td class="auto" id="ea_feeCntCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ea_f_origin" checked onchange="calcEtcAcq()"> 등기원인증서 작성 (50,000)</label></td><td class="auto" id="ea_originCell">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ea_f_tax" checked onchange="calcEtcAcq()"> 취득세 신고대행 (50,000)</label></td><td class="auto" id="ea_taxCell">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ea_f_bond" onchange="calcEtcAcq()"> 채권 매입대행 (40,000)</label></td><td class="auto" id="ea_bondCell">0 원</td></tr>
@@ -1043,7 +1043,7 @@
       <table class="t">
         <tr><td>기본보수 <span class="hint" id="pt_feeBaseNote"></span></td><td class="auto" id="pt_feeBaseCell">0 원</td></tr>
         <tr id="pt_feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="pt_feeForeignNote"></span></td><td class="auto" id="pt_feeForeignCell">0 원</td></tr>
-        <tr id="pt_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="pt_feeMultiNote"></span></td><td class="auto" id="pt_feeMultiCell">0 원</td></tr>
+        <tr id="pt_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="pt_feeMultiNote"></span></td><td class="auto" id="pt_feeMultiCell">0 원</td></tr><tr id="pt_feeCntRow" style="display:none;"><td>부동산 개수 가산 <span class="hint" id="pt_feeCntNote"></span><span class="law" title="법무사보수기준 §10① — 대상 부동산이 1개를 초과하는 경우 초과하는 1개마다 20,000원을 가산합니다. (환지등기는 종전 토지 10필지 초과분)">보수기준 §10①</span></td><td class="auto" id="pt_feeCntCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pt_f_origin" checked onchange="calcPartition()"> 등기원인증서(공유물분할계약서) 작성 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pt_f_inspect" onchange="calcPartition()"> 분할계약서 검인대행 (50,000)</label> <span class="hint">판결·조정조서는 불요</span></td><td class="auto" id="pt_inspectCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pt_f_tax" checked onchange="calcPartition()"> 취득세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
@@ -1152,7 +1152,7 @@
       <table class="t">
         <tr><td>기본보수 <span class="hint" id="dv_feeBaseNote"></span></td><td class="auto" id="dv_feeBaseCell">0 원</td></tr>
         <tr id="dv_feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="dv_feeForeignNote"></span></td><td class="auto" id="dv_feeForeignCell">0 원</td></tr>
-        <tr id="dv_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="dv_feeMultiNote"></span></td><td class="auto" id="dv_feeMultiCell">0 원</td></tr>
+        <tr id="dv_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="dv_feeMultiNote"></span></td><td class="auto" id="dv_feeMultiCell">0 원</td></tr><tr id="dv_feeCntRow" style="display:none;"><td>부동산 개수 가산 <span class="hint" id="dv_feeCntNote"></span><span class="law" title="법무사보수기준 §10① — 대상 부동산이 1개를 초과하는 경우 초과하는 1개마다 20,000원을 가산합니다. (환지등기는 종전 토지 10필지 초과분)">보수기준 §10①</span></td><td class="auto" id="dv_feeCntCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="dv_f_origin" checked onchange="calcDivision()"> 등기원인증서(재산분할협의서) 작성 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="dv_f_inspect" onchange="calcDivision()"> 협의서 검인대행 (50,000)</label> <span class="hint">판결·조정조서는 불요</span></td><td class="auto" id="dv_inspectCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="dv_f_tax" checked onchange="calcDivision()"> 취득세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
@@ -1246,7 +1246,7 @@
       <table class="t">
         <tr><td>기본보수 <span class="hint" id="bv_feeBaseNote"></span></td><td class="auto" id="bv_feeBaseCell">0 원</td></tr>
         <tr id="bv_feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="bv_feeForeignNote"></span></td><td class="auto" id="bv_feeForeignCell">0 원</td></tr>
-        <tr id="bv_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="bv_feeMultiNote"></span></td><td class="auto" id="bv_feeMultiCell">0 원</td></tr>
+        <tr id="bv_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="bv_feeMultiNote"></span></td><td class="auto" id="bv_feeMultiCell">0 원</td></tr><tr id="bv_feeCntRow" style="display:none;"><td>부동산 개수 가산 <span class="hint" id="bv_feeCntNote"></span><span class="law" title="법무사보수기준 §10① — 대상 부동산이 1개를 초과하는 경우 초과하는 1개마다 20,000원을 가산합니다. (환지등기는 종전 토지 10필지 초과분)">보수기준 §10①</span></td><td class="auto" id="bv_feeCntCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bv_f_origin" checked onchange="calcBurden()"> 등기원인증서(부담부증여계약서) 작성 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bv_f_inspect" checked onchange="calcBurden()"> 계약서 검인대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bv_f_tax" checked onchange="calcBurden()"> 취득세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
@@ -1339,7 +1339,7 @@
       <table class="t">
         <tr><td>기본보수 <span class="hint" id="mt_feeBaseNote"></span></td><td class="auto" id="mt_feeBaseCell">0 원</td></tr>
         <tr id="mt_feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="mt_feeForeignNote"></span></td><td class="auto" id="mt_feeForeignCell">0 원</td></tr>
-        <tr id="mt_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="mt_feeMultiNote"></span></td><td class="auto" id="mt_feeMultiCell">0 원</td></tr>
+        <tr id="mt_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="mt_feeMultiNote"></span></td><td class="auto" id="mt_feeMultiCell">0 원</td></tr><tr id="mt_feeCntRow" style="display:none;"><td>부동산 개수 가산 <span class="hint" id="mt_feeCntNote"></span><span class="law" title="법무사보수기준 §10① — 대상 부동산이 1개를 초과하는 경우 초과하는 1개마다 20,000원을 가산합니다. (환지등기는 종전 토지 10필지 초과분)">보수기준 §10①</span></td><td class="auto" id="mt_feeCntCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="mt_f_origin" checked onchange="calcMortgage()"> 등기원인증서(근저당권설정계약서) 작성 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="mt_f_tax" checked onchange="calcMortgage()"> 등록면허세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="mt_f_bond" checked onchange="calcMortgage()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
@@ -1405,7 +1405,7 @@
       <table class="t">
         <tr><td>기본보수 <span class="hint" id="ga_feeBaseNote"></span></td><td class="auto" id="ga_feeBaseCell">0 원</td></tr>
         <tr id="ga_feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="ga_feeForeignNote"></span></td><td class="auto" id="ga_feeForeignCell">0 원</td></tr>
-        <tr id="ga_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="ga_feeMultiNote"></span></td><td class="auto" id="ga_feeMultiCell">0 원</td></tr>
+        <tr id="ga_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="ga_feeMultiNote"></span></td><td class="auto" id="ga_feeMultiCell">0 원</td></tr><tr id="ga_feeCntRow" style="display:none;"><td>부동산 개수 가산 <span class="hint" id="ga_feeCntNote"></span><span class="law" title="법무사보수기준 §10① — 대상 부동산이 1개를 초과하는 경우 초과하는 1개마다 20,000원을 가산합니다. (환지등기는 종전 토지 10필지 초과분)">보수기준 §10①</span></td><td class="auto" id="ga_feeCntCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ga_f_origin" checked onchange="calcGadeungi()"> 등기원인증서(매매예약서 등) 작성 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ga_f_tax" checked onchange="calcGadeungi()"> 등록면허세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr id="ga_verifyRow" style="display:none;"><td>확인서면 가산(권리증 분실)</td><td class="auto" id="ga_verifyCell">0 원</td></tr>
@@ -1623,7 +1623,7 @@
       <table class="t">
         <tr><td>기본보수 <span class="hint" id="st_feeBaseNote"></span></td><td class="auto" id="st_feeBaseCell">0 원</td></tr>
         <tr id="st_feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="st_feeForeignNote"></span></td><td class="auto" id="st_feeForeignCell">0 원</td></tr>
-        <tr id="st_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="st_feeMultiNote"></span></td><td class="auto" id="st_feeMultiCell">0 원</td></tr>
+        <tr id="st_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="st_feeMultiNote"></span></td><td class="auto" id="st_feeMultiCell">0 원</td></tr><tr id="st_feeCntRow" style="display:none;"><td>부동산 개수 가산 <span class="hint" id="st_feeCntNote"></span><span class="law" title="법무사보수기준 §10① — 대상 부동산이 1개를 초과하는 경우 초과하는 1개마다 20,000원을 가산합니다. (환지등기는 종전 토지 10필지 초과분)">보수기준 §10①</span></td><td class="auto" id="st_feeCntCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="st_f_origin" checked onchange="calcSintak()"> 등기원인증서(신탁계약서) 작성 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="st_f_tax" checked onchange="calcSintak()"> 등록면허세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="st_f_trip" checked onchange="calcSintak()"> 교통비 및 일당</label></td><td><input class="cell" id="st_tripFee" type="number" value="160000" oninput="calcSintak(true)"></td></tr>
@@ -1721,7 +1721,7 @@
       <table class="t">
         <tr><td>기본보수 <span class="hint" id="ma_feeBaseNote"></span></td><td class="auto" id="ma_feeBaseCell">0 원</td></tr>
         <tr id="ma_feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="ma_feeForeignNote"></span></td><td class="auto" id="ma_feeForeignCell">0 원</td></tr>
-        <tr id="ma_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="ma_feeMultiNote"></span></td><td class="auto" id="ma_feeMultiCell">0 원</td></tr>
+        <tr id="ma_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="ma_feeMultiNote"></span></td><td class="auto" id="ma_feeMultiCell">0 원</td></tr><tr id="ma_feeCntRow" style="display:none;"><td>부동산 개수 가산 <span class="hint" id="ma_feeCntNote"></span><span class="law" title="법무사보수기준 §10① — 대상 부동산이 1개를 초과하는 경우 초과하는 1개마다 20,000원을 가산합니다. (환지등기는 종전 토지 10필지 초과분)">보수기준 §10①</span></td><td class="auto" id="ma_feeCntCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ma_f_origin" checked onchange="calcMortgageAdd()"> 등기원인증서(근저당권 추가설정계약서) 작성 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ma_f_tax" checked onchange="calcMortgageAdd()"> 등록면허세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ma_f_bond" checked onchange="calcMortgageAdd()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
@@ -1813,6 +1813,11 @@
       <div class="note">소유권보존은 신축 등 <b>원시취득</b>으로 취득세 <b>2.8%</b>(매매·증여와 다름)·교육세 0.16%·농특세(85㎡↑) 0.2%입니다.</div>
       <div class="line"><span class="lbl">과세표준(원)</span><input type="number" class="amt" id="pr_price" placeholder="0" oninput="calcPreserve()"><span class="hint">시가표준액(신축가액)</span></div>
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('pr_cntEstate',-1,calcPreserve)">−</button><input type="number" id="pr_cntEstate" value="1" min="1" oninput="calcPreserve()"><button onclick="step('pr_cntEstate',1,calcPreserve)">+</button></div></div>
+      <div class="line"><span class="lbl">보존 유형</span><div class="radios">
+        <label><input type="radio" name="pr_bldgType" value="normal" checked onchange="calcPreserve()"> 일반 부동산</label>
+        <label><input type="radio" name="pr_bldgType" value="apt" onchange="calcPreserve()"> 구분건물(집합건물)</label>
+      </div><span class="hint">여러 개 보존 시 가산 방식이 다릅니다</span></div>
+      <div class="line" id="pr_landRow" style="display:none;"><label class="checks"><input type="checkbox" id="pr_hasLand" onchange="calcPreserve()"> 대지권 있음</label><span class="hint">대지권 있는 구분건물 보존은 건당 40,000원 가산(§10②)</span></div>
       <div class="line"><span class="lbl">등기권리자(소유자)</span><div class="stepper"><button onclick="step('pr_cntOwner',-1,calcPreserve)">−</button><input type="number" id="pr_cntOwner" value="1" min="1" oninput="calcPreserve()"><button onclick="step('pr_cntOwner',1,calcPreserve)">+</button></div></div>
       <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcPreserve()">
         <label><input type="radio" name="pr_ptype" value="house" checked> 주택</label>
@@ -1857,7 +1862,7 @@
       <table class="t">
         <tr><td>기본보수 <span class="hint" id="pr_feeBaseNote"></span></td><td class="auto" id="pr_feeBaseCell">0 원</td></tr>
         <tr id="pr_feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="pr_feeForeignNote"></span></td><td class="auto" id="pr_feeForeignCell">0 원</td></tr>
-        <tr id="pr_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="pr_feeMultiNote"></span></td><td class="auto" id="pr_feeMultiCell">0 원</td></tr>
+        <tr id="pr_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="pr_feeMultiNote"></span></td><td class="auto" id="pr_feeMultiCell">0 원</td></tr><tr id="pr_feeCntRow" style="display:none;"><td>부동산 개수 가산 <span class="hint" id="pr_feeCntNote"></span><span class="law" title="법무사보수기준 §10①(일반 부동산 초과 1개마다 20,000원) 및 §10②(대지권 있는 구분건물 보존은 건당 40,000원). 보존등기는 두 규정이 나뉘어 적용됩니다.">보수기준 §10①·②</span></td><td class="auto" id="pr_feeCntCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pr_f_tax" checked onchange="calcPreserve()"> 취득세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pr_f_bond" checked onchange="calcPreserve()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pr_f_same" onchange="calcPreserve()"> 동일인 보증서 (200,000+)</label> <span class="hint">대상</span> <input type="number" id="pr_sameN" value="1" min="1" style="width:54px;" oninput="calcPreserve()"></td><td class="auto" id="pr_sameCell">0 원</td></tr>
@@ -1924,7 +1929,7 @@
       <table class="t">
         <tr><td>기본보수 <span class="hint" id="rt_feeBaseNote"></span></td><td class="auto" id="rt_feeBaseCell">0 원</td></tr>
         <tr id="rt_feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="rt_feeForeignNote"></span></td><td class="auto" id="rt_feeForeignCell">0 원</td></tr>
-        <tr id="rt_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="rt_feeMultiNote"></span></td><td class="auto" id="rt_feeMultiCell">0 원</td></tr>
+        <tr id="rt_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="rt_feeMultiNote"></span></td><td class="auto" id="rt_feeMultiCell">0 원</td></tr><tr id="rt_feeCntRow" style="display:none;"><td>부동산 개수 가산 <span class="hint" id="rt_feeCntNote"></span><span class="law" title="법무사보수기준 §10① — 대상 부동산이 1개를 초과하는 경우 초과하는 1개마다 20,000원을 가산합니다. (환지등기는 종전 토지 10필지 초과분)">보수기준 §10①</span></td><td class="auto" id="rt_feeCntCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="rt_f_origin" checked onchange="calcRight()"> 등기원인증서(설정계약서) 작성 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="rt_f_tax" checked onchange="calcRight()"> 등록면허세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr id="rt_sameRow" style="display:none;"><td>동일인 보증서 (200,000)</td><td class="auto" id="rt_sameCell">0 원</td></tr>
@@ -3175,6 +3180,10 @@ function calcSale(fromEdit){
   const _moR=document.getElementById('feeMultiRow');
   if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('feeMultiCell').textContent=won(feeMulti);document.getElementById('feeMultiNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+Math.round(_mo*100)+'% · §10④)';}
   let fee=feeBase+feeForeign+feeMulti;
+  /* §10① 부동산 개수 가산 — 초과 1개마다 20,000원 */
+  const _cntE=Math.max(1,val('cntEstate')), feeCnt=(_cntE-1)*20000;
+  {const _cR=document.getElementById('feeCntRow');if(_cR){_cR.style.display=feeCnt>0?'table-row':'none';document.getElementById('feeCntCell').textContent=won(feeCnt);document.getElementById('feeCntNote').textContent=feeCnt>0?'('+_cntE+'개 · 초과 '+(_cntE-1)+'개×20,000)':'';}}
+  fee+=feeCnt;
   if(chk('f_origin'))fee+=50000;if(chk('f_tax'))fee+=50000;if(chk('f_bond'))fee+=40000;if(chk('f_trip'))fee+=val('tripFee');
   if(chk('f_same')){const n=Math.max(1,val('sameN')),e=Math.max(1,val('cntEstate'));const v=200000+((n-1)+(e-1))*30000;document.getElementById('sameCell').textContent=won(v);fee+=v;}else document.getElementById('sameCell').textContent='0 원';
   const vRow=document.getElementById('verifyRow');
@@ -3338,6 +3347,10 @@ function calcInherit(fromEdit){
   const _moR=document.getElementById('s_feeMultiRow');
   if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('s_feeMultiCell').textContent=won(feeMulti);document.getElementById('s_feeMultiNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+Math.round(_mo*100)+'% · §10④)';}
   let fee=feeBase+feeForeign+feeMulti;
+  /* §10① 부동산 개수 가산 — 초과 1개마다 20,000원 */
+  const _cntE=Math.max(1,val('s_cntEstate')), feeCnt=(_cntE-1)*20000;
+  {const _cR=document.getElementById('s_feeCntRow');if(_cR){_cR.style.display=feeCnt>0?'table-row':'none';document.getElementById('s_feeCntCell').textContent=won(feeCnt);document.getElementById('s_feeCntNote').textContent=feeCnt>0?'('+_cntE+'개 · 초과 '+(_cntE-1)+'개×20,000)':'';}}
+  fee+=feeCnt;
   if(chk('s_f_origin'))fee+=50000;if(chk('s_f_tax'))fee+=50000;if(chk('s_f_bond'))fee+=40000;if(chk('s_f_trip'))fee+=val('s_tripFee');
   if(chk('s_f_same')){const n=Math.max(1,val('s_sameN')),e=Math.max(1,val('s_cntEstate'));const v=200000+((n-1)+(e-1))*30000;document.getElementById('s_sameCell').textContent=won(v);fee+=v;}else document.getElementById('s_sameCell').textContent='0 원';
   const vRow=document.getElementById('s_verifyRow');
@@ -3545,6 +3558,10 @@ function calcGift(fromEdit){
   const _moR=document.getElementById('gv_feeMultiRow');
   if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('gv_feeMultiCell').textContent=won(feeMulti);document.getElementById('gv_feeMultiNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+Math.round(_mo*100)+'% · §10④)';}
   let fee=feeBase+feeForeign+feeMulti;
+  /* §10① 부동산 개수 가산 — 초과 1개마다 20,000원 */
+  const _cntE=Math.max(1,val('gv_cntEstate')), feeCnt=(_cntE-1)*20000;
+  {const _cR=document.getElementById('gv_feeCntRow');if(_cR){_cR.style.display=feeCnt>0?'table-row':'none';document.getElementById('gv_feeCntCell').textContent=won(feeCnt);document.getElementById('gv_feeCntNote').textContent=feeCnt>0?'('+_cntE+'개 · 초과 '+(_cntE-1)+'개×20,000)':'';}}
+  fee+=feeCnt;
   if(chk('gv_f_origin'))fee+=50000;if(chk('gv_f_inspect'))fee+=50000;if(chk('gv_f_tax'))fee+=50000;if(chk('gv_f_bond'))fee+=40000;if(chk('gv_f_trip'))fee+=val('gv_tripFee');
   if(chk('gv_f_same')){const n=Math.max(1,val('gv_sameN')),e=Math.max(1,val('gv_cntEstate'));const v=200000+((n-1)+(e-1))*30000;document.getElementById('gv_sameCell').textContent=won(v);fee+=v;}else document.getElementById('gv_sameCell').textContent='0 원';
   const vRow=document.getElementById('gv_verifyRow');
@@ -3667,6 +3684,10 @@ function calcDivision(fromEdit){
   const _moR=document.getElementById('dv_feeMultiRow');
   if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('dv_feeMultiCell').textContent=won(feeMulti);document.getElementById('dv_feeMultiNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+Math.round(_mo*100)+'% · §10④)';}
   let fee=feeBase+feeForeign+feeMulti;
+  /* §10① 부동산 개수 가산 — 초과 1개마다 20,000원 */
+  const _cntE=Math.max(1,val('dv_cntEstate')), feeCnt=(_cntE-1)*20000;
+  {const _cR=document.getElementById('dv_feeCntRow');if(_cR){_cR.style.display=feeCnt>0?'table-row':'none';document.getElementById('dv_feeCntCell').textContent=won(feeCnt);document.getElementById('dv_feeCntNote').textContent=feeCnt>0?'('+_cntE+'개 · 초과 '+(_cntE-1)+'개×20,000)':'';}}
+  fee+=feeCnt;
   if(chk('dv_f_origin'))fee+=50000;
   if(chk('dv_f_inspect')){fee+=50000;document.getElementById('dv_inspectCell').textContent='50,000 원';}else document.getElementById('dv_inspectCell').textContent='0 원';
   if(chk('dv_f_tax'))fee+=50000;if(chk('dv_f_bond'))fee+=40000;if(chk('dv_f_trip'))fee+=val('dv_tripFee');
@@ -4024,6 +4045,10 @@ function calcEtcAcqTail(){
   const _moR=document.getElementById('ea_feeMultiRow');
   if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('ea_feeMultiCell').textContent=won(feeMulti);document.getElementById('ea_feeMultiNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+Math.round(_mo*100)+'% · §10④)';}
   let fee=feeBase+feeForeign+feeMulti;
+  /* §10① 부동산 개수 가산 — 초과 1개마다 20,000원 */
+  const _cntE=Math.max(1,val('ea_cntEstate')), feeCnt=(_cntE-1)*20000;
+  {const _cR=document.getElementById('ea_feeCntRow');if(_cR){_cR.style.display=feeCnt>0?'table-row':'none';document.getElementById('ea_feeCntCell').textContent=won(feeCnt);document.getElementById('ea_feeCntNote').textContent=feeCnt>0?'('+_cntE+'개 · 초과 '+(_cntE-1)+'개×20,000)':'';}}
+  fee+=feeCnt;
   if(chk('ea_f_origin')){fee+=50000;document.getElementById('ea_originCell').textContent='50,000 원';}else document.getElementById('ea_originCell').textContent='0 원';
   if(chk('ea_f_tax')){fee+=50000;document.getElementById('ea_taxCell').textContent='50,000 원';}else document.getElementById('ea_taxCell').textContent='0 원';
   if(chk('ea_f_bond')){fee+=40000;document.getElementById('ea_bondCell').textContent='40,000 원';}else document.getElementById('ea_bondCell').textContent='0 원';
@@ -4129,6 +4154,10 @@ function calcPartition(fromEdit){
   const _moR=document.getElementById('pt_feeMultiRow');
   if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('pt_feeMultiCell').textContent=won(feeMulti);document.getElementById('pt_feeMultiNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+Math.round(_mo*100)+'% · §10④)';}
   let fee=feeBase+feeForeign+feeMulti;
+  /* §10① 부동산 개수 가산 — 초과 1개마다 20,000원 */
+  const _cntE=Math.max(1,val('pt_cntEstate')), feeCnt=(_cntE-1)*20000;
+  {const _cR=document.getElementById('pt_feeCntRow');if(_cR){_cR.style.display=feeCnt>0?'table-row':'none';document.getElementById('pt_feeCntCell').textContent=won(feeCnt);document.getElementById('pt_feeCntNote').textContent=feeCnt>0?'('+_cntE+'개 · 초과 '+(_cntE-1)+'개×20,000)':'';}}
+  fee+=feeCnt;
   if(chk('pt_f_origin'))fee+=50000;
   if(chk('pt_f_inspect')){fee+=50000;document.getElementById('pt_inspectCell').textContent='50,000 원';}else document.getElementById('pt_inspectCell').textContent='0 원';
   if(chk('pt_f_tax'))fee+=50000;if(chk('pt_f_bond'))fee+=40000;if(chk('pt_f_trip'))fee+=val('pt_tripFee');
@@ -4291,6 +4320,10 @@ function calcBurden(fromEdit){
   const _moR=document.getElementById('bv_feeMultiRow');
   if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('bv_feeMultiCell').textContent=won(feeMulti);document.getElementById('bv_feeMultiNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+Math.round(_mo*100)+'% · §10④)';}
   let fee=feeBase+feeForeign+feeMulti;
+  /* §10① 부동산 개수 가산 — 초과 1개마다 20,000원 */
+  const _cntE=Math.max(1,val('bv_cntEstate')), feeCnt=(_cntE-1)*20000;
+  {const _cR=document.getElementById('bv_feeCntRow');if(_cR){_cR.style.display=feeCnt>0?'table-row':'none';document.getElementById('bv_feeCntCell').textContent=won(feeCnt);document.getElementById('bv_feeCntNote').textContent=feeCnt>0?'('+_cntE+'개 · 초과 '+(_cntE-1)+'개×20,000)':'';}}
+  fee+=feeCnt;
   if(chk('bv_f_origin'))fee+=50000;if(chk('bv_f_inspect'))fee+=50000;if(chk('bv_f_tax'))fee+=50000;if(chk('bv_f_bond'))fee+=40000;if(chk('bv_f_trip'))fee+=val('bv_tripFee');
   if(chk('bv_f_same')){const n=Math.max(1,val('bv_sameN')),e=Math.max(1,val('bv_cntEstate'));const v=200000+((n-1)+(e-1))*30000;document.getElementById('bv_sameCell').textContent=won(v);fee+=v;}else document.getElementById('bv_sameCell').textContent='0 원';
   const vRow=document.getElementById('bv_verifyRow');
@@ -4359,6 +4392,10 @@ function calcMortgage(mode){
   const _moR=document.getElementById('mt_feeMultiRow');
   if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('mt_feeMultiCell').textContent=won(feeMulti);document.getElementById('mt_feeMultiNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+Math.round(_mo*100)+'% · §10④)';}
   let fee=feeBase+feeForeign+feeMulti;
+  /* §10① 부동산 개수 가산 — 초과 1개마다 20,000원 */
+  const _cntE=Math.max(1,val('mt_cntEstate')), feeCnt=(_cntE-1)*20000;
+  {const _cR=document.getElementById('mt_feeCntRow');if(_cR){_cR.style.display=feeCnt>0?'table-row':'none';document.getElementById('mt_feeCntCell').textContent=won(feeCnt);document.getElementById('mt_feeCntNote').textContent=feeCnt>0?'('+_cntE+'개 · 초과 '+(_cntE-1)+'개×20,000)':'';}}
+  fee+=feeCnt;
   if(chk('mt_f_origin'))fee+=50000;if(chk('mt_f_tax'))fee+=50000;if(chk('mt_f_bond'))fee+=40000;if(chk('mt_f_trip'))fee+=val('mt_tripFee');
   const sameRow=document.getElementById('mt_sameRow');
   if(chk('mt_same')){sameRow.style.display='table-row';document.getElementById('mt_sameCell').textContent=won(200000);fee+=200000;}else sameRow.style.display='none';
@@ -4414,6 +4451,10 @@ function calcGadeungi(fromEdit){
   const _moR=document.getElementById('ga_feeMultiRow');
   if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('ga_feeMultiCell').textContent=won(feeMulti);document.getElementById('ga_feeMultiNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+Math.round(_mo*100)+'% · §10④)';}
   let fee=feeBase+feeForeign+feeMulti;
+  /* §10① 부동산 개수 가산 — 초과 1개마다 20,000원 */
+  const _cntE=Math.max(1,val('ga_cntEstate')), feeCnt=(_cntE-1)*20000;
+  {const _cR=document.getElementById('ga_feeCntRow');if(_cR){_cR.style.display=feeCnt>0?'table-row':'none';document.getElementById('ga_feeCntCell').textContent=won(feeCnt);document.getElementById('ga_feeCntNote').textContent=feeCnt>0?'('+_cntE+'개 · 초과 '+(_cntE-1)+'개×20,000)':'';}}
+  fee+=feeCnt;
   if(chk('ga_f_origin'))fee+=50000;if(chk('ga_f_tax'))fee+=50000;if(chk('ga_f_trip'))fee+=val('ga_tripFee');
   const vRow=document.getElementById('ga_verifyRow');
   if(chk('ga_verify')){const v=120000+(cntE-1)*30000;vRow.style.display='table-row';document.getElementById('ga_verifyCell').textContent=won(v);fee+=v;}else vRow.style.display='none';
@@ -4498,6 +4539,10 @@ function calcSintak(fromEdit){
   const _moR=document.getElementById('st_feeMultiRow');
   if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('st_feeMultiCell').textContent=won(feeMulti);document.getElementById('st_feeMultiNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+Math.round(_mo*100)+'% · §10④)';}
   let fee=feeBase+feeForeign+feeMulti;
+  /* §10① 부동산 개수 가산 — 초과 1개마다 20,000원 */
+  const _cntE=Math.max(1,val('st_cntEstate')), feeCnt=(_cntE-1)*20000;
+  {const _cR=document.getElementById('st_feeCntRow');if(_cR){_cR.style.display=feeCnt>0?'table-row':'none';document.getElementById('st_feeCntCell').textContent=won(feeCnt);document.getElementById('st_feeCntNote').textContent=feeCnt>0?'('+_cntE+'개 · 초과 '+(_cntE-1)+'개×20,000)':'';}}
+  fee+=feeCnt;
   if(chk('st_f_origin'))fee+=50000;if(chk('st_f_tax'))fee+=50000;if(chk('st_f_trip'))fee+=val('st_tripFee');
   EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const c=document.getElementById('sta_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('staq_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('st_extraAgent');
@@ -4552,6 +4597,10 @@ function calcMortgageAdd(fromEdit){
   const _moR=document.getElementById('ma_feeMultiRow');
   if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('ma_feeMultiCell').textContent=won(feeMulti);document.getElementById('ma_feeMultiNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+Math.round(_mo*100)+'% · §10④)';}
   let fee=feeBase+feeForeign+feeMulti;
+  /* §10① 부동산 개수 가산 — 초과 1개마다 20,000원 */
+  const _cntE=Math.max(1,val('ma_cntEstate')), feeCnt=(_cntE-1)*20000;
+  {const _cR=document.getElementById('ma_feeCntRow');if(_cR){_cR.style.display=feeCnt>0?'table-row':'none';document.getElementById('ma_feeCntCell').textContent=won(feeCnt);document.getElementById('ma_feeCntNote').textContent=feeCnt>0?'('+_cntE+'개 · 초과 '+(_cntE-1)+'개×20,000)':'';}}
+  fee+=feeCnt;
   if(chk('ma_f_origin'))fee+=50000;if(chk('ma_f_tax'))fee+=50000;if(chk('ma_f_bond'))fee+=40000;if(chk('ma_f_trip'))fee+=val('ma_tripFee');
   const sameRow=document.getElementById('ma_sameRow');
   if(chk('ma_same')){sameRow.style.display='table-row';document.getElementById('ma_sameCell').textContent=won(200000);fee+=200000;}else sameRow.style.display='none';
@@ -4687,6 +4736,21 @@ function calcPreserve(fromEdit){
   const _moR=document.getElementById('pr_feeMultiRow');
   if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('pr_feeMultiCell').textContent=won(feeMulti);document.getElementById('pr_feeMultiNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+Math.round(_mo*100)+'% · §10④)';}
   let fee=feeBase+feeForeign+feeMulti;
+  /* §10①/§10② 부동산 개수 가산 — 보존 전용 분기
+     · 일반 부동산: §10① 초과 1개마다 20,000원
+     · 구분건물(집합건물): §10② 각 구분건물 별건, 대지권 있으면 건당 40,000원 가산 */
+  const _bt=radio('pr_bldgType'), _cntE=Math.max(1,val('pr_cntEstate'));
+  {const _lr=document.getElementById('pr_landRow'); if(_lr)_lr.style.display=(_bt==='apt')?'flex':'none';}
+  let feeCnt=0, feeCntNote='';
+  if(_bt==='apt'){
+    /* §10② — 대지권 있는 구분건물은 각 건 40,000원, 없으면 별건이나 추가 정액가산 없음(각자 기본보수). */
+    if(chk('pr_hasLand')){feeCnt=_cntE*40000; feeCntNote='(구분건물 '+_cntE+'건 × 40,000 · 대지권 §10②)';}
+    else{feeCnt=0; feeCntNote=(_cntE>1?'(구분건물 '+_cntE+'건 · 각 별건, 대지권 없어 정액가산 없음)':'');}
+  }else{
+    feeCnt=(_cntE-1)*20000; feeCntNote=(feeCnt>0?'('+_cntE+'개 · 초과 '+(_cntE-1)+'개×20,000 · §10①)':'');
+  }
+  {const _cR=document.getElementById('pr_feeCntRow'); if(_cR){_cR.style.display=feeCnt>0?'table-row':'none'; document.getElementById('pr_feeCntCell').textContent=won(feeCnt); document.getElementById('pr_feeCntNote').textContent=feeCntNote;}}
+  fee+=feeCnt;
   if(chk('pr_f_tax'))fee+=50000;if(chk('pr_f_bond'))fee+=40000;if(chk('pr_f_trip'))fee+=val('pr_tripFee');
   if(chk('pr_f_same')){const n=Math.max(1,val('pr_sameN')),e=Math.max(1,val('pr_cntEstate'));const v=200000+((n-1)+(e-1))*30000;document.getElementById('pr_sameCell').textContent=won(v);fee+=v;}else document.getElementById('pr_sameCell').textContent='0 원';
   const vRow=document.getElementById('pr_verifyRow');
@@ -4756,6 +4820,10 @@ function calcRight(fromEdit){
   const _moR=document.getElementById('rt_feeMultiRow');
   if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('rt_feeMultiCell').textContent=won(feeMulti);document.getElementById('rt_feeMultiNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+Math.round(_mo*100)+'% · §10④)';}
   let fee=feeBase+feeForeign+feeMulti;
+  /* §10① 부동산 개수 가산 — 초과 1개마다 20,000원 */
+  const _cntE=Math.max(1,val('rt_cntEstate')), feeCnt=(_cntE-1)*20000;
+  {const _cR=document.getElementById('rt_feeCntRow');if(_cR){_cR.style.display=feeCnt>0?'table-row':'none';document.getElementById('rt_feeCntCell').textContent=won(feeCnt);document.getElementById('rt_feeCntNote').textContent=feeCnt>0?'('+_cntE+'개 · 초과 '+(_cntE-1)+'개×20,000)':'';}}
+  fee+=feeCnt;
   if(chk('rt_f_origin'))fee+=50000;if(chk('rt_f_tax'))fee+=50000;if(chk('rt_f_trip'))fee+=val('rt_tripFee');
   const sameRow=document.getElementById('rt_sameRow');
   if(chk('rt_same')){sameRow.style.display='table-row';document.getElementById('rt_sameCell').textContent=won(200000);fee+=200000;}else sameRow.style.display='none';
