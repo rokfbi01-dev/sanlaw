@@ -91,6 +91,9 @@
   .radios input,.checks input{accent-color:var(--seal);width:15px;height:15px;}
   .hint{font-size:11.5px;color:#8a8270;}
   .tag{display:inline-block;font-size:10px;font-weight:700;padding:1px 5px;border-radius:4px;margin-left:4px;}
+.law{display:inline-block;font-size:10px;font-weight:600;padding:1px 5px;margin-left:5px;border-radius:3px;background:#f4eede;color:#7a6743;border:1px solid #e0d3b6;vertical-align:middle;white-space:nowrap;cursor:help;}
+.law:hover{background:#efe4c9;}
+@media(max-width:520px){.law{font-size:9px;padding:0 4px;margin-left:3px;}}
   .tag.A{background:#e7efe6;color:var(--ok);}
   .tag.chk{background:#f5ecd6;color:var(--warn);}
   .tag.B{background:#e3eaf5;color:#3a5a8c;}
@@ -399,7 +402,7 @@
       </div></details>
     </div></div>
 
-    <div class="card blue"><h2>③ 공과금 (VAT 비과세) <span class="tag chk">확인필요</span></h2><div class="body">
+    <div class="card blue"><h2>③ 공과금 (VAT 비과세) <span class="tag chk">확인필요</span><span class="law" title="취득세 세율 자체는 지방세법 §11①에 확정되어 있습니다. 다만 주택 유상거래(§11①8호)의 세율 구간을 판정하는 기준(주택 수 산정 등)이 사안별로 달라 그 부분만 확인이 필요합니다.">사유: 주택 세율구간 판정</span></h2><div class="body">
       <div class="note">취득세·교육세·농특세 표준세율 자동(수정 가능). 등기신청수수료 법원행정처 공식표(2025.8.1).</div>
       <details class="ref" style="margin-bottom:12px;"><summary>취득세 세율표 (적용 기준) <span class="reftag">확인필요</span></summary><div class="refbody">
         <table class="ref"><tr><th>구분</th><th class="r">취득세</th><th class="r">교육세</th><th class="r">농특세</th></tr>
@@ -415,11 +418,11 @@
       </div></details>
       <div class="note" id="fhWarn" style="display:none;border-left:3px solid var(--seal);">▸ <b>생애최초 감면</b> — <b>취득세만 자동 감면</b>했습니다. <b>지방교육세·농어촌특별세는 자동 조정하지 않았습니다.</b><br>· 실무에서는 「200만원 한도 = 지방교육세 포함 <b>220만원</b>」으로 안내되나, 지방세법 §151①1호 <b>다목1)</b>은 「감면<b>율</b>을 정하는 경우」를 전제하는 반면 지특법 §36의3은 <b>한도액 공제</b> 방식이어서 그대로 적용되는지 <b>[확인필요]</b>입니다.<br>· 85㎡ 초과 주택은 <b>감면분 농특세</b>(감면세액×20% · 농특세법 §5①1호) 발생 여부를 확인하십시오. 85㎡ 이하는 비과세(§4 11호).<br>· 관할 시·군·구 확인 후 <b>아래 칸에 직접 입력</b>하십시오. <span class="tag chk">확인필요</span></div>
       <table class="t">
-        <tr><td>취득세 <span id="acqRate" class="hint"></span></td><td><input class="cell" id="acqTax" type="number" oninput="calcSale(true)"></td></tr>
-        <tr><td>지방교육세</td><td><input class="cell" id="eduTax" type="number" oninput="calcSale(true)"></td></tr>
-        <tr><td>농어촌특별세</td><td><input class="cell" id="ruralTax" type="number" oninput="calcSale(true)"></td></tr>
-        <tr><td>채권 할인손실</td><td class="auto" id="bondLossCell">0 원</td></tr>
-        <tr><td>등기신청수수료 <select id="regMethod" class="mini" onchange="calcSale()"><option value="e" selected>e-Form 15,000</option><option value="p">수기 18,000</option><option value="o">전자 10,000</option></select> <span class="hint" id="regNote"></span></td><td class="auto" id="regFeeCell">0 원</td></tr>
+        <tr><td>취득세 <span id="acqRate" class="hint"></span><span class="law" title="매매처럼 돈을 주고 사는 「유상취득」의 취득세율을 정한 조항입니다. 주택은 8호, 주택이 아닌 건물·토지는 7호나목, 농지는 7호가목이 적용됩니다.">지방세법 §11①7호·8호</span></td><td><input class="cell" id="acqTax" type="number" oninput="calcSale(true)"></td></tr>
+        <tr><td>지방교육세<span class="law" title="지방교육세를 정한 조항입니다. 1호는 취득세율에서 1천분의 20(2%)을 뺀 세율로 계산한 금액의 100분의 20(20%)을 세액으로 합니다. 취득세와 함께 신고·납부합니다(§152①).">지방세법 §151①1호</span></td><td><input class="cell" id="eduTax" type="number" oninput="calcSale(true)"></td></tr>
+        <tr><td>농어촌특별세<span class="law" title="농어촌특별세 조항입니다. 취득세 표준세율을 2%로 적용해 산출한 금액의 100분의 10(10%)이 본세입니다(§5①6호). 전용면적 85㎡ 이하 주택은 비과세입니다(§4 11호).">농어촌특별세법 §5①6호·§4 11호</span></td><td><input class="cell" id="ruralTax" type="number" oninput="calcSale(true)"></td></tr>
+        <tr><td>채권 할인손실<span class="law" title="등기할 때 의무적으로 사야 하는 국민주택채권의 매입률표입니다. 대부분 곧바로 되팔기 때문에 실제 부담은 「사고 팔 때 생기는 차액(할인손실)」뿐입니다.">주택도시기금법 시행령 [별표]</span></td><td class="auto" id="bondLossCell">0 원</td></tr>
+        <tr><td>등기신청수수료 <select id="regMethod" class="mini" onchange="calcSale()"><option value="e" selected>e-Form 15,000</option><option value="p">수기 18,000</option><option value="o">전자 10,000</option></select> <span class="hint" id="regNote"></span><span class="law" title="「등기사항증명서 등 수수료규칙」 §5의2 — 부동산 등기신청수수료. 2025.8.1. 시행(대법원규칙 제3222호)으로 방문서면·e-Form이 인상되었고 전자신청은 동결되었습니다.">수수료규칙 §5의2</span></td><td class="auto" id="regFeeCell">0 원</td></tr>
         <tr><td>수입인지 <button class="btn ghost" style="padding:2px 8px;font-size:11px;" onclick="autoDutySale()">자동</button></td><td><input class="cell" id="stampDuty" type="number" value="0" oninput="calcSale(true)"></td></tr>
         <tr><td>대장·등본 우편 등 <span class="hint">(개수 곱)</span></td><td><input class="cell" id="postFee" type="number" value="6000" oninput="calcSale(true)"></td></tr>
         <tr class="subtot"><td>공과금계</td><td id="publicSum">0 원</td></tr>
@@ -514,11 +517,11 @@
     <div class="card blue"><h2>③ 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
       <div class="note" id="s_taxNote">상속 취득세 자동(농지외 <b>2.8%</b> / 농지 <b>2.3%</b> / 1가구1주택 특례 <b>0.8%</b> / 자경농민 농지 특례 <b>0.3%</b>). 특례 적용 시 <b>농특세는 면적 무관 0</b>(§15①2호 → 농특세법 §4 8호·시행령 §4④). 등기수수료 상속 <b>매 부동산 20,000(수기)·17,000(e-Form)·전자불가</b>.</div>
       <table class="t">
-        <tr><td><span id="s_taxLabel">취득세</span> <span id="s_acqRate" class="hint"></span></td><td><input class="cell" id="s_acqTax" type="number" oninput="calcInherit(true)"></td></tr>
-        <tr><td>지방교육세</td><td><input class="cell" id="s_eduTax" type="number" oninput="calcInherit(true)"></td></tr>
-        <tr><td>농어촌특별세</td><td><input class="cell" id="s_ruralTax" type="number" oninput="calcInherit(true)"></td></tr>
-        <tr><td>채권 할인손실</td><td class="auto" id="s_bondLossCell">0 원</td></tr>
-        <tr><td>등기신청수수료 <select id="s_regMethod" class="mini" onchange="calcInherit()"><option value="e" selected>e-Form 17,000</option><option value="p">수기 20,000</option><option value="o" disabled>전자(불가)</option></select> <span class="hint" id="s_regNote"></span></td><td class="auto" id="s_regFeeCell">0 원</td></tr>
+        <tr><td><span id="s_taxLabel">취득세</span> <span id="s_acqRate" class="hint"></span><span class="law" title="상속으로 받은 부동산의 취득세율 조항입니다. 농지와 농지 외를 나누어 정하고 있습니다.">지방세법 §11①1호</span></td><td><input class="cell" id="s_acqTax" type="number" oninput="calcInherit(true)"></td></tr>
+        <tr><td>지방교육세<span class="law" title="지방교육세를 정한 조항입니다. 1호는 취득세율에서 1천분의 20(2%)을 뺀 세율로 계산한 금액의 100분의 20(20%)을 세액으로 합니다. 취득세와 함께 신고·납부합니다(§152①).">지방세법 §151①1호</span></td><td><input class="cell" id="s_eduTax" type="number" oninput="calcInherit(true)"></td></tr>
+        <tr><td>농어촌특별세<span class="law" title="농어촌특별세 조항입니다. 취득세 표준세율을 2%로 적용해 산출한 금액의 100분의 10(10%)이 본세입니다(§5①6호). 전용면적 85㎡ 이하 주택은 비과세입니다(§4 11호).">농어촌특별세법 §5①6호·§4 11호</span></td><td><input class="cell" id="s_ruralTax" type="number" oninput="calcInherit(true)"></td></tr>
+        <tr><td>채권 할인손실<span class="law" title="등기할 때 의무적으로 사야 하는 국민주택채권의 매입률표입니다. 대부분 곧바로 되팔기 때문에 실제 부담은 「사고 팔 때 생기는 차액(할인손실)」뿐입니다.">주택도시기금법 시행령 [별표]</span></td><td class="auto" id="s_bondLossCell">0 원</td></tr>
+        <tr><td>등기신청수수료 <select id="s_regMethod" class="mini" onchange="calcInherit()"><option value="e" selected>e-Form 17,000</option><option value="p">수기 20,000</option><option value="o" disabled>전자(불가)</option></select> <span class="hint" id="s_regNote"></span><span class="law" title="「등기사항증명서 등 수수료규칙」 §5의2 — 부동산 등기신청수수료. 2025.8.1. 시행(대법원규칙 제3222호)으로 방문서면·e-Form이 인상되었고 전자신청은 동결되었습니다.">수수료규칙 §5의2</span></td><td class="auto" id="s_regFeeCell">0 원</td></tr>
         <tr><td>대장·등본 우편 등 <span class="hint">(개수 곱)</span></td><td><input class="cell" id="s_postFee" type="number" value="6000" oninput="calcInherit(true)"></td></tr>
         <tr class="subtot"><td>공과금계</td><td id="s_publicSum">0 원</td></tr>
       </table>
@@ -608,12 +611,12 @@
       </table>
     </div></div>
 
-    <div class="card blue"><h2>③ 공과금·실비 <span class="tag chk">확인필요</span></h2><div class="body">
+    <div class="card blue"><h2>③ 공과금·실비 <span class="tag chk">확인필요</span><span class="law" title="가사 인지·송달료는 사건 종류(성년·한정·특정후견 개시, 후견인 변경 등)에 따라 달라 확정 근거를 확보하지 못했습니다. 그래서 자동계산을 하지 않고 직접입력으로 두었습니다.">사유: 인지·송달 근거 미확보</span></h2><div class="body">
       <div class="note" style="border-left:3px solid var(--seal);">▸ <b>인지·송달료는 「가사소송 및 비송사건과 가사조정의 신청에 붙일 인지액에 관한 규칙」</b>에 따르며, 사건 종류(성년후견·한정후견·특정후견 개시, 후견인 변경·사임허가, 대리권 범위 결정 등)에 따라 다릅니다. <b>확인한 근거가 없어 자동계산하지 않습니다 — 접수 법원·전자소송 안내로 확인한 금액을 직접 입력</b>하십시오. <span class="tag chk">확인필요</span><br>· 송달료는 당사자 수·회차를 입력하면 1회 단가(<b id="gd_unitNote"></b>)로 자동 산출됩니다. 회차는 접수 법원 기준으로 조정하십시오.</div>
       <div class="note">후견등기는 등록면허세·증지가 소액입니다. <b>정신감정</b>은 ① <b>진료기록 감정</b>(법원에 진료기록 송부, 비용·신속성 유리 — 실무 선호) ② <b>신체감정</b>(외래·입원·출장)이 있으며, 법원이 정하는 실비입니다(진단서로 명확하면 감정 생략 가능). 직접 입력하세요.</div>
       <table class="t">
         <tr><td>심판청구 인지 <span class="hint" id="gd_injiNote">[확인필요] 직접입력</span></td><td><input class="cell" id="gd_inji" type="number" value="0" oninput="calcGuardian()"></td></tr>
-        <tr><td>송달료 <span class="hint">당사자 <input type="number" id="gd_party" value="2" min="1" style="width:48px;" oninput="calcGuardian()"> × <input type="number" id="gd_songCnt" value="8" min="1" style="width:44px;" oninput="calcGuardian()">회 <span id="gd_songNote"></span></span></td><td><input class="cell" id="gd_song" type="number" value="0" oninput="calcGuardian(true)"></td></tr>
+        <tr><td>송달료 <span class="hint">당사자 <input type="number" id="gd_party" value="2" min="1" style="width:48px;" oninput="calcGuardian()"> × <input type="number" id="gd_songCnt" value="8" min="1" style="width:44px;" oninput="calcGuardian()">회 <span id="gd_songNote"></span></span><span class="law" title="「송달료규칙의 시행에 따른 업무처리요령」(재일 87-4) 별표1이 사건 종류별 예납 회차를 정합니다. 1회 단가는 우편요금에 연동되며 화면 상단에서 바꿀 수 있습니다.">재일 87-4 별표1</span></td><td><input class="cell" id="gd_song" type="number" value="0" oninput="calcGuardian(true)"></td></tr>
         <tr><td>후견등기 등록면허세·증지 <span class="hint">(등기 신청 시)</span></td><td><input class="cell" id="gd_regTax" type="number" value="0" oninput="calcGuardian()"></td></tr>
         <tr><td>정신감정비(법원) <span class="hint">실비·사안별</span></td><td><input class="cell" id="gd_eval" type="number" value="0" oninput="calcGuardian()"></td></tr>
         <tr><td>후견등기사항(부존재)증명서·제증명 <span class="hint">실비</span></td><td><input class="cell" id="gd_cert" type="number" value="0" oninput="calcGuardian()"></td></tr>
@@ -678,14 +681,14 @@
       <div class="line"><span class="lbl">채권 매입금(원)</span><input type="number" class="amt" id="gv_bondBuy" placeholder="0" oninput="calcGift()"><span class="hint">자동 합산(직접 수정 가능)</span></div>
     </div></div>
 
-    <div class="card blue"><h2>③ 공과금 (VAT 비과세) <span class="tag chk">확인필요</span></h2><div class="body">
+    <div class="card blue"><h2>③ 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
       <div class="note">증여 취득세 <b>3.5%</b>(조정대상 3억↑ 주택은 <b>12% 중과</b>) 자동. 교육세 0.3%(중과 0.4%)·농특세 85㎡↑ 0.2%. 등기수수료 일반(매 부동산).</div>
       <table class="t">
-        <tr><td>취득세 <span id="gv_acqRate" class="hint"></span></td><td><input class="cell" id="gv_acqTax" type="number" oninput="calcGift(true)"></td></tr>
-        <tr><td>지방교육세</td><td><input class="cell" id="gv_eduTax" type="number" oninput="calcGift(true)"></td></tr>
-        <tr><td>농어촌특별세</td><td><input class="cell" id="gv_ruralTax" type="number" oninput="calcGift(true)"></td></tr>
-        <tr><td>채권 할인손실</td><td class="auto" id="gv_bondLossCell">0 원</td></tr>
-        <tr><td>등기신청수수료 <select id="gv_regMethod" class="mini" onchange="calcGift()"><option value="e" selected>e-Form 15,000</option><option value="p">수기 18,000</option><option value="o">전자 10,000</option></select> <span class="hint" id="gv_regNote"></span></td><td class="auto" id="gv_regFeeCell">0 원</td></tr>
+        <tr><td>취득세 <span id="gv_acqRate" class="hint"></span><span class="law" title="상속이 아닌 무상취득(증여)의 취득세율 조항입니다. 본문은 1천분의 35(3.5%), 단서는 대통령령이 정하는 비영리사업자에게 1천분의 28(2.8%)을 적용합니다.">지방세법 §11①2호</span></td><td><input class="cell" id="gv_acqTax" type="number" oninput="calcGift(true)"></td></tr>
+        <tr><td>지방교육세<span class="law" title="지방교육세를 정한 조항입니다. 1호는 취득세율에서 1천분의 20(2%)을 뺀 세율로 계산한 금액의 100분의 20(20%)을 세액으로 합니다. 취득세와 함께 신고·납부합니다(§152①).">지방세법 §151①1호</span></td><td><input class="cell" id="gv_eduTax" type="number" oninput="calcGift(true)"></td></tr>
+        <tr><td>농어촌특별세<span class="law" title="농어촌특별세 조항입니다. 취득세 표준세율을 2%로 적용해 산출한 금액의 100분의 10(10%)이 본세입니다(§5①6호). 전용면적 85㎡ 이하 주택은 비과세입니다(§4 11호).">농어촌특별세법 §5①6호·§4 11호</span></td><td><input class="cell" id="gv_ruralTax" type="number" oninput="calcGift(true)"></td></tr>
+        <tr><td>채권 할인손실<span class="law" title="등기할 때 의무적으로 사야 하는 국민주택채권의 매입률표입니다. 대부분 곧바로 되팔기 때문에 실제 부담은 「사고 팔 때 생기는 차액(할인손실)」뿐입니다.">주택도시기금법 시행령 [별표]</span></td><td class="auto" id="gv_bondLossCell">0 원</td></tr>
+        <tr><td>등기신청수수료 <select id="gv_regMethod" class="mini" onchange="calcGift()"><option value="e" selected>e-Form 15,000</option><option value="p">수기 18,000</option><option value="o">전자 10,000</option></select> <span class="hint" id="gv_regNote"></span><span class="law" title="「등기사항증명서 등 수수료규칙」 §5의2 — 부동산 등기신청수수료. 2025.8.1. 시행(대법원규칙 제3222호)으로 방문서면·e-Form이 인상되었고 전자신청은 동결되었습니다.">수수료규칙 §5의2</span></td><td class="auto" id="gv_regFeeCell">0 원</td></tr>
         <tr><td>대장·등본 우편 등 <span class="hint">(개수 곱)</span></td><td><input class="cell" id="gv_postFee" type="number" value="6000" oninput="calcGift(true)"></td></tr>
         <tr class="subtot"><td>공과금계</td><td id="gv_publicSum">0 원</td></tr>
       </table>
@@ -845,7 +848,7 @@
       <div class="note" style="border-left:3px solid var(--gold);">▸ <b>보수기준 §9⑥</b> <span class="tag A">A</span> — ① <b>1건의 신청서로 수개의 부동산</b>에 관한 소유권 보존·이전 등기를 하는 경우 <b>각 부동산의 과세표준액을 합산</b>하여 기본보수를 산정합니다(위 과세표준란에 <b>합산액</b>을 입력하십시오). ② <b>쌍방대리</b>(등기의무자·등기권리자 양쪽을 함께 대리)의 경우에도 <b>1건으로 보아</b> 기본보수를 산정합니다 — <b>매도인·매수인에게 각각 기본보수를 청구할 수 없습니다.</b></div>
     </div></div>
 
-    <div class="card blue"><h2>② 공과금 (VAT 비과세)</h2><div class="body">
+    <div class="card blue"><h2>② 공과금 (VAT 비과세)<span class="tag A">A</span></h2><div class="body">
       <details class="ref" style="margin-bottom:12px;"><summary>§15 세율특례 근거 <span class="reftag">A</span></summary><div class="refbody">
         <table class="ref"><tr><th>원인</th><th class="r">취득세</th><th class="r">교육세</th><th class="r">농특세</th></tr>
         <tr><td>환매 §15①1호 — 주택</td><td class="r">1~3% <b>×50%</b></td><td class="r">취득세×20%</td><td class="r">0</td></tr>
@@ -870,12 +873,12 @@
         · <b>과세분 농특세</b>(§5①6호) — §15① 적용 시 표준세율 2% 의제 → 2%−2% = 0.</p>
       </div></details>
       <table class="t">
-        <tr><td>취득세 <span id="ea_acqRate" class="hint"></span></td><td><input class="cell" id="ea_acqTax" type="number" oninput="calcEtcAcq(true)"></td></tr>
+        <tr><td>취득세 <span id="ea_acqRate" class="hint"></span><span class="law" title="환매·건축물 이전 등 「형식만 취득인 경우」의 세율 특례 조항입니다. 원인별 세율은 바로 위 표에서 확인하십시오.">지방세법 §15①·②·§11⑤</span></td><td><input class="cell" id="ea_acqTax" type="number" oninput="calcEtcAcq(true)"></td></tr>
         <tr><td>지방교육세 <span id="ea_eduNote" class="hint"></span></td><td><input class="cell" id="ea_eduTax" type="number" oninput="calcEtcAcq(true)"></td></tr>
-        <tr><td>농어촌특별세 <span id="ea_ruralNote" class="hint"></span></td><td><input class="cell" id="ea_ruralTax" type="number" oninput="calcEtcAcq(true)"></td></tr>
+        <tr><td>농어촌특별세 <span id="ea_ruralNote" class="hint"></span><span class="law" title="농어촌특별세 조항입니다. 취득세 표준세율을 2%로 적용해 산출한 금액의 100분의 10(10%)이 본세입니다(§5①6호). 전용면적 85㎡ 이하 주택은 비과세입니다(§4 11호).">농어촌특별세법 §5①6호·§4 11호</span></td><td><input class="cell" id="ea_ruralTax" type="number" oninput="calcEtcAcq(true)"></td></tr>
         <tr><td>국민주택채권 매입금 <span class="hint">[확인필요] 직접입력</span></td><td><input class="cell" id="ea_bondBuy" type="number" value="0" oninput="calcEtcAcq(true)"></td></tr>
-        <tr><td>채권 할인손실</td><td class="auto" id="ea_bondLossCell">0 원</td></tr>
-        <tr id="ea_regRow"><td>등기신청수수료 <select id="ea_regMethod" class="mini" onchange="calcEtcAcq()"><option value="e" selected>e-Form 15,000</option><option value="p">수기 18,000</option><option value="o">전자 10,000</option></select> <span class="hint" id="ea_regNote"></span></td><td class="auto" id="ea_regFeeCell">0 원</td></tr>
+        <tr><td>채권 할인손실<span class="law" title="등기할 때 의무적으로 사야 하는 국민주택채권의 매입률표입니다. 대부분 곧바로 되팔기 때문에 실제 부담은 「사고 팔 때 생기는 차액(할인손실)」뿐입니다.">주택도시기금법 시행령 [별표]</span></td><td class="auto" id="ea_bondLossCell">0 원</td></tr>
+        <tr id="ea_regRow"><td>등기신청수수료 <select id="ea_regMethod" class="mini" onchange="calcEtcAcq()"><option value="e" selected>e-Form 15,000</option><option value="p">수기 18,000</option><option value="o">전자 10,000</option></select> <span class="hint" id="ea_regNote"></span><span class="law" title="「등기사항증명서 등 수수료규칙」 §5의2 — 부동산 등기신청수수료. 2025.8.1. 시행(대법원규칙 제3222호)으로 방문서면·e-Form이 인상되었고 전자신청은 동결되었습니다.">수수료규칙 §5의2</span></td><td class="auto" id="ea_regFeeCell">0 원</td></tr>
         <tr><td>대장·등본 우편 등 <span class="hint">(개수 곱)</span></td><td><input class="cell" id="ea_postFee" type="number" value="6000" oninput="calcEtcAcq(true)"></td></tr>
         <tr class="subtot"><td>공과금계</td><td id="ea_publicSum">0 원</td></tr>
       </table>
@@ -977,11 +980,11 @@
         · <b>공유물분할의 성격</b> — 대법원 2002두6422: 공유물 분할은 유상양도에 해당하지 아니함.</p>
       </div></details>
       <table class="t">
-        <tr><td>취득세 <span id="pt_acqRate" class="hint"></span></td><td><input class="cell" id="pt_acqTax" type="number" oninput="calcPartition(true)"></td></tr>
-        <tr><td>지방교육세</td><td><input class="cell" id="pt_eduTax" type="number" oninput="calcPartition(true)"></td></tr>
-        <tr><td>농어촌특별세 <span id="pt_ruralNote" class="hint"></span></td><td><input class="cell" id="pt_ruralTax" type="number" oninput="calcPartition(true)"></td></tr>
-        <tr><td>채권 할인손실</td><td class="auto" id="pt_bondLossCell">0 원</td></tr>
-        <tr><td>등기신청수수료 <select id="pt_regMethod" class="mini" onchange="calcPartition()"><option value="e" selected>e-Form 15,000</option><option value="p">수기 18,000</option><option value="o">전자 10,000</option></select> <span class="hint" id="pt_regNote"></span></td><td class="auto" id="pt_regFeeCell">0 원</td></tr>
+        <tr><td>취득세 <span id="pt_acqRate" class="hint"></span><span class="law" title="공유물 분할의 취득세율 조항입니다. §11①5호 괄호는 「등기부등본상 본인 지분을 초과하는 부분」을 제외하고 있어, 초과분은 일반 유상취득으로 과세됩니다.">지방세법 §11①5호·§15①4호</span></td><td><input class="cell" id="pt_acqTax" type="number" oninput="calcPartition(true)"></td></tr>
+        <tr><td>지방교육세<span class="law" title="지방교육세를 정한 조항입니다. 1호는 취득세율에서 1천분의 20(2%)을 뺀 세율로 계산한 금액의 100분의 20(20%)을 세액으로 합니다. 취득세와 함께 신고·납부합니다(§152①).">지방세법 §151①1호</span></td><td><input class="cell" id="pt_eduTax" type="number" oninput="calcPartition(true)"></td></tr>
+        <tr><td>농어촌특별세 <span id="pt_ruralNote" class="hint"></span><span class="law" title="농어촌특별세 조항입니다. 취득세 표준세율을 2%로 적용해 산출한 금액의 100분의 10(10%)이 본세입니다(§5①6호). 전용면적 85㎡ 이하 주택은 비과세입니다(§4 11호).">농어촌특별세법 §5①6호·§4 11호</span></td><td><input class="cell" id="pt_ruralTax" type="number" oninput="calcPartition(true)"></td></tr>
+        <tr><td>채권 할인손실<span class="law" title="등기할 때 의무적으로 사야 하는 국민주택채권의 매입률표입니다. 대부분 곧바로 되팔기 때문에 실제 부담은 「사고 팔 때 생기는 차액(할인손실)」뿐입니다.">주택도시기금법 시행령 [별표]</span></td><td class="auto" id="pt_bondLossCell">0 원</td></tr>
+        <tr><td>등기신청수수료 <select id="pt_regMethod" class="mini" onchange="calcPartition()"><option value="e" selected>e-Form 15,000</option><option value="p">수기 18,000</option><option value="o">전자 10,000</option></select> <span class="hint" id="pt_regNote"></span><span class="law" title="「등기사항증명서 등 수수료규칙」 §5의2 — 부동산 등기신청수수료. 2025.8.1. 시행(대법원규칙 제3222호)으로 방문서면·e-Form이 인상되었고 전자신청은 동결되었습니다.">수수료규칙 §5의2</span></td><td class="auto" id="pt_regFeeCell">0 원</td></tr>
         <tr><td>대장·등본 우편 등 <span class="hint">(개수 곱)</span></td><td><input class="cell" id="pt_postFee" type="number" value="6000" oninput="calcPartition(true)"></td></tr>
         <tr class="subtot"><td>공과금계</td><td id="pt_publicSum">0 원</td></tr>
       </table>
@@ -1084,11 +1087,11 @@
         · <b>사실혼</b> — 대법원 2016.8.30. 2016두36864.</p>
       </div></details>
       <table class="t">
-        <tr><td>취득세 <span id="dv_acqRate" class="hint"></span></td><td><input class="cell" id="dv_acqTax" type="number" oninput="calcDivision(true)"></td></tr>
-        <tr><td>지방교육세</td><td><input class="cell" id="dv_eduTax" type="number" oninput="calcDivision(true)"></td></tr>
-        <tr><td>농어촌특별세 <span id="dv_ruralNote" class="hint"></span></td><td><input class="cell" id="dv_ruralTax" type="number" oninput="calcDivision(true)"></td></tr>
-        <tr><td>채권 할인손실</td><td class="auto" id="dv_bondLossCell">0 원</td></tr>
-        <tr><td>등기신청수수료 <select id="dv_regMethod" class="mini" onchange="calcDivision()"><option value="e" selected>e-Form 15,000</option><option value="p">수기 18,000</option><option value="o">전자 10,000</option></select> <span class="hint" id="dv_regNote"></span></td><td class="auto" id="dv_regFeeCell">0 원</td></tr>
+        <tr><td>취득세 <span id="dv_acqRate" class="hint"></span><span class="law" title="이혼에 따른 재산분할(민법 §834·§839의2·§840)의 세율 특례 조항입니다. 위자료는 대물변제여서 이 특례 대상이 아닙니다.">지방세법 §15①6호</span></td><td><input class="cell" id="dv_acqTax" type="number" oninput="calcDivision(true)"></td></tr>
+        <tr><td>지방교육세<span class="law" title="지방교육세를 정한 조항입니다. 1호는 취득세율에서 1천분의 20(2%)을 뺀 세율로 계산한 금액의 100분의 20(20%)을 세액으로 합니다. 취득세와 함께 신고·납부합니다(§152①).">지방세법 §151①1호</span></td><td><input class="cell" id="dv_eduTax" type="number" oninput="calcDivision(true)"></td></tr>
+        <tr><td>농어촌특별세 <span id="dv_ruralNote" class="hint"></span><span class="law" title="농어촌특별세 조항입니다. 취득세 표준세율을 2%로 적용해 산출한 금액의 100분의 10(10%)이 본세입니다(§5①6호). 전용면적 85㎡ 이하 주택은 비과세입니다(§4 11호).">농어촌특별세법 §5①6호·§4 11호</span></td><td><input class="cell" id="dv_ruralTax" type="number" oninput="calcDivision(true)"></td></tr>
+        <tr><td>채권 할인손실<span class="law" title="등기할 때 의무적으로 사야 하는 국민주택채권의 매입률표입니다. 대부분 곧바로 되팔기 때문에 실제 부담은 「사고 팔 때 생기는 차액(할인손실)」뿐입니다.">주택도시기금법 시행령 [별표]</span></td><td class="auto" id="dv_bondLossCell">0 원</td></tr>
+        <tr><td>등기신청수수료 <select id="dv_regMethod" class="mini" onchange="calcDivision()"><option value="e" selected>e-Form 15,000</option><option value="p">수기 18,000</option><option value="o">전자 10,000</option></select> <span class="hint" id="dv_regNote"></span><span class="law" title="「등기사항증명서 등 수수료규칙」 §5의2 — 부동산 등기신청수수료. 2025.8.1. 시행(대법원규칙 제3222호)으로 방문서면·e-Form이 인상되었고 전자신청은 동결되었습니다.">수수료규칙 §5의2</span></td><td class="auto" id="dv_regFeeCell">0 원</td></tr>
         <tr><td>대장·등본 우편 등 <span class="hint">(개수 곱)</span></td><td><input class="cell" id="dv_postFee" type="number" value="6000" oninput="calcDivision(true)"></td></tr>
         <tr class="subtot"><td>공과금계</td><td id="dv_publicSum">0 원</td></tr>
       </table>
@@ -1170,17 +1173,17 @@
       <div class="line"><span class="lbl">채권 매입금(원)</span><input type="number" class="amt" id="bv_bondBuy" placeholder="0" oninput="calcBurden()"><span class="hint" id="bv_bondNote">자동 합산</span></div>
     </div></div>
 
-    <div class="card blue"><h2>③ 공과금 (VAT 비과세) <span class="tag chk">확인필요</span></h2><div class="body">
+    <div class="card blue"><h2>③ 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
       <div class="note"><b>유상분</b>(채무부담액): 취득세 = 채무부담액 × <b>전체가액 기준 주택 유상세율</b>. <b>무상분</b>(증여분): 취득세 3.5%(중과 12%). 두 세목이 분리 표기됩니다.</div>
       <table class="t">
-        <tr><td>취득세 (유상) <span id="bv_acqRateY" class="hint"></span></td><td><input class="cell" id="bv_acqY" type="number" oninput="calcBurden(true)"></td></tr>
-        <tr><td>지방교육세 (유상)</td><td><input class="cell" id="bv_eduY" type="number" oninput="calcBurden(true)"></td></tr>
-        <tr><td>농어촌특별세 (유상)</td><td><input class="cell" id="bv_ruralY" type="number" oninput="calcBurden(true)"></td></tr>
-        <tr><td>취득세 (무상) <span id="bv_acqRateN" class="hint"></span></td><td><input class="cell" id="bv_acqN" type="number" oninput="calcBurden(true)"></td></tr>
-        <tr><td>지방교육세 (무상)</td><td><input class="cell" id="bv_eduN" type="number" oninput="calcBurden(true)"></td></tr>
-        <tr><td>농어촌특별세 (무상)</td><td><input class="cell" id="bv_ruralN" type="number" oninput="calcBurden(true)"></td></tr>
-        <tr><td>채권 할인손실</td><td class="auto" id="bv_bondLossCell">0 원</td></tr>
-        <tr><td>등기신청수수료 <select id="bv_regMethod" class="mini" onchange="calcBurden()"><option value="e" selected>e-Form 15,000</option><option value="p">수기 18,000</option><option value="o">전자 10,000</option></select> <span class="hint" id="bv_regNote"></span></td><td class="auto" id="bv_regFeeCell">0 원</td></tr>
+        <tr><td>취득세 (유상) <span id="bv_acqRateY" class="hint"></span><span class="law" title="부담부증여에서 「빚을 떠안은 부분」은 돈을 주고 산 것으로 보아(§7⑫) 유상취득 세율을 적용합니다.">지방세법 §7⑫·§11①7호·8호</span></td><td><input class="cell" id="bv_acqY" type="number" oninput="calcBurden(true)"></td></tr>
+        <tr><td>지방교육세 (유상)<span class="law" title="지방교육세를 정한 조항입니다. 1호는 취득세율에서 1천분의 20(2%)을 뺀 세율로 계산한 금액의 100분의 20(20%)을 세액으로 합니다. 취득세와 함께 신고·납부합니다(§152①).">지방세법 §151①1호</span></td><td><input class="cell" id="bv_eduY" type="number" oninput="calcBurden(true)"></td></tr>
+        <tr><td>농어촌특별세 (유상)<span class="law" title="농어촌특별세 조항입니다. 취득세 표준세율을 2%로 적용해 산출한 금액의 100분의 10(10%)이 본세입니다(§5①6호). 전용면적 85㎡ 이하 주택은 비과세입니다(§4 11호).">농어촌특별세법 §5①6호·§4 11호</span></td><td><input class="cell" id="bv_ruralY" type="number" oninput="calcBurden(true)"></td></tr>
+        <tr><td>취득세 (무상) <span id="bv_acqRateN" class="hint"></span><span class="law" title="부담부증여에서 「빚을 뺀 나머지」는 증여로 보아 무상취득 세율을 적용합니다.">지방세법 §11①2호</span></td><td><input class="cell" id="bv_acqN" type="number" oninput="calcBurden(true)"></td></tr>
+        <tr><td>지방교육세 (무상)<span class="law" title="지방교육세를 정한 조항입니다. 1호는 취득세율에서 1천분의 20(2%)을 뺀 세율로 계산한 금액의 100분의 20(20%)을 세액으로 합니다. 취득세와 함께 신고·납부합니다(§152①).">지방세법 §151①1호</span></td><td><input class="cell" id="bv_eduN" type="number" oninput="calcBurden(true)"></td></tr>
+        <tr><td>농어촌특별세 (무상)<span class="law" title="농어촌특별세 조항입니다. 취득세 표준세율을 2%로 적용해 산출한 금액의 100분의 10(10%)이 본세입니다(§5①6호). 전용면적 85㎡ 이하 주택은 비과세입니다(§4 11호).">농어촌특별세법 §5①6호·§4 11호</span></td><td><input class="cell" id="bv_ruralN" type="number" oninput="calcBurden(true)"></td></tr>
+        <tr><td>채권 할인손실<span class="law" title="등기할 때 의무적으로 사야 하는 국민주택채권의 매입률표입니다. 대부분 곧바로 되팔기 때문에 실제 부담은 「사고 팔 때 생기는 차액(할인손실)」뿐입니다.">주택도시기금법 시행령 [별표]</span></td><td class="auto" id="bv_bondLossCell">0 원</td></tr>
+        <tr><td>등기신청수수료 <select id="bv_regMethod" class="mini" onchange="calcBurden()"><option value="e" selected>e-Form 15,000</option><option value="p">수기 18,000</option><option value="o">전자 10,000</option></select> <span class="hint" id="bv_regNote"></span><span class="law" title="「등기사항증명서 등 수수료규칙」 §5의2 — 부동산 등기신청수수료. 2025.8.1. 시행(대법원규칙 제3222호)으로 방문서면·e-Form이 인상되었고 전자신청은 동결되었습니다.">수수료규칙 §5의2</span></td><td class="auto" id="bv_regFeeCell">0 원</td></tr>
         <tr><td>대장·등본 우편 등 <span class="hint">(개수 곱)</span></td><td><input class="cell" id="bv_postFee" type="number" value="6000" oninput="calcBurden(true)"></td></tr>
         <tr class="subtot"><td>공과금계</td><td id="bv_publicSum">0 원</td></tr>
       </table>
@@ -1267,13 +1270,13 @@
       <div class="line"><span class="lbl">채권 매입금(원)</span><input type="number" class="amt" id="mt_bondBuy" placeholder="0" oninput="calcMortgage(true)"><span class="hint" id="mt_bondNote">채권최고액 × 매입률 자동</span></div>
     </div></div>
 
-    <div class="card blue"><h2>③ 공과금 (VAT 비과세) <span class="tag chk">확인필요</span></h2><div class="body">
+    <div class="card blue"><h2>③ 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
       <div class="note">근저당권설정은 취득세가 아니라 <b>등록면허세 0.2%</b>(채권최고액)·지방교육세 0.04%(등록면허세의 20%)입니다. 등기수수료 일반(매 부동산).</div>
       <table class="t">
-        <tr><td>등록면허세 (0.2%) <span id="mt_regRate" class="hint"></span></td><td><input class="cell" id="mt_regTax" type="number" oninput="calcMortgage(true)"></td></tr>
-        <tr><td>지방교육세 (0.04%)</td><td><input class="cell" id="mt_eduTax" type="number" oninput="calcMortgage(true)"></td></tr>
-        <tr><td>채권 할인손실</td><td class="auto" id="mt_bondLossCell">0 원</td></tr>
-        <tr><td>등기신청수수료 <select id="mt_regMethod" class="mini" onchange="calcMortgage()"><option value="e" selected>e-Form 15,000</option><option value="p">수기 18,000</option><option value="o">전자 10,000</option></select> <span class="hint" id="mt_regNote"></span></td><td class="auto" id="mt_regFeeCell">0 원</td></tr>
+        <tr><td>등록면허세 (0.2%) <span id="mt_regRate" class="hint"></span><span class="law" title="저당권·지상권·전세권·임차권 등 「소유권 외의 권리」 설정·이전 등기의 등록면허세율 조항입니다. 저당권은 채권금액의 1천분의 2(0.2%)입니다. §28① 본문 단서에 따라 산출세액이 「그 밖의 등기」 세율(6,000원)보다 적으면 6,000원을 적용합니다.">지방세법 §28①1호다목</span></td><td><input class="cell" id="mt_regTax" type="number" oninput="calcMortgage(true)"></td></tr>
+        <tr><td>지방교육세 (0.04%)<span class="law" title="지방교육세를 정한 조항입니다. 2호는 납부해야 할 「등록면허세액의 100분의 20(20%)」을 세액으로 합니다.">지방세법 §151①2호</span></td><td><input class="cell" id="mt_eduTax" type="number" oninput="calcMortgage(true)"></td></tr>
+        <tr><td>채권 할인손실<span class="law" title="등기할 때 의무적으로 사야 하는 국민주택채권의 매입률표입니다. 대부분 곧바로 되팔기 때문에 실제 부담은 「사고 팔 때 생기는 차액(할인손실)」뿐입니다.">주택도시기금법 시행령 [별표]</span></td><td class="auto" id="mt_bondLossCell">0 원</td></tr>
+        <tr><td>등기신청수수료 <select id="mt_regMethod" class="mini" onchange="calcMortgage()"><option value="e" selected>e-Form 15,000</option><option value="p">수기 18,000</option><option value="o">전자 10,000</option></select> <span class="hint" id="mt_regNote"></span><span class="law" title="「등기사항증명서 등 수수료규칙」 §5의2 — 부동산 등기신청수수료. 2025.8.1. 시행(대법원규칙 제3222호)으로 방문서면·e-Form이 인상되었고 전자신청은 동결되었습니다.">수수료규칙 §5의2</span></td><td class="auto" id="mt_regFeeCell">0 원</td></tr>
         <tr><td>대장·등본 우편 등 <span class="hint">(개수 곱)</span></td><td><input class="cell" id="mt_postFee" type="number" value="6000" oninput="calcMortgage(true)"></td></tr>
         <tr class="subtot"><td>공과금계</td><td id="mt_publicSum">0 원</td></tr>
       </table>
@@ -1337,9 +1340,9 @@
     <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
       <div class="note">가등기는 <b>등록면허세 0.2%</b>(부동산가액 또는 채권액)·지방교육세 0.04%입니다. 소유권이전이 아니므로 <b>국민주택채권 매입은 없습니다</b>. 산출세액 6,000원 미만 시 6,000원. <span class="hint">[A] 지방세법 §28①1라목</span></div>
       <table class="t">
-        <tr><td>등록면허세 (0.2%) <span id="ga_regRate" class="hint"></span></td><td><input class="cell" id="ga_regTax" type="number" oninput="calcGadeungi(true)"></td></tr>
-        <tr><td>지방교육세 (0.04%)</td><td><input class="cell" id="ga_eduTax" type="number" oninput="calcGadeungi(true)"></td></tr>
-        <tr><td>등기신청수수료 <select id="ga_regMethod" class="mini" onchange="calcGadeungi()"><option value="e" selected>e-Form 15,000</option><option value="p">수기 18,000</option><option value="o">전자 10,000</option></select> <span class="hint" id="ga_regNote"></span></td><td class="auto" id="ga_regFeeCell">0 원</td></tr>
+        <tr><td>등록면허세 (0.2%) <span id="ga_regRate" class="hint"></span><span class="law" title="가등기의 등록면허세율 조항입니다. 산출세액이 6,000원보다 적으면 6,000원을 적용합니다(§28① 본문 단서).">지방세법 §28①1호</span></td><td><input class="cell" id="ga_regTax" type="number" oninput="calcGadeungi(true)"></td></tr>
+        <tr><td>지방교육세 (0.04%)<span class="law" title="지방교육세를 정한 조항입니다. 2호는 납부해야 할 「등록면허세액의 100분의 20(20%)」을 세액으로 합니다.">지방세법 §151①2호</span></td><td><input class="cell" id="ga_eduTax" type="number" oninput="calcGadeungi(true)"></td></tr>
+        <tr><td>등기신청수수료 <select id="ga_regMethod" class="mini" onchange="calcGadeungi()"><option value="e" selected>e-Form 15,000</option><option value="p">수기 18,000</option><option value="o">전자 10,000</option></select> <span class="hint" id="ga_regNote"></span><span class="law" title="「등기사항증명서 등 수수료규칙」 §5의2 — 부동산 등기신청수수료. 2025.8.1. 시행(대법원규칙 제3222호)으로 방문서면·e-Form이 인상되었고 전자신청은 동결되었습니다.">수수료규칙 §5의2</span></td><td class="auto" id="ga_regFeeCell">0 원</td></tr>
         <tr><td>대장·등본 우편 등 <span class="hint">(개수 곱)</span></td><td><input class="cell" id="ga_postFee" type="number" value="6000" oninput="calcGadeungi(true)"></td></tr>
         <tr class="subtot"><td>공과금계</td><td id="ga_publicSum">0 원</td></tr>
       </table>
@@ -1394,9 +1397,9 @@
     <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
       <div class="note">부부재산약정등기는 부동산등기가 아니므로 <b>등록면허세는 건당 12,000원 정액</b>입니다(그 밖의 등기). 지방교육세는 그 20%(2,400원). 등기신청수수료는 <b>매 건 2,000원</b>입니다. 소유권이전이 아니므로 국민주택채권 매입·농특세는 없습니다. <span class="hint">[A] 지방세법 §28①14호·§151①2호 / 등기사항증명서 등 수수료규칙 §5의4③</span></div>
       <table class="t">
-        <tr><td>등록면허세 (정액) <span class="hint">건당 12,000</span></td><td><input class="cell" id="mr_regTax" type="number" oninput="calcMarital(true)"></td></tr>
-        <tr><td>지방교육세 (20%)</td><td><input class="cell" id="mr_eduTax" type="number" oninput="calcMarital(true)"></td></tr>
-        <tr><td>등기신청수수료 <span class="hint">건당 2,000</span></td><td><input class="cell" id="mr_regFee" type="number" oninput="calcMarital(true)"></td></tr>
+        <tr><td>등록면허세 (정액) <span class="hint">건당 12,000</span><span class="law" title="부동산등기가 아닌 「그 밖의 등기·등록」의 등록면허세로, 건당 12,000원입니다. 부동산등기의 6,000원(1호 마목)과 다르니 주의하십시오.">지방세법 §28①14호</span></td><td><input class="cell" id="mr_regTax" type="number" oninput="calcMarital(true)"></td></tr>
+        <tr><td>지방교육세 (20%)<span class="law" title="지방교육세를 정한 조항입니다. 2호는 납부해야 할 「등록면허세액의 100분의 20(20%)」을 세액으로 합니다.">지방세법 §151①2호</span></td><td><input class="cell" id="mr_eduTax" type="number" oninput="calcMarital(true)"></td></tr>
+        <tr><td>등기신청수수료 <span class="hint">건당 2,000</span><span class="law" title="「등기사항증명서 등 수수료규칙」 §5의4③ — 부부재산약정등기의 신청수수료는 매 건 2,000원입니다.">수수료규칙 §5의4③</span></td><td><input class="cell" id="mr_regFee" type="number" oninput="calcMarital(true)"></td></tr>
         <tr><td>대장·등본 우편 등</td><td><input class="cell" id="mr_postFee" type="number" value="6000" oninput="calcMarital(true)"></td></tr>
         <tr class="subtot"><td>공과금계</td><td id="mr_publicSum">0 원</td></tr>
       </table>
@@ -1429,6 +1432,111 @@
     </div></div>
   </div>
 
+  <!-- ===== 재건축·재개발등기 (이전고시) 보수기준 §12 — 보수 산정 전용 화면 ===== -->
+  <div class="scene" id="scene-재건축재개발">
+    <button class="back" onclick="goMenu()">‹ 메인메뉴</button>
+    <h2 class="stitle">재건축·재개발등기 (이전고시) <small>법무사보수기준 §12 · 도시정비법 §86① 이전고시 · 동일 신청서 일괄신청</small></h2>
+
+    <div class="card blue"><h2>① 적용 요건 <span class="tag A">A</span></h2><div class="body">
+      <div class="note"><b>보수기준 §12</b> — 「도시 및 주거환경정비법」 <b>§86①의 이전고시</b>에 따른 재건축·재개발등기를 <b>동일한 신청서로 일괄 신청</b>하는 경우에만 이 화면의 산정방식을 씁니다. 일괄신청이 아니면 매매·보존 등 <b>개별 화면</b>을 쓰십시오.<br>▸ §12의 핵심은 <b>「무엇을 1건으로 보느냐」</b>입니다. 아래 ②~⑥은 각 호가 정한 <b>별건 산정 단위</b> 그대로입니다.</div>
+      <div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="rd_adjust" onchange="calcRedev()">
+        <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
+        <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
+        <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
+        <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
+        <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select><span class="hint">§10③ 난이도 — 아래 ②~⑥ <b>보수 전부</b>에 적용됩니다</span></div>
+    </div></div>
+
+    <div class="card pink"><h2>② §12 1호 — 종전 건물·토지 말소등기 <span class="tag A">A</span></h2><div class="body">
+      <div class="note">말소 대상이 된 <b>건물(구분건물이면 각 구분건물)</b> 또는 <b>토지별로 각 1건</b>으로 보아 기본보수를 산정합니다(말소등기 <b>§9⑤4호 80,000원</b>). 말소되는 건물(구분건물)·대지의 <b>공유자 수가 10인을 초과</b>하면 초과 1인마다 <b>10,000원</b>을 가산합니다.</div>
+      <div class="line"><span class="lbl">종전 건물 수</span><div class="stepper"><button onclick="step('rd_oldBldg',-1,calcRedev)">−</button><input type="number" id="rd_oldBldg" value="0" min="0" oninput="calcRedev()"><button onclick="step('rd_oldBldg',1,calcRedev)">+</button></div><span class="hint">구분건물이면 <b>각 구분건물이 1건</b></span></div>
+      <div class="line"><span class="lbl">종전 토지 수</span><div class="stepper"><button onclick="step('rd_oldLand',-1,calcRedev)">−</button><input type="number" id="rd_oldLand" value="0" min="0" oninput="calcRedev()"><button onclick="step('rd_oldLand',1,calcRedev)">+</button></div><span class="hint">필지별 1건</span></div>
+      <div class="line"><span class="lbl">10인 초과 공유자 수</span><input type="number" class="amt" id="rd_oldOver10" value="0" min="0" style="width:120px;" oninput="calcRedev()"><span class="hint">각 부동산의 공유자 수에서 <b>10인을 뺀 초과분만</b> 모두 더해 입력하십시오. <br>예) 공유자 13인 부동산 + 12인 부동산 → (13−10)+(12−10) = <b>5</b> 입력</span></div>
+      <table class="t">
+        <tr><td>1호 말소등기 <span class="hint" id="rd_n1Note"></span></td><td class="auto" id="rd_n1Cell">0 원</td></tr>
+        <tr><td>1호 공유자 초과 가산 <span class="hint" id="rd_n1oNote"></span></td><td class="auto" id="rd_n1oCell">0 원</td></tr>
+      </table>
+    </div></div>
+
+    <div class="card pink"><h2>③ §12 2호 — 신축 건물·조성 토지 소유권보존등기 <span class="tag A">A</span></h2><div class="body">
+      <div class="note">새로 축조된 <b>건물(구분건물이면 각 구분건물)</b>이나 조성된 <b>대지(공유토지이면 각 공유자)</b>별로 <b>각각 1건</b>으로 보아 기본보수를 산정합니다(소유권보존 <b>§9① 보수표 Ⅰ-1</b> — 과세표준액 기준).<br>▸ <b>과세표준액이 건별로 다르면</b> 아래는 개산치입니다. 정확히 하려면 건별로 나누어 계산하십시오. <span class="tag chk">확인필요</span></div>
+      <div class="line"><span class="lbl">신축 구분건물 수</span><div class="stepper"><button onclick="step('rd_newBldg',-1,calcRedev)">−</button><input type="number" id="rd_newBldg" value="0" min="0" oninput="calcRedev()"><button onclick="step('rd_newBldg',1,calcRedev)">+</button></div></div>
+      <div class="line"><span class="lbl">건물 1건당 과세표준액(원)</span><input type="number" class="amt" id="rd_newBldgStd" placeholder="0" oninput="calcRedev()"></div>
+      <div class="line"><span class="lbl">조성 대지 공유자 수</span><div class="stepper"><button onclick="step('rd_newLandOwn',-1,calcRedev)">−</button><input type="number" id="rd_newLandOwn" value="0" min="0" oninput="calcRedev()"><button onclick="step('rd_newLandOwn',1,calcRedev)">+</button></div><span class="hint">공유토지는 <b>공유자마다 1건</b></span></div>
+      <div class="line"><span class="lbl">대지 1건당 과세표준액(원)</span><input type="number" class="amt" id="rd_newLandStd" placeholder="0" oninput="calcRedev()"></div>
+      <table class="t">
+        <tr><td>2호 신축 건물 보존 <span class="hint" id="rd_n2bNote"></span></td><td class="auto" id="rd_n2bCell">0 원</td></tr>
+        <tr><td>2호 조성 대지 보존 <span class="hint" id="rd_n2lNote"></span></td><td class="auto" id="rd_n2lCell">0 원</td></tr>
+      </table>
+    </div></div>
+
+    <div class="card pink"><h2>④ §12 3호 — 담보권 등에 관한 권리 <span class="tag chk">확인필요</span></h2><div class="body">
+      <div class="note" style="border-left:3px solid var(--seal);">분양받은 건물(구분건물)·대지(공유지분)에 <b>존속하게 되는</b> 지상권·전세권·임차권·저당권·가등기·환매특약·권리소멸약정·처분제한 등의 등기입니다.<br>▸ <b>각 등기사항별로 별건</b>으로 보되, <b>「과세표준액에 따른 가산규정을 적용하지 아니하고」 해당 각 등기종류에 따른 기본보수만</b>을 적용합니다.<br>▸ <b style="color:var(--seal);">「과세표준액에 따른 가산규정」의 범위를 조문만으로 확정할 수 없어(보수표 Ⅰ-1의 「+초과액의 x/10,000」 부분인지, §10의 가산보수인지) 자동계산하지 않습니다.</b> 등기종류별 기본보수를 확인하신 뒤 <b>1건당 금액을 직접 입력</b>하십시오. <span class="tag chk">확인필요</span><br>▸ <b>단서</b> — 구분소유자의 <b>대지소유권 공유지분</b>을 목적으로 하는 담보권 등의 등기사항이 <b>전유부분과 동일</b>하면 대지(공유지분)는 <b>별건으로 보지 않습니다</b>(건수에서 빼십시오).</div>
+      <div class="line"><span class="lbl">등기사항 수(별건)</span><div class="stepper"><button onclick="step('rd_secN',-1,calcRedev)">−</button><input type="number" id="rd_secN" value="0" min="0" oninput="calcRedev()"><button onclick="step('rd_secN',1,calcRedev)">+</button></div><span class="hint">전유부분과 동일한 대지 공유지분분은 <b>제외</b></span></div>
+      <div class="line"><span class="lbl">1건당 기본보수(원)</span><input type="number" class="amt" id="rd_secFee" value="0" min="0" oninput="calcRedev()"><span class="hint">등기종류별 기본보수 — 직접 입력</span></div>
+      <table class="t">
+        <tr><td>3호 담보권 등 <span class="hint" id="rd_n3Note"></span></td><td class="auto" id="rd_n3Cell">0 원</td></tr>
+      </table>
+    </div></div>
+
+    <div class="card pink"><h2>⑤ §12 4호 — 표시변경·명의인표시변경·상속이전·보존 대위 <span class="tag A">A</span></h2><div class="body">
+      <div class="note">정비사업 시행을 위하여 일괄 신청하는 경우 <b>각 부동산별 및 각 등기사항별로 별건</b>으로 보아 보수를 산정합니다.</div>
+      <div class="line"><span class="lbl">부동산 표시변경·경정</span><div class="stepper"><button onclick="step('rd_c1',-1,calcRedev)">−</button><input type="number" id="rd_c1" value="0" min="0" oninput="calcRedev()"><button onclick="step('rd_c1',1,calcRedev)">+</button></div><span class="hint">§9⑤3호 <b>40,000원</b>/건</span></div>
+      <div class="line"><span class="lbl">등기명의인 표시변경·경정</span><div class="stepper"><button onclick="step('rd_c2',-1,calcRedev)">−</button><input type="number" id="rd_c2" value="0" min="0" oninput="calcRedev()"><button onclick="step('rd_c2',1,calcRedev)">+</button></div><span class="hint">§9⑤3호 <b>40,000원</b>/건</span></div>
+      <div class="line"><span class="lbl">상속 소유권이전 건수</span><div class="stepper"><button onclick="step('rd_c3',-1,calcRedev)">−</button><input type="number" id="rd_c3" value="0" min="0" oninput="calcRedev()"><button onclick="step('rd_c3',1,calcRedev)">+</button></div><span class="hint">§9① 보수표 Ⅰ-1</span></div>
+      <div class="line"><span class="lbl">상속이전 1건당 과세표준액(원)</span><input type="number" class="amt" id="rd_c3Std" placeholder="0" oninput="calcRedev()"></div>
+      <div class="line"><span class="lbl">소유권보존 대위등기 건수</span><div class="stepper"><button onclick="step('rd_c4',-1,calcRedev)">−</button><input type="number" id="rd_c4" value="0" min="0" oninput="calcRedev()"><button onclick="step('rd_c4',1,calcRedev)">+</button></div><span class="hint">§9① 보수표 Ⅰ-1</span></div>
+      <div class="line"><span class="lbl">보존 대위 1건당 과세표준액(원)</span><input type="number" class="amt" id="rd_c4Std" placeholder="0" oninput="calcRedev()"></div>
+      <table class="t">
+        <tr><td>4호 표시변경·경정 <span class="hint" id="rd_n4aNote"></span></td><td class="auto" id="rd_n4aCell">0 원</td></tr>
+        <tr><td>4호 상속이전·보존대위 <span class="hint" id="rd_n4bNote"></span></td><td class="auto" id="rd_n4bCell">0 원</td></tr>
+      </table>
+    </div></div>
+
+    <div class="card pink"><h2>⑥ §12 5호 — 권리 조사·분석 업무 <span class="tag A">A</span></h2><div class="body">
+      <div class="note">대상이 된 <b>건물(구분건물이면 각 구분건물)</b> 또는 <b>토지별로 각 1건</b>으로 보아 <b>50,000원</b>을 기본보수로 산정하고, 대상이 <b>공유</b>이면 <b>공유자별로 10,000원</b>을 가산합니다.<br>▸ <b>대지권 등기가 되어 있지 않은 구분건물</b>로서 <b>구분건물 소유자와 토지 지분 소유자가 동일인</b>이면 <b>합하여 1개의 부동산</b>으로 봅니다(건수에서 중복 계상하지 마십시오).</div>
+      <div class="line"><span class="lbl">조사·분석 대상 수</span><div class="stepper"><button onclick="step('rd_invN',-1,calcRedev)">−</button><input type="number" id="rd_invN" value="0" min="0" oninput="calcRedev()"><button onclick="step('rd_invN',1,calcRedev)">+</button></div><span class="hint">건물·토지별 각 1건 × 50,000</span></div>
+      <div class="line"><span class="lbl">공유자 수(합계)</span><input type="number" class="amt" id="rd_invOwn" value="0" min="0" style="width:120px;" oninput="calcRedev()"><span class="hint">공유인 대상의 <b>공유자 수를 모두 더해</b> 입력 — 1인마다 10,000원</span></div>
+      <table class="t">
+        <tr><td>5호 조사·분석 <span class="hint" id="rd_n5Note"></span></td><td class="auto" id="rd_n5Cell">0 원</td></tr>
+        <tr><td>5호 공유자 가산 <span class="hint" id="rd_n5oNote"></span></td><td class="auto" id="rd_n5oCell">0 원</td></tr>
+      </table>
+    </div></div>
+
+    <div class="card blue"><h2>⑦ 공과금 (VAT 비과세) <span class="tag chk">확인필요</span><span class="law" title="이전고시에 따른 등기의 취득세·등록면허세·국민주택채권은 사업유형·조합원 여부·감면특례에 따라 크게 달라져 자동계산 근거가 없습니다. 그래서 전부 직접입력입니다.">사유: 사업유형별 상이 → 직접입력</span></h2><div class="body">
+      <div class="note"><b>§12는 「보수」에 관한 조문</b>이므로 이 화면은 <b>보수 산정 전용</b>입니다. 이전고시에 따른 등기의 취득세·등록면허세·국민주택채권은 사업 유형·조합원 여부·감면특례에 따라 크게 달라지므로 <b>자동계산하지 않습니다.</b> 관할청에서 확인한 금액을 <b>직접 입력</b>하십시오. <span class="tag chk">확인필요</span></div>
+      <table class="t">
+        <tr><td>취득세·등록면허세</td><td><input class="cell" id="rd_acqTax" type="number" value="0" oninput="calcRedev(true)"></td></tr>
+        <tr><td>지방교육세·농어촌특별세</td><td><input class="cell" id="rd_eduTax" type="number" value="0" oninput="calcRedev(true)"></td></tr>
+        <tr><td>등기신청수수료</td><td><input class="cell" id="rd_regFee" type="number" value="0" oninput="calcRedev(true)"></td></tr>
+        <tr><td>국민주택채권 매입손실 등</td><td><input class="cell" id="rd_bond" type="number" value="0" oninput="calcRedev(true)"></td></tr>
+        <tr><td>대장·등본 우편 등</td><td><input class="cell" id="rd_postFee" type="number" value="0" oninput="calcRedev(true)"></td></tr>
+        <tr class="subtot"><td>공과금계</td><td id="rd_publicSum">0 원</td></tr>
+      </table>
+    </div></div>
+
+    <div class="card pink"><h2>⑧ 수수료 (법무사 보수, VAT 별도) <span class="tag A">A</span></h2><div class="body">
+      <table class="t">
+        <tr><td>§12 1호 말소 (공유자 가산 포함) <span class="hint" id="rd_s1Note"></span></td><td class="auto" id="rd_s1Cell">0 원</td></tr>
+        <tr><td>§12 2호 소유권보존</td><td class="auto" id="rd_s2Cell">0 원</td></tr>
+        <tr><td>§12 3호 담보권 등 <span class="tag chk">확인필요</span></td><td class="auto" id="rd_s3Cell">0 원</td></tr>
+        <tr><td>§12 4호 표시변경·상속이전·보존대위</td><td class="auto" id="rd_s4Cell">0 원</td></tr>
+        <tr><td>§12 5호 조사·분석 (공유자 가산 포함)</td><td class="auto" id="rd_s5Cell">0 원</td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="rd_f_tax" checked onchange="calcRedev()"> 취득세·등록면허세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="rd_f_trip" checked onchange="calcRedev()"> 교통비 및 일당</label></td><td><input class="cell" id="rd_tripFee" type="number" value="160000" oninput="calcRedev(true)"></td></tr>
+        <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
+        <tbody id="rd_extraAgent"></tbody>
+        <tr class="subtot"><td>수수료계 (보수)</td><td id="rd_feeSum">0 원</td></tr>
+      </table>
+    </div></div>
+
+    <div class="total"><div class="row"><span>법무사 보수 소계</span><span id="rd_t_fee">0 원</span></div>
+      <div class="row sub"><span>부가가치세 (10%)</span><span id="rd_t_vat">0 원</span></div>
+      <div class="row"><span>공과금계</span><span id="rd_t_public">0 원</span></div>
+      <div class="row grand"><span>총 합계</span><span id="rd_t_grand">0 원</span></div></div>
+    <div class="actions"><button class="btn" onclick="calcRedev()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+  </div>
+
   <!-- ===== 신탁등기 (풀기능) ===== -->
   <div class="scene" id="scene-신탁등기">
     <button class="back" onclick="goMenu()">‹ 메인메뉴</button>
@@ -1447,12 +1555,12 @@
       <div class="line"><span class="lbl">여러 등기소 가산</span><select id="st_moAdd" onchange="calcSintak()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
     </div></div>
 
-    <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag chk">확인필요</span></h2><div class="body">
+    <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag chk">확인필요</span><span class="law" title="신탁등기의 건당 6,000원은 조문에 직접 규정된 것이 아니라 법제처 해석례([B])에 따른 것이어서 확인이 필요합니다. 신탁으로 인한 소유권이전분이 비과세인 것(§26②)은 조문에 확정되어 있습니다.">사유: 근거가 해석례([B])</span></h2><div class="body">
       <div class="note">신탁으로 인한 <b>소유권이전분은 등록면허세 비과세</b>(지방세법 §26②, 형식적 소유권취득) [A]. <b>신탁등기 자체는 건당 6,000원</b>·지방교육세 1,200원 [B 법제처 해석례]. 등기수수료는 신탁등기 기준. <span class="hint">신탁보수 기준은 사무소 정책에 따라 조정 가능 [확인필요]</span></div>
       <table class="t">
-        <tr><td>등록면허세 (신탁 건당 6,000)</td><td><input class="cell" id="st_regTax" type="number" oninput="calcSintak(true)"></td></tr>
-        <tr><td>지방교육세 (건당 1,200)</td><td><input class="cell" id="st_eduTax" type="number" oninput="calcSintak(true)"></td></tr>
-        <tr><td>등기신청수수료 <select id="st_regMethod" class="mini" onchange="calcSintak()"><option value="e" selected>e-Form 6,000</option><option value="p">수기 8,000</option><option value="o">전자 4,000</option></select> <span class="hint" id="st_regNote"></span></td><td class="auto" id="st_regFeeCell">0 원</td></tr>
+        <tr><td>등록면허세 (신탁 건당 6,000)<span class="law" title="신탁으로 인한 소유권이전분은 형식적 소유권 취득이어서 등록면허세를 부과하지 않습니다(§26②). 신탁등기 자체는 「그 밖의 등기」로 보아 건당 6,000원입니다.">지방세법 §26②·§28①1호마목</span></td><td><input class="cell" id="st_regTax" type="number" oninput="calcSintak(true)"></td></tr>
+        <tr><td>지방교육세 (건당 1,200)<span class="law" title="지방교육세를 정한 조항입니다. 2호는 납부해야 할 「등록면허세액의 100분의 20(20%)」을 세액으로 합니다.">지방세법 §151①2호</span></td><td><input class="cell" id="st_eduTax" type="number" oninput="calcSintak(true)"></td></tr>
+        <tr><td>등기신청수수료 <select id="st_regMethod" class="mini" onchange="calcSintak()"><option value="e" selected>e-Form 6,000</option><option value="p">수기 8,000</option><option value="o">전자 4,000</option></select> <span class="hint" id="st_regNote"></span><span class="law" title="「등기사항증명서 등 수수료규칙」 §5의2 — 부동산 등기신청수수료. 2025.8.1. 시행(대법원규칙 제3222호)으로 방문서면·e-Form이 인상되었고 전자신청은 동결되었습니다.">수수료규칙 §5의2</span></td><td class="auto" id="st_regFeeCell">0 원</td></tr>
         <tr><td>대장·등본 우편 등 <span class="hint">(개수 곱)</span></td><td><input class="cell" id="st_postFee" type="number" value="6000" oninput="calcSintak(true)"></td></tr>
         <tr class="subtot"><td>공과금계</td><td id="st_publicSum">0 원</td></tr>
       </table>
@@ -1546,10 +1654,10 @@
     <div class="card blue"><h2>③ 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
       <div class="note">담보권 추가설정도 <b>등록면허세 0.2%</b>(채권최고액)·지방교육세 0.04%(등록면허세의 20%)입니다. 등기수수료 일반(매 부동산).</div>
       <table class="t">
-        <tr><td>등록면허세 (0.2%) <span id="ma_regRate" class="hint"></span></td><td><input class="cell" id="ma_regTax" type="number" oninput="calcMortgageAdd(true)"></td></tr>
-        <tr><td>지방교육세 (0.04%)</td><td><input class="cell" id="ma_eduTax" type="number" oninput="calcMortgageAdd(true)"></td></tr>
-        <tr><td>채권 할인손실</td><td class="auto" id="ma_bondLossCell">0 원</td></tr>
-        <tr><td>등기신청수수료 <select id="ma_regMethod" class="mini" onchange="calcMortgageAdd()"><option value="e" selected>e-Form 15,000</option><option value="p">수기 18,000</option><option value="o">전자 10,000</option></select> <span class="hint" id="ma_regNote"></span></td><td class="auto" id="ma_regFeeCell">0 원</td></tr>
+        <tr><td>등록면허세 (0.2%) <span id="ma_regRate" class="hint"></span><span class="law" title="저당권·지상권·전세권·임차권 등 「소유권 외의 권리」 설정·이전 등기의 등록면허세율 조항입니다. 저당권은 채권금액의 1천분의 2(0.2%)입니다. §28① 본문 단서에 따라 산출세액이 「그 밖의 등기」 세율(6,000원)보다 적으면 6,000원을 적용합니다.">지방세법 §28①1호다목</span></td><td><input class="cell" id="ma_regTax" type="number" oninput="calcMortgageAdd(true)"></td></tr>
+        <tr><td>지방교육세 (0.04%)<span class="law" title="지방교육세를 정한 조항입니다. 2호는 납부해야 할 「등록면허세액의 100분의 20(20%)」을 세액으로 합니다.">지방세법 §151①2호</span></td><td><input class="cell" id="ma_eduTax" type="number" oninput="calcMortgageAdd(true)"></td></tr>
+        <tr><td>채권 할인손실<span class="law" title="등기할 때 의무적으로 사야 하는 국민주택채권의 매입률표입니다. 대부분 곧바로 되팔기 때문에 실제 부담은 「사고 팔 때 생기는 차액(할인손실)」뿐입니다.">주택도시기금법 시행령 [별표]</span></td><td class="auto" id="ma_bondLossCell">0 원</td></tr>
+        <tr><td>등기신청수수료 <select id="ma_regMethod" class="mini" onchange="calcMortgageAdd()"><option value="e" selected>e-Form 15,000</option><option value="p">수기 18,000</option><option value="o">전자 10,000</option></select> <span class="hint" id="ma_regNote"></span><span class="law" title="「등기사항증명서 등 수수료규칙」 §5의2 — 부동산 등기신청수수료. 2025.8.1. 시행(대법원규칙 제3222호)으로 방문서면·e-Form이 인상되었고 전자신청은 동결되었습니다.">수수료규칙 §5의2</span></td><td class="auto" id="ma_regFeeCell">0 원</td></tr>
         <tr><td>대장·등본 우편 등 <span class="hint">(개수 곱)</span></td><td><input class="cell" id="ma_postFee" type="number" value="6000" oninput="calcMortgageAdd(true)"></td></tr>
         <tr class="subtot"><td>공과금계</td><td id="ma_publicSum">0 원</td></tr>
       </table>
@@ -1605,11 +1713,11 @@
       <div class="line"><span class="lbl">여러 등기소 가산</span><select id="mtc_moAdd" onchange="calcMortCancel()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
     </div></div>
 
-    <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag chk">확인필요</span></h2><div class="body">
+    <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
       <table class="t">
-        <tr><td>등록면허세 <span class="hint">(건당 6,000 × 건수)</span></td><td><input class="cell" id="mtc_regTax" type="number" oninput="calcMortCancel(true)"></td></tr>
-        <tr><td>지방교육세 <span class="hint">(등록면허세 20%)</span></td><td><input class="cell" id="mtc_eduTax" type="number" oninput="calcMortCancel(true)"></td></tr>
-        <tr><td>등기신청수수료(기타) <select id="mtc_regMethod" class="mini" onchange="calcMortCancel()"><option value="e" selected>e-Form 3,000</option><option value="p">수기 4,000</option><option value="o">전자 1,000</option></select> <span class="hint" id="mtc_regNote"></span></td><td class="auto" id="mtc_regFeeCell">0 원</td></tr>
+        <tr><td>등록면허세 <span class="hint">(건당 6,000 × 건수)</span><span class="law" title="말소·변경 등 「그 밖의 등기」의 등록면허세는 건당 6,000원입니다.">지방세법 §28①1호마목</span></td><td><input class="cell" id="mtc_regTax" type="number" oninput="calcMortCancel(true)"></td></tr>
+        <tr><td>지방교육세 <span class="hint">(등록면허세 20%)</span><span class="law" title="지방교육세를 정한 조항입니다. 2호는 납부해야 할 「등록면허세액의 100분의 20(20%)」을 세액으로 합니다.">지방세법 §151①2호</span></td><td><input class="cell" id="mtc_eduTax" type="number" oninput="calcMortCancel(true)"></td></tr>
+        <tr><td>등기신청수수료(기타) <select id="mtc_regMethod" class="mini" onchange="calcMortCancel()"><option value="e" selected>e-Form 3,000</option><option value="p">수기 4,000</option><option value="o">전자 1,000</option></select> <span class="hint" id="mtc_regNote"></span><span class="law" title="「등기사항증명서 등 수수료규칙」 §5의2 — 부동산 등기신청수수료. 2025.8.1. 시행(대법원규칙 제3222호)으로 방문서면·e-Form이 인상되었고 전자신청은 동결되었습니다.">수수료규칙 §5의2</span></td><td class="auto" id="mtc_regFeeCell">0 원</td></tr>
         <tr><td>대장·등본 우편 등</td><td><input class="cell" id="mtc_postFee" type="number" value="3000" oninput="calcMortCancel(true)"></td></tr>
         <tr class="subtot"><td>공과금계</td><td id="mtc_publicSum">0 원</td></tr>
       </table>
@@ -1677,13 +1785,13 @@
       <div class="line"><span class="lbl">채권 매입금(원)</span><input type="number" class="amt" id="pr_bondBuy" placeholder="0" oninput="calcPreserve(true)"><span class="hint">자동 합산(직접 수정 가능)</span></div>
     </div></div>
 
-    <div class="card blue"><h2>③ 공과금 (VAT 비과세) <span class="tag chk">확인필요</span></h2><div class="body">
+    <div class="card blue"><h2>③ 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
       <table class="t">
-        <tr><td>취득세 (원시취득 2.8%)</td><td><input class="cell" id="pr_acqTax" type="number" oninput="calcPreserve(true)"></td></tr>
-        <tr><td>지방교육세 (0.16%)</td><td><input class="cell" id="pr_eduTax" type="number" oninput="calcPreserve(true)"></td></tr>
-        <tr><td>농어촌특별세 (0.2%)</td><td><input class="cell" id="pr_ruralTax" type="number" oninput="calcPreserve(true)"></td></tr>
-        <tr><td>채권 할인손실</td><td class="auto" id="pr_bondLossCell">0 원</td></tr>
-        <tr><td>등기신청수수료 <select id="pr_regMethod" class="mini" onchange="calcPreserve()"><option value="e" selected>e-Form 15,000</option><option value="p">수기 18,000</option><option value="o">전자 10,000</option></select> <span class="hint" id="pr_regNote"></span></td><td class="auto" id="pr_regFeeCell">0 원</td></tr>
+        <tr><td>취득세 (원시취득 2.8%)<span class="law" title="건물을 새로 지어 처음 등기하는 「원시취득」의 취득세율 1천분의 28(2.8%) 조항입니다.">지방세법 §11①3호</span></td><td><input class="cell" id="pr_acqTax" type="number" oninput="calcPreserve(true)"></td></tr>
+        <tr><td>지방교육세 (0.16%)<span class="law" title="지방교육세를 정한 조항입니다. 1호는 취득세율에서 1천분의 20(2%)을 뺀 세율로 계산한 금액의 100분의 20(20%)을 세액으로 합니다. 취득세와 함께 신고·납부합니다(§152①).">지방세법 §151①1호</span></td><td><input class="cell" id="pr_eduTax" type="number" oninput="calcPreserve(true)"></td></tr>
+        <tr><td>농어촌특별세 (0.2%)<span class="law" title="농어촌특별세 조항입니다. 취득세 표준세율을 2%로 적용해 산출한 금액의 100분의 10(10%)이 본세입니다(§5①6호). 전용면적 85㎡ 이하 주택은 비과세입니다(§4 11호).">농어촌특별세법 §5①6호·§4 11호</span></td><td><input class="cell" id="pr_ruralTax" type="number" oninput="calcPreserve(true)"></td></tr>
+        <tr><td>채권 할인손실<span class="law" title="등기할 때 의무적으로 사야 하는 국민주택채권의 매입률표입니다. 대부분 곧바로 되팔기 때문에 실제 부담은 「사고 팔 때 생기는 차액(할인손실)」뿐입니다.">주택도시기금법 시행령 [별표]</span></td><td class="auto" id="pr_bondLossCell">0 원</td></tr>
+        <tr><td>등기신청수수료 <select id="pr_regMethod" class="mini" onchange="calcPreserve()"><option value="e" selected>e-Form 15,000</option><option value="p">수기 18,000</option><option value="o">전자 10,000</option></select> <span class="hint" id="pr_regNote"></span><span class="law" title="「등기사항증명서 등 수수료규칙」 §5의2 — 부동산 등기신청수수료. 2025.8.1. 시행(대법원규칙 제3222호)으로 방문서면·e-Form이 인상되었고 전자신청은 동결되었습니다.">수수료규칙 §5의2</span></td><td class="auto" id="pr_regFeeCell">0 원</td></tr>
         <tr><td>대장·등본 우편 등 <span class="hint">(개수 곱)</span></td><td><input class="cell" id="pr_postFee" type="number" value="6000" oninput="calcPreserve(true)"></td></tr>
         <tr class="subtot"><td>공과금계</td><td id="pr_publicSum">0 원</td></tr>
       </table>
@@ -1747,9 +1855,9 @@
 
     <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
       <table class="t">
-        <tr><td>등록면허세 (0.2%) <span id="rt_regRate" class="hint"></span></td><td><input class="cell" id="rt_regTax" type="number" oninput="calcRight(true)"></td></tr>
-        <tr><td>지방교육세 (0.04%)</td><td><input class="cell" id="rt_eduTax" type="number" oninput="calcRight(true)"></td></tr>
-        <tr><td>등기신청수수료 <select id="rt_regMethod" class="mini" onchange="calcRight()"><option value="e" selected>e-Form 15,000</option><option value="p">수기 18,000</option><option value="o">전자 10,000</option></select> <span class="hint" id="rt_regNote"></span></td><td class="auto" id="rt_regFeeCell">0 원</td></tr>
+        <tr><td>등록면허세 (0.2%) <span id="rt_regRate" class="hint"></span><span class="law" title="저당권·지상권·전세권·임차권 등 「소유권 외의 권리」 설정·이전 등기의 등록면허세율 조항입니다. 저당권은 채권금액의 1천분의 2(0.2%)입니다. §28① 본문 단서에 따라 산출세액이 「그 밖의 등기」 세율(6,000원)보다 적으면 6,000원을 적용합니다.">지방세법 §28①1호다목</span></td><td><input class="cell" id="rt_regTax" type="number" oninput="calcRight(true)"></td></tr>
+        <tr><td>지방교육세 (0.04%)<span class="law" title="지방교육세를 정한 조항입니다. 2호는 납부해야 할 「등록면허세액의 100분의 20(20%)」을 세액으로 합니다.">지방세법 §151①2호</span></td><td><input class="cell" id="rt_eduTax" type="number" oninput="calcRight(true)"></td></tr>
+        <tr><td>등기신청수수료 <select id="rt_regMethod" class="mini" onchange="calcRight()"><option value="e" selected>e-Form 15,000</option><option value="p">수기 18,000</option><option value="o">전자 10,000</option></select> <span class="hint" id="rt_regNote"></span><span class="law" title="「등기사항증명서 등 수수료규칙」 §5의2 — 부동산 등기신청수수료. 2025.8.1. 시행(대법원규칙 제3222호)으로 방문서면·e-Form이 인상되었고 전자신청은 동결되었습니다.">수수료규칙 §5의2</span></td><td class="auto" id="rt_regFeeCell">0 원</td></tr>
         <tr><td>대장·등본 우편 등 <span class="hint">(개수 곱)</span></td><td><input class="cell" id="rt_postFee" type="number" value="6000" oninput="calcRight(true)"></td></tr>
         <tr class="subtot"><td>공과금계</td><td id="rt_publicSum">0 원</td></tr>
       </table>
@@ -1808,12 +1916,12 @@
         <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
     </div></div>
 
-    <div class="card blue"><h2>② 공과금 (VAT 비과세)</h2><div class="body">
+    <div class="card blue"><h2>② 공과금 (VAT 비과세)<span class="tag A">A</span></h2><div class="body">
       <div class="note">상업등기 신청수수료(상업등기규칙 §5의3): 설립 <b>서면 35,000 / e-Form 28,000 / 전자 20,000</b>원. 등록면허세는 자본금 0.4%·최저 112,500원.</div>
       <table class="t">
-        <tr><td>등록면허세 <span id="co_regRate" class="hint"></span></td><td><input class="cell" id="co_regTax" type="number" oninput="calcCorp(true)"></td></tr>
-        <tr><td>지방교육세 (등록면허세 20%)</td><td><input class="cell" id="co_eduTax" type="number" oninput="calcCorp(true)"></td></tr>
-        <tr><td>등기신청수수료 <select id="co_regMethod" class="mini" onchange="calcCorp()"><option value="e" selected>e-Form 28,000</option><option value="p">서면 35,000</option><option value="o">전자 20,000</option></select></td><td class="auto" id="co_regFeeCell">0 원</td></tr>
+        <tr><td>등록면허세 <span id="co_regRate" class="hint"></span><span class="law" title="법인 등기의 등록면허세율 조항입니다. 가목(영리법인 설립)·다목(자본증가)은 납입액의 1천분의 4이며, 산출세액이 112,500원보다 적으면 112,500원을 적용합니다.">지방세법 §28①6호</span></td><td><input class="cell" id="co_regTax" type="number" oninput="calcCorp(true)"></td></tr>
+        <tr><td>지방교육세 (등록면허세 20%)<span class="law" title="지방교육세를 정한 조항입니다. 2호는 납부해야 할 「등록면허세액의 100분의 20(20%)」을 세액으로 합니다.">지방세법 §151①2호</span></td><td><input class="cell" id="co_eduTax" type="number" oninput="calcCorp(true)"></td></tr>
+        <tr><td>등기신청수수료 <select id="co_regMethod" class="mini" onchange="calcCorp()"><option value="e" selected>e-Form 28,000</option><option value="p">서면 35,000</option><option value="o">전자 20,000</option></select><span class="law" title="「등기사항증명서 등 수수료규칙」 §5의3 — 상업·법인 등기신청수수료입니다.">수수료규칙 §5의3</span></td><td class="auto" id="co_regFeeCell">0 원</td></tr>
         <tr><td>법인도장(인감 제작)</td><td><input class="cell" id="co_seal" type="number" value="20000" oninput="calcCorp(true)"></td></tr>
         <tr><td>인감·등본 우편 등</td><td><input class="cell" id="co_postFee" type="number" value="15000" oninput="calcCorp(true)"></td></tr>
         <tr class="subtot"><td>공과금계</td><td id="co_publicSum">0 원</td></tr>
@@ -1885,18 +1993,18 @@
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
         <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
-      <div class="line" id="cv_rowPurpose"><span class="lbl">등기 목적 수</span><div class="stepper"><button onclick="step('cv_purposeN',-1,calcCorpChange)">−</button><input type="number" id="cv_purposeN" value="1" min="1" oninput="calcCorpChange()"><button onclick="step('cv_purposeN',1,calcCorpChange)">+</button></div><span class="hint">보수기준 <b>§14③</b> — 등기의 목적이 <b>1개를 초과</b>하면 초과 1개마다 <b>50,000원</b> 가산 <b>(임원변경은 제외)</b> <span class="tag A">A</span></span></div>
+      <div class="line" id="cv_rowPurpose"><span class="lbl">등기 목적 수</span><div class="stepper"><button onclick="cvPurposeTouch();step('cv_purposeN',-1,calcCorpChange)">−</button><input type="number" id="cv_purposeN" value="1" min="1" oninput="cvPurposeTouch();calcCorpChange()"><button onclick="cvPurposeTouch();step('cv_purposeN',1,calcCorpChange)">+</button></div><span class="hint">보수기준 <b>§14③</b> — 등기의 목적이 <b>1개를 초과</b>하면 초과 1개마다 <b>50,000원</b> 가산 <b>(임원변경은 제외)</b> <span class="tag A">A</span><br><span id="cv_purposeSync" style="color:var(--gold);">▸ 위 <b>「변경 건수」를 자동으로 따라갑니다.</b> 직접 고치면 그 값으로 고정됩니다. (등록면허세의 「건」은 지방세법 §28①6호, 보수의 「등기의 목적」은 보수기준 §14③으로 <b>근거가 서로 다릅니다</b>)</span></span></div>
       <div class="line" id="cv_rowOfficer" style="display:none;"><span class="lbl">임원 수(선임·변경)</span><div class="stepper"><button onclick="step('cv_officerN',-1,calcCorpChange)">−</button><input type="number" id="cv_officerN" value="1" min="1" oninput="calcCorpChange()"><button onclick="step('cv_officerN',1,calcCorpChange)">+</button></div><span class="hint">보수기준 <b>§14④</b> — 임원이 <b>4인을 초과</b>하면 초과 1인마다 <b>20,000원</b> 가산 <span class="tag A">A</span></span></div>
       <div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="cv_frAdd" onchange="calcCorpChange()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§14②</b> — <b>임원 중</b> 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는 변경등기</b> → <b>기본보수의 100%까지</b> 가산 <span class="tag A">A</span></span></div>
       <div class="line" id="cv_rowFar" style="display:none;"><span class="lbl">관외 본점이전 가산</span><select id="cv_farAdd" onchange="calcCorpChange()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§14⑤</b> — <b>다른 등기소 관내로의 본점이전등기</b> → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
     </div></div>
 
-    <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag chk">확인필요</span></h2><div class="body">
+    <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag chk">확인필요</span><span class="law" title="등록면허세 정액(40,200원)은 연도별로 바뀔 수 있어 확인이 필요합니다. 세율 구조 자체(§28①6호·§28②·§28④)는 조문에 확정되어 있습니다.">사유: 정액이 연도별 변동</span></h2><div class="body">
       <div class="note">등록면허세: 변경 정액 <b>40,200원/건</b>(대도시 중과 ×3), 증자는 자본 0.4%(최저 112,500), 본점이전 112,500. 사안·연도별 변동이라 직접 수정 가능.</div>
       <table class="t">
-        <tr><td>등록면허세 <span id="cv_regRate" class="hint"></span></td><td><input class="cell" id="cv_regTax" type="number" oninput="calcCorpChange(true)"></td></tr>
-        <tr><td>지방교육세 (등록면허세 20%)</td><td><input class="cell" id="cv_eduTax" type="number" oninput="calcCorpChange(true)"></td></tr>
-        <tr><td>등기신청수수료 <select id="cv_regMethod" class="mini" onchange="calcCorpChange()"><option value="e" selected>e-Form</option><option value="p">서면</option><option value="o">전자</option></select> <span class="hint" id="cv_regNote"></span></td><td class="auto" id="cv_regFeeCell">0 원</td></tr>
+        <tr><td>등록면허세 <span id="cv_regRate" class="hint"></span><span class="law" title="법인 변경등기의 등록면허세율입니다. §28②는 대도시에서의 설립·지점 설치·대도시 전입에 100분의 300(3배) 중과를 정하고, §28④는 6호 「바목(그 밖의 등기)」에 중과세율을 적용하지 않도록 하고 있습니다.">지방세법 §28①6호·§28②·§28④</span></td><td><input class="cell" id="cv_regTax" type="number" oninput="calcCorpChange(true)"></td></tr>
+        <tr><td>지방교육세 (등록면허세 20%)<span class="law" title="지방교육세를 정한 조항입니다. 2호는 납부해야 할 「등록면허세액의 100분의 20(20%)」을 세액으로 합니다.">지방세법 §151①2호</span></td><td><input class="cell" id="cv_eduTax" type="number" oninput="calcCorpChange(true)"></td></tr>
+        <tr><td>등기신청수수료 <select id="cv_regMethod" class="mini" onchange="calcCorpChange()"><option value="e" selected>e-Form</option><option value="p">서면</option><option value="o">전자</option></select> <span class="hint" id="cv_regNote"></span><span class="law" title="「등기사항증명서 등 수수료규칙」 §5의3 — 상업·법인 등기신청수수료입니다.">수수료규칙 §5의3</span></td><td class="auto" id="cv_regFeeCell">0 원</td></tr>
         <tr id="cv_certFeeRow" style="display:none;"><td>공증료 <span class="hint">(공증 건당 30,000·실비)</span></td><td class="auto" id="cv_certFeeCell">0 원</td></tr>
         <tr id="cv_cardRow" style="display:none;"><td>법인인감카드</td><td class="auto" id="cv_cardCell">0 원</td></tr>
         <tr><td>등본·인감 우편 등</td><td><input class="cell" id="cv_postFee" type="number" value="15000" oninput="calcCorpChange(true)"></td></tr>
@@ -1959,11 +2067,11 @@
     <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
       <div class="note">경매신청 인지는 <b>5,000원 정액</b>, 송달료는 <b>(이해관계인수+3)×10회</b>. 등록면허세 <b>청구금액×0.2%</b>, 지방교육세 <b>등면세×20%</b> [A]. <b>법원예납금</b>은 감정료·현황조사·매각수수료·공고료 합산이라 직접 입력하세요.</div>
       <table class="t">
-        <tr><td>등록면허세 <span class="hint">(청구금액×0.2%)</span></td><td><input class="cell" id="am_regTax" type="number" oninput="calcAuctionFile(true)"></td></tr>
-        <tr><td>지방교육세 <span class="hint">(등면세×20%)</span></td><td><input class="cell" id="am_eduTax" type="number" oninput="calcAuctionFile(true)"></td></tr>
-        <tr><td>인지대 <span class="hint">(5,000×집행권원수)</span></td><td><input class="cell" id="am_inji" type="number" oninput="calcAuctionFile(true)"></td></tr>
-        <tr><td>송달료 <span class="hint" id="am_songNote"></span></td><td><input class="cell" id="am_song" type="number" oninput="calcAuctionFile(true)"></td></tr>
-        <tr><td>등기신청수수료 <span class="hint">(부동산당 4,000)</span></td><td><input class="cell" id="am_regFee" type="number" value="4000" oninput="calcAuctionFile(true)"></td></tr>
+        <tr><td>등록면허세 <span class="hint">(청구금액×0.2%)</span><span class="law" title="경매신청 등기의 등록면허세는 채권금액의 1천분의 2(0.2%)입니다.">지방세법 §28①1호라목1)</span></td><td><input class="cell" id="am_regTax" type="number" oninput="calcAuctionFile(true)"></td></tr>
+        <tr><td>지방교육세 <span class="hint">(등면세×20%)</span><span class="law" title="지방교육세를 정한 조항입니다. 2호는 납부해야 할 「등록면허세액의 100분의 20(20%)」을 세액으로 합니다.">지방세법 §151①2호</span></td><td><input class="cell" id="am_eduTax" type="number" oninput="calcAuctionFile(true)"></td></tr>
+        <tr><td>인지대 <span class="hint">(5,000×집행권원수)</span><span class="law" title="「민사소송 등 인지법」 §9③1호 — 경매신청서의 인지는 5,000원입니다.">인지법 §9③1호</span></td><td><input class="cell" id="am_inji" type="number" oninput="calcAuctionFile(true)"></td></tr>
+        <tr><td>송달료 <span class="hint" id="am_songNote"></span><span class="law" title="「송달료규칙의 시행에 따른 업무처리요령」(재일 87-4) 별표1이 사건 종류별 예납 회차를 정합니다. 1회 단가는 우편요금에 연동되며 화면 상단에서 바꿀 수 있습니다.">재일 87-4 별표1</span></td><td><input class="cell" id="am_song" type="number" oninput="calcAuctionFile(true)"></td></tr>
+        <tr><td>등기신청수수료 <span class="hint">(부동산당 4,000)</span><span class="law" title="「등기사항증명서 등 수수료규칙」 §5의2 — 부동산 등기신청수수료. 2025.8.1. 시행(대법원규칙 제3222호)으로 방문서면·e-Form이 인상되었고 전자신청은 동결되었습니다.">수수료규칙 §5의2</span></td><td><input class="cell" id="am_regFee" type="number" value="4000" oninput="calcAuctionFile(true)"></td></tr>
         <tr><td>법원예납금 <span class="hint" id="am_courtNote">(부동산가액 입력 시 자동)</span></td><td><input class="cell" id="am_court" type="number" value="0" oninput="calcAuctionFile(true)"></td></tr>
         <tr><td>보정료 등 <span class="hint">(직접 입력)</span></td><td><input class="cell" id="am_correct" type="number" value="0" oninput="calcAuctionFile(true)"></td></tr>
         <tr class="subtot"><td>공과금계</td><td id="am_publicSum">0 원</td></tr>
@@ -2024,8 +2132,8 @@
     </div></div>
     <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
       <table class="t">
-        <tr><td>인지대 <span class="hint" id="mi_injiNote"></span></td><td><input class="cell" id="mi_inji" type="number" oninput="calcMisc(true)"></td></tr>
-        <tr><td>송달료 <span class="hint" id="mi_songNote"></span></td><td><input class="cell" id="mi_song" type="number" oninput="calcMisc(true)"></td></tr>
+        <tr><td>인지대 <span class="hint" id="mi_injiNote"></span><span class="law" title="「민사소송 등 인지법」 §9·§10과 「민사접수서류에 붙일 인지액 및 그 편철방법 등에 관한 예규」 별표가 신청서 종류별 인지액을 정합니다.">인지법 §9·§10 · 예규 별표</span></td><td><input class="cell" id="mi_inji" type="number" oninput="calcMisc(true)"></td></tr>
+        <tr><td>송달료 <span class="hint" id="mi_songNote"></span><span class="law" title="「송달료규칙의 시행에 따른 업무처리요령」(재일 87-4) 별표1이 사건 종류별 예납 회차를 정합니다. 1회 단가는 우편요금에 연동되며 화면 상단에서 바꿀 수 있습니다.">재일 87-4 별표1</span></td><td><input class="cell" id="mi_song" type="number" oninput="calcMisc(true)"></td></tr>
         <tr><td>기타 공과금 <span class="hint">(등록면허세·증명서 등 직접입력)</span></td><td><input class="cell" id="mi_etc" type="number" value="0" oninput="calcMisc(true)"></td></tr>
         <tr class="subtot"><td>공과금계</td><td id="mi_publicSum">0 원</td></tr>
       </table>
@@ -2060,8 +2168,8 @@
     </div></div>
     <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
       <table class="t">
-        <tr><td>인지대 <span class="hint" id="cs_injiNote"></span></td><td><input class="cell" id="cs_inji" type="number" oninput="calcSeizure(true)"></td></tr>
-        <tr><td>송달료 <span class="hint" id="cs_songNote"></span></td><td><input class="cell" id="cs_song" type="number" oninput="calcSeizure(true)"></td></tr>
+        <tr><td>인지대 <span class="hint" id="cs_injiNote"></span><span class="law" title="「민사소송 등 인지법」 §9④ — 채권압류명령 등 강제집행 신청서의 인지는 2,000원입니다.">인지법 §9④</span></td><td><input class="cell" id="cs_inji" type="number" oninput="calcSeizure(true)"></td></tr>
+        <tr><td>송달료 <span class="hint" id="cs_songNote"></span><span class="law" title="「송달료규칙의 시행에 따른 업무처리요령」(재일 87-4) 별표1이 사건 종류별 예납 회차를 정합니다. 1회 단가는 우편요금에 연동되며 화면 상단에서 바꿀 수 있습니다.">재일 87-4 별표1</span></td><td><input class="cell" id="cs_song" type="number" oninput="calcSeizure(true)"></td></tr>
         <tr><td>기타 공과금 <span class="hint">(직접 입력)</span></td><td><input class="cell" id="cs_correct" type="number" value="0" oninput="calcSeizure(true)"></td></tr>
         <tr class="subtot"><td>공과금계</td><td id="cs_publicSum">0 원</td></tr>
       </table>
@@ -2099,8 +2207,8 @@
     </div></div>
     <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
       <table class="t">
-        <tr><td>인지대 <span class="hint">(가압류 10,000 정액)</span></td><td><input class="cell" id="ad_inji" type="number" oninput="calcAttachGoods(true)"></td></tr>
-        <tr><td>송달료 <span class="hint" id="ad_songNote"></span></td><td><input class="cell" id="ad_song" type="number" oninput="calcAttachGoods(true)"></td></tr>
+        <tr><td>인지대 <span class="hint">(가압류 10,000 정액)</span><span class="law" title="「민사소송 등 인지법」 §9② — 가압류·가처분의 신청, 그 결정에 대한 이의·취소 신청서에는 각 10,000원의 인지를 붙입니다.">인지법 §9②</span></td><td><input class="cell" id="ad_inji" type="number" oninput="calcAttachGoods(true)"></td></tr>
+        <tr><td>송달료 <span class="hint" id="ad_songNote"></span><span class="law" title="「송달료규칙의 시행에 따른 업무처리요령」(재일 87-4) 별표1이 사건 종류별 예납 회차를 정합니다. 1회 단가는 우편요금에 연동되며 화면 상단에서 바꿀 수 있습니다.">재일 87-4 별표1</span></td><td><input class="cell" id="ad_song" type="number" oninput="calcAttachGoods(true)"></td></tr>
         <tr><td>보증보험료 <span class="hint">(담보금×0.085%·최저15,000) [확인필요]</span></td><td><input class="cell" id="ad_bond" type="number" oninput="calcAttachGoods(true)"></td></tr>
         <tr><td>집행관 수수료 등 <span class="hint">(직접 입력)</span></td><td><input class="cell" id="ad_correct" type="number" value="0" oninput="calcAttachGoods(true)"></td></tr>
         <tr class="subtot"><td>공과금계</td><td id="ad_publicSum">0 원</td></tr>
@@ -2140,10 +2248,10 @@
     </div></div>
     <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
       <table class="t">
-        <tr><td>등록면허세 <span class="hint">(자동차 가압류등록 건당 15,000) [A]</span></td><td><input class="cell" id="av_regTax" type="number" oninput="calcAttachCar(true)"></td></tr>
+        <tr><td>등록면허세 <span class="hint">(자동차 가압류등록 건당 15,000)</span> <span class="tag chk">확인필요</span><span class="law" title="자동차 가압류등록의 등록면허세는 확정된 근거를 확보하지 못했습니다. 화면의 15,000원은 추정치이므로 관할 시·군·구 또는 접수 법원에 확인한 금액을 직접 입력하십시오. 같은 화면 아래 안내문도 「추정·확인필요」로 되어 있습니다.">근거 미확보 · 추정치</span></td><td><input class="cell" id="av_regTax" type="number" oninput="calcAttachCar(true)"></td></tr>
         <tr><td>지방교육세 <span class="hint">(klac 미부과·필요시 입력)</span></td><td><input class="cell" id="av_eduTax" type="number" oninput="calcAttachCar(true)"></td></tr>
-        <tr><td>인지대 <span class="hint">(가압류 10,000 정액)</span></td><td><input class="cell" id="av_inji" type="number" oninput="calcAttachCar(true)"></td></tr>
-        <tr><td>송달료 <span class="hint" id="av_songNote"></span></td><td><input class="cell" id="av_song" type="number" oninput="calcAttachCar(true)"></td></tr>
+        <tr><td>인지대 <span class="hint">(가압류 10,000 정액)</span><span class="law" title="「민사소송 등 인지법」 §9② — 가압류·가처분의 신청, 그 결정에 대한 이의·취소 신청서에는 각 10,000원의 인지를 붙입니다.">인지법 §9②</span></td><td><input class="cell" id="av_inji" type="number" oninput="calcAttachCar(true)"></td></tr>
+        <tr><td>송달료 <span class="hint" id="av_songNote"></span><span class="law" title="「송달료규칙의 시행에 따른 업무처리요령」(재일 87-4) 별표1이 사건 종류별 예납 회차를 정합니다. 1회 단가는 우편요금에 연동되며 화면 상단에서 바꿀 수 있습니다.">재일 87-4 별표1</span></td><td><input class="cell" id="av_song" type="number" oninput="calcAttachCar(true)"></td></tr>
         <tr><td>보증보험료 <span class="hint">(담보금×0.085%·최저15,000) [확인필요]</span></td><td><input class="cell" id="av_bond" type="number" oninput="calcAttachCar(true)"></td></tr>
         <tr><td>등록수수료 등 <span class="hint">(직접 입력)</span></td><td><input class="cell" id="av_correct" type="number" value="0" oninput="calcAttachCar(true)"></td></tr>
         <tr class="subtot"><td>공과금계</td><td id="av_publicSum">0 원</td></tr>
@@ -2189,8 +2297,8 @@
 
     <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
       <table class="t">
-        <tr><td>인지대 <span class="hint">(가압류 10,000 정액)</span></td><td><input class="cell" id="ac_inji" type="number" oninput="calcAttachClaim(true)"></td></tr>
-        <tr><td>송달료 <span class="hint" id="ac_songNote"></span></td><td><input class="cell" id="ac_song" type="number" oninput="calcAttachClaim(true)"></td></tr>
+        <tr><td>인지대 <span class="hint">(가압류 10,000 정액)</span><span class="law" title="「민사소송 등 인지법」 §9② — 가압류·가처분의 신청, 그 결정에 대한 이의·취소 신청서에는 각 10,000원의 인지를 붙입니다.">인지법 §9②</span></td><td><input class="cell" id="ac_inji" type="number" oninput="calcAttachClaim(true)"></td></tr>
+        <tr><td>송달료 <span class="hint" id="ac_songNote"></span><span class="law" title="「송달료규칙의 시행에 따른 업무처리요령」(재일 87-4) 별표1이 사건 종류별 예납 회차를 정합니다. 1회 단가는 우편요금에 연동되며 화면 상단에서 바꿀 수 있습니다.">재일 87-4 별표1</span></td><td><input class="cell" id="ac_song" type="number" oninput="calcAttachClaim(true)"></td></tr>
         <tr><td>보증보험료 <span class="hint">(담보금×0.085%·최저15,000·수정가능) [확인필요]</span></td><td><input class="cell" id="ac_bond" type="number" oninput="calcAttachClaim(true)"></td></tr>
         <tr><td>보정료 등 <span class="hint">(직접 입력)</span></td><td><input class="cell" id="ac_correct" type="number" value="0" oninput="calcAttachClaim(true)"></td></tr>
         <tr class="subtot"><td>공과금계</td><td id="ac_publicSum">0 원</td></tr>
@@ -2246,12 +2354,12 @@
     <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
       <div class="note">가압류 인지는 <b>10,000원 정액</b>, 송달료는 <b>당사자수×3회</b>. 등록면허세 <b>채권액×0.2%</b>, 지방교육세 <b>등면세×20%</b> [A]. 보증보험료·등기수수료는 직접 수정 가능.</div>
       <table class="t">
-        <tr><td>등록면허세 <span class="hint" id="at_regNote">(채권액×0.2%)</span></td><td><input class="cell" id="at_regTax" type="number" oninput="calcAttach(true)"></td></tr>
-        <tr><td>지방교육세 <span class="hint">(등면세×20%)</span></td><td><input class="cell" id="at_eduTax" type="number" oninput="calcAttach(true)"></td></tr>
-        <tr><td>인지대 <span class="hint">(가압류 10,000 정액)</span></td><td><input class="cell" id="at_inji" type="number" oninput="calcAttach(true)"></td></tr>
-        <tr><td>송달료 <span class="hint" id="at_songNote"></span></td><td><input class="cell" id="at_song" type="number" oninput="calcAttach(true)"></td></tr>
+        <tr><td>등록면허세 <span class="hint" id="at_regNote">(채권액×0.2%)</span><span class="law" title="가압류 등기의 등록면허세는 채권금액의 1천분의 2(0.2%)입니다. 산출세액이 6,000원보다 적으면 6,000원을 적용합니다.">지방세법 §28①1호라목2)</span></td><td><input class="cell" id="at_regTax" type="number" oninput="calcAttach(true)"></td></tr>
+        <tr><td>지방교육세 <span class="hint">(등면세×20%)</span><span class="law" title="지방교육세를 정한 조항입니다. 2호는 납부해야 할 「등록면허세액의 100분의 20(20%)」을 세액으로 합니다.">지방세법 §151①2호</span></td><td><input class="cell" id="at_eduTax" type="number" oninput="calcAttach(true)"></td></tr>
+        <tr><td>인지대 <span class="hint">(가압류 10,000 정액)</span><span class="law" title="「민사소송 등 인지법」 §9② — 가압류·가처분의 신청, 그 결정에 대한 이의·취소 신청서에는 각 10,000원의 인지를 붙입니다.">인지법 §9②</span></td><td><input class="cell" id="at_inji" type="number" oninput="calcAttach(true)"></td></tr>
+        <tr><td>송달료 <span class="hint" id="at_songNote"></span><span class="law" title="「송달료규칙의 시행에 따른 업무처리요령」(재일 87-4) 별표1이 사건 종류별 예납 회차를 정합니다. 1회 단가는 우편요금에 연동되며 화면 상단에서 바꿀 수 있습니다.">재일 87-4 별표1</span></td><td><input class="cell" id="at_song" type="number" oninput="calcAttach(true)"></td></tr>
         <tr><td>보증보험료 <span class="hint">(담보금×0.3% 기본·수정가능) [확인필요]</span></td><td><input class="cell" id="at_bond" type="number" oninput="calcAttach(true)"></td></tr>
-        <tr><td>등기신청수수료 <span class="hint">(부동산당 4,000 기본)</span></td><td><input class="cell" id="at_regFee" type="number" value="4000" oninput="calcAttach(true)"></td></tr>
+        <tr><td>등기신청수수료 <span class="hint">(부동산당 4,000 기본)</span><span class="law" title="「등기사항증명서 등 수수료규칙」 §5의2 — 부동산 등기신청수수료. 2025.8.1. 시행(대법원규칙 제3222호)으로 방문서면·e-Form이 인상되었고 전자신청은 동결되었습니다.">수수료규칙 §5의2</span></td><td><input class="cell" id="at_regFee" type="number" value="4000" oninput="calcAttach(true)"></td></tr>
         <tr><td>보정료 등 <span class="hint">(직접 입력)</span></td><td><input class="cell" id="at_correct" type="number" value="0" oninput="calcAttach(true)"></td></tr>
         <tr class="subtot"><td>공과금계</td><td id="at_publicSum">0 원</td></tr>
       </table>
@@ -2309,12 +2417,12 @@
     <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag A" id="inj_pubTag">A</span></h2><div class="body">
       <div class="note" id="inj_note"></div>
       <table class="t">
-        <tr id="inj_regRow"><td>등록면허세 <span class="hint" id="inj_regNote">(피보전권리×0.2%·최저6,000)</span></td><td><input class="cell" id="inj_regTax" type="number" oninput="calcInjunction(true)"></td></tr>
-        <tr id="inj_eduRow"><td>지방교육세 <span class="hint">(등면세×20%)</span></td><td><input class="cell" id="inj_eduTax" type="number" oninput="calcInjunction(true)"></td></tr>
-        <tr><td>인지대 <span class="hint" id="inj_injiNote"></span></td><td><input class="cell" id="inj_inji" type="number" oninput="calcInjunction(true)"></td></tr>
-        <tr><td>송달료 <span class="hint" id="inj_songNote"></span></td><td><input class="cell" id="inj_song" type="number" oninput="calcInjunction(true)"></td></tr>
+        <tr id="inj_regRow"><td>등록면허세 <span class="hint" id="inj_regNote">(피보전권리×0.2%·최저6,000)</span><span class="law" title="가처분 등기의 등록면허세는 1천분의 2(0.2%)입니다. 산출세액이 6,000원보다 적으면 6,000원을 적용합니다.">지방세법 §28①1호라목3)</span></td><td><input class="cell" id="inj_regTax" type="number" oninput="calcInjunction(true)"></td></tr>
+        <tr id="inj_eduRow"><td>지방교육세 <span class="hint">(등면세×20%)</span><span class="law" title="지방교육세를 정한 조항입니다. 2호는 납부해야 할 「등록면허세액의 100분의 20(20%)」을 세액으로 합니다.">지방세법 §151①2호</span></td><td><input class="cell" id="inj_eduTax" type="number" oninput="calcInjunction(true)"></td></tr>
+        <tr><td>인지대 <span class="hint" id="inj_injiNote"></span><span class="law" title="「민사소송 등 인지법」 §9② — 가압류·가처분 신청은 10,000원입니다. 다만 단서에 따라 「임시의 지위를 정하는 가처분」은 본안 소가 인지액의 2분의 1(상한 50만원)입니다.">인지법 §9②</span></td><td><input class="cell" id="inj_inji" type="number" oninput="calcInjunction(true)"></td></tr>
+        <tr><td>송달료 <span class="hint" id="inj_songNote"></span><span class="law" title="「송달료규칙의 시행에 따른 업무처리요령」(재일 87-4) 별표1이 사건 종류별 예납 회차를 정합니다. 1회 단가는 우편요금에 연동되며 화면 상단에서 바꿀 수 있습니다.">재일 87-4 별표1</span></td><td><input class="cell" id="inj_song" type="number" oninput="calcInjunction(true)"></td></tr>
         <tr><td>보증보험료 <span class="hint">(담보금×0.3% 기본·수정가능) [확인필요]</span></td><td><input class="cell" id="inj_bond" type="number" oninput="calcInjunction(true)"></td></tr>
-        <tr id="inj_regFeeRow"><td>등기신청수수료 <span class="hint">(부동산당 4,000 기본)</span></td><td><input class="cell" id="inj_regFee" type="number" value="4000" oninput="calcInjunction(true)"></td></tr>
+        <tr id="inj_regFeeRow"><td>등기신청수수료 <span class="hint">(부동산당 4,000 기본)</span><span class="law" title="「등기사항증명서 등 수수료규칙」 §5의2 — 부동산 등기신청수수료. 2025.8.1. 시행(대법원규칙 제3222호)으로 방문서면·e-Form이 인상되었고 전자신청은 동결되었습니다.">수수료규칙 §5의2</span></td><td><input class="cell" id="inj_regFee" type="number" value="4000" oninput="calcInjunction(true)"></td></tr>
         <tr><td>보정료 등 <span class="hint">(직접 입력)</span></td><td><input class="cell" id="inj_correct" type="number" value="0" oninput="calcInjunction(true)"></td></tr>
         <tr class="subtot"><td>공과금계</td><td id="inj_publicSum">0 원</td></tr>
       </table>
@@ -2390,8 +2498,8 @@
     <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
       <div class="note">인지대(민사소송등인지법)·송달료는 자동 계산됩니다. <b>송달료 1회 단가는 화면 상단에서 확인·수정</b>하십시오. 특별송달료·보정료는 직접 입력하세요. <span class="hint">[A] 인지법 / [B] 송달료 조견표</span></div>
       <table class="t">
-        <tr><td>인지대 <span id="so_injiNote" class="hint"></span></td><td><input class="cell" id="so_inji" type="number" oninput="calcLawsuit(true)"></td></tr>
-        <tr><td>송달료 <span id="so_songNote" class="hint"></span></td><td><input class="cell" id="so_song" type="number" oninput="calcLawsuit(true)"></td></tr>
+        <tr><td>인지대 <span id="so_injiNote" class="hint"></span><span class="law" title="「민사소송 등 인지법」 §2는 소가에 따른 인지액을, §16은 전자소송으로 낼 때 10분의 9(10% 할인)를 정하고 있습니다.">인지법 §2·§16</span></td><td><input class="cell" id="so_inji" type="number" oninput="calcLawsuit(true)"></td></tr>
+        <tr><td>송달료 <span id="so_songNote" class="hint"></span><span class="law" title="「송달료규칙의 시행에 따른 업무처리요령」(재일 87-4) 별표1이 사건 종류별 예납 회차를 정합니다. 1회 단가는 우편요금에 연동되며 화면 상단에서 바꿀 수 있습니다.">재일 87-4 별표1</span></td><td><input class="cell" id="so_song" type="number" oninput="calcLawsuit(true)"></td></tr>
         <tr><td>특별송달료 <span class="hint">(건당 직접 입력)</span></td><td><input class="cell" id="so_specialFee" type="number" value="0" oninput="calcLawsuit(true)"></td></tr>
         <tr><td>보정료 등 <span class="hint">(직접 입력)</span></td><td><input class="cell" id="so_correct" type="number" value="0" oninput="calcLawsuit(true)"></td></tr>
         <tr class="subtot"><td>공과금계</td><td id="so_publicSum">0 원</td></tr>
@@ -2712,6 +2820,7 @@ const SCENARIO={
  "이혼 재산분할(소유권이전)":{cat:'re',full:'division',ref:'§15①6호'},
  "공유물분할(소유권이전)":{cat:'re',full:'partition',ref:'§15①4호'},
  "기타 취득원인(환매·건축물이전 등)":{cat:'re',full:'etcacq',ref:'§15 세율특례'},
+ "재건축·재개발등기(이전고시)":{cat:'re',full:'redev',ref:'보수기준 §12'},
  "외국인·재외국민 준비서류":{cat:'re',full:'foreign',ref:'등기예규 제1778호'},
  // 법인
  "법인설립":{cat:'corp',full:'corp'},
@@ -2827,6 +2936,7 @@ function _doOpenScenario(name){
   else if(SCENARIO[name].full==='misc'){document.getElementById('scene-기타신청').classList.add('active');buildMisc();}
   else if(SCENARIO[name].full==='gadeungi'){document.getElementById('scene-가등기').classList.add('active');calcGadeungi();}
   else if(SCENARIO[name].full==='marital'){document.getElementById('scene-부부재산약정').classList.add('active');calcMarital();}
+  else if(SCENARIO[name].full==='redev'){document.getElementById('scene-재건축재개발').classList.add('active');calcRedev();}
   else if(SCENARIO[name].full==='division'){document.getElementById('scene-이혼재산분할').classList.add('active');calcDivision();}
   else if(SCENARIO[name].full==='partition'){document.getElementById('scene-공유물분할').classList.add('active');calcPartition();}
   else if(SCENARIO[name].full==='etcacq'){document.getElementById('scene-기타취득원인').classList.add('active');calcEtcAcq();}
@@ -2953,19 +3063,22 @@ function calcSale(fromEdit){
   const publicSum=val('acqTax')+val('eduTax')+val('ruralTax')+bondLoss+regFee+val('stampDuty')+post+pubCustomSum('scene-매매');
   document.getElementById('publicSum').textContent=won(publicSum);
   const adj=parseFloat(document.getElementById('feeAdjust').value)||1;
-  const feeBase=Math.round(tierFee('Ⅰ-1',price)*adj);
+  /* ★ 표상 기본보수(feeRaw) — 가산보수(§10③④⑥·§14①②⑤)는 「당해 기본보수」 = 표상 금액을
+     기준으로 산정한다. 조정 후 금액에 가산율을 곱하면 가산에 가산이 얹혀 §2⑤(상한) 초과 소지. */
+  const feeRaw=tierFee('Ⅰ-1',price);
+  const feeBase=Math.round(feeRaw*adj);
   /* 보수기준 §10⑥ — 외국인·재외국민 포함 또는 등기원인 관련 서류를 외국에서 받아야 하는 등기
      → 당해 기본보수의 100% 상당액까지 가산 [A] */
-  const _fr=frAddRate('frAdd'), feeForeign=Math.round(feeBase*_fr);
+  const _fr=frAddRate('frAdd'), feeForeign=Math.round(feeRaw*_fr);
   document.getElementById('feeBaseCell').textContent=won(feeBase);
   document.getElementById('feeBaseNote').textContent='(보수표 Ⅰ-1'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   const _frCell=document.getElementById('feeForeignRow');
-  if(_frCell){_frCell.style.display=feeForeign>0?'table-row':'none';document.getElementById('feeForeignCell').textContent=won(feeForeign);document.getElementById('feeForeignNote').textContent='(기본보수 '+won(feeBase)+' × '+(_fr*100)+'% · §10⑥)';}
+  if(_frCell){_frCell.style.display=feeForeign>0?'table-row':'none';document.getElementById('feeForeignCell').textContent=won(feeForeign);document.getElementById('feeForeignNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+(_fr*100)+'% · §10⑥)';}
   /* 보수기준 §10④ — 등기원인·등기목적이 동일한 여러 부동산이 여러 등기소 관할에 걸친 경우
      → 당해 기본보수의 50% 상당액까지 가산 [A] */
-  const _mo=frAddRate('moAdd'), feeMulti=Math.round(feeBase*_mo);
+  const _mo=frAddRate('moAdd'), feeMulti=Math.round(feeRaw*_mo);
   const _moR=document.getElementById('feeMultiRow');
-  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('feeMultiCell').textContent=won(feeMulti);document.getElementById('feeMultiNote').textContent='(기본보수 '+won(feeBase)+' × '+Math.round(_mo*100)+'% · §10④)';}
+  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('feeMultiCell').textContent=won(feeMulti);document.getElementById('feeMultiNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+Math.round(_mo*100)+'% · §10④)';}
   let fee=feeBase+feeForeign+feeMulti;
   if(chk('f_origin'))fee+=50000;if(chk('f_tax'))fee+=50000;if(chk('f_bond'))fee+=40000;if(chk('f_trip'))fee+=val('tripFee');
   if(chk('f_same')){const n=Math.max(1,val('sameN')),e=Math.max(1,val('cntEstate'));const v=200000+((n-1)+(e-1))*30000;document.getElementById('sameCell').textContent=won(v);fee+=v;}else document.getElementById('sameCell').textContent='0 원';
@@ -3113,19 +3226,22 @@ function calcInherit(fromEdit){
   const publicSum=val('s_acqTax')+val('s_eduTax')+val('s_ruralTax')+bondLoss+regFee+post+pubCustomSum('scene-상속');
   document.getElementById('s_publicSum').textContent=won(publicSum);
   const adj=parseFloat(document.getElementById('s_adjust').value)||1;
-  const feeBase=Math.round(tierFee('Ⅰ-1',price)*adj);
+  /* ★ 표상 기본보수(feeRaw) — 가산보수(§10③④⑥·§14①②⑤)는 「당해 기본보수」 = 표상 금액을
+     기준으로 산정한다. 조정 후 금액에 가산율을 곱하면 가산에 가산이 얹혀 §2⑤(상한) 초과 소지. */
+  const feeRaw=tierFee('Ⅰ-1',price);
+  const feeBase=Math.round(feeRaw*adj);
   /* 보수기준 §10⑥ — 외국인·재외국민 포함 또는 등기원인 관련 서류를 외국에서 받아야 하는 등기
      → 당해 기본보수의 100% 상당액까지 가산 [A] */
-  const _fr=frAddRate('s_frAdd'), feeForeign=Math.round(feeBase*_fr);
+  const _fr=frAddRate('s_frAdd'), feeForeign=Math.round(feeRaw*_fr);
   document.getElementById('s_feeBaseCell').textContent=won(feeBase);
   document.getElementById('s_feeBaseNote').textContent='(보수표 Ⅰ-1'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   const _frCell=document.getElementById('s_feeForeignRow');
-  if(_frCell){_frCell.style.display=feeForeign>0?'table-row':'none';document.getElementById('s_feeForeignCell').textContent=won(feeForeign);document.getElementById('s_feeForeignNote').textContent='(기본보수 '+won(feeBase)+' × '+(_fr*100)+'% · §10⑥)';}
+  if(_frCell){_frCell.style.display=feeForeign>0?'table-row':'none';document.getElementById('s_feeForeignCell').textContent=won(feeForeign);document.getElementById('s_feeForeignNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+(_fr*100)+'% · §10⑥)';}
   /* 보수기준 §10④ — 등기원인·등기목적이 동일한 여러 부동산이 여러 등기소 관할에 걸친 경우
      → 당해 기본보수의 50% 상당액까지 가산 [A] */
-  const _mo=frAddRate('s_moAdd'), feeMulti=Math.round(feeBase*_mo);
+  const _mo=frAddRate('s_moAdd'), feeMulti=Math.round(feeRaw*_mo);
   const _moR=document.getElementById('s_feeMultiRow');
-  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('s_feeMultiCell').textContent=won(feeMulti);document.getElementById('s_feeMultiNote').textContent='(기본보수 '+won(feeBase)+' × '+Math.round(_mo*100)+'% · §10④)';}
+  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('s_feeMultiCell').textContent=won(feeMulti);document.getElementById('s_feeMultiNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+Math.round(_mo*100)+'% · §10④)';}
   let fee=feeBase+feeForeign+feeMulti;
   if(chk('s_f_origin'))fee+=50000;if(chk('s_f_tax'))fee+=50000;if(chk('s_f_bond'))fee+=40000;if(chk('s_f_trip'))fee+=val('s_tripFee');
   if(chk('s_f_same')){const n=Math.max(1,val('s_sameN')),e=Math.max(1,val('s_cntEstate'));const v=200000+((n-1)+(e-1))*30000;document.getElementById('s_sameCell').textContent=won(v);fee+=v;}else document.getElementById('s_sameCell').textContent='0 원';
@@ -3312,19 +3428,22 @@ function calcGift(fromEdit){
   const publicSum=val('gv_acqTax')+val('gv_eduTax')+val('gv_ruralTax')+bondLoss+regFee+post+pubCustomSum('scene-증여');
   document.getElementById('gv_publicSum').textContent=won(publicSum);
   const adj=parseFloat(document.getElementById('gv_adjust').value)||1;
-  const feeBase=Math.round(tierFee('Ⅰ-1',price)*adj);
+  /* ★ 표상 기본보수(feeRaw) — 가산보수(§10③④⑥·§14①②⑤)는 「당해 기본보수」 = 표상 금액을
+     기준으로 산정한다. 조정 후 금액에 가산율을 곱하면 가산에 가산이 얹혀 §2⑤(상한) 초과 소지. */
+  const feeRaw=tierFee('Ⅰ-1',price);
+  const feeBase=Math.round(feeRaw*adj);
   /* 보수기준 §10⑥ — 외국인·재외국민 포함 또는 등기원인 관련 서류를 외국에서 받아야 하는 등기
      → 당해 기본보수의 100% 상당액까지 가산 [A] */
-  const _fr=frAddRate('gv_frAdd'), feeForeign=Math.round(feeBase*_fr);
+  const _fr=frAddRate('gv_frAdd'), feeForeign=Math.round(feeRaw*_fr);
   document.getElementById('gv_feeBaseCell').textContent=won(feeBase);
   document.getElementById('gv_feeBaseNote').textContent='(보수표 Ⅰ-1 · 시가인정액'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   const _frCell=document.getElementById('gv_feeForeignRow');
-  if(_frCell){_frCell.style.display=feeForeign>0?'table-row':'none';document.getElementById('gv_feeForeignCell').textContent=won(feeForeign);document.getElementById('gv_feeForeignNote').textContent='(기본보수 '+won(feeBase)+' × '+(_fr*100)+'% · §10⑥)';}
+  if(_frCell){_frCell.style.display=feeForeign>0?'table-row':'none';document.getElementById('gv_feeForeignCell').textContent=won(feeForeign);document.getElementById('gv_feeForeignNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+(_fr*100)+'% · §10⑥)';}
   /* 보수기준 §10④ — 등기원인·등기목적이 동일한 여러 부동산이 여러 등기소 관할에 걸친 경우
      → 당해 기본보수의 50% 상당액까지 가산 [A] */
-  const _mo=frAddRate('gv_moAdd'), feeMulti=Math.round(feeBase*_mo);
+  const _mo=frAddRate('gv_moAdd'), feeMulti=Math.round(feeRaw*_mo);
   const _moR=document.getElementById('gv_feeMultiRow');
-  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('gv_feeMultiCell').textContent=won(feeMulti);document.getElementById('gv_feeMultiNote').textContent='(기본보수 '+won(feeBase)+' × '+Math.round(_mo*100)+'% · §10④)';}
+  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('gv_feeMultiCell').textContent=won(feeMulti);document.getElementById('gv_feeMultiNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+Math.round(_mo*100)+'% · §10④)';}
   let fee=feeBase+feeForeign+feeMulti;
   if(chk('gv_f_origin'))fee+=50000;if(chk('gv_f_inspect'))fee+=50000;if(chk('gv_f_tax'))fee+=50000;if(chk('gv_f_bond'))fee+=40000;if(chk('gv_f_trip'))fee+=val('gv_tripFee');
   if(chk('gv_f_same')){const n=Math.max(1,val('gv_sameN')),e=Math.max(1,val('gv_cntEstate'));const v=200000+((n-1)+(e-1))*30000;document.getElementById('gv_sameCell').textContent=won(v);fee+=v;}else document.getElementById('gv_sameCell').textContent='0 원';
@@ -3431,19 +3550,22 @@ function calcDivision(fromEdit){
   const publicSum=val('dv_acqTax')+val('dv_eduTax')+val('dv_ruralTax')+bondLoss+regFee+post+pubCustomSum('scene-이혼재산분할');
   document.getElementById('dv_publicSum').textContent=won(publicSum);
   const adj=parseFloat(document.getElementById('dv_adjust').value)||1;
-  const feeBase=Math.round(tierFee('Ⅰ-1',price)*adj);
+  /* ★ 표상 기본보수(feeRaw) — 가산보수(§10③④⑥·§14①②⑤)는 「당해 기본보수」 = 표상 금액을
+     기준으로 산정한다. 조정 후 금액에 가산율을 곱하면 가산에 가산이 얹혀 §2⑤(상한) 초과 소지. */
+  const feeRaw=tierFee('Ⅰ-1',price);
+  const feeBase=Math.round(feeRaw*adj);
   /* 보수기준 §10⑥ — 외국인·재외국민 포함 또는 등기원인 관련 서류를 외국에서 받아야 하는 등기
      → 당해 기본보수의 100% 상당액까지 가산 [A] */
-  const _fr=frAddRate('dv_frAdd'), feeForeign=Math.round(feeBase*_fr);
+  const _fr=frAddRate('dv_frAdd'), feeForeign=Math.round(feeRaw*_fr);
   document.getElementById('dv_feeBaseCell').textContent=won(feeBase);
   document.getElementById('dv_feeBaseNote').textContent='(보수표 Ⅰ-1 · 과세표준'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   const _frCell=document.getElementById('dv_feeForeignRow');
-  if(_frCell){_frCell.style.display=feeForeign>0?'table-row':'none';document.getElementById('dv_feeForeignCell').textContent=won(feeForeign);document.getElementById('dv_feeForeignNote').textContent='(기본보수 '+won(feeBase)+' × '+(_fr*100)+'% · §10⑥)';}
+  if(_frCell){_frCell.style.display=feeForeign>0?'table-row':'none';document.getElementById('dv_feeForeignCell').textContent=won(feeForeign);document.getElementById('dv_feeForeignNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+(_fr*100)+'% · §10⑥)';}
   /* 보수기준 §10④ — 등기원인·등기목적이 동일한 여러 부동산이 여러 등기소 관할에 걸친 경우
      → 당해 기본보수의 50% 상당액까지 가산 [A] */
-  const _mo=frAddRate('dv_moAdd'), feeMulti=Math.round(feeBase*_mo);
+  const _mo=frAddRate('dv_moAdd'), feeMulti=Math.round(feeRaw*_mo);
   const _moR=document.getElementById('dv_feeMultiRow');
-  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('dv_feeMultiCell').textContent=won(feeMulti);document.getElementById('dv_feeMultiNote').textContent='(기본보수 '+won(feeBase)+' × '+Math.round(_mo*100)+'% · §10④)';}
+  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('dv_feeMultiCell').textContent=won(feeMulti);document.getElementById('dv_feeMultiNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+Math.round(_mo*100)+'% · §10④)';}
   let fee=feeBase+feeForeign+feeMulti;
   if(chk('dv_f_origin'))fee+=50000;
   if(chk('dv_f_inspect')){fee+=50000;document.getElementById('dv_inspectCell').textContent='50,000 원';}else document.getElementById('dv_inspectCell').textContent='0 원';
@@ -3785,19 +3907,22 @@ function calcEtcAcqTail(){
   const publicSum=val('ea_acqTax')+val('ea_eduTax')+val('ea_ruralTax')+bondLoss+regFee+post+pubCustomSum('scene-기타취득원인');
   document.getElementById('ea_publicSum').textContent=won(publicSum);
   const adj=parseFloat(document.getElementById('ea_adjust').value)||1;
-  const feeBase=Math.round(tierFee('Ⅰ-1',price)*adj);
+  /* ★ 표상 기본보수(feeRaw) — 가산보수(§10③④⑥·§14①②⑤)는 「당해 기본보수」 = 표상 금액을
+     기준으로 산정한다. 조정 후 금액에 가산율을 곱하면 가산에 가산이 얹혀 §2⑤(상한) 초과 소지. */
+  const feeRaw=tierFee('Ⅰ-1',price);
+  const feeBase=Math.round(feeRaw*adj);
   /* 보수기준 §10⑥ — 외국인·재외국민 포함 또는 등기원인 관련 서류를 외국에서 받아야 하는 등기
      → 당해 기본보수의 100% 상당액까지 가산 [A] */
-  const _fr=frAddRate('ea_frAdd'), feeForeign=Math.round(feeBase*_fr);
+  const _fr=frAddRate('ea_frAdd'), feeForeign=Math.round(feeRaw*_fr);
   document.getElementById('ea_feeBaseCell').textContent=won(feeBase);
   document.getElementById('ea_feeBaseNote').textContent='(보수표 Ⅰ-1 · 과세표준'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   const _frCell=document.getElementById('ea_feeForeignRow');
-  if(_frCell){_frCell.style.display=feeForeign>0?'table-row':'none';document.getElementById('ea_feeForeignCell').textContent=won(feeForeign);document.getElementById('ea_feeForeignNote').textContent='(기본보수 '+won(feeBase)+' × '+(_fr*100)+'% · §10⑥)';}
+  if(_frCell){_frCell.style.display=feeForeign>0?'table-row':'none';document.getElementById('ea_feeForeignCell').textContent=won(feeForeign);document.getElementById('ea_feeForeignNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+(_fr*100)+'% · §10⑥)';}
   /* 보수기준 §10④ — 등기원인·등기목적이 동일한 여러 부동산이 여러 등기소 관할에 걸친 경우
      → 당해 기본보수의 50% 상당액까지 가산 [A] */
-  const _mo=frAddRate('ea_moAdd'), feeMulti=Math.round(feeBase*_mo);
+  const _mo=frAddRate('ea_moAdd'), feeMulti=Math.round(feeRaw*_mo);
   const _moR=document.getElementById('ea_feeMultiRow');
-  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('ea_feeMultiCell').textContent=won(feeMulti);document.getElementById('ea_feeMultiNote').textContent='(기본보수 '+won(feeBase)+' × '+Math.round(_mo*100)+'% · §10④)';}
+  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('ea_feeMultiCell').textContent=won(feeMulti);document.getElementById('ea_feeMultiNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+Math.round(_mo*100)+'% · §10④)';}
   let fee=feeBase+feeForeign+feeMulti;
   if(chk('ea_f_origin')){fee+=50000;document.getElementById('ea_originCell').textContent='50,000 원';}else document.getElementById('ea_originCell').textContent='0 원';
   if(chk('ea_f_tax')){fee+=50000;document.getElementById('ea_taxCell').textContent='50,000 원';}else document.getElementById('ea_taxCell').textContent='0 원';
@@ -3887,19 +4012,22 @@ function calcPartition(fromEdit){
   const publicSum=val('pt_acqTax')+val('pt_eduTax')+val('pt_ruralTax')+bondLoss+regFee+post+pubCustomSum('scene-공유물분할');
   document.getElementById('pt_publicSum').textContent=won(publicSum);
   const adj=parseFloat(document.getElementById('pt_adjust').value)||1;
-  const feeBase=Math.round(tierFee('Ⅰ-1',price)*adj);
+  /* ★ 표상 기본보수(feeRaw) — 가산보수(§10③④⑥·§14①②⑤)는 「당해 기본보수」 = 표상 금액을
+     기준으로 산정한다. 조정 후 금액에 가산율을 곱하면 가산에 가산이 얹혀 §2⑤(상한) 초과 소지. */
+  const feeRaw=tierFee('Ⅰ-1',price);
+  const feeBase=Math.round(feeRaw*adj);
   /* 보수기준 §10⑥ — 외국인·재외국민 포함 또는 등기원인 관련 서류를 외국에서 받아야 하는 등기
      → 당해 기본보수의 100% 상당액까지 가산 [A] */
-  const _fr=frAddRate('pt_frAdd'), feeForeign=Math.round(feeBase*_fr);
+  const _fr=frAddRate('pt_frAdd'), feeForeign=Math.round(feeRaw*_fr);
   document.getElementById('pt_feeBaseCell').textContent=won(feeBase);
   document.getElementById('pt_feeBaseNote').textContent='(보수표 Ⅰ-1 · 과세표준'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   const _frCell=document.getElementById('pt_feeForeignRow');
-  if(_frCell){_frCell.style.display=feeForeign>0?'table-row':'none';document.getElementById('pt_feeForeignCell').textContent=won(feeForeign);document.getElementById('pt_feeForeignNote').textContent='(기본보수 '+won(feeBase)+' × '+(_fr*100)+'% · §10⑥)';}
+  if(_frCell){_frCell.style.display=feeForeign>0?'table-row':'none';document.getElementById('pt_feeForeignCell').textContent=won(feeForeign);document.getElementById('pt_feeForeignNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+(_fr*100)+'% · §10⑥)';}
   /* 보수기준 §10④ — 등기원인·등기목적이 동일한 여러 부동산이 여러 등기소 관할에 걸친 경우
      → 당해 기본보수의 50% 상당액까지 가산 [A] */
-  const _mo=frAddRate('pt_moAdd'), feeMulti=Math.round(feeBase*_mo);
+  const _mo=frAddRate('pt_moAdd'), feeMulti=Math.round(feeRaw*_mo);
   const _moR=document.getElementById('pt_feeMultiRow');
-  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('pt_feeMultiCell').textContent=won(feeMulti);document.getElementById('pt_feeMultiNote').textContent='(기본보수 '+won(feeBase)+' × '+Math.round(_mo*100)+'% · §10④)';}
+  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('pt_feeMultiCell').textContent=won(feeMulti);document.getElementById('pt_feeMultiNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+Math.round(_mo*100)+'% · §10④)';}
   let fee=feeBase+feeForeign+feeMulti;
   if(chk('pt_f_origin'))fee+=50000;
   if(chk('pt_f_inspect')){fee+=50000;document.getElementById('pt_inspectCell').textContent='50,000 원';}else document.getElementById('pt_inspectCell').textContent='0 원';
@@ -4046,19 +4174,22 @@ function calcBurden(fromEdit){
   document.getElementById('bv_publicSum').textContent=won(publicSum);
   // 보수: Ⅰ-1 신고금액 전체 기준
   const adj=parseFloat(document.getElementById('bv_adjust').value)||1;
-  const feeBase=Math.round(tierFee('Ⅰ-1',total)*adj);
+  /* ★ 표상 기본보수(feeRaw) — 가산보수(§10③④⑥·§14①②⑤)는 「당해 기본보수」 = 표상 금액을
+     기준으로 산정한다. 조정 후 금액에 가산율을 곱하면 가산에 가산이 얹혀 §2⑤(상한) 초과 소지. */
+  const feeRaw=tierFee('Ⅰ-1',total);
+  const feeBase=Math.round(feeRaw*adj);
   /* 보수기준 §10⑥ — 외국인·재외국민 포함 또는 등기원인 관련 서류를 외국에서 받아야 하는 등기
      → 당해 기본보수의 100% 상당액까지 가산 [A] */
-  const _fr=frAddRate('bv_frAdd'), feeForeign=Math.round(feeBase*_fr);
+  const _fr=frAddRate('bv_frAdd'), feeForeign=Math.round(feeRaw*_fr);
   document.getElementById('bv_feeBaseCell').textContent=won(feeBase);
   document.getElementById('bv_feeBaseNote').textContent='(보수표 Ⅰ-1 · 신고금액 전체'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   const _frCell=document.getElementById('bv_feeForeignRow');
-  if(_frCell){_frCell.style.display=feeForeign>0?'table-row':'none';document.getElementById('bv_feeForeignCell').textContent=won(feeForeign);document.getElementById('bv_feeForeignNote').textContent='(기본보수 '+won(feeBase)+' × '+(_fr*100)+'% · §10⑥)';}
+  if(_frCell){_frCell.style.display=feeForeign>0?'table-row':'none';document.getElementById('bv_feeForeignCell').textContent=won(feeForeign);document.getElementById('bv_feeForeignNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+(_fr*100)+'% · §10⑥)';}
   /* 보수기준 §10④ — 등기원인·등기목적이 동일한 여러 부동산이 여러 등기소 관할에 걸친 경우
      → 당해 기본보수의 50% 상당액까지 가산 [A] */
-  const _mo=frAddRate('bv_moAdd'), feeMulti=Math.round(feeBase*_mo);
+  const _mo=frAddRate('bv_moAdd'), feeMulti=Math.round(feeRaw*_mo);
   const _moR=document.getElementById('bv_feeMultiRow');
-  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('bv_feeMultiCell').textContent=won(feeMulti);document.getElementById('bv_feeMultiNote').textContent='(기본보수 '+won(feeBase)+' × '+Math.round(_mo*100)+'% · §10④)';}
+  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('bv_feeMultiCell').textContent=won(feeMulti);document.getElementById('bv_feeMultiNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+Math.round(_mo*100)+'% · §10④)';}
   let fee=feeBase+feeForeign+feeMulti;
   if(chk('bv_f_origin'))fee+=50000;if(chk('bv_f_inspect'))fee+=50000;if(chk('bv_f_tax'))fee+=50000;if(chk('bv_f_bond'))fee+=40000;if(chk('bv_f_trip'))fee+=val('bv_tripFee');
   if(chk('bv_f_same')){const n=Math.max(1,val('bv_sameN')),e=Math.max(1,val('bv_cntEstate'));const v=200000+((n-1)+(e-1))*30000;document.getElementById('bv_sameCell').textContent=won(v);fee+=v;}else document.getElementById('bv_sameCell').textContent='0 원';
@@ -4111,19 +4242,22 @@ function calcMortgage(mode){
   const publicSum=val('mt_regTax')+val('mt_eduTax')+bondLoss+regFee+post+pubCustomSum('scene-근저당설정');
   document.getElementById('mt_publicSum').textContent=won(publicSum);
   const adj=parseFloat(document.getElementById('mt_adjust').value)||1;
-  const feeBase=Math.round(tierFee('Ⅰ-1',max)*adj);
+  /* ★ 표상 기본보수(feeRaw) — 가산보수(§10③④⑥·§14①②⑤)는 「당해 기본보수」 = 표상 금액을
+     기준으로 산정한다. 조정 후 금액에 가산율을 곱하면 가산에 가산이 얹혀 §2⑤(상한) 초과 소지. */
+  const feeRaw=tierFee('Ⅰ-1',max);
+  const feeBase=Math.round(feeRaw*adj);
   /* 보수기준 §10⑥ — 외국인·재외국민 포함 또는 등기원인 관련 서류를 외국에서 받아야 하는 등기
      → 당해 기본보수의 100% 상당액까지 가산 [A] */
-  const _fr=frAddRate('mt_frAdd'), feeForeign=Math.round(feeBase*_fr);
+  const _fr=frAddRate('mt_frAdd'), feeForeign=Math.round(feeRaw*_fr);
   document.getElementById('mt_feeBaseCell').textContent=won(feeBase);
   document.getElementById('mt_feeBaseNote').textContent='(보수표 Ⅰ-1 · 채권최고액'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   const _frCell=document.getElementById('mt_feeForeignRow');
-  if(_frCell){_frCell.style.display=feeForeign>0?'table-row':'none';document.getElementById('mt_feeForeignCell').textContent=won(feeForeign);document.getElementById('mt_feeForeignNote').textContent='(기본보수 '+won(feeBase)+' × '+(_fr*100)+'% · §10⑥)';}
+  if(_frCell){_frCell.style.display=feeForeign>0?'table-row':'none';document.getElementById('mt_feeForeignCell').textContent=won(feeForeign);document.getElementById('mt_feeForeignNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+(_fr*100)+'% · §10⑥)';}
   /* 보수기준 §10④ — 등기원인·등기목적이 동일한 여러 부동산이 여러 등기소 관할에 걸친 경우
      → 당해 기본보수의 50% 상당액까지 가산 [A] */
-  const _mo=frAddRate('mt_moAdd'), feeMulti=Math.round(feeBase*_mo);
+  const _mo=frAddRate('mt_moAdd'), feeMulti=Math.round(feeRaw*_mo);
   const _moR=document.getElementById('mt_feeMultiRow');
-  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('mt_feeMultiCell').textContent=won(feeMulti);document.getElementById('mt_feeMultiNote').textContent='(기본보수 '+won(feeBase)+' × '+Math.round(_mo*100)+'% · §10④)';}
+  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('mt_feeMultiCell').textContent=won(feeMulti);document.getElementById('mt_feeMultiNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+Math.round(_mo*100)+'% · §10④)';}
   let fee=feeBase+feeForeign+feeMulti;
   if(chk('mt_f_origin'))fee+=50000;if(chk('mt_f_tax'))fee+=50000;if(chk('mt_f_bond'))fee+=40000;if(chk('mt_f_trip'))fee+=val('mt_tripFee');
   const sameRow=document.getElementById('mt_sameRow');
@@ -4163,19 +4297,22 @@ function calcGadeungi(fromEdit){
   const publicSum=val('ga_regTax')+val('ga_eduTax')+regFee+post+pubCustomSum('scene-가등기');
   document.getElementById('ga_publicSum').textContent=won(publicSum);
   const adj=parseFloat(document.getElementById('ga_adjust').value)||1;
-  const feeBase=Math.round(tierFee('Ⅰ-1',base)*adj);
+  /* ★ 표상 기본보수(feeRaw) — 가산보수(§10③④⑥·§14①②⑤)는 「당해 기본보수」 = 표상 금액을
+     기준으로 산정한다. 조정 후 금액에 가산율을 곱하면 가산에 가산이 얹혀 §2⑤(상한) 초과 소지. */
+  const feeRaw=tierFee('Ⅰ-1',base);
+  const feeBase=Math.round(feeRaw*adj);
   /* 보수기준 §10⑥ — 외국인·재외국민 포함 또는 등기원인 관련 서류를 외국에서 받아야 하는 등기
      → 당해 기본보수의 100% 상당액까지 가산 [A] */
-  const _fr=frAddRate('ga_frAdd'), feeForeign=Math.round(feeBase*_fr);
+  const _fr=frAddRate('ga_frAdd'), feeForeign=Math.round(feeRaw*_fr);
   document.getElementById('ga_feeBaseCell').textContent=won(feeBase);
   document.getElementById('ga_feeBaseNote').textContent='(보수표 Ⅰ-1'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   const _frCell=document.getElementById('ga_feeForeignRow');
-  if(_frCell){_frCell.style.display=feeForeign>0?'table-row':'none';document.getElementById('ga_feeForeignCell').textContent=won(feeForeign);document.getElementById('ga_feeForeignNote').textContent='(기본보수 '+won(feeBase)+' × '+(_fr*100)+'% · §10⑥)';}
+  if(_frCell){_frCell.style.display=feeForeign>0?'table-row':'none';document.getElementById('ga_feeForeignCell').textContent=won(feeForeign);document.getElementById('ga_feeForeignNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+(_fr*100)+'% · §10⑥)';}
   /* 보수기준 §10④ — 등기원인·등기목적이 동일한 여러 부동산이 여러 등기소 관할에 걸친 경우
      → 당해 기본보수의 50% 상당액까지 가산 [A] */
-  const _mo=frAddRate('ga_moAdd'), feeMulti=Math.round(feeBase*_mo);
+  const _mo=frAddRate('ga_moAdd'), feeMulti=Math.round(feeRaw*_mo);
   const _moR=document.getElementById('ga_feeMultiRow');
-  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('ga_feeMultiCell').textContent=won(feeMulti);document.getElementById('ga_feeMultiNote').textContent='(기본보수 '+won(feeBase)+' × '+Math.round(_mo*100)+'% · §10④)';}
+  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('ga_feeMultiCell').textContent=won(feeMulti);document.getElementById('ga_feeMultiNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+Math.round(_mo*100)+'% · §10④)';}
   let fee=feeBase+feeForeign+feeMulti;
   if(chk('ga_f_origin'))fee+=50000;if(chk('ga_f_tax'))fee+=50000;if(chk('ga_f_trip'))fee+=val('ga_tripFee');
   const vRow=document.getElementById('ga_verifyRow');
@@ -4244,19 +4381,22 @@ function calcSintak(fromEdit){
   const publicSum=val('st_regTax')+val('st_eduTax')+regFee+post+pubCustomSum('scene-신탁등기');
   document.getElementById('st_publicSum').textContent=won(publicSum);
   const adj=parseFloat(document.getElementById('st_adjust').value)||1;
-  const feeBase=Math.round(FLAT['Ⅰ-4(1)']*adj);
+  /* ★ 표상 기본보수(feeRaw) — 가산보수(§10③④⑥·§14①②⑤)는 「당해 기본보수」 = 표상 금액을
+     기준으로 산정한다. 조정 후 금액에 가산율을 곱하면 가산에 가산이 얹혀 §2⑤(상한) 초과 소지. */
+  const feeRaw=FLAT['Ⅰ-4(1)'];
+  const feeBase=Math.round(feeRaw*adj);
   /* 보수기준 §10⑥ — 외국인·재외국민 포함 또는 등기원인 관련 서류를 외국에서 받아야 하는 등기
      → 당해 기본보수의 100% 상당액까지 가산 [A] */
-  const _fr=frAddRate('st_frAdd'), feeForeign=Math.round(feeBase*_fr);
+  const _fr=frAddRate('st_frAdd'), feeForeign=Math.round(feeRaw*_fr);
   document.getElementById('st_feeBaseCell').textContent=won(feeBase);
   document.getElementById('st_feeBaseNote').textContent='(보수표 Ⅰ-4(1) 신탁등기 정액 150,000'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   const _frR=document.getElementById('st_feeForeignRow');
-  if(_frR){_frR.style.display=feeForeign>0?'table-row':'none';document.getElementById('st_feeForeignCell').textContent=won(feeForeign);document.getElementById('st_feeForeignNote').textContent='(기본보수 '+won(feeBase)+' × '+(_fr*100)+'% · §10⑥)';}
+  if(_frR){_frR.style.display=feeForeign>0?'table-row':'none';document.getElementById('st_feeForeignCell').textContent=won(feeForeign);document.getElementById('st_feeForeignNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+(_fr*100)+'% · §10⑥)';}
   /* 보수기준 §10④ — 등기원인·등기목적이 동일한 여러 부동산이 여러 등기소 관할에 걸친 경우
      → 당해 기본보수의 50% 상당액까지 가산 [A] */
-  const _mo=frAddRate('st_moAdd'), feeMulti=Math.round(feeBase*_mo);
+  const _mo=frAddRate('st_moAdd'), feeMulti=Math.round(feeRaw*_mo);
   const _moR=document.getElementById('st_feeMultiRow');
-  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('st_feeMultiCell').textContent=won(feeMulti);document.getElementById('st_feeMultiNote').textContent='(기본보수 '+won(feeBase)+' × '+Math.round(_mo*100)+'% · §10④)';}
+  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('st_feeMultiCell').textContent=won(feeMulti);document.getElementById('st_feeMultiNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+Math.round(_mo*100)+'% · §10④)';}
   let fee=feeBase+feeForeign+feeMulti;
   if(chk('st_f_origin'))fee+=50000;if(chk('st_f_tax'))fee+=50000;if(chk('st_f_trip'))fee+=val('st_tripFee');
   EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const c=document.getElementById('sta_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('staq_'+id).value)||1);fee+=FLAT[code]*q;}});
@@ -4295,19 +4435,22 @@ function calcMortgageAdd(fromEdit){
   const publicSum=val('ma_regTax')+val('ma_eduTax')+bondLoss+regFee+post+pubCustomSum('scene-담보권추가설정');
   document.getElementById('ma_publicSum').textContent=won(publicSum);
   const adj=parseFloat(document.getElementById('ma_adjust').value)||1;
-  const feeBase=Math.round(tierFee('Ⅰ-2',max)*adj);
+  /* ★ 표상 기본보수(feeRaw) — 가산보수(§10③④⑥·§14①②⑤)는 「당해 기본보수」 = 표상 금액을
+     기준으로 산정한다. 조정 후 금액에 가산율을 곱하면 가산에 가산이 얹혀 §2⑤(상한) 초과 소지. */
+  const feeRaw=tierFee('Ⅰ-2',max);
+  const feeBase=Math.round(feeRaw*adj);
   /* 보수기준 §10⑥ — 외국인·재외국민 포함 또는 등기원인 관련 서류를 외국에서 받아야 하는 등기
      → 당해 기본보수의 100% 상당액까지 가산 [A] */
-  const _fr=frAddRate('ma_frAdd'), feeForeign=Math.round(feeBase*_fr);
+  const _fr=frAddRate('ma_frAdd'), feeForeign=Math.round(feeRaw*_fr);
   document.getElementById('ma_feeBaseCell').textContent=won(feeBase);
   document.getElementById('ma_feeBaseNote').textContent='(보수표 Ⅰ-2 · 채권최고액'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   const _frCell=document.getElementById('ma_feeForeignRow');
-  if(_frCell){_frCell.style.display=feeForeign>0?'table-row':'none';document.getElementById('ma_feeForeignCell').textContent=won(feeForeign);document.getElementById('ma_feeForeignNote').textContent='(기본보수 '+won(feeBase)+' × '+(_fr*100)+'% · §10⑥)';}
+  if(_frCell){_frCell.style.display=feeForeign>0?'table-row':'none';document.getElementById('ma_feeForeignCell').textContent=won(feeForeign);document.getElementById('ma_feeForeignNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+(_fr*100)+'% · §10⑥)';}
   /* 보수기준 §10④ — 등기원인·등기목적이 동일한 여러 부동산이 여러 등기소 관할에 걸친 경우
      → 당해 기본보수의 50% 상당액까지 가산 [A] */
-  const _mo=frAddRate('ma_moAdd'), feeMulti=Math.round(feeBase*_mo);
+  const _mo=frAddRate('ma_moAdd'), feeMulti=Math.round(feeRaw*_mo);
   const _moR=document.getElementById('ma_feeMultiRow');
-  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('ma_feeMultiCell').textContent=won(feeMulti);document.getElementById('ma_feeMultiNote').textContent='(기본보수 '+won(feeBase)+' × '+Math.round(_mo*100)+'% · §10④)';}
+  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('ma_feeMultiCell').textContent=won(feeMulti);document.getElementById('ma_feeMultiNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+Math.round(_mo*100)+'% · §10④)';}
   let fee=feeBase+feeForeign+feeMulti;
   if(chk('ma_f_origin'))fee+=50000;if(chk('ma_f_tax'))fee+=50000;if(chk('ma_f_bond'))fee+=40000;if(chk('ma_f_trip'))fee+=val('ma_tripFee');
   const sameRow=document.getElementById('ma_sameRow');
@@ -4341,19 +4484,22 @@ function calcMortCancel(fromEdit){
   const publicSum=val('mtc_regTax')+val('mtc_eduTax')+regFee+val('mtc_postFee')+pubCustomSum('scene-근저당말소');
   document.getElementById('mtc_publicSum').textContent=won(publicSum);
   const adj=parseFloat(document.getElementById('mtc_adjust').value)||1;
-  const feeBase=Math.round(FLAT['Ⅰ-3(4)']*cnt*adj);
+  /* ★ 표상 기본보수(feeRaw) — 가산보수(§10③④⑥·§14①②⑤)는 「당해 기본보수」 = 표상 금액을
+     기준으로 산정한다. 조정 후 금액에 가산율을 곱하면 가산에 가산이 얹혀 §2⑤(상한) 초과 소지. */
+  const feeRaw=FLAT['Ⅰ-3(4)']*cnt;
+  const feeBase=Math.round(feeRaw*adj);
   /* 보수기준 §10⑥ — 외국인·재외국민 포함 또는 등기원인 관련 서류를 외국에서 받아야 하는 등기
      → 당해 기본보수의 100% 상당액까지 가산 [A] */
-  const _fr=frAddRate('mtc_frAdd'), feeForeign=Math.round(feeBase*_fr);
+  const _fr=frAddRate('mtc_frAdd'), feeForeign=Math.round(feeRaw*_fr);
   document.getElementById('mtc_feeBaseCell').textContent=won(feeBase);
   document.getElementById('mtc_feeBaseNote').textContent='(보수표 Ⅰ-3(4) 80,000 × '+cnt+'건'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   const _frR=document.getElementById('mtc_feeForeignRow');
-  if(_frR){_frR.style.display=feeForeign>0?'table-row':'none';document.getElementById('mtc_feeForeignCell').textContent=won(feeForeign);document.getElementById('mtc_feeForeignNote').textContent='(기본보수 '+won(feeBase)+' × '+(_fr*100)+'% · §10⑥)';}
+  if(_frR){_frR.style.display=feeForeign>0?'table-row':'none';document.getElementById('mtc_feeForeignCell').textContent=won(feeForeign);document.getElementById('mtc_feeForeignNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+(_fr*100)+'% · §10⑥)';}
   /* 보수기준 §10④ — 등기원인·등기목적이 동일한 여러 부동산이 여러 등기소 관할에 걸친 경우
      → 당해 기본보수의 50% 상당액까지 가산 [A] */
-  const _mo=frAddRate('mtc_moAdd'), feeMulti=Math.round(feeBase*_mo);
+  const _mo=frAddRate('mtc_moAdd'), feeMulti=Math.round(feeRaw*_mo);
   const _moR=document.getElementById('mtc_feeMultiRow');
-  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('mtc_feeMultiCell').textContent=won(feeMulti);document.getElementById('mtc_feeMultiNote').textContent='(기본보수 '+won(feeBase)+' × '+Math.round(_mo*100)+'% · §10④)';}
+  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('mtc_feeMultiCell').textContent=won(feeMulti);document.getElementById('mtc_feeMultiNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+Math.round(_mo*100)+'% · §10④)';}
   let fee=feeBase+feeForeign+feeMulti;
   if(chk('mtc_f_trip'))fee+=val('mtc_tripFee');
   EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const c=document.getElementById('mtca_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('mtcaq_'+id).value)||1);fee+=FLAT[code]*q;}});
@@ -4424,19 +4570,22 @@ function calcPreserve(fromEdit){
   const publicSum=val('pr_acqTax')+val('pr_eduTax')+val('pr_ruralTax')+bondLoss+regFee+post+pubCustomSum('scene-보존');
   document.getElementById('pr_publicSum').textContent=won(publicSum);
   const adj=parseFloat(document.getElementById('pr_adjust').value)||1;
-  const feeBase=Math.round(tierFee('Ⅰ-1',price)*adj);
+  /* ★ 표상 기본보수(feeRaw) — 가산보수(§10③④⑥·§14①②⑤)는 「당해 기본보수」 = 표상 금액을
+     기준으로 산정한다. 조정 후 금액에 가산율을 곱하면 가산에 가산이 얹혀 §2⑤(상한) 초과 소지. */
+  const feeRaw=tierFee('Ⅰ-1',price);
+  const feeBase=Math.round(feeRaw*adj);
   /* 보수기준 §10⑥ — 외국인·재외국민 포함 또는 등기원인 관련 서류를 외국에서 받아야 하는 등기
      → 당해 기본보수의 100% 상당액까지 가산 [A] */
-  const _fr=frAddRate('pr_frAdd'), feeForeign=Math.round(feeBase*_fr);
+  const _fr=frAddRate('pr_frAdd'), feeForeign=Math.round(feeRaw*_fr);
   document.getElementById('pr_feeBaseCell').textContent=won(feeBase);
   document.getElementById('pr_feeBaseNote').textContent='(보수표 Ⅰ-1'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   const _frCell=document.getElementById('pr_feeForeignRow');
-  if(_frCell){_frCell.style.display=feeForeign>0?'table-row':'none';document.getElementById('pr_feeForeignCell').textContent=won(feeForeign);document.getElementById('pr_feeForeignNote').textContent='(기본보수 '+won(feeBase)+' × '+(_fr*100)+'% · §10⑥)';}
+  if(_frCell){_frCell.style.display=feeForeign>0?'table-row':'none';document.getElementById('pr_feeForeignCell').textContent=won(feeForeign);document.getElementById('pr_feeForeignNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+(_fr*100)+'% · §10⑥)';}
   /* 보수기준 §10④ — 등기원인·등기목적이 동일한 여러 부동산이 여러 등기소 관할에 걸친 경우
      → 당해 기본보수의 50% 상당액까지 가산 [A] */
-  const _mo=frAddRate('pr_moAdd'), feeMulti=Math.round(feeBase*_mo);
+  const _mo=frAddRate('pr_moAdd'), feeMulti=Math.round(feeRaw*_mo);
   const _moR=document.getElementById('pr_feeMultiRow');
-  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('pr_feeMultiCell').textContent=won(feeMulti);document.getElementById('pr_feeMultiNote').textContent='(기본보수 '+won(feeBase)+' × '+Math.round(_mo*100)+'% · §10④)';}
+  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('pr_feeMultiCell').textContent=won(feeMulti);document.getElementById('pr_feeMultiNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+Math.round(_mo*100)+'% · §10④)';}
   let fee=feeBase+feeForeign+feeMulti;
   if(chk('pr_f_tax'))fee+=50000;if(chk('pr_f_bond'))fee+=40000;if(chk('pr_f_trip'))fee+=val('pr_tripFee');
   if(chk('pr_f_same')){const n=Math.max(1,val('pr_sameN')),e=Math.max(1,val('pr_cntEstate'));const v=200000+((n-1)+(e-1))*30000;document.getElementById('pr_sameCell').textContent=won(v);fee+=v;}else document.getElementById('pr_sameCell').textContent='0 원';
@@ -4490,19 +4639,22 @@ function calcRight(fromEdit){
   const publicSum=val('rt_regTax')+val('rt_eduTax')+regFee+post+pubCustomSum('scene-권리설정');
   document.getElementById('rt_publicSum').textContent=won(publicSum);
   const adj=parseFloat(document.getElementById('rt_adjust').value)||1;
-  const feeBase=Math.round(tierFee('Ⅰ-1',price)*adj);
+  /* ★ 표상 기본보수(feeRaw) — 가산보수(§10③④⑥·§14①②⑤)는 「당해 기본보수」 = 표상 금액을
+     기준으로 산정한다. 조정 후 금액에 가산율을 곱하면 가산에 가산이 얹혀 §2⑤(상한) 초과 소지. */
+  const feeRaw=tierFee('Ⅰ-1',price);
+  const feeBase=Math.round(feeRaw*adj);
   /* 보수기준 §10⑥ — 외국인·재외국민 포함 또는 등기원인 관련 서류를 외국에서 받아야 하는 등기
      → 당해 기본보수의 100% 상당액까지 가산 [A] */
-  const _fr=frAddRate('rt_frAdd'), feeForeign=Math.round(feeBase*_fr);
+  const _fr=frAddRate('rt_frAdd'), feeForeign=Math.round(feeRaw*_fr);
   document.getElementById('rt_feeBaseCell').textContent=won(feeBase);
   document.getElementById('rt_feeBaseNote').textContent='(보수표 Ⅰ-1 · '+radio('rt_type')+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   const _frCell=document.getElementById('rt_feeForeignRow');
-  if(_frCell){_frCell.style.display=feeForeign>0?'table-row':'none';document.getElementById('rt_feeForeignCell').textContent=won(feeForeign);document.getElementById('rt_feeForeignNote').textContent='(기본보수 '+won(feeBase)+' × '+(_fr*100)+'% · §10⑥)';}
+  if(_frCell){_frCell.style.display=feeForeign>0?'table-row':'none';document.getElementById('rt_feeForeignCell').textContent=won(feeForeign);document.getElementById('rt_feeForeignNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+(_fr*100)+'% · §10⑥)';}
   /* 보수기준 §10④ — 등기원인·등기목적이 동일한 여러 부동산이 여러 등기소 관할에 걸친 경우
      → 당해 기본보수의 50% 상당액까지 가산 [A] */
-  const _mo=frAddRate('rt_moAdd'), feeMulti=Math.round(feeBase*_mo);
+  const _mo=frAddRate('rt_moAdd'), feeMulti=Math.round(feeRaw*_mo);
   const _moR=document.getElementById('rt_feeMultiRow');
-  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('rt_feeMultiCell').textContent=won(feeMulti);document.getElementById('rt_feeMultiNote').textContent='(기본보수 '+won(feeBase)+' × '+Math.round(_mo*100)+'% · §10④)';}
+  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('rt_feeMultiCell').textContent=won(feeMulti);document.getElementById('rt_feeMultiNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+Math.round(_mo*100)+'% · §10④)';}
   let fee=feeBase+feeForeign+feeMulti;
   if(chk('rt_f_origin'))fee+=50000;if(chk('rt_f_tax'))fee+=50000;if(chk('rt_f_trip'))fee+=val('rt_tripFee');
   const sameRow=document.getElementById('rt_sameRow');
@@ -4549,7 +4701,10 @@ function calcCorp(fromEdit){
   const publicSum=val('co_regTax')+val('co_eduTax')+regFee+val('co_seal')+val('co_postFee')+pubCustomSum('scene-법인설립');
   document.getElementById('co_publicSum').textContent=won(publicSum);
   const adj=parseFloat(document.getElementById('co_adjust').value)||1;
-  const feeBase=Math.round(tierFee('Ⅱ-1',cap)*adj);
+  /* ★ 표상 기본보수(feeRaw) — 가산보수(§10③④⑥·§14①②⑤)는 「당해 기본보수」 = 표상 금액을
+     기준으로 산정한다. 조정 후 금액에 가산율을 곱하면 가산에 가산이 얹혀 §2⑤(상한) 초과 소지. */
+  const feeRaw=tierFee('Ⅱ-1',cap);
+  const feeBase=Math.round(feeRaw*adj);
   document.getElementById('co_feeBaseCell').textContent=won(feeBase);
   document.getElementById('co_feeBaseNote').textContent='(보수표 Ⅱ-1 · 자본금'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   /* ★ 24회차 긴급복구 — 23회차에서 표시행만 넣고 아래 선언이 누락되어 calcCorp가
@@ -4557,9 +4712,9 @@ function calcCorp(fromEdit){
      보수기준 §14① — 외국인투자촉진법 설립·자본증가, 현물출자, 분할·합병·주식이전·조직변경에 의한 설립,
      흡수합병·분할합병·주식교환에 의한 자본증가, 종류주식·주식매수선택권 규정 포함
      → 당해 기본보수의 150% 상당액까지 가산 [A] */
-  const _fr1=frAddRate('co_fr14_1'), feeForeign=Math.round(feeBase*_fr1);
+  const _fr1=frAddRate('co_fr14_1'), feeForeign=Math.round(feeRaw*_fr1);
   const _c1=document.getElementById('co_feeForeignRow');
-  if(_c1){_c1.style.display=feeForeign>0?'table-row':'none';document.getElementById('co_feeForeignCell').textContent=won(feeForeign);document.getElementById('co_feeForeignNote').textContent='(기본보수 '+won(feeBase)+' × '+Math.round(_fr1*100)+'% · §14①)';}
+  if(_c1){_c1.style.display=feeForeign>0?'table-row':'none';document.getElementById('co_feeForeignCell').textContent=won(feeForeign);document.getElementById('co_feeForeignNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+Math.round(_fr1*100)+'% · §14①)';}
   const docN=Math.max(1,val('co_docN'));
   const docFee=Math.round(FLAT['Ⅸ-5']*docN*adj);
   document.getElementById('co_docCell').textContent=won(docFee);
@@ -4582,6 +4737,7 @@ function calcCorp(fromEdit){
   tb.appendChild(tr);});})();
 
 /* ===================== 법인 변경등기 통합 (풀기능) ===================== */
+function cvPurposeTouch(){const e=document.getElementById('cv_purposeN');if(e)e.dataset.touched='1';}
 function cvTypeChange(){
   const def=CORP_CHG[document.getElementById('cv_type').value];
   document.getElementById('cv_capLine').style.display=def.cap?'flex':'none';
@@ -4646,9 +4802,10 @@ function calcCorpChange(fromEdit){
   document.getElementById('cv_publicSum').textContent=won(publicSum);
   // 보수
   const adj=parseFloat(document.getElementById('cv_adjust').value)||1;
-  let feeBase;
-  if(def.feeMode==='tier'){feeBase=Math.round(tierFee(def.tier,val('cv_cap'))*adj);document.getElementById('cv_feeBaseNote').textContent='(보수표 '+def.tier+(adj!==1?' ×'+(adj*100)+'%':'')+')';}
-  else{feeBase=Math.round(FLAT[def.flat]*adj);document.getElementById('cv_feeBaseNote').textContent='(보수표 '+def.flat+(adj!==1?' ×'+(adj*100)+'%':'')+')';}
+  let feeBase,feeRaw;
+  /* ★ 표상 기본보수(feeRaw) — §14②⑤ 가산은 「당해 기본보수」 = 표상 금액 기준 (§2⑤ 상한) */
+  if(def.feeMode==='tier'){feeRaw=tierFee(def.tier,val('cv_cap'));feeBase=Math.round(feeRaw*adj);document.getElementById('cv_feeBaseNote').textContent='(보수표 '+def.tier+(adj!==1?' ×'+(adj*100)+'%':'')+')';}
+  else{feeRaw=FLAT[def.flat];feeBase=Math.round(feeRaw*adj);document.getElementById('cv_feeBaseNote').textContent='(보수표 '+def.flat+(adj!==1?' ×'+(adj*100)+'%':'')+')';}
   document.getElementById('cv_feeBaseCell').textContent=won(feeBase);
   /* ===== 가산보수 — 법무사보수기준 §14②③④⑤ [A] (2026-07 감사 신설) =====
      ② 임원 중 외국인·재외국민 포함 또는 등기원인 관련 서류를 외국에서 받아야 하는 변경등기 → 기본보수의 100%까지
@@ -4658,17 +4815,24 @@ function calcCorpChange(fromEdit){
      ※ ①(외국인투자촉진법·현물출자·조직변경 설립 등 150%)은 「법인설립」 화면 소관 */
   const _isOfficer=(document.getElementById('cv_type').value==='임원 선임·변경');
   const _isFar=(document.getElementById('cv_type').value==='본점 관외이전');
+  /* (c) 등기 목적 수 — 기본값은 「변경 건수」를 따라가되, 직접 수정하면 그 값으로 고정.
+     ※ 등록면허세의 「건」(지방세법 §28①6호)과 보수의 「등기의 목적」(보수기준 §14③)은 근거가 다르므로
+        자동 연동은 편의상 기본값일 뿐이며, 사안에 따라 대표님이 조정한다. */
+  const _pEl=document.getElementById('cv_purposeN');
+  if(_pEl&&_pEl.dataset.touched!=='1')_pEl.value=cnt;
+  const _pSync=document.getElementById('cv_purposeSync');
+  if(_pSync)_pSync.style.display=(_pEl&&_pEl.dataset.touched==='1')?'none':'inline';
   const _rowP=document.getElementById('cv_rowPurpose'); if(_rowP)_rowP.style.display=_isOfficer?'none':'flex';
   const _rowO=document.getElementById('cv_rowOfficer'); if(_rowO)_rowO.style.display=_isOfficer?'flex':'none';
   const _rowF=document.getElementById('cv_rowFar');     if(_rowF)_rowF.style.display=_isFar?'flex':'none';
   // ② 외국인·재외국민
-  const _fr=frAddRate('cv_frAdd'), feeForeign=Math.round(feeBase*_fr);
+  const _fr=frAddRate('cv_frAdd'), feeForeign=Math.round(feeRaw*_fr);
   const _r1=document.getElementById('cv_feeForeignRow');
-  if(_r1){_r1.style.display=feeForeign>0?'table-row':'none';document.getElementById('cv_feeForeignCell').textContent=won(feeForeign);document.getElementById('cv_feeForeignNote').textContent='(기본보수 '+won(feeBase)+' × '+Math.round(_fr*100)+'% · §14②)';}
+  if(_r1){_r1.style.display=feeForeign>0?'table-row':'none';document.getElementById('cv_feeForeignCell').textContent=won(feeForeign);document.getElementById('cv_feeForeignNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+Math.round(_fr*100)+'% · §14②)';}
   // ⑤ 관외 본점이전
-  const _far=_isFar?frAddRate('cv_farAdd'):0, feeFar=Math.round(feeBase*_far);
+  const _far=_isFar?frAddRate('cv_farAdd'):0, feeFar=Math.round(feeRaw*_far);
   const _r2=document.getElementById('cv_feeFarRow');
-  if(_r2){_r2.style.display=feeFar>0?'table-row':'none';document.getElementById('cv_feeFarCell').textContent=won(feeFar);document.getElementById('cv_feeFarNote').textContent='(기본보수 '+won(feeBase)+' × '+Math.round(_far*100)+'% · §14⑤)';}
+  if(_r2){_r2.style.display=feeFar>0?'table-row':'none';document.getElementById('cv_feeFarCell').textContent=won(feeFar);document.getElementById('cv_feeFarNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+Math.round(_far*100)+'% · §14⑤)';}
   // ③ 등기목적 초과 (임원변경 제외)
   const _pn=_isOfficer?1:Math.max(1,val('cv_purposeN')), feePurpose=(_pn-1)*50000;
   const _r3=document.getElementById('cv_feePurposeRow');
@@ -4703,6 +4867,85 @@ function calcCorpChange(fromEdit){
 }
 (function(){const tb=document.getElementById('cv_extraAgent');EXTRA_AGENT.filter(a=>a[3].includes('corp')).forEach(a=>{const [id,name,code]=a;const tr=document.createElement('tr');
   tr.innerHTML='<td><label class="checks" style="display:inline-flex;align-items:flex-start;"><input type="checkbox" id="cva_'+id+'" onchange="calcCorpChange()" style="margin-top:2px;"> <span style="font-size:12.5px;">'+eaLabel(a,'corp')+' <b style="color:var(--seal);">'+FLAT[code].toLocaleString()+'원</b></span></label></td><td><input type="number" id="cvaq_'+id+'" value="1" min="1" style="width:54px;text-align:center;" oninput="calcCorpChange()"></td>';
+  tb.appendChild(tr);});})();
+
+/* ===================== 재건축·재개발등기 (이전고시) — 보수기준 §12 =====================
+   「도시 및 주거환경정비법」 §86①의 이전고시에 따른 재건축·재개발등기를 동일한 신청서로
+   일괄 신청하는 경우의 보수 산정 특칙. 핵심은 「무엇을 1건으로 보느냐」이다. [A]
+     1호 말소등기   — 건물(구분건물은 각 구분건물)·토지별 각 1건 (§9⑤4호 80,000)
+                      + 공유자 10인 초과 시 초과 1인마다 10,000
+     2호 소유권보존 — 신축 건물(각 구분건물)·조성 대지(공유는 각 공유자)별 각 1건 (§9① Ⅰ-1)
+     3호 담보권 등  — 각 등기사항별 별건, 과세표준액에 따른 가산규정 미적용, 각 등기종류
+                      기본보수만. 대지 공유지분 목적 권리의 등기사항이 전유부분과 동일하면
+                      대지는 별건 아님. → 「과세표준액에 따른 가산규정」의 범위가 조문만으로는
+                      확정되지 않아 자동계산하지 않고 직접입력으로 둔다 [확인필요]
+     4호 표시변경·명의인표시변경·상속이전·보존대위 — 각 부동산별 · 각 등기사항별 별건
+     5호 권리 조사·분석 — 건물·토지별 각 1건 50,000 + 공유자별 10,000
+                          (대지권 미등기 구분건물로서 구분건물 소유자 = 토지 지분 소유자면
+                           합하여 1개 부동산)
+   ※ 공과금(취득세·등록면허세·채권)은 사업유형·조합원 여부·감면특례에 좌우되므로 자동계산 없음. */
+function calcRedev(fromEdit){
+  const adj=parseFloat(document.getElementById('rd_adjust').value)||1;
+  const R=n=>Math.round(n*adj);
+  // ── 1호
+  const n1cnt=Math.max(0,val('rd_oldBldg'))+Math.max(0,val('rd_oldLand'));
+  const n1=R(FLAT['Ⅰ-3(4)']*n1cnt);
+  const n1o=R(Math.max(0,val('rd_oldOver10'))*10000);
+  document.getElementById('rd_n1Cell').textContent=won(n1);
+  document.getElementById('rd_n1Note').textContent='(§9⑤4호 80,000 × '+n1cnt+'건'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
+  document.getElementById('rd_n1oCell').textContent=won(n1o);
+  document.getElementById('rd_n1oNote').textContent='(초과 '+Math.max(0,val('rd_oldOver10'))+'인 × 10,000'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
+  // ── 2호
+  const n2bN=Math.max(0,val('rd_newBldg')), n2lN=Math.max(0,val('rd_newLandOwn'));
+  const n2b=R(tierFee('Ⅰ-1',val('rd_newBldgStd'))*n2bN);
+  const n2l=R(tierFee('Ⅰ-1',val('rd_newLandStd'))*n2lN);
+  document.getElementById('rd_n2bCell').textContent=won(n2b);
+  document.getElementById('rd_n2bNote').textContent='(Ⅰ-1 '+won(tierFee('Ⅰ-1',val('rd_newBldgStd')))+' × '+n2bN+'건)';
+  document.getElementById('rd_n2lCell').textContent=won(n2l);
+  document.getElementById('rd_n2lNote').textContent='(Ⅰ-1 '+won(tierFee('Ⅰ-1',val('rd_newLandStd')))+' × 공유자 '+n2lN+'인)';
+  // ── 3호 [확인필요] 직접입력
+  const n3N=Math.max(0,val('rd_secN')), n3=R(Math.max(0,val('rd_secFee'))*n3N);
+  document.getElementById('rd_n3Cell').textContent=won(n3);
+  document.getElementById('rd_n3Note').textContent='(직접입력 '+won(val('rd_secFee'))+' × '+n3N+'건 · 과세표준 가산 미적용)';
+  // ── 4호
+  const n4aN=Math.max(0,val('rd_c1'))+Math.max(0,val('rd_c2'));
+  const n4a=R(FLAT['Ⅰ-3(3)']*n4aN);
+  const n4b=R(tierFee('Ⅰ-1',val('rd_c3Std'))*Math.max(0,val('rd_c3'))+tierFee('Ⅰ-1',val('rd_c4Std'))*Math.max(0,val('rd_c4')));
+  document.getElementById('rd_n4aCell').textContent=won(n4a);
+  document.getElementById('rd_n4aNote').textContent='(§9⑤3호 40,000 × '+n4aN+'건)';
+  document.getElementById('rd_n4bCell').textContent=won(n4b);
+  document.getElementById('rd_n4bNote').textContent='(Ⅰ-1 · 상속 '+Math.max(0,val('rd_c3'))+'건 + 보존대위 '+Math.max(0,val('rd_c4'))+'건)';
+  // ── 5호
+  const n5N=Math.max(0,val('rd_invN')), n5=R(50000*n5N);
+  const n5oN=Math.max(0,val('rd_invOwn')), n5o=R(10000*n5oN);
+  document.getElementById('rd_n5Cell').textContent=won(n5);
+  document.getElementById('rd_n5Note').textContent='(50,000 × '+n5N+'건)';
+  document.getElementById('rd_n5oCell').textContent=won(n5o);
+  document.getElementById('rd_n5oNote').textContent='(공유자 '+n5oN+'인 × 10,000)';
+  // ── 공과금 (전부 직접입력)
+  const publicSum=val('rd_acqTax')+val('rd_eduTax')+val('rd_regFee')+val('rd_bond')+val('rd_postFee')+pubCustomSum('scene-재건축재개발');
+  document.getElementById('rd_publicSum').textContent=won(publicSum);
+  // ── 수수료 집계
+  document.getElementById('rd_s1Cell').textContent=won(n1+n1o);
+  document.getElementById('rd_s1Note').textContent=(adj!==1?'(§10③ ×'+(adj*100)+'% 적용)':'');
+  document.getElementById('rd_s2Cell').textContent=won(n2b+n2l);
+  document.getElementById('rd_s3Cell').textContent=won(n3);
+  document.getElementById('rd_s4Cell').textContent=won(n4a+n4b);
+  document.getElementById('rd_s5Cell').textContent=won(n5+n5o);
+  let fee=n1+n1o+n2b+n2l+n3+n4a+n4b+n5+n5o;
+  if(chk('rd_f_tax'))fee+=50000;
+  if(chk('rd_f_trip'))fee+=val('rd_tripFee');
+  EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const c=document.getElementById('rda_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('rdaq_'+id).value)||1);fee+=FLAT[code]*q;}});
+  fee+=customSum('rd_extraAgent');
+  document.getElementById('rd_feeSum').textContent=won(fee);
+  const vat=Math.round(fee*0.1);
+  document.getElementById('rd_t_fee').textContent=won(fee);
+  document.getElementById('rd_t_vat').textContent=won(vat);
+  document.getElementById('rd_t_public').textContent=won(publicSum);
+  document.getElementById('rd_t_grand').textContent=won(fee+vat+publicSum);
+}
+(function(){const tb=document.getElementById('rd_extraAgent');if(!tb)return;EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(a=>{const [id,name,code]=a;const tr=document.createElement('tr');
+  tr.innerHTML='<td><label class="checks" style="display:inline-flex;align-items:flex-start;"><input type="checkbox" id="rda_'+id+'" onchange="calcRedev()" style="margin-top:2px;"> <span style="font-size:12.5px;">'+eaLabel(a,'reTransfer')+' <b style="color:var(--seal);">'+FLAT[code].toLocaleString()+'원</b></span></label></td><td><input type="number" id="rdaq_'+id+'" value="1" min="1" style="width:54px;text-align:center;" oninput="calcRedev()"></td>';
   tb.appendChild(tr);});})();
 
 /* ===================== 범용 엔진 ===================== */
@@ -5414,7 +5657,7 @@ const CUSTOM_MAP={extraAgent:calcSale,s_extraAgent:calcInherit,gv_extraAgent:cal
 /* ===================== 공과금 직접추가 + 준비서류 수기편집 ===================== */
 function pubCustomSum(sceneId){let s=0;const sc=document.getElementById(sceneId);if(sc)sc.querySelectorAll('.pub-custom .custom-amt').forEach(i=>{s+=parseFloat(i.value)||0;});return s;}
 (function addPubCustomAndDocs(){
-  const map={'scene-매매':calcSale,'scene-상속':calcInherit,'scene-증여':calcGift,'scene-부담부증여':calcBurden,'scene-근저당설정':calcMortgage,'scene-근저당말소':calcMortCancel,'scene-보존':calcPreserve,'scene-권리설정':calcRight,'scene-법인설립':calcCorp,'scene-법인변경':calcCorpChange,'scene-가등기':calcGadeungi,'scene-부부재산약정':calcMarital,'scene-이혼재산분할':calcDivision,'scene-신탁등기':calcSintak,'scene-담보권추가설정':calcMortgageAdd,'scene-소장':calcLawsuit,'scene-부동산가압류':calcAttach,'scene-가처분':calcInjunction,'scene-부동산경매신청':calcAuctionFile,'scene-채권가압류':calcAttachClaim,'scene-유체동산가압류':calcAttachGoods,'scene-자동차가압류':calcAttachCar,'scene-압류추심':calcSeizure,'scene-기타신청':calcMisc};
+  const map={'scene-매매':calcSale,'scene-상속':calcInherit,'scene-증여':calcGift,'scene-부담부증여':calcBurden,'scene-근저당설정':calcMortgage,'scene-근저당말소':calcMortCancel,'scene-보존':calcPreserve,'scene-권리설정':calcRight,'scene-법인설립':calcCorp,'scene-법인변경':calcCorpChange,'scene-가등기':calcGadeungi,'scene-부부재산약정':calcMarital,'scene-재건축재개발':calcRedev,'scene-이혼재산분할':calcDivision,'scene-신탁등기':calcSintak,'scene-담보권추가설정':calcMortgageAdd,'scene-소장':calcLawsuit,'scene-부동산가압류':calcAttach,'scene-가처분':calcInjunction,'scene-부동산경매신청':calcAuctionFile,'scene-채권가압류':calcAttachClaim,'scene-유체동산가압류':calcAttachGoods,'scene-자동차가압류':calcAttachCar,'scene-압류추심':calcSeizure,'scene-기타신청':calcMisc};
   Object.keys(map).forEach(sid=>{
     const sc=document.getElementById(sid);if(!sc)return;
     let pubTable=null;
