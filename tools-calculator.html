@@ -95,7 +95,7 @@
 .law:hover{background:#efe4c9;}
 @media(max-width:520px){.law{font-size:9px;padding:0 4px;margin-left:3px;}}
   .tag.A{background:#e7efe6;color:var(--ok);}
-  .tag.chk{background:#f5ecd6;color:var(--warn);}
+  .tag.chk{background:#fde3bd;color:#8a4409;border:1px solid #dda054;font-weight:800;}
   .tag.B{background:#e3eaf5;color:#3a5a8c;}
   table.t{width:100%;border-collapse:collapse;font-size:13.5px;}
   table.t td{padding:6px 8px;border-bottom:1px solid #eee4ce;vertical-align:middle;}
@@ -114,6 +114,51 @@
   .btn:hover{background:var(--seal-soft);}
   .btn.ghost{background:#fff;color:var(--seal);border:1px solid var(--seal);}
   .note{background:#fbf6ea;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:6px;padding:10px 13px;font-size:12.5px;color:var(--ink-soft);margin:0 0 14px;}
+  /* ★ 강조 안내 — 반드시 읽어야 할 내용. 사람들이 note를 안 읽어서 신설(26-2회차) */
+  .alert{position:relative;background:linear-gradient(180deg,#fffaef 0%,#fdf0d4 100%);
+    border:2px solid #d9a72c;border-left:7px solid var(--seal);border-radius:9px;
+    padding:14px 16px 14px 50px;margin:0 0 14px;
+    font-size:14px;line-height:1.75;font-weight:600;color:#4a3a1e;
+    box-shadow:0 3px 14px rgba(154,43,34,.14);}
+  .alert::before{content:"⚠";position:absolute;left:15px;top:11px;font-size:21px;color:var(--seal);line-height:1.2;}
+  .alert b{color:var(--seal);font-weight:800;}
+  .alert .head{display:block;font-size:15.5px;font-weight:800;color:var(--seal);
+    margin:-1px 0 7px;letter-spacing:-.3px;border-bottom:1px dashed #d9a72c;padding-bottom:5px;}
+  .alert .law{background:#fff;border-color:#d9a72c;}
+  @keyframes alertGlow{0%,100%{box-shadow:0 3px 14px rgba(154,43,34,.14);}
+                        50%{box-shadow:0 3px 22px rgba(154,43,34,.38);}}
+  .alert{animation:alertGlow 2.4s ease-in-out 3;}
+  @media(prefers-reduced-motion:reduce){.alert{animation:none;}}
+  @media(max-width:520px){.alert{font-size:13px;padding:12px 12px 12px 42px;}
+    .alert::before{font-size:18px;left:12px;}.alert .head{font-size:14px;}}
+  /* ★★ 최상단 개산(예상) 안내 — 계산기 전체를 규정하는 가장 중요한 고지.
+     사람들이 작은 글씨를 읽지 않아 27-2회차에 전면 강조 */
+  .disclaimer{margin:18px 0 10px;border-radius:12px;overflow:hidden;background:#fff;
+    border:2px solid var(--seal);box-shadow:0 4px 18px rgba(154,43,34,.18);}
+  .disclaimer .dtitle{display:flex;align-items:center;gap:10px;
+    background:linear-gradient(90deg,var(--seal) 0%,var(--seal-soft) 100%);
+    color:#fff;font-size:17.5px;font-weight:800;letter-spacing:-.4px;padding:12px 16px;}
+  .disclaimer .dicon{width:25px;height:25px;flex:0 0 auto;border-radius:50%;background:#fff;
+    color:var(--seal);display:grid;place-items:center;font-weight:900;font-size:15px;line-height:1;}
+  .disclaimer .dtitle em{font-style:normal;background:#ffe07a;color:#6d1a13;
+    padding:2px 9px;border-radius:5px;font-weight:900;box-shadow:0 1px 0 rgba(0,0,0,.12);}
+  .disclaimer p{margin:0;padding:12px 16px;font-size:14.5px;line-height:1.8;color:#3a352f;font-weight:600;}
+  .disclaimer p b{color:var(--seal);font-weight:800;}
+  .disclaimer p .cta{display:inline-block;background:#fdf0d4;border:1px solid #d9a72c;
+    border-radius:5px;padding:1px 7px;font-weight:800;color:#8a4409;}
+  .disclaimer p.sub{border-top:1px dashed #e0cfae;background:#fdf9f0;
+    font-size:12.5px;font-weight:500;color:#6b5b3e;padding:10px 16px;line-height:1.7;}
+  .disclaimer p.sub b{color:#8a4b09;font-weight:700;}
+  @keyframes discGlow{0%,100%{box-shadow:0 4px 18px rgba(154,43,34,.18);}
+                       50%{box-shadow:0 4px 26px rgba(154,43,34,.45);}}
+  .disclaimer{animation:discGlow 2.4s ease-in-out 3;}
+  @media(prefers-reduced-motion:reduce){.disclaimer{animation:none;}}
+  @media(max-width:520px){
+    .disclaimer .dtitle{font-size:14.5px;padding:10px 12px;gap:7px;flex-wrap:wrap;}
+    .disclaimer .dicon{width:21px;height:21px;font-size:13px;}
+    .disclaimer .dtitle em{padding:1px 6px;}
+    .disclaimer p{font-size:13.5px;padding:10px 12px;line-height:1.75;}
+    .disclaimer p.sub{font-size:11.5px;padding:9px 12px;}}
   .note b{color:var(--seal);}
   .docs{font-size:12.5px;color:var(--ink-soft);background:var(--paper);border-radius:8px;padding:12px 14px;line-height:1.8;}
   .docs b{color:var(--seal);}
@@ -277,8 +322,11 @@
 
 <div class="wrap">
 
-  <div style="margin:16px 0 6px;padding:13px 16px;border:1px solid #e0b87a;background:#fbf3e3;border-radius:10px;color:#6b4f2a;font-size:14px;line-height:1.6;">
-    <b style="color:#a86b1f;">ℹ️ 안내</b> — 본 계산 결과는 <b>개산(예상) 금액</b>입니다. 실제 수수료·공과금은 부동산 가액, 사건 내용, 건수, 추가 대행 항목 등에 따라 달라질 수 있으며, <b>정확한 견적은 상담을 통해 안내</b>드립니다. 보수는 「법무사 보수기준」, 공과금(인지·송달료·국민주택채권 등)은 현행 법령을 기준으로 산정하되 최종 금액은 접수 시점·법원·기관 기준에 따릅니다.
+  <div class="disclaimer" role="note" aria-label="계산 결과에 관한 안내">
+    <div class="dtitle"><span class="dicon">ℹ</span>본 계산 결과는 <em>개산(예상) 금액</em>입니다</div>
+    <p>실제 수수료·공과금은 <b>부동산 가액 · 사건 내용 · 건수 · 추가 대행 항목</b> 등에 따라 달라질 수 있습니다.<br>
+      <b>정확한 견적은 상담을 통해 안내</b>드리니, 이 금액은 <b>미리 가늠해 보시는 용도</b>로만 봐 주십시오. <span class="cta">부담 없이 물어보셔도 됩니다</span></p>
+    <p class="sub">보수는 「법무사 보수기준」, 공과금(인지·송달료·국민주택채권 등)은 <b>현행 법령</b>을 기준으로 산정하되, <b>최종 금액은 접수 시점·법원·기관 기준</b>에 따릅니다.</p>
   </div>
 
   <!-- ===== 메인메뉴 ===== -->
@@ -388,22 +436,17 @@
       <div class="note" style="border-left:3px solid var(--gold);">▸ <b>보수기준 §9⑥</b> <span class="tag A">A</span> — ① <b>1건의 신청서로 수개의 부동산</b>에 관한 소유권 보존·이전 등기를 하는 경우 <b>각 부동산의 과세표준액을 합산</b>하여 기본보수를 산정합니다(위 과세표준란에 <b>합산액</b>을 입력하십시오). ② <b>쌍방대리</b>(등기의무자·등기권리자 양쪽을 함께 대리)의 경우에도 <b>1건으로 보아</b> 기본보수를 산정합니다 — <b>매도인·매수인에게 각각 기본보수를 청구할 수 없습니다.</b></div>
     </div></div>
 
-    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span></h2><div class="body">
+    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 직접 입력하셔야 합니다. 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
+      <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에 <b>등기 당일 값</b>을 넣으셔야 정확합니다.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
       <div class="note">부동산 종류에 따라 입력칸이 바뀝니다 — <b>주택</b>=주택공시가격 / <b>주택외</b>=토지공시가격+건물시가표준액(각각 매입률) / <b>농지</b>=토지공시가격. 매입률은 직접 입력.</div>
       <div id="bondBody"></div>
       <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="region" value="metro" checked onchange="calcBondSale()"> 특별시·광역시</label><label><input type="radio" name="region" value="other" onchange="calcBondSale()"> 기타지역</label></div></div>
       <div class="line"><span class="lbl">채권 매입금(원)</span><input type="number" class="amt" id="bondBuy" placeholder="0" oninput="calcSale()"><span class="hint">자동 합산(직접 수정 가능)</span></div>
-      <details class="ref"><summary>매입률·면제 참고표 <span class="reftag">확인필요</span></summary><div class="refbody">
-        <table class="ref"><tr><th>주택 시가표준액</th><th class="r">특·광역시</th><th class="r">기타</th></tr>
-        <tr><td>1.6억~2.6억</td><td class="r">23/1,000</td><td class="r na">확인필요</td></tr>
-        <tr><td>2.6억~6억</td><td class="r">26/1,000</td><td class="r na">확인필요</td></tr>
-        <tr><td>그 외 구간·토지·건물(상가)</td><td class="r na" colspan="2">현행 별표 확인 후 내장 (토지·건물 매입률 각각 다름)</td></tr></table>
-        <p style="margin:8px 0 0;font-size:11.5px;color:#8a8270;">계산규칙: 5천원 미만 절사/5천원 이상 올림 → 만원 단위 · 최저 1만원 · 주택외는 토지·건물 각 요율 적용 후 합산</p>
-      </div></details>
+      <details class="ref"><summary>매입률 참고표 <span class="reftag" style="background:#e7efe6;color:var(--ok);">A</span> <span class="hint">— 계산기에 내장된 실제 요율</span></summary><div class="refbody"><div class="bondRefMount"></div><p style="margin:8px 0 0;font-size:11.5px;color:#8a8270;line-height:1.6;"><b>근거</b> 주택도시기금법 §8②·시행령 §8② [별표] 부표 1(부동산 등기) — 위 표는 <b>계산기에 내장된 값을 그대로 출력</b>한 것입니다.<br><b>계산규칙</b> 5천원 미만 절사 / 5천원 이상 올림 → 만원 단위 · 각 부동산마다 개별 산정 · 공유지분은 지분율을 곱한 시가표준액으로 판정 · 공동주택은 세대당 시가표준액</p></div></details>
     </div></div>
 
     <div class="card blue"><h2>③ 공과금 (VAT 비과세) <span class="tag chk">확인필요</span><span class="law" title="취득세 세율 자체는 지방세법 §11①에 확정되어 있습니다. 다만 주택 유상거래(§11①8호)의 세율 구간을 판정하는 기준(주택 수 산정 등)이 사안별로 달라 그 부분만 확인이 필요합니다.">사유: 주택 세율구간 판정</span></h2><div class="body">
-      <div class="note">취득세·교육세·농특세 표준세율 자동(수정 가능). 등기신청수수료 법원행정처 공식표(2025.8.1).</div>
+      <div class="note alert"><span class="head">주택은 「몇 채째인지」에 따라 취득세가 1%에서 12%까지 달라집니다</span>세율 자체는 법(<b>지방세법 §11①8호</b>)에 정해져 있어 계산기가 자동으로 넣습니다. 그러나 <b>1주택인지 2·3주택인지, 조정대상지역인지</b>에 따라 세금이 <b>수천만원까지 차이</b>납니다. 이 판정은 세대·지역·일시적 2주택 여부 등 사안별이라 <b>계산기가 자동으로 정하지 않습니다.</b><br>▸ 위 「주택 수」를 <b>본인 세대 기준으로 정확히</b> 골라 주십시오. 헷갈리시면 <b>그대로 두고 상담 때 말씀해 주십시오.</b><br>▸ 나머지(교육세·농특세·등기신청수수료)는 <b>법에 확정된 값</b>으로 자동 계산됩니다. <span class="law" title="등기신청수수료는 「등기사항증명서 등 수수료규칙」 §5의2 — 2025.8.1. 시행 대법원규칙 제3222호에 따른 공식 금액입니다.">수수료규칙 §5의2 · 2025.8.1.</span></div>
       <details class="ref" style="margin-bottom:12px;"><summary>취득세 세율표 (적용 기준) <span class="reftag">확인필요</span></summary><div class="refbody">
         <table class="ref"><tr><th>구분</th><th class="r">취득세</th><th class="r">교육세</th><th class="r">농특세</th></tr>
         <tr><td>주택 1주택 6억↓</td><td class="r">1%</td><td class="r">0.1%</td><td class="r">85㎡↑0.2%</td></tr>
@@ -416,7 +459,7 @@
         <tr><td>농지</td><td class="r">3%</td><td class="r">0.2%</td><td class="r">0.2%</td></tr></table>
         <p style="margin:8px 0 0;font-size:11.5px;color:#8a8270;">6~9억: (가액×2÷3억−3)% · 현행 지방세법 확인 후 사용</p>
       </div></details>
-      <div class="note" id="fhWarn" style="display:none;border-left:3px solid var(--seal);">▸ <b>생애최초 감면</b> — <b>취득세만 자동 감면</b>했습니다. <b>지방교육세·농어촌특별세는 자동 조정하지 않았습니다.</b><br>· 실무에서는 「200만원 한도 = 지방교육세 포함 <b>220만원</b>」으로 안내되나, 지방세법 §151①1호 <b>다목1)</b>은 「감면<b>율</b>을 정하는 경우」를 전제하는 반면 지특법 §36의3은 <b>한도액 공제</b> 방식이어서 그대로 적용되는지 <b>[확인필요]</b>입니다.<br>· 85㎡ 초과 주택은 <b>감면분 농특세</b>(감면세액×20% · 농특세법 §5①1호) 발생 여부를 확인하십시오. 85㎡ 이하는 비과세(§4 11호).<br>· 관할 시·군·구 확인 후 <b>아래 칸에 직접 입력</b>하십시오. <span class="tag chk">확인필요</span></div>
+      <div class="note alert" id="fhWarn" style="display:none;"><span class="head">생애최초 감면 — 취득세만 자동 반영했습니다</span> <b>취득세만 자동 감면</b>했습니다. <b>지방교육세·농어촌특별세는 자동 조정하지 않았습니다.</b><br>· 실무에서는 「200만원 한도 = 지방교육세 포함 <b>220만원</b>」으로 안내되나, 지방세법 §151①1호 <b>다목1)</b>은 「감면<b>율</b>을 정하는 경우」를 전제하는 반면 지특법 §36의3은 <b>한도액 공제</b> 방식이어서 그대로 적용되는지 <b>[확인필요]</b>입니다.<br>· 85㎡ 초과 주택은 <b>감면분 농특세</b>(감면세액×20% · 농특세법 §5①1호) 발생 여부를 확인하십시오. 85㎡ 이하는 비과세(§4 11호).<br>· 관할 시·군·구 확인 후 <b>아래 칸에 직접 입력</b>하십시오. <span class="tag chk">확인필요</span></div>
       <table class="t">
         <tr><td>취득세 <span id="acqRate" class="hint"></span><span class="law" title="매매처럼 돈을 주고 사는 「유상취득」의 취득세율을 정한 조항입니다. 주택은 8호, 주택이 아닌 건물·토지는 7호나목, 농지는 7호가목이 적용됩니다.">지방세법 §11①7호·8호</span></td><td><input class="cell" id="acqTax" type="number" oninput="calcSale(true)"></td></tr>
         <tr><td>지방교육세<span class="law" title="지방교육세를 정한 조항입니다. 1호는 취득세율에서 1천분의 20(2%)을 뺀 세율로 계산한 금액의 100분의 20(20%)을 세액으로 합니다. 취득세와 함께 신고·납부합니다(§152①).">지방세법 §151①1호</span></td><td><input class="cell" id="eduTax" type="number" oninput="calcSale(true)"></td></tr>
@@ -507,11 +550,13 @@
       <div class="line"><span class="lbl">여러 등기소 가산</span><select id="s_moAdd" onchange="calcInherit()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
     </div></div>
 
-    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span></h2><div class="body">
+    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 직접 입력하셔야 합니다. 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
+      <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에 <b>등기 당일 값</b>을 넣으셔야 정확합니다.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
       <div class="note">부동산 종류에 따라 입력칸 전환(주택/주택외=토지+건물/농지). 상속도 매입대상이며, 일부 면제·감액 케이스는 직접 조정.</div>
       <div id="s_bondBody"></div>
       <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="s_region" value="metro" checked onchange="calcBondInherit()"> 특별시·광역시</label><label><input type="radio" name="s_region" value="other" onchange="calcBondInherit()"> 기타지역</label></div></div>
       <div class="line"><span class="lbl">채권 매입금(원)</span><input type="number" class="amt" id="s_bondBuy" placeholder="0" oninput="calcInherit()"><span class="hint">자동 합산(직접 수정 가능)</span></div>
+      <details class="ref"><summary>매입률 참고표 <span class="reftag" style="background:#e7efe6;color:var(--ok);">A</span> <span class="hint">— 계산기에 내장된 실제 요율</span></summary><div class="refbody"><div class="bondRefMount"></div><p style="margin:8px 0 0;font-size:11.5px;color:#8a8270;line-height:1.6;"><b>근거</b> 주택도시기금법 §8②·시행령 §8② [별표] 부표 1(부동산 등기) — 위 표는 <b>계산기에 내장된 값을 그대로 출력</b>한 것입니다.<br><b>계산규칙</b> 5천원 미만 절사 / 5천원 이상 올림 → 만원 단위 · 각 부동산마다 개별 산정 · 공유지분은 지분율을 곱한 시가표준액으로 판정 · 공동주택은 세대당 시가표준액</p></div></details>
     </div></div>
 
     <div class="card blue"><h2>③ 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
@@ -674,11 +719,13 @@
       <div class="note" style="border-left:3px solid var(--gold);">▸ <b>보수기준 §9⑥</b> <span class="tag A">A</span> — ① <b>1건의 신청서로 수개의 부동산</b>에 관한 소유권 보존·이전 등기를 하는 경우 <b>각 부동산의 과세표준액을 합산</b>하여 기본보수를 산정합니다(위 과세표준란에 <b>합산액</b>을 입력하십시오). ② <b>쌍방대리</b>(등기의무자·등기권리자 양쪽을 함께 대리)의 경우에도 <b>1건으로 보아</b> 기본보수를 산정합니다 — <b>매도인·매수인에게 각각 기본보수를 청구할 수 없습니다.</b></div>
     </div></div>
 
-    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span></h2><div class="body">
+    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 직접 입력하셔야 합니다. 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
+      <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에 <b>등기 당일 값</b>을 넣으셔야 정확합니다.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
       <div class="note">증여는 <b>시가표준액</b> 기준 매입(주택/주택외=토지+건물 분리). 매입률 직접 입력.</div>
       <div id="gv_bondBody"></div>
       <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="gv_region" value="metro" checked onchange="calcBondGift()"> 특별시·광역시</label><label><input type="radio" name="gv_region" value="other" onchange="calcBondGift()"> 기타지역</label></div></div>
       <div class="line"><span class="lbl">채권 매입금(원)</span><input type="number" class="amt" id="gv_bondBuy" placeholder="0" oninput="calcGift()"><span class="hint">자동 합산(직접 수정 가능)</span></div>
+      <details class="ref"><summary>매입률 참고표 <span class="reftag" style="background:#e7efe6;color:var(--ok);">A</span> <span class="hint">— 계산기에 내장된 실제 요율</span></summary><div class="refbody"><div class="bondRefMount"></div><p style="margin:8px 0 0;font-size:11.5px;color:#8a8270;line-height:1.6;"><b>근거</b> 주택도시기금법 §8②·시행령 §8② [별표] 부표 1(부동산 등기) — 위 표는 <b>계산기에 내장된 값을 그대로 출력</b>한 것입니다.<br><b>계산규칙</b> 5천원 미만 절사 / 5천원 이상 올림 → 만원 단위 · 각 부동산마다 개별 산정 · 공유지분은 지분율을 곱한 시가표준액으로 판정 · 공동주택은 세대당 시가표준액</p></div></details>
     </div></div>
 
     <div class="card blue"><h2>③ 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
@@ -946,7 +993,8 @@
       <div class="note" style="border-left:3px solid var(--gold);">▸ <b>보수기준 §9⑥</b> <span class="tag A">A</span> — ① <b>1건의 신청서로 수개의 부동산</b>에 관한 소유권 보존·이전 등기를 하는 경우 <b>각 부동산의 과세표준액을 합산</b>하여 기본보수를 산정합니다(위 과세표준란에 <b>합산액</b>을 입력하십시오). ② <b>쌍방대리</b>(등기의무자·등기권리자 양쪽을 함께 대리)의 경우에도 <b>1건으로 보아</b> 기본보수를 산정합니다 — <b>매도인·매수인에게 각각 기본보수를 청구할 수 없습니다.</b></div>
     </div></div>
 
-    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span></h2><div class="body">
+    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 직접 입력하셔야 합니다. 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
+      <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에 <b>등기 당일 값</b>을 넣으셔야 정확합니다.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
       <div class="note" style="border-left:3px solid var(--seal);">▸ <b>공유물분할이 「상속·증여 및 그 밖의 무상으로 취득하는 경우」에 해당하는지 명시적 근거를 확인하지 못했습니다.</b> 두 요율의 차이가 크므로(서울 3억 → 무상 1,260만원 / 유상 780만원) <b>주택도시기금 「셀프 채권매입 도우미」에서 매입용도를 확인</b>한 뒤 선택하십시오.<br>· 대법원 2002두6422는 공유물분할을 <b>유상양도가 아니라</b>고 보므로 <b>무상 요율</b>을 기본값으로 두었습니다. 다만 <b>본인 지분 초과분</b>은 유상취득이므로 <b>유상 요율</b>이 타당할 여지가 있습니다. <span class="tag chk">확인필요</span></div>
       <div class="line"><span class="lbl">매입 요율</span><div class="radios" onchange="calcBondPartition()">
         <label><input type="radio" name="pt_bondKind" value="free" checked> 무상취득(18/28/42 · 14/25/39)</label>
@@ -954,6 +1002,7 @@
       <div class="line"><span class="lbl">시가표준액(원)</span><input type="number" class="amt" id="pt_bondStd" placeholder="0" oninput="calcBondPartition()"><span class="hint">부동산마다 개별 산정 <span id="pt_bondPct" class="hint"></span></span></div>
       <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="pt_region" value="metro" checked onchange="calcBondPartition()"> 특별시·광역시</label><label><input type="radio" name="pt_region" value="other" onchange="calcBondPartition()"> 기타지역</label></div></div>
       <div class="line"><span class="lbl">채권 매입금(원)</span><input type="number" class="amt" id="pt_bondBuy" placeholder="0" oninput="calcPartition()"><span class="hint">자동 산출(직접 수정 가능)</span></div>
+      <details class="ref"><summary>매입률 참고표 <span class="reftag" style="background:#e7efe6;color:var(--ok);">A</span> <span class="hint">— 계산기에 내장된 실제 요율</span></summary><div class="refbody"><div class="bondRefMount"></div><p style="margin:8px 0 0;font-size:11.5px;color:#8a8270;line-height:1.6;"><b>근거</b> 주택도시기금법 §8②·시행령 §8② [별표] 부표 1(부동산 등기) — 위 표는 <b>계산기에 내장된 값을 그대로 출력</b>한 것입니다.<br><b>계산규칙</b> 5천원 미만 절사 / 5천원 이상 올림 → 만원 단위 · 각 부동산마다 개별 산정 · 공유지분은 지분율을 곱한 시가표준액으로 판정 · 공동주택은 세대당 시가표준액</p></div></details>
     </div></div>
 
     <div class="card blue"><h2>③ 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
@@ -1061,7 +1110,8 @@
       <div class="note" style="border-left:3px solid var(--gold);">▸ <b>보수기준 §9⑥</b> <span class="tag A">A</span> — ① <b>1건의 신청서로 수개의 부동산</b>에 관한 소유권 보존·이전 등기를 하는 경우 <b>각 부동산의 과세표준액을 합산</b>하여 기본보수를 산정합니다(위 과세표준란에 <b>합산액</b>을 입력하십시오). ② <b>쌍방대리</b>(등기의무자·등기권리자 양쪽을 함께 대리)의 경우에도 <b>1건으로 보아</b> 기본보수를 산정합니다 — <b>매도인·매수인에게 각각 기본보수를 청구할 수 없습니다.</b></div>
     </div></div>
 
-    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span></h2><div class="body">
+    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 직접 입력하셔야 합니다. 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
+      <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에 <b>등기 당일 값</b>을 넣으셔야 정확합니다.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
       <div class="note" style="border-left:3px solid var(--seal);">▸ <b>재산분할이 「상속·증여 및 그 밖의 무상으로 취득하는 경우」에 해당하는지 명시적 근거를 확인하지 못했습니다.</b> 두 요율의 차이가 크므로(서울 3억 → 무상 1,260만원 / 유상 780만원) <b>주택도시기금 「셀프 채권매입 도우미」에서 매입용도를 확인</b>한 뒤 선택하십시오.<br>· 취득세법상 <b>무상취득</b>(§11①2호 3.5% 기준)으로 취급되고 대법원 2002두6422도 <b>공유물 분할의 성격</b>(유상양도 아님)으로 보므로 <b>무상 요율</b>을 기본값으로 두었습니다. <span class="tag chk">확인필요</span></div>
       <div class="line"><span class="lbl">매입 요율</span><div class="radios" onchange="calcBondDivision()">
         <label><input type="radio" name="dv_bondKind" value="free" checked> 무상취득(18/28/42 · 14/25/39)</label>
@@ -1069,6 +1119,7 @@
       <div id="dv_bondBody"></div>
       <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="dv_region" value="metro" checked onchange="calcBondDivision()"> 특별시·광역시</label><label><input type="radio" name="dv_region" value="other" onchange="calcBondDivision()"> 기타지역</label></div></div>
       <div class="line"><span class="lbl">채권 매입금(원)</span><input type="number" class="amt" id="dv_bondBuy" placeholder="0" oninput="calcDivision()"><span class="hint">자동 합산(직접 수정 가능)</span></div>
+      <details class="ref"><summary>매입률 참고표 <span class="reftag" style="background:#e7efe6;color:var(--ok);">A</span> <span class="hint">— 계산기에 내장된 실제 요율</span></summary><div class="refbody"><div class="bondRefMount"></div><p style="margin:8px 0 0;font-size:11.5px;color:#8a8270;line-height:1.6;"><b>근거</b> 주택도시기금법 §8②·시행령 §8② [별표] 부표 1(부동산 등기) — 위 표는 <b>계산기에 내장된 값을 그대로 출력</b>한 것입니다.<br><b>계산규칙</b> 5천원 미만 절사 / 5천원 이상 올림 → 만원 단위 · 각 부동산마다 개별 산정 · 공유지분은 지분율을 곱한 시가표준액으로 판정 · 공동주택은 세대당 시가표준액</p></div></details>
     </div></div>
 
     <div class="card blue"><h2>③ 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
@@ -1164,13 +1215,15 @@
       <div class="note" style="border-left:3px solid var(--gold);">▸ <b>보수기준 §9⑥</b> <span class="tag A">A</span> — ① <b>1건의 신청서로 수개의 부동산</b>에 관한 소유권 보존·이전 등기를 하는 경우 <b>각 부동산의 과세표준액을 합산</b>하여 기본보수를 산정합니다(위 과세표준란에 <b>합산액</b>을 입력하십시오). ② <b>쌍방대리</b>(등기의무자·등기권리자 양쪽을 함께 대리)의 경우에도 <b>1건으로 보아</b> 기본보수를 산정합니다 — <b>매도인·매수인에게 각각 기본보수를 청구할 수 없습니다.</b></div>
     </div></div>
 
-    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span></h2><div class="body">
+    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 직접 입력하셔야 합니다. 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
+      <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에 <b>등기 당일 값</b>을 넣으셔야 정확합니다.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
       <div class="note">부담부증여는 채권 매입률을 <b>부담부분(유상)·증여분(무상) 각각</b> 적용 후 합산합니다(협회 방식). 시가표준액과 각 매입률을 입력하세요.</div>
       <div class="line"><span class="lbl">시가표준액(원)</span><input type="number" class="amt" id="bv_bondStd" placeholder="0" oninput="calcBondBurden()"><span class="hint">전체 부동산 시가표준액</span></div>
       <div class="line"><span class="lbl">부담부분 매입률(‰)</span><input type="number" id="bv_pctDebt" placeholder="예: 31" step="0.1" style="width:120px;" oninput="calcBondBurden()"><span class="hint">유상분 비율 × 시가표준액</span></div>
       <div class="line"><span class="lbl">증여분 매입률(‰)</span><input type="number" id="bv_pctGift" placeholder="예: 42" step="0.1" style="width:120px;" oninput="calcBondBurden()"><span class="hint">무상분 비율 × 시가표준액</span></div>
       <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="bv_region" value="metro" checked onchange="calcBondBurden()"> 특별시·광역시</label><label><input type="radio" name="bv_region" value="other" onchange="calcBondBurden()"> 기타지역</label></div></div>
       <div class="line"><span class="lbl">채권 매입금(원)</span><input type="number" class="amt" id="bv_bondBuy" placeholder="0" oninput="calcBurden()"><span class="hint" id="bv_bondNote">자동 합산</span></div>
+      <details class="ref"><summary>매입률 참고표 <span class="reftag" style="background:#e7efe6;color:var(--ok);">A</span> <span class="hint">— 계산기에 내장된 실제 요율</span></summary><div class="refbody"><div class="bondRefMount"></div><p style="margin:8px 0 0;font-size:11.5px;color:#8a8270;line-height:1.6;"><b>근거</b> 주택도시기금법 §8②·시행령 §8② [별표] 부표 1(부동산 등기) — 위 표는 <b>계산기에 내장된 값을 그대로 출력</b>한 것입니다.<br><b>계산규칙</b> 5천원 미만 절사 / 5천원 이상 올림 → 만원 단위 · 각 부동산마다 개별 산정 · 공유지분은 지분율을 곱한 시가표준액으로 판정 · 공동주택은 세대당 시가표준액</p></div></details>
     </div></div>
 
     <div class="card blue"><h2>③ 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
@@ -1644,7 +1697,8 @@
       <div class="line"><span class="lbl">여러 등기소 가산</span><select id="ma_moAdd" onchange="calcMortgageAdd()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
     </div></div>
 
-    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span></h2><div class="body">
+    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 직접 입력하셔야 합니다. 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
+      <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에 <b>등기 당일 값</b>을 넣으셔야 정확합니다.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
       <div class="note">담보권 추가설정 시 국민주택채권 매입 여부는 사안에 따라 다릅니다(기존 설정분과의 관계). 매입 대상이면 <b>채권최고액 기준</b> 매입률 직접 입력, 비대상이면 0으로 두세요. <span class="hint">[확인필요]</span></div>
       <div class="line"><span class="lbl">매입률(‰)</span><input type="number" id="ma_bondPct" placeholder="예: 10" step="0.1" style="width:120px;" oninput="calcMortgageAdd()"><span class="hint">채권최고액 × 매입률</span></div>
       <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="ma_region" value="metro" checked onchange="calcMortgageAdd()"> 특별시·광역시</label><label><input type="radio" name="ma_region" value="other" onchange="calcMortgageAdd()"> 기타지역</label></div></div>
@@ -1778,11 +1832,13 @@
       <div class="line"><span class="lbl">여러 등기소 가산</span><select id="pr_moAdd" onchange="calcPreserve()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
     </div></div>
 
-    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span></h2><div class="body">
+    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 직접 입력하셔야 합니다. 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
+      <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에 <b>등기 당일 값</b>을 넣으셔야 정확합니다.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
       <div class="note">시가표준액 기준 매입(주택/주택외=토지+건물 분리). 매입률 직접 입력. <b>집합건물(아파트·빌라)은 세대(구분건물)마다 과세표준이 다르므로, 국민주택채권은 세대별 시가표준액으로 각각 산정 후 합산</b>하세요. 취득세는 전체 과세표준 합계 기준으로 계산됩니다.</div>
       <div id="pr_bondBody"></div>
       <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="pr_region" value="metro" checked onchange="calcBondPreserve()"> 특별시·광역시</label><label><input type="radio" name="pr_region" value="other" onchange="calcBondPreserve()"> 기타지역</label></div></div>
       <div class="line"><span class="lbl">채권 매입금(원)</span><input type="number" class="amt" id="pr_bondBuy" placeholder="0" oninput="calcPreserve(true)"><span class="hint">자동 합산(직접 수정 가능)</span></div>
+      <details class="ref"><summary>매입률 참고표 <span class="reftag" style="background:#e7efe6;color:var(--ok);">A</span> <span class="hint">— 계산기에 내장된 실제 요율</span></summary><div class="refbody"><div class="bondRefMount"></div><p style="margin:8px 0 0;font-size:11.5px;color:#8a8270;line-height:1.6;"><b>근거</b> 주택도시기금법 §8②·시행령 §8② [별표] 부표 1(부동산 등기) — 위 표는 <b>계산기에 내장된 값을 그대로 출력</b>한 것입니다.<br><b>계산규칙</b> 5천원 미만 절사 / 5천원 이상 올림 → 만원 단위 · 각 부동산마다 개별 산정 · 공유지분은 지분율을 곱한 시가표준액으로 판정 · 공동주택은 세대당 시가표준액</p></div></details>
     </div></div>
 
     <div class="card blue"><h2>③ 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
@@ -2723,6 +2779,25 @@ const BOND_RATE={
  건물:[[1000*만,0,0],[1.3*억,10,8],[2.5*억,16,14],[Infinity,20,18]],
  무상:[[1000*만,0,0],[5000*만,18,14],[1.5*억,28,25],[Infinity,42,39]]
 };
+/* ★ 채권 매입률 참고표 — BOND_RATE 상수에서 자동 생성한다.
+   26-2회차: 종전에는 표를 HTML에 손으로 적어두어 「1.6~2.6억 / 2.6~6억 2줄 + 나머지는
+   "현행 별표 확인 후 내장"」이라는 옛 문구가 표가 완성된 뒤에도 그대로 남아 있었다.
+   → 화면이 코드와 영구히 일치하도록 자동생성으로 바꾼다. [A] */
+function bondRefTable(){
+  const won=n=>n>=1e8?(n/1e8).toLocaleString()+'억':(n/1e4).toLocaleString()+'만';
+  const rows=(nm,key)=>{const t=BOND_RATE[key];let h='',lo=0;
+    t.forEach(([cap,m,o])=>{
+      const band=(cap===Infinity)?won(lo)+' 이상':(lo===0?won(cap)+' 미만':won(lo)+' ~ '+won(cap)+' 미만');
+      h+='<tr><td>'+nm+' '+band+'</td>'+(m===0
+        ?'<td class="r" colspan="2" style="color:var(--ok);font-weight:700;">매입 면제</td>'
+        :'<td class="r">'+m+'/1,000</td><td class="r">'+o+'/1,000</td>')+'</tr>';
+      lo=cap;});
+    return h;};
+  return '<table class="ref"><tr><th>구분 · 시가표준액</th><th class="r">특별시·광역시</th><th class="r">기타지역</th></tr>'
+    +rows('주택','주택')+rows('토지','토지')+rows('건물','건물')
+    +'<tr><td colspan="3" style="background:#f6f1e3;font-weight:700;">▾ 상속·증여 등 무상취득 (물건 종류 무관)</td></tr>'
+    +rows('무상','무상')+'</table>';
+}
 function bondRate(type,std,metro){const t=BOND_RATE[type];if(!t||std<=0)return 0;for(const[cap,m,o]of t){if(std<cap)return metro?m:o;}return 0;}
 function bondAmount(std,rate){if(std<=0||rate<=0)return 0;let amt=std*rate/1000;const frac=amt%10000;amt=(frac<5000)?Math.floor(amt/10000)*10000:Math.ceil(amt/10000)*10000;return amt;}
 
@@ -2876,6 +2951,12 @@ function val(id){const el=document.getElementById(id);if(!el)return 0;const v=pa
 function radio(name){const el=document.querySelector('input[name="'+name+'"]:checked');return el?el.value:'';}
 function chk(id){const e=document.getElementById(id);return e&&e.checked;}
 function step(id,d,fn){const el=document.getElementById(id);el.value=Math.max(1,(parseInt(el.value)||1)+d);if(fn)fn();}
+/* ★ 세금 끝수(단수) 처리 — 27-3회차 신설
+   · 지방세(취득세·등록면허세·지방교육세·농특세): 지방세기본법 §55 → 세목별 1,000원 미만 버림
+   · 국세(인지세): 국고금관리법 §47① → 10원 미만 버림
+   음수·NaN 방어. 0은 0 반환(전액 1,000원 미만이면 전액 불산입과 동일). */
+function taxLocal(v){v=Math.floor(Number(v)||0);return v<1000?0:Math.floor(v/1000)*1000;}
+function taxNational(v){v=Math.floor(Number(v)||0);return v<10?0:Math.floor(v/10)*10;}
 function tierFee(key,a){const t=TIERS[key];if(!t)return 0;for(const[l,b,o,r]of t){if(a<=l)return b+(a-o)*r;}return 0;}
 document.getElementById('today').textContent=(()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');})();
 function saveBondRate(){try{localStorage.setItem('sanlaw_bondRate',document.getElementById('bondRate').value);}catch(e){}}
@@ -2983,7 +3064,17 @@ function calcBondSale(){
   document.getElementById('bondBuy').value=buy;
   calcSale();
 }
-function houseBaseRate(p){if(p<=6*억)return 0.01;if(p<=9*억)return(p*2/(3*억)-3)/100;return 0.03;}
+/* 주택 유상거래 취득세율 — 지방세법 §11①8호 [A] (2026-07-18 국가법령정보센터 원문 대조)
+   가. 6억 이하: 1천분의 10
+   나. 6억 초과 9억 이하: 계산식 (취득당시가액 × 2 ÷ 3억 − 3)%
+       ★ 「이 경우 소수점이하 다섯째자리에서 반올림하여 소수점 넷째자리까지 계산한다」 — 조문 명문
+          26-2회차: 종전 코드에 이 반올림이 없어 조문과 미세하게 어긋났다(7억 기준 약 23원). 반영한다.
+   다. 9억 초과: 1천분의 30 */
+function houseBaseRate(p){
+  if(p<=6*억)return 0.01;
+  if(p<=9*억){const pct=p*2/(3*억)-3; return Math.round(pct*1e4)/1e4/100;} // %를 넷째자리까지 반올림
+  return 0.03;
+}
 /* 생애최초(지특법 §36의3) — 일몰 2028.12.31.
    ① 대상: 본인(대한민국 국민)·배우자 무주택 + 본인 거주목적 + 취득당시가액 12억원 이하
            + 「지방세법」§11①8호 주택을 유상거래(부담부증여 제외)로 취득 + 미성년자 제외
@@ -3046,9 +3137,9 @@ function calcSale(fromEdit){
     if(farmCut)acq=acq*0.5; // 자경농지 50% 감면(지특법 §6① · 일몰 2026.12.31.)
     const mid=(rate>=0.08);const edu=mid?price*0.004:price*rate*0.1;
     let rural=0;if(radio('ptype')==='house')rural=chk('over85')?price*0.002:0;else rural=price*0.002;
-    document.getElementById('acqTax').value=Math.round(acq);
-    document.getElementById('eduTax').value=Math.round(edu);
-    document.getElementById('ruralTax').value=Math.round(rural);
+    document.getElementById('acqTax').value=taxLocal(Math.round(acq));
+    document.getElementById('eduTax').value=taxLocal(Math.round(edu));
+    document.getElementById('ruralTax').value=taxLocal(Math.round(rural));
     document.getElementById('acqRate').textContent='('+(rate*100).toFixed(rate*100%1?2:0)+'%'+(mid?' 중과':'')+(radio('ptype')==='house'&&chk('landAfterBuild')?' §11④ 부속토지(주택세율 배제)':'')+(fhOK?' 생애최초 −'+(fhCut/10000).toFixed(0)+'만(중과배제)':'')+(farmCut?' 자경50%':'')+')';
     const _fw=document.getElementById('fhWarn');if(_fw)_fw.style.display=fhOK?'block':'none';
   }
@@ -3180,9 +3271,9 @@ function calcInherit(fromEdit){
       // 舊 등록세(2011년 취득세·등록세 통합 이전 상속개시분·부칙 §6): 농지외 0.8% / 농지 0.3% + 지방교육세 20% · 농특세 0
       const rrate=(radio('s_ptype')==='farm')?0.003:0.008;
       const regTax=price*rrate;
-      document.getElementById('s_acqTax').value=Math.round(regTax);
-      document.getElementById('s_eduTax').value=Math.round(regTax*0.2);
-      document.getElementById('s_ruralTax').value=0;
+      document.getElementById('s_acqTax').value=taxLocal(Math.round(regTax));
+      document.getElementById('s_eduTax').value=taxLocal(Math.round(regTax*0.2));
+      document.getElementById('s_ruralTax').value=taxLocal(0);
       document.getElementById('s_acqRate').textContent='('+(rrate*100).toFixed(1)+'% '+(radio('s_ptype')==='farm'?'농지':'농지외')+' · 舊등록세)';
     }else{
       const rate=inheritAcqRate();const acq=price*rate;
@@ -3202,9 +3293,9 @@ function calcInherit(fromEdit){
       if(spec)rural=0;
       else if(radio('s_ptype')==='house')rural=chk('s_over85')?price*0.002:0;
       else rural=price*0.002;
-      document.getElementById('s_acqTax').value=Math.round(acq);
-      document.getElementById('s_eduTax').value=Math.round(edu);
-      document.getElementById('s_ruralTax').value=Math.round(rural);
+      document.getElementById('s_acqTax').value=taxLocal(Math.round(acq));
+      document.getElementById('s_eduTax').value=taxLocal(Math.round(edu));
+      document.getElementById('s_ruralTax').value=taxLocal(Math.round(rural));
       document.getElementById('s_acqRate').textContent='('+(rate*100).toFixed(rate*100%1?1:0)+'%'+(rate===0.008?' 1가구1주택특례 §15①2호가':(rate===0.003?' 자경농민농지특례 §15①2호나':''))+')';
     }
   }
@@ -3412,9 +3503,9 @@ function calcGift(fromEdit){
      무상 3.5% → 0.3% / 비영리 2.8% → 0.16% / 중과 12% → §11①7호나목 4% 기준 0.4% */
   const mid=(rate>=0.12);const edu=mid?price*0.004:(rate===0.028?price*0.0016:price*0.003);
     let rural=0;if(radio('gv_ptype')==='house')rural=chk('gv_over85')?price*0.002:0;else rural=price*0.002;
-    document.getElementById('gv_acqTax').value=Math.round(acq);
-    document.getElementById('gv_eduTax').value=Math.round(edu);
-    document.getElementById('gv_ruralTax').value=Math.round(rural);
+    document.getElementById('gv_acqTax').value=taxLocal(Math.round(acq));
+    document.getElementById('gv_eduTax').value=taxLocal(Math.round(edu));
+    document.getElementById('gv_ruralTax').value=taxLocal(Math.round(rural));
     document.getElementById('gv_acqRate').textContent='('+(rate*100).toFixed(rate===0.028?1:1)+'%'+(chk('gv_nonprofit')?' 비영리사업자 §11①2호 단서':'')+(mid?' 조정3억↑ 중과 §13의2②':(giftMidExempt()&&chk('gv_adj3')&&radio('gv_ptype')==='house'&&price>=3*억?' 무상 · 중과배제(§13의2② 단서)':' 무상'))+')';
   }
   const bondLoss=Math.round(val('gv_bondBuy')*val('bondRate')/100);
@@ -3529,9 +3620,9 @@ function calcDivision(fromEdit){
       // 농특세: §5①1호 감면분 = 감면세액(2%) × 20% = 0.4% / 서민주택(85㎡ 이하)은 §4 9호·11호 비과세
       const exempt=(house&&!chk('dv_over85'));
       const rural=exempt?0:price*0.004;
-      document.getElementById('dv_acqTax').value=Math.round(acq);
-      document.getElementById('dv_eduTax').value=Math.round(edu);
-      document.getElementById('dv_ruralTax').value=Math.round(rural);
+      document.getElementById('dv_acqTax').value=taxLocal(Math.round(acq));
+      document.getElementById('dv_eduTax').value=taxLocal(Math.round(edu));
+      document.getElementById('dv_ruralTax').value=taxLocal(Math.round(rural));
       document.getElementById('dv_acqRate').textContent='(1.5% · §15①6호 세율특례)';
       document.getElementById('dv_ruralNote').textContent=exempt?'(85㎡ 이하 주택 = 서민주택 비과세)':'(감면세액 2% × 20% = 0.4%)';
     }else{
@@ -3859,7 +3950,7 @@ function calcEtcAcq(fromEdit){
     }else if(ty==='formal'){
       note='(§15①7호 — 시행령 미확인 · 직접입력 [확인필요])'; eduNote='(직접입력)';
       rural=0; ruralNote='(§4 8호·시행령 §4④ — §15①7호 열거 → 비과세)';
-      document.getElementById('ea_ruralTax').value=0;
+      document.getElementById('ea_ruralTax').value=taxLocal(0);
       document.getElementById('ea_acqRate').textContent=note;
       document.getElementById('ea_eduNote').textContent=eduNote;
       document.getElementById('ea_ruralNote').textContent=ruralNote;
@@ -3882,9 +3973,9 @@ function calcEtcAcq(fromEdit){
       note='(중과기준세율 2% · §15②)'; eduNote='(§151①1호 괄호 — §15②는 제외 → 0)';
       ruralNote='(농특세법 §5⑤ — 2% 세액 × 10% = 0.2%)';
     }
-    document.getElementById('ea_acqTax').value=Math.round(acq);
-    document.getElementById('ea_eduTax').value=Math.round(edu);
-    document.getElementById('ea_ruralTax').value=Math.round(rural);
+    document.getElementById('ea_acqTax').value=taxLocal(Math.round(acq));
+    document.getElementById('ea_eduTax').value=taxLocal(Math.round(edu));
+    document.getElementById('ea_ruralTax').value=taxLocal(Math.round(rural));
     document.getElementById('ea_acqRate').textContent=note;
     document.getElementById('ea_eduNote').textContent=eduNote;
     document.getElementById('ea_ruralNote').textContent=ruralNote;
@@ -3992,9 +4083,9 @@ function calcPartition(fromEdit){
       edu+=house?(excess*rateX*0.1):(excess*0.004);        // 주택 §151①1호 취득세×10% / 주택외 (4%−2%)×20%
       rural+=(house&&!chk('pt_over85'))?0:excess*0.002;    // §5①6호 2%×10% · 85㎡↓ 주택 §4 11호 비과세
     }
-    document.getElementById('pt_acqTax').value=Math.round(acq);
-    document.getElementById('pt_eduTax').value=Math.round(edu);
-    document.getElementById('pt_ruralTax').value=Math.round(rural);
+    document.getElementById('pt_acqTax').value=taxLocal(Math.round(acq));
+    document.getElementById('pt_eduTax').value=taxLocal(Math.round(edu));
+    document.getElementById('pt_ruralTax').value=taxLocal(Math.round(rural));
     document.getElementById('pt_acqRate').textContent=
       '(지분내 0.3% §15①4호'+(excess>0?' + 초과분 '+(rateX*100).toFixed(2)+'% 유상승계 [확인필요]':'')+')';
     document.getElementById('pt_ruralNote').textContent=
@@ -4217,8 +4308,8 @@ function calcMortgage(mode){
     /* 등록면허세 — 지방세법 §28①1호다목2) 저당권 설정: 채권금액의 1,000분의 2
        §28① 본문 단서: 산출세액이 「그 밖의 등기」 세율(마목 건당 6,000원)보다 적으면 6,000원 [A] */
     let mtReg=Math.round(max*0.002); if(max>0&&mtReg<6000)mtReg=6000;
-    document.getElementById('mt_regTax').value=max>0?mtReg:0;
-    document.getElementById('mt_eduTax').value=Math.round((max>0?mtReg:0)*0.2);   // §151①2호 등록면허세의 20%
+    document.getElementById('mt_regTax').value=taxLocal(max>0?mtReg:0);
+    document.getElementById('mt_eduTax').value=taxLocal(Math.round((max>0?mtReg:0)*0.2));   // §151①2호 등록면허세의 20%
     document.getElementById('mt_regRate').textContent='(채권최고액 × 0.2%)';
     // 국민주택채권 매입률 자동: 저당권설정금액 2천만원 이상 → 10/1,000(지역무관). 2천만 미만 면제. [A: 주택도시기금법 시행령 별표]
     document.getElementById('mt_bondPct').value=(max>=20000000)?10:0;
@@ -4283,8 +4374,8 @@ function calcGadeungi(fromEdit){
   if(!fromEdit){
     /* §28①1호라목3) 가등기: 부동산가액 또는 채권금액의 1,000분의 2 · §28① 본문 단서 최저 6,000원 [A] */
     let reg=Math.round(base*0.002); if(base>0&&reg<6000)reg=6000;
-    document.getElementById('ga_regTax').value=base>0?reg:0;
-    document.getElementById('ga_eduTax').value=Math.round((base>0?reg:0)*0.2);
+    document.getElementById('ga_regTax').value=taxLocal(base>0?reg:0);
+    document.getElementById('ga_eduTax').value=taxLocal(Math.round((base>0?reg:0)*0.2));
     const ty=radio('ga_type');
     document.getElementById('ga_regRate').textContent=ty==='debt'?'(채권액 × 0.2%)':'(부동산가액 × 0.2%)';
   }
@@ -4335,8 +4426,8 @@ function calcMarital(fromEdit){
      부부재산약정등기부는 부동산등기부(1호)·법인등기부(6호)가 아닌 별도 등기부(부부재산약정등기규칙)
      → 14호 적용. 2026-07-15 감사: 조문 대조 일치 */
   const reg=12000*cnt;
-    document.getElementById('mr_regTax').value=reg;
-    document.getElementById('mr_eduTax').value=Math.round(reg*0.2); // §151①2호 [A]
+    document.getElementById('mr_regTax').value=taxLocal(reg);
+    document.getElementById('mr_eduTax').value=taxLocal(Math.round(reg*0.2)); // §151①2호 [A]
     document.getElementById('mr_regFee').value=2000*cnt; // 등기사항증명서등수수료규칙 §5의4③: 부부재산약정등기 매 건 2,000원 [A]
   }
   const publicSum=val('mr_regTax')+val('mr_eduTax')+val('mr_regFee')+val('mr_postFee')+pubCustomSum('scene-부부재산약정');
@@ -4370,8 +4461,8 @@ function calcSintak(fromEdit){
   const base=val('st_base');
   const cntE=Math.max(1,val('st_cntEstate'));
   if(!fromEdit){
-    document.getElementById('st_regTax').value=6000*cntE;
-    document.getElementById('st_eduTax').value=1200*cntE;
+    document.getElementById('st_regTax').value=taxLocal(6000*cntE);
+    document.getElementById('st_eduTax').value=taxLocal(1200*cntE);
   }
   const m=document.getElementById('st_regMethod').value;const idx=m==='p'?0:(m==='o'?2:1);
   const unit=REG_RE.신탁[idx];const regFee=unit*cntE;
@@ -4418,8 +4509,8 @@ function calcMortgageAdd(fromEdit){
   if(!fromEdit){
     /* §28①1호다목2) 저당권 설정 0.2% · §28① 본문 단서 최저 6,000원 [A] */
     let maReg=Math.round(max*0.002); if(max>0&&maReg<6000)maReg=6000;
-    document.getElementById('ma_regTax').value=max>0?maReg:0;
-    document.getElementById('ma_eduTax').value=Math.round((max>0?maReg:0)*0.2);
+    document.getElementById('ma_regTax').value=taxLocal(max>0?maReg:0);
+    document.getElementById('ma_eduTax').value=taxLocal(Math.round((max>0?maReg:0)*0.2));
     document.getElementById('ma_regRate').textContent='(채권최고액 × 0.2%)';
     const pct=val('ma_bondPct');
     if(max>0&&pct>0)document.getElementById('ma_bondBuy').value=Math.round(max*pct/1000);
@@ -4474,8 +4565,8 @@ function calcMortgageAdd(fromEdit){
 function calcMortCancel(fromEdit){
   const cnt=Math.max(1,val('mtc_cnt'));
   if(!fromEdit){
-    document.getElementById('mtc_regTax').value=6000*cnt;
-    document.getElementById('mtc_eduTax').value=Math.round(6000*cnt*0.2);
+    document.getElementById('mtc_regTax').value=taxLocal(6000*cnt);
+    document.getElementById('mtc_eduTax').value=taxLocal(Math.round(6000*cnt*0.2));
   }
   const m=document.getElementById('mtc_regMethod').value;const idx=m==='p'?0:(m==='o'?2:1);
   const unit=REG_RE.기타[idx];const regFee=unit*cnt;
@@ -4555,9 +4646,9 @@ function calcPreserve(fromEdit){
   if(!fromEdit){
     const acq=price*0.028, edu=price*0.0016;
     let rural=chk('pr_over85')?price*0.002:(radio('pr_ptype')==='etc'?price*0.002:0);
-    document.getElementById('pr_acqTax').value=Math.round(acq);
-    document.getElementById('pr_eduTax').value=Math.round(edu);
-    document.getElementById('pr_ruralTax').value=Math.round(rural);
+    document.getElementById('pr_acqTax').value=taxLocal(Math.round(acq));
+    document.getElementById('pr_eduTax').value=taxLocal(Math.round(edu));
+    document.getElementById('pr_ruralTax').value=taxLocal(Math.round(rural));
   }
   const bondLoss=Math.round(val('pr_bondBuy')*val('bondRate')/100);
   document.getElementById('pr_bondLossCell').textContent=won(bondLoss)+' ('+val('bondRate')+'%)';
@@ -4625,8 +4716,8 @@ function calcRight(fromEdit){
     /* §28①1호다목 — 1)지상권: 부동산가액 / 4)전세권: 전세금액 의 각 1,000분의 2
        §28① 본문 단서 최저 6,000원 [A] */
     let rtReg=Math.round(price*0.002); if(price>0&&rtReg<6000)rtReg=6000;
-    document.getElementById('rt_regTax').value=price>0?rtReg:0;
-    document.getElementById('rt_eduTax').value=Math.round((price>0?rtReg:0)*0.2);
+    document.getElementById('rt_regTax').value=taxLocal(price>0?rtReg:0);
+    document.getElementById('rt_eduTax').value=taxLocal(Math.round((price>0?rtReg:0)*0.2));
     document.getElementById('rt_regRate').textContent='(설정금액 × 0.2%)';
     // 전세권·지상권 설정은 국민주택채권 매입 대상 아님 → 0원(예외 시 사용자가 직접 입력)
   }
@@ -4691,8 +4782,8 @@ function calcCorp(fromEdit){
   let reg=Math.max(cap*(npo?0.002:0.004),112500);
     const metro=chk('co_metro')&&!chk('co_exclude');
     if(metro)reg*=3;
-    document.getElementById('co_regTax').value=Math.round(reg);
-    document.getElementById('co_eduTax').value=Math.round(reg*0.2);
+    document.getElementById('co_regTax').value=taxLocal(Math.round(reg));
+    document.getElementById('co_eduTax').value=taxLocal(Math.round(reg*0.2));
     document.getElementById('co_regRate').textContent='('+(npo?'비영리 출자총액 0.2% §28①6호나목':'자본금 0.4% §28①6호가목')+'·최저 112,500'+(metro?' ·대도시 ×3 §28②1호':'')+')';
   }
   const cm=document.getElementById('co_regMethod').value;const cidx=cm==='p'?0:(cm==='o'?2:1);
@@ -4780,8 +4871,8 @@ function calcCorpChange(fromEdit){
     if(_tb)_tb.style.display=(metro&&def.mid==='branch')?'flex':'none';
     if(_te)_te.style.display=(metro&&def.mid)?'flex':'none';
     if(_mw)_mw.style.display=(metro&&def.mid===false)?'block':'none';
-    document.getElementById('cv_regTax').value=Math.round(reg);
-    document.getElementById('cv_eduTax').value=Math.round(reg*0.2);
+    document.getElementById('cv_regTax').value=taxLocal(Math.round(reg));
+    document.getElementById('cv_eduTax').value=taxLocal(Math.round(reg*0.2));
     document.getElementById('cv_regRate').textContent=note;
   }
   // 등기신청수수료 (변경/설립)
@@ -5123,8 +5214,8 @@ function calcAuctionFile(fromEdit){
   if(!fromEdit){
     /* 등록면허세 — §28①1호라목1) 경매신청: 채권금액의 1,000분의 2
        §28① 본문 단서: 산출세액이 「그 밖의 등기」(마목 6,000원)보다 적으면 6,000원 [A] */
-    document.getElementById('am_regTax').value=claim>0?Math.max(Math.floor(claim*0.002),6000):0;
-    document.getElementById('am_eduTax').value=Math.floor(val('am_regTax')*0.2);   // §151①2호 20%
+    document.getElementById('am_regTax').value=taxLocal(claim>0?Math.max(Math.floor(claim*0.002),6000):0);
+    document.getElementById('am_eduTax').value=taxLocal(Math.floor(val('am_regTax')*0.2));   // §151①2호 20%
     document.getElementById('am_inji').value=5000*Math.max(1,val('am_titleN'));
     document.getElementById('am_song').value=(party+3)*10*songUnit();
     document.getElementById('am_songNote').textContent='((이해관계인'+party+'+3)×10회×'+songUnit().toLocaleString()+')';
@@ -5207,7 +5298,7 @@ function calcSeizure(fromEdit){
   if(!fromEdit){
     const units=(chk('cs_seize')?1:0)+(chk('cs_collect')?1:0);
     const injiPaper=2000*units; // 압류2,000+추심2,000(종이)
-    document.getElementById('cs_inji').value=Math.round(injiPaper*(e?0.9:1));
+    document.getElementById('cs_inji').value=taxNational(injiPaper*(e?0.9:1));
     document.getElementById('cs_injiNote').textContent='(압류/추심 '+units+'건×'+(e?'1,800':'2,000')+')';
     document.getElementById('cs_song').value=party*2*songUnit();
     document.getElementById('cs_songNote').textContent='('+party+'인×2회×'+songUnit().toLocaleString()+')';
@@ -5263,8 +5354,8 @@ function calcAttachGoods(fromEdit){
 function calcAttachCar(fromEdit){
   const claim=val('av_claim'),party=Math.max(1,val('av_party')),cnt=Math.max(1,val('av_cnt'));
   if(!fromEdit){
-    document.getElementById('av_regTax').value=15000*cnt;
-    document.getElementById('av_eduTax').value=0;
+    document.getElementById('av_regTax').value=taxLocal(15000*cnt);
+    document.getElementById('av_eduTax').value=taxLocal(0);
     document.getElementById('av_inji').value=chk('av_e')?9000:10000;   // §9② 1만원 · §16②(§9 준용) 전자 10분의 9 [A]
     document.getElementById('av_song').value=party*3*songUnit();
     document.getElementById('av_songNote').textContent='('+party+'인×3회×'+songUnit().toLocaleString()+')';
@@ -5333,8 +5424,8 @@ function calcAttach(fromEdit){
     document.getElementById('at_deposit').value=Math.round(claim*0.1);
     /* 등록면허세 — §28①1호라목2) 가압류: 채권금액의 1,000분의 2 · §28① 본문 단서 최저 6,000원 [A]
        (서울행정법원 2021구합84584: 청구금액의 1,000분의 2를 등록면허세로, 그 100분의 20을 지방교육세로) */
-    document.getElementById('at_regTax').value=claim>0?Math.max(Math.floor(claim*0.002),6000):0;
-    document.getElementById('at_eduTax').value=Math.floor(val('at_regTax')*0.2);
+    document.getElementById('at_regTax').value=taxLocal(claim>0?Math.max(Math.floor(claim*0.002),6000):0);
+    document.getElementById('at_eduTax').value=taxLocal(Math.floor(val('at_regTax')*0.2));
     document.getElementById('at_inji').value=chk('at_e')?9000:10000;   // §9② 1만원 · §16②(§9 준용) 전자 10분의 9 [A]
     document.getElementById('at_song').value=party*3*songUnit();
     document.getElementById('at_songNote').textContent='('+party+'인×3회×'+songUnit().toLocaleString()+')';
@@ -5395,8 +5486,8 @@ function calcInjunction(fromEdit){
     document.getElementById('inj_inji').value=inji;
     document.getElementById('inj_injiNote').textContent=type==='status'?'(본안인지×1/2·상한50만'+(elec?'·전자×0.9':'')+')':('계쟁물 정액'+(elec?' 전자9,000':' 종이10,000'));
     // 등록면허세 (처분금지만)
-    if(isDisposal){const rt=Math.max(Math.floor((claim>0?claim:0)*0.002),6000);document.getElementById('inj_regTax').value=rt;document.getElementById('inj_eduTax').value=Math.floor(rt*0.2);document.getElementById('inj_regFee').value=4000*cntE;}
-    else{document.getElementById('inj_regTax').value=0;document.getElementById('inj_eduTax').value=0;document.getElementById('inj_regFee').value=0;}
+    if(isDisposal){const rt=Math.max(Math.floor((claim>0?claim:0)*0.002),6000);document.getElementById('inj_regTax').value=taxLocal(rt);document.getElementById('inj_eduTax').value=taxLocal(Math.floor(rt*0.2));document.getElementById('inj_regFee').value=4000*cntE;}
+    else{document.getElementById('inj_regTax').value=taxLocal(0);document.getElementById('inj_eduTax').value=taxLocal(0);document.getElementById('inj_regFee').value=0;}
     /* 송달료 회차 — 재일 87-4 별표1 [A]
        다툼의 대상(계쟁물)에 대한 가처분 = 3회분 / 임시의 지위를 정하기 위한 가처분 = 8회분 */
     const songCnt=(type==='status')?8:3;
@@ -5578,6 +5669,7 @@ function verifyData(){
   else{bar.style.color='var(--seal)';bar.innerHTML='⚠ 누진 검증 실패 '+fail+'건';}
 }
 
+document.querySelectorAll('.bondRefMount').forEach(el=>el.innerHTML=bondRefTable()); // 채권 참고표 = BOND_RATE 자동출력
 buildMenu();verifyData();goMenu();
 
 /* ===================== 소송비용액확정 — 변호사보수 산입 =====================
