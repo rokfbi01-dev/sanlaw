@@ -656,12 +656,12 @@
       </table>
     </div></div>
 
-    <div class="card blue"><h2>③ 공과금·실비 <span class="tag chk">확인필요</span><span class="law" title="가사 인지·송달료는 사건 종류(성년·한정·특정후견 개시, 후견인 변경 등)에 따라 달라 확정 근거를 확보하지 못했습니다. 그래서 자동계산을 하지 않고 직접입력으로 두었습니다.">사유: 인지·송달 근거 미확보</span></h2><div class="body">
-      <div class="note" style="border-left:3px solid var(--seal);">▸ <b>인지·송달료는 「가사소송 및 비송사건과 가사조정의 신청에 붙일 인지액에 관한 규칙」</b>에 따르며, 사건 종류(성년후견·한정후견·특정후견 개시, 후견인 변경·사임허가, 대리권 범위 결정 등)에 따라 다릅니다. <b>확인한 근거가 없어 자동계산하지 않습니다 — 접수 법원·전자소송 안내로 확인한 금액을 직접 입력</b>하십시오. <span class="tag chk">확인필요</span><br>· 송달료는 당사자 수·회차를 입력하면 1회 단가(<b id="gd_unitNote"></b>)로 자동 산출됩니다. 회차는 접수 법원 기준으로 조정하십시오.</div>
+    <div class="card blue"><h2>③ 공과금·실비 <span class="tag chk">확인필요</span><span class="law" title="인지(라류 5,000원)·송달료는 자동 계산됩니다. 다만 후견등기 등록면허세·증지, 정신감정비(법원 실비), 제증명 비용은 사안·법원별로 달라 직접 입력이 필요합니다.">사유: 실비(감정비 등)만</span></h2><div class="body">
+      <div class="note" style="border-left:3px solid var(--seal);">▸ <b>인지(라류 가사비송 5,000원)와 송달료는 자동 계산</b>됩니다(가사소송수수료규칙·재일 87-4 별표1). 심판청구서 작성을 체크하면 인지 5,000원이 자동 반영되고, 후견등기만 신청하면 인지는 없습니다. <b>확인한 근거가 없어 자동계산하지 않습니다 — 접수 법원·전자소송 안내로 확인한 금액을 직접 입력</b>하십시오. <span class="tag chk">확인필요</span><br>· 송달료는 당사자 수·회차를 입력하면 1회 단가(<b id="gd_unitNote"></b>)로 자동 산출됩니다. 회차는 접수 법원 기준으로 조정하십시오.</div>
       <div class="note">후견등기는 등록면허세·증지가 소액입니다. <b>정신감정</b>은 ① <b>진료기록 감정</b>(법원에 진료기록 송부, 비용·신속성 유리 — 실무 선호) ② <b>신체감정</b>(외래·입원·출장)이 있으며, 법원이 정하는 실비입니다(진단서로 명확하면 감정 생략 가능). 직접 입력하세요.</div>
       <table class="t">
-        <tr><td>심판청구 인지 <span class="hint" id="gd_injiNote">[확인필요] 직접입력</span></td><td><input class="cell" id="gd_inji" type="number" value="0" oninput="calcGuardian()"></td></tr>
-        <tr><td>송달료 <span class="hint">당사자 <input type="number" id="gd_party" value="2" min="1" style="width:48px;" oninput="calcGuardian()"> × <input type="number" id="gd_songCnt" value="8" min="1" style="width:44px;" oninput="calcGuardian()">회 <span id="gd_songNote"></span></span><span class="law" title="「송달료규칙의 시행에 따른 업무처리요령」(재일 87-4) 별표1이 사건 종류별 예납 회차를 정합니다. 1회 단가는 우편요금에 연동되며 화면 상단에서 바꿀 수 있습니다.">재일 87-4 별표1</span></td><td><input class="cell" id="gd_song" type="number" value="0" oninput="calcGuardian(true)"></td></tr>
+        <tr><td>심판청구 인지 <span class="hint" id="gd_injiNote">(라류 5,000원 자동)</span><span class="law" title="라류 가사비송사건(성년·한정·특정후견 개시 등)의 인지는 가사소송수수료규칙에 따라 사건 1건당 5,000원입니다. 후견등기만 신청하는 경우에는 인지가 없습니다.">가사소송수수료규칙</span></td><td><input class="cell" id="gd_inji" type="number" value="0" oninput="calcGuardian()"></td></tr>
+        <tr><td>송달료 <span class="hint">당사자 <input type="number" id="gd_party" value="2" min="1" style="width:48px;" oninput="calcGuardian()"> × <input type="number" id="gd_songCnt" value="10" min="1" style="width:44px;" oninput="calcGuardian()">회 <span id="gd_songNote"></span></span><span class="law" title="「송달료규칙의 시행에 따른 업무처리요령」(재일 87-4) 별표1이 사건 종류별 예납 회차를 정합니다. 1회 단가는 우편요금에 연동되며 화면 상단에서 바꿀 수 있습니다.">재일 87-4 별표1</span></td><td><input class="cell" id="gd_song" type="number" value="0" oninput="calcGuardian(true)"></td></tr>
         <tr><td>후견등기 등록면허세·증지 <span class="hint">(등기 신청 시)</span></td><td><input class="cell" id="gd_regTax" type="number" value="0" oninput="calcGuardian()"></td></tr>
         <tr><td>정신감정비(법원) <span class="hint">실비·사안별</span></td><td><input class="cell" id="gd_eval" type="number" value="0" oninput="calcGuardian()"></td></tr>
         <tr><td>후견등기사항(부존재)증명서·제증명 <span class="hint">실비</span></td><td><input class="cell" id="gd_cert" type="number" value="0" oninput="calcGuardian()"></td></tr>
@@ -2951,12 +2951,16 @@ function val(id){const el=document.getElementById(id);if(!el)return 0;const v=pa
 function radio(name){const el=document.querySelector('input[name="'+name+'"]:checked');return el?el.value:'';}
 function chk(id){const e=document.getElementById(id);return e&&e.checked;}
 function step(id,d,fn){const el=document.getElementById(id);el.value=Math.max(1,(parseInt(el.value)||1)+d);if(fn)fn();}
-/* ★ 세금 끝수(단수) 처리 — 27-3회차 신설
-   · 지방세(취득세·등록면허세·지방교육세·농특세): 지방세기본법 §55 → 세목별 1,000원 미만 버림
-   · 국세(인지세): 국고금관리법 §47① → 10원 미만 버림
-   음수·NaN 방어. 0은 0 반환(전액 1,000원 미만이면 전액 불산입과 동일). */
-function taxLocal(v){v=Math.floor(Number(v)||0);return v<1000?0:Math.floor(v/1000)*1000;}
-function taxNational(v){v=Math.floor(Number(v)||0);return v<10?0:Math.floor(v/10)*10;}
+/* ★ 세금 끝수(단수) 처리 — 27-3회차 신설 / 27-4회차 정정
+   지방세·국세 모두 「10원 미만 절사」가 원칙이다.
+   · 국세(인지세 등): 국고금관리법 §47① — 10원 미만의 끝수는 계산하지 아니한다.
+   · 지방세(취득세·등록면허세·지방교육세·농특세): 지방세기본법이 국고금관리법 §47을 준용 → 동일하게 10원 미만 절사.
+     (판례: 서울고법 2012노1516 등 — 세액 확정 시 국고금관리법 §47① 10원 미만 버림)
+   ※ 종전 27-3에서 지방세를 1,000원 미만 버림으로 잘못 적용 → 10원 미만 절사로 정정.
+   음수·NaN 방어. 전액이 10원 미만이면 전액 불산입(0). */
+function taxTrim(v){v=Math.floor(Number(v)||0);return v<10?0:Math.floor(v/10)*10;}
+function taxLocal(v){return taxTrim(v);}     // 지방세 — 10원 미만 절사
+function taxNational(v){return taxTrim(v);}  // 국세 — 10원 미만 절사
 function tierFee(key,a){const t=TIERS[key];if(!t)return 0;for(const[l,b,o,r]of t){if(a<=l)return b+(a-o)*r;}return 0;}
 document.getElementById('today').textContent=(()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');})();
 function saveBondRate(){try{localStorage.setItem('sanlaw_bondRate',document.getElementById('bondRate').value);}catch(e){}}
@@ -3409,6 +3413,11 @@ function calcGuardian(fromEdit){
     document.getElementById('gd_song').value=gp*gc*songUnit();
     const _sn=document.getElementById('gd_songNote');
     if(_sn)_sn.textContent='× '+songUnit().toLocaleString();
+    /* 인지 — 라류 가사비송(성년·한정·특정·미성년후견 개시 등): 가사소송수수료규칙상 사건 1건당 5,000원.
+       심판청구서 작성 체크 시 자동. 후견등기만 신청하면 인지 없음. */
+    document.getElementById('gd_inji').value=chk('gd_petition')?5000:0;
+    const _in=document.getElementById('gd_injiNote');
+    if(_in)_in.textContent=chk('gd_petition')?'(라류 가사비송 5,000원 · 사건 1건)':'(등기만 — 인지 없음)';
   }
   const _un=document.getElementById('gd_unitNote');
   if(_un)_un.textContent=songUnit().toLocaleString()+'원';
