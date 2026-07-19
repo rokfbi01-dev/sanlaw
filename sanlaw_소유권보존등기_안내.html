@@ -134,6 +134,11 @@ td a{color:var(--gold-d); word-break:break-all;}
 </style>
 </head>
 <body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
 <h1>소유권보존등기 — 미등기 부동산을 처음 내 이름으로</h1>
 
 <div class="helm">
@@ -260,10 +265,15 @@ td a{color:var(--gold-d); word-break:break-all;}
 </table>
 <div class="bnote">※ 정확한 과세표준(신축 건물은 시가표준액)·감면 여부, 국민주택채권 매입액은 사안마다 달라, <b>협력 세무사와 함께</b> 확인해 드립니다. 취득세를 안 내면(또는 늦으면) 가산세가 붙고 등기가 진행되지 않습니다.</div>
 
-<a class="calc" href="https://www.wetax.go.kr/main/?cmd=LPTICB0R2&num=10&pageNo=1&seqNo=405" target="_blank" rel="noopener" style="background:linear-gradient(135deg,#eef4fc,#dbe9fb);border-color:#2b7fff">
-  <div class="cah" style="color:#0b4a9c">📄 취득세 신고서·등록면허세 신고서 양식 내려받기</div>
-  <div class="cas">위택스 서식자료실에서 <b>취득세 신고서</b>(지방세법 시행규칙 별지 제3호)와 <b>등록에 대한 등록면허세 신고서</b>(별지 제9호)를 한글파일(HWP)로 받아 쓰실 수 있습니다. · <a href="https://www.wetax.go.kr/main/?cmd=LPTICB0R2&seqNo=348&pageNo=1" target="_blank" rel="noopener" style="color:#0b4a9c;font-weight:700">등록면허세 신고서(별지 제9호) 바로가기</a></div>
-</a>
+<div class="calc" style="display:block;background:linear-gradient(135deg,#eef4fc,#dbe9fb);border:1px solid #2b7fff;border-radius:11px;padding:15px 16px;margin:18px 0">
+  <div class="cah" style="color:#0b4a9c">📄 취득세·등록면허세 신고서 양식 내려받기 <span style="font-weight:400">(국가법령정보센터)</span></div>
+  <div class="cas" style="margin-top:6px">법제처 <b>국가법령정보센터</b>에서 <b>취득세 신고서</b>(지방세법 시행규칙 별지 제3호)와 <b>등록에 대한 등록면허세 신고서</b>(별지 제9호)를 <b>항상 최신본</b>으로 내려받을 수 있습니다. 서식이 개정돼도 링크가 끊기지 않습니다.
+    <div style="margin-top:11px;display:flex;gap:8px;flex-wrap:wrap">
+      <a href="https://www.law.go.kr/lsLawLinkInfo.do?lsJoLnkSeq=1000212765" target="_blank" rel="noopener" style="display:inline-block;background:#0b4a9c;color:#fff;font-weight:700;text-decoration:none;padding:9px 15px;border-radius:8px;font-size:14px">취득세 신고서(별지 제3호) ▸</a>
+      <a href="https://www.law.go.kr/lsBylInfoPLinkR.do?bylBrNo=00&bylCls=BF&bylEfYd=20180101&bylEfYdYn=Y&bylNo=0009&lsNm=지방세법+시행규칙&lsiSeq=200704" target="_blank" rel="noopener" style="display:inline-block;background:#0b4a9c;color:#fff;font-weight:700;text-decoration:none;padding:9px 15px;border-radius:8px;font-size:14px">등록면허세 신고서(별지 제9호) ▸</a>
+    </div>
+  </div>
+</div>
 
 <!-- 계산기 -->
 <a class="calc" href="https://sanlaw.co.kr/tools-calculator.html" target="_blank" rel="noopener">
