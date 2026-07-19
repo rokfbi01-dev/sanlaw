@@ -290,7 +290,6 @@
         <ul class="credos">
           <li>모든 사건은 대표가 직접 상담하고 직접 검토합니다.</li>
           <li>유리한 점뿐 아니라 불리한 점도 솔직하게 말씀드립니다.</li>
-          <li>법무사 직무 범위 안에서, 필요 시 변호사 선임을 정직하게 안내합니다.</li>
         </ul>
 
         <div class="career-block">
@@ -421,7 +420,8 @@ var SANGSOK=[
    {t:"자녀가 다 포기하면 손주에게 빚이?",u:"3-4_전원포기_손자녀.html"}]},
  {n:4,t:"상속등기",d:"명의이전·대습상속·재외국민",items:[]},
  {n:5,t:"상속포기와 수계",d:"소송수계 대응·특별연고자",items:[]},
- {n:6,t:"유언",d:"자필증서·검인·유언무효",items:[]},
+ {n:6,t:"유언",d:"자필증서·검인·유언무효·유언대용신탁",items:[
+   {t:"유언대용신탁",u:"sanlaw_유언대용신탁_안내.html"}]},
  {n:7,t:"상속회복청구",d:"가로챈 상속분 회복·제척기간",items:[
    {t:"누가 내 상속분을 가로챘어요",u:"8-1_상속회복청구.html",r:false},
    {t:"제3자에게 넘어간 재산 되찾기",u:"8-2_제3자_상속재산_회복.html",r:false},
@@ -429,17 +429,19 @@ var SANGSOK=[
 ];
 var DEUNGGI=[
  {n:1,t:"부동산 등기",d:"매매·증여·상속·근저당·전세권·가등기·신탁",items:[
-   {t:"매매 (소유권이전등기)",r:false},
-   {t:"증여 (소유권이전등기)",r:false},
-   {t:"부담부증여",r:false},
-   {t:"상속 (상속등기)",r:false},
-   {t:"소유권보존등기",r:false},
-   {t:"근저당권설정",r:false},
-   {t:"근저당권말소",r:false},
-   {t:"전세권·지상권 설정",r:false},
-   {t:"가등기",r:false},
-   {t:"신탁등기",r:false},
-   {t:"담보권추가설정",r:false}]},
+   {t:"매매 (소유권이전등기)",u:"sanlaw_매매등기_안내.html"},
+   {t:"증여 (소유권이전등기)",u:"sanlaw_증여등기_안내.html"},
+   {t:"부담부증여",u:"sanlaw_부담부증여_안내.html"},
+   {t:"상속 (상속등기)",u:"sanlaw_상속등기_안내.html"},
+   {t:"소유권보존등기",u:"sanlaw_소유권보존등기_안내.html"},
+   {t:"근저당권설정",u:"sanlaw_근저당권설정등기_안내.html"},
+   {t:"근저당권말소",u:"sanlaw_근저당권말소등기_안내.html"},
+   {t:"전세권 설정",u:"sanlaw_전세권등기_안내.html"},
+   {t:"지상권 설정",u:"sanlaw_지상권등기_안내.html"},
+   {t:"가등기",u:"sanlaw_가등기_안내.html"},
+   {t:"신탁등기",u:"sanlaw_신탁등기_안내.html"},
+   {t:"담보권추가설정",u:"sanlaw_담보권추가설정등기_안내.html"},
+   {t:"등기 준비서류 총정리",u:"sanlaw_등기준비서류_안내.html"}]},
  {n:2,t:"법인 (상업등기)",d:"설립·증자·임원변경·이전·해산까지",items:[
    {t:"법인설립",r:false},
    {t:"자본증감 (증자)",r:false},
@@ -877,7 +879,7 @@ chk.addEventListener('change',function(){
     <p style="font-size:13px;color:rgba(255,255,255,.55);margin-top:14px;line-height:1.7;border-top:1px solid rgba(255,255,255,.08);padding-top:18px">
       <b style="color:rgba(255,255,255,.75)">타 지역 사건 안내</b> &nbsp;본 사무소가 직접 지원하기 어려운 타 지역 사건은 <a href="https://memberr.kabl.kr/mod/page/view.do?MID=member_lawm_search" target="_blank" rel="noopener" style="color:var(--gold-soft);text-decoration:underline">대한법무사협회 법무사찾기</a>에서 거주 지역의 법무사를 직접 찾으실 수 있습니다.
     </p>
-    <p class="disclaimer">※ 본 사이트의 업무는 법무사법 제2조 및 행정사법에 따른 직무 범위 내에서 제공됩니다. 변호사 고유 업무에 해당하는 사항은 변호사 선임을 안내해 드립니다. 게시된 경력·업무 내용은 실제 자격 및 사실에 근거하여 추후 확정·게재합니다.</p>
+    <p class="disclaimer">※ 본 사이트의 업무는 법무사법 제2조 및 행정사법에 따른 직무 범위 내에서 제공됩니다. 게시된 경력·업무 내용은 실제 자격 및 사실에 근거하여 추후 확정·게재합니다.</p>
     <div class="foot-bottom">
       <span>© 2026 산 법무사 김재섭 행정사 사무소. All rights reserved.</span>
       <span>대표 김재섭 · 법무사 등록증 12742호 · 행정사업무신고증 3160000202611호 · 사업자등록번호 259-04-03801</span>
