@@ -496,6 +496,16 @@ chk.addEventListener('change',function(){
   if(agreed){bizWrap.classList.remove('locked');document.querySelectorAll('#bizGrid .pa-card').forEach(function(c,i){if(BIZ[i].open)c.classList.remove('lock');});paHint.classList.add('off');}
   else{bizWrap.classList.add('locked');document.querySelectorAll('#bizGrid .pa-card').forEach(function(c){c.classList.add('lock');});paHint.classList.remove('off');}
 });
+// 관리자 우회: ?staff=1 로 한 번 접속하면 이후 면책 체크 없이 업무분야 이용
+// (계산기와 동일한 sanlaw_calc_admin 키 공유 → 관리자 표시 일원화)
+(function(){try{
+  var p=new URLSearchParams(location.search);
+  if(p.get('staff')==='1'){localStorage.setItem('sanlaw_calc_admin','1');}
+  if(localStorage.getItem('sanlaw_calc_admin')==='1'){
+    chk.checked=true;
+    chk.dispatchEvent(new Event('change'));
+  }
+}catch(e){}})();
 })();
 </script>
   </div>
