@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>후견 진단서 준비 — 산 법무사 김재섭 행정사 사무소</title>
+<style>
+:root{
+  --bg:#faf6ef; --panel:#fffaf2; --beige:#f3e9d8; --brown:#6b4f3a; --brown-d:#4a3728;
+  --gold:#c8912f; --gold-d:#a4711f; --ink:#3a2e24; --line:#e4d6bf;
+  --green:#4a7a52; --red:#a8412f; --blue:#2f6ba8;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Malgun Gothic","맑은 고딕",-apple-system,sans-serif;line-height:1.75;font-size:16px}
+.wrap{max-width:860px;margin:0 auto;padding:24px 18px 60px}
+h1{font-size:1.55rem;color:var(--brown-d);line-height:1.4;margin:.2em 0 .1em}
+h2{font-size:1.2rem;color:var(--brown-d);border-left:6px solid var(--gold);
+  padding:.15em 0 .15em .6em;margin:2.1em 0 .7em;background:linear-gradient(90deg,var(--beige),transparent)}
+.tnote{font-size:.9rem;color:#7a6a55;background:#fff;border:1px dashed var(--line);
+  border-radius:10px;padding:10px 14px;margin:.6em 0}
+.hire{background:var(--brown);color:#fdf6ea;border-radius:14px;padding:18px 20px;margin:1.2em 0}
+.hire .ht{font-weight:700;color:#ffe6b8;margin-bottom:.4em;font-size:1.05rem}
+.tldr{background:var(--panel);border:2px solid var(--gold);border-radius:14px;padding:16px 20px;margin:1.2em 0}
+.tldr .tt{font-weight:700;color:var(--gold-d);margin-bottom:.3em}
+.tldr ul{margin:.3em 0 0;padding-left:1.2em}
+.tldr li{margin:.35em 0}
+table{width:100%;border-collapse:collapse;margin:.8em 0;font-size:.95rem}
+th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+th{background:var(--beige);color:var(--brown-d)}
+.lawbox{background:var(--panel);border-left:5px solid var(--gold);border-radius:0 10px 10px 0;
+  padding:11px 15px;margin:.6em 0}
+.lawbox .ll{display:inline-block;background:var(--gold);color:#fff;font-size:.8rem;font-weight:700;
+  border-radius:6px;padding:2px 9px;margin-right:8px}
+.warn{background:#fbf0ec;border-left:5px solid var(--red);border-radius:0 10px 10px 0;padding:12px 15px;margin:.8em 0}
+.warn .wt{font-weight:700;color:var(--red);display:block;margin-bottom:.25em}
+.tip{background:#eef4ef;border-left:5px solid var(--green);border-radius:0 10px 10px 0;padding:12px 15px;margin:.8em 0}
+.tip .pt{font-weight:700;color:var(--green);display:block;margin-bottom:.25em}
+.link{background:#eef2f7;border-left:5px solid var(--blue);border-radius:0 10px 10px 0;padding:12px 15px;margin:.8em 0}
+.link a{color:var(--blue);font-weight:600;text-decoration:none;border-bottom:1px solid var(--blue)}
+.steps{counter-reset:s;list-style:none;padding:0;margin:.6em 0}
+.steps li{position:relative;padding:6px 0 6px 40px;margin:.3em 0}
+.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:4px;
+  width:28px;height:28px;background:var(--gold);color:#fff;border-radius:50%;
+  text-align:center;line-height:28px;font-weight:700}
+.term{position:relative;border-bottom:2px dotted var(--gold-d);cursor:help;color:var(--brown-d);font-weight:600}
+.term .bub{visibility:hidden;opacity:0;position:absolute;left:0;bottom:135%;z-index:20;
+  width:min(320px,80vw);background:var(--brown-d);color:#fff;font-weight:400;font-size:.86rem;
+  line-height:1.55;border-radius:9px;padding:10px 12px;box-shadow:0 6px 20px rgba(0,0,0,.25);transition:.15s}
+.term:hover .bub,.term:focus .bub,.term.on .bub{visibility:visible;opacity:1}
+.small{font-size:.86rem;color:#7a6a55}
+@media(max-width:560px){.term .bub{left:auto;right:0}}
+@media print{.term .bub{visibility:visible;opacity:1;position:static;display:inline;background:none;color:#000;
+  box-shadow:none;padding:0}.term .bub::before{content:" ("}.term .bub::after{content:")"}}
+.router{display:grid;gap:10px;grid-template-columns:repeat(3,minmax(0,1fr));margin:.8em 0;align-items:stretch}
+@media(max-width:480px){.router{grid-template-columns:1fr}}
+.rcard{background:var(--panel);border:1px solid var(--line);border-top:5px solid var(--gold);
+  border-radius:12px;padding:12px 13px;display:flex;flex-direction:column;font-size:.88rem;line-height:1.6}
+.rcard .rq{font-weight:700;color:var(--brown-d);margin-bottom:.35em;line-height:1.4;font-size:.94rem}
+.rcard .rtag{align-self:flex-start;background:var(--gold);color:#fff;font-size:.78rem;font-weight:700;
+  border-radius:20px;padding:3px 12px;margin-top:auto}
+.rcard .small{margin-top:.4em}
+.rcard a.go{margin-top:.55em;color:var(--gold-d);font-weight:700;text-decoration:none;font-size:.86rem}
+.formbox{border:1px solid var(--line);border-radius:12px;margin:.7em 0;overflow:hidden}
+.foldbtn{width:100%;text-align:left;background:var(--beige);border:0;cursor:pointer;
+  padding:12px 15px;font-size:1rem;font-weight:700;color:var(--brown-d);display:flex;align-items:center;gap:8px}
+.foldbtn .tag{background:var(--brown);color:#fff;font-size:.75rem;border-radius:6px;padding:2px 8px}
+.foldbtn .chev{margin-left:auto;transition:.2s}
+.foldbtn.open .chev{transform:rotate(180deg)}
+.foldbody{display:none;padding:12px 15px;background:#fff}
+.foldbody.open{display:block}
+.form{white-space:pre-wrap;font-family:"D2Coding","Consolas",monospace;font-size:.86rem;line-height:1.7;
+  background:#fdfbf6;border:1px dashed var(--line);border-radius:8px;padding:14px}
+.form .ft{display:block;text-align:center;font-weight:700;font-size:1.05rem;letter-spacing:.15em;margin-bottom:.7em;color:var(--brown-d)}
+.ftools{margin-top:8px;display:flex;gap:8px}
+.ftools button{background:var(--gold);color:#fff;border:0;border-radius:7px;padding:6px 12px;cursor:pointer;font-size:.85rem}
+.howto{font-size:.88rem;color:#6a5a45;background:#f6efe2;border-radius:8px;padding:9px 12px;margin-top:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-22px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+
+<h1>후견 신청의 첫 단추 — 진단서 준비<br><span class="small">성년·한정·특정·임의후견 공통 안내</span></h1>
+
+<div class="tnote">어려운 법률·의학 용어에는 <b>점선 밑줄</b>이 있습니다. <b>PC는 마우스를 올리면</b>, <b>휴대폰은 손가락으로 톡 터치하면</b> 쉬운 설명이 뜹니다. (인쇄하면 괄호로 함께 나옵니다.)</div>
+
+<div class="hire">
+<div class="ht">먼저, 마음부터 편히 가지십시오</div>
+부모님이나 배우자가 예전 같지 않아 후견을 알아보는 일은, 그 자체로 무겁고 죄송한 마음이 드는 일입니다. 이 안내는 그 무거운 첫걸음인 <b>진단서</b>를, 어디서·어떻게·무슨 내용으로 받아야 하는지 하나도 빠짐없이 풀어 드리려고 만들었습니다. 혼자 진행하시다 막히면 언제든 이 글을 들고 찾아오십시오. 짐을 함께 지겠습니다.
+</div>
+
+<div class="tldr">
+<div class="tt">⭐ 30초 결론부터</div>
+<ul>
+<li><b>후견은 진단서 없이 시작되지 않습니다.</b> 그리고 진단서는 <b>어르신을 의사가 직접 진찰</b>해야만 나옵니다 — 대신 받아오는(무진찰) 진단서는 <span class="term">불법<span class="bub">본인을 진찰하지 않고 진단서를 만들어 주는 것(대리발급)은 의료법 제17조·제89조 위반으로, 그 의사가 처벌받습니다. 그래서 어떤 병원도 해 주지 않습니다.</span></span>입니다.</li>
+<li>다만 <b>과거 진료기록·인지검사 결과</b>는 <b>가족이 「위임장」으로 대신</b> 받을 수 있습니다(의료법 별지 제9호의3서식). 이 자료가 사건을 크게 앞당깁니다.</li>
+<li>진단서에 들어갈 <b>핵심 한 줄</b>은 후견 종류마다 다릅니다 — 성년은 <span class="term">"지속적으로 결여"<span class="bub">스스로 재산·법률 사무를 처리할 능력이 계속해서 없는 상태. 성년후견의 요건입니다(민법 제9조).</span></span>, 한정은 <span class="term">"부족"<span class="bub">능력이 아주 없지는 않지만 모자란 상태. 한정후견의 요건입니다(민법 제12조).</span></span>. 이 표현이 곧 결론을 가릅니다.</li>
+</ul>
+</div>
+
+<h2>먼저, 내 상황은 어디에 가까운가요? — 사례로 찾기</h2>
+<p>아래 세 가지 중 <b>내 가족의 상태와 가장 가까운 칸</b>을 보세요. 그 유형이 지금 필요한 후견입니다. (실제 법원은 청구한 유형과 다르더라도 본인 상태에 맞는 유형으로 정할 수 있습니다 — 대법원 2020스596)</p>
+<div class="router">
+  <div class="rcard">
+    <div class="rq">사례 ① 중증 치매로 <span class="term">의사표시<span class="bub">자기 뜻을 말이나 글로 나타내는 것. 예: "이 집을 팔겠다"고 스스로 판단해 표현하는 것.</span></span>·거래가 전혀 안 되는 아버지</div>
+    사람·날짜를 알아보지 못하고, 은행 업무·계약을 <b>혼자서는 전혀 할 수 없는</b> 상태. 재산관리를 누군가 <b>전면적으로</b> 대신해야 합니다.
+    <span class="rtag">→ 성년후견</span>
+    <span class="small" style="margin-top:.4em">능력이 <b>"지속적으로 결여"</b> (민법 §9)</span>
+    <a class="go" href="#form-adult">▸ 성년후견 진단서·신청서 견본 보기</a>
+  </div>
+  <div class="rcard">
+    <div class="rq">사례 ② 일상은 되지만 <span class="term">복잡한 거래<span class="bub">부동산 매매, 대출, 보증, 주택연금 가입처럼 판단이 많이 필요한 일. 이런 일에서 손해·사기 피해를 볼 위험이 큽니다.</span></span>에서 판단이 위태로운 어머니</div>
+    대화·간단한 일은 하시지만, 부동산·금융 거래에서 <b>판단이 흐리고 외부 영향에 취약</b>. 사기·강매가 걱정되어 <b>중요한 일만 조력</b>이 필요합니다.
+    <span class="rtag">→ 한정후견</span>
+    <span class="small" style="margin-top:.4em">능력이 <b>"부족"</b> (민법 §12)</span>
+    <a class="go" href="#form-limited">▸ 한정후견 진단서·신청서 견본 보기</a>
+  </div>
+  <div class="rcard">
+    <div class="rq">사례 ③ 아직 <b>판단력이 있을 때</b> 장래를 미리 대비하려는 본인</div>
+    지금은 괜찮지만 앞으로가 걱정되어, <b>믿을 사람과 미리 계약</b>을 맺어 두고(<span class="term">공정증서<span class="bub">공증인이 작성하는 공식 문서. 임의후견 계약은 반드시 이 형태로 만들고 후견등기까지 해야 효력이 준비됩니다(민법 §959의14).</span></span>) 나중에 능력이 떨어지면 그 사람이 돕게 하는 방식.
+    <span class="rtag">→ 임의후견</span>
+    <span class="small" style="margin-top:.4em">본인이 미리 계약 (민법 §959의14·15)</span>
+    <a class="go" href="#form-voluntary">▸ 임의후견 진단서·신청서 견본 보기</a>
+  </div>
+</div>
+
+<h2>진단서와 진료기록은 다릅니다 — 이것부터 구분하세요</h2>
+<p>많은 분이 헷갈리는 지점입니다. 둘은 받는 방법이 완전히 다릅니다.</p>
+<table>
+<tr><th>구분</th><th>대신 받을 수 있나요?</th><th>방법·근거</th></tr>
+<tr><td><b>진단서</b><br>(의사의 판단서)</td><td>❌ 대신 못 받음<br><span class="small">어르신을 직접 진찰해야 발급</span></td>
+<td>어르신을 <b>모시고 병원 방문</b> → 진찰 → 발급. 거동이 어려우면 <span class="term">방문진료(왕진)<span class="bub">의사가 환자의 집·요양시설로 찾아와 진찰하는 것. 정신건강의학과·신경과 중 왕진하는 곳을 찾거나, 요양시설의 촉탁의를 활용합니다. 이렇게 해도 '직접 진찰' 요건이 채워집니다.</span></span>를 이용합니다.</td></tr>
+<tr><td><b>진료기록·검사결과</b><br>(과거 MMSE·CDR 등)</td><td>✅ <b>가족이 위임장으로</b> 받을 수 있음</td>
+<td>의료법 §21③·시행규칙 §13의3, <b>별지 제9호의3 「위임장」</b> + 별지 제9호의2 「동의서」. <b>환자 자필서명</b>·신분증·가족관계증명 필요.</td></tr>
+</table>
+
+<h2>진료기록을 대신 받는 법 — 법정 위임장(별지 제9호의3)</h2>
+<div class="lawbox"><span class="ll">의료법 §21③ · 시행규칙 §13의3</span><b>가족·대리인이 진료기록을 받을 수 있는 근거</b> — 환자가 지정한 대리인은 ① 본인 신분증 사본 ② 환자가 <b>자필 서명</b>한 <b>별지 제9호의2 「동의서」</b>와 <b>별지 제9호의3 「위임장」</b> ③ 환자 신분증 사본을 갖추어 병원에 제출하면 됩니다. <b>배우자·직계존비속</b> 등 친족은 가족관계증명서로 갈음할 수 있습니다.</div>
+<p><b>위임장(별지 제9호의3)에 들어가는 칸</b> — 수임인 성명·생년월일·전화·주소·환자와의 관계, 위임 범위(열람/사본), 위임인(환자) 성명·<span class="term">자필서명<span class="bub">본인이 직접 손으로 쓴 서명. 도장이나 지장은 인정되지 않습니다. 이 요건 때문에 인지저하가 심하면 위임장 자체가 어려워집니다.</span></span>. ※ 서식은 병원 원무과에 비치되어 있고, 국가법령정보센터에서도 내려받을 수 있습니다.</p>
+<div class="warn"><span class="wt">⚠ 함정 — 자필서명이 안 되면 이 길이 막힙니다</span>
+위임장은 <b>환자 본인의 자필서명</b>이 있어야만 유효합니다(도장·지장 불가). 어르신이 서명조차 못 하실 정도라면 위임장 경로는 쓸 수 없습니다. 이때는 <b>어르신을 직접 진찰</b>받는 것 외에 방법이 없으며, 역설적으로 그 사실 자체가 <b>후견이 꼭 필요한 상태</b>임을 보여 줍니다.</div>
+
+<h2>진단서에 반드시 들어가야 할 것 — 의료법이 정한 기본</h2>
+<div class="lawbox"><span class="ll">의료법 시행규칙 §9</span><b>진단서 법정 기재사항</b> — ① 환자 성명·주민등록번호·주소 ② <b>병명</b>(<span class="term">한국표준질병사인분류<span class="bub">모든 병에 붙는 공식 분류·코드 체계. 예: 경도 인지장애 = F06.7. 진단서에 이 코드를 함께 적어야 객관적입니다.</span></span> 코드 병기) ③ 발병일·진단일 ④ 치료내용·향후 소견 ⑤ 의료기관·의사 성명·면허번호·서명날인. 이 중 하나라도 빠지면 진단서 자체가 흠이 됩니다.</div>
+
+<h2>후견 종류별 — 법원이 진단서에서 확인하려는 것</h2>
+<p>이것이 이 안내의 핵심입니다. 법원이 진단서에서 보는 <b>딱 한 줄</b>이 후견 종류를 가릅니다.</p>
+<table>
+<tr><th>후견 종류</th><th>진단서에 담겨야 할 능력 표현<br><span class="small">(민법 법문 그대로)</span></th><th>정신<span class="term">감정<span class="bub">법원이 별도로 의사에게 맡겨 정신상태를 감정하게 하는 절차. 비용(수십만~수백만원)과 시간(수개월)이 크게 듭니다.</span></span> 부담</th></tr>
+<tr><td><b>성년후견</b><br><span class="small">민법 §9</span></td><td>사무처리능력이 <b>"지속적으로 결여"</b></td><td>원칙 <b>감정 필요</b> — 단, 진단서가 충분하면 생략 가능</td></tr>
+<tr><td><b>한정후견</b><br><span class="small">민법 §12</span></td><td>사무처리능력이 <b>"부족"</b></td><td>원칙 <b>감정 필요</b> — 단, 진단서가 충분하면 생략 가능</td></tr>
+<tr><td><b>특정후견</b><br><span class="small">민법 §14의2</span></td><td><b>"일시적·특정 사무"</b>에 후원 필요</td><td><b>감정 불요</b> — 진단서로 충분</td></tr>
+<tr><td><b>임의후견</b><br><span class="small">민법 §959의14·15</span></td><td>(계약 후) 감독인 선임 시 능력 <b>"부족"</b></td><td><b>감정 불요</b> — 진단서로 충분</td></tr>
+</table>
+<div class="lawbox"><span class="ll">가사소송법 §45의2</span><b>진단서가 감정을 대신할 수 있습니다</b> — 성년·한정후견은 원칙적으로 법원이 감정을 시켜야 하지만, <b>"정신상태를 판단할 만한 다른 충분한 자료가 있는 경우"</b>에는 감정을 생략합니다. <b>충실한 진단서 + 과거 검사결과</b>가 바로 그 "충분한 자료"입니다. 특정후견(§45의2②)과 임의후견(§45의5)은 처음부터 <b>진단서 또는 이에 준하는 서면</b>으로 갈음됩니다.</div>
+
+<h2>의사에게 이렇게 요청하세요 — 필수 6요소</h2>
+<ol class="steps">
+<li><b>진단명 + 질병분류 코드</b> (예: 경도 인지장애 F06.7) — "노인성 변화·건망증" 같은 모호한 표현은 피해 달라고 요청</li>
+<li><b>인지검사 수치</b> — <span class="term">MMSE-K<span class="bub">한국판 간이정신상태검사. 30점 만점의 약 10분짜리 표준 인지검사. 법원·공증인이 신뢰하는 객관적 수치입니다.</span></span>·<span class="term">CDR<span class="bub">임상치매척도. 의사가 환자·보호자 면담 후 종합 판단하는 척도로, 단순 점수가 아니라 임상 판단이라 법원 신뢰도가 높습니다.</span></span> 등 <b>수치와 검사결과지 별첨</b></li>
+<li><b>임상소견</b> — 특히 <span class="term">일중 변동성<span class="bub">하루 중에도 정신이 맑았다 흐렸다 하는 것(오전엔 또렷, 오후·야간엔 혼란). 한정후견의 '능력 부족'을 잘 보여 주는 소견입니다.</span></span>(오락가락)을 기재</li>
+<li><b>사무처리능력 판정</b> — 위 표의 <b>법문 표현 그대로</b>("부족" 또는 "지속적으로 결여") 명시 ★</li>
+<li><b>회복 가능성·예후</b></li>
+<li><b>"가정법원 제출용"</b> 용도 명시</li>
+</ol>
+<div class="tip"><span class="pt">💡 두 기관에서 받아 두면 든든합니다</span>
+1차로 <b>가까운 정신건강의학과·신경과 의원</b>에서, 2차로 <b>종합병원</b>에서 한 번 더 받아 "2개 기관"을 확보하면 법원의 의문을 크게 줄입니다. 진료기록부 사본도 함께 받아 <b>지속 진료</b>였음을 남기세요.</div>
+
+<h2>서류는 어디서 — 바로 가는 링크</h2>
+<div class="link">📖 법령 원문(의료법·시행규칙·민법·가사소송법): <a href="https://www.law.go.kr/법령/의료법" target="_blank" rel="noopener">국가법령정보센터 · 의료법</a> / <a href="https://www.law.go.kr/법령/의료법시행규칙" target="_blank" rel="noopener">의료법 시행규칙(별지 제9호의2·제9호의3)</a></div>
+<div class="link">🏛 후견 청구서·진단서 참고양식: <a href="https://www.scourt.go.kr" target="_blank" rel="noopener">대한민국 법원 → 대국민서비스 → 양식모음</a> <span class="small">(정확한 화면 경로는 사무소에서 안내해 드립니다)</span></div>
+<div class="link">💻 전자소송 접수: <a href="https://ecfs.scourt.go.kr" target="_blank" rel="noopener">대법원 전자소송</a></div>
+
+<h2>유형별 견본 — 진단서 · 신청서</h2>
+<p class="small">아래 견본의 <b>○○○</b>는 채워 넣는 칸입니다. 실제 신청서는 <a href="https://www.scourt.go.kr/nm/minwon/doc/DocListAction.work" target="_blank" rel="noopener" style="color:var(--gold-d)">서울가정법원 후견 각종 양식</a>(성년·한정·특정·임의·후견등기)에서 공식 서식을 내려받아 쓰시고, 아래 견본은 <b>무엇을 어떻게 적는지</b>를 보여 주는 작성례입니다. 첨부서류·비용은 유형 공통이며, 정확한 예상비용은 <a href="https://sanlaw.co.kr/tools-calculator.html" target="_blank" rel="noopener" style="color:var(--gold-d)">🧮 수수료 계산기</a>에서 확인하세요.</p>
+
+<!-- ════ 성년후견 ════ -->
+<h3 id="form-adult" style="color:var(--brown-d);margin-top:1.3em">① 성년후견 — 능력이 "지속적으로 결여"</h3>
+<div class="formbox">
+  <button class="foldbtn" type="button" onclick="fold(this)"><span class="tag">진단서</span>성년후견 심판청구용 진단서 (견본)<span class="chev">▾</span></button>
+  <div class="foldbody"><div class="form" id="d-adult"><span class="ft">진   단   서</span>성 명: ○○○ (○○○○○○-○○○○○○○)    연령: 만 ○○세
+① 병명: ○○○ (한국표준질병사인분류 코드: ○○○) 예) 알츠하이머 치매 F00
+② 발병·진단일: 20○○년 ○월경 발병 / 20○○년 ○월 ○일 진단
+③ 인지검사: MMSE-K ○/30, CDR ○점, (검사결과지 별첨)
+④ 임상소견: 지남력·기억력 전반 상실, 의사소통 곤란, 재산·금융 사무 수행 불가
+⑤ 사무처리능력 판정 ★
+   본인은 정신적 제약으로 인하여 사무를 처리할 능력이 「지속적으로 결여」된
+   상태로, 민법 제9조의 성년후견 대상에 해당함.
+⑥ 예후: 회복 가능성 낮음, 지속적 보호 필요
+⑦ 용도: 가정법원 제출용 (성년후견 개시심판 청구)
+                                     20○○. ○. ○.
+   ○○병원 정신건강의학과 전문의 ○○○ (면허번호 제○○○호) (서명·인)</div>
+  <div class="ftools"><button type="button" onclick="cpy('d-adult')">📋 복사</button><button type="button" onclick="prt('d-adult')">🖨 인쇄</button></div>
+  <div class="howto">핵심은 ⑤의 <b>"지속적으로 결여"</b>(민법 §9 법문 그대로)입니다. 이 표현이 성년후견의 관문입니다.</div></div>
+</div>
+<div class="formbox">
+  <button class="foldbtn" type="button" onclick="fold(this)"><span class="tag">신청서</span>성년후견 개시 심판청구서 (견본)<span class="chev">▾</span></button>
+  <div class="foldbody"><div class="form" id="p-adult"><span class="ft">성년후견 개시 심판청구</span>청 구 인   ○○○ (○○○○○○-○○○○○○○)   주소: ○○○
+           (사건본인과의 관계: ○○)
+사건본인   ○○○ (○○○○○○-○○○○○○○)   주소: ○○○
+
+              청 구 취 지
+1. 사건본인에 대하여 성년후견을 개시한다.
+2. 사건본인의 성년후견인으로 청구인 ○○○를 선임한다.
+   라는 심판을 구합니다.
+
+              청 구 원 인
+1. 사건본인은 청구인의 ○○로, 20○○년경부터 ○○(병명)으로 인지기능이
+   지속적으로 저하되어 현재 재산관리·법률행위를 스스로 할 수 없습니다.
+2. (진단 요지) MMSE-K ○점, CDR ○점 등으로 사무처리능력이 지속적으로
+   결여된 상태입니다(첨부 진단서).
+3. 사건본인의 재산(○○) 관리가 시급하여 청구인이 후견인으로서 이를
+   보호하고자 이 청구에 이르렀습니다.
+
+              첨 부 서 류
+1. 사건본인 기본증명서·가족관계증명서       각 1통
+2. 청구인·사건본인 주민등록표등(초)본        각 1통
+3. 후견등기사항전부증명서(말소·폐쇄 포함) 또는 후견등기사항부존재증명서 1통
+4. 진단서 및 인지검사 결과지                1부
+5. 재산 소명자료(부동산등기사항증명서·예금잔액증명 등)  각 1부
+
+              20○○.  ○.  ○.        청구인 ○○○ (인)
+
+○○가정법원 귀중</div>
+  <div class="ftools"><button type="button" onclick="cpy('p-adult')">📋 복사</button><button type="button" onclick="prt('p-adult')">🖨 인쇄</button></div>
+  <div class="howto"><b>관할</b>은 사건본인(어르신) 주소지 가정법원입니다. 성년후견은 원칙적으로 <b>감정</b>을 거치나, 진단서가 충분하면 생략될 수 있습니다(가사소송법 §45의2①).</div></div>
+</div>
+
+<!-- ════ 한정후견 ════ -->
+<h3 id="form-limited" style="color:var(--brown-d);margin-top:1.3em">② 한정후견 — 능력이 "부족"</h3>
+<div class="formbox">
+  <button class="foldbtn" type="button" onclick="fold(this)"><span class="tag">진단서</span>한정후견 심판청구용 진단서 (견본)<span class="chev">▾</span></button>
+  <div class="foldbody"><div class="form" id="d-limited"><span class="ft">진   단   서</span>성 명: ○○○ (○○○○○○-○○○○○○○)    연령: 만 ○○세
+① 병명: 경도 인지장애 (F06.7) / ○○○ (코드 ○○○)
+② 발병·진단일: 20○○년 ○월경 / 20○○년 ○월 ○일
+③ 인지검사: MMSE-K 21/30, CDR 0.5, (검사결과지 별첨)
+④ 임상소견: 일상 의사소통 가능하나 복잡한 재산·금융거래 판단 취약,
+   인지기능의 「일중 변동성」(오전 명료·오후 혼돈), 외부 영향에 취약
+⑤ 사무처리능력 판정 ★
+   본인은 정신적 제약으로 사무를 처리할 능력이 「부족」한 상태로,
+   재산관리·법률행위에서 후견인의 조력이 필요함(민법 제12조 대상).
+⑥ 예후: 진행성, 정기 평가·보호 필요
+⑦ 용도: 가정법원 제출용 (한정후견 개시심판 청구)
+                                     20○○. ○. ○.
+   ○○병원 정신건강의학과 전문의 ○○○ (면허번호 제○○○호) (서명·인)</div>
+  <div class="ftools"><button type="button" onclick="cpy('d-limited')">📋 복사</button><button type="button" onclick="prt('d-limited')">🖨 인쇄</button></div>
+  <div class="howto">핵심은 ⑤의 <b>"부족"</b>과 ④의 <b>일중 변동성</b>입니다. "완전 상실"이라 쓰면 성년후견으로, "정상"이라 쓰면 후견 거부로 흐를 수 있어 <b>정도 표현</b>이 관건입니다.</div></div>
+</div>
+<div class="formbox">
+  <button class="foldbtn" type="button" onclick="fold(this)"><span class="tag">신청서</span>한정후견 개시 심판청구서 (견본)<span class="chev">▾</span></button>
+  <div class="foldbody"><div class="form" id="p-limited"><span class="ft">한정후견 개시 심판청구</span>청 구 인   ○○○ (○○○○○○-○○○○○○○)   주소: ○○○
+           (사건본인과의 관계: ○○)
+사건본인   ○○○ (○○○○○○-○○○○○○○)   주소: ○○○
+
+              청 구 취 지
+1. 사건본인에 대하여 한정후견을 개시한다.
+2. 사건본인의 한정후견인으로 청구인 ○○○를 선임한다.
+3. 한정후견인의 대리권 범위 및 동의를 받아야 하는 행위의 범위를
+   [별지] 기재와 같이 정한다.
+   라는 심판을 구합니다.
+
+              청 구 원 인
+1. 사건본인은 20○○년경부터 ○○(병명)으로 인지기능이 저하되어,
+   일상은 가능하나 부동산·금융 등 복잡한 거래의 독자적 판단이 어렵습니다.
+2. (진단 요지) MMSE-K ○점 등으로 사무처리능력이 「부족」한 상태입니다.
+3. 특히 ○○(주택연금·부동산 처분 등) 사무에 조력이 시급하여
+   한정후견 개시를 구합니다.
+
+  [별지] 대리권·동의유보의 범위(예)
+   - 예금 인출·계좌 관리, 부동산 처분·임대, 보증·대출 계약 등
+
+              첨 부 서 류
+1. 사건본인 기본증명서·가족관계증명서       각 1통
+2. 청구인·사건본인 주민등록표등(초)본        각 1통
+3. 후견등기사항전부증명서(말소·폐쇄 포함) 또는 후견등기사항부존재증명서 1통
+4. 진단서 및 인지검사 결과지                1부
+5. 재산 소명자료                          각 1부
+
+              20○○.  ○.  ○.        청구인 ○○○ (인)
+
+○○가정법원 귀중</div>
+  <div class="ftools"><button type="button" onclick="cpy('p-limited')">📋 복사</button><button type="button" onclick="prt('p-limited')">🖨 인쇄</button></div>
+  <div class="howto">한정후견은 <b>대리권·동의유보의 범위</b>를 반드시 특정해야 합니다(민법 §13·§959의4). 너무 넓게 잡으면 성년후견처럼 보이고, 너무 좁으면 보호가 부족해집니다.</div></div>
+</div>
+
+<!-- ════ 임의후견 ════ -->
+<h3 id="form-voluntary" style="color:var(--brown-d);margin-top:1.3em">③ 임의후견 — 본인이 미리 계약</h3>
+<div class="tip"><span class="pt">💡 임의후견은 진단서가 두 번 필요합니다</span>
+<b>①계약(공증) 시점</b>: "의사능력 있음" → 계약이 유효함을 증명. <b>②개시(감독인 선임) 시점</b>: "능력 부족" → 감독인이 필요함을 증명. 두 진단서가 모순되지 않도록 <b>"경도 인지장애의 진행성"</b>을 일관되게 표현하는 것이 핵심입니다.</div>
+<div class="formbox">
+  <button class="foldbtn" type="button" onclick="fold(this)"><span class="tag">진단서</span>임의후견 — 공증용 / 개시용 진단서 (견본)<span class="chev">▾</span></button>
+  <div class="foldbody"><div class="form" id="d-vol"><span class="ft">진   단   서 (임의후견계약 공증용)</span>성 명: ○○○ (만 ○○세)
+① 병명: 경도 인지장애 (F06.7)
+② 검사: MMSE-K 24/30, CDR 0.5 (경계선 수준), 의사소통·이해 정상 범위
+③ 의사능력 판정 ★
+   본인은 현 시점에서 임의후견계약의 의미와 효과를 이해하고, 자유로운
+   의사에 따라 계약을 체결할 수 있는 「의사능력」을 보유함. 법률행위 지장 없음.
+④ 예후: 진행성 저하 예상 → 사전 보호조치(임의후견) 권고
+⑤ 용도: 공증사무소 제출용
+
+
+<span class="ft">진   단   서 (임의후견감독인 선임 신청용)</span>성 명: ○○○ (만 ○○세)
+① 병명: 경도 인지장애(F06.7) 진행, 인지기능 점진적 악화
+② 검사(추이): MMSE-K 24→21/30, CDR 0.5→1.0
+③ 사무처리능력 판정 ★
+   본인은 정신적 제약으로 사무를 처리할 능력이 「부족」한 상태로,
+   후견인의 조력이 필요함(민법 제959조의15 감독인 선임 사유).
+④ 용도: 가정법원 제출용 (임의후견감독인 선임 신청)
+                                     20○○. ○. ○.
+   ○○병원 정신건강의학과 전문의 ○○○ (면허번호 제○○○호) (서명·인)</div>
+  <div class="ftools"><button type="button" onclick="cpy('d-vol')">📋 복사</button><button type="button" onclick="prt('d-vol')">🖨 인쇄</button></div>
+  <div class="howto">공증용에는 <b>"의사능력 있음"</b>을, 개시용에는 <b>"능력 부족"</b>을 씁니다. 공증용에는 능력부족 정황(예: 주택연금 거절 이력)을 적지 않는 것이 안전합니다.</div></div>
+</div>
+<div class="formbox">
+  <button class="foldbtn" type="button" onclick="fold(this)"><span class="tag">신청서</span>임의후견감독인 선임 심판청구서 (견본)<span class="chev">▾</span></button>
+  <div class="foldbody"><div class="form" id="p-vol"><span class="ft">임의후견감독인 선임 심판청구</span>청 구 인   ○○○ (○○○○○○-○○○○○○○)   주소: ○○○
+           (사건본인과의 관계: ○○ / 또는 임의후견인 본인)
+사건본인   ○○○ (○○○○○○-○○○○○○○)   주소: ○○○
+
+              청 구 취 지
+1. 사건본인과 임의후견인 ○○○ 사이의 후견계약(20○○. ○. ○. 작성
+   공정증서, 후견등기 제○○○호)에 관하여 임의후견감독인을 선임한다.
+   라는 심판을 구합니다.
+
+              청 구 원 인
+1. 사건본인은 20○○. ○. ○. 임의후견인 ○○○와 재산관리·신상보호에 관한
+   후견계약을 공정증서로 체결하고 후견등기를 마쳤습니다.
+2. 최근 사건본인의 인지기능이 저하되어 사무처리능력이 부족한 상태에
+   이르렀으므로(첨부 진단서), 계약의 효력 발생을 위해 감독인 선임을 구합니다.
+
+              첨 부 서 류
+1. 후견계약 공정증서 등본                  1통
+2. 후견등기사항전부증명서                  1통
+3. 사건본인 기본증명서·가족관계증명서       각 1통
+4. 진단서(감독인 선임 신청용)              1부
+5. 임의후견감독인 후보자 관련 자료(해당 시)  1부
+
+              20○○.  ○.  ○.        청구인 ○○○ (인)
+
+○○가정법원 귀중</div>
+  <div class="ftools"><button type="button" onclick="cpy('p-vol')">📋 복사</button><button type="button" onclick="prt('p-vol')">🖨 인쇄</button></div>
+  <div class="howto">임의후견은 <b>감정 의무가 없고</b> 진단서로 갈음됩니다(가사소송법 §45의5). 감독인이 선임되어야 비로소 계약의 효력이 발생합니다(민법 §959의15).</div></div>
+</div>
+
+<div class="hire">
+<div class="ht">혼자 짊어지지 마십시오</div>
+이 안내는 어르신을 위해 <b>직접</b> 진단서를 준비하고 후견을 신청하실 수 있도록 모든 요건을 열어 드리려 쓴 것입니다. 그래도 진단서 문구가 애매하거나, 감정으로 넘어갈까 걱정되거나, 가족 사이에 의견이 갈릴 때 — 그때 저희를 찾아 주십시오. 그 길을 <b>함께 걷는 조타수</b>가 되겠습니다.
+</div>
+
+</div>
+<script>
+document.querySelectorAll('.term').forEach(function(t){
+  if(!t.hasAttribute('tabindex')) t.setAttribute('tabindex','0');
+  t.addEventListener('click',function(e){
+    e.stopPropagation();
+    document.querySelectorAll('.term.on').forEach(function(o){if(o!==t)o.classList.remove('on')});
+    t.classList.toggle('on');
+  });
+});
+document.addEventListener('click',function(){document.querySelectorAll('.term.on').forEach(function(o){o.classList.remove('on')})});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.term.on').forEach(function(o){o.classList.remove('on')})});
+function fold(b){b.classList.toggle('open');var body=b.nextElementSibling;body.classList.toggle('open');}
+function cpy(id){var t=document.getElementById(id).innerText;navigator.clipboard&&navigator.clipboard.writeText(t).then(function(){},function(){});}
+function prt(id){var w=window.open('','_blank');w.document.write('<pre style="font-family:monospace;white-space:pre-wrap">'+document.getElementById(id).innerText.replace(/</g,'&lt;')+'</pre>');w.document.close();w.print();}
+</script>
+</body>
+</html>
