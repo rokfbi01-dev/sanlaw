@@ -13,6 +13,25 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:"Malgun Gothic",
 .qbadge{display:inline-block;background:var(--gold);color:#fff;font-weight:700;border-radius:8px;padding:3px 12px;font-size:.95rem;margin-bottom:.4em}
 h1{font-size:1.5rem;color:var(--brown-d);line-height:1.42;margin:.1em 0 .3em}
 h2{font-size:1.18rem;color:var(--brown-d);border-left:6px solid var(--gold);padding:.15em 0 .15em .6em;margin:2em 0 .6em;background:linear-gradient(90deg,var(--beige),transparent)}
+.formbox{border:1px solid var(--line);border-radius:12px;margin:.8em 0;font-size:.92rem;overflow:hidden;background:#fffdf9}
+.fold-btn{width:100%;text-align:left;background:var(--beige);border:none;border-bottom:1px solid var(--line);padding:12px 15px;font-family:inherit;font-size:.98rem;font-weight:700;color:var(--brown-d);cursor:pointer;display:flex;align-items:center;gap:9px}
+.fold-btn:hover{background:#ebe0cd}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s}
+.formbox.open .fold-btn .chev{transform:rotate(180deg)}
+.fold-body{display:none;padding:14px 16px}
+.formbox.open .fold-body{display:block}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px}
+.tag.cred{background:#5a9a72}.tag.debt{background:#d9694a}
+.doctitle{text-align:center;font-weight:800;font-size:1.12rem;letter-spacing:.2em;color:var(--brown-d);margin:.2em 0 .8em}
+.formbox pre{white-space:pre-wrap;font-family:inherit;margin:.3em 0;background:#f7efe1;border-radius:8px;padding:11px 13px;line-height:1.85}
+.formbox .fl{font-weight:700;color:var(--brown-d);margin-top:.6em}
+.dlbar{display:flex;gap:8px;flex-wrap:wrap;margin:.9em 0 .2em;padding-top:.7em;border-top:1px dashed var(--line)}
+.dlbtn{display:inline-flex;align-items:center;gap:6px;background:var(--gold);color:#fff;border:none;border-radius:8px;padding:9px 15px;font-family:inherit;font-size:.9rem;font-weight:700;cursor:pointer;text-decoration:none}
+.dlbtn:hover{background:var(--gold-d)}
+.dlbtn.alt{background:#fff;color:var(--gold-d);border:1.5px solid var(--gold)}
+.dlbtn.alt:hover{background:#fdf6e8}
+.hint{background:#fff8ec;border:1px dashed var(--gold);border-radius:10px;padding:10px 13px;margin:.6em 0;font-size:.88rem;color:#6b5940}
+h3{font-size:1.03rem;color:var(--brown-d);margin:1.3em 0 .3em}
 .tnote{font-size:.9rem;color:#7a6a55;background:#fff;border:1px dashed var(--line);border-radius:10px;padding:9px 13px;margin:.6em 0}
 .hire{background:var(--brown);color:#fdf6ea;border-radius:14px;padding:18px 20px;margin:1.3em 0}
 .hire .ht{font-weight:700;color:#ffe6b8;margin-bottom:.4em;font-size:1.06rem}
@@ -85,6 +104,189 @@ th{background:var(--beige);color:var(--brown-d)}
 <span class="mini">※ 촉탁으로 처리되는 사항은 신청 대상이 아닙니다. 사망에 따른 종료등기는 상속·후견 정리와 직결되니 미루지 마세요.</span>
 </div>
 
+<h2>내가 하는 등기 — 무엇을 어디에 어떻게 내나</h2>
+<p>가장 많이 하시는 것이 <b>종료등기</b>(어르신이 돌아가신 경우)와 <b>변경등기</b>(후견인 주소·이름 바뀐 경우)입니다. 아래 표대로만 하시면 됩니다.</p>
+
+<h3>① 어디에 내나요</h3>
+<div class="lawbox"><span class="ll">접수처</span><b>가정법원의 후견등기 담당부서</b>에 <b>방문 또는 우편</b>으로 냅니다. 서울에 사시는 경우 <b>서울가정법원 후견센터</b>가 접수처입니다. <b>인터넷 신청은 되지 않습니다</b>(전자후견등기시스템은 부존재증명서 <u>발급</u>만 가능).</div>
+<div class="warn"><span class="wt">⚠ 우편으로 보내실 때는 인감이 필요합니다</span>우편 접수 시에는 신청서에 <b>인감을 날인하고 인감증명서를 함께</b> 넣어야 합니다. 방문하시면 신분증만으로 됩니다. 이것 때문에 우편이 반려되는 경우가 많습니다.</div>
+
+<h3>② 무슨 서류가 필요한가요</h3>
+<table>
+<tr><th>등기 종류</th><th>필요 서류</th><th>발급처</th></tr>
+<tr><td><b>종료등기</b><br><span class="mini">어르신 사망 등</span></td>
+<td>① 후견종료등기 <b>신청서</b><br>② 피후견인 <b>기본증명서(상세) — 폐쇄</b> <span class="mini">(사망 사실이 기재된 것)</span><br>③ <b>말소된 주민등록초본</b><br>④ 신청인 <b>신분증</b><br>⑤ (우편 시) <b>인감증명서</b></td>
+<td>②는 <a href="https://efamily.scourt.go.kr" target="_blank" rel="noopener">전자가족관계등록시스템</a>·주민센터<br>③⑤는 <a href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a>·주민센터</td></tr>
+<tr><td><b>변경등기</b><br><span class="mini">후견인 주소·성명 변경</span></td>
+<td>① 후견(등기사항)변경등기 <b>신청서</b><br>② <b>변경 사실을 증명하는 서류</b> <span class="mini">(주소 변경 → 주민등록초본 / 개명 → 기본증명서)</span><br>③ 신청인 <b>신분증</b><br>④ (우편 시) <b>인감증명서</b></td>
+<td>주민등록초본 <a href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a><br>기본증명서 <a href="https://efamily.scourt.go.kr" target="_blank" rel="noopener">전자가족관계등록</a></td></tr>
+<tr><td><b>경정등기</b><br><span class="mini">등기에 착오·누락</span></td>
+<td>① 경정등기 <b>신청서</b><br>② <b>착오임을 증명하는 서류</b><br>③ 신청인 <b>신분증</b></td><td>사안에 따라 다름</td></tr>
+</table>
+<div class="tip"><span class="pt">💡 신청서는 여기서 받으세요</span><a href="https://slfamily.scourt.go.kr/slfamily/civil_complaint/civil_06/index_03.html" target="_blank" rel="noopener"><b>서울가정법원 후견과 각종 양식</b></a> → <b>「후견등기」</b> 항목에 변경·종료 등기 신청서가 모여 있습니다. (성년·한정·특정·임의후견 양식도 같은 곳에 있습니다.)</div>
+
+<h3>③ 신청서, 이렇게 채우시면 됩니다 — 작성례 (내려받기 가능)</h3>
+<div class="hint">📌 <b>공식 양식</b>은 위 「서울가정법원 후견과 각종 양식 → 후견등기」에서 내려받으시고, 아래 <b>작성례</b>를 옆에 두고 그대로 옮겨 적으시면 됩니다. <b>○○○</b> 표시가 채워 넣는 칸입니다. 각 작성례는 <b>「내려받기」</b>를 누르면 파일로 저장되고, <b>「인쇄」</b>로 종이에 뽑을 수 있습니다.</div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">가장 많이 쓰는 것</span>후견종료등기 신청서 — 어르신이 돌아가신 경우<span class="chev">&#9662;</span></button><div class="fold-body">
+<div id="f-end">
+<div class="doctitle">후견종료등기신청서</div>
+<div class="fl">1. 등기의 목적</div>
+<pre>후견종료등기</pre>
+<div class="fl">2. 등기원인 및 그 연월일</div>
+<pre>2026년 3월 15일  피후견인 사망
+ ※ 어르신이 돌아가신 날짜를 그대로 적습니다(사망진단서·기본증명서와 같게).</pre>
+<div class="fl">3. 피후견인(사건본인)</div>
+<pre>성    명 : 김○○
+주민등록번호 : 000000-0000000
+최후 주소 : 서울특별시 ○○구 ○○로 00, 000동 000호
+ ※ 후견등기부에 적힌 것과 똑같이 씁니다. 다르면 보정을 요구받습니다.</pre>
+<div class="fl">4. 후견의 종류 및 등기번호</div>
+<pre>한정후견   (등기번호 : 2024-0000000)
+ ※ 등기번호는 「후견등기사항증명서」 맨 위에 있습니다. 모르면 비워 두어도 접수는 됩니다.</pre>
+<div class="fl">5. 신청인(후견인)</div>
+<pre>성    명 : 이○○   (서명 또는 인)
+주민등록번호 : 000000-0000000
+주    소 : 서울특별시 ○○구 ○○로 00
+전화번호 : 010-0000-0000
+피후견인과의 관계 : 자녀(장남)</pre>
+<div class="fl">6. 첨부서류</div>
+<pre>1. 피후견인 기본증명서(상세) — 폐쇄  1통
+2. 피후견인 말소된 주민등록초본     1통
+3. 신청인 신분증 사본               1통
+4. 인감증명서 1통 (우편 접수하는 경우에만)</pre>
+<pre>          2026년   4월   2일
+
+                신청인   이 ○ ○   (서명 또는 인)
+
+                    ○○가정법원 귀중</pre>
+</div>
+<div class="dlbar">
+<button class="dlbtn" type="button" onclick="dl('f-end','후견종료등기_신청서_작성례')">⬇ 내려받기</button>
+<button class="dlbtn alt" type="button" onclick="pr('f-end')">🖨 인쇄</button>
+</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">주소·이름 바뀌었을 때</span>후견변경등기 신청서 — 후견인 주소 변경<span class="chev">&#9662;</span></button><div class="fold-body">
+<div id="f-chg">
+<div class="doctitle">후견변경등기신청서</div>
+<div class="fl">1. 등기의 목적</div>
+<pre>후견인의 주소 변경등기</pre>
+<div class="fl">2. 등기원인 및 그 연월일</div>
+<pre>2026년 2월 10일  전거(주소 이전)
+ ※ 실제 전입신고한 날짜를 적습니다(주민등록초본의 전입일).</pre>
+<div class="fl">3. 피후견인(사건본인)</div>
+<pre>성    명 : 김○○
+주민등록번호 : 000000-0000000
+주    소 : 서울특별시 ○○구 ○○로 00</pre>
+<div class="fl">4. 변경할 등기사항</div>
+<pre>변경 전 : 후견인 이○○의 주소
+          서울특별시 ○○구 ○○로 11
+변경 후 : 후견인 이○○의 주소
+          경기도 ○○시 ○○구 ○○로 22, 000동 000호
+ ※ 「변경 전 → 변경 후」를 나란히 적는 것이 핵심입니다.</pre>
+<div class="fl">5. 신청인(후견인)</div>
+<pre>성    명 : 이○○   (서명 또는 인)
+주민등록번호 : 000000-0000000
+주    소 : (변경 후 새 주소를 적습니다)
+전화번호 : 010-0000-0000</pre>
+<div class="fl">6. 첨부서류</div>
+<pre>1. 신청인 주민등록초본(주소 변동사항 포함)  1통
+2. 신청인 신분증 사본                      1통
+3. 인감증명서 1통 (우편 접수하는 경우에만)</pre>
+<pre>          2026년   3월   5일
+
+                신청인   이 ○ ○   (서명 또는 인)
+
+                    ○○가정법원 귀중</pre>
+</div>
+<div class="dlbar">
+<button class="dlbtn" type="button" onclick="dl('f-chg','후견변경등기_주소변경_작성례')">⬇ 내려받기</button>
+<button class="dlbtn alt" type="button" onclick="pr('f-chg')">🖨 인쇄</button>
+</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">이름이 바뀐 경우</span>후견변경등기 신청서 — 개명(성명 변경)<span class="chev">&#9662;</span></button><div class="fold-body">
+<div id="f-nam">
+<div class="doctitle">후견변경등기신청서</div>
+<div class="fl">1. 등기의 목적</div>
+<pre>후견인의 성명 변경등기</pre>
+<div class="fl">2. 등기원인 및 그 연월일</div>
+<pre>2026년 1월 20일  개명
+ ※ 법원의 개명허가 후 가족관계등록부에 기록된 날짜를 적습니다.</pre>
+<div class="fl">3. 변경할 등기사항</div>
+<pre>변경 전 : 후견인 성명  이○○
+변경 후 : 후견인 성명  이△△</pre>
+<div class="fl">4. 신청인</div>
+<pre>성    명 : 이△△ (변경 후 이름)   (서명 또는 인)
+주민등록번호 : 000000-0000000
+주    소 : 서울특별시 ○○구 ○○로 00
+전화번호 : 010-0000-0000</pre>
+<div class="fl">5. 첨부서류</div>
+<pre>1. 신청인 기본증명서(상세) — 개명 사실 기재  1통
+2. 신청인 주민등록초본(개명 전후 표시)       1통
+3. 신청인 신분증 사본                        1통
+4. 인감증명서 1통 (우편 접수하는 경우에만)</pre>
+<pre>          2026년   2월   8일
+
+                신청인   이 △ △   (서명 또는 인)
+
+                    ○○가정법원 귀중</pre>
+</div>
+<div class="dlbar">
+<button class="dlbtn" type="button" onclick="dl('f-nam','후견변경등기_개명_작성례')">⬇ 내려받기</button>
+<button class="dlbtn alt" type="button" onclick="pr('f-nam')">🖨 인쇄</button>
+</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag">등기가 틀렸을 때</span>경정등기 신청서 — 착오·누락 바로잡기<span class="chev">&#9662;</span></button><div class="fold-body">
+<div id="f-cor">
+<div class="doctitle">후견경정등기신청서</div>
+<div class="fl">1. 등기의 목적</div>
+<pre>후견등기사항의 경정등기</pre>
+<div class="fl">2. 등기원인 및 그 연월일</div>
+<pre>2026년 3월 3일  착오 발견</pre>
+<div class="fl">3. 피후견인(사건본인)</div>
+<pre>성    명 : 김○○
+주민등록번호 : 000000-0000000</pre>
+<div class="fl">4. 경정할 사항</div>
+<pre>경정 전 : 피후견인 주민등록번호  000000-0000000
+경정 후 : 피후견인 주민등록번호  000000-1111111
+ ※ 어느 칸이 어떻게 잘못되었는지 「전 → 후」로 분명히 적습니다.</pre>
+<div class="fl">5. 신청인</div>
+<pre>성    명 : 이○○   (서명 또는 인)
+전화번호 : 010-0000-0000
+피후견인과의 관계 : 한정후견인</pre>
+<div class="fl">6. 첨부서류</div>
+<pre>1. 착오임을 증명하는 서류(기본증명서·주민등록초본 등)  1통
+2. 신청인 신분증 사본                                  1통</pre>
+<pre>          2026년   3월   10일
+
+                신청인   이 ○ ○   (서명 또는 인)
+
+                    ○○가정법원 귀중</pre>
+</div>
+<div class="dlbar">
+<button class="dlbtn" type="button" onclick="dl('f-cor','후견경정등기_작성례')">⬇ 내려받기</button>
+<button class="dlbtn alt" type="button" onclick="pr('f-cor')">🖨 인쇄</button>
+</div>
+</div></div>
+
+<div class="hint">✅ <b>접수 전 마지막 점검</b> — ① 피후견인 인적사항이 <b>후견등기사항증명서와 똑같은가</b> ② 등기원인 <b>날짜</b>가 첨부서류(기본증명서·초본)와 일치하는가 ③ <b>우편이면 인감 날인 + 인감증명서</b>를 넣었는가 ④ 사망일로부터 <b>3개월</b>이 지나지 않았는가</div>
+
+<h3>④ 비용</h3>
+<table>
+<tr><td>등기 신청 수수료</td><td>소액 <span class="mini">(접수처 확인)</span></td></tr>
+<tr><td>기본증명서·주민등록초본</td><td>각 1,000원 내외</td></tr>
+<tr><td>후견등기사항증명서 발급</td><td>1통 <b>1,200원</b></td></tr>
+</table>
+
+<div class="warn"><span class="wt">⚠ 미루면 과태료 — 최대 50만 원</span>
+<b>후견등기에 관한 법률 §44</b> — 신청 의무가 있는 사람이 <b>정당한 사유 없이 기간(3개월) 내에 신청하지 않으면 50만 원 이하의 과태료</b>가 부과됩니다. "어르신이 돌아가셨으니 후견도 자동으로 끝났겠지" 하고 두시면 안 됩니다. <b>사망신고·상속 절차와 후견 종료등기는 별개</b>입니다.</div>
+
+<div class="lawbox"><span class="ll">민법 §957</span><b>종료등기와 함께 해야 할 일 — 재산 계산</b> ① 후견인의 임무가 끝나면 후견인(또는 그 상속인)은 <b>1개월 안에</b> 피후견인의 재산에 관한 <span class="term">계산<span class="bub">후견인이 맡아 관리하던 재산이 얼마였고 어떻게 쓰였는지 정산해 보고하는 것. 상속인에게 재산을 넘기기 위한 마무리입니다.</span></span>을 해야 합니다(정당한 사유가 있으면 법원 허가로 연장). ② <b>후견감독인이 있으면 그가 참여하지 않은 계산은 효력이 없습니다.</b> 한정후견·특정후견에도 그대로 적용됩니다(§959의7·§959의13).</div>
+<div class="tip"><span class="pt">💡 실무 흐름</span>어르신이 돌아가시면 법원(후견감독 담당)이 <b>폐쇄 기본증명서와 재산계산 보고서</b>를 내도록 안내하고, <b>종료등기까지 마쳐야</b> 후견 사건이 최종 종결됩니다. 순서는 <b>사망신고 → 폐쇄 기본증명서 발급 → 종료등기 신청 → 재산계산 보고</b>입니다.</div>
+
 <h2>증명서는 두 종류 — 무엇을 언제 떼나</h2>
 <table>
 <tr><th>증명서</th><th>언제 쓰나</th><th>발급 방법</th></tr>
@@ -119,6 +321,46 @@ document.querySelectorAll('.term').forEach(function(t){
 });
 document.addEventListener('click',function(){document.querySelectorAll('.term.on').forEach(function(o){o.classList.remove('on')})});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.term.on').forEach(function(o){o.classList.remove('on')})});
+function toggleFold(b){var fb=b.parentElement;var body=b.nextElementSibling;var open=fb.classList.toggle('open');if(body){body.style.display=open?'block':'none';}}
+function grab(id){
+  var el=document.getElementById(id); if(!el) return '';
+  var out=[];
+  el.childNodes.forEach(function(n){
+    if(n.nodeType!==1) return;
+    var t=(n.innerText||n.textContent||'').replace(/\u00a0/g,' ');
+    if(n.classList.contains('doctitle')){out.push('');out.push(t.trim());out.push('');}
+    else if(n.classList.contains('fl')){out.push('');out.push(t.trim());}
+    else {out.push(t.replace(/[ \t]+$/gm,''));}
+  });
+  return out.join('\n').replace(/\n{3,}/g,'\n\n').trim()+'\n';
+}
+function dl(id,name){
+  try{
+    var txt=grab(id);
+    var head='※ 본 문서는 산 법무사 김재섭 행정사 사무소(sanlaw.co.kr)가 제공하는 작성례입니다.\n'
+           +'※ 공식 양식은 관할 가정법원(서울가정법원 후견과 각종 양식)에서 내려받아 사용하시고,\n'
+           +'   ○○○ 부분은 본인 사정에 맞게 채워 넣으십시오.\n'
+           +'-------------------------------------------------------------\n\n';
+    var blob=new Blob(['\ufeff'+head+txt],{type:'text/plain;charset=utf-8'});
+    var a=document.createElement('a');
+    a.href=URL.createObjectURL(blob); a.download=name+'.txt';
+    document.body.appendChild(a); a.click();
+    setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},800);
+  }catch(e){alert('내려받기가 지원되지 않는 환경입니다. 화면을 길게 눌러 복사하거나 인쇄를 이용해 주세요.');}
+}
+function pr(id){
+  var el=document.getElementById(id); if(!el) return;
+  var w=window.open('','_blank','width=800,height=900');
+  if(!w){alert('팝업이 차단되었습니다. 팝업 허용 후 다시 눌러 주세요.');return;}
+  w.document.write('<!doctype html><html lang="ko"><head><meta charset="utf-8"><title>작성례 인쇄</title>'
+   +'<style>body{font-family:"Malgun Gothic","맑은 고딕",serif;line-height:1.9;padding:28px 34px;color:#000}'
+   +'.doctitle{text-align:center;font-weight:800;font-size:20px;letter-spacing:.25em;margin:0 0 22px}'
+   +'.fl{font-weight:700;margin-top:14px}'
+   +'pre{white-space:pre-wrap;font-family:inherit;margin:4px 0;padding:6px 0;border-bottom:1px dotted #bbb}'
+   +'</style></head><body>'+el.innerHTML+'</body></html>');
+  w.document.close();
+  setTimeout(function(){w.focus();w.print();},350);
+}
 </script>
 </body>
 </html>
