@@ -67,6 +67,14 @@ th{background:var(--beige);color:var(--brown-d)}
 .tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px}
 .tag.cred{background:#5a9a72}.tag.debt{background:#d9694a}
 @media print{.fold-body{display:block!important}.fold-btn .chev{display:none}}
+
+.dlbar{display:flex;gap:8px;flex-wrap:wrap;margin:.9em 0 .2em;padding-top:.7em;border-top:1px dashed var(--line)}
+.dlbtn{display:inline-flex;align-items:center;gap:6px;background:var(--gold);color:#fff;border:none;border-radius:8px;padding:9px 15px;font-family:inherit;font-size:.9rem;font-weight:700;cursor:pointer;text-decoration:none}
+.dlbtn:hover{background:var(--gold-d)}
+.dlbtn.alt{background:#fff;color:var(--gold-d);border:1.5px solid var(--gold)}
+.dlbtn.alt:hover{background:#fdf6e8}
+.hint{background:#fff8ec;border:1px dashed var(--gold);border-radius:10px;padding:10px 13px;margin:.6em 0;font-size:.88rem;color:#6b5940}
+@media print{.dlbar{display:none}}
 </style>
 </head>
 <body>
@@ -202,7 +210,7 @@ th{background:var(--beige);color:var(--brown-d)}
 
 <h2>양식 — 임의후견감독인 선임 심판청구서</h2>
 <div class="tnote">후견계약 <b>공정증서</b> 자체는 공증인이 작성하므로 별도 서식을 드리지 않습니다. 아래는 나중에 법원에 내는 <b>감독인 선임 청구서</b>입니다. 빈칸은 ○○○로 표시했습니다.</div>
-<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">신청하는 분 · 청구인</span>임의후견감독인 선임 심판청구서<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">신청하는 분 · 청구인</span>임의후견감독인 선임 심판청구서<span class="chev">&#9662;</span></button><div class="fold-body"><div id="fm1">
 <div class="doctitle">임의후견감독인선임심판청구</div>
 <div class="fl">청구인</div><pre>성명: ○○○ (○○○○○○-○○○○○○○)   본인과의 관계: ○○
 주소: ○○○   전화: ○○○</pre>
@@ -220,7 +228,7 @@ th{background:var(--beige);color:var(--brown-d)}
 <div class="fl">첨부서류</div><pre>후견등기사항전부증명서, 진단서(개시용), 기본·가족관계증명서(상세) 등</pre>
 <pre>20○○.  ○.  ○.        청구인 ○○○ (인)
 ○○가정법원 귀중</pre>
-</div></div>
+</div><div class="dlbar"><button class="dlbtn" type="button" onclick="dl('fm1','임의후견감독인선임_심판청구서_작성례')">⬇ 내려받기</button><button class="dlbtn alt" type="button" onclick="pr('fm1')">🖨 인쇄</button></div></div></div>
 
 <div class="warn"><span class="wt">⚠ 솔직히 말씀드립니다 — 임의후견이 늘 정답은 아닙니다</span>
 임의후견은 <b>'미리' 대비하는</b> 제도라, 이미 판단력이 많이 떨어진 뒤에는 <b>계약(공증) 자체가 어렵습니다</b>(공증 시 의사능력이 필요하기 때문). 또 과거에 능력 관련 거절·다툼 이력이 있으면 법원이 신중히 봅니다. <b>이미 능력이 부족한 상태라면 한정후견이 더 확실한 길</b>일 수 있습니다. 상태에 맞는 선택이 무엇보다 중요하니, 애매하면 상담에서 함께 판단하겠습니다.</div>
@@ -249,6 +257,46 @@ document.addEventListener('click',function(){document.querySelectorAll('.term.on
 document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.term.on').forEach(function(o){o.classList.remove('on')})});
 
 function toggleFold(b){var fb=b.parentElement;var body=b.nextElementSibling;var open=fb.classList.toggle('open');if(body){body.style.display=open?'block':'none';}}
+
+function grab(id){
+  var el=document.getElementById(id); if(!el) return '';
+  var out=[];
+  Array.prototype.forEach.call(el.childNodes,function(n){
+    if(n.nodeType!==1) return;
+    var t=(n.innerText||n.textContent||'').replace(/\u00a0/g,' ');
+    if(n.classList.contains('doctitle')){out.push('');out.push(t.trim());out.push('');}
+    else if(n.classList.contains('fl')){out.push('');out.push(t.trim());}
+    else if(n.classList.contains('dlbar')){}
+    else {out.push(t.replace(/[ \t]+$/gm,''));}
+  });
+  return out.join('\n').replace(/\n{3,}/g,'\n\n').trim()+'\n';
+}
+function dl(id,name){
+  try{
+    var head='\u203b 본 문서는 산 법무사 김재섭 행정사 사무소(sanlaw.co.kr)가 제공하는 작성례입니다.\n'
+           +'\u203b 공식 양식은 관할 가정법원에서 내려받아 사용하시고, ○○○ 부분은 본인 사정에 맞게 채워 넣으십시오.\n'
+           +'-------------------------------------------------------------\n\n';
+    var blob=new Blob(['\ufeff'+head+grab(id)],{type:'text/plain;charset=utf-8'});
+    var a=document.createElement('a');
+    a.href=URL.createObjectURL(blob); a.download=name+'.txt';
+    document.body.appendChild(a); a.click();
+    setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},800);
+  }catch(e){alert('내려받기가 지원되지 않는 환경입니다. 인쇄를 이용해 주세요.');}
+}
+function pr(id){
+  var el=document.getElementById(id); if(!el) return;
+  var w=window.open('','_blank','width=800,height=900');
+  if(!w){alert('팝업이 차단되었습니다. 팝업 허용 후 다시 눌러 주세요.');return;}
+  var body=el.innerHTML.replace(/<div class="dlbar"[\s\S]*?<\/div>/g,'');
+  w.document.write('<!doctype html><html lang="ko"><head><meta charset="utf-8"><title>작성례</title>'
+   +'<style>body{font-family:"Malgun Gothic","맑은 고딕",serif;line-height:1.9;padding:28px 34px;color:#000}'
+   +'.doctitle{text-align:center;font-weight:800;font-size:20px;letter-spacing:.25em;margin:0 0 22px}'
+   +'.fl{font-weight:700;margin-top:14px}'
+   +'pre{white-space:pre-wrap;font-family:inherit;margin:4px 0;padding:6px 0;border-bottom:1px dotted #bbb}'
+   +'<\/style><\/head><body>'+body+'<\/body><\/html>');
+  w.document.close();
+  setTimeout(function(){w.focus();w.print();},350);
+}
 </script>
 </body>
 </html>

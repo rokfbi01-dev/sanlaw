@@ -62,6 +62,14 @@ th{background:var(--beige);color:var(--brown-d)}
 .term:hover .bub,.term:focus .bub,.term.on .bub{visibility:visible;opacity:1}
 @media(max-width:560px){.term .bub{left:auto;right:0}}
 @media print{.term .bub{visibility:visible;opacity:1;position:static;display:inline;background:none;color:#000;box-shadow:none;padding:0}.term .bub::before{content:" ("}.term .bub::after{content:")"}.fold-body{display:block!important}.fold-btn .chev{display:none}}
+
+.dlbar{display:flex;gap:8px;flex-wrap:wrap;margin:.9em 0 .2em;padding-top:.7em;border-top:1px dashed var(--line)}
+.dlbtn{display:inline-flex;align-items:center;gap:6px;background:var(--gold);color:#fff;border:none;border-radius:8px;padding:9px 15px;font-family:inherit;font-size:.9rem;font-weight:700;cursor:pointer;text-decoration:none}
+.dlbtn:hover{background:var(--gold-d)}
+.dlbtn.alt{background:#fff;color:var(--gold-d);border:1.5px solid var(--gold)}
+.dlbtn.alt:hover{background:#fdf6e8}
+.hint{background:#fff8ec;border:1px dashed var(--gold);border-radius:10px;padding:10px 13px;margin:.6em 0;font-size:.88rem;color:#6b5940}
+@media print{.dlbar{display:none}}
 </style>
 </head>
 <body>
@@ -186,7 +194,7 @@ th{background:var(--beige);color:var(--brown-d)}
 <h2>양식 — 청구인용 · 반대하는 가족용 (양쪽 모두)</h2>
 <p class="mini">아래 제목을 누르면 양식이 펼쳐집니다. 빈칸은 ○○○로 표시했습니다.</p>
 
-<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">신청하는 분 · 청구인</span>성년후견 개시 심판청구서<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">신청하는 분 · 청구인</span>성년후견 개시 심판청구서<span class="chev">&#9662;</span></button><div class="fold-body"><div id="fm1">
 <div class="doctitle">성년후견개시심판청구</div>
 <div class="fl">청구인</div><pre>성명: ○○○ (○○○○○○-○○○○○○○)   사건본인과의 관계: ○○
 주소: ○○○   전화: ○○○</pre>
@@ -205,9 +213,9 @@ th{background:var(--beige);color:var(--brown-d)}
 <div class="fl">첨부서류</div><pre>위 "준비서류"와 같음</pre>
 <pre>20○○.  ○.  ○.        청구인 ○○○ (인)
 ○○가정법원 귀중</pre>
-</div></div>
+</div><div class="dlbar"><button class="dlbtn" type="button" onclick="dl('fm1','성년후견개시_심판청구서_작성례')">⬇ 내려받기</button><button class="dlbtn alt" type="button" onclick="pr('fm1')">🖨 인쇄</button></div></div></div>
 
-<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">이견 있는 가족 · 의견인</span>후견인 선임 의견서(부동의)<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">이견 있는 가족 · 의견인</span>후견인 선임 의견서(부동의)<span class="chev">&#9662;</span></button><div class="fold-body"><div id="fm2">
 <div class="tnote">개시 자체 또는 후견인 후보에 이견이 있을 때 제출합니다. 후견은 '피고'가 없는 <span class="term">비송<span class="bub">법원이 후견적으로 정하는 절차라 '답변서' 대신 '의견서'를 냅니다.</span></span>이라 '답변서'가 아니라 '의견서'로 냅니다.</div>
 <div class="doctitle">의 견 서</div>
 <div class="fl">사건</div><pre>○○가정법원 20○○느단(또는 후개)○○○○ 성년후견개시</pre>
@@ -223,7 +231,7 @@ th{background:var(--beige);color:var(--brown-d)}
 2. (자료) ○○○</pre>
 <pre>20○○.  ○.  ○.        의견인 ○○○ (인)
 ○○가정법원 귀중</pre>
-</div></div>
+</div><div class="dlbar"><button class="dlbtn" type="button" onclick="dl('fm2','성년후견_의견서_작성례')">⬇ 내려받기</button><button class="dlbtn alt" type="button" onclick="pr('fm2')">🖨 인쇄</button></div></div></div>
 
 <h2>서류는 어디서 — 바로가기</h2>
 <div class="link">📖 법령 원문: <a href="https://www.law.go.kr/법령/민법" target="_blank" rel="noopener">민법(§9·§10·§938·§947의2)</a> · <a href="https://www.law.go.kr/법령/가사소송법" target="_blank" rel="noopener">가사소송법(§45의2·§37의2·§9)</a></div>
@@ -248,6 +256,46 @@ document.querySelectorAll('.term').forEach(function(t){
 document.addEventListener('click',function(){document.querySelectorAll('.term.on').forEach(function(o){o.classList.remove('on')})});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.term.on').forEach(function(o){o.classList.remove('on')})});
 function toggleFold(b){var fb=b.parentElement;var body=b.nextElementSibling;var open=fb.classList.toggle('open');if(body){body.style.display=open?'block':'none';}}
+
+function grab(id){
+  var el=document.getElementById(id); if(!el) return '';
+  var out=[];
+  Array.prototype.forEach.call(el.childNodes,function(n){
+    if(n.nodeType!==1) return;
+    var t=(n.innerText||n.textContent||'').replace(/\u00a0/g,' ');
+    if(n.classList.contains('doctitle')){out.push('');out.push(t.trim());out.push('');}
+    else if(n.classList.contains('fl')){out.push('');out.push(t.trim());}
+    else if(n.classList.contains('dlbar')){}
+    else {out.push(t.replace(/[ \t]+$/gm,''));}
+  });
+  return out.join('\n').replace(/\n{3,}/g,'\n\n').trim()+'\n';
+}
+function dl(id,name){
+  try{
+    var head='\u203b 본 문서는 산 법무사 김재섭 행정사 사무소(sanlaw.co.kr)가 제공하는 작성례입니다.\n'
+           +'\u203b 공식 양식은 관할 가정법원에서 내려받아 사용하시고, ○○○ 부분은 본인 사정에 맞게 채워 넣으십시오.\n'
+           +'-------------------------------------------------------------\n\n';
+    var blob=new Blob(['\ufeff'+head+grab(id)],{type:'text/plain;charset=utf-8'});
+    var a=document.createElement('a');
+    a.href=URL.createObjectURL(blob); a.download=name+'.txt';
+    document.body.appendChild(a); a.click();
+    setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},800);
+  }catch(e){alert('내려받기가 지원되지 않는 환경입니다. 인쇄를 이용해 주세요.');}
+}
+function pr(id){
+  var el=document.getElementById(id); if(!el) return;
+  var w=window.open('','_blank','width=800,height=900');
+  if(!w){alert('팝업이 차단되었습니다. 팝업 허용 후 다시 눌러 주세요.');return;}
+  var body=el.innerHTML.replace(/<div class="dlbar"[\s\S]*?<\/div>/g,'');
+  w.document.write('<!doctype html><html lang="ko"><head><meta charset="utf-8"><title>작성례</title>'
+   +'<style>body{font-family:"Malgun Gothic","맑은 고딕",serif;line-height:1.9;padding:28px 34px;color:#000}'
+   +'.doctitle{text-align:center;font-weight:800;font-size:20px;letter-spacing:.25em;margin:0 0 22px}'
+   +'.fl{font-weight:700;margin-top:14px}'
+   +'pre{white-space:pre-wrap;font-family:inherit;margin:4px 0;padding:6px 0;border-bottom:1px dotted #bbb}'
+   +'<\/style><\/head><body>'+body+'<\/body><\/html>');
+  w.document.close();
+  setTimeout(function(){w.focus();w.print();},350);
+}
 </script>
 </body>
 </html>

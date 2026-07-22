@@ -75,6 +75,12 @@ th{background:var(--beige);color:var(--brown-d)}
 .ftools{margin-top:8px;display:flex;gap:8px}
 .ftools button{background:var(--gold);color:#fff;border:0;border-radius:7px;padding:6px 12px;cursor:pointer;font-size:.85rem}
 .howto{font-size:.88rem;color:#6a5a45;background:#f6efe2;border-radius:8px;padding:9px 12px;margin-top:8px}
+
+.dlbar{display:flex;gap:8px;flex-wrap:wrap;margin:.9em 0 .2em;padding-top:.7em;border-top:1px dashed var(--line)}
+.dlbtn{display:inline-flex;align-items:center;gap:6px;background:var(--gold);color:#fff;border:none;border-radius:8px;padding:9px 15px;font-family:inherit;font-size:.9rem;font-weight:700;cursor:pointer}
+.dlbtn:hover{background:var(--gold-d)}
+.dlbtn.alt{background:#fff;color:var(--gold-d);border:1.5px solid var(--gold)}
+@media print{.dlbar{display:none}}
 </style>
 </head>
 <body>
@@ -194,7 +200,7 @@ th{background:var(--beige);color:var(--brown-d)}
 ⑥ 예후: 회복 가능성 낮음, 지속적 보호 필요
 ⑦ 용도: 가정법원 제출용 (성년후견 개시심판 청구)
                                      20○○. ○. ○.
-   ○○병원 정신건강의학과 전문의 ○○○ (면허번호 제○○○호) (서명·인)</div>
+   ○○병원 정신건강의학과 전문의 ○○○ (면허번호 제○○○호) (서명·인)</div><div class="dlbar"><button class="dlbtn" type="button" onclick="dl('d-adult','성년후견_진단서_작성례')">⬇ 내려받기</button><button class="dlbtn alt" type="button" onclick="pr('d-adult')">🖨 인쇄</button></div>
   <div class="ftools"><button type="button" onclick="cpy('d-adult')">📋 복사</button><button type="button" onclick="prt('d-adult')">🖨 인쇄</button></div>
   <div class="howto">핵심은 ⑤의 <b>"지속적으로 결여"</b>(민법 §9 법문 그대로)입니다. 이 표현이 성년후견의 관문입니다.</div></div>
 </div>
@@ -226,7 +232,7 @@ th{background:var(--beige);color:var(--brown-d)}
 
               20○○.  ○.  ○.        청구인 ○○○ (인)
 
-○○가정법원 귀중</div>
+○○가정법원 귀중</div><div class="dlbar"><button class="dlbtn" type="button" onclick="dl('p-adult','성년후견개시_심판청구서_작성례')">⬇ 내려받기</button><button class="dlbtn alt" type="button" onclick="pr('p-adult')">🖨 인쇄</button></div>
   <div class="ftools"><button type="button" onclick="cpy('p-adult')">📋 복사</button><button type="button" onclick="prt('p-adult')">🖨 인쇄</button></div>
   <div class="howto"><b>관할</b>은 사건본인(어르신) 주소지 가정법원입니다. 성년후견은 원칙적으로 <b>감정</b>을 거치나, 진단서가 충분하면 생략될 수 있습니다(가사소송법 §45의2①).</div></div>
 </div>
@@ -247,7 +253,7 @@ th{background:var(--beige);color:var(--brown-d)}
 ⑥ 예후: 진행성, 정기 평가·보호 필요
 ⑦ 용도: 가정법원 제출용 (한정후견 개시심판 청구)
                                      20○○. ○. ○.
-   ○○병원 정신건강의학과 전문의 ○○○ (면허번호 제○○○호) (서명·인)</div>
+   ○○병원 정신건강의학과 전문의 ○○○ (면허번호 제○○○호) (서명·인)</div><div class="dlbar"><button class="dlbtn" type="button" onclick="dl('d-limited','한정후견_진단서_작성례')">⬇ 내려받기</button><button class="dlbtn alt" type="button" onclick="pr('d-limited')">🖨 인쇄</button></div>
   <div class="ftools"><button type="button" onclick="cpy('d-limited')">📋 복사</button><button type="button" onclick="prt('d-limited')">🖨 인쇄</button></div>
   <div class="howto">핵심은 ⑤의 <b>"부족"</b>과 ④의 <b>일중 변동성</b>입니다. "완전 상실"이라 쓰면 성년후견으로, "정상"이라 쓰면 후견 거부로 흐를 수 있어 <b>정도 표현</b>이 관건입니다.</div></div>
 </div>
@@ -283,7 +289,7 @@ th{background:var(--beige);color:var(--brown-d)}
 
               20○○.  ○.  ○.        청구인 ○○○ (인)
 
-○○가정법원 귀중</div>
+○○가정법원 귀중</div><div class="dlbar"><button class="dlbtn" type="button" onclick="dl('p-limited','한정후견개시_심판청구서_작성례')">⬇ 내려받기</button><button class="dlbtn alt" type="button" onclick="pr('p-limited')">🖨 인쇄</button></div>
   <div class="ftools"><button type="button" onclick="cpy('p-limited')">📋 복사</button><button type="button" onclick="prt('p-limited')">🖨 인쇄</button></div>
   <div class="howto">한정후견은 <b>대리권·동의유보의 범위</b>를 반드시 특정해야 합니다(민법 §13·§959의4). 너무 넓게 잡으면 성년후견처럼 보이고, 너무 좁으면 보호가 부족해집니다.</div></div>
 </div>
@@ -312,7 +318,7 @@ th{background:var(--beige);color:var(--brown-d)}
    후견인의 조력이 필요함(민법 제959조의15 감독인 선임 사유).
 ④ 용도: 가정법원 제출용 (임의후견감독인 선임 신청)
                                      20○○. ○. ○.
-   ○○병원 정신건강의학과 전문의 ○○○ (면허번호 제○○○호) (서명·인)</div>
+   ○○병원 정신건강의학과 전문의 ○○○ (면허번호 제○○○호) (서명·인)</div><div class="dlbar"><button class="dlbtn" type="button" onclick="dl('d-vol','임의후견_진단서_공증용개시용_작성례')">⬇ 내려받기</button><button class="dlbtn alt" type="button" onclick="pr('d-vol')">🖨 인쇄</button></div>
   <div class="ftools"><button type="button" onclick="cpy('d-vol')">📋 복사</button><button type="button" onclick="prt('d-vol')">🖨 인쇄</button></div>
   <div class="howto">공증용에는 <b>"의사능력 있음"</b>을, 개시용에는 <b>"능력 부족"</b>을 씁니다. 공증용에는 능력부족 정황(예: 주택연금 거절 이력)을 적지 않는 것이 안전합니다.</div></div>
 </div>
@@ -342,7 +348,7 @@ th{background:var(--beige);color:var(--brown-d)}
 
               20○○.  ○.  ○.        청구인 ○○○ (인)
 
-○○가정법원 귀중</div>
+○○가정법원 귀중</div><div class="dlbar"><button class="dlbtn" type="button" onclick="dl('p-vol','임의후견감독인선임_심판청구서_작성례')">⬇ 내려받기</button><button class="dlbtn alt" type="button" onclick="pr('p-vol')">🖨 인쇄</button></div>
   <div class="ftools"><button type="button" onclick="cpy('p-vol')">📋 복사</button><button type="button" onclick="prt('p-vol')">🖨 인쇄</button></div>
   <div class="howto">임의후견은 <b>감정 의무가 없고</b> 진단서로 갈음됩니다(가사소송법 §45의5). 감독인이 선임되어야 비로소 계약의 효력이 발생합니다(민법 §959의15).</div></div>
 </div>
@@ -367,6 +373,30 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
 function fold(b){b.classList.toggle('open');var body=b.nextElementSibling;body.classList.toggle('open');}
 function cpy(id){var t=document.getElementById(id).innerText;navigator.clipboard&&navigator.clipboard.writeText(t).then(function(){},function(){});}
 function prt(id){var w=window.open('','_blank');w.document.write('<pre style="font-family:monospace;white-space:pre-wrap">'+document.getElementById(id).innerText.replace(/</g,'&lt;')+'</pre>');w.document.close();w.print();}
+
+function dl(id,name){
+  try{
+    var el=document.getElementById(id);
+    var t=(el.innerText||el.textContent||'').replace(/\u00a0/g,' ');
+    var head='\u203b \ubcf8 \ubb38\uc11c\ub294 \uc0b0 \ubc95\ubb34\uc0ac \uae40\uc7ac\uc12d \ud589\uc815\uc0ac \uc0ac\ubb34\uc18c(sanlaw.co.kr) \uc791\uc131\ub840\uc785\ub2c8\ub2e4.\n'
+           +'\u203b \uacf5\uc2dd \uc591\uc2dd\uc740 \ubc95\uc6d0\uc5d0\uc11c \ub0b4\ub824\ubc1b\uc544 \uc0ac\uc6a9\ud558\uc2dc\uace0, \u25cb\u25cb\u25cb \ubd80\ubd84\uc744 \ucc44\uc6cc \ub123\uc73c\uc2ed\uc2dc\uc624.\n'
+           +'-----------------------------------------------------\n\n';
+    var b=new Blob(['\ufeff'+head+t.trim()+'\n'],{type:'text/plain;charset=utf-8'});
+    var a=document.createElement('a'); a.href=URL.createObjectURL(b); a.download=name+'.txt';
+    document.body.appendChild(a); a.click();
+    setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},800);
+  }catch(e){alert('\ub0b4\ub824\ubc1b\uae30\uac00 \uc9c0\uc6d0\ub418\uc9c0 \uc54a\ub294 \ud658\uacbd\uc785\ub2c8\ub2e4. \uc778\uc1c4\ub97c \uc774\uc6a9\ud574 \uc8fc\uc138\uc694.');}
+}
+function pr(id){
+  var el=document.getElementById(id); if(!el)return;
+  var w=window.open('','_blank','width=800,height=900');
+  if(!w){alert('\ud31d\uc5c5\uc774 \ucc28\ub2e8\ub418\uc5c8\uc2b5\ub2c8\ub2e4.');return;}
+  w.document.write('<!doctype html><html lang="ko"><head><meta charset="utf-8"><title>\uc791\uc131\ub840</title>'
+   +'<style>body{font-family:"Malgun Gothic",serif;line-height:1.9;padding:28px 34px;color:#000;white-space:pre-wrap}'
+   +'.ft{display:block;text-align:center;font-weight:800;font-size:19px;letter-spacing:.25em;margin-bottom:20px}'
+   +'<\/style><\/head><body>'+el.innerHTML+'<\/body><\/html>');
+  w.document.close(); setTimeout(function(){w.focus();w.print();},350);
+}
 </script>
 </body>
 </html>
