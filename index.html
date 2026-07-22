@@ -166,7 +166,7 @@
 </style>
 
 <meta name="description" content="검찰 33년 경력. 민사·가사·노동·행정심판·비영리법인 설립·상속등기(외국인 상속등기 전문)·개인회생·후견까지. 의뢰인의 권리 보호를 위해 최선을 다합니다.">
-<meta name="keywords" content="신도림 법무사,구로구 법무사,신도림 행정사,구로구 행정사,법무사 김재섭,산 법무사,외국인 상속등기,개인회생,성년후견,비영리법인 설립">
+<meta name="keywords" content="신도림 법무사,구로구 법무사,신도림 행정사,구로구 행정사,법무사 김재섭,산 법무사,외국인 상속등기,개인회생,성년후견,비영리법인 설립,출입국민원 대행기관,외국인 비자,체류자격 변경,체류기간 연장">
 <meta name="author" content="산 법무사 김재섭 행정사 사무소">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://sanlaw.co.kr/">
@@ -401,12 +401,24 @@ var BIZ=[
  {han:"相",t:"상속",d:"분할·유류분·포기·등기·유언·회복",open:true,key:"sangsok"},
  {han:"登",t:"각종 등기",d:"부동산 권리·법인(상업) 등기 대리",open:true,key:"deunggi"},
  {han:"免",t:"개인회생·파산면책",d:"빚 분석·압류 해방·면책",open:false},
- {han:"後",t:"후견",d:"성년·한정·특정후견 신청",open:false},
+ {han:"後",t:"후견",d:"성년·한정·특정·임의후견 신청",open:true,key:"hugyeon"},
  {han:"家",t:"가사 사건",d:"이혼·친권·양육 서면",open:false},
  {han:"勞",t:"노동·노무",d:"임금체불·부당해고 대응",open:false},
  {han:"行",t:"행정심판·인허가",d:"영업허가·불복 신청",open:false},
  {han:"法",t:"비영리법인 설립",d:"사단·재단법인 설립",open:false},
- {han:"出",t:"출입국·체류",d:"외국인 비자·체류(준비 중)",open:false}
+ {han:"出",t:"출입국·체류",d:"비자·체류자격 변경·기간연장 신청 대행",open:false}
+];
+var HUGYEON=[
+ {n:1,t:"후견 개시 신청",d:"성년·한정·특정·임의 어느 것이 맞는지",items:[
+   {t:"아버지가 의사소통조차 어려워 모든 일을 대신 결정해야 해요",u:"후1-1_성년후견개시.html"},
+   {t:"부모님이 판단력이 약해져 재산·계약을 스스로 하기 어려워요",u:"후1-2_한정후견개시.html"},
+   {t:"평소엔 스스로 하시는데 딱 한 가지 일만 도와드려야 해요",u:"후1-3_특정후견개시.html"},
+   {t:"아직 정신이 맑을 때 내 후견인을 직접 정해 두고 싶어요",u:"후1-4_임의후견_후견계약.html"}]},
+ {n:2,t:"진단서·후견등기",d:"진단서 준비·대리 발급·등기와 증명서",items:[
+   {t:"후견 신청에 필요한 진단서, 어떻게 받나요",u:"후2-1_후견진단서준비.html"},
+   {t:"후견인이 됐는데 은행에서 증명서를 가져오라고 해요",u:"후2-2_후견등기.html"}]},
+ {n:3,t:"관련 사건",d:"미성년자 특별대리인 선임",items:[
+   {t:"상속재산을 나누려는데 아이가 미성년이라 대리를 못 한대요",u:"후3-1_미성년자_특별대리인.html"}]}
 ];
 var SANGSOK=[
  {n:1,t:"상속재산분할",d:"협의 결렬·기여분·예금 분할",items:[{t:"상속인들끼리 재산을 어떻게 나눌지 합의가 안 돼요",u:"1-1_상속재산분할심판.html"}]},
@@ -462,7 +474,7 @@ var bizGrid=document.getElementById('bizGrid');
 BIZ.forEach(function(b){
   var c=document.createElement('div');c.className='pa-card lock';
   c.innerHTML='<span class="pa-b '+(b.open?'r">게시':'s">준비중')+'</span><div class="pa-han">'+b.han+'</div><div class="pa-tx"><h3>'+b.t+'</h3><p>'+b.d+'</p></div>';
-  c.addEventListener('click',function(){if(!agreed)return;if(b.open&&b.key==='sangsok')openCat('상속',SANGSOK);else if(b.open&&b.key==='deunggi')openCat('각종 등기',DEUNGGI);});
+  c.addEventListener('click',function(){if(!agreed)return;if(b.open&&b.key==='sangsok')openCat('상속',SANGSOK);else if(b.open&&b.key==='deunggi')openCat('각종 등기',DEUNGGI);else if(b.open&&b.key==='hugyeon')openCat('후견',HUGYEON);});
   bizGrid.appendChild(c);
 });
 var catGrid=document.getElementById('catGrid');
@@ -893,7 +905,7 @@ chk.addEventListener('change',function(){
     <p class="disclaimer">※ 본 사이트의 업무는 법무사법 제2조 및 행정사법에 따른 직무 범위 내에서 제공됩니다. 게시된 경력·업무 내용은 실제 자격 및 사실에 근거하여 추후 확정·게재합니다.</p>
     <div class="foot-bottom">
       <span>© 2026 산 법무사 김재섭 행정사 사무소. All rights reserved.</span>
-      <span>대표 김재섭 · 법무사 등록증 12742호 · 행정사업무신고증 3160000202611호 · 사업자등록번호 259-04-03801</span>
+      <span>대표 김재섭 · 법무사 등록증 12742호 · 행정사업무신고증 3160000202611호 · 출입국민원 대행기관 등록 26-SM-RG-034 · 사업자등록번호 259-04-03801</span>
     </div>
   </div>
 </footer>
