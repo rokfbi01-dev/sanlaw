@@ -263,6 +263,11 @@
         <span class="hnav-t">수수료 계산기</span>
         <span class="hnav-s">등기·상속·소송비용 셀프 견적</span>
       </a>
+      <a href="#tax-partner" class="hnav-card">
+        <span class="hnav-ico">🧾</span>
+        <span class="hnav-t">세무 안내</span>
+        <span class="hnav-s">광교세무법인 대표세무사 김일섭</span>
+      </a>
       <a href="#contact" class="hnav-card hnav-gold">
         <span class="hnav-ico">💬</span>
         <span class="hnav-t">상담 문의</span>
@@ -522,6 +527,106 @@ chk.addEventListener('change',function(){
 </script>
   </div>
 </section>
+
+<!-- ===== 협력 세무사 안내 (삽입 시작) ===== -->
+<section class="block" id="tax-partner">
+  <div class="wrap">
+    <style>
+/* ===== 협력 세무사 안내 (홈페이지 메인 삽입용 · 독립형) ===== */
+  .tax-partner{
+    max-width:820px;margin:0 auto;background:#fffdf9;
+    border:1px solid #e3d6c2;border-radius:16px;
+    box-shadow:0 4px 18px rgba(120,90,50,.10);overflow:hidden;
+  }
+  .tp-head{background:linear-gradient(135deg,#8a6d4b,#6f5638);color:#fff;padding:20px 26px;}
+  .tp-head h2{margin:0;font-size:1.2rem;letter-spacing:-.3px;}
+  .tp-head p{margin:8px 0 0;font-size:.92rem;opacity:.94;line-height:1.6;}
+  .tp-head .tags{margin-top:12px;display:flex;gap:6px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+  .tp-head .tags::-webkit-scrollbar{display:none;}
+  .tp-head .tags span{flex:0 0 auto;white-space:nowrap;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);border-radius:20px;padding:3px 10px;font-size:.78rem;font-weight:600;}
+
+  .tp-body{padding:24px 26px 26px;}
+  .tp-top{display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;}
+  .tp-photo{width:120px;height:152px;border-radius:12px;object-fit:cover;object-position:top center;border:3px solid #e7d9c4;flex:0 0 auto;background:#eee;box-shadow:0 3px 10px rgba(120,90,50,.18);}
+  .tp-name{flex:1 1 260px;min-width:240px;}
+  .tp-name .firm{font-size:.92rem;color:#a9793c;font-weight:700;margin-bottom:2px;}
+  .tp-name .who{font-size:1.5rem;font-weight:800;color:#3d2c1c;margin:0 0 4px;}
+  .tp-name .who small{font-size:.95rem;font-weight:600;color:#6b5540;margin-left:6px;}
+  .tp-badge{display:inline-block;background:#f6ecd9;color:#9a6b1f;border:1px solid #e6d3ae;border-radius:20px;padding:4px 12px;font-size:.8rem;font-weight:700;margin-top:6px;}
+  .tp-profile-link{display:inline-block;margin-top:10px;font-size:.88rem;font-weight:700;color:#8a6d4b;text-decoration:none;border-bottom:1.5px solid #d8c3a0;padding-bottom:1px;}
+  .tp-profile-link:hover{color:#6f5638;border-color:#6f5638;}
+
+  .tp-label{display:inline-block;background:#c8862d;color:#fff;font-size:.82rem;font-weight:700;border-radius:6px;padding:3px 12px;margin:20px 0 10px;}
+  .tp-list{margin:0;padding:0;list-style:none;}
+  .tp-list li{position:relative;padding:5px 0 5px 18px;font-size:.94rem;line-height:1.55;color:#4a3728;}
+  .tp-list li::before{content:"";position:absolute;left:2px;top:12px;width:6px;height:6px;border-radius:50%;background:#c8862d;}
+
+  .tp-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;padding-top:20px;border-top:1px dashed #e0d0b8;}
+  .tp-btn{flex:1 1 150px;display:flex;align-items:center;justify-content:center;gap:7px;text-decoration:none;font-weight:700;font-size:.95rem;padding:13px 10px;border-radius:10px;transition:transform .12s,box-shadow .12s;}
+  .tp-btn:hover{transform:translateY(-2px);box-shadow:0 5px 14px rgba(120,90,50,.18);}
+  .tp-btn.profile{background:#c8862d;color:#fff;}
+  .tp-btn.call{background:#6f5638;color:#fff;}
+  .tp-btn.mail{background:#fff;color:#6f5638;border:1.5px solid #c8a878;}
+  .tp-btn.map{background:#fff;color:#6f5638;border:1.5px solid #c8a878;}
+
+  .tp-note{margin-top:16px;font-size:.82rem;color:#8a7860;line-height:1.55;background:#f7f1e7;border-left:3px solid #c8a878;border-radius:0 8px 8px 0;padding:11px 14px;}
+
+  @media (max-width:480px){
+    .tp-top{gap:14px;}
+    .tp-photo{width:96px;height:122px;}
+    .tp-name .who{font-size:1.3rem;}
+    .tp-btn{flex:1 1 100%;}
+  }
+    </style>
+<div class="tax-partner">
+  <div class="tp-head">
+    <h2>🤝 세금 문제, 믿을 수 있는 세무 전문가를 안내해 드립니다</h2>
+    <p>양도소득세·증여세·상속세부터 종합소득세·세무조사 대응까지 — 재산과 세금 문제는 등기·법률과 떼려야 뗄 수 없습니다. <b>국세청 조사 경력</b>의 세무 전문가가 여러분의 세금 고민을 함께 풀어드립니다.</p>
+    <div class="tags"><span>양도소득세</span><span>증여세</span><span>상속세</span><span>종합소득세</span><span>세무조사 대응</span></div>
+  </div>
+
+  <div class="tp-body">
+    <div class="tp-top">
+      <img class="tp-photo" src="data:image/jpeg;base64,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" alt="김일섭 대표세무사 프로필 사진">
+      <div class="tp-name">
+        <div class="firm">광교세무법인</div>
+        <p class="who">김일섭 <small>대표세무사</small></p>
+        <span class="tp-badge">국세청 조사·감사 실무 경력</span><br>
+        <a class="tp-profile-link" href="https://www.gwangyo.com/introduce/expert.html?bmain=view&uid=31&search=%26mode%3D1%26page%3D1&mode=1" target="_blank" rel="noopener">상세 프로필 보기 &rsaquo;</a>
+      </div>
+    </div>
+
+    <span class="tp-label">주요 경력</span>
+    <ul class="tp-list">
+      <li>전) 국세청 법인조사 및 감사분야 근무</li>
+      <li>전) 안산세무서 법인세 과장</li>
+      <li>전) 중부지방국세청 조사1국 팀장</li>
+      <li>현) 광교세무법인 대표세무사</li>
+    </ul>
+
+    <span class="tp-label">주요 업무분야</span>
+    <ul class="tp-list">
+      <li>양도·상속·증여 재산제세 컨설팅 및 세무신고</li>
+      <li>개인·법인 장부 기장대리 및 세무조정</li>
+      <li>개인·법인 세무조사 대응</li>
+    </ul>
+
+    <div class="tp-actions">
+      <a class="tp-btn profile" href="https://www.gwangyo.com/introduce/expert.html?bmain=view&uid=31&search=%26mode%3D1%26page%3D1&mode=1" target="_blank" rel="noopener">🌐 상세 프로필</a>
+      <a class="tp-btn call" href="tel:031-234-8530">📞 전화 상담</a>
+      <a class="tp-btn mail" href="mailto:kgtax60@naver.com">✉️ 이메일</a>
+      <a class="tp-btn map" href="https://map.naver.com/p/search/%EC%88%98%EC%9B%90%EC%8B%9C%20%EC%9E%A5%EC%95%88%EA%B5%AC%20%EA%B2%BD%EC%88%98%EB%8C%80%EB%A1%9C%201110-12" target="_blank" rel="noopener">📍 길찾기</a>
+    </div>
+
+    <div class="tp-note">
+      · 광교세무법인 · 대표세무사 김일섭 &nbsp;|&nbsp; (16205) 수원시 장안구 경수대로 1110-12 광교빌딩 3층 &nbsp;|&nbsp; 대표전화 031-234-8530 · 휴대폰 010-6246-0702<br>
+      · 본 안내는 의뢰인의 편의를 위한 정보 제공이며, 세무 업무의 위임 여부는 전적으로 의뢰인께서 판단하시면 됩니다.
+    </div>
+  </div>
+</div>
+  </div>
+</section>
+<!-- ===== 협력 세무사 안내 (삽입 끝) ===== -->
 
 <section class="block column" id="column">
   <div class="wrap">
