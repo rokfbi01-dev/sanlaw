@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>상속 업무분야 | 산 법무사 김재섭 행정사 사무소</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); margin:0; background:var(--paper); line-height:1.8; word-break:keep-all;}
+.wrap{max-width:960px; margin:0 auto; padding:30px 18px 80px;}
+
+/* ===== 게이트(면책 동의) ===== */
+.gate{position:fixed; inset:0; z-index:100; background:rgba(40,30,18,.55); backdrop-filter:blur(3px); display:flex; align-items:center; justify-content:center; padding:18px;}
+.gate.hidden{display:none;}
+.gate-card{background:var(--paper); max-width:560px; width:100%; max-height:90vh; overflow-y:auto; border-radius:16px; box-shadow:0 22px 60px rgba(0,0,0,.35); padding:26px 24px;}
+.gate-card h2{font-family:'Nanum Myeongjo',serif; font-size:21px; font-weight:800; color:var(--gold-d); margin:0 0 6px; text-align:center;}
+.gate-card .sub{text-align:center; color:var(--muted); font-size:13.5px; margin-bottom:18px;}
+.gate-sec{background:var(--box); border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin:12px 0; font-size:13.5px; line-height:1.78;}
+.gate-sec b{color:var(--gold-d);}
+.gate-sec.disc{background:#f4f1ea; color:#5a5346;}
+.agree{display:flex; align-items:flex-start; gap:10px; margin:18px 2px 14px; font-size:15px; font-weight:600; cursor:pointer; user-select:none;}
+.agree input{width:20px; height:20px; margin-top:2px; accent-color:var(--gold); flex:0 0 auto;}
+.enter{display:block; width:100%; border:none; border-radius:10px; padding:15px; font-size:16px; font-weight:800; font-family:'Nanum Myeongjo',serif; letter-spacing:1px; color:#fff; background:#c9c2b4; cursor:not-allowed; transition:.18s;}
+.enter.on{background:linear-gradient(180deg,#b07d4f,#8a5f33); cursor:pointer; box-shadow:0 8px 20px rgba(138,95,51,.35);}
+
+/* ===== 본문 ===== */
+.brand{text-align:center; margin-bottom:6px;}
+.brand .logo{font-family:'Nanum Myeongjo',serif; font-size:14px; color:var(--gold-d); letter-spacing:3px;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:30px; font-weight:800; color:#241a10; text-align:center; margin:6px 0 6px;}
+.tagline{text-align:center; color:var(--muted); font-size:15px; margin-bottom:6px;}
+.philo{text-align:center; font-family:'Nanum Myeongjo',serif; color:var(--gold-d); font-size:14px; margin-bottom:26px;}
+.grid{display:grid; grid-template-columns:repeat(2,1fr); gap:16px;}
+@media (max-width:680px){ .grid{grid-template-columns:1fr;} }
+.card{background:#fff; border:1px solid var(--line); border-radius:14px; padding:18px 18px 16px; box-shadow:0 4px 14px rgba(120,90,40,.06); display:flex; flex-direction:column; transition:.18s;}
+.card:hover{transform:translateY(-3px); box-shadow:0 12px 26px rgba(120,90,40,.13); border-color:var(--gold);}
+.card .num{font-family:'Nanum Myeongjo',serif; font-weight:800; color:#fff; background:var(--gold); width:30px; height:30px; line-height:30px; text-align:center; border-radius:8px; font-size:15px; margin-bottom:10px;}
+.card h3{font-family:'Nanum Myeongjo',serif; font-size:18.5px; font-weight:800; color:#241a10; margin:0 0 6px;}
+.card p{font-size:13.5px; color:var(--muted); margin:0 0 12px; line-height:1.7;}
+.sublinks{margin:0 0 6px; padding:0; list-style:none; border-top:1px dashed var(--line); padding-top:10px;}
+.sublinks li{margin:4px 0;}
+.sublinks a{color:var(--gold-d); font-size:13.5px; text-decoration:none; font-weight:600;}
+.sublinks a::before{content:"› "; color:var(--gold);}
+.sublinks a:hover{text-decoration:underline;}
+.ready{display:inline-block; font-size:11.5px; font-weight:700; color:var(--ok-ink); background:var(--ok-bg); border:1px solid #cfe6d6; border-radius:5px; padding:1px 8px; margin-left:6px;}
+.soon{display:inline-block; font-size:11.5px; font-weight:700; color:#9a8f7d; background:#f1ece2; border:1px solid var(--line); border-radius:5px; padding:1px 8px; margin-left:6px;}
+.footnote{margin-top:30px; padding-top:14px; border-top:1px solid var(--line); font-size:12.5px; color:#9a8f7d; text-align:center; line-height:1.7;}
+.reread{display:inline-block; margin-top:8px; color:var(--gold-d); font-size:12.5px; cursor:pointer; text-decoration:underline;}
+</style>
+</head>
+<body>
+
+<!-- ===== 면책·이용안내 게이트 ===== -->
+<div class="gate" id="gate">
+  <div class="gate-card">
+    <h2>⚓ 이용 안내를 먼저 읽어 주세요</h2>
+    <div class="sub">아래 안내를 확인하셔야 각 업무 내용을 확인하실 수 있습니다.</div>
+
+    <div class="gate-sec">
+      <b>이 자료는 이렇게 만들었습니다.</b> 모든 가이드는 대한법률구조공단·법제처 생활법령정보·국가법령정보센터(민법)·대법원 판례를 토대로, 법을 전혀 모르는 분도 혼자 신청을 끝까지 진행하실 수 있도록 서류 양식·비용·요건을 구체적으로 담았습니다. 양식은 대법원 전자민원센터 등 공식 표준양식을 따릅니다.
+    </div>
+    <div class="gate-sec">
+      <b>⚓ 혼자가 아닙니다 — 든든한 법률적 조타수가 함께합니다.</b> 이 매뉴얼은 혼자 작성하여 법원에 신청할 수 있을 정도로 구체적으로 안내해 드리고 있습니다. 다만 '언제까지, 어디까지 관리해야 하는지'와 '어떻게 손을 떼는지'는 사안마다 달라 막히기 쉽습니다. 혼자 진행하시다 막히는 부분이 생기거나 든든한 방어막이 필요할 때, 언제든지 저희 사무실로 상담신청을 해 주세요. 혼자 짊어진 무거운 짐, 저희 사무실에서 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.
+    </div>
+    <div class="gate-sec disc">
+      <b>[면책 안내]</b> 본 자료는 일반적인 법률정보를 쉽게 전달하기 위한 것으로, 개별 사건에 대한 법률자문이 아닙니다. 구체적 사정에 따라 결과가 달라질 수 있으며, 본 사무실은 이용자가 이 자료만을 토대로 직접 진행한 결과에 대하여 책임을 지지 않습니다. 정확한 판단과 진행은 반드시 전문가 상담을 거치시기 바랍니다.
+    </div>
+
+    <label class="agree">
+      <input type="checkbox" id="chk">
+      <span>위 이용 안내와 면책 사항을 모두 확인하였습니다.</span>
+    </label>
+    <button class="enter" id="enterBtn" disabled>확인하고 각 업무 내용 보기</button>
+  </div>
+</div>
+
+<!-- ===== 본문 (게이트 통과 후 표시) ===== -->
+<div class="wrap">
+  <div class="brand"><span class="logo">산 법무사 김재섭 행정사 사무소</span></div>
+  <h1>상속, 무엇이든 여기서 길을 찾으세요</h1>
+  <div class="tagline">분할 · 유류분 · 포기와 한정승인 · 등기 · 수계 · 유언 · 회복청구</div>
+  <div class="philo">和而不同 — 휩쓸리지 않고, 치우침 없이, 함께 걷겠습니다</div>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="num">1</div>
+      <h3>상속재산분할</h3>
+      <p>협의가 안 될 때, 기여분, 예금 분할, 도장을 안 찍어줄 때의 심판분할까지.</p>
+      <ul class="sublinks"><li><span class="soon">준비 중</span></li></ul>
+    </div>
+
+    <div class="card">
+      <div class="num">2</div>
+      <h3>유류분</h3>
+      <p>한 자녀에게 몰아준 재산에서 내 최소 몫을 되찾는 길.</p>
+      <ul class="sublinks">
+        <li><a href="2-5_유류분_청구기간.html">유류분 청구기간(소멸시효)</a><span class="ready">게시</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="num">3</div>
+      <h3>상속포기 · 한정승인</h3>
+      <p>빚을 떠안지 않는 법. 승인과 포기의 갈림길, 3개월의 데드라인.</p>
+      <ul class="sublinks">
+        <li><a href="3-1_상속받지않기_포기_한정승인.html">빚이 더 많을 때 — 포기 vs 한정승인</a><span class="ready">게시</span></li>
+        <li><a href="3-2_특별한정승인.html">3개월이 지난 뒤 빚을 알았어요(특별한정승인)</a><span class="ready">게시</span></li>
+        <li><a href="3-3_상속포기후_관리계속의무.html">포기했는데 관리 책임이 남아 있나요</a><span class="ready">게시</span></li>
+        <li><a href="3-4_전원포기_손자녀.html">자녀가 다 포기하면 손주에게 빚이 가나요</a><span class="ready">게시</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="num">4</div>
+      <h3>상속등기</h3>
+      <p>부동산 명의이전, 대습상속, 재외국민·외국인의 한국 부동산 상속.</p>
+      <ul class="sublinks"><li><span class="soon">준비 중</span></li></ul>
+    </div>
+
+    <div class="card">
+      <div class="num">5</div>
+      <h3>상속포기와 수계</h3>
+      <p>포기 후 날아온 소송수계 요청 대응, 상속인이 없을 때의 특별연고자.</p>
+      <ul class="sublinks"><li><span class="soon">준비 중</span></li></ul>
+    </div>
+
+    <div class="card">
+      <div class="num">6</div>
+      <h3>유언</h3>
+      <p>자필증서 요건, 유언검인·개봉, 형식 흠결 무효, 유언무효확인소송.</p>
+      <ul class="sublinks"><li><span class="soon">준비 중</span></li></ul>
+    </div>
+
+    <div class="card">
+      <div class="num">7</div>
+      <h3>상속회복청구</h3>
+      <p>누군가 가로챈 내 상속분을 되찾는 길. 참칭상속인과 제척기간.</p>
+      <ul class="sublinks">
+        <li><a href="7-1_상속회복청구.html">누가 내 상속분을 가로챘어요</a><span class="ready">게시</span></li>
+        <li><a href="7-2_제3자_상속재산_회복.html">이미 제3자에게 넘어간 재산 되찾기</a><span class="ready">게시</span></li>
+        <li><a href="7-3_위조_협의분할_상속등기.html">위조 협의분할·무단 상속등기 바로잡기</a><span class="ready">게시</span></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footnote">
+    산 법무사 김재섭 행정사 사무소 · 서울 구로구 신도림 인근 · sanlaw.co.kr<br>
+    본 페이지의 모든 자료는 일반 법률정보이며 개별 법률자문이 아닙니다. 정확한 판단은 상담을 통해 확인하시기 바랍니다.
+    <span class="reread" id="reread">이용 안내·면책 다시 보기</span>
+  </div>
+</div>
+
+<script>
+(function(){
+  var gate=document.getElementById('gate'),
+      chk=document.getElementById('chk'),
+      btn=document.getElementById('enterBtn'),
+      reread=document.getElementById('reread');
+  chk.addEventListener('change',function(){
+    if(chk.checked){ btn.classList.add('on'); btn.disabled=false; }
+    else { btn.classList.remove('on'); btn.disabled=true; }
+  });
+  btn.addEventListener('click',function(){
+    if(btn.disabled) return;
+    gate.classList.add('hidden');
+    /* 실제 사이트(sanlaw.co.kr)에서는 아래 한 줄로 '한 번 동의 시 통과'를 저장할 수 있습니다.
+       localStorage.setItem('sangsok_agreed','1');  (미리보기 환경에서는 저장이 비활성화되어 매번 표시됩니다) */
+  });
+  reread.addEventListener('click',function(){
+    chk.checked=false; btn.classList.remove('on'); btn.disabled=true;
+    gate.classList.remove('hidden');
+    window.scrollTo(0,0);
+  });
+})();
+</script>
+
+</body>
+</html>
