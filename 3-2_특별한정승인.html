@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[상속 3-2] 3개월이 지난 뒤에 빚을 알게 됐어요 — 특별한정승인 | 산 법무사 김재섭</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(280px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.case{background:var(--box); border-radius:10px; padding:14px 16px; margin:14px 0; border-left:4px solid #b9a98c;}
+.case .ct{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+.sit-wrap{display:flex; gap:12px; margin:14px 0;}
+.sit{flex:1; background:#f8f5ee; border:1px solid var(--line); border-top:3px solid var(--gold); border-radius:10px; padding:13px 15px; font-size:14.5px; line-height:1.75;}
+.sit .sl{display:block; font-weight:700; color:var(--gold-d); margin-bottom:6px; font-size:14px;}
+@media (max-width:680px){ .sit-wrap{flex-direction:column;} }
+/* 전체 길 흐름도 */
+.flow{background:linear-gradient(180deg,#faf7f0,#f6f1e6); border:1px solid var(--line); border-radius:14px; padding:22px 20px; margin:16px 0;}
+.flow .fl-t{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:18px; text-align:center; letter-spacing:.3px;}
+.flow .node{position:relative; background:#fff; border:1px solid #e3d8c4; border-radius:11px; padding:15px 18px 15px 56px; font-size:14.5px; line-height:1.72; box-shadow:0 2px 6px rgba(122,82,48,.07);}
+.flow .node .num{position:absolute; left:15px; top:14px; width:30px; height:30px; line-height:30px; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; border-radius:50%; font-weight:800; font-size:15px; font-family:'Nanum Myeongjo',serif; box-shadow:0 2px 5px rgba(122,82,48,.3);}
+.flow .node b{color:#241a10;}
+.flow .down{display:flex; justify-content:center; align-items:center; padding:7px 0;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+/* 작성례 박스 */
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:15px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .tag{margin-bottom:0;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;}
+.tag.cred{background:#5a9a72;}
+.tag.debt{background:#d9694a;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:18px;margin:12px 0;font-family:'D2Coding','Courier New',monospace;font-size:13px;line-height:1.6;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:16px;letter-spacing:2px;margin-bottom:12px;color:#241a10;}
+.howto{font-size:14px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0 4px;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:13px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:7px 13px;cursor:pointer;transition:.15s;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.75;}
+.lawbox .ll{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:#241a10;border-radius:5px;padding:2px 9px;margin-right:7px;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.hire p{margin:7px 0; font-size:15px; line-height:1.8;}
+.cta{display:block;text-align:center;background:var(--gold-d);color:#fff;font-weight:700;font-size:17px;text-decoration:none;padding:15px;border-radius:11px;margin:18px 0;font-family:'Nanum Myeongjo',serif;letter-spacing:1px;}
+.cta:hover{background:#5e3f24;}
+@media print{
+  body{background:#fff; max-width:100%;}
+  .tldr,.case,.warn,.tip,.cost,.steps li,.tnote,.sit,.flow,.flow li,.lawbox,.hire{background:#fff !important; border-color:#ccc !important;}
+  .tnote{display:none;}
+  .term{border:none; color:inherit; font-weight:inherit;}
+  .term>.bub{display:inline !important; position:static; width:auto; background:none; color:inherit; box-shadow:none; padding:0; font-size:inherit; line-height:inherit;}
+  .term>.bub::before{content:" ("; }
+  .term>.bub::after{content:")"; border:none; position:static;}
+  .fold-body{display:block !important;}.fold-btn .chev{display:none;}.form-tools{display:none;}
+  .cta{background:#fff !important; color:#241a10 !important; border:1px solid #ccc;}
+}
+</style>
+</head>
+
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+<h1>[상속 3-2] 3개월이 지난 뒤에 빚을 알게 됐어요 (특별한정승인)</h1>
+
+<div class="tnote">어려운 법률용어에는 <b>점선 밑줄</b>이 그어져 있습니다. <b>PC는 마우스를 올리면</b>, <b>휴대폰은 손가락으로 톡 터치하면</b> 쉬운 설명이 뜹니다. (인쇄하면 괄호로 함께 나옵니다.)</div>
+
+<div class="hire">
+<div class="ht">이 매뉴얼을 끝까지 읽으시는 분께</div>
+<p>이 매뉴얼은 <b>의뢰인이 직접 법원에 신청할 수 있도록 모든 서류 양식·비용·요건을 구체적으로 담았습니다.</b> 하지만 소송은 살아있는 생물과 같아 상대방의 격렬한 저항이 뒤따릅니다. 혼자 진행하시다가 막히는 부분이 생기거나 방어막이 필요할 때, 언제든 이 매뉴얼을 들고 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</p>
+</div>
+
+<div class="tldr">
+<div class="tt">⭐ 30초 결론부터</div>
+<ul>
+<li><b>3개월이 지났어도 끝이 아닙니다.</b> 큰 잘못 없이 <b>'빚이 재산보다 많다'</b>는 사실을 몰라 <span class="term">단순승인<span class="bub">재산도 빚도 전부 물려받는 것. 3개월 안에 아무것도 하지 않으면 자동으로 이렇게 됩니다(민법 §1026 2호).</span></span>이 되어 버렸다면, <b>특별한정승인</b>으로 <b>물려받은 재산 한도</b>까지 되돌릴 수 있습니다(민법 §1019③).</li>
+<li><b>★기한은 '사망을 안 날'이 아니라 '빚이 더 많다는 사실을 안 날'부터 3개월입니다.</b> 대개 <b>독촉장·소장을 받은 날</b>이 그 날입니다. 그러니 <b>봉투를 절대 버리지 마십시오.</b></li>
+<li><b>★승부처는 딱 하나 — '중대한 과실이 없었다'.</b> <span class="term">중대한 과실<span class="bub">조금만 주의를 기울였다면 빚이 더 많다는 것을 알 수 있었는데 이를 게을리한 것(대법원 2010다7904). 나이·직업·고인과의 관계·동거 여부 등을 함께 봅니다.</span></span>이란 "조금만 알아봤으면 알 수 있었는데 안 알아본 것"입니다. 막연히 "몰랐다"가 아니라 <b>왜 알 수 없었는지 구체적 사정</b>을 밝혀야 합니다.</li>
+<li><b>이미 재산을 나눴어도 됩니다.</b> 협의분할로 이미 처분했더라도 특별한정승인은 가능합니다(대법원 2003다29562). 다만 <b>처분한 재산의 가액을 목록에 적고</b>(§1030②), 그 가액까지 합쳐 변제해야 합니다(§1034②).</li>
+<li><b>★이미 판결·압류가 왔어도 길이 있습니다.</b> 특별한정승인을 받은 뒤 <b>청구이의의 소 + 강제집행정지</b>로 내 원래 재산에 대한 집행을 막습니다(민사집행법 §44·§46). <b>다만 시간을 다투는 일</b>이니 지체하지 마십시오.</li>
+</ul>
+</div>
+
+<h2>지금 어떤 상황인가요?</h2>
+<p>"이미 몇 년이 지났는데 이제 와서 무슨 수가 있겠나" — 이렇게 지레 포기하시는 분이 많습니다. 그런데 법은 <b>알 수 없었던 사람까지 벌하지는 않습니다.</b> 문제는 <b>어디까지 왔느냐</b>입니다. 아직 독촉장 단계인지, 이미 판결이 나고 통장이 묶였는지에 따라 해야 할 일이 완전히 달라집니다.</p>
+<div class="sit-wrap">
+<div class="sit"><span class="sl">상황 ① · 뒤늦게 빚을 알았다</span>3개월이 지나 단순승인이 됐는데, 그 뒤 <b>모르던 빚(보증채무·대출 독촉장 등)</b>을 알게 된 경우. → <b>안 날부터 3개월 안에</b> 가정법원에 특별한정승인 심판청구(작성례 ①·②). 아직 소송이 없다면 이것으로 정리됩니다.</div>
+<div class="sit"><span class="sl">상황 ② · 이미 판결·압류까지 왔다</span>채권자가 <b>지급명령·판결</b>을 받아 통장·급여에 집행이 들어온 경우. → 특별한정승인을 <b>먼저 받고</b>, 이어서 <b>청구이의의 소 + 강제집행정지</b>(작성례 ④·⑤)로 내 재산을 지킵니다. 소송이 진행 중이면 <b>답변서</b>(작성례 ③)가 먼저입니다.</div>
+</div>
+
+<h2>먼저 알아두면 쉬운 5가지</h2>
+<ol class="steps">
+<li><b>특별한정승인이 무엇인가.</b> 큰 잘못 없이 빚 초과를 모른 채 단순승인(또는 <span class="term">법정단순승인<span class="bub">재산을 처분하거나 3개월이 지나 자동으로 단순승인된 것으로 간주되는 것(민법 §1026).</span></span>)이 되어 버린 사람을, <b>뒤늦게라도 '받은 재산 한도'로 구제</b>하는 제도입니다(§1019③). <b>빚이 사라지는 것이 아니라</b>, 물려받은 재산 안에서만 갚고 <b>내 월급·내 집은 지켜지는</b> 것입니다.</li>
+<li><b>기산점이 다릅니다.</b> 보통의 한정승인·포기는 '상속개시를 안 날'부터 3개월이지만(§1019①), 특별한정승인은 <b>'상속채무가 상속재산을 초과하는 사실을 안 날'</b>부터 3개월입니다(§1019③). 사망한 지 5년이 지났어도, <b>빚을 안 날이 지난달이면 아직 기간 안</b>입니다.</li>
+<li><b>★'중대한 과실 없음'은 신고하는 쪽이 밝혀야 합니다.</b> 법원은 "왜 몰랐는지"를 봅니다. 고인과 <b>오래 왕래가 없었는지</b>, <b>사업·재정에 관여한 적이 없는지</b>, <b>보증채무처럼 겉으로 드러나지 않는 빚</b>이었는지 — 이런 사정이 인정의 갈림길입니다. 반대로 <b>함께 살며 사업을 도왔다면</b> 인정이 어렵습니다.</li>
+<li><b>수리를 받았다고 끝이 아닙니다.</b> 가정법원의 수리심판은 <b>"일단 요건을 갖춘 것으로 인정한다"는 것일 뿐 효력을 확정하는 것이 아니고</b>, 한정승인의 효력이 있는지에 관한 <b>최종 판단은 민사소송에서</b> 납니다(대법원 2004스74). 그래서 채권자는 민사소송에서 <b>"중대한 과실이 있었다"</b>고 다시 다툽니다. <b>소명자료를 끝까지 보관</b>해야 하는 이유입니다.</li>
+<li><b>미성년이었던 분은 별도의 길이 있습니다.</b> 상속인이 미성년이면 '중대한 과실'은 <b>법정대리인(부모)을 기준으로</b> 판단합니다(대법원 2012다440). 그래서 부모가 알고도 방치하면 자녀가 빚을 떠안는 문제가 생겼고, 대법원 전원합의체가 이를 지적한 뒤(2019다232918) <b>2022년 §1019④가 신설</b>되어 <b>성년이 된 뒤 안 날부터 3개월</b>이라는 길이 열렸습니다.</li>
+</ol>
+
+<h2>실제로 해결하는 절차 — 전체 길 한눈에 보기</h2>
+<div class="flow">
+<div class="fl-t">'안 날'을 지키는 것부터 집행을 막는 것까지 — 이 순서 그대로입니다</div>
+<div class="node"><span class="num">0</span><b>'안 날'의 증거부터 확보합니다</b> — 특별한정승인은 <b>언제 빚 초과를 알았는지</b>가 전부입니다. 독촉장·소장 부본·내용증명의 <b>봉투와 배달 스티커</b>, 등기 배달조회 결과, 은행에서 온 압류 안내 문자 — <b>날짜가 찍힌 것</b>은 하나도 버리지 마십시오. 이것이 기간의 시작점을 증명합니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">1</span><b>재산과 빚을 확정해 '초과'를 확인합니다</b> — 정부24 <b>'안심상속 원스톱서비스'</b>(사망일이 속한 달의 말일부터 1년 안), 그 기간이 지났다면 <b>금융감독원 상속인 금융거래 조회</b>와 각 기관 개별 조회로 확인합니다. <b>소극재산(빚) 합계가 적극재산(재산) 합계를 넘어야</b> 특별한정승인이 성립합니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">2</span><b>'왜 몰랐는지'를 문서로 정리합니다</b> — 이것이 이 사건의 승부처입니다. 고인과 왕래가 없었음을 보여 주는 <b>주민등록초본(주소 이력)·출입국사실증명·문자 기록</b>, 사업에 관여하지 않았음을 보여 주는 <b>재직증명서·4대보험 가입내역</b>, 보증채무가 드러나지 않았던 사정 — 이런 자료를 미리 모읍니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">3</span><b>가정법원에 특별한정승인 심판청구를 냅니다</b> — 관할은 <b>돌아가신 분의 마지막 주소지 가정법원</b>입니다. <b>심판청구서(작성례 ①) + 상속재산목록(작성례 ②)</b>을 함께 냅니다. 이미 처분한 재산이 있으면 <b>그 처분일과 가액까지 적어야</b> 합니다(§1030②). 방문·우편 또는 <a href="https://ecfs.scourt.go.kr" target="_blank">대법원 전자소송</a>으로 접수합니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">4</span><b>수리심판을 받습니다 — 고지받은 때 효력이 생깁니다</b> — 접수된 때가 아니라 <b>수리심판을 고지받은 때</b> 효력이 발생합니다(대법원 2004다20401). 형식을 갖추면 대개 수리되지만, <b>중대한 과실이 명백하면 불수리</b>될 수 있습니다(2004스74, 서울가정법원 2005브85). 결정문은 <b>여러 통 발급</b>받아 보관하십시오.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">5</span><b>민사 쪽을 함께 막습니다</b> — <b>소송이 진행 중이면</b> 기한 내에 <b>답변서</b>(작성례 ③)를 내면서 결정문을 증거로 붙여 <b>"상속재산 범위 내에서"</b>라는 유보를 받아냅니다. <b>이미 판결·지급명령이 확정됐다면</b> <b>청구이의의 소</b>(작성례 ④)와 <b>강제집행정지 신청</b>(작성례 ⑤)을 <b>반드시 함께</b> 냅니다. 소만 내면 그동안에도 집행은 계속됩니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">6</span><b>청산으로 마무리합니다</b> — 특별한정승인도 한정승인이므로 <b>청산 절차</b>가 따라옵니다. 수리를 한 날부터 <b>5일 안에 채권신고 공고</b>(신고기간 2개월 이상), 아는 채권자에게 <b>개별 최고</b>, 그 뒤 <b>채권액 비율대로 배당변제</b>입니다(§1032~§1034). 특별한정승인은 <b>이미 처분한 재산의 가액까지 합쳐</b> 변제해야 한다는 점이 다릅니다(§1034②).</div>
+</div>
+
+<h2>내 경우는 어디에 해당하나요? — 유형별 사례</h2>
+<div class="case">
+<span class="ct">사례 ① 왕래 없던 부모의 보증빚을 소장 받고서야 알았다 — 서울가정법원 2005브85 결정 <span style="font-size:12px;color:#9a8f7d">[출처등급 B · 하급심]</span></span>
+일찍 혼인하여 출가했고 고인의 회사 경영에 관여한 적도 없는 자녀라면, <b>채권자의 소장 부본을 받아 보기 전에는</b> 보증채무와 채무초과 사실을 알았다고 보기 어렵고, 모른 데 중대한 과실도 없다고 보았습니다.<br>
+<b>▸ 이 사례가 알려주는 것</b> — 인정의 열쇠는 <b>"고인의 재정 사정을 알 수 있는 위치에 있었느냐"</b>입니다. 출가·별거·사업 무관여 같은 <b>구체적 사정</b>이 있으면 적극적으로 밝히십시오.
+</div>
+<div class="case">
+<span class="ct">사례 ② 1·2심에서 '시효 완성'으로 이겼던 빚이 상고심에서 뒤집혔다 — 대법원 2010. 6. 10. 선고 2010다7904 판결</span>
+1·2심에서 <b>소멸시효가 완성됐다며 승소</b>했던 채무가 상고심에서 뒤집힌 사안입니다. 대법원은 법률전문가가 아닌 상속인이 그 결과를 미리 예상하여 한정승인을 했어야 한다고 보기는 어렵다고 하여, <b>그 사이 중대한 과실로 빚을 몰랐다고 볼 수 없다</b>고 판단했습니다.<br>
+<b>▸ 이 사례가 알려주는 것</b> — 법원조차 판단이 갈렸던 문제라면 일반인이 몰랐던 것을 탓할 수 없다는 뜻입니다. <b>빚의 존재나 액수가 불확실했던 사정</b>도 훌륭한 소명 사유가 됩니다.
+</div>
+<div class="case">
+<span class="ct">사례 ③ 이미 협의분할로 재산을 나눴어도 가능하다 — 대법원 2006. 1. 26. 선고 2003다29562 판결</span>
+상속인들이 <b>협의분할을 통해 이미 상속재산을 처분한 뒤</b>였던 사안에서, 대법원은 그래도 상속인들은 여전히 §1019③에 따라 한정승인을 할 수 있고, <b>그 협의분할 때문에 한정승인이 효력이 없다고 할 수는 없다</b>고 판단했습니다.<br>
+<b>▸ 이 사례가 알려주는 것</b> — "이미 집을 팔아 나눠 가졌으니 늦었다"고 포기하지 마십시오. 다만 <b>처분한 재산의 가액을 목록에 정확히 적고</b>(§1030②), 청산할 때 <b>그 가액까지 합쳐 변제</b>해야 합니다(§1034②).
+</div>
+<div class="case">
+<span class="ct">사례 ④ 미성년이었던 분 — 판례가 막았고, 입법이 열었습니다 — 대법원 2020. 11. 19. 선고 2019다232918 전원합의체 판결</span>
+미성년이던 상속인의 <b>법정대리인(부모)이 빚 초과 사실을 알고도</b> 3개월 안에 특별한정승인을 하지 않은 사안입니다. 대법원 다수의견은 <b>성년이 된 뒤 본인의 인식을 기준으로 새롭게 특별한정승인을 할 수는 없다</b>고 보았습니다(반대의견 4인). 이 판결로 드러난 공백을 메우기 위해 <b>2022년 민법 §1019④가 신설</b>되어, 이제는 <b>미성년일 때 단순승인이 된 경우 성년이 된 뒤 빚 초과를 안 날부터 3개월</b> 안에 한정승인을 할 수 있습니다.<br>
+<b>▸ 이 사례가 알려주는 것</b> — 부모 세대의 빚이 어린 자녀에게 떠넘겨지지 않도록 한 장치입니다. 다만 <b>중대한 과실은 여전히 법정대리인을 기준으로</b> 판단하므로(대법원 2012다440), 미성년 상속인 사건은 <b>어느 시점의 누구를 기준으로 볼지</b>가 까다롭습니다. 이런 사안은 꼭 상담해 주십시오.
+</div>
+<div class="warn">
+<span class="wt">★ 이러면 '중대한 과실'로 막힙니다</span>
+① <b>안심상속 원스톱서비스 등으로 손쉽게 확인할 수 있었는데 방치</b>한 경우 · ② <b>고인과 함께 살며 사업·재정을 알 만했던</b> 경우 · ③ 상속재산을 받아 챙기면서 빚만 몰랐다고 하는 경우 · ④ 막연히 <b>"수년간 몰랐다"고만 하고 근거를 대지 못하는</b> 경우.<br><br>
+<b>불리한 점도 솔직히 말씀드립니다.</b> 특별한정승인은 <b>예외적 구제</b>이므로 법원이 너그럽게만 보지 않습니다. 그리고 가정법원에서 수리되어도 <b>채권자가 민사소송에서 다시 "중대한 과실이 있었다"고 다툽니다</b>(2004스74). <b>진짜 싸움은 그때부터</b>라고 생각하시는 편이 맞습니다.
+</div>
+
+<h2>⏰ 기한 정리 — 놓치면 안 되는 날짜들</h2>
+<table>
+<tr><th>구분</th><th>① 언제부터 (기산일)</th><th>② 근거 조문</th><th>③ 말일이 휴일이면</th><th>④ 최종 만료일</th></tr>
+<tr><td><b>특별한정승인</b></td><td><b>상속채무가 상속재산을 초과하는 사실을 안 날</b>의 다음 날 — <b>사망을 안 날이 아닙니다</b>(대개 독촉장·소장을 받은 날)</td><td>민법 §1019③ / 초일 불산입 §157</td><td>토·일·공휴일이면 <b>그 다음 날</b>로 연장(§161)</td><td><b>안 날 + 3개월</b></td></tr>
+<tr><td><b>미성년자 특칙</b></td><td>미성년일 때 단순승인이 된 경우 — <b>성년이 된 뒤 빚 초과 사실을 안 날</b>의 다음 날</td><td>민법 §1019④<br>(2022년 신설)</td><td>위와 같음(§161)</td><td><b>안 날 + 3개월</b></td></tr>
+<tr><td><b>답변서</b><br>(소송이 진행 중일 때)</td><td>소장 부본을 <b>송달받은 날</b>의 다음 날</td><td>민사소송법 §256①</td><td>위와 같음</td><td><b>받은 날 + 30일</b></td></tr>
+<tr><td><b>지급명령 이의신청</b></td><td>지급명령 정본을 <b>송달받은 날</b>의 다음 날</td><td>민사소송법 §470①</td><td>위와 같음</td><td><b>받은 날 + 14일</b></td></tr>
+<tr><td><b>채권신고 공고</b><br>(수리를 받은 뒤)</td><td>한정승인을 한 날의 다음 날</td><td>민법 §1032①</td><td>위와 같음</td><td><b>5일 이내 공고</b><br>(신고기간 2개월 이상)</td></tr>
+</table>
+<div class="tip"><span class="pt">💡 '안 날'을 증명하는 것이 이 사건의 절반입니다</span> 특별한정승인은 <b>언제 빚 초과를 알았는지를 신고인이 소명</b>해야 합니다. 독촉장·소장 부본·내용증명의 <b>봉투와 배달 스티커</b>, 등기 배달조회 결과를 그대로 보관하십시오. <b>봉투를 버리는 순간 가장 좋은 증거를 잃습니다.</b> 반대로 채권자는 "진작 알았을 것"이라며 이 날짜를 앞으로 당기려 합니다.</div>
+
+<h2>관련 법령 — 쉬운 풀이</h2>
+<div class="lawbox"><span class="ll">민법 §1019③</span><b>특별한정승인의 근거</b> — 상속인이 <b>중대한 과실 없이</b> 상속채무가 상속재산을 초과하는 사실을 §1019① 기간(3개월) 안에 알지 못하고 단순승인(§1026 1호·2호 포함)을 한 경우에는, <b>그 사실을 안 날부터 3개월 안에</b> 한정승인을 할 수 있습니다.</div>
+<div class="lawbox"><span class="ll">민법 §1019④</span><b>미성년자 특칙 (2022년 신설)</b> — 미성년자인 상속인이 §1019③에 따른 한정승인을 하지 아니하였거나 할 수 없었던 경우에는, <b>성년이 된 후 빚 초과 사실을 안 날부터 3개월</b> 안에 한정승인을 할 수 있습니다. 대법원 2019다232918 전원합의체 판결로 드러난 공백을 입법으로 메운 조문입니다.</div>
+<div class="lawbox"><span class="ll">민법 §1030②</span><b>처분한 재산도 적어야 합니다</b> — 특별한정승인을 하는 경우, 상속재산 중 <b>이미 처분한 재산이 있으면 그 목록과 가액</b>을 함께 적어야 합니다. 협의분할로 나눈 재산, 팔아 버린 부동산·자동차가 여기에 해당합니다.</div>
+<div class="lawbox"><span class="ll">민법 §1034②</span><b>처분한 가액까지 합쳐 변제</b> — 특별한정승인을 한 상속인은 <b>남아 있는 상속재산과 이미 처분한 재산의 가액을 합하여</b> 그중에서 변제해야 합니다. 다만 이미 상속채권자·유증받은 자에게 변제한 가액은 공제합니다. <b>"이미 써 버렸으니 못 준다"가 통하지 않는</b> 이유입니다.</div>
+<div class="lawbox"><span class="ll">민법 §1028</span><b>한정승인의 효과</b> — 상속으로 얻을 재산의 한도에서만 채무를 변제할 책임을 집니다. 빚이 사라지는 것이 아니라 <b>집행 대상이 상속재산으로 한정</b>되는 것이어서, <b>내 월급·내 집은 지켜집니다.</b></div>
+<div class="lawbox"><span class="ll">민사집행법 §44·§46</span><b>이미 판결이 났을 때의 무기</b> — 확정된 판결·지급명령으로 집행이 들어오면 <b>청구이의의 소</b>로 다투고(§44), 그 소송이 끝날 때까지 <b>강제집행정지</b>를 신청합니다(§46②). <b>정지 신청 없이 소만 내면 그동안 집행은 계속됩니다.</b></div>
+<div class="lawbox"><span class="ll">가사소송규칙 §75</span><b>신고서에 반드시 들어갈 것</b> — 한정승인·포기 신고서에는 <b>피상속인의 성명과 최후주소, 피상속인과의 관계, 상속개시 있음을 안 날, 한정승인(또는 포기)의 뜻</b>을 적어야 합니다. 특별한정승인이라면 여기에 <b>빚 초과를 안 날</b>과 <b>중대한 과실이 없는 사정</b>을 더합니다.</div>
+
+<h2>내 상황에 맞는 서류 고르기</h2>
+<table>
+<tr><th>나의 상황</th><th>내야 할 서류</th><th>작성례</th></tr>
+<tr><td>독촉장을 받고 빚을 알았다 — 아직 <b>소송은 없다</b></td><td><b>특별한정승인 심판청구서 + 상속재산목록</b><br>(피상속인 최후주소지 가정법원)</td><td>작성례 ①·②</td></tr>
+<tr><td><b>소송이 진행 중</b>이다 (소장·지급명령을 받았다)</td><td>위 심판청구와 <b>동시에</b>, 민사법원에 <b>답변서</b>(또는 지급명령 이의신청서)</td><td>작성례 ③<br>(지급명령은 <b>3-5 카드</b>)</td></tr>
+<tr><td><b>이미 판결·지급명령이 확정</b>되어 집행이 들어왔다</td><td><b>청구이의의 소 소장</b> + <b>강제집행정지 신청서</b> (반드시 함께)</td><td>작성례 ④·⑤</td></tr>
+<tr><td>미성년일 때 단순승인이 됐고 <b>지금은 성년</b>이다</td><td>특별한정승인 심판청구서 — 청구원인을 <b>§1019④</b>로 구성</td><td>작성례 ① 응용<br>(아래 작성법 참고)</td></tr>
+<tr><td>수리를 받았다 — <b>청산을 시작</b>해야 한다</td><td>신문 공고 + 채권신고 최고서 + 배당변제</td><td><b>3-1 카드</b> 작성례 ⑤</td></tr>
+<tr><td>3개월이 <b>아직 지나지 않았다</b></td><td>보통의 한정승인 또는 상속포기 — 훨씬 간단합니다</td><td><b>3-1 카드</b></td></tr>
+</table>
+
+<h2>신청서 작성례 — 빈칸(○○○)만 채우면 됩니다</h2>
+<p style="font-size:13.5px;color:var(--muted)">아래 작성례의 빈칸(○○○)을 본인 상황에 맞게 채우면 그대로 제출할 수 있습니다. 제목은 가운데 정렬된 법원 제출 양식입니다(대법원·법률구조공단 공개 서식 기준). <b>복사·인쇄·다운로드</b> 버튼을 활용하십시오.</p>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ① · 가정법원</span>특별한정승인 심판청구서<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f1"><span class="ft">상속한정승인(특별한정승인) 심판청구</span>청구인(상속인)   ○○○   (☎: ○○○-○○○○-○○○○)
+          주민등록번호  ○○○○○○-○○○○○○○
+          주소  ○○○
+          송달장소  ○○○ (주소와 같으면 생략 가능)
+          등록기준지  ○○○
+
+사건본인(피상속인)   망 ○○○
+          주민등록번호  ○○○○○○-○○○○○○○
+          사망일자  20○○. ○○. ○○.
+          최후주소  ○○○
+          등록기준지  ○○○
+
+         청 구 취 지
+
+  청구인이 피상속인 망 ○○○의 재산상속을 함에 있어 별지
+  상속재산목록을 첨부하여서 한 한정승인신고는 이를 수리한다.
+  라는 심판을 구합니다.
+
+         청 구 원 인
+
+  1. 청구인은 피상속인 망 ○○○의 ○○(예: 자녀)로서
+     상속인입니다.
+
+  2. 청구인은 20○○. ○○. ○○. 피상속인의 사망으로 상속이
+     개시된 사실은 알았으나, 상속채무가 상속재산을 초과하는
+     사실은 민법 제1019조 제1항의 기간 내에 알지 못하였습니다.
+
+  3. 청구인이 이를 알지 못한 데에는 중대한 과실이 없습니다.
+     가. 청구인은 20○○년경 혼인하여 분가한 이래 피상속인과
+         따로 거주하였고, 명절 외에는 왕래가 거의 없었습니다
+         (소갑 제○호증 주민등록초본).
+     나. 청구인은 피상속인이 운영하던 ○○○ 사업에 관여한
+         사실이 없고, 재정 상태를 알 수 있는 지위에 있지
+         아니하였습니다(소갑 제○호증 재직증명서).
+     다. 이 사건 채무는 피상속인이 타인을 위하여 부담한
+         보증채무로서, 외부에 드러나지 아니하는 성질의
+         것이었습니다.
+
+  4. 청구인은 20○○. ○○. ○○. 채권자 ○○○로부터 ○○○
+     (예: 지급명령 정본, 독촉장)을 받고서야 비로소 상속채무가
+     상속재산을 초과하는 사실을 알게 되었습니다
+     (소갑 제○호증 및 그 봉투).
+
+  5. 이에 청구인은 위 사실을 안 날부터 3개월 내에 민법
+     제1019조 제3항에 따라 별지 상속재산목록을 첨부하여
+     한정승인을 하고자 이 심판청구에 이른 것입니다.
+
+         첨 부 서 류
+
+  1. 별지 상속재산목록                                1통
+  2. 피상속인 기본증명서(상세)·가족관계증명서(상세)·
+     말소된 주민등록초본·제적등본                     각 1통
+  3. 청구인 가족관계증명서(상세)·주민등록초본          각 1통
+  4. '안 날' 소명자료 (독촉장·지급명령·소장 및 봉투,
+     등기 배달조회 출력물)                            각 1통
+  5. '중대한 과실 없음' 소명자료 (주소 이력, 출입국사실
+     증명, 재직증명서, 문자 기록 등)                   각 1통
+  6. 채무초과 소명자료 (안심상속 조회결과, 채무확인서)  각 1통
+
+              20○○. ○○. ○○.
+                청구인  ○○○ (인 또는 서명)
+
+○○가정법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1')">📋 복사</button><button type="button" onclick="printForm('f1')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1','특별한정승인_심판청구서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>청구원인 3번과 4번이 이 서류의 전부입니다.</b> 3번은 <b>왜 몰랐는가</b>(중대한 과실 없음), 4번은 <b>언제 알았는가</b>('안 날')입니다. 막연히 "몰랐다"고 쓰면 안 됩니다. <b>가·나·다로 나누어 구체적 사정</b>을 적고, 각 사정마다 <b>소명자료 번호</b>를 달아 두면 설득력이 크게 올라갑니다.<br>
+<b>미성년일 때 단순승인이 되었고 지금은 성년이신 분</b>은 5번을 이렇게 바꾸십시오 — <i>"청구인은 상속 당시 미성년자였고, 성년이 된 후인 20○○. ○○. ○○. 비로소 상속채무 초과 사실을 알았으므로, 민법 제1019조 제4항에 따라 그 날부터 3개월 내에 이 심판청구에 이른 것입니다."</i> 이 경우 <b>성년이 된 날을 알 수 있는 기본증명서</b>를 함께 붙이십시오.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ② · 필수 별지</span>상속재산목록 (처분한 재산 포함)<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f2"><span class="ft">상 속 재 산 목 록</span>피상속인 : 망 ○○○ (20○○. ○○. ○○. 사망)
+
+         1. 적 극 재 산 (받을 재산)
+
+  가. 부동산
+    (1) ○○시 ○○구 ○○동 ○○번지 대 ○○○㎡
+        (시가 약 ○○○원 / ○○은행 근저당권 채권최고액
+         ○○○원 설정)
+  나. 예금채권
+    (1) ○○은행 ○○지점 보통예금(계좌 ○○○) 잔액 ○○○원
+  다. 그 밖의 재산
+    (1) ○○○ 차량(○○호○○○○) 시가 약 ○○○원
+
+    적극재산 합계 : 약 ○○○원
+
+         2. 소 극 재 산 (갚을 빚)
+
+  가. 금융기관 채무
+    (1) ○○은행 대출금 원금 ○○○원 및 이에 대한 이자
+        (20○○. ○○. ○○. 기준)
+    (2) ○○카드 신용카드대금 ○○○원
+  나. 보증채무
+    (1) 채권자 ○○○에 대한 연대보증채무 ○○○원
+        (주채무자 ○○○, 보증일 20○○. ○○. ○○.)
+  다. 그 밖의 채무
+    (1) 채권자 ○○○에 대한 차용금 채무 (금액 불상)
+        ※ 존재는 확인되나 액수를 확정할 수 없음
+    (2) ○○세무서 체납 국세 ○○○원
+
+    소극재산 합계 : 약 ○○○원 (금액 불상 채무 제외)
+
+  ※ 소극재산 합계가 적극재산 합계를 현저히 초과합니다.
+
+         3. 이 미 처 분 한 상 속 재 산
+            (민법 제1030조 제2항)
+
+  가. ○○시 ○○구 ○○동 ○○번지 토지
+      - 처분일 : 20○○. ○○. ○○.
+      - 처분방법 : 상속재산 협의분할 후 매도
+      - 처분 당시 가액 : ○○○원
+  나. ○○은행 예금 ○○○원
+      - 인출일 : 20○○. ○○. ○○.
+      - 사용처 : 장례비 ○○○원, ○○○ ○○○원
+        (영수증 별첨)
+
+  ※ 해당 사항이 없으면 "해당 없음"이라고 적습니다.
+
+         4. 조 사 의 경 위
+
+  청구인은 20○○. ○○. ○○. 정부24 '안심상속 원스톱
+  서비스'를 통하여 피상속인의 재산·채무를 조회하고,
+  채권자 ○○○가 보낸 ○○○을 통하여 위 채무의 존재를
+  확인하여 이 목록을 작성하였습니다. 위 조사에도 불구하고
+  확인되지 아니한 채무가 있을 수 있습니다.
+
+              20○○. ○○. ○○.
+                작성자(청구인)  ○○○ (인 또는 서명)</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f2')">📋 복사</button><button type="button" onclick="printForm('f2')">🖨 인쇄</button><button type="button" onclick="downloadForm('f2','상속재산목록_특별한정승인.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>보통의 한정승인 목록과 다른 점은 3번</b>입니다. 특별한정승인은 이미 처분한 재산이 있으면 <b>그 목록과 가액을 반드시 적어야</b> 하고(§1030②), 청산할 때 <b>그 가액까지 합쳐 변제</b>해야 합니다(§1034②).<br>
+<b>숨기면 더 큰 화를 부릅니다.</b> 고의로 빠뜨리면 §1026 3호에 따라 <b>단순승인으로 간주</b>되어 어렵게 받은 특별한정승인이 통째로 무너집니다. 액수를 모르면 <b>"금액 불상"</b>으로 적고, <b>4번 조사의 경위</b>를 반드시 넣어 성실히 조사했음을 남기십시오.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag">작성례 ③ · 소송 진행 중</span>답변서 (특별한정승인을 주장하는 경우)<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f3"><span class="ft">답 변 서</span>사건   20○○가소(가단·가합)○○○○호   대여금
+원고   ○○○
+피고   ○○○   (☎: ○○○-○○○○-○○○○)
+       주소  ○○○
+
+위 사건에 관하여 피고는 다음과 같이 답변합니다.
+
+            청구취지에 대한 답변
+
+  1. 피고는 원고에게 ○○○원 및 이에 대한 지연손해금을,
+     피고가 망 ○○○로부터 상속받은 재산의 범위 내에서
+     지급하라.
+  2. 원고의 나머지 청구를 기각한다.
+     라는 판결을 구합니다.
+
+            청구원인에 대한 답변
+
+  1. 인정하는 부분
+     피고가 망 ○○○의 ○○(관계)로서 상속인인 사실 및 망인이
+     원고에 대하여 이 사건 채무를 부담하고 있었던 사실은
+     인정합니다.
+
+  2. 다투는 부분 — 책임의 범위
+     피고가 자신의 고유재산으로 이 사건 채무 전액을 변제할
+     의무가 있다는 주장은 다툽니다.
+
+  3. 피고는 특별한정승인을 하였습니다
+     가. 피고는 망인과 20○○년경부터 ○○○(예: 왕래가 끊겨,
+         해외에서 장기간 근무하여) 실질적인 교류가 없었고,
+         망인의 재정 상태를 알 수 있는 지위에 있지
+         아니하였습니다.
+     나. 피고는 20○○. ○○. ○○. 이 사건 소장 부본을 받고서야
+         비로소 상속채무가 상속재산을 초과하는 사실을 알게
+         되었으며, 이를 알지 못한 데에 중대한 과실이 없습니다.
+     다. 피고는 위 사실을 안 날부터 3개월 내인 20○○. ○○. ○○.
+         ○○가정법원 20○○느단○○○○호로 민법 제1019조
+         제3항에 따른 한정승인 신고를 하여 그 수리심판을
+         고지받았습니다(을 제1호증).
+
+  4. 따라서 책임 범위의 유보가 필요합니다
+     한정승인을 한 상속인은 상속으로 얻은 재산의 한도에서만
+     피상속인의 채무를 변제할 책임을 지므로(민법 제1028조),
+     이 사건 판결의 주문에는 반드시 「상속받은 재산의 범위
+     내에서」라는 유보가 붙어야 합니다.
+
+  5. 상속재산의 내역
+     피고가 상속받은 재산은 별지 상속재산목록 기재와 같이
+     합계 ○○○원 상당에 불과합니다(을 제2호증).
+
+              입 증 방 법
+
+  1. 을 제1호증   한정승인(특별한정승인) 수리심판서(등본)
+  1. 을 제2호증   상속재산목록
+  1. 을 제3호증   소장 부본 및 그 봉투 사본
+                 ※ '안 날'을 증명하는 핵심 증거
+  1. 을 제4호증   주민등록초본(주소 이력)·출입국사실증명 등
+                 (망인과 교류가 없었음을 뒷받침하는 자료)
+
+              첨 부 서 류
+
+  1. 위 입증방법 사본        각 1통
+  1. 답변서 부본             1통
+
+              20○○. ○○. ○○.
+                위 피고  ○○○ (날인 또는 서명)
+
+○○지방법원 제○○민사단독(부) 귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f3')">📋 복사</button><button type="button" onclick="printForm('f3')">🖨 인쇄</button><button type="button" onclick="downloadForm('f3','답변서_특별한정승인.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>소송이 진행 중이라면 이 답변서가 가장 급합니다.</b> 소장을 받은 날부터 <b>30일</b> 안에 내야 하며, 내지 않으면 변론 없이 패소할 수 있습니다(민사소송법 §257①).<br>
+핵심은 청구취지에 대한 답변이 <b>전부 기각이 아니라 「상속받은 재산의 범위 내에서 지급하라」</b>는 형태라는 점입니다. 한정승인은 "안 갚는다"가 아니라 <b>"받은 만큼만 갚는다"</b>이기 때문입니다. <b>이 유보 문구가 판결 주문에 들어갔는지 반드시 확인</b>하십시오. 빠지면 나중에 청구이의로 다투는 번거로움을 겪습니다.<br>
+<b>가정법원 수리가 아직이라면</b> 3의 다.를 <i>"현재 ○○가정법원에 20○○. ○○. ○○. 특별한정승인 심판청구를 하여 심리 중이므로, 그 결과가 나오는 대로 제출하겠습니다."</i>로 쓰고 <b>기한부터 지키십시오.</b></div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ④ · 집행 막기</span>청구이의의 소 소장 (이미 판결·지급명령이 확정된 경우)<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f4"><span class="ft">소 장</span>원  고  ○○○   (☎: ○○○-○○○○-○○○○)
+        주소  ○○○
+피  고  ○○○
+        주소  ○○○
+
+        청구이의의 소
+
+            청 구 취 지
+
+  1. 피고의 원고에 대한 ○○지방법원 20○○가단○○○○호
+     판결(또는 20○○차전○○○○호 지급명령)에 기한 강제집행은,
+     원고가 망 ○○○로부터 상속받은 재산의 범위를 넘는
+     부분에 한하여 이를 불허한다.
+  2. 소송비용은 피고가 부담한다.
+     라는 판결을 구합니다.
+
+            청 구 원 인
+
+  1. 집행권원의 존재
+     피고는 망 ○○○의 채권자로서, 원고를 상대로 위 집행권원을
+     얻어 20○○. ○○. ○○. 확정되었습니다(갑 제1호증).
+
+  2. 원고는 특별한정승인을 하였습니다
+     원고는 중대한 과실 없이 상속채무 초과사실을 알지 못하다가
+     20○○. ○○. ○○. 이를 알게 되었고, 그로부터 3개월 내인
+     20○○. ○○. ○○. ○○가정법원 20○○느단○○○○호로
+     민법 제1019조 제3항에 따른 한정승인 신고를 하여 그
+     수리심판을 고지받았습니다(갑 제2호증).
+
+  3. 따라서 고유재산에 대한 집행은 허용되지 않습니다
+     한정승인을 한 상속인은 상속으로 얻은 재산의 한도에서만
+     책임을 지므로(민법 제1028조), 위 집행권원에 아무런 유보가
+     없더라도 상속재산을 넘는 범위에서는 원고의 고유재산에
+     강제집행을 할 수 없습니다.
+
+  4. 확정판결이라도 다툴 수 있습니다
+     한정승인은 상속채무의 존재 및 범위를 확정하는 것이 아니라
+     그 책임의 범위를 한정하는 것에 불과하여, 소송에서
+     주장하지 아니하였더라도 그에 관하여 기판력이 미치지
+     아니하므로, 원고는 이 소에서 이를 주장할 수 있습니다
+     (대법원 2006. 10. 13. 선고 2006다23138 판결).
+
+  5. 결론
+     그러므로 위 집행권원에 기한 강제집행은 상속받은 재산의
+     범위를 넘는 부분에서 불허되어야 하므로 이 소에
+     이른 것입니다.
+
+            입 증 방 법
+
+  1. 갑 제1호증   판결정본(또는 지급명령) 및 확정증명원
+  1. 갑 제2호증   특별한정승인 수리심판서(등본)
+  1. 갑 제3호증   상속재산목록
+  1. 갑 제4호증   압류 및 추심명령 결정문
+
+            첨 부 서 류
+
+  1. 위 입증방법 사본        각 1통
+  1. 소장 부본               1통
+  1. 송달료 납부서           1통
+
+              20○○. ○○. ○○.
+                위 원고  ○○○ (날인 또는 서명)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f4')">📋 복사</button><button type="button" onclick="printForm('f4')">🖨 인쇄</button><button type="button" onclick="downloadForm('f4','청구이의의소_특별한정승인.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>청구원인 4번이 이 소장의 힘</b>입니다. 한정승인은 <b>빚의 존재가 아니라 책임의 범위</b> 문제여서, 앞선 소송에서 주장하지 않았어도 <b>기판력이 미치지 않아 나중에 다툴 수 있다</b>는 것이 대법원 법리입니다(2006다23138).<br>
+<b>관할</b>은 그 집행권원을 만든 제1심 법원입니다(민사집행법 §44①). 청구취지는 <b>전부 불허가 아니라 "상속받은 재산의 범위를 넘는 부분에 한하여"</b>임에 유의하십시오.<br>
+<b>★반드시 작성례 ⑤(강제집행정지)를 함께 내십시오.</b> 이 소를 내는 것만으로는 집행이 멈추지 않습니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ⑤ · 작성례 ④와 세트</span>강제집행정지 신청서<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f5"><span class="ft">강제집행정지 신청서</span>신청인(원고)  ○○○   (☎: ○○○-○○○○-○○○○)
+        주소  ○○○
+피신청인(피고)  ○○○
+        주소  ○○○
+
+            신 청 취 지
+
+  피신청인이 신청인에 대한 ○○지방법원 20○○가단○○○○호
+  판결(또는 20○○차전○○○○호 지급명령)에 기하여 하는
+  강제집행은, 위 법원 20○○가단○○○○호 청구이의 사건의
+  판결선고시까지 이를 정지한다.
+  라는 재판을 구합니다.
+
+            신 청 이 유
+
+  1. 신청인은 20○○. ○○. ○○. 귀원에 청구이의의 소를
+     제기하였습니다(20○○가단○○○○호).
+
+  2. 신청인은 ○○가정법원 20○○느단○○○○호로 민법 제1019조
+     제3항에 따른 한정승인 수리심판을 고지받았으므로, 상속으로
+     얻은 재산의 한도에서만 책임을 집니다(민법 제1028조).
+     이의 사유가 명백합니다.
+
+  3. 그럼에도 피신청인은 신청인의 급여 및 예금채권에 대하여
+     압류·추심명령을 받아 집행을 진행하고 있어, 위 소송의
+     결과를 기다릴 경우 신청인은 회복하기 어려운 손해를
+     입게 됩니다.
+
+  4. 따라서 민사집행법 제46조 제2항에 따라 이 신청에
+     이른 것입니다.
+
+            소 명 자 료
+
+  1. 소장 접수증명원                             1통
+  1. 특별한정승인 수리심판서(등본)                 1통
+  1. 압류 및 추심명령 결정문 사본                 1통
+  1. 급여명세서 등 생계 소명자료                  1통
+
+              20○○. ○○. ○○.
+                위 신청인  ○○○ (날인 또는 서명)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f5')">📋 복사</button><button type="button" onclick="printForm('f5')">🖨 인쇄</button><button type="button" onclick="downloadForm('f5','강제집행정지_신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>이것을 빠뜨리면 앞의 소송이 소용없습니다.</b> 청구이의의 소를 내도 <b>그것만으로는 집행이 멈추지 않아</b>, 재판이 진행되는 동안에도 통장에서 돈은 계속 빠져나갑니다. <b>소장 접수 직후 바로</b> 내십시오.<br>
+법원은 대개 <b>담보 제공</b>을 명합니다(현금공탁 또는 보증보험증권). 현금이 부담되면 <b>지급보증위탁계약 체결문서 제출허가</b>를 함께 신청해 보험증권으로 갈음할 수 있습니다.<br>
+<b>통장이 전액 묶여 생계가 어렵다면</b> 별도로 <b>압류금지채권 범위변경 신청</b>(민사집행법 §246③)도 함께 검토하십시오.</div>
+</div></div>
+
+<h2>준비할 서류와 발급처</h2>
+<p style="font-size:13.5px;color:var(--muted)">아래 '바로가기'를 클릭하면 발급·조회 화면으로 이동합니다. 만약 첫 화면으로 연결되면, 옆의 <b>찾아가기 경로</b>를 따라 메뉴를 클릭하면 됩니다.</p>
+<table>
+<tr><th>무엇을</th><th>서류</th><th>어디서 · 찾아가기 경로</th></tr>
+<tr><td><b>'안 날' 증명</b><br>(가장 중요)</td><td>독촉장·지급명령·소장 부본과 <b>그 봉투</b>, 등기 배달조회 출력물</td><td>본인 보관 자료 / <a href="https://www.epost.go.kr" target="_blank">인터넷우체국 (epost.go.kr)</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 우편 → 종적조회(배달조회)에 등기번호 입력 → 배달일자 출력</span></td></tr>
+<tr><td><b>'중대한 과실 없음'<br>소명</b></td><td>주민등록초본(<b>주소 변동 포함</b>), 출입국사실증명서, 재직증명서·4대보험 가입내역, 문자·통화 기록</td><td><a href="https://www.gov.kr" target="_blank">정부24 (gov.kr)</a> / <a href="https://www.hikorea.go.kr" target="_blank">하이코리아 (hikorea.go.kr)</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 정부24 검색창에 '주민등록표초본' → 발급 시 <b>'주소 변동사항 포함'</b> 선택</span></td></tr>
+<tr><td>채무초과 확인</td><td>안심상속 원스톱서비스 조회결과, 채무확인서, 부채증명원</td><td><a href="https://www.gov.kr" target="_blank">정부24 (gov.kr)</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 검색창에 '안심상속' 검색 → 신청 (사망일이 속한 달의 말일부터 1년 내)</span></td></tr>
+<tr><td>기간이 지나 안심상속을<br>못 쓰는 경우</td><td>상속인 금융거래 조회 결과</td><td><a href="https://www.fss.or.kr" target="_blank">금융감독원 (fss.or.kr)</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 민원·신고 → 상속인 금융거래조회 (가까운 금융감독원·은행 창구에서도 신청 가능)</span></td></tr>
+<tr><td>상속인 확인</td><td>피상속인 기본증명서(<b>상세</b>)·가족관계증명서(<b>상세</b>)·제적등본, 청구인 가족관계증명서(<b>상세</b>)·기본증명서</td><td><a href="https://efamily.scourt.go.kr" target="_blank">전자가족관계등록시스템 (efamily.scourt.go.kr)</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 증명서 발급 → 종류 선택 → <b>'상세'</b> 선택 (§1019④ 사안은 <b>본인 기본증명서</b>로 성년 시점 확인)</span></td></tr>
+<tr><td>사건 진행 확인</td><td>내 사건의 송달일·진행 상황</td><td><a href="https://www.scourt.go.kr/portal/information/events/search/search.jsp" target="_blank">나의 사건검색</a> / <a href="https://ecfs.scourt.go.kr" target="_blank">전자소송 (ecfs.scourt.go.kr)</a></td></tr>
+<tr><td>무료 법률상담</td><td>상담사례·서식 / 소득 요건 충족 시 소송구조</td><td><a href="https://www.klac.or.kr" target="_blank">대한법률구조공단 (klac.or.kr) · ☎132</a></td></tr>
+</table>
+<div class="tip"><span class="pt">💡 봉투 한 장이 사건을 살립니다</span> 특별한정승인 사건에서 가장 자주 지는 이유는 법리가 아니라 <b>'안 날'을 증명하지 못해서</b>입니다. 채권자는 "몇 년 전에 이미 알았을 것"이라고 공격합니다. <b>독촉장이 들어 있던 봉투, 배달 스티커, 등기번호</b> — 이 사소한 종잇조각이 3개월의 시작점을 증명하는 유일한 물증인 경우가 많습니다. <b>지금 바로 챙겨 두십시오.</b></div>
+
+<div class="cost">
+<span class="ct">💰 비용 — 가정법원 신청은 소액, 민사소송은 소가에 따라</span>
+<b>① 특별한정승인 심판청구</b>: <span class="term">인지액<span class="bub">법원에 신청서를 낼 때 내는 수수료. 수입인지를 사서 붙이거나 전자소송에서 카드로 냅니다.</span></span> 청구인 1명당 5,000원 + <span class="term">송달료<span class="bub">법원이 서류를 우편으로 보내는 비용. 신청할 때 미리 냅니다(예납). 남으면 돌려받습니다.</span></span>(접수 시 법원이 안내).<br>
+<b>② 답변서 제출</b>: 인지대 없음. 증거서류 발급 수수료만 듭니다.<br>
+<b>③ 청구이의의 소</b>: 집행을 막으려는 금액(소가)에 따라 산정 — 1,000만원 미만은 소가×50/10,000, 1,000만원 이상 1억원 미만은 소가×45/10,000+5,000원, 1억원 이상 10억원 미만은 소가×40/10,000+55,000원. <b>전자소송으로 내면 인지액이 일부 감액</b>됩니다.<br>
+<b>④ 강제집행정지 신청</b>: 인지·송달료는 소액이나 <b>담보 제공</b>이 따릅니다(현금공탁 또는 보증보험증권).<br>
+<b>⑤ 청산 단계</b>: 신문공고 비용이 별도로 듭니다.
+<div style="margin-top:11px; padding-top:10px; border-top:1px dashed #cfe6d6; color:#c0392b; font-weight:600; line-height:1.8;">※ 사건 정보를 입력하면 인지대·송달료를 포함한 예상 금액을 <a href="https://sanlaw.co.kr/tools-calculator.html" style="color:#c0392b; text-decoration:underline; font-weight:700;">🧮 수수료 계산기</a>에서 미리 확인할 수 있습니다.</div>
+</div>
+
+<h2>본 사무소가 도와드리는 일</h2>
+<div class="hire">
+<p>본 사무소에서는 의뢰인들의 고충은 덜어드리고, 함께 절차를 진행하여 원하는 결과에 도달할 수 있도록 성심을 다하겠습니다.</p>
+<p style="margin-top:12px"><b>· 아직 소송이 없는 단계라면</b><br>① 받으신 서류로 <b>'안 날'의 확정</b>과 기간 계산, ② 안심상속·금융감독원 조회를 통한 <b>채무초과 확인</b>, ③ <b>'중대한 과실 없음' 소명자료의 설계</b>(어떤 서류로 무엇을 증명할지), ④ <b>심판청구서·상속재산목록</b> 작성과 접수 지원까지 함께 준비해 드립니다.</p>
+<p style="margin-top:10px"><b>· 이미 소송·집행이 시작됐다면</b><br>① 받으신 서류가 <b>소장인지 지급명령인지 판결인지</b> 판별과 <b>기한 산정</b>, ② 기한 내 <b>답변서·이의신청서</b> 작성, ③ <b>청구이의의 소</b>와 <b>강제집행정지 신청</b> 동시 진행, ④ 통장·급여가 묶인 경우 <b>압류금지채권 범위변경 신청</b>까지 신속히 대응합니다.</p>
+<p style="margin-top:10px"><b>· 미성년일 때 빚을 떠안게 된 경우라면</b><br>§1019④의 적용 여부는 <b>언제 미성년이었는지, 법정대리인이 무엇을 알았는지, 성년이 된 뒤 언제 알았는지</b>가 얽혀 판단이 까다롭습니다(2019다232918 전원합의체·2012다440). <b>기본증명서와 당시 사정을 가지고 오시면</b> 적용 가능성부터 함께 짚어 드리겠습니다.</p>
+</div>
+<div class="warn"><span class="wt">⚠ 수리를 받았다고 안심하지 마십시오</span>가정법원의 수리심판은 <b>"일단 요건을 갖춘 것으로 인정한다"는 것일 뿐 효력을 확정하는 것이 아니고</b>, 한정승인의 효력에 관한 <b>최종 판단은 민사소송에서</b> 납니다(대법원 2004스74). 채권자는 민사소송에서 <b>"중대한 과실이 있었다"</b>고 다시 다툽니다.<br>
+그러니 <b>수리심판 결정문과 함께, 왜 몰랐는지를 뒷받침하는 자료 일체를 끝까지 보관</b>하십시오. 몇 년 뒤에 필요해질 수 있습니다.</div>
+
+<a href="https://sanlaw.co.kr/tools-calculator.html" class="cta">🧮 내 사건 비용 미리 계산하기</a>
+<div style="text-align:center; background:#f6ecd8; border:1px solid var(--gold); border-radius:11px; padding:14px; margin:18px 0; font-size:15px; color:var(--gold-d); font-weight:700;">📞 상담은 홈 화면의 상담 창구를 이용하시면 됩니다.</div>
+
+<div class="tip"><span class="pt">💡 이어지는 카드</span> <b>아직 3개월이 지나지 않았다면 → 3-1 포기 vs 한정승인</b> · <b>포기한 뒤 재산 관리 책임이 남는지 → 3-3</b> · <b>자녀가 다 포기하면 손주에게 빚이 가는지 → 3-4</b> · <b>독촉장·지급명령·승계집행문을 받았다면 → 3-5</b> · 돌아가신 분이 이미 소송 중이었다면 <b>5-1·5-2 소송수계</b>를 보세요.</div>
+
+<div class="src">
+근거 — 민법 제157조(기간의 기산점)·제161조(공휴일 등과 기간의 만료점)·제1019조 제1항·제3항·제4항(승인, 포기의 기간 및 특별한정승인)·제1026조(법정단순승인)·제1028조(한정승인의 효과)·제1030조 제2항(한정승인의 방식 — 처분한 재산의 목록·가액)·제1032조(채권자에 대한 공고, 최고)·제1034조 제2항(특별한정승인의 변제)·제1038조(부당변제 등으로 인한 책임) · 민사소송법 제256조 제1항·제257조 제1항(답변서)·제470조 제1항(지급명령 이의) · 민사집행법 제44조(청구이의의 소)·제46조 제2항(집행정지)·제246조(압류금지채권) · 가사소송규칙 제75조(한정승인·포기의 신고) · 대법원 2006. 1. 26. 선고 2003다29562 판결(협의분할로 처분한 뒤에도 특별한정승인 가능) · 대법원 2010. 6. 10. 선고 2010다7904 판결('중대한 과실'의 의미) · 대법원 2006. 2. 13.자 2004스74 결정(수리심판은 요건 구비를 인정하는 데 그치고 효력의 최종 판단은 민사소송에서 / 중대한 과실이 명백하면 불수리) · 대법원 2004. 6. 25. 선고 2004다20401 판결(한정승인의 효력은 수리심판이 고지된 때 발생) · 대법원 2020. 11. 19. 선고 2019다232918 전원합의체 판결(미성년 상속인의 특별한정승인 — 민법 제1019조 제4항 신설의 계기) · 대법원 2012다440 판결(상속인이 무능력자인 경우 중대한 과실의 판단 기준은 법정대리인) · 대법원 2006. 10. 13. 선고 2006다23138 판결(유보 없는 판결 확정 후에도 한정승인을 이유로 청구이의 가능) · 서울가정법원 2005브85 결정[하급심] · 대한법률구조공단(klac.or.kr) 상담사례·서식 · 법제처 찾기쉬운 생활법령정보(easylaw.go.kr) · 국가법령정보센터(law.go.kr) · 대법원 전자민원센터 양식. 본 자료는 일반적인 법률정보로, 개별 사건의 법률자문이 아니며 개별 사건의 결과를 보장하지 않습니다.
+</div>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+})();
+function toggleFold(b){var fb=b.parentElement;var body=b.nextElementSibling;var open=fb.classList.toggle('open');if(body){body.style.display=open?'block':'none';}}
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('작성례가 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('작성례가 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['﻿'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('작성례를 내려받았습니다');}
+</script>
+
+</body>
+</html>

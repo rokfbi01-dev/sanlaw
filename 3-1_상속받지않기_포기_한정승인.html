@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[상속 3-1] 빚이 더 많을 것 같아 상속을 받지 않으려고 해요 | 산 법무사 김재섭</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(280px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.case{background:var(--box); border-radius:10px; padding:14px 16px; margin:14px 0; border-left:4px solid #b9a98c;}
+.case .ct{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+.sit-wrap{display:flex; gap:12px; margin:14px 0;}
+.sit{flex:1; background:#f8f5ee; border:1px solid var(--line); border-top:3px solid var(--gold); border-radius:10px; padding:13px 15px; font-size:14.5px; line-height:1.75;}
+.sit .sl{display:block; font-weight:700; color:var(--gold-d); margin-bottom:6px; font-size:14px;}
+@media (max-width:680px){ .sit-wrap{flex-direction:column;} }
+/* 전체 길 흐름도 */
+.flow{background:linear-gradient(180deg,#faf7f0,#f6f1e6); border:1px solid var(--line); border-radius:14px; padding:22px 20px; margin:16px 0;}
+.flow .fl-t{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:18px; text-align:center; letter-spacing:.3px;}
+.flow .node{position:relative; background:#fff; border:1px solid #e3d8c4; border-radius:11px; padding:15px 18px 15px 56px; font-size:14.5px; line-height:1.72; box-shadow:0 2px 6px rgba(122,82,48,.07);}
+.flow .node .num{position:absolute; left:15px; top:14px; width:30px; height:30px; line-height:30px; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; border-radius:50%; font-weight:800; font-size:15px; font-family:'Nanum Myeongjo',serif; box-shadow:0 2px 5px rgba(122,82,48,.3);}
+.flow .node b{color:#241a10;}
+.flow .down{display:flex; justify-content:center; align-items:center; padding:7px 0;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+/* 작성례 박스 */
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:15px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .tag{margin-bottom:0;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;}
+.tag.cred{background:#5a9a72;}
+.tag.debt{background:#d9694a;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:18px;margin:12px 0;font-family:'D2Coding','Courier New',monospace;font-size:13px;line-height:1.6;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:16px;letter-spacing:2px;margin-bottom:12px;color:#241a10;}
+.howto{font-size:14px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0 4px;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:13px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:7px 13px;cursor:pointer;transition:.15s;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.75;}
+.lawbox .ll{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:#241a10;border-radius:5px;padding:2px 9px;margin-right:7px;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.hire p{margin:7px 0; font-size:15px; line-height:1.8;}
+.cta{display:block;text-align:center;background:var(--gold-d);color:#fff;font-weight:700;font-size:17px;text-decoration:none;padding:15px;border-radius:11px;margin:18px 0;font-family:'Nanum Myeongjo',serif;letter-spacing:1px;}
+.cta:hover{background:#5e3f24;}
+@media print{
+  body{background:#fff; max-width:100%;}
+  .tldr,.case,.warn,.tip,.cost,.steps li,.tnote,.sit,.flow,.flow li,.lawbox,.hire{background:#fff !important; border-color:#ccc !important;}
+  .tnote{display:none;}
+  .term{border:none; color:inherit; font-weight:inherit;}
+  .term>.bub{display:inline !important; position:static; width:auto; background:none; color:inherit; box-shadow:none; padding:0; font-size:inherit; line-height:inherit;}
+  .term>.bub::before{content:" ("; }
+  .term>.bub::after{content:")"; border:none; position:static;}
+  .fold-body{display:block !important;}.fold-btn .chev{display:none;}.form-tools{display:none;}
+  .cta{background:#fff !important; color:#241a10 !important; border:1px solid #ccc;}
+}
+</style>
+</head>
+
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+<h1>[상속 3-1] 빚이 더 많을 것 같아 상속을 받지 않으려고 해요</h1>
+
+<div class="tnote">어려운 법률용어에는 <b>점선 밑줄</b>이 그어져 있습니다. <b>PC는 마우스를 올리면</b>, <b>휴대폰은 손가락으로 톡 터치하면</b> 쉬운 설명이 뜹니다. (인쇄하면 괄호로 함께 나옵니다.)</div>
+
+<div class="hire">
+<div class="ht">이 매뉴얼을 끝까지 읽으시는 분께</div>
+<p>이 매뉴얼은 <b>의뢰인이 직접 법원에 신청할 수 있도록 모든 서류 양식·비용·요건을 구체적으로 담았습니다.</b> 하지만 소송은 살아있는 생물과 같아 상대방의 격렬한 저항이 뒤따릅니다. 혼자 진행하시다가 막히는 부분이 생기거나 방어막이 필요할 때, 언제든 이 매뉴얼을 들고 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</p>
+</div>
+
+<div class="tldr">
+<div class="tt">⭐ 30초 결론부터</div>
+<ul>
+<li><b>길은 세 갈래입니다.</b> ① <span class="term">단순승인<span class="bub">재산도 빚도 전부 물려받는 것. 아무것도 하지 않으면 3개월이 지나 자동으로 이렇게 됩니다(민법 §1026 2호).</span></span> — 재산도 빚도 전부 / ② <span class="term">한정승인<span class="bub">"물려받은 재산의 범위 안에서만 빚을 갚겠다"고 가정법원에 신고하는 것(민법 §1028). 내 원래 재산은 지켜집니다.</span></span> — 물려받은 재산 한도에서만 갚음 / ③ <b>상속포기</b> — 재산도 빚도 받지 않음.</li>
+<li><b>★기한은 3개월.</b> 돌아가신 사실을 <b>안 날</b>부터 3개월 안에 가정법원에 신청해야 합니다(§1019①). <b>가만히 있으면 단순승인으로 굳어져 빚을 그대로 떠안습니다.</b> 조사할 시간이 부족하면 그 기간 안에 <b>기간 연장</b>을 청구할 수 있습니다.</li>
+<li><b>어느 쪽을 고를까.</b> 빚이 <b>확실히 더 많다</b> → <b>상속포기</b>(단, 후순위 가족까지 설계). 재산·빚이 <b>얼마인지 모르겠다</b> → <b>한정승인</b>(나중에 숨은 빚이 나와도 내 재산은 안전).</li>
+<li><b>★포기는 '나만' 빠지는 게 아닙니다.</b> 내가 포기하면 빚이 <span class="term">후순위<span class="bub">앞 순위 상속인이 모두 포기하면 그다음 순위로 상속인이 되는 사람. 자녀→손주→부모→형제자매→4촌 이내 친척 순.</span></span>로 내려갑니다(§1042·§1043). <b>가족 전체를 함께 설계</b>해야 합니다. 배우자가 계시면 <b>'배우자 한정승인 + 자녀 전원 포기'</b>가 가장 간명합니다.</li>
+<li><b>★결정 전에는 재산에 절대 손대지 마십시오.</b> 예금을 찾아 쓰거나 물건을 팔면 <span class="term">법정단순승인<span class="bub">상속재산을 처분·은닉·소비하면, 포기나 한정승인을 하려 해도 "빚까지 전부 받겠다"고 한 것으로 법이 간주하는 것(민법 §1026).</span></span>으로 간주되어 빚을 떠안습니다. <b>신청서를 접수했더라도 수리심판을 받기 전에 처분하면 마찬가지</b>입니다(대법원 2013다73520).</li>
+</ul>
+</div>
+
+<h2>지금 어떤 상황인가요?</h2>
+<p>부모님이 돌아가신 뒤 예상치 못한 빚이 드러나면, 슬픔을 추스를 겨를도 없이 결정을 내려야 합니다. 그런데 이 선택은 <b>한 번 지나가면 되돌리기가 대단히 어렵습니다.</b> 3개월이라는 시간은 생각보다 빨리 지나가고, 그 사이 무심코 한 행동 하나가 모든 것을 무너뜨리기도 합니다. 아래 두 상황 중 어느 쪽에 가까우신지부터 보십시오. <b>여기서 길이 갈립니다.</b></p>
+<div class="sit-wrap">
+<div class="sit"><span class="sl">상황 ① · 빚이 확실히 더 많다</span>부동산도 예금도 거의 없는데 대출·보증·카드빚이 분명히 많은 경우. → <b>상속포기</b>가 간명합니다. 다만 내가 빠지면 <b>다음 순위로 내려가므로</b>, 손주·부모·형제까지 함께 설계해야 합니다(→ 아래 흐름도 1단계, <b>3-4 카드</b>).</div>
+<div class="sit"><span class="sl">상황 ② · 재산·빚이 얼마인지 모르겠다</span>집 한 채는 있는데 보증을 섰다는 말을 들었거나, 숨은 빚이 더 나올까 불안한 경우. → <b>한정승인</b>이 안전합니다. 받은 재산 한도에서만 갚고 <b>내 월급·내 집은 지켜집니다.</b> 대신 <b>청산 절차</b>가 따라옵니다(아래 4단계).</div>
+</div>
+
+<h2>먼저 알아두면 쉬운 5가지</h2>
+<ol class="steps">
+<li><b>세 갈래의 차이 — 한 문장씩.</b> <b>단순승인</b>은 재산과 빚을 전부 물려받아 <b>내 원래 재산으로도 갚아야</b> 합니다. <b>한정승인</b>은 상속인 지위는 유지하되 <b>물려받은 재산 한도에서만</b> 갚습니다(§1028). <b>상속포기</b>는 <b>처음부터 상속인이 아니었던 것</b>이 됩니다(§1042). 한정승인과 포기는 <b>가정법원 신청이 필요하고</b>, 아무것도 하지 않으면 단순승인이 됩니다.</li>
+<li><b>3개월은 '사망일'이 아니라 '안 날'부터입니다.</b> 상속이 개시된 사실을 <b>안 날</b>부터 3개월입니다(§1019①). 오래 연락이 끊겼던 가족이라면 사망일과 안 날이 크게 차이 날 수 있습니다. 재산·빚 조사가 끝나지 않으면 <b>그 3개월 안에 기간 연장을 청구</b>할 수 있습니다(작성례 ④).</li>
+<li><b>포기는 연쇄를 부르고, 한정승인은 연쇄를 멈춥니다.</b> 포기하면 빚이 다음 순위로 내려가지만(§1042·§1043), <b>누군가 한 사람이 한정승인으로 남아 있으면 그 사람이 매듭을 지으므로 연쇄가 멈춥니다.</b> 그래서 실무에서는 <b>'배우자 한정승인 + 자녀 전원 포기'</b> 조합을 가장 많이 씁니다.</li>
+<li><b>한정승인은 신고로 끝이 아닙니다.</b> 법원이 수리하면 그때부터 <span class="term">청산<span class="bub">물려받은 재산을 팔아 채권자들에게 채권액 비율대로 나누어 갚는 절차. 한정승인을 한 사람이 직접 진행합니다.</span></span> 절차가 시작됩니다(§1032~§1039). <b>5일 안에 공고</b>, 신고기간 <b>2개월 이상</b>, 그 뒤 <span class="term">배당변제<span class="bub">신고된 채권들에 대해 각자의 채권액 비율대로 나누어 갚는 것(민법 §1034). 먼저 온 사람에게 먼저 다 주면 안 됩니다.</span></span>입니다. 이 절차를 잘못하면 <b>한정승인자가 개인적으로 배상책임</b>을 질 수 있습니다(§1038).</li>
+<li><b>가장 흔한 실수 — 접수만 하고 안심하는 것.</b> 포기 신고서를 법원에 낸 뒤 <b>수리심판을 고지받기 전</b>에 예금을 인출하거나 재산을 처분하면, 포기의 효력이 아직 생기기 전이므로 <b>§1026 1호에 따라 단순승인으로 간주</b>됩니다(대법원 2013다73520). <b>결정문이 손에 들어올 때까지</b>가 위험 구간입니다.</li>
+</ol>
+
+<h2>실제로 해결하는 절차 — 전체 길 한눈에 보기</h2>
+<div class="flow">
+<div class="fl-t">재산 조사부터 채권자 대응까지 — 이 길을 그대로 따라가면 됩니다</div>
+<div class="node"><span class="num">0</span><b>재산과 빚부터 조사합니다</b> — 정부24의 <b>'안심상속 원스톱서비스'</b>로 돌아가신 분의 예금·보험·증권·대출·세금 체납·자동차를 한 번에 조회합니다(사망신고 때 함께, 또는 사망일이 속한 달의 말일부터 1년 안에 신청). 여기에 잡히지 않는 <b>개인 간 채무·보증</b>은 유품 속 차용증·문자·통장 거래내역으로 확인합니다. <b>이 조사 결과가 포기냐 한정승인이냐를 가릅니다.</b></div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">1</span><b>가족 전체의 설계를 정합니다</b> — 혼자 결정할 일이 아닙니다. <b>배우자가 계시면</b>: '배우자 한정승인 + 자녀 전원 포기'(→ 손주로 내려가지 않음, 대법원 2020그42). <b>배우자가 안 계시면</b>: '자녀 중 1명 한정승인 + 나머지 포기'로 연쇄를 끊거나, '전원 포기 + 후순위 친족까지 함께 포기'. <b>누군가 한 명이 한정승인으로 매듭지으면 연쇄가 멈춘다</b>는 것이 설계의 핵심입니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">2</span><b>심판청구서를 씁니다 (3개월 안)</b> — 포기는 <b>상속재산포기 심판청구서</b>(작성례 ①), 한정승인은 <b>한정승인 심판청구서 + 상속재산목록</b>(작성례 ②·③)입니다. 조사가 안 끝났으면 먼저 <b>기간 연장 청구</b>(작성례 ④)를 냅니다. 신청서에는 <b>피상속인의 최후주소, 나와의 관계, 상속개시 있음을 안 날</b>을 반드시 적습니다(가사소송규칙 §75).</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">3</span><b>가정법원에 접수하고 수리심판을 받습니다</b> — 관할은 <b>돌아가신 분의 마지막 주소지 가정법원</b>(가정법원이 없으면 지방법원)입니다. 방문·우편 또는 <a href="https://ecfs.scourt.go.kr" target="_blank">대법원 전자소송</a>으로 접수합니다. 서류가 부족하면 <b>보정명령</b>이 오니 기한 내에 보완합니다. <b>수리심판(결정문)을 고지받은 때</b> 비로소 효력이 생깁니다 — <b>그때까지는 재산에 손대지 마십시오.</b></div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">4</span><b>(한정승인만) 청산 절차를 진행합니다</b> — ① 수리심판을 <b>한 날부터 5일 안에</b> 신문 등에 <b>채권신고 공고</b>를 냅니다. 신고기간은 <b>2개월 이상</b>으로 정합니다(§1032). ② <b>알고 있는 채권자에게는 개별로 최고</b>합니다(작성례 ⑤, §1032②·§89). ③ 신고기간이 끝나면 <b>채권액 비율대로 배당변제</b>합니다(§1034). ④ 부동산 등은 <b>민사집행법에 따른 경매</b>로 환가합니다(§1037).</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">5</span><b>후순위 친족에게 알립니다 (포기한 경우)</b> — 전원 포기 설계라면 다음 순위(손주 → 부모·조부모 → 형제자매 → 4촌 이내 친척)에게 <b>미리 알려</b> 각자 '자신이 상속인이 된 사실을 안 날'부터 3개월 안에 포기하도록 안내합니다. 알리지 않으면 <b>영문도 모르는 친척이 빚을 떠안게 됩니다.</b> 도리이자 안전장치입니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">6</span><b>채권자가 청구해 오면 결정문으로 대응합니다</b> — 추심업체의 <b>전화·우편 독촉</b>이면 수리심판 결정문 사본을 보내는 것으로 대개 정리됩니다(작성례 ⑥). 그러나 <b>법원에서 온 지급명령·소장·승계집행문</b>은 무시하면 안 됩니다. <b>지급명령 14일, 소장 30일</b> 안에 반드시 대응해야 하며, 그 방법은 <b>3-5 카드</b>에서 자세히 다룹니다.</div>
+</div>
+
+<h2>내 경우는 어디에 해당하나요? — 유형별 사례</h2>
+<div class="case">
+<span class="ct">사례 ① 포기 신고를 접수했는데 결정문이 오기 전에 예금을 인출 — 대법원 2016. 12. 29. 선고 2013다73520 판결</span>
+상속인이 가정법원에 <b>상속포기 신고를 해 둔 상태</b>에서, 그 신고를 <b>수리하는 심판이 고지되기 전에</b> 상속재산을 처분한 사안입니다. 대법원은 그 시점에는 <b>아직 상속포기의 효력이 발생하기 전</b>이므로 <b>민법 §1026 1호가 적용되어 단순승인을 한 것으로 보아야 한다</b>고 판단했습니다.<br>
+<b>▸ 이 판례가 알려주는 것</b> — "접수증을 받았으니 이제 안심"이 가장 위험합니다. 효력은 <b>결정문을 고지받은 때</b> 생깁니다. 접수부터 결정문 수령까지 통상 몇 주가 걸리는데, <b>그 사이가 가장 취약한 구간</b>입니다.
+</div>
+<div class="case">
+<span class="ct">사례 ② 예금 인출은 왜 '처분'인가 — 대법원 2010. 4. 29. 선고 2009다84936 판결</span>
+같은 사건에서 상속인 두 사람이 비슷한 처분행위를 했는데, <b>포기 전에 한 사람</b>은 포기가 무효가 되고 <b>포기 후에 한 사람</b>은 포기의 효력이 유지된 사안입니다. 대법원은 <b>포기 전의 처분은 §1026 1호로 무조건</b> 법정단순승인이 되지만, <b>포기 후의 처분은 3호(은닉·부정소비·고의 누락)에 해당할 때만</b> 단순승인이 된다고 정리했습니다. 아울러 <b>피상속인의 예금을 인출하는 것은 채권을 추심하여 변제받는 것이므로 처분행위에 해당</b>한다고 보았습니다.<br>
+<b>▸ 이 판례가 알려주는 것</b> — 통장에서 돈을 빼는 단순한 행동이 법적으로는 '처분'입니다. <b>공과금 자동이체가 계속 빠져나가는 것도 점검</b>하십시오.
+</div>
+<div class="case">
+<span class="ct">사례 ③ 장례비는 써도 됩니다 — 대법원 2003. 11. 14. 선고 2003다30968 판결</span>
+대법원은 <b>상속에 관한 비용은 상속재산에서 지급</b>하도록 되어 있고(§998조의2), <b>장례비용도 피상속인이나 상속인의 사회적 지위와 지역의 풍속에 비추어 합리적인 금액 범위 내라면 상속비용으로 보아야 한다</b>고 판단했습니다. 따라서 형식적으로는 상속재산의 처분이더라도, <b>재산을 보존·관리하는 행위이거나 상속비용을 지급하기 위한 행위라면 §1026 1호의 처분행위로 보아서는 안 된다</b>는 것입니다.<br>
+<b>▸ 이 판례가 알려주는 것</b> — 장례를 치르지 말라는 뜻이 아닙니다. 다만 <b>'합리적인 범위'</b>가 관건이므로, <b>영수증을 한 장도 빠짐없이 보관</b>하십시오. 나중에 채권자가 "그 돈을 어디에 썼느냐"고 물을 때 설명하지 못하는 인출이 가장 위험합니다.
+</div>
+<div class="case">
+<span class="ct">사례 ④ 자녀가 다 포기해도 손주에게 안 내려갑니다 — 대법원 2023. 3. 23.자 2020그42 전원합의체 결정</span>
+빚이 많은 분이 사망하여 <b>배우자는 한정승인, 자녀 4명은 전원 포기</b>한 사안에서, 채권자가 "자녀들이 포기했으니 손자녀가 배우자와 공동상속인이 되었다"며 손자녀에게 집행하려 했습니다. 대법원은 포기한 자녀들의 상속분은 §1043에 따라 <b>남아 있는 '다른 상속인'인 배우자에게 귀속되어 배우자가 단독상속인이 되고, 손자녀는 상속인이 아니다</b>라고 하면서 종전 판례(2013다48852)를 <b>변경</b>했습니다.<br>
+<b>▸ 이 판례가 알려주는 것</b> — <b>배우자가 살아 계신지가 설계의 갈림길</b>입니다. 자세한 내용은 <b>3-4 카드</b>에서 다룹니다.
+</div>
+<div class="warn">
+<span class="wt">★ '가족 모두 다 같이 포기'가 오히려 화를 부릅니다</span>
+배우자가 계신데 <b>배우자까지 함께 포기</b>해 버리면, 배우자 단독상속으로 깔끔히 끝날 수 있던 것이 다시 손주·부모·형제·조카에게 내려갑니다. 연락도 잘 닿지 않는 친척이 어느 날 독촉장을 받게 되는 것입니다.<br>
+빚 상속에서는 <b>한 사람이 한정승인으로 남아 매듭짓는 설계</b>가 거의 항상 유리합니다. <b>상의 없이 무작정 다 같이 포기는 금물입니다.</b>
+</div>
+
+<h2>⏰ 기한 정리 — 놓치면 안 되는 날짜들</h2>
+<table>
+<tr><th>구분</th><th>① 언제부터 (기산일)</th><th>② 근거 조문</th><th>③ 말일이 휴일이면</th><th>④ 최종 만료일</th></tr>
+<tr><td><b>포기·한정승인<br>(본래 상속인)</b></td><td>상속 개시 있음을 <b>안 날</b>(보통 사망을 안 날)의 <b>다음 날</b>부터 계산(초일 불산입)</td><td>민법 §1019① / §157</td><td>토·일·공휴일이면 <b>그 다음 날</b>로 연장(§161)</td><td><b>안 날 + 3개월</b></td></tr>
+<tr><td><b>포기·한정승인<br>(후순위 상속인)</b></td><td>앞 순위가 모두 포기하여 <b>자신이 상속인이 된 사실을 안 날</b>(소장·독촉장 받은 날 등)의 다음 날</td><td>민법 §1019① / 대법원 2003다43681</td><td>위와 같음(§161)</td><td><b>안 날 + 3개월</b></td></tr>
+<tr><td><b>기간 연장 청구</b></td><td>위 3개월이 <b>지나기 전에</b> 청구해야 합니다 — 지난 뒤에는 불가</td><td>민법 §1019① 단서</td><td>위와 같음</td><td><b>3개월 만료 전</b></td></tr>
+<tr><td><b>특별한정승인</b><br>(3개월을 이미 넘긴 분)</td><td>중대한 과실 없이 몰랐다가 <b>빚이 재산보다 많다는 사실을 안 날</b>의 다음 날</td><td>민법 §1019③</td><td>위와 같음</td><td><b>안 날 + 3개월</b><br>(→ 3-2 카드)</td></tr>
+<tr><td><b>미성년자 특칙</b></td><td>미성년일 때 단순승인이 된 경우 — <b>성년이 된 뒤 빚 초과 사실을 안 날</b>의 다음 날</td><td>민법 §1019④<br>(2022년 신설)</td><td>위와 같음</td><td><b>안 날 + 3개월</b></td></tr>
+</table>
+<div class="tip"><span class="pt">💡 '안 날'은 사람마다 다릅니다</span> 3개월은 <b>각자의 날짜로</b> 셉니다. 형이 먼저 알았다고 동생의 기간까지 함께 시작되는 것이 아닙니다. 특히 <b>오래 왕래가 없던 가족</b>이라면 사망일과 안 날이 몇 달씩 차이 날 수 있으니, <b>어떻게 알게 되었는지(통보받은 문자·전화 기록·독촉장 봉투)를 반드시 보관</b>하십시오. 나중에 채권자가 "진작 알았을 것"이라고 다툴 때 이것이 결정적 증거가 됩니다.</div>
+
+<h2>관련 법령 — 쉬운 풀이</h2>
+<div class="lawbox"><span class="ll">민법 §1019①</span><b>3개월 안에 정하라</b> — 상속인은 상속 개시 있음을 안 날부터 3개월 안에 단순승인·한정승인·포기를 할 수 있습니다. 그 기간 안에 <b>가정법원에 기간 연장을 청구</b>할 수도 있습니다. 이 기간이 지나면 §1026 2호에 따라 <b>단순승인한 것으로 간주</b>됩니다.</div>
+<div class="lawbox"><span class="ll">민법 §1026</span><b>이러면 포기·한정승인이 막힙니다</b> — ① 상속재산을 <b>처분</b>한 때, ② 3개월 안에 한정승인·포기를 <b>하지 않은</b> 때, ③ 한정승인·포기를 <b>한 뒤</b> 상속재산을 은닉·부정소비하거나 고의로 재산목록에 기입하지 않은 때 — 이 셋 중 하나면 <b>단순승인으로 간주</b>됩니다.</div>
+<div class="lawbox"><span class="ll">민법 §1028</span><b>한정승인의 효과</b> — 상속으로 얻을 재산의 한도에서만 피상속인의 채무를 변제할 책임을 집니다. 빚이 사라지는 것이 아니라 <b>집행 대상이 상속재산으로 한정</b>되는 것이어서, 내 월급·내 집은 지켜집니다.</div>
+<div class="lawbox"><span class="ll">민법 §1041·§1042</span><b>포기의 방식과 소급효</b> — 포기는 반드시 <b>가정법원에 신고</b>해야 합니다(§1041). 형제끼리 "나는 안 받겠다"고 한 각서는 상속포기가 아닙니다. 포기하면 <b>상속이 개시된 때로 소급</b>하여 처음부터 상속인이 아니었던 것이 됩니다(§1042).</div>
+<div class="lawbox"><span class="ll">민법 §1043</span><b>포기한 몫은 어디로 가나</b> — 상속인이 여럿일 때 그중 일부가 포기하면 그 몫은 <b>남아 있는 다른 상속인</b>에게 돌아갑니다. 대법원 2020그42 전원합의체는 이 '다른 상속인'에 <b>배우자도 포함</b>된다고 보아, 자녀 전원이 포기해도 배우자가 있으면 <b>배우자 단독상속</b>이라는 결론을 이끌었습니다.</div>
+<div class="lawbox"><span class="ll">민법 §1032~§1039</span><b>한정승인 뒤의 청산</b> — 한정승인을 한 날부터 <b>5일 안에</b> 채권신고 공고를 내고(기간은 <b>2개월 이상</b>), 아는 채권자에게는 <b>개별로 최고</b>하며(§1032), 기간이 끝나면 <b>채권액 비율대로 배당변제</b>합니다(§1034). 이를 어겨 채권자에게 손해를 입히면 <b>한정승인자가 배상책임</b>을 집니다(§1038).</div>
+<div class="lawbox"><span class="ll">민법 §998조의2</span><b>장례비는 상속재산에서</b> — 상속에 관한 비용은 상속재산 중에서 지급합니다. 합리적 범위의 장례비는 여기에 해당하므로, 이를 위한 지출은 §1026 1호의 처분행위로 보지 않는 것이 판례입니다(2003다30968).</div>
+
+<h2>내 상황에 맞는 서류 고르기</h2>
+<table>
+<tr><th>나의 상황</th><th>내야 할 서류</th><th>작성례</th></tr>
+<tr><td>빚이 확실히 더 많다 — <b>상속을 포기</b>하겠다</td><td><b>상속재산포기 심판청구서</b><br>(피상속인 최후주소지 가정법원)</td><td>작성례 ①</td></tr>
+<tr><td>재산·빚 규모가 불확실하다 — <b>한정승인</b>을 하겠다</td><td><b>한정승인 심판청구서</b> + <b>상속재산목록</b><br>(같은 가정법원)</td><td>작성례 ②·③</td></tr>
+<tr><td>3개월이 다가오는데 <b>조사가 안 끝났다</b></td><td><b>상속의 승인·포기 기간 연장 심판청구서</b><br>(3개월이 지나기 <b>전</b>에 내야 합니다)</td><td>작성례 ④</td></tr>
+<tr><td>한정승인 수리를 받았다 — <b>청산을 시작</b>해야 한다</td><td><b>채권신고 최고서</b>(아는 채권자에게 개별 통지) + 신문 공고</td><td>작성례 ⑤</td></tr>
+<tr><td>추심업체가 <b>전화·우편으로 독촉</b>한다</td><td><b>내용증명</b>(수리심판 결정문 사본 첨부) — 법원 서류가 아닙니다</td><td>작성례 ⑥</td></tr>
+<tr><td><b>법원에서</b> 지급명령·소장·승계집행문이 왔다</td><td>지급명령 이의신청서 / 답변서 / 집행문부여 이의신청서 — <b>14일·30일 기한</b></td><td><b>3-5 카드</b>에서 상세히</td></tr>
+<tr><td>3개월이 <b>이미 지난 뒤</b> 빚을 알게 됐다</td><td>특별한정승인 심판청구서 — '중대한 과실 없음'의 소명이 관건</td><td><b>3-2 카드</b>에서 상세히</td></tr>
+</table>
+
+<h2>신청서 작성례 — 빈칸(○○○)만 채우면 됩니다</h2>
+<p style="font-size:13.5px;color:var(--muted)">아래 작성례의 빈칸(○○○)을 본인 상황에 맞게 채우면 그대로 제출할 수 있습니다. 제목은 가운데 정렬된 법원 제출 양식입니다(대법원·법률구조공단 공개 서식 기준). <b>복사·인쇄·다운로드</b> 버튼을 활용하십시오.</p>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ① · 포기</span>상속재산포기 심판청구서<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f1"><span class="ft">상 속 재 산 포 기 심 판 청 구</span>청구인(상속인)   ○○○   (☎: ○○○-○○○○-○○○○)
+          주민등록번호  ○○○○○○-○○○○○○○
+          주소  ○○○
+          송달장소  ○○○ (주소와 같으면 생략 가능)
+          등록기준지  ○○○
+
+사건본인(피상속인)   망 ○○○
+          주민등록번호  ○○○○○○-○○○○○○○
+          사망일자  20○○. ○○. ○○.
+          최후주소  ○○○
+          등록기준지  ○○○
+
+         청 구 취 지
+
+  청구인이 피상속인 망 ○○○의 재산상속을 포기하는 신고는
+  이를 수리한다.
+  라는 심판을 구합니다.
+
+         청 구 원 인
+
+  1. 청구인은 피상속인 망 ○○○의 ○○(예: 자녀, 배우자)로서
+     상속인입니다.
+  2. 피상속인은 20○○. ○○. ○○. 사망하였고, 청구인은
+     같은 날(또는 20○○. ○○. ○○.) 상속개시 있음을
+     알았습니다.
+  3. 피상속인의 상속재산은 적극재산보다 소극재산(채무)이
+     현저히 많아, 청구인은 상속을 포기하고자 민법 제1019조
+     제1항의 기간 내에 이 심판청구에 이른 것입니다.
+
+         첨 부 서 류
+
+  1. 피상속인 기본증명서(상세)·가족관계증명서(상세)·
+     말소된 주민등록초본                              각 1통
+  2. 청구인 가족관계증명서(상세)·주민등록초본          각 1통
+  3. (청구인이 미성년자인 경우) 법정대리인의
+     가족관계증명서·인감증명서                         각 1통
+
+              20○○. ○○. ○○.
+                청구인  ○○○ (인 또는 서명)
+                (미성년자인 경우) 청구인의 법정대리인
+                  친권자 부 ○○○ (인)  모 ○○○ (인)
+
+○○가정법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1')">📋 복사</button><button type="button" onclick="printForm('f1')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1','상속재산포기_심판청구서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>청구원인 2번의 '안 날'이 이 서류의 심장입니다.</b> 사망일과 안 날이 다르면 <b>안 날을 정확히</b> 적고, 어떻게 알게 되었는지를 함께 적어 두면 좋습니다(예: "형으로부터 연락을 받고"). 관할은 <b>돌아가신 분의 마지막 주소지 가정법원</b>이며, 형제가 여러 명이면 <b>한 청구서에 함께 적어</b> 낼 수 있습니다. 다만 각자의 '안 날'이 다르면 나누어 내는 편이 안전합니다.<br>
+<b>★가장 중요한 주의</b> — 이 서류를 접수한 것만으로는 아직 효력이 없습니다. <b>수리심판(결정문)을 고지받을 때까지</b> 돌아가신 분의 예금·물건에 절대 손대지 마십시오(대법원 2013다73520).</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ② · 한정승인</span>상속한정승인 심판청구서<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f2"><span class="ft">상 속 한 정 승 인 심 판 청 구</span>청구인(상속인)   ○○○   (☎: ○○○-○○○○-○○○○)
+          주민등록번호  ○○○○○○-○○○○○○○
+          주소  ○○○
+          송달장소  ○○○ (주소와 같으면 생략 가능)
+          등록기준지  ○○○
+
+사건본인(피상속인)   망 ○○○
+          주민등록번호  ○○○○○○-○○○○○○○
+          사망일자  20○○. ○○. ○○.
+          최후주소  ○○○
+          등록기준지  ○○○
+
+         청 구 취 지
+
+  청구인이 피상속인 망 ○○○의 재산상속을 함에 있어 별지
+  상속재산목록을 첨부하여 한 한정승인의 신고는 이를 수리한다.
+  라는 심판을 구합니다.
+
+         청 구 원 인
+
+  1. 청구인은 피상속인 망 ○○○의 ○○(예: 배우자, 자녀)로서
+     상속인입니다.
+  2. 피상속인은 20○○. ○○. ○○. 사망하였고, 청구인은
+     같은 날(또는 20○○. ○○. ○○.) 상속개시 있음을
+     알았습니다.
+  3. 청구인이 조사한 바에 의하면 피상속인의 상속재산은 별지
+     목록과 같으며, 소극재산(채무)의 전모를 확정하기 어려운
+     사정이 있습니다.
+  4. 이에 청구인은 상속으로 얻을 재산의 한도에서만 피상속인의
+     채무를 변제할 것을 조건으로 상속을 승인하고자, 민법
+     제1019조 제1항 및 제1028조에 따라 이 심판청구에
+     이른 것입니다.
+
+         첨 부 서 류
+
+  1. 별지 상속재산목록                                1통
+  2. 피상속인 기본증명서(상세)·가족관계증명서(상세)·
+     말소된 주민등록초본                              각 1통
+  3. 청구인 가족관계증명서(상세)·주민등록초본          각 1통
+  4. 상속재산 소명자료(부동산 등기사항증명서, 예금 잔액
+     증명, 채무확인서, 안심상속 조회결과 등)          각 1통
+
+              20○○. ○○. ○○.
+                청구인  ○○○ (인 또는 서명)
+
+○○가정법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f2')">📋 복사</button><button type="button" onclick="printForm('f2')">🖨 인쇄</button><button type="button" onclick="downloadForm('f2','상속한정승인_심판청구서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>한정승인은 반드시 상속재산목록(작성례 ③)을 붙여야 합니다.</b> 목록 없는 한정승인 신고는 수리되지 않습니다.<br>
+목록 작성의 원칙은 <b>"아는 것은 빠짐없이, 모르는 것은 모른다고"</b>입니다. 고의로 빠뜨리면 §1026 3호에 따라 <b>단순승인으로 간주</b>되어 한정승인이 무너집니다. 액수를 모르는 채무는 <b>"채권자 ○○○에 대한 채무 (금액 불상)"</b>으로 적으면 됩니다. 나중에 새 채권자가 나타나면 <b>상속재산목록 경정신청</b>으로 추가할 수 있습니다(→ 3-5 카드).</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ③ · 한정승인 별지</span>상속재산목록<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f3"><span class="ft">상 속 재 산 목 록</span>피상속인 : 망 ○○○ (20○○. ○○. ○○. 사망)
+
+         1. 적 극 재 산 (받을 재산)
+
+  가. 부동산
+    (1) ○○시 ○○구 ○○동 ○○번지 대 ○○○㎡
+        (시가 약 ○○○원, ○○은행 근저당권 채권최고액
+         ○○○원 설정)
+    (2) 위 지상 철근콘크리트조 주택 ○○○㎡
+        (시가 약 ○○○원)
+
+  나. 예금채권
+    (1) ○○은행 ○○지점 보통예금 (계좌번호 ○○○)
+        잔액 ○○○원
+    (2) ○○은행 ○○지점 정기예금 (계좌번호 ○○○)
+        잔액 ○○○원
+
+  다. 그 밖의 재산
+    (1) ○○○ 차량 (○○○○년식, ○○호○○○○)
+        시가 약 ○○○원
+    (2) 임차보증금반환채권 (임대인 ○○○) ○○○원
+
+    적극재산 합계 : 약 ○○○원
+
+         2. 소 극 재 산 (갚을 빚)
+
+  가. 금융기관 채무
+    (1) ○○은행 대출금 원금 ○○○원 및 이자
+        (20○○. ○○. ○○. 기준)
+    (2) ○○카드 신용카드대금 ○○○원
+
+  나. 그 밖의 채무
+    (1) 채권자 ○○○에 대한 차용금 채무 ○○○원
+        (차용증 별첨)
+    (2) 채권자 ○○○에 대한 보증채무 (금액 불상)
+        ※ 존재는 확인되나 액수를 확정할 수 없음
+    (3) ○○세무서 체납 국세 ○○○원
+
+    소극재산 합계 : 약 ○○○원 (금액 불상 채무 제외)
+
+         3. 조 사 의 경 위
+
+  청구인은 정부24 '안심상속 원스톱서비스'를 통하여
+  20○○. ○○. ○○. 피상속인의 재산·채무를 조회하고,
+  피상속인의 유품 중 발견된 서류를 확인하여 위와 같이
+  목록을 작성하였습니다. 위 조사에도 불구하고 확인되지
+  아니한 채무가 있을 수 있습니다.
+
+              20○○. ○○. ○○.
+                청구인  ○○○ (인 또는 서명)</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f3')">📋 복사</button><button type="button" onclick="printForm('f3')">🖨 인쇄</button><button type="button" onclick="downloadForm('f3','상속재산목록.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>3번 '조사의 경위'를 반드시 넣으십시오.</b> 어떤 방법으로 조사했는지, 그럼에도 확인되지 않은 채무가 있을 수 있다는 점을 적어 두면, 나중에 새 채권자가 나타나 <b>"고의로 빠뜨렸다"(§1026 3호)</b>고 공격할 때 이것이 방패가 됩니다.<br>
+부동산은 <b>등기사항증명서 그대로</b>, 예금은 <b>계좌번호와 잔액</b>을 적습니다. 근저당이 설정된 부동산은 <b>채권최고액도 함께</b> 적어야 실질 가치가 드러납니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag">작성례 ④ · 시간이 부족할 때</span>상속의 승인·포기 기간 연장 심판청구서<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f4"><span class="ft">상속의 승인·포기 기간 연장 심판청구</span>청구인(상속인)   ○○○   (☎: ○○○-○○○○-○○○○)
+          주민등록번호  ○○○○○○-○○○○○○○
+          주소  ○○○
+          등록기준지  ○○○
+
+사건본인(피상속인)   망 ○○○
+          사망일자  20○○. ○○. ○○.
+          최후주소  ○○○
+          등록기준지  ○○○
+
+         청 구 취 지
+
+  청구인이 피상속인 망 ○○○의 상속에 관하여 승인 또는
+  포기를 할 수 있는 기간을 20○○. ○○. ○○.까지
+  연장한다.
+  라는 심판을 구합니다.
+
+         청 구 원 인
+
+  1. 청구인은 피상속인 망 ○○○의 ○○로서 상속인이며,
+     20○○. ○○. ○○. 상속개시 있음을 알았습니다.
+  2. 청구인은 상속의 승인·포기를 결정하기 위하여 피상속인의
+     재산과 채무를 조사하고 있으나, 아래와 같은 사정으로
+     민법 제1019조 제1항의 기간 내에 이를 마치기 어렵습니다.
+     가. ○○○ (예: 피상속인이 여러 곳에 부동산을 보유하고
+         있어 권리관계 확인에 시일이 소요됨)
+     나. ○○○ (예: 피상속인이 생전에 타인의 채무를 보증한
+         정황이 있어 보증채무의 존부·범위를 확인 중임)
+     다. ○○○ (예: 상속인이 해외에 체류 중이어서 서류
+         수집에 시일이 소요됨)
+  3. 이에 청구인은 민법 제1019조 제1항 단서에 따라 위
+     기간의 연장을 구하고자 이 심판청구에 이른 것입니다.
+
+         첨 부 서 류
+
+  1. 피상속인 기본증명서(상세)·가족관계증명서(상세)  각 1통
+  2. 청구인 가족관계증명서(상세)·주민등록초본        각 1통
+  3. 조사 진행 소명자료(안심상속 신청 접수증,
+     금융기관 조회 신청서 등)                        각 1통
+
+              20○○. ○○. ○○.
+                청구인  ○○○ (인 또는 서명)
+
+○○가정법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f4')">📋 복사</button><button type="button" onclick="printForm('f4')">🖨 인쇄</button><button type="button" onclick="downloadForm('f4','기간연장_심판청구서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>반드시 3개월이 지나기 전에 내야 합니다.</b> 이미 지난 뒤에는 이 청구가 불가능하고, 특별한정승인(→ 3-2 카드)의 요건을 따지는 훨씬 어려운 싸움으로 넘어갑니다.<br>
+승부처는 <b>청구원인 2번</b>입니다. "시간이 부족하다"는 막연한 말이 아니라 <b>왜 부족한지 구체적 사정</b>을 적어야 합니다. 보증채무 확인, 해외 체류, 다수의 부동산, 상속인 소재 파악 등이 실제로 자주 인정되는 사유입니다. <b>조사를 실제로 진행 중이라는 증거</b>(안심상속 접수증 등)를 붙이면 설득력이 큽니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ⑤ · 한정승인 청산</span>채권신고 최고서 (아는 채권자에게 개별 통지)<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f5"><span class="ft">채 권 신 고 최 고 서</span>수신인  ○○○ (채권자)
+        주소  ○○○
+
+발신인  ○○○ (한정승인자)
+        주소  ○○○
+        연락처  ○○○-○○○○-○○○○
+
+제목 : 상속 한정승인에 따른 채권신고 최고
+
+1. 귀하의 건승을 기원합니다.
+
+2. 발신인은 망 ○○○(20○○. ○○. ○○. 사망)의 ○○로서,
+   ○○가정법원 20○○느단○○○○호로 상속의 한정승인
+   신고를 하여 20○○. ○○. ○○. 그 수리심판을
+   고지받았습니다.
+
+3. 이에 발신인은 민법 제1032조에 따라 20○○. ○○. ○○.자
+   ○○일보에 채권신고의 공고를 하였으며, 귀하가 망인에
+   대하여 채권을 가지고 있음을 알고 있으므로 같은 조
+   제2항에 따라 개별로 최고합니다.
+
+4. 귀하는 아래 기간 내에 채권의 종류와 금액을 신고하여
+   주시기 바랍니다.
+
+     - 신고기간 : 20○○. ○○. ○○.까지 (2개월 이상)
+     - 신고처   : 위 발신인 주소
+     - 신고내용 : 채권의 발생원인, 원금·이자, 담보 유무,
+                  증빙서류 사본
+
+5. 위 기간 내에 신고하지 아니한 채권은 민법 제1039조에
+   따라 남은 상속재산에 대하여만 그 권리를 행사할 수
+   있음을 알려 드립니다. 다만 발신인이 알고 있는 채권은
+   그 신고 여부와 관계없이 청산에서 제외하지 아니합니다.
+
+   별첨 : 한정승인 수리심판서 사본  1부
+          신문 공고문 사본          1부
+
+              20○○. ○○. ○○.
+                위 발신인  ○○○ (인 또는 서명)</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f5')">📋 복사</button><button type="button" onclick="printForm('f5')">🖨 인쇄</button><button type="button" onclick="downloadForm('f5','채권신고_최고서.txt')">⬇ 다운로드</button></div>
+<div class="howto">한정승인 수리심판을 받은 <b>날부터 5일 안에</b> 신문 공고를 내야 하고, <b>알고 있는 채권자에게는 이 최고서를 개별로</b> 보내야 합니다(§1032). <b>내용증명</b>으로 보내 발송 기록을 남기십시오.<br>
+<b>이 절차를 건너뛰면 위험합니다.</b> 공고·최고를 게을리하거나 순서를 어겨 채권자에게 손해를 입히면, <b>한정승인자가 자기 재산으로 배상</b>해야 할 수 있습니다(§1038). 신고기간이 끝나면 <b>먼저 온 사람에게 먼저 다 주는 것이 아니라 채권액 비율대로</b> 나누어 갚아야 합니다(§1034).</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag">작성례 ⑥ · 법원 서류 아님</span>추심업체 회신용 내용증명 (전화·우편 독촉을 받았을 때)<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f6"><span class="ft">통 지 서</span>수신인  ○○신용정보 주식회사 (또는 ○○대부 주식회사)
+        주소  ○○○
+발신인  ○○○
+        주소  ○○○
+
+제목 : 상속포기에 따른 채무 부존재 통지 및 추심 중단 요청
+
+1. 귀사의 발전을 기원합니다.
+
+2. 귀사는 20○○. ○○. ○○.자로 발신인에게 망 ○○○의
+   채무 ○○○원의 변제를 요구하는 독촉장을 보내셨습니다.
+
+3. 그러나 발신인은 ○○가정법원 20○○느단○○○○호로
+   상속포기 신고를 하여 20○○. ○○. ○○. 그 수리심판을
+   고지받았습니다(별첨 결정문 사본 참조).
+
+4. 상속의 포기는 상속이 개시된 때에 소급하여 효력이
+   있으므로(민법 제1042조), 발신인은 처음부터 망인의
+   상속인이 아니었던 것이 되어 위 채무를 일체 승계하지
+   아니하였습니다.
+
+5. 따라서 발신인은 귀사에 대하여 위 채무를 변제할 의무가
+   없으므로, 이후 발신인에 대한 추심 연락을 중단하여
+   주시기 바랍니다.
+
+   별첨 : 상속포기 수리심판서 사본  1부
+
+              20○○. ○○. ○○.
+                위 발신인  ○○○ (인 또는 서명)</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f6')">📋 복사</button><button type="button" onclick="printForm('f6')">🖨 인쇄</button><button type="button" onclick="downloadForm('f6','추심업체_내용증명.txt')">⬇ 다운로드</button></div>
+<div class="howto">이것은 <b>법원에 내는 서류가 아니라 상대 회사에 보내는 편지</b>입니다. 우체국에서 <b>내용증명</b>으로 3부(상대방·우체국·본인 보관) 보내시면 됩니다. 인터넷우체국에서도 가능합니다.<br>
+<b>한정승인이라면</b> 3~5항을 이렇게 바꾸십시오 — <i>"한정승인 수리심판을 받았으므로 상속으로 얻은 재산의 한도에서만 책임을 집니다(민법 제1028조). 이를 초과하는 청구에는 응할 수 없습니다."</i><br>
+<b>★주의</b> — 이 방법은 <b>추심업체의 전화·우편 독촉</b>에만 쓰는 것입니다. <b>법원에서 온 지급명령·소장</b>에는 이 편지가 아무 소용이 없습니다. 반드시 <b>기한 안에 법원에 서면을 내야</b> 하며, 그 방법은 <b>3-5 카드</b>에 있습니다.</div>
+</div></div>
+
+<h2>준비할 서류와 발급처</h2>
+<p style="font-size:13.5px;color:var(--muted)">아래 '바로가기'를 클릭하면 발급·조회 화면으로 이동합니다. 만약 첫 화면으로 연결되면, 옆의 <b>찾아가기 경로</b>를 따라 메뉴를 클릭하면 됩니다.</p>
+<table>
+<tr><th>무엇을</th><th>서류</th><th>어디서 · 찾아가기 경로</th></tr>
+<tr><td>재산·빚 전체 조회<br><b>(가장 먼저)</b></td><td>안심상속 원스톱서비스 조회 결과 — 예금·보험·증권·대출·세금 체납·자동차·연금을 한 번에</td><td><a href="https://www.gov.kr" target="_blank">정부24 (gov.kr)</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 검색창에 '안심상속' 검색 → 신청 (사망신고 시 주민센터에서 함께 신청 가능 / 이후에는 사망일이 속한 달의 말일부터 1년 내)</span></td></tr>
+<tr><td>상속인 확인</td><td>피상속인 기본증명서(<b>상세</b>)·가족관계증명서(<b>상세</b>)·제적등본, 청구인 가족관계증명서(<b>상세</b>)</td><td><a href="https://efamily.scourt.go.kr" target="_blank">전자가족관계등록시스템 (efamily.scourt.go.kr)</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 증명서 발급 → 종류 선택 → <b>'상세'</b> 선택 ('일반'은 과거 기록이 빠집니다)</span></td></tr>
+<tr><td>사망·주소 확인</td><td>피상속인의 <b>말소된</b> 주민등록초본, 청구인 주민등록초본</td><td><a href="https://www.gov.kr" target="_blank">정부24 (gov.kr)</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 검색창에 '주민등록표초본' 검색 → 발급 (말소자 초본은 주민센터 방문이 확실합니다)</span></td></tr>
+<tr><td>부동산 확인<br>(한정승인 목록용)</td><td>등기사항전부증명서 — 근저당·가압류 등 권리관계 포함</td><td><a href="https://www.iros.go.kr" target="_blank">인터넷등기소 (iros.go.kr)</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 등기열람/발급 → 부동산 → 주소로 검색</span></td></tr>
+<tr><td>심판청구 제출<br>(전자 접수)</td><td>—</td><td><a href="https://ecfs.scourt.go.kr" target="_blank">대법원 전자소송 (ecfs.scourt.go.kr)</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 서류제출 → 가사 서류 → 가사비송 → 상속포기(한정승인) 심판청구</span></td></tr>
+<tr><td>관할 법원 찾기</td><td>—</td><td><a href="https://www.scourt.go.kr/region/location/RegionSquareListAction.work" target="_blank">대법원 관할법원 찾기</a><br><span style="font-size:12.5px;color:var(--muted)">돌아가신 분의 <b>마지막 주소</b>(시·구)를 넣으면 됩니다</span></td></tr>
+<tr><td>무료 법률상담</td><td>상담사례·서식 / 소득 요건 충족 시 소송구조</td><td><a href="https://www.klac.or.kr" target="_blank">대한법률구조공단 (klac.or.kr) · ☎132</a></td></tr>
+</table>
+<div class="tip"><span class="pt">💡 미성년 자녀·손주는 부모가 대신 — 단, 이해충돌 주의</span> 상속인이 미성년이면 <span class="term">법정대리인<span class="bub">미성년자를 대신하여 법률행위를 할 수 있는 사람. 보통 친권자인 부모입니다.</span></span>(부모)이 대신 신청합니다. 다만 부모와 자녀가 함께 상속인인데 <b>부모는 승인하면서 자녀만 포기시키는 등 이해가 충돌</b>하는 구도라면 법원에 <span class="term">특별대리인<span class="bub">부모와 미성년 자녀의 이해가 서로 부딪힐 때, 자녀를 위해 법원이 따로 정해 주는 대리인(민법 §921).</span></span> 선임을 신청해야 할 수 있습니다 — 이런 경우는 접수 전에 꼭 상담해 주세요.</div>
+
+<div class="cost">
+<span class="ct">💰 비용 — 가정법원 신청은 소액입니다</span>
+<b>① 상속포기 심판청구</b>: <span class="term">인지액<span class="bub">법원에 신청서를 낼 때 내는 수수료. 수입인지를 사서 붙이거나 전자소송에서 카드로 냅니다.</span></span> 청구인 1명당 5,000원 + <span class="term">송달료<span class="bub">법원이 서류를 우편으로 보내는 비용. 신청할 때 미리 냅니다(예납). 남으면 돌려받습니다.</span></span>(청구인 수 × 우편료 × 수 회분 — 접수 시 법원이 정확한 금액을 안내합니다).<br>
+<b>② 한정승인 심판청구</b>: 인지·송달료는 포기와 같은 수준이나, <b>청산 단계에서 신문공고 비용</b>이 별도로 듭니다(신문사·지면에 따라 차이가 큽니다).<br>
+<b>③ 기간 연장 심판청구</b>: 인지·송달료가 소액입니다.<br>
+<b>④ 증명서 발급</b>: 가족관계·기본증명서, 등기사항증명서 등 통당 수백~수천 원.
+<div style="margin-top:11px; padding-top:10px; border-top:1px dashed #cfe6d6; color:#c0392b; font-weight:600; line-height:1.8;">※ 사건 정보를 입력하면 인지대·송달료를 포함한 예상 금액을 <a href="https://sanlaw.co.kr/tools-calculator.html" style="color:#c0392b; text-decoration:underline; font-weight:700;">🧮 수수료 계산기</a>에서 미리 확인할 수 있습니다.</div>
+</div>
+
+<h2>본 사무소가 도와드리는 일</h2>
+<div class="hire">
+<p>본 사무소에서는 의뢰인들의 고충은 덜어드리고, 함께 절차를 진행하여 원하는 결과에 도달할 수 있도록 성심을 다하겠습니다.</p>
+<p style="margin-top:12px"><b>· 아직 결정하지 못하셨다면</b><br>① 안심상속 조회 결과를 토대로 한 <b>재산·빚 전수 점검</b>과 숨은 보증채무 확인, ② <b>포기냐 한정승인이냐</b>의 판단, ③ 배우자 생존 여부에 따른 <b>가족 전체의 설계</b>(누가 남아 매듭짓고 누가 포기할지), ④ <b>심판청구서·상속재산목록</b> 작성과 접수 지원, ⑤ 시간이 부족한 경우 <b>기간 연장 청구</b>까지 함께 준비해 드립니다.</p>
+<p style="margin-top:10px"><b>· 한정승인 수리를 받으셨다면</b><br>① <b>신문 공고문</b> 작성과 게재 안내, ② <b>채권신고 최고서</b> 작성·발송, ③ 신고된 채권의 <b>배당변제표</b> 작성, ④ 부동산이 있는 경우 <b>경매(형식적 경매) 신청</b> 지원, ⑤ 새 채권자가 나타났을 때의 <b>상속재산목록 경정신청</b>까지 — 청산의 전 과정을 함께합니다.</p>
+<p style="margin-top:10px"><b>· 이미 채권자가 청구해 왔다면</b><br>① 받으신 서류가 <b>독촉장인지 법원 서류인지</b> 판별, ② 추심업체에 대한 <b>내용증명</b> 작성, ③ 지급명령·소장에 대한 <b>기한 내 서면</b> 작성 지원(→ 3-5 카드)까지 신속히 대응합니다.</p>
+</div>
+<div class="warn"><span class="wt">⚠ 결정 전에 재산에 손대면 모든 설계가 무너집니다</span>돌아가신 분의 <b>예금을 인출</b>하거나, 차·물건을 팔거나, 보험금·합의금을 수령하는 행위는 <b>단순승인으로 간주</b>되어(민법 §1026) 포기·한정승인이 막힐 수 있습니다. <b>신청서를 접수했더라도 수리심판을 고지받기 전이면 마찬가지</b>입니다(대법원 2013다73520).<br>
+합리적 범위의 <b>장례비 지출은 예외</b>로 보는 것이 판례이나(2003다30968), <b>영수증을 반드시 보관</b>하십시오. 애매한 지출은 <b>먼저 상담</b>해 주십시오 — 되돌릴 수 없는 일이 되기 전에 여쭤보시는 편이 훨씬 낫습니다.</div>
+
+<a href="https://sanlaw.co.kr/tools-calculator.html" class="cta">🧮 내 사건 비용 미리 계산하기</a>
+<div style="text-align:center; background:#f6ecd8; border:1px solid var(--gold); border-radius:11px; padding:14px; margin:18px 0; font-size:15px; color:var(--gold-d); font-weight:700;">📞 상담은 홈 화면의 상담 창구를 이용하시면 됩니다.</div>
+
+<div class="tip"><span class="pt">💡 이어지는 카드</span> <b>3개월이 이미 지난 뒤 빚을 알게 되셨다면 → 3-2 특별한정승인</b> · <b>포기했는데 재산 관리 책임이 남는지 → 3-3 관리계속의무</b> · <b>자녀가 다 포기하면 손주에게 빚이 가는지 → 3-4</b> · <b>포기했는데 독촉장·법원 서류가 왔다면 → 3-5</b> · 상속인들끼리 재산을 나누다 막힌 경우는 <a href="1-1_상속재산분할심판.html" style="color:var(--tip-ink);font-weight:700">상속 1-1 카드</a>를 보세요.</div>
+
+<div class="src">
+근거 — 민법 제157조(기간의 기산점)·제161조(공휴일 등과 기간의 만료점)·제921조(특별대리인)·제998조의2(상속비용)·제1019조(승인, 포기의 기간)·제1026조(법정단순승인)·제1028조(한정승인의 효과)·제1032조(채권자에 대한 공고, 최고)·제1034조(배당변제)·제1037조(상속재산의 경매)·제1038조(부당변제 등으로 인한 책임)·제1039조(신고하지 않은 채권자)·제1041조(포기의 방식)·제1042조(포기의 소급효)·제1043조(포기한 상속재산의 귀속) · 가사소송법 제44조(관할) · 가사소송규칙 제75조(한정승인·포기의 신고) · 대법원 2016. 12. 29. 선고 2013다73520 판결(포기 신고 후 수리심판 고지 전의 처분은 법정단순승인) · 대법원 2010. 4. 29. 선고 2009다84936 판결(예금 인출은 처분행위 / 포기 전 처분은 제1026조 제1호, 포기 후 처분은 제3호) · 대법원 2003. 11. 14. 선고 2003다30968 판결(합리적 범위의 장례비는 상속비용) · 대법원 2023. 3. 23.자 2020그42 전원합의체 결정(자녀 전원 포기 시 배우자 단독상속 — 종전 대법원 2013다48852 판결 변경) · 대법원 2005. 7. 22. 선고 2003다43681 판결(후순위 상속인의 고려기간 기산점) · 대한법률구조공단(klac.or.kr) 상담사례·서식 · 법제처 찾기쉬운 생활법령정보(easylaw.go.kr) · 국가법령정보센터(law.go.kr) · 대법원 전자민원센터 양식. 본 자료는 일반적인 법률정보로, 개별 사건의 법률자문이 아니며 개별 사건의 결과를 보장하지 않습니다.
+</div>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+})();
+function toggleFold(b){var fb=b.parentElement;var body=b.nextElementSibling;var open=fb.classList.toggle('open');if(body){body.style.display=open?'block':'none';}}
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('작성례가 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('작성례가 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['﻿'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('작성례를 내려받았습니다');}
+</script>
+
+</body>
+</html>
