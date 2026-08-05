@@ -409,9 +409,12 @@
 
     <div class="card blue"><h2>① 매매 정보</h2><div class="body">
       <div class="line"><span class="lbl">매매금액(원)</span><input type="number" class="amt" id="price" placeholder="0" oninput="calcSale()"><span class="hint" id="ps_priceHint"></span></div>
-      <div class="line" style="border-top:1px dashed var(--line);"><span class="lbl">분양으로 취득</span><div class="checks" onchange="togglePresale()">
-        <label><input type="checkbox" id="ps_on"> 신규 분양 아파트 · 분양권 전매로 취득</label></div>
-        <span class="hint">체크하면 <b>과세표준 합산 도우미</b>가 열립니다</span></div>
+      <div style="background:linear-gradient(135deg,#fff6e0,#ffeec9);border:2px solid var(--gold);border-radius:10px;padding:12px 14px;margin:10px 0;">
+        <div style="font-size:14.5px;font-weight:800;color:var(--gold-d);margin-bottom:8px;">🏢 분양받은 아파트인가요?</div>
+        <div style="font-size:13px;color:#6b5540;line-height:1.65;margin-bottom:10px;">신규 분양·분양권 전매로 취득하셨다면 <b>분양대금만으로 계산하면 안 됩니다.</b> 발코니 확장비·붙박이 옵션(전매는 프리미엄까지)을 <b>더한 금액</b>이 취득세 과세표준입니다. 아래를 켜면 합산 도우미와 <b>분양 전용 준비서류</b>가 나옵니다.</div>
+        <label class="checks" style="display:inline-flex;align-items:center;font-size:14.5px;font-weight:700;color:var(--gold-d);cursor:pointer;padding:8px 14px;background:#fff;border:1.5px solid var(--gold);border-radius:8px;">
+          <input type="checkbox" id="ps_on" onchange="togglePresale()" style="width:18px;height:18px;margin-right:8px;"> 분양으로 취득 — 도우미 켜기</label>
+      </div>
       <div id="ps_box" style="display:none;background:#fdf6e8;border-radius:8px;padding:10px 12px;margin:6px 0 10px;">
         <div class="note" style="border-left:3px solid var(--seal);margin-top:0;">▸ <b>분양은 시행사에게서 넘겨받는 유상승계취득</b>이므로 세율 구조는 매매와 같습니다. 다만 <b>과세표준에 분양대금만 넣으면 실제보다 적게 나옵니다.</b> 아래 항목을 더한 <b>합계</b>가 과세표준입니다. <span class="tag A">A</span><br>
         · <b>발코니 확장비</b> — 취득시기 <b>이전</b>에 확장이 완료되어 집과 하나가 된 경우 포함. 분양 세대는 사실상 언제나 해당합니다.<br>
@@ -3048,6 +3051,7 @@ const SCENARIO={
  "부부재산약정등기":{cat:'re',full:'marital',ref:'§28①14호'},
  "이혼 재산분할(소유권이전)":{cat:'re',full:'division',ref:'§15①6호'},
  "공유물분할(소유권이전)":{cat:'re',full:'partition',ref:'§15①4호'},
+ "신규 분양·분양권(소유권이전)":{cat:'re',full:'presale',ref:'과세표준 합산'},
  "경매·공매 낙찰(촉탁등기)":{cat:'re',full:'nakchal',ref:'민사집행법 §144'},
  "기타 취득원인(환매·건축물이전 등)":{cat:'re',full:'etcacq',ref:'§15 세율특례'},
  "재건축·재개발등기(이전고시)":{cat:'re',full:'redev',ref:'보수기준 §12'},
@@ -3180,6 +3184,7 @@ function _doOpenScenario(name){
   else if(SCENARIO[name].full==='division'){document.getElementById('scene-이혼재산분할').classList.add('active');calcDivision();}
   else if(SCENARIO[name].full==='partition'){document.getElementById('scene-공유물분할').classList.add('active');calcPartition();}
   else if(SCENARIO[name].full==='nakchal'){document.getElementById('scene-경매낙찰촉탁').classList.add('active');calcNakchal();}
+  else if(SCENARIO[name].full==='presale'){document.getElementById('scene-매매').classList.add('active');const _p=document.getElementById('ps_on');if(_p){_p.checked=true;togglePresale();}calcSale();}
   else if(SCENARIO[name].full==='etcacq'){document.getElementById('scene-기타취득원인').classList.add('active');calcEtcAcq();}
   else if(SCENARIO[name].full==='foreign'){document.getElementById('scene-외국인준비서류').classList.add('active');renderForeign();}
   else if(SCENARIO[name].full==='sintak'){document.getElementById('scene-신탁등기').classList.add('active');calcSintak();}
