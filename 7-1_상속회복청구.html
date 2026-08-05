@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[상속 7-1] 누가 내 상속분을 가로챘어요 | 산 법무사 김재섭</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(280px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.case{background:var(--box); border-radius:10px; padding:14px 16px; margin:14px 0; border-left:4px solid #b9a98c;}
+.case .ct{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+.sit-wrap{display:flex; gap:12px; margin:14px 0;}
+.sit{flex:1; background:#f8f5ee; border:1px solid var(--line); border-top:3px solid var(--gold); border-radius:10px; padding:13px 15px; font-size:14.5px; line-height:1.75;}
+.sit .sl{display:block; font-weight:700; color:var(--gold-d); margin-bottom:6px; font-size:14px;}
+@media (max-width:680px){ .sit-wrap{flex-direction:column;} }
+/* 전체 길 흐름도 */
+.flow{background:linear-gradient(180deg,#faf7f0,#f6f1e6); border:1px solid var(--line); border-radius:14px; padding:22px 20px; margin:16px 0;}
+.flow .fl-t{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:18px; text-align:center; letter-spacing:.3px;}
+.flow .node{position:relative; background:#fff; border:1px solid #e3d8c4; border-radius:11px; padding:15px 18px 15px 56px; font-size:14.5px; line-height:1.72; box-shadow:0 2px 6px rgba(122,82,48,.07);}
+.flow .node .num{position:absolute; left:15px; top:14px; width:30px; height:30px; line-height:30px; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; border-radius:50%; font-weight:800; font-size:15px; font-family:'Nanum Myeongjo',serif; box-shadow:0 2px 5px rgba(122,82,48,.3);}
+.flow .node b{color:#241a10;}
+.flow .down{display:flex; justify-content:center; align-items:center; padding:7px 0;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+/* 작성례 박스 */
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:15px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .tag{margin-bottom:0;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;}
+.tag.cred{background:#5a9a72;}
+.tag.debt{background:#d9694a;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:18px;margin:12px 0;font-family:'D2Coding','Courier New',monospace;font-size:13px;line-height:1.6;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:16px;letter-spacing:2px;margin-bottom:12px;color:#241a10;}
+.howto{font-size:14px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0 4px;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:13px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:7px 13px;cursor:pointer;transition:.15s;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.75;}
+.lawbox .ll{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:#241a10;border-radius:5px;padding:2px 9px;margin-right:7px;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.hire p{margin:7px 0; font-size:15px; line-height:1.8;}
+.cta{display:block;text-align:center;background:var(--gold-d);color:#fff;font-weight:700;font-size:17px;text-decoration:none;padding:15px;border-radius:11px;margin:18px 0;font-family:'Nanum Myeongjo',serif;letter-spacing:1px;}
+.cta:hover{background:#5e3f24;}
+@media print{
+  body{background:#fff; max-width:100%;}
+  .tldr,.case,.warn,.tip,.cost,.steps li,.tnote,.sit,.flow,.flow li,.lawbox,.hire{background:#fff !important; border-color:#ccc !important;}
+  .tnote{display:none;}
+  .term{border:none; color:inherit; font-weight:inherit;}
+  .term>.bub{display:inline !important; position:static; width:auto; background:none; color:inherit; box-shadow:none; padding:0; font-size:inherit; line-height:inherit;}
+  .term>.bub::before{content:" ("; }
+  .term>.bub::after{content:")"; border:none; position:static;}
+  .fold-body{display:block !important;}.fold-btn .chev{display:none;}.form-tools{display:none;}
+  .cta{background:#fff !important; color:#241a10 !important; border:1px solid #ccc;}
+}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+<h1>[상속 7-1] 누가 내 상속분을 가로챘어요</h1>
+
+<div class="tnote">어려운 법률용어에는 <b>점선 밑줄</b>이 그어져 있습니다. <b>PC는 마우스를 올리면</b>, <b>휴대폰은 손가락으로 톡 터치하면</b> 쉬운 설명이 뜹니다. (인쇄하면 괄호로 함께 나옵니다.)</div>
+
+<div class="hire">
+<div class="ht">이 매뉴얼을 끝까지 읽으시는 분께</div>
+<p>이 매뉴얼은 <b>의뢰인이 직접 법원에 신청할 수 있도록 모든 서류 양식·비용·요건을 구체적으로 담았습니다.</b> 하지만 소송은 살아있는 생물과 같아 상대방의 격렬한 저항이 뒤따릅니다. 혼자 진행하시다가 막히는 부분이 생기거나 방어막이 필요할 때, 언제든 이 매뉴얼을 들고 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</p>
+</div>
+
+<div class="tldr">
+<div class="tt">⭐ 30초 결론부터</div>
+<ul>
+<li><b>내 몫은 사망과 동시에 이미 내 것입니다.</b> 상속인은 돌아가신 때부터 재산에 관한 권리·의무를 그대로 이어받으므로(민법 §1005), <b>등기를 하지 않았어도 내 지분은 내 것</b>입니다. 남이 차지하고 있다면 <span class="term">상속회복청구<span class="bub">상속권이 없는 사람 때문에 내 상속권이 침해되었을 때, 그 회복을 구하는 청구(민법 §999).</span></span>로 돌려받습니다.</li>
+<li><b>상대는 '참칭상속인'입니다.</b> 정당한 상속권이 없으면서 <b>상속인처럼 보이는 겉모습을 갖춘 사람</b>이나, 상속인이라 내세우며 상속재산을 점유하는 사람을 말합니다. <b>공동상속인 중 한 사람이 "나만 상속권이 있다"며 자기 몫을 넘겨 차지한 경우도 여기에 들어갑니다</b>(대법원 1991. 2. 22. 선고 90다카19470 판결).</li>
+<li><b>★기한이 아주 짧습니다 — 3년과 10년.</b> <b>침해를 안 날부터 3년</b>, <b>침해행위가 있은 날부터 10년</b>이 지나면 권리 자체가 사라집니다(민법 §999②). 이 기간은 <span class="term">제척기간<span class="bub">권리가 살아 있는 고정된 기간. 소멸시효와 달리 중단·정지가 없고, 지나면 권리가 확정적으로 사라집니다.</span></span>이라 내용증명이나 합의 요청으로는 <b>1초도 멈추지 않습니다.</b></li>
+<li><b>★그러나 상대가 참칭상속인이 아니라면 기한이 없습니다.</b> 상속인으로 오인될 만한 외관도 없고 재산을 점유하지도 않으면서 <b>말로만 상속인이라 주장</b>하는 사람(대법원 1992. 5. 22. 선고 92다7955 판결), 상속과 무관한 원인으로 등기를 해 둔 사람(대법원 1995. 4. 14. 선고 93다5840 판결)에 대한 청구는 상속회복청구가 아니어서 <b>3년·10년에 걸리지 않습니다.</b> 기간이 지난 것 같아도 여기서 길이 열립니다.</li>
+<li><b>다투는 것이 '누가 상속인인가'가 아니라 '어떻게 나눌 것인가'라면 다른 절차입니다.</b> 상속인 자격에는 다툼이 없고 <b>분배 방법</b>만 정해지지 않은 상태라면, 민사소송이 아니라 <b>가정법원의 상속재산분할심판</b>으로 가야 합니다.</li>
+</ul>
+</div>
+
+<h2>지금 어떤 상황인가요?</h2>
+<p>부모님이 남기신 재산을 정리하려고 등기부를 떼어 보았더니, 이미 <b>다른 사람 이름</b>으로 넘어가 있었습니다. 형제 한 사람일 수도 있고, 처음 보는 이름일 수도 있습니다. 예금이 이미 인출되어 있거나, 시골 땅을 누군가 오래도록 점유하고 있는 경우도 있습니다. 공통점은 하나 — <b>나는 아무것도 하지 않았는데 내 몫이 사라져 있다</b>는 것입니다. 법은 이런 사람을 위해 <b>되찾을 길</b>을 마련해 두었지만, 그 문은 <b>3년·10년</b>이라는 짧은 시간이 지나면 닫힙니다.</p>
+<div class="sit-wrap">
+<div class="sit"><span class="sl">상황 ① · 빼앗긴 상속인 (원고)</span>내 상속분을 다른 사람이 차지하고 있어 되찾고 싶은 경우. → 먼저 <b>상대가 참칭상속인인지</b>를 가리고, <b>기한</b>을 계산한 뒤 소장을 냅니다(작성례 ①·③).</div>
+<div class="sit"><span class="sl">상황 ② · 지목된 사람 (피고)</span>정당하게 상속·취득했다고 생각하는데 "내 몫을 돌려달라"는 소장을 받은 경우. → <b>기한 도과</b>와 <b>내 등기의 정당성</b>이 방어의 두 기둥입니다(작성례 ②·④).</div>
+</div>
+
+<h2>먼저 알아두면 쉬운 5가지</h2>
+<ol class="steps">
+<li><b>등기를 하지 않아도 내 지분은 이미 내 것입니다.</b> 상속은 사망과 동시에 <b>법률상 당연히</b> 일어납니다(민법 §1005, §187). 그래서 "등기가 저 사람 이름으로 되어 있으니 이제 저 사람 것"이 아니라, <b>원인 없는 등기는 무효</b>이고 내 지분은 그대로 살아 있습니다. 되찾는 소송이 가능한 이유가 여기에 있습니다.</li>
+<li><b>'참칭상속인'의 얼굴은 여러 가지입니다.</b> ① 상속인이 아닌데 <b>가족관계등록부에 자녀로 잘못 올라 있는</b> 사람, ② 앞 순위 상속인이 있는데도 상속받은 <b>후순위 상속인</b>, ③ <span class="term">상속결격자<span class="bub">피상속인을 해치거나 유언을 위조하는 등의 잘못을 저질러 법률상 상속받을 자격을 잃은 사람(민법 §1004).</span></span>, ④ 혼인이 무효인 배우자, ⑤ <b>공동상속인 중 자기 몫을 넘겨 차지한 사람</b>, ⑥ 상속인 행세를 하며 상속재산을 점유하는 사람. 특히 ⑤가 실제 사건의 대부분입니다.</li>
+<li><b>반대로 '참칭상속인이 아닌' 경우가 매우 중요합니다.</b> 상속인으로 오인될 외관도 없고 재산을 점유하지도 않은 채 <b>말로만 상속인이라 주장</b>하는 사람은 참칭상속인이 아니고(92다7955), 내가 말하는 <b>돌아가신 분과 상대가 말하는 돌아가신 분이 다른 사람</b>이라면 그 소송은 상속회복청구가 아닙니다(대법원 1994. 4. 15. 선고 94다798 판결). 이런 경우는 <b>기한 제한 없는 일반 소유권 소송</b>이 되므로, 세월이 흘렀더라도 다툴 수 있습니다.</li>
+<li><b>소장 제목을 뭐라고 쓰든 성격은 법원이 판단합니다.</b> 진정한 상속인이 <b>상속으로 내 것이 되었다</b>고 주장하며 등기말소 등을 구하면, 청구원인이 무엇이든 <b>상속회복청구의 소</b>로 봅니다(대법원 1991. 12. 24. 선고 90다5740 전원합의체 판결). "소유권이전등기말소청구"라고 적어도 <b>3년·10년은 그대로 적용</b>된다는 뜻이니, 제목을 바꿔 기한을 피할 수는 없습니다.</li>
+<li><b>'분할이 안 된 것'과 '빼앗긴 것'은 다른 문제입니다.</b> 상속인이 누구인지에는 다툼이 없고 <b>누가 무엇을 가질지</b>만 정해지지 않았다면 <b>가정법원의 상속재산분할심판</b>으로 갑니다. 반면 <b>내 상속인 지위나 지분 자체가 부정당한</b> 상태라면 이 카드의 <b>상속회복청구(민사)</b>입니다. 두 절차를 혼동해 엉뚱한 법원에 냈다가 시간을 잃는 일이 잦습니다.</li>
+</ol>
+
+<h2>실제로 해결하는 절차 — 전체 길 한눈에 보기</h2>
+<div class="flow">
+<div class="fl-t">내 지분 확인부터 명의 회복까지 — 이 길을 그대로 따라가면 됩니다</div>
+<div class="node"><span class="num">0</span><b>내가 상속인이라는 사실과 내 지분을 확정합니다</b> — 돌아가신 분의 <b>기본증명서(상세)·가족관계증명서(상세)·제적등본</b>을 모두 떼어 <b>상속인이 몇 명인지</b>를 먼저 확정합니다. 상속인 수가 정해져야 내 <span class="term">법정상속분<span class="bub">법이 정한 각자의 몫. 자녀들은 균등하고, 배우자는 자녀 몫의 1.5배입니다(민법 §1009).</span></span>이 나오고, 그 지분이 곧 청구취지의 숫자가 됩니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">1</span><b>어떤 재산이 어떻게 침해되었는지 확인합니다</b> — 부동산은 <a href="http://www.iros.go.kr" target="_blank">인터넷등기소</a>에서 <b>등기사항전부증명서(말소사항 포함)</b>로 <b>등기일·접수번호·등기원인</b>을 확인하고, 예금·보험·자동차 등은 <a href="https://www.gov.kr" target="_blank">정부24</a>의 <b>안심상속 원스톱서비스</b>로 한 번에 조회합니다. 침해의 <b>날짜</b>가 곧 10년의 출발점입니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">2</span><b>★상대가 참칭상속인인지 판정합니다 — 기한이 여기서 갈립니다</b> — 등기원인이 <b>'상속'·'협의분할에 의한 상속'</b>이거나 상대가 <b>상속인 행세를 하며 점유</b>하고 있다면 참칭상속인 → <b>3년·10년</b>이 적용됩니다. 반대로 상속과 무관한 원인으로 등기했거나(93다5840), 말로만 주장할 뿐 외관도 점유도 없다면(92다7955) 상속회복청구가 아니어서 <b>기한 제한이 없습니다.</b></div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">3</span><b>기한을 계산합니다</b> — <b>안 날부터 3년</b>, <b>침해일부터 10년</b> 중 <b>먼저 오는 날</b>이 실제 마감입니다. '안 날'은 단순히 돌아가신 사실을 안 날이 아니라, <b>내가 진정상속인임을 알고 또 내가 상속에서 빠졌다는 사실까지 안 날</b>입니다(대법원 1981. 2. 10. 선고 79다2052 판결). 아래 <b>기한 정리 표</b>에서 두 날짜를 각각 적어 보십시오.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">4</span><b>청구 방법을 고르고 소장을 씁니다</b> — <b>부동산</b>이면 상대 등기 중 <b>내 지분에 해당하는 부분의 말소</b>가 기본이고, 등기가 여러 번 넘어갔다면 <span class="term">진정명의회복<span class="bub">무효인 등기를 하나씩 지우는 대신, 진짜 권리자 앞으로 곧바로 소유권이전등기를 하도록 구하는 방법.</span></span>을 원인으로 한 소유권이전등기청구가 간편합니다. <b>예금이 인출되었다면</b> 그 상당액의 <b>금전 지급</b>을 구합니다(작성례 ①).</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">5</span><b>법원을 정하고 접수합니다</b> — 상속에 관한 소는 <b>돌아가신 분의 마지막 주소지 법원</b>에 낼 수 있고(민사소송법 §22), <b>피고 주소지 법원</b>(§2·§3)이나 <b>부동산 소재지 법원</b>(§20)도 됩니다. <span class="term">소가<span class="bub">소송으로 다투는 값어치. 여기서는 되찾으려는 내 지분의 가액입니다. 인지대와 재판부를 정하는 기준이 됩니다.</span></span>를 산정해 인지대·송달료를 내고 <a href="https://ecfs.scourt.go.kr" target="_blank">전자소송</a>으로 제출합니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">6</span><b>재판이 진행되고, 이기면 스스로 등기합니다</b> — 피고는 소장을 받은 날부터 <b>30일 안에 답변서</b>를 내고(민사소송법 §256), 법원은 <b>제척기간을 직권으로</b> 살핍니다. 이어 <b>누가 진정한 상속인인지</b>와 <b>상대 등기의 효력</b>을 심리합니다. 판결이 확정되면 <b>판결정본과 확정증명</b>으로 <b>혼자</b> 등기를 신청할 수 있습니다(부동산등기법 §23④). 소송 중 재산이 넘어가는 것을 막으려면 <b>처분금지가처분</b>을 먼저 걸어 두십시오.</div>
+</div>
+
+<h2>내 경우는 어디에 해당하나요? — 유형별 사례</h2>
+<div class="case">
+<span class="ct">사례 ① 형제가 "나만 상속권이 있다"며 차지한 경우 — 대법원 1991. 2. 22. 선고 90다카19470 판결</span>
+대법원은 참칭상속인을 <b>재산상속인임을 신뢰케 하는 외관을 갖춘 자</b>나 <b>상속인이라 내세우며 상속재산의 전부 또는 일부를 점유하는 자</b>라고 정의하면서, <b>공동상속인 중 한 사람이 다른 상속인의 상속권을 부정하고 자기만이 상속권이 있다고 내세우는 경우도 여기에 해당</b>한다고 밝혔습니다. 그리고 이 요건을 갖추어 진정상속인의 상속분을 침해하기만 하면 <b>별다른 요건 없이</b> 상속회복청구의 상대방이 됩니다. 남이 아니라 <b>형제가 상대</b>인 사건이 실제로는 가장 많습니다.
+</div>
+<div class="case">
+<span class="ct">사례 ② 형제 한 사람 명의로 상속등기가 되어 있는 경우 — 대법원 1997. 1. 21. 선고 96다4688 판결</span>
+상속재산인 부동산에 관하여 <b>공동상속인 중 1인 명의로 소유권이전등기가 마쳐졌고 그 등기가 상속을 원인으로 한 것이라면</b>, 그 등기명의인은 상속인임을 믿게 하는 외관을 갖춘 자로서 <b>참칭상속인에 해당</b>합니다. 다만 그 등기가 <b>등기명의인 본인의 의사와 무관하게</b> 이루어진 경우 등 특별한 사정이 있으면 달리 볼 수 있습니다. 등기부에 <b>'상속'</b>이라는 두 글자가 적혀 있는지를 먼저 확인하십시오 — 여기서 기한 적용 여부가 갈립니다.
+</div>
+<div class="case">
+<span class="ct">사례 ③ ★말로만 상속인이라 주장한 사람 — 대법원 1992. 5. 22. 선고 92다7955 판결</span>
+대법원은 <b>상속인으로 오인될 만한 외관을 갖추지도 않았고 상속재산을 점유하지도 않은 사람</b>이 스스로 상속인이라는 <b>주장만</b> 한 경우에는 참칭상속인이라 할 수 없다고 판단했습니다. 그렇다면 그를 상대로 한 소송은 상속회복청구가 아니므로 <b>3년·10년의 제한을 받지 않습니다.</b> "오래되어 이제는 늦었다"고 단념하기 전에, <b>상대가 정말 참칭상속인인지</b>부터 따져 보아야 하는 이유입니다.
+</div>
+<div class="case">
+<span class="ct">사례 ④ 동명이인 — 돌아가신 분이 서로 다른 사람이라면 — 대법원 1994. 4. 15. 선고 94다798 판결</span>
+상속회복청구의 소는 <b>원고와 피고가 각각 말하는 '돌아가신 분'이 같은 사람</b>임을 전제로 합니다. 이름만 같을 뿐 서로 <b>다른 사람</b>을 피상속인이라 주장하는 경우라면, 원고의 청구가 상속을 원인으로 한 것이더라도 <b>상속회복청구의 소가 아닙니다.</b> 오래된 시골 땅 사건에서 실제로 자주 문제되며, 이 경우에도 기한 제한을 받지 않습니다.
+</div>
+<div class="warn">
+<span class="wt">★ 3년은 생각보다 빨리 시작됩니다</span>
+'침해를 안 날'은 <b>내가 진정상속인임을 알고, 또 내가 상속에서 빠졌다는 사실까지 안 날</b>입니다(79다2052). 실무에서는 <b>등기부를 떼어 본 날</b>, <b>통지서를 받은 날</b>, <b>가족에게서 들은 날</b>이 그 날로 인정되는 경우가 많습니다. "확실히 알아본 뒤에 하자"며 미루는 사이 3년이 지나가므로, <b>알게 된 그 순간부터 날짜를 세어 두십시오.</b>
+</div>
+<div class="tip"><span class="pt">💡 기한이 지나면 어떻게 되나요</span> 3년·10년이 지나면 <b>내 상속회복청구권이 사라지고, 재산을 차지한 사람의 지위가 그대로 굳어집니다.</b> 그래서 이 기간은 상대에게 가장 강력한 방패이자, 나에게 가장 위험한 절벽입니다. 다만 <b>상대가 참칭상속인이 아닌 경우</b>(사례 ③·④)라면 이 절벽 자체가 없으므로, 포기하기 전에 반드시 확인하십시오.</div>
+
+<h2>⏰ 기한 정리 — 놓치면 안 되는 날짜들</h2>
+<table>
+<tr><th>구분</th><th>① 언제부터 (기산일)</th><th>② 근거 조문</th><th>③ 말일이 휴일이면</th><th>④ 최종 만료일</th></tr>
+<tr><td><b>3년</b> (안 날 기준)</td><td><b>'침해를 안 날'</b>의 다음 날부터 계산(초일 불산입) — 내가 진정상속인임을 알고 <b>또 내가 상속에서 빠졌다는 사실까지 안 날</b>(79다2052)</td><td>민법 §999② 전단 / §157</td><td>토·일·공휴일이면 그 다음 날로 연장(§161)</td><td>안 날 + 3년</td></tr>
+<tr><td><b>10년</b> (침해일 기준)</td><td><b>'침해행위가 있은 날'</b>의 다음 날부터 계산 — 상대가 <b>상속재산을 점유하거나 이전등기를 마친 날</b></td><td>민법 §999② 후단 / §157</td><td>위와 같음(§161)</td><td>침해일 + 10년</td></tr>
+<tr><td><b>상대가 참칭상속인이 아닌 경우</b></td><td>—</td><td>92다7955 · 94다798 · 93다5840</td><td>—</td><td><b>기한 제한 없음</b> (소유권에 기한 청구)</td></tr>
+</table>
+<div class="warn"><span class="wt">⚠ 오직 '소 제기'만이 기한을 지킵니다</span>3년·10년은 <b>법원에 소장을 접수해야만 지켜지는 기간</b>입니다. 내용증명·합의 요청·형사 고소·가족 간 대화로는 멈추지 않습니다. 두 기간 중 <b>먼저 도래하는 날</b>이 실제 마감이므로, 반드시 <b>두 날짜를 모두 계산</b>해 짧은 쪽에 맞추십시오.</div>
+
+<h2>관련 법령 — 쉬운 풀이</h2>
+<div class="lawbox"><span class="ll">민법 §999</span><b>상속회복청구권</b> — 상속권이 참칭상속인 때문에 침해된 때에는 상속인이나 그 법정대리인이 회복을 청구할 수 있고(①), 그 청구권은 <b>침해를 안 날부터 3년, 침해행위가 있은 날부터 10년</b>이 지나면 소멸합니다(②).</div>
+<div class="lawbox"><span class="ll">민법 §1005</span><b>사망과 동시에 그대로 넘어옵니다</b> — 상속인은 상속이 개시된 때부터 피상속인의 재산에 관한 권리·의무를 <b>포괄적으로 승계</b>합니다. 등기를 하지 않아도 내 지분은 이미 내 것이고(§187), 그래서 <b>원인 없는 남의 등기는 무효</b>입니다.</div>
+<div class="lawbox"><span class="ll">민법 §1000·§1003·§1009</span><b>누가, 얼마나 상속하나</b> — ① 자녀·손주 ② 부모·조부모 ③ 형제자매 ④ 4촌 이내 방계혈족 순서이고, 배우자는 ①·②와 공동으로, 그들이 없으면 단독으로 상속합니다. 같은 순위끼리는 <b>균등</b>하고, <b>배우자는 1.5배</b>입니다.</div>
+<div class="lawbox"><span class="ll">민법 §1004</span><b>상속결격</b> — 피상속인이나 상속인을 해치거나, 유언을 방해·위조·은닉한 사람은 <b>상속인이 되지 못합니다.</b> 결격자가 상속받아 갔다면 그는 참칭상속인이므로 이 카드의 청구 대상입니다.</div>
+<div class="lawbox"><span class="ll">민사소송법 §22</span><b>돌아가신 분의 주소지 법원에도 낼 수 있습니다</b> — 상속에 관한 소는 <b>피상속인의 보통재판적이 있는 곳(마지막 주소지)</b>의 법원에 제기할 수 있습니다. 피고 주소지(§2·§3)나 부동산 소재지(§20)와 함께 편한 곳을 고르면 됩니다.</div>
+<div class="lawbox"><span class="ll">부동산등기법 §23④</span><b>판결을 받으면 혼자 등기할 수 있습니다</b> — 판결에 따른 등기는 <b>승소한 등기권리자가 단독으로</b> 신청합니다. 상대가 협조하지 않아도 됩니다.</div>
+
+<h2>내 상황에 맞는 서류 고르기</h2>
+<table>
+<tr><th>나의 상황</th><th>내야 할 서류 · 어디에</th><th>작성례</th></tr>
+<tr><td>내 상속분을 차지한 사람에게서 <b>부동산 지분을 되찾겠다</b></td><td><b>상속회복청구의 소장</b> — 지방법원(민사)</td><td>작성례 ①</td></tr>
+<tr><td>소장을 받았고 <b>내 상속·등기가 정당하다</b>고 다투겠다</td><td><b>답변서</b> — 소장을 받은 날부터 30일 안에</td><td>작성례 ②</td></tr>
+<tr><td>피고가 <b>"기간이 지났다"</b>고 항변해 왔다 (원고)</td><td><b>준비서면</b> (안 날의 기산점·참칭상속인 해당 여부)</td><td>작성례 ③</td></tr>
+<tr><td>원고가 <b>재반박</b>해 왔다 (피고)</td><td><b>준비서면</b> (안 날의 객관적 인정·상속의 정당성)</td><td>작성례 ④</td></tr>
+<tr><td>재산이 <b>이미 제3자에게</b> 넘어갔다</td><td>참칭상속인과 제3자를 <b>공동피고</b>로</td><td><a href="7-2_제3자_상속재산_회복.html">상속 7-2 카드</a></td></tr>
+<tr><td><b>협의분할서가 위조</b>되었다 / 내 동의 없이 등기됐다</td><td>분할협의 무효를 원인으로 한 말소청구</td><td><a href="7-3_위조_협의분할_상속등기.html">상속 7-3 카드</a></td></tr>
+<tr><td>상속인 자격에는 다툼이 없고 <b>나누는 방법</b>만 안 정해졌다</td><td><b>상속재산분할심판청구서</b> — <b>가정법원</b></td><td>상속 1-1 카드 준비 중</td></tr>
+</table>
+
+<h2>신청서 작성례 — 빈칸(○○○)만 채우면 됩니다</h2>
+<p style="font-size:13.5px;color:var(--muted)">아래 작성례의 빈칸(○○○)을 본인 상황에 맞게 채우면 그대로 제출할 수 있습니다. 제목은 가운데 정렬된 법원 제출 양식입니다(대법원·대한법률구조공단 공개 서식 기준). <b>복사·인쇄·다운로드</b> 버튼을 활용하십시오.</p>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ① · 원고(빼앗긴 상속인)</span>상속회복청구의 소장 — 내 지분 말소·회복<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f1"><span class="ft">소 　 장</span>원　　고　　○○○　　(☎: ○○○-○○○○-○○○○)
+　　　　　　주민등록번호　○○○○○○-○○○○○○○
+　　　　　　주소　○○○
+　　　　　　송달장소　○○○ (주소와 같으면 생략 가능)
+
+피　　고　　○○○　(상속재산을 차지한 사람)
+　　　　　　주소　○○○
+
+　　　　　상속회복청구의 소
+
+　　　　　청 구 취 지
+
+　1. 피고는 원고에게 별지 목록 기재 부동산 중 ○분의 ○ 지분에
+　　 관하여, ○○지방법원 ○○등기소 20○○. ○○. ○○. 접수
+　　 제○○○호로 마친 소유권이전(상속)등기 중 위 지분에
+　　 해당하는 부분의 말소등기절차를 이행하라.
+　2. 소송비용은 피고가 부담한다.
+　　 라는 판결을 구합니다.
+
+　　　　　청 구 원 인
+
+　1. 상속의 개시와 상속인
+　　 망 ○○○(20○○. ○○. ○○. 사망, 이하 '망인'이라 합니다)의
+　　 상속인은 원고와 피고 등 ○○명이고, 원고의 법정상속분은
+　　 ○분의 ○입니다(갑 제1, 2호증).
+
+　2. 원고의 권리
+　　 상속인은 상속개시된 때부터 피상속인의 재산에 관한 권리를
+　　 포괄적으로 승계하므로(민법 제1005조), 원고는 등기 여부와
+　　 관계없이 별지 목록 기재 부동산 중 ○분의 ○ 지분을 이미
+　　 취득하였습니다.
+
+　3. 피고의 상속권 침해
+　　 그럼에도 피고는 20○○. ○○. ○○. 위 부동산 전부에 관하여
+　　 상속을 원인으로 자기 단독 명의의 소유권이전등기를
+　　 마쳤습니다(갑 제3호증). 피고는 원고의 상속분을 넘어
+　　 상속재산을 차지한 자로서 참칭상속인에 해당하고, 원고의
+　　 지분에 관한 부분은 원인 없는 등기로서 무효입니다.
+
+　4. 제척기간의 준수
+　　 원고는 20○○. ○○. ○○. ○○○(예: 등기사항증명서를
+　　 열람하고) 비로소 원고가 상속에서 배제된 사실을 알았고
+　　 (갑 제4호증), 피고의 등기일부터 10년도 지나지
+　　 아니하였으므로 이 사건 소는 민법 제999조 제2항의 기간을
+　　 준수하였습니다.
+
+　5. 결론
+　　 이에 청구취지와 같은 판결을 구합니다.
+
+　　　　　입 증 방 법
+
+　1. 갑 제1호증　　망인의 기본증명서(상세)·가족관계증명서(상세)
+　2. 갑 제2호증　　제적등본
+　3. 갑 제3호증　　부동산 등기사항전부증명서(말소사항 포함)
+　4. 갑 제4호증　　침해를 알게 된 경위 자료
+
+　　　　　첨 부 서 류
+
+　1. 위 입증방법　　　　　　　각 1통
+　2. 별지 부동산목록　　　　　 1통
+　3. 소장 부본　　　　　　　　 1통(피고 수)
+　4. 인지·송달료 납부서　　　 각 1통
+
+　　　　　　20○○. ○○. ○○.
+　　　　　　　　위 원고 ○○○ (인 또는 서명)
+
+○○지방법원　　귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1')">📋 복사</button><button type="button" onclick="printForm('f1')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1','상속회복청구_소장_기본.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>세 곳만 정확히 쓰면 됩니다.</b> ① <b>청구취지의 지분</b> — 상속인이 자녀 3명이면 3분의 1, 배우자와 자녀 2명이면 배우자 7분의 3·자녀 각 7분의 2입니다. ② <b>등기 접수일자·접수번호</b> — 등기사항증명서에 그대로 적혀 있으니 옮겨 적으십시오. ③ <b>청구원인 4번의 두 날짜</b> — 기한은 법원이 스스로 살피므로 먼저 밝혀 두는 편이 유리합니다.<br><br><b>부동산이 아닌 경우에는 청구취지를 이렇게 바꿉니다.</b> 예금이 인출되었다면 <b>"피고는 원고에게 ○○○원과 이에 대하여 이 사건 소장 부본 송달 다음 날부터 다 갚는 날까지 연 12%의 비율로 계산한 돈을 지급하라"</b>로, 등기가 여러 번 넘어갔다면 <b>"○분의 ○ 지분에 관하여 진정명의회복을 원인으로 한 소유권이전등기절차를 이행하라"</b>로 씁니다. 재산이 이미 <b>제3자</b>에게 넘어갔다면 그 사람도 함께 피고로 걸어야 하니 <a href="7-2_제3자_상속재산_회복.html">상속 7-2 카드</a>를 보십시오.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ② · 피고(지목된 사람)</span>답변서 — 제척기간 도과·정당한 상속<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f2"><span class="ft">답 　 변 　 서</span>사　　건　　20○○가단(가합)○○○○　상속회복청구
+원　　고　　○○○
+피　　고　　○○○　(☎: ○○○-○○○○-○○○○)
+　　　　　　주소　○○○
+
+　　　　　청구취지에 대한 답변
+
+　1. 원고의 청구를 각하한다(예비적으로, 기각한다).
+　2. 소송비용은 원고가 부담한다.
+　　 라는 판결을 구합니다.
+
+　　　　　청구원인에 대한 답변
+
+　1. 인정하는 사실
+　　 망 ○○○이 20○○. ○○. ○○. 사망한 사실과, 피고가
+　　 20○○. ○○. ○○. 이 사건 부동산에 관하여 소유권이전등기를
+　　 마친 사실은 인정합니다.
+
+　2. 본안 전 항변 — 제척기간 도과
+　　 이 사건 소는 상속회복청구의 소입니다. 피고의 등기일은
+　　 20○○. ○○. ○○.이고, 원고는 늦어도 20○○. ○○. ○○.경
+　　 이를 알고 있었습니다(을 제○호증). 따라서 이 사건 소는
+　　 침해를 안 날부터 3년(또는 침해일부터 10년)이 지나
+　　 제기되어 민법 제999조 제2항의 제척기간이 도과되었으므로
+　　 부적법합니다.
+
+　3. 본안에 관한 답변 — 피고의 등기는 정당합니다
+　　 피고의 등기는 ○○○(예: 공동상속인 전원의 분할협의 /
+　　 피상속인의 유증 / 원고의 상속포기)에 따른 것으로서
+　　 정당한 원인에 기한 것입니다(을 제○호증).
+
+　4. 원고 주장의 부당성
+　　 원고가 주장하는 ○○○ 부분은 사실과 다릅니다. ○○○
+　　 (구체적 반박).
+
+　5. 결론
+　　 따라서 이 사건 소는 각하되어야 하고, 나아가 이유도 없습니다.
+
+　　　　　입 증 방 법
+
+　1. 을 제1호증　　부동산 등기사항전부증명서(등기일)
+　2. 을 제2호증　　등기의 원인이 된 서류(분할협의서·유언장 등)
+　3. 을 제3호증　　원고가 침해를 알고 있었음을 보여주는 자료
+
+　　　　　　20○○. ○○. ○○.
+　　　　　　　　위 피고 ○○○ (인 또는 서명)
+
+○○지방법원　　귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f2')">📋 복사</button><button type="button" onclick="printForm('f2')">🖨 인쇄</button><button type="button" onclick="downloadForm('f2','상속회복_답변서_기본.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>답변서는 소장을 받은 날부터 30일 안에</b> 내야 하고(민사소송법 §256), 내지 않으면 원고 주장을 인정한 것으로 보아 그대로 판결이 날 수 있습니다. 방어의 순서는 <b>2번(제척기간) → 3번(등기의 정당성)</b>입니다. 제척기간은 <b>법원이 직권으로 살피는 사항</b>이라 가장 효율적인 방어이며, 이 한 가지로 사건이 끝나는 경우가 많습니다. 다만 <b>기간을 다투려면 원고가 언제 알았는지</b>를 보여줄 자료가 필요하니, 등기 열람 기록·가족 대화·이전에 오간 내용증명 등을 미리 모아 두십시오. 3번에서는 <b>내 등기의 뿌리가 되는 서류</b>(분할협의서·유언장·상속포기 수리심판 등)를 반드시 첨부하십시오.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ③ · 원고 준비서면</span>준비서면 — 기간 항변에 대한 재반박<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f3"><span class="ft">준 비 서 면</span>사　　건　　20○○가단(가합)○○○○　상속회복청구
+원　　고　　○○○
+피　　고　　○○○
+
+　위 사건에 관하여 원고는 다음과 같이 변론을 준비합니다.
+
+　　　　　다 　 음
+
+　1. 피고 주장의 요지
+　　 피고는 이 사건 소가 제척기간을 도과하였고, 피고의 등기가
+　　 정당하다고 주장합니다.
+
+　2. '침해를 안 날'에 관하여
+　　 민법 제999조 제2항의 '침해를 안 날'이란 단순히 상속개시
+　　 사실을 안 날이 아니라, 자신이 진정상속인임을 알고 또한
+　　 자신이 상속에서 제외된 사실을 안 때를 말합니다(대법원
+　　 1981. 2. 10. 선고 79다2052 판결). 원고는 20○○. ○○. ○○.
+　　 ○○○(예: 다른 절차를 진행하며 등기부를 열람하고) 비로소
+　　 이를 알았고(갑 제○호증), 이 사건 소는 그로부터 3년 내에
+　　 제기되었습니다.
+
+　3. 10년의 기산점에 관하여
+　　 피고의 침해행위일은 등기를 마친 20○○. ○○. ○○.이고,
+　　 이 사건 소는 그로부터 10년이 지나기 전에 제기되었습니다.
+
+　4. 피고 등기의 원인에 관하여
+　　 피고가 제출한 ○○○(분할협의서 등)에는 공동상속인인
+　　 원고가 참여하거나 동의한 바 없으므로, 이에 기한 피고의
+　　 등기는 원고의 지분 범위에서 원인무효입니다.
+
+　5. (필요한 경우) 이 사건 소가 상속회복청구가 아닌 점
+　　 설령 제척기간이 문제된다 하더라도, 피고는 상속인으로
+　　 오인될 외관을 갖추지 아니하였고 상속재산을 점유하지도
+　　 아니한 자이므로 참칭상속인이라 할 수 없습니다(대법원
+　　 1992. 5. 22. 선고 92다7955 판결). 따라서 이 사건 청구는
+　　 소유권에 기한 방해배제청구로서 제척기간의 적용을 받지
+　　 아니합니다.
+
+　6. 결론
+　　 피고의 주장은 모두 이유 없으므로, 청구취지와 같은 판결을
+　　 구합니다.
+
+　　　　　　20○○. ○○. ○○.
+　　　　　　　　위 원고 ○○○ (인 또는 서명)
+
+○○지방법원　　귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f3')">📋 복사</button><button type="button" onclick="printForm('f3')">🖨 인쇄</button><button type="button" onclick="downloadForm('f3','상속회복_준비서면_원고.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>준비서면은 답변서 다음에 내는 두 번째 서면입니다.</b> 2번은 <b>'안 날'을 늦게 잡는 정공법</b>이므로, 언제 어떤 계기로 알게 되었는지를 <b>날짜와 자료</b>로 특정할수록 힘이 실립니다. <b>5번은 예비적 주장</b>으로, 기간이 지난 것처럼 보이는 사건에서 마지막까지 붙들어야 할 카드입니다 — 상대가 상속인 행세를 한 적이 없거나 상속과 무관한 원인으로 등기했다면 애초에 상속회복청구가 아니어서 <b>제척기간 자체가 적용되지 않습니다.</b> 다만 이 주장은 사실관계에 따라 성패가 갈리므로, 쓰기 전에 등기원인과 상대의 지위를 정확히 확인하십시오.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ④ · 피고 준비서면</span>준비서면 — 원고 재반박에 대한 반박<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f4"><span class="ft">준 비 서 면</span>사　　건　　20○○가단(가합)○○○○　상속회복청구
+원　　고　　○○○
+피　　고　　○○○
+
+　위 사건에 관하여 피고는 다음과 같이 변론을 준비합니다.
+
+　　　　　다 　 음
+
+　1. 원고 주장의 요지
+　　 원고는 20○○. ○○. ○○. 비로소 침해 사실을 알았다고
+　　 주장합니다.
+
+　2. 원고는 훨씬 이전에 이를 알고 있었습니다
+　　 원고는 20○○. ○○. ○○. 이 사건 부동산의 등기사항증명서를
+　　 열람하였고(을 제○호증), 같은 무렵 상속인들 사이에 상속
+　　 재산에 관한 논의가 있었습니다(을 제○호증). '침해를 안
+　　 날'은 원고의 진술이 아니라 객관적 자료로 인정되는 시점을
+　　 기준으로 판단하여야 합니다.
+
+　3. 원고는 오랫동안 아무런 이의를 제기하지 않았습니다
+　　 피고가 20○○년 이 사건 부동산에 관하여 등기를 마친 이후
+　　 ○○년 동안 원고는 재산세 부과·임대 등 피고의 소유권 행사에
+　　 대하여 아무런 이의를 제기하지 아니하였습니다(을 제○호증).
+
+　4. 피고 등기의 정당성
+　　 피고의 등기는 ○○○에 기한 것으로 정당하며, 원고가
+　　 주장하는 사정만으로 이를 원인무효라 할 수 없습니다.
+
+　5. 결론
+　　 이 사건 소는 제척기간 도과로 부적법하고, 나아가 이유도
+　　 없으므로 각하 또는 기각되어야 합니다.
+
+　　　　　　20○○. ○○. ○○.
+　　　　　　　　위 피고 ○○○ (인 또는 서명)
+
+○○지방법원　　귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f4')">📋 복사</button><button type="button" onclick="printForm('f4')">🖨 인쇄</button><button type="button" onclick="downloadForm('f4','상속회복_준비서면_피고.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>피고의 두 번째 서면입니다.</b> 승부처는 <b>2번</b> — 원고의 "최근에 알았다"를 <b>객관적 자료</b>로 깨뜨리는 것입니다(등기 열람 기록, 가족 대화방, 세금 고지서 수령 내역, 이전에 오간 내용증명, 다른 사건 기록 등). <b>3번</b>은 법률요건 자체는 아니지만, <b>오랜 기간 이의가 없었다</b>는 사정은 원고가 일찍부터 알고 있었음을 뒷받침하는 정황으로 작용합니다. 재산세를 누가 냈는지, 임대료를 누가 받았는지, 그동안 가족 사이에 어떤 이야기가 오갔는지를 시간 순서로 정리해 두면 설득력이 커집니다.</div>
+</div></div>
+
+<h2>준비할 서류와 발급처</h2>
+<p style="font-size:13.5px;color:var(--muted)">아래 '바로가기'를 클릭하면 발급·조회 화면으로 이동합니다. 만약 첫 화면으로 연결되면, 옆의 <b>찾아가기 경로</b>를 따라 메뉴를 클릭하면 됩니다.</p>
+<table>
+<tr><th>무엇을 증명</th><th>서류</th><th>어디서 · 찾아가기 경로</th></tr>
+<tr><td>내가 상속인임 · 상속인이 몇 명인지</td><td>망인·본인의 기본증명서(<b>상세</b>)·가족관계증명서(<b>상세</b>)</td><td><a href="https://efamily.scourt.go.kr" target="_blank">전자가족관계등록시스템 (efamily.scourt.go.kr)</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 증명서 발급 → 종류 선택 → <b>'상세'</b> 선택 ('일반'은 과거 기록이 빠집니다)</span></td></tr>
+<tr><td>과거 상속관계(호적)</td><td>제적등본</td><td><a href="https://www.gov.kr" target="_blank">정부24 (gov.kr)</a> 또는 주민센터<br><span style="font-size:12.5px;color:var(--muted)">경로: 검색창에 '제적등본' 검색 → 발급</span></td></tr>
+<tr><td>침해일·현재 명의</td><td>부동산 등기사항전부증명서(<b>말소사항 포함</b>)</td><td><a href="http://www.iros.go.kr" target="_blank">인터넷등기소 (iros.go.kr)</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 등기열람/발급 → 부동산 → 열람 → <b>'말소사항 포함'</b> 선택</span></td></tr>
+<tr><td>상대 등기의 원인</td><td>등기신청서류(분할협의서·인감증명서 등) 열람</td><td>관할 등기소 방문 신청<br><span style="font-size:12.5px;color:var(--muted)">이해관계 소명이 필요합니다. 거절되면 소송 중 <b>문서송부촉탁</b>으로 확보하십시오.</span></td></tr>
+<tr><td>망인의 재산 전체</td><td>안심상속 원스톱서비스 조회 결과</td><td><a href="https://www.gov.kr" target="_blank">정부24 (gov.kr)</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 검색창에 '안심상속' 검색 → 신청 (예금·보험·대출·자동차·세금 일괄 조회)</span></td></tr>
+<tr><td>침해를 안 시점</td><td>등기 열람 내역·통지서·문자 등 경위 자료</td><td>보관 자료 (봉투·수신일자까지 함께 보관)</td></tr>
+<tr><td>소장 제출 (전자 접수)</td><td>—</td><td><a href="https://ecfs.scourt.go.kr" target="_blank">대법원 전자소송 (ecfs.scourt.go.kr)</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 서류제출 → 민사 서류 → 소장 → 당사자·청구취지 입력 → 인지·송달료 결제</span></td></tr>
+</table>
+<div class="tip"><span class="pt">💡 증명서는 반드시 '상세'로, 제적등본까지</span> 상속인이 몇 명인지가 <b>내 지분의 분모</b>를 정합니다. '일반' 증명서에는 사망하거나 혼인으로 빠져나간 가족이 표시되지 않아 상속인을 빠뜨리기 쉽고, <b>2008년 이전</b>의 관계는 <b>제적등본</b>에만 남아 있습니다. 오래된 사건일수록 제적등본을 먼저 확보하십시오.</div>
+
+<div class="cost">
+<span class="ct">💰 비용 — 되찾으려는 지분의 값어치로 정해집니다</span>
+<b>① 인지대</b>: <span class="term">소가<span class="bub">소송으로 다투는 값어치. 여기서는 되찾으려는 내 지분의 가액입니다.</span></span>가 1,000만원 미만이면 소가×0.005 / 1,000만원~1억원 미만은 소가×0.0045+5,000원 / 1억원~10억원 미만은 소가×0.004+55,000원 / 10억원 이상은 소가×0.0035+555,000원입니다(민사소송 등 인지법 §2). <b>전자소송으로 내면 10% 할인</b>됩니다.<br>
+<b>② 송달료</b>: <b>당사자 수 × 회당 송달료 × 정해진 회수</b>로 미리 냅니다. 남으면 돌려받습니다.<br>
+<b>③ 감정료</b>: 부동산 시가나 서류의 진위가 다투어지면 별도로 예납합니다.<br>
+<b>④ 등기 비용</b>: 이긴 뒤 말소·이전등기를 할 때 등록면허세·수수료가 듭니다.
+<div style="margin-top:11px; padding-top:10px; border-top:1px dashed #cfe6d6; color:#c0392b; font-weight:600; line-height:1.8;">※ 사건 정보를 입력하면 인지대·송달료를 포함한 예상 금액을 <a href="https://sanlaw.co.kr/tools-calculator.html" style="color:#c0392b; text-decoration:underline; font-weight:700;">🧮 수수료 계산기</a>에서 미리 확인할 수 있습니다.</div>
+</div>
+
+<h2>본 사무소가 도와드리는 일</h2>
+<div class="hire">
+<p>본 사무소에서는 의뢰인들의 고충은 덜어드리고, 함께 절차를 진행하여 원하는 결과에 도달할 수 있도록 성심을 다하겠습니다.</p>
+<p style="margin-top:12px"><b>· 되찾으려는 분(원고)의 경우</b><br>① 제적등본까지 거슬러 올라가는 <b>상속인·상속분 확정</b>, ② <b>참칭상속인 해당 여부 판정</b>과 그에 따른 기한 적용 여부 검토(여기서 결과가 갈립니다), ③ 말소·진정명의회복·금전청구 중 <b>유리한 청구취지 설계</b>, ④ <b>소장과 준비서면</b> 작성, ⑤ 처분금지가처분 신청서 작성, ⑥ 승소 후 <b>등기 신청</b>까지 함께합니다.</p>
+<p style="margin-top:10px"><b>· 소장을 받은 분(피고)의 경우</b><br>① <b>제척기간 도과 여부</b> 정밀 계산과 본안 전 항변 구성, ② <b>답변서·준비서면</b> 작성, ③ 등기의 원인이 된 서류 정리와 <b>정당성 입증 전략</b>, ④ 원고가 언제 알았는지를 다투기 위한 <b>객관적 자료 확보</b>까지 함께 준비해 드립니다.</p>
+</div>
+<div class="warn"><span class="wt">⚠ 스스로 되찾으려 하시면 안 됩니다</span>내 몫이라는 확신이 있더라도 <b>법원의 판결 없이</b> 부동산에 들어가 점유를 빼앗거나, 상대의 서류·물건을 임의로 가져오거나, 예금을 마음대로 인출하는 행위는 <b>불법</b>이며 오히려 형사 문제가 됩니다. 억울할수록 <b>절차 안에서</b> 다투어야 이깁니다.</div>
+
+<a href="https://sanlaw.co.kr/tools-calculator.html" class="cta">🧮 내 사건 비용 미리 계산하기</a>
+<div style="text-align:center; background:#f6ecd8; border:1px solid var(--gold); border-radius:11px; padding:14px; margin:18px 0; font-size:15px; color:var(--gold-d); font-weight:700;">📞 상담은 홈 화면의 상담 창구를 이용하시면 됩니다.</div>
+
+<div class="tip"><span class="pt">💡 이어지는 카드</span> 재산이 <b>이미 제3자에게 넘어간</b> 경우는 <a href="7-2_제3자_상속재산_회복.html" style="color:var(--tip-ink);font-weight:700">상속 7-2 카드</a>, <b>협의분할서가 위조</b>되었거나 내 동의 없이 상속등기가 된 경우는 <a href="7-3_위조_협의분할_상속등기.html" style="color:var(--tip-ink);font-weight:700">상속 7-3 카드</a>를 보십시오. 상속인 자격에는 다툼이 없고 <b>나누는 방법</b>만 문제라면 <a href="index.html#practice" style="color:var(--tip-ink);font-weight:700">업무 분야 → 상속 → 상속재산분할</a>에서 확인하실 수 있습니다.</div>
+
+<div class="src">
+근거 — 민법 제187조(등기를 요하지 아니하는 부동산물권취득)·제999조(상속회복청구권)·제1000조(상속의 순위)·제1003조(배우자의 상속순위)·제1004조(상속인의 결격사유)·제1005조(상속과 포괄적 권리의무의 승계)·제1009조(법정상속분)·제157조(기간의 기산점)·제161조(공휴일 등과 기간의 만료점) · 민사소송법 제22조(상속·유증 등의 특별재판적)·제20조(부동산이 있는 곳의 특별재판적)·제256조(답변서의 제출의무) · 부동산등기법 제23조 제4항(판결에 의한 등기) · 민사소송 등 인지법 제2조·제8조의2 · 대법원 1981. 2. 10. 선고 79다2052 판결('침해를 안 날'의 의미) · 대법원 1991. 2. 22. 선고 90다카19470 판결(참칭상속인의 의미 및 공동상속인이 상대방이 되는 경우) · 대법원 1991. 12. 24. 선고 90다5740 전원합의체 판결(청구원인 여하에 불구하고 상속회복청구의 소) · 대법원 1992. 5. 22. 선고 92다7955 판결(외관도 점유도 없이 주장만 한 자는 참칭상속인이 아님) · 대법원 1994. 4. 15. 선고 94다798 판결(피상속인이 동일인임을 전제로 함) · 대법원 1995. 4. 14. 선고 93다5840 판결(상속과 무관한 원인으로 등기한 자는 참칭상속인이 아니라고 보아 원심 파기) · 대법원 1997. 1. 21. 선고 96다4688 판결(공동상속인 1인 명의 상속등기와 참칭상속인) · 대한법률구조공단(klac.or.kr) 상담사례·서식 · 법제처 찾기쉬운 생활법령정보(easylaw.go.kr) · 국가법령정보센터(law.go.kr) · 대법원 전자민원센터 양식. 본 자료는 일반적인 법률정보로, 개별 사건의 법률자문이 아니며 개별 사건의 결과를 보장하지 않습니다.
+</div>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+})();
+function toggleFold(b){var fb=b.parentElement;var body=b.nextElementSibling;var open=fb.classList.toggle('open');if(body){body.style.display=open?'block':'none';}}
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('작성례가 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('작성례가 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['﻿'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('작성례를 내려받았습니다');}
+</script>
+
+</body>
+</html>
