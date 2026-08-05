@@ -405,10 +405,27 @@
   <!-- ===== 매매 (풀기능) ===== -->
   <div class="scene" id="scene-매매">
     <button class="back" onclick="goMenu()">‹ 메인메뉴</button>
-    <h2 class="stitle">매매 — 소유권이전 <small>보수표 Ⅰ-1 · 등기수수료 일반</small></h2>
+    <h2 class="stitle">매매 — 소유권이전 <small>보수표 Ⅰ-1 · 등기수수료 일반 · <b>신규 분양·분양권 전매 포함</b></small></h2>
 
     <div class="card blue"><h2>① 매매 정보</h2><div class="body">
-      <div class="line"><span class="lbl">매매금액(원)</span><input type="number" class="amt" id="price" placeholder="0" oninput="calcSale()"></div>
+      <div class="line"><span class="lbl">매매금액(원)</span><input type="number" class="amt" id="price" placeholder="0" oninput="calcSale()"><span class="hint" id="ps_priceHint"></span></div>
+      <div class="line" style="border-top:1px dashed var(--line);"><span class="lbl">분양으로 취득</span><div class="checks" onchange="togglePresale()">
+        <label><input type="checkbox" id="ps_on"> 신규 분양 아파트 · 분양권 전매로 취득</label></div>
+        <span class="hint">체크하면 <b>과세표준 합산 도우미</b>가 열립니다</span></div>
+      <div id="ps_box" style="display:none;background:#fdf6e8;border-radius:8px;padding:10px 12px;margin:6px 0 10px;">
+        <div class="note" style="border-left:3px solid var(--seal);margin-top:0;">▸ <b>분양은 시행사에게서 넘겨받는 유상승계취득</b>이므로 세율 구조는 매매와 같습니다. 다만 <b>과세표준에 분양대금만 넣으면 실제보다 적게 나옵니다.</b> 아래 항목을 더한 <b>합계</b>가 과세표준입니다. <span class="tag A">A</span><br>
+        · <b>발코니 확장비</b> — 취득시기 <b>이전</b>에 확장이 완료되어 집과 하나가 된 경우 포함. 분양 세대는 사실상 언제나 해당합니다.<br>
+        · <b>유상 옵션</b> — 세대와 하나가 되어 건축물의 효용가치를 이루는 <b>붙박이 설비</b>(시스템에어컨·빌트인 가전·중문·안전방충망 등)는 포함. <b>이동식 가전·가구 등 독립한 동산은 제외</b>합니다. (대법원 2018. 4. 26. 선고 2018두31535 판결 취지)<br>
+        · <b>프리미엄</b> — <b>분양권을 사서 취득한 경우</b>에만 해당합니다. 청약 당첨자는 0.<br>
+        · <b>취득시기</b> — <b>잔금지급일과 사용승인일 중 늦은 날</b>. 사용승인 전 잔금을 완납했다면 사용승인일이 기준이며, 그날부터 <b>60일</b> 내 신고·납부합니다(지방세법 시행령 §20②·법 §20①).</div>
+        <div class="line"><span class="lbl">분양대금(원)</span><input type="number" class="amt" id="ps_base" placeholder="0" oninput="calcPresale()"><span class="hint">계약금+중도금+잔금</span></div>
+        <div class="line"><span class="lbl">발코니 확장비(원)</span><input type="number" class="amt" id="ps_balcony" placeholder="0" oninput="calcPresale()"></div>
+        <div class="line"><span class="lbl">유상 옵션(원)</span><input type="number" class="amt" id="ps_option" placeholder="0" oninput="calcPresale()"><span class="hint">붙박이 설비만. 이동식 가전·가구 제외</span></div>
+        <div class="line"><span class="lbl">프리미엄(원)</span><input type="number" class="amt" id="ps_premium" placeholder="0" oninput="calcPresale()"><span class="hint">분양권 전매로 취득한 경우</span></div>
+        <div class="line" style="border:none;"><span class="lbl">합계(과세표준)</span><span id="ps_sum" style="font-weight:800;color:var(--gold-d);font-size:15px;">0 원</span><span class="hint">위 <b>매매금액</b> 칸에 자동 반영됩니다</span></div>
+        <div class="note" style="border-left:3px solid var(--seal);">▸ <b>분양권 자체는 등기 대상이 아닙니다.</b> 분양권은 채권적 권리여서 등기부에 오르지 않고, 시행사의 <b>소유권보존등기</b>가 끝난 뒤 수분양자 앞으로 <b>소유권이전등기</b>를 합니다. 이 화면은 그 <b>이전등기</b>의 비용을 계산합니다.<br>
+        ▸ <b>재개발·재건축 조합원 입주권</b>은 취득 구조가 달라 이 도우미로 계산하지 마십시오. 특히 <b>승계조합원이 지급한 프리미엄</b>의 과세표준 포함 여부는 실무가 엇갈립니다 — 관할 시·군·구청 세무과에 확인하십시오. <span class="tag chk">확인필요</span></div>
+      </div>
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('cntEstate',-1,calcSale)">−</button><input type="number" id="cntEstate" value="1" min="1" oninput="calcSale()"><button onclick="step('cntEstate',1,calcSale)">+</button></div><span class="hint">등기수수료·우편 개수 곱</span></div>
       <div class="line"><span class="lbl">등기권리자(인)</span><div class="stepper"><button onclick="step('cntOwner',-1,calcSale)">−</button><input type="number" id="cntOwner" value="1" min="1" oninput="calcSale()"><button onclick="step('cntOwner',1,calcSale)">+</button></div><span class="hint">확인서면 가산(권리증 분실)</span></div>
       <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcSale()">
@@ -1079,6 +1096,132 @@
       <div class="docs" id="pt_docsBox"></div>
     </div></div>
   </div>
+
+  <!-- ===== 경매·공매 낙찰 촉탁등기 (신설) ===== -->
+  <div class="scene" id="scene-경매낙찰촉탁">
+    <button class="back" onclick="goMenu()">‹ 메인메뉴</button>
+    <h2 class="stitle">경매·공매 낙찰 — 촉탁등기 <small>보수표 Ⅰ-1 + Ⅰ-3(4) · 민사집행법 §144 · 국세징수법</small></h2>
+
+    <div class="card blue"><h2>① 낙찰 정보</h2><div class="body">
+      <div class="note" style="border-left:3px solid var(--seal);">▸ <b>등기는 법원(공매는 세무서장 등)이 촉탁</b>하지만, <b>비용은 매수인이 부담</b>합니다(민사집행법 <b>§144③</b>). 매수인이 서류와 비용을 갖추어 <b>경매계에 촉탁신청</b>을 해야 등기가 진행됩니다. <span class="tag A">A</span><br>· <b>과세표준은 낙찰가(매각대금)</b>입니다. 감정가나 시가표준액이 아닙니다.<br>· <b>매도인(전 소유자) 서류는 필요 없습니다.</b> 그래서 등기원인증서 작성료·검인은 발생하지 않습니다.<br>· <b>말소할 권리 건수만큼</b> 등록면허세·수수료·보수가 따로 붙습니다 — 이것이 매매와 가장 다른 점입니다.</div>
+      <div class="line"><span class="lbl">절차 구분</span><div class="radios" onchange="calcNakchal()">
+        <label><input type="radio" name="nk_kind" value="court" checked> 법원 경매 (민사집행법)</label>
+        <label><input type="radio" name="nk_kind" value="onbid"> 공매 — 온비드 (국세징수법)</label></div>
+        <span class="hint" id="nk_kindNote"></span></div>
+      <div class="line"><span class="lbl">낙찰가(매각대금)</span><input type="number" class="amt" id="nk_price" placeholder="0" oninput="calcNakchal()"><span class="hint">실제로 납부한 <b>매각대금</b>이 과세표준입니다</span></div>
+      <div class="line" style="background:#fdf6e8;border-radius:6px;padding:8px;"><span class="lbl">★ 말소할 권리<br>건수</span><div class="stepper"><button onclick="step('nk_cntCancel',-1,calcNakchal)">−</button><input type="number" id="nk_cntCancel" value="1" min="1" oninput="calcNakchal()"><button onclick="step('nk_cntCancel',1,calcNakchal)">+</button></div><span class="hint">등기사항증명서 <b>을구</b>에서 지워질 항목(근저당·전세권·가압류·가처분 등) <b>+ 갑구의 경매개시결정등기 1건</b>을 더한 수. 건당 등록면허세 6,000원·수수료·보수가 붙습니다</span></div>
+      <div class="line" id="nk_cancelNote" style="border-top:1px dashed var(--line);padding-top:8px;"><span class="hint" style="line-height:1.55;">▸ <b>인수되는 권리는 말소되지 않습니다.</b> 말소기준권리보다 앞선 전세권·지상권·가등기, 대항력 있는 임차권은 그대로 남으므로 건수에서 <b>빼십시오</b>. 매각물건명세서로 확인하시기 바랍니다.</span></div>
+      <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('nk_cntEstate',-1,calcNakchal)">−</button><input type="number" id="nk_cntEstate" value="1" min="1" oninput="calcNakchal()"><button onclick="step('nk_cntEstate',1,calcNakchal)">+</button></div></div>
+      <div class="line"><span class="lbl">등기권리자</span><div class="stepper"><button onclick="step('nk_cntOwner',-1,calcNakchal)">−</button><input type="number" id="nk_cntOwner" value="1" min="1" oninput="calcNakchal()"><button onclick="step('nk_cntOwner',1,calcNakchal)">+</button></div></div>
+      <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcNakchal()">
+        <label><input type="radio" name="nk_ptype" value="house" checked> 주택</label>
+        <label><input type="radio" name="nk_ptype" value="etc"> 주택외</label>
+        <label><input type="radio" name="nk_ptype" value="farm"> 농지</label></div></div>
+      <div class="line" id="nk_houseNline"><span class="lbl">세대 주택 수</span><div class="radios" onchange="calcNakchal()">
+        <label><input type="radio" name="nk_hn" value="1" checked> 1주택</label>
+        <label><input type="radio" name="nk_hn" value="2"> 2주택</label>
+        <label><input type="radio" name="nk_hn" value="3"> 3주택</label>
+        <label><input type="radio" name="nk_hn" value="4"> 4주택↑</label></div>
+        <span class="hint">§13의2 중과 — 경매로 취득해도 중과가 적용됩니다</span></div>
+      <div class="line"><span class="lbl">중과 관련</span><div class="checks" onchange="calcNakchal()">
+        <label><input type="checkbox" id="nk_adjusted"> 조정대상지역</label>
+        <label><input type="checkbox" id="nk_corp"> 법인이 취득</label></div></div>
+      <div class="line"><span class="lbl">농어촌특별세</span><div class="checks" onchange="calcNakchal()">
+        <label><input type="checkbox" id="nk_over85"> 전용 85㎡ 초과(농특세 과세)</label></div>
+        <span class="hint">85㎡ 이하 주택은 비과세(농특세법 §4 11호). 주택외는 면적과 무관하게 과세</span></div>
+      <div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="nk_adjust" onchange="calcNakchal()">
+        <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
+        <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
+        <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
+        <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
+        <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
+      <div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="nk_frAdd" onchange="calcNakchal()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§10⑥</b> — 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는</b> 등기 → <b>기본보수의 100%까지</b> 가산</span></div>
+      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="nk_moAdd" onchange="calcNakchal()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
+      <div class="note" style="border-left:3px solid var(--gold);">▸ <b>보수기준 §9⑥</b> <span class="tag A">A</span> — <b>1건의 신청서로 수개의 부동산</b>에 관한 소유권이전 등기를 하는 경우 <b>각 부동산의 과세표준액을 합산</b>하여 기본보수를 산정합니다(위 낙찰가란에 <b>합산액</b>을 입력하십시오).<br>▸ <b>권리분석·상담은 별개 보수</b>입니다 — 낙찰 <b>전</b> 권리분석과 상담은 보수표 <b>Ⅵ-1</b>(메인메뉴의 「부동산경매 상담」), 입찰 대리는 <b>Ⅵ-2</b>(「경매 매수신청대리」)로 각각 산정합니다.</div>
+    </div></div>
+
+    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 직접 입력하셔야 합니다. 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
+      <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에 <b>등기 당일 값</b>을 넣으셔야 정확합니다.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
+      <div class="note" style="border-left:3px solid var(--seal);">▸ 경매·공매 낙찰은 <b>대가를 지급하고 취득</b>하는 것이므로 <b>유상 소유권이전 요율</b>이 적용됩니다. 무상취득 요율이 아닙니다.</div>
+      <div class="line" style="display:none;"><div class="radios"><label><input type="radio" name="nk_bondKind" value="paid" checked> 유상</label></div></div>
+      <div class="line"><span class="lbl">시가표준액(원)</span><input type="number" class="amt" id="nk_bondStd" placeholder="0" oninput="calcBondNakchal()"><span class="hint">부동산마다 개별 산정 <span id="nk_bondPct" class="hint"></span></span></div>
+      <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="nk_region" value="metro" checked onchange="calcBondNakchal()"> 특별시·광역시</label><label><input type="radio" name="nk_region" value="other" onchange="calcBondNakchal()"> 기타지역</label></div></div>
+      <div class="line"><span class="lbl">채권 매입금(원)</span><input type="number" class="amt" id="nk_bondBuy" placeholder="0" oninput="calcNakchal()"><span class="hint">자동 산출(직접 수정 가능)</span></div>
+      <details class="ref"><summary>매입률 참고표 <span class="reftag" style="background:#e7efe6;color:var(--ok);">A</span> <span class="hint">— 계산기에 내장된 실제 요율</span></summary><div class="refbody"><div class="bondRefMount"></div><p style="margin:8px 0 0;font-size:11.5px;color:#8a8270;line-height:1.6;"><b>근거</b> 주택도시기금법 §8②·시행령 §8② [별표] 부표 1(부동산 등기) — 위 표는 <b>계산기에 내장된 값을 그대로 출력</b>한 것입니다.<br><b>계산규칙</b> 5천원 미만 절사 / 5천원 이상 올림 → 만원 단위 · 각 부동산마다 개별 산정 · 공유지분은 지분율을 곱한 시가표준액으로 판정 · 공동주택은 세대당 시가표준액</p></div></details>
+    </div></div>
+
+    <div class="card blue"><h2>③ 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
+      <div class="note" id="nk_taxNote"></div>
+      <details class="ref" style="margin-bottom:12px;"><summary>공유물분할 세율 근거 <span class="reftag">A</span></summary><div class="refbody">
+        <table class="ref"><tr><th>구분</th><th class="r">취득세</th><th class="r">교육세</th><th class="r">농특세</th><th class="r">합계</th></tr>
+        <tr><td><b>본인 지분 범위 내</b></td><td class="r">0.3%</td><td class="r">0.06%</td><td class="r">0</td><td class="r"><b>0.36%</b></td></tr>
+        <tr><td>지분 초과분 — 주택 85㎡↓</td><td class="r">1~3%</td><td class="r">취득세×10%</td><td class="r">0</td><td class="r">1.1~3.3%</td></tr>
+        <tr><td>지분 초과분 — 주택 85㎡↑</td><td class="r">1~3%</td><td class="r">취득세×10%</td><td class="r">0.2%</td><td class="r">1.3~3.5%</td></tr>
+        <tr><td>지분 초과분 — 주택외</td><td class="r">4%</td><td class="r">0.4%</td><td class="r">0.2%</td><td class="r">4.6%</td></tr></table>
+        <p style="margin:8px 0 0;font-size:11.5px;color:#8a8270;line-height:1.6;">
+        · <b>과세표준</b> — 지방세법 시행령 <b>§29의2</b>: §15①4호를 적용할 때 공유물을 분할한 후 분할된 부동산에 대한 <b>단독 소유권을 취득하는 경우의 과세표준은 단독 소유권을 취득한 그 「분할된 부동산 전체」의 시가표준액</b>으로 한다. (2017.12.29. 대통령령 제28524호로 명확화)<br>
+        · <b>취득세</b> — §11①5호(공유물의 분할 또는 「부동산 실권리자명의 등기에 관한 법률」 §2조1호나목의 <b>공유권 해소를 위한 지분이전</b>으로 인한 취득. <b>등기부등본상 본인 지분을 초과하는 부분은 제외</b>): 2.3%<br>
+        &nbsp;&nbsp;→ <b>§15①4호</b> 세율특례: 2.3% − 중과기준세율 2% = <b>0.3%</b><br>
+        &nbsp;&nbsp;→ §11①6호(합유물·총유물의 분할) 2.3%도 §15①4호 적용 시 동일하게 0.3%<br>
+        · <b>지방교육세</b> — §151①1호: (2.3% − 2%) × 20% = <b>0.06%</b><br>
+        · <b>농특세 = 0</b> —<br>
+        &nbsp;&nbsp;① <b>감면분</b>: 농특세법 <b>§4 8호</b>(「지방세법」에 따른 <b>형식적인 소유권의 취득</b>… 에 대한 취득세의 감면으로서 대통령령으로 정하는 것) + <b>시행령 §4④</b>가 「지방세법 <b>§15①1호부터 4호까지</b>, 7호에 따른 감면」을 명시 → <b>비과세</b><br>
+        &nbsp;&nbsp;② <b>과세분</b>(§5①6호): 표준세율을 2%로 의제하면 2% − 2% = 0 → <b>0</b><br>
+        &nbsp;&nbsp;※ <b>재산분할(§15①6호)은 시행령 §4④ 열거에 없어 감면분 0.4%가 과세</b>되는 것과 구별됩니다.<br>
+        · <b>본인 지분 초과분</b> — §11①5호 괄호에서 제외 → 일반 유상승계취득(주택 §11①8호 1~3% / 주택외 §11①7호나목 4%). 주택 유상세율의 구간 판정 기준은 <span class="tag chk">확인필요</span><br>
+        · <b>§15① 본문</b> — 특례는 「§11·§12 세율 − 중과기준세율」. 다만 <b>§11①8호(주택 유상거래)에 따른 주택의 취득</b>은 「해당 세율 × 100분의 50」. <b>공유물분할은 §11①5호이므로 8호가 아니며, 0.3%가 맞습니다.</b><br>
+        · <b>§15① 단서</b> — 취득물건이 <b>§13②(대도시 법인의 부동산 취득 등)</b>에 해당하면 위 계산방법으로 산출한 세율의 <b>100분의 300</b>(0.3% → <b>0.9%</b>). 법인이 당사자인 경우 확인하십시오. <span class="tag chk">확인필요</span><br>
+        · <b>공유물분할의 성격</b> — 대법원 2002두6422(<b>이혼 재산분할</b> 사건): 재산분할은 실질적으로 <b>공유물분할</b>에 해당하므로 유상양도가 아니라고 판시. <b>공유물분할 자체를 다룬 사건은 아니고 양도소득세 사건</b>이므로, 취득세 해석에 그대로 확장하기는 어렵다는 지적이 있습니다. <span class="tag chk">확인필요</span></p>
+      </div></details>
+      <table class="t">
+        <tr><td>취득세 <span id="nk_acqRate" class="hint"></span><span class="law" title="경매·공매 낙찰은 유상승계취득입니다. 주택은 §11①8호(1~3%), 주택외 4%, 농지 3%이며 세대 주택 수에 따라 §13의2 중과가 적용될 수 있습니다. 과세표준은 낙찰가입니다.">지방세법 §11①·§13의2</span></td><td><input class="cell" id="nk_acqTax" type="number" oninput="calcNakchal(true)"></td></tr>
+        <tr><td>지방교육세<span class="law" title="지방교육세를 정한 조항입니다. 1호는 취득세율에서 1천분의 20(2%)을 뺀 세율로 계산한 금액의 100분의 20(20%)을 세액으로 합니다. 취득세와 함께 신고·납부합니다(§152①).">지방세법 §151①1호</span></td><td><input class="cell" id="nk_eduTax" type="number" oninput="calcNakchal(true)"></td></tr>
+        <tr><td>농어촌특별세 <span id="nk_ruralNote" class="hint"></span><span class="law" title="농어촌특별세 조항입니다. 취득세 표준세율을 2%로 적용해 산출한 금액의 100분의 10(10%)이 본세입니다(§5①6호). 전용면적 85㎡ 이하 주택은 비과세입니다(§4 11호).">농어촌특별세법 §5①6호·§4 11호</span></td><td><input class="cell" id="nk_ruralTax" type="number" oninput="calcNakchal(true)"></td></tr>
+        <tr style="background:#fdf6e8;"><td>말소 등록면허세 <span class="hint" id="nk_cancelRegNote"></span><span class="law" title="말소등기의 등록면허세는 「그 밖의 등기」로서 건당 6,000원입니다. 근저당·가압류·압류 등 지워지는 권리 건수만큼 부과됩니다.">지방세법 §28①1호마목</span></td><td class="auto" id="nk_cancelRegCell">0 원</td></tr>
+        <tr style="background:#fdf6e8;"><td>말소분 지방교육세 <span class="hint">(등록면허세×20%)</span><span class="law" title="등록면허세액의 100분의 20을 지방교육세로 납부합니다.">지방세법 §151①2호</span></td><td class="auto" id="nk_cancelEduCell">0 원</td></tr>
+        <tr><td>채권 할인손실<span class="law" title="등기할 때 의무적으로 사야 하는 국민주택채권의 매입률표입니다. 대부분 곧바로 되팔기 때문에 실제 부담은 「사고 팔 때 생기는 차액(할인손실)」뿐입니다.">주택도시기금법 시행령 [별표]</span></td><td class="auto" id="nk_bondLossCell">0 원</td></tr>
+        <tr><td>등기신청수수료 <select id="nk_regMethod" class="mini" onchange="calcNakchal()"><option value="e" selected>e-Form 15,000</option><option value="p">수기 18,000</option><option value="o">전자 10,000</option></select> <span class="hint" id="nk_regNote"></span><span class="law" title="소유권이전분(일반)과 말소분(기타)을 합산합니다. 말소는 「그 밖의 등기」 수수료가 적용되어 이전분보다 낮습니다.">수수료규칙 §5의2</span></td><td class="auto" id="nk_regFeeCell">0 원</td></tr>
+        <tr><td>대장·등본 우편 등 <span class="hint">(개수 곱)</span></td><td><input class="cell" id="nk_postFee" type="number" value="6000" oninput="calcNakchal(true)"></td></tr>
+        <tr class="subtot"><td>공과금계</td><td id="nk_publicSum">0 원</td></tr>
+      </table>
+    </div></div>
+
+    <div class="card pink"><h2>④ 수수료 (법무사 보수, VAT 별도) <span class="tag A">A</span></h2><div class="body">
+      <table class="t">
+        <tr><td>기본보수 <span class="hint" id="nk_feeBaseNote"></span></td><td class="auto" id="nk_feeBaseCell">0 원</td></tr>
+        <tr id="nk_feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="nk_feeForeignNote"></span></td><td class="auto" id="nk_feeForeignCell">0 원</td></tr>
+        <tr id="nk_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="nk_feeMultiNote"></span></td><td class="auto" id="nk_feeMultiCell">0 원</td></tr><tr id="nk_feeCntRow" style="display:none;"><td>부동산 개수 가산 <span class="hint" id="nk_feeCntNote"></span><span class="law" title="법무사보수기준 §10① — 대상 부동산이 1개를 초과하는 경우 초과하는 1개마다 20,000원을 가산합니다. (환지등기는 종전 토지 10필지 초과분)">보수기준 §10①</span></td><td class="auto" id="nk_feeCntCell">0 원</td></tr>
+        <tr style="background:#fdf6e8;"><td>말소등기 보수 <span class="hint" id="nk_feeCancelNote"></span><span class="law" title="법무사보수기준 보수표 Ⅰ-3(4) — 말소등기 1건당 80,000원. 지워지는 권리 건수만큼 산정합니다.">보수표 Ⅰ-3(4)</span></td><td class="auto" id="nk_feeCancelCell">0 원</td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="nk_f_submit" checked onchange="calcNakchal()"> 촉탁신청서 제출대행 (40,000)</label> <span class="hint">보수표 Ⅸ-8</span></td><td class="auto">40,000 원</td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="nk_f_tax" checked onchange="calcNakchal()"> 취득세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="nk_f_bond" checked onchange="calcNakchal()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="nk_f_same" onchange="calcNakchal()"> 동일인 보증서 (200,000+)</label> <span class="hint">대상</span> <input type="number" id="nk_sameN" value="1" min="1" style="width:54px;" oninput="calcNakchal()"></td><td class="auto" id="nk_sameCell">0 원</td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="nk_f_trip" checked onchange="calcNakchal()"> 교통비 및 일당</label></td><td><input class="cell" id="nk_tripFee" type="number" value="160000" oninput="calcNakchal(true)"></td></tr>
+        <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
+        <tbody id="nk_extraAgent"></tbody>
+        <tr class="subtot"><td>수수료계 (보수)</td><td id="nk_feeSum">0 원</td></tr>
+      </table>
+    </div></div>
+
+    <div class="total"><div class="row"><span>법무사 보수 소계</span><span id="nk_t_fee">0 원</span></div>
+      <div class="row sub"><span>부가가치세 (10%)</span><span id="nk_t_vat">0 원</span></div>
+      <div class="row"><span>공과금계</span><span id="nk_t_public">0 원</span></div>
+      <div class="row grand"><span>총 합계</span><span id="nk_t_grand">0 원</span></div></div>
+    <div class="actions"><button class="btn" onclick="calcNakchal()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+
+    <div class="card green"><h2>⑤ 촉탁등기 준비서류 · 대장</h2><div class="body">
+      <div class="line" style="border:none;padding-top:0;"><span class="lbl">절차</span><div class="radios" onchange="renderDocsNakchal()">
+        <label><input type="radio" name="nk_basis" value="court" checked> 법원 경매</label>
+        <label><input type="radio" name="nk_basis" value="onbid"> 공매(온비드)</label></div></div>
+      <div class="line"><span class="lbl">부동산 형태</span><div class="radios" onchange="renderDocsNakchal()">
+        <label><input type="radio" name="nk_bform" value="apt" checked> 집합건물(아파트·빌라)</label>
+        <label><input type="radio" name="nk_bform" value="house"> 일반건물(단독 등)</label>
+        <label><input type="radio" name="nk_bform" value="land"> 토지만</label></div></div>
+      <div class="docs" id="nk_docsBox"></div>
+    </div></div>
+  </div>
+
+  <!-- ===== 이혼 재산분할 (풀기능) ===== -->
 
   <!-- ===== 이혼 재산분할 (풀기능) ===== -->
   <div class="scene" id="scene-이혼재산분할">
@@ -2905,6 +3048,7 @@ const SCENARIO={
  "부부재산약정등기":{cat:'re',full:'marital',ref:'§28①14호'},
  "이혼 재산분할(소유권이전)":{cat:'re',full:'division',ref:'§15①6호'},
  "공유물분할(소유권이전)":{cat:'re',full:'partition',ref:'§15①4호'},
+ "경매·공매 낙찰(촉탁등기)":{cat:'re',full:'nakchal',ref:'민사집행법 §144'},
  "기타 취득원인(환매·건축물이전 등)":{cat:'re',full:'etcacq',ref:'§15 세율특례'},
  "재건축·재개발등기(이전고시)":{cat:'re',full:'redev',ref:'보수기준 §12'},
  "외국인·재외국민 준비서류":{cat:'re',full:'foreign',ref:'등기예규 제1778호'},
@@ -3035,6 +3179,7 @@ function _doOpenScenario(name){
   else if(SCENARIO[name].full==='redev'){document.getElementById('scene-재건축재개발').classList.add('active');calcRedev();}
   else if(SCENARIO[name].full==='division'){document.getElementById('scene-이혼재산분할').classList.add('active');calcDivision();}
   else if(SCENARIO[name].full==='partition'){document.getElementById('scene-공유물분할').classList.add('active');calcPartition();}
+  else if(SCENARIO[name].full==='nakchal'){document.getElementById('scene-경매낙찰촉탁').classList.add('active');calcNakchal();}
   else if(SCENARIO[name].full==='etcacq'){document.getElementById('scene-기타취득원인').classList.add('active');calcEtcAcq();}
   else if(SCENARIO[name].full==='foreign'){document.getElementById('scene-외국인준비서류').classList.add('active');renderForeign();}
   else if(SCENARIO[name].full==='sintak'){document.getElementById('scene-신탁등기').classList.add('active');calcSintak();}
@@ -3113,6 +3258,41 @@ function renderDocsSale(){const f=radio('bform');let ledger='';
   if(f==='apt')ledger='<b>대장</b> — 집합건축물대장(전유부+표제부), 대지권등록부, 대지권 목적 토지대장';
   else if(f==='house')ledger='<b>대장</b> — 일반건축물대장, 토지대장, 토지이용계획확인원 (필요시 지적도)';
   else ledger='<b>대장</b> — 토지대장(임야는 임야대장), 토지이용계획확인원, 필요시 지적도·임야도';
+  /* 분양 취득 — 매도인이 시행사(법인)이므로 준비서류가 전혀 다르다 */
+  if(chk('ps_on')){
+    const resale=val('ps_premium')>0;
+    document.getElementById('docsBox').innerHTML=
+      '<div style="border-left:3px solid var(--seal);padding:6px 8px;margin-bottom:8px;background:#fdf6e8;border-radius:4px;line-height:1.6;">'+
+      '▸ <b>분양은 매도인이 개인이 아니라 시행사(법인)</b>입니다. 개인 인감증명서·부동산매도용 인감이 아니라 <b>법인 서류</b>를 받습니다.<br>'+
+      '▸ 시행사의 <b>소유권보존등기가 끝나야</b> 이전등기가 가능합니다. 잔금을 냈는데 등기가 안 되는 것은 대개 이 때문입니다.</div>'+
+      '<b>시행사(사업주체 · 등기의무자)에게서 받을 것</b><br>'+
+      '· <b>등기필정보</b> — 시행사가 소유권보존등기 시 받은 것<br>'+
+      '· <b>법인인감증명서</b>, <b>법인등기사항증명서</b><br>'+
+      '· <b>등기신청 위임장</b> — 법인인감 날인<br>'+
+      '· <b>분양대금 완납증명서</b>(잔금영수증)<br>'+
+      '<span class="hint">교부처 — 시행사 입주지원센터·분양사무소. 입주 안내문에 서류 교부 일정이 안내됩니다.</span><br>'+
+      '<b>수분양자(등기권리자)</b><br>'+
+      '· <b>주민등록표 등본</b>(세대원 전체) — <b>세대 기준 주택 수 판정</b>에 필요<br>'+
+      '· <b>주민등록표 초본</b>(주소이력 포함), 도장, <b>신분증</b><br>'+
+      '· <b>사전 통지</b> — 보유 주택 수 및 그 지번 <span class="hint">(§13의2 중과·생애최초 감면 판정)</span><br>'+
+      '<b>공통</b><br>'+
+      '· <b>분양(공급)계약서</b> 원본, <b>부동산거래계약 신고필증</b> <span class="hint">(공급계약도 신고 대상 — 보통 사업주체가 신고)</span><br>'+
+      '· <span style="color:var(--seal);font-weight:700;">★ 발코니 확장 계약서 · 유상 옵션 계약서</span> — <b>취득세 과세표준 소명자료</b>입니다. 분양계약서만으로는 확장·옵션 금액이 드러나지 않으므로 <b>반드시 함께</b> 챙기십시오<br>'+
+      '· 취득세 영수필확인서, <b>국민주택채권 매입 영수증</b>, 등기신청수수료 영수필확인서<br>'+
+      (resale
+        ?'<b>분양권을 사서 취득한 경우(전매)</b><br>'+
+         '· <b>분양권 매매계약서</b> + <b>부동산거래계약 신고필증</b><br>'+
+         '· 시행사 발급 <b>명의변경 확인서(권리의무 승계 확인)</b><br>'+
+         '· <span style="color:var(--seal);font-weight:700;">프리미엄도 과세표준에 포함</span>되므로 계약서상 금액이 그대로 근거가 됩니다<br>'
+        :'')+
+      '<div style="border-left:3px solid var(--seal);padding:6px 8px;margin:6px 0;background:#fdeaea;border-radius:4px;line-height:1.6;">'+
+      '▸ <b>등기 후 반드시 확인</b> — ① 표제부에 <b>대지권</b>이 기재되었는지(토지 정리가 늦으면 건물만 먼저 이전됩니다), ② 을구에 <b>시행사의 사업 관련 담보권이 남아 있지 않은지</b>.<br>'+
+      '▸ <b>잔금대출</b>이 있으면 <b>근저당권설정등기를 같은 날 동시 접수</b>합니다. 은행 절차와 맞물리므로 대출 실행 전에 협의하십시오.<br>'+
+      '▸ 등기를 <b>시행사 지정 법무사에게만 맡겨야 하는 것은 아닙니다.</b> 누구에게 맡길지는 등기를 하는 사람이 정합니다.</div>'+
+      '<div class="dl" style="border-top:1px dashed var(--line);margin-top:6px;padding-top:6px;">'+
+      '<b style="color:var(--seal);">※ 취득시기 — 잔금지급일과 사용승인일 중 <u>늦은 날</u>. 그날부터 60일 내 취득세 신고·납부.</b><br>'+ledger+'</div>';
+    return;
+  }
   const frS=document.getElementById('fr_sale_seller')?document.getElementById('fr_sale_seller').value:'';
   const frB=document.getElementById('fr_sale_buyer')?document.getElementById('fr_sale_buyer').value:'';
   document.getElementById('docsBox').innerHTML=
@@ -3139,6 +3319,29 @@ function renderDocsSale(){const f=radio('bform');let ledger='';
     (frS?'<div style="border-left:3px solid var(--seal);padding:6px 8px;margin:6px 0;background:#fdeaea;border-radius:4px;line-height:1.6;">▸ <b>매도인이 소득세법상 「비거주자」</b>이면 양도소득세 신고·납부 방법과 원천징수 여부가 달라질 수 있습니다. <b>세무 전문가의 검토</b>를 받으십시오. <span class="tag chk">확인필요</span> <span class="hint">— 법무사의 직무범위(법무사법 §2)를 벗어나는 세무 판단은 하지 않습니다.</span></div>':'')+
     '<div class="dl" style="border-top:1px dashed var(--line);margin-top:6px;padding-top:6px;">'+
     '<b style="color:var(--seal);">※ 모든 서류에 주민등록번호 뒷자리가 나오게 발급받으십시오.</b><br>'+ledger+'</div>';}
+
+/* ===== 분양 취득 — 과세표준 합산 도우미 (매매 scene 내장) =====
+   분양은 시행사로부터의 유상승계취득이므로 세율 구조는 매매와 같으나,
+   과세표준(사실상 취득가격, 지방세법 §10의3·시행령 §18)에
+   ① 분양대금 ② 취득시기 이전에 완료된 발코니 확장비
+   ③ 세대와 하나가 되는 붙박이 옵션 ④ (전매취득 시) 프리미엄 을 합산해야 한다.
+   이동식 가전·가구 등 독립한 동산은 제외. (대법원 2018두31535 취지) */
+function togglePresale(){
+  const on=chk('ps_on');
+  document.getElementById('ps_box').style.display=on?'block':'none';
+  if(on)calcPresale(); else {document.getElementById('ps_priceHint').textContent='';calcSale();}
+}
+function calcPresale(){
+  const sum=val('ps_base')+val('ps_balcony')+val('ps_option')+val('ps_premium');
+  document.getElementById('ps_sum').textContent=won(sum);
+  const parts=[];
+  if(val('ps_balcony')>0)parts.push('확장 '+won(val('ps_balcony')));
+  if(val('ps_option')>0)parts.push('옵션 '+won(val('ps_option')));
+  if(val('ps_premium')>0)parts.push('프리미엄 '+won(val('ps_premium')));
+  document.getElementById('ps_priceHint').textContent=sum>0?('분양 합산'+(parts.length?' — '+parts.join(' · '):'')):'';
+  if(sum>0)document.getElementById('price').value=sum;
+  calcSale();
+}
 function calcSale(fromEdit){
   renderBondUI();
   const price=val('price');
@@ -4181,6 +4384,132 @@ function calcPartition(fromEdit){
   document.getElementById('pt_t_grand').textContent=won(fee+vat+publicSum);
   renderDocsPartition();
 }
+/* ===================== 경매·공매 낙찰 — 촉탁등기 =====================
+   민사집행법 §135(대금 완납 시 소유권 취득)·§144(대금 지급 뒤 법원의 등기 촉탁,
+   촉탁 비용은 매수인 부담) / 공매는 국세징수법에 따라 세무서장 등이 촉탁.
+   · 과세표준 = 낙찰가(매각대금). 감정가·시가표준액이 아니다.
+   · 매도인(전 소유자) 서류 불요 → 등기원인증서 작성료(Ⅸ-1)·검인 없음.
+   · 말소할 권리 건수만큼 등록면허세(건당 6,000)·수수료(기타)·보수(Ⅰ-3(4) 80,000)가 가산된다.
+   · 권리분석 상담(Ⅵ-1)·매수신청대리(Ⅵ-2)는 별개 보수이므로 이 화면에 포함하지 않는다. */
+function acqRateNakchal(price){
+  const t=radio('nk_ptype'), hn=radio('nk_hn'), adj=chk('nk_adjusted'), cp=chk('nk_corp');
+  if(t==='etc')return 0.04;
+  if(t==='farm')return 0.03;
+  if(cp)return 0.12;
+  if(hn==='1')return houseBaseRate(price);
+  if(hn==='2')return adj?0.08:houseBaseRate(price);
+  if(hn==='3')return adj?0.12:0.08;
+  return 0.12;
+}
+function calcBondNakchal(){
+  const std=val('nk_bondStd'), metro=radio('nk_region')==='metro';
+  const t=(radio('nk_ptype')==='house')?'주택':'토지';
+  const r=bondRate(t,std,metro);
+  const pe=document.getElementById('nk_bondPct');
+  if(pe)pe.textContent=std>0?('· 매입률 '+r+'‰'):'';
+  const buy=bondAmount(std,r);
+  if(buy>0)document.getElementById('nk_bondBuy').value=buy;
+  calcNakchal();
+}
+function calcNakchal(fromEdit){
+  const price=val('nk_price');
+  const house=(radio('nk_ptype')==='house');
+  const cntC=Math.max(1,val('nk_cntCancel'));      // 말소할 권리 건수
+  const onbid=(radio('nk_kind')==='onbid');
+  const _hl=document.getElementById('nk_houseNline');
+  if(_hl)_hl.style.display=house?'flex':'none';
+  const _kn=document.getElementById('nk_kindNote');
+  if(_kn)_kn.innerHTML=onbid
+    ? '공매는 <b>인도명령 제도가 없어</b> 점유자가 나가지 않으면 명도소송을 해야 합니다. 명도 비용을 따로 감안하십시오.'
+    : '잔금 완납일부터 <b>취득세 60일</b>, <b>인도명령 6개월</b>이 함께 시작됩니다.';
+  const _tn=document.getElementById('nk_taxNote');
+  if(_tn)_tn.innerHTML='과세표준은 <b>낙찰가(매각대금)</b>입니다. 등기는 법원이 촉탁하지만 <b>비용은 매수인 부담</b>(민사집행법 §144③)이며, '
+    +'<b>말소 '+cntC+'건</b>에 대한 등록면허세·수수료·보수가 별도로 가산됩니다.';
+  if(!fromEdit){
+    const rate=acqRateNakchal(price);
+    const acq=price*rate;
+    const mid=(rate>=0.08);
+    const edu=mid?price*0.004:price*rate*0.1;
+    let rural=0;
+    if(house)rural=chk('nk_over85')?price*0.002:0; else rural=price*0.002;
+    document.getElementById('nk_acqTax').value=taxLocal(Math.round(acq));
+    document.getElementById('nk_eduTax').value=taxLocal(Math.round(edu));
+    document.getElementById('nk_ruralTax').value=taxLocal(Math.round(rural));
+    document.getElementById('nk_acqRate').textContent='('+(rate*100).toFixed(rate*100%1?2:0)+'%'+(mid?' 중과':'')+' 유상승계)';
+    document.getElementById('nk_ruralNote').textContent=(house&&!chk('nk_over85'))?'(85㎡↓ 주택 비과세 §4 11호)':'(0.2%)';
+  }
+  /* 말소분 공과금 — 건당 6,000원 + 지방교육세 20% */
+  const cancelReg=6000*cntC, cancelEdu=Math.round(cancelReg*0.2);
+  document.getElementById('nk_cancelRegCell').textContent=won(cancelReg);
+  document.getElementById('nk_cancelRegNote').textContent='(6,000 × '+cntC+'건)';
+  document.getElementById('nk_cancelEduCell').textContent=won(cancelEdu);
+  const bondLoss=Math.round(val('nk_bondBuy')*val('bondRate')/100);
+  document.getElementById('nk_bondLossCell').textContent=won(bondLoss)+' ('+val('bondRate')+'%)';
+  const cntE=Math.max(1,val('nk_cntEstate'));
+  const m=document.getElementById('nk_regMethod').value;const idx=m==='p'?0:(m==='o'?2:1);
+  const unitT=REG_RE.일반[idx], unitC=REG_RE.기타[idx];
+  const regFee=unitT*cntE+unitC*cntC;                  // 이전분 + 말소분
+  document.getElementById('nk_regFeeCell').textContent=won(regFee);
+  document.getElementById('nk_regNote').textContent='이전 '+unitT.toLocaleString()+'×'+cntE+' + 말소 '+unitC.toLocaleString()+'×'+cntC;
+  const post=val('nk_postFee')*cntE;
+  const publicSum=val('nk_acqTax')+val('nk_eduTax')+val('nk_ruralTax')+cancelReg+cancelEdu+bondLoss+regFee+post+pubCustomSum('scene-경매낙찰촉탁');
+  document.getElementById('nk_publicSum').textContent=won(publicSum);
+  /* ── 보수 ── */
+  const adj=parseFloat(document.getElementById('nk_adjust').value)||1;
+  const feeRaw=tierFee('Ⅰ-1',price);
+  const feeBase=Math.round(feeRaw*adj);
+  const _fr=frAddRate('nk_frAdd'), feeForeign=Math.round(feeRaw*_fr);
+  document.getElementById('nk_feeBaseCell').textContent=won(feeBase);
+  document.getElementById('nk_feeBaseNote').textContent='(보수표 Ⅰ-1 · 낙찰가'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
+  const _frR=document.getElementById('nk_feeForeignRow');
+  if(_frR){_frR.style.display=feeForeign>0?'table-row':'none';document.getElementById('nk_feeForeignCell').textContent=won(feeForeign);document.getElementById('nk_feeForeignNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+(_fr*100)+'% · §10⑥)';}
+  const _mo=frAddRate('nk_moAdd'), feeMulti=Math.round(feeRaw*_mo);
+  const _moR=document.getElementById('nk_feeMultiRow');
+  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('nk_feeMultiCell').textContent=won(feeMulti);document.getElementById('nk_feeMultiNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+Math.round(_mo*100)+'% · §10④)';}
+  let fee=feeBase+feeForeign+feeMulti;
+  /* 말소등기 보수 — 보수표 Ⅰ-3(4) 80,000 × 건수 (조정률 동일 적용) */
+  const feeCancelRaw=FLAT['Ⅰ-3(4)']*cntC, feeCancel=Math.round(feeCancelRaw*adj);
+  document.getElementById('nk_feeCancelCell').textContent=won(feeCancel);
+  document.getElementById('nk_feeCancelNote').textContent='(80,000 × '+cntC+'건'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
+  fee+=feeCancel;
+  /* §10① 부동산 개수 가산 */
+  const feeCnt=(cntE-1)*20000;
+  {const _cR=document.getElementById('nk_feeCntRow');if(_cR){_cR.style.display=feeCnt>0?'table-row':'none';document.getElementById('nk_feeCntCell').textContent=won(feeCnt);document.getElementById('nk_feeCntNote').textContent=feeCnt>0?'('+cntE+'개 · 초과 '+(cntE-1)+'개×20,000)':'';}}
+  fee+=feeCnt;
+  if(chk('nk_f_submit'))fee+=FLAT['Ⅸ-8'];
+  if(chk('nk_f_tax'))fee+=50000;
+  if(chk('nk_f_bond'))fee+=40000;
+  if(chk('nk_f_trip'))fee+=val('nk_tripFee');
+  if(chk('nk_f_same')){const n=Math.max(1,val('nk_sameN')),e=cntE;const v=200000+((n-1)+(e-1))*30000;document.getElementById('nk_sameCell').textContent=won(v);fee+=v;}
+  else document.getElementById('nk_sameCell').textContent='0 원';
+  EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const c=document.getElementById('nka_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('nkaq_'+id).value)||1);fee+=FLAT[code]*q;}});
+  fee+=customSum('nk_extraAgent');
+  document.getElementById('nk_feeSum').textContent=won(fee);
+  const vat=Math.round(fee*0.1);
+  document.getElementById('nk_t_fee').textContent=won(fee);
+  document.getElementById('nk_t_vat').textContent=won(vat);
+  document.getElementById('nk_t_public').textContent=won(publicSum);
+  document.getElementById('nk_t_grand').textContent=won(fee+vat+publicSum);
+  renderDocsNakchal();
+}
+function renderDocsNakchal(){
+  const f=radio('nk_bform'), onbid=(radio('nk_basis')==='onbid');let ledger='';
+  if(f==='apt')ledger='<b>대장</b> — 집합건축물대장(전유부+표제부), 대지권등록부, 대지권 목적 토지대장';
+  else if(f==='house')ledger='<b>대장</b> — 일반건축물대장, 토지대장, 토지이용계획확인원 (필요시 지적도)';
+  else ledger='<b>대장</b> — 토지대장(임야는 임야대장), 토지이용계획확인원, 필요시 지적도·임야도';
+  document.getElementById('nk_docsBox').innerHTML=
+    '<div style="border-left:3px solid var(--seal);padding:6px 8px;margin-bottom:8px;background:#fdeaea;border-radius:4px;line-height:1.6;">'+
+    '▸ <b>전 소유자(채무자)의 서류는 일절 필요 없습니다.</b> 등기의무자 협력이 불요한 촉탁등기이므로 인감증명서·등기필정보를 받을 필요가 없습니다.<br>'+
+    '▸ 다만 <b>매수인이 비용과 서류를 갖추어 촉탁을 신청</b>하지 않으면 등기가 진행되지 않습니다(민사집행법 §144③).</div>'+
+    (onbid
+      ?'<b>공매(온비드) — 한국자산관리공사·세무서장 등이 촉탁</b><br>· <b>매각결정통지서</b>, <b>매수대금 납부확인서(영수증)</b><br>· 등기촉탁 신청서 — 처분청(세무서·지자체·캠코) 양식<br>· <b>인도명령 제도가 없습니다</b> — 점유자가 불응하면 명도소송<br>'
+      :'<b>법원 경매 — 집행법원이 촉탁</b><br>· <b>부동산소유권이전등기 촉탁신청서</b>(경매계 제출)<br>· <b>매각대금 완납증명원</b> — 경매계 발급(수입인지 필요)<br>· <b>부동산 목록</b> — 법원마다 요구 부수 상이(보통 3~5부)<br>· 인도명령 신청은 <b>완납일부터 6개월 이내</b>(민사집행법 §136①)<br>')+
+    '· <b>매수인</b> — 주민등록초본(주소이력 포함), 신분증, 도장<br>'+
+    '· <b>세금·비용</b> — 취득세 영수필확인서, 말소분 등록면허세 영수필확인서, 국민주택채권 매입영수증, 등기신청수수료 영수증, 우표(등기필정보 송부용)<br>'+
+    '· '+ledger+'<br>'+
+    '· <b>등기사항전부증명서(말소사항 포함)</b> — 말소할 권리 건수 확인용. <b>인수되는 권리는 말소 대상에서 제외</b>됩니다';
+}
+
 function renderDocsPartition(){
   const f=radio('pt_bform'), judge=(radio('pt_basis')==='judge');let ledger='';
   if(f==='apt')ledger='<b>대장</b> — 집합건축물대장(전유부+표제부), 대지권등록부, 대지권 목적 토지대장';
@@ -4209,6 +4538,9 @@ function renderDocsPartition(){
 }
 (function(){const tb=document.getElementById('pt_extraAgent');if(!tb)return;EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const tr=document.createElement('tr');
   tr.innerHTML='<td><label class="checks" style="display:inline-flex;align-items:flex-start;"><input type="checkbox" id="pta_'+id+'" onchange="calcPartition()" style="margin-top:2px;"> <span style="font-size:12.5px;">'+name+' <b style="color:var(--seal);">'+FLAT[code].toLocaleString()+'</b></span></label> <input type="number" id="ptaq_'+id+'" value="1" min="1" style="width:52px;" oninput="calcPartition()"></td><td class="auto">-</td>';
+  tb.appendChild(tr);});})();
+(function(){const tb=document.getElementById('nk_extraAgent');if(!tb)return;EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const tr=document.createElement('tr');
+  tr.innerHTML='<td><label class="checks" style="display:inline-flex;align-items:flex-start;"><input type="checkbox" id="nka_'+id+'" onchange="calcNakchal()" style="margin-top:2px;"> <span style="font-size:12.5px;">'+name+' <b style="color:var(--seal);">'+FLAT[code].toLocaleString()+'</b></span></label> <input type="number" id="nkaq_'+id+'" value="1" min="1" style="width:52px;" oninput="calcNakchal()"></td><td class="auto">-</td>';
   tb.appendChild(tr);});})();
 
 /* ===================== 부담부증여 (풀기능) ===================== */
