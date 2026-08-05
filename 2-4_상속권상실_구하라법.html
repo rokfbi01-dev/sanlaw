@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[상속 2-4] 가족을 버리거나 학대한 사람도 상속을 받나요 | 산 법무사 김재섭</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(280px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.case{background:var(--box); border-radius:10px; padding:14px 16px; margin:14px 0; border-left:4px solid #b9a98c;}
+.case .ct{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+.sit-wrap{display:flex; gap:12px; margin:14px 0;}
+.sit{flex:1; background:#f8f5ee; border:1px solid var(--line); border-top:3px solid var(--gold); border-radius:10px; padding:13px 15px; font-size:14.5px; line-height:1.75;}
+.sit .sl{display:block; font-weight:700; color:var(--gold-d); margin-bottom:6px; font-size:14px;}
+@media (max-width:680px){ .sit-wrap{flex-direction:column;} }
+/* 전체 길 흐름도 */
+.flow{background:linear-gradient(180deg,#faf7f0,#f6f1e6); border:1px solid var(--line); border-radius:14px; padding:22px 20px; margin:16px 0;}
+.flow .fl-t{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:18px; text-align:center; letter-spacing:.3px;}
+.flow .node{position:relative; background:#fff; border:1px solid #e3d8c4; border-radius:11px; padding:15px 18px 15px 56px; font-size:14.5px; line-height:1.72; box-shadow:0 2px 6px rgba(122,82,48,.07);}
+.flow .node .num{position:absolute; left:15px; top:14px; width:30px; height:30px; line-height:30px; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; border-radius:50%; font-weight:800; font-size:15px; font-family:'Nanum Myeongjo',serif; box-shadow:0 2px 5px rgba(122,82,48,.3);}
+.flow .node b{color:#241a10;}
+.flow .down{display:flex; justify-content:center; align-items:center; padding:7px 0;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+/* 작성례 박스 */
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:15px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .tag{margin-bottom:0;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;}
+.tag.cred{background:#5a9a72;}
+.tag.debt{background:#d9694a;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:18px;margin:12px 0;font-family:'D2Coding','Courier New',monospace;font-size:13px;line-height:1.6;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:16px;letter-spacing:2px;margin-bottom:12px;color:#241a10;}
+.howto{font-size:14px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0 4px;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:13px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:7px 13px;cursor:pointer;transition:.15s;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.75;}
+.lawbox .ll{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:#241a10;border-radius:5px;padding:2px 9px;margin-right:7px;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.hire p{margin:7px 0; font-size:15px; line-height:1.8;}
+.cta{display:block;text-align:center;background:var(--gold-d);color:#fff;font-weight:700;font-size:17px;text-decoration:none;padding:15px;border-radius:11px;margin:18px 0;font-family:'Nanum Myeongjo',serif;letter-spacing:1px;}
+.cta:hover{background:#5e3f24;}
+@media print{
+  body{background:#fff; max-width:100%;}
+  .tldr,.case,.warn,.tip,.cost,.steps li,.tnote,.sit,.flow,.flow li,.lawbox,.hire{background:#fff !important; border-color:#ccc !important;}
+  .tnote{display:none;}
+  .term{border:none; color:inherit; font-weight:inherit;}
+  .term>.bub{display:inline !important; position:static; width:auto; background:none; color:inherit; box-shadow:none; padding:0; font-size:inherit; line-height:inherit;}
+  .term>.bub::before{content:" ("; }
+  .term>.bub::after{content:")"; border:none; position:static;}
+  .fold-body{display:block !important;}.fold-btn .chev{display:none;}.form-tools{display:none;}
+  .cta{background:#fff !important; color:#241a10 !important; border:1px solid #ccc;}
+}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+<h1>[상속 2-4] 가족을 버리거나 학대한 사람도 상속을 받나요</h1>
+
+<div class="tnote">어려운 법률용어에는 <b>점선 밑줄</b>이 그어져 있습니다. <b>PC는 마우스를 올리면</b>, <b>휴대폰은 손가락으로 톡 터치하면</b> 쉬운 설명이 뜹니다. (인쇄하면 괄호로 함께 나옵니다.)</div>
+
+<div class="hire">
+<div class="ht">이 매뉴얼을 끝까지 읽으시는 분께</div>
+<p>이 매뉴얼은 <b>의뢰인이 직접 법원에 신청할 수 있도록 모든 서류 양식·비용·요건을 구체적으로 담았습니다.</b> 하지만 소송은 살아있는 생물과 같아 상대방의 격렬한 저항이 뒤따릅니다. 혼자 진행하시다가 막히는 부분이 생기거나 방어막이 필요할 때, 언제든 이 매뉴얼을 들고 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</p>
+</div>
+
+<div class="tldr">
+<div class="tt">⭐ 30초 결론부터</div>
+<ul>
+<li><b>이제는 상속권을 빼앗을 수 있습니다.</b> 2026. 1. 1.부터 시행된 민법 §1004조의2(이른바 <span class="term">구하라법<span class="bub">자녀를 버린 부모가 자녀 사망 후 유산을 받아 간 사건들을 계기로 만들어진 규정. 가정법원이 상속권 상실을 선고할 수 있게 했습니다.</span></span>)는, 가족을 버리거나 학대한 사람에 대해 <b>가정법원이 상속권 상실을 선고</b>할 수 있도록 했습니다. <b>상속권을 잃으면 유류분도 함께 사라집니다.</b></li>
+<li><b>★2026. 3. 17.부터 대상이 크게 넓어졌습니다.</b> 처음에는 <b>피상속인의 직계존속(부모·조부모)</b>만 대상이었으나, 개정으로 <b>자녀·배우자를 포함한 모든 상속인</b>이 대상이 되었습니다. 부양의무 위반도 <b>미성년 자녀에 대한 것</b>에서 <b>모든 부양의무</b>로 넓어졌고, 중대한 범죄행위의 피해자도 <b>피상속인 본인뿐 아니라 그 배우자·직계비속</b>까지 포함됩니다.</li>
+<li><b>★기한이 매우 짧습니다 — 안 날부터 6개월.</b> 유언이 없는 경우 <b>공동상속인</b>이 청구하는데, <b>그 사람이 상속인이 되었음을 안 날부터 6개월 이내</b>여야 합니다(§1004조의2③). 상속 사건에서 가장 짧은 기한 중 하나입니다.</li>
+<li><b>★지금은 '특례 기간'입니다.</b> 법이 새로 생기기 전에 이미 상속이 개시된 경우를 구제하기 위해, 부칙은 <b>시행일부터 6개월</b> 안에 청구할 수 있는 특례를 두었습니다. <b>2024. 4. 25. 이후에 돌아가신 경우</b>라면 지금이라도 청구할 수 있는지 <b>즉시 확인</b>하셔야 합니다. <span style="color:#c0392b;font-weight:700">특례 만료일은 [확인필요]이나, 늦어도 2026년 하반기에는 닫힙니다.</span></li>
+<li><b>자동으로 되지 않습니다 — 법원이 판단합니다.</b> 가정법원은 <b>사유의 경위와 정도, 상속인과 피상속인의 관계, 상속재산의 규모와 형성 과정</b> 등을 종합해 인용하거나 기각합니다(§1004조의2⑤). "연락을 안 하고 살았다"는 정도로는 부족하고, <b>증거로 뒷받침되는 방임·학대·범죄</b>가 필요합니다.</li>
+</ul>
+</div>
+
+<h2>지금 어떤 상황인가요?</h2>
+<p>어릴 때 집을 나가 한 번도 찾아오지 않던 아버지가, 자녀가 사고로 세상을 떠나자 <b>보험금과 유산을 받겠다며 나타나는</b> 일이 있었습니다. 반대로 부모를 수십 년 방치하고 폭언·폭행을 일삼던 자녀가 <b>장례식장에서 상속분을 주장하는</b> 경우도 있습니다. 종전 법에서는 <b>살인·상해치사·유언 위조</b> 같은 극단적인 경우(민법 §1004 상속결격)가 아니면 막을 방법이 없었습니다. 이제는 <b>가정법원에 상속권 상실을 청구</b>할 수 있습니다.</p>
+<div class="sit-wrap">
+<div class="sit"><span class="sl">상황 ① · 청구하는 공동상속인</span>가족을 버리거나 학대한 사람이 상속인으로 나선 경우. → <b>6개월</b> 안에 가정법원에 상속권 상실을 청구합니다(작성례 ①·③).</div>
+<div class="sit"><span class="sl">상황 ② · 지목된 상속인</span>사실과 다르게 "부양을 저버렸다"며 상속권 상실 심판을 청구당한 경우. → <b>기한 도과</b>, <b>사유 부존재</b>, <b>제반 사정</b>이 방어의 세 기둥입니다(작성례 ②·④).</div>
+</div>
+
+<h2>먼저 알아두면 쉬운 5가지</h2>
+<ol class="steps">
+<li><b>'상속결격'과 '상속권 상실'은 다릅니다.</b> <span class="term">상속결격<span class="bub">살인·상해치사, 유언의 위조·방해 등 법이 정한 사유에 해당하면 별도의 재판 없이 당연히 상속인이 되지 못하는 것(민법 §1004).</span></span>은 <b>법에 정해진 사유에 해당하면 재판 없이 당연히</b> 상속인이 되지 못합니다. 반면 <b>상속권 상실</b>은 <b>반드시 가정법원의 선고</b>가 있어야 하고, 법원이 사정을 종합해 인용 여부를 정합니다. 사유도 상속결격보다 넓습니다.</li>
+<li><b>두 갈래 절차가 있습니다.</b> ① <b>피상속인이 생전에</b> §1068의 <b>공정증서 유언</b>으로 상속권 상실의 뜻을 남겨 둔 경우 → <b>유언집행자</b>가 가정법원에 청구합니다(§1004조의2①). 이때 <b>상실 대상자는 유언집행자가 될 수 없습니다</b>(②). ② <b>그런 유언이 없는 경우</b> → <b>공동상속인</b>이 직접 청구합니다(③). 실제로는 ②가 대부분입니다.</li>
+<li><b>사유는 두 가지입니다.</b> 1호 <b>피상속인에 대한 부양의무를 중대하게 위반</b>한 경우, 2호 <b>피상속인 또는 그 배우자·직계비속에게 중대한 범죄행위를 하거나 그 밖에 심히 부당한 대우</b>를 한 경우입니다(살인 등 상속결격 사유는 제외). 2026. 3. 17. 개정 전에는 1호가 <b>미성년 자녀에 대한 부양의무</b>로 한정되어 있었으나, 지금은 <b>모든 부양의무</b>로 넓어졌습니다.</li>
+<li><b>청구할 사람이 없을 때의 길도 열려 있습니다.</b> 청구할 공동상속인이 없거나 <b>모든 공동상속인에게 같은 사유가 있는 경우</b>에는, 상실 선고가 확정되면 <b>상속인이 될 사람(후순위 상속인)</b>이 청구할 수 있습니다(§1004조의2④).</li>
+<li><b>선고가 확정되면 처음부터 상속인이 아니었던 것이 됩니다.</b> 그 효력은 <b>상속이 개시된 때로 소급</b>합니다(⑥). 다만 <b>확정 전에 이미 권리를 취득한 제3자</b>는 보호되므로, 그 사이 재산이 넘어가는 것이 걱정되면 <b>상속재산관리인 선임</b>을 함께 신청할 수 있습니다(⑦).</li>
+</ol>
+
+<h2>실제로 청구하는 절차 — 전체 길 한눈에 보기</h2>
+<div class="flow">
+<div class="fl-t">기한 확인부터 선고 확정까지 — 이 길을 그대로 따라가면 됩니다</div>
+<div class="node"><span class="num">0</span><b>★가장 먼저 기한부터 계산합니다</b> — 유언이 없는 경우의 청구기한은 <b>그 사람이 상속인이 되었음을 안 날부터 6개월</b>입니다. 여기에 더해, 법 시행 전에 이미 상속이 개시된 사건을 위한 <b>부칙 특례 기간</b>이 따로 있습니다. <b>2024. 4. 25. 이후에 돌아가신 경우</b>라면 아래 <b>기한 정리 표</b>에서 두 가지를 모두 확인하십시오. 다른 무엇보다 이것이 먼저입니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">1</span><b>유언이 있는지 확인합니다</b> — 돌아가신 분이 <b>공정증서 유언</b>으로 상속권 상실의 뜻을 남겼다면 절차가 달라집니다. 작성한 <b>공증사무소</b>에 문의하거나, 대한공증협회를 통해 유언공정증서 작성 여부를 확인할 수 있습니다. 유언이 있으면 <b>유언집행자</b>가 청구하고, 없으면 <b>공동상속인이 직접</b> 청구합니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">2</span><b>증거를 모읍니다 — 이 사건은 증거 싸움입니다</b> — <b>방임</b>이라면 <b>주민등록 초본(주소 변동)</b>으로 오랜 별거를, <b>양육비 미지급</b>이라면 판결문·이행명령·독촉 기록을, <b>학대·폭력</b>이라면 <b>진단서·112 신고내역·고소장·판결문</b>을, <b>생활고</b>라면 기초생활수급 자료를 확보합니다. 친척·이웃의 <b>사실확인서</b>도 보탬이 됩니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">3</span><b>가정법원에 심판을 청구합니다</b> — <b>가정법원</b>에 상속권 상실 심판청구서를 냅니다(작성례 ①). 청구원인에는 <b>①어떤 사유인지, ②언제부터 언제까지 어떤 일이 있었는지, ③내가 언제 알았는지</b>를 반드시 담습니다. ③은 <b>6개월 기한을 지켰다</b>는 근거이므로 빠뜨리면 안 됩니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">4</span><b>재산이 빠져나가지 않도록 조치합니다</b> — 심판이 확정되기 전에 상대가 예금을 인출하거나 부동산을 처분하면, <b>확정 전에 권리를 취득한 제3자</b>는 보호되어 되찾기 어려워집니다(§1004조의2⑥ 단서). 그래서 청구와 함께 <b>상속재산관리인 선임</b>을 신청하거나(⑦), 필요하면 <b>처분금지가처분</b>을 검토합니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">5</span><b>심리가 진행됩니다</b> — 가정법원은 <b>사유의 경위와 정도, 상속인과 피상속인의 관계, 상속재산의 규모와 형성 과정, 그 밖의 사정</b>을 종합해 판단합니다(⑤). 상대방은 "연락은 했다", "돈을 보냈다"고 다투므로, 청구인은 <b>구체적 시기와 횟수</b>로 반박해야 합니다(작성례 ③). 가사조사관의 조사나 심문기일이 열릴 수 있습니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">6</span><b>선고가 확정되면 상속에서 빠집니다</b> — 확정되면 그 사람은 <b>상속개시 시로 소급하여 상속권을 잃고</b>, <b>유류분도 함께</b> 사라집니다. 남은 상속인들끼리 다시 상속재산을 나누게 되며, 이미 그 사람 명의로 등기가 되어 있다면 <b>말소 또는 진정명의회복</b>을 구해 정리합니다(→ <a href="7-1_상속회복청구.html">상속 7-1 카드</a>).</div>
+</div>
+
+<h2>내 경우는 어디에 해당하나요? — 유형별 사례</h2>
+<div class="case">
+<span class="ct">사례 ① 어린 자녀를 버린 부모가 유산을 받으러 온 경우 — 이 제도가 만들어진 이유</span>
+어릴 때 집을 나가 <b>양육비 한 푼 보내지 않고 연락도 끊었던 부모</b>가, 자녀가 성인이 되어 사망하자 <b>상속인</b>으로서 재산과 보험금을 받아 가는 일이 반복되었습니다. 남은 가족은 막을 방법이 없었습니다. 민법 §1004조의2는 바로 이런 경우를 위해 만들어졌습니다. <b>부양의무를 중대하게 위반</b>한 경우에 해당하므로, 다른 공동상속인이 <b>가정법원에 상속권 상실을 청구</b>할 수 있습니다.
+</div>
+<div class="case">
+<span class="ct">사례 ② 부모를 학대하거나 방치한 자녀 — 2026. 3. 17. 개정으로 가능해졌습니다</span>
+수십 년간 부모를 찾지 않고 <b>부양을 저버렸거나</b>, 폭언·폭행을 일삼은 자녀의 경우입니다. <b>개정 전에는 대상이 '피상속인의 직계존속'뿐이어서 자녀는 청구할 수 없었으나</b>, 2026. 3. 17.부터는 <b>자녀·배우자를 포함한 모든 상속인</b>이 대상이 되었습니다. 부양의무 위반도 <b>미성년자에 대한 것</b>이라는 한정이 풀렸으므로, <b>성인 자녀가 부모를 방치한 경우</b>도 사유가 됩니다.
+</div>
+<div class="case">
+<span class="ct">사례 ③ 피해자가 본인이 아니어도 됩니다 — 개정으로 넓어진 범위</span>
+2호 사유의 <b>중대한 범죄행위나 심히 부당한 대우</b>는, 개정 전에는 <b>피상속인 본인</b>에 대한 것만 문제되었습니다. 이제는 <b>피상속인의 배우자나 직계비속</b>에 대한 행위도 포함됩니다. 예컨대 <b>어머니의 배우자(계부)나 손주를 상대로 중대한 범죄를 저지른 상속인</b>도 상속권 상실의 대상이 될 수 있습니다.
+</div>
+<div class="case">
+<span class="ct">사례 ④ 청구할 사람이 아무도 없을 때 — 후순위 상속인이 나섭니다</span>
+공동상속인이 <b>그 사람 한 명뿐</b>이거나, <b>공동상속인 모두에게 같은 사유</b>가 있는 경우입니다. 이때는 상실 선고가 확정되면 <b>상속인이 될 사람(후순위 상속인)</b>이 직접 청구할 수 있습니다(§1004조의2④). 예를 들어 자녀를 버린 아버지 한 사람만 상속인인 사안에서, <b>형제자매</b>가 청구할 수 있는 길이 열립니다.
+</div>
+<div class="warn">
+<span class="wt">★ 상속권을 잃으면 유류분도 함께 사라집니다</span>
+유류분은 <b>상속권을 전제로 하는 권리</b>입니다. 따라서 상속권 상실 선고가 확정되면 그 사람은 <b>유류분도 청구할 수 없습니다.</b> 반대로 말하면, 상대가 유류분을 청구해 온 사안에서 <b>상속권 상실 청구가 가장 근본적인 대응</b>이 될 수 있습니다. 다만 <b>6개월</b>이라는 기한이 매우 짧으므로, 유류분 소송을 받은 즉시 이 길이 가능한지 함께 검토하십시오.
+</div>
+<div class="tip"><span class="pt">💡 '연락이 없었다'만으로는 부족합니다</span> 가정법원은 <b>사유의 경위와 정도</b>를 봅니다. 단순히 왕래가 뜸했던 정도가 아니라, <b>부양이 필요한 상황을 알면서도 외면했다</b>는 점이 드러나야 합니다. 그래서 ① <b>부양이 필요했던 사정</b>(질병·생활고·미성년), ② <b>상대가 그것을 알았다는 정황</b>, ③ <b>그럼에도 아무것도 하지 않았다는 기록</b> — 이 세 가지를 짝지어 준비하십시오.</div>
+
+<h2>⏰ 기한 정리 — 이 카드에서 가장 중요한 부분입니다</h2>
+<table>
+<tr><th>구분</th><th>① 언제부터 (기산일)</th><th>② 근거 조문</th><th>③ 말일이 휴일이면</th><th>④ 최종 만료일</th></tr>
+<tr><td><b>원칙 — 6개월</b> (유언이 없는 경우)</td><td><b>사유가 있는 사람이 상속인이 되었음을 안 날</b>의 다음 날부터(초일 불산입)</td><td>민법 §1004조의2③ / §157</td><td>토·일·공휴일이면 그 다음 날로 연장(§161)</td><td>안 날 + 6개월</td></tr>
+<tr><td><b>부칙 특례 ①</b> — 2024. 4. 25. ~ 2026. 1. 1. 사이에 상속이 개시된 경우</td><td>시행일 <b>2026. 1. 1.</b></td><td>부칙 <span style="font-size:12px;color:#c0392b">[조항번호 확인필요]</span></td><td>위와 같음(§161)</td><td><b>2026. 6. 30. — 이미 지났습니다</b></td></tr>
+<tr><td><b>부칙 특례 ②</b> — 2026. 3. 17. 개정으로 <b>새로 대상이 된</b> 경우(자녀·배우자 등)</td><td>개정 시행일 <b>2026. 3. 17.</b></td><td>부칙 <span style="font-size:12px;color:#c0392b">[조항번호 확인필요]</span></td><td>위와 같음(§161)</td><td><b>시행일 + 6개월</b> <span style="color:#c0392b;font-weight:700">[만료일 확인필요 — 즉시 상담 요망]</span></td></tr>
+<tr><td><b>유언이 있는 경우</b></td><td>유언집행자가 청구 — 별도의 기한 규정</td><td>민법 §1004조의2①</td><td>—</td><td><span style="font-size:12px;color:#c0392b">[확인필요]</span></td></tr>
+</table>
+<div class="warn"><span class="wt">⚠ 지금이 마지막 기회일 수 있습니다</span>2026. 3. 17. 개정으로 <b>새로 대상이 된 분들</b>(부모를 방치한 자녀, 배우자 등)에 대해서는 <b>시행일부터 6개월</b>의 특례 기간이 주어졌습니다. 오늘은 <b>2026년 8월</b>입니다. <b>2024. 4. 25. 이후에 가족을 떠나보내셨고 상속권 상실을 다투고 싶은 사정이 있다면, 며칠 안에 확인하셔야 합니다.</b> 기한을 넘기면 사유가 아무리 분명해도 청구할 수 없게 됩니다.</div>
+
+<h2>관련 법령 — 쉬운 풀이</h2>
+<div class="lawbox"><span class="ll">민법 §1004조의2 ①②</span><b>유언으로 미리 정해 두는 길</b> — 피상속인은 상속인이 될 사람이 각 호에 해당하면 <b>§1068의 공정증서 유언</b>으로 상속권 상실의 의사를 표시할 수 있고, 이 경우 <b>유언집행자가 가정법원에 청구</b>합니다. <b>상실 대상이 될 사람은 유언집행자가 되지 못합니다</b>(②). 일반 자필 유언장으로는 안 되고 <b>반드시 공정증서</b>여야 합니다.</div>
+<div class="lawbox"><span class="ll">민법 §1004조의2 ③</span><b>★실제로 가장 많이 쓰이는 조항</b> — 그런 유언이 없었던 경우, <b>공동상속인</b>은 사유가 있는 사람이 <b>상속인이 되었음을 안 날부터 6개월 이내</b>에 가정법원에 상속권 상실을 청구할 수 있습니다.<br>　1호 — 피상속인에 대한 <b>부양의무를 중대하게 위반</b>한 경우<br>　2호 — 피상속인 또는 그 <b>배우자·직계비속</b>에게 <b>중대한 범죄행위</b>(§1004의 상속결격 사유는 제외)를 하거나 그 밖에 <b>심히 부당한 대우</b>를 한 경우</div>
+<div class="lawbox"><span class="ll">민법 §1004조의2 ④</span><b>청구할 사람이 없을 때</b> — 청구할 수 있는 공동상속인이 없거나 <b>모든 공동상속인에게 같은 사유</b>가 있는 경우에는, 상실 선고의 확정으로 <b>상속인이 될 사람</b>이 청구할 수 있습니다.</div>
+<div class="lawbox"><span class="ll">민법 §1004조의2 ⑤</span><b>법원이 보는 것</b> — 가정법원은 <b>청구 원인이 된 사유의 경위와 정도, 상속인과 피상속인의 관계, 상속재산의 규모와 형성 과정, 그 밖의 사정</b>을 종합적으로 고려하여 청구를 <b>인용하거나 기각</b>합니다. 사유가 있다고 무조건 인용되지 않는다는 뜻입니다.</div>
+<div class="lawbox"><span class="ll">민법 §1004조의2 ⑥⑦</span><b>효력과 재산 보전</b> — 선고가 확정되면 <b>상속개시 시로 소급</b>하여 상속권을 잃습니다. 다만 <b>확정 전에 취득한 제3자의 권리는 해치지 못합니다</b>(⑥). 그래서 법원은 이해관계인이나 검사의 청구에 따라 <b>상속재산관리인을 선임</b>할 수 있습니다(⑦).</div>
+<div class="lawbox"><span class="ll">민법 §1004</span><b>상속결격 — 재판이 필요 없는 경우</b> — 고의로 피상속인이나 선순위·동순위 상속인을 <b>살해하거나 살해하려 한 자</b>, 상해를 가해 <b>사망에 이르게 한 자</b>, 유언을 <b>방해·위조·변조·파기·은닉한 자</b> 등은 <b>당연히 상속인이 되지 못합니다.</b> 이 경우에는 상속권 상실 청구가 필요 없습니다.</div>
+<div class="lawbox"><span class="ll">민법 §1112 (참고)</span><b>유류분도 함께 사라집니다</b> — 유류분은 상속권을 전제로 하므로, 상속권 상실 선고가 확정되면 <b>유류분도 청구할 수 없습니다.</b> 참고로 <b>형제자매의 유류분</b>은 2024. 4. 25. 헌법재판소 결정으로 이미 효력을 잃었습니다(→ <a href="2-2_형제자매_유류분.html">상속 2-2 카드</a>).</div>
+
+<h2>내 상황에 맞는 서류 고르기</h2>
+<table>
+<tr><th>나의 상황</th><th>내야 할 서류 · 어디에</th><th>작성례</th></tr>
+<tr><td>가족을 버리거나 학대한 상속인의 <b>상속권을 빼앗고 싶다</b></td><td><b>상속권 상실 심판청구서</b> — <b>가정법원</b> (안 날부터 6개월)</td><td>작성례 ①</td></tr>
+<tr><td>사실과 다르게 <b>상속권 상실 청구를 당했다</b></td><td><b>답변서</b> — 심판청구서를 받은 뒤 신속히</td><td>작성례 ②</td></tr>
+<tr><td>상대가 <b>"연락했다·돈을 보냈다"</b>고 다툰다 (청구인)</td><td><b>준비서면</b> (청구인)</td><td>작성례 ③</td></tr>
+<tr><td>청구인이 <b>재반박</b>해 왔다 (상대방)</td><td><b>준비서면</b> (상대방)</td><td>작성례 ④</td></tr>
+<tr><td>심판 중 <b>재산이 빠져나갈까</b> 걱정된다</td><td>상속재산관리인 선임 신청 — 가정법원</td><td>청구서에 병합 기재 (작성례 ① 참조)</td></tr>
+<tr><td>상대가 <b>유류분</b>을 청구해 왔다</td><td>상속권 상실이 가장 근본적인 대응</td><td><a href="2-1_유류분_반환청구.html">상속 2-1</a> · <a href="2-3_유류분_기여대가.html">2-3 카드</a></td></tr>
+<tr><td>이미 그 사람 앞으로 <b>등기가 되어 있다</b></td><td>선고 확정 후 말소·진정명의회복</td><td><a href="7-1_상속회복청구.html">상속 7-1 카드</a></td></tr>
+</table>
+
+<h2>신청서 작성례 — 빈칸(○○○)만 채우면 됩니다</h2>
+<p style="font-size:13.5px;color:var(--muted)">아래 작성례의 빈칸(○○○)을 본인 상황에 맞게 채우면 그대로 제출할 수 있습니다. 제목은 가운데 정렬된 법원 제출 양식이며, 가사비송 심판청구서의 표준 구조(청구취지·청구원인·첨부서류)를 따랐습니다. <b>복사·인쇄·다운로드</b> 버튼을 활용하십시오.</p>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ① · 청구인(공동상속인)</span>상속권 상실 심판청구서<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f1"><span class="ft">상속권 상실 심판청구서</span>청 구 인　　○○○　　(☎: ○○○-○○○○-○○○○)
+　　　　　　주민등록번호　○○○○○○-○○○○○○○
+　　　　　　주소　○○○
+　　　　　　송달장소　○○○ (주소와 같으면 생략 가능)
+　　　　　　피상속인과의 관계　○○○ (예: 자녀)
+
+상 대 방　　○○○
+　　　　　　주소　○○○
+　　　　　　피상속인과의 관계　○○○ (예: 부)
+
+사 건 본 인　망 ○○○ (피상속인)
+　　　　　　등록기준지　○○○
+　　　　　　최후주소　○○○
+　　　　　　사망일　20○○. ○○. ○○.
+
+　　　　　청 구 취 지
+
+　1. 상대방의 망 ○○○에 대한 상속권을 상실한다.
+　2. 심판비용은 상대방이 부담한다.
+　　 라는 심판을 구합니다.
+
+　　　　　청 구 원 인
+
+　1. 당사자의 지위
+　　 망 ○○○(20○○. ○○. ○○. 사망, 이하 '망인'이라 합니다)의
+　　 상속인은 청구인과 상대방 등 ○○명입니다(소명자료 1, 2).
+　　 청구인은 망인의 ○○이고, 상대방은 망인의 ○○입니다.
+
+　2. 상대방의 부양의무 중대 위반
+　　 가. 상대방은 20○○년경 가정을 떠난 이후 사망에 이르기까지
+　　　　 약 ○○년간 망인과 전혀 왕래하지 아니하였고, 생활비나
+　　　　 양육비를 일절 지급하지 아니하였습니다(소명자료 3
+　　　　 주민등록표 초본, 소명자료 4 사실확인서).
+　　 나. 망인은 20○○년 ○○○(질병명) 진단을 받고 장기간
+　　　　 치료가 필요한 상태였으며, 생활이 어려워 20○○년부터
+　　　　 기초생활수급자로 지정되었습니다(소명자료 5).
+　　 다. 상대방은 위와 같은 사정을 알고 있었음에도(소명자료 6
+　　　　 통화·문자 내역) 아무런 부양을 하지 아니하였습니다.
+　　 라. 이는 민법 제1004조의2 제3항 제1호의 '피상속인에 대한
+　　　　 부양의무를 중대하게 위반한 경우'에 해당합니다.
+
+　3. (해당하는 경우) 심히 부당한 대우
+　　 상대방은 20○○. ○○.경 망인에게 ○○○(구체적 행위)를
+　　 하여 ○○○ 처분[또는 판결]을 받은 사실이 있습니다
+　　 (소명자료 7). 이는 같은 항 제2호에 해당합니다.
+
+　4. 청구기간의 준수
+　　 청구인은 20○○. ○○. ○○. ○○○(예: 상속재산 조회 결과를
+　　 통해) 상대방이 상속인이 되었음을 알게 되었고, 이 사건
+　　 청구는 그로부터 6개월 이내에 제기되었습니다.
+　　 [부칙 특례에 따르는 경우] 이 사건 상속은 20○○. ○○. ○○.
+　　 개시되었고, 이 사건 청구는 개정규정 시행일부터 6개월
+　　 이내에 제기되었습니다.
+
+　5. 상속재산관리인 선임의 필요성
+　　 상대방이 심판 확정 전에 상속재산을 처분할 우려가 있으므로,
+　　 민법 제1004조의2 제7항에 따라 상속재산관리인을 선임하여
+　　 주시기 바랍니다.
+
+　6. 결론
+　　 이에 청구취지와 같은 심판을 구합니다.
+
+　　　　　소 명 자 료
+
+　1. 소명자료 1　　망인의 기본증명서(상세)·가족관계증명서(상세)
+　2. 소명자료 2　　제적등본
+　3. 소명자료 3　　청구인·상대방·망인의 주민등록표 초본
+　4. 소명자료 4　　사실확인서(친척·이웃)
+　5. 소명자료 5　　기초생활수급 관련 자료·진료기록
+　6. 소명자료 6　　통화·문자 내역 등
+　7. 소명자료 7　　고소장·판결문·처분 결과 등
+
+　　　　　첨 부 서 류
+
+　1. 위 소명자료　　　　　　　각 1통
+　2. 청구서 부본　　　　　　　1통(상대방 수)
+　3. 인지·송달료 납부서　　　각 1통
+
+　　　　　　20○○. ○○. ○○.
+　　　　　　　　위 청구인 ○○○ (인 또는 서명)
+
+○○가정법원　　귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1')">📋 복사</button><button type="button" onclick="printForm('f1')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1','상속권상실_심판청구서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>이 청구서의 급소는 2번과 4번입니다.</b><br><br><b>2번</b>은 <b>가·나·다 세 단계로 짝지어</b> 쓰는 것이 요령입니다 — ① <b>상대가 아무것도 하지 않았다</b>(가), ② <b>부양이 절실히 필요한 상황이었다</b>(나), ③ <b>상대가 그 사정을 알고 있었다</b>(다). 셋이 함께 있어야 '중대한 위반'으로 인정되기 쉽습니다. 특히 <b>다목</b>을 빠뜨리는 분이 많은데, "몰랐다"는 반박을 미리 막는 부분이라 반드시 넣으십시오.<br><br><b>4번은 각하를 막는 문단입니다.</b> 6개월 기한은 법원이 먼저 살피므로, <b>언제 어떤 계기로 알게 되었는지</b>를 날짜와 자료로 특정하십시오. 부칙 특례로 청구하는 경우라면 그 취지를 함께 적습니다.<br><br><b>5번</b>은 선택이지만 넣어 두시길 권합니다. 확정 전에 재산이 제3자에게 넘어가면 되찾기 어렵기 때문입니다(§1004조의2⑥ 단서). 제출처는 <b>가정법원</b>이며, 상속에 관한 사건이므로 <b>망인의 마지막 주소지 가정법원</b>이 기준이 됩니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ② · 상대방(지목된 상속인)</span>답변서 — 기한 도과·사유 부존재<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f2"><span class="ft">답 　 변 　 서</span>사　　건　　20○○느단(느합)○○○○　상속권 상실
+청 구 인　　○○○
+상 대 방　　○○○　　(☎: ○○○-○○○○-○○○○)
+　　　　　　주소　○○○
+
+　　　　　청구취지에 대한 답변
+
+　1. 청구인의 청구를 각하한다(예비적으로, 기각한다).
+　2. 심판비용은 청구인이 부담한다.
+　　 라는 심판을 구합니다.
+
+　　　　　청구원인에 대한 답변
+
+　1. 인정하는 사실
+　　 망 ○○○이 20○○. ○○. ○○. 사망한 사실과, 상대방이
+　　 망인의 ○○로서 상속인인 사실은 인정합니다.
+
+　2. 본안 전 항변 — 청구기간의 도과
+　　 청구인은 늦어도 20○○. ○○. ○○.경에는 상대방이 상속인이
+　　 되었음을 알고 있었습니다(소명자료 ○). 그런데 이 사건
+　　 청구는 그로부터 6개월이 지난 20○○. ○○. ○○. 제기
+　　 되었으므로, 민법 제1004조의2 제3항의 기간을 도과하여
+　　 부적법합니다.
+
+　3. 부양의무를 중대하게 위반한 사실이 없습니다
+　　 가. 상대방은 20○○년부터 20○○년까지 망인에게 매월
+　　　　 ○○○원을 송금하였습니다(소명자료 ○ 계좌내역).
+　　 나. 상대방은 20○○. ○○. ○○.을 비롯하여 여러 차례
+　　　　 망인을 방문하였고(소명자료 ○), 통화도 지속하였습니다
+　　　　 (소명자료 ○ 통화내역).
+　　 다. 왕래가 뜸했던 기간이 있었던 것은 사실이나, 이는
+　　　　 ○○○(예: 상대방의 질병, 원거리 근무, 망인의 거부)
+　　　　 때문이었고 부양을 저버린 것이 아닙니다(소명자료 ○).
+
+　4. 제반 사정
+　　 민법 제1004조의2 제5항은 사유의 경위와 정도, 상속인과
+　　 피상속인의 관계, 상속재산의 규모와 형성 과정 등을 종합
+　　 고려하도록 정하고 있습니다. 이 사건에서 ○○○(예: 망인의
+　　 재산 상당 부분은 상대방이 형성에 기여한 것입니다).
+
+　5. 결론
+　　 따라서 이 사건 청구는 각하되어야 하고, 나아가 이유도
+　　 없습니다.
+
+　　　　　소 명 자 료
+
+　1. 소명자료 1　　계좌 거래내역(송금 기록)
+　2. 소명자료 2　　통화·문자 내역
+　3. 소명자료 3　　방문 사실에 관한 자료·사실확인서
+　4. 소명자료 4　　청구인이 일찍 알고 있었음을 보여주는 자료
+
+　　　　　　20○○. ○○. ○○.
+　　　　　　　　위 상대방 ○○○ (인 또는 서명)
+
+○○가정법원　　귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f2')">📋 복사</button><button type="button" onclick="printForm('f2')">🖨 인쇄</button><button type="button" onclick="downloadForm('f2','상속권상실_답변서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>방어의 순서는 2번 → 3번 → 4번입니다.</b><br><br><b>2번(6개월 도과)</b>이 가장 강력합니다. 청구인이 <b>언제부터 알고 있었는지</b>를 보여주는 자료 — 장례식 참석 기록, 상속재산 조회 신청일, 가족 대화방, 이전에 오간 내용증명 등 — 를 확보하십시오. 기한은 법원이 먼저 살피므로 이 한 가지로 각하될 수 있습니다.<br><br><b>3번</b>에서는 <b>액수와 횟수를 숫자로</b> 쓰십시오. "가끔 연락했다"가 아니라 <b>"20○○년 ○월부터 ○년간 매월 ○○만원"</b>입니다. 계좌내역과 통화내역이 가장 확실한 자료입니다.<br><br><b>4번</b>은 §1004조의2 제5항에 근거한 부분으로, <b>사유가 일부 인정되더라도 기각을 구할 수 있는</b> 조항입니다. 재산 형성에 기여한 사정, 오랜 관계, 망인의 생전 의사 등을 함께 밝히십시오. 상속권 상실은 <b>재산뿐 아니라 관계까지 정리되는 무거운 절차</b>이므로, 답변서는 받는 즉시 준비하시는 것이 좋습니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ③ · 청구인 준비서면</span>준비서면 — "연락했다·돈을 보냈다"에 대한 반박<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f3"><span class="ft">준 비 서 면</span>사　　건　　20○○느단(느합)○○○○　상속권 상실
+청 구 인　　○○○
+상 대 방　　○○○
+
+　위 사건에 관하여 청구인은 다음과 같이 변론을 준비합니다.
+
+　　　　　다 　 음
+
+　1. 상대방 주장의 요지
+　　 상대방은 청구기간이 도과되었고, 망인에게 송금과 방문을
+　　 하였으므로 부양의무를 저버린 것이 아니라고 주장합니다.
+
+　2. 청구기간에 관하여
+　　 청구인이 상대방의 존재 자체를 알고 있었던 것과, 상대방이
+　　 이 사건 상속의 상속인이 되었음을 안 것은 다릅니다. 청구인은
+　　 20○○. ○○. ○○. ○○○(예: 안심상속 조회 결과를 받고)
+　　 비로소 상대방이 상속인이 됨을 알았고(소명자료 ○), 이 사건
+　　 청구는 그로부터 6개월 이내에 제기되었습니다.
+
+　3. 송금 주장에 관하여
+　　 상대방이 제출한 계좌내역상 송금은 20○○년 ○월부터
+　　 ○개월간 합계 ○○○원에 불과하고, 망인이 투병한
+　　 20○○년 이후로는 송금 기록이 전혀 없습니다. 이는 약 ○○년의
+　　 부양 공백 중 극히 일부에 지나지 않으며, 망인의 치료비와
+　　 생활비에 비추어 부양이라 평가하기 어렵습니다(소명자료 ○).
+
+　4. 방문 주장에 관하여
+　　 상대방이 든 방문은 ○○년간 ○회에 불과하고, 그중 ○회는
+　　 ○○○(예: 금전 요구를 위한 것)이었습니다(소명자료 ○
+　　 사실확인서).
+
+　5. 상대방이 사정을 알고 있었다는 점
+　　 망인은 20○○. ○○. ○○. 상대방에게 치료비 부담을 호소
+　　 하였고(소명자료 ○ 문자메시지), 친척 ○○○도 같은 무렵
+　　 상대방에게 망인의 상태를 알렸습니다(소명자료 ○).
+　　 그럼에도 상대방은 아무런 조치를 하지 아니하였습니다.
+
+　6. 결론
+　　 상대방의 행위는 민법 제1004조의2 제3항 제1호의 부양의무
+　　 중대 위반에 해당하므로, 청구취지와 같은 심판을 구합니다.
+
+　　　　　　20○○. ○○. ○○.
+　　　　　　　　위 청구인 ○○○ (인 또는 서명)
+
+○○가정법원　　귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f3')">📋 복사</button><button type="button" onclick="printForm('f3')">🖨 인쇄</button><button type="button" onclick="downloadForm('f3','상속권상실_준비서면_청구인.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>상대방은 반드시 "아주 안 한 것은 아니다"라고 나옵니다.</b> 그래서 이 서면의 핵심은 <b>비율로 무력화하는 것</b>입니다 — 3번과 4번처럼 <b>"○○년 중 ○개월", "○○년간 ○회"</b>로 대비시키면, 부양이라 부르기 어렵다는 점이 눈으로 드러납니다.<br><br><b>2번의 구분도 중요합니다.</b> "상대방이라는 사람이 있다는 걸 알았다"와 "그 사람이 <b>이 상속의 상속인이 되었다</b>는 걸 알았다"는 다릅니다. 후자를 기준으로 6개월을 세야 하며, <b>안심상속 조회 결과</b>나 <b>상속재산분할 논의 시점</b>이 그 계기로 인정되기 쉽습니다.<br><br><b>5번</b>은 "몰랐다"는 반박을 봉쇄하는 부분입니다. 망인이 도움을 요청한 문자, 친척이 알린 통화 기록 등을 찾아 두십시오.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ④ · 상대방 준비서면</span>준비서면 — 제반 사정에 따른 기각 요청<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f4"><span class="ft">준 비 서 면</span>사　　건　　20○○느단(느합)○○○○　상속권 상실
+청 구 인　　○○○
+상 대 방　　○○○
+
+　위 사건에 관하여 상대방은 다음과 같이 변론을 준비합니다.
+
+　　　　　다 　 음
+
+　1. 청구인 주장의 요지
+　　 청구인은 상대방의 송금과 방문이 부양이라 평가할 수 없을
+　　 정도로 미미하다고 주장합니다.
+
+　2. 왕래가 어려웠던 사정
+　　 상대방은 20○○년부터 ○○○(예: 질병으로 장기 치료를
+　　 받았고 / 해외에 체류하였고 / 망인이 연락을 거부하였고),
+　　 이러한 사정은 상대방의 귀책이라 보기 어렵습니다
+　　 (소명자료 ○).
+
+　3. 부양을 시도한 사실
+　　 상대방은 20○○. ○○. 망인에게 ○○○을 제안하였으나
+　　 망인이 이를 거절하였습니다(소명자료 ○ 문자메시지).
+　　 부양의 부존재를 상대방의 일방적 방임으로만 볼 수 없습니다.
+
+　4. 상속재산의 형성 과정
+　　 이 사건 상속재산 중 ○○○은 상대방이 20○○년경 ○○○
+　　 하여 형성에 기여한 것입니다(소명자료 ○). 민법 제1004조의2
+　　 제5항은 상속재산의 규모와 형성 과정을 고려하도록 정하고
+　　 있습니다.
+
+　5. 망인의 생전 의사
+　　 망인은 생전에 상대방에 대하여 ○○○라고 말한 바 있고
+　　 (소명자료 ○), 상속권 상실의 의사를 담은 공정증서 유언을
+　　 남기지도 아니하였습니다.
+
+　6. 결론
+　　 이 사건 청구는 기간을 도과하였을 뿐 아니라, 제반 사정에
+　　 비추어도 인용될 수 없으므로 각하 또는 기각되어야 합니다.
+
+　　　　　　20○○. ○○. ○○.
+　　　　　　　　위 상대방 ○○○ (인 또는 서명)
+
+○○가정법원　　귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f4')">📋 복사</button><button type="button" onclick="printForm('f4')">🖨 인쇄</button><button type="button" onclick="downloadForm('f4','상속권상실_준비서면_상대방.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>이 절차는 사유가 인정되어도 법원이 기각할 수 있습니다</b>(§1004조의2⑤). 그래서 상대방의 두 번째 서면은 <b>'제반 사정'에 무게를 싣는</b> 것이 요령입니다.<br><br><b>2번(왕래가 어려웠던 사정)</b>과 <b>3번(부양을 시도했으나 거절당한 사정)</b>은 <b>귀책의 방향을 바꾸는</b> 부분입니다. 특히 망인이 연락을 거부했거나 갈등의 원인이 다른 데 있었다면, 그 정황을 시간 순서로 정리하십시오.<br><br><b>4번(재산 형성 기여)</b>과 <b>5번(망인의 생전 의사)</b>도 조문이 직접 들도록 한 고려사항입니다. 특히 <b>망인이 공정증서 유언으로 상속권 상실의 뜻을 남기지 않았다</b>는 점은, 망인 스스로 그 정도로 여기지 않았다는 사정으로 주장할 수 있습니다.</div>
+</div></div>
+
+<h2>준비할 서류와 발급처</h2>
+<p style="font-size:13.5px;color:var(--muted)">아래 '바로가기'를 클릭하면 발급·조회 화면으로 이동합니다. 만약 첫 화면으로 연결되면, 옆의 <b>찾아가기 경로</b>를 따라 메뉴를 클릭하면 됩니다.</p>
+<table>
+<tr><th>무엇을 증명</th><th>서류</th><th>어디서 · 찾아가기 경로</th></tr>
+<tr><td><b>상속인 관계</b></td><td>망인·청구인·상대방의 기본증명서(<b>상세</b>)·가족관계증명서(<b>상세</b>), 제적등본</td><td><a href="https://efamily.scourt.go.kr" target="_blank">전자가족관계등록시스템</a> / <a href="https://www.gov.kr" target="_blank">정부24</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 증명서 발급 → 종류 선택 → <b>'상세'</b> 선택</span></td></tr>
+<tr><td><b>오랜 별거·방임</b></td><td>주민등록표 초본(<b>주소 변동 이력 포함</b>)</td><td><a href="https://www.gov.kr" target="_blank">정부24 (gov.kr)</a><br><span style="font-size:12.5px;color:var(--muted)">경로: '주민등록초본' 검색 → 발급 → <b>'과거 주소 변동사항 포함'</b> 선택</span></td></tr>
+<tr><td><b>양육비 미지급</b></td><td>양육비 판결문·이행명령·감치 결정, 독촉 기록</td><td>해당 가정법원 / <a href="https://www.childsupport.or.kr" target="_blank">양육비이행관리원</a></td></tr>
+<tr><td><b>부양이 필요했던 사정</b></td><td>진료기록·진단서, 기초생활수급 증명, 장기요양등급 판정자료</td><td>진료 병원 / 주민센터 / <a href="https://www.longtermcare.or.kr" target="_blank">노인장기요양보험</a></td></tr>
+<tr><td><b>학대·범죄</b></td><td>진단서, 112 신고내역, 고소장·불송치·처분 결과, 판결문</td><td>경찰서(정보공개청구) / 검찰청 / 해당 법원</td></tr>
+<tr><td><b>상대가 사정을 알았다는 점</b></td><td>통화·문자 내역, 가족 대화 기록, 사실확인서</td><td>보관 자료 / 통신사 / 친척·이웃 작성</td></tr>
+<tr><td><b>내가 언제 알았는지</b> (6개월 기산)</td><td>안심상속 조회 결과, 상속재산분할 논의 자료</td><td><a href="https://www.gov.kr" target="_blank">정부24 (gov.kr)</a><br><span style="font-size:12.5px;color:var(--muted)">경로: '안심상속' 검색 → 신청 (조회 신청일이 기록으로 남습니다)</span></td></tr>
+<tr><td><b>심판청구서 제출</b> (전자 접수)</td><td>—</td><td><a href="https://ecfs.scourt.go.kr" target="_blank">대법원 전자소송 (ecfs.scourt.go.kr)</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 서류제출 → <b>가사 서류</b> → 심판청구서 → 당사자·청구취지 입력</span></td></tr>
+</table>
+<div class="tip"><span class="pt">💡 '안 날'을 남기는 방법 — 안심상속 조회</span> 6개월 기한은 <b>언제 알았는지</b>가 핵심인데, 그 시점을 객관적으로 남기기 어려운 것이 문제입니다. <b>안심상속 원스톱서비스</b>를 신청하면 <b>신청일과 조회 결과 수령일</b>이 기록으로 남아, "이때 비로소 상대방이 상속인임을 알았다"는 근거가 됩니다. 상속이 개시되면 <b>가장 먼저</b> 신청하십시오.</div>
+
+<div class="cost">
+<span class="ct">💰 비용 — 가사비송이라 크지 않습니다</span>
+<b>① 인지대</b>: 가사비송 심판청구는 <b>정액 인지</b>가 붙습니다. 청구 대상자 수와 사건 종류에 따라 달라지므로 <b>접수 전 담당 가정법원에 확인</b>하시기 바랍니다. <span style="color:#c0392b;font-weight:600">[정확한 금액 확인필요 — 신설 제도로 실무 운영 기준이 정착 중입니다]</span><br>
+<b>② 송달료</b>: <b>당사자 수 × 회당 송달료 × 정해진 회수</b>로 미리 냅니다.<br>
+<b>③ 자료 발급 비용</b>: 진료기록 사본, 주민등록초본, 통신 내역 등 소액의 수수료.<br>
+<b>④ 상속재산관리인 선임</b>: 함께 신청하는 경우 별도의 인지·송달료와 관리인 보수가 발생할 수 있습니다.<br>
+<b>⑤ 후속 절차</b>: 선고 확정 후 등기를 정리하려면 등록면허세·수수료가 별도로 듭니다.
+<div style="margin-top:11px; padding-top:10px; border-top:1px dashed #cfe6d6; color:#c0392b; font-weight:600; line-height:1.8;">※ 사건 정보를 입력하면 인지대·송달료를 포함한 예상 금액을 <a href="https://sanlaw.co.kr/tools-calculator.html" style="color:#c0392b; text-decoration:underline; font-weight:700;">🧮 수수료 계산기</a>에서 미리 확인할 수 있습니다.</div>
+</div>
+
+<h2>본 사무소가 도와드리는 일</h2>
+<div class="hire">
+<p>본 사무소에서는 의뢰인들의 고충은 덜어드리고, 함께 절차를 진행하여 원하는 결과에 도달할 수 있도록 성심을 다하겠습니다.</p>
+<p style="margin-top:12px"><b>· 청구하시는 분의 경우</b><br>① <b>6개월 기한과 부칙 특례</b>의 적용 여부 즉시 판정(가장 급한 일입니다), ② 흩어진 자료를 <b>부양 공백의 연표</b>로 정리, ③ <b>상속권 상실 심판청구서</b>와 준비서면 작성, ④ <b>상속재산관리인 선임</b> 신청 병합, ⑤ 선고 확정 후 <b>상속재산 정리와 등기</b>까지 함께합니다.</p>
+<p style="margin-top:10px"><b>· 청구를 받으신 분의 경우</b><br>① <b>청구기간 도과 여부</b> 정밀 계산, ② 송금·방문·통화 기록을 통한 <b>부양 사실 입증 자료 정리</b>, ③ <b>답변서·준비서면</b> 작성, ④ §1004조의2 제5항의 <b>제반 사정</b> 구성(재산 형성 기여, 관계의 경위, 망인의 생전 의사)까지 함께 준비해 드립니다.</p>
+</div>
+<div class="warn"><span class="wt">⚠ 이 절차는 신설된 지 얼마 되지 않았습니다</span>2026. 1. 1. 시행되어 <b>2026. 3. 17. 다시 확대된 새 제도</b>입니다. 아직 대법원 판례가 쌓이지 않았고, 법원의 인정 기준과 실무 운영도 자리를 잡아 가는 중입니다. 그래서 <b>어느 정도의 사정이면 인정되는지</b>는 사안마다 편차가 클 수 있습니다. 무엇보다 <b>기한이 짧으므로</b>, 해당될 여지가 있다면 판단을 미루지 마시고 먼저 확인부터 하십시오.</div>
+
+<a href="https://sanlaw.co.kr/tools-calculator.html" class="cta">🧮 내 사건 비용 미리 계산하기</a>
+<div style="text-align:center; background:#f6ecd8; border:1px solid var(--gold); border-radius:11px; padding:14px; margin:18px 0; font-size:15px; color:var(--gold-d); font-weight:700;">📞 상담은 홈 화면의 상담 창구를 이용하시면 됩니다.</div>
+
+<div class="tip"><span class="pt">💡 이어지는 카드</span> 상속권 상실이 아니라 <b>유류분</b>을 다투는 문제라면 <a href="2-1_유류분_반환청구.html" style="color:var(--tip-ink);font-weight:700">상속 2-1 카드</a>를, <b>형제자매</b>의 유류분은 <a href="2-2_형제자매_유류분.html" style="color:var(--tip-ink);font-weight:700">상속 2-2 카드</a>를, 상대가 <b>부모를 모신 대가</b>라 주장하는 경우는 <a href="2-3_유류분_기여대가.html" style="color:var(--tip-ink);font-weight:700">상속 2-3 카드</a>를 보십시오. 이미 그 사람 앞으로 <b>등기가 넘어갔다면</b> <a href="7-1_상속회복청구.html" style="color:var(--tip-ink);font-weight:700">상속 7-1 카드</a>에서 되찾는 방법을 확인하실 수 있습니다.</div>
+
+<div class="src">
+근거 — 민법 제1004조(상속인의 결격사유)·제1004조의2(상속권 상실 선고, 2026. 1. 1. 시행 신설 / 2026. 3. 17. 법률 제21454호 개정으로 대상 확대)·제1008조(특별수익자의 상속분)·제1068조(공정증서에 의한 유언)·제1112조(유류분의 권리자와 유류분)·제157조(기간의 기산점)·제161조(공휴일 등과 기간의 만료점) · 헌법재판소 2024. 4. 25. 2020헌가4 등 결정(유류분 상실사유를 두지 않은 민법 제1112조에 대한 헌법불합치, 형제자매 유류분 위헌) · 법무부 보도자료(2026. 2. 12.) · 대한법률구조공단(klac.or.kr) 상담사례·서식 · 법제처 찾기쉬운 생활법령정보(easylaw.go.kr) · 국가법령정보센터(law.go.kr) · 대법원 전자민원센터 양식. 개정법 <b>부칙의 조항 번호와 특례 만료일</b>, 가사비송 <b>인지액</b>은 <span style="color:#c0392b">[확인필요]</span>이며, 제도 자체가 신설된 지 오래되지 않아 실무 기준이 정착 중입니다. 본 자료는 일반적인 법률정보로, 개별 사건의 법률자문이 아니며 개별 사건의 결과를 보장하지 않습니다.
+</div>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+})();
+function toggleFold(b){var fb=b.parentElement;var body=b.nextElementSibling;var open=fb.classList.toggle('open');if(body){body.style.display=open?'block':'none';}}
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('작성례가 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('작성례가 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['﻿'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('작성례를 내려받았습니다');}
+</script>
+
+</body>
+</html>
