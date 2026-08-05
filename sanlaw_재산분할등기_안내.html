@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[등기 안내] 이혼 재산분할로 인한 소유권이전등기 — 절차·서류·세금 | 산 법무사 김재섭</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+ul{margin:8px 0 12px; padding-left:20px;} li{margin:6px 0;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(300px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.who{background:var(--box); border-radius:10px; padding:14px 16px; margin:12px 0; border-left:4px solid #b9a98c;}
+.who .wl{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;margin-left:3px;}
+.tag.free{background:#5a9a72;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.cta{display:block; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; text-decoration:none; font-weight:700; font-size:16px; padding:15px; border-radius:11px; margin:18px 0; box-shadow:0 3px 8px rgba(122,82,48,.25);}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:11px 15px;margin:10px 0;font-size:13.5px;line-height:1.7;}
+.lawbox .ll{display:inline-block;font-size:11.5px;font-weight:700;color:#fff;background:var(--gold-d);border-radius:5px;padding:2px 8px;margin-right:6px;}
+.lawbox a{color:var(--gold-d);font-weight:600;}
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:14.5px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:16px;margin:10px 0;font-family:'D2Coding','Courier New',monospace;font-size:12.5px;line-height:1.65;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:15px;letter-spacing:2px;margin-bottom:10px;color:#241a10;}
+.howto{font-size:13.5px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:12.5px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:6px 12px;cursor:pointer;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+/* 개념 한 줄 */
+.concept{background:var(--box);border-radius:9px;padding:11px 15px;margin:8px 0 14px;font-size:14.5px;color:#5a4a36;border-left:3px solid #b9a98c;}
+.concept b{color:var(--gold-d);}
+/* 절차 플로우 */
+.flow{background:linear-gradient(180deg,#fcf9f2,#f7f1e5);border:1.5px solid var(--gold);border-radius:14px;padding:18px 18px 14px;margin:14px 0 20px;}
+.flow .ft2{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:12px;}
+.flow ol{counter-reset:fl;list-style:none;margin:0;padding:0;}
+.flow li{position:relative;padding:8px 10px 8px 44px;margin:7px 0;background:#fff;border:1px solid var(--line);border-radius:10px;font-size:14.5px;line-height:1.6;}
+.flow li::before{counter-increment:fl;content:counter(fl);position:absolute;left:10px;top:8px;width:26px;height:26px;line-height:26px;text-align:center;background:var(--gold);color:#fff;border-radius:50%;font-weight:800;font-size:14px;}
+.flow li b{color:var(--gold-d);}
+.flow .arw{text-align:center;color:var(--gold);font-size:13px;margin:-2px 0;}
+.flow ol.navlist{padding-left:0;}
+.flow ol.navlist li{padding:9px 13px;}
+.flow ol.navlist li::before{content:none;}
+.flow ol.navlist a{color:var(--gold-d);font-weight:700;white-space:nowrap;text-decoration:none;margin-left:4px;}
+.flow ol.navlist a:hover{text-decoration:underline;}
+/* 최신 개정 박스 */
+.newlaw{background:#eef6f0;border:1px solid #cfe6d6;border-left:4px solid #5a9a72;border-radius:8px;padding:13px 16px;margin:14px 0;}
+.newlaw .nt{font-weight:700;color:#2f6a47;display:block;margin-bottom:4px;}
+.newlaw .badge{display:inline-block;font-size:11px;font-weight:800;color:#fff;background:#5a9a72;border-radius:5px;padding:2px 8px;margin-right:6px;vertical-align:middle;}
+/* FAQ */
+.faq{margin:14px 0;}
+.faq details{border:1px solid var(--line);border-radius:10px;margin:9px 0;background:#fff;overflow:hidden;}
+.faq summary{list-style:none;cursor:pointer;padding:13px 44px 13px 15px;font-weight:700;font-size:15px;color:#241a10;background:#faf7f0;position:relative;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::before{content:"Q";position:absolute;left:15px;color:var(--gold-d);font-family:'Nanum Myeongjo',serif;font-weight:800;}
+.faq summary{padding-left:38px;}
+.faq summary::after{content:"▾";position:absolute;right:16px;top:13px;color:var(--gold-d);transition:.2s;}
+.faq details[open] summary::after{transform:rotate(180deg);}
+.faq .fa{padding:13px 15px 15px 38px;font-size:14.5px;line-height:1.75;color:#3a3a3a;position:relative;border-top:1px solid var(--line);}
+.faq .fa::before{content:"A";position:absolute;left:15px;top:13px;color:#5a9a72;font-family:'Nanum Myeongjo',serif;font-weight:800;}
+/* ── 표준구조 추가 ── */
+.helm{background:linear-gradient(135deg,#2c3e50,#3a4a5c);color:#f4f0e8;border-radius:14px;padding:20px 22px;margin:0 0 24px;box-shadow:0 4px 14px rgba(44,62,80,.18);}
+.helm .ht2{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:17px;color:#f0d98c;margin-bottom:9px;}
+.helm p{margin:0;font-size:14.5px;line-height:1.9;color:#eae4d8;}
+.helm b{color:#f4e2a6;}
+.qhead{display:flex;gap:12px;align-items:flex-start;margin:8px 0 8px;}
+.qhead .qb{flex:none;width:34px;height:34px;border-radius:50%;background:var(--gold);color:#fff;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(176,141,87,.4);}
+.qhead h2{margin:0;border:0;padding:0;font-size:20px;line-height:1.45;}
+.lawrow{display:flex;flex-wrap:wrap;background:var(--box);border-radius:10px;overflow:hidden;margin:12px 0;border:1px solid var(--line);}
+.lawrow .lrl{flex:none;background:var(--gold);color:#fff;font-weight:700;font-size:13.5px;padding:11px 15px;display:flex;align-items:center;}
+.lawrow .lrc{flex:1;min-width:210px;padding:11px 15px;font-size:14px;line-height:1.75;}
+@media(max-width:520px){.lawrow .lrl{width:100%;}}
+.calc{display:block;background:linear-gradient(135deg,#fff7e8,#fdeecb);border:1.5px solid var(--gold);border-radius:14px;padding:16px 18px;margin:18px 0;text-decoration:none;color:var(--ink);transition:.15s;}
+.calc:hover{box-shadow:0 4px 14px rgba(176,141,87,.25);transform:translateY(-1px);}
+.calc .cah{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:4px;}
+.calc .cas{font-size:13.5px;color:var(--muted);}
+.ctabtn{display:block;text-align:center;background:var(--gold);color:#fff;font-weight:800;font-size:17px;padding:16px;border-radius:12px;text-decoration:none;margin:22px 0 6px;box-shadow:0 3px 10px rgba(176,141,87,.35);}
+.ctabtn:hover{background:var(--gold-d);}
+.doclabel{display:inline-block;font-size:12px;font-weight:800;color:#fff;border-radius:6px;padding:3px 11px;margin-bottom:6px;}
+.doclabel.give{background:#b0885a;}
+.doclabel.back{background:#5a9a72;}
+.dl{color:var(--gold-d);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--gold);}
+.dl:hover{background:#fbf5e8;}
+.ddl{display:flex;gap:2px 10px;flex-wrap:wrap;margin:8px 0 2px;padding:9px 12px;background:#fbf7ee;border-radius:8px;font-size:13px;}
+.ddl b{color:var(--gold-d);}
+.deadline{width:100%;border-collapse:collapse;margin:10px 0;font-size:13.5px;}
+.deadline th{background:#3a4a5c;color:#fff;padding:8px;font-weight:700;}
+.deadline td{border:1px solid var(--line);padding:8px 10px;background:#fff;}
+.bnote{color:#0b4a9c;font-weight:600;background:#eaf2fc;border-left:4px solid #2b7fff;border-radius:8px;padding:9px 13px;margin:8px 0;font-size:13.5px;line-height:1.7;}
+.bnote b{color:#0a3d82;}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+
+<h1>이혼 재산분할로 인한 소유권이전등기</h1>
+
+<div class="helm">
+  <div class="ht2">⚓ 이 안내를 준비한 마음</div>
+  <p>이혼을 결정하기까지 이미 많이 지치셨을 겁니다. 그런데 <b>집을 넘겨받는 서류에 무엇이라고 적느냐</b>에 따라, 두 분이 내야 할 세금이 수천만 원씩 달라지는 일이 실제로 벌어집니다. 같은 아파트를 같은 사람에게 넘기는데도 <b>'재산분할'이라고 쓰면 세금이 없고, '위자료'라고 쓰면 세금이 붙습니다.</b> 아무도 이 말을 미리 해 주지 않아서, 등기를 마친 뒤에야 고지서를 받고 찾아오시는 분들을 자주 뵙습니다. 이 안내는 <b>그 한 줄을 어떻게 쓸 것인가</b>부터 시작합니다. 합의서를 쓰기 전에, 등기를 넘기기 전에 한 번만 들러 주십시오. <b>제가 든든한 법률적 조타수가 되어 함께 정리해 드리겠습니다.</b></p>
+</div>
+
+<div class="qhead"><span class="qb">Q</span>
+  <h2>이혼하면서 집을 넘겨받기로 했는데, 세금이 얼마나 나오나요?</h2>
+</div>
+
+<div class="tnote">밑줄 친 <span class="term">용어<span class="bub">밑줄 친 말에 마우스를 올리거나(휴대폰은 살짝 누르면) 쉬운 설명이 나옵니다.</span></span>에 마우스를 올리면 설명이 나옵니다. 파란 <b>발급처 링크</b>를 누르면 서류 떼는 사이트로 바로 이동합니다.</div>
+
+<div class="tldr">
+  <div class="tt">이런 상황입니다 — 이 카드의 전부는 '한 줄'입니다</div>
+  <p style="margin:0 0 8px;font-size:14.5px">같은 집을 같은 사람에게 넘기더라도, <b>등기원인을 무엇으로 적느냐</b>에 따라 세금이 정반대가 됩니다.</p>
+  <ul>
+    <li><b>① <span class="term">재산분할<span class="bub">혼인 중 부부가 함께 일군 재산을 이혼하면서 각자의 기여도만큼 나누는 것. 본래 내 몫이었던 것을 돌려받는 '청산'입니다(민법 §839의2).</span></span>로 적으면</b> — 주는 쪽에 <b>양도소득세 없음</b>, 받는 쪽에 <b>증여세 없음</b>, 취득세는 <b>1.5%</b>로 낮아지고 <b>다주택 중과도 적용되지 않습니다.</b></li>
+    <li><b>② <span class="term">위자료<span class="bub">이혼에 책임이 있는 배우자가 상대방의 정신적 고통을 배상하는 손해배상금.</span></span>로 적으면</b> — 부동산으로 주는 순간 <span class="term">대물변제<span class="bub">돈으로 갚아야 할 빚을 물건으로 대신 갚는 것. 세법에서는 그 물건을 판 것과 같이 봅니다.</span></span>가 되어 <b>주는 쪽에 양도소득세</b>가 붙고, 취득세도 <b>3.5%</b>가 그대로 적용됩니다.</li>
+    <li><b>③ 이름만 '재산분할'이라고 써도 통하지 않습니다</b> — 부부가 함께 일군 재산의 청산 범위를 넘거나, 애초에 한쪽의 <span class="term">특유재산<span class="bub">혼인 전부터 가지고 있었거나 상속·증여로 혼자 받은 재산. 원칙적으로 재산분할 대상이 아닙니다.</span></span>이었던 것을 넘기면 그 부분은 <b>증여나 양도로 다시 판단</b>될 수 있습니다.</li>
+    <li><b>④ 지금 아낀 세금이 나중에 돌아올 수 있습니다</b> — 재산분할로 받은 집을 <b>나중에 팔 때</b>, 취득가액은 내가 받은 날이 아니라 <b>전 배우자가 그 집을 처음 샀을 때의 가격</b>으로 계산합니다. 이 점을 모르고 팔았다가 큰 세금을 맞는 경우가 있습니다.</li>
+  </ul>
+</div>
+
+<div class="concept"><b>왜 재산분할에는 세금이 없나요?</b> 대법원은 재산분할을 <b>"실질적으로는 <span class="term">공유물분할<span class="bub">여러 사람이 함께 가진 재산을 각자 몫으로 나누는 것. 새로 무엇을 얻는 것이 아니라, 원래 내 지분을 특정 부분에 모으는 것뿐입니다.</span></span>에 해당한다"</b>고 봅니다. 남의 것을 받는 것이 아니라 <b>원래 내 몫이었던 것을 돌려받는 것</b>이라는 뜻입니다. 그래서 <b>판 것도 아니고(양도세 없음), 거저 받은 것도 아닙니다(증여세 없음).</b> 반면 위자료는 <b>손해배상 빚을 부동산으로 갚은 것</b>이므로, 그 부동산을 판 것과 같이 취급됩니다.<br><br><b>그리고 나눌 것은 집만이 아닙니다.</b> 예금·보험·퇴직금·연금까지 모두 대상이 되며, 특히 <b>퇴직금과 연금은 금액이 커서 결과를 크게 바꿉니다.</b> 아래 ★ 항목을 꼭 확인하십시오.</div>
+
+<div class="lawrow"><div class="lrl">관련 법령</div><div class="lrc">
+  <b>민법 §839의2</b> 재산분할청구권 — 협의가 안 되면 가정법원에 청구, <b>이혼한 날부터 2년</b> 내 · <b>§843</b> 재판상 이혼에 준용 · <b>지방세법 §15①6호</b> 이혼 재산분할 취득세 세율의 특례(표준세율 −2%) · <b>소득세법 §88</b> '양도'의 정의 · <b>상속세 및 증여세법 §2</b> 증여의 정의 · <b>부동산등기법 §23</b> 공동신청 원칙
+</div></div>
+
+<div class="flow">
+  <div class="ft2">재산분할 등기, 이 순서로 진행됩니다</div>
+  <ol>
+    <li><b>이혼이 먼저 성립해야 합니다</b> — 협의이혼은 <b>이혼신고가 수리된 때</b>, 재판상 이혼은 <b>판결·조정이 확정된 때</b>입니다. <b>이혼 전에 먼저 넘기면 증여로 볼 위험</b>이 있습니다</li>
+    <div class="arw">▼</div>
+    <li><b>재산분할의 내용과 '성격'을 서면에 명확히 적습니다</b> — 협의라면 <b>재산분할협의서</b>(작성례 ①), 재판이라면 <b>조정조서·판결문</b>에 재산분할임이 드러나야 합니다. <b>위자료와 섞어 쓰지 마십시오</b>. <b>협의가 되지 않으면 아래 ◆ 항목의 조정·심판 절차로 갑니다</b></li>
+    <div class="arw">▼</div>
+    <li><b>취득세를 신고·납부합니다</b> — 등기원인이 <b>재산분할</b>임을 밝히고 <b>세율 특례(1.5%)</b>를 적용받습니다. 위택스에서 신고·납부합니다</li>
+    <div class="arw">▼</div>
+    <li><b>소유권이전등기를 신청합니다</b> — 넘겨주는 사람과 받는 사람이 <b>함께</b> 신청합니다. 상대가 협조하지 않으면 <b>판결·조정조서로 단독 신청</b>이 가능합니다</li>
+    <div class="arw">▼</div>
+    <li><b>나중에 팔 때를 대비해 자료를 보관합니다</b> — 전 배우자가 <b>그 집을 처음 살 때의 계약서·취득세 영수증</b>을 반드시 받아 두십시오. 나중의 양도세 계산에 꼭 필요합니다</li>
+  </ol>
+</div>
+
+<div class="warn"><span class="wt">⚠ 순서를 바꾸지 마세요 — 이혼보다 등기가 먼저면 '증여'가 됩니다</span>
+재산분할은 <b>이혼이 성립해야 생기는 권리</b>입니다. 이혼신고 전에 미리 소유권을 넘겨 두면 그 이전은 재산분할이 아니라 <b>부부 사이의 증여</b>로 볼 수 있고, 그러면 <b>증여세와 높은 취득세</b>가 따라옵니다. <b>반드시 이혼 성립 → 등기 순서</b>로 진행하십시오. 협의이혼을 준비 중이라면 <b>이혼신고를 마친 뒤</b> 등기를 넘기시면 됩니다.
+</div>
+
+<!-- 무엇을 나누나 -->
+<div class="qhead"><span class="qb">★</span><h2>집만 나누는 것이 아닙니다 — 예금·보험·퇴직금·연금</h2></div>
+<p style="font-size:13.5px;color:var(--muted)">재산분할에서 실제로 다툼이 큰 것은 오히려 <b>눈에 보이지 않는 재산</b>입니다. 특히 <b>퇴직금과 연금</b>은 금액이 커서 결과를 크게 바꾸는데도, 모르고 넘어가시는 분이 많습니다.</p>
+
+<table>
+<tr><th>무엇을</th><th>나눌 수 있나</th><th>어떻게 정하나</th></tr>
+<tr><td><b>예금·주식·펀드</b></td><td><b>됩니다</b></td><td>이혼 시점의 잔액·평가액이 기준입니다. 협의서에 <b>은행명과 계좌번호까지</b> 적어 특정하십시오</td></tr>
+<tr><td><b>보험</b><br>(저축성·연금보험 등)</td><td><b>됩니다</b></td><td>지금 해약하면 받을 <span class="term">해약환급금<span class="bub">보험을 중도에 해지할 때 돌려받는 돈. 낸 보험료보다 적은 것이 보통입니다.</span></span> 상당액이 기준이 됩니다. 보험사에 <b>해약환급금 확인서</b>를 요청해 금액을 확정하십시오. 계약을 유지하면서 <b>계약자를 바꾸는 방법</b>도 있습니다</td></tr>
+<tr><td><b>퇴직금</b><br>(아직 회사에 다니는 경우)</td><td><b>됩니다</b></td><td>예전에는 "아직 받지도 않은 돈"이라며 제외했지만, 대법원이 <b>2014년 전원합의체 판결로 이를 바꾸었습니다.</b> 이혼소송의 <b>사실심 변론종결 시점에 퇴직한다면 받을 수 있는 퇴직급여 상당액</b>이 분할 대상이 됩니다(대법원 2014. 7. 16. 선고 2013므2250 전원합의체)</td></tr>
+<tr><td><b>퇴직연금</b><br>(이미 받고 있는 경우)</td><td><b>됩니다</b></td><td>매월 받는 연금액 중 <b>일정 비율을 상대방에게 정기적으로 지급</b>하는 방식으로 나눌 수 있습니다(대법원 2014. 7. 16. 선고 2012므2888 전원합의체)</td></tr>
+<tr><td><b>국민연금</b></td><td><b>별도의 제도</b></td><td>재산분할과 별개로 <b>국민연금공단에 직접 청구</b>하는 <span class="term">분할연금<span class="bub">이혼한 사람이 전 배우자의 노령연금 중 혼인기간에 해당하는 부분을 나누어 받는 제도.</span></span> 제도가 있습니다. 아래 상자 참고</td></tr>
+<tr><td><b>임대차보증금</b></td><td><b>됩니다</b></td><td>전세보증금·상가보증금도 부부가 함께 이룬 재산이면 분할 대상입니다</td></tr>
+<tr><td><b>빚</b>(소극재산)</td><td><b>됩니다</b></td><td>공동생활을 위해 진 빚은 <b>재산에서 빼고</b> 계산합니다. 누가 갚을지도 협의서에 정하십시오</td></tr>
+<tr><td><b>특유재산</b></td><td><b>원칙적으로 안 됩니다</b></td><td>혼인 전부터 가진 재산, 상속·증여로 혼자 받은 재산은 원칙적으로 제외됩니다. 다만 <b>상대방이 그 재산을 유지하거나 늘리는 데 기여</b>했다면 분할 대상이 될 여지가 있습니다</td></tr>
+</table>
+
+<div class="bnote"><b>▸ 국민연금 분할연금 — 협의서와 별개로 챙기셔야 합니다</b><br>
+아래 <b>네 가지를 모두</b> 갖추면 전 배우자의 노령연금 중 혼인기간에 해당하는 부분을 나누어 받을 수 있습니다(국민연금법 §64).<br>
+① 배우자의 <b>국민연금 가입기간 중 혼인기간이 5년 이상</b>일 것 ② <b>이혼</b>했을 것 ③ 배우자였던 사람이 <b>노령연금 수급권자</b>일 것 ④ <b>본인이 노령연금 받을 나이</b>가 되었을 것<br>
+<b>· 청구 기한</b> — 위 네 요건을 모두 갖춘 날부터 <b>5년</b> 이내. 지나면 받을 수 없습니다.<br>
+<b>· 미리 청구(선청구)</b> — 아직 나이가 되지 않았어도 <b>이혼의 효력이 생긴 날부터 3년 이내</b>에 미리 청구해 둘 수 있습니다. <b>잊어버리지 않으려면 이혼 직후 선청구를 해 두는 것이 안전합니다.</b><br>
+<b>· 비율</b> — 원칙은 혼인기간에 해당하는 연금액의 균등분할이지만, <b>협의나 재판으로 비율을 달리 정하면 그에 따릅니다</b>(국민연금법 §64의2). 그러니 협의서에 연금을 어떻게 할 것인지 <b>분명히 적어 두셔야 합니다.</b><br>
+<span style="display:block;margin-top:6px;font-size:13px;color:var(--muted)">※ 공무원연금·사학연금·별정우체국연금에도 분할연금 제도가 있으나 <b>요건과 청구기한이 국민연금과 다를 수 있습니다.</b> 해당 공단에 직접 확인하십시오. <b>[확인필요]</b></span>
+</div>
+
+<div class="warn"><span class="wt">⚠ 상대가 재산을 숨기고 있다면</span>
+"통장에 얼마 없다"는 말만 믿고 협의하시면 안 됩니다. 이혼 무렵 <b>예금을 빼돌리거나 보험을 해지</b>하는 일이 드물지 않습니다. 협의가 어려운 상황이라면 가정법원에 <b>재산명시</b>(상대에게 재산 목록을 제출하도록 명하는 것)와 <b>재산조회</b>(법원이 금융기관·공공기관에 직접 조회하는 것)를 신청할 수 있습니다. <b>협의이혼으로 간단히 끝내면 이 방법을 쓸 수 없으므로</b>, 숨긴 재산이 의심되면 <b>협의서에 도장을 찍기 전에</b> 상담하십시오. 도장을 찍고 나면 되돌리기가 훨씬 어렵습니다.
+</div>
+
+<!-- 협의 불성립 -->
+<div class="qhead"><span class="qb">◆</span><h2>협의가 되지 않을 때 — 조정과 심판</h2></div>
+<p style="font-size:13.5px;color:var(--muted)">상대가 도장을 찍어 주지 않는다고 해서 포기하실 일이 아닙니다. <b>법원을 통해 재산분할을 정하는 길</b>이 따로 마련되어 있고, 그렇게 정해지면 <b>상대의 협조 없이도 등기를 넘겨받을 수 있습니다.</b></p>
+
+<div class="flow">
+  <div class="ft2">협의가 안 되면 이 길로 갑니다</div>
+  <ol>
+    <li><b>먼저 조정을 신청합니다</b> — 재산분할은 <span class="term">조정전치주의<span class="bub">소송이나 심판을 청구하기 전에 먼저 조정을 거치도록 하는 원칙. 법원이 중간에서 합의를 이끌어 보는 절차입니다.</span></span>가 적용되는 사건입니다(가사소송법 §50①). 조정을 신청하지 않고 곧바로 심판을 청구하더라도, <b>법원이 알아서 조정에 회부</b>합니다(§50②)</li>
+    <div class="arw">▼</div>
+    <li><b>조정이 성립하면 — 그것으로 끝입니다</b> — <b>조정조서</b>는 확정판결과 같은 효력을 가집니다. 이 조서만으로 <b>상대의 협조 없이 등기를 신청</b>할 수 있고, 돈을 받기로 했다면 <b>바로 강제집행</b>도 할 수 있습니다</li>
+    <div class="arw">▼</div>
+    <li><b>조정이 안 되면 심판으로 넘어갑니다</b> — 재산분할은 <span class="term">마류 가사비송사건<span class="bub">가정법원이 후견적 입장에서 여러 사정을 살펴 적절한 내용을 정해 주는 사건 유형. 재산분할·양육비·면접교섭 등이 여기에 속합니다.</span></span>입니다(가사소송법 §2①2호 나목). 법원이 <b>재산의 형성 경위와 기여도</b>를 따져 분할 방법과 액수를 정합니다</li>
+    <div class="arw">▼</div>
+    <li><b>심판이 확정되면 등기가 가능해집니다</b> — 심판에 불복하려면 고지받은 날부터 <b>14일 안에 즉시항고</b>해야 하고, 그 기간이 지나면 확정됩니다. <b>심판서 정본과 확정증명원</b>으로 <b>받는 사람 혼자</b> 등기를 신청할 수 있습니다</li>
+  </ol>
+</div>
+
+<table>
+<tr><th>단계</th><th>어디에 내나</th><th>무엇을 내나</th><th>알아둘 점</th></tr>
+<tr><td><b>① 가사조정 신청</b></td><td><b>상대방 주소지</b> 관할 가정법원<br><span style="font-size:12.5px;color:var(--muted)">(가정법원이 없는 곳은 지방법원 가사부)</span></td><td>가사조정 신청서</td><td>상대와 합의할 여지가 조금이라도 있다면 <b>가장 빠르고 비용이 적게 드는 길</b>입니다</td></tr>
+<tr><td><b>② 재산분할 심판청구</b></td><td>같은 법원(가사소송법 §46)</td><td>재산분할심판청구서<br>(작성례 ②)</td><td>협의이혼을 이미 한 경우에는 <b>이 청구만 단독으로</b> 합니다. 재판상 이혼 중이라면 <b>이혼소송에 함께</b> 청구합니다</td></tr>
+<tr><td><b>③ 심리</b></td><td>—</td><td>재산 자료·기여 자료</td><td>법원이 <b>기여도</b>를 판단합니다. 급여 이체 내역, 대출 상환 기록, 가사·육아 분담 정황을 정리해 내십시오</td></tr>
+<tr><td><b>④ 심판 → 확정</b></td><td>—</td><td>—</td><td>고지받은 날부터 <b>14일</b> 내 즉시항고. 지나면 확정</td></tr>
+<tr><td><b>⑤ 등기</b></td><td>부동산 관할 등기소</td><td><b>심판서 정본 + 확정증명원</b></td><td><b>혼자 신청</b>할 수 있습니다. 상대의 인감·등기필정보가 필요 없습니다</td></tr>
+</table>
+<div class="bnote">※ 조정·심판의 <b>인지액과 송달료</b>는 「가사소송수수료규칙」과 각 법원 예규에 따르며 개정될 수 있습니다. 접수 전 <b>해당 법원 종합민원실</b>에서 정확한 금액을 확인하십시오. <b>[확인필요]</b></div>
+
+<div class="warn"><span class="wt">★ 다투는 동안 재산이 빠져나가는 것을 막는 방법</span>
+심판이 끝날 때까지 몇 달이 걸리는데, 그 사이 상대가 <b>부동산을 팔거나 예금을 빼내면</b> 이겨도 받을 것이 없어집니다. 그래서 <b>다투기로 마음먹은 순간</b> 함께 검토해야 할 것들이 있습니다.<br>
+▸ <b>가압류·가처분</b>(가사소송법 §63) — 재산분할청구권을 지키기 위해 <b>미리</b> 상대 재산을 묶어 두는 것입니다. <b>심판을 청구하기 전에도 할 수 있습니다.</b> 부동산에는 <span class="term">처분금지가처분<span class="bub">그 부동산을 팔거나 담보로 잡히지 못하게 법원이 막아 두는 것.</span></span>, 예금·급여에는 <b>가압류</b>를 씁니다<br>
+▸ <b>사전처분</b>(가사소송법 §62) — 사건이 법원에 걸려 있는 동안 법원이 재산의 처분을 막는 등 필요한 조치를 명하는 것입니다<br>
+▸ <b>재산명시·재산조회</b>(가사소송법 §48의2·§48의3) — 상대에게 재산 목록을 내도록 명하거나, 법원이 <b>금융기관·공공기관에 직접 조회</b>하는 절차입니다<br>
+▸ <b>이미 빼돌린 뒤라면</b> — 재산분할청구권을 해할 것을 알면서 재산을 처분한 경우, 그 행위의 <b>취소와 원상회복</b>을 구할 수 있습니다(민법 §839의3). 다만 기한이 있습니다 — <b>취소 원인을 안 날부터 1년, 그 행위가 있은 날부터 5년</b>입니다.
+</div>
+
+<div class="tip"><span class="pt">💡 심판이 났는데도 상대가 이행하지 않으면</span>
+<b>돈을 지급하라</b>는 심판이라면 그 심판서로 <b>예금·급여·부동산에 강제집행</b>을 할 수 있습니다. 그와 별도로 가정법원에 <b>이행명령</b>을 신청할 수 있고(가사소송법 §64), 정당한 이유 없이 이를 따르지 않으면 <b>과태료</b>가, 금전 지급을 3기 이상 미루면 <b>감치</b>(붙잡아 두는 것)까지 가능합니다. <b>등기를 넘기라</b>는 심판이라면 앞서 본 대로 <b>혼자 등기를 신청</b>하면 되므로 상대의 이행을 기다릴 필요가 없습니다.</div>
+
+<!-- 내는 서류 -->
+<div class="qhead"><span class="qb">1</span><h2>등기소에 '내는' 서류와 어디서 떼는지</h2></div>
+
+<div class="who"><span class="doclabel give">제출</span><br><span class="wl">◆ 등기원인을 증명하는 서류 — 가장 중요합니다</span>
+  <ul>
+    <li><b>협의로 정한 경우</b> — <b>재산분할협의서</b>(작성례 ①). 두 사람이 인감도장으로 날인합니다</li>
+    <li><b>재판·조정으로 정한 경우</b> — <b>조정조서 정본</b> 또는 <b>판결 정본 + 확정증명원</b></li>
+    <li><b>이혼이 성립했음을 증명하는 서류</b> — <b>혼인관계증명서(상세)</b>. 이혼 사실이 기재되어 있어야 합니다</li>
+  </ul>
+  <div class="ddl">발급처 ▸ <a href="https://efamily.scourt.go.kr" target="_blank" rel="noopener" class="dl">전자가족관계등록시스템 혼인관계증명서</a>(반드시 <b>'상세'</b>) · 조정조서·판결문·확정증명원은 <b>해당 사건 법원 민원실</b>(사건번호 지참)</div>
+</div>
+
+<div class="who"><span class="doclabel give">제출</span><br><span class="wl">◆ 집을 넘겨주는 분(<span class="term">등기의무자<span class="bub">등기로 권리를 넘겨주는 쪽. 여기서는 집의 현재 명의자입니다.</span></span>)이 준비하는 것</span>
+  <ul>
+    <li><b><span class="term">등기필정보<span class="bub">등기가 끝났을 때 나온, 비밀번호가 적힌 서류. 예전의 '집문서(등기필증)'에 해당하며 잃어버려도 재발급되지 않습니다.</span></span></b> — 그 집을 살 때 받은 것</li>
+    <li><b>인감증명서</b>(주민센터 방문 발급) · <b>인감도장</b></li>
+    <li><b>주민등록초본</b>(주소이력 포함) — 등기부상 주소와 현재 주소가 다르면 필요</li>
+  </ul>
+  <div class="ddl">발급처 ▸ 인감증명서는 <b>주민센터·구청 방문</b> · <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000015" target="_blank" rel="noopener" class="dl">정부24 주민등록 등·초본</a></div>
+</div>
+
+<div class="who"><span class="doclabel give">제출</span><br><span class="wl">◆ 집을 받는 분(<span class="term">등기권리자<span class="bub">등기로 권리를 새로 얻는 쪽. 여기서는 집을 넘겨받는 분입니다.</span></span>)이 준비하는 것</span>
+  <ul>
+    <li><b>주민등록초본</b> — 등기부에 올릴 주소 (3개월 이내)</li>
+    <li><b>취득세 영수필확인서</b> · <b>국민주택채권 매입 영수증</b> · <b>등기신청수수료</b> 영수증</li>
+    <li>신분증, 도장</li>
+  </ul>
+  <div class="ddl">신고·납부처 ▸ <a href="https://www.wetax.go.kr" target="_blank" rel="noopener" class="dl">위택스</a>(서울은 ETAX) · 채권 매입 ▸ <a href="https://nhf.molit.go.kr" target="_blank" rel="noopener" class="dl">주택도시기금</a> 또는 은행 창구 · 등기 접수 ▸ <a href="https://www.iros.go.kr" target="_blank" rel="noopener" class="dl">인터넷등기소</a></div>
+</div>
+
+<div class="tip"><span class="pt">💡 상대가 협조하지 않으면 어떻게 하나요</span>
+등기는 원칙적으로 두 사람이 함께 신청해야 하지만, <b>판결이나 조정조서로 "소유권이전등기절차를 이행하라"는 내용이 확정</b>되어 있으면 <b>받는 사람 혼자서도 신청</b>할 수 있습니다. 협의이혼을 하면서 재산분할만 서면으로 남겨 두었는데 상대가 갑자기 태도를 바꾸는 경우가 있으므로, <b>다툼이 예상되는 상황이라면 처음부터 조정·심판으로 확정해 두는 편</b>이 안전합니다.</div>
+
+<!-- 반환 -->
+<div class="qhead"><span class="qb">2</span><h2>등기가 끝나면 '되돌려받는' 것</h2></div>
+<div class="who" style="border-left-color:#5a9a72"><span class="doclabel back">반환</span><br><span class="wl">◆ 손에 들어오는 것</span>
+  <ul>
+    <li><b>등기필정보(새 '집문서')</b> — 받는 분 앞으로 발급됩니다. 재발급되지 않으니 잘 보관하십시오.</li>
+    <li><b>원본으로 되받는 서류</b> — <b>재산분할협의서·조정조서·판결정본</b>처럼 다시 만들기 어려운 원본은 사본을 함께 내면 돌려받습니다(<span class="term">원본 환부<span class="bub">등기소에 낸 원본 서류를 되돌려받는 것. 사본을 함께 내면서 원본과 같다는 확인을 받으면 원본을 돌려줍니다.</span></span>).</li>
+    <li><b>꼭 챙기실 것</b> — <b>전 배우자가 그 집을 처음 살 때의 매매계약서와 취득세 영수증</b>. 등기와는 상관없지만, <b>나중에 그 집을 팔 때 반드시 필요합니다.</b> 이혼 후에는 받기 어려워지니 <b>지금 받아 두십시오.</b></li>
+  </ul>
+</div>
+
+<!-- 세금 -->
+<div class="qhead"><span class="qb">3</span><h2>세금은 얼마를, 언제까지 내나요?</h2></div>
+
+<table>
+<tr><th>구분</th><th>재산분할로 넘길 때</th><th>위자료로 넘길 때</th></tr>
+<tr><td><b>주는 사람 — 양도소득세</b></td><td><b>과세되지 않습니다</b><br><span style="font-size:12.5px;color:var(--muted)">공유물분할에 해당하여 '유상양도'가 아님<br>(대법원 1998. 2. 13. 선고 96누14401)</span></td><td><b>과세됩니다</b><br><span style="font-size:12.5px;color:var(--muted)">위자료 빚을 부동산으로 갚은 것이어서 유상양도<br>(대법원 1995. 11. 24. 선고 95누4599)</span></td></tr>
+<tr><td><b>받는 사람 — 증여세</b></td><td><b>과세되지 않습니다</b><br><span style="font-size:12.5px;color:var(--muted)">공동재산의 청산이지 무상으로 받는 것이 아님</span></td><td><b>과세되지 않습니다</b><br><span style="font-size:12.5px;color:var(--muted)">손해배상금이지 증여가 아님</span></td></tr>
+<tr><td><b>받는 사람 — 취득세</b></td><td><b>1.5%</b><br><span style="font-size:12.5px;color:var(--muted)">무상취득 표준세율 3.5%에서 2%를 뺀 특례세율<br>(지방세법 §15①6호)</span></td><td><b>3.5%</b><br><span style="font-size:12.5px;color:var(--muted)">특례 없이 그대로</span></td></tr>
+<tr><td><b>다주택 중과</b></td><td><b>적용되지 않습니다</b></td><td><b>적용되지 않습니다</b><br><span style="font-size:12.5px;color:var(--muted)">둘 다 무상취득이므로 유상 다주택 중과와는 별개</span></td></tr>
+<tr><td><b>농어촌특별세</b></td><td><b>붙습니다</b><br><span style="font-size:12.5px;color:var(--muted)">세율을 낮춰 준 만큼(감면분)에 대하여 <b>0.4%</b>가 과세됩니다. 농어촌특별세법 시행령 §4④가 감면 비과세 대상으로 <b>§15①1호~4호·7호</b>만 열거하고 있어, <b>6호(재산분할)는 그 열거에서 빠져 있기</b> 때문입니다</span></td><td>전용면적 <b>85㎡ 이하</b>면 본세분은 붙지 않습니다</td></tr>
+</table>
+
+<div class="bnote">※ <b>농어촌특별세를 빠뜨리지 마십시오.</b> 취득세가 3.5%에서 1.5%로 낮아진 것은 좋지만, <b>낮춰 준 2%에 대하여 그 20%인 0.4%</b>가 농어촌특별세로 붙습니다. 공유물분할(§15①4호)이 이 부담에서 빠지는 것과 다른 점이니, <b>세액을 계산할 때 반드시 포함</b>하십시오.</div>
+<div class="bnote">※ <b>사실혼을 해소하면서 하는 재산분할</b>에도 취득세 세율 특례가 적용된다는 것이 대법원의 판단입니다(대법원 2016. 8. 30. 선고 2016두36864 판결). 혼인신고를 하지 않았더라도 실질이 부부공동재산의 청산이라면 같은 취급을 받습니다.</div>
+
+<table class="deadline">
+  <tr><th>① 기산일</th><th>② 근거</th><th>③ 계산</th><th>④ 만료 예시</th></tr>
+  <tr><td><b>취득한 날</b>(등기원인일 — 협의성립일 또는 조정·판결 확정일)</td><td>지방세법 §20①</td><td>취득일부터 <b>60일</b> 내 취득세 신고·납부</td><td>3/10 이혼·협의 → <b>5/9까지</b></td></tr>
+  <tr><td><b>이혼한 날</b></td><td>민법 §839의2③</td><td><b>2년</b> 내에 재산분할을 청구해야 함 — 지나면 청구권 소멸</td><td>2026. 3. 10. 이혼 → <b>2028. 3. 10.까지</b></td></tr>
+  <tr><td><b>심판을 고지받은 날</b></td><td>가사소송법(즉시항고)</td><td><b>14일</b> 내에 즉시항고. 지나면 확정</td><td>5/1 고지 → <b>5/15까지</b></td></tr>
+  <tr><td><b>상대가 재산을 빼돌린 사실을 안 날</b><br>(그 행위가 있은 날)</td><td>민법 §839의3</td><td>안 날부터 <b>1년</b>, 행위가 있은 날부터 <b>5년</b> — 사해행위 취소 청구</td><td>둘 중 <b>먼저 오는 날</b>에 만료</td></tr>
+</table>
+<div class="bnote">※ <b>이혼한 날부터 2년</b>은 특히 주의하셔야 합니다. "나중에 정리하자"며 미루다가 2년이 지나 <b>청구 자체를 할 수 없게 되는</b> 경우가 실제로 있습니다. 협의가 되지 않는다면 <b>2년 안에 가정법원에 청구</b>하십시오.</div>
+
+<a class="calc" href="https://sanlaw.co.kr/tools-calculator.html" target="_blank" rel="noopener">
+  <div class="cah">🧮 취득세·등기비용 미리 계산해 보기</div>
+  <div class="cas">부동산 가액과 취득 원인을 입력하면 취득세·등기신청수수료·국민주택채권을 포함한 예상 금액을 산출합니다. (클릭 시 계산기로 이동)</div>
+</a>
+
+<!-- 함정 -->
+<div class="qhead"><span class="qb">!</span><h2>세금에서 크게 다치는 세 지점</h2></div>
+
+<div class="warn"><span class="wt">① 이름만 '재산분할'이라고 써도 통하지 않습니다</span>
+등기부에 '재산분할'이라고 적혀 있어도, 과세관청은 <b>실질이 부부공동재산의 청산인지</b>를 따져 봅니다. 실제로 등기원인이 재산분할로 되어 있었는데도 <b>전 배우자의 특유재산이어서 분할 대상으로 볼 수 없다</b>는 이유로 <b>증여로 재구성</b>되어 세금이 추징된 사례가 있습니다. 위험한 경우는 이렇습니다.<br>
+▸ 혼인 전부터 한쪽이 가지고 있던 재산 / 상속·증여로 혼자 받은 재산을 넘기는 경우<br>
+▸ 혼인 기간이나 기여도에 비해 <b>지나치게 많은 몫</b>을 넘기는 경우<br>
+▸ <b>이혼 후 계속 함께 사는 등</b> 이혼의 진정성이 의심되는 경우<br>
+<b>재산의 형성 과정과 기여를 보여 줄 자료</b>(급여 이체 내역, 대출 상환 기록, 육아·가사 분담 정황)를 함께 정리해 두시면 방어가 훨씬 쉬워집니다.
+</div>
+
+<div class="warn"><span class="wt">② 지금 아낀 세금이 팔 때 돌아옵니다 — 취득가액 승계</span>
+재산분할로 받은 집을 <b>나중에 팔 때</b>의 양도차익은, 내가 받은 날의 가격이 아니라 <b>전 배우자가 그 집을 처음 샀을 때의 가격</b>을 기준으로 계산합니다(대법원 1998. 2. 13. 선고 96누14401). 예를 들어 전 배우자가 <b>20년 전 2억에 산 집</b>을 재산분할로 받아 <b>10억에 팔면</b>, 양도차익은 2억을 기준으로 계산되어 <b>세금이 크게 나올 수 있습니다.</b><br>
+반대로 좋은 면도 있습니다 — <b>보유 기간도 함께 이어지므로</b>, 전 배우자가 오래 보유해 1세대 1주택 비과세 요건을 이미 채워 두었다면 받은 뒤 곧 팔아도 비과세가 가능할 수 있습니다. <b>어느 쪽이든 팔기 전에 계산해 보셔야 합니다.</b>
+</div>
+
+<div class="warn"><span class="wt">③ 부동산 대신 '돈'으로 정산하면 세금이 달라집니다</span>
+재산분할 대상인 부동산의 <b>가액에 해당하는 금액을 예금 등으로 대신 받기로 한 경우</b>, 그 부동산이 유상으로 이전된 것으로 보아 <b>양도소득세가 과세될 수 있다</b>는 것이 과세관청의 해석입니다. <b>"집은 당신이 갖고 나에게 그만큼 돈을 달라"</b>는 방식의 정산은 겉보기와 달리 세금 결과가 달라질 수 있으니, 합의 방식을 정하기 전에 확인하십시오.<br>
+반대로 <b>위자료를 현금으로 주면</b> 대물변제 문제가 생기지 않아 양도소득세가 발생하지 않습니다. <b>위자료는 현금으로, 재산분할은 부동산으로</b>가 세금 면에서는 대체로 유리한 조합입니다.
+</div>
+
+<!-- 작성례 -->
+<div class="qhead"><span class="qb">4</span><h2>직접 써 보는 서식</h2></div>
+<p style="font-size:13.5px;color:var(--muted)">아래 빈칸(○○○)을 채워 쓰시면 됩니다. 이 협의서가 <b>등기원인을 증명하는 서류</b>이자 <b>세금의 근거</b>가 되므로, 문구 하나가 중요합니다.</p>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag">작성례 ①</span>재산분할 협의서<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f1"><span class="ft">재 산 분 할 협 의 서</span>갑(넘겨주는 사람)  ○○○ (○○○○○○-○○○○○○○)
+                   주소  ○○○
+을(넘겨받는 사람)  ○○○ (○○○○○○-○○○○○○○)
+                   주소  ○○○
+
+  갑과 을은 20○○. ○○. ○○. 이혼하였으며(협의이혼 신고일 또는
+  ○○가정법원 20○○드단○○○○ 사건의 조정성립일), 민법
+  제839조의2에 따라 혼인 중 쌍방의 협력으로 이룩한 재산의
+  분할에 관하여 다음과 같이 협의한다.
+
+제1조 (분할의 대상)
+  분할의 대상이 되는 재산은 아래와 같다.
+    1. 부동산 : ○○시 ○○구 ○○동 ○○ ○○아파트 제○동
+                제○층 제○호 (전용면적 ○○○㎡)
+    2. 예금   : ○○은행 ○○○-○○-○○○○○○ 계좌
+    3. 보험   : ○○생명 ○○○보험(증권번호 ○○○○○○)
+                해약환급금 금 ○○○원 상당
+    4. 퇴직금 : 갑이 ○○○(직장)에서 이 협의서 작성일 현재
+                퇴직할 경우 수령할 퇴직급여 상당액
+    5. 채무   : ○○은행 주택담보대출 잔액 금 ○○○원
+
+제2조 (분할의 방법)
+  1. 갑은 제1조 제1항 기재 부동산에 관하여, 을에게
+     이 협의서 작성일자 재산분할을 원인으로 한 소유권이전
+     등기절차를 이행한다.
+  2. 제1조 제5항 기재 채무는 ○○○가 인수하여 변제한다.
+  3. 제1조 제2항 기재 예금은 ○○○의 소유로 한다.
+  4. 갑은 제1조 제3항 기재 보험의 계약자 및 수익자를 을로
+     변경하는 절차를 이행한다. (또는 갑이 이를 해지하고
+     해약환급금 중 금 ○○○원을 을에게 지급한다.)
+  5. 갑은 제1조 제4항 기재 퇴직급여에 대한 을의 몫으로
+     금 ○○○원을 20○○. ○○. ○○.까지 을에게 지급한다.
+
+제3조 (등기 협력)
+  갑은 을이 제2조 제1항의 등기를 신청하는 데 필요한 서류를
+  지체 없이 교부하는 등 등기 절차에 협력한다.
+
+제4조 (연금의 분할)
+  1. 갑의 국민연금에 관하여, 을은 국민연금법 제64조에 따른
+     분할연금을 청구할 수 있으며 갑은 이에 협조한다.
+  2. 분할 비율은 국민연금법 제64조의2에 따라 ○분의 ○로
+     정한다. (법정 비율에 따를 경우 이 항은 삭제한다.)
+
+제5조 (성격의 확인)
+  이 협의에 따른 재산의 이전은 혼인 중 쌍방의 협력으로 이룩한
+  공동재산의 청산으로서 민법 제839조의2에 따른 재산분할이며,
+  위자료 또는 증여가 아니다.
+
+제6조 (자료의 교부)
+  갑은 을에게 제1조 제1항 기재 부동산의 취득 당시 매매계약서,
+  취득세 납부영수증 등 취득가액을 증명할 수 있는 자료의 사본을
+  교부한다.
+
+제7조 (청산)
+  갑과 을은 이 협의서에 정한 것 외에 재산분할에 관하여 서로
+  더 이상의 청구를 하지 아니한다.
+
+  이 협의를 증명하기 위하여 협의서 2통을 작성하여 각자 1통씩
+  보관한다.
+
+              20○○. ○○. ○○.
+
+    갑  ○○○ (인)
+    을  ○○○ (인)</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1')">📋 복사</button><button type="button" onclick="printForm('f1')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1','재산분할_협의서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>제5조와 제6조를 빼지 마십시오.</b><br>
+· <b>제4조(연금)</b>는 국민연금 분할 비율을 협의로 정하는 조항입니다. 법정 비율(균등분할)로 충분하다면 제2항은 지우시면 되고, 비율을 달리 정하고 싶다면 반드시 서면에 남겨야 합니다(국민연금법 §64의2).<br>
+· <b>제5조</b>는 이 이전이 위자료나 증여가 아니라 재산분할임을 명확히 하는 조항입니다. 세금 문제로 다툼이 생겼을 때 첫 번째 근거가 됩니다. 위자료를 함께 정하실 경우에는 <b>금액과 지급 방법을 별도 조항으로 분리</b>해서 쓰시고, <b>현금으로 지급</b>하도록 정하는 편이 세금 면에서 유리합니다.<br>
+· <b>제6조</b>는 나중에 그 집을 팔 때 필요한 자료를 미리 확보하는 조항입니다. 이혼 후에는 상대에게 연락하기 어려워지므로, <b>협의서를 쓸 때 함께 받아 두시는 것</b>이 가장 확실합니다.<br>
+· 부동산 표시는 <b>등기사항증명서 표제부 그대로</b> 옮겨 적으십시오. 한 글자만 달라도 등기가 반려될 수 있습니다.<br>
+· 다툼이 예상되면 <b>협의서 대신 가정법원의 조정</b>으로 확정해 두는 편이 안전합니다. 조정조서가 있으면 상대가 협조하지 않아도 혼자 등기할 수 있습니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ②</span>재산분할 심판청구서 (협의가 되지 않을 때)<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f2"><span class="ft">재 산 분 할 심 판 청 구</span>청 구 인   ○○○   (☎: ○○○-○○○○-○○○○)
+           주민등록번호  ○○○○○○-○○○○○○○
+           주소  ○○○
+           송달장소  ○○○ (주소와 같으면 생략 가능)
+상 대 방   ○○○
+           주민등록번호  ○○○○○○-○○○○○○○
+           주소  ○○○
+
+         청 구 취 지
+
+  1. 상대방은 청구인에게 재산분할로 금 ○○○원 및 이에 대하여
+     이 심판 확정일 다음 날부터 다 갚는 날까지 연 5%의 비율로
+     계산한 돈을 지급하라.
+  2. 심판비용은 상대방이 부담한다.
+  라는 심판을 구합니다.
+
+  (부동산 자체를 넘겨받고자 하는 경우에는 제1항을 아래와 같이
+   적습니다.)
+  1. 상대방은 청구인에게 별지 목록 기재 부동산에 관하여 이 심판
+     확정일자 재산분할을 원인으로 한 소유권이전등기절차를
+     이행하라.
+
+         청 구 원 인
+
+  1. 혼인과 이혼의 경위
+     청구인과 상대방은 20○○. ○○. ○○. 혼인신고를 마친 부부
+     였으나, 20○○. ○○. ○○. ○○○(협의이혼 신고 / ○○가정
+     법원 20○○드단○○○○ 사건의 판결 확정)로 이혼하였습니다.
+
+  2. 분할의 대상이 되는 재산
+     가. 적극재산
+         (1) 부동산 : ○○시 ○○구 ○○동 ○○ ○○아파트
+             제○동 제○호 (시가 약 금 ○○○원, 상대방 명의)
+         (2) 예금   : ○○은행 ○○○-○○-○○○○○○
+                      (금 ○○○원, 상대방 명의)
+         (3) 보험   : ○○생명 ○○○보험(증권번호 ○○○○○○)
+                      해약환급금 금 ○○○원 상당
+         (4) 퇴직금 : 상대방이 ○○○에 근무하며 이 사건
+                      변론종결 시 퇴직할 경우 수령할 퇴직급여
+                      상당액 금 ○○○원
+     나. 소극재산
+         (1) ○○은행 주택담보대출 금 ○○○원 (상대방 명의)
+     다. 순재산 : 금 ○○○원
+
+  3. 청구인의 기여
+     청구인은 혼인 기간 ○○년 동안 ○○○하였습니다.
+     (예: 20○○년부터 20○○년까지 ○○에서 근무하며 급여
+     전액을 생활비와 대출 상환에 사용하였고, 그 후에는 가사와
+     자녀 양육을 전담하여 상대방이 직장 생활에 전념할 수 있도록
+     하였습니다.)
+     이러한 사정에 비추어 청구인의 기여도는 ○○% 이상으로
+     평가되어야 합니다.
+
+  4. 결론
+     따라서 청구인은 상대방에 대하여 순재산 금 ○○○원 중
+     기여도 ○○%에 해당하는 금 ○○○원의 분할을 구하기 위하여
+     이 청구에 이르렀습니다.
+
+         입 증 방 법
+
+  1. 갑 제1호증   혼인관계증명서(상세)
+  2. 갑 제2호증   가족관계증명서(상세)
+  3. 갑 제3호증   부동산 등기사항전부증명서
+  4. 갑 제4호증   예금거래내역서
+  5. 갑 제5호증   ○○○(기여를 증명할 자료)
+
+         첨 부 서 류
+
+  1. 위 입증방법          각 1통
+  2. 청구서 부본          1통
+  3. 인지·송달료 납부서    각 1통
+
+              20○○. ○○. ○○.
+
+                청구인  ○○○ (인 또는 서명)
+
+○○가정법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f2')">📋 복사</button><button type="button" onclick="printForm('f2')">🖨 인쇄</button><button type="button" onclick="downloadForm('f2','재산분할_심판청구서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>이혼한 날부터 2년 안에</b> 내야 합니다(민법 §839의2③). <b>상대방 주소지 관할 가정법원</b>에 내며, 조정을 거치지 않고 내더라도 법원이 조정에 회부합니다.<br>
+· <b>청구취지</b>는 <b>돈으로 받을지, 부동산 자체를 받을지</b>에 따라 달라집니다. 상대 명의 부동산을 직접 넘겨받고 싶다면 아래 문장을 쓰십시오. 다만 법원은 사정에 따라 <b>돈으로 정산하도록 정할 수도</b> 있습니다.<br>
+· <b>청구원인 2번(재산 목록)</b>이 이 사건의 절반입니다. <b>상대 명의 재산까지 빠짐없이</b> 적어야 하고, 모르는 것이 있으면 <b>재산명시·재산조회</b>를 함께 신청하십시오.<br>
+· <b>청구원인 3번(기여)</b>은 감정이 아니라 <b>사실과 자료</b>로 씁니다. "고생했다"가 아니라 <b>"몇 년간 얼마를 벌어 어디에 썼다", "누가 무엇을 전담했다"</b>로 구체적으로 적으십시오. 전업주부의 가사·육아도 <b>정당한 기여</b>로 평가됩니다.<br>
+· <b>재산이 빠져나갈 우려가 있다면</b> 이 청구와 <b>함께 또는 그에 앞서</b> 가압류·가처분을 검토하셔야 합니다.</div>
+</div></div>
+
+<!-- FAQ -->
+<div class="qhead"><span class="qb">?</span><h2>자주 묻는 질문</h2></div>
+<div class="faq">
+  <details><summary>위자료와 재산분할을 함께 받는데, 어떻게 나눠 적어야 하나요?</summary>
+    <div class="fa"><b>성격과 금액을 분명히 나누어</b> 적으십시오. 부동산은 <b>재산분할</b>로, 위자료는 <b>현금</b>으로 정하는 것이 세금 면에서 대체로 유리합니다. 뭉뚱그려 "재산분할 및 위자료로 아파트를 이전한다"고 쓰면 나중에 <b>일부가 위자료 대물변제로 취급</b>되어 양도소득세가 나올 수 있습니다.</div></details>
+  <details><summary>혼인신고를 하지 않았는데(사실혼) 재산분할이 되나요?</summary>
+    <div class="fa"><b>됩니다.</b> 사실혼을 해소하면서 하는 재산분할에도 취득세 세율 특례가 적용된다는 것이 대법원의 판단입니다(2016. 8. 30. 선고 2016두36864 판결). 다만 사실혼 관계가 있었다는 사실 자체를 증명해야 하므로, 함께 산 기간·공동생활의 자료를 정리해 두셔야 합니다.</div></details>
+  <details><summary>이혼 전에 미리 등기를 넘겨도 되나요?</summary>
+    <div class="fa"><b>권하지 않습니다.</b> 재산분할은 이혼이 성립해야 생기는 권리이므로, 이혼 전에 넘긴 것은 <b>부부 사이의 증여</b>로 볼 수 있습니다. 그러면 증여세와 높은 취득세가 따라옵니다. <b>이혼 성립 → 등기</b> 순서를 지키십시오.</div></details>
+  <details><summary>집에 대출이 남아 있는데, 그 대출은 어떻게 되나요?</summary>
+    <div class="fa">협의서에 <b>누가 인수해 갚을지</b>를 반드시 정하십시오(작성례 제2조 제2항). 다만 <b>협의만으로 은행에 대항할 수는 없습니다.</b> 채무자를 실제로 바꾸려면 <b>은행의 동의(채무인수 승낙)</b>가 필요하니, 등기 전에 은행에 미리 문의하셔야 합니다. 은행이 동의하지 않으면 명의는 바뀌어도 <b>대출 채무자는 그대로</b>인 상태가 됩니다.</div></details>
+  <details><summary>이혼한 지 3년이 지났습니다. 이제라도 청구할 수 있나요?</summary>
+    <div class="fa"><b>어렵습니다.</b> 재산분할청구권은 <b>이혼한 날부터 2년</b>이 지나면 소멸합니다(민법 §839의2③). 다만 이혼 당시 몰랐던 재산이 뒤늦게 드러난 경우 등 사안에 따라 달리 볼 여지가 있을 수 있으니, 사정을 가지고 상담해 주십시오.</div></details>
+  <details><summary>상대가 도장을 안 찍어 줍니다. 등기를 못 하나요?</summary>
+    <div class="fa"><b>할 수 있습니다.</b> 가정법원의 <b>조정조서</b>나 <b>확정된 심판서</b>에 "소유권이전등기절차를 이행하라"는 내용이 있으면, <b>받는 사람 혼자서</b> 등기를 신청할 수 있습니다. 상대의 인감증명서나 등기필정보가 없어도 됩니다. 그래서 <b>다툼이 예상되는 상황에서는 처음부터 조정·심판으로 확정해 두는 편</b>이 오히려 빠릅니다.</div></details>
+  <details><summary>조정을 꼭 먼저 거쳐야 하나요?</summary>
+    <div class="fa">재산분할은 <b>조정을 먼저 신청하도록</b> 정해져 있습니다(가사소송법 §50①). 다만 조정을 거치지 않고 곧바로 심판을 청구하더라도 <b>법원이 그 사건을 조정에 회부</b>하므로(§50②), 실무에서는 심판청구부터 하는 경우도 많습니다. <b>합의할 여지가 조금이라도 있다면 조정이 훨씬 빠르고 비용이 적게 듭니다.</b></div></details>
+  <details><summary>다투는 동안 상대가 집을 팔아 버리면 어떻게 하나요?</summary>
+    <div class="fa">그것을 막기 위한 제도가 <b>가압류·가처분</b>(가사소송법 §63)입니다. <b>심판을 청구하기 전에도 신청할 수 있으니</b>, 처분이 우려되면 <b>가장 먼저</b> 검토하셔야 합니다. 이미 팔아 버린 뒤라면 그 처분행위의 <b>취소와 원상회복</b>을 구할 수 있으나(민법 §839의3), <b>취소 원인을 안 날부터 1년, 그 행위가 있은 날부터 5년</b>이라는 기한이 있습니다. 시간을 지체하지 마십시오.</div></details>
+  <details><summary>남편이 아직 퇴직하지 않았는데 퇴직금도 나눌 수 있나요?</summary>
+    <div class="fa"><b>나눌 수 있습니다.</b> 예전 판례는 "아직 받지도 않은 돈"이라며 인정하지 않았지만, 대법원이 <b>2014년 전원합의체 판결로 입장을 바꾸었습니다</b>(2013므2250). 지금은 <b>이혼소송의 사실심 변론이 끝나는 시점에 퇴직한다면 받을 수 있는 금액</b>을 기준으로 분할 대상에 넣습니다. 이미 <b>퇴직연금을 받고 있는 경우</b>에도 매월 받는 금액의 일정 비율을 정기적으로 지급하는 방식으로 나눌 수 있습니다(2012므2888).</div></details>
+  <details><summary>협의서에 "더 이상 청구하지 않는다"고 썼는데, 국민연금도 못 받나요?</summary>
+    <div class="fa">국민연금 분할연금은 <b>국민연금공단에 직접 청구하는 별도의 제도</b>여서, 협의서 문구만으로 당연히 없어진다고 보기는 어렵습니다. 다만 <b>협의로 분할 비율을 달리 정하면 그에 따르도록</b> 법이 정하고 있어(국민연금법 §64의2), 어떤 문구를 어떻게 썼는지에 따라 다툼이 생길 수 있습니다. <b>가장 확실한 방법은 협의서에 연금을 어떻게 할 것인지 분명히 적는 것</b>입니다. 이미 협의서를 쓰셨다면 그 문구를 가지고 상담해 주십시오.</div></details>
+  <details><summary>분할연금은 언제까지 청구해야 하나요?</summary>
+    <div class="fa">요건을 모두 갖춘 날부터 <b>5년</b>입니다. 다만 아직 연금 받을 나이가 되지 않았더라도 <b>이혼의 효력이 생긴 날부터 3년 이내에 미리 청구(선청구)</b>해 둘 수 있습니다. 이혼하고 20~30년 뒤에 받는 돈이라 <b>잊어버리기 가장 쉬운 권리</b>이므로, <b>이혼 직후 선청구를 해 두시기를 권합니다.</b> 가까운 국민연금공단 지사 어디에서나 가능합니다.</div></details>
+  <details><summary>보험은 어떻게 나누나요?</summary>
+    <div class="fa">지금 해지하면 받을 <b>해약환급금</b>을 기준으로 금액을 정하는 것이 보통입니다. 보험사에 <b>해약환급금 확인서</b>를 요청하면 금액이 나옵니다. 나누는 방법은 두 가지입니다 — ① <b>해지하고 환급금을 나누는 방법</b>, ② <b>계약을 그대로 두고 계약자·수익자만 바꾸는 방법</b>. 오래된 보험은 해지하면 손해가 큰 경우가 많으니, <b>해지 전에 계약 조건을 먼저 확인</b>하십시오.</div></details>
+  <details><summary>취득세 특례는 신청해야 받나요?</summary>
+    <div class="fa">취득세를 신고할 때 <b>등기원인이 재산분할임을 밝히고</b> 협의서나 조정조서를 제출하면 특례세율로 계산됩니다. 창구에서 <b>"재산분할, 지방세법 제15조 제1항 제6호"</b>라고 말씀하시면 됩니다. 자칫 일반 증여로 신고되면 세율이 두 배 이상 차이 나므로, <b>신고서 작성 단계에서 확인</b>하십시오.</div></details>
+</div>
+
+<!-- 상담 CTA -->
+<div class="hire">
+  <div class="ft" style="font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:18px;color:var(--gold-d);margin-bottom:8px">합의서를 쓰기 전에 한 번 들러 주십시오</div>
+  <p style="margin:0 0 4px;font-size:14.5px;line-height:1.8">이 사안은 <b>등기를 마친 뒤에는 되돌리기가 매우 어렵습니다.</b> 본 사무소에서는 ① 재산 목록과 형성 과정을 함께 정리해 <b>재산분할과 위자료의 경계를 나누고</b>, ② <b>재산분할협의서를 세금까지 고려해 작성</b>해 드리며, ③ <b>취득세 특례 신고와 소유권이전등기 접수</b>를 대신 처리해 드립니다. ④ 협의가 되지 않는 경우에는 <b>가사조정 신청서·재산분할 심판청구서 작성</b>과 <b>재산명시·재산조회, 가압류·가처분 신청 서류</b>까지 지원해 드리고, ⑤ 조정조서나 확정된 심판서로 <b>단독 소유권이전등기</b>를 마무리해 드립니다. 어려운 시기를 지나시는 만큼, 서류 부분은 맡겨 두시고 마음을 추스르는 데 집중하십시오.</p>
+</div>
+
+<div style="background:linear-gradient(135deg,#fffdf9,#faf3e8);border:1.5px solid #d8c3a0;border-radius:14px;padding:18px 20px;margin:18px 0;">
+  <div style="font-size:14.5px;font-weight:700;color:#6f5638;">🤝 양도세 계산·신고는 — 업무협약 세무사와 함께</div>
+  <div style="font-size:12.5px;color:#a9793c;font-weight:700;margin-top:12px;">업무협약 세무사</div>
+  <div style="font-size:19px;font-weight:800;color:#3d2c1c;margin:1px 0 4px;">광교세무법인 &nbsp;김일섭 <span style="font-size:13.5px;font-weight:600;color:#6b5540;">대표세무사</span></div>
+  <div style="display:inline-block;background:#f6ecd9;color:#9a6b1f;border:1px solid #e6d3ae;border-radius:20px;padding:3px 11px;font-size:12px;font-weight:700;">국세청 조사·감사 실무 경력</div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;">
+    <a href="tel:01062460702" style="flex:1 1 44%;min-width:132px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-align:center;background:#6f5638;color:#fff;text-decoration:none;font-weight:700;padding:11px 6px;border-radius:10px;"><span style="white-space:nowrap;font-size:14px;">📱 휴대폰 바로통화</span><span style="white-space:nowrap;font-size:12px;opacity:.9;">010-6246-0702</span></a>
+    <a href="tel:0312348530" style="flex:1 1 44%;min-width:132px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-align:center;background:#8a6d4b;color:#fff;text-decoration:none;font-weight:700;padding:11px 6px;border-radius:10px;"><span style="white-space:nowrap;font-size:14px;">📞 사무실 전화</span><span style="white-space:nowrap;font-size:12px;opacity:.9;">031-234-8530</span></a>
+    <a href="mailto:kgtax60@naver.com?subject=%EC%84%B8%EB%AC%B4%20%EC%83%81%EB%8B%B4%20%EB%AC%B8%EC%9D%98%20%28%EC%82%B0%20%EB%B2%95%EB%AC%B4%EC%82%AC%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80%29&body=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94%2C%20%EC%82%B0%20%EB%B2%95%EB%AC%B4%EC%82%AC%20%EA%B9%80%EC%9E%AC%EC%84%AD%20%ED%96%89%EC%A0%95%EC%82%AC%20%EC%82%AC%EB%AC%B4%EC%86%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80%EB%A5%BC%20%EB%B3%B4%EA%B3%A0%20%EC%84%B8%EB%AC%B4%20%EC%83%81%EB%8B%B4%EC%9D%84%20%EB%AC%B8%EC%9D%98%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4.%0A%0A%E2%96%A0%20%EC%84%B1%ED%95%A8%3A%0A%E2%96%A0%20%EC%97%B0%EB%9D%BD%EC%B2%98%3A%0A%E2%96%A0%20%EB%AC%B8%EC%9D%98%20%EB%82%B4%EC%9A%A9%3A%0A" style="flex:1 1 44%;min-width:132px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-align:center;background:#c8862d;color:#fff;text-decoration:none;font-weight:700;padding:11px 6px;border-radius:10px;"><span style="white-space:nowrap;font-size:14px;">✉️ 이메일 바로쓰기</span><span style="white-space:nowrap;font-size:12px;opacity:.9;">kgtax60@naver.com</span></a>
+    <a href="https://www.gwangyo.com/introduce/expert.html?bmain=view&uid=31&search=%26mode%3D1%26page%3D1&mode=1" target="_blank" rel="noopener" style="flex:1 1 44%;min-width:132px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-align:center;background:#fff;color:#6f5638;border:1.5px solid #c8a878;text-decoration:none;font-weight:700;padding:11px 6px;border-radius:10px;"><span style="white-space:nowrap;font-size:14px;">🌐 상세 프로필</span><span style="white-space:nowrap;font-size:12px;opacity:.9;">경력·업무 보기</span></a>
+  </div>
+  <div style="margin-top:11px;font-size:12px;color:#8a7860;line-height:1.55;">· (16205) 수원시 장안구 경수대로 1110-12 광교빌딩 3층 · 대표전화 031-234-8530 / 휴대폰 010-6246-0702</div>
+</div>
+
+<a class="ctabtn" href="https://sanlaw.co.kr" target="_blank" rel="noopener">이혼 재산분할 등기 상담 신청하기 →</a>
+<div class="src">근거 — 민법 §839의2(재산분할청구권)·§843(재판상 이혼에의 준용) / 부동산등기법 §23(공동신청) / 부동산등기규칙 §59(원본 환부) / 지방세법 §15①6호(이혼 재산분할 세율의 특례)·§20①(신고·납부) / 소득세법 §88(양도의 정의) / 상속세 및 증여세법 §2(증여의 정의) / 농어촌특별세법 §4 8호 및 같은 법 시행령 §4④(§15①6호는 감면 비과세 열거에서 제외) / 주택도시기금법(국민주택채권) / 대법원 1995. 11. 24. 선고 95누4599 판결(위자료 대물변제는 유상양도) / 대법원 1998. 2. 13. 선고 96누14401 판결(재산분할은 실질적 공유물분할로서 유상양도 아님, 취득가액은 최초 취득 시 기준) / 대법원 2003. 11. 14. 선고 2002두6422 판결(같은 취지) / 대법원 2016. 8. 30. 선고 2016두36864 판결(사실혼 해소 재산분할에도 취득세 특례 적용) / 대법원 2014. 7. 16. 선고 2013므2250 전원합의체 판결(재직 중인 배우자의 장래 퇴직급여채권도 재산분할 대상) / 대법원 2014. 7. 16. 선고 2012므2888 전원합의체 판결(수령 중인 퇴직연금수급권의 정기금 분할) / 국민연금법 §64(분할연금 수급권자)·§64의2(분할연금 지급의 특례) / 가사소송법 §2①2호 나목(마류 가사비송사건)·§46(관할)·§48의2(재산명시)·§48의3(재산조회)·§50(조정 전치주의)·§62(사전처분)·§63(가압류·가처분)·§64(이행명령)·§67(과태료)·§68(감치) / 가사소송수수료규칙 / 민법 §839의3(재산분할청구권 보전을 위한 사해행위취소권) / 국민연금공단 공개 안내자료 / 국세청 예규(재산분할 대상 부동산 가액을 예금으로 대신 수취하는 경우) / 법제처 찾기쉬운 생활법령정보 '이혼'. 발급처 링크는 각 기관 공식 사이트로 연결됩니다. 본 자료는 일반적인 법률정보로, 개별 사건의 법률자문이 아니며 개별 사건의 결과를 보장하지 않습니다. 세액은 재산의 구성·기여도·주택 수 등에 따라 달라지므로 관할 지방자치단체와 세무 전문가의 확인을 받으시기 바랍니다.</div>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+})();
+function toggleFold(b){var fb=b.parentElement;var open=fb.classList.toggle('open');}
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('양식이 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('양식이 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('양식을 내려받았습니다');}
+</script>
+</body>
+</html>

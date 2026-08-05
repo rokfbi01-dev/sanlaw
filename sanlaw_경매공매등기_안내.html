@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[등기 안내] 경매·공매 낙찰 부동산 소유권이전등기 — 촉탁·인도명령·취득세 | 산 법무사 김재섭</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+ul{margin:8px 0 12px; padding-left:20px;} li{margin:6px 0;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(300px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.who{background:var(--box); border-radius:10px; padding:14px 16px; margin:12px 0; border-left:4px solid #b9a98c;}
+.who .wl{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;margin-left:3px;}
+.tag.free{background:#5a9a72;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.cta{display:block; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; text-decoration:none; font-weight:700; font-size:16px; padding:15px; border-radius:11px; margin:18px 0; box-shadow:0 3px 8px rgba(122,82,48,.25);}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:11px 15px;margin:10px 0;font-size:13.5px;line-height:1.7;}
+.lawbox .ll{display:inline-block;font-size:11.5px;font-weight:700;color:#fff;background:var(--gold-d);border-radius:5px;padding:2px 8px;margin-right:6px;}
+.lawbox a{color:var(--gold-d);font-weight:600;}
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:14.5px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:16px;margin:10px 0;font-family:'D2Coding','Courier New',monospace;font-size:12.5px;line-height:1.65;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:15px;letter-spacing:2px;margin-bottom:10px;color:#241a10;}
+.howto{font-size:13.5px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:12.5px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:6px 12px;cursor:pointer;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+/* 개념 한 줄 */
+.concept{background:var(--box);border-radius:9px;padding:11px 15px;margin:8px 0 14px;font-size:14.5px;color:#5a4a36;border-left:3px solid #b9a98c;}
+.concept b{color:var(--gold-d);}
+/* 절차 플로우 */
+.flow{background:linear-gradient(180deg,#fcf9f2,#f7f1e5);border:1.5px solid var(--gold);border-radius:14px;padding:18px 18px 14px;margin:14px 0 20px;}
+.flow .ft2{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:12px;}
+.flow ol{counter-reset:fl;list-style:none;margin:0;padding:0;}
+.flow li{position:relative;padding:8px 10px 8px 44px;margin:7px 0;background:#fff;border:1px solid var(--line);border-radius:10px;font-size:14.5px;line-height:1.6;}
+.flow li::before{counter-increment:fl;content:counter(fl);position:absolute;left:10px;top:8px;width:26px;height:26px;line-height:26px;text-align:center;background:var(--gold);color:#fff;border-radius:50%;font-weight:800;font-size:14px;}
+.flow li b{color:var(--gold-d);}
+.flow .arw{text-align:center;color:var(--gold);font-size:13px;margin:-2px 0;}
+.flow ol.navlist{padding-left:0;}
+.flow ol.navlist li{padding:9px 13px;}
+.flow ol.navlist li::before{content:none;}
+.flow ol.navlist a{color:var(--gold-d);font-weight:700;white-space:nowrap;text-decoration:none;margin-left:4px;}
+.flow ol.navlist a:hover{text-decoration:underline;}
+/* 최신 개정 박스 */
+.newlaw{background:#eef6f0;border:1px solid #cfe6d6;border-left:4px solid #5a9a72;border-radius:8px;padding:13px 16px;margin:14px 0;}
+.newlaw .nt{font-weight:700;color:#2f6a47;display:block;margin-bottom:4px;}
+.newlaw .badge{display:inline-block;font-size:11px;font-weight:800;color:#fff;background:#5a9a72;border-radius:5px;padding:2px 8px;margin-right:6px;vertical-align:middle;}
+/* FAQ */
+.faq{margin:14px 0;}
+.faq details{border:1px solid var(--line);border-radius:10px;margin:9px 0;background:#fff;overflow:hidden;}
+.faq summary{list-style:none;cursor:pointer;padding:13px 44px 13px 15px;font-weight:700;font-size:15px;color:#241a10;background:#faf7f0;position:relative;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::before{content:"Q";position:absolute;left:15px;color:var(--gold-d);font-family:'Nanum Myeongjo',serif;font-weight:800;}
+.faq summary{padding-left:38px;}
+.faq summary::after{content:"▾";position:absolute;right:16px;top:13px;color:var(--gold-d);transition:.2s;}
+.faq details[open] summary::after{transform:rotate(180deg);}
+.faq .fa{padding:13px 15px 15px 38px;font-size:14.5px;line-height:1.75;color:#3a3a3a;position:relative;border-top:1px solid var(--line);}
+.faq .fa::before{content:"A";position:absolute;left:15px;top:13px;color:#5a9a72;font-family:'Nanum Myeongjo',serif;font-weight:800;}
+/* ── 표준구조 추가 ── */
+.helm{background:linear-gradient(135deg,#2c3e50,#3a4a5c);color:#f4f0e8;border-radius:14px;padding:20px 22px;margin:0 0 24px;box-shadow:0 4px 14px rgba(44,62,80,.18);}
+.helm .ht2{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:17px;color:#f0d98c;margin-bottom:9px;}
+.helm p{margin:0;font-size:14.5px;line-height:1.9;color:#eae4d8;}
+.helm b{color:#f4e2a6;}
+.qhead{display:flex;gap:12px;align-items:flex-start;margin:8px 0 8px;}
+.qhead .qb{flex:none;width:34px;height:34px;border-radius:50%;background:var(--gold);color:#fff;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(176,141,87,.4);}
+.qhead h2{margin:0;border:0;padding:0;font-size:20px;line-height:1.45;}
+.lawrow{display:flex;flex-wrap:wrap;background:var(--box);border-radius:10px;overflow:hidden;margin:12px 0;border:1px solid var(--line);}
+.lawrow .lrl{flex:none;background:var(--gold);color:#fff;font-weight:700;font-size:13.5px;padding:11px 15px;display:flex;align-items:center;}
+.lawrow .lrc{flex:1;min-width:210px;padding:11px 15px;font-size:14px;line-height:1.75;}
+@media(max-width:520px){.lawrow .lrl{width:100%;}}
+.calc{display:block;background:linear-gradient(135deg,#fff7e8,#fdeecb);border:1.5px solid var(--gold);border-radius:14px;padding:16px 18px;margin:18px 0;text-decoration:none;color:var(--ink);transition:.15s;}
+.calc:hover{box-shadow:0 4px 14px rgba(176,141,87,.25);transform:translateY(-1px);}
+.calc .cah{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:4px;}
+.calc .cas{font-size:13.5px;color:var(--muted);}
+.ctabtn{display:block;text-align:center;background:var(--gold);color:#fff;font-weight:800;font-size:17px;padding:16px;border-radius:12px;text-decoration:none;margin:22px 0 6px;box-shadow:0 3px 10px rgba(176,141,87,.35);}
+.ctabtn:hover{background:var(--gold-d);}
+.doclabel{display:inline-block;font-size:12px;font-weight:800;color:#fff;border-radius:6px;padding:3px 11px;margin-bottom:6px;}
+.doclabel.give{background:#b0885a;}
+.doclabel.back{background:#5a9a72;}
+.dl{color:var(--gold-d);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--gold);}
+.dl:hover{background:#fbf5e8;}
+.ddl{display:flex;gap:2px 10px;flex-wrap:wrap;margin:8px 0 2px;padding:9px 12px;background:#fbf7ee;border-radius:8px;font-size:13px;}
+.ddl b{color:var(--gold-d);}
+.deadline{width:100%;border-collapse:collapse;margin:10px 0;font-size:13.5px;}
+.deadline th{background:#3a4a5c;color:#fff;padding:8px;font-weight:700;}
+.deadline td{border:1px solid var(--line);padding:8px 10px;background:#fff;}
+.bnote{color:#0b4a9c;font-weight:600;background:#eaf2fc;border-left:4px solid #2b7fff;border-radius:8px;padding:9px 13px;margin:8px 0;font-size:13.5px;line-height:1.7;}
+.bnote b{color:#0a3d82;}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+
+<h1>경매·공매로 낙찰받은 부동산의 소유권이전등기</h1>
+
+<div class="helm">
+  <div class="ht2">⚓ 이 안내를 준비한 마음</div>
+  <p>낙찰의 기쁨은 잠깐이고, <b>그다음부터가 진짜</b>입니다. 잔금을 언제까지 내야 하는지, 등기는 누가 해 주는지, 살고 있는 사람은 어떻게 내보내는지 — 아무도 친절히 알려 주지 않습니다. 특히 <b>가만히 기다리면 등기가 저절로 되는 줄 알고</b> 몇 달을 흘려보내시는 분, <b>지워지지 않는 권리를 떠안은 줄 모르고</b> 입찰하신 분을 자주 뵙습니다. 이 안내는 <b>잔금 납부부터 등기, 그리고 집을 비우게 하는 일까지</b> 낙찰자가 실제로 겪는 순서 그대로 담았습니다. 막히는 곳이 생기면 언제든 이 안내를 들고 사무실로 찾아와 주십시오. <b>제가 든든한 법률적 조타수가 되어 끝까지 함께 가겠습니다.</b></p>
+</div>
+
+<div class="qhead"><span class="qb">Q</span>
+  <h2>낙찰받았는데, 등기는 언제 어떻게 되나요?</h2>
+</div>
+
+<div class="tnote">밑줄 친 <span class="term">용어<span class="bub">밑줄 친 말에 마우스를 올리거나(휴대폰은 살짝 누르면) 쉬운 설명이 나옵니다.</span></span>에 마우스를 올리면 설명이 나옵니다. 파란 <b>발급처 링크</b>를 누르면 서류 떼는 사이트로 바로 이동합니다.</div>
+
+<div class="tldr">
+  <div class="tt">이런 상황입니다 — 세 가지만 알면 됩니다</div>
+  <p style="margin:0 0 8px;font-size:14.5px">경매·공매로 산 집은 <b>일반 매매와 결정적으로 다른 점이 셋</b> 있습니다. 이것만 알면 나머지는 순서대로 따라가면 됩니다.</p>
+  <ul>
+    <li><b>① 잔금을 다 낸 순간, 등기 전이라도 이미 내 집입니다</b> — 매매는 등기를 해야 소유자가 되지만, 경매는 <b>매각대금을 다 낸 때</b> 곧바로 소유권을 얻습니다(민사집행법 §135). 그래서 등기가 늦어져도 소유자로서 권리를 행사할 수 있습니다.</li>
+    <li><b>② 등기는 법원이 해 주지만, 내가 신청해야 해 줍니다</b> — 등기소에 <span class="term">촉탁<span class="bub">법원이 등기소에 "이렇게 등기해 달라"고 공적으로 요청하는 것. 낙찰자가 직접 등기소에 신청하는 것이 아닙니다.</span></span>하는 것은 법원이지만, <b>비용과 서류를 낙찰자가 법원에 내야</b> 촉탁이 나갑니다. <b>가만히 기다리면 등기는 되지 않습니다.</b></li>
+    <li><b>③ ★모든 권리가 지워지는 것은 아닙니다</b> — 대부분은 말소되지만, <b>앞선 권리</b>·<b>대항력 있는 세입자</b>·<b>유치권</b>은 낙찰자가 <span class="term">인수<span class="bub">낙찰자가 그 권리나 부담을 그대로 떠안는 것. 낙찰가 외에 돈을 더 물어야 할 수도 있습니다.</span></span>합니다. 이것은 <b>입찰 전에</b> 확인해야 하고, 낙찰 후에는 되돌리기 어렵습니다.</li>
+  </ul>
+</div>
+
+<div class="concept"><b>왜 '잔금 납부'가 그렇게 중요한가요?</b> 경매에서는 잔금을 낸 그 순간이 <b>모든 것의 기준점</b>이 됩니다. ① 그날 <b>소유자가 되고</b>, ② 그날부터 <b>취득세 60일</b>이 시작되며, ③ 그날부터 <b><span class="term">인도명령<span class="bub">낙찰받은 집에 살고 있는 사람을 나가게 해 달라고 법원에 신청하는 제도. 소송보다 훨씬 빠르고 비용이 적게 듭니다.</span></span> 6개월</b>이 시작되고, ④ 그날부터 <b>재산세·관리비</b>가 내 몫이 됩니다. 잔금 낸 날짜를 달력에 크게 적어 두십시오.</div>
+
+<div class="lawrow"><div class="lrl">관련 법령</div><div class="lrc">
+  <b>민사집행법 §135</b> 매각대금을 다 낸 때 소유권 취득 · <b>§136</b> 인도명령(대금 낸 뒤 6개월 이내 신청) · <b>§142</b> 대금의 지급 · <b>§144</b> 매각대금 지급 뒤 법원의 등기 촉탁(소유권이전·부담 말소·경매개시결정등기 말소), 촉탁 비용은 매수인 부담 · <b>국세징수법</b> 압류재산 공매와 권리이전 절차 · <b>지방세법 §20①</b> 취득일부터 60일 내 취득세 신고·납부
+</div></div>
+
+<div class="flow">
+  <div class="ft2">낙찰 이후, 이 순서로 진행됩니다</div>
+  <ol>
+    <li><b>입찰 → 최고가매수신고인 결정</b> — 입찰 당일 최고가를 쓴 사람이 정해집니다</li>
+    <div class="arw">▼</div>
+    <li><b><span class="term">매각허가결정<span class="bub">법원이 "이 사람에게 팔아도 좋다"고 정식으로 결정하는 것. 보통 입찰일로부터 1주일쯤 뒤에 나옵니다.</span></span> → 확정</b> — 결정에 불만이 있으면 1주일 안에 <span class="term">즉시항고<span class="bub">법원의 결정에 불복해 상급 법원의 판단을 구하는 것. 정해진 짧은 기간 안에만 할 수 있습니다.</span></span>할 수 있고, 그 기간이 지나면 확정됩니다</li>
+    <div class="arw">▼</div>
+    <li><b><span class="term">대금지급기한<span class="bub">잔금을 언제까지 내야 하는지 법원이 정해 통지해 주는 날짜. 이 기한을 넘기면 낙찰이 취소되고 보증금을 잃을 수 있습니다.</span></span> 통지 → 잔금 납부</b> — 법원이 통지서를 보내옵니다. <b>이 날 잔금을 내면 그 즉시 소유자</b>가 됩니다</li>
+    <div class="arw">▼</div>
+    <li><b>취득세 신고·납부(60일 내)</b> — 잔금 낸 날부터 60일. 위택스에서 신고·납부하고 <span class="term">영수필확인서<span class="bub">세금을 냈다는 것을 증명하는 서류. 등기 촉탁을 신청할 때 반드시 붙입니다.</span></span>를 받습니다</li>
+    <div class="arw">▼</div>
+    <li><b>등기촉탁 신청서를 법원에 제출</b> — <b>이 단계가 빠지면 등기가 되지 않습니다.</b> 서류와 비용을 갖춰 <b>경매를 진행한 법원 경매계</b>에 냅니다(작성례 ①)</li>
+    <div class="arw">▼</div>
+    <li><b>법원 촉탁 → 등기 완료</b> — 법원이 등기소에 촉탁하면 <b>소유권이전 + 안 남길 권리들의 말소 + 경매개시결정등기 말소</b>가 한꺼번에 처리됩니다</li>
+    <div class="arw">▼</div>
+    <li><b>집을 비우게 하기 — 협의 또는 인도명령(6개월 내)</b> — 살고 있는 사람과 먼저 이야기해 보고, 안 되면 <b>인도명령</b>을 신청합니다(작성례 ②). <b>6개월이 지나면 인도명령을 쓸 수 없고 소송을 해야 합니다</b></li>
+  </ol>
+</div>
+
+<div class="warn"><span class="wt">⚠ 가장 흔한 실수 — "등기는 법원이 알아서 해 주겠지"</span>
+법원이 등기소에 촉탁하는 것은 맞지만, <b>낙찰자가 비용을 내고 촉탁을 신청해야</b> 법원이 움직입니다(민사집행법 §144③에 따라 촉탁 비용은 매수인 부담). 잔금만 내고 몇 달을 기다리다 <b>"왜 아직 내 이름이 없느냐"</b>고 찾아오시는 분이 정말 많습니다. <b>잔금을 내는 날, 촉탁신청 서류도 함께 준비해 가는 것</b>이 가장 좋습니다.
+</div>
+
+<!-- 내는 서류 -->
+<div class="qhead"><span class="qb">1</span><h2>법원에 '내는' 서류와 어디서 떼는지</h2></div>
+<p style="font-size:13.5px;color:var(--muted)">일반 매매와 달리 <b>등기소가 아니라 경매를 진행한 법원 경매계</b>에 냅니다. 상대방(전 소유자)에게서 받을 서류는 <b>하나도 없습니다.</b> 이것이 경매 등기의 가장 편한 점입니다.</p>
+
+<div class="who"><span class="doclabel give">제출</span><br><span class="wl">◆ 낙찰자가 준비하는 기본 서류</span>
+  <ul>
+    <li><b>부동산소유권이전등기 촉탁신청서</b> — 작성례 ① 참고</li>
+    <li><b>부동산 목록</b> — 등기사항증명서 표제부 그대로 옮겨 적어 여러 부 준비합니다(법원마다 요구 부수가 다르니 경매계에 확인)</li>
+    <li><b>등기사항전부증명서</b>(말소사항 포함)</li>
+    <li><b>토지대장·건축물대장</b></li>
+    <li><b>주민등록초본</b>(주소이력 포함) — 등기부에 올릴 주소 (3개월 이내)</li>
+    <li>신분증, 도장</li>
+  </ul>
+  <div class="ddl">발급처 ▸ <a href="https://www.iros.go.kr" target="_blank" rel="noopener" class="dl">인터넷등기소 등기사항증명서</a> · <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000026" target="_blank" rel="noopener" class="dl">정부24 토지(임야)대장</a> · <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=15000000098" target="_blank" rel="noopener" class="dl">정부24 건축물대장</a> · <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000015" target="_blank" rel="noopener" class="dl">정부24 주민등록 등·초본</a></div>
+</div>
+
+<div class="who"><span class="doclabel give">제출</span><br><span class="wl">◆ 세금·비용 관련 서류</span>
+  <ul>
+    <li><b>취득세 영수필확인서</b> — 소유권이전등기분</li>
+    <li><b>등록면허세 영수필확인서</b> — <b>말소할 권리 건수만큼</b> 별도로 냅니다(근저당·가압류·압류 등을 지우는 비용)</li>
+    <li><b><span class="term">국민주택채권<span class="bub">부동산을 등기할 때 의무적으로 사야 하는 나라 채권. 대부분 산 즉시 은행에 되팔고, 그때 생기는 손해(할인료)만 실제로 부담합니다.</span></span> 매입 영수증</b> — <span class="term">시가표준액<span class="bub">지방자치단체가 세금 계산용으로 정해 둔 부동산 기준 가격. 실제 낙찰가와는 다릅니다.</span></span>을 기준으로 사야 할 금액이 정해집니다</li>
+    <li><b>등기신청수수료</b> — 이전등기분과 말소등기분을 각각</li>
+    <li><b>우표</b> — 등기 완료 후 <span class="term">등기필정보<span class="bub">등기가 끝나면 나오는, 비밀번호가 적힌 서류. 예전의 '집문서(등기필증)'에 해당하며 잃어버려도 재발급되지 않습니다.</span></span>를 우편으로 받기 위한 것</li>
+  </ul>
+  <div class="ddl">신고·납부처 ▸ <a href="https://www.wetax.go.kr" target="_blank" rel="noopener" class="dl">위택스</a>(서울은 ETAX) · 채권 매입 ▸ <a href="https://nhf.molit.go.kr" target="_blank" rel="noopener" class="dl">주택도시기금</a> 또는 은행 창구</div>
+</div>
+
+<div class="tip"><span class="pt">💡 말소 비용은 '건수'에 비례합니다</span>
+등기부에 근저당·가압류·압류가 <b>10건 있으면 10건을 지우는 비용</b>이 듭니다. 등록면허세와 등기신청수수료가 건별로 붙기 때문입니다. 입찰 전 등기사항증명서를 볼 때 <b>을구에 몇 줄이 있는지</b> 세어 보시면 비용을 대략 가늠할 수 있습니다. 정확한 건별 금액은 개정될 수 있으므로 <b>납부 전 법원 경매계나 위택스에서 확인</b>하십시오. <b>[확인필요]</b></div>
+
+<!-- 등기 후 -->
+<div class="qhead"><span class="qb">2</span><h2>등기가 끝나면 확인할 것</h2></div>
+<div class="who" style="border-left-color:#5a9a72"><span class="doclabel back">완료</span><br><span class="wl">◆ 손에 들어오는 것과 확인할 것</span>
+  <ul>
+    <li><b>등기필정보</b> — 낙찰자 앞으로 발급됩니다. 재발급이 되지 않으니 잘 보관하십시오.</li>
+    <li><b>등기사항증명서를 새로 떼어 보십시오</b> — ① 갑구에 <b>내 이름</b>이 있는지, ② 을구의 근저당·가압류가 <b>모두 지워졌는지</b>, ③ <b>지워지지 않고 남은 것</b>이 있는지.</li>
+    <li><b>남은 것이 있다면 그것이 '인수한 권리'입니다</b> — 놀라지 마시고, 매각물건명세서에 그렇게 적혀 있었는지 확인하십시오. 명세서에 없던 권리가 남아 있다면 즉시 상담하십시오.</li>
+  </ul>
+</div>
+
+<!-- 세금 -->
+<div class="qhead"><span class="qb">3</span><h2>세금은 얼마를, 언제까지 내나요?</h2></div>
+<div class="cost"><span class="ct">취득세</span>경매·공매로 사는 것도 <b>돈을 주고 사는 것</b>이므로 일반 매매와 같은 세율입니다. <b>주택</b>은 1~3%, <b>주택 외 부동산</b> 4%, <b>농지</b> 3%이며 <span class="term">지방교육세<span class="bub">취득세를 낼 때 함께 붙는 세금.</span></span>가 더해지고, 전용면적 <b>85㎡(약 25.7평)를 넘으면</b> <span class="term">농어촌특별세<span class="bub">전용면적 85㎡를 넘는 집을 살 때 추가로 붙는 세금. 85㎡ 이하면 붙지 않습니다.</span></span>가 추가됩니다. <b>이미 집이 있으면 다주택 중과(8~12%)가 적용될 수 있습니다 — 경매라고 예외가 아닙니다.</b><br>
+<b>과세표준은 낙찰가</b>입니다. 감정가나 시가표준액이 아니라 <b>내가 실제로 낸 금액</b>이 기준입니다.</div>
+
+<table class="deadline">
+  <tr><th>① 기산일</th><th>② 근거</th><th>③ 계산</th><th>④ 만료 예시</th></tr>
+  <tr><td><b>매각대금(잔금)을 다 낸 날</b></td><td>민사집행법 §135 / 지방세법 §20①</td><td>그날부터 <b>60일</b></td><td>3/10 잔금 완납 → <b>5/9까지</b> 신고·납부</td></tr>
+  <tr><td><b>같은 날</b>(잔금 완납일)</td><td>민사집행법 §136①</td><td>그날부터 <b>6개월</b> — 인도명령 신청기간</td><td>3/10 완납 → <b>9/9까지</b> 신청</td></tr>
+</table>
+<div class="bnote">※ 두 기한이 <b>같은 날부터</b> 시작합니다. 취득세 60일은 돈 문제지만, <b>인도명령 6개월은 놓치면 방법 자체가 바뀝니다</b>(소송으로 가야 합니다). 잔금 낸 날을 기준으로 두 날짜를 함께 적어 두십시오.</div>
+
+<a class="calc" href="https://sanlaw.co.kr/tools-calculator.html" target="_blank" rel="noopener">
+  <div class="cah">🧮 취득세·등기비용 미리 계산해 보기</div>
+  <div class="cas">낙찰가와 말소할 권리 건수를 입력하면 취득세·등록면허세·등기신청수수료·국민주택채권을 포함한 예상 금액을 산출합니다. (클릭 시 계산기로 이동)</div>
+</a>
+
+<!-- 위험 지점 -->
+<div class="qhead"><span class="qb">!</span><h2>낙찰자가 가장 크게 다치는 세 지점</h2></div>
+
+<div class="warn"><span class="wt">① 지워지지 않는 권리 — 낙찰가 외에 돈을 더 물 수 있습니다</span>
+등기부의 권리 중 <b>기준이 되는 권리보다 먼저 등기된 것</b>은 지워지지 않고 낙찰자가 떠안습니다. 실무에서는 그 기준을 <span class="term">말소기준권리<span class="bub">법에 나오는 말이 아니라 실무에서 쓰는 표현. 등기부에서 저당권·근저당권·압류·가압류·경매개시결정등기 중 가장 먼저 등기된 것을 가리키며, 이보다 뒤에 있는 권리는 대체로 지워집니다.</span></span>이라고 부릅니다.<br>
+▸ <b>먼저 등기된 전세권·지상권·지역권·가등기</b> → 인수될 수 있습니다<br>
+▸ <b><span class="term">대항력<span class="bub">세입자가 집주인이 바뀌어도 "나는 계약 기간까지 살겠다, 보증금도 받고 나가겠다"고 새 주인에게 주장할 수 있는 힘. 이사와 전입신고를 마치면 그다음 날부터 생깁니다.</span></span> 있는 세입자</b> → 배당에서 보증금을 다 받지 못하면 <b>남은 보증금을 낙찰자가 물어야</b> 합니다<br>
+▸ <b><span class="term">유치권<span class="bub">공사대금 등을 받지 못한 사람이 그 건물을 점유하면서 "돈을 받을 때까지 못 나간다"고 버틸 수 있는 권리. 등기부에 나타나지 않아 미리 알기 어렵습니다.</span></span></b> → <b>등기부에 나오지 않습니다.</b> 현장에 가 보아야 합니다<br>
+<b>입찰 전에 <span class="term">매각물건명세서<span class="bub">법원이 만들어 공개하는 서류. 인수되는 권리, 세입자 현황, 특별한 매각조건 등이 적혀 있어 입찰 전 반드시 읽어야 합니다.</span></span>·현황조사서·감정평가서를 반드시 읽으십시오.</b> 낙찰 후에 알게 되면 되돌리기가 매우 어렵습니다.
+</div>
+
+<div class="warn"><span class="wt">② 인도명령 6개월 — 넘기면 소송으로 가야 합니다</span>
+살고 있는 사람이 안 나갈 때, <b>잔금 낸 날부터 6개월 안에는</b> 법원에 <b>인도명령</b>을 신청할 수 있습니다. 결정이 나오면 집행관에게 강제집행을 맡길 수 있어 <b>빠르고 비용이 적게 듭니다.</b> 그런데 <b>6개월이 지나면 인도명령을 쓸 수 없고 <span class="term">명도소송<span class="bub">집을 비워 달라고 정식으로 제기하는 소송. 판결까지 여러 달이 걸리고 비용도 더 듭니다.</span></span></b>을 해야 합니다. "좋게 말해서 나가겠지" 하며 기다리다 기간을 넘기는 경우가 가장 안타깝습니다. <b>협의는 하되, 6개월 안에는 결론을 내십시오.</b><br>
+<span style="display:block;margin-top:6px;font-size:13.5px">※ 다만 점유자가 <b>낙찰자에게 대항할 수 있는 권리</b>로 살고 있는 경우(대항력 있는 세입자 등)에는 인도명령이 나오지 않습니다.</span>
+</div>
+
+<div class="warn"><span class="wt">③ 공매는 인도명령 제도가 없습니다 — 처음부터 소송입니다</span>
+<b>공매로 낙찰받은 경우, 인도명령을 쓸 수 없습니다.</b> 점유자가 나가지 않으면 <b>명도소송</b>을 해야 하고, 그만큼 시간과 비용이 더 듭니다. 공매 물건을 볼 때는 <b>"이 집을 비우는 데 얼마나 걸릴까"를 낙찰가에 미리 반영</b>해서 계산하셔야 합니다. 이것이 경매와 공매의 가장 큰 실질적 차이입니다.
+</div>
+
+<!-- 경매 vs 공매 -->
+<div class="qhead"><span class="qb">4</span><h2>경매와 공매, 무엇이 다른가요?</h2></div>
+<table>
+<tr><th>구분</th><th>경매(법원)</th><th>공매(캠코 온비드)</th></tr>
+<tr><td>누가 진행하나</td><td><b>법원</b> — 빚을 못 받은 채권자의 신청으로</td><td><b>한국자산관리공사(캠코)</b> — 세금 체납으로 압류된 재산 등</td></tr>
+<tr><td>어디서 보나</td><td><a href="https://www.courtauction.go.kr" target="_blank" rel="noopener" class="dl">법원경매정보</a></td><td><a href="https://www.onbid.co.kr" target="_blank" rel="noopener" class="dl">온비드</a></td></tr>
+<tr><td>입찰 방식</td><td>정해진 날 <b>법원에 직접 가서</b> 입찰</td><td><b>인터넷</b>으로 입찰(온비드)</td></tr>
+<tr><td>소유권 취득</td><td>매각대금 완납 시</td><td>매수대금 완납 시</td></tr>
+<tr><td>등기</td><td><b>법원이 촉탁</b>(낙찰자가 비용·서류 제출)</td><td><b>세무서장 등이 촉탁</b>(낙찰자가 비용·서류 제출)</td></tr>
+<tr><td><b>집을 비우게 하기</b></td><td><b>인도명령 가능</b>(6개월 내) — 빠름</td><td><b>인도명령 없음</b> → <b>명도소송</b>만 가능</td></tr>
+<tr><td>취득세</td><td colspan="2">같습니다 — <b>낙찰가</b>를 기준으로, <b>완납일부터 60일</b> 내 신고·납부</td></tr>
+</table>
+<div class="bnote">※ 같은 부동산이 경매와 공매에 <b>동시에 나오는</b> 경우도 있습니다. 이때는 <b>먼저 대금을 완납한 쪽</b>의 매수인이 소유권을 갖게 되어 다른 절차는 무산됩니다. 이런 물건은 위험이 크므로 입찰 전에 반드시 확인하십시오.</div>
+
+<!-- 명도 전과정 -->
+<div class="qhead"><span class="qb">◆</span><h2>집을 비우게 하는 전 과정 — 협의부터 강제집행까지</h2></div>
+<p style="font-size:13.5px;color:var(--muted)">낙찰 후 가장 힘든 단계입니다. 그런데 순서를 알면 대부분은 <b>소송이나 강제집행까지 가지 않고</b> 끝납니다. 먼저 <b>지금 살고 있는 사람이 누구인지</b>부터 가려야 합니다.</p>
+
+<table>
+<tr><th>지금 살고 있는 사람</th><th>인도명령이 되나</th><th>어떻게 풀어야 하나</th></tr>
+<tr><td><b>전 소유자·채무자</b><br>(그 가족 포함)</td><td><b>됩니다</b></td><td>가장 단순합니다. 협의 → 안 되면 인도명령 → 강제집행</td></tr>
+<tr><td><b>대항력 없는 임차인</b><br>(말소기준권리보다 늦게 전입)</td><td><b>됩니다</b></td><td>배당요구를 했다면 <b>아래 '명도확인서'가 결정적인 열쇠</b>가 됩니다. 대개 협의로 정리됩니다</td></tr>
+<tr><td><b>대항력 있는 임차인</b><br>(말소기준권리보다 먼저 전입)</td><td><b>안 됩니다</b></td><td>낙찰자가 <b>임대인의 지위를 그대로 이어받습니다.</b> 보증금을 돌려주어야 나갈 것을 요구할 수 있고, 계약 기간이 남았다면 그 기간까지 살 권리가 있습니다</td></tr>
+<tr><td><b>유치권을 주장하는 사람</b></td><td><b>다툼이 필요합니다</b></td><td>주장만으로 인정되는 것이 아니므로, <b>정당한 유치권인지</b>부터 따져야 합니다. 혼자 판단하지 마시고 상담하십시오</td></tr>
+<tr><td><b>낙찰 후 새로 들어온 사람</b></td><td><b>다툼이 필요합니다</b></td><td>인도명령 대상이 아닐 수 있어 <b>명도소송</b>으로 가는 경우가 많습니다. 그래서 <b>점유이전금지가처분</b>이 중요합니다</td></tr>
+</table>
+
+<div class="tip"><span class="pt">💡 낙찰자가 가진 가장 강한 카드 — 명도확인서</span>
+배당을 받을 임차인은 <b>집을 비워 주었다는 사실을 증명해야 법원에서 배당금을 받을 수 있습니다.</b> 법이 그렇게 정해 두었습니다 — <b>"임차인은 임차주택을 양수인에게 인도하지 아니하면 보증금을 받을 수 없다"</b>(주택임대차보호법 §3의2③, 상가는 상가건물임대차보호법 §5③). 이때 인도 사실을 증명하는 서류가 <b>낙찰자가 써 주는 명도확인서와 인감증명서</b>입니다(작성례 ③).<br>
+<b>그래서 배당받을 임차인은 낙찰자와 협조할 수밖에 없습니다.</b> 강제집행까지 가지 않고 대화로 풀리는 사건의 대부분이 이 구조 덕분입니다.<br>
+<b>다만 순서를 절대 바꾸지 마십시오</b> — <b>짐을 모두 빼고 열쇠를 받은 뒤에</b> 써 주셔야 합니다. "배당 날짜가 급하니 미리 써 달라"는 부탁을 들어주면 <b>가진 카드를 먼저 버리는 셈</b>이 되어, 그 뒤로는 이사를 재촉할 방법이 없어집니다.</div>
+
+<div class="flow">
+  <div class="ft2">집을 비우게 하는 순서</div>
+  <ol>
+    <li><b>먼저 만나서 이야기합니다</b> — 이사 날짜를 정하고, 필요하면 <b>이사비를 얼마 지원할지</b> 합의합니다. 강제집행에 드는 비용과 시간을 생각하면 <b>협의가 대체로 더 싸고 빠릅니다.</b> 합의한 내용은 반드시 <b>서면</b>으로 남기십시오</li>
+    <div class="arw">▼</div>
+    <li><b>협의가 안 되면 인도명령을 신청합니다</b> — <b>잔금 낸 날부터 6개월 이내</b>(작성례 ②). 결정은 대개 몇 주 안에 나옵니다</li>
+    <div class="arw">▼</div>
+    <li><b>결정문과 송달증명원을 받습니다</b> — 인도명령 결정이 <b>상대에게 송달</b>되어야 집행할 수 있습니다. 법원에서 <b>결정문 정본과 송달증명원</b>을 발급받으십시오</li>
+    <div class="arw">▼</div>
+    <li><b>집행관에게 강제집행을 신청합니다</b> — 부동산 소재지 관할 법원 <b>집행관사무소</b>에 신청하고 <b>집행비용을 미리 냅니다</b>(노무비·차량비·보관료 등)</li>
+    <div class="arw">▼</div>
+    <li><b>계고 — 집행관이 미리 예고합니다</b> — "○월 ○일까지 비우지 않으면 강제로 집행한다"는 통지를 붙입니다. <b>실무에서는 이 단계에서 대부분 자진해서 나갑니다</b></li>
+    <div class="arw">▼</div>
+    <li><b>강제집행 — 실제로 짐을 들어냅니다</b> — 집행관과 노무자들이 짐을 꺼내 <b>보관 창고로 옮깁니다.</b> 낙찰자는 이날 현장에 있어야 하고, 열쇠공·이삿짐 인력을 미리 준비해야 합니다</li>
+    <div class="arw">▼</div>
+    <li><b>남은 짐(유체동산)을 처리합니다</b> — 창고에 보관하면서 찾아가라고 통지하고, 끝내 찾아가지 않으면 <b>법원 절차를 거쳐 매각</b>합니다. <b>보관료가 계속 나가므로</b> 이 단계를 오래 끌지 않는 것이 좋습니다</li>
+  </ol>
+</div>
+
+<div class="cost"><span class="ct">강제집행에 드는 비용 — 미리 내고, 나중에 청구할 수 있습니다</span>
+집행 신청 시 <b>집행비용을 예납</b>합니다. 평형과 짐의 양에 따라 <b>노무비·차량비·창고 보관료</b>가 들고, 짐이 많으면 수백만 원에 이르기도 합니다. 이 비용은 <b>원칙적으로 상대방이 부담할 몫</b>이어서 나중에 청구할 수 있지만, <b>상대에게 재산이 없으면 실제로 회수하기는 어렵습니다.</b><br>
+<b>그래서 실무에서는</b> — 강제집행 비용이 이사비 지원액보다 큰 경우가 많아, <b>적정한 이사비를 주고 합의하는 편이 낫다</b>고 판단하는 경우가 많습니다. 다만 <b>요구가 지나치면</b> 인도명령과 강제집행을 진행하는 것이 오히려 낫습니다. 그 경계를 잡는 것이 협상의 핵심입니다.</div>
+
+<div class="warn"><span class="wt">⚠ 인도명령을 못 쓰는 경우 — 명도소송, 그리고 반드시 함께 할 가처분</span>
+<b>6개월이 지났거나</b> 점유자가 <b>인도명령 대상이 아닌 사람</b>이면 <b>명도소송</b>(건물인도청구의 소)을 해야 합니다. 이때 <b>절대 빼먹으면 안 되는 것</b>이 있습니다.<br>
+▸ <b>점유이전금지가처분</b>(작성례 ④) — 소송 중에 점유자가 다른 사람으로 바뀌면, <b>애써 받은 판결이 종이조각이 됩니다.</b> 판결의 효력은 소송 상대방에게만 미치기 때문입니다. 가처분을 해 두면 점유가 바뀌어도 그 판결로 집행할 수 있습니다. <b>소를 내기 전이나 동시에</b> 신청하십시오.<br>
+▸ <b>관할과 비용</b> — 부동산 소재지 관할 법원에 냅니다. 인지대는 건물 가액을 기준으로 산정한 소가에 따라 정해지며, 인도명령보다 <b>시간과 비용이 훨씬 많이 듭니다.</b> 판결까지 여러 달이 걸리는 것이 보통입니다.<br>
+▸ <b>그동안의 사용료도 함께 청구하십시오</b> — 정당한 권원 없이 살고 있는 사람에게는 <b>차임 상당의 부당이득</b>을 함께 청구할 수 있습니다. 소장에 함께 적어 두어야 나중에 따로 소송하는 수고를 덜 수 있습니다.
+</div>
+
+<!-- 작성례 -->
+<div class="qhead"><span class="qb">5</span><h2>직접 써 보는 서식</h2></div>
+<p style="font-size:13.5px;color:var(--muted)">빈칸(○○○)을 채워 쓰시면 됩니다. 두 서식 모두 <b>경매를 진행한 법원의 해당 경매계</b>에 냅니다. 법원마다 요구하는 부수와 첨부가 조금씩 다르니, 접수 전 경매계에 한 번 확인하시면 헛걸음을 줄일 수 있습니다.</p>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag">작성례 ①</span>부동산소유권이전등기 촉탁신청서<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f1"><span class="ft">부동산소유권이전등기 촉탁신청</span>사  건   20○○타경○○○○ 부동산임의경매
+         (또는 부동산강제경매)
+채 권 자   ○○○
+채 무 자   ○○○
+소 유 자   ○○○
+매 수 인   ○○○   (☎: ○○○-○○○○-○○○○)
+         주민등록번호  ○○○○○○-○○○○○○○
+         주소  ○○○
+
+         신 청 취 지
+
+  위 사건에 관하여 매수인은 20○○. ○○. ○○. 매각대금을
+  전액 납부하였으므로, 별지 목록 기재 부동산에 대하여
+  다음과 같이 등기하여 주시기를 촉탁하여 주시기 바랍니다.
+
+         다      음
+
+  1. 별지 목록 기재 부동산에 관하여 매수인 ○○○ 앞으로
+     소유권이전등기
+  2. 매수인이 인수하지 아니하는 부동산의 부담에 관한
+     기입등기의 말소등기
+  3. 경매개시결정등기의 말소등기
+
+         첨 부 서 류
+
+  1. 부동산 목록                                    ○통
+  2. 부동산 등기사항전부증명서                      1통
+  3. 토지대장·건축물대장                          각 1통
+  4. 주민등록표 초본                                1통
+  5. 취득세 영수필확인서(소유권이전분)              1통
+  6. 등록면허세 영수필확인서(말소분)                ○통
+  7. 국민주택채권 매입 영수증                       1통
+  8. 등기신청수수료 납부 영수증                     1통
+  9. 우표(등기필정보 송부용)                        ○매
+
+              20○○. ○○. ○○.
+
+                매수인  ○○○ (인 또는 서명)
+
+○○지방법원 경매○계   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1')">📋 복사</button><button type="button" onclick="printForm('f1')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1','소유권이전등기_촉탁신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>이 신청서를 내지 않으면 등기가 되지 않습니다.</b> 사건번호(○○타경○○○○)는 법원에서 받은 서류 맨 위에 적혀 있습니다. <b>별지 목록</b>은 등기사항증명서 표제부의 부동산 표시를 그대로 옮겨 적으면 되고, 법원마다 요구 부수가 달라 보통 <b>3~5부</b>를 준비합니다. 6번 <b>말소분 등록면허세</b>는 지울 권리 건수만큼 계산되니, 미리 등기부에서 지울 항목을 세어 두십시오. <b>잔금 납부 당일에 함께 접수</b>하는 것이 가장 빠릅니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ②</span>부동산인도명령 신청서<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f2"><span class="ft">부 동 산 인 도 명 령 신 청</span>사  건   20○○타경○○○○ 부동산임의경매
+         (또는 부동산강제경매)
+신 청 인   ○○○ (매수인)   (☎: ○○○-○○○○-○○○○)
+         주소  ○○○
+피신청인   ○○○ (점유자)
+         주소  ○○○ (부동산 소재지와 같으면 그렇게 적습니다)
+
+         신 청 취 지
+
+  피신청인은 신청인에게 별지 목록 기재 부동산을 인도하라.
+  라는 재판을 구합니다.
+
+         신 청 이 유
+
+  1. 신청인은 위 사건의 매수인으로서 20○○. ○○. ○○.
+     매각대금을 전액 납부하여 별지 목록 기재 부동산의
+     소유권을 취득하였습니다.
+  2. 피신청인은 위 부동산을 점유하고 있으면서, 신청인의
+     인도 요구에도 불구하고 이에 응하지 아니하고 있습니다.
+  3. 피신청인은 신청인에게 대항할 수 있는 권원을 가지고
+     있지 아니합니다.
+  4. 따라서 민사집행법 제136조 제1항에 따라 인도명령을
+     구하기 위하여 이 신청에 이른 것입니다.
+
+         첨 부 서 류
+
+  1. 부동산 목록                          ○통
+  2. 매각대금 완납증명원                   1통
+  3. 부동산 등기사항전부증명서             1통
+  4. 송달료 납부서                         1통
+
+              20○○. ○○. ○○.
+
+                신청인  ○○○ (인 또는 서명)
+
+○○지방법원 경매○계   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f2')">📋 복사</button><button type="button" onclick="printForm('f2')">🖨 인쇄</button><button type="button" onclick="downloadForm('f2','부동산인도명령_신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>기한은 잔금 완납일부터 6개월</b>입니다. 이 기간을 넘기면 이 신청을 할 수 없고 명도소송을 해야 합니다. <b>매각대금 완납증명원</b>은 경매계에서 발급받습니다(수입인지가 필요합니다). 신청이 받아들여져 결정이 나오면, 그 <b>결정문 정본과 송달증명원</b>을 집행관에게 제출해 강제집행을 맡길 수 있습니다. 다만 <b>점유자가 대항력 있는 세입자</b>인 경우에는 인도명령이 나오지 않으니, 신청 전에 그 점유자가 어떤 사람인지부터 확인해야 합니다. 판단이 어려우면 접수 전에 상담해 주십시오.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag">작성례 ③</span>명 도 확 인 서<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f3"><span class="ft">명 도 확 인 서</span>사  건   20○○타경○○○○ 부동산임의경매
+         (또는 부동산강제경매)
+임 차 인   ○○○
+매 수 인   ○○○
+
+  위 사건에 관하여, 임차인 ○○○은 20○○. ○○. ○○. 위
+  사건의 부동산인 아래 표시 부동산을 매수인에게 인도하였음을
+  확인합니다.
+
+         부동산의 표시
+
+  ○○시 ○○구 ○○동 ○○ ○○아파트 제○동 제○층 제○호
+
+  첨부 : 매수인의 인감증명서 1통
+
+              20○○. ○○. ○○.
+
+                매수인  ○○○ (인)
+                주소  ○○○
+                연락처  ○○○-○○○○-○○○○
+
+○○지방법원 경매○계   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f3')">📋 복사</button><button type="button" onclick="printForm('f3')">🖨 인쇄</button><button type="button" onclick="downloadForm('f3','명도확인서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>반드시 짐을 다 빼고 열쇠를 받은 뒤에 써 주십시오.</b> 임차인은 이 확인서와 <b>매수인의 인감증명서</b>를 법원에 내야 배당금을 받을 수 있습니다(주택임대차보호법 §3의2③). 미리 써 주면 <b>이사를 재촉할 수단이 사라집니다.</b><br>
+현실적으로는 <b>"배당기일에 맞춰 이사하고, 그날 열쇠와 확인서를 맞바꾸는 것"</b>이 가장 깔끔합니다. 임차인 쪽에서 "이사비가 없어 못 나간다"고 하면, <b>배당금에서 정산하기로 하고 날짜를 정하는 방식</b>으로 풀어 가면 됩니다. 도장은 <b>반드시 인감도장</b>으로 찍고 인감증명서를 함께 주셔야 법원에서 받아 줍니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ④</span>부동산점유이전금지가처분 신청서 (명도소송을 할 때)<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f4"><span class="ft">부동산점유이전금지가처분 신청</span>채 권 자   ○○○   (☎: ○○○-○○○○-○○○○)
+           주민등록번호  ○○○○○○-○○○○○○○
+           주소  ○○○
+채 무 자   ○○○
+           주소  ○○○
+
+목적물의 가액   금 ○○○원
+피보전권리의 요지   소유권에 기한 건물인도청구권
+
+         신 청 취 지
+
+  1. 채무자는 별지 목록 기재 부동산에 대한 점유를 풀고
+     채권자가 위임하는 집행관에게 인도하여야 한다.
+  2. 집행관은 현상을 변경하지 아니할 것을 조건으로 하여
+     채무자에게 이를 사용하게 하여야 한다.
+  3. 채무자는 그 점유를 타인에게 이전하거나 점유명의를
+     변경하여서는 아니 된다.
+  4. 집행관은 위 명령의 취지를 적당한 방법으로 공시하여야
+     한다.
+  라는 재판을 구합니다.
+
+         신 청 이 유
+
+  1. 채권자는 ○○지방법원 20○○타경○○○○ 부동산경매
+     사건에서 별지 목록 기재 부동산을 매수하여 20○○. ○○.
+     ○○. 매각대금을 전액 납부함으로써 그 소유권을
+     취득하였습니다.
+  2. 채무자는 아무런 권원 없이 위 부동산을 점유하고 있으며,
+     채권자의 인도 요구에 응하지 아니하고 있습니다.
+  3. 채권자는 채무자를 상대로 건물인도청구의 소를 제기하려
+     하는바, 소송 중 채무자가 점유를 타인에게 이전할 경우
+     승소하더라도 집행이 불가능해질 우려가 있으므로, 이를
+     막기 위하여 이 신청에 이른 것입니다.
+  4. 담보제공은 보증보험회사와 지급보증위탁계약을 체결한
+     문서를 제출하는 방법으로 할 수 있도록 허가하여 주시기
+     바랍니다.
+
+         소 명 방 법
+
+  1. 소갑 제1호증   부동산 등기사항전부증명서
+  2. 소갑 제2호증   매각대금 완납증명원
+  3. 소갑 제3호증   현황조사서 사본
+
+         첨 부 서 류
+
+  1. 위 소명방법          각 1통
+  2. 부동산 목록          ○통
+  3. 송달료 납부서         1통
+
+              20○○. ○○. ○○.
+
+                채권자  ○○○ (인 또는 서명)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f4')">📋 복사</button><button type="button" onclick="printForm('f4')">🖨 인쇄</button><button type="button" onclick="downloadForm('f4','점유이전금지가처분_신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>명도소송을 하기로 했다면 이것부터 하십시오.</b> 판결의 효력은 <b>소송 상대방에게만</b> 미치기 때문에, 소송 중 점유자가 바뀌면 <b>이긴 판결로도 집행할 수 없습니다.</b> 가처분을 해 두면 점유가 바뀌어도 그 판결로 집행할 수 있습니다.<br>
+· <b>담보</b>를 제공해야 결정이 나옵니다. 현금 대신 <b>보증보험증권</b>으로 갈음할 수 있게 해 달라는 것이 신청이유 4번입니다. 대부분 허가됩니다.<br>
+· 결정이 나오면 <b>집행관이 현장에 고시문을 붙이는 방식</b>으로 집행합니다. <b>결정만 받고 집행하지 않으면 의미가 없으니</b> 반드시 집행까지 마치십시오.<br>
+· 인도명령을 쓸 수 있는 상황(잔금 완납 후 6개월 이내, 대항력 없는 점유자)이라면 <b>이 가처분과 명도소송은 필요 없습니다.</b> 훨씬 간단한 인도명령으로 가십시오.</div>
+</div></div>
+
+<!-- FAQ -->
+<div class="qhead"><span class="qb">?</span><h2>자주 묻는 질문</h2></div>
+<div class="faq">
+  <details><summary>잔금을 냈는데 등기가 안 됩니다. 왜인가요?</summary>
+    <div class="fa">거의 대부분 <b>등기촉탁 신청을 하지 않았기 때문</b>입니다. 법원이 등기소에 촉탁해 주기는 하지만, <b>낙찰자가 비용을 내고 신청해야</b> 촉탁이 나갑니다. 작성례 ①의 서류를 갖춰 경매계에 제출하십시오. 참고로 <b>등기가 안 되어 있어도 잔금을 낸 날부터 이미 소유자</b>이므로 소유권 자체가 위태로운 것은 아닙니다.</div></details>
+  <details><summary>등기가 안 됐는데 인도명령을 신청할 수 있나요?</summary>
+    <div class="fa"><b>가능합니다.</b> 인도명령은 <b>매각대금을 다 냈으면</b> 신청할 수 있고, 등기가 끝났을 것까지 요구하지 않습니다. 등기와 인도명령은 별개로 진행할 수 있습니다.</div></details>
+  <details><summary>취득세는 낙찰가 기준인가요, 감정가 기준인가요?</summary>
+    <div class="fa"><b>낙찰가(실제로 낸 금액)</b>가 기준입니다. 감정가가 아무리 높아도 내가 낸 돈이 기준이고, 반대로 낙찰가가 시가표준액보다 낮더라도 실제 낸 금액으로 신고합니다.</div></details>
+  <details><summary>전 소유자에게서 받아야 할 서류가 있나요?</summary>
+    <div class="fa"><b>없습니다.</b> 일반 매매는 파는 사람의 인감증명서·등기필정보가 있어야 하지만, 경매·공매는 <b>법원(또는 세무서장 등)이 촉탁</b>하므로 전 소유자의 협조가 전혀 필요 없습니다. 연락이 닿지 않아도 등기가 됩니다.</div></details>
+  <details><summary>세입자가 "배당 받아야 나간다"고 합니다. 어떻게 하나요?</summary>
+    <div class="fa">그 말이 맞습니다. 다만 <b>순서가 반대입니다.</b> 임차인은 <b>집을 비워 주어야 배당금을 받을 수 있고</b>(주택임대차보호법 §3의2③), 그 증명이 바로 <b>낙찰자가 써 주는 명도확인서</b>입니다. 그래서 실무에서는 <b>배당기일에 맞춰 이사하고 그날 열쇠와 확인서를 맞바꾸는 방식</b>으로 정리합니다. <b>미리 확인서를 써 주면 안 됩니다.</b></div></details>
+  <details><summary>이사비를 요구하는데 꼭 줘야 하나요?</summary>
+    <div class="fa"><b>법적으로 줄 의무는 없습니다.</b> 다만 강제집행에는 노무비·차량비·창고 보관료가 들고 몇 달이 걸리기도 해서, <b>적정한 이사비를 주고 빨리 정리하는 편이 결과적으로 싼 경우가 많습니다.</b> 요구가 지나치면 인도명령과 강제집행으로 가는 것이 낫습니다. 그 경계를 잡기 어려우시면 상담해 주십시오. <b>합의한 내용은 반드시 서면으로</b> 남기시고, 돈은 <b>짐을 다 뺀 뒤에</b> 주십시오.</div></details>
+  <details><summary>강제집행을 하면 짐은 어떻게 되나요?</summary>
+    <div class="fa">집행관이 짐을 꺼내 <b>보관 창고로 옮깁니다.</b> 낙찰자가 그 <b>보관료를 먼저 부담</b>하게 되고, 상대가 끝내 찾아가지 않으면 <b>법원 절차를 거쳐 매각</b>해 정리합니다. 보관료가 계속 나가므로 <b>이 단계를 오래 끌지 않는 것</b>이 중요합니다. 집행 당일에는 낙찰자도 현장에 있어야 하고, <b>열쇠공과 이삿짐 인력</b>을 미리 준비해 두셔야 합니다.</div></details>
+  <details><summary>밀린 관리비는 제가 내야 하나요?</summary>
+    <div class="fa">실무상 <b>전 소유자가 밀린 관리비 중 공용부분에 해당하는 금액</b>은 낙찰자가 부담하게 되는 경우가 많고, 전유부분(각 세대가 쓴 전기·수도 등)은 그렇지 않다고 보는 것이 일반적입니다. 다만 <b>연체료 부분</b> 등은 사안에 따라 다툼이 있으므로, 금액이 크면 관리사무소에 내역을 요구해 확인한 뒤 상담하십시오.</div></details>
+  <details><summary>농지를 낙찰받으려면 따로 필요한 것이 있나요?</summary>
+    <div class="fa"><b>농지취득자격증명(농취증)</b>이 필요합니다. 농지 소재지 시·군·구청(또는 읍·면)에서 발급받아 <b>법원이 정한 기한까지 제출</b>해야 하며, 내지 못하면 <b>매각이 불허가되고 보증금을 잃을 수 있습니다.</b> 농지 입찰은 발급 가능 여부를 <b>입찰 전에</b> 확인하셔야 합니다.</div></details>
+  <details><summary>낙찰받고 나서 심각한 하자를 발견했습니다. 취소할 수 있나요?</summary>
+    <div class="fa">매각허가결정이 <b>확정되기 전</b>이라면 다툴 여지가 있지만, <b>대금을 낸 뒤에는 되돌리기가 매우 어렵습니다.</b> 그래서 경매는 <b>입찰 전 조사가 전부</b>라고들 합니다. 매각물건명세서에 없던 중대한 사정이 뒤늦게 드러난 경우 등은 사안마다 판단이 달라지므로, 그런 상황이라면 <b>기한이 지나기 전에</b> 서둘러 상담하십시오.</div></details>
+</div>
+
+<!-- 상담 CTA -->
+<div class="hire">
+  <div class="ft" style="font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:18px;color:var(--gold-d);margin-bottom:8px">잔금 낸 날부터 두 개의 시계가 함께 돌아갑니다</div>
+  <p style="margin:0 0 4px;font-size:14.5px;line-height:1.8">본 사무소에서는 ① 등기사항증명서와 매각물건명세서를 검토해 <b>인수되는 권리와 말소되는 권리를 정리</b>해 드리고, ② <b>취득세·등록면허세·채권 매입액을 미리 계산</b>해 잔금일에 맞춰 준비하며, ③ <b>등기촉탁 신청서 작성과 법원 접수</b>를 대신해 드립니다. ④ 점유자가 나가지 않는 경우 <b>인도명령 신청서 작성</b>과 그 이후 강제집행 절차까지 함께 짚어 드립니다. 낙찰 후에 시간을 잃는 일이 없도록, <b>잔금 납부 전에</b> 한 번 들러 주십시오.</p>
+</div>
+
+<div style="background:linear-gradient(135deg,#fffdf9,#faf3e8);border:1.5px solid #d8c3a0;border-radius:14px;padding:18px 20px;margin:18px 0;">
+  <div style="font-size:14.5px;font-weight:700;color:#6f5638;">🤝 양도세 계산·신고는 — 업무협약 세무사와 함께</div>
+  <div style="font-size:12.5px;color:#a9793c;font-weight:700;margin-top:12px;">업무협약 세무사</div>
+  <div style="font-size:19px;font-weight:800;color:#3d2c1c;margin:1px 0 4px;">광교세무법인 &nbsp;김일섭 <span style="font-size:13.5px;font-weight:600;color:#6b5540;">대표세무사</span></div>
+  <div style="display:inline-block;background:#f6ecd9;color:#9a6b1f;border:1px solid #e6d3ae;border-radius:20px;padding:3px 11px;font-size:12px;font-weight:700;">국세청 조사·감사 실무 경력</div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;">
+    <a href="tel:01062460702" style="flex:1 1 44%;min-width:132px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-align:center;background:#6f5638;color:#fff;text-decoration:none;font-weight:700;padding:11px 6px;border-radius:10px;"><span style="white-space:nowrap;font-size:14px;">📱 휴대폰 바로통화</span><span style="white-space:nowrap;font-size:12px;opacity:.9;">010-6246-0702</span></a>
+    <a href="tel:0312348530" style="flex:1 1 44%;min-width:132px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-align:center;background:#8a6d4b;color:#fff;text-decoration:none;font-weight:700;padding:11px 6px;border-radius:10px;"><span style="white-space:nowrap;font-size:14px;">📞 사무실 전화</span><span style="white-space:nowrap;font-size:12px;opacity:.9;">031-234-8530</span></a>
+    <a href="mailto:kgtax60@naver.com?subject=%EC%84%B8%EB%AC%B4%20%EC%83%81%EB%8B%B4%20%EB%AC%B8%EC%9D%98%20%28%EC%82%B0%20%EB%B2%95%EB%AC%B4%EC%82%AC%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80%29&body=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94%2C%20%EC%82%B0%20%EB%B2%95%EB%AC%B4%EC%82%AC%20%EA%B9%80%EC%9E%AC%EC%84%AD%20%ED%96%89%EC%A0%95%EC%82%AC%20%EC%82%AC%EB%AC%B4%EC%86%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80%EB%A5%BC%20%EB%B3%B4%EA%B3%A0%20%EC%84%B8%EB%AC%B4%20%EC%83%81%EB%8B%B4%EC%9D%84%20%EB%AC%B8%EC%9D%98%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4.%0A%0A%E2%96%A0%20%EC%84%B1%ED%95%A8%3A%0A%E2%96%A0%20%EC%97%B0%EB%9D%BD%EC%B2%98%3A%0A%E2%96%A0%20%EB%AC%B8%EC%9D%98%20%EB%82%B4%EC%9A%A9%3A%0A" style="flex:1 1 44%;min-width:132px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-align:center;background:#c8862d;color:#fff;text-decoration:none;font-weight:700;padding:11px 6px;border-radius:10px;"><span style="white-space:nowrap;font-size:14px;">✉️ 이메일 바로쓰기</span><span style="white-space:nowrap;font-size:12px;opacity:.9;">kgtax60@naver.com</span></a>
+    <a href="https://www.gwangyo.com/introduce/expert.html?bmain=view&uid=31&search=%26mode%3D1%26page%3D1&mode=1" target="_blank" rel="noopener" style="flex:1 1 44%;min-width:132px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-align:center;background:#fff;color:#6f5638;border:1.5px solid #c8a878;text-decoration:none;font-weight:700;padding:11px 6px;border-radius:10px;"><span style="white-space:nowrap;font-size:14px;">🌐 상세 프로필</span><span style="white-space:nowrap;font-size:12px;opacity:.9;">경력·업무 보기</span></a>
+  </div>
+  <div style="margin-top:11px;font-size:12px;color:#8a7860;line-height:1.55;">· (16205) 수원시 장안구 경수대로 1110-12 광교빌딩 3층 · 대표전화 031-234-8530 / 휴대폰 010-6246-0702</div>
+</div>
+
+<a class="ctabtn" href="https://sanlaw.co.kr" target="_blank" rel="noopener">경매·공매 낙찰 부동산 등기 상담 신청하기 →</a>
+<div class="src">근거 — 민사집행법 §121·§123(매각불허가)·§126·§128(매각허가결정)·§129(즉시항고)·§135(소유권의 취득시기)·§136(부동산의 인도명령)·§142(대금의 지급)·§144(매각대금 지급 뒤의 조치) / 국세징수법(압류재산의 공매·매수대금의 납부와 권리의 이전) / 부동산등기법 / 지방세법 §11(취득세율)·§13의2(다주택 중과)·§20①(신고·납부) / 농지법(농지취득자격증명) / 주택임대차보호법 §3(대항력)·§3의2(보증금의 회수, 특히 제3항 — 임차주택을 양수인에게 인도하여야 보증금 수령 가능) / 상가건물 임대차보호법 §5 / 민사집행법 §258(부동산 인도청구의 집행)·§300(가처분의 목적) / 주택도시기금법(국민주택채권) / 법제처 찾기쉬운 생활법령정보 '부동산 경매' / 대법원 법원경매정보 · 한국자산관리공사 온비드 공개 자료. 발급처 링크는 각 기관 공식 사이트로 연결됩니다. '말소기준권리'는 법령상의 용어가 아니라 실무에서 쓰는 표현입니다. 본 자료는 일반적인 법률정보로, 개별 사건의 법률자문이 아니며 개별 사건의 결과를 보장하지 않습니다. 인수되는 권리의 판단은 물건마다 달라지므로 입찰 전 개별 검토를 받으시기 바랍니다.</div>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+})();
+function toggleFold(b){var fb=b.parentElement;var open=fb.classList.toggle('open');}
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('양식이 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('양식이 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('양식을 내려받았습니다');}
+</script>
+</body>
+</html>
