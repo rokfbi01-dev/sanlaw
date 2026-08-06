@@ -278,6 +278,32 @@
   <div class="scroll-hint">SCROLL<div class="line"></div></div>
 </section>
 
+<!-- ⏰ 한시 안내: 구하라법 특례 마감 — 2026-09-17 00:00 KST 이후 자동 소멸 -->
+<div id="kuharaAlert" style="display:none">
+  <div class="wrap" style="padding:0 20px">
+    <a href="2-4_상속권상실_구하라법.html" target="_blank" rel="noopener" style="display:block;text-decoration:none;background:linear-gradient(135deg,#fdf2ee,#f9e7e0);border:1.5px solid #d9694a;border-left:6px solid #9c3a22;border-radius:14px;padding:17px 20px;margin:26px 0 0;box-shadow:0 3px 12px rgba(156,58,34,.10)">
+      <div style="display:flex;gap:11px;align-items:center;flex-wrap:wrap">
+        <span style="flex:none;background:#9c3a22;color:#fff;font-size:12.5px;font-weight:800;border-radius:20px;padding:4px 13px;white-space:nowrap">⏰ D-<span id="kuharaDday">·</span></span>
+        <span style="font-weight:800;color:#9c3a22;font-size:16px;line-height:1.5">상속권 상실(구하라법) 특례 청구기간 &mdash; 2026. 9. 16. 마감</span>
+      </div>
+      <div style="margin-top:10px;font-size:14.5px;line-height:1.8;color:#5c4a42">
+        <b>2024. 4. 25. 이후</b>에 가족을 떠나보내셨고, <b>가족을 버리거나 학대한 사람</b>이 상속인으로 나선 경우라면 확인해 보십시오. 2026. 3. 17. 개정으로 대상이 <b>자녀&middot;배우자까지</b> 넓어졌고, 그에 따른 특례 기간이 <b>2026. 9. 16.</b>에 닫힙니다.<br><span style="color:#9c3a22;font-weight:700">이 기간이 지나도 &lsquo;안 날부터 6개월&rsquo;은 그대로 살아 있으니, 해당 여부부터 확인해 보십시오.</span>
+      </div>
+      <div style="margin-top:11px;font-size:14px;font-weight:800;color:#9c3a22">자세히 보기 &rarr;</div>
+    </a>
+  </div>
+</div>
+<script>
+(function(){
+  var el=document.getElementById('kuharaAlert'); if(!el) return;
+  var end=new Date('2026-09-17T00:00:00+09:00'), now=new Date();
+  if(now>=end){ el.parentNode.removeChild(el); return; }
+  var d=Math.floor((end-now)/86400000);
+  var t=document.getElementById('kuharaDday'); if(t) t.textContent=(d>0?d:'DAY');
+  el.style.display='block';
+})();
+</script>
+
 <section class="block about" id="about">
   <div class="wrap">
     <div class="sec-head fu">
@@ -515,7 +541,7 @@ function openItems(s){
   else s.items.forEach(function(it){
     if(it.r===false){var c=document.createElement('div');c.className='pa-card lock';
       c.innerHTML='<span class="pa-b s">준비중</span><span class="pa-han">›</span><div class="pa-tx"><h3 style="font-size:15.5px;line-height:1.4">'+it.t+'</h3></div>';g.appendChild(c);}
-    else{var a=document.createElement('a');a.href=it.u;a.className='pa-card';
+    else{var a=document.createElement('a');a.href=it.u;a.className='pa-card';a.target='_blank';a.rel='noopener';
       a.innerHTML='<span class="pa-han">›</span><div class="pa-tx"><h3 style="font-size:15.5px;line-height:1.4">'+it.t+'</h3></div>';g.appendChild(a);}});
   show(vItem);
 }
