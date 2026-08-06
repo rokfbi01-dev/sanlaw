@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[등기 안내] 부동산이 여러 곳에 흩어져 있을 때 — 등기소 관할 특례 | 산 법무사 김재섭</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+ul{margin:8px 0 12px; padding-left:20px;} li{margin:6px 0;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(300px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.who{background:var(--box); border-radius:10px; padding:14px 16px; margin:12px 0; border-left:4px solid #b9a98c;}
+.who .wl{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;margin-left:3px;}
+.tag.free{background:#5a9a72;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.cta{display:block; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; text-decoration:none; font-weight:700; font-size:16px; padding:15px; border-radius:11px; margin:18px 0; box-shadow:0 3px 8px rgba(122,82,48,.25);}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:11px 15px;margin:10px 0;font-size:13.5px;line-height:1.7;}
+.lawbox .ll{display:inline-block;font-size:11.5px;font-weight:700;color:#fff;background:var(--gold-d);border-radius:5px;padding:2px 8px;margin-right:6px;}
+.lawbox a{color:var(--gold-d);font-weight:600;}
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:14.5px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:16px;margin:10px 0;font-family:'D2Coding','Courier New',monospace;font-size:12.5px;line-height:1.65;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:15px;letter-spacing:2px;margin-bottom:10px;color:#241a10;}
+.howto{font-size:13.5px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:12.5px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:6px 12px;cursor:pointer;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+/* 개념 한 줄 */
+.concept{background:var(--box);border-radius:9px;padding:11px 15px;margin:8px 0 14px;font-size:14.5px;color:#5a4a36;border-left:3px solid #b9a98c;}
+.concept b{color:var(--gold-d);}
+/* 절차 플로우 */
+.flow{background:linear-gradient(180deg,#fcf9f2,#f7f1e5);border:1.5px solid var(--gold);border-radius:14px;padding:18px 18px 14px;margin:14px 0 20px;}
+.flow .ft2{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:12px;}
+.flow ol{counter-reset:fl;list-style:none;margin:0;padding:0;}
+.flow li{position:relative;padding:8px 10px 8px 44px;margin:7px 0;background:#fff;border:1px solid var(--line);border-radius:10px;font-size:14.5px;line-height:1.6;}
+.flow li::before{counter-increment:fl;content:counter(fl);position:absolute;left:10px;top:8px;width:26px;height:26px;line-height:26px;text-align:center;background:var(--gold);color:#fff;border-radius:50%;font-weight:800;font-size:14px;}
+.flow li b{color:var(--gold-d);}
+.flow .arw{text-align:center;color:var(--gold);font-size:13px;margin:-2px 0;}
+.flow ol.navlist{padding-left:0;}
+.flow ol.navlist li{padding:9px 13px;}
+.flow ol.navlist li::before{content:none;}
+.flow ol.navlist a{color:var(--gold-d);font-weight:700;white-space:nowrap;text-decoration:none;margin-left:4px;}
+.flow ol.navlist a:hover{text-decoration:underline;}
+/* 최신 개정 박스 */
+.newlaw{background:#eef6f0;border:1px solid #cfe6d6;border-left:4px solid #5a9a72;border-radius:8px;padding:13px 16px;margin:14px 0;}
+.newlaw .nt{font-weight:700;color:#2f6a47;display:block;margin-bottom:4px;}
+.newlaw .badge{display:inline-block;font-size:11px;font-weight:800;color:#fff;background:#5a9a72;border-radius:5px;padding:2px 8px;margin-right:6px;vertical-align:middle;}
+/* FAQ */
+.faq{margin:14px 0;}
+.faq details{border:1px solid var(--line);border-radius:10px;margin:9px 0;background:#fff;overflow:hidden;}
+.faq summary{list-style:none;cursor:pointer;padding:13px 44px 13px 15px;font-weight:700;font-size:15px;color:#241a10;background:#faf7f0;position:relative;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::before{content:"Q";position:absolute;left:15px;color:var(--gold-d);font-family:'Nanum Myeongjo',serif;font-weight:800;}
+.faq summary{padding-left:38px;}
+.faq summary::after{content:"▾";position:absolute;right:16px;top:13px;color:var(--gold-d);transition:.2s;}
+.faq details[open] summary::after{transform:rotate(180deg);}
+.faq .fa{padding:13px 15px 15px 38px;font-size:14.5px;line-height:1.75;color:#3a3a3a;position:relative;border-top:1px solid var(--line);}
+.faq .fa::before{content:"A";position:absolute;left:15px;top:13px;color:#5a9a72;font-family:'Nanum Myeongjo',serif;font-weight:800;}
+/* ── 표준구조 추가 ── */
+.helm{background:linear-gradient(135deg,#2c3e50,#3a4a5c);color:#f4f0e8;border-radius:14px;padding:20px 22px;margin:0 0 24px;box-shadow:0 4px 14px rgba(44,62,80,.18);}
+.helm .ht2{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:17px;color:#f0d98c;margin-bottom:9px;}
+.helm p{margin:0;font-size:14.5px;line-height:1.9;color:#eae4d8;}
+.helm b{color:#f4e2a6;}
+.qhead{display:flex;gap:12px;align-items:flex-start;margin:8px 0 8px;}
+.qhead .qb{flex:none;width:34px;height:34px;border-radius:50%;background:var(--gold);color:#fff;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(176,141,87,.4);}
+.qhead h2{margin:0;border:0;padding:0;font-size:20px;line-height:1.45;}
+.lawrow{display:flex;flex-wrap:wrap;background:var(--box);border-radius:10px;overflow:hidden;margin:12px 0;border:1px solid var(--line);}
+.lawrow .lrl{flex:none;background:var(--gold);color:#fff;font-weight:700;font-size:13.5px;padding:11px 15px;display:flex;align-items:center;}
+.lawrow .lrc{flex:1;min-width:210px;padding:11px 15px;font-size:14px;line-height:1.75;}
+@media(max-width:520px){.lawrow .lrl{width:100%;}}
+.calc{display:block;background:linear-gradient(135deg,#fff7e8,#fdeecb);border:1.5px solid var(--gold);border-radius:14px;padding:16px 18px;margin:18px 0;text-decoration:none;color:var(--ink);transition:.15s;}
+.calc:hover{box-shadow:0 4px 14px rgba(176,141,87,.25);transform:translateY(-1px);}
+.calc .cah{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:4px;}
+.calc .cas{font-size:13.5px;color:var(--muted);}
+.ctabtn{display:block;text-align:center;background:var(--gold);color:#fff;font-weight:800;font-size:17px;padding:16px;border-radius:12px;text-decoration:none;margin:22px 0 6px;box-shadow:0 3px 10px rgba(176,141,87,.35);}
+.ctabtn:hover{background:var(--gold-d);}
+.doclabel{display:inline-block;font-size:12px;font-weight:800;color:#fff;border-radius:6px;padding:3px 11px;margin-bottom:6px;}
+.doclabel.give{background:#b0885a;}
+.doclabel.back{background:#5a9a72;}
+.dl{color:var(--gold-d);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--gold);}
+.dl:hover{background:#fbf5e8;}
+.ddl{display:flex;gap:2px 10px;flex-wrap:wrap;margin:8px 0 2px;padding:9px 12px;background:#fbf7ee;border-radius:8px;font-size:13px;}
+.ddl b{color:var(--gold-d);}
+.deadline{width:100%;border-collapse:collapse;margin:10px 0;font-size:13.5px;}
+.deadline th{background:#3a4a5c;color:#fff;padding:8px;font-weight:700;}
+.deadline td{border:1px solid var(--line);padding:8px 10px;background:#fff;}
+.bnote{color:#0b4a9c;font-weight:600;background:#eaf2fc;border-left:4px solid #2b7fff;border-radius:8px;padding:9px 13px;margin:8px 0;font-size:13.5px;line-height:1.7;}
+.bnote b{color:#0a3d82;}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+
+<h1>부동산이 여러 곳에 흩어져 있을 때 — 등기소 관할 특례</h1>
+
+<div class="helm">
+  <div class="ht2">⚓ 이 안내를 준비한 마음</div>
+  <p>돌아가신 아버지 앞으로 <b>서울에 집 한 채, 고향에 논밭, 바닷가에 작은 땅</b>이 있는 경우가 참 많습니다. 예전에는 <b>그 세 곳 등기소를 모두 찾아다녀야</b> 했습니다. 연차를 내고, 기차를 타고, 서류가 하나 빠져 다시 내려가고. 그 번거로움 때문에 <b>몇 년씩 등기를 미루신 분</b>들을 여럿 뵈었습니다. 2025년 1월 31일부터 <b>그 발품이 사라졌습니다.</b> 이 안내에 서류·신청서 작성례·비용을 모두 담았으니 직접 해 보십시오. 진행하시다 막히거나 <b>상속인끼리 합의가 어긋날 때</b>, 언제든 이 안내를 들고 사무실로 찾아와 주십시오. <b>제가 든든한 법률적 조타수가 되어 함께 마무리하겠습니다.</b></p>
+</div>
+
+<div class="qhead"><span class="qb">Q</span>
+  <h2>서울에도 지방에도 부동산이 있는데, 등기소를 다 찾아다녀야 하나요?</h2>
+</div>
+
+<div class="tnote">밑줄 친 <span class="term">용어<span class="bub">밑줄 친 말에 마우스를 올리거나(휴대폰은 살짝 누르면) 쉬운 설명이 나옵니다.</span></span>에 마우스를 올리면 설명이 나옵니다. 파란 <b>링크</b>를 누르면 해당 사이트로 바로 이동합니다.</div>
+
+<div class="newlaw">
+  <span class="nt"><span class="badge">2025. 1. 31. 시행</span> 이제 안 다니셔도 됩니다</span>
+  부동산등기법에 <b>제7조의2(관련 사건의 관할에 관한 특례)</b>와 <b>제7조의3(상속·유증 사건의 관할에 관한 특례)</b>가 새로 생겼습니다. 같은 개정으로 <b>제25조</b>에서 &ldquo;같은 등기소의 관할 내에 있는&rdquo;이라는 제한도 삭제되었습니다. 이 세 조문이 맞물려, <b>여러 지역 부동산을 한 곳에서 한꺼번에</b> 처리할 수 있게 되었습니다.
+</div>
+
+<div class="tldr">
+  <div class="tt">30초 결론 — 세 가지만 아시면 됩니다</div>
+  <p style="margin:0 0 8px;font-size:14.5px">등기는 원래 <b>부동산이 있는 지역 등기소</b>에서만 받아 줍니다(<span class="term">관할<span class="bub">어느 등기소가 그 사건을 처리할 권한을 갖는지를 정해 놓은 것. 부동산등기법 제7조 제1항은 '부동산 소재지'를 기준으로 정합니다.</span></span>). 이 원칙에 두 개의 예외가 생겼습니다.</p>
+  <ul>
+    <li><b>① 신청서를 한 장으로 묶을 수 있습니다</b> — 여러 지역 부동산이라도 <b>등기 목적과 원인이 같으면</b> 신청서 <b>한 장</b>에 모두 적어 <b>그중 한 등기소</b>에 냅니다(법 §7의2).</li>
+    <li><b>② 아무 등기소에나 낼 수 있습니다</b> — <b>상속·유증</b>이라면 부동산이 어디 있든 <b>전국 어느 등기소</b>에나 낼 수 있습니다(법 §7의3).</li>
+    <li><b>③ 비용은 그대로입니다</b> — 발품만 줄어듭니다. <b>취득세·수수료·채권은 부동산 개수만큼</b> 그대로 듭니다.</li>
+  </ul>
+</div>
+
+<div class="concept"><b>왜 이런 제도가 생겼을까요?</b> 등기소를 부동산 있는 곳으로 정해 둔 것은 <b>종이 등기부를 그 등기소에 보관</b>하던 시절의 규칙입니다. 지금은 등기부가 전산으로 통합 관리되어 <b>어느 등기소에서든 전국 등기부를 열어볼 수 있습니다.</b> 그런데도 국민만 여전히 전국을 돌아다녀야 했던 것이지요. 그래서 <b>접수번호까지 전국 통합</b>으로 바꾸고(부동산등기규칙 §22②), 관할의 벽을 낮춘 것입니다.</div>
+
+<div class="lawrow"><div class="lrl">관련 법령</div><div class="lrc">
+  <b>부동산등기법 §7의2</b> 관련 사건의 관할 특례(신청서 한 장으로 묶기) · <b>§7의3</b> 상속·유증 사건의 관할 특례(아무 등기소 접수) · <b>§25 단서</b> 여러 부동산 <span class="term">일괄신청<span class="bub">여러 개의 부동산에 관한 등기를 신청서 한 장(1건)으로 함께 신청하는 것. 접수번호도 하나만 붙습니다.</span></span> 근거 · <b>부동산등기규칙 §163의2</b> 관련 신청사건의 신청정보 제공 방법 · <b>§164·§164의2</b> 상속·유증 사건의 범위와 신청정보 · <b>등기예규 제1795호</b> 상속·유증 사건의 신청 및 처리에 관한 업무처리지침
+</div></div>
+
+<div class="qhead"><span class="qb">1</span><h2>먼저 이것부터 — 두 갈래 중 어느 쪽입니까</h2></div>
+
+<p>등기소를 찾기 전에, 신청서를 열기 전에, <b>이 질문 하나</b>에 먼저 답하십시오. 여기서 방법이 갈립니다.</p>
+
+<div class="tldr" style="background:linear-gradient(180deg,#f4f8fb,#e9f0f6);border-color:#5a8db0">
+  <div class="tt" style="color:#2f5b78">❓ 부동산마다 <u>이름을 올릴 사람과 지분</u>이 전부 같습니까?</div>
+  <ul>
+    <li><b>전부 같다 → A길</b><br>예) 세 부동산 모두 어머니 7분의 3, 아들 7분의 2, 딸 7분의 2로 <span class="term">법정상속분<span class="bub">유언이나 협의가 없을 때 민법이 정해 놓은 상속 비율. 배우자는 자녀보다 0.5를 더 받습니다(민법 §1009).</span></span>대로 등기</li>
+    <li><b>다르다 → B길</b><br>예) <span class="term">협의분할<span class="bub">상속인끼리 의논해 &lsquo;누가 무엇을 갖는다&rsquo;고 정하는 것. 전원이 합의하고 인감을 찍어야 합니다.</span></span>로 서울 집은 어머니, 고향 논밭은 아들, 바닷가 땅은 딸이 각자 단독으로 갖기로 함</li>
+  </ul>
+</div>
+
+<div style="overflow-x:auto">
+<table style="width:100%;border-collapse:collapse;margin:14px 0;font-size:14px">
+<tr><th style="background:#3a4a5c;color:#fff;padding:9px">구분</th><th style="background:#3a4a5c;color:#fff;padding:9px">A길 — 한 장으로 묶기</th><th style="background:#3a4a5c;color:#fff;padding:9px">B길 — 아무 등기소에</th></tr>
+<tr><td style="border:1px solid #e7e0d4;padding:9px;background:#faf7f0"><b>근거</b></td><td style="border:1px solid #e7e0d4;padding:9px">법 §7의2</td><td style="border:1px solid #e7e0d4;padding:9px">법 §7의3</td></tr>
+<tr><td style="border:1px solid #e7e0d4;padding:9px;background:#faf7f0"><b>어떤 사건에</b></td><td style="border:1px solid #e7e0d4;padding:9px">등기 목적·원인이 같은 <b>모든 등기</b>(상속·매매·근저당 등)</td><td style="border:1px solid #e7e0d4;padding:9px"><b>상속·유증</b>에 한정</td></tr>
+<tr><td style="border:1px solid #e7e0d4;padding:9px;background:#faf7f0"><b>신청서</b></td><td style="border:1px solid #e7e0d4;padding:9px"><b>반드시 한 장</b>에 전부 기재</td><td style="border:1px solid #e7e0d4;padding:9px">부동산별로 나눠 써도 됨</td></tr>
+<tr><td style="border:1px solid #e7e0d4;padding:9px;background:#faf7f0"><b>어디에 내나</b></td><td style="border:1px solid #e7e0d4;padding:9px">그 부동산들의 <b>관할 등기소 중 한 곳</b></td><td style="border:1px solid #e7e0d4;padding:9px"><b>전국 아무 등기소</b></td></tr>
+<tr><td style="border:1px solid #e7e0d4;padding:9px;background:#faf7f0"><b>접수번호</b></td><td style="border:1px solid #e7e0d4;padding:9px">1개</td><td style="border:1px solid #e7e0d4;padding:9px">신청서 수만큼</td></tr>
+</table>
+</div>
+
+<div class="warn"><span class="wt">★ B길에서 억지로 한 장에 묶지 마십시오</span>
+법 §7의2는 <b>&ldquo;등기 목적과 등기 원인이 동일할 것&rdquo;</b>을 요구합니다. 협의분할로 <b>부동산마다 갖는 사람이 달라지면</b> 이 요건을 채우지 못할 수 있어, 한 장으로 냈다가 <span class="term">각하<span class="bub">등기관이 &lsquo;이 신청은 받아줄 수 없다&rsquo;고 결정하는 것. 낸 수수료 일부를 돌려받지 못할 수 있고 처음부터 다시 해야 합니다.</span></span>될 위험이 있습니다. 이럴 때는 <b>부동산별로 신청서를 따로 만들어 §7의3으로 한 등기소에 함께 접수</b>하십시오. <b>한 번만 가면 되는 것은 똑같습니다.</b></div>
+
+<div class="flow">
+  <div class="ft2">전체 진행 순서</div>
+  <ol>
+    <li><b>상속인·지분 확정</b> — 제적·가족관계 서류로 상속인 전원과 각자 몫을 확정합니다</li>
+    <div class="arw">▼</div>
+    <li><b>A길·B길 판정</b> — 부동산마다 이름 올릴 사람이 같은지 확인합니다</li>
+    <div class="arw">▼</div>
+    <li><b>취득세 신고·납부</b> — <b>부동산 소재지 시·군·구마다 각각</b> 신고합니다(합쳐지지 않습니다)</li>
+    <div class="arw">▼</div>
+    <li><b>채권 매입·수수료 납부</b> — 부동산별 시가표준액 기준으로 각각 계산합니다</li>
+    <div class="arw">▼</div>
+    <li><b>신청서 작성</b> — 인터넷등기소 <span class="term">e-Form<span class="bub">인터넷등기소에서 신청서를 입력·출력하는 표준 양식. 빈칸을 채우면 신청서가 자동 완성됩니다. 상속등기는 완전 전자신청이 없어 출력해 제출합니다.</span></span>으로 작성·출력합니다</li>
+    <div class="arw">▼</div>
+    <li><b>제출</b> — A길은 관할 등기소 중 한 곳, B길은 편한 등기소 아무 곳에 냅니다</li>
+  </ol>
+</div>
+
+<div class="qhead"><span class="qb">2</span><h2>실제 사례로 하나하나 따져 보겠습니다</h2></div>
+
+<p>말로만 &ldquo;권리자가 다르면 안 된다&rdquo;고 하면 와닿지 않습니다. <b>상담에서 가장 많이 나오는 형태</b>를 그대로 놓고 따져 보겠습니다.</p>
+
+<div class="who"><span class="wl">◆ 상황 — 아버지가 남기신 부동산 네 곳, 형제 셋이 이렇게 나누기로 했습니다</span>
+<div style="overflow-x:auto">
+<table class="deadline" style="margin-top:8px">
+<tr><th>부동산</th><th>소재지</th><th>누가 받기로 했나</th><th>지분</th></tr>
+<tr><td><b>아파트</b></td><td>서울</td><td>첫째</td><td>단독</td></tr>
+<tr><td><b>아파트</b></td><td>경기 광명</td><td>둘째 · 셋째</td><td>각 2분의 1</td></tr>
+<tr><td><b>주택</b></td><td>부산</td><td>첫째 · 둘째</td><td>각 2분의 1</td></tr>
+<tr><td><b>대지 500평</b></td><td>대구</td><td>첫째 · 둘째 · 셋째</td><td>각 3분의 1</td></tr>
+</table>
+</div>
+관할 등기소가 <b>네 곳 모두 다릅니다.</b> 그렇다면 신청서 한 장에 네 부동산을 다 적어 낼 수 있을까요?</div>
+
+<div class="warn"><span class="wt">답 — 한 장으로는 권하지 않습니다. 네 건이 한꺼번에 각하될 수 있습니다.</span>
+법 제7조의2로 한 장에 묶으려면 <b>&ldquo;등기목적과 등기원인이 동일&rdquo;</b>해야 합니다. 이 사안을 요건에 하나씩 대입해 보면 이렇습니다.</div>
+
+<div style="overflow-x:auto">
+<table class="deadline">
+<tr><th>요건</th><th>이 사안은</th><th>판정</th></tr>
+<tr><td><b>등기의 목적</b></td><td>네 건 전부 &ldquo;소유권이전&rdquo;</td><td style="color:#2f6a47;font-weight:800">○ 같음</td></tr>
+<tr><td><b><span class="term">등기원인<span class="bub">등기를 하게 된 법률적 이유. 매매·증여·상속·협의분할에 의한 상속 등으로 적습니다. 날짜도 함께 적습니다.</span></span> 문구</b></td><td>네 건 전부 &ldquo;20○○년 ○월 ○일 협의분할에 의한 상속&rdquo;</td><td>글자만 보면 같음</td></tr>
+<tr><td><b>이름을 올릴 사람</b></td><td>첫째 / 둘째·셋째 / 첫째·둘째 / 삼형제 — <b>네 조합이 전부 다름</b></td><td style="color:#9c3a22;font-weight:800">✕ 다름</td></tr>
+<tr><td><b>지분</b></td><td>단독 / 각 2분의 1 / 각 2분의 1 / 각 3분의 1</td><td style="color:#9c3a22;font-weight:800">✕ 다름</td></tr>
+</table>
+</div>
+
+<div class="concept"><b>&ldquo;등기원인이 같다&rdquo;는 말의 진짜 뜻입니다.</b> 등기 실무에서 원인이 같다는 것은 <b>적어 넣는 글자가 같다</b>는 뜻이 아니라, <b>당사자 관계까지 같은 하나의 원인</b>이라는 뜻으로 운용됩니다. 비슷한 예가 있습니다. 법원이 <b>가처분 결정 하나</b>를 내렸더라도 그 대상 부동산이 여러 개이고 <b>부동산마다 권리를 가진 사람이 다르면</b>, 등기목적은 같지만 등기원인이 같은 경우로 보지 않아 <b>한꺼번에 처리할 수 없다</b>고 봅니다. 위 사안은 이 구조와 정확히 같습니다. <b>부동산마다 이름 올릴 사람이 갈립니다.</b></div>
+
+<div class="bnote"><b>다만 &ldquo;절대 안 된다&rdquo;고 단정하지는 않겠습니다.</b> 상속은 매매와 구조가 다른 면이 있습니다. ① 상속등기는 <b>받는 사람이 혼자 신청</b>합니다(주고받는 두 당사자 구조가 아닙니다). ② 넘겨주는 쪽에 해당하는 <b>돌아가신 분은 한 분</b>입니다. ③ 근거가 되는 <b>상속재산분할협의서도 한 통</b>입니다. 이 점을 들어 &ldquo;하나의 원인&rdquo;으로 볼 여지가 아주 없지는 않습니다. <b>그러나 등기관의 판단이 갈릴 수 있는 영역이고, 잘못되면 네 건이 모두 각하됩니다.</b> 아래 방법이 있는데 굳이 위험을 감수할 이유가 없습니다.</div>
+
+<div class="tip"><span class="pt">💡 이렇게 하시면 됩니다 — 네 장을 만들어 한 곳에 내십시오</span>
+이 사안은 <b>상속</b>이므로 법 제7조의3을 쓸 수 있습니다. 그리고 <b>제7조의3에는 &lsquo;한 장으로 묶어야 한다&rsquo;는 요건이 아예 없습니다.</b> 신청서를 부동산별로 <b>네 장</b> 만들되, <b>네 장 모두 같은 등기소 한 곳</b>에 함께 내시면 됩니다. <b>한 번만 가면 되는 것은 똑같고, 각하 위험만 사라집니다.</b></div>
+
+<div style="overflow-x:auto">
+<table class="deadline">
+<tr><th>구분</th><th>한 장으로 묶기(§7의2)</th><th>네 장으로 나누기(§7의3) — 권장</th></tr>
+<tr><td><b>신청서</b></td><td>1장</td><td><b>4장</b></td></tr>
+<tr><td><b>어디에 내나</b></td><td>서울·광명·부산·대구 중 한 곳</td><td><b>전국 아무 등기소 한 곳</b></td></tr>
+<tr><td><b>방문 횟수</b></td><td>1회</td><td><b>1회 (같습니다)</b></td></tr>
+<tr><td><b>비용</b></td><td>부동산 4건분</td><td><b>부동산 4건분 (같습니다)</b></td></tr>
+<tr><td><b>위험</b></td><td style="color:#9c3a22;font-weight:700">동일성이 부정되면 4건 전부 각하</td><td style="color:#2f6a47;font-weight:800">없음</td></tr>
+</table>
+</div>
+
+<div class="qhead" style="margin-top:26px"><span class="qb">✎</span><h2>그럼 네 장을 어떻게 적나요</h2></div>
+
+<p>이 안내 뒤쪽에 나오는 <b>작성례 ②를 네 벌</b> 만드시면 됩니다. 달라지는 곳은 <b>부동산의 표시</b>와 <b>신청인·지분</b> 두 군데뿐입니다.</p>
+
+<div style="overflow-x:auto">
+<table class="deadline">
+<tr><th>신청서</th><th>부동산의 표시</th><th>신청인란</th><th>지분(개인별)</th></tr>
+<tr><td><b>①</b></td><td>서울 ○○구 ○○동 ○○ 아파트 제○동 제○호</td><td>첫째 1명</td><td><b>단독소유</b></td></tr>
+<tr><td><b>②</b></td><td>경기 광명시 ○○동 ○○ 아파트 제○동 제○호</td><td>둘째 · 셋째</td><td>각 <b>2분의 1</b></td></tr>
+<tr><td><b>③</b></td><td>부산 ○○구 ○○동 ○○-○ 주택</td><td>첫째 · 둘째</td><td>각 <b>2분의 1</b></td></tr>
+<tr><td><b>④</b></td><td>대구 ○○구 ○○동 ○○-○ 대 ○○○○㎡</td><td>첫째 · 둘째 · 셋째</td><td>각 <b>3분의 1</b></td></tr>
+</table>
+</div>
+
+<div class="warn"><span class="wt">★ 네 장 모두 똑같이 적어야 하는 두 곳</span>
+① <b>맨 윗줄</b> — 네 장 전부 <b>&ldquo;법 제7조의3에 의한 신청&rdquo;</b><br>
+② <b>맨 아랫줄 등기소</b> — 네 장 전부 <b>실제로 접수할 그 한 곳</b>. 서울에서 다 내신다면 <b>대구 대지 신청서에도 서울 등기소</b>를 적습니다. 부동산이 있는 곳을 적으면 안 됩니다.</div>
+
+<div class="cost"><span class="ct">💰 서류는 네 벌씩 준비하지 않으셔도 됩니다 — &lsquo;전건 원용&rsquo;</span>
+네 장을 <b>같은 등기소에 같은 날 함께</b> 내시면, <b>내용이 같은 첨부서류는 한 벌만</b> 내고 나머지 세 장에는 <b>&ldquo;○○○ 신청서에 첨부한 것을 원용함&rdquo;</b>이라고 적는 것으로 갈음할 수 있습니다(부동산등기규칙 §47 일괄신청과 동시신청).
+<table class="deadline" style="margin-top:10px">
+<tr><th>서류</th><th>몇 벌 필요한가</th></tr>
+<tr><td>상속재산분할협의서 · 상속인 전원 인감증명서</td><td><b>1벌</b> (①에 첨부, ②③④는 원용)</td></tr>
+<tr><td>피상속인 제적등본 · 기본증명서 · 가족관계증명서</td><td><b>1벌</b> (원용)</td></tr>
+<tr><td>상속인 주민등록등본 · 가족관계증명서</td><td><b>1벌</b> (원용)</td></tr>
+<tr><td><b>취득세영수필확인서</b></td><td><b>4장 각각</b> — 서울·광명·부산·대구에 따로 신고하므로 원용 불가</td></tr>
+<tr><td><b>토지·건축물대장</b></td><td><b>부동산별 각각</b></td></tr>
+<tr><td><b>등기신청수수료</b></td><td><b>4건분 각각</b></td></tr>
+</table>
+제적등본을 네 벌 떼지 않아도 되니, <b>서류 발급비만도 상당히 아낍니다.</b></div>
+
+<div class="tip"><span class="pt">💡 그래도 한 장으로 하고 싶으시다면</span>
+접수하실 등기소 <b>등기과에 미리 전화로 문의</b>하시고, 담당자 성함과 답변 내용을 적어 두십시오. 등기소마다 판단이 다를 수 있는 영역이라, <b>사전 확인 없이 한 장으로 밀어붙이는 것</b>은 권하지 않습니다.</div>
+
+<div class="warn"><span class="wt">★ 세금은 별개입니다 — 순서를 지키십시오</span>
+<b>상속등기를 하기 전에</b> 협의분할을 하면, 법이 정한 몫보다 더 받더라도 <b>상속</b>으로 봅니다. 그런데 <b>법정상속분대로 등기를 먼저 마친 뒤</b> 다시 협의해 몫을 옮기면, 늘어난 부분이 <b>증여</b>로 취급되어 세금이 붙을 수 있습니다. 위 사안처럼 <b>처음부터 협의분할로 정해 등기</b>하시는 것이 세금 면에서도 유리합니다. 구체적인 세액은 사안마다 다르니 반드시 확인이 필요합니다.</div>
+
+<div class="qhead"><span class="qb">3</span><h2>예규는 이렇게 정하고 있습니다</h2></div>
+
+<div class="bnote">이 제도는 <b>2025년 1월 31일에 시행된 새 조문</b>이라 아직 대법원 판례가 쌓이지 않았습니다. 대신 대법원이 정한 <b>등기예규 제1795호</b>가 어떤 경우에 쓸 수 있고 없는지를 구체적으로 정해 두었습니다. 아래는 그 내용입니다.</div>
+
+<div class="who"><span class="wl">◆ 사례 ① 이미 법대로 등기했는데, 나중에 형제끼리 합의를 본 경우</span>
+급한 대로 <b>법정상속분대로 공동명의</b>를 해 두었다가, 뒤늦게 협의분할(법원의 <span class="term">조정분할·심판분할<span class="bub">상속인끼리 합의가 안 될 때 가정법원이 조정하거나 심판으로 나누는 것. 협의분할과 같은 효력을 갖습니다.</span></span> 포함)을 한 경우입니다. 이때 하는 <span class="term">경정등기<span class="bub">이미 마쳐진 등기의 내용에 잘못이나 변경이 있을 때 이를 바로잡는 등기.</span></span>도 <b>관할 아닌 등기소에서 받아 줍니다</b>(규칙 §164①2호 가목).</div>
+
+<div class="who"><span class="wl">◆ 사례 ② 협의를 했다가 다시 무른 경우</span>
+협의분할로 등기까지 마쳤는데 <b>그 협의를 해제</b>한 경우입니다. <b>해제하고 다시 새로 협의분할을 한 경우까지 포함</b>해서 관할 특례를 씁니다(규칙 §164①2호 나목). &ldquo;다시 협의했으면 안 되는 것 아니냐&rdquo;고 오해하기 쉬운 대목인데, <b>포함됩니다.</b></div>
+
+<div class="who"><span class="wl">◆ 사례 ③ 유언으로 받았는데 이미 상속등기가 되어 있는 경우</span>
+<span class="term">유증<span class="bub">유언으로 재산을 주는 것. 특정 재산을 콕 집어 주면 특정유증, 전 재산의 몇 분의 몇처럼 통째로 주면 포괄유증입니다.</span></span>을 받았는데 그전에 이미 상속인 앞으로 등기가 마쳐져 있다면, <b>그 상속등기를 지우지 않고</b> 상속인에게서 유언으로 받은 사람 앞으로 바로 넘기는 등기를 합니다. 이것도 <b>관할 아닌 등기소에 낼 수 있습니다.</b></div>
+
+<div class="who"><span class="wl">◆ 사례 ④ 돈 받을 사람이 대신 등기해 주는 경우</span>
+상속인이 등기를 안 하고 버티면, 채권자가 <span class="term">대위<span class="bub">채권자가 자기 권리를 지키기 위해 채무자가 해야 할 일을 대신 하는 것(민법 §404). 등기도 대신 신청할 수 있습니다.</span></span>로 상속등기를 대신 신청할 수 있습니다(법 §28). <b>이 대위신청도 관할 아닌 등기소에 낼 수 있습니다.</b></div>
+
+<div class="warn"><span class="wt">★ 이것만은 안 됩니다 — 관공서가 촉탁하는 경우</span>
+구청·세무서 같은 관공서가 <b>체납처분 압류등기</b>나 <b>수용에 따른 소유권이전등기</b>를 <span class="term">촉탁<span class="bub">관공서가 등기소에 등기를 해 달라고 공적으로 요청하는 것. 개인의 '신청'에 해당합니다.</span></span>하면서 <b>상속인을 갈음해 상속등기를 함께 촉탁</b>하는 경우에는 <b>§7의3이 적용되지 않습니다.</b> 이때는 원칙대로 부동산 소재지 관할 등기소로 갑니다.</div>
+
+<div class="qhead"><span class="qb">4</span><h2>인터넷등기소 e-Form, 이렇게 채웁니다</h2></div>
+
+<div class="ddl"><b>바로가기</b> <a class="dl" href="https://www.iros.go.kr" target="_blank" rel="noopener">인터넷등기소</a> · <a class="dl" href="https://www.iros.go.kr" target="_blank" rel="noopener">등기소 찾기(관할 확인)</a> · <a class="dl" href="https://www.wetax.go.kr" target="_blank" rel="noopener">위택스(취득세 신고)</a> · <a class="dl" href="https://www.gov.kr" target="_blank" rel="noopener">정부24(가족관계·주민등록)</a></div>
+
+<p>인터넷등기소에서 <b>등기신청 → e-Form → 소유권이전(상속)</b> 순으로 들어가면 빈칸을 채우는 화면이 나옵니다. 채우는 순서는 이렇습니다.</p>
+
+<ol class="steps">
+  <li><b>부동산 입력</b> — 부동산을 <b>하나씩 차례로 추가</b>합니다. 등기사항증명서를 불러오면 표시가 자동으로 채워집니다. <b>A길이라면 여기서 여러 지역 부동산이 한 목록에 다 들어가야 합니다.</b></li>
+  <li><b>등기 원인·목적</b> — 원인은 <b>&ldquo;20○○년 ○월 ○일 상속&rdquo;</b>(돌아가신 날), 목적은 <b>&ldquo;소유권이전&rdquo;</b>입니다. 협의분할이면 원인이 <b>&ldquo;20○○년 ○월 ○일 협의분할에 의한 상속&rdquo;</b>이 됩니다.</li>
+  <li><b>당사자 입력</b> — 돌아가신 분(피상속인)과 상속인 전원, 각자 지분을 넣습니다.</li>
+  <li><b>시가표준액·국민주택채권</b> — <b>부동산별로 각각</b> 입력합니다. 한 줄로 합쳐지지 않습니다.</li>
+  <li><b>세액·수수료</b> — 취득세는 시·군·구별 납부액의 합계, 수수료는 <b>부동산 개수만큼</b> 곱해집니다.</li>
+  <li><b>제출 등기소 선택</b> — <b>A길</b>은 그 부동산들의 관할 등기소 중 편한 한 곳, <b>B길</b>은 전국 아무 곳이나 고릅니다.</li>
+  <li><b>출력 → 날인 → 제출</b> — 출력해 도장을 찍고 첨부서류와 함께 냅니다. 상속등기는 <b>완전 전자신청이 없어</b> 반드시 출력해 제출합니다.</li>
+</ol>
+
+<div class="warn"><span class="wt">화면에서 여러 지역 부동산이 한 목록에 안 담긴다면</span>
+전산 반영이 지역·시기에 따라 다를 수 있습니다. 목록에 담기지 않으면 <b>무리하지 마시고</b> 서면 신청서로 작성해 <b>맨 윗줄에 특례 표시</b>를 적어 내시면 됩니다(아래 작성례 그대로). 접수 전 <b>해당 등기소에 전화로 한 번 확인</b>하시는 것이 가장 확실합니다.</div>
+
+<div class="qhead"><span class="qb">5</span><h2>신청서 작성례 — 그대로 따라 쓰시면 됩니다</h2></div>
+
+<div class="bnote"><b>맨 윗줄의 특례 표시가 이 신청서의 핵심입니다.</b> 이 한 줄이 없으면 등기관이 특례 신청인 줄 모르고 <b>관할 위반으로 처리</b>할 수 있습니다. 반드시 적으십시오.</div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag">작성례 ① · A길</span>신청서 한 장에 여러 지역 부동산 (법 §7의2)<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f1"><span class="ft">법 제7조의2제1항에 따른 신청</span><span class="ft">소유권이전등기신청(상속)</span>┌───────┬────────────────┬───────┬─────────────┐
+│ 접  수 │ 년 월 일   제      호 │ 처  리 │ 등기관 확인 · 각종 통지 │
+└───────┴────────────────┴───────┴─────────────┘
+
+                    부 동 산 의 표 시
+
+1. ○○특별시 ○○구 ○○동 ○○-○
+   대 ○○○㎡
+
+2. ○○도 ○○시 ○○면 ○○리 산○○
+   임야 ○○○○㎡
+
+3. ○○광역시 ○○구 ○○동 ○○-○
+   [도로명주소] ○○광역시 ○○구 ○○로 ○○
+   시멘트벽돌조 슬래브지붕 2층 주택
+   1층 ○○㎡
+   2층 ○○㎡
+                                              이  상
+
+등기원인과 그 연월일    20○○년 ○월 ○일  상속
+
+등 기 의  목 적         소유권이전
+
+┌────────┬────────┬───────────────┬──────────────┬─────────┐
+│  구  분  │ 성    명 │ 주민등록번호        │  주        소   │ 지분(개인별) │
+├────────┼────────┼───────────────┼──────────────┼─────────┤
+│ 피상속인 │ 망 ○○○ │ ○○○○○○-○○○○○○○ │ ○○○           │             │
+│ 신 청 인 │   ○○○ │ ○○○○○○-○○○○○○○ │ ○○○           │  ○분의 ○   │
+│ (상속인) │   ○○○ │ ○○○○○○-○○○○○○○ │ ○○○           │  ○분의 ○   │
+│         │   ○○○ │ ○○○○○○-○○○○○○○ │ ○○○           │  ○분의 ○   │
+└────────┴────────┴───────────────┴──────────────┴─────────┘
+
+            시가표준액 및 국민주택채권매입금액
+
+┌──────────────┬───────────────┬────────────────────┐
+│  부 동 산 표 시 │ 부동산별 시가표준액  │ 부동산별 국민주택채권매입금액 │
+├──────────────┼───────────────┼────────────────────┤
+│  1. 토      지  │ 금 ○○○○○○○ 원 │ 금 ○○○○○○ 원          │
+│  2. 토      지  │ 금 ○○○○○○○ 원 │ 금 ○○○○○○ 원          │
+│  3. 건      물  │ 금 ○○○○○○○ 원 │ 금 ○○○○○○ 원          │
+├──────────────┴───────────────┼────────────────────┤
+│  국민주택채권매입총액                      │ 금 ○○○○○○ 원          │
+├────────────────────────────────┼────────────────────┤
+│  국민주택채권발행번호                      │ ○○○○-○○-○○○○-○○○○ │
+└────────────────────────────────┴────────────────────┘
+
+취득세(등록면허세)  금 ○○○○○○ 원      지방교육세  금 ○○○○○ 원
+                                        농어촌특별세  금 ○○○○○ 원
+세 액 합 계         금 ○○○○○○ 원
+
+등 기 신 청 수 수 료
+    납부번호 : ○○-○○-○○○○○○○-○
+    일괄납부 :  3 건        금 ○○○○○ 원
+
+                      첨 부 서 면
+
+ · 피상속인 기본증명서(상세) · 가족관계증명서(상세) · 제적등본  각 1통
+ · 피상속인 말소자 주민등록초본                              1통
+ · 상속인 전원 가족관계증명서 · 주민등록등(초)본            각 1통
+ · 취득세영수필확인서                                       3통
+ · 토지대장등본  2통    · 건축물대장등본  1통
+ · 등기신청수수료 영수필확인서                               1통
+ · 위임장(대리 신청 시)                                     1통
+
+                     20○○년  ○월  ○일
+
+     위 신청인    ○○○   ㊞   (☎: ○○○-○○○○-○○○○)
+                 ○○○   ㊞
+                 ○○○   ㊞
+     (또는) 위 대리인            ㊞   (☎:                )
+
+                ○○지방법원 ○○등기소   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1')">📋 복사</button><button type="button" onclick="printForm('f1')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1','소유권이전등기신청_상속_관할특례_일괄.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>세 곳만 확인하시면 됩니다.</b> ① <b>맨 윗줄 &ldquo;법 제7조의2제1항에 따른 신청&rdquo;</b> — 이 표시가 특례를 발동시킵니다(부동산등기규칙 §163의2①). ② <b>부동산의 표시 1·2·3</b> — 지역이 달라도 번호를 붙여 나란히 적습니다. 종전에는 &lsquo;같은 등기소 관할 내&rsquo;라는 제한 때문에 못 했던 일이, 법 §25 단서 개정으로 가능해졌습니다. ③ <b>일괄납부 3건</b> — 신청서는 한 장이지만 <b>수수료는 부동산 개수만큼</b> 냅니다. 접수번호만 하나 붙습니다. 맨 아래 등기소는 <b>세 곳 관할 등기소 중 실제로 낼 한 곳</b>을 적습니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag free">작성례 ② · B길</span>부동산별로 나눠 쓰고 아무 등기소에 (법 §7의3)<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f2"><span class="ft">법 제7조의3에 의한 신청</span><span class="ft">소유권이전등기신청(협의분할에 의한 상속)</span>┌───────┬────────────────┬───────┬─────────────┐
+│ 접  수 │ 년 월 일   제      호 │ 처  리 │ 등기관 확인 · 각종 통지 │
+└───────┴────────────────┴───────┴─────────────┘
+
+                    부 동 산 의 표 시
+
+   ○○특별시 ○○구 ○○동 ○○-○
+   대 ○○○㎡
+                                              이  상
+
+등기원인과 그 연월일    20○○년 ○월 ○일  협의분할에 의한 상속
+
+등 기 의  목 적         소유권이전
+
+┌────────┬────────┬───────────────┬──────────────┬─────────┐
+│  구  분  │ 성    명 │ 주민등록번호        │  주        소   │ 지분(개인별) │
+├────────┼────────┼───────────────┼──────────────┼─────────┤
+│ 피상속인 │ 망 ○○○ │ ○○○○○○-○○○○○○○ │ ○○○           │             │
+│ 신 청 인 │   ○○○ │ ○○○○○○-○○○○○○○ │ ○○○           │   단독소유   │
+└────────┴────────┴───────────────┴──────────────┴─────────┘
+
+            시가표준액 및 국민주택채권매입금액
+
+┌──────────────┬───────────────┬────────────────────┐
+│  부 동 산 표 시 │ 부동산별 시가표준액  │ 부동산별 국민주택채권매입금액 │
+├──────────────┼───────────────┼────────────────────┤
+│  1. 토      지  │ 금 ○○○○○○○ 원 │ 금 ○○○○○○ 원          │
+├──────────────┴───────────────┼────────────────────┤
+│  국민주택채권매입총액                      │ 금 ○○○○○○ 원          │
+├────────────────────────────────┼────────────────────┤
+│  국민주택채권발행번호                      │ ○○○○-○○-○○○○-○○○○ │
+└────────────────────────────────┴────────────────────┘
+
+취득세(등록면허세)  금 ○○○○○○ 원      지방교육세  금 ○○○○○ 원
+                                        농어촌특별세  금 ○○○○○ 원
+세 액 합 계         금 ○○○○○○ 원
+
+등 기 신 청 수 수 료
+    납부번호 : ○○-○○-○○○○○○○-○
+    금 ○○○○○ 원
+
+                      첨 부 서 면
+
+ · 상속재산분할협의서(상속인 전원 인감 날인)                  1통
+ · 상속인 전원 인감증명서                                  각 1통
+ · 피상속인 기본증명서(상세) · 가족관계증명서(상세) · 제적등본  각 1통
+ · 피상속인 말소자 주민등록초본                              1통
+ · 상속인 전원 가족관계증명서 · 주민등록등(초)본            각 1통
+ · 취득세영수필확인서  1통      · 토지대장등본  1통
+ · 등기신청수수료 영수필확인서  1통  · 위임장(대리 신청 시)  1통
+
+                     20○○년  ○월  ○일
+
+     위 신청인    ○○○   ㊞   (☎: ○○○-○○○○-○○○○)
+     (또는) 위 대리인            ㊞   (☎:                )
+
+                ○○지방법원 ○○등기소   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f2')">📋 복사</button><button type="button" onclick="printForm('f2')">🖨 인쇄</button><button type="button" onclick="downloadForm('f2','소유권이전등기신청_협의분할상속_관할특례.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>이 양식을 부동산 개수만큼 만드십시오.</b> 서울 집·고향 논밭·바닷가 땅이면 <b>세 장</b>입니다. 그리고 <b>세 장 모두 맨 아래 등기소 칸에 &ldquo;실제로 접수할 그 한 곳&rdquo;</b>을 적습니다. 서울에서 다 낼 거라면 고향 논밭 신청서에도 서울 등기소를 씁니다. 이것이 §7의3의 핵심입니다. <b>맨 윗줄 표시</b>는 등기예규 제1795호가 정한 것으로, 신청서 상단에 적습니다. 협의분할이 아니라 법정상속분대로라면 제목과 등기원인에서 <b>&lsquo;협의분할에 의한&rsquo;을 빼고</b> 상속인 전원과 지분을 적으시면 됩니다.</div>
+</div></div>
+
+<div class="tip"><span class="pt">💡 두 작성례의 차이를 한 줄로</span>
+<b>①은 &ldquo;여러 부동산을 한 장에&rdquo;</b>라서 관할 등기소 중 한 곳에 냅니다. <b>②는 &ldquo;한 부동산에 한 장씩&rdquo;</b>이지만 <b>어느 등기소에나</b> 낼 수 있습니다. 의뢰인이 얻는 결과 — <b>한 번만 가면 된다</b> — 는 똑같습니다.</div>
+
+<div class="qhead"><span class="qb">6</span><h2>접수한 뒤 — 되돌아오는 곳을 꼭 기억하십시오</h2></div>
+
+<div class="warn"><span class="wt">★ 여기서 헛걸음하는 분이 많습니다</span>
+서울에서 접수한 <b>고향 논밭</b> 사건에 보완할 것이 생겨도, <b>고향 등기소로 가시면 안 됩니다.</b> 서류를 낸 <b>그 서울 등기소</b>로 돌아옵니다.</div>
+
+<div style="overflow-x:auto">
+<table class="deadline">
+<tr><th>어떤 상황</th><th>어느 등기소로</th><th>근거</th></tr>
+<tr><td><span class="term">보정<span class="bub">등기관이 &lsquo;이것이 빠졌으니 채워 넣으라&rsquo;고 알려주면 정해진 기간 안에 보완하는 것. 기간을 넘기면 각하됩니다.</span></span>(서류 보완)</td><td><b>등기를 신청한</b> 등기소</td><td>예규 §5</td></tr>
+<tr><td><span class="term">취하<span class="bub">낸 등기신청을 스스로 거두어들이는 것. 등기가 마쳐지기 전까지만 할 수 있습니다.</span></span>(신청 거두기)</td><td><b>등기를 신청한</b> 등기소</td><td>예규 §5</td></tr>
+<tr><td>등기 마친 뒤 잘못 발견(경정)</td><td><b>그 등기를 처리한</b> 등기소</td><td>예규 §6</td></tr>
+</table>
+</div>
+
+<div class="concept"><b>등기부에는 이렇게 남습니다.</b> 관할 아닌 등기소에서 처리한 경우, 갑구 &lsquo;권리자 및 기타사항&rsquo;란에 <b>&ldquo;법 제7조의3에 따라 사건을 접수받은 등기소에서 등기하였다&rdquo;</b>는 뜻이 기록됩니다(예규 §4). 다만 <b>접수한 등기소의 관할에 속한 부동산에는 기록하지 않습니다.</b> 등기부가 지저분해지는 것이 아니라, 나중에 <b>어디서 처리했는지 추적하기 위한 표시</b>입니다.</div>
+
+<div class="qhead"><span class="qb">7</span><h2>돈은 얼마나 — 줄어드는 것과 그대로인 것</h2></div>
+
+<div class="cost"><span class="ct">💰 발품은 줄지만, 비용은 그대로입니다</span>
+<b>줄어드는 것</b> — 교통비, 숙박비, 연차. 지방 세 곳이면 왕복 며칠이 하루로 줄어듭니다.<br>
+<b>그대로인 것</b> — 아래 넷은 <b>부동산 개수만큼</b> 그대로 듭니다.
+<table class="deadline" style="margin-top:10px">
+<tr><th>항목</th><th>어떻게 계산되나</th></tr>
+<tr><td><b>취득세</b></td><td>부동산 소재지 <b>시·군·구마다 각각 신고·납부</b>. 영수필확인서도 각각 첨부</td></tr>
+<tr><td><b>등기신청수수료</b></td><td><b>부동산 개수 × 건당 수수료.</b> 신청서가 한 장이어도 마찬가지</td></tr>
+<tr><td><b>국민주택채권</b></td><td>부동산별 시가표준액 기준으로 <b>각각</b> 매입</td></tr>
+<tr><td><b>서류 발급비</b></td><td>토지·건축물대장은 부동산별로 각각</td></tr>
+</table>
+</div>
+
+<a class="calc" href="https://sanlaw.co.kr/tools-calculator.html" target="_blank" rel="noopener">
+  <div class="cah">🧮 취득세·채권·수수료, 미리 계산해 보세요</div>
+  <div class="cas">부동산 개수와 시가표준액을 넣으면 대략의 총액이 나옵니다. 여러 건이면 하나씩 계산해 더하시면 됩니다.</div>
+</a>
+
+<div class="bnote">※ <span style="color:#c0392b;font-weight:800">등기신청수수료 단가는 개정될 수 있습니다.</span> 정확한 금액은 <b>계산기</b> 또는 <b>인터넷등기소 수수료 안내</b>에서 확인하십시오.</div>
+
+<div class="deadline-wrap">
+<div class="qhead"><span class="qb">⏰</span><h2>기한 — 등기는 늦어도 되지만, 세금은 아닙니다</h2></div>
+<table class="deadline">
+<tr><th>구분</th><th>기한</th><th>넘기면</th></tr>
+<tr><td><b>상속등기 자체</b></td><td><b>법정 기한 없음</b></td><td>과태료는 없으나, 미룰수록 상속인이 또 사망해 <span class="term">대습상속<span class="bub">상속인이 될 사람이 먼저 사망하거나 결격되었을 때, 그 자녀·배우자가 대신 상속받는 것(민법 §1001·§1003②).</span></span>·재대습으로 관계가 복잡해집니다</td></tr>
+<tr><td><b>취득세 신고·납부</b></td><td>상속개시일이 속한 달의 말일부터 <b>6개월</b></td><td>신고불성실·납부지연 <span class="term">가산세<span class="bub">세금을 제때 신고·납부하지 않으면 본세에 얹어 물리는 돈.</span></span></td></tr>
+<tr><td><b>상속세 신고</b></td><td>상속개시일이 속한 달의 말일부터 <b>6개월</b></td><td>가산세(과세 대상인 경우)</td></tr>
+</table>
+</div>
+
+<div class="tip"><span class="pt">💡 &ldquo;지방 부동산이라 엄두가 안 났습니다&rdquo; — 이제는 아닙니다</span>
+등기를 미루신 분들이 가장 많이 하시는 말씀입니다. 그런데 <b>미루는 동안 상황은 나빠지기만 합니다.</b> 상속인 중 한 분이 또 돌아가시면 그 자녀들까지 상속인이 되어 <b>도장 받을 사람이 배로 늘고</b>, 그중 연락이 끊긴 분이 생기면 <b>소송으로 가야 합니다.</b> 반대로 지금은 <b>사무실 근처 등기소 한 곳</b>이면 끝납니다. 미루실 이유가 없어졌습니다.</div>
+
+<div class="qhead"><span class="qb">?</span><h2>자주 묻는 질문</h2></div>
+
+<div class="faq">
+<details><summary>부동산이 두 곳인데도 이 제도를 쓸 수 있나요?</summary><div class="fa">쓸 수 있습니다. <b>두 곳이든 열 곳이든</b> 관계없습니다. 심지어 <b>부동산이 하나여도</b> 상속·유증이라면 §7의3으로 관할 아닌 등기소에 낼 수 있습니다. 지방에 논 한 필지만 있어도 서울에서 처리됩니다.</div></details>
+
+<details><summary>매매나 근저당도 이 제도를 쓸 수 있나요?</summary><div class="fa">§7의2(한 장으로 묶기)는 <b>상속에 한정되지 않습니다.</b> 등기 목적과 원인이 같으면 매매·근저당 등 다른 등기도 됩니다. 다만 <b>§7의3(아무 등기소 접수)은 상속·유증 전용</b>입니다. 매매라면 여러 부동산을 한 장에 묶더라도 <b>그 부동산들의 관할 등기소 중 한 곳</b>에 내야 합니다.</div></details>
+
+<details><summary>상속인 중 한 명이 멀리 살아 도장을 못 받습니다. 이것도 해결되나요?</summary><div class="fa"><b>아닙니다.</b> 이 제도는 <b>등기소를 어디에 가느냐</b>만 바꾼 것이지, <b>상속인 사이의 합의 문제는 그대로</b>입니다. 협의분할을 하려면 여전히 상속인 전원의 인감이 필요합니다. 합의가 어려우면 법정상속분대로 먼저 등기하거나, 가정법원의 <span class="term">상속재산분할심판<span class="bub">상속인끼리 합의가 안 될 때 가정법원이 누가 무엇을 갖는지 정해 주는 절차.</span></span>을 청구하는 방법이 있습니다. 이 부분은 상담이 필요합니다.</div></details>
+
+<details><summary>이미 2024년에 등기를 마쳤습니다. 소급되나요?</summary><div class="fa">소급되지 않습니다. 개정 법률 부칙은 <b>2025년 1월 31일 이후 접수되는 등기신청부터</b> 적용한다고 정하고 있습니다. 다만 <b>그때 해 둔 등기를 지금 고치는 경정등기</b>라면, 그 경정 신청은 지금 기준으로 특례를 쓸 수 있습니다.</div></details>
+
+<details><summary>관할 아닌 등기소에서 처리하면 더 오래 걸리지 않나요?</summary><div class="fa">등기부가 전산으로 통합되어 있어 <b>처리 자체는 같은 등기소에서 이루어집니다.</b> 접수번호도 2025년부터 전국 통합으로 부여됩니다(규칙 §22②). 다만 등기소마다 사건이 몰리는 정도가 달라 소요 기간에 차이가 있을 수 있으니, 급하시면 <b>접수 전에 처리 기간을 물어보시는 것</b>이 좋습니다.</div></details>
+
+<details><summary>혼자 해도 될까요, 맡겨야 할까요?</summary><div class="fa">부동산이 <b>한두 곳이고 상속인 사이에 다툼이 없다면</b> 이 안내만으로 충분히 하실 수 있습니다. 다만 ① <b>부동산이 여러 곳이라 서류가 뒤엉킬 때</b> ② <b>협의분할로 부동산마다 갖는 사람이 다를 때</b> ③ <b>제적등본이 오래되어 상속인 확정이 어려울 때</b>는 한 번 상의해 보시는 편이 시간과 비용을 아끼는 길입니다.</div></details>
+</div>
+
+<div class="hire">
+  <div class="ht">본 사무소가 도와드리는 일</div>
+  <ol style="margin:6px 0 0;padding-left:20px">
+    <li><b>상속인 확정</b> — 제적등본·가족관계 서류를 거슬러 올라가 상속인 전원을 빠짐없이 찾아냅니다</li>
+    <li><b>A길·B길 판정과 신청서 작성</b> — 각하 위험이 없는 쪽으로 정해 신청서를 작성해 드립니다</li>
+    <li><b>취득세 신고와 채권 매입</b> — 시·군·구별로 나뉘는 신고를 한꺼번에 처리합니다</li>
+    <li><b>접수·보정·완료</b> — 접수부터 등기필정보 수령까지 대행하고, 보정이 나오면 곧바로 대응합니다</li>
+  </ol>
+  <div class="warn" style="margin-top:13px"><span class="wt">주의 — 이런 일은 하지 마십시오</span>
+  다른 상속인의 <b>인감도장이나 인감증명서를 몰래 사용</b>해 협의분할서를 만드는 것은 <b>사문서위조·행사죄</b>가 됩니다. 등기가 되더라도 나중에 <b>말소 소송</b>으로 무너지고 형사처벌까지 받습니다. 합의가 안 되면 <b>법이 정한 절차로</b> 푸는 것이 결국 가장 빠릅니다.</div>
+</div>
+
+<a class="ctabtn" href="https://sanlaw.co.kr" target="_blank" rel="noopener">상속·관할 특례 등기 상담 신청하기 →</a>
+<div class="src">근거 — 부동산등기법 §7의2·§7의3·§25 단서·§28 / 부동산등기규칙 §22②·§163의2·§164·§164의2 / 등기예규 제1795호(상속·유증 사건의 신청 및 처리에 관한 업무처리지침) / 법률 제20435호 부칙 §1·§2(2025. 1. 31. 시행). 발급처 링크는 각 기관 공식 사이트로 연결됩니다.</div>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+})();
+function toggleFold(b){var fb=b.parentElement;var open=fb.classList.toggle('open');}
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('양식이 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('양식이 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('양식을 내려받았습니다');}
+</script>
+</body>
+</html>
