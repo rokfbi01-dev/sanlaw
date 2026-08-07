@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[등기 안내] 법인 해산·청산 등기 — 절차·기간·비용·세금 | 산 법무사 김재섭</title>
+<meta name="description" content="법인 해산청산등기 완전 안내. 해산결의부터 청산종결까지 4~6개월 절차, 채권신고 공고 2개월, 휴면회사 해산간주, 청산소득 법인세와 잔여재산 분배까지.">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+ul{margin:8px 0 12px; padding-left:20px;} li{margin:6px 0;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(300px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.who{background:var(--box); border-radius:10px; padding:14px 16px; margin:12px 0; border-left:4px solid #b9a98c;}
+.who .wl{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;margin-left:3px;}
+.tag.free{background:#5a9a72;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.cta{display:block; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; text-decoration:none; font-weight:700; font-size:16px; padding:15px; border-radius:11px; margin:18px 0; box-shadow:0 3px 8px rgba(122,82,48,.25);}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:11px 15px;margin:10px 0;font-size:13.5px;line-height:1.7;}
+.lawbox .ll{display:inline-block;font-size:11.5px;font-weight:700;color:#fff;background:var(--gold-d);border-radius:5px;padding:2px 8px;margin-right:6px;}
+.lawbox a{color:var(--gold-d);font-weight:600;}
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:14.5px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:16px;margin:10px 0;font-family:'D2Coding','Courier New',monospace;font-size:12.5px;line-height:1.65;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:15px;letter-spacing:2px;margin-bottom:10px;color:#241a10;}
+.howto{font-size:13.5px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:12.5px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:6px 12px;cursor:pointer;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.concept{background:var(--box);border-radius:9px;padding:11px 15px;margin:8px 0 14px;font-size:14.5px;color:#5a4a36;border-left:3px solid #b9a98c;}
+.concept b{color:var(--gold-d);}
+.flow{background:linear-gradient(180deg,#fcf9f2,#f7f1e5);border:1.5px solid var(--gold);border-radius:14px;padding:18px 18px 14px;margin:14px 0 20px;}
+.flow .ft2{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:12px;}
+.flow ol{counter-reset:fl;list-style:none;margin:0;padding:0;}
+.flow li{position:relative;padding:8px 10px 8px 44px;margin:7px 0;background:#fff;border:1px solid var(--line);border-radius:10px;font-size:14.5px;line-height:1.6;}
+.flow li::before{counter-increment:fl;content:counter(fl);position:absolute;left:10px;top:8px;width:26px;height:26px;line-height:26px;text-align:center;background:var(--gold);color:#fff;border-radius:50%;font-weight:800;font-size:14px;}
+.flow li b{color:var(--gold-d);}
+.flow .arw{text-align:center;color:var(--gold);font-size:13px;margin:-2px 0;}
+.newlaw{background:#eef6f0;border:1px solid #cfe6d6;border-left:4px solid #5a9a72;border-radius:8px;padding:13px 16px;margin:14px 0;}
+.newlaw .nt{font-weight:700;color:#2f6a47;display:block;margin-bottom:4px;}
+.newlaw .badge{display:inline-block;font-size:11px;font-weight:800;color:#fff;background:#5a9a72;border-radius:5px;padding:2px 8px;margin-right:6px;vertical-align:middle;}
+.faq{margin:14px 0;}
+.faq details{border:1px solid var(--line);border-radius:10px;margin:9px 0;background:#fff;overflow:hidden;}
+.faq summary{list-style:none;cursor:pointer;padding:13px 44px 13px 38px;font-weight:700;font-size:15px;color:#241a10;background:#faf7f0;position:relative;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::before{content:"Q";position:absolute;left:15px;color:var(--gold-d);font-family:'Nanum Myeongjo',serif;font-weight:800;}
+.faq summary::after{content:"▾";position:absolute;right:16px;top:13px;color:var(--gold-d);transition:.2s;}
+.faq details[open] summary::after{transform:rotate(180deg);}
+.faq .fa{padding:13px 15px 15px 38px;font-size:14.5px;line-height:1.75;color:#3a3a3a;position:relative;border-top:1px solid var(--line);}
+.faq .fa::before{content:"A";position:absolute;left:15px;top:13px;color:#5a9a72;font-family:'Nanum Myeongjo',serif;font-weight:800;}
+.helm{background:linear-gradient(135deg,#2c3e50,#3a4a5c);color:#f4f0e8;border-radius:14px;padding:20px 22px;margin:0 0 24px;box-shadow:0 4px 14px rgba(44,62,80,.18);}
+.helm .ht2{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:17px;color:#f0d98c;margin-bottom:9px;}
+.helm p{margin:0;font-size:14.5px;line-height:1.9;color:#eae4d8;}
+.helm b{color:#f4e2a6;}
+.qhead{display:flex;gap:12px;align-items:flex-start;margin:8px 0 8px;}
+.qhead .qb{flex:none;width:34px;height:34px;border-radius:50%;background:var(--gold);color:#fff;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(176,141,87,.4);}
+.qhead h2{margin:0;border:0;padding:0;font-size:20px;line-height:1.45;}
+.lawrow{display:flex;flex-wrap:wrap;background:var(--box);border-radius:10px;overflow:hidden;margin:12px 0;border:1px solid var(--line);}
+.lawrow .lrl{flex:none;background:var(--gold);color:#fff;font-weight:700;font-size:13.5px;padding:11px 15px;display:flex;align-items:center;}
+.lawrow .lrc{flex:1;min-width:210px;padding:11px 15px;font-size:14px;line-height:1.75;}
+@media(max-width:520px){.lawrow .lrl{width:100%;}}
+.calc{display:block;background:linear-gradient(135deg,#fff7e8,#fdeecb);border:1.5px solid var(--gold);border-radius:14px;padding:16px 18px;margin:18px 0;text-decoration:none;color:var(--ink);transition:.15s;}
+.calc:hover{box-shadow:0 4px 14px rgba(176,141,87,.25);transform:translateY(-1px);}
+.calc .cah{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:4px;}
+.calc .cas{font-size:13.5px;color:var(--muted);}
+.ctabtn{display:block;text-align:center;background:var(--gold);color:#fff;font-weight:800;font-size:17px;padding:16px;border-radius:12px;text-decoration:none;margin:22px 0 6px;box-shadow:0 3px 10px rgba(176,141,87,.35);}
+.ctabtn:hover{background:var(--gold-d);}
+.doclabel{display:inline-block;font-size:12px;font-weight:800;color:#fff;border-radius:6px;padding:3px 11px;margin-bottom:6px;}
+.doclabel.give{background:#b0885a;}
+.doclabel.back{background:#5a9a72;}
+.dl{color:var(--gold-d);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--gold);}
+.dl:hover{background:#fbf5e8;}
+.ddl{display:flex;gap:2px 10px;flex-wrap:wrap;margin:8px 0 2px;padding:9px 12px;background:#fbf7ee;border-radius:8px;font-size:13px;}
+.ddl b{color:var(--gold-d);}
+.deadline{width:100%;border-collapse:collapse;margin:10px 0;font-size:13.5px;}
+.deadline th{background:#3a4a5c;color:#fff;padding:8px;font-weight:700;}
+.deadline td{border:1px solid var(--line);padding:8px 10px;background:#fff;}
+.bnote{color:#0b4a9c;font-weight:600;background:#eaf2fc;border-left:4px solid #2b7fff;border-radius:8px;padding:9px 13px;margin:8px 0;font-size:13.5px;line-height:1.7;}
+.bnote b{color:#0a3d82;}
+.capital th{background:#f0ebe1;text-align:center;font-size:13px;}
+.capital td{text-align:center;font-size:13.5px;}
+.capital td:first-child{text-align:left;font-weight:700;background:#faf7f0;}
+.capital .hi{background:#fdf6e3;font-weight:700;color:var(--gold-d);}
+.capital .bad{color:#9c3a22;font-weight:700;}
+.grp{border-radius:10px;padding:13px 16px;margin:12px 0;border:1px solid var(--line);border-left-width:5px;}
+.grp .gt{font-weight:800;font-size:15px;margin-bottom:5px;}
+.grp.a{background:#eef6f0;border-left-color:#5a9a72;} .grp.a .gt{color:#2f6a47;}
+.grp.b{background:#fdf9e8;border-left-color:#d4a72c;} .grp.b .gt{color:#8a6d10;}
+.grp.c{background:#fdf2ee;border-left-color:#d9694a;} .grp.c .gt{color:#9c3a22;}
+
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+<h1>법인 해산 · 청산 등기</h1>
+
+<div class="helm">
+  <div class="ht2">⚓ 이 안내를 준비한 마음</div>
+  <p>사업을 접는 일은 시작하는 일보다 마음이 무겁습니다. 그런데 <b>그냥 내버려 두시면 문제가 더 커집니다.</b> 등기를 하지 않은 채 두면 과태료가 쌓이고, 5년이 지나면 법이 알아서 해산시켜 버립니다. 세금 신고 의무도 계속 남습니다. 이 안내는 <b>해산부터 청산종결까지 4~6개월의 여정</b>을 순서대로 담았습니다. 어떤 서류가 필요한지, 왜 두 달을 기다려야 하는지, 세금은 어떻게 되는지까지요. 마무리도 시작만큼 중요합니다. 혼자 짊어지신 무거운 짐, <b>제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</b></p>
+</div>
+
+<div class="qhead"><span class="qb">Q</span>
+  <h2>사업을 접으려는데, 회사는 어떻게 정리하나요?</h2>
+</div>
+
+<div class="tnote">밑줄 친 <span class="term">용어<span class="bub">밑줄 친 말에 마우스를 올리거나(휴대폰은 살짝 누르면) 쉬운 설명이 나옵니다.</span></span>에 마우스를 올리면 설명이 나옵니다. 파란 <b>발급처 링크</b>를 누르면 신청 화면으로 바로 이동합니다.</div>
+
+<div class="tldr">
+  <div class="tt">해산 → 청산 → 종결, 세 단계를 거칩니다</div>
+  <ul>
+    <li><b><span class="term">해산<span class="bub">회사가 영업을 그만두기로 결정하는 것. 이 시점에 회사가 없어지는 것이 아니라, 「정리하는 회사」로 성격이 바뀝니다.</span></span></b>은 「영업을 그만두겠다」는 결정이고, <b><span class="term">청산<span class="bub">회사의 재산을 정리하는 절차. 받을 돈을 받고, 갚을 돈을 갚고, 남은 재산을 주주에게 나눠줍니다.</span></span></b>은 재산을 정리하는 절차입니다. <b>해산했다고 회사가 없어지는 것이 아닙니다.</b></li>
+    <li><b>청산종결등기</b>가 끝나야 비로소 법인이 소멸하고 등기부가 폐쇄됩니다.</li>
+    <li><b style="color:#9c3a22">채권자에게 두 달 이상 공고</b>해야 하므로, 전체적으로 <b>4~6개월</b>이 걸립니다. 이 기간은 줄일 수 없습니다.</li>
+    <li><b style="color:#9c3a22">그냥 두시면 안 됩니다.</b> 과태료가 쌓이고, 5년이 지나면 법이 알아서 해산시킵니다.</li>
+  </ul>
+</div>
+
+<div class="lawrow"><div class="lrl">관련 법령</div><div class="lrc">
+  <b>상법 §517</b> 해산사유 · <b>§518</b> 해산결의 · <b>§434</b> 특별결의 요건 · <b>§520의2</b> 휴면회사의 해산의제 · <b>§521의2·§228</b> 해산등기 2주 · <b>§531</b> 청산인의 결정 · <b>§532</b> 청산인 신고 · <b>§533</b> 재산조사보고 · <b>§535</b> 채권신고 최고(2월 이상, 2회 이상 공고) · <b>§536</b> 신고기간 내 변제 금지 · <b>§538</b> 잔여재산 분배 · <b>§540·§264</b> 청산종결등기 · <b>§635①1호</b> 과태료
+</div></div>
+
+<div class="bnote">※ 이 안내는 <b>자산이 부채보다 많은 회사</b>를 정리하는 절차입니다. <b>부채가 자산보다 많으면(채무초과) 청산이 아니라 파산절차</b>를 밟으셔야 합니다(↓ 8번 참조). 회사를 계속 운영하실 계획이면 <a href="sanlaw_임원변경등기_안내.html" class="dl">임원 선임·변경 등기</a>나 <a href="sanlaw_증자등기_안내.html" class="dl">증자등기</a> 안내를 보십시오.</div>
+
+<!-- ══════════ 1 ══════════ -->
+<div class="qhead"><span class="qb">1</span><h2>★ 그냥 두면 안 되나요</h2></div>
+
+<div class="concept">「사업자등록만 폐업하면 되지 않나」 하고 회사를 방치하시는 분이 많습니다. <b>등기부는 살아 있고, 법인은 여전히 존재합니다.</b> 그리고 그 상태로 두시면 세 가지 문제가 생깁니다.</div>
+
+<div class="warn">
+  <span class="wt">방치하면 생기는 일</span>
+  <table style="margin:6px 0 0">
+    <thead><tr><th style="width:26%">문제</th><th>내용</th></tr></thead>
+    <tbody>
+      <tr><td><b>① 과태료가 쌓입니다</b></td><td>임원 임기가 끝나면 <b>중임등기</b>를 해야 하는데(2주 이내), 방치하면 계속 쌓입니다. <b>과태료는 회사가 아니라 대표님 개인</b>에게 부과됩니다(상법 §635①).</td></tr>
+      <tr><td style="color:#9c3a22"><b>② 5년이 지나면 법이 해산시킵니다</b></td><td style="color:#9c3a22"><b>최후 등기 후 5년이 지난 회사</b>에 대해 법원행정처장이 공고하고, <b>2개월 안에 신고하지 않으면 해산한 것으로 봅니다</b>(상법 §520의2 — <span class="term">휴면회사의 해산의제<span class="bub">오랫동안 등기가 없는 회사를 법이 알아서 해산시키는 제도. 등기부를 깨끗하게 유지하기 위한 것입니다.</span></span>). 이후 <b>3년이 더 지나면 청산도 종결된 것으로 봅니다.</b></td></tr>
+      <tr><td><b>③ 세금 신고 의무가 남습니다</b></td><td>법인이 살아 있는 한 <b>법인세 신고 의무</b>가 계속됩니다. 무신고 가산세가 붙을 수 있습니다.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="tip">
+  <span class="pt">「해산간주」로 정리되면 안 되나요</span>
+  <b>권해드리지 않습니다.</b> 해산간주는 등기부를 정리해 주는 것일 뿐, <b>그 사이에 쌓인 과태료와 세금 문제는 그대로 남습니다.</b> 그리고 <b>잔여재산을 주주에게 정식으로 분배할 수 없어</b> 회사 자산이 애매하게 남습니다.
+  <p style="margin:6px 0 0">사업을 접기로 하셨다면 <b>정식으로 청산하시는 편이 결국 깔끔하고 저렴</b>합니다.</p>
+</div>
+
+<!-- ══════════ 2 ══════════ -->
+<div class="qhead"><span class="qb">2</span><h2>해산과 청산은 다릅니다</h2></div>
+
+<div class="flow">
+  <div class="ft2">세 단계로 나뉩니다</div>
+  <ol>
+    <li><b>1단계 · 해산</b> — 「영업을 그만두겠다」는 결정<br><span style="font-size:13.5px;color:var(--muted)">주주총회 특별결의 → 해산등기 · 청산인선임등기 (2주 이내)</span></li>
+    <div class="arw">▼</div>
+    <li><b>2단계 · 청산</b> — 재산을 정리하는 기간<br><span style="font-size:13.5px;color:var(--muted)">재산조사 → 채권신고 공고(2개월 이상) → 채무 변제 → 잔여재산 분배</span></li>
+    <div class="arw">▼</div>
+    <li><b>3단계 · 청산종결</b> — 회사가 소멸합니다<br><span style="font-size:13.5px;color:var(--muted)">결산보고서 주주총회 승인 → 청산종결등기 (2주 이내) → 등기부 폐쇄</span></li>
+  </ol>
+  <p style="margin:8px 0 0;font-size:14px"><b>해산등기를 했다고 회사가 없어지는 것이 아닙니다.</b> 「청산 중인 회사」로 계속 존재하고, 청산 목적 범위에서 권리·의무를 가집니다. <b>등기부가 폐쇄되는 것은 3단계가 끝난 뒤</b>입니다.</p>
+</div>
+
+<h3>해산 사유 — 어떤 경우에 해산하나</h3>
+<table>
+  <thead><tr><th style="width:30%">사유</th><th>비고</th></tr></thead>
+  <tbody>
+    <tr><td><b>주주총회 특별결의</b></td><td style="color:#2f6a47">가장 일반적입니다. 출석 주주 의결권 2/3 이상 + 발행주식총수 1/3 이상(상법 §434)</td></tr>
+    <tr><td>존립기간 만료</td><td>정관에 기간을 정해둔 경우</td></tr>
+    <tr><td>정관에 정한 해산사유 발생</td><td>—</td></tr>
+    <tr><td>합병 · 분할</td><td>청산절차 없이 소멸합니다</td></tr>
+    <tr><td>파산</td><td>파산절차로 진행됩니다</td></tr>
+    <tr><td><b>휴면회사 해산의제</b></td><td>최후 등기 후 5년 경과 + 공고 후 2개월 무신고(상법 §520의2)</td></tr>
+  </tbody>
+</table>
+
+<h3>청산인은 누가 되나요</h3>
+<div class="concept"><b>원칙적으로 이사가 그대로 청산인이 됩니다</b>(상법 §531①). 별도로 뽑지 않으셔도 됩니다. 다만 정관에 다른 정함이 있거나 주주총회에서 다른 분을 선임하시면 그분이 청산인이 됩니다. 대표이사는 <b>대표청산인</b>이 됩니다.</div>
+
+<!-- ══════════ 3 ══════════ -->
+<div class="qhead"><span class="qb">3</span><h2>절차를 자세히</h2></div>
+
+<ol class="steps">
+  <li><b>주주총회 특별결의</b><br>
+    해산과 청산인 선임을 결의합니다. 출석 주주 의결권 <b>2/3 이상</b> + 발행주식총수 <b>1/3 이상</b>. <b>자본금 10억원 미만이면 의사록 공증이 면제</b>되고, 주주 전원 동의 시 <b>서면결의서</b>로 갈음할 수 있습니다.</li>
+
+  <li><b>해산등기 · 청산인선임등기</b> <span style="color:var(--muted)">(결의일부터 2주 이내)</span><br>
+    본점 관할 등기소에 <b>함께 신청</b>합니다. 등기가 되면 등기부에 「해산」이 기재되고 <b>이사·대표이사가 물러나고 청산인·대표청산인이 등재</b>됩니다.</li>
+
+  <li><b>청산인 신고 · 재산조사</b> <span style="color:var(--muted)">(취임일부터 2주 이내)</span><br>
+    청산인은 취임일부터 2주 안에 <b>법원에 신고</b>하고(상법 §532), 회사 재산을 조사해 <b>재산목록과 대차대조표</b>를 작성해 주주총회의 승인을 받습니다(§533).</li>
+
+  <li><b style="color:#9c3a22">채권신고 공고</b> <span style="color:var(--muted)">(취임일부터 2개월 이내에 시작 · 신고기간 2개월 이상)</span><br>
+    「채권이 있으면 신고하라, 신고하지 않으면 청산에서 제외된다」는 뜻을 <b>2회 이상 공고</b>합니다(상법 §535①). <b>알고 있는 채권자에게는 따로 통지</b>해야 하고, 그분들은 신고하지 않아도 청산에서 제외할 수 없습니다(§535②).</li>
+
+  <li><b>채무 변제</b> <span style="color:var(--muted)">(신고기간이 끝난 뒤)</span><br>
+    <b>신고기간 중에는 변제할 수 없습니다</b>(상법 §536①). 다만 소액채권·담보있는 채권 등은 <b>법원 허가</b>를 받아 기간 중에도 변제할 수 있습니다(§536②).</li>
+
+  <li><b>잔여재산 분배</b><br>
+    빚을 다 갚고 남은 재산을 <b>주식 수에 비례해</b> 주주에게 나눕니다(상법 §538).</li>
+
+  <li><b>결산보고서 승인</b><br>
+    청산인이 결산보고서를 만들어 <b>주주총회의 승인</b>을 받습니다(상법 §540①).</li>
+
+  <li><b>청산종결등기</b> <span style="color:var(--muted)">(승인일부터 2주 이내)</span><br>
+    등기가 완료되면 <b>법인이 소멸하고 등기부가 폐쇄</b>됩니다.</li>
+</ol>
+
+<!-- ══════════ 4 ══════════ -->
+<div class="qhead"><span class="qb">4</span><h2>★ 두 달은 줄일 수 없습니다</h2></div>
+
+<div class="warn">
+  <span class="wt">왜 기다려야 하나요</span>
+  <p style="margin:4px 0 8px">회사가 없어지면 <b>돈을 받지 못한 채권자</b>가 생길 수 있습니다. 그래서 상법은 「채권이 있으면 신고하라」고 <b>2개월 이상 공고</b>하도록 정하고, <b>그 기간 중에는 아무에게도 변제하지 못하게</b> 합니다. 특정 채권자에게만 먼저 갚아 다른 채권자가 손해 보는 일을 막기 위해서입니다.</p>
+  <p style="margin:0"><b>이 기간은 회사 사정으로 줄일 수 없습니다.</b> 그래서 아무리 서둘러도 <b>전체 4~6개월</b>이 걸립니다.</p>
+</div>
+
+<table>
+  <thead><tr><th style="width:26%">항목</th><th>내용</th></tr></thead>
+  <tbody>
+    <tr><td><b>공고 시기</b></td><td>청산인 취임일부터 <b>2개월 이내</b>에 시작</td></tr>
+    <tr><td><b>신고기간</b></td><td><b>2개월 이상</b></td></tr>
+    <tr><td><b>공고 횟수</b></td><td><b>2회 이상</b><br><span style="font-size:13px;color:var(--muted)">이틀에 걸쳐 연이어 2회 공고하는 방식도 실무상 쓰입니다</span></td></tr>
+    <tr><td><b>어디에</b></td><td>정관에 정한 <b>공고방법</b>에 따릅니다 — 지정 신문 또는 회사 홈페이지</td></tr>
+    <tr><td><b>알고 있는 채권자</b></td><td>공고와 별도로 <b>개별 통지</b>. 신고하지 않아도 청산에서 제외할 수 없습니다</td></tr>
+  </tbody>
+</table>
+
+<div class="tip">
+  <span class="pt">공고비를 아끼는 방법</span>
+  정관에 <b>비싼 신문</b>이 공고방법으로 지정되어 있으면 공고비가 부담될 수 있습니다. 이 경우 <b>해산 결의를 하시는 주주총회에서 공고방법을 함께 바꾸시면</b> 저렴한 방법으로 공고하실 수 있습니다.
+  <p style="margin:6px 0 0">회사 <b>홈페이지 공고</b>로 정해두셨다면 공고비가 들지 않습니다. 상담 때 정관을 확인해 드리겠습니다.</p>
+</div>
+
+<!-- ══════════ 5 ══════════ -->
+<div class="qhead"><span class="qb">5</span><h2>등기신청서 첨부서류와 그 발급처</h2></div>
+<div class="tnote" style="margin-top:0">해산·청산은 <b>등기를 두 번</b> 합니다. 각 단계마다 필요한 서류가 다릅니다.</div>
+
+<div class="who"><span class="doclabel give">1차</span><br><span class="wl">◆ 해산등기 · 청산인선임등기</span>
+  <table style="margin:6px 0 0">
+    <thead><tr><th>서류</th><th style="width:26%">누가</th><th style="width:28%">주의</th></tr></thead>
+    <tbody>
+      <tr><td>해산 및 청산인선임 등기신청서</td><td>사무소 작성</td><td>—</td></tr>
+      <tr><td><b>주주총회 의사록</b> 또는 <b>주주 전원의 서면결의서</b></td><td>회사 작성</td><td>자본금 10억원 이상이면 <b>공증</b></td></tr>
+      <tr><td><b>청산인 취임승낙서</b></td><td>청산인 본인</td><td style="color:#9c3a22"><b>인감도장 날인</b></td></tr>
+      <tr><td><b>인감증명서</b></td><td><b>주민센터 방문</b></td><td style="color:#9c3a22"><b>3개월 이내</b></td></tr>
+      <tr><td><b>주민등록등(초)본</b></td><td><a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000015" target="_blank" rel="noopener" class="dl">정부24</a> · 주민센터</td><td>대표청산인은 <b>주소가 등기</b>됩니다</td></tr>
+      <tr><td>정관</td><td>회사 보관</td><td>청산인·공고방법 확인용</td></tr>
+      <tr><td>주주명부</td><td>회사 작성</td><td>정족수 확인용</td></tr>
+      <tr><td><b>법인 인감신고서</b></td><td>사무소 작성</td><td style="color:#9c3a22">대표청산인 명의로 <b>새로 신고</b></td></tr>
+    </tbody>
+  </table>
+  <p style="margin:8px 0 0;font-size:14px">※ <b>이사가 그대로 청산인이 되는 경우</b>에도 취임승낙서와 인감증명서가 필요합니다. 그리고 <b>법인 인감을 대표청산인 명의로 다시 신고</b>하셔야 합니다.</p>
+</div>
+
+<div class="who" style="border-left-color:#5a9a72"><span class="doclabel back">2차</span><br><span class="wl">◆ 청산종결등기</span>
+  <ul>
+    <li><b>청산종결 등기신청서</b></li>
+    <li><b>결산보고서</b>와 그 <b>승인 주주총회 의사록</b>(또는 주주 전원의 서면결의서)</li>
+    <li>위임장 — 대리 신청 시</li>
+    <li>등록면허세 영수필확인서 · 등기신청수수료 영수증</li>
+  </ul>
+  <p style="margin:6px 0 0;font-size:14px">※ <b>채권신고 공고를 했다는 증빙</b>(신문 지면 또는 홈페이지 화면)을 보관해 두십시오. 등기소가 요구하지 않더라도 <b>나중에 분쟁이 생기면 이것이 근거</b>가 됩니다.</p>
+</div>
+
+<div class="warn">
+  <span class="wt">★ 인감증명서는 반드시 주민센터에 직접 가셔야 합니다</span>
+  2024년 9월 30일부터 정부24 인터넷 발급이 가능해졌지만 <b>법원·금융기관 제출용은 제외</b>입니다. <b>등기소는 법원 소속이라 인터넷 발급본을 받아주지 않습니다.</b>
+</div>
+
+<!-- ══════════ 6 ══════════ -->
+<div class="qhead"><span class="qb">6</span><h2>기간과 비용</h2></div>
+
+<h3>전체 일정</h3>
+<table>
+  <thead><tr><th style="width:30%">단계</th><th style="width:24%">소요</th><th>비고</th></tr></thead>
+  <tbody>
+    <tr><td>주주총회 결의 · 해산등기</td><td>2~5일</td><td>결의일부터 2주 이내 신청</td></tr>
+    <tr><td>청산인 신고 · 재산조사</td><td>2주</td><td>법원 신고</td></tr>
+    <tr><td style="color:#9c3a22"><b>채권신고 공고 기간</b></td><td style="color:#9c3a22"><b>2개월 이상</b></td><td style="color:#9c3a22">줄일 수 없습니다</td></tr>
+    <tr><td>채무 변제 · 잔여재산 분배</td><td>수주</td><td>회사 사정에 따라</td></tr>
+    <tr><td>결산보고 · 청산종결등기</td><td>2~5일</td><td>승인일부터 2주 이내</td></tr>
+    <tr style="background:#fdf6e3"><td><b>전　체</b></td><td><b>4~6개월</b></td><td>—</td></tr>
+  </tbody>
+</table>
+
+<h3>비용</h3>
+<table>
+  <thead><tr><th style="width:34%">항목</th><th style="width:26%">금액</th><th>비고</th></tr></thead>
+  <tbody>
+    <tr><td><b>해산 · 청산인선임등기</b><br>등록면허세 + 지방교육세</td><td>48,240원</td><td>「그 밖의 등기」 기준</td></tr>
+    <tr><td><b>청산종결등기</b><br>등록면허세 + 지방교육세</td><td>48,240원</td><td>—</td></tr>
+    <tr><td>등기신청수수료</td><td>각 6,000원<br><span style="font-size:13px;color:var(--muted)">전자신청 2,000원</span></td><td>2회</td></tr>
+    <tr><td><b>공고비</b></td><td>정관에 따라</td><td style="color:#9c3a22">신문 공고는 비용이 큽니다.<br>홈페이지 공고는 무료</td></tr>
+    <tr><td>의사록 공증</td><td>3만원 수준</td><td>자본금 10억원 이상만</td></tr>
+  </tbody>
+</table>
+<p style="font-size:13px;color:var(--muted);margin-top:-6px">※ 금액은 사안에 따라 달라질 수 있습니다. 정확한 금액은 계산기 또는 상담으로 확인해 주십시오.</p>
+
+<a class="calc" href="https://sanlaw.co.kr/tools-calculator.html" target="_blank" rel="noopener">
+  <div class="cah">🧮 등록면허세·수수료·보수 미리 계산해 보기</div>
+  <div class="cas">등기 유형을 입력하면 등록면허세·지방교육세·등기신청수수료를 포함한 예상 금액을 산출합니다. (클릭 시 계산기로 이동)</div>
+</a>
+
+<!-- ══════════ 7 ══════════ -->
+<div class="qhead"><span class="qb">7</span><h2>세금은 어떻게 되나요</h2></div>
+
+<div class="concept">등기만으로 끝나지 않습니다. <b>세무 절차가 병행</b>되어야 하고, 특히 <b>잔여재산을 분배하실 때 세금</b>이 발생할 수 있습니다.</div>
+
+<table class="deadline">
+  <thead><tr><th>할 일</th><th>어디에</th><th>언제</th></tr></thead>
+  <tbody>
+    <tr><td><b>폐업신고</b></td><td><a href="https://www.hometax.go.kr" target="_blank" rel="noopener" class="dl">홈택스</a> · 세무서</td><td>사업을 그만둔 때<br>지체 없이</td></tr>
+    <tr><td><b>부가가치세 확정신고</b></td><td>세무서</td><td>폐업일이 속한 달의<br>다음 달 25일까지</td></tr>
+    <tr><td><b>해산 시 법인세 신고</b></td><td>세무서</td><td>해산등기일 기준<br>의제사업연도 신고</td></tr>
+    <tr><td style="color:#9c3a22"><b>청산소득 법인세</b></td><td>세무서</td><td style="color:#9c3a22">잔여재산 확정일이 속한 달의<br>말일부터 3개월 이내</td></tr>
+    <tr><td><b>주주 배당소득세</b></td><td>세무서</td><td>잔여재산 분배 시<br>원천징수</td></tr>
+    <tr><td>4대보험 탈퇴신고</td><td>4대사회보험 정보연계센터</td><td>지체 없이</td></tr>
+    <tr><td>인허가 폐업신고</td><td>해당 관청</td><td>업종별</td></tr>
+  </tbody>
+</table>
+
+<div class="warn">
+  <span class="wt">★ 잔여재산 분배에 세금이 붙습니다</span>
+  <ul style="margin:4px 0 0">
+    <li><b>청산소득 법인세</b> — 잔여재산가액이 자기자본총액을 넘으면 그 차액에 법인세가 부과됩니다.</li>
+    <li><b>주주 배당소득세</b> — 주주가 받는 잔여재산 중 <b>출자금을 넘는 부분</b>은 배당소득으로 보아 과세됩니다(<span class="term">의제배당<span class="bub">실제로 배당을 받은 것은 아니지만 세법상 배당을 받은 것으로 보아 과세하는 것.</span></span>).</li>
+  </ul>
+  <p style="margin:8px 0 0"><b>회사에 부동산이나 큰 자산이 남아 있다면 세금이 상당할 수 있습니다.</b> 해산을 결정하시기 전에 <b>세무 검토를 먼저</b> 받아보시길 권합니다. 저희가 협력 세무사와 함께 검토해 드리겠습니다.</p>
+</div>
+
+<!-- ══════════ 8 ══════════ -->
+<div class="qhead"><span class="qb">8</span><h2>이런 경우는 다릅니다</h2></div>
+
+<div class="who" style="border-left-color:#d9694a">
+  <span class="wl">◆ 빚이 재산보다 많다면 — 청산이 아니라 파산</span>
+  <ul>
+    <li><b>부채가 자산을 넘는 채무초과 회사</b>는 청산절차를 밟을 수 없습니다. 모든 채권자에게 갚을 수 없기 때문입니다.</li>
+    <li>이 경우 <b>법원에 파산신청</b>을 하셔야 합니다. 법원이 파산관재인을 선임해 재산을 정리합니다.</li>
+    <li><b>청산 중에 채무초과가 드러나면</b> 청산인은 지체 없이 파산선고를 신청해야 합니다.</li>
+    <li style="color:#9c3a22"><b>대표님이 회사 빚을 연대보증하셨다면</b> 회사가 없어져도 그 책임은 남습니다. 개인 회생·파산까지 함께 검토가 필요할 수 있습니다.</li>
+  </ul>
+  <p style="margin:6px 0 0;font-size:14px"><b>빚이 있으신 상황이라면 반드시 먼저 상담을 받으십시오.</b> 잘못된 순서로 진행하면 되돌리기 어렵습니다.</p>
+</div>
+
+<div class="who" style="border-left-color:#5a9a72">
+  <span class="wl">◆ 마음이 바뀌셨다면 — 회사계속</span>
+  <ul>
+    <li>해산했더라도 <b>청산이 종결되기 전</b>이라면 <b>주주총회 특별결의로 회사를 계속</b>할 수 있습니다.</li>
+    <li><b>휴면회사로 해산간주된 경우</b>에도 <b>3년 이내</b>라면 특별결의로 회사를 계속할 수 있습니다(상법 §520의2③).</li>
+    <li><b>청산종결등기가 끝나면 되돌릴 수 없습니다.</b> 회사가 소멸했기 때문입니다.</li>
+  </ul>
+</div>
+
+<div class="bnote">※ <b>사업은 접지만 법인은 남겨두고 싶으시다면</b> 굳이 청산하지 않고 <b>휴업 상태로 유지</b>하는 방법도 있습니다. 다만 <b>임원 중임등기는 계속하셔야</b> 하고(2주 이내), 법인세 신고 의무도 남습니다. 유지 비용과 청산 비용을 비교해 보시고 결정하십시오. → <a href="sanlaw_임원변경등기_안내.html" class="dl">임원 선임·변경 등기</a></div>
+
+<!-- ══════════ FAQ ══════════ -->
+<div class="qhead"><span class="qb">?</span><h2>자주 묻는 질문</h2></div>
+<div class="faq">
+  <details><summary>사업자등록만 폐업하면 되는 것 아닌가요?</summary>
+    <div class="fa"><b>아닙니다.</b> 사업자등록은 세무서 문제이고, <b>법인은 등기부에 그대로 살아 있습니다.</b> 임원 임기가 끝나면 중임등기를 해야 하고, 안 하면 과태료가 대표님 개인에게 쌓입니다. 법인세 신고 의무도 남습니다.</div></details>
+
+  <details><summary>그냥 5년 두면 알아서 없어지지 않나요?</summary>
+    <div class="fa">최후 등기 후 5년이 지나면 <b>해산한 것으로 간주</b>되고(상법 §520의2), 3년이 더 지나면 청산도 종결된 것으로 봅니다. 다만 <b>그 사이 쌓인 과태료와 세금 문제는 그대로 남고</b>, 잔여재산을 정식으로 분배할 수 없습니다. <b>권해드리지 않습니다.</b></div></details>
+
+  <details><summary>얼마나 걸리나요?</summary>
+    <div class="fa"><b>4~6개월</b>입니다. <b>채권자에게 2개월 이상 공고</b>해야 하는데(상법 §535), 이 기간은 회사 사정으로 줄일 수 없습니다. 서두르셔도 그 이하로는 어렵습니다.</div></details>
+
+  <details><summary>청산인을 따로 뽑아야 하나요?</summary>
+    <div class="fa"><b>이사가 그대로 청산인이 됩니다</b>(상법 §531①). 별도로 뽑지 않으셔도 되고, 대표이사는 대표청산인이 됩니다. 다만 정관에 다른 정함이 있거나 주주총회에서 다른 분을 선임하시면 그분이 청산인이 됩니다.</div></details>
+
+  <details><summary>채권자가 없는데도 공고를 해야 하나요?</summary>
+    <div class="fa"><b>해야 합니다.</b> 「우리는 빚이 없다」는 것은 회사 판단일 뿐이고, 알려지지 않은 채권자가 있을 수 있기 때문입니다. <b>공고를 빠뜨리면 나중에 청산이 문제될 수 있습니다.</b></div></details>
+
+  <details><summary>공고비가 부담됩니다</summary>
+    <div class="fa">정관에 비싼 신문이 지정되어 있으면 <b>해산 결의를 하는 주주총회에서 공고방법을 함께 바꾸실 수 있습니다.</b> <b>회사 홈페이지 공고</b>로 정해두셨다면 비용이 들지 않습니다. 상담 때 정관을 확인해 드리겠습니다.</div></details>
+
+  <details><summary>빚이 재산보다 많은데요?</summary>
+    <div class="fa"><b>청산이 아니라 파산절차</b>를 밟으셔야 합니다. 채무초과 회사는 모든 채권자에게 갚을 수 없어 청산할 수 없기 때문입니다. <b>연대보증을 서셨다면 회사가 없어져도 개인 책임이 남으므로</b>, 순서를 잘못 잡으면 되돌리기 어렵습니다. 반드시 먼저 상담받으십시오.</div></details>
+
+  <details><summary>회사에 남은 돈은 어떻게 되나요?</summary>
+    <div class="fa">빚을 다 갚고 남은 재산을 <b>주식 수에 비례해 주주에게 분배</b>합니다(상법 §538). 다만 <b>출자금을 넘는 부분은 배당소득으로 과세</b>되고, 회사에는 <b>청산소득 법인세</b>가 부과될 수 있습니다. <b>세무 검토를 먼저</b> 받으시길 권합니다.</div></details>
+
+  <details><summary>해산했다가 마음이 바뀌면요?</summary>
+    <div class="fa"><b>청산종결 전이라면 주주총회 특별결의로 회사를 계속</b>할 수 있습니다. 휴면회사로 해산간주된 경우에도 <b>3년 이내</b>라면 가능합니다. 다만 <b>청산종결등기가 끝나면 되돌릴 수 없습니다.</b></div></details>
+
+  <details><summary>법인을 남겨두고 사업만 쉴 수는 없나요?</summary>
+    <div class="fa"><b>가능합니다.</b> 휴업 상태로 두시되 <b>임원 중임등기는 계속하셔야</b> 하고(2주 이내), 법인세 신고 의무도 남습니다. 유지 비용과 청산 비용을 비교해 보시고 결정하십시오. 나중에 사업을 재개하실 계획이 있으시면 유지가 나을 수 있습니다.</div></details>
+
+  <details><summary>등기부는 언제 없어지나요?</summary>
+    <div class="fa"><b>청산종결등기가 완료되면</b> 법인이 소멸하고 등기부가 폐쇄됩니다. 해산등기만으로는 등기부가 남아 있고, 「청산 중인 회사」로 표시됩니다.</div></details>
+
+  <details><summary>먼저 무엇부터 확인해야 하나요?</summary>
+    <div class="fa"><b>① 자산이 부채보다 많은지</b>(적으면 파산절차) <b>② 정관의 공고방법</b>(공고비가 갈립니다) <b>③ 남은 재산에 붙을 세금</b>. 이 세 가지가 정리되면 나머지는 순서대로 흘러갑니다. <b>등기부·정관·최근 재무제표</b>를 들고 오시면 함께 정리해 드리겠습니다.</div></details>
+</div>
+
+<!-- ══════════ CTA ══════════ -->
+<div class="hire">
+  <div class="ft" style="font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:18px;color:var(--gold-d);margin-bottom:8px">마무리도 시작만큼 중요합니다</div>
+  <p style="margin:0 0 8px;font-size:14.5px;line-height:1.85">사업을 접는 결정이 쉽지 않으셨을 것입니다. <b>그래도 방치하시는 것보다는 정식으로 정리하시는 편이 결국 깔끔하고 저렴</b>합니다. 과태료가 쌓이고 세금 문제가 남는 것보다는요.</p>
+  <p style="margin:0;font-size:14.5px;line-height:1.85"><b>등기사항전부증명서·정관·최근 재무제표</b>를 들고 오십시오. 청산이 맞는지 파산이 맞는지, 세금이 얼마나 나올지, 얼마나 걸릴지 <b>그 자리에서 정리해 드리겠습니다.</b></p>
+</div>
+<a class="ctabtn" href="https://sanlaw.co.kr" target="_blank" rel="noopener">해산·청산 등기 상담 신청하기 →</a>
+
+<div class="src">
+근거 — 상법 §264·§434·§517·§518·§520의2·§521의2·§228·§531·§532·§533·§535·§536·§538·§540·§635①1호 / 공증인법 §66조의2 단서 / 인감증명법(2024. 9. 30. 시행) / 지방세법 §28①6호 바목·§151①2호 / 등기사항증명서 등 수수료규칙 / 부가가치세법(폐업신고) / 법인세법(청산소득) / 소득세법(의제배당). 발급처 링크는 각 기관 공식 사이트로 연결됩니다.
+</div>
+
+
+<script>
+
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+    t.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();t.classList.toggle('on');}if(e.key==='Escape'){t.classList.remove('on');t.blur();}});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){terms.forEach(function(x){x.classList.remove('on');});}});
+})();
+function toggleFold(b){var fb=b.parentElement;fb.classList.toggle('open');}
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('양식이 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('양식이 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('양식을 내려받았습니다');}
+
+</script>
+</body>
+</html>
