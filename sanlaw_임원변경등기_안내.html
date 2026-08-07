@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[등기 안내] 임원 선임·변경 등기 — 중임·취임·사임·퇴임 | 산 법무사 김재섭</title>
+<meta name="description" content="법인 임원변경등기 완전 안내. 임기 계산, 중임등기, 과태료가 개인에게 부과되는 이유, 준비서류, 비용, 후속 신고까지.">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+ul{margin:8px 0 12px; padding-left:20px;} li{margin:6px 0;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(300px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.who{background:var(--box); border-radius:10px; padding:14px 16px; margin:12px 0; border-left:4px solid #b9a98c;}
+.who .wl{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;margin-left:3px;}
+.tag.free{background:#5a9a72;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.cta{display:block; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; text-decoration:none; font-weight:700; font-size:16px; padding:15px; border-radius:11px; margin:18px 0; box-shadow:0 3px 8px rgba(122,82,48,.25);}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:11px 15px;margin:10px 0;font-size:13.5px;line-height:1.7;}
+.lawbox .ll{display:inline-block;font-size:11.5px;font-weight:700;color:#fff;background:var(--gold-d);border-radius:5px;padding:2px 8px;margin-right:6px;}
+.lawbox a{color:var(--gold-d);font-weight:600;}
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:14.5px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:16px;margin:10px 0;font-family:'D2Coding','Courier New',monospace;font-size:12.5px;line-height:1.65;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:15px;letter-spacing:2px;margin-bottom:10px;color:#241a10;}
+.howto{font-size:13.5px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:12.5px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:6px 12px;cursor:pointer;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.concept{background:var(--box);border-radius:9px;padding:11px 15px;margin:8px 0 14px;font-size:14.5px;color:#5a4a36;border-left:3px solid #b9a98c;}
+.concept b{color:var(--gold-d);}
+.flow{background:linear-gradient(180deg,#fcf9f2,#f7f1e5);border:1.5px solid var(--gold);border-radius:14px;padding:18px 18px 14px;margin:14px 0 20px;}
+.flow .ft2{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:12px;}
+.flow ol{counter-reset:fl;list-style:none;margin:0;padding:0;}
+.flow li{position:relative;padding:8px 10px 8px 44px;margin:7px 0;background:#fff;border:1px solid var(--line);border-radius:10px;font-size:14.5px;line-height:1.6;}
+.flow li::before{counter-increment:fl;content:counter(fl);position:absolute;left:10px;top:8px;width:26px;height:26px;line-height:26px;text-align:center;background:var(--gold);color:#fff;border-radius:50%;font-weight:800;font-size:14px;}
+.flow li b{color:var(--gold-d);}
+.flow .arw{text-align:center;color:var(--gold);font-size:13px;margin:-2px 0;}
+.newlaw{background:#eef6f0;border:1px solid #cfe6d6;border-left:4px solid #5a9a72;border-radius:8px;padding:13px 16px;margin:14px 0;}
+.newlaw .nt{font-weight:700;color:#2f6a47;display:block;margin-bottom:4px;}
+.newlaw .badge{display:inline-block;font-size:11px;font-weight:800;color:#fff;background:#5a9a72;border-radius:5px;padding:2px 8px;margin-right:6px;vertical-align:middle;}
+.faq{margin:14px 0;}
+.faq details{border:1px solid var(--line);border-radius:10px;margin:9px 0;background:#fff;overflow:hidden;}
+.faq summary{list-style:none;cursor:pointer;padding:13px 44px 13px 38px;font-weight:700;font-size:15px;color:#241a10;background:#faf7f0;position:relative;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::before{content:"Q";position:absolute;left:15px;color:var(--gold-d);font-family:'Nanum Myeongjo',serif;font-weight:800;}
+.faq summary::after{content:"▾";position:absolute;right:16px;top:13px;color:var(--gold-d);transition:.2s;}
+.faq details[open] summary::after{transform:rotate(180deg);}
+.faq .fa{padding:13px 15px 15px 38px;font-size:14.5px;line-height:1.75;color:#3a3a3a;position:relative;border-top:1px solid var(--line);}
+.faq .fa::before{content:"A";position:absolute;left:15px;top:13px;color:#5a9a72;font-family:'Nanum Myeongjo',serif;font-weight:800;}
+.helm{background:linear-gradient(135deg,#2c3e50,#3a4a5c);color:#f4f0e8;border-radius:14px;padding:20px 22px;margin:0 0 24px;box-shadow:0 4px 14px rgba(44,62,80,.18);}
+.helm .ht2{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:17px;color:#f0d98c;margin-bottom:9px;}
+.helm p{margin:0;font-size:14.5px;line-height:1.9;color:#eae4d8;}
+.helm b{color:#f4e2a6;}
+.qhead{display:flex;gap:12px;align-items:flex-start;margin:8px 0 8px;}
+.qhead .qb{flex:none;width:34px;height:34px;border-radius:50%;background:var(--gold);color:#fff;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(176,141,87,.4);}
+.qhead h2{margin:0;border:0;padding:0;font-size:20px;line-height:1.45;}
+.lawrow{display:flex;flex-wrap:wrap;background:var(--box);border-radius:10px;overflow:hidden;margin:12px 0;border:1px solid var(--line);}
+.lawrow .lrl{flex:none;background:var(--gold);color:#fff;font-weight:700;font-size:13.5px;padding:11px 15px;display:flex;align-items:center;}
+.lawrow .lrc{flex:1;min-width:210px;padding:11px 15px;font-size:14px;line-height:1.75;}
+@media(max-width:520px){.lawrow .lrl{width:100%;}}
+.calc{display:block;background:linear-gradient(135deg,#fff7e8,#fdeecb);border:1.5px solid var(--gold);border-radius:14px;padding:16px 18px;margin:18px 0;text-decoration:none;color:var(--ink);transition:.15s;}
+.calc:hover{box-shadow:0 4px 14px rgba(176,141,87,.25);transform:translateY(-1px);}
+.calc .cah{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:4px;}
+.calc .cas{font-size:13.5px;color:var(--muted);}
+.ctabtn{display:block;text-align:center;background:var(--gold);color:#fff;font-weight:800;font-size:17px;padding:16px;border-radius:12px;text-decoration:none;margin:22px 0 6px;box-shadow:0 3px 10px rgba(176,141,87,.35);}
+.ctabtn:hover{background:var(--gold-d);}
+.doclabel{display:inline-block;font-size:12px;font-weight:800;color:#fff;border-radius:6px;padding:3px 11px;margin-bottom:6px;}
+.doclabel.give{background:#b0885a;}
+.doclabel.back{background:#5a9a72;}
+.dl{color:var(--gold-d);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--gold);}
+.dl:hover{background:#fbf5e8;}
+.ddl{display:flex;gap:2px 10px;flex-wrap:wrap;margin:8px 0 2px;padding:9px 12px;background:#fbf7ee;border-radius:8px;font-size:13px;}
+.ddl b{color:var(--gold-d);}
+.deadline{width:100%;border-collapse:collapse;margin:10px 0;font-size:13.5px;}
+.deadline th{background:#3a4a5c;color:#fff;padding:8px;font-weight:700;}
+.deadline td{border:1px solid var(--line);padding:8px 10px;background:#fff;}
+.bnote{color:#0b4a9c;font-weight:600;background:#eaf2fc;border-left:4px solid #2b7fff;border-radius:8px;padding:9px 13px;margin:8px 0;font-size:13.5px;line-height:1.7;}
+.bnote b{color:#0a3d82;}
+.capital th{background:#f0ebe1;text-align:center;font-size:13px;}
+.capital td{text-align:center;font-size:13.5px;}
+.capital td:first-child{text-align:left;font-weight:700;background:#faf7f0;}
+.capital .hi{background:#fdf6e3;font-weight:700;color:var(--gold-d);}
+.capital .bad{color:#9c3a22;font-weight:700;}
+.grp{border-radius:10px;padding:13px 16px;margin:12px 0;border:1px solid var(--line);border-left-width:5px;}
+.grp .gt{font-weight:800;font-size:15px;margin-bottom:5px;}
+.grp.a{background:#eef6f0;border-left-color:#5a9a72;} .grp.a .gt{color:#2f6a47;}
+.grp.b{background:#fdf9e8;border-left-color:#d4a72c;} .grp.b .gt{color:#8a6d10;}
+.grp.c{background:#fdf2ee;border-left-color:#d9694a;} .grp.c .gt{color:#9c3a22;}
+
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+<h1>임원 선임 · 변경 등기</h1>
+
+<div class="helm">
+  <div class="ht2">⚓ 이 안내를 준비한 마음</div>
+  <p>법인 등기에서 <b>과태료가 가장 많이 나오는 항목이 임원 변경</b>입니다. 사람이 바뀐 것도 아닌데 임기가 끝났다는 이유만으로 등기를 해야 하고, 그걸 모르고 계시다가 몇 년 뒤 통지를 받는 경우가 많습니다. 더 뼈아픈 것은 <b>과태료가 회사가 아니라 대표님 개인에게 부과된다</b>는 점입니다. 이 안내는 <b>어떤 경우에 등기를 해야 하는지, 무슨 서류가 필요한지, 이미 늦었다면 어떻게 해야 하는지</b>를 담았습니다. 혼자 진행하시다 막히실 때 언제든 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, <b>제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</b></p>
+</div>
+
+<div class="qhead"><span class="qb">Q</span>
+  <h2>사람이 그대로인데도 등기를 해야 하나요?</h2>
+</div>
+
+<div class="tnote">밑줄 친 <span class="term">용어<span class="bub">밑줄 친 말에 마우스를 올리거나(휴대폰은 살짝 누르면) 쉬운 설명이 나옵니다.</span></span>에 마우스를 올리면 설명이 나옵니다. 파란 <b>발급처 링크</b>를 누르면 신청 화면으로 바로 이동합니다.</div>
+
+<div class="tldr">
+  <div class="tt">해야 합니다 — 「임기 만료」 자체가 등기 사유입니다</div>
+  <ul>
+    <li>이사·감사에게는 <b>임기</b>가 있습니다. 임기가 끝나면 같은 분이 계속 하시더라도 <b><span class="term">중임등기<span class="bub">임기가 끝난 임원을 같은 자리에 다시 앉히고 그 사실을 등기부에 반영하는 것. 사람은 그대로여도 반드시 등기해야 합니다.</span></span></b>를 해야 합니다.</li>
+    <li>기한은 <b>2주</b>입니다(상법 §635①1호). 늦으면 <b>500만원 이하 과태료</b>이고, 늦어진 기간이 길수록 금액이 올라갑니다.</li>
+    <li><b style="color:#9c3a22">과태료는 회사가 아니라 개인에게 부과됩니다.</b> 등기를 게을리한 이사·감사 본인이 냅니다.</li>
+    <li><b>대표이사의 집 주소가 바뀌어도 등기 대상</b>입니다. 대표이사는 주소가 등기사항이기 때문입니다.</li>
+  </ul>
+</div>
+
+<div class="lawrow"><div class="lrl">관련 법령</div><div class="lrc">
+  <b>상법 §382</b> 이사 선임 · <b>§383②③</b> 이사 임기 3년 · <b>§389</b> 대표이사 선임 · <b>§409</b> 감사 선임 · <b>§410</b> 감사 임기 · <b>§317②·④</b> 변경등기 · <b>§635①1호</b> 과태료 500만원 이하 · <b>공증인법 §66조의2 단서</b> 소규모회사 의사록 인증 면제 · <b>지방세법 §28①6호 바목</b> 등록면허세 40,200원 · <b>상업등기규칙 §176</b> 등기관의 과태료 통지
+</div></div>
+
+<div class="bnote">※ 이 안내는 <b>이미 설립된 법인</b>의 임원 변경 절차입니다. 회사를 처음 만드시는 경우에는 <a href="sanlaw_주식회사설립등기_안내.html" class="dl">주식회사 설립등기 안내</a>를, 사무실을 옮기셨다면 <a href="sanlaw_본점이전_지점등기_안내.html" class="dl">본점이전·지점등기 안내</a>를 보십시오.</div>
+
+<!-- ══════════ 1 ══════════ -->
+<div class="qhead"><span class="qb">1</span><h2>내 회사는 어느 경우인가</h2></div>
+
+<table>
+  <thead><tr><th style="width:16%">유형</th><th style="width:32%">어떤 상황인가</th><th>결의 방법</th></tr></thead>
+  <tbody>
+    <tr><td><b>중임</b></td><td>임기가 끝났는데 <b>같은 분이 계속</b> 하시는 경우<br><span style="font-size:13px;color:var(--muted)">가장 흔합니다</span></td><td>이사·감사 — 주주총회 보통결의<br>대표이사 — 이사회 결의</td></tr>
+    <tr><td><b>취임</b></td><td>새로운 분이 임원이 되시는 경우</td><td>동일</td></tr>
+    <tr><td><b>사임</b></td><td>임기 중에 스스로 그만두시는 경우</td><td>사임서 제출로 족함<br><span style="font-size:13px;color:var(--muted)">별도 결의 불요</span></td></tr>
+    <tr><td><b>퇴임</b></td><td>임기가 끝나고 <b>더 이상 하지 않으시는</b> 경우</td><td>후임자 선임 결의</td></tr>
+    <tr><td><b>해임</b></td><td>회사가 임원을 그만두게 하는 경우</td><td><b>주주총회 특별결의</b><br><span style="font-size:13px;color:var(--muted)">손해배상 문제가 생길 수 있습니다</span></td></tr>
+    <tr><td><b>주소변경</b></td><td><b>대표이사</b>의 집 주소가 바뀐 경우</td><td>결의 불요<br><span style="font-size:13px;color:var(--muted)">주민등록초본만 있으면 됩니다</span></td></tr>
+  </tbody>
+</table>
+
+<div class="warn">
+  <span class="wt">★ 「중임」을 놓치는 분이 가장 많습니다</span>
+  「사람이 안 바뀌었는데 무슨 등기냐」고 생각하시기 쉽습니다. 그런데 <b>임기 만료 자체가 등기 사유</b>입니다. 임기가 끝나면 등기부상 그 임원은 자리에서 물러난 것이 되고, <b>계속 하시려면 다시 뽑아서 등기</b>해야 합니다.
+  <p style="margin:6px 0 0">설립하고 3년쯤 지나 <b>「대표이사 임기가 만료되었으니 등기하라」</b>는 등기소 통지를 받고서야 아시는 분이 많습니다. 그 사이 과태료가 쌓입니다.</p>
+</div>
+
+<!-- ══════════ 2 ══════════ -->
+<div class="qhead"><span class="qb">2</span><h2>임기는 언제 끝나나요</h2></div>
+
+<table>
+  <thead><tr><th style="width:20%">직책</th><th style="width:34%">임기</th><th>근거</th></tr></thead>
+  <tbody>
+    <tr><td><b>이사<br>(사내이사)</b></td><td><b>3년</b>을 초과할 수 없습니다.<br>정관으로 <b>임기 중 최종 결산기에 관한 정기주주총회 종결 시까지</b> 연장할 수 있습니다.</td><td>상법 §383②③</td></tr>
+    <tr><td><b>감사</b></td><td><b>취임 후 3년 내의 최종 결산기에 관한 정기주주총회 종결 시까지</b><br><span style="font-size:13px;color:var(--muted)">정관에 정하지 않아도 자동 적용</span></td><td>상법 §410</td></tr>
+    <tr><td><b>대표이사</b></td><td>이사 자격이 전제되므로 <b>이사 임기와 연동</b>됩니다.</td><td>상법 §389</td></tr>
+  </tbody>
+</table>
+
+<div class="tip">
+  <span class="pt">실제 만료일 계산 — 12월 결산 회사 예시</span>
+  <b>2023년 3월 20일에 취임한 이사</b>가 있다고 하겠습니다.
+  <ul style="margin:6px 0 0">
+    <li>정관에 <b>연장 규정이 없으면</b> → <b>2026년 3월 19일</b>에 임기 만료</li>
+    <li>정관에 <b>「임기 중 최종 결산기에 관한 정기주주총회 종결 시까지」</b>가 있으면 → 2025년 결산에 관한 <b>정기주주총회 종결일</b>(통상 2026년 3월)까지</li>
+  </ul>
+  <p style="margin:6px 0 0"><b>정관에 이 연장 규정을 넣어두시면</b> 임기 만료일이 정기주주총회와 맞물려 관리가 훨씬 편해집니다. 등기하실 때 함께 정리해 드리겠습니다.</p>
+  <p style="margin:6px 0 0;font-size:13.5px;color:var(--muted)">※ 정확한 만료일은 <b>정관</b>과 <b>등기사항전부증명서</b>를 함께 봐야 알 수 있습니다. 두 서류를 들고 오시면 그 자리에서 계산해 드립니다.</p>
+</div>
+
+<!-- ══════════ 3 ══════════ -->
+<div class="qhead"><span class="qb">3</span><h2>★ 과태료는 회사가 아니라 「사람」이 냅니다</h2></div>
+
+<div class="warn">
+  <span class="wt">이 점을 모르시는 분이 많습니다</span>
+  <p style="margin:4px 0 8px">상법 제635조 제1항은 <b>「회사의 이사·감사 등이 등기를 게을리한 때에는 500만원 이하의 과태료에 처한다」</b>고 정합니다. 주어가 <b>「회사」가 아니라 「이사·감사」</b>입니다.</p>
+  <ul style="margin:4px 0 0">
+    <li><b>법인 비용으로 처리되지 않습니다.</b> 대표님 개인 통장에서 나갑니다.</li>
+    <li><b>이미 그만두신 분에게도 부과됩니다.</b> 등기를 게을리한 당시의 책임자가 대상이므로, 사임한 뒤에 통지를 받으실 수 있습니다.</li>
+    <li>등기관이 과태료 대상을 발견하면 <b>관할 법원에 통지</b>하고(상업등기규칙 §176), 법원이 해태 기간을 따져 금액을 정합니다.</li>
+  </ul>
+</div>
+
+<div class="cost">
+  <span class="ct">이미 기한이 지났다면 — 그래도 지금 하십시오</span>
+  늦었다고 등기가 안 되는 것은 아닙니다. <b>과태료는 늦어진 기간에 비례해 늘어나므로, 하루라도 빨리 하시는 것이 유리합니다.</b> 실무상 <b>1개월 정도 늦은 경우 수만원 수준</b>에서 부과되는 사례가 있으나, 금액은 <b>법원의 재량</b>이라 사안마다 다릅니다.
+  <p style="margin:6px 0 0">「몇 년이 지났는데 이제 와서 해도 되나」 하고 미루실수록 손해입니다. <b>지금 정리하시는 것이 가장 저렴합니다.</b></p>
+</div>
+
+<!-- ══════════ 4 ══════════ -->
+<div class="qhead"><span class="qb">4</span><h2>누가 결정하나요</h2></div>
+
+<table>
+  <thead><tr><th style="width:24%">무엇을</th><th style="width:32%">어디서 결정</th><th>결의 요건</th></tr></thead>
+  <tbody>
+    <tr><td><b>이사·감사 선임</b></td><td><b>주주총회</b></td><td><span class="term">보통결의<span class="bub">출석한 주주 의결권의 과반수, 그리고 발행주식총수의 4분의 1 이상의 찬성으로 성립하는 결의.</span></span> — 출석 주주 의결권 과반수 + 발행주식총수 1/4 이상</td></tr>
+    <tr><td><b>대표이사 선임</b></td><td><b>이사회</b><br><span style="font-size:13px;color:var(--muted)">이사가 1~2명이면 주주총회</span></td><td>이사 과반수 출석 + 출석 이사 과반수</td></tr>
+    <tr><td><b>임원 해임</b></td><td><b>주주총회</b></td><td style="color:#9c3a22"><b>특별결의</b> — 출석 주주 의결권 2/3 이상 + 발행주식총수 1/3 이상</td></tr>
+    <tr><td><b>사임</b></td><td>본인의 의사표시</td><td>결의 불요 — 사임서 제출</td></tr>
+  </tbody>
+</table>
+
+<div class="tip">
+  <span class="pt">이사가 1~2명인 회사는 이사회가 없습니다</span>
+  자본금 10억원 미만이면 이사를 1~2명만 두어도 됩니다(상법 §383① 단서). 이 경우 <b>이사회가 성립하지 않으므로</b>, 이사회 결의가 필요한 사항은 <b>주주총회</b>가 대신하거나 <b>각 이사</b>가 결정합니다. 이사회의사록 대신 <b>「이사 결정서」</b>를 작성하시면 됩니다.
+</div>
+
+<div class="cost">
+  <span class="ct">★ 자본금 10억원 미만이면 의사록 공증이 면제됩니다</span>
+  주주총회 의사록은 원칙적으로 <b>공증인의 인증</b>을 받아야 하는데(공증인법 §66조의2, 공증료 3만원 수준), <b>자본금 10억원 미만 회사는 면제</b>됩니다(같은 조 단서).
+  <p style="margin:6px 0 0">나아가 <b>주주 전원이 동의</b>하시면 주주총회를 열지 않고 <b>「주주 전원의 서면결의서」</b>로 갈음할 수 있어, <b>모이실 필요도 공증받으실 필요도 없습니다.</b> 소규모 가족법인이라면 이 방법이 가장 간편합니다.</p>
+</div>
+
+<!-- ══════════ 5 ══════════ -->
+<div class="qhead"><span class="qb">5</span><h2>등기신청서 첨부서류와 그 발급처</h2></div>
+<div class="tnote" style="margin-top:0"><span class="term">첨부서류<span class="bub">등기를 신청할 때 신청서와 함께 등기소에 내는 서류. 하나라도 빠지면 「보정하라」는 연락을 받게 됩니다.</span></span>는 유형에 따라 달라집니다. 아래에서 해당하는 것만 준비하시면 됩니다.</div>
+
+<div class="who"><span class="doclabel give">제출</span><br><span class="wl">◆ 중임 · 취임할 때</span>
+  <table style="margin:6px 0 0">
+    <thead><tr><th>서류</th><th style="width:26%">어디서</th><th style="width:30%">주의</th></tr></thead>
+    <tbody>
+      <tr><td>임원변경등기신청서</td><td>인터넷등기소 양식</td><td>—</td></tr>
+      <tr><td><b>주주총회 의사록</b> 또는 <b>주주 전원의 서면결의서</b></td><td>회사 작성</td><td>자본금 10억원 이상이면 <b>공증</b></td></tr>
+      <tr><td><b>이사회 의사록</b> 또는 <b>이사 결정서</b></td><td>회사 작성</td><td>대표이사 선임 시</td></tr>
+      <tr><td><b>취임승낙서</b></td><td>본인 작성</td><td style="color:#9c3a22"><b>인감도장 날인</b></td></tr>
+      <tr><td><b>인감증명서</b></td><td><b>주민센터 방문</b></td><td style="color:#9c3a22"><b>3개월 이내</b></td></tr>
+      <tr><td><b>주민등록등(초)본</b></td><td><a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000015" target="_blank" rel="noopener" class="dl">정부24</a> · 주민센터</td><td>대표이사는 <b>주소가 등기</b>됩니다</td></tr>
+      <tr><td>정관 또는 종전 선임 의사록</td><td>회사 보관</td><td>임기 확인용</td></tr>
+      <tr><td>주주명부</td><td>회사 작성</td><td>정족수 확인용</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="who"><span class="wl">◆ 사임 · 퇴임할 때</span>
+  <ul>
+    <li><b>사임서</b> — 본인 작성, <b>인감도장 날인</b></li>
+    <li><b>인감증명서</b> — 3개월 이내</li>
+    <li><b>후임자 선임 서류</b> — 후임을 뽑으시는 경우 위 「중임·취임」 서류 일체</li>
+  </ul>
+  <p style="margin:6px 0 0;font-size:14px">※ 사임으로 <b>법률이나 정관이 정한 임원 수가 모자라게 되면</b>, 후임자가 취임할 때까지 사임한 분에게 임원의 권리·의무가 남습니다(상법 §386①·§415). 정관에 「감사는 1명으로 한다」처럼 인원을 못박아 두면 이 문제가 생기니, <b>정관 정리를 함께 검토</b>해 보십시오.</p>
+</div>
+
+<div class="warn">
+  <span class="wt">★ 인감증명서는 반드시 주민센터에 직접 가셔야 합니다</span>
+  2024년 9월 30일부터 정부24에서 인감증명서를 인터넷으로 발급받을 수 있게 되었지만, <b>일반용 중 법원·금융기관 제출용은 제외</b>입니다. <b>등기소는 법원 소속이라 인터넷 발급본을 받아주지 않습니다.</b>
+  <p style="margin:6px 0 0;font-size:13.5px">※ 인감도장·인감증명서 대신 <b>공증인의 인증</b>을 받아 제출하는 방법도 있습니다(등기예규 제1538호 §2①2호). 해외에 계신 임원에게 쓰는 방법입니다.</p>
+</div>
+
+<!-- ══════════ 6 ══════════ -->
+<div class="qhead"><span class="qb">6</span><h2>절차와 비용</h2></div>
+
+<div class="flow">
+  <div class="ft2">이 순서로 진행됩니다</div>
+  <ol>
+    <li><b>등기사항전부증명서·정관 확인</b> — 임기 만료일을 계산합니다</li>
+    <div class="arw">▼</div>
+    <li><b>결의</b> — 주주총회(또는 주주 전원 서면결의서) · 이사회(또는 이사 결정서)</li>
+    <div class="arw">▼</div>
+    <li><b>서류 준비</b> — 취임승낙서 · 인감증명서 · 주민등록초본</li>
+    <div class="arw">▼</div>
+    <li><b>등록면허세 납부</b> — <a href="https://www.wetax.go.kr" target="_blank" rel="noopener" class="dl">위택스</a></li>
+    <div class="arw">▼</div>
+    <li><b>등기 신청</b> — 본점 관할 등기소 <span style="color:var(--muted)">(결의일부터 2주 이내)</span></li>
+    <div class="arw">▼</div>
+    <li><b>등기 완료</b> — 접수 후 2~5일</li>
+  </ol>
+</div>
+
+<table>
+  <thead><tr><th>항목</th><th style="width:26%">금액</th><th>납부처</th></tr></thead>
+  <tbody>
+    <tr><td><b>등록면허세</b> (그 밖의 등기)</td><td>40,200원</td><td><a href="https://www.wetax.go.kr" target="_blank" rel="noopener" class="dl">위택스</a></td></tr>
+    <tr><td><b>지방교육세</b> (20%)</td><td>8,040원</td><td>위택스</td></tr>
+    <tr><td><b>등기신청수수료</b></td><td>방문 6,000원 / 전자 2,000원</td><td><a href="https://www.iros.go.kr" target="_blank" rel="noopener" class="dl">인터넷등기소</a></td></tr>
+    <tr style="background:#fdf6e3"><td><b>합　계</b></td><td><b>약 48,240원 + 수수료</b></td><td>—</td></tr>
+  </tbody>
+</table>
+<p style="font-size:13px;color:var(--muted);margin-top:-6px">※ 임원변경은 과밀억제권역 중과 대상이 아닙니다. 자본금 10억원 이상이면 의사록 공증료(3만원 수준)가 추가됩니다.</p>
+
+<div class="tip">
+  <span class="pt">여러 건을 한 번에 하시면 절약됩니다</span>
+  임원 변경과 함께 <b>상호·목적 변경</b>이나 <b>본점 이전</b>이 있으시다면 <b>같은 신청서로 처리</b>하는 편이 좋습니다. 등록면허세와 수수료를 각각 내지 않아도 되는 경우가 있어 비용이 줄어듭니다. <b>미뤄두신 등기가 있는지 상담 때 함께 점검해 드리겠습니다.</b>
+</div>
+
+<a class="calc" href="https://sanlaw.co.kr/tools-calculator.html" target="_blank" rel="noopener">
+  <div class="cah">🧮 등록면허세·수수료·보수 미리 계산해 보기</div>
+  <div class="cas">등기 유형을 입력하면 등록면허세·지방교육세·등기신청수수료를 포함한 예상 금액을 산출합니다. (클릭 시 계산기로 이동)</div>
+</a>
+
+<!-- ══════════ 7 ══════════ -->
+<div class="qhead"><span class="qb">7</span><h2>등기가 끝나면</h2></div>
+
+<table class="deadline">
+  <thead><tr><th>할 일</th><th>어디에</th><th>언제</th></tr></thead>
+  <tbody>
+    <tr><td><b>사업자등록 정정신고</b><br><span style="font-size:13px;color:var(--muted)">대표자가 바뀐 경우</span></td><td><a href="https://www.hometax.go.kr" target="_blank" rel="noopener" class="dl">홈택스</a> · 세무서</td><td>지체 없이</td></tr>
+    <tr><td><b>4대보험 대표자 변경신고</b></td><td>4대사회보험 정보연계센터</td><td>14일 이내</td></tr>
+    <tr><td><b>법인 인감 재신고</b><br><span style="font-size:13px;color:var(--muted)">대표자가 바뀐 경우</span></td><td>등기소</td><td>등기와 동시</td></tr>
+    <tr><td><b>은행 거래 명의 변경</b></td><td>거래 은행</td><td>지체 없이</td></tr>
+    <tr><td><b>인허가 변경신고</b></td><td>해당 관청</td><td>업종별<br><span style="font-size:13px;color:var(--muted)">건설업은 <b>30일 이내</b></span></td></tr>
+  </tbody>
+</table>
+
+<div class="bnote">※ <b>대표이사가 바뀌면 법인 인감도 새로 신고</b>하셔야 합니다. 종전 대표이사 명의로 신고된 인감은 효력을 잃습니다. 새 대표이사의 개인 인감증명서(3개월 이내)를 준비하십시오.</div>
+
+<!-- ══════════ FAQ ══════════ -->
+<div class="qhead"><span class="qb">?</span><h2>자주 묻는 질문</h2></div>
+<div class="faq">
+  <details><summary>사람이 그대로인데 왜 등기를 하나요?</summary>
+    <div class="fa"><b>임기 만료 자체가 등기 사유</b>이기 때문입니다. 이사 임기는 3년을 넘을 수 없어서(상법 §383②), 계속 하시더라도 다시 뽑아 등기하셔야 합니다. 이것을 <b>중임등기</b>라고 합니다. 실무에서 과태료가 가장 많이 나오는 항목입니다.</div></details>
+
+  <details><summary>과태료는 회사가 내나요, 제가 내나요?</summary>
+    <div class="fa"><b>개인이 냅니다.</b> 상법 §635①은 「회사의 이사·감사 등이 등기를 게을리한 때」 과태료에 처한다고 정하고 있어, 주어가 회사가 아니라 임원 개인입니다. 법인 경비로 처리되지 않고, <b>이미 사임하신 분에게도 부과</b>될 수 있습니다.</div></details>
+
+  <details><summary>임기가 언제 끝나는지 모르겠습니다</summary>
+    <div class="fa"><b>정관과 등기사항전부증명서를 함께 봐야</b> 알 수 있습니다. 등기부에 취임일이 적혀 있고, 정관에 임기 규정이 있습니다. 두 서류를 들고 오시면 그 자리에서 계산해 드립니다. 저희가 등기를 처리해 드리면 <b>다음 만료일을 문서로 알려드리고, 두 달 전에 먼저 연락</b>드립니다.</div></details>
+
+  <details><summary>몇 년째 안 했는데 이제라도 할 수 있나요?</summary>
+    <div class="fa"><b>가능합니다. 그리고 하루라도 빨리 하시는 것이 유리합니다.</b> 과태료는 늦어진 기간에 비례해 늘어나므로, 미루실수록 금액이 커집니다. 늦었다고 등기가 거부되지는 않습니다.</div></details>
+
+  <details><summary>주주총회를 꼭 열어야 하나요?</summary>
+    <div class="fa"><b>주주 전원이 동의하시면 열지 않으셔도 됩니다.</b> 「주주 전원의 서면결의서」로 갈음할 수 있고, 이 경우 <b>자본금 10억원 미만이면 공증도 필요 없습니다.</b> 가족법인이라면 이 방법이 가장 간편합니다.</div></details>
+
+  <details><summary>이사가 저 혼자인데 이사회를 어떻게 여나요?</summary>
+    <div class="fa">이사가 1~2명이면 <b>이사회가 성립하지 않습니다.</b> 이사회 결의가 필요한 사항은 주주총회가 대신하거나 각 이사가 결정하며, 서류는 <b>「이사 결정서」</b>로 작성합니다.</div></details>
+
+  <details><summary>대표이사가 이사만 뒀는데 감사도 필요한가요?</summary>
+    <div class="fa"><b>자본금 10억원 미만이면 감사를 두지 않아도 됩니다</b>(상법 §409④). 다만 정관에 「감사를 둔다」고 적혀 있으면 정관을 먼저 고치셔야 합니다. 반대로 감사가 사임하시는데 정관에 인원이 못박혀 있으면 <b>후임이 올 때까지 책임이 남습니다</b>(상법 §415·§386①).</div></details>
+
+  <details><summary>제 집 주소가 바뀌었는데 등기해야 하나요?</summary>
+    <div class="fa"><b>대표이사라면 해야 합니다.</b> 대표이사는 성명·주민등록번호와 함께 <b>주소가 등기사항</b>입니다. 주민등록초본상 전입일부터 <b>2주 이내</b>에 등기하셔야 하고, 늦으면 과태료 대상입니다. 사내이사·감사는 주소가 등기되지 않아 해당 없습니다.</div></details>
+
+  <details><summary>임원을 해임하고 싶은데요</summary>
+    <div class="fa"><b>주주총회 특별결의</b>가 필요합니다(출석 주주 의결권 2/3 + 발행주식총수 1/3 이상). 다만 <b>정당한 이유 없이 임기 만료 전에 해임하면 손해배상 문제</b>가 생길 수 있습니다(상법 §385①). 사안에 따라 다르니 상담을 받아보시길 권합니다.</div></details>
+
+  <details><summary>등기는 며칠 걸리나요?</summary>
+    <div class="fa">서류가 갖춰지면 <b>접수 후 2~5일</b>입니다. 자본금 10억원 이상이라 의사록 공증이 필요하시면 그 시간이 더 듭니다.</div></details>
+
+  <details><summary>미뤄둔 다른 등기도 있는데 함께 할 수 있나요?</summary>
+    <div class="fa"><b>가능하고, 권해드립니다.</b> 상호·목적 변경이나 본점 이전이 함께 있으시면 <b>한 번에 처리</b>하는 편이 비용과 시간 모두 절약됩니다. 상담 때 등기부를 보고 <b>빠진 등기가 없는지 점검</b>해 드리겠습니다.</div></details>
+
+  <details><summary>다음 만료일을 챙겨주시나요?</summary>
+    <div class="fa"><b>등기가 끝나면 다음 임기 만료일을 문서로 알려드리고, 만료 두 달 전에 저희가 먼저 연락</b>드립니다. 실무에서 가장 흔한 과태료가 중임등기 해태이므로, 이 부분은 저희가 챙기겠습니다.</div></details>
+</div>
+
+<!-- ══════════ CTA ══════════ -->
+<div class="hire">
+  <div class="ft" style="font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:18px;color:var(--gold-d);margin-bottom:8px">등기부와 정관, 두 장만 들고 오십시오</div>
+  <p style="margin:0 0 8px;font-size:14.5px;line-height:1.85">임기가 언제 끝나는지, 지금 해야 할 등기가 무엇인지 <b>그 자리에서 계산해 드립니다.</b> 이미 몇 년이 지나셨더라도 괜찮습니다. <b>지금 정리하시는 것이 가장 저렴합니다.</b></p>
+  <p style="margin:0;font-size:14.5px;line-height:1.85">등기부를 보다 보면 미뤄두신 다른 등기가 함께 발견되는 경우가 많습니다. <b>한 번에 정리하면 비용도 줄어듭니다.</b></p>
+</div>
+<a class="ctabtn" href="https://sanlaw.co.kr" target="_blank" rel="noopener">임원변경등기 상담 신청하기 →</a>
+
+<div class="src">
+근거 — 상법 §382·§383·§385①·§386①·§389·§409·§410·§415·§317②④·§635①1호 / 공증인법 §66조의2 및 단서 / 상업등기규칙 §176 / 등기예규 제1538호 / 인감증명법(2024. 9. 30. 시행) / 지방세법 §28①6호 바목·§151①2호 / 등기사항증명서 등 수수료규칙 / 건설산업기본법 §9조의2②. 발급처 링크는 각 기관 공식 사이트로 연결됩니다.
+</div>
+
+
+<script>
+
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+    t.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();t.classList.toggle('on');}if(e.key==='Escape'){t.classList.remove('on');t.blur();}});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){terms.forEach(function(x){x.classList.remove('on');});}});
+})();
+function toggleFold(b){var fb=b.parentElement;fb.classList.toggle('open');}
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('양식이 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('양식이 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('양식을 내려받았습니다');}
+
+</script>
+</body>
+</html>

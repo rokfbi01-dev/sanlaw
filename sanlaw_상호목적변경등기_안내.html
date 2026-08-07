@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[등기 안내] 상호·목적·정관 변경 등기 — 사업목적 추가 | 산 법무사 김재섭</title>
+<meta name="description" content="법인 상호변경·사업목적 추가 등기 완전 안내. 주주총회 특별결의, 동일상호 확인, 인허가 검토, 준비서류, 비용, 상호변경 후속 정리까지.">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+ul{margin:8px 0 12px; padding-left:20px;} li{margin:6px 0;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(300px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.who{background:var(--box); border-radius:10px; padding:14px 16px; margin:12px 0; border-left:4px solid #b9a98c;}
+.who .wl{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;margin-left:3px;}
+.tag.free{background:#5a9a72;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.cta{display:block; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; text-decoration:none; font-weight:700; font-size:16px; padding:15px; border-radius:11px; margin:18px 0; box-shadow:0 3px 8px rgba(122,82,48,.25);}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:11px 15px;margin:10px 0;font-size:13.5px;line-height:1.7;}
+.lawbox .ll{display:inline-block;font-size:11.5px;font-weight:700;color:#fff;background:var(--gold-d);border-radius:5px;padding:2px 8px;margin-right:6px;}
+.lawbox a{color:var(--gold-d);font-weight:600;}
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:14.5px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:16px;margin:10px 0;font-family:'D2Coding','Courier New',monospace;font-size:12.5px;line-height:1.65;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:15px;letter-spacing:2px;margin-bottom:10px;color:#241a10;}
+.howto{font-size:13.5px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:12.5px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:6px 12px;cursor:pointer;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.concept{background:var(--box);border-radius:9px;padding:11px 15px;margin:8px 0 14px;font-size:14.5px;color:#5a4a36;border-left:3px solid #b9a98c;}
+.concept b{color:var(--gold-d);}
+.flow{background:linear-gradient(180deg,#fcf9f2,#f7f1e5);border:1.5px solid var(--gold);border-radius:14px;padding:18px 18px 14px;margin:14px 0 20px;}
+.flow .ft2{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:12px;}
+.flow ol{counter-reset:fl;list-style:none;margin:0;padding:0;}
+.flow li{position:relative;padding:8px 10px 8px 44px;margin:7px 0;background:#fff;border:1px solid var(--line);border-radius:10px;font-size:14.5px;line-height:1.6;}
+.flow li::before{counter-increment:fl;content:counter(fl);position:absolute;left:10px;top:8px;width:26px;height:26px;line-height:26px;text-align:center;background:var(--gold);color:#fff;border-radius:50%;font-weight:800;font-size:14px;}
+.flow li b{color:var(--gold-d);}
+.flow .arw{text-align:center;color:var(--gold);font-size:13px;margin:-2px 0;}
+.newlaw{background:#eef6f0;border:1px solid #cfe6d6;border-left:4px solid #5a9a72;border-radius:8px;padding:13px 16px;margin:14px 0;}
+.newlaw .nt{font-weight:700;color:#2f6a47;display:block;margin-bottom:4px;}
+.newlaw .badge{display:inline-block;font-size:11px;font-weight:800;color:#fff;background:#5a9a72;border-radius:5px;padding:2px 8px;margin-right:6px;vertical-align:middle;}
+.faq{margin:14px 0;}
+.faq details{border:1px solid var(--line);border-radius:10px;margin:9px 0;background:#fff;overflow:hidden;}
+.faq summary{list-style:none;cursor:pointer;padding:13px 44px 13px 38px;font-weight:700;font-size:15px;color:#241a10;background:#faf7f0;position:relative;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::before{content:"Q";position:absolute;left:15px;color:var(--gold-d);font-family:'Nanum Myeongjo',serif;font-weight:800;}
+.faq summary::after{content:"▾";position:absolute;right:16px;top:13px;color:var(--gold-d);transition:.2s;}
+.faq details[open] summary::after{transform:rotate(180deg);}
+.faq .fa{padding:13px 15px 15px 38px;font-size:14.5px;line-height:1.75;color:#3a3a3a;position:relative;border-top:1px solid var(--line);}
+.faq .fa::before{content:"A";position:absolute;left:15px;top:13px;color:#5a9a72;font-family:'Nanum Myeongjo',serif;font-weight:800;}
+.helm{background:linear-gradient(135deg,#2c3e50,#3a4a5c);color:#f4f0e8;border-radius:14px;padding:20px 22px;margin:0 0 24px;box-shadow:0 4px 14px rgba(44,62,80,.18);}
+.helm .ht2{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:17px;color:#f0d98c;margin-bottom:9px;}
+.helm p{margin:0;font-size:14.5px;line-height:1.9;color:#eae4d8;}
+.helm b{color:#f4e2a6;}
+.qhead{display:flex;gap:12px;align-items:flex-start;margin:8px 0 8px;}
+.qhead .qb{flex:none;width:34px;height:34px;border-radius:50%;background:var(--gold);color:#fff;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(176,141,87,.4);}
+.qhead h2{margin:0;border:0;padding:0;font-size:20px;line-height:1.45;}
+.lawrow{display:flex;flex-wrap:wrap;background:var(--box);border-radius:10px;overflow:hidden;margin:12px 0;border:1px solid var(--line);}
+.lawrow .lrl{flex:none;background:var(--gold);color:#fff;font-weight:700;font-size:13.5px;padding:11px 15px;display:flex;align-items:center;}
+.lawrow .lrc{flex:1;min-width:210px;padding:11px 15px;font-size:14px;line-height:1.75;}
+@media(max-width:520px){.lawrow .lrl{width:100%;}}
+.calc{display:block;background:linear-gradient(135deg,#fff7e8,#fdeecb);border:1.5px solid var(--gold);border-radius:14px;padding:16px 18px;margin:18px 0;text-decoration:none;color:var(--ink);transition:.15s;}
+.calc:hover{box-shadow:0 4px 14px rgba(176,141,87,.25);transform:translateY(-1px);}
+.calc .cah{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:4px;}
+.calc .cas{font-size:13.5px;color:var(--muted);}
+.ctabtn{display:block;text-align:center;background:var(--gold);color:#fff;font-weight:800;font-size:17px;padding:16px;border-radius:12px;text-decoration:none;margin:22px 0 6px;box-shadow:0 3px 10px rgba(176,141,87,.35);}
+.ctabtn:hover{background:var(--gold-d);}
+.doclabel{display:inline-block;font-size:12px;font-weight:800;color:#fff;border-radius:6px;padding:3px 11px;margin-bottom:6px;}
+.doclabel.give{background:#b0885a;}
+.doclabel.back{background:#5a9a72;}
+.dl{color:var(--gold-d);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--gold);}
+.dl:hover{background:#fbf5e8;}
+.ddl{display:flex;gap:2px 10px;flex-wrap:wrap;margin:8px 0 2px;padding:9px 12px;background:#fbf7ee;border-radius:8px;font-size:13px;}
+.ddl b{color:var(--gold-d);}
+.deadline{width:100%;border-collapse:collapse;margin:10px 0;font-size:13.5px;}
+.deadline th{background:#3a4a5c;color:#fff;padding:8px;font-weight:700;}
+.deadline td{border:1px solid var(--line);padding:8px 10px;background:#fff;}
+.bnote{color:#0b4a9c;font-weight:600;background:#eaf2fc;border-left:4px solid #2b7fff;border-radius:8px;padding:9px 13px;margin:8px 0;font-size:13.5px;line-height:1.7;}
+.bnote b{color:#0a3d82;}
+.capital th{background:#f0ebe1;text-align:center;font-size:13px;}
+.capital td{text-align:center;font-size:13.5px;}
+.capital td:first-child{text-align:left;font-weight:700;background:#faf7f0;}
+.capital .hi{background:#fdf6e3;font-weight:700;color:var(--gold-d);}
+.capital .bad{color:#9c3a22;font-weight:700;}
+.grp{border-radius:10px;padding:13px 16px;margin:12px 0;border:1px solid var(--line);border-left-width:5px;}
+.grp .gt{font-weight:800;font-size:15px;margin-bottom:5px;}
+.grp.a{background:#eef6f0;border-left-color:#5a9a72;} .grp.a .gt{color:#2f6a47;}
+.grp.b{background:#fdf9e8;border-left-color:#d4a72c;} .grp.b .gt{color:#8a6d10;}
+.grp.c{background:#fdf2ee;border-left-color:#d9694a;} .grp.c .gt{color:#9c3a22;}
+
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+<h1>상호 · 목적 · 정관 변경 등기</h1>
+
+<div class="helm">
+  <div class="ht2">⚓ 이 안내를 준비한 마음</div>
+  <p>회사 이름을 바꾸거나 새 사업을 시작하시려면 <b>정관을 고치고 등기를 해야 합니다.</b> 절차 자체는 어렵지 않은데, <b>상호가 겹치는지, 목적 문구가 인허가에 맞는지</b>를 먼저 확인하지 않으면 헛걸음을 하시게 됩니다. 특히 <b>상호 변경은 등기가 끝이 아니라 시작</b>입니다. 통장·카드·인감·거래처까지 줄줄이 바꾸셔야 합니다. 이 안내는 그 전부를 순서대로 담았습니다. 혼자 진행하시다 막히실 때 언제든 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, <b>제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</b></p>
+</div>
+
+<div class="qhead"><span class="qb">Q</span>
+  <h2>회사 이름을 바꾸거나, 사업을 하나 더 하려면?</h2>
+</div>
+
+<div class="tnote">밑줄 친 <span class="term">용어<span class="bub">밑줄 친 말에 마우스를 올리거나(휴대폰은 살짝 누르면) 쉬운 설명이 나옵니다.</span></span>에 마우스를 올리면 설명이 나옵니다. 파란 <b>발급처 링크</b>를 누르면 신청 화면으로 바로 이동합니다.</div>
+
+<div class="tldr">
+  <div class="tt">정관을 고치고, 2주 안에 등기하셔야 합니다</div>
+  <ul>
+    <li>상호·목적·공고방법 등은 <b><span class="term">정관<span class="bub">회사의 헌법에 해당하는 문서. 회사 이름·목적·주소·주식 수 등 기본 사항이 적혀 있습니다.</span></span> 기재사항</b>이자 <b>등기사항</b>입니다. 바꾸시려면 <b>정관변경 → 등기</b> 두 단계를 거칩니다.</li>
+    <li>정관변경은 <b><span class="term">주주총회 특별결의<span class="bub">출석한 주주 의결권의 3분의 2 이상, 그리고 발행주식총수의 3분의 1 이상의 찬성이 필요한 결의. 회사의 중요한 사항을 정할 때 씁니다.</span></span></b>입니다(상법 §433·§434).</li>
+    <li>결의일부터 <b>2주 이내</b>에 등기해야 하고, 늦으면 <b>500만원 이하 과태료</b>입니다.</li>
+    <li><b style="color:#9c3a22">상호를 바꾸시면 등기 뒤에 할 일이 많습니다</b> — 사업자등록·통장·카드·법인인감·거래처. 미리 계획하십시오.</li>
+  </ul>
+</div>
+
+<div class="lawrow"><div class="lrl">관련 법령</div><div class="lrc">
+  <b>상법 §289①</b> 정관 절대적 기재사항 · <b>§317②</b> 등기사항 · <b>§363①</b> 소집통지 2주(자본금 10억 미만 10일) · <b>§363④</b> 주주 전원 동의 시 소집절차 생략 · <b>§433·§434</b> 정관변경 특별결의 · <b>§635①1호</b> 과태료 500만원 이하 · <b>공증인법 §66조의2 단서</b> 소규모회사 의사록 인증 면제 · <b>지방세법 §28①6호 바목</b> 등록면허세 40,200원
+</div></div>
+
+<div class="bnote">※ 이 안내는 <b>이미 설립된 법인</b>의 변경 절차입니다. 회사를 처음 만드시는 경우에는 <a href="sanlaw_주식회사설립등기_안내.html" class="dl">주식회사 설립등기 안내</a>를, 사무실을 옮기셨다면 <a href="sanlaw_본점이전_지점등기_안내.html" class="dl">본점이전·지점등기 안내</a>를, 임원이 바뀌셨다면 <a href="sanlaw_임원변경등기_안내.html" class="dl">임원 선임·변경 등기 안내</a>를 보십시오.</div>
+
+<!-- ══════════ 1 ══════════ -->
+<div class="qhead"><span class="qb">1</span><h2>어떤 것이 정관변경 대상인가</h2></div>
+
+<table>
+  <thead><tr><th style="width:24%">항목</th><th style="width:22%">정관변경</th><th>비고</th></tr></thead>
+  <tbody>
+    <tr><td><b>상호</b> (회사 이름)</td><td style="color:#9c3a22"><b>필요</b></td><td>같은 시·군에 동일 상호가 있으면 쓸 수 없습니다</td></tr>
+    <tr><td><b>목적</b> (사업 내용)</td><td style="color:#9c3a22"><b>필요</b></td><td>추가·삭제·수정 모두 해당</td></tr>
+    <tr><td><b>공고방법</b></td><td style="color:#9c3a22"><b>필요</b></td><td>신문 ↔ 홈페이지 변경 등</td></tr>
+    <tr><td><b>발행할 주식의 총수</b></td><td style="color:#9c3a22"><b>필요</b></td><td>증자를 앞두고 한도를 늘릴 때</td></tr>
+    <tr><td><b>1주의 금액</b></td><td style="color:#9c3a22"><b>필요</b></td><td>액면분할·병합</td></tr>
+    <tr><td><b>본점 소재지</b></td><td>정관 기재 방식에 따라</td><td>「서울특별시」까지만 적혀 있으면 그 안에서는 불필요<br>→ <a href="sanlaw_본점이전_지점등기_안내.html" class="dl">본점이전 안내</a> 참조</td></tr>
+    <tr><td><b>임원</b></td><td style="color:#2f6a47"><b>불필요</b></td><td>임원은 정관 기재사항이 아닙니다<br>→ <a href="sanlaw_임원변경등기_안내.html" class="dl">임원변경 안내</a> 참조</td></tr>
+  </tbody>
+</table>
+
+<div class="tip">
+  <span class="pt">정관에 이미 있는지 먼저 확인하십시오</span>
+  <b>사업을 추가하시려는데 정관과 등기부에 그 목적이 이미 들어 있다면 등기가 필요 없습니다.</b> 설립하실 때 목적을 넉넉히 넣어두셨다면 그대로 사업자등록만 고치시면 됩니다.
+  <p style="margin:6px 0 0"><b>먼저 <a href="https://www.iros.go.kr" target="_blank" rel="noopener" class="dl">등기사항전부증명서</a>와 정관을 확인</b>하십시오. 저희가 확인해 드릴 수도 있습니다.</p>
+</div>
+
+<!-- ══════════ 2 ══════════ -->
+<div class="qhead"><span class="qb">2</span><h2>상호를 바꾸실 때 — 먼저 확인할 것</h2></div>
+
+<div class="warn">
+  <span class="wt">★ 같은 상호가 있으면 등기가 되지 않습니다</span>
+  같은 <b>시·군</b>에서 <b>동일한 상호로 동종 영업</b>을 등기할 수 없습니다. 새 이름을 정하시기 전에 <a href="https://www.iros.go.kr" target="_blank" rel="noopener" class="dl">인터넷등기소 상호검색</a>으로 확인하셔야 합니다.
+  <p style="margin:6px 0 0"><b>간판·명함·홈페이지를 먼저 만드셨다가 등기가 막히면</b> 그 비용이 전부 헛돈이 됩니다. <b>반드시 등기 가능 여부를 먼저 확인</b>하십시오. 저희가 확인해 드립니다.</p>
+</div>
+
+<div class="who">
+  <span class="wl">◆ 상호를 정하실 때 유의할 점</span>
+  <ul>
+    <li><b>「주식회사」는 반드시 들어가야 합니다.</b> 앞이든 뒤든 위치는 자유입니다.</li>
+    <li><b>회사의 종류를 오인시키는 문자는 쓸 수 없습니다.</b> 주식회사가 「○○조합」·「○○은행」 같은 이름을 쓰는 것은 제한됩니다.</li>
+    <li><b>상표와는 별개입니다.</b> 상호 등기가 되었다고 상표권이 생기는 것은 아니고, 반대로 남의 상표와 같은 상호를 쓰면 분쟁이 될 수 있습니다. 브랜드로 쓰실 이름이라면 <b>상표 검색을 함께</b> 해보시는 것이 안전합니다.</li>
+    <li><b>기존 상호로 상표를 등록해 두셨다면</b> 상호 변경 후 상표 관련 정리도 필요할 수 있습니다.</li>
+  </ul>
+</div>
+
+<!-- ══════════ 3 ══════════ -->
+<div class="qhead"><span class="qb">3</span><h2>목적을 바꾸실 때 — 인허가를 먼저 보십시오</h2></div>
+
+<div class="concept"><b>목적을 등기부에 올렸다고 해서 그 사업을 바로 할 수 있는 것이 아닙니다.</b> 업종에 따라 별도의 등록·허가·신고가 필요하고, 없이 하시면 형사처벌 대상이 되는 경우도 있습니다.</div>
+
+<table>
+  <thead><tr><th style="width:32%">하시려는 사업</th><th style="width:32%">필요한 것</th><th>어디에</th></tr></thead>
+  <tbody>
+    <tr><td>일반 도소매 · 서비스업</td><td style="color:#2f6a47">사업자등록만</td><td>세무서</td></tr>
+    <tr><td><b>온라인 판매</b></td><td>통신판매업 신고</td><td>시·군·구청</td></tr>
+    <tr><td><b>건설공사</b></td><td>건설업 등록<br><span style="font-size:13px;color:var(--muted)">자본금·기술인력 요건</span></td><td>시·군·구청<br>→ <a href="sanlaw_조경건설업_법인설립_안내.html" class="dl">조경 건설업 안내</a></td></tr>
+    <tr><td><b>자기 브랜드 화장품 유통</b></td><td>화장품책임판매업 등록</td><td>지방식약청</td></tr>
+    <tr><td><b>수출입</b></td><td>무역업 고유번호</td><td>한국무역협회</td></tr>
+  </tbody>
+</table>
+
+<div class="tip">
+  <span class="pt">목적 문구는 「구체적이고 명확하게」</span>
+  「서비스업」처럼 지나치게 광범위한 표현은 등기가 반려될 수 있습니다. <b>「온라인 광고대행업」·「소프트웨어 개발 및 공급업」</b>처럼 구체적으로 쓰셔야 합니다(상법 §289①1호).
+  <p style="margin:6px 0 0"><b>인허가를 받으실 계획이라면 그 업법이 쓰는 표현을 그대로</b> 넣으시는 것이 안전합니다. 관청에서 「목적에 이 사업이 없다」며 되돌려보내는 경우가 있습니다.</p>
+</div>
+
+<div class="cost">
+  <span class="ct">★ 목적은 몇 개를 넣어도 비용이 같습니다</span>
+  이번에 등기하시는 김에 <b>앞으로 하실 가능성이 있는 사업을 넉넉히 넣어두십시오.</b> 목적을 1개 넣든 10개 넣든 <b>등록면허세는 동일</b>합니다. 반대로 나중에 하나 더 추가하시려면 <b>48,240원에 수수료와 시간이 다시</b> 듭니다.
+</div>
+
+<!-- ══════════ 4 ══════════ -->
+<div class="qhead"><span class="qb">4</span><h2>주주총회 — 꼭 모여야 하나요</h2></div>
+
+<div class="concept">정관변경은 <b>주주총회 특별결의</b> 사항입니다. 다만 <b>소규모 회사라면 모이지 않고도 처리</b>할 수 있는 길이 있습니다.</div>
+
+<table>
+  <thead><tr><th style="width:26%">항목</th><th style="width:34%">원칙</th><th>자본금 10억원 미만</th></tr></thead>
+  <tbody>
+    <tr><td><b>소집통지</b></td><td>회의일 <b>2주 전</b> 서면 통지<br><span style="font-size:13px;color:var(--muted)">상법 §363①</span></td><td style="color:#2f6a47"><b>10일 전</b>이면 됩니다</td></tr>
+    <tr><td><b>주주 전원 동의 시</b></td><td colspan="2" style="color:#2f6a47"><b>소집절차 없이 총회를 열 수 있고, 서면결의로 총회를 갈음할 수도 있습니다</b>(상법 §363④·⑤)</td></tr>
+    <tr><td><b>결의 요건</b></td><td colspan="2">출석 주주 의결권의 <b>2/3 이상</b> + 발행주식총수의 <b>1/3 이상</b> (상법 §434)</td></tr>
+    <tr><td><b>의사록 공증</b></td><td>필요<br><span style="font-size:13px;color:var(--muted)">공증료 3만원 수준</span></td><td style="color:#2f6a47"><b>면제</b><br>(공증인법 §66조의2 단서)</td></tr>
+  </tbody>
+</table>
+
+<div class="cost">
+  <span class="ct">가족법인·1인회사라면 가장 간단한 방법</span>
+  주주가 대표님 한 분이거나 가족뿐이라면, <b>「주주 전원의 서면결의서」</b> 한 장으로 끝납니다. <b>모이실 필요도, 공증받으실 필요도 없습니다.</b> 저희가 서식을 만들어 드리면 서명·날인만 하시면 됩니다.
+</div>
+
+<!-- ══════════ 5 ══════════ -->
+<div class="qhead"><span class="qb">5</span><h2>등기신청서 첨부서류와 그 발급처</h2></div>
+<div class="tnote" style="margin-top:0"><span class="term">첨부서류<span class="bub">등기를 신청할 때 신청서와 함께 등기소에 내는 서류. 하나라도 빠지면 「보정하라」는 연락을 받게 됩니다.</span></span>는 임원 변경보다 단순합니다. 핵심은 <b>「정관을 적법하게 고쳤다」는 증명</b>입니다.</div>
+
+<div class="who"><span class="doclabel give">제출</span><br><span class="wl">◆ 준비하실 서류</span>
+  <table style="margin:6px 0 0">
+    <thead><tr><th>서류</th><th style="width:26%">누가</th><th style="width:30%">주의</th></tr></thead>
+    <tbody>
+      <tr><td>변경등기신청서</td><td>사무소 작성</td><td>—</td></tr>
+      <tr><td><b>주주총회 의사록</b><br>또는 <b>주주 전원의 서면결의서</b></td><td>회사 작성<br><span style="font-size:13px;color:var(--muted)">사무소가 서식 제공</span></td><td style="color:#9c3a22">자본금 10억원 이상이면 <b>공증</b></td></tr>
+      <tr><td><b>변경된 정관</b></td><td>회사 보관</td><td>변경 내용이 반영된 것</td></tr>
+      <tr><td><b>주주명부</b></td><td>회사 작성</td><td>정족수 확인용</td></tr>
+      <tr><td><b>위임장</b></td><td>대표이사</td><td>법인 인감 날인 + 법인 인감증명서</td></tr>
+      <tr><td>등록면허세 영수필확인서</td><td><a href="https://www.wetax.go.kr" target="_blank" rel="noopener" class="dl">위택스</a></td><td>—</td></tr>
+      <tr><td>등기신청수수료 영수증</td><td><a href="https://www.iros.go.kr" target="_blank" rel="noopener" class="dl">인터넷등기소</a></td><td>—</td></tr>
+    </tbody>
+  </table>
+  <p style="margin:8px 0 0;font-size:14px">※ 임원 변경과 달리 <b>개인 인감증명서는 필요하지 않습니다.</b> 취임하는 사람이 없기 때문입니다.</p>
+</div>
+
+<!-- ══════════ 6 ══════════ -->
+<div class="qhead"><span class="qb">6</span><h2>절차와 비용</h2></div>
+
+<div class="flow">
+  <div class="ft2">이 순서로 진행됩니다</div>
+  <ol>
+    <li><b>확인</b> — 등기부·정관에 이미 있는지 / 상호가 겹치지 않는지 / 인허가가 필요한지</li>
+    <div class="arw">▼</div>
+    <li><b>주주총회 특별결의</b> — 또는 주주 전원의 서면결의서</li>
+    <div class="arw">▼</div>
+    <li><b>정관 정리</b> — 변경 내용을 반영합니다</li>
+    <div class="arw">▼</div>
+    <li><b>등록면허세 납부</b> — <a href="https://www.wetax.go.kr" target="_blank" rel="noopener" class="dl">위택스</a></li>
+    <div class="arw">▼</div>
+    <li><b>변경등기 신청</b> — 본점 관할 등기소 <span style="color:var(--muted)">(결의일부터 2주 이내)</span></li>
+    <div class="arw">▼</div>
+    <li><b>등기 완료</b> — 접수 후 2~5일</li>
+    <div class="arw">▼</div>
+    <li><b>후속 정리</b> — 사업자등록·통장·인감·거래처 <span style="color:var(--muted)">(↓ 7번)</span></li>
+  </ol>
+</div>
+
+<table>
+  <thead><tr><th>항목</th><th style="width:26%">금액</th><th>납부처</th></tr></thead>
+  <tbody>
+    <tr><td><b>등록면허세</b> (그 밖의 등기)</td><td>40,200원</td><td><a href="https://www.wetax.go.kr" target="_blank" rel="noopener" class="dl">위택스</a></td></tr>
+    <tr><td><b>지방교육세</b> (20%)</td><td>8,040원</td><td>위택스</td></tr>
+    <tr><td><b>등기신청수수료</b></td><td>방문 6,000원 / 전자 2,000원</td><td><a href="https://www.iros.go.kr" target="_blank" rel="noopener" class="dl">인터넷등기소</a></td></tr>
+    <tr style="background:#fdf6e3"><td><b>합　계</b></td><td><b>약 48,240원 + 수수료</b></td><td>—</td></tr>
+  </tbody>
+</table>
+<p style="font-size:13px;color:var(--muted);margin-top:-6px">※ 상호와 목적을 함께 바꾸셔도 「그 밖의 등기」로 묶여 같은 금액입니다. 자본금 10억원 이상이면 의사록 공증료(3만원 수준)가 추가됩니다.</p>
+
+<div class="tip">
+  <span class="pt">한 번에 하시면 절약됩니다</span>
+  상호·목적 변경과 함께 <b>임원 변경</b>이나 <b>본점 이전</b>이 있으시다면 <b>같은 주주총회에서 결의하고 한 번에 등기</b>하시는 편이 좋습니다. 어차피 총회를 여셔야 하고, 등기도 함께 처리하면 비용이 줄어듭니다.
+  <p style="margin:6px 0 0"><b>이 기회에 정관도 정리해 두십시오.</b> 본점 조항을 「서울특별시」까지만 적는 방식으로 바꾸거나, 임원 임기 규정을 정기주주총회에 맞추는 식으로요. 다음에 등기하실 때 훨씬 간단해집니다.</p>
+</div>
+
+<a class="calc" href="https://sanlaw.co.kr/tools-calculator.html" target="_blank" rel="noopener">
+  <div class="cah">🧮 등록면허세·수수료·보수 미리 계산해 보기</div>
+  <div class="cas">등기 유형을 입력하면 등록면허세·지방교육세·등기신청수수료를 포함한 예상 금액을 산출합니다. (클릭 시 계산기로 이동)</div>
+</a>
+
+<!-- ══════════ 7 ══════════ -->
+<div class="qhead"><span class="qb">7</span><h2>★ 상호 변경은 등기가 끝이 아닙니다</h2></div>
+
+<div class="warn">
+  <span class="wt">등기 뒤에 할 일이 더 많습니다</span>
+  회사 이름이 바뀌면 <b>그 이름으로 되어 있던 모든 것</b>을 바꾸셔야 합니다. 하나라도 빠뜨리면 대금을 못 받거나 세금계산서가 반려되는 일이 생깁니다.
+</div>
+
+<table class="deadline">
+  <thead><tr><th>할 일</th><th>어디에</th><th>언제</th></tr></thead>
+  <tbody>
+    <tr><td><b>사업자등록 정정신고</b></td><td><a href="https://www.hometax.go.kr" target="_blank" rel="noopener" class="dl">홈택스</a> · 세무서</td><td><b>지체 없이</b></td></tr>
+    <tr><td><b>법인 인감 재제작 · 재신고</b></td><td>도장집 → 등기소</td><td>상호 변경 시 필수</td></tr>
+    <tr><td><b>법인 통장 명의 변경</b></td><td>거래 은행</td><td>지체 없이</td></tr>
+    <tr><td><b>법인카드 재발급</b></td><td>카드사</td><td>—</td></tr>
+    <tr><td><b>4대보험 사업장 명칭 변경</b></td><td>4대사회보험 정보연계센터</td><td>14일 이내</td></tr>
+    <tr><td><b>인허가 변경신고</b></td><td>해당 관청</td><td>업종별<br><span style="font-size:13px;color:var(--muted)">건설업은 <b>30일 이내</b></span></td></tr>
+    <tr><td><b>거래처 통보 · 계약서 명의</b></td><td>—</td><td>지체 없이</td></tr>
+    <tr><td>세금계산서 · 명함 · 간판 · 홈페이지 · 도메인</td><td>—</td><td>순차적으로</td></tr>
+  </tbody>
+</table>
+
+<div class="bnote">※ <b>법인 인감을 새로 만드셔야 합니다.</b> 도장에 새겨진 이름이 바뀌었으니 종전 인감은 쓸 수 없습니다. 규격은 <b>가로·세로 1cm를 넘고 2.4cm 안에 들어가야</b> 합니다(상업등기규칙 §35④). <b>등기 신청과 동시에 인감 재신고</b>를 하시면 한 번에 끝납니다.</div>
+
+<div class="bnote">※ <b>목적만 바꾸시는 경우</b>에는 위 목록 중 <b>사업자등록 업종 정정</b>과 <b>인허가</b>만 챙기시면 됩니다. 인감·통장·카드는 그대로 쓰실 수 있습니다.</div>
+
+<!-- ══════════ FAQ ══════════ -->
+<div class="qhead"><span class="qb">?</span><h2>자주 묻는 질문</h2></div>
+<div class="faq">
+  <details><summary>사업을 하나 더 하려는데 꼭 등기해야 하나요?</summary>
+    <div class="fa"><b>먼저 등기부와 정관을 확인해 보십시오.</b> 그 목적이 이미 들어 있다면 등기가 필요 없고, 사업자등록에 업종만 추가하시면 됩니다. 설립하실 때 목적을 넉넉히 넣어두셨다면 그대로 쓰실 수 있습니다.</div></details>
+
+  <details><summary>목적을 몇 개까지 넣을 수 있나요?</summary>
+    <div class="fa"><b>개수 제한이 없고, 몇 개를 넣어도 등록면허세가 같습니다.</b> 반대로 나중에 하나 추가하면 48,240원에 수수료가 다시 듭니다. <b>이번에 넉넉히 넣어두시는 편이 이득</b>입니다.</div></details>
+
+  <details><summary>원하는 상호가 이미 있으면 어떻게 하나요?</summary>
+    <div class="fa">같은 <b>시·군</b>에서 <b>동일 상호로 동종 영업</b>은 등기할 수 없습니다. 이 경우 <b>이름을 조금 바꾸거나</b>, 목적이 전혀 다르면 가능한 경우도 있습니다. <b>간판이나 명함을 만드시기 전에 반드시 확인</b>하십시오. 저희가 확인해 드립니다.</div></details>
+
+  <details><summary>주주총회를 꼭 열어야 하나요?</summary>
+    <div class="fa"><b>주주 전원이 동의하시면 열지 않으셔도 됩니다.</b> 「주주 전원의 서면결의서」로 갈음할 수 있고, <b>자본금 10억원 미만이면 공증도 면제</b>됩니다(공증인법 §66조의2 단서). 가족법인이라면 서류 한 장으로 끝납니다.</div></details>
+
+  <details><summary>정관을 잃어버렸는데요</summary>
+    <div class="fa"><b>회사가 보관하는 것이 원칙</b>이라 관공서에서 재발급받을 수는 없습니다. 다만 설립 당시 등기소에 제출한 정관을 <b>열람·복사</b>할 수 있는 경우가 있고, 실무상 <b>새로 작성해 주주총회 결의로 확정</b>하는 방법도 씁니다. 상황을 보고 안내해 드리겠습니다.</div></details>
+
+  <details><summary>상호를 바꾸면 사업자등록번호도 바뀌나요?</summary>
+    <div class="fa"><b>바뀌지 않습니다.</b> 상호만 정정되고 사업자등록번호와 법인등록번호는 그대로입니다. 다만 <b>사업자등록증은 새로 발급</b>받으셔야 하고, 거래처에도 알리셔야 세금계산서 발행에 문제가 없습니다.</div></details>
+
+  <details><summary>인감도 새로 만들어야 하나요?</summary>
+    <div class="fa"><b>상호가 바뀌면 새로 만드셔야 합니다.</b> 도장에 새겨진 이름이 달라졌기 때문입니다. <b>등기 신청과 동시에 인감 재신고</b>를 하시면 한 번에 처리됩니다. 목적만 바꾸시는 경우에는 그대로 쓰셔도 됩니다.</div></details>
+
+  <details><summary>2주가 지났는데 어떻게 하나요?</summary>
+    <div class="fa"><b>지금이라도 하셔야 합니다.</b> 늦었다고 등기가 안 되는 것은 아니고, 다만 <b>과태료가 늦어진 기간에 비례해 늘어납니다.</b> 그리고 과태료는 <b>회사가 아니라 대표님 개인에게</b> 부과됩니다(상법 §635①).</div></details>
+
+  <details><summary>인허가가 필요한 사업인지 어떻게 아나요?</summary>
+    <div class="fa">건설업·화장품·식품·의료기기·여행업 등은 <b>별도의 등록·허가</b>가 필요하고, 없이 하시면 형사처벌 대상인 경우도 있습니다. <b>하시려는 사업 내용을 말씀해 주시면 필요한 인허가를 함께 정리</b>해 드리겠습니다.</div></details>
+
+  <details><summary>다른 등기도 함께 할 수 있나요?</summary>
+    <div class="fa"><b>가능하고, 권해드립니다.</b> 임원 변경이나 본점 이전이 있으시면 <b>같은 주주총회에서 결의하고 한 번에 등기</b>하시는 편이 비용과 시간 모두 절약됩니다. 상담 때 등기부를 보고 <b>빠진 등기가 없는지 점검</b>해 드리겠습니다.</div></details>
+
+  <details><summary>등기는 며칠 걸리나요?</summary>
+    <div class="fa">서류가 갖춰지면 <b>접수 후 2~5일</b>입니다. 자본금 10억원 이상이라 의사록 공증이 필요하시면 그 시간이 더 듭니다.</div></details>
+
+  <details><summary>지점이 있는데 지점도 따로 등기해야 하나요?</summary>
+    <div class="fa"><b>아닙니다.</b> 2025년 1월 31일부터 <b>지점 등기부가 폐지</b>되어, 본점 관할 등기소 한 곳에서 처리하면 됩니다. 예전처럼 지점 등기소에 따로 가지 않으셔도 됩니다. → <a href="sanlaw_본점이전_지점등기_안내.html" class="dl">본점이전·지점등기 안내</a></div></details>
+</div>
+
+<!-- ══════════ CTA ══════════ -->
+<div class="hire">
+  <div class="ft" style="font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:18px;color:var(--gold-d);margin-bottom:8px">이름을 정하시기 전에, 사업을 시작하시기 전에</div>
+  <p style="margin:0 0 8px;font-size:14.5px;line-height:1.85"><b>상호가 겹치지 않는지, 목적 문구가 인허가에 맞는지</b> 먼저 확인하십시오. 간판과 명함을 만드신 뒤에 등기가 막히면 그 비용이 전부 헛돈이 됩니다.</p>
+  <p style="margin:0;font-size:14.5px;line-height:1.85">등기사항전부증명서와 정관을 들고 오시면 <b>지금 무엇이 필요한지 그 자리에서 정리</b>해 드립니다. 미뤄두신 다른 등기가 함께 발견되는 경우가 많은데, <b>한 번에 처리하면 비용도 줄어듭니다.</b></p>
+</div>
+<a class="ctabtn" href="https://sanlaw.co.kr" target="_blank" rel="noopener">상호·목적변경등기 상담 신청하기 →</a>
+
+<div class="src">
+근거 — 상법 §22·§289①·§317②·§363①④⑤·§433·§434·§635①1호 / 상업등기법 §29 / 상업등기규칙 §35④ / 공증인법 §66조의2 및 단서 / 지방세법 §28①6호 바목·§151①2호 / 등기사항증명서 등 수수료규칙 / 건설산업기본법 §9조의2② / 2025. 1. 31. 시행 개정 상업등기법(지점 등기부 폐지). 발급처 링크는 각 기관 공식 사이트로 연결됩니다.
+</div>
+
+
+<script>
+
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+    t.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();t.classList.toggle('on');}if(e.key==='Escape'){t.classList.remove('on');t.blur();}});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){terms.forEach(function(x){x.classList.remove('on');});}});
+})();
+function toggleFold(b){var fb=b.parentElement;fb.classList.toggle('open');}
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('양식이 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('양식이 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('양식을 내려받았습니다');}
+
+</script>
+</body>
+</html>
