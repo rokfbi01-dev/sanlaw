@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[등기 안내] 자본금 증자·감자 등기 — 유상증자·제3자배정·가수금 출자전환 | 산 법무사 김재섭</title>
+<meta name="description" content="법인 증자등기 완전 안내. 주주배정·제3자배정 요건, 납입기일 2주 전 통지, 설립 5년 내 3배 중과, 가수금 출자전환, 무상증자, 감자 절차와 비용까지.">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+ul{margin:8px 0 12px; padding-left:20px;} li{margin:6px 0;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(300px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.who{background:var(--box); border-radius:10px; padding:14px 16px; margin:12px 0; border-left:4px solid #b9a98c;}
+.who .wl{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;margin-left:3px;}
+.tag.free{background:#5a9a72;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.cta{display:block; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; text-decoration:none; font-weight:700; font-size:16px; padding:15px; border-radius:11px; margin:18px 0; box-shadow:0 3px 8px rgba(122,82,48,.25);}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:11px 15px;margin:10px 0;font-size:13.5px;line-height:1.7;}
+.lawbox .ll{display:inline-block;font-size:11.5px;font-weight:700;color:#fff;background:var(--gold-d);border-radius:5px;padding:2px 8px;margin-right:6px;}
+.lawbox a{color:var(--gold-d);font-weight:600;}
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:14.5px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:16px;margin:10px 0;font-family:'D2Coding','Courier New',monospace;font-size:12.5px;line-height:1.65;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:15px;letter-spacing:2px;margin-bottom:10px;color:#241a10;}
+.howto{font-size:13.5px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:12.5px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:6px 12px;cursor:pointer;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.concept{background:var(--box);border-radius:9px;padding:11px 15px;margin:8px 0 14px;font-size:14.5px;color:#5a4a36;border-left:3px solid #b9a98c;}
+.concept b{color:var(--gold-d);}
+.flow{background:linear-gradient(180deg,#fcf9f2,#f7f1e5);border:1.5px solid var(--gold);border-radius:14px;padding:18px 18px 14px;margin:14px 0 20px;}
+.flow .ft2{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:12px;}
+.flow ol{counter-reset:fl;list-style:none;margin:0;padding:0;}
+.flow li{position:relative;padding:8px 10px 8px 44px;margin:7px 0;background:#fff;border:1px solid var(--line);border-radius:10px;font-size:14.5px;line-height:1.6;}
+.flow li::before{counter-increment:fl;content:counter(fl);position:absolute;left:10px;top:8px;width:26px;height:26px;line-height:26px;text-align:center;background:var(--gold);color:#fff;border-radius:50%;font-weight:800;font-size:14px;}
+.flow li b{color:var(--gold-d);}
+.flow .arw{text-align:center;color:var(--gold);font-size:13px;margin:-2px 0;}
+.newlaw{background:#eef6f0;border:1px solid #cfe6d6;border-left:4px solid #5a9a72;border-radius:8px;padding:13px 16px;margin:14px 0;}
+.newlaw .nt{font-weight:700;color:#2f6a47;display:block;margin-bottom:4px;}
+.newlaw .badge{display:inline-block;font-size:11px;font-weight:800;color:#fff;background:#5a9a72;border-radius:5px;padding:2px 8px;margin-right:6px;vertical-align:middle;}
+.faq{margin:14px 0;}
+.faq details{border:1px solid var(--line);border-radius:10px;margin:9px 0;background:#fff;overflow:hidden;}
+.faq summary{list-style:none;cursor:pointer;padding:13px 44px 13px 38px;font-weight:700;font-size:15px;color:#241a10;background:#faf7f0;position:relative;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::before{content:"Q";position:absolute;left:15px;color:var(--gold-d);font-family:'Nanum Myeongjo',serif;font-weight:800;}
+.faq summary::after{content:"▾";position:absolute;right:16px;top:13px;color:var(--gold-d);transition:.2s;}
+.faq details[open] summary::after{transform:rotate(180deg);}
+.faq .fa{padding:13px 15px 15px 38px;font-size:14.5px;line-height:1.75;color:#3a3a3a;position:relative;border-top:1px solid var(--line);}
+.faq .fa::before{content:"A";position:absolute;left:15px;top:13px;color:#5a9a72;font-family:'Nanum Myeongjo',serif;font-weight:800;}
+.helm{background:linear-gradient(135deg,#2c3e50,#3a4a5c);color:#f4f0e8;border-radius:14px;padding:20px 22px;margin:0 0 24px;box-shadow:0 4px 14px rgba(44,62,80,.18);}
+.helm .ht2{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:17px;color:#f0d98c;margin-bottom:9px;}
+.helm p{margin:0;font-size:14.5px;line-height:1.9;color:#eae4d8;}
+.helm b{color:#f4e2a6;}
+.qhead{display:flex;gap:12px;align-items:flex-start;margin:8px 0 8px;}
+.qhead .qb{flex:none;width:34px;height:34px;border-radius:50%;background:var(--gold);color:#fff;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(176,141,87,.4);}
+.qhead h2{margin:0;border:0;padding:0;font-size:20px;line-height:1.45;}
+.lawrow{display:flex;flex-wrap:wrap;background:var(--box);border-radius:10px;overflow:hidden;margin:12px 0;border:1px solid var(--line);}
+.lawrow .lrl{flex:none;background:var(--gold);color:#fff;font-weight:700;font-size:13.5px;padding:11px 15px;display:flex;align-items:center;}
+.lawrow .lrc{flex:1;min-width:210px;padding:11px 15px;font-size:14px;line-height:1.75;}
+@media(max-width:520px){.lawrow .lrl{width:100%;}}
+.calc{display:block;background:linear-gradient(135deg,#fff7e8,#fdeecb);border:1.5px solid var(--gold);border-radius:14px;padding:16px 18px;margin:18px 0;text-decoration:none;color:var(--ink);transition:.15s;}
+.calc:hover{box-shadow:0 4px 14px rgba(176,141,87,.25);transform:translateY(-1px);}
+.calc .cah{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:4px;}
+.calc .cas{font-size:13.5px;color:var(--muted);}
+.ctabtn{display:block;text-align:center;background:var(--gold);color:#fff;font-weight:800;font-size:17px;padding:16px;border-radius:12px;text-decoration:none;margin:22px 0 6px;box-shadow:0 3px 10px rgba(176,141,87,.35);}
+.ctabtn:hover{background:var(--gold-d);}
+.doclabel{display:inline-block;font-size:12px;font-weight:800;color:#fff;border-radius:6px;padding:3px 11px;margin-bottom:6px;}
+.doclabel.give{background:#b0885a;}
+.doclabel.back{background:#5a9a72;}
+.dl{color:var(--gold-d);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--gold);}
+.dl:hover{background:#fbf5e8;}
+.ddl{display:flex;gap:2px 10px;flex-wrap:wrap;margin:8px 0 2px;padding:9px 12px;background:#fbf7ee;border-radius:8px;font-size:13px;}
+.ddl b{color:var(--gold-d);}
+.deadline{width:100%;border-collapse:collapse;margin:10px 0;font-size:13.5px;}
+.deadline th{background:#3a4a5c;color:#fff;padding:8px;font-weight:700;}
+.deadline td{border:1px solid var(--line);padding:8px 10px;background:#fff;}
+.bnote{color:#0b4a9c;font-weight:600;background:#eaf2fc;border-left:4px solid #2b7fff;border-radius:8px;padding:9px 13px;margin:8px 0;font-size:13.5px;line-height:1.7;}
+.bnote b{color:#0a3d82;}
+.capital th{background:#f0ebe1;text-align:center;font-size:13px;}
+.capital td{text-align:center;font-size:13.5px;}
+.capital td:first-child{text-align:left;font-weight:700;background:#faf7f0;}
+.capital .hi{background:#fdf6e3;font-weight:700;color:var(--gold-d);}
+.capital .bad{color:#9c3a22;font-weight:700;}
+.grp{border-radius:10px;padding:13px 16px;margin:12px 0;border:1px solid var(--line);border-left-width:5px;}
+.grp .gt{font-weight:800;font-size:15px;margin-bottom:5px;}
+.grp.a{background:#eef6f0;border-left-color:#5a9a72;} .grp.a .gt{color:#2f6a47;}
+.grp.b{background:#fdf9e8;border-left-color:#d4a72c;} .grp.b .gt{color:#8a6d10;}
+.grp.c{background:#fdf2ee;border-left-color:#d9694a;} .grp.c .gt{color:#9c3a22;}
+
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+<h1>자본금 증자 · 감자 등기</h1>
+
+<div class="helm">
+  <div class="ht2">⚓ 이 안내를 준비한 마음</div>
+  <p>투자를 받으셨거나 자본금을 올려야 할 일이 생기셨다면 <b>증자등기</b>가 필요합니다. 그런데 증자는 다른 등기와 달리 <b>절차를 하나라도 어기면 등기가 끝난 뒤에도 무효가 될 수 있습니다.</b> 특히 기존 주주가 아닌 분에게 주식을 주실 때는 <b>정관 근거·경영상 목적·2주 전 통지</b> 세 가지를 반드시 지키셔야 합니다. 그리고 <b>설립 후 5년 안에 증자하시면 세금이 3배</b>가 되는 점도 미리 아셔야 합니다. 이 안내는 그 전부를 순서대로 담았습니다. 혼자 진행하시다 막히실 때 언제든 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, <b>제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</b></p>
+</div>
+
+<div class="qhead"><span class="qb">Q</span>
+  <h2>투자를 받았는데, 자본금을 올려야 하는데 — 어떻게 하나요?</h2>
+</div>
+
+<div class="tnote">밑줄 친 <span class="term">용어<span class="bub">밑줄 친 말에 마우스를 올리거나(휴대폰은 살짝 누르면) 쉬운 설명이 나옵니다.</span></span>에 마우스를 올리면 설명이 나옵니다. 파란 <b>발급처 링크</b>를 누르면 신청 화면으로 바로 이동합니다.</div>
+
+<div class="tldr">
+  <div class="tt">새로 주식을 발행하고, 2주 안에 등기하셔야 합니다</div>
+  <ul>
+    <li>자본금을 늘리려면 <b><span class="term">신주(新株)<span class="bub">회사가 새로 발행하는 주식. 이 주식을 팔아서 받은 돈이 자본금으로 들어갑니다.</span></span>를 발행</b>하고 그 대금을 받습니다. 이것을 <b>유상증자</b>라고 합니다.</li>
+    <li>등기 기한은 <b>납입기일 다음 날부터 2주</b>입니다. 늦으면 <b>500만원 이하 과태료</b>이고, 대표님 개인에게 부과됩니다.</li>
+    <li><b style="color:#9c3a22">기존 주주가 아닌 분에게 주식을 주시려면</b> 정관 근거·경영상 목적·2주 전 통지가 필요하고, <b>빠뜨리면 증자가 무효</b>가 될 수 있습니다.</li>
+    <li><b style="color:#9c3a22">설립 후 5년 안에 대도시에서 증자하시면 세금이 3배</b>입니다. 처음에 자본금을 넉넉히 잡는 편이 저렴한 이유입니다.</li>
+  </ul>
+</div>
+
+<div class="lawrow"><div class="lrl">관련 법령</div><div class="lrc">
+  <b>상법 §416</b> 신주발행 결정사항 · <b>§418①</b> 주주의 신주인수권 · <b>§418②</b> 제3자배정 요건 · <b>§418④</b> 납입기일 2주 전 통지·공고 · <b>§421</b> 주금납입·상계 · <b>§422</b> 현물출자 검사 · <b>§423①</b> 납입기일 다음 날 주주 지위 취득 · <b>§461</b> 준비금의 자본전입 · <b>§438·§439</b> 자본금 감소 · <b>§317②·§183</b> 변경등기 · <b>§635①1호</b> 과태료 · <b>지방세법 §28①6호 가목·§28②1호</b> 등록면허세·중과
+</div></div>
+
+<div class="bnote">※ 이 안내는 <b>이미 설립된 법인</b>의 자본금 변경 절차입니다. 회사를 처음 만드시는 경우에는 <a href="sanlaw_주식회사설립등기_안내.html" class="dl">주식회사 설립등기 안내</a>를, 임원이 바뀌셨다면 <a href="sanlaw_임원변경등기_안내.html" class="dl">임원 선임·변경 등기</a>, 상호나 사업 목적을 바꾸시려면 <a href="sanlaw_상호목적변경등기_안내.html" class="dl">상호·목적 변경 등기</a> 안내를 보십시오.</div>
+
+<!-- ══════════ 1 ══════════ -->
+<div class="qhead"><span class="qb">1</span><h2>내 경우는 어느 방식인가</h2></div>
+
+<table>
+  <thead><tr><th style="width:20%">방식</th><th style="width:32%">어떤 상황인가</th><th>핵심</th></tr></thead>
+  <tbody>
+    <tr><td><b>주주배정<br>유상증자</b></td><td>기존 주주가 <b>지분 비율대로</b> 돈을 더 넣는 경우</td><td style="color:#2f6a47">가장 간단합니다. 상법이 정한 원칙(§418①)</td></tr>
+    <tr><td><b>제3자배정<br>유상증자</b></td><td><b>투자자·직원 등 기존 주주가 아닌 분</b>에게 주식을 주는 경우</td><td style="color:#9c3a22"><b>요건이 까다롭습니다</b> — ↓ 2번 참조</td></tr>
+    <tr><td><b>무상증자</b></td><td>회사가 쌓아둔 <span class="term">준비금<span class="bub">회사가 이익 등을 배당하지 않고 회사 안에 쌓아둔 돈. 법으로 일정 금액 이상 쌓아두게 되어 있습니다.</span></span>을 자본금으로 옮기는 경우</td><td>돈이 새로 들어오지 않습니다. 이사회 결의(§461)</td></tr>
+    <tr><td><b>가수금<br>출자전환</b></td><td>대표님이 회사에 빌려준 돈을 <b>주식으로 바꾸는</b> 경우</td><td>회사가 동의하면 상계 가능(§421②)</td></tr>
+    <tr><td><b>현물출자</b></td><td>돈 대신 <b>부동산·기계·특허권</b> 등으로 출자하는 경우</td><td style="color:#9c3a22">법원 검사인 조사 또는 감정인 감정 필요(§422)</td></tr>
+    <tr><td><b>감자</b></td><td>자본금을 <b>줄이는</b> 경우</td><td style="color:#9c3a22">절차가 완전히 다릅니다 — ↓ 7번 참조</td></tr>
+  </tbody>
+</table>
+
+<div class="tip">
+  <span class="pt">왜 증자를 하시나요 — 목적에 따라 방식이 갈립니다</span>
+  <ul style="margin:4px 0 0">
+    <li><b>투자를 받았다</b> → 제3자배정 (투자자가 기존 주주가 아니라면)</li>
+    <li><b>인허가 자본금 요건을 맞춰야 한다</b> → 주주배정이 간단합니다<br><span style="font-size:13.5px;color:var(--muted)">예: 건설업 등록에 필요한 자본금 → <a href="sanlaw_조경건설업_법인설립_안내.html" class="dl">조경 건설업 안내</a></span></li>
+    <li><b>대표가 넣어둔 돈을 정리하고 싶다</b> → 가수금 출자전환</li>
+    <li><b>대외 신용도를 올리고 싶다</b> → 무상증자도 방법이지만, 실제 자금이 들어오지 않아 실질자본금은 그대로입니다</li>
+  </ul>
+</div>
+
+<!-- ══════════ 2 ══════════ -->
+<div class="qhead"><span class="qb">2</span><h2>★ 제3자배정 — 세 가지를 반드시 지키십시오</h2></div>
+
+<div class="concept">주주에게는 <b><span class="term">신주인수권<span class="bub">회사가 새 주식을 발행할 때, 기존 주주가 가진 주식 수에 비례해 먼저 인수할 수 있는 권리. 지분이 묽어지는 것을 막기 위한 제도입니다.</span></span></b>이 있습니다(상법 §418①). 기존 주주가 아닌 분에게 주식을 주면 <b>기존 주주의 지분이 묽어지므로</b>, 상법은 엄격한 요건을 둡니다.</div>
+
+<div class="warn">
+  <span class="wt">하나라도 빠지면 증자가 무효가 될 수 있습니다</span>
+  <table style="margin:6px 0 0">
+    <thead><tr><th style="width:22%">요건</th><th>내용</th></tr></thead>
+    <tbody>
+      <tr><td><b>① 정관 근거</b></td><td>정관에 <b>「주주 외의 자에게 신주를 배정할 수 있다」</b>는 규정이 있어야 합니다. 없으면 <b>정관부터 고치셔야</b> 합니다(주주총회 특별결의).</td></tr>
+      <tr><td><b>② 경영상 목적</b></td><td><b>「신기술의 도입, 재무구조의 개선 등 회사의 경영상 목적을 달성하기 위하여 필요한 경우」</b>여야 합니다(상법 §418② 단서). 단순히 특정인에게 지분을 몰아주기 위한 것이면 안 됩니다. <b>이사회 의사록에 그 목적을 구체적으로 적어 두셔야</b> 합니다.</td></tr>
+      <tr><td style="color:#9c3a22"><b>③ 2주 전 통지</b></td><td style="color:#9c3a22"><b>납입기일의 2주 전까지</b> 신주의 종류·수, 발행가액, 납입기일, 인수방법 등을 <b>주주에게 통지하거나 공고</b>해야 합니다(상법 §418④). <b>이것을 빠뜨리면 신주발행 무효사유</b>가 됩니다.</td></tr>
+    </tbody>
+  </table>
+  <p style="margin:8px 0 0"><b>③번을 놓치는 경우가 가장 많습니다.</b> 투자자가 급하다며 서두르시다가 통지를 건너뛰면, 나중에 다른 주주가 문제 삼을 수 있습니다.</p>
+</div>
+
+<div class="cost">
+  <span class="ct">주주가 전원 동의하시면 기간을 줄일 수 있습니다</span>
+  주주 전원이 동의하시면 <b>「공고 단축 또는 통지 생략에 관한 총주주 동의서」</b>로 2주 기간을 줄이거나 생략할 수 있다는 것이 실무 처리 방식입니다. <b>주주가 대표님 한 분이거나 가족뿐이라면</b> 이 방법으로 훨씬 빠르게 진행하실 수 있습니다.
+  <p style="margin:6px 0 0;font-size:13.5px;color:var(--muted)">※ 다만 주주 사이에 다툼이 있거나 이해관계가 엇갈리는 상황이라면 <b>원칙대로 2주를 지키시는 것이 안전</b>합니다. 나중에 분쟁이 생기면 이 서류가 쟁점이 됩니다.</p>
+</div>
+
+<!-- ══════════ 3 ══════════ -->
+<div class="qhead"><span class="qb">3</span><h2>절차는 이렇습니다</h2></div>
+
+<div class="flow">
+  <div class="ft2">유상증자 — 이 순서로 진행됩니다</div>
+  <ol>
+    <li><b>사전 확인</b> — 정관의 <b>「발행할 주식의 총수」</b>가 부족하지 않은지, 제3자배정이면 정관 근거가 있는지</li>
+    <div class="arw">▼</div>
+    <li><b>이사회 결의</b> — 신주의 종류·수, 발행가액, 납입기일, 인수방법을 정합니다(상법 §416)<br><span style="font-size:13.5px;color:var(--muted)">이사가 1~2명이면 이사 결정서 / 정관에 정하면 주주총회</span></li>
+    <div class="arw">▼</div>
+    <li><b>통지·공고</b> — 주주배정은 배정기준일 2주 전 공고, 제3자배정은 <b>납입기일 2주 전 통지</b></li>
+    <div class="arw">▼</div>
+    <li><b>청약과 배정</b> — 주식청약서로 청약 → 이사가 배정</li>
+    <div class="arw">▼</div>
+    <li><b>주금 납입</b> — 납입기일까지 전액 납입. 은행에서 <b>잔고증명서</b> 발급<br><span style="font-size:13.5px;color:var(--muted)">증자 후 자본금 10억원 미만이면 주금납입보관증명서 대신 잔고증명서로 갈음</span></li>
+    <div class="arw">▼</div>
+    <li><b>★ 납입기일 다음 날 — 주주가 됩니다</b> (상법 §423①). 이날부터 <b>2주</b>가 시작됩니다</li>
+    <div class="arw">▼</div>
+    <li><b>등록면허세 납부 → 변경등기 신청</b> — 본점 관할 등기소</li>
+    <div class="arw">▼</div>
+    <li><b>등기 완료</b> — 접수 후 2~5일. 이후 주주명부 정리·주식등변동상황명세서</li>
+  </ol>
+</div>
+
+<div class="warn">
+  <span class="wt">★ 「발행할 주식의 총수」가 모자라면 증자를 못 합니다</span>
+  정관에 적힌 <b>「회사가 발행할 주식의 총수」</b>는 앞으로 발행할 수 있는 <b>한도</b>입니다. 이 한도를 넘겨서 신주를 발행할 수 없습니다.
+  <p style="margin:6px 0 0">한도가 부족하면 <b>정관변경(주주총회 특별결의)을 먼저</b> 하셔야 하고, 절차가 하나 더 늘어납니다. <b>설립하실 때 이 숫자를 넉넉히 잡아두시라고 말씀드리는 이유</b>가 여기 있습니다. 지금 등기부에서 확인해 보십시오.</p>
+</div>
+
+<!-- ══════════ 4 ══════════ -->
+<div class="qhead"><span class="qb">4</span><h2>등기신청서 첨부서류와 그 발급처</h2></div>
+<div class="tnote" style="margin-top:0"><span class="term">첨부서류<span class="bub">등기를 신청할 때 신청서와 함께 등기소에 내는 서류. 하나라도 빠지면 「보정하라」는 연락을 받게 됩니다.</span></span>는 배정 방식에 따라 조금씩 다릅니다.</div>
+
+<div class="who"><span class="doclabel give">제출</span><br><span class="wl">◆ 준비하실 서류</span>
+  <table style="margin:6px 0 0">
+    <thead><tr><th>서류</th><th style="width:24%">누가</th><th style="width:28%">주의</th></tr></thead>
+    <tbody>
+      <tr><td>변경등기신청서</td><td>사무소 작성</td><td>—</td></tr>
+      <tr><td><b>이사회 의사록</b> 또는 <b>이사 결정서</b></td><td>회사 작성</td><td>신주발행 사항을 구체적으로 기재</td></tr>
+      <tr><td><b>주식청약서</b></td><td>인수인 작성</td><td>인수할 주식 수·주소 기재 후 기명날인 또는 서명</td></tr>
+      <tr><td><b>주금납입 증명</b></td><td>은행</td><td style="color:#9c3a22">증자 후 자본금 10억원 미만이면 <b>잔고증명서</b>로 갈음</td></tr>
+      <tr><td><b>통지·공고 증명</b></td><td>회사</td><td style="color:#9c3a22">제3자배정 시 필수. 또는 <b>총주주 동의서</b></td></tr>
+      <tr><td>정관</td><td>회사 보관</td><td>제3자배정 근거·발행한도 확인용</td></tr>
+      <tr><td>주주명부</td><td>회사 작성</td><td>—</td></tr>
+      <tr><td>위임장</td><td>대표이사</td><td>법인 인감 날인 + 법인 인감증명서</td></tr>
+      <tr><td>등록면허세 영수필확인서</td><td><a href="https://www.wetax.go.kr" target="_blank" rel="noopener" class="dl">위택스</a></td><td>—</td></tr>
+      <tr><td>등기신청수수료 영수증</td><td><a href="https://www.iros.go.kr" target="_blank" rel="noopener" class="dl">인터넷등기소</a></td><td>—</td></tr>
+    </tbody>
+  </table>
+  <p style="margin:8px 0 0;font-size:14px">※ <b>정관변경이 함께 필요한 경우</b>(발행한도 부족·제3자배정 근거 없음)에는 <b>주주총회 의사록</b>과 변경된 정관이 추가됩니다. 자본금 10억원 미만이면 의사록 공증이 면제됩니다.</p>
+</div>
+
+<div class="bnote">※ <b>현물출자로 증자하실 때는 절차가 크게 늘어납니다.</b> 법원에 검사인 선임을 신청하거나 공인된 감정인의 감정을 받아야 합니다(상법 §422). 기간과 비용이 상당히 들어가니 <b>상담 때 먼저 말씀해 주십시오.</b></div>
+
+<!-- ══════════ 5 ══════════ -->
+<div class="qhead"><span class="qb">5</span><h2>★ 비용 — 5년 안에 하시면 3배입니다</h2></div>
+
+<div class="warn">
+  <span class="wt">설립 후 5년 이내 · 대도시 증자는 중과 대상입니다</span>
+  지방세법은 <b>대도시(과밀억제권역)에서 법인을 설립한 뒤 5년 이내에 자본이 증가하는 경우</b>를 중과 대상으로 정하고 있습니다(§28②1호). 이 경우 등록면허세가 <b>3배</b>가 됩니다.
+  <p style="margin:6px 0 0"><b>설립하실 때 자본금을 넉넉히 잡으시라고 말씀드리는 이유</b>가 여기 있습니다. 나중에 올리면 훨씬 비쌉니다.</p>
+</div>
+
+<table>
+  <thead><tr><th style="width:26%">증자 금액</th><th style="width:26%">일반</th><th>대도시 · 설립 5년 이내</th></tr></thead>
+  <tbody>
+    <tr><td><b>1,000만원</b></td><td>135,000원</td><td style="color:#9c3a22"><b>405,000원</b></td></tr>
+    <tr><td><b>3,000만원</b></td><td>144,000원</td><td style="color:#9c3a22"><b>432,000원</b></td></tr>
+    <tr><td><b>1억원</b></td><td>480,000원</td><td style="color:#9c3a22"><b>1,440,000원</b></td></tr>
+    <tr><td><b>5억원</b></td><td>2,400,000원</td><td style="color:#9c3a22"><b>7,200,000원</b></td></tr>
+  </tbody>
+</table>
+<p style="font-size:13px;color:var(--muted);margin-top:-6px">※ 등록면허세(증자액의 0.4%, 최저 112,500원) + 지방교육세(20%) 합산액입니다. 등기신청수수료 별도.</p>
+
+<div class="tip">
+  <span class="pt">계산 방법</span>
+  <b>증자한 금액 × 0.4%</b>가 등록면허세입니다. 계산 결과가 <b>112,500원보다 적으면 112,500원</b>을 냅니다. 여기에 <b>지방교육세 20%</b>가 붙고, 중과 대상이면 등록면허세가 <b>3배</b>가 됩니다.
+  <p style="margin:6px 0 0"><b>무상증자도 자본금이 늘어나므로 같은 기준으로 과세</b>됩니다. 돈이 들어오지 않는데 세금은 나가니, 실익을 따져 보셔야 합니다.</p>
+</div>
+
+<a class="calc" href="https://sanlaw.co.kr/tools-calculator.html" target="_blank" rel="noopener">
+  <div class="cah">🧮 등록면허세·수수료·보수 미리 계산해 보기</div>
+  <div class="cas">증자 금액과 본점 소재지, 설립일을 입력하면 중과 여부를 포함한 예상 금액을 산출합니다. (클릭 시 계산기로 이동)</div>
+</a>
+
+<!-- ══════════ 6 ══════════ -->
+<div class="qhead"><span class="qb">6</span><h2>이런 경우도 증자입니다</h2></div>
+
+<div class="who">
+  <span class="wl">◆ 가수금 출자전환 — 대표가 빌려준 돈을 주식으로</span>
+  <p style="margin:4px 0 8px">회사를 운영하시면서 개인 돈을 넣어두신 <b><span class="term">가수금<span class="bub">사장님이 회사에 빌려준 돈. 회계상 회사가 대표에게 갚아야 할 빚으로 잡힙니다.</span></span></b>이 쌓여 있다면, 그 채권으로 주식 대금을 <b>상계</b>해 증자할 수 있습니다.</p>
+  <ul>
+    <li>원칙적으로 인수인은 회사에 대한 채권으로 상계할 수 없으나, <b>회사가 동의하면 가능</b>합니다(상법 §421②).</li>
+    <li><b>부채가 줄고 자본금이 늘어</b> 재무구조가 좋아집니다. 건설업처럼 <b>실질자본금 요건</b>이 있는 업종에서 특히 유용합니다.</li>
+    <li>다만 <b>가수금의 실재를 증빙</b>할 수 있어야 하고, 세무상 검토가 필요합니다. <b>협력 세무사와 함께 진행</b>하시는 것이 안전합니다.</li>
+  </ul>
+</div>
+
+<div class="who">
+  <span class="wl">◆ 무상증자 — 돈이 들어오지 않는 증자</span>
+  <ul>
+    <li>회사가 쌓아둔 <b>준비금을 자본금으로 옮기는</b> 것입니다(상법 §461). <b>이사회 결의</b>로 할 수 있습니다.</li>
+    <li>주주는 <b>돈을 내지 않고</b> 지분 비율대로 주식을 더 받습니다.</li>
+    <li><b>자본금이 늘어 대외적으로 보기 좋아지지만</b>, 실제 자금이 들어오지 않아 <b>회사의 순자산은 그대로</b>입니다.</li>
+    <li style="color:#9c3a22"><b>세금은 유상증자와 같은 기준으로 나갑니다.</b> 돈은 안 들어오는데 세금만 내게 되니, 실익을 꼭 따져 보십시오.</li>
+  </ul>
+</div>
+
+<div class="who">
+  <span class="wl">◆ 현물출자 — 돈 대신 물건으로</span>
+  <ul>
+    <li>부동산·기계·차량·특허권 등으로 출자하는 방식입니다.</li>
+    <li><b>법원이 선임한 검사인의 조사</b> 또는 <b>공인된 감정인의 감정</b>이 필요합니다(상법 §422). 출자재산을 부풀려 자본금을 허위로 늘리는 것을 막기 위해서입니다.</li>
+    <li style="color:#9c3a22"><b>기간과 비용이 상당히 듭니다.</b> 부동산이면 취득세도 별도로 발생합니다.</li>
+  </ul>
+</div>
+
+<!-- ══════════ 7 ══════════ -->
+<div class="qhead"><span class="qb">7</span><h2>감자 — 자본금을 줄이실 때</h2></div>
+
+<div class="concept">자본금을 <b>줄이는</b> 것을 <span class="term">감자<span class="bub">자본금 감소. 결손을 정리하거나 주주에게 자본을 돌려줄 때 합니다.</span></span>라고 합니다. <b>증자보다 훨씬 까다롭습니다.</b> 자본금은 회사 채권자들에게 「이만큼은 남아 있다」는 최소한의 담보인데, 그것을 줄이는 일이기 때문입니다.</div>
+
+<table>
+  <thead><tr><th style="width:26%">항목</th><th>내용</th></tr></thead>
+  <tbody>
+    <tr><td><b>결의</b></td><td><b>주주총회 특별결의</b>(상법 §438). 결손 보전을 위한 감자는 보통결의로 가능합니다(§438② 단서)</td></tr>
+    <tr><td style="color:#9c3a22"><b>채권자보호절차</b></td><td style="color:#9c3a22"><b>1개월 이상의 기간</b>을 정해 이의가 있으면 제출하라고 <b>공고</b>하고, 알고 있는 채권자에게는 <b>따로 최고</b>해야 합니다(상법 §439②·§232). <b>이의를 낸 채권자에게는 변제하거나 담보를 제공</b>해야 합니다.</td></tr>
+    <tr><td><b>소요 기간</b></td><td>채권자보호절차 때문에 <b>최소 1개월 이상</b> 걸립니다</td></tr>
+    <tr><td><b>등록면허세</b></td><td>40,200원 + 지방교육세 8,040원 = <b>48,240원</b><br><span style="font-size:13px;color:var(--muted)">자본금이 늘지 않으므로 「그 밖의 등기」로 처리</span></td></tr>
+  </tbody>
+</table>
+
+<div class="bnote">※ <b>결손 보전을 위한 감자</b>는 절차가 다소 완화됩니다. 다만 <b>어느 유형에 해당하는지 판단이 필요</b>하고, 세무상 검토도 함께 하셔야 합니다. <b>감자를 생각하고 계시면 상담을 먼저 받아보시길</b> 권합니다.</div>
+
+<!-- ══════════ 8 ══════════ -->
+<div class="qhead"><span class="qb">8</span><h2>등기가 끝나면</h2></div>
+
+<table class="deadline">
+  <thead><tr><th>할 일</th><th>어디에</th><th>언제</th></tr></thead>
+  <tbody>
+    <tr><td><b>주주명부 정리</b></td><td>회사 보관</td><td>즉시</td></tr>
+    <tr><td><b>주식등변동상황명세서 제출</b></td><td>세무서</td><td>법인세 신고 시</td></tr>
+    <tr><td><b>증권거래세 신고</b></td><td>세무서</td><td>해당 시<br><span style="font-size:13px;color:var(--muted)">기존 주식 양도가 함께 있는 경우</span></td></tr>
+    <tr><td><b>인허가 자본금 요건 신고</b></td><td>해당 관청</td><td>업종별<br><span style="font-size:13px;color:var(--muted)">건설업은 등록기준 신고</span></td></tr>
+    <tr><td><b>주주 변동 세무 검토</b></td><td>세무사</td><td>지체 없이</td></tr>
+  </tbody>
+</table>
+
+<div class="warn">
+  <span class="wt">★ 증자는 세무 문제가 따라옵니다</span>
+  신주를 <b>시가보다 싸게 발행</b>하면 기존 주주에서 새 주주로 이익이 넘어간 것으로 보아 <b>증여세</b>가 문제될 수 있습니다(상속세 및 증여세법). 특히 <b>가족 사이의 증자</b>는 반드시 검토가 필요합니다.
+  <p style="margin:6px 0 0"><b>발행가액을 얼마로 할지</b>는 등기 문제가 아니라 세무 문제입니다. 저희가 <b>협력 세무사와 함께 검토</b>해 드리겠습니다.</p>
+</div>
+
+<!-- ══════════ FAQ ══════════ -->
+<div class="qhead"><span class="qb">?</span><h2>자주 묻는 질문</h2></div>
+<div class="faq">
+  <details><summary>투자를 받기로 했는데 무엇부터 하나요?</summary>
+    <div class="fa"><b>먼저 정관을 확인하십시오.</b> ① 「발행할 주식의 총수」에 여유가 있는지 ② 「주주 외의 자에게 신주를 배정할 수 있다」는 규정이 있는지. 둘 중 하나라도 없으면 <b>정관변경(주주총회 특별결의)이 먼저</b>입니다. 등기부와 정관을 들고 오시면 확인해 드립니다.</div></details>
+
+  <details><summary>투자자가 급하다는데 2주를 꼭 기다려야 하나요?</summary>
+    <div class="fa">제3자배정은 <b>납입기일 2주 전까지 주주에게 통지</b>해야 합니다(상법 §418④). 다만 <b>주주 전원이 동의</b>하시면 「총주주 동의서」로 기간을 줄이거나 생략하는 것이 실무 처리 방식입니다. <b>주주가 대표님 한 분이거나 가족뿐이라면</b> 빠르게 진행하실 수 있습니다.</div></details>
+
+  <details><summary>통지를 안 하면 어떻게 되나요?</summary>
+    <div class="fa"><b>신주발행 무효사유가 됩니다.</b> 등기가 끝난 뒤에도 다른 주주가 무효를 다툴 수 있습니다. 투자자 입장에서도 위험하므로, <b>절차를 지키는 것이 결국 모두에게 안전</b>합니다.</div></details>
+
+  <details><summary>왜 「경영상 목적」이 필요한가요?</summary>
+    <div class="fa">주주에게는 지분 비율대로 새 주식을 먼저 인수할 권리가 있는데(상법 §418①), 제3자배정은 그 권리를 제한하기 때문입니다. 그래서 <b>「신기술의 도입, 재무구조의 개선 등 경영상 목적」</b>이 있어야 합니다(§418② 단서). <b>이사회 의사록에 그 목적을 구체적으로 적어 두셔야</b> 합니다.</div></details>
+
+  <details><summary>설립한 지 3년인데 증자하면 세금이 3배인가요?</summary>
+    <div class="fa"><b>본점이 대도시(과밀억제권역)에 있고 설립 후 5년 이내</b>라면 그렇습니다(지방세법 §28②1호). 예를 들어 1억원 증자 시 480,000원이 <b>1,440,000원</b>이 됩니다. <b>설립할 때 자본금을 넉넉히 잡으시라고 권해드리는 이유</b>입니다.</div></details>
+
+  <details><summary>대표가 회사에 빌려준 돈을 주식으로 바꿀 수 있나요?</summary>
+    <div class="fa"><b>가능합니다.</b> 가수금 출자전환이라고 하며, 회사가 동의하면 채권으로 주식 대금을 상계할 수 있습니다(상법 §421②). <b>부채가 줄고 자본금이 늘어</b> 재무구조가 좋아집니다. 다만 <b>가수금의 실재를 증빙</b>해야 하고 세무 검토가 필요합니다.</div></details>
+
+  <details><summary>무상증자를 하면 뭐가 좋은가요?</summary>
+    <div class="fa">자본금이 늘어 <b>대외적으로 보기 좋아집니다.</b> 다만 <b>실제 자금이 들어오지 않아</b> 회사의 순자산은 그대로이고, <b>세금은 유상증자와 같은 기준</b>으로 나갑니다. 돈은 안 들어오는데 세금만 내게 되니 실익을 따져 보셔야 합니다.</div></details>
+
+  <details><summary>부동산으로 출자해도 되나요?</summary>
+    <div class="fa"><b>가능하지만 절차가 크게 늘어납니다.</b> 법원 검사인의 조사 또는 감정인의 감정이 필요하고(상법 §422), 기간과 비용이 상당히 듭니다. 부동산이면 <b>취득세</b>도 별도로 발생합니다. <b>상담 때 먼저 말씀해 주십시오.</b></div></details>
+
+  <details><summary>주식 가격은 얼마로 정하나요?</summary>
+    <div class="fa">이사회에서 정하지만, <b>시가보다 싸게 발행하면 증여세 문제</b>가 생길 수 있습니다. 특히 가족 사이의 증자는 반드시 검토가 필요합니다. <b>등기 문제가 아니라 세무 문제</b>이므로 협력 세무사와 함께 검토해 드리겠습니다.</div></details>
+
+  <details><summary>자본금을 줄일 수도 있나요?</summary>
+    <div class="fa">가능하지만 <b>증자보다 훨씬 까다롭습니다.</b> 주주총회 특별결의에 더해 <b>1개월 이상의 채권자보호절차</b>가 필요하고(상법 §439②), 이의를 낸 채권자에게는 변제하거나 담보를 제공해야 합니다. <b>최소 한 달 이상</b> 걸립니다.</div></details>
+
+  <details><summary>등기는 며칠 걸리나요?</summary>
+    <div class="fa">서류가 갖춰지면 <b>접수 후 2~5일</b>입니다. 다만 <b>통지·공고 기간(2주)</b>과 정관변경이 필요한 경우 주주총회 준비 기간이 앞에 붙습니다. 전체적으로 <b>3~4주</b>를 보시면 됩니다.</div></details>
+
+  <details><summary>건설업 자본금 요건을 맞추려는데요</summary>
+    <div class="fa"><b>증자로 맞추실 수 있습니다.</b> 다만 건설업은 통장 잔액이 아니라 <b>실질자본금(자산 − 부채)</b>을 보므로, 증자한 돈이 회사 자산으로 남아 있어야 합니다. 가수금 출자전환은 부채를 줄이면서 자본금을 늘려 <b>특히 유용</b>합니다. → <a href="sanlaw_조경건설업_법인설립_안내.html" class="dl">조경 건설업 안내</a></div></details>
+</div>
+
+<!-- ══════════ CTA ══════════ -->
+<div class="hire">
+  <div class="ft" style="font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:18px;color:var(--gold-d);margin-bottom:8px">증자는 「먼저 확인」이 절반입니다</div>
+  <p style="margin:0 0 8px;font-size:14.5px;line-height:1.85">발행 한도가 남아 있는지, 제3자배정 근거가 정관에 있는지, 언제까지 통지해야 하는지 — <b>이것만 정리되면 나머지는 순서대로 흘러갑니다.</b> 반대로 이걸 건너뛰면 등기가 끝난 뒤에도 무효를 다투게 됩니다.</p>
+  <p style="margin:0;font-size:14.5px;line-height:1.85"><b>등기사항전부증명서와 정관을 들고 오십시오.</b> 어느 방식이 맞는지, 언제까지 무엇을 해야 하는지 그 자리에서 정리해 드리겠습니다. 발행가액과 세금은 협력 세무사와 함께 검토해 드립니다.</p>
+</div>
+<a class="ctabtn" href="https://sanlaw.co.kr" target="_blank" rel="noopener">증자·감자 등기 상담 신청하기 →</a>
+
+<div class="src">
+근거 — 상법 §183·§317②·§416·§418·§421·§422·§423①·§438·§439·§461·§635①1호 / 상업등기규칙 §133 / 공증인법 §66조의2 단서 / 지방세법 §28①6호 가목·§28②1호·§151①2호 / 등기사항증명서 등 수수료규칙 / 상속세 및 증여세법(저가발행 시 증여 문제). 발급처 링크는 각 기관 공식 사이트로 연결됩니다.
+</div>
+
+
+<script>
+
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+    t.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();t.classList.toggle('on');}if(e.key==='Escape'){t.classList.remove('on');t.blur();}});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){terms.forEach(function(x){x.classList.remove('on');});}});
+})();
+function toggleFold(b){var fb=b.parentElement;fb.classList.toggle('open');}
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('양식이 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('양식이 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('양식을 내려받았습니다');}
+
+</script>
+</body>
+</html>
