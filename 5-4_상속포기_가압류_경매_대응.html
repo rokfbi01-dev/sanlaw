@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[5-4] 상속을 포기했는데 가압류·경매·집행이 들어왔어요 — 무엇을 막고 무엇은 못 막나 | 산 법무사 김재섭</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(280px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.case{background:var(--box); border-radius:10px; padding:14px 16px; margin:14px 0; border-left:4px solid #b9a98c;}
+.case .ct{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+.sit-wrap{display:flex; gap:12px; margin:14px 0;}
+.sit{flex:1; background:#f8f5ee; border:1px solid var(--line); border-top:3px solid var(--gold); border-radius:10px; padding:13px 15px; font-size:14.5px; line-height:1.75;}
+.sit .sl{display:block; font-weight:700; color:var(--gold-d); margin-bottom:6px; font-size:14px;}
+@media (max-width:680px){ .sit-wrap{flex-direction:column;} }
+/* 전체 길 흐름도 */
+.flow{background:linear-gradient(180deg,#faf7f0,#f6f1e6); border:1px solid var(--line); border-radius:14px; padding:22px 20px; margin:16px 0;}
+.flow .fl-t{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:18px; text-align:center; letter-spacing:.3px;}
+.flow .node{position:relative; background:#fff; border:1px solid #e3d8c4; border-radius:11px; padding:15px 18px 15px 56px; font-size:14.5px; line-height:1.72; box-shadow:0 2px 6px rgba(122,82,48,.07);}
+.flow .node .num{position:absolute; left:15px; top:14px; width:30px; height:30px; line-height:30px; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; border-radius:50%; font-weight:800; font-size:15px; font-family:'Nanum Myeongjo',serif; box-shadow:0 2px 5px rgba(122,82,48,.3);}
+.flow .node b{color:#241a10;}
+.flow .down{display:flex; justify-content:center; align-items:center; padding:7px 0;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+/* 작성례 박스 */
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:15px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .tag{margin-bottom:0;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;}
+.tag.cred{background:#5a9a72;}
+.tag.debt{background:#d9694a;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:18px;margin:12px 0;font-family:'D2Coding','Courier New',monospace;font-size:13px;line-height:1.6;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:16px;letter-spacing:2px;margin-bottom:12px;color:#241a10;}
+.howto{font-size:14px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0 4px;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:13px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:7px 13px;cursor:pointer;transition:.15s;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.75;}
+.lawbox .ll{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:#241a10;border-radius:5px;padding:2px 9px;margin-right:7px;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.hire p{margin:7px 0; font-size:15px; line-height:1.8;}
+.cta{display:block;text-align:center;background:var(--gold-d);color:#fff;font-weight:700;font-size:17px;text-decoration:none;padding:15px;border-radius:11px;margin:18px 0;font-family:'Nanum Myeongjo',serif;letter-spacing:1px;}
+.cta:hover{background:#5e3f24;}
+@media print{
+  body{background:#fff; max-width:100%;}
+  .tldr,.case,.warn,.tip,.cost,.steps li,.tnote,.sit,.flow,.flow li,.lawbox,.hire{background:#fff !important; border-color:#ccc !important;}
+  .tnote{display:none;}
+  .term{border:none; color:inherit; font-weight:inherit;}
+  .term>.bub{display:inline !important; position:static; width:auto; background:none; color:inherit; box-shadow:none; padding:0; font-size:inherit; line-height:inherit;}
+  .term>.bub::before{content:" ("; }
+  .term>.bub::after{content:")"; border:none; position:static;}
+  .fold-body{display:block !important;}.fold-btn .chev{display:none;}.form-tools{display:none;}
+  .cta{background:#fff !important; color:#241a10 !important; border:1px solid #ccc;}
+}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+
+
+<h1>[5-4] 상속을 포기했는데 가압류·경매·집행이 들어왔어요 — 무엇을 막고 무엇은 못 막나</h1>
+
+<div class="tnote">어려운 법률용어에는 <b>점선 밑줄</b>이 그어져 있습니다. <b>PC는 마우스를 올리면</b>, <b>휴대폰은 손가락으로 톡 누르면</b> 쉬운 설명이 뜹니다. (인쇄하면 괄호로 함께 나옵니다.)</div>
+
+<div class="hire">
+<div class="ht">이 매뉴얼을 끝까지 읽으시는 분께</div>
+<p>이 매뉴얼은 <b>의뢰인이 직접 법원에 신청할 수 있도록 모든 서류 양식·비용·요건을 구체적으로 담았습니다.</b> 하지만 소송은 살아있는 생물과 같아 상대방의 격렬한 저항이 뒤따릅니다. 혼자 진행하시다가 막히는 부분이 생기거나 방어막이 필요할 때, 언제든 이 매뉴얼을 들고 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</p>
+</div>
+
+<div class="tldr">
+<div class="tt">⭐ 30초 결론부터</div>
+<ul>
+<li><b>먼저 '무엇에' 들어온 집행인지 구분하세요.</b> ① 돌아가신 분이 남긴 <span class="term">상속재산<span class="bub">돌아가신 분 명의의 재산(부동산·예금 등). 포기하면 나와 무관해지고 종국 상속인 또는 상속재산관리인의 몫이 됩니다.</span></span>에 대한 집행인지, ② <span class="term">내 고유재산<span class="bub">상속과 관계없는 나 자신의 원래 재산(내 명의 집·통장 등).</span></span>에 대한 집행인지에 따라 대응이 완전히 다릅니다.</li>
+<li><b>상속재산에 대한 가압류는 포기해도 못 막습니다.</b> 채권자가 상속관계 확정 전에 상속재산에 받아 둔 <span class="term">가압류<span class="bub">나중에 강제집행을 할 수 있도록 재산을 미리 묶어 두는 보전처분.</span></span>는, 그 뒤 내가 포기해도 효력이 그대로 유지됩니다(대법원 2021다224446). 어차피 그 재산은 종국 상속인·관리인의 것이라 내가 다툴 일이 아닙니다.</li>
+<li><b>내 고유재산에 들어온 집행은 막을 수 있습니다.</b> 나는 포기로 <b>처음부터 상속인이 아니므로</b>(민법 §1042), 내 재산은 돌아가신 분의 빚을 갚을 대상이 아닙니다. <b>승계집행문</b>으로 들어왔으면 '집행문부여에 대한 이의'(민사집행법 §34·§45), 그 밖의 집행이면 '제3자이의의 소'(§48)로 막습니다.</li>
+<li><b>막으려면 '정지'를 함께 신청해야 합니다.</b> 이의나 소를 내는 것만으로는 진행 중인 경매가 멈추지 않습니다. <b>강제집행정지신청</b>(작성례 ③)으로 정지결정을 받아, <b>그 결정 정본을 집행기관에 제출</b>해야 비로소 멈춥니다.</li>
+<li><b style="color:#9c3a22">이미 배당 단계라면 시간이 거의 없습니다.</b> 배당기일 통지를 받았다면 <b>반드시 그 기일에 출석하여 이의</b>하고, <b>1주일 안에</b> 배당이의의 소를 제기한 뒤 그 증명을 법원에 내야 합니다(민사집행법 §151·§154). 출석하지 않으면 그대로 배당이 확정됩니다.</li>
+</ul>
+</div>
+
+<h2>지금 어떤 상황인가요?</h2>
+<div class="sit-wrap">
+<div class="sit"><span class="sl">상황 ① · 상속재산에 가압류</span>돌아가신 분 명의 부동산·예금 등 <b>상속재산에 가압류·경매</b>가 진행되는 경우. → 포기했다면 그 재산은 내 것이 아니므로 내가 막을 일이 아닙니다(2021다224446).</div>
+<div class="sit"><span class="sl">상황 ② · 내 재산에 집행</span>채권자가 나를 상속인으로 보아 <b>내 명의 집·통장(고유재산)에 압류·경매</b>를 한 경우. → 나는 상속인이 아니므로 <b>이의·소로 막습니다.</b></div>
+</div>
+
+<h2>핵심 세 가지</h2>
+<ol class="steps">
+<li><b>'상속재산이냐, 내 고유재산이냐'가 먼저</b> — 집행 통지서의 대상 재산이 <b>누구 명의</b>인지부터 확인합니다. 돌아가신 분 명의면 상속재산, 내 명의면 고유재산입니다.</li>
+<li><b>상속재산 가압류는 포기해도 유효</b> — 채권자는 상속관계 확정 전에도 상속인을 상대로 상속재산에 가압류를 받을 수 있고, 그 뒤 내가 포기해도 그 가압류는 살아 있습니다(2021다224446). 그 재산은 종국 상속인·관리인의 몫이라 내가 다툴 실익이 없습니다.</li>
+<li><b>내 고유재산 집행은 배제</b> — 나는 포기로 처음부터 상속인이 아니므로(§1042), 내 고유재산은 책임재산이 아닙니다. <span class="term">승계집행문<span class="bub">돌아가신 분에 대한 판결을 상속인 등 승계인에게 집행할 수 있게 덧붙이는 문서.</span></span>으로 들어왔으면 '집행문부여에 대한 이의'(§34 신청·§45 소), 그 밖이면 '<span class="term">제3자이의의 소<span class="bub">내 소유 재산에 대한 남의 빚 집행을 막아달라고 내는 소송(민사집행법 제48조).</span></span>'(§48)로 막습니다.</li>
+</ol>
+
+<h2>판례로 보기</h2>
+<div class="case">
+<span class="ct">○ 상속재산 가압류는 포기해도 유효 — 대법원 2021. 9. 15. 선고 2021다224446 판결</span>
+상속인은 상속관계가 확정되지 않은 동안에도 잠정적으로 상속재산을 취득·관리하므로, 상속채권자는 그 기간에 <b>상속재산에 가압류</b>를 받아 집행할 수 있습니다. 그 후 상속인이 포기로 지위를 잃어도 <b>이미 발생한 가압류의 효력은 영향을 받지 않고</b>, 채권자는 종국 상속인 또는 상속재산관리인을 상대로 한 경매에서 적법하게 배당받습니다. <b>핵심은 이 가압류가 '상속재산'에 대한 것이라는 점</b>입니다(내 고유재산이 아님).
+</div>
+<div class="case">
+<span class="ct">○ 승계집행문은 '이의'로 다툰다 — 대법원 2016. 8. 18. 선고 2014다225038 판결 등</span>
+채권자가 승계(상속)를 이유로 승계집행문을 받았는데 <b>그 승계가 없으면</b>, 채무자로 표시된 사람은 <b>집행문부여에 대한 이의의 소</b>(민사집행법 §45) 또는 이의신청(§34)으로 다툽니다. 이때 <b>승계 사실의 증명책임은 채권자</b>에게 있습니다. 한편 승계인으로 표시된 사람이 집행력 배제를 구하는 것은 제3자이의의 소가 아닙니다(대법원 92다10883).
+</div>
+
+<h2>이 사건은 어떻게 진행되나</h2>
+<div class="flow"><div class="fl-t">누구 명의 재산인가 — 여기서 갈립니다</div>
+<div class="node"><span class="num">1</span><b>집행 대상부터 확인</b> — 통지서에 적힌 대상 재산이 <b>돌아가신 분 명의(상속재산)</b>인지 <b>내 명의(고유재산)</b>인지 확인합니다. 여기서 모든 것이 갈립니다.</div><span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">2</span><b>상속재산이면 → 대응 없음</b> — 포기로 나와 무관해진 재산이므로 내가 막을 일이 아닙니다(가압류도 유효). 다만 <b>내가 채무자로 잘못 표시</b>되어 있다면 아래 이의로 바로잡습니다.</div><span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">3</span><b>내 재산이면 → 어느 서면인지 고르기</b> — <b>승계집행문</b>으로 들어왔으면 <b>집행문부여에 대한 이의신청</b>(작성례 ①), 그 밖의 집행이면 <b>제3자이의의 소</b>(작성례 ②)입니다. 아래 판단표로 고르십시오.</div><span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">4</span><b>강제집행정지신청 (같이 냅니다)</b> — 이의·소만으로는 경매가 멈추지 않습니다. <b>정지신청</b>(작성례 ③)으로 결정을 받아 <b>집행·경매 법원에 제출</b>합니다.</div><span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">5</span><b>배당 단계라면 배당기일 출석</b> — 배당기일 통지를 받았다면 <b>반드시 출석하여 이의</b>하고, <b>1주일 내</b>에 배당이의의 소를 제기한 증명을 냅니다(§151·§154).</div><span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">6</span><b>이미 돈이 나갔다면 → 부당이득</b> — 집행이 끝나 채권자가 배당금을 받아 갔다면, 집행을 막는 것은 늦었으므로 <b>부당이득 반환청구</b>로 돌려받는 길로 갑니다.</div>
+</div>
+<div class="warn"><span class="wt">★ 시간이 핵심 — 끝나기 전에</span> <b>제3자이의의 소는 강제집행이 끝나기 전에</b> 내야 합니다(끝난 뒤에는 각하). 또 이의·소를 냈어도 <b>집행정지결정을 받아 제출하기 전까지는 경매가 계속</b> 진행되니, 정지신청을 반드시 함께 하세요.</div>
+
+<h2>★ 어느 서면을 내야 하나 — 판단표</h2>
+<p>이름이 비슷한 제도가 넷이라 헷갈립니다. <b>내 상황이 어디에 해당하는지</b>만 고르시면 됩니다.</p>
+<table>
+<tr><th>내 상황</th><th>내는 서면</th><th>근거</th></tr>
+<tr><td>채권자가 <b>"이 사람이 상속인"이라며 승계집행문</b>을 받아 내 재산에 집행</td><td><b>집행문부여에 대한 이의신청</b><br>(더 강하게 다투려면 이의의 소)</td><td>민사집행법 §34<br>(소는 §45)<br><b>작성례 ①</b></td></tr>
+<tr><td>승계집행문 없이 <b>내 명의 재산</b>에 압류·경매가 들어옴</td><td><b>제3자이의의 소</b></td><td>민사집행법 §48<br><b>작성례 ②</b></td></tr>
+<tr><td>위 어느 것이든 <b>진행 중인 경매를 실제로 멈추고 싶다</b></td><td><b>강제집행정지신청</b><br>(위 서면과 <b>반드시 함께</b>)</td><td>민사집행법 §46·§48③<br><b>작성례 ③</b></td></tr>
+<tr><td><b>한정승인</b>을 했는데 내 고유재산에 집행</td><td><b>청구이의의 소</b></td><td>민사집행법 §44<br>→ <a href="5-3_한정승인_수계_책임범위유보.html" style="color:var(--tip-ink);font-weight:700">5-3 카드</a></td></tr>
+<tr><td>이미 <b>배당기일 통지</b>를 받음</td><td><b>배당기일 출석 → 이의</b><br>→ 1주일 내 배당이의의 소</td><td>민사집행법 §151·§154</td></tr>
+<tr><td>집행이 <b>끝나 돈이 나감</b></td><td><b>부당이득 반환청구</b></td><td>민법 §741</td></tr>
+</table>
+
+<h2>⏰ 기한 정리 — 놓치면 되돌릴 수 없습니다</h2>
+<table>
+<tr><th>무엇의 기한</th><th>① 기산일</th><th>② 계산근거</th><th>③ 말일 처리</th><th>④ 만료일</th></tr>
+<tr><td><b>제3자이의의 소</b></td><td>—</td><td>민사집행법 §48 — 제소기간의 정함은 없으나, <b>강제집행이 종료되면</b> 소의 이익이 없어집니다</td><td>—</td><td><b>강제집행이 끝나기 전</b><br><span style="color:#9c3a22;font-weight:700">끝난 뒤에는 각하</span></td></tr>
+<tr><td><b>배당기일 출석·이의</b>★</td><td>배당기일 <b>당일</b></td><td>민사집행법 §151 — 배당기일에 <b>출석하여</b> 이의</td><td>—</td><td><b>그 기일 당일</b><br>불출석하면 배당 확정</td></tr>
+<tr><td><b>배당이의의 소 제기 증명</b>★</td><td><b>배당기일</b></td><td>민사집행법 §154 — <b>1주일</b> 내에 소를 제기하고 그 증명을 집행법원에 제출</td><td>말일이 토요일·공휴일이면 <b>다음 근무일</b>(민법 §161)</td><td><b>배당기일 + 1주일</b><br><span style="color:#9c3a22;font-weight:700">넘기면 이의 취하 간주</span></td></tr>
+<tr><td><b>집행에 관한 즉시항고</b></td><td>결정을 <b>고지받은 날</b></td><td>민사집행법 §15 — <b>1주일</b></td><td>위와 같음</td><td><b>고지일 + 1주일</b></td></tr>
+<tr><td><b>상속포기 신고</b><br>(아직 안 하셨다면)</td><td>상속개시를 <b>안 날</b></td><td>민법 §1019 제1항 — <b>3개월</b></td><td>위와 같음</td><td><b>안 날 + 3개월</b></td></tr>
+</table>
+<div class="warn"><span class="wt">⚠ 배당기일은 다시 오지 않습니다</span>
+법원에서 <b>배당기일 통지서</b>가 왔는데 "가 봐야 소용없겠지" 하고 넘기는 분이 계십니다. 그러나 <b>그 자리에 출석해서 이의하지 않으면 배당표가 그대로 확정</b>되고, 채권자는 적법하게 돈을 받아 갑니다. 그 뒤에는 부당이득으로 돌려받는 훨씬 어려운 길밖에 없습니다.<br>
+출석해서 이의했다면 <b>1주일 안에 배당이의의 소를 제기하고 그 증명을 집행법원에 내야</b> 합니다. 이 제출을 빠뜨리면 <b>이의를 취하한 것으로 봅니다.</b> 소만 내고 증명을 안 내서 놓치는 사례가 실제로 많습니다.</div>
+
+<h2>관련 법령 — 쉬운 풀이</h2>
+<div class="lawbox"><span class="ll">민법 §1042</span><b>포기하면 처음부터 상속인이 아니었던 것</b> — 상속의 포기는 <b>상속개시된 때에 소급하여</b> 효력이 있습니다. 그러므로 내 고유재산은 돌아가신 분의 빚을 갚을 재산이 아닙니다. 이 조문이 모든 대응의 뿌리입니다.</div>
+<div class="lawbox"><span class="ll">민사집행법 §31 · §34 · §45</span><b>승계집행문과 그 다툼</b> — 판결의 효력을 상속인 등 승계인에게 미치려면 <b>승계집행문</b>이 필요합니다(§31). 그 승계가 사실은 없다면 <b>이의신청</b>(§34)으로 간이하게 다투거나, <b>이의의 소</b>(§45)로 본격적으로 다툽니다. <b>승계 사실의 증명책임은 채권자에게</b> 있습니다.</div>
+<div class="lawbox"><span class="ll">민사집행법 §48</span><b>제3자이의의 소</b> — 제3자가 <b>강제집행의 목적물에 대하여 소유권이 있다</b>는 등의 이유로 그 집행에 이의가 있으면, 채권자를 상대로 그 집행의 불허를 구하는 소를 제기할 수 있습니다. 제3항이 §46·§47을 준용하므로 <b>집행정지 등 잠정처분</b>을 함께 구할 수 있습니다.</div>
+<div class="lawbox"><span class="ll">민사집행법 §151 · §154</span><b>배당에 대한 이의</b> — 배당표에 이의가 있는 사람은 <b>배당기일에 출석하여</b> 이의할 수 있고(§151), 이의한 사람은 <b>배당기일부터 1주일 안에</b> 배당이의의 소를 제기하고 그 <b>소제기증명서를 집행법원에 제출</b>하여야 합니다. 제출하지 않으면 <b>이의를 취하한 것으로 봅니다</b>(§154).</div>
+<div class="lawbox"><span class="ll">민법 §741</span><b>이미 나간 돈은 부당이득으로</b> — 법률상 원인 없이 타인의 재산으로 이익을 얻고 그로 인하여 손해를 가한 자는 그 이익을 반환하여야 합니다. 집행이 끝나 배당금이 채권자에게 지급되었다면, 집행 자체를 막는 것은 늦었으므로 이 조문으로 돌려받는 길로 갑니다.</div>
+
+<h2>대응 서면 — 이의신청서·제3자이의 소장 양식과 작성례</h2>
+<p>내 고유재산을 지키는 두 가지 서면입니다. <b>승계집행문으로 들어왔으면 작성례 ①</b>(빠르고 간이한 이의신청), <b>그 밖의 집행이면 작성례 ②</b>(제3자이의의 소). 모두 <b>대법원·법률구조공단 공식 양식</b> 형식입니다. 복사·인쇄·다운로드해 ○○○만 채우세요.</p>
+<table>
+<tr><th>무엇을</th><th>바로가기</th></tr>
+<tr><td>이의신청서·제3자이의 소장·강제집행정지신청 등 공식 양식</td><td><a href="https://www.scourt.go.kr/nm/min_9/min_9_2/index.html">대한민국 법원 전자민원센터 — 양식모음</a></td></tr>
+<tr><td>전자제출 / 나의 사건검색</td><td><a href="https://ecfs.scourt.go.kr">전자소송</a> · <a href="https://www.scourt.go.kr/portal/information/events/search/search.jsp">나의 사건검색</a></td></tr>
+</table>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ① · 승계집행문★</span>집행문부여에 대한 이의신청서<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f1"><span class="ft">집행문부여에 대한 이의신청</span>사건(집행권원)   ○○지방법원 20○○가단○○○○호  대여금
+신청인(채무자로 표시된 자)   ○○○
+   주소  ○○○
+피신청인(채권자)   ○○○
+   주소  ○○○
+
+         신 청 취 지
+1. 위 집행력 있는 판결정본에 피신청인을 위하여 신청인에 대하여
+   부여된 승계집행문에 기초한 강제집행을 불허한다.
+   라는 재판을 구합니다.
+
+         신 청 이 유
+1. 피신청인은 망 ○○○에 대한 위 집행권원에 관하여, 신청인이
+   망인의 상속인이라는 이유로 신청인에 대한 승계집행문을
+   부여받았습니다.
+2. 그러나 신청인은 망인의 사망 후 ○○가정법원 20○○느단○○○○호로
+   상속포기 신고를 하여 그 수리심판을 받았고(소명자료 1), 상속의
+   포기는 상속개시된 때에 소급하여 효력이 있으므로(민법 제1042조)
+   신청인은 처음부터 망인의 상속인이 아닙니다.
+3. 따라서 승계의 요건인 실체법적 승계가 존재하지 아니하여 위
+   승계집행문의 부여는 위법하므로, 그 집행의 불허를 구합니다
+   (민사집행법 제34조). 아울러 위 집행의 정지를 위하여 별도로
+   강제집행정지신청을 합니다.
+
+         소 명 자 료
+1. 상속포기 수리심판서(등본)   1통
+1. 가족관계증명서(상세)        1통
+1. 승계집행문 부여 관련 서류   1통
+
+       20○○. ○○. ○○.
+         신청인  ○○○ (날인 또는 서명)
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1')">📋 복사</button><button type="button" onclick="printForm('f1')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1','집행문부여_이의신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto">채권자가 <b>"이 사람이 상속인"이라며 승계집행문</b>을 받아 내 재산에 집행했을 때 씁니다. <b>상속포기 수리심판서</b>를 소명자료로 붙이고, 승계(상속)가 없다는 점을 분명히 하세요. 더 강하게 다투려면 <b>집행문부여에 대한 이의의 소(민사집행법 제45조)</b>를 제기할 수도 있습니다. 진행 중인 집행을 멈추려면 <b>강제집행정지신청</b>을 반드시 함께 냅니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ② · 내 재산 집행★</span>제3자이의의 소장<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f2"><span class="ft">소         장</span>원고   ○○○  (☎: ○○○-○○○○-○○○○)
+   주소  ○○○
+피고   ○○○ (집행채권자)
+   주소  ○○○
+
+       제3자이의의 소
+
+         청 구 취 지
+1. 피고가 원고 소유의 별지 목록 기재 재산(예: ○○ 소재 부동산
+   또는 ○○은행 예금채권)에 대하여 ○○지방법원 20○○타경(타채)
+   ○○○○호로 한 강제집행은 이를 불허한다.
+2. 소송비용은 피고가 부담한다.
+   라는 판결을 구합니다.
+
+         청 구 원 인
+1. 피고는 망 ○○○에 대한 집행권원으로, 원고를 망인의 상속인으로
+   보아 원고 소유의 위 재산에 강제집행을 하였습니다.
+2. 그러나 원고는 망인의 사망 후 ○○가정법원 20○○느단○○○○호로
+   상속포기 신고를 하여 그 수리심판을 받았고(갑 제1호증), 상속의
+   포기는 상속개시된 때에 소급하여 효력이 있으므로(민법 제1042조)
+   원고는 처음부터 상속인이 아니어서 망인의 채무를 부담하지
+   않습니다.
+3. 위 재산은 상속재산이 아니라 원고의 고유재산이므로, 피고는
+   이에 대하여 강제집행을 할 수 없습니다. 따라서 그 집행의 배제를
+   구합니다(민사집행법 제48조). 아울러 별도로 강제집행정지신청을
+   합니다.
+
+         입 증 방 법
+1. 갑 제1호증   상속포기 수리심판서(등본)
+1. 갑 제2호증   강제집행(압류·경매) 관련 서류
+1. 갑 제3호증   원고 소유 증명(부동산 등기사항증명서 등)
+
+         첨 부 서 류
+1. 위 입증방법 사본    각 1통
+1. 소장 부본          1통
+1. 송달료·인지 납부서   1통
+
+       20○○. ○○. ○○.
+         원고  ○○○ (날인 또는 서명)
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f2')">📋 복사</button><button type="button" onclick="printForm('f2')">🖨 인쇄</button><button type="button" onclick="downloadForm('f2','제3자이의_소장.txt')">⬇ 다운로드</button></div>
+<div class="howto">채권자가 <b>내 명의 재산(고유재산)</b>을 상속재산으로 오인해 집행했을 때 씁니다. 청구취지에 <b>집행 사건번호와 대상 재산</b>을 특정하고, 그 재산이 <b>내 소유(고유재산)</b>임을 등기·통장 등으로 증명하세요. 이 소만으로는 경매가 멈추지 않으니 <b>강제집행정지신청</b>을 함께 내야 합니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ③ · 집행 정지★</span>강제집행정지신청서 — 경매를 실제로 멈추는 서면<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f3"><span class="ft">강제집행정지신청</span>신청인  ○○○   (☎: ○○○-○○○○-○○○○)
+        주소: ○○○
+피신청인  ○○○ (집행채권자)
+        주소: ○○○
+
+         신 청 취 지
+피신청인이 신청인 소유의 별지 목록 기재 재산에 대하여
+○○지방법원 20○○타경(타채)○○○○호로 하는 강제집행은,
+위 당사자 사이의 같은 법원 20○○가단(가합)○○○○호
+제3자이의 사건의 판결 선고 시까지 이를 정지한다.
+라는 재판을 구합니다.
+
+         신 청 이 유
+1. 피신청인은 망 ○○○에 대한 집행권원에 기초하여, 신청인을
+   망인의 상속인으로 보아 신청인 소유의 위 재산에 강제집행을
+   하였습니다(소갑 제1호증).
+
+2. 그러나 신청인은 망인의 사망 후 ○○가정법원 20○○느단○○○○호로
+   상속포기 신고를 하여 그 수리심판을 받았고(소갑 제2호증),
+   상속의 포기는 상속개시된 때에 소급하여 효력이 있으므로
+   (민법 제1042조) 신청인은 처음부터 상속인이 아닙니다.
+
+3. 위 재산은 상속재산이 아니라 신청인의 고유재산이므로
+   (소갑 제3호증 등기사항전부증명서), 피신청인은 이에 대하여
+   강제집행을 할 수 없습니다.
+
+4. 이에 신청인은 이 법원 20○○가단(가합)○○○○호로 제3자이의의
+   소를 제기하였는바(소갑 제4호증 소제기증명원), 그 판결이 있기
+   전에 매각이 이루어지면 신청인은 회복하기 어려운 손해를 입게
+   됩니다.
+
+5. 따라서 민사집행법 제48조 제3항, 제46조에 따라 위 강제집행의
+   정지를 구합니다. 담보제공은 신청인의 자력을 참작하여
+   보증보험증권으로 갈음할 수 있도록 허가하여 주시기 바랍니다.
+
+         소 명 방 법
+1. 소갑 제1호증   경매개시결정(또는 압류·추심명령) 정본
+1. 소갑 제2호증   상속포기 수리심판서(등본)
+1. 소갑 제3호증   등기사항전부증명서 등 고유재산 소명자료
+1. 소갑 제4호증   제3자이의의 소 소제기증명원
+
+         첨 부 서 류
+1. 위 소명방법 사본   각 1통
+1. 별지 목록          1통
+1. 신청서 부본        1통
+
+              20○○. ○○. ○○.
+                위 신청인  ○○○ (인)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f3')">📋 복사</button><button type="button" onclick="printForm('f3')">🖨 인쇄</button><button type="button" onclick="downloadForm('f3','강제집행정지신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>이 서면을 빠뜨리면 앞의 ①②는 헛수고가 됩니다.</b> 이의신청이나 소를 냈다고 경매가 멈추지 않아, 재판하는 동안 집이 팔려 버릴 수 있기 때문입니다.<br>
+<b>순서를 지키십시오</b> — ① 제3자이의의 소(또는 집행문부여 이의)를 먼저 접수하고 <b>소제기증명원</b>을 발급받습니다(법원 민원실에서 즉시 발급). ② 그것을 붙여 이 신청서를 냅니다. ③ 법원이 <b>담보 제공</b>을 명하면 공탁하거나 <b>보증보험증권</b>을 냅니다. ④ <b>정지결정 정본을 집행법원(경매계)에 직접 제출</b>합니다.<br>
+<b>④를 반드시 확인하십시오.</b> 결정을 받아 두기만 하고 집행법원에 내지 않아 경매가 그대로 진행된 사례가 있습니다. 접수 후 경매계에 전화로 반영 여부를 확인하시는 편이 안전합니다.<br>
+집행문부여에 대한 이의신청(작성례 ①)과 함께 낼 때에는, 신청이유 5항의 근거를 그 사건에 맞게 고쳐 적고 소제기증명원 대신 <b>이의신청 접수증명</b>을 붙이십시오.</div>
+</div></div>
+
+<div class="cost">
+<span class="ct">비용 — 인지액과 송달료는 다릅니다</span>
+<b>① 집행문부여에 대한 이의신청</b>(작성례 ①) — 신청 사건이므로 인지액이 소액입니다. <b>이의의 소</b>(§45)로 가면 소송이므로 인지액이 커집니다.<br>
+<b>② 제3자이의의 소</b>(작성례 ②) — <b>새로 제기하는 소송</b>이라 인지액이 듭니다. <span class="term">소가<span class="bub">소송 목적의 값. 인지대와 관할을 정하는 기준입니다.</span></span>는 집행을 막으려는 목적물의 가액을 기준으로 산정하며, <b>전자소송으로 내면 인지액의 10%가 깎입니다.</b><br>
+<b>③ 강제집행정지신청</b>(작성례 ③) — 신청 인지는 소액이나, <b>담보 제공이 실질적 부담</b>입니다. 법원이 정한 금액을 현금 공탁하거나 <b>보증보험증권</b>으로 갈음합니다. 보증보험을 쓰면 보험료만 부담하므로 훨씬 가볍습니다.<br>
+<b>④ 배당이의의 소</b> — 다투는 배당액을 기준으로 인지액을 산정합니다.<br>
+<b>⑤ 송달료</b> — <b>1회분 5,500원</b>(2025. 6. 1. 인상). 당사자 수 × 정해진 횟수. <span style="font-size:13px;color:var(--muted)">[확인필요] 단가·횟수는 변동될 수 있습니다.</span><br>
+<b>⑥ 늦으면 훨씬 비싸집니다</b> — 매각이 끝난 뒤 부당이득으로 돌려받으려면 별도 소송을 처음부터 다시 해야 합니다.
+<div style="margin-top:11px; padding-top:10px; border-top:1px dashed #cfe6d6; color:#c0392b; font-weight:600; line-height:1.8;">※ 사건 정보를 입력하면 인지대·송달료를 포함한 예상 금액을 <a href="https://sanlaw.co.kr/tools-calculator.html" style="color:#c0392b; text-decoration:underline; font-weight:700;">🧮 수수료 계산기</a>에서 미리 확인할 수 있습니다.</div>
+</div>
+
+<h2>준비할 서류와 발급처</h2>
+<table>
+<tr><th>무엇을 (어디서)</th><th>서류</th><th>바로가기</th></tr>
+<tr><td>상속포기 증명<br>(가정법원)</td><td>상속포기 수리심판서(또는 등본)</td><td><a href="https://www.scourt.go.kr">대한민국 법원</a></td></tr>
+<tr><td>집행·승계집행문 확인<br>(전자소송/집행법원)</td><td>집행권원, 승계집행문, 압류·경매 통지서, 배당기일 통지</td><td><a href="https://www.scourt.go.kr/portal/information/events/search/search.jsp">나의 사건검색</a></td></tr>
+<tr><td>내 소유 증명<br>(인터넷등기소/은행)</td><td>부동산 등기사항증명서, 예금주 확인서 등 고유재산 증빙</td><td><a href="http://www.iros.go.kr">인터넷등기소</a></td></tr>
+</table>
+
+<h2>본 사무소가 도와드리는 일</h2>
+<div class="hire">
+<p>본 사무소에서는 의뢰인들의 고충은 덜어드리고, 함께 절차를 진행하여 원하는 결과에 도달할 수 있도록 성심을 다하겠습니다.</p>
+<p style="margin-top:12px"><b>· 내 재산에 압류·경매가 들어온 경우</b><br>가장 급합니다. ① 집행 대상이 <b>상속재산인지 고유재산인지</b> 가려 드리고, ② 승계집행문 여부에 따라 <b>이의신청인지 제3자이의의 소인지</b> 판단하며, ③ <b>강제집행정지신청</b>과 담보 문제까지, ④ <b>정지결정을 집행법원에 제출</b>하는 마지막 단계를 놓치지 않도록 함께 챙깁니다.</p>
+<p style="margin-top:10px"><b>· 배당기일 통지를 받으신 경우</b><br>날짜가 정해져 있어 미룰 수 없습니다. <b>기일 출석과 이의 방법</b>, 그 뒤 <b>1주일 안에 소를 제기하고 증명을 제출</b>하는 절차까지 일정을 관리해 드립니다.</p>
+<p style="margin-top:10px"><b>· 이미 돈이 나간 경우</b><br>집행을 막는 것은 늦었더라도, <b>부당이득 반환청구</b>로 돌려받는 길이 남아 있습니다. 배당표와 집행기록을 확인해 청구 상대와 금액을 특정해 드립니다.</p>
+</div>
+<div class="warn"><span class="wt">⚠ 자력구제는 금지됩니다</span>
+집행이 부당하다고 하여 <b>집행관의 봉인을 뜯거나 압류물을 옮기는 행위</b>는 공무상표시무효죄 등 형사처벌 대상입니다. 통장이 묶였다고 하여 명의를 옮기는 것도 강제집행면탈로 몰릴 수 있습니다. 억울하더라도 반드시 <b>위의 합법적 절차</b>로 다투십시오.</div>
+
+<a href="https://sanlaw.co.kr/tools-calculator.html" class="cta">🧮 내 사건 비용 미리 계산하기</a>
+<div style="text-align:center; background:#f6ecd8; border:1px solid var(--gold); border-radius:11px; padding:14px; margin:18px 0; font-size:15px; color:var(--gold-d); font-weight:700;">📞 상담은 홈 화면의 상담 창구를 이용하시면 됩니다.</div>
+
+<div class="tip"><span class="pt">💡 이어지는 카드</span> <b>소송수계가 무엇인지부터</b>는 <a href="5-1_소송수계의_기본_개념및_신청.html" style="color:var(--tip-ink);font-weight:700">5-1 카드</a>, <b>수계신청서를 받았다면</b> <a href="5-2_상속포기_수계신청_대응.html" style="color:var(--tip-ink);font-weight:700">5-2 카드</a>, <b>포기가 아니라 한정승인을 했다면</b> <a href="5-3_한정승인_수계_책임범위유보.html" style="color:var(--tip-ink);font-weight:700">5-3 카드</a>, <b>포기·한정승인 신고 자체의 절차와 비용</b>은 <a href="3-1_상속받지않기_포기_한정승인.html" style="color:var(--tip-ink);font-weight:700">3-1 카드</a>, <b>포기 후에도 남는 관리의무</b>는 <a href="3-3_상속포기후_관리계속의무.html" style="color:var(--tip-ink);font-weight:700">3-3 카드</a>, <b>포기했는데 독촉장이 오면</b> <a href="3-5_상속포기후_독촉장_대응_안내.html" style="color:var(--tip-ink);font-weight:700">3-5 카드</a>를 보십시오.</div>
+
+<div class="src">
+근거 — 민법 제161조·제741조(부당이득)·제1019조(승인·포기 기간)·제1042조(포기의 소급효)·제1053조(상속재산관리인) · 민사집행법 제31조(승계집행문)·제34조(집행문부여 등에 관한 이의신청)·제44조(청구에 관한 이의의 소)·제45조(집행문부여에 대한 이의의 소)·제46조·제47조(이의의 소와 잠정처분)·제48조(제3자이의의 소)·제15조(즉시항고)·제151조(배당표에 대한 이의)·제154조(배당이의의 소 등) · 대법원 2021. 9. 15. 선고 2021다224446 판결(상속재산 가압류와 상속포기) · 대법원 2016. 8. 18. 선고 2014다225038 판결·대법원 1992. 11. 24. 선고 92다10883 판결(승계집행문의 다툼 방법) · 법제처 찾기쉬운 생활법령정보 · 대한민국 법원 전자민원센터. 본 자료는 일반적인 법률정보로, 개별 사건의 법률자문이 아닙니다.
+</div>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+})();
+function toggleFold(b){b.parentElement.classList.toggle('open');}
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('작성례가 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('작성례가 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('작성례를 내려받았습니다');}
+</script>
+</body>
+</html>

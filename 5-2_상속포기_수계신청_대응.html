@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[5-2] 상속을 포기했는데 '소송수계신청서'를 받았어요 — 부적법 항변·의견서 | 산 법무사 김재섭</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(280px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.case{background:var(--box); border-radius:10px; padding:14px 16px; margin:14px 0; border-left:4px solid #b9a98c;}
+.case .ct{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+.sit-wrap{display:flex; gap:12px; margin:14px 0;}
+.sit{flex:1; background:#f8f5ee; border:1px solid var(--line); border-top:3px solid var(--gold); border-radius:10px; padding:13px 15px; font-size:14.5px; line-height:1.75;}
+.sit .sl{display:block; font-weight:700; color:var(--gold-d); margin-bottom:6px; font-size:14px;}
+@media (max-width:680px){ .sit-wrap{flex-direction:column;} }
+/* 전체 길 흐름도 */
+.flow{background:linear-gradient(180deg,#faf7f0,#f6f1e6); border:1px solid var(--line); border-radius:14px; padding:22px 20px; margin:16px 0;}
+.flow .fl-t{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:18px; text-align:center; letter-spacing:.3px;}
+.flow .node{position:relative; background:#fff; border:1px solid #e3d8c4; border-radius:11px; padding:15px 18px 15px 56px; font-size:14.5px; line-height:1.72; box-shadow:0 2px 6px rgba(122,82,48,.07);}
+.flow .node .num{position:absolute; left:15px; top:14px; width:30px; height:30px; line-height:30px; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; border-radius:50%; font-weight:800; font-size:15px; font-family:'Nanum Myeongjo',serif; box-shadow:0 2px 5px rgba(122,82,48,.3);}
+.flow .node b{color:#241a10;}
+.flow .down{display:flex; justify-content:center; align-items:center; padding:7px 0;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+/* 작성례 박스 */
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:15px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .tag{margin-bottom:0;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;}
+.tag.cred{background:#5a9a72;}
+.tag.debt{background:#d9694a;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:18px;margin:12px 0;font-family:'D2Coding','Courier New',monospace;font-size:13px;line-height:1.6;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:16px;letter-spacing:2px;margin-bottom:12px;color:#241a10;}
+.howto{font-size:14px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0 4px;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:13px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:7px 13px;cursor:pointer;transition:.15s;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.75;}
+.lawbox .ll{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:#241a10;border-radius:5px;padding:2px 9px;margin-right:7px;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.hire p{margin:7px 0; font-size:15px; line-height:1.8;}
+.cta{display:block;text-align:center;background:var(--gold-d);color:#fff;font-weight:700;font-size:17px;text-decoration:none;padding:15px;border-radius:11px;margin:18px 0;font-family:'Nanum Myeongjo',serif;letter-spacing:1px;}
+.cta:hover{background:#5e3f24;}
+@media print{
+  body{background:#fff; max-width:100%;}
+  .tldr,.case,.warn,.tip,.cost,.steps li,.tnote,.sit,.flow,.flow li,.lawbox,.hire{background:#fff !important; border-color:#ccc !important;}
+  .tnote{display:none;}
+  .term{border:none; color:inherit; font-weight:inherit;}
+  .term>.bub{display:inline !important; position:static; width:auto; background:none; color:inherit; box-shadow:none; padding:0; font-size:inherit; line-height:inherit;}
+  .term>.bub::before{content:" ("; }
+  .term>.bub::after{content:")"; border:none; position:static;}
+  .fold-body{display:block !important;}.fold-btn .chev{display:none;}.form-tools{display:none;}
+  .cta{background:#fff !important; color:#241a10 !important; border:1px solid #ccc;}
+}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+
+
+<h1>[5-2] 상속을 포기했는데 '소송수계신청서'를 받았어요 — 부적법 항변·의견서</h1>
+
+<div class="tnote">어려운 법률용어에는 <b>점선 밑줄</b>이 그어져 있습니다. <b>PC는 마우스를 올리면</b>, <b>휴대폰은 손가락으로 톡 누르면</b> 쉬운 설명이 뜹니다. (인쇄하면 괄호로 함께 나옵니다.)</div>
+
+<div class="hire">
+<div class="ht">이 매뉴얼을 끝까지 읽으시는 분께</div>
+<p>이 매뉴얼은 <b>의뢰인이 직접 법원에 신청할 수 있도록 모든 서류 양식·비용·요건을 구체적으로 담았습니다.</b> 하지만 소송은 살아있는 생물과 같아 상대방의 격렬한 저항이 뒤따릅니다. 혼자 진행하시다가 막히는 부분이 생기거나 방어막이 필요할 때, 언제든 이 매뉴얼을 들고 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</p>
+</div>
+
+<div class="tldr">
+<div class="tt">⭐ 30초 결론부터</div>
+<ul>
+<li><b>상속을 포기했으면, 그 소송을 이어받을 의무가 없습니다.</b> 상속포기는 돌아가신 때로 <span class="term">소급<span class="bub">시간을 거슬러 올라가 효력이 생기는 것. 포기하면 '돌아가신 그 순간부터' 상속인이 아니었던 것으로 됩니다.</span></span>하여 효력이 생기므로, 포기자는 <b>처음부터 상속인이 아니었던 것</b>이 됩니다(민법 §1042).</li>
+<li><b>포기를 고민할 수 있는 3개월 동안에는 수계를 강요받지 않습니다</b>(민사소송법 §233②). 아직 포기·한정승인을 정하지 못했다면 이 기간을 근거로 수계를 미룰 수 있습니다.</li>
+<li><b>상속인이 아닌 사람을 상대로 한 수계신청은 부적법합니다.</b> 법원은 <span class="term">수계자격<span class="bub">멈춘 소송을 이어받을 자격. 진짜 상속인에게만 있습니다.</span></span>이 없으면 결정으로 그 신청을 <b>기각</b>하고, 잘못 진행했더라도 자격 없음이 드러나면 <b>수계재판을 취소</b>합니다(§243①, 대법원 80다1895).</li>
+<li><b>대응은 간단합니다.</b> <b>상속포기 수리심판서</b>를 붙여 "나는 상속포기로 상속인이 아니므로 수계신청은 부적법하다"는 <b>답변서</b>를 법원에 내면 됩니다(작성례 ①).</li>
+<li><b style="color:#9c3a22">다만 채권자가 반격해 오는 두 갈래를 알아 두십시오.</b> ① <b>"당신은 상속재산을 처분했으니 단순승인한 것"</b>(민법 §1026)이라는 주장과, ② <b>"그 포기는 사해행위"</b>라는 주장입니다. <b>②는 통하지 않습니다</b> — 상속포기는 재산권에 관한 법률행위가 아니어서 사해행위취소의 대상이 되지 못합니다(대법원 2011다29307). 그러나 <b>①은 실제로 위험합니다.</b> 아래 별도 항목에서 자세히 보십시오.</li>
+</ul>
+</div>
+
+<h2>지금 어떤 상황인가요?</h2>
+<div class="sit-wrap">
+<div class="sit"><span class="sl">상황 ① · 포기했는데 수계신청</span>돌아가신 분(채무자)이 당사자였던 소송에서, <b>채권자가 나를 '소송수계인'으로 지정</b>해 수계신청서를 보내온 경우. → 포기 사실로 부적법함을 다툽니다.</div>
+<div class="sit"><span class="sl">상황 ② · 손자녀에게 넘어옴</span>자녀가 전부 포기해 <b>배우자가 단독상속</b>인데도, 채권자가 <b>손자녀(나)를 상대로</b> 수계·집행을 시도하는 경우. → 손자녀는 상속인이 아니므로 부적법합니다.</div>
+</div>
+
+<h2>핵심 세 가지</h2>
+<ol class="steps">
+<li><b>포기 = 소급 = 상속인 아님</b> — 상속포기 신고가 가정법원에서 수리되면, 그 효력은 돌아가신 때로 소급합니다(§1042). 포기자는 <b>처음부터 상속인이 아니었던 것</b>이 되어, 빚도 소송도 승계하지 않습니다.</li>
+<li><b>자격 없으면 수계신청 기각</b> — 당사자 사망으로 중단된 소송에서 수계신청이 들어와도, 그 대상에게 수계자격(상속인 지위)이 없으면 법원은 <b>결정으로 기각</b>합니다. 이미 진행했더라도 자격 없음이 판명되면 <b>수계재판을 취소</b>합니다(§243①, 80다1895).</li>
+<li><b>진짜 수계 대상은 '최종 상속인'</b> — 누가 포기했는지에 따라 최종 상속인이 달라집니다. 배우자와 자녀 중 <b>자녀가 전부 포기하면 배우자가 단독상속인</b>이고(대법원 2020그42 전원합의체), 손자녀·부모는 상속인이 아닙니다. 채권자는 그 최종 상속인을 상대로만 수계할 수 있습니다.</li>
+</ol>
+
+<h2>판례로 보기</h2>
+<div class="case">
+<span class="ct">○ 자격 없는 수계인 — 대법원 1981. 3. 10. 선고 80다1895 판결</span>
+당사자 사망으로 중단된 소송에서 <b>수계자격이 없는 사람</b>을 상대로 수계신청이 있으면 법원은 이를 받아들여서는 안 되고, 잘못 진행했더라도 자격 없음이 드러나면 <b>수계재판을 취소하고 신청을 기각</b>해야 합니다. 다만 자격 없는 사람(참칭수계인)에 대한 본안판결이 <b>그대로 확정되면</b>, 그 판결은 재심으로 취소되기 전까지 효력을 가집니다 — <b>그러니 반드시 제때 다투어야 합니다.</b>
+</div>
+<div class="case">
+<span class="ct">○ 자녀 전부 포기 → 배우자 단독 — 대법원 2023. 3. 23.자 2020그42 전원합의체 결정</span>
+배우자와 자녀 중 <b>자녀가 전부 상속을 포기</b>하면 <b>배우자가 단독상속인</b>이 되고, 손자녀·직계존속은 공동상속인이 되지 않습니다. 따라서 채권자가 손자녀를 상대로 수계하거나 <span class="term">승계집행문<span class="bub">판결의 효력을 상속인 등 승계인에게 미치게 하여 집행할 수 있도록 법원이 덧붙여 주는 문서.</span></span>을 받아 집행하려 해도, 손자녀는 상속인이 아니므로 다툴 수 있습니다.
+</div>
+
+<h2>이 사건은 어떻게 진행되나 — 대응 절차</h2>
+<div class="flow"><div class="fl-t">받았으면 반드시 답한다 — 침묵이 가장 위험합니다</div>
+<div class="node"><span class="num">1</span><b>수계신청서·송달 확인</b> — 어느 법원의 어떤 사건(사건번호)에서, 누가 나를 수계인으로 지정했는지부터 확인합니다. <b>「나의 사건검색」</b>으로 진행 상황을 볼 수 있습니다.</div><span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">2</span><b>내 상태 확인</b> — ① 이미 <b>상속포기가 수리</b>되었는가(수리심판서 확보), 아니면 ② 아직 <b>고려기간 3개월 중</b>인가. 둘 중 어느 쪽이냐에 따라 주장이 달라집니다.</div><span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">3</span><b>답변서 제출</b> — 포기가 수리됐으면 <b>"소급하여 상속인이 아니므로 부적법"</b>(민법 §1042), 고려기간 중이면 <b>"아직 수계할 수 없다"</b>(민소법 §233②)는 답변서를 냅니다(작성례 ①).</div><span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">4</span><b>원고의 반격 → 준비서면</b> — 원고는 대개 <b>법정단순승인</b>(§1026)이나 <b>사해행위</b>를 들고 나옵니다. 이에 준비서면으로 재반박합니다(작성례 ②).</div><span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">5</span><b>법원의 판단</b> — 법원은 수계자격을 <b>직권으로</b> 조사하여, 자격이 없으면 <b>결정으로 수계신청을 기각</b>합니다(§243①).</div><span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">6</span><b>진정 상속인에게 수계</b> — 소송은 진짜 상속인(예: 배우자)을 상대로 다시 수계되어 진행됩니다. <b>내 손을 떠납니다.</b></div>
+</div>
+<div class="warn"><span class="wt">★ 무대응이 가장 위험합니다</span> 가만히 있으면 법원이 자격 없음을 모른 채 절차를 진행해, <b>나를 당사자로 한 본안판결이 확정</b>될 수 있습니다. 그 판결은 재심 전까지 효력을 가져 <b>내 재산에 집행</b>될 위험이 있습니다(80다1895). 수계신청서를 받으면 <b>반드시 기한 내에 준비서면(의견서)으로 다투세요.</b> 이미 판결·집행 단계라면 <b>승계집행문 부여에 대한 이의·청구이의</b>로 다툽니다(→ 5-4).</div>
+
+<div class="case">
+<span class="ct">○ "그 상속포기는 사해행위다"는 통하지 않습니다 — 대법원 2011. 6. 9. 선고 2011다29307 판결</span>
+빚이 많은 사람이 상속을 포기하면 그의 채권자로서는 받을 것이 줄어드는 셈입니다. 그래서 채권자가 <b>"그 포기는 나를 해치는 사해행위이니 취소해 달라"</b>고 다투는 일이 있습니다. 그러나 대법원은 <b>상속의 포기는 민법 제406조 제1항이 정하는 '재산권에 관한 법률행위'에 해당하지 아니하여 사해행위취소의 대상이 되지 못한다</b>고 보았습니다. 상속포기는 재산을 넘기는 거래가 아니라 <b>상속인이라는 지위 자체를 벗는 인격적 결단</b>이기 때문입니다.<br>
+<b>다만 결정적인 구별이 있습니다.</b> 법원에 신고하여 수리받은 <b>상속포기</b>는 위와 같이 안전하지만, 법원을 거치지 않고 상속인들끼리 <b>협의분할로 "나는 한 푼도 안 받겠다"고 한 것</b>은 재산권을 목적으로 하는 법률행위여서 <b>사해행위취소의 대상이 됩니다.</b> 형식이 결과를 가릅니다.
+</div>
+
+<h2>★ 채권자가 반격해 오는 두 갈래</h2>
+<p>답변서를 내면 원고(채권자)는 대개 가만있지 않습니다. 어떤 카드를 꺼내는지 미리 알고 계시면 당황하지 않습니다.</p>
+<div class="lawbox" style="background:#fdf2ee;"><span class="ll" style="background:#9c3a22;">반격 ① · 법정단순승인</span><b>"당신은 이미 상속재산에 손을 댔으니, 포기했어도 단순승인한 것이다"</b> — 민법 §1026은 ① 상속인이 <b>상속재산을 처분한 때</b>, ② 3개월 안에 한정승인·포기를 하지 않은 때, ③ <b>포기·한정승인 후에 상속재산을 은닉하거나 부정소비하거나 고의로 재산목록에 적지 않은 때</b>에는 단순승인한 것으로 본다고 정합니다. <b>이것이 실제로 위험한 공격입니다.</b> 포기가 무력화되면 빚을 그대로 떠안습니다.</div>
+<div class="lawbox" style="background:#eef4f8;"><span class="ll" style="background:#2f5b78;">반격 ② · 사해행위 주장</span><b>"빚을 피하려고 포기한 것이니 취소해 달라"</b> — 앞의 판례(2011다29307)대로 <b>통하지 않습니다.</b> 상속포기는 사해행위취소의 대상이 아니라는 것이 확립된 법리이므로, 준비서면에 이 판례를 인용해 간명하게 물리치면 됩니다.</div>
+<div class="warn"><span class="wt">⚠ 무심코 하는 이런 행동이 포기를 무너뜨립니다</span>
+<b>· 돌아가신 분의 예금을 인출해 쓰는 것</b> — 가장 흔합니다. 병원비·장례비 정산은 인정되는 경우가 있으나, <b>영수증 없이 생활비로 쓰면</b> 처분·부정소비로 몰릴 수 있습니다.<br>
+<b>· 유품 중 값나가는 물건(자동차·귀금속)을 가져가거나 파는 것</b><br>
+<b>· 부동산 명의를 옮기거나 임대료를 받는 것</b><br>
+<b>· 돌아가신 분 앞으로 온 돈을 대신 받아 쓰는 것</b><br><br>
+<b>포기했다면 상속재산에는 손대지 마십시오.</b> 다만 <b>보존을 위한 관리행위</b>는 오히려 의무입니다(민법 §1022). 포기 후에도 다음 순위 상속인이 관리를 시작할 때까지는 재산을 그대로 지켜야 합니다 — 자세한 것은 <a href="3-3_상속포기후_관리계속의무.html" style="color:var(--tip-ink);font-weight:700">3-3 카드</a>에서 다룹니다. <b>쓰지도 말고 방치하지도 말라</b>는 것이 요령입니다.</div>
+
+<h2>⏰ 기한 정리 — 놓치면 안 되는 날짜들</h2>
+<table>
+<tr><th>무엇의 기한</th><th>① 기산일</th><th>② 계산근거</th><th>③ 말일 처리</th><th>④ 만료일</th></tr>
+<tr><td><b>답변서 제출</b></td><td>수계신청서·소장 부본을 <b>송달받은 날</b></td><td>민사소송법 §256 제1항 — <b>30일</b></td><td>말일이 토요일·공휴일이면 <b>다음 근무일</b>(민법 §161)</td><td><b>송달받은 날 + 30일</b><br><span style="color:#9c3a22;font-weight:700">무대응이 가장 위험</span></td></tr>
+<tr><td><b>상속포기·한정승인</b><br>(아직 안 하셨다면)</td><td>상속개시가 있음을 <b>안 날</b></td><td>민법 §1019 제1항 — <b>3개월</b></td><td>위와 같음</td><td><b>안 날 + 3개월</b></td></tr>
+<tr><td><b>수계 강요를 받지 않는 기간</b></td><td>상속개시를 안 날</td><td>민사소송법 §233 제2항</td><td>—</td><td>위 3개월과 함께 갑니다</td></tr>
+<tr><td><b>특별한정승인</b><br>(빚이 많은 줄 몰랐던 경우)</td><td>상속채무가 상속재산을 초과하는 사실을 <b>중대한 과실 없이 안 날</b></td><td>민법 §1019 제3항 — <b>3개월</b></td><td>위와 같음</td><td><b>안 날 + 3개월</b><br>→ <a href="3-2_특별한정승인.html" style="color:var(--tip-ink);font-weight:700">3-2 카드</a></td></tr>
+<tr><td><b>판결이 확정된 뒤</b></td><td>—</td><td>확정판결은 재심으로 취소되기 전까지 효력을 가집니다(80다1895)</td><td>—</td><td><b style="color:#9c3a22">그래서 지금 다투어야 합니다</b></td></tr>
+</table>
+
+<h2>관련 법령 — 쉬운 풀이</h2>
+<div class="lawbox"><span class="ll">민법 §1042</span><b>포기하면 처음부터 상속인이 아니었던 것</b> — 상속의 포기는 <b>상속개시된 때에 소급하여</b> 효력이 있습니다. 사망 후에 포기했더라도, 법적으로는 <b>돌아가신 그 순간부터</b> 상속인이 아니었던 것으로 됩니다. 이것이 "나는 수계할 자격이 없다"는 주장의 뿌리입니다.</div>
+<div class="lawbox"><span class="ll">민법 §1026</span><b>이럴 때는 포기해도 소용없습니다(법정단순승인)</b> — ① 상속인이 <b>상속재산에 대한 처분행위</b>를 한 때, ② 3개월 안에 한정승인이나 포기를 하지 아니한 때, ③ 한정승인이나 포기를 한 후에 <b>상속재산을 은닉하거나 부정소비하거나 고의로 재산목록에 기입하지 아니한 때</b>에는, 단순승인한 것으로 봅니다.</div>
+<div class="lawbox"><span class="ll">민사소송법 §233 제2항</span><b>포기를 정하기 전에는 끌려가지 않습니다</b> — 상속인은 <b>상속을 포기할 수 있는 동안</b>에는 소송절차를 수계하지 못합니다. 아직 3개월이 지나지 않았다면 이 조문만으로도 "지금은 수계할 수 없다"고 답할 수 있습니다.</div>
+<div class="lawbox"><span class="ll">민사소송법 §243 제1항</span><b>자격 없으면 기각</b> — 법원은 수계신청에 이유가 있는지를 <b>직권으로</b> 조사하여, 이유가 없으면 <b>결정으로 기각</b>합니다. 상속을 포기한 사람을 수계인으로 지정한 신청이 대표적인 기각 대상입니다.</div>
+<div class="lawbox"><span class="ll">민사소송법 §256 · §274</span><b>답변서와 준비서면</b> — 소장 부본을 송달받은 날부터 <b>30일 이내</b>에 답변서를 제출하여야 하고(§256①), 그 뒤의 주장은 준비서면으로 냅니다. 기재사항은 사건 표시, 공격·방어방법, 입증방법, 첨부서류입니다(§274).</div>
+
+<h2>대응 서면 — 답변서·준비서면 양식과 작성례</h2>
+<p><b>수계신청서를 받으면 먼저 답변서(작성례 ①)로 첫 대응</b>을 하고, 이에 원고가 다시 <b>준비서면</b>을 보내오면 <b>준비서면(작성례 ②)으로 재반박</b>합니다. 두 서면 모두 <b>대법원·법률구조공단 공식 양식</b> 형식이며, 기재사항은 사건 표시, 주장과 증거(공격·방어방법), 입증방법, 첨부서류입니다(민사소송법 §256·§274). 아래 작성례를 복사·인쇄·다운로드해 ○○○만 채우세요. (같은 내용을 '의견서' 제목으로 내도 됩니다.)</p>
+<table>
+<tr><th>무엇을</th><th>바로가기</th></tr>
+<tr><td>준비서면·답변서 등 법원 공식 양식</td><td><a href="https://www.scourt.go.kr/nm/min_9/min_9_2/index.html">대한민국 법원 전자민원센터 — 양식모음</a></td></tr>
+<tr><td>민사 전자제출(선택)</td><td><a href="https://ecfs.scourt.go.kr">전자소송</a></td></tr>
+</table>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ① · 첫 대응</span>답변서 — 수계신청에 대한 첫 대응<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f1"><span class="ft">답 변 서</span>사건   20○○가단(또는 가합)○○○○호   ○○○ 청구
+원고   ○○○
+피고   ○○○ (망 ○○○의 소송수계인으로 신청된 자)
+
+위 사건에 관하여 피고는 원고의 소송수계신청에 대하여
+다음과 같이 답변합니다.
+
+         소송수계신청에 대한 답변
+1. 원고의 피고에 대한 소송수계신청을 기각한다.
+   라는 결정을 구합니다.
+
+         신청원인에 대한 답변
+1. 피고는 망 ○○○의 사망 후 ○○가정법원 20○○느단○○○○호로
+   상속포기 신고를 하여, 20○○. ○○. ○○. 그 수리심판을
+   고지받았습니다(을 제1호증).
+2. 상속의 포기는 상속이 개시된 때에 소급하여 효력이 있으므로
+   (민법 제1042조), 피고는 처음부터 망인의 상속인이 아니었던
+   것이 되어, 이 사건 소송을 수계할 자격이 없습니다.
+3. 따라서 원고의 소송수계신청은 부적법하므로 결정으로 기각되어야
+   합니다(민사소송법 제243조 제1항, 대법원 1981. 3. 10. 선고
+   80다1895 판결). 망인의 진정한 상속인은 ○○○(예: 배우자)이므로,
+   수계가 필요하다면 그를 상대로 하여야 합니다.
+
+         입 증 방 법
+1. 을 제1호증   상속포기 수리심판서(등본)
+1. 을 제2호증   가족관계증명서(상세)
+
+         첨 부 서 류
+1. 위 입증방법 사본    각 1통
+1. 답변서 부본         1통
+
+              20○○. ○○. ○○.
+                위 피고  ○○○ (날인 또는 서명)
+
+○○지방법원 제○○민사단독(부) 귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1')">📋 복사</button><button type="button" onclick="printForm('f1')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1','소송수계_답변서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>첫 대응</b>입니다. 수계신청서를 받으면 이 답변서로 <b>"나는 상속포기로 상속인이 아니다"</b>를 밝힙니다. <b>상속포기 수리심판서(을 제1호증)</b>를 반드시 붙이고, 사건번호·고지일을 정확히 적으세요. 아직 고려기간(3개월) 중이라면 신청원인 답변을 "민사소송법 제233조 제2항에 따라 상속포기를 할 수 있는 기간 중이므로 아직 수계할 수 없다"로 바꿉니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ② · 재반박</span>준비서면 — 원고의 반격에 대한 재반박<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f2"><span class="ft">준 비 서 면</span>사건   20○○가단(또는 가합)○○○○호   ○○○ 청구
+원고   ○○○
+피고   ○○○ (망 ○○○의 소송수계인으로 신청된 자)
+
+위 사건에 관하여 피고는 원고가 제출한 준비서면의 주장에 대하여
+다음과 같이 변론을 준비합니다.
+
+              다       음
+
+1. 원고 주장의 요지
+   원고는 준비서면에서, 피고의 상속포기에도 불구하고 피고가
+   여전히 이 사건 소송을 수계하여야 한다는 취지로 주장합니다.
+
+2. 피고의 상속포기는 적법하게 수리되어 효력이 있습니다
+   피고의 상속포기 신고는 ○○가정법원 20○○느단○○○○호로
+   적법하게 수리되었고(을 제1호증), 상속의 포기는 상속개시된 때에
+   소급하여 효력이 있으므로(민법 제1042조), 피고는 처음부터
+   망인의 상속인이 아니었던 것이 됩니다.
+
+3. 법정단순승인 사유도 없습니다
+   원고는 피고에게 상속재산 처분 등 법정단순승인 사유(민법
+   제1026조)가 있다는 취지로 주장하나, 피고에게는 그러한 사실이
+   없습니다.
+   가. 피고가 인출한 금 ○○○원은 망인의 병원비 및 장례비로
+      전액 사용되었고(을 제3호증 영수증), 이는 상속재산의
+      처분이나 부정소비에 해당하지 아니합니다.
+   나. 피고는 망인의 유품 중 어떠한 재산도 취득하거나 처분한
+      사실이 없습니다.
+
+4. 상속포기는 사해행위취소의 대상이 아닙니다
+   원고는 피고의 상속포기가 채권자를 해하는 사해행위라고도
+   주장하나, 상속의 포기는 민법 제406조 제1항이 정하는
+   '재산권에 관한 법률행위'에 해당하지 아니하여 사해행위취소의
+   대상이 되지 못합니다(대법원 2011. 6. 9. 선고 2011다29307
+   판결).
+
+5. 결론
+   그러므로 피고에 대한 소송수계신청은 여전히 부적법하므로,
+   앞서 제출한 답변서와 같이 이를 기각하여 주시기 바랍니다.
+
+              입 증 방 법
+1. 을 제1호증   상속포기 수리심판서(등본) (이미 제출)
+1. 을 제3호증   ○○○ (원고 주장에 대한 반박 자료)
+
+              첨 부 서 류
+1. 위 입증방법 사본    각 1통
+1. 준비서면 부본       1통
+
+              20○○. ○○. ○○.
+                위 피고  ○○○ (날인 또는 서명)
+
+○○지방법원 제○○민사단독(부) 귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f2')">📋 복사</button><button type="button" onclick="printForm('f2')">🖨 인쇄</button><button type="button" onclick="downloadForm('f2','소송수계_준비서면.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>두 번째 대응</b>입니다. 원고가 답변서에 대해 다시 준비서면을 보내오면, 그 주장을 1항에 요약하고 2·3항에서 반박합니다. <b>핵심은 세 가지입니다</b> — ① 포기 수리는 유효하고(§1042), ② <b>단순승인 사유가 없으며</b>(§1026), ③ <b>상속포기는 사해행위취소의 대상이 아니다</b>(2011다29307). 특히 <b>3항이 승부처</b>입니다. 원고는 대개 망인 계좌의 거래내역을 들이밀며 "예금을 인출해 썼으니 처분행위"라고 주장하므로, <b>인출한 돈이 병원비·장례비로 나갔다는 영수증</b>을 날짜별로 맞추어 붙이십시오. 영수증이 없으면 카드 사용내역·계좌이체 기록으로라도 사용처를 밝혀야 합니다.</div>
+</div></div>
+
+<div class="cost">
+<span class="ct">비용 — 대응 자체는 비싸지 않습니다</span>
+<b>① 답변서·준비서면 제출</b> — <b>별도의 인지액이 붙지 않습니다.</b> 내가 소를 제기하는 것이 아니라 이미 걸린 사건에 대응하는 것이기 때문입니다. 전자소송으로 내면 우편비도 들지 않습니다.<br>
+<b>② 서류 발급</b> — 상속포기 수리심판서(등본), 가족관계증명서(상세), 기본증명서(상세) 발급 수수료가 통당 소액으로 듭니다.<br>
+<b>③ 아직 포기를 안 하셨다면</b> — 상속포기·한정승인 심판청구는 가사비송 라류로 <b>1건당 5,000원</b>입니다(가사소송수수료규칙 §3 제1항). 한정승인은 재산목록 작성과 공고 비용이 추가됩니다.<br>
+<b>④ 송달료</b> — <b>1회분 5,500원</b>(2025. 6. 1. 인상). <span style="font-size:13px;color:var(--muted)">[확인필요] 단가·횟수는 변동될 수 있습니다.</span><br>
+<b>⑤ 대응하지 않으면 훨씬 비싸집니다</b> — 판결이 확정되면 내 재산에 집행이 들어오고, 그때는 재심이나 청구이의 등 훨씬 무거운 절차를 밟아야 합니다.
+<div style="margin-top:11px; padding-top:10px; border-top:1px dashed #cfe6d6; color:#c0392b; font-weight:600; line-height:1.8;">※ 사건 정보를 입력하면 인지대·송달료를 포함한 예상 금액을 <a href="https://sanlaw.co.kr/tools-calculator.html" style="color:#c0392b; text-decoration:underline; font-weight:700;">🧮 수수료 계산기</a>에서 미리 확인할 수 있습니다.</div>
+</div>
+
+<h2>준비할 서류와 발급처</h2>
+<table>
+<tr><th>무엇을 (어디서)</th><th>서류</th><th>바로가기</th></tr>
+<tr><td>상속포기 증명<br>(가정법원)</td><td>상속포기 수리심판서(또는 등본) — 사건번호·고지일 확인</td><td><a href="https://www.scourt.go.kr">대한민국 법원</a></td></tr>
+<tr><td>상속관계<br>(전자가족관계등록)</td><td>망인·의견제출인 기본증명서(상세)·가족관계증명서(상세)</td><td><a href="https://efamily.scourt.go.kr">전자가족관계등록</a></td></tr>
+<tr><td>사건 진행 확인<br>(전자소송)</td><td>나의 사건 진행내역, 중단·수계신청 현황</td><td><a href="https://www.scourt.go.kr/portal/information/events/search/search.jsp">나의 사건검색</a></td></tr>
+</table>
+
+<h2>본 사무소가 도와드리는 일</h2>
+<div class="hire">
+<p>본 사무소에서는 의뢰인들의 고충은 덜어드리고, 함께 절차를 진행하여 원하는 결과에 도달할 수 있도록 성심을 다하겠습니다.</p>
+<p style="margin-top:12px"><b>· 수계신청서를 받으신 경우</b><br>① 사건 조회로 <b>어느 단계까지 왔는지</b> 확인, ② 상속포기 수리 여부와 <b>날짜 확정</b>, ③ <b>답변서 작성</b>과 30일 기한 관리, ④ 원고의 반격(법정단순승인·사해행위)에 대비한 <b>준비서면</b>까지 이중으로 준비해 드립니다.</p>
+<p style="margin-top:10px"><b>· 아직 포기·한정승인을 정하지 못하신 경우</b><br>먼저 <b>3개월 기한</b>을 계산해 드리고, 상속재산과 빚을 조사하여 <b>포기가 나은지 한정승인이 나은지</b>를 함께 판단합니다. 그동안은 §233 제2항을 근거로 수계를 미루는 서면을 내 드립니다.</p>
+<p style="margin-top:10px"><b>· 이미 예금을 쓰셨거나 유품을 정리하신 경우</b><br>가장 조심스러운 사안입니다. <b>어디까지가 허용되는 관리행위</b>이고 어디부터가 처분·부정소비인지를 <b>영수증과 사용처 기준으로 정리</b>하여, 법정단순승인 공격에 대비합니다.</p>
+</div>
+<div class="warn"><span class="wt">⚠ 솔직히 말씀드립니다</span>
+포기 자체는 강력한 방패이지만, <b>그 방패에는 스스로 구멍을 낼 수 있습니다.</b> 상속재산에 손을 댄 흔적이 있으면 법정단순승인(§1026)으로 몰려 포기가 무력화될 수 있고, 그렇게 되면 이 카드의 대응은 통하지 않습니다. 이미 예금을 인출하셨거나 유품을 처분하셨다면, <b>그 사실을 숨기지 말고</b> 사용처를 증명할 자료부터 모으십시오. 숨겼다가 상대가 거래내역으로 밝혀내면 훨씬 불리해집니다.</div>
+
+<a href="https://sanlaw.co.kr/tools-calculator.html" class="cta">🧮 내 사건 비용 미리 계산하기</a>
+<div style="text-align:center; background:#f6ecd8; border:1px solid var(--gold); border-radius:11px; padding:14px; margin:18px 0; font-size:15px; color:var(--gold-d); font-weight:700;">📞 상담은 홈 화면의 상담 창구를 이용하시면 됩니다.</div>
+
+<div class="tip"><span class="pt">💡 이어지는 카드</span> <b>소송수계가 무엇인지부터</b>는 <a href="5-1_소송수계의_기본_개념및_신청.html" style="color:var(--tip-ink);font-weight:700">5-1 카드</a>, <b>한정승인을 했다면(포기와 다릅니다) 수계는 하되 책임범위를 유보</b>하는 방법은 <a href="5-3_한정승인_수계_책임범위유보.html" style="color:var(--tip-ink);font-weight:700">5-3 카드</a>, <b>이미 가압류·경매·승계집행이 진행 중</b>이면 <a href="5-4_상속포기_가압류_경매_대응.html" style="color:var(--tip-ink);font-weight:700">5-4 카드</a>, <b>포기·한정승인 자체를 정해야</b> 한다면 <a href="3-1_상속받지않기_포기_한정승인.html" style="color:var(--tip-ink);font-weight:700">3-1 카드</a>, <b>포기 후에도 남는 관리의무</b>는 <a href="3-3_상속포기후_관리계속의무.html" style="color:var(--tip-ink);font-weight:700">3-3 카드</a>를 보십시오.</div>
+
+<div class="src">
+근거 — 민법 제161조·제406조 제1항(채권자취소권)·제1019조(승인·포기 기간)·제1022조(관리계속의무)·제1026조(법정단순승인)·제1041조(포기의 방식)·제1042조(포기의 소급효) · 민사소송법 제233조 제2항(상속포기 기간 중 수계 제한)·제243조 제1항(수계신청에 대한 재판)·제247조(정지의 효과)·제256조(답변서의 제출)·제274조(준비서면의 기재사항) · 대법원 1981. 3. 10. 선고 80다1895 판결(자격 없는 수계신청의 처리) · 대법원 2023. 3. 23.자 2020그42 전원합의체 결정(자녀 전부 포기 시 배우자 단독상속) · 대법원 2011. 6. 9. 선고 2011다29307 판결(상속포기는 사해행위취소의 대상이 아님) · 가사소송수수료규칙 제3조 · 법제처 찾기쉬운 생활법령정보 · 대한민국 법원 전자민원센터. 본 자료는 일반적인 법률정보로, 개별 사건의 법률자문이 아닙니다.
+</div>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+})();
+function toggleFold(b){b.parentElement.classList.toggle('open');}
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('작성례가 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('작성례가 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('작성례를 내려받았습니다');}
+</script>
+</body>
+</html>
