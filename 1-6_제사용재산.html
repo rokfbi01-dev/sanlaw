@@ -1,0 +1,346 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[상속 1-6] 조상 묘소와 선산, 족보·제기는 누가 물려받나요 — 제사용 재산 | 산 법무사 김재섭</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(280px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.case{background:var(--box); border-radius:10px; padding:14px 16px; margin:14px 0; border-left:4px solid #b9a98c;}
+.case .ct{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+.sit-wrap{display:flex; gap:12px; margin:14px 0;}
+.sit{flex:1; background:#f8f5ee; border:1px solid var(--line); border-top:3px solid var(--gold); border-radius:10px; padding:13px 15px; font-size:14.5px; line-height:1.75;}
+.sit .sl{display:block; font-weight:700; color:var(--gold-d); margin-bottom:6px; font-size:14px;}
+@media (max-width:680px){ .sit-wrap{flex-direction:column;} }
+/* 전체 길 흐름도 (A-1 추가 — 기존 톤 재활용) */
+.flow{background:linear-gradient(180deg,#faf7f0,#f6f1e6); border:1px solid var(--line); border-radius:14px; padding:22px 20px; margin:16px 0;}
+.flow .fl-t{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:18px; text-align:center; letter-spacing:.3px;}
+.flow .node{position:relative; background:#fff; border:1px solid #e3d8c4; border-radius:11px; padding:15px 18px 15px 56px; font-size:14.5px; line-height:1.72; box-shadow:0 2px 6px rgba(122,82,48,.07);}
+.flow .node .num{position:absolute; left:15px; top:14px; width:30px; height:30px; line-height:30px; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; border-radius:50%; font-weight:800; font-size:15px; font-family:'Nanum Myeongjo',serif; box-shadow:0 2px 5px rgba(122,82,48,.3);}
+.flow .node b{color:#241a10;}
+.flow .down{display:flex; justify-content:center; align-items:center; padding:7px 0;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+/* 작성례 박스 */
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:15px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .tag{margin-bottom:0;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;}
+.tag.cred{background:#5a9a72;}
+.tag.debt{background:#d9694a;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:18px;margin:12px 0;font-family:'D2Coding','Courier New',monospace;font-size:13px;line-height:1.6;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:16px;letter-spacing:2px;margin-bottom:12px;color:#241a10;}
+.howto{font-size:14px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0 4px;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:13px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:7px 13px;cursor:pointer;transition:.15s;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.75;}
+.lawbox .ll{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:#241a10;border-radius:5px;padding:2px 9px;margin-right:7px;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.hire p{margin:7px 0; font-size:15px; line-height:1.8;}
+.cta{display:block;text-align:center;background:var(--gold-d);color:#fff;font-weight:700;font-size:17px;text-decoration:none;padding:15px;border-radius:11px;margin:18px 0;font-family:'Nanum Myeongjo',serif;letter-spacing:1px;}
+.cta:hover{background:#5e3f24;}
+@media print{
+  body{background:#fff; max-width:100%;}
+  .tldr,.case,.warn,.tip,.cost,.steps li,.tnote,.sit,.flow,.flow li,.lawbox,.hire{background:#fff !important; border-color:#ccc !important;}
+  .tnote{display:none;}
+  .term{border:none; color:inherit; font-weight:inherit;}
+  .term>.bub{display:inline !important; position:static; width:auto; background:none; color:inherit; box-shadow:none; padding:0; font-size:inherit; line-height:inherit;}
+  .term>.bub::before{content:" ("; }
+  .term>.bub::after{content:")"; border:none; position:static;}
+  .fold-body{display:block !important;}.fold-btn .chev{display:none;}.form-tools{display:none;}
+  .cta{background:#fff !important; color:#241a10 !important; border:1px solid #ccc;}
+}
+
+</style>
+</head><body>
+<h1>[상속 1-6] 조상 묘소와 선산, 족보·제기는 누가 물려받나요 — 제사용 재산</h1>
+<div class="tnote">어려운 법률용어에는 <b>점선 밑줄</b>이 그어져 있습니다. <b>PC는 마우스를 올리면</b>, <b>휴대폰은 손가락으로 톡 터치하면</b> 쉬운 설명이 뜹니다. (인쇄하면 괄호로 함께 나옵니다.)</div>
+<div class="hire"><div class="ht">이 매뉴얼을 끝까지 읽으시는 분께</div>
+<p>이 매뉴얼은 <b>의뢰인이 직접 법원에 신청할 수 있도록 모든 서류 양식·비용·요건을 구체적으로 담았습니다.</b> 하지만 소송은 살아있는 생물과 같아 상대방의 격렬한 저항이 뒤따릅니다. 혼자 진행하시다가 막히는 부분이 생기거나 방어막이 필요할 때, 언제든 이 매뉴얼을 들고 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</p></div>
+<div class="tldr"><div class="tt">⭐ 30초 결론부터</div><ul>
+<li><b>조상 묘가 있는 선산(금양임야), 제사용 농지(묘토), 족보·제기는 일반 상속재산과 따로 취급되어, 형제끼리 나누지 않고 '제사를 모실 사람' 한 명이 승계합니다</b>(민법 §1008의3). 이 재산들은 상속재산분할(1-1)의 대상이 아닙니다.</li>
+<li><b>제사주재자는 ① 우선 상속인들의 협의로 정하고, ② 협의가 안 되면 피상속인의 직계비속 중 최근친의 연장자가 됩니다.</b> 2023년 대법원 전원합의체가 종전의 '장남 우선' 원칙을 폐기하여, 이제는 <b>아들·딸을 가리지 않고 나이 순(최근친 연장자)</b>입니다(대법원 2018다248626).</li>
+<li><b>연장자라도 '특별한 사정'이 있으면 제사주재자가 될 수 없습니다.</b> 장기간 외국 거주, 부모 학대·모욕, 분묘 수호·관리 거부, 제사 거부 등으로 제사를 주재할 의사·능력이 없다고 인정되면 제외됩니다. 이것이 차남·막내딸 등이 다툴 수 있는 <b>반격 지점</b>입니다.</li>
+<li><b>범위에는 한도가 있습니다.</b> 선산(<span class="term">금양임야<span class="bub">묘지를 보호하기 위하여 벌목을 금하고 나무를 기르는 임야. 조상 묘가 있는 선산이 대표적입니다.</span></span>)은 <b>1정보(약 3,000평 = 9,917㎡)</b> 이내, <span class="term">묘토<span class="bub">제사 비용을 마련하기 위하여 경작하던 농지. 단순히 조상 명의 농지라고 다 해당하는 것이 아니라, 그 수확으로 제사 비용을 대 온 땅이라야 합니다.</span></span>는 <b>600평(약 1,983㎡)</b> 이내까지만 제사용 재산입니다. <b>그 초과분은 일반 상속재산</b>으로 형제들이 나눕니다. 토지대장은 제곱미터로 적혀 있으니 <b>㎡ 숫자로 확인</b>하십시오. 다툼이 생기면 「제사주재자 지위 확인의 소」로 가립니다.</li>
+<li><b>세금도 함께 달라집니다.</b> 제사주재자가 승계하는 금양임야·묘토는 <b>합계 2억 원까지</b>, 족보·제구는 <b>1천만 원까지</b> 상속세가 <b>비과세</b>됩니다(상속세 및 증여세법 §12 제3호, 시행령 §8 제3항). 다만 <b>제사주재자 한 사람의 지분만</b> 비과세이고, 형제들이 공동명의로 나눠 가지면 그 지분은 과세됩니다. 누구 앞으로 정리하느냐에 따라 세금이 달라진다는 뜻입니다.</li>
+</ul></div>
+<h2>지금 어떤 상황인가요?</h2>
+<div class="sit-wrap">
+<div class="sit"><span class="sl">상황 ① · 제사주재자를 정하려는/되려는 분</span>부모님이 돌아가신 뒤 <b>조상 묘가 있는 선산·제사 모시던 땅·족보·제기를 누가 가질지 형제간에 정해야 하는</b> 경우. → 협의로 정하는 것이 가장 깔끔합니다. <b>아래 작성례 ①</b>이 출발점입니다.</div>
+<div class="sit"><span class="sl">상황 ② · 다른 형제의 독점을 막고 싶은 분</span><b>평소 부모를 돌보지 않던 형제가 "내가 장남이니 선산은 내 명의로 하겠다"</b>며 제사주재자를 자처하는 경우. → 연장자라도 특별한 사정이 있으면 제외됩니다. <b>제사주재자 지위 확인의 소(작성례 ②)</b>로 다툽니다.</div>
+</div>
+<h2>먼저 알아두면 쉬운 다섯 가지</h2>
+<ol class="steps">
+<li><b>왜 따로 취급하나.</b> 조상 묘와 선산, 족보·제기를 형제가 지분으로 쪼개 나누면 제사와 묘 관리가 어려워집니다. 그래서 법은 이를 일반 재산에서 빼내, 제사 모실 사람 한 명이 <span class="term">특별승계<span class="bub">일반 상속과 달리, 제사용 재산이 제사주재자 한 사람에게 통째로 넘어가는 것.</span></span>하게 합니다.</li>
+<li><b>제사주재자를 정하는 순서.</b> 1순위는 상속인 전원의 협의입니다(차남·딸·공동주재 무엇이든 가능). 2순위는 협의가 안 될 때로, 피상속인의 <b>직계비속 중 최근친의 연장자</b>(남녀 불문)입니다(대법원 2018다248626).</li>
+<li><b>범위 초과분은 일반 상속재산입니다.</b> 선산이 9,917㎡(약 3,000평)를 넘거나 묘토가 1,983㎡(600평)를 넘으면, 그 초과 부분은 제사용 재산이 아니라 일반 상속재산이므로 형제들이 나눕니다. 개발 호재가 있는 임야라면 초과분 정리가 특히 중요합니다.</li>
+<li><b>이름만 선산·농지라고 다 되는 것이 아닙니다.</b> 금양임야는 <b>상속 당시 이미 조상의 분묘가 그 땅에 있어야</b> 하고, 묘토는 <b>분묘와 가까이 있으면서 그 수확으로 실제 제사 비용을 대 온 농지</b>라야 합니다. 분묘가 없는 임야나, 제사와 무관하게 경작하던 농지는 그냥 일반 상속재산입니다. <b>분묘 현장 사진과 위치를 함께 남겨 두십시오.</b></li>
+<li><b>승계받은 사람이 실제로 제사를 모셔야 합니다.</b> 제사를 주재하던 피상속인으로부터 승계한 상속인이 <b>이어서 제사를 주재</b>하는 것이 전제입니다. 명의만 가져가고 제사를 모시지 않으면, 뒷날 다른 형제가 지위를 다투거나 세금 문제가 생길 수 있습니다.</li>
+</ol>
+<h2>관련 법령 — 쉬운 풀이</h2>
+<div class="lawbox"><span class="ll">민법 §1008의3</span><b>분묘 등의 승계</b> — 분묘에 속한 <b>1정보(약 3,000평) 이내의 금양임야</b>와 <b>600평 이내의 묘토인 농지</b>, <b>족보와 제구</b>의 소유권은 제사를 주재하는 자가 승계합니다. 이 재산은 공동상속재산의 분할대상에서 제외됩니다.</div>
+<div class="lawbox"><span class="ll">민법 §1008의3 (판례 보충)</span><b>피상속인의 유체·유골</b> — 명문에는 없으나, 판례는 피상속인의 유체·유골도 제사용 재산에 준하여 제사주재자에게 승계된다고 봅니다(대법원 2007다27670 전원합의체). 유체·유골의 인도를 구하는 소송이 여기서 나옵니다.</div>
+<div class="lawbox"><span class="ll">상속세 및 증여세법 §12 제3호 · 시행령 §8 제3항</span><b>제사용 재산의 상속세 비과세</b> — 제사를 주재하는 상속인이 승계한 ① 피상속인이 제사를 주재하고 있던 <b>선조의 분묘에 속한 9,900㎡ 이내의 금양임야</b>, ② <b>분묘에 속한 1,980㎡ 이내의 묘토인 농지</b>는 상속세 과세가액에 넣지 않습니다. 다만 <b>①②의 가액 합계가 2억 원을 넘으면 2억 원까지만</b>, ③ <b>족보와 제구</b>는 <b>1천만 원까지만</b> 비과세입니다. 여러 상속인이 공동으로 상속받으면 <b>제사주재자의 지분만</b> 비과세되고 나머지 지분은 과세됩니다.</div>
+<h2>판례로 보기 — '장남 우선'은 이제 폐기되었습니다</h2>
+<div class="case"><span class="ct">○ 유체·유골도 제사주재자에게 승계된다 — 대법원 2008. 11. 20. 선고 2007다27670 전원합의체 판결</span>
+피상속인의 유체·유골은 제사용 재산에 준하여 제사주재자에게 승계된다고 보아, 그 귀속을 제사주재자 결정 문제로 다룬 판례입니다. 유체·유골의 인도가 다투어지는 사건의 출발점이 됩니다. (다만 아래 2018다248626 판결로 '제사주재자 결정방법' 부분은 변경되었습니다.)</div>
+<div class="case"><span class="ct">○ 협의가 안 되면 남녀 불문 최근친 연장자 — 대법원 2023. 5. 11. 선고 2018다248626 전원합의체 판결</span>
+공동상속인들 사이에 협의가 이루어지지 아니하는 경우, 종전의 '장남 우선' 원칙(2007다27670)을 폐기하고, <b>특별한 사정이 없는 한 피상속인의 직계비속 중 남녀·적서를 불문한 최근친의 연장자</b>가 제사주재자가 된다고 하였습니다. 다만 연장자라도 <b>장기간 외국 거주, 부모 학대·모욕, 분묘 수호·관리나 제사의 거부</b> 등으로 제사를 주재할 의사·능력이 없다고 인정되면 그 지위가 부정될 수 있습니다. (이 변경 법리는 판결 선고일 이후 개시된 상속에 적용됩니다.)</div>
+<h2>어떻게 진행되나 — 전체 절차 한눈에 보기</h2>
+<div class="flow"><div class="fl-t">협의가 가장 깔끔하고, 다툼이 있으면 지위 확인의 소로 갑니다</div>
+<div class="node"><span class="num">0</span><b>제사용 재산과 범위를 확인합니다</b> — 선산(금양임야)·묘토의 등기사항증명서·토지대장으로 위치와 면적을 확인하고, 3,000평·600평 한도 초과 여부를 가립니다.</div><span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">1</span><b>[1순위] 협의로 지정</b> — 상속인 전원이 제사주재자를 협의로 정하고 <b>제사주재자 지정 협의서</b>를 작성합니다(작성례 ①). 차남·딸·공동주재 무엇이든 가능합니다.</div><span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">2</span><b>[협의 성립] 명의 이전</b> — 그 협의서로 선산 등의 소유권 이전(등기)을 진행합니다. 초과분은 일반 상속재산으로 별도 분할합니다(1-1).</div><span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">3</span><b>[협의 불성립] 지위 확인의 소</b> — 협의가 안 되면 <b>제사주재자 지위 확인의 소</b>(민사)를 제기합니다(작성례 ②). 최근친 연장자인지, 상대에게 특별한 사정이 있는지를 다툽니다. 유체·유골이 걸리면 <b>유체 인도 청구</b>를 함께 냅니다.</div></div>
+<h2>협의가 끝나면 — 명의는 이렇게 넘깁니다</h2>
+<div class="lawbox"><span class="ll">등기 실무</span>제사용 재산이라 해서 특별한 등기 종류가 따로 있는 것은 아닙니다. <b>상속인 전원이 서명·날인한 협의서</b>(작성례 ①)를 등기원인 서면으로 삼아, 제사주재자 앞으로 <b>협의분할에 의한 상속등기</b>를 신청합니다. 필요서류와 절차는 일반 상속등기와 같습니다. 협의가 되지 않아 <b>지위 확인 판결</b>을 받은 경우에는 그 판결문을 근거로 진행합니다. <span style="font-size:13px;color:var(--muted)">[확인필요] 관할 등기소마다 요구 서류가 다를 수 있으니 접수 전 확인하십시오.</span></div>
+<div class="tip"><span class="pt">💡 함께 챙기실 것 — 분묘가 남의 땅에 있거나, 옮겨야 한다면</span>
+조상 묘가 <b>남의 땅</b>에 있는 경우(<span class="term">분묘기지권<span class="bub">타인의 토지에 분묘를 설치한 사람이 그 분묘를 지키기 위해 그 땅을 사용할 수 있는 권리. 관습법상 인정되어 왔습니다.</span></span>), 또는 <b>분묘를 옮기거나 화장으로 정리</b>하려는 경우는 이 카드의 범위를 넘습니다. 「장사 등에 관한 법률」에 따른 <b>개장 신고</b>와 연고자 통보 절차가 따로 있고, 남의 땅이라면 토지 소유자와의 관계도 정리해야 합니다. 해당하시면 별도로 상담하시기 바랍니다.</div>
+
+<h2>⏰ 기한 정리 — 이것만은 놓치지 마십시오</h2>
+<table>
+<tr><th>무엇의 기한</th><th>① 기산일</th><th>② 계산근거</th><th>③ 말일 처리</th><th>④ 만료일</th></tr>
+<tr><td><b>상속세 신고·납부</b><br>(비과세를 받으려면 신고해야 합니다)</td><td>상속개시일(사망일)이 속한 달의 <b>말일</b></td><td>상속세 및 증여세법 §67 — 6개월 이내</td><td>말일이 토요일·공휴일이면 <b>다음 근무일</b>(민법 §161)</td><td><b>사망한 달의 말일 + 6개월</b></td></tr>
+<tr><td><b>제사주재자 지위 확인의 소</b></td><td>—</td><td>확인의 소로서 제척기간·소멸시효 규정 없음</td><td>—</td><td><b>기한 없음</b>. 다만 늦어질수록 제사 봉행 실적 등 증거를 모으기 어려워집니다</td></tr>
+<tr><td><b>2023년 판례 변경의 적용</b></td><td>—</td><td>대법원 2018다248626 전원합의체 — 판결 <b>선고일(2023. 5. 11.) 이후</b> 상속이 개시된 경우에 적용</td><td>—</td><td>그 이전에 개시된 상속은 <b>종전 법리</b>가 적용될 수 있습니다</td></tr>
+<tr><td>상속재산분할 청구</td><td>—</td><td>공유물분할청구의 성질 — 기간 제한 없음</td><td>—</td><td><b>기한 없음</b></td></tr>
+</table>
+
+<h2>① 제사주재자를 정하려는 분 · ② 독점을 막으려는 분</h2>
+<div class="lawbox" style="background:#eef4f8;"><span class="ll" style="background:#2f5b78;">정하려는 분</span>제사용 재산과 범위를 확인하고, 상속인 전원의 <b>협의로 제사주재자를 지정</b>하는 것이 가장 깔끔합니다(작성례 ①). 협의가 안 되면 <b>지위 확인의 소</b>로 가되, 자신이 최근친 연장자이거나 협의로 지정되었음을 밝힙니다.</div>
+<div class="lawbox" style="background:#fdf2ee;"><span class="ll" style="background:#9c3a22;">막으려는 분</span>상대가 연장자라도, <b>부모 학대·장기 외국거주·분묘 관리나 제사 거부</b> 등 특별한 사정을 입증하면 그 지위를 부정할 수 있습니다(2018다248626). 또한 본인이 실제로 제사를 모셔왔음을 소명합니다(작성례 ②).</div>
+<h2>신청서·서면 작성례 — 양 당사자 모두</h2>
+<p style="font-size:13.5px;color:var(--muted)">아래 작성례의 빈칸(○○○)을 채워 그대로 제출할 수 있습니다. 제목은 가운데 정렬된 법원 제출 양식입니다. <b>복사·인쇄·다운로드</b> 버튼을 활용하십시오.</p>
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ① · 협의 성립</span>제사주재자 지정 협의서<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f1"><span class="ft">제사주재자 지정 협의서</span>피상속인  망 ○○○   (사망일: 20○○. ○○. ○○.)
+최후주소  ○○○
+
+피상속인의 제사용 재산 승계에 관하여, 공동상속인 전원은 다음과
+같이 협의한다.
+
+         다       음
+1. 피상속인의 제사주재자를 ○○○(상속인)으로 정한다.
+2. 이에 따라 민법 제1008조의3의 제사용 재산, 즉 분묘에 속한
+   1정보(약 3,000평) 이내의 금양임야, 600평 이내의 묘토인
+   농지, 족보와 제구의 소유권은 위 제사주재자가 승계한다.
+3. 위 한도를 초과하는 부분은 일반 상속재산으로서 별도의
+   상속재산 분할협의(또는 분할심판)에 따라 나눈다.
+
+위 협의를 증명하기 위하여 상속인 전원이 서명·날인한다.
+
+              20○○. ○○. ○○.
+
+상속인   ○○○ (인) (인감)   주소 ○○○
+상속인   ○○○ (인) (인감)   주소 ○○○
+     ※ 상속인 전원이 인감으로 날인하고 인감증명서를 첨부</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1')">📋 복사</button><button type="button" onclick="printForm('f1')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1','제사주재자_지정협의서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>협의로 제사주재자를 정하는 경우</b>의 양식입니다. 협의로는 <b>차남·딸·공동주재 무엇이든 가능</b>합니다. 제사주재자를 한 줄로 명확히 정하고, 상속인 전원이 인감으로 날인한 뒤 인감증명서를 첨부하여 선산 등의 명의 이전(등기)에 사용합니다. <b>3,000평·600평 한도 초과분은 일반 상속재산</b>이므로 제3항처럼 별도 분할을 명시하는 것이 분쟁 예방에 좋습니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ② · 협의 불성립</span>소장 — 제사주재자 지위 확인의 소 (다툼이 있을 때)<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f2"><span class="ft">소        장</span>원고  ○○○   (주민등록번호: ○○○○○○-○○○○○○○)
+      주소  ○○○   (☎: ○○○-○○○○-○○○○)
+피고  ○○○ (제사주재자를 다투는 상속인)
+      주소  ○○○
+
+         제사주재자 지위 확인의 소
+
+         청 구 취 지
+1. 원고가 망 ○○○의 제사주재자임을 확인한다.
+2. 소송비용은 피고가 부담한다.
+   라는 판결을 구합니다.
+  (유체·유골 인도를 함께 구할 경우:
+   피고는 원고에게 망 ○○○의 유골을 인도하라.)
+
+         청 구 원 인
+1. 망 ○○○은 20○○. ○○. ○○. 사망하였고, 원고와 피고는 그
+   직계비속(자녀)입니다.
+2. 제사주재자에 관하여 상속인들 사이에 협의가 이루어지지
+   아니하였습니다.
+3. 원고는 ○○○(피상속인의 직계비속 중 최근친의 연장자에 해당
+   / 또는 협의로 지정됨)이므로 제사주재자입니다(대법원
+   2018다248626). 
+   (상대 독점을 막는 경우) 피고는 연장자이나, ○○○(장기간 외국
+   거주 / 평소 피상속인을 학대·모욕 / 분묘 수호·관리 및 제사를
+   거부)한 특별한 사정이 있어 제사주재자로 인정될 수 없습니다.
+4. 이에 원고가 제사주재자임의 확인을 구합니다.
+
+         입 증 방 법
+1. 갑 제1호증   가족관계증명서(상세) — 촌수·연령 확인
+1. 갑 제2호증   제사 봉행·비용 부담 자료(사진·영수증 등)
+1. 갑 제3호증   (해당 시) 상대의 특별한 사정 소명자료
+
+         첨 부 서 류
+1. 위 입증방법 사본   각 1통
+1. 소장 부본          1통
+
+              20○○. ○○. ○○.
+                위 원고  ○○○ (인)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f2')">📋 복사</button><button type="button" onclick="printForm('f2')">🖨 인쇄</button><button type="button" onclick="downloadForm('f2','제사주재자_지위확인_소장.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>협의가 안 되어 다툴 때</b>의 양식입니다. 민사사건이라 <b>지방법원</b>에 냅니다. 핵심은 <b>'내가 왜 제사주재자인가'</b> — 협의로 지정되었거나, 협의가 없었다면 <b>최근친 연장자</b>임을 가족관계증명서로 증명합니다. <b>상대의 독점을 막는 경우</b>에는, 상대가 연장자라도 <b>부모 학대·장기 외국거주·제사 거부</b> 등 특별한 사정이 있음을 입증하는 것이 반격의 핵심입니다(2018다248626). 유체·유골이 걸리면 <b>유골 인도청구</b>를 함께 구합니다.</div>
+</div></div>
+
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ③ · 상대방(반박)★</span>답변서 — 제사주재자 지위 확인의 소를 당한 경우<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f3"><span class="ft">답 변 서</span>사건   20○○가합(가단)○○○   제사주재자지위확인
+원고   ○○○
+피고   ○○○   (☎: ○○○-○○○○-○○○○)
+       주소: ○○○
+
+위 사건에 관하여 피고는 원고의 청구에 대하여 다음과 같이
+답변합니다.
+
+         청구취지에 대한 답변
+1. 원고의 청구를 기각한다.
+2. 소송비용은 원고가 부담한다.
+   라는 판결을 구합니다.
+
+         청구원인에 대한 답변
+1. 협의가 이미 성립하였습니다 (해당하는 경우)
+   공동상속인들은 20○○. ○○. ○○. 피고를 제사주재자로 정하는
+   협의를 마쳤고, 그 협의서에는 원고를 포함한 상속인 전원이
+   서명·날인하였습니다(을 제1호증). 제사주재자는 상속인들의
+   협의로 정하는 것이 우선이므로(대법원 2023. 5. 11. 선고
+   2018다248626 전원합의체 판결), 원고의 주장은 이유 없습니다.
+
+2. 원고는 최근친의 연장자가 아닙니다 (해당하는 경우)
+   피상속인의 직계비속 중 최근친의 연장자는 20○○. ○○. ○○.생
+   피고이며, 원고는 그보다 연하입니다(을 제2호증 가족관계증명서).
+
+3. 원고에게는 제사를 주재할 수 없는 특별한 사정이 있습니다
+   가. 원고는 20○○년경부터 현재까지 약 ○○년간 ○○국에 거주
+      하여 국내 제사와 분묘 관리에 관여한 바가 없습니다
+      (을 제3호증 출입국사실증명).
+   나. 원고는 피상속인 생전에 ○○○(예: 부양을 전혀 하지 아니
+      하고 폭언·모욕을 반복)하였습니다(을 제4호증).
+   다. 원고는 20○○년 이후 제사에 참여하지 아니하였고, 분묘의
+      벌초·관리를 거부하였습니다(을 제5호증).
+
+4. 실제 제사와 분묘 관리는 피고가 하여 왔습니다
+   피고는 20○○년부터 현재까지 매년 기제사와 명절 차례를 주관
+   하고, 분묘의 벌초·보수 비용을 부담하여 왔습니다
+   (을 제6호증 사진·영수증, 을 제7호증 친족 확인서).
+
+5. 결론
+   따라서 피고가 망 ○○○의 제사주재자이므로, 원고의 청구는
+   기각되어야 합니다.
+
+         입 증 방 법
+1. 을 제1호증   제사주재자 지정 협의서
+1. 을 제2호증   가족관계증명서(상세) — 촌수·생년 확인
+1. 을 제3호증   원고의 출입국사실증명
+1. 을 제4호증   원고의 부양 해태·학대 소명자료
+1. 을 제5호증   원고의 제사·분묘관리 거부 소명자료
+1. 을 제6호증   피고의 제사 봉행 사진·비용 영수증
+1. 을 제7호증   친족·이웃 확인서
+
+         첨 부 서 류
+1. 위 입증방법 사본   각 1통
+1. 답변서 부본        1통
+
+              20○○. ○○. ○○.
+                위 피고  ○○○ (인)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f3')">📋 복사</button><button type="button" onclick="printForm('f3')">🖨 인쇄</button><button type="button" onclick="downloadForm('f3','제사주재자_답변서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>"내가 제사주재자다"라며 소송을 당한 분</b>을 위한 첫 대응입니다. 방어 순서가 중요합니다.<br>
+<b>1번 — 협의가 있었다면 그것이 가장 강력합니다.</b> 제사주재자는 협의로 정하는 것이 1순위이므로, 전원이 날인한 협의서 하나면 나머지 다툼이 필요 없습니다.<br>
+<b>2번 — 협의가 없었다면 나이와 촌수를 봅니다.</b> 2023년 전원합의체 판결로 <b>아들·딸을 가리지 않고</b> 최근친 연장자가 되므로, 딸이라도 손위이면 유리합니다.<br>
+<b>3번 — 상대가 연장자라면 여기가 승부처입니다.</b> 장기간 외국 거주, 부모 학대·모욕, 분묘 관리나 제사의 거부 같은 <b>특별한 사정</b>을 구체적으로 증명해야 합니다. "사이가 나빴다" 정도로는 부족하고, <b>기간·횟수·구체적 행위</b>가 드러나야 합니다.<br>
+<b>4번은 잊지 말고 넣으십시오.</b> 실제로 제사를 모셔 온 사실은 3번을 뒷받침하는 가장 좋은 증거입니다. 제사상 사진, 벌초 영수증, 친족 확인서를 연도별로 모아 두십시오. 해당 없는 항목은 지우고 쓰시면 됩니다.</div>
+</div></div>
+
+<div class="cost"><span class="ct">비용 — 인지액과 송달료는 다릅니다</span>
+<b>① 협의로 끝나는 경우</b> — 소송비용은 들지 않습니다. 다만 선산 등의 <b>명의 이전(상속등기)</b>에 취득세·등록면허세와 등기신청수수료가 듭니다.<br>
+<b>② 제사주재자 지위 확인의 소</b> — 민사사건입니다. 인지액은 <span class="term">소가<span class="bub">소송 목적의 값. 인지대·관할을 정하는 기준이 됩니다.</span></span>에 따라 계산하며, <b>전자소송으로 내면 인지액의 10%가 깎입니다.</b> <span style="font-size:13px;color:var(--muted)">[확인필요] 이 소송의 소가를 재산권상의 소로 볼지 비재산권상의 소로 볼지는 사안에 따라 달라질 수 있으므로, 접수 전 법원 민원실에서 확인하시기 바랍니다.</span><br>
+<b>③ 유체·유골 인도 청구를 함께 하는 경우</b> — 청구를 병합하면 인지액이 합산될 수 있습니다.<br>
+<b>④ 송달료</b>(인지와 별개로 예납) — <b>1회분 5,500원</b>(2025. 6. 1. 인상). 당사자 수 × 정해진 횟수로 계산합니다. <span style="font-size:13px;color:var(--muted)">[확인필요] 단가·횟수는 변동될 수 있습니다.</span><br>
+<b>⑤ 세금</b> — 위 상속세 비과세(2억 원·1천만 원 한도)는 <b>상속세 신고를 해야</b> 적용받습니다. 세액 계산은 세무 영역이므로 세무 전문가의 확인을 받으시는 편이 좋습니다.
+<div style="margin-top:11px; padding-top:10px; border-top:1px dashed #cfe6d6; color:#c0392b; font-weight:600; line-height:1.8;">※ 정확한 인지액·송달료 예상치는 사건 정보를 넣으면 <a href="https://sanlaw.co.kr/tools-calculator.html" style="color:#c0392b; text-decoration:underline; font-weight:700;">🧮 수수료 계산기</a>에서 미리 확인할 수 있습니다.</div></div>
+<h2>고충은 덜어드리고, 결과로 보답하겠습니다</h2>
+<div class="hire"><p>본 사무소에서는 의뢰인들의 고충은 덜어드리고, 함께 소송을 진행하여 원하는 결과에 도달할 수 있도록 성심을 다하겠습니다.</p>
+<p style="margin-top:12px"><b>· 제사주재자를 정하려는 분의 경우</b><br>① 제사용 재산과 범위(3,000평·600평) 확인, ② <b>제사주재자 지정 협의서</b> 작성과 명의 이전, ③ 초과분의 <b>일반 상속재산 분할</b>까지 <b>본인 절차의 전 과정을 함께</b> 준비해 드립니다.</p>
+<p style="margin-top:10px"><b>· 독점을 막으려는 분의 경우</b><br>상대의 특별한 사정 입증 등 <b>지위 확인의 소 전략</b>을 함께 수립해 드립니다.</p></div>
+<div class="warn"><span class="wt">⚠ 자력구제 금지</span>제사주재자가 정해지지 않았다 하여 <b>다른 상속인의 동의 없이 분묘를 파거나(파묘) 유골을 옮기는 행위는 형사처벌(분묘발굴죄 등) 대상</b>이 될 수 있습니다. 반드시 협의 또는 지위 확인의 소로 해결하십시오.</div>
+<a href="https://sanlaw.co.kr/tools-calculator.html" class="cta">🧮 내 사건 비용 미리 계산하기</a>
+<div style="text-align:center; background:#f6ecd8; border:1px solid var(--gold); border-radius:11px; padding:14px; margin:18px 0; font-size:15px; color:var(--gold-d); font-weight:700;">📞 상담은 홈 화면의 상담 창구를 이용하시면 됩니다.</div>
+<h2>준비할 서류와 발급처</h2>
+<p style="font-size:13.5px;color:var(--muted)">아래 '바로가기'를 클릭하면 해당 사이트로 이동합니다. 만약 첫 화면으로 연결되면, 옆의 <b>찾아가기 경로</b>를 따라 메뉴를 클릭하면 됩니다.</p>
+<table>
+<tr><th>무엇을 (어디서)</th><th>서류</th><th>바로가기 · 찾아가기 경로</th></tr>
+<tr><td>상속인·촌수·연령 확인<br>(전자가족관계등록)</td><td>피상속인·상속인들의 가족관계증명서(상세)·기본증명서(상세)</td><td><a href="https://efamily.scourt.go.kr">전자가족관계등록</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 증명서발급 → '상세' 선택</span></td></tr>
+<tr><td>선산·묘토 확인<br>(인터넷등기소·정부24)</td><td>금양임야·묘토의 등기사항전부증명서, 토지대장(면적 확인)</td><td><a href="https://www.iros.go.kr">인터넷등기소</a> / <a href="https://www.gov.kr">정부24</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 등기열람 → 부동산 / 정부24 '토지대장' 검색</span></td></tr>
+<tr><td>제사 봉행 소명<br>(본인 준비)</td><td>제사·성묘 사진, 비용 부담 내역, 이웃·친지 확인서</td><td><span style="font-size:12.5px;color:var(--muted)">본인이 직접 정리·준비</span></td></tr>
+<tr><td>지위 확인의 소 제출<br>(전자소송)</td><td>제사주재자 지위 확인 소장 — 공식 양식</td><td><a href="https://ecfs.scourt.go.kr">전자소송</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 서류제출 → 민사 → 소장</span></td></tr>
+</table>
+<div class="tip"><span class="pt">💡 이어지는 카드</span> 아래 제목을 누르면 해당 카드로 바로 이동합니다.<br>
+· 한도를 넘는 초과분과 나머지 재산을 나눌 때 → <a href="1-1_상속재산분할심판.html" style="color:var(--gold-d);font-weight:700;text-decoration:underline">상속재산분할심판(1-1)</a><br>
+· 내가 부모님을 모시고 제사를 지내 왔을 때 → <a href="1-3_기여분.html" style="color:var(--gold-d);font-weight:700;text-decoration:underline">기여분(1-3)</a><br>
+· 형제가 도장을 안 찍거나 연락이 안 될 때 → <a href="1-5_도장거부_연락두절.html" style="color:var(--gold-d);font-weight:700;text-decoration:underline">도장 거부·연락두절(1-5)</a><br>
+· 선산 명의를 실제로 옮길 때 → 상속등기(4-1) <span style="color:var(--muted);font-size:13px">(카드 준비 중)</span></div>
+<div class="src">
+근거 — 민법 제1008조의3(분묘 등의 승계)·제161조 · 상속세 및 증여세법 제12조 제3호(비과세되는 상속재산)·제67조(상속세 과세표준신고) 및 같은 법 시행령 제8조 제3항(금양임야 9,900㎡·묘토 1,980㎡, 합계 2억 원 한도, 족보·제구 1천만 원 한도) · 상속세 및 증여세 사무처리 집행기준 12-8-3(공동상속 시 제사주재자 지분만 비과세) · 장사 등에 관한 법률 · 대법원 2008. 11. 20. 선고 2007다27670 전원합의체 판결(유체·유골의 제사주재자 승계) · 대법원 2023. 5. 11. 선고 2018다248626 전원합의체 판결(협의 불성립 시 남녀·적서 불문 최근친 연장자가 제사주재자, 종전 장남 우선 원칙 폐기, 특별한 사정에 의한 예외) · 국가법령정보센터 법령용어 · 법제처 찾기쉬운 생활법령정보 · 대한법률구조공단 · 대법원 전자민원센터. 본 자료는 일반적인 법률정보로, 개별 사건의 법률자문이 아닙니다.
+</div>
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+})();
+function toggleFold(b){var fb=b.parentElement;var body=b.nextElementSibling;var open=fb.classList.toggle('open');if(body){body.style.display=open?'block':'none';}}
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('작성례가 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('작성례가 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('작성례를 내려받았습니다');}
+</script>
+
+</body>
+</html>

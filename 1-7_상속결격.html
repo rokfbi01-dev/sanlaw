@@ -1,0 +1,347 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[상속 1-7] 부모나 형제를 해친 사람도 상속을 받나요 — 상속결격·구하라법 | 산 법무사 김재섭</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(280px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.case{background:var(--box); border-radius:10px; padding:14px 16px; margin:14px 0; border-left:4px solid #b9a98c;}
+.case .ct{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+.sit-wrap{display:flex; gap:12px; margin:14px 0;}
+.sit{flex:1; background:#f8f5ee; border:1px solid var(--line); border-top:3px solid var(--gold); border-radius:10px; padding:13px 15px; font-size:14.5px; line-height:1.75;}
+.sit .sl{display:block; font-weight:700; color:var(--gold-d); margin-bottom:6px; font-size:14px;}
+@media (max-width:680px){ .sit-wrap{flex-direction:column;} }
+/* 전체 길 흐름도 (A-1 추가 — 기존 톤 재활용) */
+.flow{background:linear-gradient(180deg,#faf7f0,#f6f1e6); border:1px solid var(--line); border-radius:14px; padding:22px 20px; margin:16px 0;}
+.flow .fl-t{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:18px; text-align:center; letter-spacing:.3px;}
+.flow .node{position:relative; background:#fff; border:1px solid #e3d8c4; border-radius:11px; padding:15px 18px 15px 56px; font-size:14.5px; line-height:1.72; box-shadow:0 2px 6px rgba(122,82,48,.07);}
+.flow .node .num{position:absolute; left:15px; top:14px; width:30px; height:30px; line-height:30px; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; border-radius:50%; font-weight:800; font-size:15px; font-family:'Nanum Myeongjo',serif; box-shadow:0 2px 5px rgba(122,82,48,.3);}
+.flow .node b{color:#241a10;}
+.flow .down{display:flex; justify-content:center; align-items:center; padding:7px 0;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+/* 작성례 박스 */
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:15px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .tag{margin-bottom:0;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;}
+.tag.cred{background:#5a9a72;}
+.tag.debt{background:#d9694a;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:18px;margin:12px 0;font-family:'D2Coding','Courier New',monospace;font-size:13px;line-height:1.6;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:16px;letter-spacing:2px;margin-bottom:12px;color:#241a10;}
+.howto{font-size:14px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0 4px;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:13px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:7px 13px;cursor:pointer;transition:.15s;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.75;}
+.lawbox .ll{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:#241a10;border-radius:5px;padding:2px 9px;margin-right:7px;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.hire p{margin:7px 0; font-size:15px; line-height:1.8;}
+.cta{display:block;text-align:center;background:var(--gold-d);color:#fff;font-weight:700;font-size:17px;text-decoration:none;padding:15px;border-radius:11px;margin:18px 0;font-family:'Nanum Myeongjo',serif;letter-spacing:1px;}
+.cta:hover{background:#5e3f24;}
+@media print{
+  body{background:#fff; max-width:100%;}
+  .tldr,.case,.warn,.tip,.cost,.steps li,.tnote,.sit,.flow,.flow li,.lawbox,.hire{background:#fff !important; border-color:#ccc !important;}
+  .tnote{display:none;}
+  .term{border:none; color:inherit; font-weight:inherit;}
+  .term>.bub{display:inline !important; position:static; width:auto; background:none; color:inherit; box-shadow:none; padding:0; font-size:inherit; line-height:inherit;}
+  .term>.bub::before{content:" ("; }
+  .term>.bub::after{content:")"; border:none; position:static;}
+  .fold-body{display:block !important;}.fold-btn .chev{display:none;}.form-tools{display:none;}
+  .cta{background:#fff !important; color:#241a10 !important; border:1px solid #ccc;}
+}
+
+</style>
+</head><body>
+<h1>[상속 1-7] 부모나 형제를 해친 사람도 상속을 받나요 — 상속결격·구하라법</h1>
+<div class="tnote">어려운 법률용어에는 <b>점선 밑줄</b>이 그어져 있습니다. <b>PC는 마우스를 올리면</b>, <b>휴대폰은 손가락으로 톡 터치하면</b> 쉬운 설명이 뜹니다. (인쇄하면 괄호로 함께 나옵니다.)</div>
+<div class="hire"><div class="ht">이 매뉴얼을 끝까지 읽으시는 분께</div>
+<p>이 매뉴얼은 <b>의뢰인이 직접 법원에 신청할 수 있도록 모든 서류 양식·비용·요건을 구체적으로 담았습니다.</b> 하지만 소송은 살아있는 생물과 같아 상대방의 격렬한 저항이 뒤따릅니다. 혼자 진행하시다가 막히는 부분이 생기거나 방어막이 필요할 때, 언제든 이 매뉴얼을 들고 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</p></div>
+<div class="tldr"><div class="tt">⭐ 30초 결론부터</div><ul>
+<li><b>법이 정한 중대한 잘못(살해·상해치사·유언 방해나 위조 등)을 저지른 사람은, 재판을 따로 받을 것도 없이 당연히 상속자격을 잃습니다.</b> 이를 <span class="term">상속결격<span class="bub">법이 정한 중대한 사유에 해당하면 재판 없이 당연히 상속인 자격을 잃는 것(민법 §1004). 자동으로, 그리고 처음부터 상속인이 아니었던 것으로 됩니다.</span></span>이라 합니다(민법 §1004).</li>
+<li><b>결격자가 이미 재산을 가져갔다면, 다른 상속인이 「상속회복청구의 소」(민사)로 되찾습니다.</b> 다만 <b>침해를 안 날부터 3년, 침해행위가 있은 날부터 10년</b> 안에 하여야 합니다(민법 §999②).</li>
+<li><b>★그 사람의 자녀는 대신 받을 수 있습니다.</b> 결격자에게 자녀가 있으면 그 자녀가 결격자를 대신해 상속합니다(<span class="term">대습상속<span class="bub">원래 상속받을 사람이 사망·결격·상속권 상실로 상속받지 못할 때, 그의 자녀 등이 대신 상속하는 것.</span></span>). 그래서 결격을 주장해도 그 몫이 결격자의 자녀에게 넘어가 다른 형제에게 돌아오지 않을 수 있으므로, 실익부터 따져야 합니다.</li>
+<li><b>'나를 버린 부모'는 결격이 아니라 '구하라법'으로 막습니다.</b> 양육 의무를 저버린 부모는 상속결격 사유가 아니므로, <span class="term">상속권 상실 선고<span class="bub">부양의무를 중대하게 위반하는 등 패륜적 행위를 한 상속인의 상속권을 가정법원의 선고로 박탈하는 제도(민법 §1004의2, 이른바 '구하라법'). 2026. 1. 1. 시행, 2026. 3. 17. 개정.</span></span>(민법 §1004의2)으로 <b>가정법원에 청구</b>하여야 합니다. 유언이 없으면 <b>사유를 안 날부터 6개월</b> 안에 청구합니다.</li>
+<li><b style="color:#9c3a22">2026. 3. 17. 개정으로 대상이 크게 넓어졌습니다.</b> 종전에는 '직계존속'만, '미성년 자녀에 대한 부양의무'만이 대상이었으나, 이제는 <b>모든 상속인</b>(자녀·배우자 포함)에 대하여 <b>모든 부양의무</b>(성년 자녀에 대한 것 포함)의 중대한 위반이 사유가 됩니다. 범죄행위의 피해자 범위도 배우자·직계비속에서 <b>배우자·직계혈족</b>(형제자매 포함)으로 넓어졌습니다.</li>
+</ul></div>
+<div class="warn"><span class="wt">⚠ 기한이 임박한 분이 계십니다 — 2026. 9. 16.(수)까지</span>
+<b>2024. 4. 25.부터 2026. 3. 16. 사이에 상속이 개시</b>되었고, 상속권 상실 사유를 <b>2026. 3. 17. 전에 이미 알고 계셨던</b> 공동상속인은, 개정법 부칙에 따라 <b>시행일(2026. 3. 17.)부터 6개월 이내</b>에 청구하여야 합니다(법률 제21454호 부칙 §4). <b>§1004의2 제4항에 따라 상속인이 될 사람도 같습니다.</b><br>
+<b style="font-size:17px;color:#9c3a22">→ 만료일: 2026. 9. 16.(수)</b> 평일이므로 연장되지 않습니다.<br>
+해당하실 수 있다면 <a href="2-4_상속권상실_구하라법.html" style="color:var(--gold-d);font-weight:700;text-decoration:underline">상속권 상실·구하라법(2-4)</a> 카드에서 요건과 서식을 확인하시고, 시간이 촉박하므로 <b>오늘 바로</b> 준비를 시작하십시오.</div>
+
+<h2>지금 어떤 상황인가요?</h2>
+<div class="sit-wrap">
+<div class="sit"><span class="sl">상황 ① · 결격자에게서 몫을 되찾으려는 분</span><b>부모·형제를 해치거나 유언서를 위조·은닉한 상속인이 재산을 가져간</b> 경우. → 그 사람은 상속결격자이므로, <b>상속회복청구(작성례 ①)</b>로 되찾습니다. 다만 대습상속 여부를 먼저 확인합니다.</div>
+<div class="sit"><span class="sl">상황 ② · '나를 버린 부모'의 상속을 막으려는 분</span>어릴 때 <b>나를 버리고 양육을 저버린 부모가 갑자기 나타나 상속을 주장</b>하는 경우. → 결격 사유가 아니므로, <b>구하라법(상속권 상실 선고, 작성례 ③)</b>으로 가정법원에 청구합니다.</div>
+</div>
+<h2>어떤 경우가 '상속결격'인가 (민법 §1004)</h2>
+<ol class="steps">
+<li><b>고의로</b> 직계존속, 피상속인, 그 배우자, 또는 상속의 선순위·동순위에 있는 사람을 <b>살해하거나 살해하려 한</b> 경우. <span style="color:var(--muted);font-size:13.5px">— "형을 살해한 사람도 상속받나요?"의 답이 여기 있습니다. 형제는 서로 동순위 상속인이 될 수 있으므로, 동순위 상속인 살해(미수 포함)도 결격입니다.</span></li>
+<li>고의로 직계존속·피상속인·그 배우자에게 <b>상해를 가하여 사망에 이르게 한</b> 경우.</li>
+<li><b>사기·강박으로</b> 피상속인의 상속에 관한 <b>유언 또는 유언 철회를 방해한</b> 경우.</li>
+<li>사기·강박으로 피상속인이 상속에 관한 <b>유언을 하게 한</b> 경우.</li>
+<li>피상속인의 상속에 관한 <b>유언서를 위조·변조·파기·은닉한</b> 경우.</li>
+</ol>
+<h2>'상속결격'과 '구하라법'의 차이 — 자동이냐, 선고냐</h2>
+<table>
+<tr><th>구분</th><th>상속결격 (민법 §1004)</th><th>상속권 상실 선고 (민법 §1004의2, 구하라법)</th></tr>
+<tr><td><b>사유</b></td><td>살해·상해치사·유언 방해·위조 등 중대 범죄</td><td><b>부양의무의 중대한 위반</b>(2026. 3. 17. 개정으로 미성년 자녀에 한하지 않음), 중대한 범죄행위, 심히 부당한 대우</td></tr>
+<tr><td><b>효력 발생</b></td><td><b>재판 없이 당연</b>(자동)</td><td><b>가정법원의 선고 확정</b>이 있어야 함</td></tr>
+<tr><td><b>대상</b></td><td>모든 상속인</td><td>종전에는 <b>직계존속만</b> → 2026. 3. 17. 개정으로 <b>모든 상속인</b>(자녀·배우자 포함)</td></tr>
+<tr><td><b>누가·언제</b></td><td>사유 발생 시 즉시</td><td>유언 없으면 공동상속인이 <b>안 날부터 6개월</b> 내 청구</td></tr>
+<tr><td><b>시행</b></td><td>종전부터</td><td><b>2026. 1. 1. 시행</b> → <b>2026. 3. 17. 개정·시행</b>(법률 제21454호). 2024. 4. 25. 이후 개시된 상속에 적용</td></tr>
+</table>
+<h2>관련 법령 — 쉬운 풀이</h2>
+<div class="lawbox"><span class="ll">민법 §1004</span><b>상속인의 결격사유</b> — 위 다섯 가지 중 하나에 해당하면 상속인이 되지 못합니다. 별도의 재판이나 선고가 필요 없이, 사유가 있으면 <b>당연히·처음부터</b> 상속인이 아니었던 것으로 취급됩니다.</div>
+<div class="lawbox"><span class="ll">민법 §1004의2 <b style="color:#9c3a22">(2026. 3. 17. 개정)</b></span><b>상속권 상실의 선고(구하라법)</b> — 상속인이 될 사람이 피상속인에 대한 <b>부양의무를 중대하게 위반</b>하였거나, 피상속인 또는 그 배우자·직계혈족에게 <b>중대한 범죄행위</b>를 하였거나, <b>심히 부당한 대우</b>를 한 경우, 피상속인이 공정증서 유언으로 상실 의사를 표시하거나, 유언이 없으면 공동상속인이 <b>안 날부터 6개월 내</b>에 가정법원에 상속권 상실을 청구할 수 있습니다. 선고가 확정되면 상속개시 시로 소급하여 상속권을 잃습니다.<br>
+<b>개정으로 달라진 세 가지</b> — ① 대상이 <b>직계존속에서 모든 상속인</b>으로, ② 부양의무가 <b>미성년 자녀에 대한 것에서 모든 부양의무</b>로, ③ 범죄행위 피해자가 <b>배우자·직계비속에서 배우자·직계혈족</b>으로 넓어졌습니다. 자세한 요건과 서식은 <a href="2-4_상속권상실_구하라법.html" style="color:var(--gold-d);font-weight:700;text-decoration:underline">2-4 카드</a>에서 다룹니다.</div>
+<div class="lawbox"><span class="ll">민법 §999②</span><b>상속회복청구권의 제척기간</b> — 결격자 등이 가져간 상속재산을 되찾는 상속회복청구는 <b>침해를 안 날부터 3년, 침해행위가 있은 날부터 10년</b> 안에 하여야 합니다. 이 기간이 지나면 되찾을 수 없으므로 서둘러야 합니다.</div>
+<div class="lawbox"><span class="ll">민법 §1001 · §1003 제2항</span><b>결격자의 자녀는 대신 상속합니다</b> — 상속인이 될 직계비속이 결격된 경우, 그에게 <b>직계비속(자녀·손자녀)</b>이 있으면 그 사람이 결격자를 갈음하여 대습상속합니다. <b>결격자의 배우자</b>도 대습상속인이 될 수 있습니다(§1003 제2항). <span style="font-size:13px;color:var(--muted)">[확인필요] 상속권 상실 선고(구하라법)의 경우 대습상속의 범위는 개정 조문을 별도로 확인하시기 바랍니다.</span></div>
+<div class="lawbox"><span class="ll">민법 §1064</span><b>결격자는 유증도 받지 못합니다</b> — 상속결격에 관한 규정은 <b>수증자에게 준용</b>됩니다. 따라서 상속결격자는 상속을 받지 못할 뿐 아니라, 피상속인이 유언으로 재산을 주었더라도 그 <b>유증도 받을 수 없습니다.</b> "상속은 못 받아도 유언으로 받은 것은 내 것"이라는 주장은 통하지 않습니다.</div>
+<h2>판례로 보기</h2>
+<div class="case"><span class="ct">○ 낙태도 '살해'에 포함되어 상속결격 — 대법원 1992. 5. 22. 선고 92다2127 판결</span>
+상속에 유리해지려고 태아(다른 상속인이 될 사람)를 낙태한 경우도 민법 제1004조 제1호의 '살해'에 해당하여 상속결격이 된다고 본 판례입니다. 형법상 논의와 별개로, 상속결격 제도의 취지에 비추어 그 범위를 넓게 본 것으로, 현재까지 상속결격의 리딩 판례로 인용됩니다.</div>
+<div class="case"><span class="ct">○ '유언서를 은닉했다'고 하려면 — 소재를 알 수 없게 하여 발견을 방해해야</span>
+민법 제1004조 제5호의 <b>"상속에 관한 유언서를 은닉한 자"</b>란, <b>유언서의 소재를 불명하게 하여 그 발견을 방해하는 행위</b>를 한 사람을 가리킨다는 것이 판례의 법리입니다. 따라서 <b>유언서를 가지고 있으면서 다른 상속인에게 보여주지 않았다거나 넘겨주기를 거부했다는 정도로는</b> 은닉이라고 단정하기 어렵습니다. 실제로 하급심에서도 "은닉하거나 변조하였다"는 주장이 증거 부족으로 배척된 사례들이 있습니다(대법원 1998. 5. 29. 선고 97다38503 판결 참조). <b>결격은 상속인 자격을 통째로 빼앗는 강한 제재이므로, 법원은 그 인정에 신중합니다.</b></div>
+<div class="case"><span class="ct">○ 결격자는 받은 재산을 소급하여 반환한다</span>
+상속결격 사유가 나중에 밝혀지면, 결격자는 소급하여 무자격이 되므로 이미 받은 상속재산을 반환하여야 하고, 다른 상속인은 상속회복청구로 자기 몫을 되찾습니다. 결격자 명의로 마친 상속등기는 원인 없는 무효의 등기가 됩니다.</div>
+<h2>⏰ 기한 정리 — 이것만은 놓치지 마십시오</h2>
+<table>
+<tr><th>무엇의 기한</th><th>① 기산일</th><th>② 계산근거</th><th>③ 말일 처리</th><th>④ 만료일</th></tr>
+<tr><td><b>상속회복청구</b><br>(결격자에게서 되찾기)</td><td><b>상속권 침해를 안 날</b></td><td>민법 §999 제2항 — <b>3년</b></td><td>말일이 토요일·공휴일이면 <b>다음 근무일</b>(민법 §161)</td><td><b>안 날 + 3년</b><br><span style="color:#9c3a22;font-weight:700">지나면 각하</span></td></tr>
+<tr><td>같은 청구의 바깥 한도</td><td><b>침해행위가 있은 날</b></td><td>민법 §999 제2항 — <b>10년</b></td><td>위와 같음</td><td><b>침해일 + 10년</b></td></tr>
+<tr><td><b>상속권 상실 선고 청구</b><br>(원칙)</td><td>상속권 상실 사유가 있음을 <b>안 날</b></td><td>민법 §1004의2 제3항 — <b>6개월</b></td><td>위와 같음</td><td><b>안 날 + 6개월</b></td></tr>
+<tr><td><b>상속권 상실 선고 청구</b><br>(경과규정 특례)★</td><td><b>2026. 3. 17.</b>(개정법 시행일)</td><td>법률 제21454호 부칙 §4 — 2024. 4. 25. 이후 시행 전에 개시된 상속으로서 사유를 <b>시행 전에 안</b> 경우, 시행일부터 <b>6개월</b></td><td>2026. 9. 16.은 <b>수요일</b>이므로 연장 없음</td><td><b style="color:#9c3a22">2026. 9. 16.(수)</b></td></tr>
+<tr><td>심판에 대한 <b>즉시항고</b></td><td>심판을 <b>고지받은 날</b></td><td>가사소송법 §43 제5항 — 14일</td><td>말일이 토요일·공휴일이면 다음 근무일</td><td>고지받은 날 + <b>14일</b></td></tr>
+</table>
+<div class="tip"><span class="pt">💡 상속결격에는 기한이 없습니다</span>
+헷갈리기 쉬운 대목입니다. <b>결격 자체</b>는 사유가 있으면 재판 없이 당연히 발생하므로 <b>주장할 기한이 따로 없습니다.</b> 기한이 걸리는 것은 <b>이미 넘어간 재산을 되찾는 상속회복청구</b>(3년·10년)입니다. 반대로 <b>구하라법(상속권 상실)</b>은 청구 자체에 <b>6개월</b>이라는 짧은 기한이 붙습니다. 이 차이를 혼동하여 시기를 놓치는 분이 많습니다.</div>
+
+<h2>다툼이 생기면 — 절차</h2>
+<div class="flow"><div class="fl-t">결격은 상속회복청구(민사), 패륜 부모는 상속권 상실 선고(가사)</div>
+<div class="node"><span class="num">0</span><b>대습상속·제척기간을 먼저 확인합니다</b> — 결격자에게 자녀가 있으면 그 자녀가 대습상속하므로 실익을 따지고, 상속회복청구의 <b>3년·10년 기간</b>이 남았는지 확인합니다.</div><span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">1-A</span><b>[결격] 상속회복청구</b> — 결격자가 재산을 가져갔다면, 일반 민사법원에 상속회복청구의 소를 제기하여 되찾습니다(작성례 ①). 결격 사유는 <b>형사 유죄판결문</b>이 가장 강력한 증거입니다.</div><span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">1-B</span><b>[패륜 부모] 상속권 상실 선고 청구</b> — 나를 버린 부모의 상속을 막으려면, 유언이 없는 경우 <b>안 날부터 6개월 내</b>에 가정법원에 상속권 상실 선고를 청구합니다(작성례 ③).</div><span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">2</span><b>확정 → 정리</b> — 결격·상실이 확정되면 그 몫은 처음부터 없었던 것이 되어, 나머지 상속인(또는 대습상속인)에게 귀속됩니다. 무효 등기를 말소·회복합니다.</div></div>
+<h2>① 결격을 주장하는 분 · ② 결격자로 지목된 분</h2>
+<div class="lawbox" style="background:#eef4f8;"><span class="ll" style="background:#2f5b78;">주장하는 분</span>대습상속·제척기간을 먼저 확인하고, <b>형사 판결문 등 결격 사유 자료</b>를 갖추어 상속회복청구를 합니다(작성례 ①). 패륜 부모라면 결격이 아니라 <b>구하라법(작성례 ③)</b>으로 갑니다.</div>
+<div class="lawbox" style="background:#fdf2ee;"><span class="ll" style="background:#9c3a22;">지목된 분</span>① 결격 사유에 해당하지 않음(고의 없음·유죄 미확정), ② <b>제척기간(3년·10년) 도과</b>, ③ 설령 결격이라도 <b>본인의 자녀가 대습상속</b>한다는 점을 답변서로 다툽니다(작성례 ②).</div>
+<h2>신청서·서면 작성례 — 양 당사자 모두</h2>
+<p style="font-size:13.5px;color:var(--muted)">아래 작성례의 빈칸(○○○)을 채워 그대로 제출할 수 있습니다. 제목은 가운데 정렬된 법원 제출 양식입니다. <b>복사·인쇄·다운로드</b> 버튼을 활용하십시오.</p>
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ① · 원고(되찾기)</span>소장 — 상속회복청구의 소 (결격자에게서 되찾기)<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f1"><span class="ft">소        장</span>원고  ○○○   (주민등록번호: ○○○○○○-○○○○○○○)
+      주소  ○○○   (☎: ○○○-○○○○-○○○○)
+피고  ○○○ (상속결격자)
+      주소  ○○○
+
+         상속회복청구의 소
+
+         청 구 취 지
+1. 피고는 원고에게 별지 목록 기재 부동산 중 ○○분의 ○○ 지분에
+   관하여 20○○. ○○. ○○. 상속을 원인으로 한 소유권이전등기
+   절차를 이행하라.
+2. 소송비용은 피고가 부담한다.
+   라는 판결을 구합니다.
+
+         청 구 원 인
+1. 상속의 개시
+   망 ○○○은 20○○. ○○. ○○. 사망하였고, 원고와 피고가
+   공동상속인입니다.
+2. 피고의 상속결격
+   피고는 ○○○(예: 피상속인을 살해하여 / 유언서를 위조·은닉하여)
+   민법 제1004조 제○호의 상속결격자에 해당합니다(갑 제○호증
+   형사 판결문 등).
+3. 무효인 상속
+   따라서 피고는 처음부터 상속인이 아니므로, 피고 명의로 마친
+   상속등기는 원인 없는 무효이고, 원고의 정당한 상속분이
+   침해되었습니다.
+4. 결론
+   이에 원고의 상속분 회복을 위하여 청구취지와 같은 판결을
+   구합니다.
+
+         입 증 방 법
+1. 갑 제1호증   피상속인 기본증명서(상세)·가족관계증명서(상세)
+1. 갑 제2호증   결격사유 입증자료(형사 판결문 등)
+1. 갑 제3호증   부동산 등기사항전부증명서
+
+         첨 부 서 류
+1. 위 입증방법 사본   각 1통
+1. 소장 부본          1통
+1. 송달료납부서       1통
+
+              20○○. ○○. ○○.
+                위 원고  ○○○ (인)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1')">📋 복사</button><button type="button" onclick="printForm('f1')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1','상속회복청구_소장.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>상속결격자가 재산을 가져갔을 때 되찾는</b> 소장입니다. 민사사건이라 <b>지방법원</b>에 냅니다. 핵심은 <b>청구원인 2번 '피고가 결격자다'</b>를 증명하는 것으로, <b>형사 유죄판결문</b>이 가장 확실합니다(유언 위조·은닉은 정황·감정이 필요해 더 까다롭습니다). <b>★반드시 침해를 안 날부터 3년, 침해행위가 있은 날부터 10년 안에</b> 제기하여야 합니다(민법 §999②). 결격자에게 자녀가 있으면 그 자녀가 대습상속하므로, 되찾을 지분을 정확히 계산해야 합니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ② · 피고(방어)</span>답변서 (결격자로 지목된 피고)<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f2"><span class="ft">답 변 서</span>사건   20○○가단(가합)○○○   상속회복청구
+원고   ○○○
+피고   ○○○   (☎: ○○○-○○○○-○○○○)
+
+         청구취지에 대한 답변
+1. 원고의 청구를 기각한다.
+2. 소송비용은 원고가 부담한다.
+   라는 판결을 구합니다.
+
+         답 변 이 유
+1. (결격사유 부존재) 피고에게는 민법 제1004조의 결격사유가
+   존재하지 아니합니다(유죄 확정 없음 / 고의 없음 등).
+2. (제척기간 도과) 원고는 침해를 안 날부터 3년(또는 침해행위가
+   있은 날부터 10년)이 지나 이 사건 청구를 제기하였으므로,
+   제척기간이 도과되어 부적법합니다(민법 제999조 제2항).
+3. (대습상속) 설령 피고가 결격이라도, 피고의 자녀 ○○○이(가)
+   대습상속하므로 그 지분이 원고에게 귀속되는 것은 아닙니다.
+
+         입 증 방 법
+1. 을 제1호증   ○○○ (결격 부존재·기간 도과·대습 자료)
+
+         첨 부 서 류
+1. 위 입증방법 사본   각 1통
+1. 답변서 부본        1통
+
+              20○○. ○○. ○○.
+                위 피고  ○○○ (인)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f2')">📋 복사</button><button type="button" onclick="printForm('f2')">🖨 인쇄</button><button type="button" onclick="downloadForm('f2','상속회복청구_답변서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>결격자로 지목되어 상속회복청구를 당한 피고</b>의 방어입니다. 소장 부본을 받은 날부터 <b>30일 안에</b> 냅니다. 세 갈래 — ①결격 사유 없음, ②제척기간 도과, ③대습상속 — 중 해당하는 것을 고릅니다. 특히 <b>②제척기간(3년·10년) 도과</b>는 가장 강력한 방어수단이므로, 원고가 침해를 안 시점을 다투는 것이 유리합니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ③ · 구하라법★</span>상속권 상실 선고 청구서 (나를 버린 부모의 상속 막기)<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f3"><span class="ft">상속권 상실 선고 청구</span>청구인   ○○○   (주민등록번호: ○○○○○○-○○○○○○○)
+         주소: ○○○   (☎: ○○○-○○○○-○○○○)
+         피상속인과의 관계: ○○○ (예: 공동상속인·형제)
+
+상대방   ○○○ (상속권 상실 대상인 직계존속)
+         주소: ○○○
+
+사건본인(피상속인)   망 ○○○   (사망일: 20○○. ○○. ○○.)
+
+         청 구 취 지
+상대방의 피상속인 망 ○○○에 대한 상속권의 상실을 선고한다.
+라는 심판을 구합니다.
+
+         청 구 원 인
+1. 피상속인 망 ○○○은 20○○. ○○. ○○. 사망하였고, 상대방은
+   피상속인의 직계존속(부 또는 모)입니다.
+2. 상대방은 피상속인이 미성년이던 20○○년경부터 20○○년경까지
+   ○○○(양육·부양을 전혀 하지 아니하고 연락을 끊는 등) 부양
+   의무를 중대하게 위반하였습니다(소갑 제○호증).
+3. 이는 민법 제1004조의2 제1항 각 호의 상속권 상실 사유에
+   해당하므로, 상대방의 상속권 상실을 선고하여 주시기 바랍니다.
+4. 청구인은 피상속인의 사망으로 상대방이 상속인이 됨을 20○○.
+   ○○. ○○. 알게 되었고, 그로부터 6개월이 지나지 아니하였습니다
+   (민법 제1004조의2 제3항).
+
+         첨 부 서 류
+1. 피상속인 기본증명서(상세)·가족관계증명서(상세)   각 1통
+1. 상대방·청구인 가족관계증명서(상세)               각 1통
+1. 부양의무 위반 소명자료                           1통
+
+              20○○. ○○. ○○.
+                위 청구인  ○○○ (인 또는 서명)
+
+○○가정법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f3')">📋 복사</button><button type="button" onclick="printForm('f3')">🖨 인쇄</button><button type="button" onclick="downloadForm('f3','상속권상실선고_청구서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>어릴 때 나(또는 형제)를 버린 부모의 상속을 막는</b> 구하라법(민법 §1004의2) 양식입니다. 상속결격과 달리 <b>가정법원의 선고가 있어야</b> 효력이 생깁니다. <b>★청구 기간이 짧습니다</b> — 피상속인이 유언을 남기지 않은 경우, 상대방이 상속인이 됨을 <b>안 날부터 6개월 안에</b> 청구해야 합니다(청구원인 4번에 그 시점을 명시). 부양의무를 저버린 기간·정황(생활기록·증언·연락 단절 자료 등)을 구체적으로 소명하는 것이 관건입니다. 관할은 상속개시지 가정법원입니다. <b>2026. 1. 1. 시행 후 2026. 3. 17. 개정</b>되어, 이제는 직계존속뿐 아니라 <b>모든 상속인</b>에 대하여, <b>미성년 자녀에 대한 것에 한하지 않는 모든 부양의무</b>의 중대한 위반이 사유가 됩니다. 2024. 4. 25. 이후 개시된 상속에 적용됩니다.<br>
+<b style="color:#9c3a22">★ 2026. 3. 17. 전에 이미 사유를 알고 계셨다면 만료일이 2026. 9. 16.(수)입니다</b>(부칙 §4). 더 자세한 요건·서식·판단기준은 <a href="2-4_상속권상실_구하라법.html" style="color:var(--gold-d);font-weight:700;text-decoration:underline">2-4 상속권 상실·구하라법</a> 카드를 함께 보십시오.</div>
+</div></div>
+
+
+<div class="cost"><span class="ct">비용 — 인지액과 송달료는 다릅니다</span>
+<b>① 상속회복청구의 소</b> — 민사입니다. 되찾으려는 몫(<span class="term">소가<span class="bub">소송 목적의 값. 되찾는 지분의 가액으로 인지대·관할을 정합니다.</span></span>)을 기준으로 인지액을 계산하므로, 부동산이면 인지액이 커집니다. <b>전자소송으로 내면 인지액의 10%가 깎입니다.</b><br>
+<b>② 상속권 상실 선고 청구(구하라법)</b> — 가사비송사건입니다. <span style="font-size:13px;color:var(--muted)">[확인필요] 신설된 사건이어서 라류·마류 중 어디에 해당하는지에 따라 인지액이 달라질 수 있으므로(라류 5,000원 / 마류 10,000원), 접수 전 가정법원 민원실에서 확인하시기 바랍니다.</span><br>
+<b>③ 결격자 명의 등기의 말소·회복</b> — 판결 확정 후 등기 절차에 등록면허세와 등기신청수수료가 별도로 듭니다.<br>
+<b>④ 송달료</b>(인지와 별개로 예납) — <b>1회분 5,500원</b>(2025. 6. 1. 인상). 당사자 수 × 정해진 횟수로 계산합니다. <span style="font-size:13px;color:var(--muted)">[확인필요] 단가·횟수는 변동될 수 있습니다.</span>
+<div style="margin-top:11px; padding-top:10px; border-top:1px dashed #cfe6d6; color:#c0392b; font-weight:600; line-height:1.8;">※ 정확한 인지액·송달료 예상치는 사건 정보를 넣으면 <a href="https://sanlaw.co.kr/tools-calculator.html" style="color:#c0392b; text-decoration:underline; font-weight:700;">🧮 수수료 계산기</a>에서 미리 확인할 수 있습니다.</div></div>
+<h2>고충은 덜어드리고, 결과로 보답하겠습니다</h2>
+<div class="hire"><p>본 사무소에서는 의뢰인들의 고충은 덜어드리고, 함께 소송을 진행하여 원하는 결과에 도달할 수 있도록 성심을 다하겠습니다.</p>
+<p style="margin-top:12px"><b>· 결격자에게서 몫을 되찾으려는 분의 경우</b><br>① 대습상속·제척기간 확인, ② <b>상속회복청구 소장</b> 작성과 형사 자료 정리, ③ 무효 등기 말소까지 <b>본인 절차의 전 과정을 함께</b> 준비해 드립니다.</p>
+<p style="margin-top:10px"><b>· 패륜 부모의 상속을 막으려는 분의 경우</b><br>6개월 기한 관리와 <b>상속권 상실 선고 청구(구하라법)</b> 전략을 함께 수립해 드립니다.</p></div>
+<div class="warn"><span class="wt">⚠ 기간을 놓치면 되돌릴 수 없습니다</span>상속회복청구는 <b>안 날부터 3년·침해일부터 10년</b>, 구하라법 상속권 상실 선고는 유언이 없으면 <b>안 날부터 6개월</b>이라는 짧은 기간이 있습니다. 이 기간이 지나면 아무리 억울해도 막을 수 없으니, 사유를 알게 되면 <b>즉시</b> 움직이십시오.</div>
+<a href="https://sanlaw.co.kr/tools-calculator.html" class="cta">🧮 내 사건 비용 미리 계산하기</a>
+<div style="text-align:center; background:#f6ecd8; border:1px solid var(--gold); border-radius:11px; padding:14px; margin:18px 0; font-size:15px; color:var(--gold-d); font-weight:700;">📞 상담은 홈 화면의 상담 창구를 이용하시면 됩니다.</div>
+<h2>준비할 서류와 발급처</h2>
+<p style="font-size:13.5px;color:var(--muted)">아래 '바로가기'를 클릭하면 해당 사이트로 이동합니다. 만약 첫 화면으로 연결되면, 옆의 <b>찾아가기 경로</b>를 따라 메뉴를 클릭하면 됩니다.</p>
+<table>
+<tr><th>무엇을 (어디서)</th><th>서류</th><th>바로가기 · 찾아가기 경로</th></tr>
+<tr><td>상속인·관계 확인<br>(전자가족관계등록)</td><td>피상속인·상속인 가족관계증명서(상세)·기본증명서(상세)</td><td><a href="https://efamily.scourt.go.kr">전자가족관계등록</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 증명서발급 → '상세' 선택</span></td></tr>
+<tr><td>결격사유(형사) 확인<br>(사건 담당 기관)</td><td>형사 판결문·공소장·불기소이유서 등</td><td><span style="font-size:12.5px;color:var(--muted)">사건 담당 검찰청·법원에 신청(형사사건 기록 열람·등사)</span></td></tr>
+<tr><td>가져간 재산 확인<br>(인터넷등기소)</td><td>부동산 등기사항전부증명서(이전 내역)</td><td><a href="https://www.iros.go.kr">인터넷등기소</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 등기열람/발급 → 부동산</span></td></tr>
+<tr><td>소송·청구 제출<br>(전자소송)</td><td>상속회복청구 소장·상속권 상실 선고 청구서 — 공식 양식</td><td><a href="https://ecfs.scourt.go.kr">전자소송</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 서류제출 → 민사(회복)/가사(상실선고)</span></td></tr>
+</table>
+<div class="tip"><span class="pt">💡 이어지는 카드</span> 아래 제목을 누르면 해당 카드로 바로 이동합니다.<br>
+· <b>구하라법(상속권 상실)의 요건·서식 전체</b> → <a href="2-4_상속권상실_구하라법.html" style="color:var(--gold-d);font-weight:700;text-decoration:underline">상속권 상실·구하라법(2-4)</a><br>
+· 결격자를 빼고 다시 나눌 때 → <a href="1-1_상속재산분할심판.html" style="color:var(--gold-d);font-weight:700;text-decoration:underline">상속재산분할심판(1-1)</a><br>
+· 남은 재산이 없어 유류분이 문제일 때 → <a href="2-1_유류분_반환청구.html" style="color:var(--gold-d);font-weight:700;text-decoration:underline">유류분 반환청구(2-1)</a><br>
+· 되찾는 절차를 더 자세히 볼 때 → <a href="7-1_상속회복청구.html" style="color:var(--gold-d);font-weight:700;text-decoration:underline">상속회복청구(7-1)</a><br>
+· 제3자에게 재산이 넘어갔을 때 → <a href="7-2_제3자_상속재산_회복.html" style="color:var(--gold-d);font-weight:700;text-decoration:underline">제3자 상속재산 회복(7-2)</a><br>
+· 위조된 협의서로 등기가 마쳐졌을 때 → <a href="7-3_위조_협의분할_상속등기.html" style="color:var(--gold-d);font-weight:700;text-decoration:underline">위조 협의분할 상속등기(7-3)</a></div>
+<div class="src">
+근거 — 민법 제1004조(상속인의 결격사유)·제1004조의2(상속권 상실의 선고, 2026. 1. 1. 시행)·제999조 제2항(상속회복청구권의 제척기간)·제1001조·제1003조(대습상속) · 대법원 1992. 5. 22. 선고 92다2127 판결(낙태도 제1004조 제1호의 살해에 해당) · 대법원 1998. 5. 29. 선고 97다38503 판결(유언증서 은닉·변조 주장의 배척) · 민법 제1064조(유증에 대한 상속결격 규정의 준용) · 민법 일부개정법률(법률 제21454호, 2026. 3. 17. 공포·시행) 및 그 부칙 제2조·제4조(상속권 상실 선고 청구의 경과조치 — 시행 전에 사유를 안 공동상속인은 시행일부터 6개월 이내) · 국가법령정보센터 법령용어 · 법제처 찾기쉬운 생활법령정보 · 대한법률구조공단 · 대법원 전자민원센터. 본 자료는 일반적인 법률정보로, 개별 사건의 법률자문이 아닙니다.
+</div>
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+})();
+function toggleFold(b){var fb=b.parentElement;var body=b.nextElementSibling;var open=fb.classList.toggle('open');if(body){body.style.display=open?'block':'none';}}
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('작성례가 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('작성례가 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('작성례를 내려받았습니다');}
+</script>
+
+</body>
+</html>

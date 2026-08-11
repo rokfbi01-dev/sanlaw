@@ -1,0 +1,443 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[상속 1-5] 형제 중 한 명이 도장을 안 찍어주거나 연락이 안 돼요 — 도장거부·연락두절 | 산 법무사 김재섭</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(280px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.case{background:var(--box); border-radius:10px; padding:14px 16px; margin:14px 0; border-left:4px solid #b9a98c;}
+.case .ct{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+.sit-wrap{display:flex; gap:12px; margin:14px 0;}
+.sit{flex:1; background:#f8f5ee; border:1px solid var(--line); border-top:3px solid var(--gold); border-radius:10px; padding:13px 15px; font-size:14.5px; line-height:1.75;}
+.sit .sl{display:block; font-weight:700; color:var(--gold-d); margin-bottom:6px; font-size:14px;}
+@media (max-width:680px){ .sit-wrap{flex-direction:column;} }
+/* 전체 길 흐름도 (A-1 추가 — 기존 톤 재활용) */
+.flow{background:linear-gradient(180deg,#faf7f0,#f6f1e6); border:1px solid var(--line); border-radius:14px; padding:22px 20px; margin:16px 0;}
+.flow .fl-t{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:18px; text-align:center; letter-spacing:.3px;}
+.flow .node{position:relative; background:#fff; border:1px solid #e3d8c4; border-radius:11px; padding:15px 18px 15px 56px; font-size:14.5px; line-height:1.72; box-shadow:0 2px 6px rgba(122,82,48,.07);}
+.flow .node .num{position:absolute; left:15px; top:14px; width:30px; height:30px; line-height:30px; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; border-radius:50%; font-weight:800; font-size:15px; font-family:'Nanum Myeongjo',serif; box-shadow:0 2px 5px rgba(122,82,48,.3);}
+.flow .node b{color:#241a10;}
+.flow .down{display:flex; justify-content:center; align-items:center; padding:7px 0;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+/* 작성례 박스 */
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:15px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .tag{margin-bottom:0;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;}
+.tag.cred{background:#5a9a72;}
+.tag.debt{background:#d9694a;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:18px;margin:12px 0;font-family:'D2Coding','Courier New',monospace;font-size:13px;line-height:1.6;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:16px;letter-spacing:2px;margin-bottom:12px;color:#241a10;}
+.howto{font-size:14px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0 4px;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:13px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:7px 13px;cursor:pointer;transition:.15s;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.75;}
+.lawbox .ll{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:#241a10;border-radius:5px;padding:2px 9px;margin-right:7px;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.hire p{margin:7px 0; font-size:15px; line-height:1.8;}
+.cta{display:block;text-align:center;background:var(--gold-d);color:#fff;font-weight:700;font-size:17px;text-decoration:none;padding:15px;border-radius:11px;margin:18px 0;font-family:'Nanum Myeongjo',serif;letter-spacing:1px;}
+.cta:hover{background:#5e3f24;}
+@media print{
+  body{background:#fff; max-width:100%;}
+  .tldr,.case,.warn,.tip,.cost,.steps li,.tnote,.sit,.flow,.flow li,.lawbox,.hire{background:#fff !important; border-color:#ccc !important;}
+  .tnote{display:none;}
+  .term{border:none; color:inherit; font-weight:inherit;}
+  .term>.bub{display:inline !important; position:static; width:auto; background:none; color:inherit; box-shadow:none; padding:0; font-size:inherit; line-height:inherit;}
+  .term>.bub::before{content:" ("; }
+  .term>.bub::after{content:")"; border:none; position:static;}
+  .fold-body{display:block !important;}.fold-btn .chev{display:none;}.form-tools{display:none;}
+  .cta{background:#fff !important; color:#241a10 !important; border:1px solid #ccc;}
+}
+
+</style>
+</head><body>
+<h1>[상속 1-5] 형제 중 한 명이 도장을 안 찍어주거나 연락이 안 돼요</h1>
+<div class="tnote">어려운 법률용어에는 <b>점선 밑줄</b>이 그어져 있습니다. <b>PC는 마우스를 올리면</b>, <b>휴대폰은 손가락으로 톡 터치하면</b> 쉬운 설명이 뜹니다. (인쇄하면 괄호로 함께 나옵니다.)</div>
+<div class="hire"><div class="ht">이 매뉴얼을 끝까지 읽으시는 분께</div>
+<p>이 매뉴얼은 <b>의뢰인이 직접 법원에 신청할 수 있도록 모든 서류 양식·비용·요건을 구체적으로 담았습니다.</b> 하지만 소송은 살아있는 생물과 같아 상대방의 격렬한 저항이 뒤따릅니다. 혼자 진행하시다가 막히는 부분이 생기거나 방어막이 필요할 때, 언제든 이 매뉴얼을 들고 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</p></div>
+<div class="tldr"><div class="tt">⭐ 30초 결론부터</div><ul>
+<li><b>상속재산 협의분할은 상속인이 단 한 명이라도 빠지면 전부 무효입니다</b>(대법원 85므80). 그러므로 비협조적인 상속인이라도 반드시 절차 안으로 끌어들여야 하며, 그 상태에 따라 길이 셋으로 갈립니다.</li>
+<li><b>① 연락은 되는데 도장만 거부 → 「상속재산분할심판」을 청구합니다.</b> 심판은 상대방의 동의가 필요 없으므로, 법원이 분할방법을 정해 줍니다. <b>심판 결정문이 도장을 대신합니다.</b></li>
+<li><b>② 연락 두절·주소 불명 → 먼저 주소부터 찾습니다.</b> 심판을 내고 송달이 안 되면 법원이 <span class="term">주소보정명령<span class="bub">송달이 되지 않을 때 법원이 신청인에게 상대방의 주소를 다시 확인해 알려달라고 하는 명령. 이 명령서를 주민센터에 내면 상대방의 주민등록표 초본을 발급받을 수 있습니다.</span></span>을 내주고, 그 명령서로 상대방의 주민등록표 초본을 뗄 수 있습니다. 그래도 못 찾으면 <b>부재자 재산관리인 선임</b>(민법 §22)으로 갑니다.</li>
+<li><b>③ 수년째 생사 불명 → 「실종선고」를 청구합니다</b>(민법 §27). 다만 <b style="color:#9c3a22">실종선고를 한다고 상속인이 줄어드는 것이 아닙니다.</b> 그 사람에게 배우자·자녀가 있으면 그들이 대신 들어와 오히려 상속인이 늘 수 있습니다(아래 경고 참조).</li>
+<li><b>남의 도장을 대신 찍는 것은 범죄입니다.</b> 아무리 억울해도 인감을 임의로 만들거나 서명을 대신하면 사문서위조가 되어, 분할 자체가 무효가 되고 형사처벌까지 받습니다.</li>
+</ul></div>
+
+<h2>지금 어떤 상황인가요?</h2>
+<div class="sit-wrap">
+<div class="sit"><span class="sl">상황 ① · 분할을 진행하려는 분</span>집·땅을 정리하려는데 <b>형제 한 명이 도장을 안 찍어주거나, 연락이 끊겼거나, 수십 년째 생사를 모르는</b> 경우. → 그 형제의 상태에 따라 아래 A·B·C 중 하나로 풀어냅니다.</div>
+<div class="sit"><span class="sl">상황 ② · 도장을 요구받는(비협조로 지목된) 분</span>다른 형제가 <b>"도장을 안 찍는다"며 분할심판을 걸어</b> 법원에서 서류가 온 경우. → 가만히 계시면 <b>내 의견 없이 분할이 정해집니다.</b> 도장을 찍지 않은 데에는 대개 이유가 있습니다. 그 이유를 <b>작성례 ⑤ 답변서</b>로 밝히십시오.</div>
+</div>
+
+<h2>왜 한 명이라도 빠지면 안 되나</h2>
+<ol class="steps">
+<li><b>협의분할은 상속인 전원의 동의가 있어야 유효합니다.</b> 한 명이라도 빠지거나 동의가 없으면 그 협의는 무효이므로(대법원 85므80), "안 찍어주는 형제만 빼고 나머지끼리" 처리하는 것은 불가능합니다.</li>
+<li><b>등기소·은행도 전원 서류를 요구합니다.</b> 협의분할 상속등기에는 상속인 전원의 인감증명서와 협의서가 필요하고, 예금 해지도 마찬가지입니다. 한 명이 버티면 실제로 아무것도 진행되지 않습니다.</li>
+<li><b>그래서 그 사람을 반드시 절차 안으로 넣어야 합니다.</b> 연락이 되면 <b>심판</b>으로(동의 불요), 연락이 끊겼으면 <b>주소보정 → 공시송달 또는 재산관리인</b>으로, 생사불명이 오래되었으면 <b>실종선고</b>로 정리합니다.</li>
+<li><b>어느 상황인지부터 정확히 가리는 것이 첫걸음입니다.</b> 연락 가능 여부와 생사불명 기간에 따라 절차·기간·비용이 크게 달라지므로, 아래 표로 자신의 경우를 먼저 확인하십시오.</li>
+</ol>
+
+<h2>어떤 길인지 고르는 표</h2>
+<table>
+<tr><th>그 형제의 상태</th><th>해야 할 일</th><th>근거·특징</th></tr>
+<tr><td><b>연락됨, 도장만 거부</b></td><td>상속재산분할심판 청구 → 심판이 도장을 대신함</td><td>민법 §1013 · <b>동의 불요, 가장 빠름</b><br>작성례 ③</td></tr>
+<tr><td><b>주소를 모름</b><br>(송달만 안 되는 정도)</td><td>일단 심판 청구 → 송달불능 → <b>주소보정명령</b>으로 초본 발급 → 재송달</td><td>민사소송법 §185 등 · <b>비용·시간 최소</b><br>가장 먼저 시도할 길</td></tr>
+<tr><td><b>주소도 못 찾음</b><br>(연락 완전 두절)</td><td>공시송달로 진행하거나, <b>부재자 재산관리인 선임</b> → 권한초과행위 허가 → 분할 참여</td><td>민법 §22·§25 · <b>등기·정산까지 안전한 길</b><br>작성례 ①②</td></tr>
+<tr><td><b>수년째 생사 불명</b></td><td>실종선고 → 실종기간 만료 시 사망 간주</td><td>민법 §27·§28 · <b>시간이 가장 오래 걸림</b><br>작성례 ④</td></tr>
+<tr><td><b>연락은 되나 외국 거주</b></td><td>협의는 가능. 인감 대신 <b>재외공관 서명공증</b> 또는 <b>아포스티유</b>를 받은 서면으로 참여</td><td>비협조가 아니라 서류 문제 · <b>4-3 카드</b></td></tr>
+</table>
+
+<h2>★ 주소를 모를 때 — 실제로는 이 순서로 풀립니다</h2>
+<p>많은 분이 "연락이 안 되니 곧바로 부재자 재산관리인을 선임해야 하나" 하고 겁을 먹습니다. 그러나 <b>대부분은 주소만 찾으면 해결됩니다.</b> 순서는 이렇습니다.</p>
+<div class="flow"><div class="fl-t">주소를 모를 때의 실무 순서</div>
+<div class="node"><span class="num">1</span><b>일단 아는 마지막 주소로 심판을 청구합니다</b> — 주소를 모른다고 접수가 안 되는 것이 아닙니다. 알고 있는 최후 주소를 적어 냅니다.</div><span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">2</span><b>송달이 안 되면 법원이 주소보정명령을 보냅니다</b> — "상대방 주소를 확인해 알려주십시오"라는 명령서입니다. <b>이 명령서를 가지고 주민센터에 가면 상대방의 주민등록표 초본을 발급받을 수 있습니다.</b> 평소에는 남의 초본을 뗄 수 없지만, 이 명령서가 근거가 됩니다.</div><span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">3</span><b>새 주소로 다시 송달합니다</b> — 여기서 대부분 해결됩니다. 이사만 갔을 뿐 살아 있는 경우가 많기 때문입니다. 받는 사람이 일부러 안 받으면 <span class="term">특별송달<span class="bub">집행관이 직접 찾아가 전달하거나, 야간·휴일에 송달하는 방법. 일반 우편송달이 되지 않을 때 신청합니다.</span></span>도 신청할 수 있습니다.</div><span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">4</span><b>주민등록이 말소되어 있으면 → 부재자 또는 실종</b> — 초본을 떼었는데 <b>주민등록이 말소</b>되어 있고 실제 거주도 확인되지 않으면, 그때 비로소 <b>부재자 재산관리인 선임</b>(작성례 ①)이나 <b>실종선고</b>(작성례 ④)로 넘어갑니다.</div></div>
+<div class="tip"><span class="pt">💡 공시송달이라는 길도 있습니다</span>
+주소를 끝내 찾지 못하면 법원 게시판·전자게시로 송달을 갈음하는 <span class="term">공시송달<span class="bub">상대방의 주소를 알 수 없을 때, 법원이 서류를 보관하면서 게시하는 방법으로 송달한 것과 같은 효력을 주는 제도.</span></span>을 신청해 절차를 진행할 수 있습니다. <b>다만 상속재산분할처럼 부동산 명의까지 정리해야 하는 사건에서는, 뒷날 그 사람이 나타나 다툴 여지를 남기지 않기 위해 <u>부재자 재산관리인을 세우는 편</u>이 안전하다고 보는 것이 실무의 일반적인 태도입니다.</b> 어느 쪽으로 갈지는 재산의 규모와 급한 정도를 함께 놓고 판단하십시오.</div>
+
+<h2>⏰ 기한 정리 — 이것만은 놓치지 마십시오</h2>
+<table>
+<tr><th>무엇의 기한</th><th>① 기산일</th><th>② 계산근거</th><th>③ 말일 처리</th><th>④ 만료일</th></tr>
+<tr><td><b>보통실종</b>의 실종기간</td><td>생사가 분명하지 않게 된 <b>최후 소식이 있던 때</b></td><td>민법 §27 제1항 — <b>5년</b></td><td>말일이 토요일·공휴일이면 <b>다음 근무일</b>(민법 §161)</td><td>최후 소식 + <b>5년</b>이 지나야 청구 가능</td></tr>
+<tr><td><b>특별실종</b>의 실종기간</td><td>전쟁 종지·선박 침몰·항공기 추락 등 <b>위난이 종료한 때</b></td><td>민법 §27 제2항 — <b>1년</b></td><td>위와 같음</td><td>위난 종료 + <b>1년</b></td></tr>
+<tr><td>실종선고 <b>공시최고</b> 기간</td><td>법원의 공고일</td><td>가사소송규칙 — 법원이 정한 기간 공고 후 선고<span style="font-size:13px;color:var(--muted)"> [확인필요] 기간은 사건별로 다릅니다</span></td><td>—</td><td>실무상 <b>청구부터 선고까지 6개월 이상</b> 걸리는 예가 많습니다</td></tr>
+<tr><td><b>사망 간주 시점</b></td><td>—</td><td>민법 §28 — 실종선고를 받은 사람은 <b>실종기간이 만료한 때</b>에 사망한 것으로 봄</td><td>—</td><td><b style="color:#9c3a22">선고일이 아니라 기간 만료일입니다</b></td></tr>
+<tr><td>심판에 대한 <b>즉시항고</b></td><td>심판을 <b>고지받은 날</b></td><td>가사소송법 §43 제5항 — 14일</td><td>말일이 토요일·공휴일이면 다음 근무일</td><td>고지받은 날 + <b>14일</b></td></tr>
+<tr><td>상속재산분할 청구 자체</td><td>—</td><td>공유물분할청구의 성질 — 기간 제한 없음</td><td>—</td><td><b>기한 없음</b></td></tr>
+</table>
+
+<h2>관련 법령 — 쉬운 풀이</h2>
+<div class="lawbox"><span class="ll">민법 §22</span><b>부재자의 재산관리</b> — 종래의 주소·거소를 떠나 재산관리인이 없는 부재자가 있으면, 이해관계인(공동상속인 등)의 청구로 법원이 재산관리에 필요한 처분(재산관리인 선임)을 명할 수 있습니다.</div>
+<div class="lawbox"><span class="ll">민법 §25</span><b>권한을 넘는 행위의 허가</b> — 법원이 선임한 재산관리인이 통상의 관리 범위를 넘는 행위(상속재산 분할협의·분할심판 참여 등)를 하려면, 법원의 허가를 받아야 합니다. <b>선임만으로는 분할에 참여할 수 없고 이 허가가 있어야</b> 부재자를 대신할 수 있습니다.</div>
+<div class="lawbox"><span class="ll">민법 §27</span><b>실종의 선고</b> — 부재자의 생사가 <b>5년간(보통실종)</b> 분명하지 아니한 때, 또는 전쟁·선박침몰·항공기추락 등 위난을 당한 사람의 생사가 그 위난이 끝난 후 <b>1년간(특별실종)</b> 분명하지 아니한 때, 이해관계인의 청구로 법원이 실종을 선고합니다.</div>
+<div class="lawbox"><span class="ll">민법 §28</span><b>실종선고의 효과 — 언제 사망한 것으로 보는가</b> — 실종선고를 받은 사람은 <b>실종기간이 만료한 때</b>에 사망한 것으로 봅니다. <b>선고를 받은 날이 아닙니다.</b> 이 시점이 피상속인의 사망일보다 앞이냐 뒤냐에 따라 상속인이 완전히 달라집니다(아래 경고 참조).</div>
+<div class="lawbox"><span class="ll">민법 §1001</span><b>대습상속</b> — 상속인이 될 직계비속이 상속개시 <b>전에</b> 사망하거나 결격된 경우, 그 사람의 직계비속이 대신 상속인이 됩니다. 실종선고로 사망 간주 시점이 피상속인 사망 <b>전</b>으로 정해지면 이 조문이 적용됩니다.</div>
+
+<h2>판례로 보기</h2>
+<div class="case"><span class="ct">○ 한 명이라도 빠진 협의분할은 무효 — 대법원 1987. 3. 10. 선고 85므80 판결</span>
+협의에 의한 상속재산의 분할은 공동상속인 전원의 동의가 있어야 유효하고, 일부 상속인의 동의가 없거나 그 의사표시에 흠이 있으면 그 분할은 무효입니다. 그러므로 비협조 상속인을 제외한 채 이루어진 분할은 효력이 없으며, 반드시 심판·재산관리인·실종선고 등으로 그를 절차에 포함시켜야 합니다.</div>
+<div class="case"><span class="ct">○ 실종선고가 취소되기 전에는 "사실은 살아 있다"고 다툴 수 없다 — 대법원 1995. 2. 17. 선고 94다52751 판결</span>
+민법 제28조는 실종선고를 받은 사람이 <b>생사불명 기간이 만료된 때에 사망한 것으로 본다</b>고 정하고 있으므로, <b>실종선고가 취소되지 않는 한 반증을 들어 그 효과를 다툴 수 없다</b>고 판시하였습니다. 즉 실종선고가 확정되면 그 사망 간주는 매우 강력하여, 나중에 생존이 의심되더라도 <b>별도로 실종선고 취소 심판</b>을 받아야 뒤집을 수 있습니다. 그만큼 신중하게 청구해야 한다는 뜻이기도 합니다.</div>
+
+<div class="warn"><span class="wt">⚠ 가장 흔한 오해 — "실종선고하면 그 형제 몫이 없어진다"</span>
+그렇지 않습니다. 실종선고는 <b>그 사람이 사망한 것으로 볼 뿐</b>이고, <b>그 몫이 사라지는 것이 아닙니다.</b> 사망 간주 시점(실종기간 만료일)이 피상속인 사망일보다 앞이냐 뒤냐에 따라 결과가 갈립니다.<br><br>
+<b>· 실종기간 만료일이 부모님 사망일 <u>앞</u>인 경우</b> → 그 형제는 처음부터 상속인이 아니고, <b>그의 자녀(조카)나 배우자가 대신 상속</b>합니다(대습상속, 민법 §1001). 자녀도 배우자도 없다면 그때 비로소 나머지 상속인의 몫이 늘어납니다.<br>
+<b>· 실종기간 만료일이 부모님 사망일 <u>뒤</u>인 경우</b> → 그 형제는 <b>일단 상속을 받았다가</b> 그 뒤에 사망한 것이 되므로, 그의 몫이 <b>그의 배우자·자녀에게 다시 상속</b>됩니다.<br><br>
+<b>어느 쪽이든 상속인이 늘어날 수 있고, 그 사람들과 다시 협의해야 합니다.</b> 실종선고를 청구하기 전에 <b>그 형제의 가족관계증명서부터 떼어</b> 배우자·자녀가 있는지 확인하십시오. 이 확인 없이 시간과 비용을 들여 실종선고를 받고 나서, 조카 셋과 새로 협의해야 하는 상황을 마주하는 분들이 계십니다.</div>
+
+<h2>[상황 B] 연락 두절 — 부재자 재산관리인 선임의 흐름</h2>
+<div class="flow"><div class="fl-t">주소보정으로도 찾지 못했을 때 가는 길</div>
+<div class="node"><span class="num">0</span><b>행방불명 정황을 모읍니다</b> — 반송된 우편물, 통화 시도 기록, 말소된 주민등록표 초본 등 "여러 번 연락했으나 닿지 않았다"는 정황을 준비합니다.</div><span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">1</span><b>부재자 재산관리인 선임 청구</b> — 부재자의 <b>최후주소지 관할 가정법원</b>에 청구합니다(작성례 ①). 행방불명을 내가 전부 증명할 필요는 없고, 법원이 출입국·건강보험 등 기록을 직접 조회하여 확인합니다.</div><span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">2</span><b>재산관리인 선임 결정</b> — 부재자와 <b>이해관계가 대립하지 않는</b> 친족이나 변호사 등이 선임됩니다. <b>분할로 이익을 보는 다른 상속인은 관리인이 되기 어렵습니다.</b> 법원이 관리인에게 담보 제공이나 재산목록 작성을 명할 수 있습니다.</div><span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">3</span><b>권한초과행위 허가 신청</b> — 선임된 관리인이 상속재산 분할에 참여하려면 별도로 법원의 허가를 받아야 합니다(작성례 ②, 민법 §25). <b>부재자에게 법정상속분 이상이 확보되는 안</b>이라야 허가가 납니다.</div><span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">4</span><b>분할협의·심판 참여 → 정리</b> — 허가받은 관리인이 부재자를 대신해 분할에 참여합니다. 부재자 몫은 관리인이 계속 관리하며, 뒷날 본인이 나타나면 인계됩니다.</div></div>
+<div class="warn"><span class="wt">⚠ 솔직히 말씀드립니다 — 부재자 재산관리인은 공짜가 아닙니다</span>
+법원이 관리인에게 <b>보수</b>를 정할 수 있고, 그 재원이 부재자 재산에서 충분히 나오지 않으면 <b>청구인이 비용을 예납</b>하게 되는 경우가 있습니다. 담보 제공이나 정기 보고가 요구되기도 합니다. 또 선임 후 <b>권한초과행위 허가까지 별도로</b> 받아야 하므로 절차가 두 번입니다.<br>
+따라서 <b>재산 규모가 작다면, 먼저 주소보정으로 그 형제를 찾아내는 쪽이 훨씬 낫습니다.</b> 이 카드가 주소 찾는 순서를 앞에 둔 이유가 그것입니다.</div>
+<h2>신청서·서면 작성례</h2>
+<p style="font-size:13.5px;color:var(--muted)">아래 작성례의 빈칸(○○○)을 채워 그대로 제출할 수 있습니다. 제목은 가운데 정렬된 법원 제출 양식입니다. <b>복사·인쇄·다운로드</b> 버튼을 활용하십시오. 공식 양식은 <a href="https://www.scourt.go.kr/nm/min_9/min_9_2/index.html">대한민국 법원 전자민원센터 — 양식모음</a>에서도 내려받을 수 있습니다.</p>
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ① · 상황 B</span>부재자 재산관리인 선임 청구서 (연락 두절)<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f1"><span class="ft">부재자 재산관리인 선임 청구</span>청구인   ○○○   (주민등록번호: ○○○○○○-○○○○○○○)
+         주소: ○○○   (☎: ○○○-○○○○-○○○○)
+         부재자와의 관계: ○○○ (예: 공동상속인·형제)
+
+부재자   ○○○   (주민등록번호: ○○○○○○-○○○○○○○)
+         최후주소: ○○○
+
+재산관리인 후보자   ○○○   (주민등록번호: ○○○○○○-○○○○○○○)
+         주소: ○○○
+         부재자와의 관계: ○○○
+
+         청 구 취 지
+부재자 ○○○의 재산관리인으로 위 후보자를 선임한다.
+라는 심판을 구합니다.
+
+         청 구 원 인
+1. 피상속인 망 ○○○이 20○○. ○○. ○○. 사망하여, 청구인과
+   부재자 등이 공동상속인이 되었습니다.
+2. 부재자는 최후주소 ○○○를 마지막으로 20○○년경부터 행방을
+   알 수 없어, 청구인이 여러 차례 연락을 시도하였으나 닿지
+   않습니다(소갑 제○호증 반송 우편물 등).
+3. 상속재산을 분할하려면 부재자의 참여가 필요하나 부재중이므로,
+   민법 제22조에 따라 재산관리인 선임을 구합니다.
+4. 선임 후 재산관리인이 민법 제25조의 권한초과행위 허가를 받아
+   상속재산 분할에 참여하고자 합니다.
+
+         첨 부 서 류
+1. 피상속인 기본증명서(상세)·가족관계증명서(상세)   각 1통
+1. 부재자 가족관계증명서·말소된 주민등록표 초본     각 1통
+1. 행방불명 소명자료(반송 우편물 등)                1통
+1. 재산관리인 후보자 주민등록표 초본                1통
+
+              20○○. ○○. ○○.
+                위 청구인  ○○○ (인 또는 서명)
+
+○○가정법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1')">📋 복사</button><button type="button" onclick="printForm('f1')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1','부재자재산관리인_선임청구서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>연락이 끊긴 상속인이 있을 때</b> 내는 양식입니다. <b>'청구인'은 나, '부재자'는 행방불명 형제, '후보자'는 그를 대신 관리할 사람</b>(이해관계 없는 친족 등)입니다. 관할은 <b>부재자의 최후주소지 가정법원</b>입니다. 행방불명은 내가 전부 증명할 필요 없이, 청구하면 법원이 출입국·건강보험·통신 기록을 직접 조회합니다. 나는 "연락을 시도했으나 닿지 않았다"는 정황만 소명하면 됩니다. <b>다만 이 청구에 앞서, 위의 「주소를 모를 때」 순서대로 주소보정을 먼저 시도해 보십시오.</b> 관리인 선임은 비용과 절차가 더 듭니다. 인지액은 라류 가사비송으로 <b>1건당 5,000원</b>입니다(가사소송수수료규칙 §3 제1항).</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ② · 상황 B(후속)★</span>권한초과행위 허가 신청서 (관리인이 분할에 참여하려면)<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f2"><span class="ft">권한초과행위 허가 신청</span>신청인(재산관리인)   ○○○   (☎: ○○○-○○○○-○○○○)
+                    주소: ○○○
+   (○○가정법원 20○○느단○○○ 부재자 재산관리인 선임 심판으로
+    선임된 부재자 ○○○의 재산관리인)
+
+부재자   ○○○   최후주소: ○○○
+
+         신 청 취 지
+신청인이 부재자 ○○○을 위하여 별지 목록 기재 상속재산에 관한
+아래 분할협의(또는 상속재산분할심판 절차에서의 분할)에 참여하는
+것을 허가한다. 라는 심판을 구합니다.
+
+         신 청 이 유
+1. 신청인은 위 선임 심판으로 부재자의 재산관리인이 되었습니다.
+2. 피상속인 망 ○○○의 상속재산을 공동상속인들이 분할하려 하는바,
+   부재자의 몫에 관하여 신청인이 대리하여 분할에 참여할 필요가
+   있습니다.
+3. 이는 통상의 관리행위를 넘으므로, 민법 제25조에 따라 그 허가를
+   구합니다. 분할 내용은 별지 협의서(안)와 같으며, 부재자에게
+   법정상속분 이상이 확보됩니다.
+
+         첨 부 서 류
+1. 재산관리인 선임 심판서 사본   1통
+1. 상속재산 분할협의서(안)       1통
+1. 상속재산 소명자료             1통
+
+              20○○. ○○. ○○.
+                위 신청인  ○○○ (인)
+
+○○가정법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f2')">📋 복사</button><button type="button" onclick="printForm('f2')">🖨 인쇄</button><button type="button" onclick="downloadForm('f2','권한초과행위_허가신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>재산관리인 선임만으로는 분할에 참여할 수 없습니다.</b> 상속재산 분할은 통상의 관리 범위를 넘는 행위이므로, 이 <b>권한초과행위 허가</b>를 별도로 받아야 관리인이 부재자를 대신해 분할에 참여할 수 있습니다(민법 §25). 부재자에게 <b>법정상속분 이상이 확보되는 안</b>이라야 허가가 수월합니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ③ · 상황 A</span>상속재산분할심판청구서 (도장 거부 — 협의경과란)<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f3"><span class="ft">상속재산분할심판청구</span>   (기본 형식은 1-1 카드의 작성례 ①과 같습니다. 아래 '협의 경과'만
+    도장 거부 상황에 맞추어 적습니다.)
+
+청구인   ○○○     상대방   ○○○ (도장을 거부하는 상속인 포함 전원)
+사건본인(피상속인)   망 ○○○
+
+         청 구 취 지
+별지 목록 기재 상속재산을 다음과 같이 분할한다. …
+라는 심판을 구합니다.
+
+         청 구 원 인
+1. 당사자 관계 / 2. 상속재산 … (1-1과 동일)
+3. 협의 경과
+   청구인은 상대방에게 수차례 분할 협의와 서류 날인을 요청하였으나,
+   상대방이 정당한 이유 없이 이에 응하지 아니하여 협의가 성립되지
+   못하였습니다. 이에 부득이 심판상 분할을 구합니다.
+4. 분할 방법에 관한 의견 … (원하는 분할 방법 기재)
+
+              20○○. ○○. ○○.
+                위 청구인  ○○○ (인)
+
+○○가정법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f3')">📋 복사</button><button type="button" onclick="printForm('f3')">🖨 인쇄</button><button type="button" onclick="downloadForm('f3','분할심판청구서_도장거부.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>연락은 되는데 도장만 안 찍는 경우</b>입니다. 전체 형식은 <a href="1-1_상속재산분할심판.html" style="color:var(--gold-d);font-weight:700;text-decoration:underline"><b>상속재산분할심판(1-1)의 작성례 ①</b></a>을 그대로 쓰되, <b>'협의 경과'란</b>에 "협의·날인을 요청했으나 거부당했다"는 사실을 분명히 적으면 심판으로 가는 정당성이 드러납니다. 심판은 상대방 동의가 필요 없어, 도장을 안 찍어도 법원이 분할을 정해 줍니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ④ · 상황 C</span>실종선고 심판청구서 (수년째 생사 불명)<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f4"><span class="ft">실종선고 심판청구</span>청구인   ○○○   (주민등록번호: ○○○○○○-○○○○○○○)
+         주소: ○○○   (☎: ○○○-○○○○-○○○○)
+         부재자와의 관계: ○○○ (공동상속인 등 이해관계인)
+
+부재자(실종자)   ○○○   (주민등록번호: ○○○○○○-○○○○○○○)
+         최후주소: ○○○
+
+         청 구 취 지
+부재자 ○○○에 대하여 실종을 선고한다.
+라는 심판을 구합니다.
+
+         청 구 원 인
+1. 청구인은 부재자와 ○○○(공동상속인) 관계에 있는 이해관계인
+   입니다.
+2. 부재자는 20○○년경 최후주소 ○○○를 떠난 후 현재까지 약
+   ○○년간 생사가 분명하지 아니합니다.
+3. 이에 민법 제27조 제1항에 따라 실종선고를 구합니다.
+   (전쟁·선박침몰·항공기추락 등 위난의 경우: 민법 제27조 제2항,
+    위난 종료 후 1년)
+
+         첨 부 서 류
+1. 부재자 기본증명서(상세)·가족관계증명서(상세)   각 1통
+1. 부재자 말소된 주민등록표 초본                   1통
+1. 생사불명 소명자료                              1통
+1. 청구인의 이해관계 소명자료(가족관계증명서 등)   1통
+
+              20○○. ○○. ○○.
+                위 청구인  ○○○ (인)
+
+○○가정법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f4')">📋 복사</button><button type="button" onclick="printForm('f4')">🖨 인쇄</button><button type="button" onclick="downloadForm('f4','실종선고_심판청구서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>생사불명이 오래(보통 5년 이상) 된 경우</b>입니다. 법원은 청구 후 <span class="term">공시최고<span class="bub">법원이 일정 기간 관보·법원게시판 등에 공고하여, 부재자나 그 생사를 아는 사람에게 신고를 최고하는 절차. 이 기간이 지나야 실종을 선고합니다.</span></span>를 거쳐 실종을 선고하므로 <b>시간이 오래 걸립니다</b>. 빨리 재산을 정리해야 한다면 상황 B(부재자 재산관리인)가 현실적입니다. <b>★청구 전에 반드시</b> — 실종선고를 받아도 <b>그 사람의 몫이 사라지지 않습니다.</b> 사망 간주 시점(실종기간 만료일)이 부모님 사망일보다 <b>앞이면 그의 자녀·배우자가 대습상속</b>하고, <b>뒤이면 그가 일단 상속받았다가 그의 가족에게 다시 상속</b>됩니다. 어느 쪽이든 협의 상대가 늘어날 수 있으니, <b>그 형제의 가족관계증명서부터 떼어</b> 배우자·자녀 유무를 확인하십시오. 관할은 부재자 최후주소지 가정법원, 인지액은 라류 가사비송으로 <b>1건당 5,000원</b> + 송달료·공고비용입니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ⑤ · 상대방(반박)★</span>답변서 — "도장을 안 찍는다"며 분할심판을 당한 경우<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f5"><span class="ft">답 변 서</span>사건   20○○느합○○○   상속재산분할
+청구인   ○○○
+상대방   ○○○   (☎: ○○○-○○○○-○○○○)
+         주소: ○○○
+
+위 사건에 관하여 상대방은 청구인의 청구에 대하여 다음과 같이
+답변합니다.
+
+         청구취지에 대한 답변
+1. 별지 목록 기재 상속재산을 아래 '분할 방법에 관한 의견'과
+   같이 분할한다.
+2. 심판비용은 각자 부담한다.
+   라는 심판을 구합니다.
+
+         답 변 이 유
+1. 분할 자체는 반대하지 않습니다
+   상대방은 상속재산의 분할 자체에 반대하는 것이 아니라, 청구인이
+   제시한 분할안의 내용에 동의할 수 없어 날인하지 못한 것입니다.
+
+2. 청구인이 제시한 분할안의 문제점
+   가. 청구인은 별지 목록 제○항 부동산을 자신이 단독 취득하고
+      상대방에게는 금 ○○○원을 지급하겠다고 하나, 위 부동산의
+      시가는 ○○○원으로서(을 제1호증 시세자료), 상대방의
+      법정상속분에 현저히 미치지 못합니다.
+   나. 청구인이 제시한 상속재산 목록에는 ○○○(예: ○○은행 예금,
+      ○○ 소재 토지)이 누락되어 있습니다(을 제2호증).
+
+3. 청구인의 특별수익
+   청구인은 피상속인 생전인 20○○. ○○.경 ○○○(부동산·현금 등
+   약 ○○○원)을 증여받았으므로, 이는 상속분의 선급으로서 구체적
+   상속분 산정에 반영되어야 합니다(민법 제1008조, 을 제3호증).
+
+4. 상대방의 기여분 (해당하는 경우)
+   상대방은 20○○.부터 20○○.까지 피상속인과 동거하며 부양하였
+   으므로, 별도로 기여분 결정을 청구합니다(별지 기여분 결정
+   청구서 참조).
+
+5. 분할 방법에 관한 의견
+   별지 목록 제○항 부동산은 이를 경매하여 그 대금을 구체적
+   상속분에 따라 분배하는 방법으로(또는 상대방이 취득하고 청구인
+   에게 정산금을 지급하는 방법으로) 분할함이 상당합니다.
+
+         입 증 방 법
+1. 을 제1호증   부동산 시세 확인자료(감정평가서·실거래가 등)
+1. 을 제2호증   누락된 상속재산 소명자료
+1. 을 제3호증   청구인의 특별수익 소명자료(등기부·이체내역)
+
+         첨 부 서 류
+1. 위 입증방법 사본   각 1통
+1. 답변서 부본        (상대방 수만큼)
+
+              20○○. ○○. ○○.
+                위 상대방  ○○○ (인)
+
+○○가정법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f5')">📋 복사</button><button type="button" onclick="printForm('f5')">🖨 인쇄</button><button type="button" onclick="downloadForm('f5','분할심판_답변서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>"저 사람이 도장을 안 찍는다"며 심판을 당한 분</b>을 위한 서면입니다. 도장을 찍지 않은 데에는 대개 <b>분할안이 불공평하다</b>거나 <b>재산이 빠져 있다</b>는 이유가 있는데, 아무 대응도 하지 않으면 그 이유가 법원에 전달되지 않은 채 분할이 정해집니다.<br>
+가장 중요한 것은 <b>1번</b>입니다 — "분할 자체를 반대하는 것이 아니다"라고 먼저 밝히십시오. 무작정 버티는 사람으로 비치면 불리해집니다. 그다음 <b>2번에서 분할안의 어디가 왜 불공평한지</b>를 숫자로 지적하고, <b>3번에서 청구인이 생전에 받은 것</b>을 밝히십시오. 내가 부모님을 모셨다면 <b>4번</b>과 함께 <a href="1-3_기여분.html" style="color:var(--gold-d);font-weight:700;text-decoration:underline">기여분(1-3)</a>의 청구서를 별도로 내야 합니다. 답변서에 적기만 해서는 기여분이 계산되지 않습니다.<br>
+제출 기한은 법원이 보낸 안내문에 적혀 있습니다. <b>기한을 넘겼더라도 심리가 끝나기 전이라면 제출하십시오.</b> 늦게라도 내는 편이 아무것도 내지 않는 것보다 낫습니다.</div>
+</div></div>
+
+<div class="cost"><span class="ct">비용 — 인지액과 송달료는 다릅니다</span>
+<b>① 부재자 재산관리인 선임 · 권한초과행위 허가 · 실종선고</b> — 모두 <b>라류 가사비송</b>으로 <b>1건당 5,000원</b>입니다(가사소송수수료규칙 §3 제1항). 선임과 허가는 별개 사건이므로 <b>각각</b> 붙습니다. <b>실종선고는 공고비용이 추가</b>됩니다.<br>
+<b>② 상속재산분할심판</b> — <b>마류 가사비송</b>이지만 정액이 아니라, <b>공유물분할청구의 소로 보아</b> 「민사소송 등 인지법」을 준용해 <b>재산가액에 따라</b> 계산합니다(같은 규칙 §3 제1항 제2호). 기여분을 함께 청구하면 <b>1건당 10,000원이 합산</b>됩니다.<br>
+<b>③ 즉시항고</b> — 위 금액의 2배(상속재산분할은 1.5배)입니다.<br>
+<b>④ 송달료</b>(인지와 별개로 예납) — <b>1회분 5,500원</b>(2025. 6. 1. 인상). 당사자 수 × 정해진 횟수로 계산합니다. <span style="font-size:13px;color:var(--muted)">[확인필요] 단가·횟수는 변동될 수 있으니 접수 창구에서 확인하십시오.</span><br>
+<b>⑤ 그 밖에</b> — 부재자 재산관리인의 <b>보수</b>가 정해지면 청구인이 예납하게 될 수 있고, 특별송달·공시송달에도 별도 비용이 듭니다.
+<div style="margin-top:11px; padding-top:10px; border-top:1px dashed #cfe6d6; color:#c0392b; font-weight:600; line-height:1.8;">※ 정확한 인지액·송달료·공고료 예상치는 사건 정보를 넣으면 <a href="https://sanlaw.co.kr/tools-calculator.html" style="color:#c0392b; text-decoration:underline; font-weight:700;">🧮 수수료 계산기</a>에서 미리 확인할 수 있습니다.</div></div>
+
+<h2>고충은 덜어드리고, 결과로 보답하겠습니다</h2>
+<div class="hire"><p>본 사무소에서는 의뢰인들의 고충은 덜어드리고, 함께 소송을 진행하여 원하는 결과에 도달할 수 있도록 성심을 다하겠습니다.</p>
+<p style="margin-top:12px"><b>· 분할을 진행하려는 분의 경우</b><br>① 형제의 상태 진단(연락 가능·주소 불명·생사불명)과 <b>가장 값싸고 빠른 경로 선택</b>, ② 상황에 맞는 <b>분할심판·부재자 재산관리인 선임·권한초과행위 허가·실종선고</b> 서류 작성, ③ 심판 확정 후 <b>상속등기</b>까지 <b>본인 절차의 전 과정을 함께</b> 준비해 드립니다. 특히 실종선고는 <b>청구 전에 상속인이 늘어날지부터</b> 확인해 드립니다.</p>
+<p style="margin-top:10px"><b>· 도장을 요구받는 분의 경우</b><br>분할안의 어디가 불공평한지를 <b>숫자로 정리한 답변서</b>와, 필요하면 <b>기여분 결정 청구</b>까지 함께 준비해 드립니다.</p></div>
+<div class="warn"><span class="wt">⚠ 자력구제는 금지됩니다</span>도장을 안 찍는 형제가 있다 하여 <b>인감을 임의로 만들거나 서명을 대신하는 행위는 사문서위조죄</b>에 해당합니다. 그렇게 마친 협의분할과 상속등기는 <b>무효</b>이며, 뒷날 발각되면 등기를 되돌리는 소송까지 당하게 됩니다. 반드시 위 합법적 절차로 진행하십시오.</div>
+<a href="https://sanlaw.co.kr/tools-calculator.html" class="cta">🧮 내 사건 비용 미리 계산하기</a>
+<div style="text-align:center; background:#f6ecd8; border:1px solid var(--gold); border-radius:11px; padding:14px; margin:18px 0; font-size:15px; color:var(--gold-d); font-weight:700;">📞 상담은 홈 화면의 상담 창구를 이용하시면 됩니다.</div>
+
+<h2>준비할 서류와 발급처</h2>
+<p style="font-size:13.5px;color:var(--muted)">아래 '바로가기'를 클릭하면 해당 사이트로 이동합니다. 만약 첫 화면으로 연결되면, 옆의 <b>찾아가기 경로</b>를 따라 메뉴를 클릭하면 됩니다.</p>
+<table>
+<tr><th>무엇을 (어디서)</th><th>서류</th><th>바로가기 · 찾아가기 경로</th></tr>
+<tr><td>상속인·부재자 확인<br>(전자가족관계등록)</td><td>피상속인·부재자의 가족관계증명서(상세)·기본증명서(상세), 제적등본</td><td><a href="https://efamily.scourt.go.kr/">전자가족관계등록시스템</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 증명서 발급 → 반드시 '상세' 선택</span></td></tr>
+<tr><td>실종선고 전 확인<br>(전자가족관계등록)★</td><td><b>부재자의</b> 가족관계증명서 — 배우자·자녀가 있는지(상속인이 늘어나는지) 확인</td><td><a href="https://efamily.scourt.go.kr/">전자가족관계등록시스템</a><br><span style="font-size:12.5px;color:var(--muted)">본인 외 가족의 증명서는 발급 요건이 있으므로, 어려우면 법원의 사실조회를 활용합니다</span></td></tr>
+<tr><td>행방불명 소명<br>(정부24)</td><td>부재자의 주민등록표 초본(주소 변동 포함) — <b>말소 여부</b>가 핵심</td><td><a href="https://www.gov.kr/">정부24</a><br><span style="font-size:12.5px;color:var(--muted)">경로: '주민등록표 초본' 검색 → 주소변동사항 포함</span></td></tr>
+<tr><td>주소를 모를 때<br>(주민센터)★</td><td>법원의 <b>주소보정명령서</b>를 지참 → 상대방 주민등록표 초본 발급</td><td><span style="font-size:12.5px;color:var(--muted)">가까운 주민센터 방문. 평소에는 발급되지 않으나 명령서가 근거가 됩니다</span></td></tr>
+<tr><td>상속재산 확인<br>(인터넷등기소·정부24)</td><td>부동산 등기사항전부증명서, 안심상속 원스톱서비스 조회결과</td><td><a href="https://www.iros.go.kr/">인터넷등기소</a> / <a href="https://www.gov.kr/">정부24</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 정부24에서 '안심상속' 검색</span></td></tr>
+<tr><td>심판 청구 제출<br>(전자소송)</td><td>선임·허가·실종선고·분할심판 청구서, 답변서</td><td><a href="https://ecfs.scourt.go.kr/">전자소송</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 서류제출 → 가사 → 해당 사건</span></td></tr>
+<tr><td>법원 공식 양식<br>(전자민원센터)</td><td>심판청구서·답변서 표준 양식</td><td><a href="https://www.scourt.go.kr/nm/min_9/min_9_2/index.html">대한민국 법원 — 양식모음</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 양식모음 → 가사 분야에서 검색</span></td></tr>
+</table>
+
+<div class="tip"><span class="pt">💡 이어지는 카드</span> 아래 제목을 누르면 해당 카드로 바로 이동합니다.<br>
+· 연락이 되는 경우의 분할 절차 전체 → <a href="1-1_상속재산분할심판.html" style="color:var(--gold-d);font-weight:700;text-decoration:underline">상속재산분할심판(1-1)</a><br>
+· 미성년 상속인이 끼어 있을 때 → <a href="1-2_미성년자_특별대리인.html" style="color:var(--gold-d);font-weight:700;text-decoration:underline">특별대리인 선임(1-2)</a><br>
+· 내가 부모님을 더 모셨을 때 → <a href="1-3_기여분.html" style="color:var(--gold-d);font-weight:700;text-decoration:underline">기여분(1-3)</a><br>
+· 예금만 급히 정리해야 할 때 → <a href="1-4_상속예금.html" style="color:var(--gold-d);font-weight:700;text-decoration:underline">상속예금(1-4)</a><br>
+· 상속인 중 대습상속인이 있을 때 → 대습상속(4-2) <span style="color:var(--muted);font-size:13px">(카드 준비 중)</span><br>
+· 외국에 거주하는 상속인이 있을 때 → 재외국민·외국인 상속등기(4-3) <span style="color:var(--muted);font-size:13px">(카드 준비 중)</span></div>
+<div class="src">
+근거 — 민법 제22조(부재자의 재산관리)·제24조(관리인의 직무)·제25조(권한을 넘는 행위의 허가)·제26조(관리인의 담보제공·보수)·제27조(실종의 선고)·제28조(실종선고의 효과)·제29조(실종선고의 취소)·제161조·제1001조(대습상속)·제1008조(특별수익자의 상속분)·제1013조(협의에 의한 분할) · 민사소송법 제185조(송달장소변경의 신고의무)·제194조 이하(공시송달) · 가사소송법 제2조(라류·마류 가사비송사건)·제43조 제5항(즉시항고) · 가사소송규칙(실종선고의 공시최고) · 가사소송수수료규칙 제3조·제5조 · 대법원 1987. 3. 10. 선고 85므80 판결(공동상속인 전원 동의 없는 협의분할의 무효) · 대법원 1995. 2. 17. 선고 94다52751 판결(실종선고가 취소되지 않는 한 반증으로 그 효과를 다툴 수 없음) · 국가법령정보센터 법령용어 · 법제처 찾기쉬운 생활법령정보 · 대한법률구조공단 · 대한민국 법원 전자민원센터. 본 자료는 일반적인 법률정보로, 개별 사건의 법률자문이 아닙니다.
+</div>
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+})();
+function toggleFold(b){var fb=b.parentElement;var body=b.nextElementSibling;var open=fb.classList.toggle('open');if(body){body.style.display=open?'block':'none';}}
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('작성례가 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('작성례가 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('작성례를 내려받았습니다');}
+</script>
+
+</body>
+</html>
