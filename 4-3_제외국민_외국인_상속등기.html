@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[4-3] 상속인(또는 돌아가신 분)이 해외 영주권자·외국 국적이에요 — 재외국민·외국인 상속등기 | 산 법무사 김재섭</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(280px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.case{background:var(--box); border-radius:10px; padding:14px 16px; margin:14px 0; border-left:4px solid #b9a98c;}
+.case .ct{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+.sit-wrap{display:flex; gap:12px; margin:14px 0;}
+.sit{flex:1; background:#f8f5ee; border:1px solid var(--line); border-top:3px solid var(--gold); border-radius:10px; padding:13px 15px; font-size:14.5px; line-height:1.75;}
+.sit .sl{display:block; font-weight:700; color:var(--gold-d); margin-bottom:6px; font-size:14px;}
+@media (max-width:680px){ .sit-wrap{flex-direction:column;} }
+/* 전체 길 흐름도 */
+.flow{background:linear-gradient(180deg,#faf7f0,#f6f1e6); border:1px solid var(--line); border-radius:14px; padding:22px 20px; margin:16px 0;}
+.flow .fl-t{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:18px; text-align:center; letter-spacing:.3px;}
+.flow .node{position:relative; background:#fff; border:1px solid #e3d8c4; border-radius:11px; padding:15px 18px 15px 56px; font-size:14.5px; line-height:1.72; box-shadow:0 2px 6px rgba(122,82,48,.07);}
+.flow .node .num{position:absolute; left:15px; top:14px; width:30px; height:30px; line-height:30px; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; border-radius:50%; font-weight:800; font-size:15px; font-family:'Nanum Myeongjo',serif; box-shadow:0 2px 5px rgba(122,82,48,.3);}
+.flow .node b{color:#241a10;}
+.flow .down{display:flex; justify-content:center; align-items:center; padding:7px 0;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+/* 작성례 박스 */
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:15px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .tag{margin-bottom:0;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;}
+.tag.cred{background:#5a9a72;}
+.tag.debt{background:#d9694a;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:18px;margin:12px 0;font-family:'D2Coding','Courier New',monospace;font-size:13px;line-height:1.6;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:16px;letter-spacing:2px;margin-bottom:12px;color:#241a10;}
+.howto{font-size:14px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0 4px;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:13px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:7px 13px;cursor:pointer;transition:.15s;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.75;}
+.lawbox .ll{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:#241a10;border-radius:5px;padding:2px 9px;margin-right:7px;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.hire p{margin:7px 0; font-size:15px; line-height:1.8;}
+.cta{display:block;text-align:center;background:var(--gold-d);color:#fff;font-weight:700;font-size:17px;text-decoration:none;padding:15px;border-radius:11px;margin:18px 0;font-family:'Nanum Myeongjo',serif;letter-spacing:1px;}
+.cta:hover{background:#5e3f24;}
+@media print{
+  body{background:#fff; max-width:100%;}
+  .tldr,.case,.warn,.tip,.cost,.steps li,.tnote,.sit,.flow,.flow li,.lawbox,.hire{background:#fff !important; border-color:#ccc !important;}
+  .tnote{display:none;}
+  .term{border:none; color:inherit; font-weight:inherit;}
+  .term>.bub{display:inline !important; position:static; width:auto; background:none; color:inherit; box-shadow:none; padding:0; font-size:inherit; line-height:inherit;}
+  .term>.bub::before{content:" ("; }
+  .term>.bub::after{content:")"; border:none; position:static;}
+  .fold-body{display:block !important;}.fold-btn .chev{display:none;}.form-tools{display:none;}
+  .cta{background:#fff !important; color:#241a10 !important; border:1px solid #ccc;}
+}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+
+
+<h1>[4-3] 상속인(또는 돌아가신 분)이 해외 영주권자·외국 국적이에요 — 재외국민·외국인 상속등기</h1>
+
+<div class="tnote">어려운 법률용어에는 <b>점선 밑줄</b>이 그어져 있습니다. <b>PC는 마우스를 올리면</b>, <b>휴대폰은 손가락으로 톡 누르면</b> 쉬운 설명이 뜹니다. (인쇄하면 괄호로 함께 나옵니다.)</div>
+
+<div class="hire">
+<div class="ht">이 매뉴얼을 끝까지 읽으시는 분께</div>
+<p>이 매뉴얼은 <b>의뢰인이 직접 법원에 신청할 수 있도록 모든 서류 양식·비용·요건을 구체적으로 담았습니다.</b> 하지만 소송은 살아있는 생물과 같아 상대방의 격렬한 저항이 뒤따릅니다. 혼자 진행하시다가 막히는 부분이 생기거나 방어막이 필요할 때, 언제든 이 매뉴얼을 들고 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</p>
+</div>
+
+<div class="tldr">
+<div class="tt">⭐ 30초 결론부터</div>
+<ul>
+<li><b>두 가지를 먼저 구분하세요.</b> <span class="term">재외국민<span class="bub">대한민국 국적을 그대로 가진 채 외국 영주권을 얻었거나 영주할 목적으로 외국에 사는 사람. 법적으로는 내국인과 같고, 해외 서류 인증 절차만 다릅니다.</span></span>(한국 국적 유지)과 <span class="term">외국인<span class="bub">대한민국 국적이 없는 사람(무국적자 포함). 과거 한국인이었다가 외국 시민권을 취득하면 외국인입니다.</span></span>(한국 국적 아님)은 준비서류가 다릅니다.</li>
+<li><b>한국에 있는 부동산은 한국법으로 상속합니다.</b> 돌아가신 분이 외국 국적이어도, <b>부동산 상속은 그 부동산이 있는 나라(=한국)의 법</b>에 따릅니다(국제사법 §77①·②2호). 즉 한국 민법대로 상속인·지분을 정합니다.</li>
+<li><b>핵심 추가서류는 3가지</b> — ① <span class="term">부동산등기용등록번호<span class="bub">주민등록번호가 없는 사람이 부동산 등기를 할 때 대신 쓰는 번호. 재외국민은 등기소, 외국인은 출입국관서에서 부여받습니다.</span></span> ② 주소증명 ③ 인감증명(또는 그 대체). 외국에서 발급된 서류는 모두 <b><span class="term">아포스티유<span class="bub">한 나라의 공문서를 다른 나라에서도 진짜로 인정해 주도록 붙이는 국제 인증. 협약 가입국끼리 통용됩니다.</span></span> 또는 영사확인 + 한국어 번역문</b>을 붙여야 합니다.</li>
+<li><b>한국 인감이 없는 외국인도 가능합니다.</b> 인감증명 대신 <b>상속재산분할협의서나 위임장을 공증</b>(본국 공증+아포스티유 또는 대한민국 영사 인증)받으면 협의분할 상속등기를 할 수 있습니다.</li>
+</ul>
+</div>
+
+<h2>지금 어떤 상황인가요?</h2>
+<div class="sit-wrap">
+<div class="sit"><span class="sl">상황 ① · 상속인이 해외에 있음</span>돌아가신 분은 한국 국적인데, <b>상속받을 사람(자녀 등)이 해외 영주권자(재외국민)이거나 외국 국적</b>인 경우. → 그 상속인의 등록번호·주소·인감(대체) 서류를 해외에서 인증받아 준비합니다.</div>
+<div class="sit"><span class="sl">상황 ② · 돌아가신 분이 외국 국적</span><b>피상속인이 외국 시민권자(또는 외국인)</b>인 경우. → 본국 사망·상속 증명서류를 인증받아 준비하되, <b>한국 내 부동산은 한국법</b>으로 상속등기합니다.</div>
+<div class="sit"><span class="sl">상황 ③ · 내가 넘겨주는 쪽</span>상속받은 부동산을 <b>팔거나</b>, 돌아가신 분이 <b>생전에 팔아 둔 부동산을 넘겨주거나</b>, <b>유증을 이행</b>하는 경우. → 서류가 완전히 달라집니다. 아래 <b>③ 등기의무자 서류</b>를 보십시오.</div>
+</div>
+
+<h2>먼저 — 나는 '재외국민'인가, '외국인'인가</h2>
+<ol class="steps">
+<li><b>재외국민</b> — <b>한국 국적을 그대로 가진 채</b> 외국 영주권을 얻었거나 영주 목적으로 외국에 사는 분입니다. 법적으로 내국인과 같아, 차이는 <b>해외 서류 발급·인증 절차</b>뿐입니다.</li>
+<li><b>외국인</b> — <b>한국 국적이 없는</b> 분(무국적자 포함)입니다. 결혼·귀화 등으로 <b>외국 시민권을 취득해 한국 국적을 잃은</b> 분도 외국인입니다.</li>
+<li><b>한국 부동산은 한국법으로 상속</b> — 돌아가신 분이 외국 국적이라도, 상속은 원칙적으로 본국법에 따르되(국제사법 §77①) <b>부동산 상속은 그 부동산 소재지법(=한국법)</b>에 따릅니다(§77②2호, 미국 등 본국법도 부동산은 소재지법으로 보냄). 그래서 한국 내 부동산은 한국 민법으로 상속인·지분을 정합니다.</li>
+</ol>
+
+<h2>① 재외국민 상속인 — 준비서류</h2>
+<table>
+<tr><th>무엇을</th><th>구체적으로 (어떻게)</th></tr>
+<tr><td><b>부동산등기용등록번호</b><br>(등기명의인이 될 때)</td><td>예전에 <b>주민등록번호가 있었으면 그 번호</b>를 그대로 씁니다(말소되었어도 사용). 한 번도 없었으면 <b>서울중앙지방법원 등기국</b> 등기관이 부여합니다(부동산등기법 §49①2호). 부여신청은 가까운 등기소에서 가능합니다. <b>거소신고번호로는 대신할 수 없습니다.</b></td></tr>
+<tr><td><b>주소증명</b></td><td>체류국에 주소증명제도가 있으면 <b>체류국 관공서 주소증명</b>(예: 일본 주민표). 없으면 <b>체류국 공증인이 주소를 공증한 서면</b>. 외국 발행이면 아포스티유/영사확인 + 번역.</td></tr>
+<tr><td><b>인감증명 또는 그 대체</b><br>(협의분할 시)</td><td><b>(가)</b> 한국 인감증명을 받을 수 있으면 분할협의서에 인감도장 날인 + <b>대한민국 인감증명서</b>. <b>(나)</b> 받기 어려우면 <b>상속재산분할협의서를 체류국 주재 대한민국 영사의 인증(공증)</b>으로 갈음합니다.</td></tr>
+<tr><td><b>피상속인·상속관계 서류</b></td><td>피상속인 기본증명서(상세)·가족관계증명서(상세)·제적등본(출생~사망 연속), 상속인 가족관계증명서 — <b>내국인과 동일</b>합니다.</td></tr>
+</table>
+<div class="tip"><span class="pt">💡 직접 한국에 못 올 때 — 처분위임장</span> 재외국민이 등기소에 직접 올 수 없으면, 대리인에게 <b>처분위임장</b>을 주어 신청을 맡길 수 있습니다. 이 위임장에는 한국 인감증명(가능한 경우) 또는 <b>대한민국 영사의 인증</b>을 받습니다.</div>
+
+<h2>② 외국인 상속인 — 준비서류</h2>
+<table>
+<tr><th>무엇을</th><th>구체적으로 (어떻게)</th></tr>
+<tr><td><b>부동산등기용등록번호</b><br>(등기명의인이 될 때)</td><td>다음 중 하나(부동산등기법 §49①4호 및 예규):<br>· <b>외국인등록</b>을 했으면 체류지 관할 <b>지방출입국·외국인관서장</b>이 부여한 외국인등록번호(외국인등록사실증명 제출 시 별도 등록번호증명 불요)<br>· 국내 체류지가 없으면 <b>서울출입국·외국인관서장</b>이 부여한 부동산등기용등록번호<br>· 외국국적동포는 거소 관할 관서장이 부여한 <b>국내거소신고번호</b><br><b>★ 2022. 12. 27.부터</b> 등록번호 부여·발급 신청서에는 단순 여권사본이 아니라 <b>아포스티유(미가입국은 대한민국 영사확인)를 붙인 여권사본·여권사본증명서·여권발급기록증명서 중 하나</b>를 첨부해야 합니다.</td></tr>
+<tr><td><b>주소증명</b></td><td>본국에 주소증명제도가 있는 외국인(예: 일본·독일·프랑스·대만·스페인)은 <b>본국 관공서 주소증명</b>. 없는 외국인(예: 미국·영국)은 <b>본국 공증인이 주소를 공증한 서면</b>(또는 주소 적힌 신분증 원본+사본 대조환부 등 예규가 정한 갈음방법). 외국 발행이면 아포스티유/영사확인 + 번역.</td></tr>
+<tr><td><b>인감증명 또는 그 대체</b><br>(협의분할 시)</td><td><b>(가)</b> 본국에 인감제도가 있으면(예: 일본·대만) <b>본국 관공서 발행 인감증명</b>. <b>(나)</b> 국내 거소·체류가 있으면 한국에서 인감을 등록해 <b>대한민국 인감증명서</b>(아래 '인감 등록 절차' 참고). <b>(다)</b> 인감제도가 없는 나라의 외국인은 인감증명 없이 <b>상속재산분할협의서 또는 협의분할 위임장을 공증</b>(본국 공증+아포스티유 또는 대한민국 영사 인증)으로 갈음합니다.</td></tr>
+<tr><td><b>동일인 증명서</b><br>(성명이 바뀐 경우)</td><td>외국국적 취득으로 <b>한국 이름과 외국 이름이 달라진 경우</b>, 두 이름이 같은 사람임을 증명하는 <b>동일인 증명서</b>를 작성·서명한 뒤 본국 관공서 증명/본국 공증인 공증/대한민국 재외공관 인증을 받습니다(본국 증명·공증에는 아포스티유).</td></tr>
+<tr><td><b>피상속인·상속관계 서류</b></td><td>피상속인이 한국 국적이면 내국인과 동일(기본·가족관계·제적). 피상속인이 외국인이면 아래 '피상속인이 외국인인 경우' 참고.</td></tr>
+</table>
+<div class="tip"><span class="pt">💡 협의분할서는 '각자 작성' 방식이 편리</span> 외국인·재외국민이 섞인 상속에서는 상속인 전원이 한 장에 연명하기보다, <b>상속인별로 각자 작성해 서명·날인</b>하는 방식이 인증 절차상 편리합니다(실무).</div>
+
+
+<h2>③ 내가 '주는 쪽'일 때 — 등기의무자 서류 (가장 많이 빠뜨리는 부분)</h2>
+<p>여기까지는 <b>이름을 받아오는 쪽</b>(<span class="term">등기권리자<span class="bub">등기를 해서 이익을 얻는 쪽. 상속등기에서는 명의를 새로 얻는 상속인입니다.</span></span>) 이야기였습니다. 그런데 재외국민·외국인은 다음 네 가지 경우에 <b>이름을 넘겨주는 쪽</b>(<span class="term">등기의무자<span class="bub">등기로 인해 권리를 잃거나 부담을 지는 쪽. 파는 사람, 담보를 설정해 주는 사람, 유증을 이행해 주는 상속인이 여기에 해당합니다.</span></span>)이 됩니다. 이때 필요한 서류는 <b>위와 완전히 다릅니다.</b></p>
+<div class="sit-wrap">
+<div class="sit"><span class="sl">경우 ① · 상속받은 부동산을 처분</span>상속등기를 마친 뒤 그 부동산을 <b>팔거나·증여하거나·담보로 잡히는</b> 경우.</div>
+<div class="sit"><span class="sl">경우 ② · 돌아가신 분이 생전에 팔았음</span>피상속인이 살아 계실 때 매매계약을 하고 등기 전에 사망 → <b>상속인이 매도인 자리를 그대로 이어받아</b> 매수인에게 넘겨주는 경우.</div>
+<div class="sit"><span class="sl">경우 ③ · 유언으로 남에게 준 재산</span>유증을 받은 사람에게 소유권을 넘길 때, <b>유언집행자 또는 상속인 전원</b>이 넘겨주는 쪽이 되어 함께 신청하는 경우.</div>
+<div class="sit"><span class="sl">경우 ④ · 잘못된 등기를 고칠 때</span>이미 마친 상속등기를 <b>경정·말소</b>하면서 지분이 줄어드는 상속인이 되는 경우.</div>
+</div>
+
+<h3>★ 재외국민과 외국인은 규칙이 정반대입니다 — 이것만은 꼭</h3>
+<div class="warn"><span class="wt">⚠ 현지 공증인에게 가면 헛걸음이 될 수 있습니다</span>
+<b>재외국민</b>(한국 국적 유지)은 인감증명을 갈음할 때 <b>반드시 대한민국 재외공관(대사관·총영사관)의 공증</b>이라야 합니다. <b>거주하는 나라의 공증인에게 받은 인증으로는 갈음할 수 없습니다</b>(부동산등기규칙 §61③). 반대로 <b>외국인</b>은 <b>본국 관공서의 증명이나 본국 공증인의 공증도 인정</b>됩니다. 국적이 무엇이냐에 따라 갈 곳이 달라지므로, <b>출발 전에 내가 재외국민인지 외국인인지부터 확정</b>하십시오.</div>
+<table>
+<tr><th>구분</th><th>재외국민 (한국 국적 유지)</th><th>외국인 (한국 국적 없음)</th></tr>
+<tr><td><b>인감증명 갈음</b></td><td><b>대한민국 재외공관 공증만</b> 가능<br>(현지 공증인 ✗)</td><td>본국 관공서 증명 · <b>본국 공증인 공증</b> · 대한민국 공증 <b>모두 가능</b></td></tr>
+<tr><td><b>함께 낼 서류</b></td><td><b>재외국민등록부등본</b> — 재외공관 공증으로 갈음할 때 <b>반드시 함께</b> 제출(예규 §9②)</td><td>별도 없음 (다만 외국 발행 서류는 아포스티유·영사확인 필요)</td></tr>
+<tr><td><b>등기필정보가 없을 때<br>'공증'의 의미</b></td><td><b>대한민국 공증만</b> 인정</td><td>본국 관공서 증명 · 본국 공증 · 대한민국 공증</td></tr>
+</table>
+
+<h3>넘겨주는 쪽이 반드시 갖춰야 할 4가지</h3>
+<ol class="steps">
+<li><b>등기필정보(옛 '집문서')</b> — 그 부동산을 취득할 때 등기소에서 받은 <span class="term">등기필정보<span class="bub">등기를 마치면 등기소가 주는 일련번호가 적힌 통지서. 예전에는 종이 '등기필증(집문서)'이었습니다. 다음에 그 부동산을 넘길 때 본인 확인용으로 냅니다.</span></span>를 냅니다. 재발급이 되지 않으므로 <b>없으면 아래 방법으로 대신</b>합니다.</li>
+<li><b>등기필정보가 없으면 — 세 갈래</b> (부동산등기법 §51, 예규 §7)<br>
+· <b>확인조서</b> — 등기의무자 본인이 직접 등기소에 가서 등기관의 확인을 받습니다.<br>
+· <b>확인서면</b> — 변호사·법무사가 본인을 확인하고 작성한 서면을 냅니다.<br>
+· <b>공증</b> — 신청서(또는 위임장)에 공증을 받습니다. 이때 <b>재외국민은 대한민국 공증만</b>, <b>외국인은 본국 관공서 증명·본국 공증·대한민국 공증</b>이 인정됩니다.</li>
+<li><b>인감증명 또는 그 갈음</b> — 소유권의 등기명의인이 넘겨주는 쪽이 되면 인감증명이 필요합니다(부동산등기규칙 §60①1호). <b>매매</b>라면 매수인 인적사항이 적힌 <span class="term">부동산매도용 인감증명서<span class="bub">사는 사람의 이름·주민등록번호(등록번호)·주소가 적힌 인감증명서. 일반 인감증명서와 다르며, 발급일부터 3개월 안의 것이라야 합니다.</span></span>라야 합니다. 다만 <b>재외공관에서 그 서면에 공증을 받았다면 매도용 인감증명을 따로 낼 필요가 없습니다.</b></li>
+<li><b>주소증명·등록번호</b> — 넘겨주는 쪽도 주소증명이 필요할 수 있습니다. 등기부에 적힌 주소와 현재 주소가 다르면 <b>주소변경(등기명의인표시변경)등기를 먼저</b> 해야 하는 경우가 많습니다.</li>
+</ol>
+
+<h3>직접 한국에 올 수 없을 때 — 처분위임장</h3>
+<div class="tip"><span class="pt">💡 '대충 써 준 위임장'은 반려됩니다</span> 처분위임장에는 <b>① 처분할 부동산 ② 처분의 목적이 되는 권리(소유권·전세권 등) ③ 대리인의 인적사항</b>을 <b>구체적으로 특정</b>해 적어야 합니다(예규 §5①). "내 재산 처분을 일임한다"는 식의 포괄적 문구만으로는 등기가 되지 않습니다. 위임받은 대리인은 <b>본인의 대리인임을 밝히고(현명)</b> 대리인 자격으로 작성한 계약서 등 원인증서를 냅니다(§5②).</div>
+<div class="warn"><span class="wt">⚠ 인감증명이 '두 사람 것' 필요할 수 있습니다</span>
+넘겨주는 쪽이 처분권한을 대리인에게 준 경우에는 <b>본인의 인감증명뿐 아니라 그 대리인의 인감증명도 함께</b> 내야 합니다(부동산등기규칙 §60②). 이 규정은 <b>협의분할에 의한 상속등기(§60①6호)에도 그대로 적용</b>되므로, 해외에 있는 상속인이 국내 가족에게 분할협의를 위임한 경우 <b>위임한 상속인 + 위임받은 가족</b> 두 사람의 인감증명이 필요합니다.</div>
+
+<h3>협의분할 자체를 대리인에게 맡길 때</h3>
+<p>해외에 있는 상속인이 <b>상속재산분할협의에 참여할 권한</b>을 국내 가족에게 위임하는 경우입니다(예규 §6).</p>
+<table>
+<tr><th>무엇에</th><th>누구 인감을 찍고, 무엇을 내나</th></tr>
+<tr><td><b>상속재산분할협의 위임장</b></td><td><b>상속인 본인</b>의 인감을 날인하고 <b>본인의 인감증명</b> 제출. 재외국민은 재외공관 공증(+재외국민등록부등본), 외국인은 본국 증명·공증으로 갈음 가능.</td></tr>
+<tr><td><b>상속재산분할협의서</b></td><td><b>대리인</b>의 인감을 날인하고 <b>대리인의 인감증명</b> 제출. <b>다만</b> 협의분할서를 대리인이 작성했다는 뜻의 <b>공증을 받으면 대리인 인감증명은 내지 않아도 됩니다.</b></td></tr>
+</table>
+
+<h3>★ 국적이 바뀐 분은 '이름표부터' 고쳐야 합니다</h3>
+<div class="warn"><span class="wt">⚠ 동일인증명서만으로는 처분이 안 되는 경우</span>
+등기부에 <b>옛 한국 이름과 주민등록번호</b>로 올라 있는데 그 뒤 외국 국적을 취득해 <b>이름·번호가 달라진</b> 경우에는, 그 부동산을 처분하기 전에 <b>등기명의인표시변경등기</b>로 등기부의 이름·등록번호·주소를 현재 것으로 먼저 고쳐야 합니다(예규 §8). 상속등기로 <b>받을 때</b>는 동일인증명서로 해결되지만, <b>넘겨줄 때</b>는 등기부상 명의인과 신청인이 일치해야 하므로 표시변경이 선행되어야 합니다.</div>
+<div class="tip"><span class="pt">💡 국적이 바뀌면 '보유 신고'도 6개월</span> 한국 국민이 부동산을 가진 채 외국 국적으로 바뀌고 <b>그 부동산을 계속 보유</b>하려면, 국적이 바뀐 날부터 <b>6개월 이내</b>에 신고관청에 신고해야 합니다(부동산 거래신고 등에 관한 법률 §8③). 하지 않으면 100만원 이하 과태료입니다(§28⑤2호). 처분할 때가 되어서야 이 사실을 알고 과태료를 무는 분이 많습니다.</div>
+
+<h2>★ 아포스티유·영사확인 — 외국 서류를 한국 등기에 쓰는 절차</h2>
+<p>외국에서 발급된 공문서(외국 공증인이 공증한 문서 포함)를 한국 등기소에 내려면, <b>부동산등기규칙 §46⑨</b>에 따라 다음 절차를 거칩니다.</p>
+<ol class="steps">
+<li><b>본국에서 서류 발급·공증</b> — 본국 인감증명·주소증명·사망증명·가족관계증명, 또는 본국 공증인의 공증서(분할협의서·위임장·동일인증명서 등)를 준비합니다.</li>
+<li><b>인증받기 — 두 갈래</b><br>· <b>아포스티유 협약 가입국</b>(예: 미국·일본·호주·러시아·홍콩 등)이면, 그 나라의 <span class="term">아포스티유 권한기관<span class="bub">나라마다 다릅니다. 예: 외교부·국무부·법원·교육청 등. 외교부 아포스티유·영사확인 누리집에서 나라별로 확인할 수 있습니다.</span></span>에서 <b>아포스티유</b>를 받습니다.<br>· <b>미가입국</b>이면, 그 나라 주재 <b>대한민국 대사관·영사관의 영사확인</b>을 받습니다.</li>
+<li><b>한국어 번역문 첨부</b> — 외국어로 된 서류는 번역문을 함께 제출합니다.</li>
+<li><b>한국 등기소 제출</b> — 위 인증·번역을 갖춰 상속등기 신청 시 첨부합니다.</li>
+</ol>
+<div class="tip"><span class="pt">💡 가입국 여부는 외교부에서 확인</span> 어느 나라가 아포스티유 협약 가입국인지, 권한기관이 어디인지는 <a href="https://www.0404.go.kr">외교부 영사서비스(아포스티유·영사확인 안내)</a>에서 확인할 수 있습니다.</div>
+
+<h2>★ 인감증명 등록 절차 — 국내 거소·체류가 있는 외국인</h2>
+<p>한국에서 인감증명서를 발급받으려면 <b>먼저 인감을 신고(등록)</b>해야 합니다(인감증명법 §3). 외국인·외국국적동포는 다음과 같이 합니다.</p>
+<table>
+<tr><th>구분</th><th>먼저 갖출 자격</th><th>근거</th></tr>
+<tr><td><b>외국인</b></td><td>90일 이상 국내 체류 목적으로 출입국관서에 <b>외국인등록</b>을 한 사람(체류지 기준)</td><td>인감증명법 §3③</td></tr>
+<tr><td><b>외국국적동포</b></td><td>30일 이상 거주 목적으로 출입국관서에 <b>국내거소신고</b>를 한 사람(국내거소 기준)</td><td>인감증명법 §3④</td></tr>
+</table>
+<h3>인감 신고(첫 등록) 방법</h3>
+<ol class="steps">
+<li><b>본인이 직접 방문</b> — 대리 신고는 안 됩니다. 본인이 거주지(체류지·거소지) 관할 <b>동 주민센터(읍·면사무소)</b>에 갑니다.</li>
+<li><b>지참물 3가지</b> — ① <b>외국인등록증</b>(외국국적동포는 <b>국내거소신고증</b>) ② <b>여권</b> ③ <b>등록할 인감도장</b>. ①은 외국인등록사실증명(국내거소신고사실증명)으로 대체할 수 있습니다.</li>
+<li><b>도장 이름</b> — 외국인등록증·국내거소신고증의 <b>성명과 같은 영문 도장</b>이 기본이며, 한자 도장도 가능합니다(폐쇄된 가족관계등록부, 한자 성명이 적힌 외국 여권 등 한자 성명 증명서류 제출 시).</li>
+<li><b>등록 후 발급</b> — 인감 신고가 끝나면 <b>전국 시·군·구·읍·면·동 어디서나</b> 인감증명서를 발급받을 수 있습니다.</li>
+</ol>
+<div class="warn"><span class="wt">★ 체류기간이 지나면 발급 불가</span> 외국인등록증·국내거소신고증의 <b>체류기간이 만료되면 인감 신고·발급이 되지 않습니다.</b> 먼저 출입국·외국인관서에서 체류기간을 연장한 뒤 진행하세요.</div>
+<div class="tip"><span class="pt">💡 본인이 못 와서 대리로 발급받을 때</span> 인감 <b>등록(신고)</b>은 반드시 본인이 하지만, 이미 등록된 인감의 <b>증명서 발급</b>은 대리인이 받을 수 있습니다. 이때 위임장 + 위임자 신분증·인감도장 + 대리인 신분증이 필요하고, 해외에서 위임하는 경우에는 위임 사실에 <b>자국 관공서 확인 또는 자국 공증(아포스티유 가입국은 아포스티유, 미가입국은 대한민국 재외공관 확인)</b>을 받습니다.</div>
+
+<h2>피상속인(돌아가신 분)이 외국인인 경우</h2>
+<p>피상속인이 외국 국적이면 상속은 원칙적으로 <b>본국법</b>에 따르지만(국제사법 §77①), <b>부동산 상속은 그 부동산 소재지법</b>에 따르므로(§77②2호, 미국 등 본국법도 부동산은 소재지법으로 보냄) <b>한국 내 부동산은 한국 민법</b>으로 상속인·지분을 정해 상속등기를 합니다.</p>
+<table>
+<tr><th>무엇을</th><th>구체적으로</th></tr>
+<tr><td><b>사망 증명</b></td><td>본국 관공서가 발행한 <b>사망증명서</b> <b>또는 의료기관이 발행한 사망진단서</b> + 아포스티유/영사확인 + 번역.</td></tr>
+<tr><td><b>상속인 증명</b></td><td>본국법상 상속인을 증명하는 <b>본국 관공서 발행 상속증명정보</b>(예: 상속증명서, 가족관계·출생·혼인 증명 등) + 아포스티유/영사확인 + 번역. (피상속인이 외국인인 경우 상속을 증명하는 정보 — 등기선례 제202006-2호 참조)</td></tr>
+</table>
+<div class="tip"><span class="pt">💡 나라마다 상속 증명 방식이 달라요</span> 본국에 우리처럼 가족관계등록부가 없으면, 본국 법령이 정한 상속증명 서면(공증된 상속인 선언, 검인된 유언, 법원의 상속관재인 선임서 등)으로 갈음합니다. 어떤 서류가 '상속을 증명하는 정보'에 해당하는지는 관할 등기소에 미리 확인하는 것이 안전합니다.</div>
+
+
+<h2>선례로 보기 — 실제로 이렇게 처리됩니다</h2>
+<div class="case">
+<span class="ct">선례 ① 피상속인이 외국인일 때 무엇으로 사망과 상속인을 증명하나 — 등기선례 제202006-2호</span>
+상속등기를 하려면 <b>사망 사실</b>과 <b>상속인이 누구인지</b>를 증명하는 정보를 등기소에 내야 합니다. 피상속인이 외국인이면 우리 가족관계등록부가 없으므로, <b>본국 관공서가 발행한 사망증명서</b>는 물론 <b>의료기관이 발행한 사망진단서</b>로도 사망 사실을 증명할 수 있고, 상속인 전원을 확인할 수 있는 본국의 증명정보를 함께 냅니다. 나라마다 제도가 달라 <b>공증된 상속인 선언서, 검인된 유언서, 법원이 선임한 상속관재인 선임서</b> 등이 그 나라의 상속증명 서면이 되기도 합니다. <b>어떤 서류가 인정되는지는 나라마다 다르므로, 서류를 받으러 가기 전에 관할 등기소에 먼저 확인하는 것이 시간과 비용을 아끼는 길입니다.</b>
+</div>
+<div class="case">
+<span class="ct">선례 ② 상속을 포기한 사람이 있으면 그 사람 인감은 필요 없다 — 등기선례 제202006-1호</span>
+협의분할을 원인으로 상속등기를 신청할 때에는 <b>상속재산 협의분할서</b>와 <b>거기에 날인한 상속인 전원의 인감증명</b>을 내야 합니다(부동산등기규칙 §60①6호). 그런데 공동상속인 중 <b>상속을 포기한 사람</b>이 있으면, 그 사람은 상속포기의 소급효로 <b>처음부터 상속인이 아니었던 것</b>이 되므로 <b>그 사람이 참여한 분할협의서도, 그 사람의 인감증명도 낼 필요가 없습니다.</b> 대신 <b>법원에서 받은 상속포기 신고를 수리한다는 뜻의 심판서 정본</b>을 제출합니다. 해외에 있는 상속인에게 어렵게 인감·공증을 받으려 애쓰기 전에, <b>그 사람이 상속포기를 했는지부터</b> 확인하십시오.
+</div>
+<div class="warn"><span class="wt">⚠ 반대로, 포기하지 않은 상속인은 한 명도 빠질 수 없습니다</span>
+협의분할은 <b>상속인 전원</b>이 참여해야 효력이 있습니다. 해외에 있는 형제 한 명과 연락이 닿지 않는다고 나머지끼리 협의서를 만들면 그 협의는 <b>무효</b>이고, 그렇게 마친 등기는 뒤에 말소될 수 있습니다. 연락이 닿지 않을 때의 대처는 아래 '이어지는 카드'를 보십시오.</div>
+
+<h2>관련 법령 — 이 카드의 근거</h2>
+<div class="lawbox"><span class="ll">국제사법 §77①·②2호</span><b>한국 부동산은 한국법으로</b> — 상속은 사망 당시 피상속인의 <b>본국법</b>에 따르는 것이 원칙이지만, 피상속인이 유언으로 <b>부동산에 관한 상속은 그 부동산 소재지법</b>에 따르도록 지정할 수 있습니다. 또 미국 등 여러 나라는 자국법에서 부동산 상속을 <b>소재지법</b>으로 보내기 때문에, 결과적으로 <b>한국에 있는 부동산은 한국 민법</b>으로 상속인·지분을 정하게 되는 경우가 많습니다. <b>[확인필요]</b> 본국법의 내용은 나라마다 다르므로, 피상속인이 외국인인 사건은 관할 등기소에 사전 확인이 필요합니다.</div>
+<div class="lawbox"><span class="ll">부동산등기법 §49①2호·4호</span><b>주민등록번호 대신 쓰는 번호</b> — 주민등록번호가 없는 <b>재외국민</b>은 대법원 소재지 관할 등기소의 등기관이, <b>외국인</b>은 체류지를 관할하는 지방출입국·외국인관서의 장(체류지가 없으면 대법원 소재지 관할 관서의 장)이 부동산등기용등록번호를 부여합니다.</div>
+<div class="lawbox"><span class="ll">부동산등기법 §51</span><b>집문서를 잃어버렸을 때</b> — 등기의무자의 등기필정보가 없을 때에는 등기의무자가 <b>직접 등기소에 출석</b>해 등기관의 확인을 받거나, <b>자격자대리인(변호사·법무사)의 확인서면</b>을 내거나, 신청서·위임장에 <b>공증</b>을 받아 갈음합니다.</div>
+<div class="lawbox"><span class="ll">부동산등기규칙 §60①1호·6호, §60②</span><b>인감증명이 필요한 때</b> — ① 소유권의 등기명의인이 <b>등기의무자로서</b> 신청할 때는 그 등기의무자의 인감증명, ⑥ <b>협의분할에 의한 상속등기</b>를 신청할 때는 <b>상속인 전원</b>의 인감증명이 필요합니다. 그리고 이들이 <b>다른 사람에게 처분권한을 준 경우에는 그 대리인의 인감증명도 함께</b> 내야 합니다(②).</div>
+<div class="lawbox"><span class="ll">부동산등기규칙 §60④</span><b>공증을 받으면 인감증명이 면제되는 범위</b> — §60①의 <b>4호부터 7호까지</b>에 해당하는 서면이 <b>공정증서</b>이거나 <b>당사자가 서명·날인하였다는 뜻의 공증인의 인증</b>을 받은 서면이면 인감증명을 낼 필요가 없습니다. <b>협의분할 상속등기(6호)가 여기에 들어가므로</b>, 해외 상속인은 분할협의서를 공증받는 방법으로 인감 문제를 풀 수 있습니다.</div>
+<div class="lawbox"><span class="ll">부동산등기규칙 §61③</span><b>재외국민의 특칙 — 재외공관 공증</b> — 재외국민이 §60①<b>1호부터 3호까지</b>에 해당하는 등기(넘겨주는 쪽이 되는 등기)를 신청하면서, 체류국을 관할하는 <b>대한민국 재외공관에서 그 서면에 공증</b>을 받았다면 인감증명을 내지 않아도 됩니다. <b>거주국 공증인의 인증으로는 갈음할 수 없습니다.</b></div>
+<div class="lawbox"><span class="ll">부동산등기규칙 §46⑨</span><b>외국 서류의 인증</b> — 첨부정보가 외국 공문서(외국 공증인이 공증한 문서 포함)이면, 아포스티유 협약 체결국에서 발행한 것은 그 나라 권한기관의 <b>아포스티유</b>, 미체결국에서 발행한 것은 그 나라 주재 <b>대한민국 재외공관의 확인</b>을 받아 제출합니다.</div>
+<div class="lawbox"><span class="ll">인감증명법 §3③·④</span><b>외국인도 한국 인감을 만들 수 있다</b> — <b>외국인등록</b>을 한 외국인은 체류지를, <b>국내거소신고</b>를 한 외국국적동포는 국내거소를 기준으로 인감을 신고할 수 있습니다. 신고가 끝나면 전국 어디서나 인감증명서를 발급받습니다.</div>
+<div class="lawbox"><span class="ll">부동산 거래신고 등에 관한 법률 §8②·③, §28⑤2호</span><b>외국인만의 신고 의무</b> — 외국인등이 <b>상속·경매 등 계약 외의 원인</b>으로 한국 부동산을 취득하면 취득일부터 <b>6개월 이내</b> 신고관청에 신고합니다. 한국 국민이 <b>외국 국적으로 바뀐 뒤 계속 보유</b>하려는 경우도 변경일부터 <b>6개월 이내</b> 신고해야 하며, 위반 시 <b>100만원 이하 과태료</b>입니다.</div>
+
+<h2>★ 데드라인 — 외국인의 부동산 상속취득 신고(6개월)</h2>
+<table>
+<tr><th>구분</th><th>① 언제부터 (기산일)</th><th>② 근거 조문</th><th>③ 말일이 휴일이면</th><th>④ 최종 만료일</th></tr>
+<tr>
+<td><b>외국인 상속취득 신고</b></td>
+<td><b>부동산을 취득한 날</b>(상속개시일=피상속인 사망일)</td>
+<td>부동산 거래신고 등에 관한 법률 §8② / 시행령 §5②</td>
+<td>토·일·공휴일이면 그 다음 영업일</td>
+<td>취득일 + 6개월</td>
+</tr>
+</table>
+<div class="warn"><span class="wt">★ 외국인만의 추가 신고 의무</span> 외국인등이 <b>상속</b>으로 한국 부동산을 취득하면, 취득일부터 <b>6개월 이내</b>에 부동산 소재지 시·군·구청(신고관청)에 신고해야 합니다(계약취득은 60일). 또 <b>한국 국민이 외국 국적으로 바뀐 뒤 그 부동산을 계속 보유</b>하려면 국적변경일부터 6개월 내 신고해야 하며, 미신고 시 100만원 이하 과태료가 부과됩니다(§8③·§28⑤2호).</div>
+<div class="tip"><span class="pt">💡 함께 챙길 세금 기한</span> <b>취득세</b>는 상속개시일이 속한 달의 말일부터 <b>6개월</b>(외국에 주소를 둔 상속인이 있으면 <b>9개월</b>) 내 신고·납부(지방세법 §20①). <b>상속세</b>는 같은 기산점부터 <b>6개월</b>(피상속인 또는 상속인 전원이 비거주자면 <b>9개월</b>) 내 신고(상증세법 §67①).</div>
+
+<h2>이 사건은 어떻게 진행되나</h2>
+<div class="flow">
+<div class="fl-t">서류를 받으러 해외로 나가기 전에, 이 순서대로 확인하십시오</div>
+<div class="node"><span class="num">0</span><b>내 신분부터 확정합니다</b> — <b>한국 국적을 아직 가지고 있는지</b>가 모든 것을 가릅니다. 여권과 시민권증서를 꺼내 확인하십시오. 재외국민이면 <b>재외공관 공증만</b>, 외국인이면 <b>본국 공증도</b> 됩니다. 이 한 가지를 잘못 알면 <b>받아 온 서류 전부를 다시 받아야</b> 합니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">1</span><b>상속인 전원과 지분을 확정합니다</b> — 피상속인 기본증명서(상세)·가족관계증명서(상세)·제적등본(출생~사망 연속)으로 상속인을 빠짐없이 확인합니다. <b>상속포기를 한 사람이 있으면 그 사람은 분할협의에서 빼고</b> 대신 <b>상속포기 수리 심판서 정본</b>을 준비합니다. 피상속인이 외국인이면 본국 사망증명서(또는 사망진단서)와 상속증명정보를 받습니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">2</span><b>등기소에 초안을 먼저 보여 줍니다</b> — 해외 서류는 한 번 받는 데 몇 주가 걸리고 비용도 큽니다. <b>분할협의서·위임장 초안과 어떤 인증을 받을지를 관할 등기소에 미리 확인</b>하면, 다시 받는 일을 피할 수 있습니다. 피상속인이 외국인이면 <b>어떤 서류를 '상속증명정보'로 인정하는지</b>도 이때 확인합니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">3</span><b>등록번호와 주소증명을 받습니다</b> — 재외국민은 <b>예전 주민등록번호가 있으면 그대로</b> 쓰고(말소되었어도 됩니다), 없으면 등기소에서 부여받습니다. 외국인은 <b>외국인등록번호·국내거소신고번호</b> 또는 출입국관서가 부여한 등록번호를 받습니다. 주소증명은 <b>본국 제도가 있으면 관공서 주소증명, 없으면 공증</b>입니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">4</span><b>인증과 번역을 갖춥니다</b> — 외국에서 발급·공증된 서류에는 <b>아포스티유</b>(협약 미가입국은 <b>대한민국 영사확인</b>)와 <b>한국어 번역문</b>을 붙입니다. 재외국민이 재외공관 공증으로 인감을 갈음한다면 <b>재외국민등록부등본을 반드시 함께</b> 챙기십시오. 이것 하나가 빠져 반려되는 사례가 많습니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">5</span><b>취득세를 신고·납부하고 채권을 매입합니다</b> — 부동산 소재지 시·군·구청 또는 위택스에서 취득세를 신고·납부하고 국민주택채권을 매입합니다. <b>외국에 주소를 둔 상속인이 있으면 취득세 신고기한이 9개월</b>로 늘어납니다(지방세법 §20①).</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">6</span><b>상속등기를 신청합니다</b> — 인터넷등기소 e-Form으로 신청서를 작성·출력해 <b>부동산 소재지 관할 등기소</b>에 방문하거나 우편으로 제출합니다. 직접 올 수 없으면 <b>처분위임장(또는 신청위임장)</b>으로 대리인이 냅니다. 이후 인터넷등기소 '처리현황'에서 진행을 확인합니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">7</span><b>외국인은 신고를 하나 더 합니다</b> — 외국인 상속인은 <b>취득일부터 6개월 이내</b>에 부동산 소재지 시·군·구청에 상속취득 신고를 합니다. 국적이 바뀐 채 계속 보유하는 경우에도 <b>변경일부터 6개월</b>입니다. 등기가 끝났다고 안심하다가 과태료를 무는 일이 잦습니다.</div>
+</div>
+
+
+<h2>작성례 — 그대로 옮겨 쓰시면 됩니다</h2>
+<p>등기신청서 자체는 인터넷등기소가 만들어 주므로 여기에 싣지 않습니다. 아래는 <b>등기소가 만들어 주지 않아 직접 준비해야 하는 서면</b>입니다. 각 상자의 제목을 누르면 펼쳐지고, <b>복사·인쇄·내려받기</b>가 됩니다. 빈칸(○○○)만 채우십시오.</p>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ① · 받는 쪽</span>상속재산분할협의 위임장 (해외 상속인이 국내 가족에게 맡길 때)<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="fw1"><span class="ft">위 임 장</span>위임인(상속인)
+  성    명   ○○○ (영문 성명: ○○○)
+  등록번호   ○○○○○○-○○○○○○○ (주민등록번호 또는 부동산등기용등록번호)
+  주    소   ○○○ (국가·도시까지 모두 기재)
+
+수임인(대리인)
+  성    명   ○○○
+  주민등록번호  ○○○○○○-○○○○○○○
+  주    소   ○○○
+
+부동산의 표시
+  1. ○○시 ○○구 ○○동 ○○ 대 ○○○㎡
+  2. 위 지상 철근콘크리트조 슬래브지붕 ○층 주택
+     1층 ○○○㎡  2층 ○○○㎡
+  (등기사항전부증명서의 '표제부' 표시를 그대로 옮겨 적습니다)
+
+위임사항
+  위임인은 망 ○○○(20○○. ○○. ○○. 사망)의 상속인으로서,
+  위 부동산에 관한 상속재산분할협의에 관하여 다음 권한 일체를
+  수임인에게 위임합니다.
+
+  1. 공동상속인들과 상속재산분할협의를 하고 협의서를 작성·서명·
+     날인하는 행위
+  2. 위 협의에 따른 상속등기 신청에 관한 일체의 행위
+  3. 위 각 행위에 부수하는 서류의 수령·제출
+
+        20○○년 ○○월 ○○일
+
+              위 임 인   ○ ○ ○  (인감도장 날인)
+
+※ 이 위임장에는 위임인 본인의 인감을 날인하고 인감증명서를 첨부합니다.
+※ 한국 인감증명서를 받기 어려운 경우
+   · 재외국민 → 체류국 관할 대한민국 대사관·총영사관의 공증
+                + 재외국민등록부등본을 함께 제출
+   · 외국인   → 본국 관공서 증명 또는 본국 공증인 공증(+아포스티유)
+                또는 대한민국 재외공관 공증
+※ 외국에서 작성·발급된 서류는 아포스티유(미가입국은 영사확인)와
+   한국어 번역문을 붙입니다.</div>
+<div class="form-tools"><button type="button" onclick="copyForm('fw1')">📋 복사</button><button type="button" onclick="printForm('fw1')">🖨 인쇄</button><button type="button" onclick="downloadForm('fw1','상속재산분할협의_위임장.txt')">⬇ 내려받기</button></div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ② · 넘겨주는 쪽</span>부동산 처분위임장 (등기의무자가 될 때)<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="fw2"><span class="ft">부동산 처분위임장</span>위임인(등기의무자)
+  성    명   ○○○ (영문 성명: ○○○)
+  등록번호   ○○○○○○-○○○○○○○
+  주    소   ○○○ (국가·도시까지 모두 기재)
+
+수임인(대리인)
+  성    명   ○○○
+  주민등록번호  ○○○○○○-○○○○○○○
+  주    소   ○○○
+
+처분할 부동산의 표시
+  1. ○○시 ○○구 ○○동 ○○ 대 ○○○㎡
+  2. 위 지상 ○○○조 ○층 건물 ○○○㎡
+  (등기사항전부증명서의 표제부 표시를 그대로 옮겨 적습니다)
+
+처분의 목적이 되는 권리
+  위 부동산에 관한 소유권 (전세권·근저당권 등이면 그대로 기재)
+
+위임사항
+  위임인은 위 부동산에 관한 다음 권한 일체를 수임인에게 위임합니다.
+
+  1. 위 부동산을 매도(또는 증여·담보설정)하는 계약의 체결
+  2. 매매대금(또는 그 밖의 대가)의 수령
+  3. 소유권이전등기(또는 근저당권설정등기) 신청에 관한 일체의 행위
+  4. 등기필정보·등기완료통지서 등 관계 서류의 수령
+  5. 위 각 행위에 부수하는 일체의 행위
+
+        20○○년 ○○월 ○○일
+
+              위 임 인   ○ ○ ○  (인감도장 날인)
+
+※ 반드시 지켜야 할 3가지
+  ① 부동산·권리·대리인을 구체적으로 특정할 것
+     ("일체의 재산을 위임한다"는 식의 포괄 문구는 반려됩니다)
+  ② 위임인 본인의 인감 날인 + 인감증명서
+     · 재외국민 → 대한민국 재외공관 공증으로 갈음 가능
+                  (+ 재외국민등록부등본 반드시 첨부, 현지 공증인 ✗)
+     · 외국인   → 본국 관공서 증명·본국 공증·대한민국 공증 모두 가능
+  ③ 대리인이 처분권한을 받은 경우 대리인의 인감증명도 함께 제출
+
+※ 매매인 경우 인감증명서는 매수인 인적사항이 적힌
+   '부동산매도용'이라야 합니다(발급일부터 3개월 이내).
+   다만 재외공관에서 이 위임장에 공증을 받았다면
+   매도용 인감증명서를 따로 낼 필요가 없습니다.
+
+※ 등기필정보(집문서)가 없으면
+   위임인 본인 출석 확인조서 · 자격자대리인 확인서면 ·
+   신청서(위임장) 공증 중 하나로 갈음합니다.
+   이때 '공증'은 재외국민은 대한민국 공증만,
+   외국인은 본국 관공서 증명·본국 공증·대한민국 공증이 인정됩니다.</div>
+<div class="form-tools"><button type="button" onclick="copyForm('fw2')">📋 복사</button><button type="button" onclick="printForm('fw2')">🖨 인쇄</button><button type="button" onclick="downloadForm('fw2','부동산_처분위임장.txt')">⬇ 내려받기</button></div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ③ · 이름이 달라진 분</span>동일인 증명서<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="fw3"><span class="ft">동 일 인 증 명 서</span>            한국 성명   ○ ○ ○
+            한자 성명   ○ ○ ○
+            영문 성명   ○○○ ○○○
+            생년월일   ○○○○년 ○○월 ○○일
+            현 국적    ○○○
+            현 주소    ○○○
+
+  위 사람은 대한민국 국적을 보유하던 당시의 성명 '○○○'과
+  ○○○ 국적 취득 후의 성명 '○○○'이 동일인임을 증명합니다.
+
+  1. 본인은 20○○. ○○. ○○. ○○○ 국적을 취득하여
+     대한민국 국적을 상실하였습니다.
+  2. 국적 취득 당시 성명을 '○○○'에서 '○○○'으로 변경하였습니다.
+  3. 대한민국 ○○시 ○○구 ○○동 ○○ 소재 부동산의 등기부에
+     기재된 '○○○'은 본인과 동일인입니다.
+
+        20○○년 ○○월 ○○일
+
+              작성자   ○ ○ ○   (서명)
+
+※ 작성 후 다음 중 하나의 인증을 받습니다.
+   · 본국 관공서의 증명            (+ 아포스티유 또는 영사확인)
+   · 본국 공증인의 공증            (+ 아포스티유 또는 영사확인)
+   · 대한민국 재외공관의 인증
+※ 함께 내면 좋은 객관적 증명자료
+   · 시민권증서(귀화증서) — 원본과 틀림없다는 공증인 확인 + 아포스티유
+   · 개명증명서 — 인증등본에 아포스티유
+   · 폐쇄된 대한민국 가족관계등록부(제적등본)
+   · 외국 여권 사본
+※ 등기부에 옛 한국 이름·주민등록번호로 올라 있는 부동산을
+   '넘겨주려는' 경우에는, 동일인증명서만으로는 부족하고
+   등기명의인표시변경등기를 먼저 해야 합니다.</div>
+<div class="form-tools"><button type="button" onclick="copyForm('fw3')">📋 복사</button><button type="button" onclick="printForm('fw3')">🖨 인쇄</button><button type="button" onclick="downloadForm('fw3','동일인_증명서.txt')">⬇ 내려받기</button></div>
+</div></div>
+<div class="tip"><span class="pt">💡 공식 양식은 여기서 확인하세요</span> 위 작성례는 실무에서 쓰이는 기본 형태입니다. 상속재산분할협의서 등 표준 양식은 <a href="https://www.klac.or.kr" style="color:var(--tip-ink);font-weight:700">대한법률구조공단 법률서식</a>과 <a href="http://www.iros.go.kr" style="color:var(--tip-ink);font-weight:700">인터넷등기소 자료센터</a>에서 내려받을 수 있습니다. <b>등기소마다 요구 사항이 조금씩 다르므로, 해외에서 인증을 받기 전에 관할 등기소에 초안을 보여 확인받는 것이 가장 안전합니다.</b></div>
+
+<div class="cost">
+<span class="ct">비용</span>
+상속등기의 <b>취득세·국민주택채권·등기신청수수료</b>는 일반 상속등기와 같습니다 — 등기신청수수료는 상속 기준으로 <b>e-Form 17,000원 · 서면 20,000원</b>(전자신청 없음). 자세한 계산은 <b>4-1 상속등기</b>를 보세요. 다만 재외국민·외국인 사건은 <b>아포스티유·영사인증·번역·본국 공증</b> 비용이 별도로 들고, 나라·서류 수에 따라 차이가 큽니다.
+<div style="margin-top:11px; padding-top:10px; border-top:1px dashed #cfe6d6; color:#c0392b; font-weight:600; line-height:1.8;">※ 비용문의는 상담폼을 완성후 메뉴의 <a href="/tools-calculator.html" style="color:#c0392b; text-decoration:underline; font-weight:700;">수수료 계산기</a>에서 수수료를 미리 알 수 있습니다.</div>
+</div>
+
+<h2>준비할 서류와 발급처</h2>
+<table>
+<tr><th>무엇을 (어디서)</th><th>서류</th><th>바로가기</th></tr>
+<tr><td>피상속인·상속관계<br>(전자가족관계등록)</td><td>피상속인 기본·가족관계·제적, 상속인 가족관계증명서(피상속인이 한국 국적인 경우)</td><td><a href="https://efamily.scourt.go.kr">전자가족관계등록</a></td></tr>
+<tr><td>외국인등록번호·등록사실<br>(출입국·외국인청)</td><td>외국인등록증, 외국인등록사실증명(또는 국내거소신고사실증명)</td><td><a href="https://www.hikorea.go.kr">하이코리아</a></td></tr>
+<tr><td>부동산등기용등록번호<br>(등기소 / 출입국)</td><td>재외국민: 서울중앙지법 등기국 부여 / 외국인: 출입국관서 부여(+여권 아포스티유·영사확인)</td><td><a href="http://www.iros.go.kr">인터넷등기소</a></td></tr>
+<tr><td>인감·공증·아포스티유<br>(주민센터 / 재외공관 / 본국)</td><td>대한민국 인감증명서, 또는 공증된 분할협의서·위임장, 동일인증명서, 외국 발행 서류의 아포스티유·영사확인·번역</td><td><a href="https://www.0404.go.kr">외교부 영사서비스</a></td></tr>
+<tr><td>부동산·세금<br>(정부24 / 위택스)</td><td>토지·건축물대장, 등기사항전부증명서, 취득세영수필확인서</td><td><a href="https://www.gov.kr">정부24</a> / <a href="https://www.wetax.go.kr">위택스</a></td></tr>
+</table>
+
+<h2>신청서는 어디서 작성하나 — 인터넷등기소</h2>
+<p>등기신청서는 손으로 쓸 필요 없이 <b>대법원 인터넷등기소</b>에서 <span class="term">e-Form<span class="bub">인터넷등기소에서 신청서를 입력·출력하는 표준 양식. 빈칸을 채우면 신청서가 자동 완성됩니다.</span></span>으로 작성·출력하면 됩니다. <b>상속등기는 완전 전자신청이 없으므로</b>, e-Form으로 작성·출력해 관할 등기소에 방문하거나 우편으로 제출합니다(직접 못 오면 처분위임장으로 대리인이 신청).</p>
+<table>
+<tr><th>무엇을</th><th>바로가기</th></tr>
+<tr><td>등기신청서 작성·출력 (e-Form)</td><td><a href="http://www.iros.go.kr">인터넷등기소 — 등기신청</a></td></tr>
+<tr><td>상속재산분할협의서·위임장 등 첨부서면 양식</td><td><a href="http://www.iros.go.kr">인터넷등기소 — 자료센터·등기신청양식</a></td></tr>
+<tr><td>관할 등기소 찾기 / 처리현황 조회</td><td><a href="http://www.iros.go.kr">인터넷등기소 — 등기소 찾기</a></td></tr>
+</table>
+<div class="tip"><span class="pt">💡 가장 흔한 반려 사유</span> ① 외국 서류에 <b>아포스티유·영사확인 누락</b> ② <b>번역문 누락</b> ③ 인감증명을 대신하는 <b>공증 방식 불일치</b> ④ 성명이 바뀌었는데 <b>동일인증명서 누락</b>. 이 네 가지가 가장 많으니 제출 전 반드시 확인하세요.</div>
+
+
+<h2>본 사무소가 도와드리는 일</h2>
+<div class="hire">
+<p>본 사무소에서는 의뢰인들의 고충은 덜어드리고, 함께 절차를 진행하여 원하는 결과에 도달할 수 있도록 성심을 다하겠습니다.</p>
+<p style="margin-top:12px"><b>· 상속으로 명의를 받으시는 분(등기권리자)</b><br>① 재외국민인지 외국인인지에 따른 <b>서류 목록 확정</b>과 어느 기관에서 인증을 받아야 하는지 안내, ② 해외로 나가기 전 <b>분할협의서·위임장 초안 작성</b>과 관할 등기소 사전 확인, ③ <b>부동산등기용등록번호 부여신청</b> 서류 준비, ④ 취득세·국민주택채권 계산과 <b>상속등기 신청서류 작성</b>까지 함께합니다.</p>
+<p style="margin-top:10px"><b>· 명의를 넘겨주시는 분(등기의무자)</b><br>① <b>등기필정보가 없을 때</b>의 대체 방법 선택(확인조서·확인서면·공증)과 <b>확인서면 작성</b>, ② <b>처분위임장</b>의 부동산·권리·대리인 특정, ③ 국적이 바뀐 경우 <b>등기명의인표시변경등기</b> 선행 처리, ④ 본인·대리인 인감증명 이중 제출 여부 점검까지 빠짐없이 확인해 드립니다.</p>
+<p style="margin-top:10px"><b>· 다툼이 생겼을 때</b><br>협의가 이루어지지 않거나 등기가 반려된 경우 <b>상속재산분할심판청구서·등기관 처분에 대한 이의신청서</b> 등 필요한 서면의 작성을 지원해 드립니다.</p>
+</div>
+<div class="warn"><span class="wt">⚠ 가장 흔한 반려 사유 다섯 가지</span>
+① <b>재외국민이 현지 공증인에게 공증을 받아 온 경우</b> — 반드시 대한민국 재외공관이라야 합니다. ② <b>재외국민등록부등본 누락</b> — 재외공관 공증으로 인감을 갈음할 때 반드시 함께 냅니다. ③ <b>아포스티유·영사확인 또는 번역문 누락</b>. ④ <b>처분위임장이 포괄적으로만 작성된 경우</b> — 부동산·권리·대리인을 특정해야 합니다. ⑤ <b>성명이 바뀌었는데 등기명의인표시변경등기를 하지 않은 경우</b>. 이 다섯 가지가 대부분입니다. 서류를 받으러 해외로 나가기 전에 <b>한 번만 점검</b>하면 몇 주와 적지 않은 비용을 아낄 수 있습니다.</div>
+
+<a href="https://sanlaw.co.kr/tools-calculator.html" class="cta">🧮 내 사건 비용 미리 계산하기</a>
+<div style="text-align:center; background:#f6ecd8; border:1px solid var(--gold); border-radius:11px; padding:14px; margin:18px 0; font-size:15px; color:var(--gold-d); font-weight:700;">📞 상담은 홈 화면의 상담 창구를 이용하시면 됩니다.</div>
+
+<div class="tip"><span class="pt">💡 이어지는 카드</span> <b>상속등기의 기본 절차와 비용</b>은 <a href="4-1_상속등기_부동산명의이전.html" style="color:var(--tip-ink);font-weight:700">상속 4-1 카드</a>, <b>상속받을 자녀가 먼저 돌아가신 경우</b>는 <a href="4-2_대습상속.html" style="color:var(--tip-ink);font-weight:700">상속 4-2 카드</a>, <b>연락이 닿지 않는 상속인이 있을 때</b>는 <a href="1-5_도장거부_연락두절.html" style="color:var(--tip-ink);font-weight:700">상속 1-5 카드</a>, <b>빚이 많아 상속을 받지 않으려는 경우</b>는 <a href="3-1_상속받지않기_포기_한정승인.html" style="color:var(--tip-ink);font-weight:700">상속 3-1 카드</a>를 보십시오.</div>
+
+<div class="src">
+근거 — 「재외국민 및 외국인의 부동산등기신청절차에 관한 예규」 제5조(처분권한의 위임과 대리인의 등기신청)·제6조(상속재산분할협의의 위임)·제7조(등기필정보가 없는 경우)·제8조(국적변경과 등기명의인표시변경)·제9조(재외국민의 인감증명 제출)·제10조·제11조(재외국민의 주소증명·등록번호)·제12조(외국인의 인감증명)·제13조·제14조(외국인의 주소증명·등록번호) <b>[확인필요]</b> 현행 예규 번호·발령일은 대법원 종합법률정보 원문 대조가 필요합니다 · 부동산등기법 제23조 제3항(상속 단독신청)·제48조(등기사항)·제49조 제1항 제2호·제4호(재외국민·외국인의 부동산등기용등록번호)·제51조(등기필정보가 없는 경우) · 부동산등기규칙 제46조 제9항(외국 공문서의 아포스티유·영사확인)·제60조 제1항 제1호·제6호(인감증명의 제출)·제60조 제2항(대리인 인감증명 병행 제출)·제60조 제4항(공증에 의한 인감증명 면제)·제61조 제3항(재외국민의 재외공관 공증 특칙) · 인감증명법 제3조 제3항·제4항(외국인·외국국적동포의 인감신고), 인감증명법 시행령 제13조(부동산매도용 인감증명) · 국제사법 제77조(상속·부동산은 소재지법) · 부동산 거래신고 등에 관한 법률 제8조 제2항·제3항(외국인의 상속취득 신고·계속보유 신고)·제28조 제5항 제2호(과태료) · 지방세법 제20조 제1항(취득세 신고기한, 외국 주소 상속인 있으면 9개월) · 상속세 및 증여세법 제67조 제1항(상속세 신고기한) · 등기선례 제202006-1호(협의분할 상속등기에서 상속포기자의 인감증명 불요, 상속포기 수리 심판정본 제출) · 등기선례 제202006-2호(피상속인이 외국인인 경우 사망 및 상속을 증명하는 정보) · 법제처 찾기쉬운 생활법령정보(easylaw.go.kr) 재외동포 > 재외국민·외국국적동포 > 부동산 거래 · 국가법령정보센터(law.go.kr) · 대한법률구조공단(klac.or.kr) 법률서식 · 대법원 인터넷등기소(iros.go.kr) · 외교부 영사서비스(0404.go.kr) 아포스티유·영사확인 안내. 본 자료는 일반적인 법률정보로, 개별 사건의 법률자문이 아니며 개별 사건의 결과를 보장하지 않습니다.
+</div>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+})();
+function toggleFold(b){var fb=b.parentElement;var body=b.nextElementSibling;var open=fb.classList.toggle('open');if(body){body.style.display=open?'block':'none';}}
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('작성례가 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('작성례가 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['﻿'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('작성례를 내려받았습니다');}
+</script>
+</body>
+</html>

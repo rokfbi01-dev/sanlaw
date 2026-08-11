@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[4-1] 부모님이 돌아가신 뒤 부동산 명의를 넘기려 해요 (상속등기) | 산 법무사 김재섭</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(280px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.case{background:var(--box); border-radius:10px; padding:14px 16px; margin:14px 0; border-left:4px solid #b9a98c;}
+.case .ct{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+.sit-wrap{display:flex; gap:12px; margin:14px 0;}
+.sit{flex:1; background:#f8f5ee; border:1px solid var(--line); border-top:3px solid var(--gold); border-radius:10px; padding:13px 15px; font-size:14.5px; line-height:1.75;}
+.sit .sl{display:block; font-weight:700; color:var(--gold-d); margin-bottom:6px; font-size:14px;}
+@media (max-width:680px){ .sit-wrap{flex-direction:column;} }
+/* 전체 길 흐름도 */
+.flow{background:linear-gradient(180deg,#faf7f0,#f6f1e6); border:1px solid var(--line); border-radius:14px; padding:22px 20px; margin:16px 0;}
+.flow .fl-t{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:18px; text-align:center; letter-spacing:.3px;}
+.flow .node{position:relative; background:#fff; border:1px solid #e3d8c4; border-radius:11px; padding:15px 18px 15px 56px; font-size:14.5px; line-height:1.72; box-shadow:0 2px 6px rgba(122,82,48,.07);}
+.flow .node .num{position:absolute; left:15px; top:14px; width:30px; height:30px; line-height:30px; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; border-radius:50%; font-weight:800; font-size:15px; font-family:'Nanum Myeongjo',serif; box-shadow:0 2px 5px rgba(122,82,48,.3);}
+.flow .node b{color:#241a10;}
+.flow .down{display:flex; justify-content:center; align-items:center; padding:7px 0;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+/* 작성례 박스 */
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:15px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .tag{margin-bottom:0;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;}
+.tag.cred{background:#5a9a72;}
+.tag.debt{background:#d9694a;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:18px;margin:12px 0;font-family:'D2Coding','Courier New',monospace;font-size:13px;line-height:1.6;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:16px;letter-spacing:2px;margin-bottom:12px;color:#241a10;}
+.howto{font-size:14px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0 4px;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:13px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:7px 13px;cursor:pointer;transition:.15s;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.75;}
+.lawbox .ll{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:#241a10;border-radius:5px;padding:2px 9px;margin-right:7px;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.hire p{margin:7px 0; font-size:15px; line-height:1.8;}
+.cta{display:block;text-align:center;background:var(--gold-d);color:#fff;font-weight:700;font-size:17px;text-decoration:none;padding:15px;border-radius:11px;margin:18px 0;font-family:'Nanum Myeongjo',serif;letter-spacing:1px;}
+.cta:hover{background:#5e3f24;}
+@media print{
+  body{background:#fff; max-width:100%;}
+  .tldr,.case,.warn,.tip,.cost,.steps li,.tnote,.sit,.flow,.flow li,.lawbox,.hire{background:#fff !important; border-color:#ccc !important;}
+  .tnote{display:none;}
+  .term{border:none; color:inherit; font-weight:inherit;}
+  .term>.bub{display:inline !important; position:static; width:auto; background:none; color:inherit; box-shadow:none; padding:0; font-size:inherit; line-height:inherit;}
+  .term>.bub::before{content:" ("; }
+  .term>.bub::after{content:")"; border:none; position:static;}
+  .fold-body{display:block !important;}.fold-btn .chev{display:none;}.form-tools{display:none;}
+  .cta{background:#fff !important; color:#241a10 !important; border:1px solid #ccc;}
+}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+
+
+<h1>[4-1] 부모님이 돌아가신 뒤 부동산 명의를 제 앞으로 넘기려 해요 (상속등기)</h1>
+
+<div class="tnote">어려운 법률용어에는 <b>점선 밑줄</b>이 그어져 있습니다. <b>PC는 마우스를 올리면</b>, <b>휴대폰은 손가락으로 톡 누르면</b> 쉬운 설명이 뜹니다. (인쇄하면 괄호로 함께 나옵니다.)</div>
+
+<div class="hire">
+<div class="ht">이 매뉴얼을 끝까지 읽으시는 분께</div>
+<p>이 매뉴얼은 <b>의뢰인이 직접 법원에 신청할 수 있도록 모든 서류 양식·비용·요건을 구체적으로 담았습니다.</b> 하지만 소송은 살아있는 생물과 같아 상대방의 격렬한 저항이 뒤따릅니다. 혼자 진행하시다가 막히는 부분이 생기거나 방어막이 필요할 때, 언제든 이 매뉴얼을 들고 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</p>
+</div>
+
+<div class="tldr">
+<div class="tt">⭐ 30초 결론부터</div>
+<ul>
+<li><b><span class="term">상속등기<span class="bub">돌아가신 분(피상속인) 명의로 되어 있는 부동산을, 물려받는 사람(상속인) 명의로 바꿔 등기부에 적는 절차.</span></span>는 상속인이 직접·단독으로 신청할 수 있습니다.</b> 매매처럼 파는 사람·사는 사람이 함께 가는 게 아니라, <b>받는 사람(상속인) 혼자</b> 신청합니다(부동산등기법 제23조 제3항). <span class="term">등기원인<span class="bub">등기를 하게 된 이유. 여기서는 "상속" 또는 "협의분할에 의한 상속"으로 적습니다.</span></span>은 "상속"입니다.</li>
+<li><b>먼저 정할 것 — '법대로' 나눌지, '협의'로 정할지.</b> ① <b><span class="term">법정상속분<span class="bub">유언·합의가 없을 때 법이 정해 둔 비율. 배우자는 자녀보다 1.5배(배우자 1.5 : 자녀 각 1).</span></span>대로</b> 공동명의로 하거나, ② <b><span class="term">협의분할<span class="bub">상속인들이 합의해 누가 무엇을 얼마나 가질지 자유롭게 정하는 것. 한 사람에게 몰아줄 수도 있습니다.</span></span></b>로 한 사람(또는 정한 비율)에게 정해 줍니다. 협의분할이면 <b>상속인 전원이 인감도장 찍은 분할협의서 + 인감증명서</b>가 있어야 합니다.</li>
+<li><b>비용 3가지.</b> ① <span class="term">취득세<span class="bub">부동산을 취득하면 내는 지방세. 상속은 보통 약 3.16%(농지 외, 공시가격 기준).</span></span> 약 3.16%(농지 외) ② <span class="term">국민주택채권<span class="bub">등기할 때 의무로 사야 하는 채권. 바로 되팔면 약간의 할인료만 부담합니다.</span></span> 매입 ③ 등기신청수수료(상속등기는 부동산 1건당 e-Form 17,000원 · 서면 20,000원). <b>상속은 무상이전이라 인지(인지세)는 내지 않습니다.</b></li>
+<li><b>★기한 주의 — 등기는 늦어도 되지만, 취득세는 6개월.</b> 상속등기 자체는 법으로 정한 기한·과태료가 없습니다. 그러나 <b>취득세는 돌아가신 달의 말일부터 6개월 안에</b> 신고·납부해야 하고(지방세법 제20조 제1항), 넘기면 가산세 20%가 붙습니다. 등기를 미루더라도 <b>취득세 신고는 먼저</b> 하세요.</li>
+</ul>
+</div>
+
+<h2>지금 어떤 상황인가요?</h2>
+<div class="sit-wrap">
+<div class="sit"><span class="sl">상황 ① · 합의가 된 경우</span>누가 어떤 부동산을 얼마씩 가질지 상속인들끼리 <b>정해진</b> 경우. → 협의분할 상속등기(분할협의서 + 전원 인감증명).</div>
+<div class="sit"><span class="sl">상황 ② · 합의 전 / 일단 법대로</span>비율 합의가 아직 안 됐거나 우선 명의만 정리하려는 경우. → 법정상속분대로 공동명의 등기(나중에 협의분할 가능) 또는 가정법원 분할심판 후 등기.</div>
+</div>
+
+<h2>먼저 알아두면 쉬운 3가지</h2>
+<ol class="steps">
+<li><b>누가 상속인인지·지분이 얼마인지부터.</b> 1순위는 <span class="term">직계비속<span class="bub">자녀·손주 등 아래 세대 혈족.</span></span>(자녀)과 배우자입니다. 배우자는 자녀보다 <b>1.5배</b>를 받습니다(배우자 1.5 : 자녀 각 1, 민법 제1009조). 예: 배우자·자녀 2명이면 배우자 3/7, 자녀 각 2/7. 피상속인의 <b>제적등본·가족관계증명서</b>로 상속인 전원을 빠짐없이 확정합니다.</li>
+<li><b>나누는 방법은 두 가지.</b> (가) <b>법정상속분대로</b> — 분할협의서가 필요 없고, 상속인 1명이 전원의 <span class="term">위임장<span class="bub">다른 상속인들이 "내 몫 등기도 네가 대신 신청해 달라"고 맡기는 서면. 인감도장을 찍습니다.</span></span>을 받아 혼자 신청할 수 있습니다. (나) <b>협의분할</b> — 전원이 인감 찍은 분할협의서 + 인감증명서. 한 사람에게 전부 몰아주거나 비율을 자유롭게 정할 수 있습니다.</li>
+<li><b>등기보다 취득세가 먼저.</b> 등기소에 가기 전에 부동산 소재지 <b>구청(또는 위택스)에서 취득세를 신고·납부</b>하고 <span class="term">취득세영수필확인서<span class="bub">취득세를 냈다는 증명서. 이게 있어야 등기를 받아줍니다.</span></span>를 받아야 등기가 됩니다. 취득세 6개월 기한을 꼭 지키세요.</li>
+</ol>
+
+<h2>내 경우는 어디에 해당하나요? — 유형별 사례</h2>
+<div class="case">
+<span class="ct">○ 사례 ① 협의분할로 한 사람 단독명의</span>
+어머니가 돌아가시고 자녀 3명이 "집은 막내가 갖고, 예금은 형·누나가 나눈다"고 합의한 경우입니다. <b>상속재산분할협의서에 3명 전원이 인감날인</b>하고 인감증명서를 붙여, <b>막내 단독명의</b>로 상속등기를 합니다.
+</div>
+<div class="case">
+<span class="ct">○ 사례 ② 합의가 안 돼 법정상속분대로 공동명의</span>
+비율 합의가 어려워 우선 <b>법대로</b> 공동명의(예: 배우자 3/7, 자녀 각 2/7)로 등기한 경우입니다. 분할협의서 없이 가능하지만 <b>공유</b> 상태가 됩니다. 나중에 협의분할로 한 사람에게 모을 수 있는데, 이때 <b>새로 취득세</b>가 발생할 수 있습니다.
+</div>
+<div class="case">
+<span class="ct">○ 사례 ③ 상속포기·한정승인을 한 상속인이 있을 때</span>
+상속인 중 빚 때문에 <span class="term">상속포기<span class="bub">상속 자체를 받지 않겠다는 것. 처음부터 상속인이 아니었던 것으로 봅니다.</span></span>를 한 사람이 있으면, 그는 처음부터 상속인이 아니므로 <b>분할협의서에서 빠지고</b> 그 <b>상속포기 수리심판(증명)</b>을 등기에 함께 냅니다(관련 등기선례). 누가 상속인이 되는지가 달라지니 순서를 먼저 정리해야 합니다(→ 3번 상속포기·한정승인).
+</div>
+<div class="warn">
+<span class="wt">★ 흔한 실수 — 취득세를 미뤘다가 가산세</span>
+"등기를 천천히 해도 된다"는 말만 믿고 <b>취득세 신고까지 미루면</b> 가산세(신고불성실 20% + 납부지연)가 붙습니다. 취득세는 등기와 <b>별개</b>로 6개월 안에 신고·납부해야 합니다. 등기가 늦어질 것 같으면 취득세부터 신고하세요.
+</div>
+
+
+<h2>판례로 보기 — 이 두 가지는 꼭 알고 가십시오</h2>
+<div class="case">
+<span class="ct">사례 ① 한 사람이라도 빠지면 협의 전체가 무효 — 대법원 1987. 3. 10. 선고 85므80 판결</span>
+아버지가 돌아가신 뒤 어머니와 자녀들이 두 차례 모여 국내 부동산과 미국 재산을 나누기로 약정한 사안입니다. 그런데 그 자리에서 <b>어머니가 미성년 자녀들의 법정대리인 자격으로 함께 협의</b>했습니다. 대법원은 <b>협의에 의한 상속재산의 분할은 공동상속인 전원의 동의가 있어야 유효하고, 공동상속인 중 한 사람의 동의가 없거나 그 의사표시에 대리권의 흠결이 있으면 그 분할은 무효</b>라고 보았습니다. 그리고 어머니가 자기 몫을 정하면서 동시에 미성년 자녀를 대리하는 것은 <b>민법 제921조의 이해상반행위</b>여서, <b>미성년자마다 특별대리인을 선임</b>해 그 특별대리인이 협의에 참여했어야 한다고 판단했습니다.
+<div class="tip" style="margin-top:12px"><span class="pt">💡 내 사건에 대입하면</span> ① 상속인이 <b>단 한 명이라도 빠진 협의서</b>는 무효이고, 그것으로 마친 등기는 뒤에 말소될 수 있습니다. ② 상속인 중 <b>미성년 자녀가 있고 그 부모도 함께 상속인</b>이면, 부모가 아이를 대리할 수 없으므로 <b>가정법원에서 특별대리인을 선임</b>받아야 합니다. 이 절차를 건너뛴 협의분할 등기가 실무에서 자주 문제 됩니다.</div>
+</div>
+<div class="case">
+<span class="ct">사례 ② 먼저 공동명의로 해 두었다가 나중에 한 사람에게 몰아주면 — 취득세를 다시 냅니다</span>
+"일단 법정상속분대로 공동명의로 해 두고, 나중에 형제끼리 정리하자"고 하는 경우가 많습니다. 그런데 <b>등기로 각자의 상속분이 확정된 뒤</b> 공동상속인이 다시 협의해 <b>어느 한 사람이 처음 상속분을 초과해 가지게 되면</b>, 그 초과분은 <b>지분이 줄어든 상속인에게서 증여받아 취득한 것</b>으로 보아 <b>증여 취득세</b>를 새로 물립니다(지방세법 제7조 제13항).
+<div class="tip" style="margin-top:12px"><span class="pt">💡 다시 내지 않아도 되는 경우</span> ① <b>취득세 신고·납부기한(사망한 달 말일부터 6개월, 외국 주소 상속인이 있으면 9개월) 안에 재분할과 등기를 모두 마친 경우</b>, ② 상속회복청구의 소에서 <b>법원의 확정판결</b>로 상속인·상속재산에 변동이 생긴 경우, ③ <b>채권자대위권 행사</b>로 법정상속분대로 등기된 것을 상속인끼리 협의분할로 재분할하는 경우입니다. <b>결국 '6개월 안에 결론을 내면 문제가 없다'는 뜻</b>이니, 협의가 진행 중이라면 이 기한을 달력에 적어 두십시오. 또 증여로 보게 되면 <b>무주택 1가구 1주택 상속 감면도 적용되지 않습니다.</b></div>
+</div>
+<div class="warn"><span class="wt">⚠ "일단 공동명의" 앞에서 한 번만 더 생각하십시오</span>
+공동명의로 해 두면 나중에 그 부동산을 팔거나 담보로 잡힐 때 <b>공유자 전원의 인감과 협조</b>가 필요합니다. 형제 사이가 나빠지거나 누군가에게 채권자가 생기면 <b>그 지분이 압류·경매에 걸릴 수도</b> 있습니다. 급하지 않다면 <b>6개월 안에 협의를 마치는 쪽</b>이 대체로 유리합니다.</div>
+
+<h2>관련 법령 — 이 카드의 근거</h2>
+<div class="lawbox"><span class="ll">부동산등기법 §23③</span><b>혼자 신청할 수 있습니다</b> — 상속, 법인의 합병, 그 밖에 대법원규칙으로 정하는 <b>포괄승계에 따른 등기</b>는 <b>등기권리자가 단독으로</b> 신청합니다. 매매처럼 파는 쪽·사는 쪽이 함께 갈 필요가 없다는 뜻입니다.</div>
+<div class="lawbox"><span class="ll">민법 §1006·§1007·§1013</span><b>나누기 전에는 '공유'입니다</b> — 상속인이 여럿이면 상속재산은 그 <b>공유</b>가 되고(§1006), 각자 상속분에 따라 권리·의무를 승계합니다(§1007). 피상속인이 유언으로 금지하지 않았다면 <b>언제든 협의로 분할</b>할 수 있습니다(§1013①).</div>
+<div class="lawbox"><span class="ll">민법 §1015</span><b>협의분할의 효력은 사망한 날로 거슬러 올라갑니다</b> — 상속재산의 분할은 <b>상속개시된 때에 소급하여 효력</b>이 있습니다. 그래서 협의로 한 사람이 단독으로 받기로 했다면, 처음부터 그 사람이 상속한 것으로 보아 <b>'상속'을 원인으로 곧바로 단독명의 등기</b>를 합니다. 다만 <b>세법(지방세법 §7⑬)은 이와 달리</b> 등기로 지분이 확정된 뒤의 재분할을 증여로 보므로, 민법과 세법의 결론이 갈릴 수 있습니다.</div>
+<div class="lawbox"><span class="ll">민법 §1009</span><b>법정상속분</b> — 같은 순위의 상속인이 여럿이면 상속분은 <b>균분</b>이고, 배우자의 상속분은 직계비속(또는 직계존속)의 상속분에 <b>5할을 더합니다</b>. 예를 들어 배우자와 자녀 2명이면 3 : 2 : 2, 즉 배우자 3/7, 자녀 각 2/7입니다.</div>
+<div class="lawbox"><span class="ll">민법 §921</span><b>부모가 미성년 자녀를 대리할 수 없는 때</b> — 법정대리인인 친권자와 그 자녀 사이에 <b>이해가 상반되는 행위</b>는 친권자가 법원에 <b>특별대리인의 선임</b>을 청구해야 합니다. 부모와 미성년 자녀가 함께 상속인인 협의분할이 대표적입니다.</div>
+<div class="lawbox"><span class="ll">부동산등기규칙 §60①6호</span><b>협의분할이면 전원의 인감</b> — 협의분할에 의한 상속등기를 신청할 때에는 <b>상속인 전원의 인감증명</b>을 제출하고, 협의분할서에 그 인감을 날인합니다. 다만 협의분할서가 <b>공정증서이거나 공증인의 인증</b>을 받은 서면이면 인감증명을 내지 않아도 됩니다(§60④).</div>
+<div class="lawbox"><span class="ll">지방세법 §20①</span><b>취득세 6개월</b> — 상속으로 취득한 경우 <b>상속개시일이 속하는 달의 말일부터 6개월</b>(상속인 중 외국에 주소를 둔 사람이 있으면 <b>9개월</b>) 이내에 신고·납부해야 합니다.</div>
+<div class="lawbox"><span class="ll">지방세법 §7⑬</span><b>재분할은 증여로 봅니다</b> — 등기로 각 상속인의 상속분이 확정된 <b>뒤</b> 공동상속인이 협의해 재분할한 결과 어느 상속인이 <b>당초 상속분을 초과</b>해 취득하면, 그 초과분은 지분이 감소한 상속인에게서 <b>증여받아 취득한 것</b>으로 봅니다. <b>다만 §20① 기한 안에 재분할과 등기를 모두 마친 경우 등은 예외</b>입니다.</div>
+<div class="lawbox"><span class="ll">지방세법 §15①2호</span><b>1가구 1주택 상속 감면</b> — 상속으로 인한 취득 중 대통령령으로 정하는 <b>1가구 1주택</b>의 취득은 상속 취득세율(농지 외 1천분의 28)에서 <b>중과기준세율(1천분의 20)을 뺀 세율</b>로 계산합니다. 요건은 시행령 §29①에 정해져 있으니 구청 세무과에 확인하십시오.</div>
+
+<h2>작성례 — 등기소가 만들어 주지 않는 서면</h2>
+<p>등기신청서 자체는 인터넷등기소 e-Form이 만들어 줍니다. 그러나 아래 두 가지는 <b>직접 준비</b>해야 합니다. 상자 제목을 누르면 펼쳐지고 <b>복사·인쇄·내려받기</b>가 됩니다.</p>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ① · 협의가 된 경우</span>상속재산분할협의서<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="fa1"><span class="ft">상속재산분할협의서</span>20○○년 ○○월 ○○일 ○○시 ○○구 ○○동 ○○ 망 ○○○의 사망으로
+인하여 개시된 상속에 있어 공동상속인 ○○○, ○○○, ○○○은
+다음과 같이 상속재산을 분할하기로 협의한다.
+
+1. 상속재산 중 ○○시 ○○구 ○○동 ○○ 대 ○○○㎡는
+   상속인 ○○○의 소유로 한다.
+
+2. 상속재산 중 ○○시 ○○구 ○○동 ○○ 지상
+   철근콘크리트조 슬래브지붕 ○층 주택
+     1층 ○○○㎡
+     2층 ○○○㎡
+   는 상속인 ○○○의 소유로 한다.
+
+3. 상속재산 중 ○○은행 ○○지점 예금 ○○○원은
+   상속인 ○○○, ○○○이 각 1/2의 비율로 취득한다.
+
+위 협의를 증명하기 위하여 이 협의서 ○통을 작성하고
+아래와 같이 서명·날인하여 각자 1통씩 보관한다.
+
+        20○○년 ○○월 ○○일
+
+  성    명   ○ ○ ○      (인감도장)
+  주민등록번호  ○○○○○○-○○○○○○○
+  주    소   ○○○
+
+  성    명   ○ ○ ○      (인감도장)
+  주민등록번호  ○○○○○○-○○○○○○○
+  주    소   ○○○
+
+  성    명   ○ ○ ○      (인감도장)
+  주민등록번호  ○○○○○○-○○○○○○○
+  주    소   ○○○
+
+※ 작성할 때 반드시 지킬 것
+ ① 상속인 전원이 참여해야 합니다. 한 사람이라도 빠지면
+    협의 전체가 무효입니다(대법원 85므80).
+ ② 부동산의 표시는 등기사항전부증명서 '표제부'를
+    그대로 옮겨 적습니다.
+ ③ 각자 인감도장을 찍고, 인감증명서(3개월 이내)를 첨부합니다.
+ ④ 여러 장이면 상속인 전원의 인감으로 간인합니다.
+ ⑤ 상속포기를 한 사람은 참여시키지 않고, 대신 법원의
+    상속포기 수리 심판서 정본을 냅니다.
+ ⑥ 미성년 자녀와 그 부모가 함께 상속인이면, 부모가 자녀를
+    대리할 수 없습니다. 가정법원에서 특별대리인을 선임받아
+    그 특별대리인이 자녀를 위해 협의에 참여합니다(민법 §921).</div>
+<div class="form-tools"><button type="button" onclick="copyForm('fa1')">📋 복사</button><button type="button" onclick="printForm('fa1')">🖨 인쇄</button><button type="button" onclick="downloadForm('fa1','상속재산분할협의서.txt')">⬇ 내려받기</button></div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ② · 한 사람이 대표로 갈 때</span>등기신청 위임장<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="fa2"><span class="ft">위 임 장</span>부동산의 표시
+  1. ○○시 ○○구 ○○동 ○○ 대 ○○○㎡
+  2. 위 지상 철근콘크리트조 슬래브지붕 ○층 주택
+       1층 ○○○㎡
+       2층 ○○○㎡
+
+등기원인과 그 연월일   20○○년 ○○월 ○○일 상속
+등기의 목적           소유권이전
+
+  위 사람을 대리인으로 정하고 위 부동산에 관한
+  상속을 원인으로 한 소유권이전등기의 신청 및 취하,
+  등기필정보·등기완료통지서의 수령, 그 밖에 위 등기신청에
+  부수하는 일체의 행위를 위임한다.
+
+  아울러 복대리인 선임을 허락한다.
+
+        20○○년 ○○월 ○○일
+
+  위 임 인(상속인)
+    성    명   ○ ○ ○      (인감도장)
+    주민등록번호  ○○○○○○-○○○○○○○
+    주    소   ○○○
+
+    성    명   ○ ○ ○      (인감도장)
+    주민등록번호  ○○○○○○-○○○○○○○
+    주    소   ○○○
+
+  대 리 인
+    성    명   ○ ○ ○
+    주민등록번호  ○○○○○○-○○○○○○○
+    주    소   ○○○
+
+※ 위임인은 인감도장을 찍고 인감증명서를 첨부합니다.
+※ 상속인이 여러 명이어도 한 사람이 나머지 전원의 위임장과
+   인감증명서를 받아 혼자 등기소에 갈 수 있습니다.
+※ 해외에 계신 상속인이 있으면 인감증명 대신 재외공관 공증 등이
+   필요할 수 있습니다 — 4-3 재외국민·외국인 상속등기 카드를 보십시오.</div>
+<div class="form-tools"><button type="button" onclick="copyForm('fa2')">📋 복사</button><button type="button" onclick="printForm('fa2')">🖨 인쇄</button><button type="button" onclick="downloadForm('fa2','등기신청_위임장.txt')">⬇ 내려받기</button></div>
+</div></div>
+<div class="tip"><span class="pt">💡 공식 양식은 여기서</span> 상속재산분할협의서 표준 양식은 <a href="https://www.klac.or.kr" style="color:var(--tip-ink);font-weight:700">대한법률구조공단 법률서식</a>과 <a href="http://www.iros.go.kr" style="color:var(--tip-ink);font-weight:700">인터넷등기소 자료센터</a>에서 내려받을 수 있습니다.</div>
+
+<h2>★ 데드라인 — 취득세는 '사망한 달 말일'부터 6개월</h2>
+<table>
+<tr><th>구분</th><th>① 언제부터 세나 (기산일)</th><th>② 근거 조문</th><th>③ 말일이 휴일이면</th><th>④ 최종 만료일</th></tr>
+<tr>
+<td><b>취득세 신고·납부</b></td>
+<td>상속개시일(사망일)이 <b>속하는 달의 말일</b>의 다음 날</td>
+<td>지방세법 §20① / 초일 불산입 민법 §157</td>
+<td>토·일·공휴일이면 그 다음 영업일로 연장(민법 §161)</td>
+<td>그 말일 + 6개월 (외국에 주소를 둔 상속인이 있으면 9개월)</td>
+</tr>
+</table>
+<div class="tip"><span class="pt">💡 상속등기 자체는 기한·과태료가 없습니다</span> 과태료가 붙는 것은 매매·증여 등 '계약'에 의한 이전등기(60일 내)입니다. 다만 취득세 6개월 기한과, 배우자 상속공제 관련 세무상 기한은 별개이니, 세액이 크면 세무사 상담을 권합니다.</div>
+
+<h2>이 사건은 어떻게 진행되나</h2>
+<div class="flow">
+<div class="fl-t">이 순서대로만 따라가면 혼자서도 끝까지 갈 수 있습니다</div>
+<div class="node"><span class="num">0</span><b>달력에 날짜 하나부터 적으십시오</b> — <b>돌아가신 달의 말일 + 6개월</b>. 이것이 취득세 기한이자, 협의를 마쳐야 손해가 없는 날입니다. 등기 자체는 기한이 없지만 이 날짜를 넘기면 <b>가산세</b>가 붙고, 뒤늦게 한 사람에게 몰아주면 <b>증여 취득세</b>까지 나옵니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">1</span><b>상속인 전원과 지분을 확정합니다</b> — 피상속인의 <b>제적등본(출생~사망 연속)</b>·가족관계증명서(상세)·기본증명서(상세)·친양자입양관계증명서(상세)를 뗍니다. <b>'상세'가 아니면 다시 떼야</b> 하니 창구에서 꼭 말씀하십시오. 여기서 <b>몰랐던 형제가 나오는 일</b>이 실제로 있습니다. 전자가족관계등록시스템에서 온라인 발급이 됩니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">2</span><b>'법대로'인지 '협의'인지 정합니다</b> — 법정상속분대로 간다면 분할협의서가 필요 없습니다. 협의분할로 간다면 <b>전원이 인감도장을 찍은 협의서 + 각자의 인감증명서(3개월 이내)</b>가 필요합니다. 상속인 중 <b>미성년자가 있고 그 부모도 상속인</b>이면, 먼저 가정법원에서 <b>특별대리인</b>을 선임받아야 합니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">3</span><b>부동산 서류를 뗍니다</b> — 정부24에서 <b>토지(임야)대장등본</b>과 <b>(집합)건축물대장등본</b>, 인터넷등기소에서 <b>등기사항전부증명서</b>를 발급받습니다. 대장의 면적·지목과 등기부가 다르면 <b>대장을 먼저 정리</b>해야 등기가 됩니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">4</span><b>취득세를 신고·납부합니다</b> — 부동산 소재지 시·군·구청 세무과 또는 위택스에서 신고하고 <b>취득세영수필확인서</b>를 받습니다. <b>이 서류가 없으면 등기소에서 접수를 받아 주지 않습니다.</b> 무주택 1가구 1주택이면 감면 대상인지 창구에서 꼭 물어보십시오.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">5</span><b>국민주택채권을 매입하고 수수료를 냅니다</b> — 은행에서 채권을 매입합니다. <b>바로 되팔면 당일 할인료만</b> 부담하므로 대부분 그렇게 합니다. 등기신청수수료도 인터넷등기소나 은행에서 납부하고 영수필확인서를 받습니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">6</span><b>신청서를 작성해 제출합니다</b> — 인터넷등기소 <b>e-Form</b>으로 작성·출력한 뒤 <b>부동산 소재지 관할 등기소</b>에 방문하거나 우편으로 냅니다. 상속인 한 사람이 <b>나머지 전원의 위임장과 인감증명서</b>를 가지고 혼자 가도 됩니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">7</span><b>보정 연락에 대비하십시오</b> — 서류가 미비하면 등기관이 <b>보정</b>을 명합니다. 정해진 기간 안에 고치지 않으면 <b>각하</b>될 수 있으니, 접수 뒤에는 <b>전화를 잘 받으시고</b> 인터넷등기소 '처리현황'을 확인하십시오. 각하 처분에 이유가 없다고 생각되면 <b>관할 지방법원에 이의신청</b>을 할 수 있습니다(부동산등기법 §100).</div>
+</div>
+
+<div class="cost">
+<span class="ct">비용 (공시가격·시가표준액 기준)</span>
+① <b>취득세</b> — 농지 외 부동산 약 <b>3.16%</b>(취득세 2.8% + 농어촌특별세 0.2% + 지방교육세 0.16%), 농지는 약 2.3%대. <b>무주택 1가구 1주택 상속</b> 등은 감면 특례가 있어 더 낮아질 수 있습니다(지방세법 §15①2호).<br>
+② <b>국민주택채권</b> — 의무 매입, 최저 1만원. 바로 되팔면 당일 할인료만 부담합니다.<br>
+③ <b>등기신청수수료</b> — 상속등기는 부동산 1건당 <b>e-Form 17,000원 · 서면방문 20,000원</b>입니다(2025. 8. 1. 인상). <b>상속등기는 매매와 달리 완전 전자신청이 없어</b>, e-Form(작성·출력 후 제출)이나 서면으로만 합니다. 부동산이 여러 개면 건마다 부과됩니다.<br>
+④ <b>인지(인지세)</b> — 상속은 무상이전이라 <b>내지 않습니다.</b>
+<div style="margin-top:11px; padding-top:10px; border-top:1px dashed #cfe6d6; color:#c0392b; font-weight:600; line-height:1.8;">※ 비용문의는 상담폼을 완성후 메뉴의 <a href="/tools-calculator.html" style="color:#c0392b; text-decoration:underline; font-weight:700;">수수료 계산기</a>에서 수수료를 미리 알 수 있습니다.</div>
+</div>
+
+<h2>준비할 서류와 발급처</h2>
+<table>
+<tr><th>무엇을 (어디서 떼나)</th><th>서류</th><th>바로가기</th></tr>
+<tr><td>가족·상속인 확인<br>(전자가족관계등록 / 주민센터)</td><td>피상속인 기본증명서(상세)·가족관계증명서(상세)·친양자입양관계증명서(상세)·제적등본(출생~사망 연속), 상속인 가족관계증명서</td><td><a href="https://efamily.scourt.go.kr">전자가족관계등록</a></td></tr>
+<tr><td>주소·신분 확인<br>(정부24 / 주민센터)</td><td>피상속인 말소자 주민등록초본(주소 이력), 상속인 주민등록등(초)본</td><td><a href="https://www.gov.kr">정부24</a></td></tr>
+<tr><td>부동산 확인<br>(정부24 / 인터넷등기소)</td><td>토지(임야)대장등본, (집합)건축물대장등본, 등기사항전부증명서</td><td><a href="https://www.gov.kr">정부24</a> / <a href="http://www.iros.go.kr">인터넷등기소</a></td></tr>
+<tr><td>취득세 신고·납부<br>(구청 / 위택스)</td><td>취득세 신고서, 취득세영수필확인서</td><td><a href="https://www.wetax.go.kr">위택스</a></td></tr>
+<tr><td>채권·수수료<br>(은행 / 인터넷등기소)</td><td>국민주택채권 매입영수증, 등기신청수수료 영수필확인서</td><td><a href="http://www.iros.go.kr">인터넷등기소</a></td></tr>
+<tr><td>협의분할 시</td><td>상속재산분할협의서, 상속인 전원 인감증명서</td><td>주민센터(인감증명)</td></tr>
+</table>
+<div class="tip"><span class="pt">💡 상속인 1명이 대표로 신청 가능</span> 상속인이 여러 명이어도, 한 사람이 나머지 전원의 <b>인감 찍은 위임장과 인감증명서</b>를 받아 혼자 등기소를 방문해 신청할 수 있습니다.</div>
+
+<h2>★ 특수 — 돌아가신 분이 생전에 부동산을 '팔기로 계약'한 뒤 사망했다면</h2>
+<p>예를 들어 아버지가 살아 계실 때 집을 팔기로 <b>매매계약</b>을 맺고, 등기를 넘기기 전에 돌아가신 경우입니다. 이때는 <b>상속인이 아버지(파는 쪽)의 자리를 그대로 이어받아, 산 사람(매수인)에게 직접 소유권을 넘겨주는 등기</b>를 합니다.</p>
+<div class="tip"><span class="pt">💡 상속등기를 먼저 할 필요가 없습니다</span> '아버지 → 상속인 → 매수인'으로 두 번 등기하는 게 아니라, <b>상속등기를 건너뛰고 곧바로 '아버지 → 매수인'</b>으로 한 번에 넘깁니다. 이를 <span class="term">포괄승계인에 의한 등기<span class="bub">등기 원인(여기서는 매매)이 생긴 뒤 그 사람이 사망하면, 상속인이 사망한 사람을 대신해 등기 '신청'만 이어서 하는 것. 부동산등기법 제27조.</span></span>라고 합니다(부동산등기법 제27조, 등기선례 6-216).</div>
+<h3>누가·어떻게 신청하나</h3>
+<p>매매로 인한 이전등기는 원래 <b>파는 쪽(등기의무자)과 사는 쪽(등기권리자)이 함께</b> 신청합니다. 아버지가 돌아가셨으므로 아버지의 <b>상속인 전원이 '파는 쪽'을 이어받아</b> 매수인과 공동으로 신청합니다. 등기원인은 그대로 <b>"매매"</b>(계약한 날짜)이고, '상속'으로 바뀌지 않습니다.</p>
+<ol class="steps">
+<li><b>상속인 전원 확정</b> — 제적·가족관계로 상속인 전원을 확정합니다(이들이 함께 매도인 지위를 잇습니다).</li>
+<li><b>매도용 인감증명 준비</b> — 상속인 각자 <span class="term">부동산매도용 인감증명서<span class="bub">매수인의 이름·주민등록번호·주소가 적힌 인감증명서. 발급일부터 3개월 안의 것이어야 합니다.</span></span>를 발급받습니다.</li>
+<li><b>돌아가신 분의 등기필정보</b> — 아버지가 그 부동산을 취득할 때 받았던 <span class="term">등기필증(등기필정보)<span class="bub">예전의 '집문서'. 등기를 마치면 받는 권리 증명으로, 매도 시 제출합니다.</span></span>을 냅니다.</li>
+<li><b>상속 증명 서면 추가</b> — 피상속인 기본증명서(상세)·가족관계증명서(상세)·제적등본과 상속인 가족관계·주민등록을 함께 내어, 상속인이 매도인 지위를 이었음을 증명합니다.</li>
+<li><b>공동 신청</b> — 매수인(등기권리자)과 상속인 전원(등기의무자)이 매매 소유권이전등기신청서로 함께 신청합니다.</li>
+</ol>
+<div class="warn"><span class="wt">★ 상속인 일부가 협조하지 않으면 — 매수인은 소송으로</span> 상속인 중 일부가 등기에 협력하지 않으면, 매수인은 <b>상속인 전원을 상대로 '소유권이전등기청구의 소'</b>를 낼 수 있고, <b>등기절차의 이행을 명하는 판결이 확정되면</b> 그 판결로 단독으로 등기를 넘길 수 있습니다(부동산등기법 §23④). 반대로 <b>돌아가신 분이 '사는 쪽(매수인)'이었다면</b>, 상속인이 매수인 지위를 이어받아 파는 쪽과 함께(또는 판결로) 상속인 명의로 이전등기를 합니다.</div>
+
+<hr>
+
+<h2>신청서는 어디서 작성하나 — 인터넷등기소</h2>
+<p>등기신청서는 따로 손으로 쓸 필요 없이 <b>대법원 인터넷등기소</b>에서 화면 안내(<span class="term">e-Form<span class="bub">인터넷등기소에서 신청서를 입력·출력하는 표준 양식. 빈칸을 채우면 신청서가 자동으로 완성됩니다.</span></span>)에 따라 작성·출력하면 됩니다. 부동산 표시는 등기사항증명서를 불러와 자동으로 채워지고, 취득세·국민주택채권·수수료 금액만 신고 결과대로 입력하면 됩니다. <b>상속등기는 완전 전자신청이 없으므로</b>, e-Form으로 작성·출력해 관할 등기소에 방문하거나 우편으로 제출합니다.</p>
+<table>
+<tr><th>무엇을</th><th>바로가기</th></tr>
+<tr><td>등기신청서 작성·출력 (e-Form)</td><td><a href="http://www.iros.go.kr">인터넷등기소 — 등기신청</a></td></tr>
+<tr><td>상속재산분할협의서·위임장 등 첨부서면 양식</td><td><a href="http://www.iros.go.kr">인터넷등기소 — 자료센터·등기신청양식</a></td></tr>
+<tr><td>관할 등기소 찾기 / 처리현황 조회</td><td><a href="http://www.iros.go.kr">인터넷등기소 — 등기소 찾기</a></td></tr>
+</table>
+<div class="tip"><span class="pt">💡 인터넷등기소가 만들어 주지 않는 것</span> 신청서는 e-Form이 만들어 주지만, <b>상속재산분할협의서(상속인 전원 인감날인)</b>와 <b>인감증명서</b>는 직접 준비해야 합니다. 한 사람이 대표로 신청하면 나머지 전원의 <b>인감 찍은 위임장</b>도 함께 냅니다. 돌아가신 분이 생전에 매도한 경우(앞의 특수 사례)는 등기원인을 <b>"매매"</b>로 선택하고 상속 증명 서면을 함께 첨부합니다.</div>
+
+
+<h2>본 사무소가 도와드리는 일</h2>
+<div class="hire">
+<p>본 사무소에서는 의뢰인들의 고충은 덜어드리고, 함께 절차를 진행하여 원하는 결과에 도달할 수 있도록 성심을 다하겠습니다.</p>
+<p style="margin-top:12px"><b>· 상속등기를 하시려는 분</b><br>① 제적·가족관계 서류를 토대로 한 <b>상속인 전원 확정과 지분 계산</b>, ② <b>상속재산분할협의서·위임장 작성</b>, ③ 취득세 감면 여부 확인과 <b>세액·채권·수수료 산정</b>, ④ <b>등기신청서 작성</b>과 제출 지원, ⑤ 보정·각하 시 <b>보정서·이의신청서 작성</b>까지 함께합니다.</p>
+<p style="margin-top:10px"><b>· 사정이 복잡한 경우</b><br>① 상속인 중 <b>미성년자가 있어 특별대리인 선임</b>이 필요한 경우, ② <b>연락이 닿지 않거나 도장을 찍어 주지 않는 상속인</b>이 있는 경우, ③ 해외 거주 상속인이 있는 경우, ④ 이미 마친 등기의 <b>경정</b>이 필요한 경우 — 각 상황에 맞는 서면 작성을 지원해 드립니다.</p>
+</div>
+<div class="warn"><span class="wt">⚠ 혼자 하실 때 가장 많이 막히는 세 곳</span>
+① <b>제적등본이 이어지지 않는 경우</b> — 출생부터 사망까지 연속되어야 하는데, 본적지 변경·재제(再製) 때문에 중간이 비면 여러 곳에 신청해야 합니다. ② <b>대장과 등기부의 표시가 다른 경우</b> — 대장을 먼저 정리해야 등기가 됩니다. ③ <b>상속인 중 미성년자가 있는데 부모도 상속인인 경우</b> — 특별대리인 선임 없이 한 협의는 무효입니다. 이 세 가지에 걸리면 혼자 해결하기 어려우니 도움을 받으시는 편이 시간과 비용을 아낍니다.</div>
+
+<a href="https://sanlaw.co.kr/tools-calculator.html" class="cta">🧮 내 사건 비용 미리 계산하기</a>
+<div style="text-align:center; background:#f6ecd8; border:1px solid var(--gold); border-radius:11px; padding:14px; margin:18px 0; font-size:15px; color:var(--gold-d); font-weight:700;">📞 상담은 홈 화면의 상담 창구를 이용하시면 됩니다.</div>
+
+<div class="tip"><span class="pt">💡 이어지는 카드</span> <b>상속받을 자녀가 먼저 돌아가신 경우</b>는 <a href="4-2_대습상속.html" style="color:var(--tip-ink);font-weight:700">상속 4-2 카드</a>, <b>해외 거주·외국 국적 상속인이 있는 경우</b>는 <a href="4-3_제외국민_외국인_상속등기.html" style="color:var(--tip-ink);font-weight:700">상속 4-3 카드</a>, <b>도장을 찍어 주지 않거나 연락이 닿지 않는 상속인</b>이 있으면 <a href="1-5_도장거부_연락두절.html" style="color:var(--tip-ink);font-weight:700">상속 1-5 카드</a>, <b>미성년 상속인의 특별대리인</b>은 <a href="1-2_미성년자_특별대리인.html" style="color:var(--tip-ink);font-weight:700">상속 1-2 카드</a>, <b>빚이 많아 받지 않으려는 경우</b>는 <a href="3-1_상속받지않기_포기_한정승인.html" style="color:var(--tip-ink);font-weight:700">상속 3-1 카드</a>를 보십시오.</div>
+
+<div class="src">
+근거 — 부동산등기법 제23조 제3항(상속 등 포괄승계에 따른 등기의 단독신청)·제23조 제4항(판결에 의한 등기)·제27조(포괄승계인에 의한 등기신청)·제100조(등기관의 결정 또는 처분에 대한 이의) · 부동산등기규칙 제60조 제1항 제6호(협의분할 상속등기와 상속인 전원의 인감증명)·제60조 제4항(공증에 의한 인감증명 면제) · 민법 제1000조·제1003조(상속의 순위)·제1006조(공동상속과 재산의 공유)·제1007조(공동상속인의 권리의무승계)·제1009조(법정상속분)·제1013조(협의에 의한 분할)·제1015조(분할의 소급효)·제921조(친권자와 그 자 사이의 이해상반행위) · 지방세법 제7조 제13항(상속재산 재분할과 증여 의제)·제15조 제1항 제2호(1가구 1주택 상속의 세율 특례)·제20조 제1항(취득세 신고·납부기한) · 주택도시기금법 제8조(국민주택채권의 매입) · 등기사항증명서 등 수수료규칙 제5조의2 제2항(상속을 등기원인으로 하는 권리이전등기의 신청수수료, 2025. 8. 1. 시행)·등기신청수수료 징수에 관한 예규 · 대법원 1987. 3. 10. 선고 85므80 판결(공동상속인 전원의 동의 없는 협의분할은 무효, 미성년자 상속인과 친권자의 이해상반행위) · 등기선례 6-216(매도 후 사망한 경우 매수인에게 직접 이전) · 등기선례 제202006-1호(협의분할 상속등기와 상속포기자의 인감증명) · 법제처 찾기쉬운 생활법령정보(easylaw.go.kr) 부동산등기 &gt; 상속에 의한 소유권 이전등기 · 국가법령정보센터(law.go.kr) · 대한법률구조공단(klac.or.kr) 법률서식 · 대법원 인터넷등기소(iros.go.kr). 본 자료는 일반적인 법률정보로, 개별 사건의 법률자문이 아니며 개별 사건의 결과를 보장하지 않습니다.
+</div>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+})();
+function toggleFold(b){var fb=b.parentElement;var body=b.nextElementSibling;var open=fb.classList.toggle('open');if(body){body.style.display=open?'block':'none';}}
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('작성례가 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('작성례가 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['﻿'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('작성례를 내려받았습니다');}
+</script>
+</body>
+</html>

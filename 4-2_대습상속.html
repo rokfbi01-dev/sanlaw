@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[4-2] 상속받을 자녀(형제)가 먼저 돌아가셨어요 — 손주·조카가 대신 받나요 (대습상속) | 산 법무사 김재섭</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(280px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.case{background:var(--box); border-radius:10px; padding:14px 16px; margin:14px 0; border-left:4px solid #b9a98c;}
+.case .ct{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+.sit-wrap{display:flex; gap:12px; margin:14px 0;}
+.sit{flex:1; background:#f8f5ee; border:1px solid var(--line); border-top:3px solid var(--gold); border-radius:10px; padding:13px 15px; font-size:14.5px; line-height:1.75;}
+.sit .sl{display:block; font-weight:700; color:var(--gold-d); margin-bottom:6px; font-size:14px;}
+@media (max-width:680px){ .sit-wrap{flex-direction:column;} }
+/* 전체 길 흐름도 */
+.flow{background:linear-gradient(180deg,#faf7f0,#f6f1e6); border:1px solid var(--line); border-radius:14px; padding:22px 20px; margin:16px 0;}
+.flow .fl-t{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:18px; text-align:center; letter-spacing:.3px;}
+.flow .node{position:relative; background:#fff; border:1px solid #e3d8c4; border-radius:11px; padding:15px 18px 15px 56px; font-size:14.5px; line-height:1.72; box-shadow:0 2px 6px rgba(122,82,48,.07);}
+.flow .node .num{position:absolute; left:15px; top:14px; width:30px; height:30px; line-height:30px; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; border-radius:50%; font-weight:800; font-size:15px; font-family:'Nanum Myeongjo',serif; box-shadow:0 2px 5px rgba(122,82,48,.3);}
+.flow .node b{color:#241a10;}
+.flow .down{display:flex; justify-content:center; align-items:center; padding:7px 0;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+/* 작성례 박스 */
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:15px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .tag{margin-bottom:0;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;}
+.tag.cred{background:#5a9a72;}
+.tag.debt{background:#d9694a;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:18px;margin:12px 0;font-family:'D2Coding','Courier New',monospace;font-size:13px;line-height:1.6;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:16px;letter-spacing:2px;margin-bottom:12px;color:#241a10;}
+.howto{font-size:14px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0 4px;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:13px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:7px 13px;cursor:pointer;transition:.15s;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.75;}
+.lawbox .ll{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:#241a10;border-radius:5px;padding:2px 9px;margin-right:7px;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.hire p{margin:7px 0; font-size:15px; line-height:1.8;}
+.cta{display:block;text-align:center;background:var(--gold-d);color:#fff;font-weight:700;font-size:17px;text-decoration:none;padding:15px;border-radius:11px;margin:18px 0;font-family:'Nanum Myeongjo',serif;letter-spacing:1px;}
+.cta:hover{background:#5e3f24;}
+@media print{
+  body{background:#fff; max-width:100%;}
+  .tldr,.case,.warn,.tip,.cost,.steps li,.tnote,.sit,.flow,.flow li,.lawbox,.hire{background:#fff !important; border-color:#ccc !important;}
+  .tnote{display:none;}
+  .term{border:none; color:inherit; font-weight:inherit;}
+  .term>.bub{display:inline !important; position:static; width:auto; background:none; color:inherit; box-shadow:none; padding:0; font-size:inherit; line-height:inherit;}
+  .term>.bub::before{content:" ("; }
+  .term>.bub::after{content:")"; border:none; position:static;}
+  .fold-body{display:block !important;}.fold-btn .chev{display:none;}.form-tools{display:none;}
+  .cta{background:#fff !important; color:#241a10 !important; border:1px solid #ccc;}
+}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+
+
+<h1>[4-2] 상속받을 자녀(형제)가 먼저 돌아가셨어요 — 손주·조카가 대신 받나요 (대습상속)</h1>
+
+<div class="tnote">어려운 법률용어에는 <b>점선 밑줄</b>이 그어져 있습니다. <b>PC는 마우스를 올리면</b>, <b>휴대폰은 손가락으로 톡 누르면</b> 쉬운 설명이 뜹니다. (인쇄하면 괄호로 함께 나옵니다.)</div>
+
+<div class="hire">
+<div class="ht">이 매뉴얼을 끝까지 읽으시는 분께</div>
+<p>이 매뉴얼은 <b>의뢰인이 직접 법원에 신청할 수 있도록 모든 서류 양식·비용·요건을 구체적으로 담았습니다.</b> 하지만 소송은 살아있는 생물과 같아 상대방의 격렬한 저항이 뒤따릅니다. 혼자 진행하시다가 막히는 부분이 생기거나 방어막이 필요할 때, 언제든 이 매뉴얼을 들고 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</p>
+</div>
+
+<div class="tldr">
+<div class="tt">⭐ 30초 결론부터</div>
+<ul>
+<li><b><span class="term">대습상속<span class="bub">상속받을 사람(자녀·형제)이 피상속인보다 먼저 죽거나 상속자격을 잃으면, 그 사람의 자녀(+배우자)가 그 자리를 대신 이어받아 상속하는 것.</span></span>이란 — 상속받을 자녀(또는 형제)가 부모(피상속인)보다 <b>먼저</b> 사망·<span class="term">결격<span class="bub">상속인을 살해하거나 유언을 위조하는 등 법이 정한 잘못으로 상속자격을 잃는 것(민법 제1004조).</span></span>되면, 그 사람의 <b>자녀(손주·조카)와 배우자(며느리·사위)</b>가 그 자리를 대신 받습니다(민법 §1001·§1003②).</b></li>
+<li><b>얼마나 받나 — '먼저 돌아가신 그분(<span class="term">피대습자<span class="bub">먼저 사망·결격되어 대습의 대상이 된 사람. 예: 먼저 돌아가신 아버지·형제.</span></span>)이 살아서 받았을 몫'을 그대로 받습니다.</b> 그 몫 안에서 배우자가 자녀보다 1.5배(배우자 1.5 : 자녀 각 1)로 나눕니다(§1010·§1009②). 예: 할아버지 재산을 자녀 둘이 1/2씩인데 그중 한 명이 먼저 사망했다면, 그 1/2을 며느리·손주가 대습으로 나눠 받습니다.</li>
+<li><b>같은 사고로 동시에 돌아가셔도 됩니다.</b> 부모와 자녀가 한 사고로 사망해 누가 먼저인지 모를 때(<span class="term">동시사망 추정<span class="bub">사망 선후를 알 수 없을 때 동시에 사망한 것으로 보는 것(민법 제30조).</span></span>)도 손주·배우자의 대습상속이 인정됩니다(대법원 2001. 3. 9. 99다13157).</li>
+<li><b>★빚 함정 — 예전에 상속포기했어도 안심은 금물.</b> 아버지 빚 때문에 상속을 포기했더라도, 그 뒤 <b>할아버지가 돌아가셔서 '대습상속'이 새로 열리면</b>, 다시 포기·한정승인을 하지 않으면 그 빚을 떠안은 것(<span class="term">단순승인<span class="bub">상속재산과 빚을 모두 그대로 떠안는 것. 아무 조치를 안 하면 자동으로 이렇게 됩니다.</span></span>)으로 봅니다(대법원 2017. 1. 12. 2014다39824). 상속과 대습상속은 <b>별개 사건</b>이라 다시 신고해야 합니다.</li>
+</ul>
+</div>
+
+<h2>지금 어떤 상황인가요?</h2>
+<div class="sit-wrap">
+<div class="sit"><span class="sl">상황 ① · 받는 쪽(재산)</span>할아버지(외할아버지)가 돌아가셨는데, <b>아버지(어머니)가 그보다 먼저 돌아가신</b> 경우. → 내가(손주) 또는 어머니(며느리)가 아버지 자리를 <b>대신 받는지</b>와 그 몫을 확인합니다.</div>
+<div class="sit"><span class="sl">상황 ② · 빚 함정</span>예전에 <b>부모 빚 때문에 상속포기</b>를 했는데, 이번에 <b>조부모가 돌아가셔서 또 빚 독촉</b>이 온 경우. → 대습상속 단순승인 함정. 다시 포기·한정승인이 필요합니다.</div>
+</div>
+
+<h2>먼저 알아두면 쉬운 3가지</h2>
+<ol class="steps">
+<li><b>누가 '대신' 받나.</b> 먼저 돌아가신 분(피대습자)의 ① <b>직계비속(손주·조카)</b>과 ② <b>배우자(며느리·사위)</b>입니다. 둘 다 있으면 함께(공동), 직계비속이 없으면 배우자가 단독으로 받습니다(§1003②). 며느리·사위도 받는 것은 헌법에 어긋나지 않습니다(99다13157).</li>
+<li><b>얼마나 받나.</b> 피대습자가 살아 있었다면 받았을 <b>그 몫</b>을 그대로 받습니다(§1010). 그 몫을 며느리·사위(1.5)와 손주·조카(각 1)가 나눕니다. 예) 할아버지 재산을 자녀 A·B가 1/2씩 받을 상황에서 A가 먼저 사망했고 A에게 배우자 a와 자녀 a1·a2가 있다면, A의 1/2을 <b>a 3/14, a1 1/7, a2 1/7</b>로 나누고, B는 1/2 그대로입니다.</li>
+<li><b>'먼저 사망'만 대습 사유.</b> 피상속인보다 <b>먼저</b> 사망하거나 결격된 경우라야 합니다. <b>상속포기는 대습 사유가 아닙니다</b>(99다13157). 단, 동시사망 추정도 '먼저 사망'에 포함됩니다.</li>
+</ol>
+
+<h2>내 경우는 어디에 해당하나요? — 유형별 사례</h2>
+<div class="case">
+<span class="ct">○ 사례 ① 동시사망인데도 대습 인정 — 대법원 2001. 3. 9. 선고 99다13157</span>
+가족이 함께 탄 항공기 추락으로 <b>부모와 자녀가 같은 사고로 사망</b>해 누가 먼저인지 알 수 없던 사안입니다(동시사망 추정). 대법원은 "상속개시와 <b>동시에 사망한 것으로 추정되는 경우</b>도 '먼저 사망'에 포함된다"고 보아, 먼저 사망한 자녀의 <b>배우자·자녀(손주)에게 대습상속</b>을 인정했습니다.
+</div>
+<div class="case">
+<span class="ct">○ 사례 ② 자녀가 전부 먼저 사망 → 손주는 '대습'상속</span>
+피상속인의 자녀가 상속개시 전에 <b>전부 먼저 사망</b>한 경우, 손주는 자기 고유 자격의 상속(<span class="term">본위상속<span class="bub">자기 순위로 직접 받는 상속. 대습상속(남의 자리를 대신 받는 것)과 구별됩니다.</span></span>)이 아니라 <b>대습상속</b>으로 받습니다(99다13157 [3]). 누구 자리를 잇느냐에 따라 지분 계산이 달라지므로 구분이 중요합니다.
+</div>
+<div class="case">
+<span class="ct">○ 사례 ③ ★상속포기 후의 대습상속 함정 — 대법원 2017. 1. 12. 선고 2014다39824</span>
+아버지가 빚을 남기고 사망해 배우자·자녀가 <b>상속포기</b>를 했는데, 그 뒤 <b>할머니(직계존속)가 사망</b>하여 대습상속이 개시된 사안입니다. 대법원은 "아버지에 대한 상속포기의 효력은 그 뒤 열린 <b>대습상속에는 미치지 않는다</b>"며, 대습상속인이 다시 포기·한정승인을 하지 않으면 <b>단순승인(빚 떠안음)</b>으로 간주된다고 했습니다(→ 3번 상속포기·한정승인).
+</div>
+<div class="warn">
+<span class="wt">★ 가장 흔한 함정 — "한 번 포기했으니 끝"이 아닙니다</span>
+부모 사망 때 상속포기를 했어도, <b>조부모 사망으로 대습상속이 새로 열리면 별개 사건</b>입니다. 빚을 피하려면 그때 <b>다시</b> 포기·한정승인을 해야 합니다. 아무것도 안 하면 빚을 그대로 떠안습니다. 채권자에게서 갑자기 독촉장이 오면 즉시 대습상속 여부를 확인하세요.
+</div>
+
+
+<h2>관련 법령 — 이 카드의 근거</h2>
+<div class="lawbox"><span class="ll">민법 §1001</span><b>대습상속의 핵심 조문</b> — 상속인이 될 <b>직계비속 또는 형제자매</b>가 상속개시 <b>전에 사망하거나 결격자</b>가 된 경우에, 그 <b>직계비속이 있는 때에는 그 직계비속이 사망하거나 결격된 자의 순위에 갈음하여 상속인</b>이 됩니다. 자녀·형제자매 자리만 대습이 되고, <b>부모(직계존속) 자리는 대습되지 않습니다.</b></div>
+<div class="lawbox"><span class="ll">민법 §1003②</span><b>며느리·사위도 받습니다</b> — §1001의 경우에 상속개시 전에 사망 또는 결격된 사람의 <b>배우자</b>는 그 직계비속과 <b>공동으로</b> 상속인이 되고, 직계비속이 없는 때에는 <b>단독</b> 상속인이 됩니다.</div>
+<div class="lawbox"><span class="ll">민법 §1010</span><b>얼마를 받나</b> — 대습상속인의 상속분은 <b>사망 또는 결격된 자의 상속분</b>에 따릅니다. 그 사람의 직계비속이 여럿이면 그 상속분의 한도에서 §1009에 따라 정합니다. 배우자가 함께 받을 때도 마찬가지입니다.</div>
+<div class="lawbox"><span class="ll">민법 §30</span><b>동시사망 추정</b> — 2인 이상이 <b>동일한 위난으로 사망</b>한 경우에는 <b>동시에 사망한 것으로 추정</b>합니다. 이 추정 때문에 누가 먼저 죽었는지 알 수 없어도 대습상속이 인정될 수 있습니다(99다13157).</div>
+<div class="lawbox"><span class="ll">민법 §1019①</span><b>포기·한정승인은 3개월</b> — 상속인은 <b>상속개시 있음을 안 날부터 3개월 내</b>에 단순승인이나 한정승인 또는 포기를 할 수 있습니다. <b>대습상속은 부모 상속과 별개의 사건</b>이므로, 그 3개월도 따로 진행됩니다.</div>
+<div class="lawbox"><span class="ll">민법 §1026 2호</span><b>가만히 있으면 빚을 떠안습니다</b> — 상속인이 <b>§1019①의 기간 내에 한정승인 또는 포기를 하지 아니한 때</b>에는 <b>단순승인</b>을 한 것으로 봅니다. 대습상속에서 아무 조치를 하지 않으면 그대로 빚을 떠안게 되는 근거입니다.</div>
+<div class="lawbox"><span class="ll">부동산등기법 §23③</span><b>혼자 신청합니다</b> — 상속 등 포괄승계에 따른 등기는 <b>등기권리자가 단독으로</b> 신청합니다. 대습상속도 등기원인은 <b>"상속"</b>입니다.</div>
+
+<h2>작성례 — 대습관계를 밝히는 서면</h2>
+<p>대습상속 등기는 일반 상속등기와 신청서가 같습니다. 다만 <b>"내가 왜 상속인이 되는지"</b>를 서류로 보여야 하므로, 협의분할을 한다면 협의서에 대습관계를 적어 두는 편이 등기관이 이해하기 쉽습니다.</p>
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 · 재산을 받는 경우</span>상속재산분할협의서 (대습상속인이 있는 경우)<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="fb1"><span class="ft">상속재산분할협의서</span>20○○년 ○○월 ○○일 망 ○○○(이하 '피상속인'이라 한다)의 사망으로
+인하여 개시된 상속에 있어, 공동상속인 전원은 다음과 같이
+상속재산을 분할하기로 협의한다.
+
+【상속관계】
+ 1. 피상속인 망 ○○○  (20○○. ○○. ○○. 사망)
+ 2. 피상속인의 자녀 ○○○은 피상속인보다 앞서
+    20○○. ○○. ○○. 사망하였으므로,
+    그 배우자 ○○○과 자녀 ○○○, ○○○이
+    민법 제1001조·제1003조 제2항에 따라
+    위 ○○○의 순위에 갈음하여 상속인이 되었다.
+ 3. 따라서 이 협의의 당사자는 다음과 같다.
+     · ○○○ (피상속인의 자녀)
+     · ○○○ (피대습자 ○○○의 배우자)
+     · ○○○, ○○○ (피대습자 ○○○의 자녀)
+
+【분할의 내용】
+ 1. 상속재산 중 ○○시 ○○구 ○○동 ○○ 대 ○○○㎡는
+    상속인 ○○○의 소유로 한다.
+ 2. 상속재산 중 ○○은행 ○○지점 예금 ○○○원은
+    상속인 ○○○, ○○○이 각 1/2의 비율로 취득한다.
+
+위 협의를 증명하기 위하여 이 협의서 ○통을 작성하고
+아래와 같이 서명·날인하여 각자 1통씩 보관한다.
+
+        20○○년 ○○월 ○○일
+
+  성    명   ○ ○ ○      (인감도장)
+  주민등록번호  ○○○○○○-○○○○○○○
+  주    소   ○○○
+
+  성    명   ○ ○ ○      (인감도장)
+  주민등록번호  ○○○○○○-○○○○○○○
+  주    소   ○○○
+
+  성    명   ○ ○ ○      (인감도장)
+  주민등록번호  ○○○○○○-○○○○○○○
+  주    소   ○○○
+
+※ 반드시 지킬 것
+ ① 대습상속인을 포함한 상속인 전원이 참여해야 합니다.
+    한 사람이라도 빠지면 협의 전체가 무효입니다.
+ ② 먼저 돌아가신 분(피대습자)의 기본증명서(상세)·
+    가족관계증명서(상세)·제적등본을 함께 내어
+    '피상속인보다 먼저 사망한 사실'을 증명합니다.
+ ③ 각자 인감도장을 찍고 인감증명서(3개월 이내)를 첨부합니다.
+ ④ 대습상속인 중 미성년자가 있고 그 부모(며느리·사위)도
+    함께 상속인이면, 부모가 자녀를 대리할 수 없습니다.
+    가정법원에서 특별대리인을 선임받아야 합니다(민법 §921).</div>
+<div class="form-tools"><button type="button" onclick="copyForm('fb1')">📋 복사</button><button type="button" onclick="printForm('fb1')">🖨 인쇄</button><button type="button" onclick="downloadForm('fb1','상속재산분할협의서_대습상속.txt')">⬇ 내려받기</button></div>
+</div></div>
+<div class="tip"><span class="pt">💡 빚이 많다면 이 서면이 아닙니다</span> 대습상속으로 <b>빚만 넘어오는 상황</b>이라면 협의서가 아니라 <b>가정법원에 낼 상속포기·한정승인 심판청구서</b>가 먼저입니다. 그 양식과 절차는 <a href="3-1_상속받지않기_포기_한정승인.html" style="color:var(--tip-ink);font-weight:700">상속 3-1 카드</a>에 있습니다. 순서를 바꾸면 되돌리기 어렵습니다.</div>
+
+<h2>★ 데드라인 — 대습상속인의 포기·한정승인 3개월</h2>
+<table>
+<tr><th>구분</th><th>① 언제부터 세나 (기산일)</th><th>② 근거 조문</th><th>③ 말일이 휴일이면</th><th>④ 최종 만료일</th></tr>
+<tr>
+<td><b>포기·한정승인 3개월</b></td>
+<td>'<b>자신이 대습상속인이 되어 상속이 개시된 사실을 안 날</b>'(조부모 사망으로 내가 상속인이 됨을 안 날)의 다음 날</td>
+<td>민법 §1019① / 초일 불산입 §157</td>
+<td>토·일·공휴일이면 그 다음 영업일로 연장(§161)</td>
+<td>안 날 + 3개월</td>
+</tr>
+</table>
+<div class="tip"><span class="pt">💡 3개월을 놓쳤더라도</span> 빚이 더 많은 사실을 중대한 과실 없이 뒤늦게 알았다면, 그 사실을 안 날부터 3개월 안에 <b>특별한정승인</b>(§1019③)을 할 수 있습니다. 자세한 절차·요건은 <b>3번 상속포기·한정승인</b>에서 안내합니다.</div>
+
+<h2>이 사건은 어떻게 진행되나</h2>
+<div class="flow">
+<div class="fl-t">받을 것인지 받지 않을 것인지 — 갈림길부터 정합니다</div>
+<div class="node"><span class="num">0</span><b>먼저 재산과 빚 중 어느 쪽이 큰지 봅니다</b> — 대습상속도 <b>재산과 빚을 함께</b> 물려받습니다. 정부24 <b>안심상속 원스톱서비스</b>로 돌아가신 분의 금융거래·부동산·세금 체납을 한 번에 조회할 수 있습니다. 이 결과에 따라 아래 두 길 중 하나로 갑니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">1</span><b>대습관계를 서류로 확정합니다</b> — 핵심은 <b>먼저 돌아가신 분(피대습자)이 피상속인보다 앞서 사망했다</b>는 사실입니다. 피상속인과 피대습자 양쪽의 <b>기본증명서(상세)·가족관계증명서(상세)·제적등본</b>을 떼어 사망일자를 대조합니다. 같은 사고로 함께 돌아가셨다면 <b>동시사망 추정</b>으로도 대습이 인정됩니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">2</span><b>내 몫을 계산합니다</b> — 피대습자가 <b>살아 있었다면 받았을 몫</b>이 대습상속인 전체의 몫입니다. 그 안에서 <b>배우자 1.5 : 자녀 각 1</b>로 나눕니다. 예를 들어 자녀 A·B가 각 1/2인데 A가 먼저 사망했고 A에게 배우자와 자녀 둘이 있다면, A의 1/2을 배우자 3/14, 자녀 각 1/7로 나눕니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">3</span><b>【빚이 많은 길】 3개월 안에 가정법원에 신고합니다</b> — <b>내가 대습상속인이 되었다는 사실을 안 날부터 3개월</b>입니다. 예전에 부모 상속을 포기했더라도 <b>그 효력은 여기까지 오지 않습니다.</b> 반드시 다시 신고하십시오. 아무것도 하지 않으면 단순승인으로 처리됩니다. 절차와 서식은 3-1 카드에 있습니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">4</span><b>【재산을 받는 길】 협의분할 또는 법정상속분</b> — 협의로 정한다면 <b>대습상속인을 포함한 상속인 전원</b>이 인감도장을 찍은 협의서를 만듭니다. 대습상속인 중 미성년자가 있고 그 부모도 함께 상속인이면 <b>특별대리인 선임</b>이 필요합니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">5</span><b>취득세 신고 후 상속등기</b> — 부동산이면 <b>돌아가신 달의 말일부터 6개월</b> 안에 취득세를 신고·납부하고, 인터넷등기소 e-Form으로 신청서를 작성해 관할 등기소에 제출합니다. 이때 <b>피대습자의 사망을 증명하는 서면</b>을 반드시 함께 냅니다. 비용은 일반 상속등기와 같습니다(4-1 카드 참조).</div>
+</div>
+
+<div class="cost">
+<span class="ct">비용</span>
+받는 재산이 부동산이면 <b>상속등기 비용(취득세·국민주택채권·등기신청수수료)</b>은 일반 상속등기와 같습니다 — 등기신청수수료는 상속 기준으로 <b>e-Form 17,000원 · 서면 20,000원</b>(전자신청 없음). 자세한 계산은 <b>4-1 상속등기</b>를 보세요. 빚 때문에 <b>포기·한정승인</b>을 하는 경우의 비용(인지·송달료)은 <b>3번 상속포기·한정승인</b>에서 안내합니다.
+<div style="margin-top:11px; padding-top:10px; border-top:1px dashed #cfe6d6; color:#c0392b; font-weight:600; line-height:1.8;">※ 비용문의는 상담폼을 완성후 메뉴의 <a href="/tools-calculator.html" style="color:#c0392b; text-decoration:underline; font-weight:700;">수수료 계산기</a>에서 수수료를 미리 알 수 있습니다.</div>
+</div>
+
+<h2>준비할 서류와 발급처</h2>
+<table>
+<tr><th>무엇을 (어디서 떼나)</th><th>서류</th><th>바로가기</th></tr>
+<tr><td>피상속인 확인<br>(전자가족관계등록)</td><td>피상속인(할아버지 등) 기본증명서(상세)·가족관계증명서(상세)·제적등본(출생~사망 연속)</td><td><a href="https://efamily.scourt.go.kr">전자가족관계등록</a></td></tr>
+<tr><td>★대습관계 확인<br>(전자가족관계등록)</td><td>먼저 돌아가신 분(피대습자)의 기본증명서(상세)·가족관계증명서(상세)·제적등본 — <b>먼저 사망한 사실</b>을 증명</td><td><a href="https://efamily.scourt.go.kr">전자가족관계등록</a></td></tr>
+<tr><td>대습상속인 확인<br>(전자가족관계등록 / 정부24)</td><td>대습상속인(손주·조카·며느리·사위)의 가족관계증명서·주민등록등(초)본</td><td><a href="https://efamily.scourt.go.kr">전자가족관계등록</a> / <a href="https://www.gov.kr">정부24</a></td></tr>
+<tr><td>(부동산 등기 시)</td><td>토지·건축물대장, 등기사항전부증명서, 취득세영수필확인서 등</td><td><a href="https://www.gov.kr">정부24</a> / <a href="http://www.iros.go.kr">인터넷등기소</a></td></tr>
+</table>
+<div class="tip"><span class="pt">💡 핵심은 '먼저 사망' 증명</span> 대습상속의 열쇠는 피대습자가 피상속인보다 <b>먼저 돌아가셨다</b>는 점을 가족관계·제적의 <b>사망일자</b>로 보이는 것입니다. 같은 사고로 동시 사망한 경우에는 동시사망 추정으로도 대습상속이 인정됩니다.</div>
+
+<h2>신청서는 어디서 작성하나 — 인터넷등기소</h2>
+<p>부동산을 대습상속으로 받아 상속등기를 할 때, 등기신청서는 손으로 쓸 필요 없이 <b>대법원 인터넷등기소</b>에서 <span class="term">e-Form<span class="bub">인터넷등기소에서 신청서를 입력·출력하는 표준 양식. 빈칸을 채우면 신청서가 자동 완성됩니다.</span></span>으로 작성·출력하면 됩니다. <b>상속등기는 완전 전자신청이 없으므로</b>, e-Form으로 작성·출력해 관할 등기소에 방문하거나 우편으로 제출합니다.</p>
+<table>
+<tr><th>무엇을</th><th>바로가기</th></tr>
+<tr><td>등기신청서 작성·출력 (e-Form)</td><td><a href="http://www.iros.go.kr">인터넷등기소 — 등기신청</a></td></tr>
+<tr><td>상속재산분할협의서·위임장 등 첨부서면 양식</td><td><a href="http://www.iros.go.kr">인터넷등기소 — 자료센터·등기신청양식</a></td></tr>
+<tr><td>관할 등기소 찾기 / 처리현황 조회</td><td><a href="http://www.iros.go.kr">인터넷등기소 — 등기소 찾기</a></td></tr>
+</table>
+<div class="tip"><span class="pt">💡 빚 때문에 받지 않을 때</span> 대습상속으로 빚만 넘어온다면 등기가 아니라 <b>포기·한정승인</b>이 먼저입니다. 그 신청서(가정법원)와 절차·비용은 <b>3번 상속포기·한정승인</b>에 있습니다. 등기와 혼동하지 마세요.</div>
+
+
+<h2>본 사무소가 도와드리는 일</h2>
+<div class="hire">
+<p>본 사무소에서는 의뢰인들의 고충은 덜어드리고, 함께 절차를 진행하여 원하는 결과에 도달할 수 있도록 성심을 다하겠습니다.</p>
+<p style="margin-top:12px"><b>· 재산을 받으시는 경우</b><br>① 제적·가족관계 서류로 <b>대습관계와 상속인 전원 확정</b>, ② <b>대습상속분 계산</b>, ③ <b>상속재산분할협의서 작성</b>과 상속등기 신청서류 준비까지 함께합니다.</p>
+<p style="margin-top:10px"><b>· 빚이 넘어온 경우</b><br>① 대습상속이 실제로 열렸는지 <b>확인</b>, ② 3개월 기산일(내가 상속인이 된 사실을 안 날) 판단, ③ <b>상속포기·한정승인 심판청구서 작성</b>, ④ 기간을 넘겼다면 <b>특별한정승인</b> 가능 여부 검토까지 도와드립니다.</p>
+</div>
+<div class="warn"><span class="wt">⚠ 채권자에게서 독촉장이 왔다면 오늘 확인하십시오</span>
+"예전에 아버지 빚 때문에 포기했는데 왜 또?"라는 연락을 받으셨다면, <b>할아버지·할머니가 최근 돌아가셨는지</b>부터 확인하십시오. 대습상속이 열렸다면 <b>안 날부터 3개월</b> 안에 다시 포기·한정승인을 해야 합니다. 이 기간은 생각보다 빨리 지나가고, 넘기면 <b>빚을 그대로 떠안은 것</b>으로 처리됩니다.</div>
+
+<a href="https://sanlaw.co.kr/tools-calculator.html" class="cta">🧮 내 사건 비용 미리 계산하기</a>
+<div style="text-align:center; background:#f6ecd8; border:1px solid var(--gold); border-radius:11px; padding:14px; margin:18px 0; font-size:15px; color:var(--gold-d); font-weight:700;">📞 상담은 홈 화면의 상담 창구를 이용하시면 됩니다.</div>
+
+<div class="tip"><span class="pt">💡 이어지는 카드</span> <b>상속등기의 기본 절차와 비용</b>은 <a href="4-1_상속등기_부동산명의이전.html" style="color:var(--tip-ink);font-weight:700">상속 4-1 카드</a>, <b>해외 거주·외국 국적 상속인</b>이 있으면 <a href="4-3_제외국민_외국인_상속등기.html" style="color:var(--tip-ink);font-weight:700">상속 4-3 카드</a>, <b>빚 때문에 상속을 받지 않으려면</b> <a href="3-1_상속받지않기_포기_한정승인.html" style="color:var(--tip-ink);font-weight:700">상속 3-1 카드</a>, <b>3개월을 놓친 경우</b>는 <a href="3-2_특별한정승인.html" style="color:var(--tip-ink);font-weight:700">상속 3-2 카드</a>, <b>미성년 상속인의 특별대리인</b>은 <a href="1-2_미성년자_특별대리인.html" style="color:var(--tip-ink);font-weight:700">상속 1-2 카드</a>를 보십시오.</div>
+
+<div class="src">
+근거 — 민법 제1000조(상속의 순위)·제1001조(대습상속)·제1003조 제2항(배우자의 대습상속)·제1009조(법정상속분)·제1010조(대습상속분)·제1019조 제1항(승인·포기의 기간)·제1026조 제2호(법정단순승인)·제30조(동시사망의 추정)·제921조(친권자와 그 자 사이의 이해상반행위) · 부동산등기법 제23조 제3항(상속 등 포괄승계에 따른 등기의 단독신청) · 부동산등기규칙 제60조 제1항 제6호(협의분할 상속등기와 상속인 전원의 인감증명) · 지방세법 제20조 제1항(취득세 신고·납부기한) · 대법원 2001. 3. 9. 선고 99다13157 판결(동시사망으로 추정되는 경우의 대습상속, 피대습자의 배우자의 대습상속권) · 대법원 2017. 1. 12. 선고 2014다39824 판결(피대습자에 대한 상속포기의 효력은 그 후 개시된 대습상속에 미치지 아니함) · 법제처 찾기쉬운 생활법령정보(easylaw.go.kr) 상속 &gt; 상속인 · 국가법령정보센터(law.go.kr) · 대한법률구조공단(klac.or.kr) 법률서식 · 대법원 인터넷등기소(iros.go.kr). 본 자료는 일반적인 법률정보로, 개별 사건의 법률자문이 아니며 개별 사건의 결과를 보장하지 않습니다.
+</div>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+})();
+function toggleFold(b){var fb=b.parentElement;var body=b.nextElementSibling;var open=fb.classList.toggle('open');if(body){body.style.display=open?'block':'none';}}
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('작성례가 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('작성례가 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['﻿'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('작성례를 내려받았습니다');}
+</script>
+</body>
+</html>
