@@ -548,7 +548,7 @@
         <option value="dongpo">외국국적동포 — 국내거소신고</option>
         <option value="alien-in">외국인 — 외국인등록(국내 거주)</option>
         <option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select></div>
-      <div class="docs" id="docsBox"></div>
+      <div class="line"><span class="lbl">매도인 — 법인격</span><select id="pty_sale_seller" onchange="renderDocsSale()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">등기의무자가 누구인지에 따라 <b>서류가 완전히 달라집니다</b></span></div><div class="line"><span class="lbl">매수인 — 법인격</span><select id="pty_sale_buyer" onchange="renderDocsSale()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">종교단체를 고르면 <b>취득세 감면 안내</b>가 함께 나옵니다</span></div><div id="partyDocsBox"></div><div class="docs" id="docsBox"></div>
     </div></div>
   </div>
 
@@ -3699,7 +3699,115 @@ function acqRateSale(price,rateBase){const t=radio('ptype'),hn=radio('hn'),adj=c
   if(firstHomeOK(price))return houseBaseRate(rb);      // §36의3① 후단 — §13의2 중과 배제
   if(hn==='1')return houseBaseRate(rb);if(hn==='2')return adj?0.08:houseBaseRate(rb);if(hn==='3')return adj?0.12:0.08;return 0.12;}
 function autoDutySale(){const p=val('price');let d=0;if(p<=10000000)d=0;else if(p<=30000000)d=20000;else if(p<=50000000)d=40000;else if(p<=100000000)d=70000;else if(p<=1000000000)d=150000;else d=350000;document.getElementById('stampDuty').value=d;calcSale(true);}
-function renderDocsSale(){const f=radio('bform');let ledger='';
+/* ═══════════════ 당사자 법인격별 준비서류 ═══════════════════════════
+   개인 / 법인 / 법인 아닌 사단·재단 / 종교단체·향교 / 국가·지자체
+   [A] 부동산등기법 §26(법인 아닌 사단·재단의 등기신청) · §48③(대표자 성명·주소·주민번호 기록)
+   [A] 부동산등기규칙 §48 — 법인 아닌 사단·재단의 첨부정보
+         1호 정관이나 그 밖의 규약
+         2호 대표자·관리인임을 증명하는 정보 (등기된 대표자가 신청하면 불요)
+         3호 「민법」§276① 결의가 있음을 증명하는 정보 — 등기의무자인 경우로 한정
+         4호 대표자·관리인의 주소 및 주민등록번호를 증명하는 정보
+   [A] 민법 §276① — 총유물의 관리·처분은 사원총회의 결의에 의한다
+   ※ 3호가 핵심이다. 종중·교회가 「팔 때」는 총회 결의서가 반드시 필요하지만
+     「살 때」는 필요 없다. 실무에서 자주 놓치는 자리다.
+   27회차 신설. */
+const PARTY_LABEL={ind:'개인',corp:'법인',unic:'법인 아닌 사단·재단',relig:'종교단체·향교',gov:'국가·지방자치단체'};
+
+function partyDocs(type,isObligor){
+  const L=[];
+  if(type==='corp'){
+    L.push('<b>법인등기사항전부증명서</b> — 대표자 자격·상호·본점 소명 <span class="hint">(발행 3개월 이내)</span>');
+    L.push('<b>법인인감증명서</b> 1통 <span class="hint">(발행 3개월 이내)</span> · <b>법인인감도장</b>');
+    L.push('대표이사(대표자) <b>신분증</b>');
+    L.push('사용인감을 쓰는 경우 <b>사용인감계</b>(법인인감으로 날인)');
+    if(isObligor){
+      L.push('<b>등기필정보(등기권리증)</b> — 분실 시 확인서면 작성');
+      L.push('<b>처분 결의 서면</b> — 정관에 따라 <b>이사회 의사록</b>(상법 §393① 중요한 자산의 처분) 또는 '
+            +'<b>주주총회 특별결의</b>(상법 §374①1호 영업용 재산의 중요한 일부 양도). '
+            +'<span class="tag chk">확인필요</span> <span class="hint">정관·자산 비중에 따라 갈리므로 반드시 정관을 확인하십시오. 결의 없이 한 처분은 효력 다툼이 생깁니다.</span>');
+      L.push('공익법인(재단법인 등)이면 <b>주무관청 허가서</b> — 기본재산 처분은 허가 없이 못 합니다 <span class="tag chk">확인필요</span>');
+    }
+  } else if(type==='unic'||type==='relig'){
+    L.push('<b>정관 또는 규약</b> <span class="law" title="부동산등기규칙 §48 1호">규칙 §48 1호</span>');
+    L.push('<b>대표자·관리인임을 증명하는 서면</b> — 총회·이사회 선임 결의서 등 '
+          +'<span class="hint">(등기부에 대표자가 이미 등기되어 있고 그 대표자가 신청하면 불요 — 규칙 §48 2호 단서)</span>');
+    L.push('<b>대표자·관리인의 주민등록등(초)본</b> — 주소·주민등록번호 소명 <span class="law" title="부동산등기규칙 §48 4호">규칙 §48 4호</span>');
+    L.push('<b>부동산등기용등록번호증명서</b> — 시장·군수·구청장이 부여 <span class="hint">(주민등록번호·법인등록번호가 없으므로 별도로 받아야 합니다. 최초 등기 전에 미리 받아 두십시오.)</span>');
+    L.push('대표자 <b>인감증명서·인감도장</b> · <b>신분증</b>');
+    if(isObligor){
+      L.push('<b style="color:var(--seal);">사원총회 결의서 (필수)</b> — 총유물의 처분은 사원총회 결의를 거쳐야 합니다 '
+            +'<span class="law" title="민법 §276① 총유물의 관리 및 처분은 사원총회의 결의에 의한다. / 부동산등기규칙 §48 3호 — 법인 아닌 사단이 등기의무자인 경우로 한정">민법 §276① · 규칙 §48 3호</span><br>'
+            +'　<span class="hint">▸ 소집통지·의결정족수를 정관대로 지켰는지가 다툼의 핵심입니다. 회의록에 <b>소집절차·참석자·의결내용</b>을 남기고, 참석자 명부에 인감날인+인감증명을 붙이는 것이 실무 관행입니다.</span>');
+      L.push('<b>등기필정보(등기권리증)</b> — 분실 시 확인서면 작성');
+    } else {
+      L.push('<span class="hint">※ 살 때(등기권리자)는 사원총회 결의서가 <b>법령상 필요하지 않습니다</b>(규칙 §48 3호는 등기의무자로 한정). 다만 내부적으로는 결의를 거쳐 두는 편이 안전합니다.</span>');
+    }
+    if(type==='relig'){
+      L.push('<b>종교단체임을 소명하는 서류</b> — 교단 소속증명서·사찰등록증(전통사찰) 등 <span class="hint">(감면 신청 시 필요)</span>');
+      L.push('<b>고유번호증</b>(세무서 발급)');
+    }
+  } else if(type==='gov'){
+    L.push('<b>관공서 촉탁서</b> 또는 등기신청서 · 공문');
+    L.push('<b>부동산등기용등록번호</b> — 국토교통부장관 지정·고시 번호 사용');
+    L.push('<span class="hint">※ 관공서가 당사자인 등기는 촉탁으로 처리되는 경우가 많아 절차가 다릅니다.</span>');
+  } else {
+    if(isObligor){
+      L.push('<b>등기필정보(등기권리증)</b> — 분실 시 확인서면 작성');
+      L.push('<b>인감증명서</b> 1통 — <b>부동산 매도용</b>(매수인 인적사항 기재) <span class="hint">(발행 3개월 이내)</span> · <b>인감도장</b>');
+      L.push('<b>주민등록초본</b> 1통 — <b>주소변동 이력 포함</b> <span class="hint">(등기부 주소와 다르면 주소변경등기가 선행됩니다)</span>');
+      L.push('<b>신분증</b>');
+    } else {
+      L.push('<b>주민등록등본</b> 1통 <span class="hint">(세대원 확인 — 주택 수 판정에 씁니다)</span>');
+      L.push('<b>도장</b>(막도장 가능) · <b>신분증</b>');
+    }
+  }
+  return L;
+}
+/* 종교단체 감면 안내 — 계산에는 반영하지 않고 안내만 한다.
+   [A] 지특법 §50① — 종교단체·향교가 종교행위·제사 목적 사업에 「직접 사용」하려고 취득하는 부동산 → 취득세 면제
+       추징 1호 수익사업 사용 / 2호 정당한 사유 없이 3년 내 미사용 / 3호 2년 미만 사용 후 매각·증여·용도변경
+   [A] 지특법 §177의2 — 100% 면제는 「85% 감면」으로 축소(=15% 납부). 다만 산출 취득세 200만원 이하면 전액 면제.
+       ③ 지자체 조례로 적용 여부·시기를 달리 정할 수 있어 자동 적용은 금지한다.
+   [A] 대법원 2022두33392 — §50①은 「종교행위 목적 사업에 직접 사용」에 한정. 선교·봉사·사회복지 등
+       모든 활동으로 확장 해석할 수 없다. */
+function religExemptHTML(){
+  return '<div class="note alert" style="margin-top:8px;"><span class="head">종교단체 취득세 — 「면제」라고 되어 있지만 보통 15%는 냅니다</span>'
+   +'<b>① 원칙</b> — 종교단체·향교가 <b>종교행위·제사 목적 사업에 직접 사용</b>하려고 취득하는 부동산은 취득세 <b>면제</b>'
+   +' <span class="law" title="지방세특례제한법 제50조제1항">지특법 §50①</span> <span class="tag A">A</span><br>'
+   +'<b>② 그런데 최소납부세제</b> — 100% 면제는 <b>85% 감면</b>으로 줄어듭니다. 곧 <b>취득세의 15%를 냅니다.</b>'
+   +' <span class="law" title="지방세특례제한법 제177조의2 — 면제되는 경우에도 100분의 85에 해당하는 감면율을 적용한다">지특법 §177의2</span><br>'
+   +'　▸ 다만 <b>산출 취득세가 200만원 이하</b>면 최소납부세제가 적용되지 않아 <b>전액 면제</b>입니다.<br>'
+   +'　▸ <b>지자체 조례로 달라집니다</b>(§177의2③). 그래서 계산기가 자동으로 빼지 않습니다 — <b>관할 시·군·구청 세무과에 확인 후 아래 공과금 칸에 직접 입력</b>하십시오.<br>'
+   +'<b>③ 농어촌특별세</b> — 지특법 감면분은 비과세로 보는 것이 실무이나 조문 확인이 필요합니다'
+   +' <span class="law" title="농어촌특별세법 제4조 — 비과세 항목">농특세법 §4</span> <span class="tag chk">확인필요</span><br>'
+   +'<b>④ 「직접 사용」이 핵심</b> — 대법원은 §50①을 <b>종교행위 목적 사업에 직접 사용</b>하는 경우로 한정하고, '
+   +'선교·봉사·사회복지 등 모든 활동으로 <b>확장 해석할 수 없다</b>고 봅니다(대법원 2022두33392). '
+   +'사택·수련원·주차장 등은 다툼이 잦습니다.<br>'
+   +'<b style="color:var(--seal);">⑤ 추징 — 여기서 사고가 납니다</b><br>'
+   +'　1. <b>수익사업</b>에 사용한 경우<br>'
+   +'　2. 정당한 사유 없이 <b>취득일부터 3년</b>이 지나도록 해당 용도로 직접 사용하지 않은 경우<br>'
+   +'　3. 해당 용도로 직접 사용한 기간이 <b>2년 미만</b>인 상태에서 매각·증여하거나 다른 용도로 사용한 경우<br>'
+   +'　<span class="hint">→ 취득 후 <b>3년 안에 착공·사용</b>, 사용 후 <b>2년은 유지</b>. 이 두 가지를 의뢰인께 꼭 알려 주십시오. 가산세까지 붙습니다.</span><br>'
+   +'<b>⑥ 감면 신청서류</b> — 지방세 감면신청서, <b>부동산 사용계획서</b>, 정관·규약, 종교단체 소명서류(교단 소속증명·사찰등록증 등), 고유번호증<br>'
+   +'　<span class="hint">▸ 취득세 신고기한(취득일부터 60일) 안에 <b>감면신청</b>을 함께 하십시오.</span></div>';
+}
+function renderPartyDocs(prefix,sellerSel,buyerSel,sellerName,buyerName){
+  const box=document.getElementById(prefix+'partyDocsBox');
+  if(!box)return;
+  const st=(document.getElementById(sellerSel)||{}).value||'ind';
+  const bt=(document.getElementById(buyerSel)||{}).value||'ind';
+  if(st==='ind'&&bt==='ind'){box.innerHTML='';return;}
+  let h='';
+  [[st,true,sellerName],[bt,false,buyerName]].forEach(function(x){
+    if(x[0]==='ind')return;
+    h+='<div style="margin:8px 0 4px;font-weight:800;color:var(--gold-d);">■ '+x[2]+' — '+PARTY_LABEL[x[0]]+'</div>'
+      +'<div style="line-height:1.85;">· '+partyDocs(x[0],x[1]).join('<br>· ')+'</div>';
+  });
+  if(st==='relig'||bt==='relig')h+=religExemptHTML();
+  box.innerHTML=h;
+}
+
+function renderDocsSale(){renderPartyDocs('','pty_sale_seller','pty_sale_buyer','매도인(등기의무자)','매수인(등기권리자)');const f=radio('bform');let ledger='';
   if(f==='apt')ledger='<b>대장</b> — 집합건축물대장(전유부+표제부), 대지권등록부, 대지권 목적 토지대장';
   else if(f==='house')ledger='<b>대장</b> — 일반건축물대장, 토지대장, 토지이용계획확인원 (필요시 지적도)';
   else ledger='<b>대장</b> — 토지대장(임야는 임야대장), 토지이용계획확인원, 필요시 지적도·임야도';
