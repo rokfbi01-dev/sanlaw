@@ -455,7 +455,7 @@
         <label><input type="checkbox" id="over85"> 85㎡ 초과(농특세)</label>
         <label><input type="checkbox" id="landAfterBuild" onchange="calcSale()"> 신축·증축 후 그 소유자가 부속토지 취득(§11④ → 주택세율 배제·4%)</label>
         <label><input type="checkbox" id="selfFarm"> 자경농지 감면</label>
-        <label><input type="checkbox" id="corp"> 법인취득</label>
+        <label><input type="checkbox" id="corp"> 법인·단체 취득<span class="law" title="지방세법 §13의2①1호 — 법인(국세기본법 §13에 따른 법인으로 보는 단체, 부동산등기법 §49①3호에 따른 법인 아닌 사단·재단 등 개인이 아닌 자를 포함한다)이 주택을 취득하는 경우: 4%에 중과기준세율의 400%를 더한 12%">§13의2①1호</span></label><label><input type="checkbox" id="metroCorp"> 대도시 법인 5년 내 취득<span class="law" title="지방세법 §13② — 대도시(수도권정비계획법 §6 과밀억제권역, 산업단지 제외)에서 법인을 설립·지점 설치하거나 대도시로 전입한 후 5년 이내에 취득하는 모든 부동산은 표준세율의 300%에서 중과기준세율의 200%를 뺀 세율을 적용한다. 다만 대도시 중과 제외 업종에 직접 사용할 목적이면 일반세율.">§13②</span></label>
         <label><input type="checkbox" id="verify"> 확인서면(등기권리증 분실·법§51)</label></div></div>
       <div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="feeAdjust" onchange="calcSale()">
         <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
@@ -479,7 +479,7 @@
       <details class="ref"><summary>매입률 참고표 <span class="reftag" style="background:#e7efe6;color:var(--ok);">A</span> <span class="hint">— 계산기에 내장된 실제 요율</span></summary><div class="refbody"><div class="bondRefMount"></div><p style="margin:8px 0 0;font-size:11.5px;color:#8a8270;line-height:1.6;"><b>근거</b> 주택도시기금법 §8②·시행령 §8② [별표] 부표 1(부동산 등기) — 위 표는 <b>계산기에 내장된 값을 그대로 출력</b>한 것입니다.<br><b>계산규칙</b> 5천원 미만 절사 / 5천원 이상 올림 → 만원 단위 · 각 부동산마다 개별 산정 · 공유지분은 지분율을 곱한 시가표준액으로 판정 · 공동주택은 세대당 시가표준액</p></div></details>
     </div></div>
 
-    <div class="card blue"><h2>③ 공과금 (VAT 비과세) <span class="tag chk">확인필요</span><span class="law" title="취득세 세율 자체는 지방세법 §11①에 확정되어 있습니다. 다만 주택 유상거래(§11①8호)의 세율 구간을 판정하는 기준(주택 수 산정 등)이 사안별로 달라 그 부분만 확인이 필요합니다.">사유: 주택 세율구간 판정</span></h2><div class="body"><div class="note" id="taxNote">매매 취득세 자동(주택 6억↓ <b>1%</b> / 6~9억 <b>1~3%</b>(가액×2÷3억−3) / 9억↑ <b>3%</b> · 주택외 <b>4%</b> / 농지 <b>3%</b>). 중과 — 조정 2주택·비조정 3주택 <b>8%</b> / 조정 3주택↑·법인 <b>12%</b>(§13의2). 지방교육세 <b>취득세의 10%</b>(중과 시 0.4%) · 농특세 <b>85㎡ 초과 0.2%</b>(주택외는 면적 무관 0.2%). 생애최초 12억↓ <b>최대 200만(소형·저가 300만)</b> 공제·중과배제(지특법 §36의3). 등기수수료 매매 <b>부동산마다 18,000(서면)·15,000(e-Form)·10,000(전자)</b>.<br><b>지분 이전이면</b> 세율은 <b>부동산 전체 금액</b>으로 정하고(§11①8호 후단), 그 세율을 <b>지분 상당 과세표준</b>에만 곱합니다(§11②).</div>
+    <div class="card blue"><h2>③ 공과금 (VAT 비과세) <span class="tag chk">확인필요</span><span class="law" title="취득세 세율 자체는 지방세법 §11①에 확정되어 있습니다. 다만 주택 유상거래(§11①8호)의 세율 구간을 판정하는 기준(주택 수 산정 등)이 사안별로 달라 그 부분만 확인이 필요합니다.">사유: 주택 세율구간 판정</span></h2><div class="body"><div class="note" id="taxNote">매매 취득세 자동(주택 6억↓ <b>1%</b> / 6~9억 <b>1~3%</b>(가액×2÷3억−3) / 9억↑ <b>3%</b> · 주택외 <b>4%</b> / 농지 <b>3%</b>). 중과 — 조정 2주택·비조정 3주택 <b>8%</b> / 조정 3주택↑·법인 <b>12%</b>(§13의2). 지방교육세 <b>취득세의 10%</b>(중과 시 0.4%) · 농특세 <b>85㎡ 초과 0.2%</b>(주택외는 면적 무관 0.2%). 생애최초 12억↓ <b>최대 200만(소형·저가 300만)</b> 공제·중과배제(지특법 §36의3). 등기수수료 매매 <b>부동산마다 18,000(서면)·15,000(e-Form)·10,000(전자)</b>.<br><b>지분 이전이면</b> 세율은 <b>부동산 전체 금액</b>으로 정하고(§11①8호 후단), 그 세율을 <b>지분 상당 과세표준</b>에만 곱합니다(§11②).<br><b style="color:var(--seal);">대도시 법인 5년 내 취득(§13②)</b> — 과밀억제권역에서 법인을 설립·지점 설치하거나 그곳으로 전입한 뒤 <b>5년 이내</b>에 그 지역 부동산을 사면 중과됩니다. 주택 외 <b>4%→8%</b> · 농지 <b>3%→5%</b> · 주택은 <b>12%</b>(§13②괄호→§13의2①1호). 지방교육세도 <b>3배</b>(§151①1호 가목, 주택 제외). <span class="hint">▸ 「대도시 중과 제외 업종」에 직접 사용할 목적이면 일반세율입니다(§13②단서·시행령 §26). 업종 판정은 사안별이라 자동으로 하지 않으니, 해당하면 체크를 해제하십시오.</span><br><b>법인 아닌 사단·재단도 「법인」입니다</b> — 종중·교회·사찰이 <b>주택</b>을 사면 <b>12%</b>입니다 <span class="law" title="지방세법 §13의2①1호 — 법인에는 국세기본법 §13에 따른 법인으로 보는 단체, 부동산등기법 §49①3호에 따른 법인 아닌 사단·재단 등 개인이 아닌 자를 포함한다">§13의2①1호 괄호</span>.<br><b>지방교육세</b> — 주택 유상거래는 세율×10%, 주택 외는 (표준세율−2%)×20% <span class="law" title="지방세법 §151①1호 본문 및 괄호">§151①1호</span>.</div>
       <div class="note alert"><span class="head">주택은 「몇 채째인지」에 따라 취득세가 1%에서 12%까지 달라집니다</span>세율 자체는 법(<b>지방세법 §11①8호</b>)에 정해져 있어 계산기가 자동으로 넣습니다. 그러나 <b>1주택인지 2·3주택인지, 조정대상지역인지</b>에 따라 세금이 <b>수천만원까지 차이</b>납니다. 이 판정은 세대·지역·일시적 2주택 여부 등 사안별이라 <b>계산기가 자동으로 정하지 않습니다.</b><br>▸ 위 「주택 수」를 <b>본인 세대 기준으로 정확히</b> 골라 주십시오. 헷갈리시면 <b>그대로 두고 상담 때 말씀해 주십시오.</b><br>▸ 나머지(교육세·농특세·등기신청수수료)는 <b>법에 확정된 값</b>으로 자동 계산됩니다. <span class="law" title="등기신청수수료는 「등기사항증명서 등 수수료규칙」 §5의2 — 2025.8.1. 시행 대법원규칙 제3222호에 따른 공식 금액입니다.">수수료규칙 §5의2 · 2025.8.1.</span></div>
       <details class="ref" style="margin-bottom:12px;"><summary>취득세 세율표 (적용 기준) <span class="reftag">확인필요</span></summary><div class="refbody">
         <table class="ref"><tr><th>구분</th><th class="r">취득세</th><th class="r">교육세</th><th class="r">농특세</th></tr>
@@ -3692,7 +3692,15 @@ function shareOf(p){return bsTrRatio(p);}
 /* 과세표준 = 전체 금액 × 이전 지분 */
 function taxBaseOf(p,total){const r=bsTrRatio(p);return (r>0&&r<1)?Math.round(total*r):total;}
 function acqRateSale(price,rateBase){const t=radio('ptype'),hn=radio('hn'),adj=chk('adjusted'),cp=chk('corp');
-  const rb=(rateBase&&rateBase>0)?rateBase:price;      // 구간 판정용(지분 취득 시 전체 환산가액)
+  const rb=(rateBase&&rateBase>0)?rateBase:price;      // 구간 판정용
+  /* [A] 지방세법 §13② — 대도시 법인 설립·지점설치·전입 후 5년 이내 부동산 취득
+         「제11조제1항의 표준세율의 100분의 300에서 중과기준세율(2%)의 100분의 200을 뺀 세율」
+           · 주택 외(4%) → 4%×3 − 4% = 8%
+           · 농지 (3%)   → 3%×3 − 4% = 5%
+           · 주택        → 괄호에 따라 §13의2①1호 세율(12%)
+         ※ 단서: 대도시 중과 제외 업종에 직접 사용할 목적이면 일반세율(시행령 §26).
+           업종 판정은 사안별이라 자동으로 하지 않는다. 해당하면 체크를 해제한다. */
+  if(chk('metroCorp')){ if(t==='etc')return 0.08; if(t==='farm')return 0.05; return 0.12; }
   if(t==='etc')return 0.04;if(t==='farm')return 0.03;
   if(t==='house'&&chk('landAfterBuild'))return 0.04;   // §11④
   if(cp)return 0.12;
@@ -3919,7 +3927,21 @@ function calcSale(fromEdit){
     if(fhOK){const cap=firstHomeCap();fhCut=Math.min(acq,cap);acq=acq-fhCut;}   // 산출세액 ≤ 한도 → 면제 / 초과 → 한도 공제
     const farmCut=(radio('ptype')==='farm'&&chk('selfFarm'));
     if(farmCut)acq=acq*0.5; // 자경농지 50% 감면(지특법 §6① · 일몰 2026.12.31.)
-    const mid=(rate>=0.08);const edu=mid?_tb*0.004:_tb*rate*0.1;
+    /* [A] 지방세법 §151①1호 지방교육세
+       본문 : (표준세율 − 1천분의 20) × 20%
+       괄호 : §11①8호(주택 유상거래)는 「해당 세율 × 50%」를 적용해 산출한 금액의 20% (= 세율 × 10%)
+       가목 : §13② 해당 시 본문 산출액의 300%. 다만 법인이 주택을 취득하면 나목을 적용
+       나목 : §13의2 해당 시 (4% − 2%) × 20% = 0.4%
+   ※ 종전에는 주택·비주택을 가리지 않고 「세율 × 10%」로 계산해 농지가 0.3%로 나왔다.
+     법대로는 (3% − 2%) × 20% = 0.2% 다. 27회차 정정. */
+  const mid=(rate>=0.08);
+  const _isH=(radio('ptype')==='house');
+  const _std=(radio('ptype')==='farm')?0.03:0.04;            // 비주택 표준세율
+  let edu;
+  if(chk('metroCorp')&&!_isH){ edu=_tb*(_std-0.02)*0.2*3; }  // 가목 — §13② 본문산출액의 300%
+  else if(mid){ edu=_tb*0.004; }                             // 나목 — §13의2(주택 중과·법인 주택)
+  else if(_isH){ edu=_tb*rate*0.1; }                         // 괄호 — 주택 유상거래(세율×50%×20%)
+  else { edu=_tb*(_std-0.02)*0.2; }                          // 본문 — (표준세율−2%)×20%
     let rural=0;if(radio('ptype')==='house')rural=chk('over85')?_tb*0.002:0;else rural=_tb*0.002;
     document.getElementById('acqTax').value=taxLocal(Math.round(acq));
     document.getElementById('eduTax').value=taxLocal(Math.round(edu));
