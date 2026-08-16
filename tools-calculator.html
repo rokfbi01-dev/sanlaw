@@ -416,7 +416,7 @@
     <h2 class="stitle">매매 — 소유권이전 <small>보수표 Ⅰ-1 · 등기수수료 일반 · <b>신규 분양·분양권 전매 포함</b></small></h2>
 
     <div class="card blue"><h2>① 매매 정보</h2><div class="body">
-      <div class="line"><span class="lbl">매매금액(원)</span><input type="number" class="amt" id="price" placeholder="0" oninput="calcSale()"><span class="hint" id="ps_priceHint"></span></div>
+      <div class="line"><span class="lbl">매매금액(원)</span><input type="number" class="amt" id="price" placeholder="0" oninput="calcSale()"><span class="hint" id="ps_priceHint"></span><div id="priceShareNote" style="display:none;"></div></div>
       <div style="background:linear-gradient(135deg,#fff6e0,#ffeec9);border:2px solid var(--gold);border-radius:10px;padding:12px 14px;margin:10px 0;">
         <div style="font-size:14.5px;font-weight:800;color:var(--gold-d);margin-bottom:8px;">🏢 분양받은 아파트인가요?</div>
         <div style="font-size:13px;color:#6b5540;line-height:1.65;margin-bottom:10px;">신규 분양·분양권 전매로 취득하셨다면 <b>분양대금만으로 계산하면 안 됩니다.</b> 발코니 확장비·붙박이 옵션(전매는 프리미엄까지)을 <b>더한 금액</b>이 취득세 과세표준입니다. 아래를 켜면 합산 도우미와 <b>분양 전용 준비서류</b>가 나옵니다.</div>
@@ -2971,6 +2971,30 @@ function bondRate(type,std,metro){const t=BOND_RATE[type];if(!t||std<=0)return 0
 function bondAmount(std,rate){if(std<=0||rate<=0)return 0;let amt=std*rate/1000;const frac=amt%10000;amt=(frac<5000)?Math.floor(amt/10000)*10000:Math.ceil(amt/10000)*10000;return amt;}
 
 
+
+/* ═══════════ 지분 이전 시 「매매금액」 입력 기준 안내·검산 ═══════════
+   ▸ 매매계약서에는 실제로 오가는 돈, 곧 「이전되는 지분의 대금」이 적힌다.
+     그래서 매매금액 칸에도 이전분 대금을 넣는 것이 맞다.
+   ▸ 그런데 여기에 부동산 전체 대금을 잘못 넣으면
+     §11①8호 후단의 환산(취득가액 ÷ 지분율) 때문에 세율 구간이 크게 뛴다.
+     예) 전체 7억을 넣고 지분이 2/10이면 환산 35억 → 3% (정답은 1.4억·환산 7억·1.67%)
+     실수 하나가 세금을 몇 배로 부풀리므로, 화면에서 바로 잡아 준다.
+   ▸ 검산 기준 : 환산가액이 「부동산 전체 시가표준액」의 3배를 넘으면 과다입력을 의심한다.
+     (실거래가가 공시가격보다 높은 것은 정상이므로 여유를 크게 둔다)
+   27회차 신설. */
+function priceShareGuide(total,taxBase,tr){
+  const box=document.getElementById('priceShareNote');
+  if(!box)return;
+  const d=BSHARE[''];
+  if(!d||!d.on||tr>=1||!(total>0)){box.style.display='none';box.innerHTML='';return;}
+  const share=bsEsc(d.trNum)+'/'+bsEsc(d.trDen);
+  box.innerHTML='<div class="note" style="margin:6px 0 0;background:#f6f1e3;">'
+    +'<b>이 칸에는 부동산 <u>전체</u> 금액을 넣으십시오.</b> 지분 몫은 계산기가 나눕니다.<br>'
+    +'▸ 전체 <b>'+won(total)+'</b> × 이전 지분 <b>'+share+'</b> = <b style="font-size:15px;">과세표준 '+won(taxBase)+'</b><br>'
+    +'<span class="hint">세율은 전체 금액으로 구간을 정하고(§11①8호 후단), 그 세율을 지분 상당 과세표준에만 곱합니다(§11②).</span></div>';
+  box.style.display='block';
+}
+
 /* ═══════════ §2②4호 → §10③ 당사자 다수 가산 ═══════════════════════
    [A] 보수기준 §2② — 다음 각 호에 해당하면 기준보수액에 증액할 수 있다.
          1. 업무·사건이 특별히 중대하거나 복잡한 경우
@@ -3639,8 +3663,19 @@ function firstHomeCap(){return chk('fh_bonus')?3000000:2000000;}
 /* 매매 취득세율 — §11①7호나목 4% / 7호가목 농지 3% / 8호 주택 1~3%
    ★ §11④ — 주택을 신축 또는 증축한 이후 「해당 주거용 건축물의 소유자(배우자 및 직계존비속 포함)」가
      해당 주택의 「부속토지」를 취득하는 경우에는 제1항제8호를 적용하지 아니한다 → 7호나목 4% [A] */
-/* ★ 27회차 신설 — 지분 취득 시 주택세율 구간 판정용 「전체 주택 환산가액」
-   [A] 지방세법 §11①8호 후단
+/* ★ 27회차 — 지분 이전 시 세액 산정
+   [A] 지방세법 §11①8호 후단 — 지분으로 취득한 주택의 취득당시가액은
+       「전체 주택의 취득당시가액」으로 보아 세율 구간을 판정한다.
+   [A] 지방세법 §11② — 과세표준은 「그 취득지분의 가액」으로 한다.
+   → 이 계산기는 모든 금액 칸에 「부동산 전체 금액」을 넣는다.
+     넣은 값이 곧 「전체 주택의 취득당시가액」이므로 환산이 필요 없고,
+     과세표준만 이전 지분만큼 잘라 쓰면 된다. 칸마다 기준이 달라 헷갈릴 일이 없다.
+         세율    = 전체 금액으로 구간 판정
+         과세표준 = 전체 금액 × 이전 지분
+         세액    = 과세표준 × 세율
+   ※ 옛 방식(이전분 대금만 넣고 지분율로 나눠 환산)은 폐기했다. 전체 대금을
+     잘못 넣으면 세율이 몇 배로 뛰어 위험했다.
+   구 근거 원문: 지방세법 §11①8호 후단
        「지분으로 취득한 주택의 취득당시가액은 다음 계산식에 따라 산출한
          전체 주택의 취득당시가액으로 한다」
        전체 주택 취득당시가액 = 취득지분 취득가액 × (전체 주택 시가표준액 ÷ 취득지분 시가표준액)
@@ -3652,7 +3687,10 @@ function firstHomeCap(){return chk('fh_bonus')?3000000:2000000;}
 /* 금액을 「○억 ○,○○○만원」 형태로 읽기 쉽게 */
 function eokTxt(v){v=Math.round(v||0);const e=Math.floor(v/100000000),m=Math.round((v%100000000)/10000);
   return (e>0? e+'억'+(m>0?' '+m.toLocaleString()+'만원':'원') : m.toLocaleString()+'만원');}
-function acqBaseForRate(price){const r=bsTrRatio('');return (r>0&&r<1)?Math.round(price/r):price;}
+/* 이전 지분율 (지분 이전을 쓰지 않으면 1) */
+function shareOf(p){return bsTrRatio(p);}
+/* 과세표준 = 전체 금액 × 이전 지분 */
+function taxBaseOf(p,total){const r=bsTrRatio(p);return (r>0&&r<1)?Math.round(total*r):total;}
 function acqRateSale(price,rateBase){const t=radio('ptype'),hn=radio('hn'),adj=chk('adjusted'),cp=chk('corp');
   const rb=(rateBase&&rateBase>0)?rateBase:price;      // 구간 판정용(지분 취득 시 전체 환산가액)
   if(t==='etc')return 0.04;if(t==='farm')return 0.03;
@@ -3754,18 +3792,20 @@ function calcSale(fromEdit){
   const price=val('price');
   document.getElementById('houseNline').style.display=(radio('ptype')==='house')?'flex':'none';
   if(!fromEdit){
-    const _rb=acqBaseForRate(price);const rate=acqRateSale(price,_rb);let acq=price*rate;
+    const _tr=shareOf(''), _tb=taxBaseOf('',price);   /* 세율=전체 금액 / 과세표준=지분 상당액 */
+    const rate=acqRateSale(price);let acq=_tb*rate;
+    priceShareGuide(price,_tb,_tr);
     const fhOK=firstHomeOK(price);
     let fhCut=0;
     if(fhOK){const cap=firstHomeCap();fhCut=Math.min(acq,cap);acq=acq-fhCut;}   // 산출세액 ≤ 한도 → 면제 / 초과 → 한도 공제
     const farmCut=(radio('ptype')==='farm'&&chk('selfFarm'));
     if(farmCut)acq=acq*0.5; // 자경농지 50% 감면(지특법 §6① · 일몰 2026.12.31.)
-    const mid=(rate>=0.08);const edu=mid?price*0.004:price*rate*0.1;
-    let rural=0;if(radio('ptype')==='house')rural=chk('over85')?price*0.002:0;else rural=price*0.002;
+    const mid=(rate>=0.08);const edu=mid?_tb*0.004:_tb*rate*0.1;
+    let rural=0;if(radio('ptype')==='house')rural=chk('over85')?_tb*0.002:0;else rural=_tb*0.002;
     document.getElementById('acqTax').value=taxLocal(Math.round(acq));
     document.getElementById('eduTax').value=taxLocal(Math.round(edu));
     document.getElementById('ruralTax').value=taxLocal(Math.round(rural));
-    document.getElementById('acqRate').textContent='('+(rate*100).toFixed(rate*100%1?2:0)+'%'+(mid?' 중과':'')+(radio('ptype')==='house'&&chk('landAfterBuild')?' §11④ 부속토지(주택세율 배제)':'')+(fhOK?' 생애최초 −'+(fhCut/10000).toFixed(0)+'만(중과배제)':'')+(farmCut?' 자경50%':'')+(_rb!==price?' · 세율은 주택 전체 환산가액 '+eokTxt(_rb)+' 기준 §11①8호 후단':'')+')';
+    document.getElementById('acqRate').textContent='('+(rate*100).toFixed(rate*100%1?2:0)+'%'+(mid?' 중과':'')+(radio('ptype')==='house'&&chk('landAfterBuild')?' §11④ 부속토지(주택세율 배제)':'')+(fhOK?' 생애최초 −'+(fhCut/10000).toFixed(0)+'만(중과배제)':'')+(farmCut?' 자경50%':'')+(_tr<1?' · 세율은 부동산 전체 '+eokTxt(price)+' 기준(§11①8호 후단) · 과세표준은 지분 상당 '+eokTxt(_tb)+'(§11②)':'')+')';
     const _fw=document.getElementById('fhWarn');if(_fw)_fw.style.display=fhOK?'block':'none';
   }
   const bondLoss=Math.round(val('bondBuy')*val('bondRate')/100);
@@ -3781,7 +3821,7 @@ function calcSale(fromEdit){
   const adj=parseFloat(document.getElementById('feeAdjust').value)||1;
   /* ★ 표상 기본보수(feeRaw) — 가산보수(§10③④⑥·§14①②⑤)는 「당해 기본보수」 = 표상 금액을
      기준으로 산정한다. 조정 후 금액에 가산율을 곱하면 가산에 가산이 얹혀 §2⑤(상한) 초과 소지. */
-  const feeRaw=tierFee('Ⅰ-1',price);
+  const feeRaw=tierFee('Ⅰ-1',taxBaseOf('',price));   /* §9① 과세표준액 — 지분 이전이면 지분 상당액 */
   const feeBase=Math.round(feeRaw*adj);
   /* 보수기준 §10⑥ — 외국인·재외국민 포함 또는 등기원인 관련 서류를 외국에서 받아야 하는 등기
      → 당해 기본보수의 100% 상당액까지 가산 [A] */
@@ -3899,24 +3939,25 @@ function renderDocsInherit(){const f=radio('s_bform');let ledger='';
 function calcInherit(fromEdit){
   renderBondUIInherit();
   const price=val('s_price');
+  const _tr=shareOf('s_'), _tb=taxBaseOf('s_',price);   /* 과세표준 = 전체 × 이전(상속) 지분 */
   const regMode=(radio('s_taxMode')==='reg');
   if(!fromEdit){
     if(regMode){
       // 舊 등록세(2011년 취득세·등록세 통합 이전 상속개시분·부칙 §6): 농지외 0.8% / 농지 0.3% + 지방교육세 20% · 농특세 0
       const rrate=(radio('s_ptype')==='farm')?0.003:0.008;
-      const regTax=price*rrate;
+      const regTax=_tb*rrate;
       document.getElementById('s_acqTax').value=taxLocal(Math.round(regTax));
       document.getElementById('s_eduTax').value=taxLocal(Math.round(regTax*0.2));
       document.getElementById('s_ruralTax').value=taxLocal(0);
       document.getElementById('s_acqRate').textContent='('+(rrate*100).toFixed(1)+'% '+(radio('s_ptype')==='farm'?'농지':'농지외')+' · 舊등록세)';
     }else{
-      const rate=inheritAcqRate();const acq=price*rate;
+      const rate=inheritAcqRate();const acq=_tb*rate;
       const farm=(radio('s_ptype')==='farm');
       const spec=(rate===0.008||rate===0.003);   // §15①2호 세율특례 적용 여부
       /* 지방교육세(§151①1호): §11①1호 "표준세율" 기준 − 2% 후 ×20%
          → 특례세율(0.8%·0.3%)이 아니라 표준세율(농지 2.3% / 농지외 2.8%)로 산출
          농지외 (2.8%−2%)×20% = 0.16% / 농지 (2.3%−2%)×20% = 0.06% */
-      const edu=farm?price*0.0006:price*0.0016;
+      const edu=farm?_tb*0.0006:_tb*0.0016;
       /* 농어촌특별세
          · §15①2호 특례(0.8%·0.3%) → 농특세법 §4 8호·시행령 §4④가 §15① 1~4호를 비과세로 열거
            + 과세분(§5①6호)도 표준세율 2% 의제 시 2%−2%=0 → 면적 무관 0
@@ -3925,8 +3966,8 @@ function calcInherit(fromEdit){
            단 85㎡ 이하 주택은 §4 11호 서민주택 비과세 */
       let rural=0;
       if(spec)rural=0;
-      else if(radio('s_ptype')==='house')rural=chk('s_over85')?price*0.002:0;
-      else rural=price*0.002;
+      else if(radio('s_ptype')==='house')rural=chk('s_over85')?_tb*0.002:0;
+      else rural=_tb*0.002;
       document.getElementById('s_acqTax').value=taxLocal(Math.round(acq));
       document.getElementById('s_eduTax').value=taxLocal(Math.round(edu));
       document.getElementById('s_ruralTax').value=taxLocal(Math.round(rural));
@@ -3953,7 +3994,7 @@ function calcInherit(fromEdit){
   const adj=parseFloat(document.getElementById('s_adjust').value)||1;
   /* ★ 표상 기본보수(feeRaw) — 가산보수(§10③④⑥·§14①②⑤)는 「당해 기본보수」 = 표상 금액을
      기준으로 산정한다. 조정 후 금액에 가산율을 곱하면 가산에 가산이 얹혀 §2⑤(상한) 초과 소지. */
-  const feeRaw=tierFee('Ⅰ-1',price);
+  const feeRaw=tierFee('Ⅰ-1',taxBaseOf('s_',price));   /* §9① 과세표준액 — 지분 이전이면 지분 상당액 */
   const feeBase=Math.round(feeRaw*adj);
   /* 보수기준 §10⑥ — 외국인·재외국민 포함 또는 등기원인 관련 서류를 외국에서 받아야 하는 등기
      → 당해 기본보수의 100% 상당액까지 가산 [A] */
@@ -4145,12 +4186,13 @@ function renderDocsGift(){const f=radio('gv_bform'),rel=radio('gv_relation'),fam
 function calcGift(fromEdit){
   renderBondUIGift();
   const price=val('gv_price');
+  const _tr=shareOf('gv_'), _tb=taxBaseOf('gv_',price);   /* 과세표준 = 전체 × 이전 지분 */
   if(!fromEdit){
-    const rate=giftAcqRate(price);const acq=price*rate;
+    const rate=giftAcqRate(price);const acq=_tb*rate;   /* 중과 3억 판정=전체(§13의2②) / 과세표준=지분 상당액(§11②) */
     /* 지방교육세 §151①1호 — (표준세율 − 2%) × 20%
      무상 3.5% → 0.3% / 비영리 2.8% → 0.16% / 중과 12% → §11①7호나목 4% 기준 0.4% */
-  const mid=(rate>=0.12);const edu=mid?price*0.004:(rate===0.028?price*0.0016:price*0.003);
-    let rural=0;if(radio('gv_ptype')==='house')rural=chk('gv_over85')?price*0.002:0;else rural=price*0.002;
+  const mid=(rate>=0.12);const edu=mid?_tb*0.004:(rate===0.028?_tb*0.0016:_tb*0.003);
+    let rural=0;if(radio('gv_ptype')==='house')rural=chk('gv_over85')?_tb*0.002:0;else rural=_tb*0.002;
     document.getElementById('gv_acqTax').value=taxLocal(Math.round(acq));
     document.getElementById('gv_eduTax').value=taxLocal(Math.round(edu));
     document.getElementById('gv_ruralTax').value=taxLocal(Math.round(rural));
@@ -4169,7 +4211,7 @@ function calcGift(fromEdit){
   const adj=parseFloat(document.getElementById('gv_adjust').value)||1;
   /* ★ 표상 기본보수(feeRaw) — 가산보수(§10③④⑥·§14①②⑤)는 「당해 기본보수」 = 표상 금액을
      기준으로 산정한다. 조정 후 금액에 가산율을 곱하면 가산에 가산이 얹혀 §2⑤(상한) 초과 소지. */
-  const feeRaw=tierFee('Ⅰ-1',price);
+  const feeRaw=tierFee('Ⅰ-1',taxBaseOf('gv_',price));   /* §9① 과세표준액 — 지분 이전이면 지분 상당액 */
   const feeBase=Math.round(feeRaw*adj);
   /* 보수기준 §10⑥ — 외국인·재외국민 포함 또는 등기원인 관련 서류를 외국에서 받아야 하는 등기
      → 당해 기본보수의 100% 상당액까지 가산 [A] */
@@ -5471,9 +5513,10 @@ function calcPreserve(fromEdit){
   renderBondUIPreserve();
   const mw=document.getElementById('pr_metroWarn');if(mw)mw.style.display=chk('pr_metro')?'block':'none';
   const price=val('pr_price');
+  const _tr=shareOf('pr_'), _tb=taxBaseOf('pr_',price);   /* 과세표준 = 전체 × 이전 지분 */
   if(!fromEdit){
-    const acq=price*0.028, edu=price*0.0016;
-    let rural=chk('pr_over85')?price*0.002:(radio('pr_ptype')==='etc'?price*0.002:0);
+    const acq=_tb*0.028, edu=_tb*0.0016;
+    let rural=chk('pr_over85')?_tb*0.002:(radio('pr_ptype')==='etc'?_tb*0.002:0);
     document.getElementById('pr_acqTax').value=taxLocal(Math.round(acq));
     document.getElementById('pr_eduTax').value=taxLocal(Math.round(edu));
     document.getElementById('pr_ruralTax').value=taxLocal(Math.round(rural));
@@ -5491,7 +5534,7 @@ function calcPreserve(fromEdit){
   const adj=parseFloat(document.getElementById('pr_adjust').value)||1;
   /* ★ 표상 기본보수(feeRaw) — 가산보수(§10③④⑥·§14①②⑤)는 「당해 기본보수」 = 표상 금액을
      기준으로 산정한다. 조정 후 금액에 가산율을 곱하면 가산에 가산이 얹혀 §2⑤(상한) 초과 소지. */
-  const feeRaw=tierFee('Ⅰ-1',price);
+  const feeRaw=tierFee('Ⅰ-1',taxBaseOf('pr_',price));   /* §9① 과세표준액 — 지분 이전이면 지분 상당액 */
   const feeBase=Math.round(feeRaw*adj);
   /* 보수기준 §10⑥ — 외국인·재외국민 포함 또는 등기원인 관련 서류를 외국에서 받아야 하는 등기
      → 당해 기본보수의 100% 상당액까지 가산 [A] */
