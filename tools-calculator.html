@@ -3522,8 +3522,25 @@ const SCENARIO={
    guide:'▸ <b>재산조회는 「재산명시절차를 거친 후」</b>에 할 수 있는 것이 원칙입니다(민사집행법 §74). 재산명시를 먼저 신청하셨는지 확인하십시오.<br>· <span style="color:#b03a3a;font-weight:700;">★ 인지·송달료보다 「조회기관별 조회비용」이 훨씬 큽니다.</span> 민사집행규칙 §36①에 따라 <b>조회에 드는 비용을 미리 납부</b>해야 하며, <b>조회할 기관의 수·종류에 따라 합산</b>됩니다(금융기관을 다수 지정하면 수십만원에 이를 수 있음).<br>· 조회기관별 단가는 확인하지 못했으므로 <b>자동계산하지 않습니다.</b> 접수 법원에 확인한 금액을 아래 공과금란 <b>「기타 비용」에 직접 입력</b>하십시오. <span class="tag chk">확인필요</span><br>· 회신 결과는 <b>열람·복사</b> 방식으로 확인하며, 재산조회 결과를 <b>제3자에게 누설하면 처벌</b>될 수 있습니다(민사집행법 §76②).'}},
  "공시최고·소송비용확정":{cat:'civil',kind:'tier',tier:'Ⅶ-1②',baseLabel:'대상 가액 — 공시최고는 증권·증서 액면금액, 소송비용확정은 확정 대상 비용액(비우면 5천만 의제)',prof:{injiKind:'flat',injiFlat:1000,songCnt:5,songParty:'신청인+상대방',partyDef:2}},
  "지급명령·조정신청":{cat:'civil',full:'payorder'},
+ "동산·채권담보권 설정(설정·이전·채권액 증가)":{cat:'re',kind:'tier',tier:'Ⅳ-1',baseLabel:'채권액(채권최고액)',
+   unitFee:20000, unitLabel:'담보목적물(동산·채권) 개수', unitLaw:'보수기준 §17① — 1개 초과 시 초과 1개마다 20,000원',
+   prof:{guide:'▸ 「동산·채권 등의 담보에 관한 법률」에 따른 <b>담보등기</b>입니다. 관할은 <b>대전지방법원 등기국</b> 단일 관할입니다.<br>▸ 담보목적물인 동산 또는 채권이 <b>1개를 초과하면 초과 1개마다 20,000원</b>을 가산합니다(보수기준 <b>§17①</b>). 다만 동산을 <b>보관장소로 특정</b>하는 경우에는 같은 보관장소의 같은 종류 동산 전체를 <b>1개</b>로 봅니다.',injiKind:'none',songCnt:0}},
+ "동산·채권담보권 추가설정":{cat:'re',kind:'tier',tier:'Ⅳ-2',baseLabel:'채권액(채권최고액)',
+   unitFee:20000, unitLabel:'담보목적물(동산·채권) 개수', unitLaw:'보수기준 §17① — 1개 초과 시 초과 1개마다 20,000원',
+   prof:{injiKind:'none',songCnt:0}},
+ "동산·채권담보권 변경·경정·연장·말소":{cat:'re',kind:'flat',flat:'Ⅳ-3(1)',
+   prof:{guide:'▸ 담보목적물의 변경, 담보권의 변경·경정·연장·말소 — 건당 <b>100,000원</b>(보수표 Ⅳ-3)',injiKind:'none',songCnt:0}},
+ "동산·채권담보 등기명의인 표시변경 등":{cat:'re',kind:'flat',flat:'Ⅳ-3(2)',
+   prof:{guide:'▸ 등기명의인 표시의 변경·경정, 그 밖의 등기(담보권설정자의 변경·경정) — 건당 <b>70,000원</b>(보수표 Ⅳ-3)',injiKind:'none',songCnt:0}},
+ "상담·자문 (개별)":{cat:'civil',kind:'flat',flat:'Ⅹ-1(1)',
+   prof:{guide:'▸ 의뢰인과의 개별적 상담·자문료는 <b>1건당 150,000원</b>입니다(보수기준 <b>§26①</b>).<br>▸ 다만 <b>사건의 수임이 따르는 경우에는 상담·자문료를 면제할 수 있습니다</b>(같은 항 단서). 수임으로 이어지면 위 「수임 범위」와 별개로 면제 여부를 정하십시오.',injiKind:'none',songCnt:0}},
+ "상담·자문 (계속적·월액)":{cat:'civil',kind:'flat',flat:'Ⅹ-1(2)',
+   prof:{guide:'▸ 계속적 상담·자문은 <b>월액 600,000원 이하</b>입니다(보수기준 <b>§26②</b>).<br>▸ 이 경우에는 <b>사건수임으로 연결되는 경우에도 적용</b>됩니다. 건수 칸에 <b>개월 수</b>를 넣으십시오.',injiKind:'none',songCnt:0}},
  "공탁":{cat:'civil',kind:'tier',tier:'Ⅴ',baseLabel:'공탁가액',addFee:'집행공탁 사유신고서 작성 가산보수',addFeeDefault:580000,addFeeGuide:'<b>변제공탁</b>(민법§487)과 <b>집행공탁</b>(민사집행법§248 등)을 구분하세요. ① <b>변제공탁</b> — 피공탁자에게 공탁통지, 초본발급·보정 중심(사유신고 불요). ② <b>집행공탁</b> — 공탁 후 집행법원에 <b>사유신고</b>를 하며(민집§248④), 사유신고 시점이 배당요구 종기입니다(민집§247①1호). <b>집행공탁이면 아래 「사유신고서 가산보수」를 체크</b>하세요(기본 580,000·사안별 협의 조정). <span class="tag chk">확인필요</span> 협회 정액이 아니라 협의 가산보수입니다(법무사보수기준§19②).',prof:{injiKind:'none',songCnt:0}},
- "부동산경매 상담":{cat:'civil',kind:'tier',tier:'Ⅵ-1',baseLabel:'감정가액'},
+ "부동산경매 상담":{cat:'civil',kind:'tier',tier:'Ⅵ-1',baseLabel:'감정가액',
+   unitFee:50000, unitLabel:'부동산 개수', unitFree:3,
+   unitLaw:'보수기준 §22②1호 — 일괄매각으로 부동산이 3개를 초과하면 초과 1개마다 50,000원 가산',
+   unitIndiv:true,prof:{guide:'▸ <b>일괄매각</b>이면 부동산이 <b>3개를 초과</b>할 때 초과 1개마다 <b>50,000원</b>을 가산합니다(§22②1호).<br>▸ <b>개별매각</b>의 여러 물건을 함께 권리분석하는 경우에는 <b>각 부동산마다 50,000원</b>을 가산합니다(§22②2호). 이때는 아래 개수를 <b>전체 물건 수</b>로 넣고 「개별매각」을 체크하십시오.<br>▸ §22① — 난이도·응찰회수·낙찰여부 등을 감안해 기본보수의 <b>100%까지</b> 협의 가산할 수 있습니다. 위 「보수 조정」에서 반영하십시오.',injiKind:'none',songCnt:0}},
  "경매 매수신청대리":{cat:'civil',full:'auction'},
  "부동산경매(신청)":{cat:'civil',full:'auctionFile'},
  "개인회생(개시신청)":{cat:'civil',kind:'tier',tier:'Ⅷ',baseLabel:'채무금액',prof:{injiKind:'flat',injiFlat:30000,songCnt:10,songFormula:'rehab',songParty:'채권자 수',partyDef:1,
@@ -7007,6 +7024,20 @@ function buildGeneric(name){
   }else{
     h+='<div class="line"><span class="lbl">건수</span><div class="stepper"><button onclick="step(\'g_cnt\',-1,calcGeneric)">−</button><input type="number" id="g_cnt" value="1" min="1" oninput="calcGeneric()"><button onclick="step(\'g_cnt\',1,calcGeneric)">+</button></div><span class="hint">정액 '+(FLAT[def.flat]||0).toLocaleString()+'원 × 건수</span></div>';
   }
+  if(def.unitFee){
+    /* [A] 보수기준 §17①(동산·채권담보 목적물 1개 초과 시 20,000원)
+           보수기준 §22②(경매 상담 — 1호 일괄매각 3개 초과 시 초과 1개마다 50,000원 /
+                          2호 개별매각의 여러 물건을 함께 권리분석하면 각 부동산마다 50,000원) */
+    h+='<div class="line"><span class="lbl">'+def.unitLabel+'</span>'
+      +'<div class="stepper"><button onclick="step(\'g_uCnt\',-1,calcGeneric)">−</button>'
+      +'<input type="number" id="g_uCnt" value="1" min="1" oninput="calcGeneric()">'
+      +'<button onclick="step(\'g_uCnt\',1,calcGeneric)">+</button></div>'
+      +'<span class="hint">'+def.unitLaw+'</span></div>';
+    if(def.unitIndiv)
+      h+='<div class="line"><span class="lbl"></span><label class="checks"><input type="checkbox" id="g_uIndiv" onchange="calcGeneric()"> '
+        +'<b>개별매각</b>의 여러 물건을 함께 권리분석 — 각 부동산마다 50,000원(§22②2호)</label></div>';
+    h+='<div class="line" style="border:none;"><span class="lbl"></span><span class="hint" id="g_uNote"></span></div>';
+  }
   if(def.regType){h+='<div class="line"><span class="lbl">부동산/대상 개수</span><div class="stepper"><button onclick="step(\'g_units\',-1,calcGeneric)">−</button><input type="number" id="g_units" value="1" min="1" oninput="calcGeneric()"><button onclick="step(\'g_units\',1,calcGeneric)">+</button></div><span class="hint">등기수수료 곱</span></div>';}
   if(def.prof){
     if(def.prof.songCnt)h+='<div class="line"><span class="lbl">당사자 수 <span class="hint">('+(def.prof.songParty||'당사자')+')</span></span><div class="stepper"><button onclick="step(\'g_party\',-1,()=>calcGeneric())">−</button><input type="number" id="g_party" value="'+(def.prof.partyDef||2)+'" min="1" oninput="calcGeneric()"><button onclick="step(\'g_party\',1,()=>calcGeneric())">+</button></div></div>';
@@ -7081,6 +7112,20 @@ function calcGeneric(fromEdit){
   let fee=feeBase;
   EXTRA_AGENT.forEach(([id,nm,code])=>{const c=document.getElementById('gck_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('gqt_'+id).value)||1);fee+=FLAT[code]*q;}});
   if(def.addFee&&document.getElementById('g_addFeeChk')&&chk('g_addFeeChk'))fee+=val('g_addFee'); // 집행공탁 사유신고 가산보수(§19② 협의) [A]
+  /* 목적물·부동산 수량 가산 — §17① / §22② */
+  if(def.unitFee){
+    const uc=Math.max(1,val('g_uCnt'));
+    const indiv=(def.unitIndiv&&chk('g_uIndiv'));
+    const free=indiv?0:(def.unitFree||1);          // §22②2호 개별매각은 각 부동산마다 → 면제분 없음
+    const over=Math.max(0,uc-free);
+    const add=over*def.unitFee;
+    fee+=add;
+    const un=document.getElementById('g_uNote');
+    if(un)un.innerHTML=(add>0)
+      ? '<b style="color:var(--seal);">가산 '+won(add)+'</b> = '+(indiv?uc+'개 × ':over+'개(초과분) × ')+won(def.unitFee)
+        +' <span class="hint">'+(indiv?'§22②2호 — 개별매각은 각 부동산마다 가산':def.unitLaw)+'</span>'
+      : '<span class="hint">'+(free>0?free+'개까지는 가산이 없습니다. ':'')+def.unitLaw+'</span>';
+  }
   fee=pwApply('g_',fee);   /* §6·§5① 부분수임·중단 감액 */
   document.getElementById('g_feeSum').textContent=won(fee);
   // 공과금
