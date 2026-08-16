@@ -457,7 +457,7 @@
         <label><input type="checkbox" id="selfFarm"> 자경농지 감면</label>
         <label><input type="checkbox" id="corp"> 법인·단체 취득<span class="law" title="지방세법 §13의2①1호 — 법인(국세기본법 §13에 따른 법인으로 보는 단체, 부동산등기법 §49①3호에 따른 법인 아닌 사단·재단 등 개인이 아닌 자를 포함한다)이 주택을 취득하는 경우: 4%에 중과기준세율의 400%를 더한 12%">§13의2①1호</span></label><label><input type="checkbox" id="metroCorp"> 대도시 법인 5년 내 취득<span class="law" title="지방세법 §13② — 대도시(수도권정비계획법 §6 과밀억제권역, 산업단지 제외)에서 법인을 설립·지점 설치하거나 대도시로 전입한 후 5년 이내에 취득하는 모든 부동산은 표준세율의 300%에서 중과기준세율의 200%를 뺀 세율을 적용한다. 다만 대도시 중과 제외 업종에 직접 사용할 목적이면 일반세율.">§13②</span></label>
         <label><input type="checkbox" id="verify"> 확인서면(등기권리증 분실·법§51)</label></div></div>
-      <div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="feeAdjust" onchange="calcSale()">
+      <div id="pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="feeAdjust" onchange="calcSale()">
         <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
@@ -574,7 +574,7 @@
         <label><input type="checkbox" id="s_farmSpecial"> 자경농민 농지 특례(0.3%·§15①2호나목)</label>
         <label><input type="checkbox" id="s_over85"> 85㎡ 초과(농특세)</label>
         <label><input type="checkbox" id="s_verify"> 확인서면(등기권리증 분실·법§51)</label></div></div>
-      <div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="s_adjust" onchange="calcInherit()">
+      <div id="s_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="s_adjust" onchange="calcInherit()">
         <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
@@ -673,7 +673,7 @@
         <label><input type="checkbox" id="bq_farmSpecial"> 자경농민 농지 특례(0.3%·§15①2호나목)</label>
         <label><input type="checkbox" id="bq_nonprofit" onchange="calcBequest()"> 수증자가 비영리사업자(2.8%·§11①2호 단서)</label><label><input type="checkbox" id="bq_over85"> 85㎡ 초과(농특세)</label>
         <label><input type="checkbox" id="bq_verify"> 확인서면(등기권리증 분실·법§51)</label></div></div>
-      <div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="bq_adjust" onchange="calcBequest()">
+      <div id="bq_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="bq_adjust" onchange="calcBequest()">
         <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
@@ -771,7 +771,7 @@
         <input type="number" class="cell" id="gd_estate" placeholder="재산가액(원)" style="width:160px;" oninput="calcGuardian()"></div>
         <span class="hint">미체크 시 비재산사건 → <b>5천만원 의제</b>(보수표 Ⅶ 단서)</span></div>
       <div class="line"><span class="lbl">청구인·후보자(인)</span><div class="stepper"><button onclick="step('gd_cntP',-1,calcGuardian)">−</button><input type="number" id="gd_cntP" value="1" min="1" oninput="calcGuardian()"><button onclick="step('gd_cntP',1,calcGuardian)">+</button></div></div>
-      <div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="gd_adjust" onchange="calcGuardian()">
+      <div id="gd_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="gd_adjust" onchange="calcGuardian()">
         <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
@@ -842,7 +842,7 @@
         <label><input type="checkbox" id="gv_nonprofit" onchange="calcGift()"> 비영리사업자 취득(§11①2호 단서 → 2.8%)</label>
         <label><input type="checkbox" id="gv_over85"> 85㎡ 초과(농특세)</label>
         <label><input type="checkbox" id="gv_verify"> 확인서면(등기권리증 분실·법§51)</label></div></div>
-      <div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="gv_adjust" onchange="calcGift()">
+      <div id="gv_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="gv_adjust" onchange="calcGift()">
         <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
@@ -1019,7 +1019,7 @@
         <label><input type="checkbox" id="ea_mid13"> 취득물건이 <b>§13②</b>(대도시 법인 취득 등) → 산출세율 ×300%</label>
         <label><input type="checkbox" id="ea_noReg"> 등기신청 없음(취득세 신고만)</label>
         <label><input type="checkbox" id="ea_verify"> 확인서면(등기권리증 분실·법§51)</label></div></div>
-      <div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="ea_adjust" onchange="calcEtcAcq()">
+      <div id="ea_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="ea_adjust" onchange="calcEtcAcq()">
         <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
@@ -1117,7 +1117,7 @@
       <div class="line"><span class="lbl">농특세·가산 등</span><div class="checks" onchange="calcPartition()">
         <label><input type="checkbox" id="pt_over85"> 전용 85㎡ 초과(초과분 농특세 과세)</label>
         <label><input type="checkbox" id="pt_verify"> 확인서면(등기권리증 분실·법§51)</label></div></div>
-      <div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="pt_adjust" onchange="calcPartition()">
+      <div id="pt_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="pt_adjust" onchange="calcPartition()">
         <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
@@ -1242,7 +1242,7 @@
       <div class="line"><span class="lbl">농어촌특별세</span><div class="checks" onchange="calcNakchal()">
         <label><input type="checkbox" id="nk_over85"> 전용 85㎡ 초과(농특세 과세)</label></div>
         <span class="hint">85㎡ 이하 주택은 비과세(농특세법 §4 11호). 주택외는 면적과 무관하게 과세</span></div>
-      <div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="nk_adjust" onchange="calcNakchal()">
+      <div id="nk_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="nk_adjust" onchange="calcNakchal()">
         <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
@@ -1360,7 +1360,7 @@
       <div class="line"><span class="lbl">농특세·가산 등</span><div class="checks" onchange="calcDivision()">
         <label><input type="checkbox" id="dv_over85"> 전용 85㎡ 초과(농특세 과세)</label>
         <label><input type="checkbox" id="dv_verify"> 확인서면(등기권리증 분실·법§51)</label></div></div>
-      <div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="dv_adjust" onchange="calcDivision()">
+      <div id="dv_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="dv_adjust" onchange="calcDivision()">
         <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
@@ -1465,7 +1465,7 @@
         <label><input type="checkbox" id="bv_donorOneHouse" onchange="calcBurden()"> └ 증여자가 1세대 1주택(§13의2② 단서 → 무상분 중과 배제)</label>
         <label><input type="checkbox" id="bv_over85"> 85㎡ 초과(농특세)</label>
         <label><input type="checkbox" id="bv_verify"> 확인서면(등기권리증 분실·법§51)</label></div></div>
-      <div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="bv_adjust" onchange="calcBurden()">
+      <div id="bv_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="bv_adjust" onchange="calcBurden()">
         <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
@@ -1568,7 +1568,7 @@
       <div class="line"><span class="lbl">감면·가산 등</span><div class="checks" onchange="calcMortgage()">
         <label><input type="checkbox" id="mt_verify"> 확인서면(등기권리증 분실·법§51)</label>
         <label><input type="checkbox" id="mt_same"> 동일인 보증서</label></div></div>
-      <div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="mt_adjust" onchange="calcMortgage()">
+      <div id="mt_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="mt_adjust" onchange="calcMortgage()">
         <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
@@ -1641,7 +1641,7 @@
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('ga_cntEstate',-1,calcGadeungi)">−</button><input type="number" id="ga_cntEstate" value="1" min="1" oninput="calcGadeungi()"><button onclick="step('ga_cntEstate',1,calcGadeungi)">+</button></div></div>
       <div class="line"><span class="lbl">감면·가산 등</span><div class="checks" onchange="calcGadeungi()">
         <label><input type="checkbox" id="ga_verify"> 확인서면(등기권리증 분실·법§51)</label></div></div>
-      <div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="ga_adjust" onchange="calcGadeungi()">
+      <div id="ga_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="ga_adjust" onchange="calcGadeungi()">
         <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
@@ -1700,7 +1700,7 @@
     <div class="card blue"><h2>① 약정 정보</h2><div class="body">
       <div class="note">부부재산약정등기의 보수는 재산가액이 아니라 <b>약정서 문안의 난이도</b>로 산정합니다. 기본보수 50만원을 기준으로, 전문직·사업가 등 재산관계가 복잡한 경우 난이도를 150~200%로 조정하세요.</div>
       <div class="line"><span class="lbl">신청 건수</span><div class="stepper"><button onclick="step('mr_cnt',-1,calcMarital)">−</button><input type="number" id="mr_cnt" value="1" min="1" oninput="calcMarital()"><button onclick="step('mr_cnt',1,calcMarital)">+</button></div></div>
-      <div class="line"><span class="lbl">문안 난이도</span><select id="mr_adjust" onchange="calcMarital()">
+      <div id="mr_pwBox"></div><div class="line"><span class="lbl">문안 난이도</span><select id="mr_adjust" onchange="calcMarital()">
         <option value="0.8">80% (DC)</option><option value="0.9">90%</option>
         <option value="1" selected>100% (기본·50만원)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
@@ -1753,7 +1753,7 @@
 
     <div class="card blue"><h2>① 적용 요건 <span class="tag A">A</span></h2><div class="body">
       <div class="note"><b>보수기준 §12</b> — 「도시 및 주거환경정비법」 <b>§86①의 이전고시</b>에 따른 재건축·재개발등기를 <b>동일한 신청서로 일괄 신청</b>하는 경우에만 이 화면의 산정방식을 씁니다. 일괄신청이 아니면 매매·보존 등 <b>개별 화면</b>을 쓰십시오.<br>▸ §12의 핵심은 <b>「무엇을 1건으로 보느냐」</b>입니다. 아래 ②~⑥은 각 호가 정한 <b>별건 산정 단위</b> 그대로입니다.</div>
-      <div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="rd_adjust" onchange="calcRedev()">
+      <div id="rd_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="rd_adjust" onchange="calcRedev()">
         <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
@@ -1860,7 +1860,7 @@
       <div class="line"><span class="lbl">신탁등기 유형</span><select id="st_trustType" onchange="calcSintak()"><option value="Ⅰ-4(1)" selected>신탁·재신탁·담보권신탁·고유재산 변경 등 (150,000)</option><option value="Ⅰ-4(2)">신탁원부 변경·합유명의인 변경·합병분할 (80,000)</option><option value="Ⅰ-4(3)">유한책임신탁 설정 (220,000)</option><option value="Ⅰ-4(4)">신탁등기 말소 (50,000)</option><option value="Ⅰ-4(5)">그 밖의 신탁 등기 (70,000)</option></select><span class="law" title="법무사보수기준 §11①·보수표 Ⅰ-4 — 신탁등기 유형별 정액 기본보수">보수기준 §11①</span></div>
       <div class="line"><span class="lbl">부동산가액(원)</span><input type="number" class="amt" id="st_base" placeholder="0" oninput="calcSintak()"><span class="hint">참고용(보수는 유형별 정액)</span></div>
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('st_cntEstate',-1,calcSintak)">−</button><input type="number" id="st_cntEstate" value="1" min="1" oninput="calcSintak()"><button onclick="step('st_cntEstate',1,calcSintak)">+</button></div></div>
-      <div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="st_adjust" onchange="calcSintak()">
+      <div id="st_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="st_adjust" onchange="calcSintak()">
         <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
@@ -1949,7 +1949,7 @@
       <div class="line"><span class="lbl">감면·가산 등</span><div class="checks" onchange="calcMortgageAdd()">
         <label><input type="checkbox" id="ma_verify"> 확인서면(등기권리증 분실·법§51)</label>
         <label><input type="checkbox" id="ma_same"> 동일인 보증서</label></div></div>
-      <div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="ma_adjust" onchange="calcMortgageAdd()">
+      <div id="ma_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="ma_adjust" onchange="calcMortgageAdd()">
         <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
@@ -2019,7 +2019,7 @@
     <div class="card blue"><h2>① 말소 정보</h2><div class="body">
       <div class="note">말소등기는 <b>정액 보수(80,000)</b>, 등기수수료 <b>기타등기</b>(e-Form 3,000), 등록면허세 <b>건당 정액(6,000)</b>입니다. 채권매입은 없습니다.</div>
       <div class="line"><span class="lbl">말소 건수(부동산)</span><div class="stepper"><button onclick="step('mtc_cnt',-1,calcMortCancel)">−</button><input type="number" id="mtc_cnt" value="1" min="1" oninput="calcMortCancel()"><button onclick="step('mtc_cnt',1,calcMortCancel)">+</button></div></div>
-      <div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="mtc_adjust" onchange="calcMortCancel()">
+      <div id="mtc_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="mtc_adjust" onchange="calcMortCancel()">
         <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
@@ -2089,7 +2089,7 @@
         <label><input type="checkbox" id="pr_metro"> 대도시 내 취득 중과(취득세)</label>
         <label><input type="checkbox" id="pr_verify"> 확인서면(등기권리증 분실·법§51)</label></div></div>
       <div id="pr_metroWarn" style="display:none;margin:6px 0;padding:8px 10px;background:#fff7e6;border:1px solid var(--gold);border-radius:6px;font-size:12.5px;color:#8a6d1c;">⚠ <b>대도시 취득 중과 [확인필요]</b> — 지방세법 §13②에 따라 대도시(과밀억제권역) 내 법인 설립·전입 후 5년 내 부동산 취득 등은 취득세가 중과될 수 있습니다. 다만 <b>원시취득 보존등기의 중과 해당 여부는 취득 주체·용도에 따라 달라</b> 자동 적용하지 않습니다. 해당 시 <b>취득세를 직접 재산정·입력</b>하세요(표준세율 + 중과기준세율 2배 등).</div>
-      <div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="pr_adjust" onchange="calcPreserve()">
+      <div id="pr_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="pr_adjust" onchange="calcPreserve()">
         <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
@@ -2167,7 +2167,7 @@
       <div class="line"><span class="lbl">감면·가산 등</span><div class="checks" onchange="calcRight()">
         <label><input type="checkbox" id="rt_verify"> 확인서면(등기권리증 분실·법§51)</label>
         <label><input type="checkbox" id="rt_same"> 동일인 보증서</label></div></div>
-      <div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="rt_adjust" onchange="calcRight()">
+      <div id="rt_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="rt_adjust" onchange="calcRight()">
         <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
@@ -2232,7 +2232,7 @@
         <option value="0.5">50%</option><option value="1">100%</option><option value="1.5">150% (상한)</option></select>
         <span class="hint">보수기준 <b>§14①</b> — 「외국인투자촉진법」에 의한 설립·자본증가, <b>현물출자</b>, 분할·합병·주식이전·조직변경에 의한 설립, 흡수합병·분할합병·주식교환에 의한 자본증가, <b>종류주식·주식매수선택권</b> 규정 포함 → 기본보수의 <b>150%까지</b></span></div>
           <div class="line"><span class="lbl">문서작성 종류 수</span><div class="stepper"><button onclick="step('co_docN',-1,calcCorp)">−</button><input type="number" id="co_docN" value="3" min="1" oninput="calcCorp()"><button onclick="step('co_docN',1,calcCorp)">+</button></div><span class="hint">정관·발기인의사록·창립총회의사록 등 (Ⅸ-5 종류마다 80,000)</span></div>
-      <div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="co_adjust" onchange="calcCorp()">
+      <div id="co_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="co_adjust" onchange="calcCorp()">
         <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
@@ -2311,7 +2311,7 @@
       <div class="line" id="cv_rowBranch" style="display:none;"><span class="lbl">중과 요건</span><label class="checks" style="display:inline-flex;"><input type="checkbox" id="cv_branchNew" onchange="calcCorpChange()"> 지점·분사무소 <b>설치</b>(이전·폐지 아님)</label><span class="hint">마목 → §28②1호. <b>지점 이전은 바목 → 중과 배제</b></span></div>
       <div class="line" id="cv_rowMidExempt" style="display:none;"><span class="lbl">중과 배제</span><label class="checks" style="display:inline-flex;"><input type="checkbox" id="cv_midExempt" onchange="calcCorpChange()"> <b>대도시 중과 제외 업종</b>에 해당</label><span class="hint">§28② 단서 · 시행령 §26① <span class="tag chk">확인필요</span></span></div>
       <div id="cv_midWarn" style="display:none;margin:6px 0;padding:8px 10px;background:#fdeaea;border:1px solid var(--seal-soft);border-radius:6px;font-size:12.5px;color:var(--seal);line-height:1.6;">▸ 이 등기는 지방세법 <b>§28①6호 바목(그 밖의 등기)</b>이므로 <b>§28④에 따라 대도시 중과세율이 적용되지 않습니다</b>. 대도시를 체크해도 <b>40,200원 × 건수</b> 그대로입니다. <span class="tag A">A</span></div>
-      <div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="cv_adjust" onchange="calcCorpChange()">
+      <div id="cv_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="cv_adjust" onchange="calcCorpChange()">
         <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
@@ -2380,7 +2380,7 @@
       <div class="line"><span class="lbl">집행권원/담보권 수</span><div class="stepper"><button onclick="step('am_titleN',-1,calcAuctionFile)">−</button><input type="number" id="am_titleN" value="1" min="1" oninput="calcAuctionFile()"><button onclick="step('am_titleN',1,calcAuctionFile)">+</button></div><span class="hint">인지 5,000×건</span></div>
       <div class="line"><span class="lbl">현황조사 건수</span><div class="stepper"><button onclick="step('am_surveyN',-1,calcAuctionFile)">−</button><input type="number" id="am_surveyN" value="1" min="1" oninput="calcAuctionFile()"><button onclick="step('am_surveyN',1,calcAuctionFile)">+</button></div><span class="hint">klac 현황조사료 63,260×건</span></div>
       <div class="line"><span class="lbl">전자소송 진행</span><label class="checks" style="display:inline-flex;"><input type="checkbox" id="am_e" checked onchange="calcAuctionFile()"> 예(인지 10% 할인·klac 참고)</label></div>
-      <div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="am_adjust" onchange="calcAuctionFile()">
+      <div id="am_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="am_adjust" onchange="calcAuctionFile()">
         <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
@@ -2451,7 +2451,7 @@
       <div class="line"><span class="lbl">청구(소송목적)금액(원)</span><input type="number" class="amt" id="mi_claim" placeholder="0" oninput="calcMisc()"><span class="hint">보수 Ⅶ-1② 기준 · <b>소송물가액이 없거나 산정할 수 없으면 5천만원으로 의제</b>(보수기준 <b>§23①</b> 후단 → 262,000원) <span class="tag A">A</span></span></div>
       <div class="line"><span class="lbl">당사자 수</span><div class="stepper"><button onclick="step('mi_party',-1,calcMisc)">−</button><input type="number" id="mi_party" value="2" min="1" oninput="calcMisc()"><button onclick="step('mi_party',1,calcMisc)">+</button></div><span class="hint">신청인+상대방</span></div>
       <div class="line"><span class="lbl">전자소송 진행</span><label class="checks" style="display:inline-flex;"><input type="checkbox" id="mi_e" checked onchange="buildMisc()"> 예(인지 10% 할인)</label></div>
-      <div class="line"><span class="lbl">보수 조정</span><select id="mi_adjust" onchange="calcMisc()">
+      <div id="mi_pwBox"></div><div class="line"><span class="lbl">보수 조정</span><select id="mi_adjust" onchange="calcMisc()">
         <option value="0.8">80%</option><option value="0.9">90%</option><option value="1" selected>100%</option><option value="1.2">120%</option><option value="1.5">150%</option><option value="2">200%</option></select></div>
     </div></div>
     <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
@@ -2487,7 +2487,7 @@
       <div class="line"><span class="lbl">당사자 수</span><div class="stepper"><button onclick="step('cs_party',-1,calcSeizure)">−</button><input type="number" id="cs_party" value="3" min="1" oninput="calcSeizure()"><button onclick="step('cs_party',1,calcSeizure)">+</button></div><span class="hint">채권자+채무자+제3채무자 (기본 3)</span></div>
       <div class="line"><span class="lbl">신청 유형</span><label class="checks" style="display:inline-flex;gap:12px;"><label><input type="checkbox" id="cs_seize" checked onchange="calcSeizure()"> 압류</label><label><input type="checkbox" id="cs_collect" checked onchange="calcSeizure()"> 추심</label></label><span class="hint">각 2,000원(전자 1,800)</span></div>
       <div class="line"><span class="lbl">전자소송 진행</span><label class="checks" style="display:inline-flex;"><input type="checkbox" id="cs_e" checked onchange="calcSeizure()"> 예(인지 10% 할인)</label></div>
-      <div class="line"><span class="lbl">보수 조정</span><select id="cs_adjust" onchange="calcSeizure()">
+      <div id="cs_pwBox"></div><div class="line"><span class="lbl">보수 조정</span><select id="cs_adjust" onchange="calcSeizure()">
         <option value="0.8">80%</option><option value="0.9">90%</option><option value="1" selected>100%</option><option value="1.2">120%</option><option value="1.5">150%</option><option value="2">200%</option></select></div>
     </div></div>
     <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
@@ -2526,7 +2526,7 @@
       <div class="line"><span class="lbl">당사자 수</span><div class="stepper"><button onclick="step('ad_party',-1,calcAttachGoods)">−</button><input type="number" id="ad_party" value="2" min="1" oninput="calcAttachGoods()"><button onclick="step('ad_party',1,calcAttachGoods)">+</button></div><span class="hint">채권자+채무자 (기본 2)</span></div>
       <div class="line"><span class="lbl">전자소송 진행</span><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ad_e" checked onchange="calcAttachGoods()"> 예</label><span class="hint">인지 10,000원 → 9,000원(§16②·§9 준용)</span></div>
       <div class="line"><span class="lbl">가압류담보금(원)</span><input type="number" class="amt" id="ad_deposit" placeholder="0" oninput="calcAttachGoods(true)"><span class="hint">담보제공명령 청구액×4/5 (klac 확정) [A]·수정가능</span></div>
-      <div class="line"><span class="lbl">보수 조정</span><select id="ad_adjust" onchange="calcAttachGoods()">
+      <div id="ad_pwBox"></div><div class="line"><span class="lbl">보수 조정</span><select id="ad_adjust" onchange="calcAttachGoods()">
         <option value="0.8">80%</option><option value="0.9">90%</option><option value="1" selected>100%</option><option value="1.2">120%</option><option value="1.5">150%</option><option value="2">200%</option></select></div>
     </div></div>
     <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
@@ -2567,7 +2567,7 @@
       <div class="line"><span class="lbl">전자소송 진행</span><label class="checks" style="display:inline-flex;"><input type="checkbox" id="av_e" checked onchange="calcAttachCar()"> 예</label><span class="hint">인지 10,000원 → 9,000원(§16②·§9 준용)</span></div>
       <div class="line"><span class="lbl">자동차 대수</span><div class="stepper"><button onclick="step('av_cnt',-1,calcAttachCar)">−</button><input type="number" id="av_cnt" value="1" min="1" oninput="calcAttachCar()"><button onclick="step('av_cnt',1,calcAttachCar)">+</button></div></div>
       <div class="line"><span class="lbl">가압류담보금(원)</span><input type="number" class="amt" id="av_deposit" placeholder="0" oninput="calcAttachCar(true)"><span class="hint">기본 청구금액×1/10 (klac 확정) [A]</span></div>
-      <div class="line"><span class="lbl">보수 조정</span><select id="av_adjust" onchange="calcAttachCar()">
+      <div id="av_pwBox"></div><div class="line"><span class="lbl">보수 조정</span><select id="av_adjust" onchange="calcAttachCar()">
         <option value="0.8">80%</option><option value="0.9">90%</option><option value="1" selected>100%</option><option value="1.2">120%</option><option value="1.5">150%</option><option value="2">200%</option></select></div>
     </div></div>
     <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
@@ -2611,7 +2611,7 @@
       <div class="line"><span class="lbl">당사자 수</span><div class="stepper"><button onclick="step('ac_party',-1,calcAttachClaim)">−</button><input type="number" id="ac_party" value="3" min="1" oninput="calcAttachClaim()"><button onclick="step('ac_party',1,calcAttachClaim)">+</button></div><span class="hint">채권자+채무자+제3채무자 (기본 3)</span></div>
       <div class="line"><span class="lbl">가압류담보금(원)</span><input type="number" class="amt" id="ac_deposit" placeholder="0" oninput="calcAttachClaim(true)"><span class="hint">기본 채권액×40% (직접수정 가능)</span></div>
       <div class="line"><span class="lbl">전자소송 진행</span><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ac_e" checked onchange="calcAttachClaim()"> 예</label><span class="hint">인지 10,000원 → 9,000원(§16②·§9 준용)</span></div>
-      <div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="ac_adjust" onchange="calcAttachClaim()">
+      <div id="ac_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="ac_adjust" onchange="calcAttachClaim()">
         <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
@@ -2667,7 +2667,7 @@
       <div class="line"><span class="lbl">당사자 수</span><div class="stepper"><button onclick="step('at_party',-1,calcAttach)">−</button><input type="number" id="at_party" value="2" min="1" oninput="calcAttach()"><button onclick="step('at_party',1,calcAttach)">+</button></div></div>
       <div class="line"><span class="lbl">전자소송 진행</span><label class="checks" style="display:inline-flex;"><input type="checkbox" id="at_e" checked onchange="calcAttach()"> 예</label><span class="hint">인지 10,000원 → 9,000원(§16②·§9 준용)</span></div>
       <div class="line"><span class="lbl">가압류담보금(원)</span><input type="number" class="amt" id="at_deposit" placeholder="0" oninput="calcAttach(true)"><span class="hint">기본 채권액×10% (직접수정 가능)</span></div>
-      <div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="at_adjust" onchange="calcAttach()">
+      <div id="at_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="at_adjust" onchange="calcAttach()">
         <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
@@ -2731,7 +2731,7 @@
       <div class="line"><span class="lbl">당사자 수</span><div class="stepper"><button onclick="step('inj_party',-1,calcInjunction)">−</button><input type="number" id="inj_party" value="2" min="1" oninput="calcInjunction()"><button onclick="step('inj_party',1,calcInjunction)">+</button></div></div>
       <div class="line"><span class="lbl">담보금(원)</span><input type="number" class="amt" id="inj_deposit" placeholder="0" oninput="calcInjunction(true)"><span class="hint">기본 피보전권리×10% (직접수정 가능)</span></div>
       <div class="line"><span class="lbl">전자소송 진행</span><label class="checks" style="display:inline-flex;"><input type="checkbox" id="inj_e" checked onchange="calcInjunction()"> 예(인지 10% 할인)</label></div>
-      <div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="inj_adjust" onchange="calcInjunction()">
+      <div id="inj_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="inj_adjust" onchange="calcInjunction()">
         <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
@@ -2811,7 +2811,7 @@
         <label><input type="checkbox" id="so_submit" checked> 제출대행(Ⅸ-8 40,000)</label>
         <label><input type="checkbox" id="so_recv"> 송달영수(Ⅸ-10 50,000)</label>
         <label><input type="checkbox" id="so_read"> 기록열람(Ⅸ-9 40,000)</label></div></div>
-      <div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="so_adjust" onchange="calcLawsuit()">
+      <div id="so_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="so_adjust" onchange="calcLawsuit()">
         <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
@@ -2850,7 +2850,7 @@
 
     <div class="card green" id="so_mainAdjBox" style="display:none;"><h2>④ 본안 이행·소제기 시 추가 공과금 (참고용) <span class="tag chk">확인필요</span></h2><div class="body">
       <div class="note">지급명령에 <b>이의신청</b>이 있거나 조정·제소전화해가 <b>불성립</b>하여 <b>본안 소송으로 이행</b>되면, 본안 기준 인지·송달료와의 <b>차액</b>을 추가 납부합니다. 아래는 추가 예상액입니다.</div>
-      <table class="t">
+      <div id="lc_pwBox"></div><table class="t">
         <tr><td>본안 인지대 (추가) <span class="hint" id="so_adjInjiNote"></span></td><td class="auto" id="so_adjInji">0 원</td></tr>
         <tr><td>본안 송달료 (추가) <span class="hint" id="so_adjSongNote"></span></td><td class="auto" id="so_adjSong">0 원</td></tr>
         <tr class="subtot"><td>추가 공과금 합계</td><td id="so_adjSum">0 원</td></tr>
@@ -2975,7 +2975,7 @@
     <div class="card blue"><h2 id="g_h1">① 기준 입력</h2><div class="body" id="g_inputs"></div></div>
     <div class="card pink"><h2>② 법무사 보수 (VAT 별도)</h2><div class="body">
       <div class="line"><span class="lbl">기본보수</span><span class="auto" id="g_feeBase" style="font-variant-numeric:tabular-nums;">0 원</span> <span class="hint" id="g_feeNote"></span></div>
-      <div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="g_adjust" onchange="calcGeneric()">
+      <div id="g_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="g_adjust" onchange="calcGeneric()">
         <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
         <option value="0.9">90%</option><option value="1" selected>100%</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
@@ -3092,6 +3092,69 @@ function priceShareGuide(total,taxBase,tr){
     +'▸ 전체 <b>'+won(total)+'</b> × 이전 지분 <b>'+share+'</b> = <b style="font-size:15px;">과세표준 '+won(taxBase)+'</b><br>'
     +'<span class="hint">세율은 전체 금액으로 구간을 정하고(§11①8호 후단), 그 세율을 지분 상당 과세표준에만 곱합니다(§11②).</span></div>';
   box.style.display='block';
+}
+
+
+/* ═══════════ §6 부분수임 · §5① 업무중단 감액 ═══════════════════════
+   [A] 보수기준 §6 — 「등기(부동산, 상업·법인, 동산·채권담보)나 공탁의 신청서류만을
+       작성하는 경우와 작성된 신청서류의 제출대행만을 하는 경우에는
+       해당 보수총액의 60% 상당액을 받는다」  → 60% 고정, 등기·공탁 사건 한정
+   [A] 보수기준 §5① — 「… 서류의 작성을 완료한 후 위임인의 사정에 의하여 업무가
+       중단된 경우에는 해당 보수총액의 60%의 범위 내에서 보수를 받는다」
+       → 60%「범위 내」이므로 비율을 고를 수 있게 한다
+   ★ 두 조문 모두 대상이 「보수총액」이다. 기본보수가 아니라 가산·대행료까지 더한
+     보수 합계에 곱한다. 그래서 feeSum 을 확정하기 직전에 적용한다.
+   ※ 공과금(취득세·등기수수료·인지·송달료)은 감액 대상이 아니다. 실비이기 때문이다.
+   27회차 신설. */
+const PARTIAL={};                      /* {prefix:{mode:'full'|'s6'|'s5', rate:0.6}} */
+function pwData(p){if(!PARTIAL[p])PARTIAL[p]={mode:'full',rate:0.6};return PARTIAL[p];}
+function pwSet(p,k,v){pwData(p)[k]=(k==='rate')?(parseFloat(v)||0.6):v;pwRender(p);pwRun(p);}
+function pwRun(p){
+  const f=(typeof SCENE_CALC!=='undefined')?null:null;
+  /* 각 화면의 계산함수를 다시 돌린다 — recalc 이 활성 화면을 찾아 처리한다 */
+  if(typeof recalc==='function')recalc();
+}
+/* 보수총액에 곱할 비율 */
+function pwRate(p){
+  const d=PARTIAL[p];
+  if(!d||d.mode==='full')return 1;
+  if(d.mode==='s6')return 0.6;                       // §6 — 60% 고정
+  return Math.min(0.6,Math.max(0,d.rate||0.6));      // §5① — 60% 범위 내
+}
+function pwRender(p){
+  const box=document.getElementById(p+'pwBox');
+  if(!box)return;
+  const d=pwData(p);
+  let h='<div class="line"><span class="lbl">수임 범위</span>'
+   +'<select onchange="pwSet(\''+p+'\',\'mode\',this.value)">'
+   +'<option value="full"'+(d.mode==='full'?' selected':'')+'>전부 수임 (100%)</option>'
+   +'<option value="s6"'+(d.mode==='s6'?' selected':'')+'>서류작성만 · 제출대행만 → 60% (§6)</option>'
+   +'<option value="s5"'+(d.mode==='s5'?' selected':'')+'>작성 완료 후 중단 → 60% 이내 (§5①)</option>'
+   +'</select>';
+  if(d.mode==='s5'){
+    h+='<select style="margin-left:6px;" onchange="pwSet(\''+p+'\',\'rate\',this.value)">';
+    [0.6,0.5,0.4,0.3,0.2,0.1].forEach(function(r){
+      h+='<option value="'+r+'"'+(Math.abs(d.rate-r)<1e-9?' selected':'')+'>'+Math.round(r*100)+'%</option>';
+    });
+    h+='</select>';
+  }
+  h+='<span class="hint" id="'+p+'pwNote"></span></div>';
+  box.innerHTML=h;
+}
+/* 보수 합계에 적용하고 안내문을 갱신한다 */
+function pwApply(p,fee){
+  pwRender(p);
+  const r=pwRate(p), out=Math.round(fee*r);
+  const note=document.getElementById(p+'pwNote');
+  if(note){
+    const d=PARTIAL[p];
+    note.innerHTML=(r>=1)
+      ? '보수기준 <b>§6</b>(서류작성·제출대행만 60%) · <b>§5①</b>(작성 후 중단 60% 이내) 해당 시 선택하십시오'
+      : '<b style="color:var(--seal);">보수총액 '+won(fee)+' × '+Math.round(r*100)+'% = '+won(out)+'</b> '
+        +'<span class="hint">'+(d.mode==='s6'?'§6 — 등기·공탁의 신청서류 작성만 또는 제출대행만':'§5① — 서류 작성 완료 후 위임인 사정으로 중단')
+        +' · 공과금은 감액 대상이 아닙니다</span>';
+  }
+  return out;
 }
 
 /* ═══════════ §2②4호 → §10③ 당사자 다수 가산 ═══════════════════════
@@ -4090,6 +4153,7 @@ function calcSale(fromEdit){
   if(chk('verify')){const n=Math.max(1,val('vfyN')),e=Math.max(1,val('cntEstate'));const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('verifyCell').textContent=won(v);document.getElementById('verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else vRow.style.display='none';
   EXTRA_AGENT.forEach(([id,name,code])=>{const c=document.getElementById('ck_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('qt_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('extraAgent');
+  fee=pwApply('',fee);   /* §6·§5① 부분수임·중단 감액 */
   document.getElementById('feeSum').textContent=won(fee);
   const vat=Math.round(fee*0.1);
   document.getElementById('t_fee').textContent=won(fee);
@@ -4263,6 +4327,7 @@ function calcInherit(fromEdit){
   if(chk('s_verify')){const n=Math.max(1,val('s_vfyN')),e=Math.max(1,val('s_cntEstate'));const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('s_verifyCell').textContent=won(v);document.getElementById('s_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else vRow.style.display='none';
   EXTRA_AGENT.forEach(([id,name,code])=>{const c=document.getElementById('sa_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('saq_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('s_extraAgent');
+  fee=pwApply('s_',fee);   /* §6·§5① 부분수임·중단 감액 */
   document.getElementById('s_feeSum').textContent=won(fee);
   const vat=Math.round(fee*0.1);
   document.getElementById('s_t_fee').textContent=won(fee);
@@ -4375,6 +4440,7 @@ function calcBequest(fromEdit){
   if(chk('bq_verify')){const n=Math.max(1,val('bq_vfyN')),e=Math.max(1,val('bq_cntEstate'));const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('bq_verifyCell').textContent=won(v);document.getElementById('bq_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else vRow.style.display='none';
   EXTRA_AGENT.forEach(([id,name,code])=>{const c=document.getElementById('sa_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('saq_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('bq_extraAgent');
+  fee=pwApply('bq_',fee);   /* §6·§5① 부분수임·중단 감액 */
   document.getElementById('bq_feeSum').textContent=won(fee);
   const vat=Math.round(fee*0.1);
   document.getElementById('bq_t_fee').textContent=won(fee);
@@ -4563,6 +4629,7 @@ function calcGuardian(fromEdit){
   // 대행료
   GUARD_AGENT.forEach(([id,nm,code])=>{const c=document.getElementById('gd_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('gdq_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('gd_extraAgent');
+  fee=pwApply('gd_',fee);   /* §6·§5① 부분수임·중단 감액 */
   document.getElementById('gd_feeSum').textContent=won(fee);
   // 공과금·실비
   /* 송달료 — 회차는 [확인필요]. 단가는 상단 공통 입력(songUnit) 연동 */
@@ -4717,6 +4784,7 @@ function calcGift(fromEdit){
   if(chk('gv_verify')){const n=Math.max(1,val('gv_vfyN')),e=Math.max(1,val('gv_cntEstate'));const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('gv_verifyCell').textContent=won(v);document.getElementById('gv_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else vRow.style.display='none';
   EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const c=document.getElementById('gva_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('gvaq_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('gv_extraAgent');
+  fee=pwApply('gv_',fee);   /* §6·§5① 부분수임·중단 감액 */
   document.getElementById('gv_feeSum').textContent=won(fee);
   const vat=Math.round(fee*0.1);
   document.getElementById('gv_t_fee').textContent=won(fee);
@@ -4850,6 +4918,7 @@ function calcDivision(fromEdit){
   if(chk('dv_verify')){const n=Math.max(1,val('dv_vfyN')),e=Math.max(1,val('dv_cntEstate'));const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('dv_verifyCell').textContent=won(v);document.getElementById('dv_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else vRow.style.display='none';
   EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const c=document.getElementById('dva_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('dvaq_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('dv_extraAgent');
+  fee=pwApply('dv_',fee);   /* §6·§5① 부분수임·중단 감액 */
   document.getElementById('dv_feeSum').textContent=won(fee);
   const vat=Math.round(fee*0.1);
   document.getElementById('dv_t_fee').textContent=won(fee);
@@ -5212,6 +5281,7 @@ function calcEtcAcqTail(){
   if(chk('ea_verify')){const n=Math.max(1,val('ea_vfyN')),e=Math.max(1,val('ea_cntEstate'));const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('ea_verifyCell').textContent=won(v);document.getElementById('ea_verifyNote').textContent='(120,000 + 초과 '+((n-1)+(e-1))+'건 × 30,000)';fee+=v;}else vRow.style.display='none';
   EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const c=document.getElementById('eaa_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('eaaq_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('ea_extraAgent');
+  fee=pwApply('ea_',fee);   /* §6·§5① 부분수임·중단 감액 */
   document.getElementById('ea_feeSum').textContent=won(fee);
   const vat=Math.round(fee*0.1);
   document.getElementById('ea_t_fee').textContent=won(fee);
@@ -5321,6 +5391,7 @@ function calcPartition(fromEdit){
   if(chk('pt_verify')){const n=Math.max(1,val('pt_vfyN')),e=Math.max(1,val('pt_cntEstate'));const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('pt_verifyCell').textContent=won(v);document.getElementById('pt_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else vRow.style.display='none';
   EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const c=document.getElementById('pta_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('ptaq_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('pt_extraAgent');
+  fee=pwApply('pt_',fee);   /* §6·§5① 부분수임·중단 감액 */
   document.getElementById('pt_feeSum').textContent=won(fee);
   const vat=Math.round(fee*0.1);
   document.getElementById('pt_t_fee').textContent=won(fee);
@@ -5430,6 +5501,7 @@ function calcNakchal(fromEdit){
   else document.getElementById('nk_sameCell').textContent='0 원';
   EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const c=document.getElementById('nka_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('nkaq_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('nk_extraAgent');
+  fee=pwApply('nk_',fee);   /* §6·§5① 부분수임·중단 감액 */
   document.getElementById('nk_feeSum').textContent=won(fee);
   const vat=Math.round(fee*0.1);
   document.getElementById('nk_t_fee').textContent=won(fee);
@@ -5615,6 +5687,7 @@ function calcBurden(fromEdit){
   if(chk('bv_verify')){const n=Math.max(1,val('bv_vfyN')),e=Math.max(1,val('bv_cntEstate'));const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('bv_verifyCell').textContent=won(v);document.getElementById('bv_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else vRow.style.display='none';
   EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const c=document.getElementById('bva_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('bvaq_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('bv_extraAgent');
+  fee=pwApply('bv_',fee);   /* §6·§5① 부분수임·중단 감액 */
   document.getElementById('bv_feeSum').textContent=won(fee);
   const vat=Math.round(fee*0.1);
   document.getElementById('bv_t_fee').textContent=won(fee);
@@ -5689,6 +5762,7 @@ function calcMortgage(mode){
   if(chk('mt_verify')){const n=Math.max(1,val('mt_vfyN')),e=Math.max(1,cntE);const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('mt_verifyCell').textContent=won(v);document.getElementById('mt_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else vRow.style.display='none';
   EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const c=document.getElementById('mta_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('mtaq_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('mt_extraAgent');
+  fee=pwApply('mt_',fee);   /* §6·§5① 부분수임·중단 감액 */
   document.getElementById('mt_feeSum').textContent=won(fee);
   const vat=Math.round(fee*0.1);
   document.getElementById('mt_t_fee').textContent=won(fee);
@@ -5747,6 +5821,7 @@ function calcGadeungi(fromEdit){
   if(chk('ga_verify')){const n=Math.max(1,val('ga_vfyN')),e=Math.max(1,cntE);const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('ga_verifyCell').textContent=won(v);document.getElementById('ga_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else vRow.style.display='none';
   EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const c=document.getElementById('gaa_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('gaaq_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('ga_extraAgent');
+  fee=pwApply('ga_',fee);   /* §6·§5① 부분수임·중단 감액 */
   document.getElementById('ga_feeSum').textContent=won(fee);
   const vat=Math.round(fee*0.1);
   document.getElementById('ga_t_fee').textContent=won(fee);
@@ -5778,6 +5853,7 @@ function calcMarital(fromEdit){
   if(chk('mr_f_trip'))fee+=val('mr_tripFee');
   EXTRA_AGENT.filter(a=>a[3].includes('civil')&&!['ea5','ea6','ea7'].includes(a[0])).forEach(([id,name,code])=>{const c=document.getElementById('mra_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('mraq_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('mr_extraAgent');
+  fee=pwApply('mr_',fee);   /* §6·§5① 부분수임·중단 감액 */
   document.getElementById('mr_feeSum').textContent=won(fee);
   const vat=Math.round(fee*0.1);
   document.getElementById('mr_t_fee').textContent=won(fee);
@@ -5834,6 +5910,7 @@ function calcSintak(fromEdit){
   if(chk('st_f_origin')){const _oa=parseFloat((document.getElementById('st_originAdd')||{}).value)||0;const _oAdd=Math.round(50000*_oa);fee+=50000+_oAdd;const _oc=document.getElementById('st_originCell');if(_oc)_oc.textContent=won(50000+_oAdd)+(_oAdd>0?' (기본50,000+§25②가산'+won(_oAdd)+')':'');}else{const _oc=document.getElementById('st_originCell');if(_oc)_oc.textContent='0 원';}if(chk('st_f_tax'))fee+=50000;if(chk('st_f_trip'))fee+=val('st_tripFee');
   EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const c=document.getElementById('sta_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('staq_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('st_extraAgent');
+  fee=pwApply('st_',fee);   /* §6·§5① 부분수임·중단 감액 */
   document.getElementById('st_feeSum').textContent=won(fee);
   const vat=Math.round(fee*0.1);
   document.getElementById('st_t_fee').textContent=won(fee);
@@ -5897,6 +5974,7 @@ function calcMortgageAdd(fromEdit){
   if(chk('ma_verify')){const n=Math.max(1,val('ma_vfyN')),e=Math.max(1,cntE);const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('ma_verifyCell').textContent=won(v);document.getElementById('ma_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else vRow.style.display='none';
   EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const c=document.getElementById('maa_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('maaq_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('ma_extraAgent');
+  fee=pwApply('ma_',fee);   /* §6·§5① 부분수임·중단 감액 */
   document.getElementById('ma_feeSum').textContent=won(fee);
   const vat=Math.round(fee*0.1);
   document.getElementById('ma_t_fee').textContent=won(fee);
@@ -5943,6 +6021,7 @@ function calcMortCancel(fromEdit){
   if(chk('mtc_f_trip'))fee+=val('mtc_tripFee');
   EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const c=document.getElementById('mtca_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('mtcaq_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('mtc_extraAgent');
+  fee=pwApply('mtc_',fee);   /* §6·§5① 부분수임·중단 감액 */
   document.getElementById('mtc_feeSum').textContent=won(fee);
   const vat=Math.round(fee*0.1);
   document.getElementById('mtc_t_fee').textContent=won(fee);
@@ -6051,6 +6130,7 @@ function calcPreserve(fromEdit){
   if(chk('pr_verify')){const n=Math.max(1,val('pr_vfyN')),e=Math.max(1,cntE);const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('pr_verifyCell').textContent=won(v);document.getElementById('pr_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else vRow.style.display='none';
   EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const c=document.getElementById('pra_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('praq_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('pr_extraAgent');
+  fee=pwApply('pr_',fee);   /* §6·§5① 부분수임·중단 감액 */
   document.getElementById('pr_feeSum').textContent=won(fee);
   const vat=Math.round(fee*0.1);
   document.getElementById('pr_t_fee').textContent=won(fee);
@@ -6128,6 +6208,7 @@ function calcRight(fromEdit){
   if(chk('rt_verify')){const n=Math.max(1,val('rt_vfyN')),e=Math.max(1,cntE);const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('rt_verifyCell').textContent=won(v);document.getElementById('rt_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else vRow.style.display='none';
   EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const c=document.getElementById('rta_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('rtaq_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('rt_extraAgent');
+  fee=pwApply('rt_',fee);   /* §6·§5① 부분수임·중단 감액 */
   document.getElementById('rt_feeSum').textContent=won(fee);
   const vat=Math.round(fee*0.1);
   document.getElementById('rt_t_fee').textContent=won(fee);
@@ -6190,6 +6271,7 @@ function calcCorp(fromEdit){
   if(chk('co_f_tax'))fee+=50000;if(chk('co_f_card'))fee+=40000;if(chk('co_f_trip'))fee+=val('co_tripFee');
   EXTRA_AGENT.filter(a=>a[3].includes('corp')).forEach(([id,name,code])=>{const c=document.getElementById('coa_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('coaq_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('co_extraAgent');
+  fee=pwApply('co_',fee);   /* §6·§5① 부분수임·중단 감액 */
   document.getElementById('co_feeSum').textContent=won(fee);
   const vat=Math.round(fee*0.1);
   document.getElementById('co_t_fee').textContent=won(fee);
@@ -6324,6 +6406,7 @@ function calcCorpChange(fromEdit){
   if(chk('cv_f_trip'))fee+=val('cv_tripFee');
   EXTRA_AGENT.filter(a=>a[3].includes('corp')).forEach(([id,name,code])=>{const c=document.getElementById('cva_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('cvaq_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('cv_extraAgent');
+  fee=pwApply('cv_',fee);   /* §6·§5① 부분수임·중단 감액 */
   document.getElementById('cv_feeSum').textContent=won(fee);
   const vat=Math.round(fee*0.1);
   document.getElementById('cv_t_fee').textContent=won(fee);
@@ -6403,6 +6486,7 @@ function calcRedev(fromEdit){
   if(chk('rd_f_trip'))fee+=val('rd_tripFee');
   EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const c=document.getElementById('rda_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('rdaq_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('rd_extraAgent');
+  fee=pwApply('rd_',fee);   /* §6·§5① 부분수임·중단 감액 */
   document.getElementById('rd_feeSum').textContent=won(fee);
   const vat=Math.round(fee*0.1);
   document.getElementById('rd_t_fee').textContent=won(fee);
@@ -6515,6 +6599,7 @@ function calcLawsuit(fromEdit){
   if(chk('so_read')){readRow.style.display='table-row';document.getElementById('so_readCell').textContent=won(40000);fee+=40000;}else readRow.style.display='none';
   EXTRA_AGENT.filter(a=>a[3].includes('civil')&&!['ea5','ea6','ea7'].includes(a[0])).forEach(([id,name,code])=>{const c=document.getElementById('soa_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('soaq_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('so_extraAgent');
+  fee=pwApply('so_',fee);   /* §6·§5① 부분수임·중단 감액 */
   document.getElementById('so_feeSum').textContent=won(fee);
   const vat=Math.round(fee*0.1);
   document.getElementById('so_t_fee').textContent=won(fee);
@@ -6609,6 +6694,7 @@ function calcAuctionFile(fromEdit){
   if(chk('am_taxAgent'))fee+=50000;
   EXTRA_AGENT.filter(a=>a[3].includes('civil')&&a[0]!=='ea5').forEach(a=>{const c=document.getElementById('ama_'+a[0]);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('amaq_'+a[0]).value)||1);fee+=FLAT[a[2]]*q;}});
   fee+=customSum('am_extraAgent');
+  fee=pwApply('am_',fee);   /* §6·§5① 부분수임·중단 감액 */
   document.getElementById('am_feeSum').textContent=won(fee);
   const vat=Math.round(fee*0.1);
   document.getElementById('am_t_fee').textContent=won(fee);
@@ -6662,6 +6748,7 @@ function calcMisc(fromEdit){
   document.getElementById('mi_feeBaseCell').textContent=won(feeBase);
   document.getElementById('mi_feeBaseNote').textContent='(Ⅶ-1②'+(claim<=0?'·5천만 의제 §23①':'·청구액')+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   let fee=feeBase; if(chk('mi_submit'))fee+=40000;
+  fee=pwApply('mi_',fee);   /* §6·§5① 부분수임·중단 감액 */
   document.getElementById('mi_feeSum').textContent=won(fee);
   const vat=Math.round(fee*0.1);
   document.getElementById('mi_t_fee').textContent=won(fee);document.getElementById('mi_t_vat').textContent=won(vat);document.getElementById('mi_t_public').textContent=won(publicSum);
@@ -6688,6 +6775,7 @@ function calcSeizure(fromEdit){
   if(chk('cs_statement'))fee+=val('cs_statementFee'); // 진술최고신청(민집§237) 문안작성 [A]
   EXTRA_AGENT.filter(a=>a[3].includes('civil')&&a[0]!=='ea5').forEach(a=>{const c=document.getElementById('csa_'+a[0]);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('csaq_'+a[0]).value)||1);fee+=FLAT[a[2]]*q;}});
   fee+=customSum('cs_extraAgent');
+  fee=pwApply('cs_',fee);   /* §6·§5① 부분수임·중단 감액 */
   document.getElementById('cs_feeSum').textContent=won(fee);
   const vat=Math.round(fee*0.1);
   document.getElementById('cs_t_fee').textContent=won(fee);document.getElementById('cs_t_vat').textContent=won(vat);document.getElementById('cs_t_public').textContent=won(publicSum);
@@ -6716,6 +6804,7 @@ function calcAttachGoods(fromEdit){
   let fee=feeBase; if(chk('ad_submit'))fee+=40000; if(chk('ad_cert'))fee+=val('ad_certFee');
   EXTRA_AGENT.filter(a=>a[3].includes('civil')&&a[0]!=='ea5').forEach(a=>{const c=document.getElementById('ada_'+a[0]);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('adaq_'+a[0]).value)||1);fee+=FLAT[a[2]]*q;}});
   fee+=customSum('ad_extraAgent');
+  fee=pwApply('ad_',fee);   /* §6·§5① 부분수임·중단 감액 */
   document.getElementById('ad_feeSum').textContent=won(fee);
   const vat=Math.round(fee*0.1);
   document.getElementById('ad_t_fee').textContent=won(fee);document.getElementById('ad_t_vat').textContent=won(vat);document.getElementById('ad_t_public').textContent=won(publicSum);
@@ -6746,6 +6835,7 @@ function calcAttachCar(fromEdit){
   let fee=feeBase; if(chk('av_submit'))fee+=40000; if(chk('av_taxAgent'))fee+=50000; if(chk('av_cert'))fee+=val('av_certFee');
   EXTRA_AGENT.filter(a=>a[3].includes('civil')&&a[0]!=='ea5').forEach(a=>{const c=document.getElementById('ava_'+a[0]);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('avaq_'+a[0]).value)||1);fee+=FLAT[a[2]]*q;}});
   fee+=customSum('av_extraAgent');
+  fee=pwApply('av_',fee);   /* §6·§5① 부분수임·중단 감액 */
   document.getElementById('av_feeSum').textContent=won(fee);
   const vat=Math.round(fee*0.1);
   document.getElementById('av_t_fee').textContent=won(fee);document.getElementById('av_t_vat').textContent=won(vat);document.getElementById('av_t_public').textContent=won(publicSum);
@@ -6778,6 +6868,7 @@ function calcAttachClaim(fromEdit){
   if(chk('ac_statement'))fee+=val('ac_statementFee'); // 진술최고신청(민집§291→§237 준용) 문안작성 [A]
   EXTRA_AGENT.filter(a=>a[3].includes('civil')&&a[0]!=='ea5').forEach(a=>{const c=document.getElementById('aca_'+a[0]);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('acaq_'+a[0]).value)||1);fee+=FLAT[a[2]]*q;}});
   fee+=customSum('ac_extraAgent');
+  fee=pwApply('ac_',fee);   /* §6·§5① 부분수임·중단 감액 */
   document.getElementById('ac_feeSum').textContent=won(fee);
   const vat=Math.round(fee*0.1);
   document.getElementById('ac_t_fee').textContent=won(fee);
@@ -6819,6 +6910,7 @@ function calcAttach(fromEdit){
   if(chk('at_cert'))fee+=val('at_certFee');
   EXTRA_AGENT.filter(a=>a[3].includes('civil')&&a[0]!=='ea5').forEach(a=>{const c=document.getElementById('ata_'+a[0]);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('ataq_'+a[0]).value)||1);fee+=FLAT[a[2]]*q;}});
   fee+=customSum('at_extraAgent');
+  fee=pwApply('at_',fee);   /* §6·§5① 부분수임·중단 감액 */
   document.getElementById('at_feeSum').textContent=won(fee);
   const vat=Math.round(fee*0.1);
   document.getElementById('at_t_fee').textContent=won(fee);
@@ -6883,6 +6975,7 @@ function calcInjunction(fromEdit){
   if(chk('inj_cert'))fee+=val('inj_certFee');
   EXTRA_AGENT.filter(a=>a[3].includes('civil')&&a[0]!=='ea5').forEach(a=>{const c=document.getElementById('inja_'+a[0]);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('injaq_'+a[0]).value)||1);fee+=FLAT[a[2]]*q;}});
   fee+=customSum('inj_extraAgent');
+  fee=pwApply('inj_',fee);   /* §6·§5① 부분수임·중단 감액 */
   document.getElementById('inj_feeSum').textContent=won(fee);
   const vat=Math.round(fee*0.1);
   document.getElementById('inj_t_fee').textContent=won(fee);
@@ -6988,6 +7081,7 @@ function calcGeneric(fromEdit){
   let fee=feeBase;
   EXTRA_AGENT.forEach(([id,nm,code])=>{const c=document.getElementById('gck_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('gqt_'+id).value)||1);fee+=FLAT[code]*q;}});
   if(def.addFee&&document.getElementById('g_addFeeChk')&&chk('g_addFeeChk'))fee+=val('g_addFee'); // 집행공탁 사유신고 가산보수(§19② 협의) [A]
+  fee=pwApply('g_',fee);   /* §6·§5① 부분수임·중단 감액 */
   document.getElementById('g_feeSum').textContent=won(fee);
   // 공과금
   let pub=0;
@@ -7104,6 +7198,7 @@ function calcLitCost(){
     inCell.textContent=won(applied);
     feeSum+=applied;
   }
+  feeSum=pwApply('lc_',feeSum);
   document.getElementById('lc_feeSum').textContent=won(feeSum);
   const nh=document.getElementById('lc_noPaidHint'); if(nh)nh.style.display=anyNoPaid?'block':'none';
   const costSum=val('lc_inji')+val('lc_song')+val('lc_gamjeong')+val('lc_witness')+val('lc_etc');
