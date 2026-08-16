@@ -2787,7 +2787,7 @@
 
     <div class="card blue"><h2>① 소장 정보</h2><div class="body">
       <div class="line"><span class="lbl">소가(소송물가액, 원)</span><input type="number" class="amt" id="so_sga" placeholder="0" oninput="calcLawsuit()"><span class="hint">없으면 5천만 의제(보수)</span></div>
-      <div class="line" style="border:none;padding-bottom:0;"><span class="lbl"></span><details style="width:100%;background:#fdf6e8;border:1px solid #e8dcc0;border-radius:6px;padding:8px 10px;"><summary style="cursor:pointer;font-weight:800;color:var(--gold-d);">📋 이 화면으로 계산되는 서류 — 보수기준 §23① 전체 보기</summary><div style="margin-top:8px;line-height:1.85;font-size:13px;"><b>■ 첫째 표 (보수표 Ⅶ-1① · 3천만원까지 560,000원~)</b><br>소장(상소장) · 항고장 · 답변서 · 준비서면 · 증거신청서 · 화해신청서 · 고소·고발장 · 항고·상소이유서 · 보전처분·집행·비송사건의 신청서 · 회생절차 개시신청서 · 회생채권신고서 · 채권조사확정재판 신청서 · 간이회생절차 개시신청서 · 파산신청서 · 지급명령 · 조정신청서<br><span class="hint">▸ 위 서류는 <b>모두 이 화면</b>에서 계산하십시오. 소가만 넣으시면 같은 표로 산정됩니다.<br>▸ <b>보전처분</b>(가압류·가처분)은 인지·송달료가 달라 <b>전용 화면</b>이 따로 있습니다.<br>▸ <b>개인</b>회생·개인파산은 §24의1 <b>별도 표(Ⅷ)</b>입니다 — 「개인회생」·「개인파산·면책」 화면을 쓰십시오.</span><br><br><b>■ 둘째 표 (보수표 Ⅶ-1② · 3천만원까지 260,000원~)</b><br>공시최고 · 소송비용확정신청서 · 민사신청 · 가사신청 · 형사신청 · 소년신청(보전신청 제외) · 그 밖에 문안을 요하는 서류<br><span class="hint">▸ <b>민사신청 48종</b>은 「민사 신청사건(기타)」 화면에 목록으로 들어 있습니다.<br>▸ <b>가사신청</b>은 협의이혼·양육비·친권자·개명 등 전용 화면을 쓰십시오.<br>▸ <b>형사·소년신청</b>은 아래 표를 「둘째 표」로 바꿔 계산하십시오.</span><br><br><b>■ 문안을 요하지 않는 서류 (보수표 Ⅶ-2 · 1건당 40,000원)</b><br>기일변경·지정신청서 · 판결확정·송달증명신청서 · 집행문부여신청서 · 정식재판청구서 · 기록열람신청서 · 도면<br><span class="hint">▸ 「문안 不요 서류」 화면에서 건수만 넣으시면 됩니다.</span><br><br><span class="hint">※ 소송물가액이 <b>없거나 산정할 수 없으면 5천만원</b>으로 봅니다(§23① 후단). 위 소가 칸을 비워 두시면 그대로 적용됩니다.</span></div></details></div><div class="line"><span class="lbl">보수 산정표</span><select id="so_tbl" onchange="calcLawsuit()"><option value="1" selected>첫째 표 Ⅶ-1① — 소장·답변서·준비서면·항고장·이유서·고소장·회생/파산 신청서 등</option><option value="2">둘째 표 Ⅶ-1② — 공시최고·소송비용확정·민사/가사/형사/소년 신청 등</option></select><span class="hint">서류 종류에 맞는 표를 고르십시오 <span class="law" title="법무사보수기준 §23① — 문안을 요하는 서류의 작성에 관한 기본보수는 두 개의 표로 나뉜다">§23①</span></span></div><div class="line"><span class="lbl">사건유형</span><select id="so_type" onchange="calcLawsuit()">
+      <div class="line" style="border:none;padding-bottom:0;"><span class="lbl"></span><details style="width:100%;background:#fdf6e8;border:1px solid #e8dcc0;border-radius:6px;padding:8px 10px;"><summary style="cursor:pointer;font-weight:800;color:var(--gold-d);">📋 이 화면으로 계산되는 서류 — 보수기준 §23① 전체 보기</summary><div style="margin-top:8px;line-height:1.85;font-size:13px;"><b>■ 첫째 표 (보수표 Ⅶ-1① · 3천만원까지 560,000원~)</b><br>소장(상소장) · 항고장 · 답변서 · 준비서면 · 증거신청서 · 화해신청서 · 고소·고발장 · 항고·상소이유서 · 보전처분·집행·비송사건의 신청서 · 회생절차 개시신청서 · 회생채권신고서 · 채권조사확정재판 신청서 · 간이회생절차 개시신청서 · 파산신청서 · 지급명령 · 조정신청서<br><span class="hint">▸ 위 서류는 <b>모두 이 화면</b>에서 계산하십시오. 소가만 넣으시면 같은 표로 산정됩니다.<br>▸ <b>보전처분</b>(가압류·가처분)은 인지·송달료가 달라 <b>전용 화면</b>이 따로 있습니다.<br>▸ <b>개인</b>회생·개인파산은 §24의1 <b>별도 표(Ⅷ)</b>입니다 — 「개인회생」·「개인파산·면책」 화면을 쓰십시오.</span><br><br><b>■ 둘째 표 (보수표 Ⅶ-1② · 3천만원까지 260,000원~)</b><br>공시최고 · 소송비용확정신청서 · 민사신청 · 가사신청 · 형사신청 · 소년신청(보전신청 제외) · 그 밖에 문안을 요하는 서류<br><span class="hint">▸ <b>민사신청 48종</b>은 「민사 신청사건(기타)」 화면에 목록으로 들어 있습니다.<br>▸ <b>가사신청</b>은 협의이혼·양육비·친권자·개명 등 전용 화면을 쓰십시오.<br>▸ <b>형사·소년신청</b>은 아래 표를 「둘째 표」로 바꿔 계산하십시오.</span><br><br><b>■ 문안을 요하지 않는 서류 (보수표 Ⅶ-2 · 1건당 40,000원)</b><br>기일변경·지정신청서 · 판결확정·송달증명신청서 · 집행문부여신청서 · 정식재판청구서 · 기록열람신청서 · 도면<br><span class="hint">▸ 「문안 不요 서류」 화면에서 건수만 넣으시면 됩니다.</span><br><br><span class="hint">※ 소송물가액이 <b>없거나 산정할 수 없으면 5천만원</b>으로 봅니다(§23① 후단). 위 소가 칸을 비워 두시면 그대로 적용됩니다.</span></div></details></div><div class="line"><span class="lbl">보수 산정표</span><select id="so_tbl" onchange="calcLawsuit()"><option value="1" selected>첫째 표 Ⅶ-1① — 소장·답변서·준비서면·항고장·이유서·고소장·회생/파산 신청서 등</option><option value="2">둘째 표 Ⅶ-1② — 공시최고·소송비용확정·민사/가사/형사/소년 신청 등</option></select><span class="hint">서류 종류에 맞는 표를 고르십시오 <span class="law" title="법무사보수기준 §23① — 문안을 요하는 서류의 작성에 관한 기본보수는 두 개의 표로 나뉜다">§23①</span></span></div><div class="line"><span class="lbl">작성 서류</span><select id="so_doc" onchange="calcLawsuit()"><option value="inji" selected>인지 붙이는 서류 — 소장·상소장·지급명령·조정신청·제소전화해</option><option value="none">인지 없는 서류 — 답변서·준비서면·증거신청서·상소이유서·고소·고발장</option></select><span class="hint">답변서·준비서면에는 <b>인지를 붙이지 않습니다</b> <span class="law" title="민사소송 등 인지법은 소장(§2)·항소장·상고장(§3)·반소장(§4)·청구변경(§5)·재심소장(§6)·지급명령(§7의2)·신청서(§9)·소송비용액확정 등(§10)에 인지를 붙이도록 정하고 있을 뿐, 답변서·준비서면·증거신청서에는 인지 규정이 없습니다.">민사소송 등 인지법</span></span></div><div class="line"><span class="lbl">사건유형</span><select id="so_type" onchange="calcLawsuit()">
         <option value="sm">1심 소액사건</option>
         <option value="dan">1심 단독·합의사건</option>
         <option value="hs">민사 항소사건</option>
@@ -2798,7 +2798,7 @@
         <option value="jd">지급명령(독촉)</option></select></div>
       <div id="so_smWarn" style="display:none;margin:6px 0;padding:8px 10px;background:#fdeaea;border:1px solid var(--seal-soft);border-radius:6px;font-size:12.5px;color:var(--seal);">
         ⚠ <b>소액사건 소가 초과</b> — 소액사건은 소가 <b>3,000만원 이하</b>에 한합니다(소액사건심판법). 현재 소가가 이를 초과하므로 <b>「1심 단독·합의사건」</b> 선택을 권합니다(송달료 15회분 적용). 인지대는 사건유형과 무관하게 동일합니다.</div>
-      <div id="so_hgWarn" style="display:none;margin:6px 0;padding:8px 10px;background:#fdeaea;border:1px solid var(--seal-soft);border-radius:6px;font-size:12.5px;color:var(--seal);line-height:1.6;">
+      <div id="so_noInjiWarn" style="display:none;margin:6px 0;padding:8px 10px;background:#f0f7f0;border:1px solid #9fd6a8;border-radius:6px;font-size:12.5px;line-height:1.6;">✓ <b>인지를 붙이지 않는 서류</b>입니다. 인지대·송달료를 <b>0원으로 두었습니다</b>. <span class="tag A">A</span><br>· 「민사소송 등 인지법」은 <b>소장(§2)·항소장·상고장(§3)·반소장(§4)·청구변경(§5)·재심소장(§6)·지급명령(§7의2)·신청서(§9)·소송비용액확정 등(§10)</b>에만 인지를 정하고 있습니다.<br>· <b>답변서·준비서면·증거신청서·상소이유서·고소·고발장</b>에는 인지 규정이 없습니다.<br>· <b>보수는 그대로 §23① 첫째 표</b>가 적용됩니다(같은 표의 서류 목록에 들어 있습니다).<br>· 송달료가 따로 드는 사정이 있으면 아래 칸에 직접 넣으십시오.</div><div id="so_hgWarn" style="display:none;margin:6px 0;padding:8px 10px;background:#fdeaea;border:1px solid var(--seal-soft);border-radius:6px;font-size:12.5px;color:var(--seal);line-height:1.6;">
         ⚠ <b>항고·재항고 인지는 소가와 무관합니다</b>(민사소송등인지법 <b>§11</b>). 자동계산을 정지했으니 아래 인지란에 <b>직접 입력</b>하십시오. <span class="tag A">A</span><br>
         · <b>§9·§10 신청의 재판에 대한 항고</b> → <b>해당 신청서에 붙인 인지액의 2배</b>(§11①)<br>
         · <b>그 밖의 항고장</b> → <b>2,000원</b> 정액(§11②)<br>
@@ -6584,6 +6584,20 @@ function calcLawsuit(fromEdit){
        ① §9·§10 신청에 관한 재판에 대한 항고장·상소장: 해당 신청서에 붙인 인지액의 2배
        ② 그 밖의 항고장: 2,000원 정액
        → 자동계산하면 소가 기준으로 과다 산출되므로 정지하고 직접입력으로 전환 */
+    /* [A] 민사소송 등 인지법 — 답변서·준비서면·증거신청서·상소이유서·고소장에는 인지 규정이 없다.
+           보수(§23①)는 첫째 표로 같지만 인지는 0원이다. 송달료도 상대방이 아닌
+           제출자가 새로 예납하는 것이 아니므로 자동계산하지 않는다. 27회차 신설. */
+    const _noInji=(document.getElementById('so_doc')&&document.getElementById('so_doc').value==='none');
+    const _niWarn=document.getElementById('so_noInjiWarn');
+    if(_niWarn)_niWarn.style.display=_noInji?'block':'none';
+    if(_noInji){
+      document.getElementById('so_inji').value=0;
+      document.getElementById('so_injiNote').textContent='(인지 없는 서류 — 0원)';
+      document.getElementById('so_song').value=0;
+      const _sn=document.getElementById('so_songNote');
+      if(_sn)_sn.textContent='(답변서·준비서면 등은 별도 예납 없음 — 필요하면 직접 입력)';
+      const _hw=document.getElementById('so_hgWarn'); if(_hw)_hw.style.display='none';
+    } else {
     const _hgWarn=document.getElementById('so_hgWarn');
     if(ty==='hg'){
       if(_hgWarn)_hgWarn.style.display='block';
@@ -6599,6 +6613,7 @@ function calcLawsuit(fromEdit){
     const song=party*SONG_CNT[ty]*songUnit();   // 단가=상단 입력값 · 회차=재일 87-4 별표1 [A]
     document.getElementById('so_song').value=song;
     document.getElementById('so_songNote').textContent='('+party+'인 × '+SONG_CNT[ty]+'회 × '+songUnit().toLocaleString()+')';
+    }   /* else — 인지 있는 서류 */
   }
   const publicSum=val('so_inji')+val('so_song')+val('so_specialFee')+val('so_correct')+pubCustomSum('scene-소장');
   document.getElementById('so_publicSum').textContent=won(publicSum);
@@ -6606,7 +6621,7 @@ function calcLawsuit(fromEdit){
   const sgaForFee=sga>0?sga:5e7;
   const feeBase=Math.round(tierFee((document.getElementById('so_tbl')&&document.getElementById('so_tbl').value==='2')?'Ⅶ-1②':'Ⅶ-1①',sgaForFee)*adj);   /* §23① — 서류 종류에 따라 첫째 표·둘째 표 선택 */
   document.getElementById('so_feeBaseCell').textContent=won(feeBase);
-  document.getElementById('so_feeBaseNote').textContent='(Ⅶ-1①'+(sga<=0?' ·5천만의제':'')+(adj!==1?' ×'+(adj*100)+'%':'')+')';
+  document.getElementById('so_feeBaseNote').textContent='('+((document.getElementById('so_tbl')&&document.getElementById('so_tbl').value==='2')?'Ⅶ-1②':'Ⅶ-1①')+(sga<=0?' · 소가 없음 → 5천만 의제(§23① 후단)':'')+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   let fee=feeBase;
   const subRow=document.getElementById('so_submitRow');
   if(chk('so_submit')){subRow.style.display='table-row';document.getElementById('so_submitCell').textContent=won(40000);fee+=40000;}else subRow.style.display='none';
@@ -7102,7 +7117,7 @@ function calcGeneric(fromEdit){
     let base=def.noSga?50000000:val('g_base');
     const _imp=_s23&&base<=0; if(_imp)base=50000000;
     feeBase=tierFee(def.tier,base);
-    note='(보수표 '+def.tier+((def.noSga||_imp)?' · 5천만 의제 §23①':'')+')';
+    note='(보수표 '+def.tier+((def.noSga||_imp)?' · 소가 없음 → 5천만 의제(§23① 후단) · 3천만까지는 '+won(tierFee(def.tier,3e7)):'')+')';
   }
   else{feeBase=(FLAT[def.flat]||0)*Math.max(1,val('g_cnt'));note='(보수표 '+def.flat+' 정액)';}
   const adj=parseFloat(document.getElementById('g_adjust').value)||1;
