@@ -647,7 +647,7 @@
         <option value="dongpo">외국국적동포 — 국내거소신고</option>
         <option value="alien-in">외국인 — 외국인등록(국내 거주)</option>
         <option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select></div>
-      <div class="docs" id="s_docsBox"></div>
+      <div class="line"><span class="lbl">상속인(등기권리자) — 법인격</span><select id="pty_s__buyer" onchange="renderDocsInherit()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">종교단체를 고르면 <b>취득세 감면 안내</b>가 함께 나옵니다</span></div><div id="s_partyDocsBox"></div><div class="docs" id="s_docsBox"></div>
     </div></div>
   </div>
 
@@ -827,7 +827,7 @@
         <option value="dongpo">외국국적동포 — 국내거소신고</option>
         <option value="alien-in">외국인 — 외국인등록(국내 거주)</option>
         <option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select></div>
-      <div class="docs" id="gv_docsBox"></div>
+      <div class="line"><span class="lbl">증여자(등기의무자) — 법인격</span><select id="pty_gv__seller" onchange="renderDocsGift()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">파는 쪽이 <b>법인·종중·교회</b>면 서류가 완전히 달라집니다</span></div><div class="line"><span class="lbl">수증자(등기권리자) — 법인격</span><select id="pty_gv__buyer" onchange="renderDocsGift()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">종교단체를 고르면 <b>취득세 감면 안내</b>가 함께 나옵니다</span></div><div id="gv_partyDocsBox"></div><div class="docs" id="gv_docsBox"></div>
     </div></div>
   </div>
 
@@ -1107,7 +1107,7 @@
         <label><input type="radio" name="pt_bform" value="apt" checked> 집합건물(아파트·빌라)</label>
         <label><input type="radio" name="pt_bform" value="house"> 일반건물(단독 등)</label>
         <label><input type="radio" name="pt_bform" value="land"> 토지만</label></div></div>
-      <div class="docs" id="pt_docsBox"></div>
+      <div class="line"><span class="lbl">공유자(등기의무자) — 법인격</span><select id="pty_pt__seller" onchange="renderDocsPartition()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">파는 쪽이 <b>법인·종중·교회</b>면 서류가 완전히 달라집니다</span></div><div class="line"><span class="lbl">취득자(등기권리자) — 법인격</span><select id="pty_pt__buyer" onchange="renderDocsPartition()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">종교단체를 고르면 <b>취득세 감면 안내</b>가 함께 나옵니다</span></div><div id="pt_partyDocsBox"></div><div class="docs" id="pt_docsBox"></div>
     </div></div>
   </div>
 
@@ -1231,7 +1231,7 @@
         <label><input type="radio" name="nk_bform" value="apt" checked> 집합건물(아파트·빌라)</label>
         <label><input type="radio" name="nk_bform" value="house"> 일반건물(단독 등)</label>
         <label><input type="radio" name="nk_bform" value="land"> 토지만</label></div></div>
-      <div class="docs" id="nk_docsBox"></div>
+      <div class="line"><span class="lbl">매수인(등기권리자) — 법인격</span><select id="pty_nk__buyer" onchange="renderDocsNakchal()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">종교단체를 고르면 <b>취득세 감면 안내</b>가 함께 나옵니다</span></div><div id="nk_partyDocsBox"></div><div class="docs" id="nk_docsBox"></div>
     </div></div>
   </div>
 
@@ -1342,7 +1342,7 @@
         <label><input type="radio" name="dv_bform" value="apt" checked> 집합건물(아파트·빌라)</label>
         <label><input type="radio" name="dv_bform" value="house"> 일반건물(단독 등)</label>
         <label><input type="radio" name="dv_bform" value="land"> 토지만</label></div></div>
-      <div class="docs" id="dv_docsBox"></div>
+      <div class="line"><span class="lbl">분할의무자(등기의무자) — 법인격</span><select id="pty_dv__seller" onchange="renderDocsDivision()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">파는 쪽이 <b>법인·종중·교회</b>면 서류가 완전히 달라집니다</span></div><div class="line"><span class="lbl">분할권리자(등기권리자) — 법인격</span><select id="pty_dv__buyer" onchange="renderDocsDivision()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">종교단체를 고르면 <b>취득세 감면 안내</b>가 함께 나옵니다</span></div><div id="dv_partyDocsBox"></div><div class="docs" id="dv_docsBox"></div>
     </div></div>
   </div>
 
@@ -1454,7 +1454,7 @@
         <option value="dongpo">외국국적동포 — 국내거소신고</option>
         <option value="alien-in">외국인 — 외국인등록(국내 거주)</option>
         <option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select></div>
-      <div class="docs" id="bv_docsBox"></div>
+      <div class="line"><span class="lbl">증여자(등기의무자) — 법인격</span><select id="pty_bv__seller" onchange="renderDocsBurden()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">파는 쪽이 <b>법인·종중·교회</b>면 서류가 완전히 달라집니다</span></div><div class="line"><span class="lbl">수증자(등기권리자) — 법인격</span><select id="pty_bv__buyer" onchange="renderDocsBurden()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">종교단체를 고르면 <b>취득세 감면 안내</b>가 함께 나옵니다</span></div><div id="bv_partyDocsBox"></div><div class="docs" id="bv_docsBox"></div>
     </div></div>
   </div>
 
@@ -2049,7 +2049,7 @@
         <label><input type="radio" name="pr_bform" value="apt" checked> 집합건물(아파트·빌라)</label>
         <label><input type="radio" name="pr_bform" value="house"> 일반건물(단독 등)</label>
         <label><input type="radio" name="pr_bform" value="land"> 토지</label></div></div>
-      <div class="docs" id="pr_docsBox"></div>
+      <div class="line"><span class="lbl">소유자(등기권리자) — 법인격</span><select id="pty_pr__buyer" onchange="renderDocsPreserve()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">종교단체를 고르면 <b>취득세 감면 안내</b>가 함께 나옵니다</span></div><div id="pr_partyDocsBox"></div><div class="docs" id="pr_docsBox"></div>
     </div></div>
   </div>
 
@@ -2112,7 +2112,7 @@
     <div class="actions"><button class="btn" onclick="calcRight()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
 
     <div class="card green"><h2>④ 준비서류</h2><div class="body">
-      <div class="docs" id="rt_docsBox"></div>
+      <div class="line"><span class="lbl">설정자(등기의무자) — 법인격</span><select id="pty_rt__seller" onchange="renderDocsRight()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">파는 쪽이 <b>법인·종중·교회</b>면 서류가 완전히 달라집니다</span></div><div class="line"><span class="lbl">권리자(등기권리자) — 법인격</span><select id="pty_rt__buyer" onchange="renderDocsRight()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">종교단체를 고르면 <b>취득세 감면 안내</b>가 함께 나옵니다</span></div><div id="rt_partyDocsBox"></div><div class="docs" id="rt_docsBox"></div>
     </div></div>
   </div>
 
@@ -3770,8 +3770,16 @@ function partyDocs(type,isObligor){
        ③ 지자체 조례로 적용 여부·시기를 달리 정할 수 있어 자동 적용은 금지한다.
    [A] 대법원 2022두33392 — §50①은 「종교행위 목적 사업에 직접 사용」에 한정. 선교·봉사·사회복지 등
        모든 활동으로 확장 해석할 수 없다. */
+/* 무상취득(증여·유증)일 때 — 비영리사업자 특례세율 2.8% 안내를 덧붙인다.
+   [A] 지방세법 §11①2호 — 무상취득 3.5%, 다만 대통령령으로 정하는 비영리사업자의 취득은 2.8% */
+function religGratisHTML(){
+  return '<div class="note" style="margin-top:6px;"><b>무상으로 받는 경우(증여·유증)</b> — 비영리사업자의 무상취득은 '
+   +'취득세율이 <b>3.5%가 아니라 2.8%</b>입니다 <span class="law" title="지방세법 제11조제1항제2호 단서 — 대통령령으로 정하는 비영리사업자의 무상취득은 1천분의 28">지방세법 §11①2호 단서</span>. '
+   +'여기에 §50① 면제가 겹치면 위 ②의 최소납부세제가 적용됩니다.</div>';
+}
 function religExemptHTML(){
   return '<div class="note alert" style="margin-top:8px;"><span class="head">종교단체 취득세 — 「면제」라고 되어 있지만 보통 15%는 냅니다</span>'
+
    +'<b>① 원칙</b> — 종교단체·향교가 <b>종교행위·제사 목적 사업에 직접 사용</b>하려고 취득하는 부동산은 취득세 <b>면제</b>'
    +' <span class="law" title="지방세특례제한법 제50조제1항">지특법 §50①</span> <span class="tag A">A</span><br>'
    +'<b>② 그런데 최소납부세제</b> — 100% 면제는 <b>85% 감면</b>으로 줄어듭니다. 곧 <b>취득세의 15%를 냅니다.</b>'
@@ -3794,16 +3802,19 @@ function religExemptHTML(){
 function renderPartyDocs(prefix,sellerSel,buyerSel,sellerName,buyerName){
   const box=document.getElementById(prefix+'partyDocsBox');
   if(!box)return;
-  const st=(document.getElementById(sellerSel)||{}).value||'ind';
-  const bt=(document.getElementById(buyerSel)||{}).value||'ind';
+  const se=sellerSel?document.getElementById(sellerSel):null;
+  const be=buyerSel?document.getElementById(buyerSel):null;
+  const st=se?(se.value||'ind'):'ind';
+  const bt=be?(be.value||'ind'):'ind';
   if(st==='ind'&&bt==='ind'){box.innerHTML='';return;}
   let h='';
   [[st,true,sellerName],[bt,false,buyerName]].forEach(function(x){
-    if(x[0]==='ind')return;
+    if(x[0]==='ind'||!x[2])return;
     h+='<div style="margin:8px 0 4px;font-weight:800;color:var(--gold-d);">■ '+x[2]+' — '+PARTY_LABEL[x[0]]+'</div>'
       +'<div style="line-height:1.85;">· '+partyDocs(x[0],x[1]).join('<br>· ')+'</div>';
   });
-  if(st==='relig'||bt==='relig')h+=religExemptHTML();
+  if(st==='relig'||bt==='relig'){h+=religExemptHTML();
+    if(['s_','gv_','bv_'].indexOf(prefix)>=0)h+=religGratisHTML();}
   box.innerHTML=h;
 }
 
@@ -4010,7 +4021,7 @@ function inheritAcqRate(){const t=radio('s_ptype'),one=chk('s_oneHouse');
   if(t==='farm')return chk('s_farmSpecial')?0.003:0.023;
   if(t==='house'&&one)return 0.008;
   return 0.028;}
-function renderDocsInherit(){const f=radio('s_bform');let ledger='';
+function renderDocsInherit(){renderPartyDocs('s_',null,'pty_s__buyer','','상속인(등기권리자)');const f=radio('s_bform');let ledger='';
   if(f==='apt')ledger='<b>대장</b> — 집합건축물대장(전유부+표제부), 대지권등록부, 대지권 목적 토지대장';
   else if(f==='house')ledger='<b>대장</b> — 일반건축물대장, 토지대장, 토지이용계획확인원 (필요시 지적도)';
   else ledger='<b>대장</b> — 토지대장(임야는 임야대장), 토지이용계획확인원, 필요시 지적도·임야도';
@@ -4265,7 +4276,7 @@ function giftAcqRate(value){const t=radio('gv_ptype'),adj3=chk('gv_adj3');
   if(chk('gv_nonprofit'))return 0.028;
   if(t==='house'&&adj3&&value>=3*억&&!giftMidExempt())return 0.12;
   return 0.035;}
-function renderDocsGift(){const f=radio('gv_bform'),rel=radio('gv_relation'),fam=isLineal(rel);let ledger='';
+function renderDocsGift(){renderPartyDocs('gv_','pty_gv__seller','pty_gv__buyer','증여자(등기의무자)','수증자(등기권리자)');const f=radio('gv_bform'),rel=radio('gv_relation'),fam=isLineal(rel);let ledger='';
   if(f==='apt')ledger='<b>대장</b> — 집합건축물대장(전유부+표제부), 대지권등록부, 대지권 목적 토지대장';
   else if(f==='house')ledger='<b>대장</b> — 일반건축물대장, 토지대장, 토지이용계획확인원 (필요시 지적도)';
   else ledger='<b>대장</b> — 토지대장(임야는 임야대장), 토지이용계획확인원, 필요시 지적도·임야도';
@@ -4390,7 +4401,7 @@ function calcBondDivision(){
   document.getElementById('dv_bondBuy').value=buy;
   calcDivision();
 }
-function renderDocsDivision(){const f=radio('dv_bform'),b=radio('dv_basis'),mg=radio('dv_marriage');let ledger='';
+function renderDocsDivision(){renderPartyDocs('dv_','pty_dv__seller','pty_dv__buyer','분할의무자(등기의무자)','분할권리자(등기권리자)');const f=radio('dv_bform'),b=radio('dv_basis'),mg=radio('dv_marriage');let ledger='';
   if(f==='apt')ledger='<b>대장</b> — 집합건축물대장(전유부+표제부), 대지권등록부, 대지권 목적 토지대장';
   else if(f==='house')ledger='<b>대장</b> — 일반건축물대장, 토지대장, 토지이용계획확인원 (필요시 지적도)';
   else ledger='<b>대장</b> — 토지대장(임야는 임야대장), 토지이용계획확인원, 필요시 지적도·임야도';
@@ -5066,7 +5077,7 @@ function calcNakchal(fromEdit){
   document.getElementById('nk_t_grand').textContent=won(fee+vat+publicSum);
   renderDocsNakchal();
 }
-function renderDocsNakchal(){
+function renderDocsNakchal(){renderPartyDocs('nk_',null,'pty_nk__buyer','','매수인(등기권리자)');
   const f=radio('nk_bform'), onbid=(radio('nk_basis')==='onbid');let ledger='';
   if(f==='apt')ledger='<b>대장</b> — 집합건축물대장(전유부+표제부), 대지권등록부, 대지권 목적 토지대장';
   else if(f==='house')ledger='<b>대장</b> — 일반건축물대장, 토지대장, 토지이용계획확인원 (필요시 지적도)';
@@ -5084,7 +5095,7 @@ function renderDocsNakchal(){
     '· <b>등기사항전부증명서(말소사항 포함)</b> — 말소할 권리 건수 확인용. <b>인수되는 권리는 말소 대상에서 제외</b>됩니다';
 }
 
-function renderDocsPartition(){
+function renderDocsPartition(){renderPartyDocs('pt_','pty_pt__seller','pty_pt__buyer','공유자(등기의무자)','취득자(등기권리자)');
   const f=radio('pt_bform'), judge=(radio('pt_basis')==='judge');let ledger='';
   if(f==='apt')ledger='<b>대장</b> — 집합건축물대장(전유부+표제부), 대지권등록부, 대지권 목적 토지대장';
   else if(f==='house')ledger='<b>대장</b> — 일반건축물대장, 토지대장, 토지이용계획확인원 (필요시 지적도)';
@@ -5132,7 +5143,7 @@ function calcBondBurden(){
   document.getElementById('bv_bondNote').textContent='부담부분+증여분 각 요율 합산';
   calcBurden();
 }
-function renderDocsBurden(){const f=radio('bv_bform'),rel=radio('bv_relation'),fam=isLineal(rel);let ledger='';
+function renderDocsBurden(){renderPartyDocs('bv_','pty_bv__seller','pty_bv__buyer','증여자(등기의무자)','수증자(등기권리자)');const f=radio('bv_bform'),rel=radio('bv_relation'),fam=isLineal(rel);let ledger='';
   if(f==='apt')ledger='<b>대장</b> — 집합건축물대장(전유부+표제부), 대지권등록부, 대지권 목적 토지대장';
   else if(f==='house')ledger='<b>대장</b> — 일반건축물대장, 토지대장, 토지이용계획확인원 (필요시 지적도)';
   else ledger='<b>대장</b> — 토지대장(임야는 임야대장), 토지이용계획확인원, 필요시 지적도·임야도';
@@ -5608,7 +5619,7 @@ function calcBondPreserve(){
   document.getElementById('pr_bondBuy').value=buy;
   calcPreserve(true);
 }
-function renderDocsPreserve(){const f=radio('pr_bform');let ledger='';
+function renderDocsPreserve(){renderPartyDocs('pr_',null,'pty_pr__buyer','','소유자(등기권리자)');const f=radio('pr_bform');let ledger='';
   if(f==='apt')ledger='<b>대장</b> — 집합건축물대장(전유부+표제부, 사용승인), 대지권등록부, 대지권 목적 토지대장';
   else if(f==='house')ledger='<b>대장</b> — 일반건축물대장(사용승인), 토지대장, 토지이용계획확인원';
   else ledger='<b>대장</b> — 토지대장(임야는 임야대장), 토지이용계획확인원';
@@ -5700,7 +5711,7 @@ function rtTypeChange(){
   renderDocsRight();
   calcRight();
 }
-function renderDocsRight(){
+function renderDocsRight(){renderPartyDocs('rt_','pty_rt__seller','pty_rt__buyer','설정자(등기의무자)','권리자(등기권리자)');
   const t=radio('rt_type');
   document.getElementById('rt_docsBox').innerHTML=
     '<b>설정자(소유자)</b> — 등기권리증(등기필정보), 인감증명서 1통, 주민등록초본 1통(주소변동 포함), 인감도장, 신분증<br>'+
