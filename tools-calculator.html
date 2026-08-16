@@ -64,6 +64,13 @@
   @media(max-width:480px){.mgrid{gap:4px;padding:8px;}.mbtn{font-size:11.5px;padding:7px 2px;min-height:46px;}.mbtn .ref{font-size:9px;}}
 
   /* 시나리오 패널 공통 */
+  /* ── 금액 입력칸 위 한글 읽기 (27회차 신설) ── */
+  .mhw{position:relative;display:inline-block;}
+  .mh{position:absolute;bottom:100%;left:0;margin-bottom:1px;white-space:nowrap;
+      font-size:11px;font-weight:800;color:#7a5c1e;background:#fdf6e8;
+      border:1px solid #e8dcc0;border-radius:4px;padding:0 5px;line-height:15px;
+      pointer-events:none;z-index:5;}
+  @media(max-width:520px){.mh{font-size:10px;padding:0 4px;}}
   .scene{display:none;}
   .scene.active{display:block;}
   .back{margin-top:16px;display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--seal);
@@ -3351,6 +3358,60 @@ const SCENARIO={
 };
 
 /* ===================== 공통 함수 ===================== */
+/* ═══════════ 금액 입력칸 위 「쉼표 + 한글」 읽기 ═══════════════════════
+   숫자만 죽 이어져 있으면 자릿수를 잘못 읽기 쉽다.
+   예) 500000000 → 「500,000,000원 (5억원)」 을 칸 바로 위에 띄운다.
+   ▸ 값이 1,000 미만이면 띄우지 않는다 → 개수·인원·횟수·요율 칸은 자연히 제외된다.
+   ▸ 지분 분자/분모·할인율·매입률은 큰 수가 들어와도 금액이 아니므로 따로 제외한다.
+   ▸ 등기뿐 아니라 소송·가사·법인·경매·회생 등 모든 화면에 자동 적용된다.
+   27회차 신설. */
+const MH_SKIP=/(bondRate$|bondPct|_pct|Pct$|Rate$|bsTrNum|bsTrDen|winPct|ownShare|Share$)/;
+/* 12,345,678 → 「1,234만 5,678원」 형태로 읽어 준다 */
+function koMoney(n){
+  n=Math.floor(Math.abs(n));
+  if(n<1)return '0원';
+  const U=[[1e12,'조'],[1e8,'억'],[1e4,'만']];
+  let out='',rest=n;
+  for(const [u,name] of U){
+    const q=Math.floor(rest/u);
+    if(q>0){out+=q.toLocaleString('ko-KR')+name+' ';rest=rest%u;}
+  }
+  if(rest>0)out+=rest.toLocaleString('ko-KR');
+  return out.trim()+'원';
+}
+function mhBox(el){
+  let w=el.parentNode;
+  if(!w||!w.classList||!w.classList.contains('mhw')){
+    w=document.createElement('span');w.className='mhw';
+    el.parentNode.insertBefore(w,el);w.appendChild(el);
+    const b=document.createElement('span');b.className='mh';b.style.display='none';
+    w.appendChild(b);
+  }
+  return w.querySelector('.mh');
+}
+function mhPaint(el){
+  if(!el||el.type!=='number')return;
+  if(el.id&&MH_SKIP.test(el.id))return;
+  const v=parseFloat(el.value);
+  const show=isFinite(v)&&Math.abs(v)>=1000;
+  const b=(el.__mh)||(el.__mh=mhBox(el));
+  const txt=show?(Math.abs(v)>=10000
+      ? v.toLocaleString('ko-KR')+'원 ('+koMoney(v)+')'
+      : v.toLocaleString('ko-KR')+'원'):'';
+  if(b.__t===txt)return;                       /* 바뀐 때만 손댄다 */
+  b.__t=txt;b.textContent=txt;b.style.display=show?'inline-block':'none';
+}
+/* 활성 화면의 금액칸만 훑는다. 자동 계산으로 값이 바뀌는 칸도 함께 따라온다. */
+function mhScan(){
+  const sc=document.querySelector('.scene.active');
+  if(!sc)return;
+  sc.querySelectorAll('input[type="number"]').forEach(mhPaint);
+}
+document.addEventListener('input',function(e){
+  if(e.target&&e.target.type==='number')mhPaint(e.target);
+},true);
+setInterval(mhScan,300);
+
 function won(n){n=Math.round(n||0);return n.toLocaleString('ko-KR')+' 원';}
 function val(id){const el=document.getElementById(id);if(!el)return 0;const v=parseFloat(el.value);return isNaN(v)?0:v;}
 function radio(name){const el=document.querySelector('input[name="'+name+'"]:checked');return el?el.value:'';}
