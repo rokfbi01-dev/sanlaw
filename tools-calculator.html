@@ -652,6 +652,105 @@
   </div>
 
   <!-- ===== 후견 신청 및 등기 (풀기능) ===== -->
+  <div class="scene" id="scene-유증">
+    <button class="back" onclick="goMenu()">‹ 메인메뉴</button>
+    <h2 class="stitle">상속 — 소유권이전 <small>보수표 Ⅰ-1 · 등기수수료 상속(20,000/17,000·전자불가)</small></h2>
+
+    <div class="card blue"><h2>① 유증 정보</h2><div class="body"><div class="line"><span class="lbl">유증 유형</span><div class="radios" onchange="calcBequest()"><label><input type="radio" name="bq_kind" value="pogwal" checked> 포괄유증</label><label><input type="radio" name="bq_kind" value="teukjeong"> 특정유증</label></div><span class="hint">재산 <b>전부·비율</b>로 주면 포괄유증, <b>특정 부동산</b>을 지정하면 특정유증</span></div><div class="line"><span class="lbl">수증자 지위</span><div class="radios" onchange="calcBequest()"><label><input type="radio" name="bq_heir" value="yes" checked> 상속인</label><label><input type="radio" name="bq_heir" value="no"> 상속인 아님</label></div><span class="hint">이 선택으로 <b>취득세율이 2.8%와 3.5%로 갈립니다</b>(지방세법 §7⑦)</span></div><div class="line"><span class="lbl">유언 방식</span><select id="bq_willType" onchange="renderDocsBequest();calcBequest()"><option value="gongjeong">공정증서 — 검인 불요</option><option value="japil">자필증서 — 법원 검인 필요</option><option value="bimil">비밀증서 — 법원 검인 필요</option><option value="nokeum">녹음 — 법원 검인 필요</option><option value="gusu">구수증서 — 법원 검인(확인) 필요</option><option value="pangyeol">판결·조정으로 갈음</option></select><span class="hint">공정증서만 <b>검인 없이</b> 바로 등기됩니다</span></div><div class="line"><span class="lbl">유언집행자</span><div class="radios" onchange="renderDocsBequest()"><label><input type="radio" name="bq_exec" value="yes" checked> 지정·선임 있음</label><label><input type="radio" name="bq_exec" value="no"> 없음 (상속인 전원이 의무자)</label></div><span class="hint">없으면 <b>상속인 전원</b>이 등기의무자가 됩니다(민법 §1095)</span></div>
+      <div class="line"><span class="lbl">유증재산 과세표준(원)</span><input type="number" class="amt" id="bq_price" placeholder="0" oninput="calcBequest()"><span class="hint">시가표준액 합산</span></div>
+      <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('bq_cntEstate',-1,calcBequest)">−</button><input type="number" id="bq_cntEstate" value="1" min="1" oninput="calcBequest()"><button onclick="step('bq_cntEstate',1,calcBequest)">+</button></div><span class="hint">등기수수료(매 부동산 20,000/17,000)·우편 곱</span></div>
+      <div class="line"><span class="lbl">수증자(인)</span><div class="stepper"><button onclick="step('bq_cntHeir',-1,calcBequest)">−</button><input type="number" id="bq_cntHeir" value="1" min="1" oninput="calcBequest()"><button onclick="step('bq_cntHeir',1,calcBequest)">+</button></div><span class="hint">보수기준 <b>§2②4호</b> — 당사자·이해관계인 <b>5인 이상</b> 판정용 (아래 「당사자 다수 가산」과 연동)</span></div>
+      <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcBequest()">
+        <label><input type="radio" name="bq_ptype" value="house" checked> 주택</label>
+        <label><input type="radio" name="bq_ptype" value="etc"> 주택외</label>
+        <label><input type="radio" name="bq_ptype" value="farm"> 농지</label></div></div>
+      <div class="line"><span class="lbl">세목 기준 <span class="tag A">A</span></span><div class="radios" onchange="calcBequest()">
+        <label><input type="radio" name="bq_taxMode" value="acq" checked> 2011.1.1.〜 상속개시(취득세)</label>
+        <label><input type="radio" name="bq_taxMode" value="reg"> 〜2010.12.31. 상속개시(舊 등록세)</label></div></div>
+      <div class="line" id="bq_regTaxNote" style="display:none;border-top:1px dashed var(--line);padding-top:8px;"><span class="hint" style="color:var(--seal);line-height:1.55;">▸ 2011.1.1. 취득세·등록세 통합 <b>이전</b> 상속개시분은 종전 <b>등록세</b> 적용(2011년 개정 지방세법 부칙 §6). 세율 <b>농지외 0.8%·농지 0.3%</b> + 지방교육세 20%, 농특세 없음. 취득세 부과제척기간(상속 무신고 10년) 도과분 포함(지방세법 §23①1호 단서).</span></div>
+      <div class="line"><span class="lbl">감면·가산 등</span><div class="checks" onchange="calcBequest()">
+        <label><input type="checkbox" id="bq_oneHouse"> 1가구 1주택 특례(0.8%·§15①2호가목)</label>
+        <label><input type="checkbox" id="bq_farmSpecial"> 자경농민 농지 특례(0.3%·§15①2호나목)</label>
+        <label><input type="checkbox" id="bq_nonprofit" onchange="calcBequest()"> 수증자가 비영리사업자(2.8%·§11①2호 단서)</label><label><input type="checkbox" id="bq_over85"> 85㎡ 초과(농특세)</label>
+        <label><input type="checkbox" id="bq_verify"> 확인서면(등기권리증 분실·법§51)</label></div></div>
+      <div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="bq_adjust" onchange="calcBequest()">
+        <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
+        <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
+        <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
+        <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
+        <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
+      <div class="line"><span class="lbl">당사자 다수 가산</span><span>등기권리자</span><input type="number" id="bq_pnOwn" value="1" min="1" style="width:52px;margin:0 4px;" oninput="calcBequest()"><span>인</span><span style="margin-left:6px;">등기의무자</span><input type="number" id="bq_pnObl" value="1" min="0" style="width:52px;margin:0 4px;" oninput="calcBequest()"><span>인</span><select id="bq_pnAdd" onchange="calcBequest()" style="margin-left:8px;"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint" id="bq_pnInfo" style="margin-left:8px;"></span></div><div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="bq_frAdd" onchange="calcBequest()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§10⑥</b> — 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는</b> 등기 → <b>기본보수의 100%까지</b> 가산</span></div>
+      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="bq_moAdd" onchange="calcBequest()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
+    </div></div>
+
+    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 직접 입력하셔야 합니다. 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
+      <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에 <b>등기 당일 값</b>을 넣으셔야 정확합니다.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
+      <div class="note">부동산 종류에 따라 입력칸 전환(주택/주택외=토지+건물/농지). 상속도 매입대상이며, 일부 면제·감액 케이스는 직접 조정.</div>
+      <div id="bq_bondBody"></div>
+      <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="bq_region" value="metro" checked onchange="calcBondBequest()"> 특별시·광역시</label><label><input type="radio" name="bq_region" value="other" onchange="calcBondBequest()"> 기타지역</label></div></div>
+      <div id="bq_bondShare"></div>
+      <div class="line"><span class="lbl">채권 매입금(원)</span><input type="number" class="amt" id="bq_bondBuy" placeholder="0" oninput="calcBequest()"><span class="hint">자동 합산(직접 수정 가능)</span></div>
+      <details class="ref"><summary>매입률 참고표 <span class="reftag" style="background:#e7efe6;color:var(--ok);">A</span> <span class="hint">— 계산기에 내장된 실제 요율</span></summary><div class="refbody"><div class="bondRefMount"></div><p style="margin:8px 0 0;font-size:11.5px;color:#8a8270;line-height:1.6;"><b>근거</b> 주택도시기금법 §8②·시행령 §8② [별표] 부표 1(부동산 등기) — 위 표는 <b>계산기에 내장된 값을 그대로 출력</b>한 것입니다.<br><b>계산규칙</b> 5천원 미만 절사 / 5천원 이상 올림 → 만원 단위 · 각 부동산마다 개별 산정 · 공유지분은 지분율을 곱한 시가표준액으로 판정 · 공동주택은 세대당 시가표준액</p></div></details>
+    </div></div>
+
+    <div class="card blue"><h2>③ 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
+      <div class="note" id="bq_taxNote">유증 취득세 — <b>수증자가 누구냐</b>에 따라 갈립니다.<br>▸ <b>상속인</b>에게 한 유증(포괄·특정 불문) 또는 <b>포괄유증</b> → <b>「상속」으로 보아 2.8%</b>(농지 2.3%) <span class="law" title="지방세법 제7조제7항 — 상속(피상속인이 상속인에게 한 유증 및 포괄유증과 신탁재산의 상속을 포함한다)으로 인하여 취득하는 경우에는 상속인 각자가 상속받는 취득물건을 취득한 것으로 본다">지방세법 §7⑦</span> <span class="tag chk">확인필요</span><br>▸ <b>상속인 아닌 자</b>에게 한 <b>특정유증</b> → <b>무상취득 3.5%</b>(지방세법 §11①2호). 비영리사업자는 <b>2.8%</b>(같은 호 단서)<br>▸ 1가구1주택 특례(0.8%)·자경농민 특례(0.3%)는 <b>「상속」으로 보는 경우</b>에만 검토 대상입니다(§15①2호).<br>▸ 지방교육세 — 상속 세율이면 <b>0.16%</b>((2.8%−2%)×20%), 무상 3.5%면 <b>0.3%</b>. 농특세 85㎡ 초과 0.2%.<br>▸ 등기수수료 <b>부동산마다 20,000(서면)·17,000(e-Form)·전자불가</b> <span class="hint">(상속·유증 동일)</span><br>▸ <b>신고기한</b> — 「상속」으로 보면 상속개시일이 속하는 달의 말일부터 <b>6개월</b>, 무상취득이면 취득일이 속하는 달의 말일부터 <b>3개월</b> <span class="tag chk">확인필요</span></div>
+      <table class="t">
+        <tr><td><span id="bq_taxLabel">취득세</span> <span id="bq_acqRate" class="hint"></span><span class="law" title="상속으로 받은 부동산의 취득세율 조항입니다. 농지와 농지 외를 나누어 정하고 있습니다.">지방세법 §11①1호</span></td><td><input class="cell" id="bq_acqTax" type="number" oninput="calcBequest(true)"></td></tr>
+        <tr><td>지방교육세<span class="law" title="지방교육세를 정한 조항입니다. 1호는 취득세율에서 1천분의 20(2%)을 뺀 세율로 계산한 금액의 100분의 20(20%)을 세액으로 합니다. 취득세와 함께 신고·납부합니다(§152①).">지방세법 §151①1호</span></td><td><input class="cell" id="bq_eduTax" type="number" oninput="calcBequest(true)"></td></tr>
+        <tr><td>농어촌특별세<span class="law" title="농어촌특별세 조항입니다. 취득세 표준세율을 2%로 적용해 산출한 금액의 100분의 10(10%)이 본세입니다(§5①6호). 전용면적 85㎡ 이하 주택은 비과세입니다(§4 11호).">농어촌특별세법 §5①6호·§4 11호</span></td><td><input class="cell" id="bq_ruralTax" type="number" oninput="calcBequest(true)"></td></tr>
+        <tr><td>채권 할인손실<span class="law" title="등기할 때 의무적으로 사야 하는 국민주택채권의 매입률표입니다. 대부분 곧바로 되팔기 때문에 실제 부담은 「사고 팔 때 생기는 차액(할인손실)」뿐입니다.">주택도시기금법 시행령 [별표]</span></td><td class="auto" id="bq_bondLossCell">0 원</td></tr>
+        <tr><td>등기신청수수료 <select id="bq_regMethod" class="mini" onchange="calcBequest()"><option value="e" selected>e-Form 17,000</option><option value="p">수기 20,000</option><option value="o" disabled>전자(불가)</option></select> <span class="hint" id="bq_regNote"></span><span class="law" title="「등기사항증명서 등 수수료규칙」 §5의2 — 부동산 등기신청수수료. 2025.8.1. 시행(대법원규칙 제3222호)으로 방문서면·e-Form이 인상되었고 전자신청은 동결되었습니다.">수수료규칙 §5의2</span></td><td class="auto" id="bq_regFeeCell">0 원</td></tr>
+        <tr><td>대장·등본 우편 등 <span class="hint">(개수 곱)</span></td><td><input class="cell" id="bq_postFee" type="number" value="6000" oninput="calcBequest(true)"></td></tr>
+        <tr class="subtot"><td>공과금계</td><td id="bq_publicSum">0 원</td></tr>
+      </table>
+    </div></div>
+
+    <div class="card pink"><h2>④ 수수료 (법무사 보수, VAT 별도) <span class="tag A">A</span></h2><div class="body">
+      <table class="t">
+        <tr><td>기본보수 <span class="hint" id="bq_feeBaseNote"></span></td><td class="auto" id="bq_feeBaseCell">0 원</td></tr>
+        <tr id="bq_feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="bq_feeForeignNote"></span></td><td class="auto" id="bq_feeForeignCell">0 원</td></tr><tr id="bq_feePartyRow" style="display:none;"><td>당사자 다수 가산 <span class="hint" id="bq_feePartyNote"></span></td><td class="auto" id="bq_feePartyCell">0 원</td></tr>
+        <tr id="bq_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="bq_feeMultiNote"></span></td><td class="auto" id="bq_feeMultiCell">0 원</td></tr><tr id="bq_feeCntRow" style="display:none;"><td>부동산 개수 가산 <span class="hint" id="bq_feeCntNote"></span><span class="law" title="법무사보수기준 §10① — 대상 부동산이 1개를 초과하는 경우 초과하는 1개마다 20,000원을 가산합니다. (환지등기는 종전 토지 10필지 초과분)">보수기준 §10①</span></td><td class="auto" id="bq_feeCntCell">0 원</td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bq_f_origin" checked onchange="calcBequest()"> 등기원인증서(협의분할계약서 등) 작성 (50,000)</label> <select id="bq_originAdd" onchange="calcBequest()" style="font-size:12px;margin-left:4px;"><option value="0" selected>문안 일반</option><option value="1">복잡·특수 +100%</option></select> <span class="law" title="법무사보수기준 §25②→§10③ — 업무가 특별히 중대·복잡하거나 특별한 조사·분석·연구·문안이 필요한 경우(§2②각호) 당해 기본보수(50,000)의 100%까지 가산. §2⑤ 상한.">보수기준 §25②</span></td><td class="auto" id="bq_originCell">50,000 원</td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bq_f_tax" checked onchange="calcBequest()"> <span id="bq_taxAgentLabel">취득세 신고대행</span> (50,000)</label></td><td class="auto">50,000 원</td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bq_f_bond" checked onchange="calcBequest()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bq_f_same" onchange="calcBequest()"> 동일인 보증서 (200,000+)</label> <span class="hint">대상</span> <input type="number" id="bq_sameN" value="1" min="1" style="width:54px;" oninput="calcBequest()"></td><td class="auto" id="bq_sameCell">0 원</td></tr>
+        <tr id="bq_verifyRow" style="display:none;background:#fdf6e8;"><td><label class="checks" style="display:inline-flex;">확인서면 작성 <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="bq_vfyN" value="1" min="1" style="width:54px;" oninput="calcBequest()"> <span class="hint" id="bq_verifyNote"></span> <span class="hint" style="color:var(--seal);">※ 상속등기는 등기의무자가 없는 단독신청이라 등기필정보 제공이 불요합니다. 유증 등 등기의무자가 있는 경우에만 체크하십시오.</span></td><td class="auto" id="bq_verifyCell">0 원</td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bq_f_trip" checked onchange="calcBequest()"> 교통비 및 일당</label></td><td><input class="cell" id="bq_tripFee" type="number" value="160000" oninput="calcBequest(true)"></td></tr>
+        <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
+        <tbody id="bq_extraAgent"></tbody>
+        <tr class="subtot"><td>수수료계 (보수)</td><td id="bq_feeSum">0 원</td></tr>
+      </table>
+    </div></div>
+
+    <div class="total"><div class="row"><span>법무사 보수 소계</span><span id="bq_t_fee">0 원</span></div>
+      <div class="row sub"><span>부가가치세 (10%)</span><span id="bq_t_vat">0 원</span></div>
+      <div class="row"><span>공과금계</span><span id="bq_t_public">0 원</span></div>
+      <div class="row grand"><span>총 합계</span><span id="bq_t_grand">0 원</span></div></div>
+    <div class="actions"><button class="btn" onclick="calcBequest()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+
+    <div class="card green"><h2>⑤ 유증 준비서류 · 대장</h2><div class="body">
+      <div class="line" style="border:none;padding-top:0;"><span class="lbl">부동산 형태</span><div class="radios" onchange="renderDocsBequest()">
+        <label><input type="radio" name="bq_bform" value="apt" checked> 집합건물(아파트·빌라)</label>
+        <label><input type="radio" name="bq_bform" value="house"> 일반건물(단독 등)</label>
+        <label><input type="radio" name="bq_bform" value="land"> 토지만</label></div></div>
+      <div class="line"><span class="lbl">피상속인 — 외국 당사자</span><select id="bq_frDec" onchange="renderDocsBequest()">
+        <option value="">해당 없음 (내국인·국내 거주)</option>
+        <option value="kor-out">재외국민 (외국 거주 중 사망)</option>
+        <option value="dongpo">외국국적동포</option>
+        <option value="alien-out">외국인</option></select></div>
+      <div class="line"><span class="lbl">상속인 — 외국 당사자</span><select id="bq_frHeir" onchange="renderDocsBequest()">
+        <option value="">해당 없음 (내국인·국내 거주)</option>
+        <option value="kor-in">재외국민 — 입국하여 직접</option>
+        <option value="kor-out">재외국민 — 외국 거주(위임)</option>
+        <option value="dongpo">외국국적동포 — 국내거소신고</option>
+        <option value="alien-in">외국인 — 외국인등록(국내 거주)</option>
+        <option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select></div>
+      <div class="line"><span class="lbl">수증자 — 법인격</span><select id="pty_bq__buyer" onchange="renderDocsBequest()"><option value="ind" selected>개인</option><option value="corp">법인 (재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option></select><span class="hint">법인·종중·교회도 <b>유증은 받을 수 있습니다</b>(상속은 불가)</span></div><div id="bq_partyDocsBox"></div><div class="docs" id="bq_docsBox"></div>
+    </div></div>
+  </div>
+
+  <!-- ===== 후견 신청 및 등기 (풀기능) ===== -->
   <div class="scene" id="scene-후견">
     <button class="back" onclick="goMenu()">‹ 메인메뉴</button>
     <h2 class="stitle">후견 신청 및 등기 <small>심판청구 Ⅶ-1① · 후견등기 Ⅲ</small></h2>
@@ -3052,7 +3151,7 @@ function partyAdd(p,feeRaw){
    ※ 이 지분 설정은 「국민주택채권」에만 적용된다. 취득세·등록면허세는 영향받지 않는다.
    27회차 신설. */
 const BSHARE={};
-const BS_FN={'':'calcBondSale','s_':'calcBondInherit','gv_':'calcBondGift','pr_':'calcBondPreserve'};
+const BS_FN={'':'calcBondSale','s_':'calcBondInherit','gv_':'calcBondGift','pr_':'calcBondPreserve','bq_':'calcBondBequest'};
 function bsData(p){if(!BSHARE[p])BSHARE[p]={on:false,trNum:1,trDen:1,list:[{n:'',num:1,den:2},{n:'',num:1,den:2}]};return BSHARE[p];}
 /* 이번 등기로 이전되는 지분율 (예: 1/2 → 0.5). 미설정·전부이전이면 1 */
 function bsTrRatio(p){const d=BSHARE[p];if(!d||!d.on)return 1;
@@ -3074,6 +3173,7 @@ function bsItemStd(p,it,tr){const d=bsData(p);
   return Math.floor((it.std||0)*tr);}
 /* 지분표에 세금 분담을 보여주기 위한 공과금 항목 id */
 const BS_TAX={'':['acqTax','eduTax','ruralTax'],'s_':['s_acqTax','s_eduTax','s_ruralTax'],
+              'bq_':['bq_acqTax','bq_eduTax','bq_ruralTax'],
               'gv_':['gv_acqTax','gv_eduTax','gv_ruralTax'],'pr_':['pr_acqTax','pr_eduTax','pr_ruralTax']};
 /* 소수 넷째자리까지 반올림하고 불필요한 0만 정리한다.
    ※ 종전 replace(/0+$/,'') 는 「10」을 「1」로 만들어 버렸다(27회차 수정). */
@@ -3318,6 +3418,7 @@ const SCENARIO={
  "증여":{cat:'re',full:'gift'},
  "부담부증여":{cat:'re',full:'burden'},
  "상속":{cat:'re',full:'inherit'},
+ "유증(유언에 의한 소유권이전)":{cat:'re',full:'bequest'},
  "소유권보존":{cat:'re',full:'preserve'},
  "근저당권설정":{cat:'re',full:'mortgage'},
  "근저당권말소":{cat:'re',full:'mortgageCancel'},
@@ -3571,6 +3672,7 @@ function _doOpenScenario(name){
   document.getElementById('hsub').textContent=name;
   if(SCENARIO[name].full===true){document.getElementById('scene-매매').classList.add('active');calcSale();}
   else if(SCENARIO[name].full==='inherit'){document.getElementById('scene-상속').classList.add('active');calcInherit();}
+  else if(SCENARIO[name].full==='bequest'){document.getElementById('scene-유증').classList.add('active');calcBequest();}
   else if(SCENARIO[name].full==='guardian'){document.getElementById('scene-후견').classList.add('active');calcGuardian();}
   else if(SCENARIO[name].full==='litcost'){document.getElementById('scene-소송비용확정').classList.add('active');calcLitCost();}
   else if(SCENARIO[name].full==='gift'){document.getElementById('scene-증여').classList.add('active');calcGift();}
@@ -4183,6 +4285,243 @@ const GUARD_AGENT=[
  ['gda4','후견등기사항(부존재)증명서 발급·열람 (1건)','Ⅸ-12'],
  ['gda5','그 밖에 수임사건 관련 대행 (1건)','Ⅸ-13']
 ];
+
+
+/* ═══════════ 유증 등기 — 상속 화면을 바탕으로 분기 ═══════════ */
+let bq_curBondType=null;
+function calcBequest(fromEdit){
+  renderBondUIBequest();
+  const price=val('bq_price');
+  const _tr=shareOf('bq_'), _tb=taxBaseOf('bq_',price);   /* 과세표준 = 전체 × 이전(상속) 지분 */
+  const regMode=(radio('bq_taxMode')==='reg');
+  if(!fromEdit){
+    if(regMode){
+      // 舊 등록세(2011년 취득세·등록세 통합 이전 상속개시분·부칙 §6): 농지외 0.8% / 농지 0.3% + 지방교육세 20% · 농특세 0
+      const rrate=(radio('bq_ptype')==='farm')?0.003:0.008;
+      const regTax=_tb*rrate;
+      document.getElementById('bq_acqTax').value=taxLocal(Math.round(regTax));
+      document.getElementById('bq_eduTax').value=taxLocal(Math.round(regTax*0.2));
+      document.getElementById('bq_ruralTax').value=taxLocal(0);
+      document.getElementById('bq_acqRate').textContent='('+(rrate*100).toFixed(1)+'% '+(radio('bq_ptype')==='farm'?'농지':'농지외')+' · 舊등록세)';
+    }else{
+      const rate=bequestAcqRate();const acq=_tb*rate;
+      const farm=(radio('bq_ptype')==='farm');
+      const spec=(rate===0.008||rate===0.003);   // §15①2호 세율특례 적용 여부
+      /* 지방교육세(§151①1호): §11①1호 "표준세율" 기준 − 2% 후 ×20%
+         → 특례세율(0.8%·0.3%)이 아니라 표준세율(농지 2.3% / 농지외 2.8%)로 산출
+         농지외 (2.8%−2%)×20% = 0.16% / 농지 (2.3%−2%)×20% = 0.06% */
+      /* [A] §151①1호 본문 — (표준세율 − 2%) × 20%
+         상속 2.8%→0.16% / 농지 2.3%→0.06% / 무상 3.5%→0.3% / 비영리 2.8%→0.16% */
+      const edu=bequestIsInherit()?(farm?_tb*0.0006:_tb*0.0016):_tb*(rate-0.02)*0.2;
+      /* 농어촌특별세
+         · §15①2호 특례(0.8%·0.3%) → 농특세법 §4 8호·시행령 §4④가 §15① 1~4호를 비과세로 열거
+           + 과세분(§5①6호)도 표준세율 2% 의제 시 2%−2%=0 → 면적 무관 0
+           (상속 1가구1주택 = 0.8% + 0.16% = 0.96% 로 확정)
+         · 특례 없는 일반 상속 → 과세분 §5①6호 = 2%×10% = 0.2%
+           단 85㎡ 이하 주택은 §4 11호 서민주택 비과세 */
+      let rural=0;
+      if(spec)rural=0;
+      else if(radio('bq_ptype')==='house')rural=chk('bq_over85')?_tb*0.002:0;
+      else rural=_tb*0.002;
+      document.getElementById('bq_acqTax').value=taxLocal(Math.round(acq));
+      document.getElementById('bq_eduTax').value=taxLocal(Math.round(edu));
+      document.getElementById('bq_ruralTax').value=taxLocal(Math.round(rural));
+      document.getElementById('bq_acqRate').textContent='('+(rate*100).toFixed(rate*100%1?1:0)+'%'+(rate===0.008?' 1가구1주택특례 §15①2호가':(rate===0.003?' 자경농민농지특례 §15①2호나':''))+')';
+    }
+  }
+  // 세목 모드에 따른 라벨·안내 전환
+  const _tl=document.getElementById('bq_taxLabel');if(_tl)_tl.textContent=regMode?'등록세(부동산)':'취득세';
+  const _ta=document.getElementById('bq_taxAgentLabel');if(_ta)_ta.textContent=regMode?'등록세 신고대행':'취득세 신고대행';
+  const _rn=document.getElementById('bq_regTaxNote');if(_rn)_rn.style.display=regMode?'flex':'none';
+  const _tn=document.getElementById('bq_taxNote');if(_tn)_tn.innerHTML=regMode
+    ?'舊 등록세 자동(농지외 <b>0.8%</b> / 농지 <b>0.3%</b>) + 지방교육세 20% · 농특세 없음. 2011년 통합 이전 상속개시분(부칙 §6). 등기수수료 상속 <b>매 부동산 20,000(수기)·17,000(e-Form)·전자불가</b>.'
+    :'상속 취득세 자동(농지외 <b>2.8%</b> / 농지 <b>2.3%</b> / 1가구1주택 특례 <b>0.8%</b> / 자경농민 농지 특례 <b>0.3%</b>). 특례 적용 시 <b>농특세는 면적 무관 0</b>(§15①2호 → 농특세법 §4 8호·시행령 §4④). 등기수수료 상속 <b>매 부동산 20,000(수기)·17,000(e-Form)·전자불가</b>.';
+  const bondLoss=Math.round(val('bq_bondBuy')*val('bondRate')/100);
+  document.getElementById('bq_bondLossCell').textContent=won(bondLoss)+' ('+val('bondRate')+'%)';
+  const cntE=Math.max(1,val('bq_cntEstate'));
+  const m=document.getElementById('bq_regMethod').value;const idx=(m==='p')?0:1; // 전자불가(e/p만)
+  const unit=REG_RE.상속[idx];const regFee=unit*cntE;
+  document.getElementById('bq_regFeeCell').textContent=won(regFee);
+  document.getElementById('bq_regNote').textContent='매 부동산 '+unit.toLocaleString();
+  const post=val('bq_postFee')*cntE;
+  const publicSum=val('bq_acqTax')+val('bq_eduTax')+val('bq_ruralTax')+bondLoss+regFee+post+pubCustomSum('scene-상속');
+  document.getElementById('bq_publicSum').textContent=won(publicSum);
+  const adj=parseFloat(document.getElementById('bq_adjust').value)||1;
+  /* ★ 표상 기본보수(feeRaw) — 가산보수(§10③④⑥·§14①②⑤)는 「당해 기본보수」 = 표상 금액을
+     기준으로 산정한다. 조정 후 금액에 가산율을 곱하면 가산에 가산이 얹혀 §2⑤(상한) 초과 소지. */
+  const feeRaw=tierFee('Ⅰ-1',taxBaseOf('bq_',price));   /* §9① 과세표준액 — 지분 이전이면 지분 상당액 */
+  const feeBase=Math.round(feeRaw*adj);
+  /* 보수기준 §10⑥ — 외국인·재외국민 포함 또는 등기원인 관련 서류를 외국에서 받아야 하는 등기
+     → 당해 기본보수의 100% 상당액까지 가산 [A] */
+  const _fr=frAddRate('bq_frAdd'), feeForeign=Math.round(feeRaw*_fr);
+  document.getElementById('bq_feeBaseCell').textContent=won(feeBase);
+  document.getElementById('bq_feeBaseNote').textContent='(보수표 Ⅰ-1'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
+  const _frCell=document.getElementById('bq_feeForeignRow');
+  if(_frCell){_frCell.style.display=feeForeign>0?'table-row':'none';document.getElementById('bq_feeForeignCell').textContent=won(feeForeign);document.getElementById('bq_feeForeignNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+(_fr*100)+'% · §10⑥)';}
+  /* 보수기준 §10④ — 등기원인·등기목적이 동일한 여러 부동산이 여러 등기소 관할에 걸친 경우
+     → 당해 기본보수의 50% 상당액까지 가산 [A] */
+  const _mo=frAddRate('bq_moAdd'), feeMulti=Math.round(feeRaw*_mo);
+  const feeParty=partyAdd('bq_',feeRaw);   /* §2②4호→§10③ 당사자 다수 가산 */
+  const _moR=document.getElementById('bq_feeMultiRow');
+  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('bq_feeMultiCell').textContent=won(feeMulti);document.getElementById('bq_feeMultiNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+Math.round(_mo*100)+'% · §10④)';}
+  let fee=feeBase+feeForeign+feeMulti+feeParty;
+  /* §10① 부동산 개수 가산 — 초과 1개마다 20,000원 */
+  const _cntE=Math.max(1,val('bq_cntEstate')), feeCnt=(_cntE-1)*20000;
+  {const _cR=document.getElementById('bq_feeCntRow');if(_cR){_cR.style.display=feeCnt>0?'table-row':'none';document.getElementById('bq_feeCntCell').textContent=won(feeCnt);document.getElementById('bq_feeCntNote').textContent=feeCnt>0?'('+_cntE+'개 · 초과 '+(_cntE-1)+'개×20,000)':'';}}
+  fee+=feeCnt;
+  if(chk('bq_f_origin')){const _oa=parseFloat((document.getElementById('bq_originAdd')||{}).value)||0;const _oAdd=Math.round(50000*_oa);fee+=50000+_oAdd;const _oc=document.getElementById('bq_originCell');if(_oc)_oc.textContent=won(50000+_oAdd)+(_oAdd>0?' (기본50,000+§25②가산'+won(_oAdd)+')':'');}else{const _oc=document.getElementById('bq_originCell');if(_oc)_oc.textContent='0 원';}if(chk('bq_f_tax'))fee+=50000;if(chk('bq_f_bond'))fee+=40000;if(chk('bq_f_trip'))fee+=val('bq_tripFee');
+  if(chk('bq_f_same')){const n=Math.max(1,val('bq_sameN')),e=Math.max(1,val('bq_cntEstate'));const v=200000+((n-1)+(e-1))*30000;document.getElementById('bq_sameCell').textContent=won(v);fee+=v;}else document.getElementById('bq_sameCell').textContent='0 원';
+  const vRow=document.getElementById('bq_verifyRow');
+  if(chk('bq_verify')){const n=Math.max(1,val('bq_vfyN')),e=Math.max(1,val('bq_cntEstate'));const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('bq_verifyCell').textContent=won(v);document.getElementById('bq_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else vRow.style.display='none';
+  EXTRA_AGENT.forEach(([id,name,code])=>{const c=document.getElementById('sa_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('saq_'+id).value)||1);fee+=FLAT[code]*q;}});
+  fee+=customSum('bq_extraAgent');
+  document.getElementById('bq_feeSum').textContent=won(fee);
+  const vat=Math.round(fee*0.1);
+  document.getElementById('bq_t_fee').textContent=won(fee);
+  document.getElementById('bq_t_vat').textContent=won(vat);
+  document.getElementById('bq_t_public').textContent=won(publicSum);
+  document.getElementById('bq_t_grand').textContent=won(fee+vat+publicSum);
+
+  bsRefreshAll();      /* 취득세가 확정된 뒤 지분표의 세금 열을 갱신 */
+}
+/* ═══════════ 유증 준비서류 ═══════════════════════════════════════
+   [A] 등기예규 제1512호「유증을 받은 자의 소유권보존(이전)등기신청절차 등에 관한 사무처리지침」
+       · 소유권이전등기는 포괄유증·특정유증을 불문하고 <수증자=등기권리자,
+         유언집행자 또는 상속인=등기의무자>로 하여 공동신청한다.
+       · 미등기 부동산 : 포괄적 수증자는 단독으로 소유권보존등기를 신청할 수 있으나,
+         특정유증을 받은 자는 보존등기를 신청할 수 없고, 유언집행자가 상속인 명의로
+         보존등기를 마친 뒤 유증을 원인으로 한 이전등기를 신청하여야 한다.
+       · 상속등기와 달리 <유증자의 등기필정보를 제공하여야 한다>.
+   [A] 부동산등기법 §7의3 — 상속·유증 등기는 관할이 아닌 등기소도 처리할 수 있다.
+   [A] 민법 §1091(유언증서의 검인) · §1070②(구수증서 확인) · §1095(유언집행자 없으면 상속인이 집행자)
+   27회차 신설. */
+function renderDocsBequest(){
+  renderPartyDocs('bq_',null,'pty_bq__buyer','','수증자(등기권리자)');
+  const f=radio('bq_bform'), kind=radio('bq_kind'), heir=radio('bq_heir'),
+        will=(document.getElementById('bq_willType')||{}).value||'gongjeong',
+        exec=radio('bq_exec');
+  let ledger='';
+  if(f==='apt')ledger='<b>대장</b> — 집합건축물대장(전유부+표제부), 대지권등록부, 대지권 목적 토지대장';
+  else if(f==='house')ledger='<b>대장</b> — 일반건축물대장, 토지대장, 토지이용계획확인원';
+  else ledger='<b>대장</b> — 토지대장(임야는 임야대장), 토지이용계획확인원, 필요시 지적도·임야도';
+
+  const WILL={gongjeong:['공정증서','<b>공정증서 유언 정본(또는 등본)</b> — 공증사무소 발급',
+                '<b style="color:var(--ok);">검인 불요</b> — 공정증서는 검인 절차 없이 바로 등기됩니다'],
+              japil:['자필증서','<b>자필증서 유언 원본</b>(전문·연월일·주소·성명 자서 + 날인 — 민법 §1066)',
+                '<b style="color:var(--seal);">법원 검인조서 등본 필수</b> — 유언증서 검인(민법 §1091). 상속인 전원에게 통지됩니다'],
+              bimil:['비밀증서','<b>비밀증서 유언 원본</b> + 공증인·법원서기 확정일자(민법 §1069②)',
+                '<b style="color:var(--seal);">법원 검인조서 등본 필수</b>(민법 §1091)'],
+              nokeum:['녹음','<b>녹음물</b> 및 그 내용을 기재한 서면(민법 §1067)',
+                '<b style="color:var(--seal);">법원 검인조서 등본 필수</b>(민법 §1091)'],
+              gusu:['구수증서','<b>구수증서 유언</b> 서면(민법 §1070①)',
+                '<b style="color:var(--seal);">법원 확인(검인) 필수</b> — 급박한 사유가 종료한 날부터 <b>7일 이내</b>에 법원에 확인 청구(민법 §1070②)'],
+              pangyeol:['판결·조정','<b>확정판결 정본 및 확정증명원</b>(또는 조정조서·화해조서 정본)',
+                '판결로 갈음하는 경우 검인은 별도로 요구되지 않습니다 <span class="tag chk">확인필요</span>']};
+  const W=WILL[will]||WILL.gongjeong;
+
+  let h='<div style="border-left:3px solid var(--seal);padding:6px 8px;margin-bottom:8px;background:#fdf6e8;border-radius:4px;line-height:1.7;">'
+   +'▸ 유증 이전등기는 <b>상속등기와 달리 공동신청</b>입니다. '
+   +'<b>수증자</b>가 등기권리자, <b>'+(exec==='yes'?'유언집행자':'상속인 전원')+'</b>이 등기의무자입니다 '
+   +'<span class="law" title="등기예규 제1512호 — 유증을 원인으로 한 소유권이전등기는 포괄유증이나 특정유증을 불문하고 수증자를 등기권리자, 유언집행자 또는 상속인을 등기의무자로 하여 공동으로 신청하여야 한다">등기예규 제1512호</span><br>'
+   +'▸ <b>유증자(피상속인)의 등기필정보가 필요합니다.</b> 상속등기에는 없는 절차이니 미리 확인하십시오. 분실하면 확인서면을 작성합니다.<br>'
+   +'▸ 관할이 아닌 등기소에서도 신청할 수 있습니다 <span class="law" title="부동산등기법 제7조의3">법 §7의3</span></div>';
+
+  h+='<b>1. 유언 관련 — '+W[0]+'</b><br>· '+W[1]+'<br>· '+W[2]+'<br>';
+  if(exec==='no')
+    h+='· <b>유언집행자가 없는 경우</b> — 상속인이 유언집행자가 됩니다(민법 §1095). '
+      +'<b>상속인 전원</b>이 등기의무자로 참여해야 하므로 전원의 인감증명·인감도장이 필요합니다.<br>';
+  else
+    h+='· <b>유언집행자 자격 증명</b> — 유언증서에 지정된 경우 그 유언서, 법원이 선임한 경우 <b>선임심판문 정본·확정증명</b><br>'
+      +'· 유언집행자의 <b>인감증명서·인감도장·신분증</b>, 주민등록초본<br>';
+
+  h+='<br><b>2. 유증자(피상속인) 관련</b><br>'
+   +'· <b>기본증명서(상세)</b> — 사망사실 확인<br>'
+   +'· <b>가족관계증명서(상세)</b> · <b>제적등본</b>(2008년 이전 신분관계 확인용)<br>'
+   +'· <b>주민등록말소자 초본</b> — 최후주소가 등기부 주소와 같은지 확인(다르면 <b>등기명의인표시변경</b>이 선행됩니다)<br>'
+   +'· <b style="color:var(--seal);">등기필정보(등기권리증)</b> — <b>유증은 반드시 필요</b>합니다(상속등기와 다름)<br>';
+
+  h+='<br><b>3. 수증자(등기권리자) 관련</b><br>'
+   +'· <b>주민등록등(초)본</b>, 도장, 신분증<br>'
+   +(heir==='yes'?'· <b>가족관계증명서</b> — 상속인 지위 소명(취득세율 2.8% 적용 근거)<br>':'')
+   +(kind==='teukjeong'&&heir==='no'
+      ?'· <span style="color:var(--seal);"><b>상속인 아닌 자의 특정유증</b>이므로 취득세는 <b>무상취득 3.5%</b>입니다(비영리사업자 2.8%).</span><br>':'');
+
+  h+='<br><b>4. 상속인 관련</b><br>';
+  if(exec==='no')
+    h+='· <b>상속인 전원</b>의 가족관계증명서·기본증명서, <b>인감증명서·인감도장</b>, 주민등록초본<br>'
+      +'　<span class="hint">한 사람이라도 협조하지 않으면 <b>소송(유언효력확인·소유권이전등기청구)</b>으로 가야 합니다.</span><br>';
+  else
+    h+='· 유언집행자가 있으면 상속인은 등기신청에 참여하지 않습니다.<br>'
+      +'　<span class="hint">다만 <b>유류분</b> 분쟁 소지가 있으면 사전에 정리하는 편이 안전합니다(민법 §1112 이하).</span><br>';
+
+  if(kind==='teukjeong')
+    h+='<br><div class="note alert"><b>특정유증 — 미등기 부동산이면 순서가 다릅니다</b><br>'
+      +'특정유증을 받은 자는 <b>직접 소유권보존등기를 신청할 수 없습니다.</b> '
+      +'유언집행자가 <b>상속인 명의로 보존등기</b>를 마친 뒤, 유증을 원인으로 한 <b>소유권이전등기</b>를 신청해야 합니다 '
+      +'<span class="law" title="등기예규 제1512호 가. (2)">등기예규 제1512호</span></div>';
+  else
+    h+='<br><div class="note"><b>포괄유증 — 미등기 부동산이면</b> 포괄적 수증자가 <b>단독으로 소유권보존등기</b>를 신청할 수 있습니다 '
+      +'<span class="law" title="등기예규 제1512호 가. (1)">등기예규 제1512호</span></div>';
+
+  h+='<br><b>5. 그 밖에</b><br>'
+   +'· 취득세 신고·납부 영수필확인서, 국민주택채권 매입<br>'
+   +'· <b>농지</b>이면 농지취득자격증명 <span class="tag chk">확인필요</span> '
+   +'<span class="hint">(상속은 불요이나 상속인 아닌 자의 유증은 필요하다는 견해가 있습니다)</span><br>'
+   +'· 위임장(법무사 위임 시)<br><br>'+ledger;
+
+  document.getElementById('bq_docsBox').innerHTML=h;
+}
+function renderBondUIBequest(){
+  bsRender('bq_');
+  const t=radio('bq_ptype');if(t===bq_curBondType)return;bq_curBondType=t;
+  const bb=document.getElementById('bq_bondBody');if(!bb)return;
+  let h='';
+  if(t==='house'){
+    h='<div class="line"><span class="lbl">주택공시가격(원)</span><input type="number" class="amt" id="bq_bondStdHouse" placeholder="0" oninput="calcBondBequest()"></div>'+
+      '<div class="line"><span class="lbl">주택 매입률(‰)</span><input type="number" id="bq_bondPctHouse" readonly placeholder="자동" style="width:120px;background:#efe7d6;font-weight:700;" oninput="calcBondBequest()"></div>';
+  }else if(t==='etc'){
+    h='<div class="line"><span class="lbl">토지공시가격(원)</span><input type="number" class="amt" id="bq_bondStdLand" placeholder="0" oninput="calcBondBequest()"></div>'+
+      '<div class="line"><span class="lbl">토지 매입률(‰)</span><input type="number" id="bq_bondPctLand" readonly placeholder="자동" style="width:120px;background:#efe7d6;font-weight:700;" oninput="calcBondBequest()"></div>'+
+      '<div class="line"><span class="lbl">건물시가표준액(원)</span><input type="number" class="amt" id="bq_bondStdBldg" placeholder="0" oninput="calcBondBequest()"></div>'+
+      '<div class="line"><span class="lbl">건물 매입률(‰)</span><input type="number" id="bq_bondPctBldg" readonly placeholder="자동" style="width:120px;background:#efe7d6;font-weight:700;" oninput="calcBondBequest()"></div>';
+  }else{
+    h='<div class="line"><span class="lbl">토지공시가격(원)</span><input type="number" class="amt" id="bq_bondStdLand" placeholder="0" oninput="calcBondBequest()"></div>'+
+      '<div class="line"><span class="lbl">토지 매입률(‰)</span><input type="number" id="bq_bondPctLand" readonly placeholder="자동" style="width:120px;background:#efe7d6;font-weight:700;" oninput="calcBondBequest()"></div>';
+  }
+  bb.innerHTML=h;
+}
+function calcBondBequest(){
+  const t=radio('bq_ptype');const metro=radio('bq_region')==='metro';let buy=0;let items=[];
+  if(t==='house'){const s=val('bq_bondStdHouse');const r=bondRate('무상',s,metro);if(document.getElementById('bq_bondPctHouse'))document.getElementById('bq_bondPctHouse').value=r;buy=bondAmount(s,r);items=[{label:'주택',key:'무상',std:s}];}
+  else if(t==='etc'){const sl=val('bq_bondStdLand'),sb=val('bq_bondStdBldg');const rl=bondRate('무상',sl,metro),rb=bondRate('무상',sb,metro);if(document.getElementById('bq_bondPctLand'))document.getElementById('bq_bondPctLand').value=rl;if(document.getElementById('bq_bondPctBldg'))document.getElementById('bq_bondPctBldg').value=rb;buy=bondAmount(sl,rl)+bondAmount(sb,rb);items=[{label:'토지',key:'무상',std:sl},{label:'건물',key:'무상',std:sb}];}
+  else{const sl=val('bq_bondStdLand');const r=bondRate('무상',sl,metro);if(document.getElementById('bq_bondPctLand'))document.getElementById('bq_bondPctLand').value=r;buy=bondAmount(sl,r);items=[{label:'토지',key:'무상',std:sl}];}
+  bsRender('bq_',items);const _sp=bsApply('bq_',items,metro);if(_sp!==null)buy=_sp;   /* 공동상속 → 상속인별 개별 산정 */
+  document.getElementById('bq_bondBuy').value=buy;
+  calcBequest();
+}
+/* ═══ 유증 취득세율 ═══════════════════════════════════════════════
+   [A] 지방세법 §7⑦ — 「상속(피상속인이 상속인에게 한 유증 및 포괄유증과
+       신탁재산의 상속을 포함한다)으로 인하여 취득하는 경우」
+       → ⓐ 상속인에게 한 유증(포괄·특정 불문)  ⓑ 포괄유증  은 「상속」으로 본다
+         ⇒ §11①1호 상속 세율 : 농지 2.3% / 그 밖 2.8%
+         ⇒ §15①2호 특례(1가구1주택 0.8% · 자경농민 농지 0.3%) 검토 대상
+       → 상속인 아닌 자에 대한 「특정유증」은 상속이 아니다
+         ⇒ §11①2호 무상취득 3.5% (비영리사업자는 같은 호 단서로 2.8%)
+   ※ 상속인 아닌 자에 대한 포괄유증도 상속으로 보는 것이 문언·실무 통설이나
+     명시 판례를 확인하지 못했다. [확인필요]
+   27회차 신설. */
+function bequestIsInherit(){
+  return radio('bq_heir')==='yes' || radio('bq_kind')==='pogwal';
+}
+function bequestAcqRate(){
+  const t=radio('bq_ptype'),one=chk('bq_oneHouse');
+  if(bequestIsInherit()){
+    if(t==='farm')return chk('bq_farmSpecial')?0.003:0.023;
+    if(t==='house'&&one)return 0.008;
+    return 0.028;
+  }
+  return chk('bq_nonprofit')?0.028:0.035;
+}
 function renderDocsGuardian(){
   const t=radio('gd_type');
   let common='<b>공통 첨부서류</b><br>'+
@@ -6700,7 +7039,7 @@ function calcGeneric(fromEdit){
    ※ 인수 true = 「직접 입력분 유지」 모드. 이용자가 손으로 고쳐 넣은 취득세·등록면허세 등을
      덮어쓰지 않고 합계만 다시 잡는다. (calcMortgage는 true = 공과금 셀 직접편집 모드) */
 const SCENE_CALC={
- '매매':['calcSale',true],           '상속':['calcInherit',true],       '증여':['calcGift',true],
+ '매매':['calcSale',true],           '상속':['calcInherit',true],       '유증':['calcBequest',true],       '증여':['calcGift',true],
  '부담부증여':['calcBurden',true],    '보존':['calcPreserve',true],      '공유물분할':['calcPartition',true],
  '이혼재산분할':['calcDivision',true],'경매낙찰촉탁':['calcNakchal',true],'기타취득원인':['calcEtcAcq',true],
  '근저당설정':['calcMortgage',true],  '근저당말소':['calcMortCancel',true],'담보권추가설정':['calcMortgageAdd',true],
