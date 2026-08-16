@@ -306,8 +306,9 @@
         <input type="number" id="bondRate" value="15.66563" step="0.00001" oninput="recalc();saveBondRate()" style="width:110px;">
         <span>%</span>
       </span>
-      <a href="https://svc.wooribank.com/svc/Dream?withyou=HBNHB0036&cc=c004893:c004893" target="_blank" rel="noopener" style="color:#f3d27a;font-weight:700;text-decoration:none;border:1px solid #5a534a;border-radius:4px;padding:2px 8px;">🔎 오늘 고시율 조회</a>
-      <span class="hint" style="color:#bcb29c;">(매도일 기준 · <b style="color:#f3d27a;">입력 즉시 보고 계신 화면에 바로 반영</b> · 마지막 입력값 자동 저장)</span>
+      <a href="https://svc.wooribank.com/svc/Dream?withyou=HBNHB0036&cc=c004893:c004893" target="_blank" rel="noopener" style="color:#241f1a;background:#f3d27a;font-weight:800;text-decoration:none;border:1px solid #f3d27a;border-radius:5px;padding:4px 12px;">🔎 오늘 고시율 조회 (새 창)</a>
+      <span id="bondRateBadge" style="font-weight:800;"></span>
+      <span class="hint" style="color:#bcb29c;">(입력 즉시 보고 계신 화면에 바로 반영)</span>
       <span style="width:1px;height:16px;background:#5a534a;"></span>
       <span>송달료 1회</span>
       <span style="display:inline-flex;align-items:center;gap:4px;">
@@ -2975,62 +2976,152 @@ function bondAmount(std,rate){if(std<=0||rate<=0)return 0;let amt=std*rate/1000;
    27회차 신설. */
 const BSHARE={};
 const BS_FN={'':'calcBondSale','s_':'calcBondInherit','gv_':'calcBondGift','pr_':'calcBondPreserve'};
-function bsData(p){if(!BSHARE[p])BSHARE[p]={on:false,list:[{n:'',num:1,den:2},{n:'',num:1,den:2}]};return BSHARE[p];}
+function bsData(p){if(!BSHARE[p])BSHARE[p]={on:false,trNum:1,trDen:1,list:[{n:'',num:1,den:2},{n:'',num:1,den:2}]};return BSHARE[p];}
+/* 이번 등기로 이전되는 지분율 (예: 1/2 → 0.5). 미설정·전부이전이면 1 */
+function bsTrRatio(p){const d=BSHARE[p];if(!d||!d.on)return 1;
+  const a=parseFloat(d.trNum),b=parseFloat(d.trDen);
+  return (isFinite(a)&&isFinite(b)&&b>0&&a>0&&a<=b)?a/b:1;}
+function bsSetTr(p,k,v){bsData(p)[k]=v;bsRun(p);}
+/* 구조가 바뀌었으니 다음 렌더 때 다시 그리라는 표시 */
+function bsDirty(p){const b=document.getElementById(p+'bondShare');if(b)b.removeAttribute('data-sig');}
+/* ③ 이전분 시가표준액 — 자동(전체×지분) ↔ 직접입력 전환
+   자동만 두면 대지권 비율·지자체 산정액 차이 등으로 손댈 수가 없어 직접입력을 함께 둔다. */
+function bsManual(p,v){const d=bsData(p);d.manual=!!v;if(!v)d.mstd=null;bsDirty(p);bsRun(p);}
+function bsSetStd(p,k,v){const d=bsData(p);if(!d.mstd)d.mstd={};d.mstd[k]=v;bsRun(p);}
+function bsResetStd(p){bsData(p).mstd=null;bsDirty(p);bsRun(p);}
+/* 항목별 「이전분 시가표준액」 — 직접입력이 있으면 그 값, 없으면 전체×이전지분 */
+function bsItemStd(p,it,tr){const d=bsData(p);
+  if(d&&d.manual&&d.mstd&&d.mstd[it.label]!=null&&d.mstd[it.label]!==''){
+    const v=parseFloat(d.mstd[it.label]);if(isFinite(v)&&v>=0)return Math.floor(v);
+  }
+  return Math.floor((it.std||0)*tr);}
+/* 지분표에 세금 분담을 보여주기 위한 공과금 항목 id */
+const BS_TAX={'':['acqTax','eduTax','ruralTax'],'s_':['s_acqTax','s_eduTax','s_ruralTax'],
+              'gv_':['gv_acqTax','gv_eduTax','gv_ruralTax'],'pr_':['pr_acqTax','pr_eduTax','pr_ruralTax']};
+/* 소수 넷째자리까지 반올림하고 불필요한 0만 정리한다.
+   ※ 종전 replace(/0+$/,'') 는 「10」을 「1」로 만들어 버렸다(27회차 수정). */
+function bsPct(v){const x=Math.round((Number(v)||0)*1e4)/1e4;return String(x);}
 function bsEsc(v){return String(v==null?'':v).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 function bsRun(p){const f=BS_FN[p];if(f&&typeof window[f]==='function')window[f]();}
 function bsToggle(p,v){bsData(p).on=!!v;bsRender(p);bsRun(p);}
 function bsAdd(p){const d=bsData(p);if(d.list.length>=10)return;d.list.push({n:'',num:1,den:d.list[0].den||2});bsRender(p);bsRun(p);}
-function bsDel(p,i){const d=bsData(p);if(d.list.length<=2)return;d.list.splice(i,1);bsRender(p);bsRun(p);}
+function bsDel(p,i){const d=bsData(p);if(d.list.length<=1)return;d.list.splice(i,1);bsRender(p);bsRun(p);}
 /* 값 변경은 재렌더하지 않는다 — 입력 중 커서(포커스)가 튀는 것을 막기 위함 */
 function bsSet(p,i,k,v){const d=bsData(p);if(!d.list[i])return;d.list[i][k]=v;bsRun(p);}
 function bsRatio(r){const a=parseFloat(r.num),b=parseFloat(r.den);return(isFinite(a)&&isFinite(b)&&b>0&&a>0)?a/b:0;}
-function bsRender(p){
+function bsRender(p,items){
   const box=document.getElementById(p+'bondShare');if(!box)return;
-  const d=bsData(p);const sig=(d.on?'1':'0')+':'+d.list.length;
+  const d=bsData(p);
+  items=items||d.lastItems||[];
+  const sig=(d.on?'1':'0')+':'+d.list.length+':'+(d.manual?'m':'a')+':'+items.map(function(i){return i.label;}).join(',');
   if(box.getAttribute('data-sig')===sig)return;          /* 구조가 그대로면 다시 그리지 않는다 */
   box.setAttribute('data-sig',sig);
+  const tr=bsTrRatio(p);
+  /* 직접입력으로 막 바꾼 경우 — 현재 자동값을 그대로 채워 넣고 거기서 고치게 한다 */
+  if(d.manual){ if(!d.mstd)d.mstd={};
+    items.forEach(function(it){ if(d.mstd[it.label]==null||d.mstd[it.label]==='')
+      d.mstd[it.label]=Math.floor((it.std||0)*tr); }); }
+
   let h='<div class="line" style="background:#fdf6e8;border-radius:5px;">'
     +'<label class="checks" style="display:inline-flex;"><input type="checkbox" '+(d.on?'checked':'')
-    +' onchange="bsToggle(\''+p+'\',this.checked)"> <b>공동명의(지분)로 취득합니다</b></label>'
-    +'<span class="hint">한 부동산을 2명 이상이 나누어 취득하는 경우 — 채권은 <b>사람마다 따로</b> 삽니다</span></div>';
+    +' onchange="bsToggle(\''+p+'\',this.checked)"> <b>일부 지분만 이전하거나, 2명 이상이 나누어 취득합니다</b></label>'
+    +'<span class="hint">전체 공시가격만 넣으시면 지분 몫은 계산기가 나눕니다</span></div>';
   if(d.on){
-    h+='<div class="note">지분은 <b>분수 그대로</b> 넣으십시오(예: 2분의 1 → <b>1 / 2</b>, 5분의 2 → <b>2 / 5</b>).<br>'
-      +'채권은 「전체 시가표준액 × 각자 지분」으로 <b>각자 구간을 다시 판정</b>해 <b>1만원 단위로 각각</b> 매입합니다. '
-      +'그래서 <b>혼자 살 때보다 총액이 줄어드는 것이 정상</b>입니다. '
-      +'<span class="hint">[A] 주택도시기금법 시행령 §8②[별표] 부표 1 — 「공유물인 때에는 공유지분율에 따라 산정한 시가표준액을 기준으로 한다」</span><br>'
-      +'▸ 이 설정은 <b>국민주택채권에만</b> 적용됩니다. 취득세·등록면허세는 달라지지 않습니다.</div>';
+    h+='<div class="note"><span class="head">지분 이전 — 이렇게 넣으십시오</span>'
+      +'<b>①</b> 위 칸에 <b>부동산 전체</b> 공시가격 &nbsp;→&nbsp; <b>②</b> 이번에 넘어가는 지분 &nbsp;→&nbsp; '
+      +'<b>③</b> 이전분 시가표준액(자동) &nbsp;→&nbsp; <b>④</b> 취득자별로 다시 나눔<br>'
+      +'<b>넣는 금액이 서로 다릅니다 — 이것만 주의하십시오.</b><br>'
+      +'▸ <b>공시가격(시가표준액)</b> 칸 → <b>부동산 전체</b> 금액. 지분 몫은 계산기가 나눕니다.<br>'
+      +'▸ <b>매매금액·증여가액</b> 칸 → <b>이번에 이전되는 지분의 금액</b>만. 부동산 전체 가격이 아닙니다.</div>';
+
+    /* ② 이전 지분 */
+    h+='<div class="line" style="background:#f6f1e3;border-radius:5px;"><span class="lbl"><b>② 이전 지분</b></span>'
+      +'<input type="number" value="'+bsEsc(d.trNum)+'" min="0" step="any" oninput="bsSetTr(\''+p+'\',\'trNum\',this.value)" style="width:70px;text-align:right;">'
+      +'<span style="margin:0 5px;font-weight:800;">/</span>'
+      +'<input type="number" value="'+bsEsc(d.trDen)+'" min="1" step="any" oninput="bsSetTr(\''+p+'\',\'trDen\',this.value)" style="width:70px;text-align:right;">'
+      +'<span class="hint" id="'+p+'bsTrInfo" style="margin-left:8px;"></span></div>';
+
+    /* ③ 이전분 시가표준액 — 자동 / 직접입력 */
+    h+='<div class="line" style="background:#f6f1e3;border-radius:5px;"><span class="lbl"><b>③ 이전분 시가표준액</b></span>'
+      +'<label class="checks" style="display:inline-flex;"><input type="checkbox" '+(d.manual?'checked':'')
+      +' onchange="bsManual(\''+p+'\',this.checked)"> 직접 입력</label>'
+      +(d.manual?'<button type="button" onclick="bsResetStd(\''+p+'\')" style="margin-left:10px;border:1px solid #cbbf9f;background:#fff;border-radius:4px;padding:2px 9px;cursor:pointer;">자동값으로 되돌리기</button>':'')
+      +'<span class="hint" id="'+p+'bsStdInfo" style="margin-left:8px;"></span></div>';
+    if(d.manual){
+      items.forEach(function(it){
+        h+='<div class="line"><span class="lbl">└ '+bsEsc(it.label)+'</span>'
+          +'<input type="number" class="amt" value="'+bsEsc(d.mstd[it.label])+'" min="0" step="1" '
+          +'oninput="bsSetStd(\''+p+'\',\''+bsEsc(it.label)+'\',this.value)">'
+          +'<span class="hint" style="margin-left:6px;">자동값 '+won(Math.floor((it.std||0)*tr))+'</span></div>';
+      });
+      h+='<div class="note" style="margin-top:0;">직접 입력한 금액이 <b>채권 계산의 기준</b>이 됩니다. 대지권 비율·지자체 산정액이 단순 곱셈과 다를 때 쓰십시오. <span class="hint">※ 취득세 세율 판정은 위 ② 이전 지분을 그대로 씁니다.</span></div>';
+    }
+
+    /* ④ 취득자 */
     d.list.forEach(function(r,i){
-      h+='<div class="line"><span class="lbl">'+(i+1)+'번 취득자</span>'
+      h+='<div class="line"><span class="lbl">'+(i===0?'<b>④</b> ':'')+(i+1)+'번 취득자</span>'
         +'<input type="text" value="'+bsEsc(r.n)+'" placeholder="이름(선택)" oninput="bsSet(\''+p+'\','+i+',\'n\',this.value)" style="width:100px;">'
-        +'<span style="margin:0 7px;">지분</span>'
-        +'<input type="number" value="'+bsEsc(r.num)+'" min="0" step="any" oninput="bsSet(\''+p+'\','+i+',\'num\',this.value)" style="width:68px;text-align:right;">'
+        +'<span style="margin:0 7px;">몫</span>'
+        +'<input type="number" value="'+bsEsc(r.num)+'" min="0" step="any" oninput="bsSet(\''+p+'\','+i+',\'num\',this.value)" style="width:66px;text-align:right;">'
         +'<span style="margin:0 5px;font-weight:800;">/</span>'
-        +'<input type="number" value="'+bsEsc(r.den)+'" min="1" step="any" oninput="bsSet(\''+p+'\','+i+',\'den\',this.value)" style="width:68px;text-align:right;">'
-        +(d.list.length>2?'<button type="button" onclick="bsDel(\''+p+'\','+i+')" style="margin-left:10px;border:1px solid #cbbf9f;background:#fff;border-radius:4px;padding:2px 9px;cursor:pointer;">삭제</button>':'')
+        +'<input type="number" value="'+bsEsc(r.den)+'" min="1" step="any" oninput="bsSet(\''+p+'\','+i+',\'den\',this.value)" style="width:66px;text-align:right;">'
+        +(d.list.length>1?'<button type="button" onclick="bsDel(\''+p+'\','+i+')" style="margin-left:10px;border:1px solid #cbbf9f;background:#fff;border-radius:4px;padding:2px 9px;cursor:pointer;">삭제</button>':'')
         +'</div>';
     });
     h+='<div class="line" style="border:none;"><span class="lbl"></span>'
       +'<button type="button" onclick="bsAdd(\''+p+'\')" style="border:1px solid #cbbf9f;background:#fff;border-radius:4px;padding:4px 12px;cursor:pointer;font-weight:700;">＋ 취득자 추가</button>'
-      +'<span class="hint" style="margin-left:8px;">최대 10명</span></div>'
+      +'<span class="hint" style="margin-left:8px;">혼자 일부 지분만 사실 때는 1명 그대로 두십시오</span></div>'
       +'<div id="'+p+'bsResult"></div>';
   }
   box.innerHTML=h;
 }
-/* items = [{label:'주택', key:'주택'|'토지'|'건물'|'무상', std:전체 시가표준액}, ...]
-   반환 : 지분 미사용 → null(기존 계산 유지) / 사용 → 지분권자 합계 매입금 */
+/* items = [{label:'주택', key:'주택'|'토지'|'건물'|'무상', std:부동산 전체 시가표준액}, ...]
+   반환 : 지분 미사용 → null(기존 계산 유지) / 사용 → 지분권자 합계 채권 매입금 */
 function bsApply(p,items,metro){
   const d=BSHARE[p];const res=document.getElementById(p+'bsResult');
   if(!d||!d.on){if(res)res.innerHTML='';return null;}
   if(!res)return null;
   d.lastItems=items;d.lastMetro=metro;      /* 할인율만 바뀔 때 표만 다시 그리기 위해 보관 */
-  const dr=val('bondRate');let total=0,sumRatio=0;
-  let h='<table class="ref" style="margin-top:8px;">'
-    +'<tr><th>취득자</th><th>지분</th><th class="r">지분 상당 시가표준액</th><th class="r">적용 요율</th><th class="r">채권 매입금</th><th class="r">할인손실(각자)</th></tr>';
+
+  const dr=val('bondRate');
+  const tr=bsTrRatio(p);                    /* 이번에 이전되는 지분율 */
+  const stdAll=items.reduce(function(a,it){return a+(it.std||0);},0);
+  /* ③ 이전분 시가표준액 — 항목별 (직접입력 우선) */
+  const trStd=items.map(function(it){return bsItemStd(p,it,tr);});
+  const trStdAll=trStd.reduce(function(a,b){return a+b;},0);
+
+  const info=document.getElementById(p+'bsTrInfo');
+  if(info) info.innerHTML=(tr<1)
+    ? '→ 부동산 전체의 <b>'+bsPct(tr*100)+'%</b>가 이전됩니다'
+    : '부동산 <b>전부</b>를 이전합니다';
+  const sinfo=document.getElementById(p+'bsStdInfo');
+  if(sinfo) sinfo.innerHTML='= <b style="color:var(--ink);font-size:15px;">'+won(trStdAll)+'</b>'
+    +(d.manual
+      ? ' <b style="color:var(--seal);">← 직접 입력한 금액</b><span style="color:#8a8070;"> (자동값 '+won(Math.floor(stdAll*tr))+')</span>'
+      : '<span style="color:#8a8070;"> (전체 '+won(stdAll)+' × '+bsEsc(d.trNum)+'/'+bsEsc(d.trDen)+')</span>');
+
+  /* 취득자별 몫 → 전체 대비 지분 */
+  const fs=d.list.map(function(r){const a=parseFloat(r.num),b=parseFloat(r.den);
+    return (isFinite(a)&&isFinite(b)&&b>0&&a>0)?a/b:0;});
+  const fSum=fs.reduce(function(a,b){return a+b;},0);
+
+  /* 공과금(취득세 등) 각자 분담 — 이전분 전체에 대해 산출된 세액을 몫대로 나눈다 */
+  const tk=BS_TAX[p]||[];
+  const taxAll=tk.reduce(function(a,id){return a+val(id);},0);
+
+  let total=0;
+  let h='<div class="note" style="background:#f6f1e3;">'
+    +'<b>① 부동산 전체</b> '+won(stdAll)+' &nbsp;→&nbsp; <b>② 이전 지분</b> '+bsEsc(d.trNum)+'/'+bsEsc(d.trDen)
+    +' &nbsp;→&nbsp; <b>③ 이전분</b> '+won(trStdAll)+' &nbsp;→&nbsp; <b>④ 취득자별로 나눔</b>'+(d.manual?' <span class="hint">(③ 직접 입력)</span>':'')+'</div>';
+  h+='<table class="ref" style="margin-top:8px;">'
+    +'<tr><th>취득자</th><th>이전분 중 몫</th><th>전체 대비 지분</th><th class="r">지분 시가표준액</th>'
+    +'<th class="r">채권 매입률</th><th class="r">채권 매입금</th><th class="r">할인손실</th>'
+    +(taxAll>0?'<th class="r">취득세 등</th>':'')+'</tr>';
   d.list.forEach(function(r,i){
-    const ratio=bsRatio(r);sumRatio+=ratio;
+    const ratio=fs[i]*tr;                   /* 전체 대비 지분 */
     let sub=0,stdTxt=[],rateTxt=[];
-    items.forEach(function(it){
-      const std=Math.floor((it.std||0)*ratio);
+    items.forEach(function(it,k){
+      const std=Math.floor(trStd[k]*fs[i]); /* ③ 이전분 시가표준액을 각자 몫으로 나눈다 */
       const rr=bondRate(it.key,std,metro);
       sub+=bondAmount(std,rr);
       const pre=(items.length>1)?it.label+' ':'';
@@ -3040,18 +3131,28 @@ function bsApply(p,items,metro){
     total+=sub;
     const nm=(r.n&&String(r.n).trim())?bsEsc(r.n):(i+1)+'번 취득자';
     h+='<tr><td>'+nm+'</td><td>'+bsEsc(r.num)+'/'+bsEsc(r.den)+'</td>'
+      +'<td>'+(ratio>0?bsPct(ratio*100)+'%':'—')+'</td>'
       +'<td class="r">'+stdTxt.join('<br>')+'</td><td class="r">'+rateTxt.join('<br>')+'</td>'
-      +'<td class="r"><b>'+won(sub)+'</b></td><td class="r">'+won(Math.round(sub*dr/100))+'</td></tr>';
+      +'<td class="r"><b>'+won(sub)+'</b></td><td class="r">'+won(Math.round(sub*dr/100))+'</td>'
+      +(taxAll>0?'<td class="r">'+won(Math.round(taxAll*fs[i]))+'</td>':'')+'</tr>';
   });
-  h+='<tr><td colspan="4" style="background:#f6f1e3;font-weight:800;">합계</td>'
+  h+='<tr><td colspan="5" style="background:#f6f1e3;font-weight:800;">합계</td>'
     +'<td class="r" style="background:#f6f1e3;font-weight:800;">'+won(total)+'</td>'
-    +'<td class="r" style="background:#f6f1e3;font-weight:800;">'+won(Math.round(total*dr/100))+'</td></tr></table>';
-  const diff=Math.abs(sumRatio-1);
-  if(diff>0.0001)
-    h+='<div class="note alert" style="margin-top:6px;"><b>지분의 합이 1이 되지 않습니다.</b> 현재 합계 '
-      +(sumRatio.toFixed(6).replace(/0+$/,'').replace(/\.$/,''))+' — 분모·분자를 다시 확인해 주십시오. '
-      +'(예: 3명이 똑같이 나누면 1/3 · 1/3 · 1/3)</div>';
-  h+='<div class="hint" style="margin-top:5px;line-height:1.6;">※ 할인손실은 현재 화면 위에 입력된 할인율 <b>'+dr+'%</b> 기준입니다. 합계란의 할인손실은 매입금 합계로 계산한 값이므로 각자 금액의 단순합과 몇 원 차이가 날 수 있습니다.</div>';
+    +'<td class="r" style="background:#f6f1e3;font-weight:800;">'+won(Math.round(total*dr/100))+'</td>'
+    +(taxAll>0?'<td class="r" style="background:#f6f1e3;font-weight:800;">'+won(Math.round(taxAll*Math.min(fSum,1)))+'</td>':'')
+    +'</tr></table>';
+
+  if(Math.abs(fSum-1)>0.0001)
+    h+='<div class="note alert" style="margin-top:6px;"><b>취득자 몫의 합이 1이 되지 않습니다.</b> 현재 합계 '
+      +bsPct(fSum)+' — 분모·분자를 다시 확인해 주십시오. '
+      +'(예: 이전분을 셋이 똑같이 나누면 1/3 · 1/3 · 1/3)</div>';
+
+  h+='<div class="hint" style="margin-top:5px;line-height:1.7;">'
+    +'※ <b>채권</b>은 「이전분 시가표준액 × 각자 몫」으로 <b>각자 구간을 다시 판정</b>해 1만원 단위로 따로 삽니다. '
+    +'그래서 여럿이 나누면 총액이 줄어드는 것이 정상입니다. <span class="hint">[A] 주택도시기금법 시행령 §8②[별표] 부표 1</span><br>'
+    +'※ <b>취득세</b>는 반대입니다. 세율은 <b>주택 전체 가격</b>으로 정하고, 그 세율을 <b>각자 지분 금액</b>에만 곱합니다. '
+    +'그래서 몇 명으로 나누든 총액은 같습니다. <span class="hint">[A] 지방세법 §11①8호 후단·§11②</span><br>'
+    +'※ 할인손실은 현재 할인율 <b>'+dr+'%</b> 기준이며, 합계란은 매입금 합계로 계산해 각자 금액의 단순합과 몇 원 차이가 날 수 있습니다.</div>';
   res.innerHTML=h;
   return total;
 }
@@ -3221,7 +3322,25 @@ function taxLocal(v){return taxTrim(v);}     // 지방세 — 10원 미만 절�
 function taxNational(v){return taxTrim(v);}  // 국세 — 10원 미만 절사
 function tierFee(key,a){const t=TIERS[key];if(!t)return 0;for(const[l,b,o,r]of t){if(a<=l)return b+(a-o)*r;}return 0;}
 document.getElementById('today').textContent=(()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');})();
-function saveBondRate(){try{localStorage.setItem('sanlaw_bondRate',document.getElementById('bondRate').value);}catch(e){}}
+/* 할인율은 매일 바뀌므로 「오늘 넣은 값인지」를 늘 보이게 한다.
+   자동 조회는 하지 않는다 — 주택도시기금·은행 어느 쪽도 공개 API가 없고,
+   근거 없는 자동수집은 하지 않는다는 원칙에 따른다(27회차 결정). */
+function todayKey(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+function saveBondRate(){try{
+  localStorage.setItem('sanlaw_bondRate',document.getElementById('bondRate').value);
+  localStorage.setItem('sanlaw_bondRateDay',todayKey());
+}catch(e){}
+  paintBondRateBadge();}
+function paintBondRateBadge(){
+  const el=document.getElementById('bondRateBadge');if(!el)return;
+  let day=null;try{day=localStorage.getItem('sanlaw_bondRateDay');}catch(e){}
+  if(day===todayKey()){el.textContent='✓ 오늘 확인함';el.style.color='#9fd6a8';el.title='오늘 날짜로 할인율을 입력하셨습니다.';}
+  else if(day){
+    const gap=Math.round((new Date(todayKey())-new Date(day))/86400000);
+    el.textContent='⚠ '+day+' 입력분 ('+gap+'일 전) — 다시 확인하십시오';
+    el.style.color='#f3d27a';el.title='할인율은 영업일마다 바뀝니다. 조회 버튼을 눌러 오늘 값을 확인하십시오.';
+  }else{el.textContent='⚠ 오늘 값을 확인하십시오';el.style.color='#f3d27a';}
+}
 /* 송달료 1회 기준금액 — 회차는 「송달료규칙의 시행에 따른 업무처리요령」(재일 87-4) 별표1,
    단가는 「국내 통상우편요금 및 우편이용에 관한 수수료」(과기부 고시) 연동.
    ┌ 특별송달 = 「왕복」 통상우편요금 + 등기수수료 + 특별송달수수료(1통 2,000원) — 우정사업본부 공식 요금표
@@ -3233,6 +3352,7 @@ function saveBondRate(){try{localStorage.setItem('sanlaw_bondRate',document.getE
 function songUnit(){const e=document.getElementById('songUnit');const v=e?parseFloat(e.value):NaN;return (isNaN(v)||v<=0)?5640:v;}
 function saveSongUnit(){try{localStorage.setItem('sanlaw_songUnit',document.getElementById('songUnit').value);}catch(e){}}
 (function(){try{var s=localStorage.getItem('sanlaw_bondRate');if(s!==null&&s!==''&&!isNaN(parseFloat(s)))document.getElementById('bondRate').value=s;}catch(e){}})();
+try{paintBondRateBadge();}catch(e){}      /* 할인율 최신 여부 배지 */
 (function(){try{var u=localStorage.getItem('sanlaw_songUnit');
   if(u!==null&&u!==''&&!isNaN(parseFloat(u))&&parseFloat(u)>0){
     if(parseFloat(u)===5500){localStorage.removeItem('sanlaw_songUnit');}  // 2026.7.1. 인상 전 저장값은 폐기하고 신규 기준(5,640) 적용
@@ -3326,7 +3446,7 @@ function calcBondSale(){
   if(t==='house'){const s=val('bondStdHouse');const r=bondRate('주택',s,metro);if(document.getElementById('bondPctHouse'))document.getElementById('bondPctHouse').value=r;buy=bondAmount(s,r);items=[{label:'주택',key:'주택',std:s}];}
   else if(t==='etc'){const sl=val('bondStdLand'),sb=val('bondStdBldg');const rl=bondRate('토지',sl,metro),rb=bondRate('건물',sb,metro);if(document.getElementById('bondPctLand'))document.getElementById('bondPctLand').value=rl;if(document.getElementById('bondPctBldg'))document.getElementById('bondPctBldg').value=rb;buy=bondAmount(sl,rl)+bondAmount(sb,rb);items=[{label:'토지',key:'토지',std:sl},{label:'건물',key:'건물',std:sb}];}
   else{const sl=val('bondStdLand');const r=bondRate('토지',sl,metro);if(document.getElementById('bondPctLand'))document.getElementById('bondPctLand').value=r;buy=bondAmount(sl,r);items=[{label:'토지',key:'토지',std:sl}];}
-  bsRender('');const _sp=bsApply('',items,metro);if(_sp!==null)buy=_sp;   /* 공유지분 취득 → 지분권자별 개별 산정 */
+  bsRender('',items);const _sp=bsApply('',items,metro);if(_sp!==null)buy=_sp;   /* 공유지분 취득 → 지분권자별 개별 산정 */
   document.getElementById('bondBuy').value=buy;
   calcSale();
 }
@@ -3353,12 +3473,27 @@ function firstHomeCap(){return chk('fh_bonus')?3000000:2000000;}
 /* 매매 취득세율 — §11①7호나목 4% / 7호가목 농지 3% / 8호 주택 1~3%
    ★ §11④ — 주택을 신축 또는 증축한 이후 「해당 주거용 건축물의 소유자(배우자 및 직계존비속 포함)」가
      해당 주택의 「부속토지」를 취득하는 경우에는 제1항제8호를 적용하지 아니한다 → 7호나목 4% [A] */
-function acqRateSale(price){const t=radio('ptype'),hn=radio('hn'),adj=chk('adjusted'),cp=chk('corp');
+/* ★ 27회차 신설 — 지분 취득 시 주택세율 구간 판정용 「전체 주택 환산가액」
+   [A] 지방세법 §11①8호 후단
+       「지분으로 취득한 주택의 취득당시가액은 다음 계산식에 따라 산출한
+         전체 주택의 취득당시가액으로 한다」
+       전체 주택 취득당시가액 = 취득지분 취득가액 × (전체 주택 시가표준액 ÷ 취득지분 시가표준액)
+       시가표준액 비율 = 1/지분율 이므로 결과는 「취득가액 ÷ 이전 지분율」과 같다.
+   [A] 지방세법 §11② — 과세표준은 「그 취득지분의 가액」
+   → 즉 세율만 주택 전체 기준으로 정하고, 그 세율을 각자 지분 금액에만 곱한다.
+     몇 사람으로 나누든 총 세액은 같다(지분쪼개기로 낮은 세율을 받는 것을 차단하는 취지).
+   ※ 행정안전부 유권해석도 「주택의 일부 지분만을 취득하더라도 해당 주택세율을 적용」한다고 밝힘. */
+/* 금액을 「○억 ○,○○○만원」 형태로 읽기 쉽게 */
+function eokTxt(v){v=Math.round(v||0);const e=Math.floor(v/100000000),m=Math.round((v%100000000)/10000);
+  return (e>0? e+'억'+(m>0?' '+m.toLocaleString()+'만원':'원') : m.toLocaleString()+'만원');}
+function acqBaseForRate(price){const r=bsTrRatio('');return (r>0&&r<1)?Math.round(price/r):price;}
+function acqRateSale(price,rateBase){const t=radio('ptype'),hn=radio('hn'),adj=chk('adjusted'),cp=chk('corp');
+  const rb=(rateBase&&rateBase>0)?rateBase:price;      // 구간 판정용(지분 취득 시 전체 환산가액)
   if(t==='etc')return 0.04;if(t==='farm')return 0.03;
   if(t==='house'&&chk('landAfterBuild'))return 0.04;   // §11④
   if(cp)return 0.12;
-  if(firstHomeOK(price))return houseBaseRate(price);   // §36의3① 후단 — §13의2 중과 배제
-  if(hn==='1')return houseBaseRate(price);if(hn==='2')return adj?0.08:houseBaseRate(price);if(hn==='3')return adj?0.12:0.08;return 0.12;}
+  if(firstHomeOK(price))return houseBaseRate(rb);      // §36의3① 후단 — §13의2 중과 배제
+  if(hn==='1')return houseBaseRate(rb);if(hn==='2')return adj?0.08:houseBaseRate(rb);if(hn==='3')return adj?0.12:0.08;return 0.12;}
 function autoDutySale(){const p=val('price');let d=0;if(p<=10000000)d=0;else if(p<=30000000)d=20000;else if(p<=50000000)d=40000;else if(p<=100000000)d=70000;else if(p<=1000000000)d=150000;else d=350000;document.getElementById('stampDuty').value=d;calcSale(true);}
 function renderDocsSale(){const f=radio('bform');let ledger='';
   if(f==='apt')ledger='<b>대장</b> — 집합건축물대장(전유부+표제부), 대지권등록부, 대지권 목적 토지대장';
@@ -3453,7 +3588,7 @@ function calcSale(fromEdit){
   const price=val('price');
   document.getElementById('houseNline').style.display=(radio('ptype')==='house')?'flex':'none';
   if(!fromEdit){
-    const rate=acqRateSale(price);let acq=price*rate;
+    const _rb=acqBaseForRate(price);const rate=acqRateSale(price,_rb);let acq=price*rate;
     const fhOK=firstHomeOK(price);
     let fhCut=0;
     if(fhOK){const cap=firstHomeCap();fhCut=Math.min(acq,cap);acq=acq-fhCut;}   // 산출세액 ≤ 한도 → 면제 / 초과 → 한도 공제
@@ -3464,7 +3599,7 @@ function calcSale(fromEdit){
     document.getElementById('acqTax').value=taxLocal(Math.round(acq));
     document.getElementById('eduTax').value=taxLocal(Math.round(edu));
     document.getElementById('ruralTax').value=taxLocal(Math.round(rural));
-    document.getElementById('acqRate').textContent='('+(rate*100).toFixed(rate*100%1?2:0)+'%'+(mid?' 중과':'')+(radio('ptype')==='house'&&chk('landAfterBuild')?' §11④ 부속토지(주택세율 배제)':'')+(fhOK?' 생애최초 −'+(fhCut/10000).toFixed(0)+'만(중과배제)':'')+(farmCut?' 자경50%':'')+')';
+    document.getElementById('acqRate').textContent='('+(rate*100).toFixed(rate*100%1?2:0)+'%'+(mid?' 중과':'')+(radio('ptype')==='house'&&chk('landAfterBuild')?' §11④ 부속토지(주택세율 배제)':'')+(fhOK?' 생애최초 −'+(fhCut/10000).toFixed(0)+'만(중과배제)':'')+(farmCut?' 자경50%':'')+(_rb!==price?' · 세율은 주택 전체 환산가액 '+eokTxt(_rb)+' 기준 §11①8호 후단':'')+')';
     const _fw=document.getElementById('fhWarn');if(_fw)_fw.style.display=fhOK?'block':'none';
   }
   const bondLoss=Math.round(val('bondBuy')*val('bondRate')/100);
@@ -3511,6 +3646,8 @@ function calcSale(fromEdit){
   document.getElementById('t_vat').textContent=won(vat);
   document.getElementById('t_public').textContent=won(publicSum);
   document.getElementById('t_grand').textContent=won(fee+vat+publicSum);
+
+  bsRefreshAll();      /* 취득세가 확정된 뒤 지분표의 세금 열을 갱신 */
 }
 (function(){const tb=document.getElementById('extraAgent');EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const tr=document.createElement('tr');
   tr.innerHTML='<td><label class="checks" style="display:inline-flex;align-items:flex-start;"><input type="checkbox" id="ck_'+id+'" onchange="calcSale()" style="margin-top:2px;"> <span style="font-size:12.5px;">'+name+' <b style="color:var(--seal);">'+FLAT[code].toLocaleString()+'원</b></span></label></td><td><input type="number" id="qt_'+id+'" value="1" min="1" style="width:54px;text-align:center;" oninput="calcSale()"></td>';
@@ -3546,7 +3683,7 @@ function calcBondInherit(){
   if(t==='house'){const s=val('s_bondStdHouse');const r=bondRate('무상',s,metro);if(document.getElementById('s_bondPctHouse'))document.getElementById('s_bondPctHouse').value=r;buy=bondAmount(s,r);items=[{label:'주택',key:'무상',std:s}];}
   else if(t==='etc'){const sl=val('s_bondStdLand'),sb=val('s_bondStdBldg');const rl=bondRate('무상',sl,metro),rb=bondRate('무상',sb,metro);if(document.getElementById('s_bondPctLand'))document.getElementById('s_bondPctLand').value=rl;if(document.getElementById('s_bondPctBldg'))document.getElementById('s_bondPctBldg').value=rb;buy=bondAmount(sl,rl)+bondAmount(sb,rb);items=[{label:'토지',key:'무상',std:sl},{label:'건물',key:'무상',std:sb}];}
   else{const sl=val('s_bondStdLand');const r=bondRate('무상',sl,metro);if(document.getElementById('s_bondPctLand'))document.getElementById('s_bondPctLand').value=r;buy=bondAmount(sl,r);items=[{label:'토지',key:'무상',std:sl}];}
-  bsRender('s_');const _sp=bsApply('s_',items,metro);if(_sp!==null)buy=_sp;   /* 공동상속 → 상속인별 개별 산정 */
+  bsRender('s_',items);const _sp=bsApply('s_',items,metro);if(_sp!==null)buy=_sp;   /* 공동상속 → 상속인별 개별 산정 */
   document.getElementById('s_bondBuy').value=buy;
   calcInherit();
 }
@@ -3680,6 +3817,8 @@ function calcInherit(fromEdit){
   document.getElementById('s_t_vat').textContent=won(vat);
   document.getElementById('s_t_public').textContent=won(publicSum);
   document.getElementById('s_t_grand').textContent=won(fee+vat+publicSum);
+
+  bsRefreshAll();      /* 취득세가 확정된 뒤 지분표의 세금 열을 갱신 */
 }
 (function(){const tb=document.getElementById('s_extraAgent');EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const tr=document.createElement('tr');
   tr.innerHTML='<td><label class="checks" style="display:inline-flex;align-items:flex-start;"><input type="checkbox" id="sa_'+id+'" onchange="calcInherit()" style="margin-top:2px;"> <span style="font-size:12.5px;">'+name+' <b style="color:var(--seal);">'+FLAT[code].toLocaleString()+'원</b></span></label></td><td><input type="number" id="saq_'+id+'" value="1" min="1" style="width:54px;text-align:center;" oninput="calcInherit()"></td>';
@@ -3787,7 +3926,7 @@ function calcBondGift(){
   const t=radio('gv_ptype');const metro=radio('gv_region')==='metro';let buy=0;let items=[];
   if(t==='house'){const s=val('gv_bondStdHouse');const r=bondRate('무상',s,metro);if(document.getElementById('gv_bondPctHouse'))document.getElementById('gv_bondPctHouse').value=r;buy=bondAmount(s,r);items=[{label:'주택',key:'무상',std:s}];}
   else{const sl=val('gv_bondStdLand'),sb=val('gv_bondStdBldg');const rl=bondRate('무상',sl,metro),rb=bondRate('무상',sb,metro);if(document.getElementById('gv_bondPctLand'))document.getElementById('gv_bondPctLand').value=rl;if(document.getElementById('gv_bondPctBldg'))document.getElementById('gv_bondPctBldg').value=rb;buy=bondAmount(sl,rl)+bondAmount(sb,rb);items=[{label:'토지',key:'무상',std:sl},{label:'건물',key:'무상',std:sb}];}
-  bsRender('gv_');const _sp=bsApply('gv_',items,metro);if(_sp!==null)buy=_sp;   /* 공동수증 → 수증자별 개별 산정 */
+  bsRender('gv_',items);const _sp=bsApply('gv_',items,metro);if(_sp!==null)buy=_sp;   /* 공동수증 → 수증자별 개별 산정 */
   document.getElementById('gv_bondBuy').value=buy;
   calcGift();
 }
@@ -3893,6 +4032,8 @@ function calcGift(fromEdit){
   document.getElementById('gv_t_vat').textContent=won(vat);
   document.getElementById('gv_t_public').textContent=won(publicSum);
   document.getElementById('gv_t_grand').textContent=won(fee+vat+publicSum);
+
+  bsRefreshAll();      /* 취득세가 확정된 뒤 지분표의 세금 열을 갱신 */
 }
 (function(){const tb=document.getElementById('gv_extraAgent');EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const tr=document.createElement('tr');
   tr.innerHTML='<td><label class="checks" style="display:inline-flex;align-items:flex-start;"><input type="checkbox" id="gva_'+id+'" onchange="calcGift()" style="margin-top:2px;"> <span style="font-size:12.5px;">'+name+' <b style="color:var(--seal);">'+FLAT[code].toLocaleString()+'원</b></span></label></td><td><input type="number" id="gvaq_'+id+'" value="1" min="1" style="width:54px;text-align:center;" oninput="calcGift()"></td>';
@@ -5134,7 +5275,7 @@ function calcBondPreserve(){
   const t=radio('pr_ptype');const metro=radio('pr_region')==='metro';let buy=0;let items=[];
   if(t==='house'){const s=val('pr_bondStdHouse');const r=bondRate('주택',s,metro);if(document.getElementById('pr_bondPctHouse'))document.getElementById('pr_bondPctHouse').value=r;buy=bondAmount(s,r);items=[{label:'주택',key:'주택',std:s}];}
   else{const sl=val('pr_bondStdLand'),sb=val('pr_bondStdBldg');const rl=bondRate('토지',sl,metro),rb=bondRate('건물',sb,metro);if(document.getElementById('pr_bondPctLand'))document.getElementById('pr_bondPctLand').value=rl;if(document.getElementById('pr_bondPctBldg'))document.getElementById('pr_bondPctBldg').value=rb;buy=bondAmount(sl,rl)+bondAmount(sb,rb);items=[{label:'토지',key:'토지',std:sl},{label:'건물',key:'건물',std:sb}];}
-  bsRender('pr_');const _sp=bsApply('pr_',items,metro);if(_sp!==null)buy=_sp;   /* 공동보존 → 지분권자별 개별 산정 */
+  bsRender('pr_',items);const _sp=bsApply('pr_',items,metro);if(_sp!==null)buy=_sp;   /* 공동보존 → 지분권자별 개별 산정 */
   document.getElementById('pr_bondBuy').value=buy;
   calcPreserve(true);
 }
@@ -5213,6 +5354,8 @@ function calcPreserve(fromEdit){
   document.getElementById('pr_t_vat').textContent=won(vat);
   document.getElementById('pr_t_public').textContent=won(publicSum);
   document.getElementById('pr_t_grand').textContent=won(fee+vat+publicSum);
+
+  bsRefreshAll();      /* 취득세가 확정된 뒤 지분표의 세금 열을 갱신 */
 }
 (function(){const tb=document.getElementById('pr_extraAgent');EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const tr=document.createElement('tr');
   tr.innerHTML='<td><label class="checks" style="display:inline-flex;align-items:flex-start;"><input type="checkbox" id="pra_'+id+'" onchange="calcPreserve()" style="margin-top:2px;"> <span style="font-size:12.5px;">'+name+' <b style="color:var(--seal);">'+FLAT[code].toLocaleString()+'원</b></span></label></td><td><input type="number" id="praq_'+id+'" value="1" min="1" style="width:54px;text-align:center;" oninput="calcPreserve()"></td>';
