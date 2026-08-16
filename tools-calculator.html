@@ -2990,15 +2990,15 @@ function bondAmount(std,rate){if(std<=0||rate<=0)return 0;let amt=std*rate/1000;
 function partyCount(p){
   const own=document.getElementById(p+'cntOwner')||document.getElementById(p+'pnOwn');
   const obl=document.getElementById(p+'pnObl');
-  const a=own?Math.max(1,parseFloat(own.value)||1):1;
-  const b=obl?Math.max(0,parseFloat(obl.value)||0):0;
+  const a=own?Math.max(1,numOf(own.value)||1):1;
+  const b=obl?Math.max(0,numOf(obl.value)||0):0;
   return {own:a,obl:b,total:a+b};
 }
 /* feeRaw(표상 기본보수) 기준 가산액을 돌려주고, 안내문·내역행을 갱신한다 */
 function partyAdd(p,feeRaw){
   const c=partyCount(p);
   const sel=document.getElementById(p+'pnAdd');
-  const rate=sel?(parseFloat(sel.value)||0):0;
+  const rate=sel?(numOf(sel.value)||0):0;
   const ok=c.total>=5;
   const info=document.getElementById(p+'pnInfo');
   if(info) info.innerHTML='권리자 '+c.own+' + 의무자 '+c.obl+' = <b>'+c.total+'인</b> — '
@@ -3032,7 +3032,7 @@ const BS_FN={'':'calcBondSale','s_':'calcBondInherit','gv_':'calcBondGift','pr_'
 function bsData(p){if(!BSHARE[p])BSHARE[p]={on:false,trNum:1,trDen:1,list:[{n:'',num:1,den:2},{n:'',num:1,den:2}]};return BSHARE[p];}
 /* 이번 등기로 이전되는 지분율 (예: 1/2 → 0.5). 미설정·전부이전이면 1 */
 function bsTrRatio(p){const d=BSHARE[p];if(!d||!d.on)return 1;
-  const a=parseFloat(d.trNum),b=parseFloat(d.trDen);
+  const a=numOf(d.trNum),b=numOf(d.trDen);
   return (isFinite(a)&&isFinite(b)&&b>0&&a>0&&a<=b)?a/b:1;}
 function bsSetTr(p,k,v){bsData(p)[k]=v;bsRun(p);}
 /* 구조가 바뀌었으니 다음 렌더 때 다시 그리라는 표시 */
@@ -3061,7 +3061,7 @@ function bsAdd(p){const d=bsData(p);if(d.list.length>=10)return;d.list.push({n:'
 function bsDel(p,i){const d=bsData(p);if(d.list.length<=1)return;d.list.splice(i,1);bsRender(p);bsRun(p);}
 /* 값 변경은 재렌더하지 않는다 — 입력 중 커서(포커스)가 튀는 것을 막기 위함 */
 function bsSet(p,i,k,v){const d=bsData(p);if(!d.list[i])return;d.list[i][k]=v;bsRun(p);}
-function bsRatio(r){const a=parseFloat(r.num),b=parseFloat(r.den);return(isFinite(a)&&isFinite(b)&&b>0&&a>0)?a/b:0;}
+function bsRatio(r){const a=numOf(r.num),b=numOf(r.den);return(isFinite(a)&&isFinite(b)&&b>0&&a>0)?a/b:0;}
 function bsRender(p,items){
   const box=document.getElementById(p+'bondShare');if(!box)return;
   const d=bsData(p);
@@ -3358,23 +3358,88 @@ const SCENARIO={
 };
 
 /* ===================== 공통 함수 ===================== */
-/* ═══════════ 금액 입력칸 위 「쉼표 + 한글」 읽기 ═══════════════════════
+/* ═══════════ 금액 입력칸 3자리 쉼표 (27회차) ═══════════════════════
    숫자만 죽 이어져 있으면 자릿수를 잘못 읽기 쉽다.
-   예) 500000000 → 「500,000,000원 (5억원)」 을 칸 바로 위에 띄운다.
-   ▸ 값이 1,000 미만이면 띄우지 않는다 → 개수·인원·횟수·요율 칸은 자연히 제외된다.
-   ▸ 지분 분자/분모·할인율·매입률은 큰 수가 들어와도 금액이 아니므로 따로 제외한다.
-   ▸ 등기뿐 아니라 소송·가사·법인·경매·회생 등 모든 화면에 자동 적용된다.
-   27회차 신설. */
-const MH_SKIP=/(bondRate$|bondPct|_pct|Pct$|Rate$|bsTrNum|bsTrDen|winPct|ownShare|Share$)/;
-/* 12,345,678 → 「1,234만 5,678원」 형태로 읽어 준다 */
+   → 금액 칸에 입력하는 즉시 「243,000,000」처럼 3자리마다 쉼표를 넣는다.
+
+   ▸ <input type="number"> 는 쉼표를 값으로 받지 못한다(브라우저가 무효 처리).
+     그래서 로드 시 금액 칸만 골라 type 을 text 로 바꾸고 inputmode 를 지정해
+     휴대폰에서도 숫자 자판이 뜨게 한다.
+   ▸ 값을 읽는 모든 경로는 numOf() 를 거쳐 쉼표를 걷어낸다.
+   ▸ 개수·인원(스테퍼) · 요율 · 지분 분자/분모는 금액이 아니므로 건드리지 않는다.
+   ▸ 등기뿐 아니라 소송·가사·법인·경매·회생 등 모든 화면에 자동 적용된다. */
+const MONEY_SKIP=/(bondRate$|bondPct|_pct|Pct$|Rate$|Share$|ownShare|winPct|N$|[Cc]nt|pnOwn|pnObl|[Pp]arty|estate$|Owner$|Heir$|Num$|Den$)/;
+
+/* 쉼표가 섞인 문자열도 안전하게 숫자로 — 값 읽기의 유일한 통로 */
+function numOf(v){
+  if(v===null||v===undefined)return NaN;
+  return parseFloat(String(v).replace(/,/g,''));
+}
+/* 「1234567」 → 「1,234,567」. 소수점·음수도 유지한다 */
+function fmtComma(v){
+  let t=String(v==null?'':v);
+  const neg=/^\s*-/.test(t);
+  t=t.replace(/[^0-9.]/g,'');
+  if(t==='')return '';
+  const p=t.split('.');
+  let ip=p[0].replace(/^0+(?=\d)/,'');
+  ip=ip.replace(/\B(?=(\d{3})+(?!\d))/g,',');
+  return (neg?'-':'')+ip+(p.length>1?'.'+p.slice(1).join('').slice(0,5):'');
+}
+function isMoneyInput(el){
+  if(!el||el.tagName!=='INPUT')return false;
+  if(el.dataset&&el.dataset.money==='1')return true;
+  if(el.type!=='number')return false;
+  if(el.closest&&el.closest('.stepper'))return false;      /* 개수·인원 스테퍼 */
+  if(el.classList&&el.classList.contains('nocomma'))return false;
+  if(el.id&&MONEY_SKIP.test(el.id))return false;
+  return true;
+}
+/* 금액 칸을 텍스트 방식으로 전환 (동적으로 생기는 칸도 여기서 잡힌다) */
+function moneyInit(root){
+  (root||document).querySelectorAll('input[type="number"]').forEach(function(el){
+    if(!isMoneyInput(el))return;
+    el.type='text';
+    el.setAttribute('inputmode','decimal');
+    el.setAttribute('autocomplete','off');
+    el.dataset.money='1';
+    el.value=fmtComma(el.value);
+  });
+}
+/* 입력 중 쉼표를 다시 넣고 커서 자리를 보정한다 */
+function moneyOnInput(el){
+  const before=el.value;
+  let caret=el.selectionStart;
+  if(caret===null||caret===undefined)caret=before.length;
+  const digitsLeft=(before.slice(0,caret).match(/\d/g)||[]).length;
+  const after=fmtComma(before);
+  if(after===before)return;
+  el.value=after;
+  let i=0,d=0;
+  while(i<after.length&&d<digitsLeft){ if(/\d/.test(after[i]))d++; i++; }
+  try{el.setSelectionRange(i,i);}catch(e){}
+}
+/* 계산으로 채워진 칸(취득세 등)에도 쉼표를 입힌다. 입력 중인 칸은 건드리지 않는다. */
+function moneyScan(){
+  const sc=document.querySelector('.scene.active')||document;
+  moneyInit(sc);
+  sc.querySelectorAll('input[data-money="1"]').forEach(function(el){
+    if(document.activeElement===el)return;
+    const f=fmtComma(el.value);
+    if(f!==el.value)el.value=f;
+  });
+}
+/* ── 입력 중에만 칸 위에 한글 단위를 띄운다 (협회 계산기 방식) ──
+   커서가 칸에 있는 동안만 「5,000만원」처럼 읽어 주고,
+   칸을 벗어나면 라벨은 사라지고 칸 안에는 쉼표만 남는다. */
 function koMoney(n){
   n=Math.floor(Math.abs(n));
-  if(n<1)return '0원';
+  if(n<1)return '';
   const U=[[1e12,'조'],[1e8,'억'],[1e4,'만']];
   let out='',rest=n;
-  for(const [u,name] of U){
-    const q=Math.floor(rest/u);
-    if(q>0){out+=q.toLocaleString('ko-KR')+name+' ';rest=rest%u;}
+  for(const u of U){
+    const q=Math.floor(rest/u[0]);
+    if(q>0){out+=q.toLocaleString('ko-KR')+u[1]+' ';rest=rest%u[0];}
   }
   if(rest>0)out+=rest.toLocaleString('ko-KR');
   return out.trim()+'원';
@@ -3389,34 +3454,28 @@ function mhBox(el){
   }
   return w.querySelector('.mh');
 }
-function mhPaint(el){
-  if(!el||el.type!=='number')return;
-  if(el.id&&MH_SKIP.test(el.id))return;
-  const v=parseFloat(el.value);
-  const show=isFinite(v)&&Math.abs(v)>=1000;
-  const b=(el.__mh)||(el.__mh=mhBox(el));
-  const txt=show?(Math.abs(v)>=10000
-      ? v.toLocaleString('ko-KR')+'원 ('+koMoney(v)+')'
-      : v.toLocaleString('ko-KR')+'원'):'';
-  if(b.__t===txt)return;                       /* 바뀐 때만 손댄다 */
-  b.__t=txt;b.textContent=txt;b.style.display=show?'inline-block':'none';
-}
-/* 활성 화면의 금액칸만 훑는다. 자동 계산으로 값이 바뀌는 칸도 함께 따라온다. */
-function mhScan(){
-  const sc=document.querySelector('.scene.active');
-  if(!sc)return;
-  sc.querySelectorAll('input[type="number"]').forEach(mhPaint);
+function moneyHint(el,on){
+  if(!el||!el.dataset||el.dataset.money!=='1')return;
+  const b=el.__mh||(el.__mh=mhBox(el));
+  const v=numOf(el.value);
+  const txt=(on&&isFinite(v)&&Math.abs(v)>=10000)?koMoney(v):'';
+  if(b.__t===txt)return;
+  b.__t=txt;b.textContent=txt;b.style.display=txt?'inline-block':'none';
 }
 document.addEventListener('input',function(e){
-  if(e.target&&e.target.type==='number')mhPaint(e.target);
+  const t=e.target;
+  if(t&&t.dataset&&t.dataset.money==='1'){moneyOnInput(t);moneyHint(t,true);}
 },true);
-setInterval(mhScan,300);
+document.addEventListener('focusin',function(e){moneyHint(e.target,true);},true);
+document.addEventListener('focusout',function(e){moneyHint(e.target,false);},true);
+setInterval(moneyScan,200);
+
 
 function won(n){n=Math.round(n||0);return n.toLocaleString('ko-KR')+' 원';}
-function val(id){const el=document.getElementById(id);if(!el)return 0;const v=parseFloat(el.value);return isNaN(v)?0:v;}
+function val(id){const el=document.getElementById(id);if(!el)return 0;const v=numOf(el.value);return isNaN(v)?0:v;}
 function radio(name){const el=document.querySelector('input[name="'+name+'"]:checked');return el?el.value:'';}
 function chk(id){const e=document.getElementById(id);return e&&e.checked;}
-function step(id,d,fn){const el=document.getElementById(id);el.value=Math.max(1,(parseInt(el.value)||1)+d);if(fn)fn();}
+function step(id,d,fn){const el=document.getElementById(id);el.value=Math.max(1,(numOf(el.value)||1)+d);if(fn)fn();}
 /* ★ 세금 끝수(단수) 처리 — 27-3회차 신설 / 27-4회차 정정
    지방세·국세 모두 「10원 미만 절사」가 원칙이다.
    · 국세(인지세 등): 국고금관리법 §47① — 10원 미만의 끝수는 계산하지 아니한다.
@@ -3456,7 +3515,7 @@ function paintBondRateBadge(){
       ※ 규격 5g초과 25g까지 기준(통상우편요금 시행일 2026.7.1.).
       교차확인: 대한법무사협회 계산기 5,640원 / 신우법무사 「법원 송달료 1회분 5,640원으로 인상 – 2026.7.1.」
    법정 요율이므로 하드코딩하지 않고 상단 입력값을 단일 출처로 사용한다. */
-function songUnit(){const e=document.getElementById('songUnit');const v=e?parseFloat(e.value):NaN;return (isNaN(v)||v<=0)?5640:v;}
+function songUnit(){const e=document.getElementById('songUnit');const v=e?numOf(e.value):NaN;return (isNaN(v)||v<=0)?5640:v;}
 function saveSongUnit(){try{localStorage.setItem('sanlaw_songUnit',document.getElementById('songUnit').value);}catch(e){}}
 (function(){try{var s=localStorage.getItem('sanlaw_bondRate');if(s!==null&&s!==''&&!isNaN(parseFloat(s)))document.getElementById('bondRate').value=s;}catch(e){}})();
 try{paintBondRateBadge();}catch(e){}      /* 할인율 최신 여부 배지 */
@@ -4290,7 +4349,7 @@ renderDocsDivision();
    ===== §14② — 상업·법인등기 =====
    ② 「임원 중 외국인 또는 재외국민이 포함되어 있거나 등기원인과 관련되는 서류를
       외국으로부터 받아야 하는 변경등기」는 기본보수의 100% 상당액까지 가산할 수 있다. [A] */
-function frAddRate(id){const e=document.getElementById(id);return e?(parseFloat(e.value)||0):0;}
+function frAddRate(id){const e=document.getElementById(id);return e?(numOf(e.value)||0):0;}
 function frAddRow(id,fn,art){
   return '<div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="'+id+'" onchange="'+fn+'()">'+
    '<option value="0" selected>해당 없음</option>'+
@@ -6559,7 +6618,7 @@ function copyLitCost(){
 function litCostFallback(txt,done){const ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.focus();ta.select();try{document.execCommand('copy');done();}catch(e){alert('복사 실패 — 아래 내용을 직접 선택해 복사하세요.\n\n'+txt);}document.body.removeChild(ta);}
 
 /* ===================== 직접 추가 항목 (제목+금액 빈 줄) ===================== */
-function customSum(id){let s=0;const el=document.getElementById(id);if(el)el.querySelectorAll('.custom-amt').forEach(i=>{s+=parseFloat(i.value)||0;});return s;}
+function customSum(id){let s=0;const el=document.getElementById(id);if(el)el.querySelectorAll('.custom-amt').forEach(i=>{s+=numOf(i.value)||0;});return s;}
 const CUSTOM_MAP={extraAgent:calcSale,s_extraAgent:calcInherit,gv_extraAgent:calcGift,bv_extraAgent:calcBurden,mt_extraAgent:calcMortgage,mtc_extraAgent:calcMortCancel,pr_extraAgent:calcPreserve,rt_extraAgent:calcRight,gd_extraAgent:calcGuardian,co_extraAgent:calcCorp,cv_extraAgent:calcCorpChange,ga_extraAgent:calcGadeungi,st_extraAgent:calcSintak,ma_extraAgent:calcMortgageAdd,so_extraAgent:calcLawsuit};
 (function addCustomRows(){
   Object.keys(CUSTOM_MAP).forEach(tb=>{
@@ -6576,7 +6635,7 @@ const CUSTOM_MAP={extraAgent:calcSale,s_extraAgent:calcInherit,gv_extraAgent:cal
 })();
 
 /* ===================== 공과금 직접추가 + 준비서류 수기편집 ===================== */
-function pubCustomSum(sceneId){let s=0;const sc=document.getElementById(sceneId);if(sc)sc.querySelectorAll('.pub-custom .custom-amt').forEach(i=>{s+=parseFloat(i.value)||0;});return s;}
+function pubCustomSum(sceneId){let s=0;const sc=document.getElementById(sceneId);if(sc)sc.querySelectorAll('.pub-custom .custom-amt').forEach(i=>{s+=numOf(i.value)||0;});return s;}
 (function addPubCustomAndDocs(){
   const map={'scene-매매':calcSale,'scene-상속':calcInherit,'scene-증여':calcGift,'scene-부담부증여':calcBurden,'scene-근저당설정':calcMortgage,'scene-근저당말소':calcMortCancel,'scene-보존':calcPreserve,'scene-권리설정':calcRight,'scene-법인설립':calcCorp,'scene-법인변경':calcCorpChange,'scene-가등기':calcGadeungi,'scene-부부재산약정':calcMarital,'scene-재건축재개발':calcRedev,'scene-이혼재산분할':calcDivision,'scene-신탁등기':calcSintak,'scene-담보권추가설정':calcMortgageAdd,'scene-소장':calcLawsuit,'scene-부동산가압류':calcAttach,'scene-가처분':calcInjunction,'scene-부동산경매신청':calcAuctionFile,'scene-채권가압류':calcAttachClaim,'scene-유체동산가압류':calcAttachGoods,'scene-자동차가압류':calcAttachCar,'scene-압류추심':calcSeizure,'scene-기타신청':calcMisc};
   Object.keys(map).forEach(sid=>{
@@ -6611,7 +6670,7 @@ function prepPrint(){
     if(tr.classList.contains('subtot'))return;
     if(tr.classList.contains('custom-row')){
       const nm=tr.querySelector('.custom-name'),amt=tr.querySelector('.custom-amt');
-      if(!nm.value.trim()||!(parseFloat(amt.value)>0))tr.classList.add('print-hide');
+      if(!nm.value.trim()||!(numOf(amt.value)>0))tr.classList.add('print-hide');
       return;
     }
     const cb=tr.querySelector('input[type=checkbox]');
@@ -6628,7 +6687,7 @@ window.addEventListener('afterprint',unprepPrint);
 
 /* ===================== 엑셀/한셀 출력 (2단 영수증 · 좌우 2부) ===================== */
 function ofVal(id,def){const e=document.getElementById(id);return (e&&e.value.trim())?e.value.trim():(def||'');}
-function numFrom(cell){if(!cell)return 0;const inp=cell.querySelector('input');if(inp)return parseFloat(inp.value)||0;let txt=cell.textContent.replace(/\([^)]*\)/g,'');return parseFloat(txt.replace(/[^0-9]/g,''))||0;}
+function numFrom(cell){if(!cell)return 0;const inp=cell.querySelector('input');if(inp)return numOf(inp.value)||0;let txt=cell.textContent.replace(/\([^)]*\)/g,'');return parseFloat(txt.replace(/[^0-9]/g,''))||0;}
 /* td에서 항목명만 추출 (select·hint·tag·input 제외) */
 function cellName(td){
   let s='';
@@ -6662,7 +6721,7 @@ function collectRows(card,stripParen){
     if(tr.querySelector('td[colspan]'))return;
     if(tr.classList.contains('custom-row')){
       const nm=tr.querySelector('.custom-name'),amt=tr.querySelector('.custom-amt');
-      if(nm&&amt&&nm.value.trim()&&(parseFloat(amt.value)>0))rows.push([nm.value.trim(),parseFloat(amt.value)]);
+      if(nm&&amt&&nm.value.trim()&&(numOf(amt.value)>0))rows.push([nm.value.trim(),numOf(amt.value)]);
       return;
     }
     const cb=tr.querySelector('input[type=checkbox]');if(cb&&!cb.checked)return;
@@ -6674,7 +6733,7 @@ function collectRows(card,stripParen){
       const b=tds[0].querySelector('b');
       const unit=b?(parseFloat(b.textContent.replace(/[^0-9.]/g,''))||0):0;
       const qi=tr.querySelector('input[type=number]');
-      const qty=qi?Math.max(1,parseInt(qi.value)||1):1;
+      const qty=qi?Math.max(1,numOf(qi.value)||1):1;
       amt=unit?unit*qty:numFrom(tds[tds.length-1]);
       // 적요는 항목명만 — 단가('○○원')·수량 표기 제거
       const lc=tds[0].cloneNode(true); const bb=lc.querySelector('b'); if(bb)bb.remove();
@@ -6817,7 +6876,7 @@ async function exportExcel(){
   const br=brI&&brI.value?brI.value:'';
   if(br) pubRows=pubRows.map(r=>/채권\s*할인/.test(r[0])?['채권할인\n('+br+'%)',r[1]]:r);
   const baseInput=scene.querySelector('.amt');
-  const base=baseInput?parseFloat(baseInput.value)||0:0;
+  const base=baseInput?numOf(baseInput.value)||0:0;
   const feeSum=feeRows.reduce((a,r)=>a+r[1],0);
   const vat=Math.round(feeSum*0.1);
   const office={name:ofVal('of_name','산 법무사 김재섭 행정사 사무소'),bizno:ofVal('of_bizno'),addr:ofVal('of_addr'),agent:ofVal('of_agent','김재섭')};
