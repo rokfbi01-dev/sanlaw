@@ -2787,7 +2787,7 @@
 
     <div class="card blue"><h2>① 소장 정보</h2><div class="body">
       <div class="line"><span class="lbl">소가(소송물가액, 원)</span><input type="number" class="amt" id="so_sga" placeholder="0" oninput="calcLawsuit()"><span class="hint">없으면 5천만 의제(보수)</span></div>
-      <div class="line"><span class="lbl">사건유형</span><select id="so_type" onchange="calcLawsuit()">
+      <div class="line" style="border:none;padding-bottom:0;"><span class="lbl"></span><details style="width:100%;background:#fdf6e8;border:1px solid #e8dcc0;border-radius:6px;padding:8px 10px;"><summary style="cursor:pointer;font-weight:800;color:var(--gold-d);">📋 이 화면으로 계산되는 서류 — 보수기준 §23① 전체 보기</summary><div style="margin-top:8px;line-height:1.85;font-size:13px;"><b>■ 첫째 표 (보수표 Ⅶ-1① · 3천만원까지 560,000원~)</b><br>소장(상소장) · 항고장 · 답변서 · 준비서면 · 증거신청서 · 화해신청서 · 고소·고발장 · 항고·상소이유서 · 보전처분·집행·비송사건의 신청서 · 회생절차 개시신청서 · 회생채권신고서 · 채권조사확정재판 신청서 · 간이회생절차 개시신청서 · 파산신청서 · 지급명령 · 조정신청서<br><span class="hint">▸ 위 서류는 <b>모두 이 화면</b>에서 계산하십시오. 소가만 넣으시면 같은 표로 산정됩니다.<br>▸ <b>보전처분</b>(가압류·가처분)은 인지·송달료가 달라 <b>전용 화면</b>이 따로 있습니다.<br>▸ <b>개인</b>회생·개인파산은 §24의1 <b>별도 표(Ⅷ)</b>입니다 — 「개인회생」·「개인파산·면책」 화면을 쓰십시오.</span><br><br><b>■ 둘째 표 (보수표 Ⅶ-1② · 3천만원까지 260,000원~)</b><br>공시최고 · 소송비용확정신청서 · 민사신청 · 가사신청 · 형사신청 · 소년신청(보전신청 제외) · 그 밖에 문안을 요하는 서류<br><span class="hint">▸ <b>민사신청 48종</b>은 「민사 신청사건(기타)」 화면에 목록으로 들어 있습니다.<br>▸ <b>가사신청</b>은 협의이혼·양육비·친권자·개명 등 전용 화면을 쓰십시오.<br>▸ <b>형사·소년신청</b>은 아래 표를 「둘째 표」로 바꿔 계산하십시오.</span><br><br><b>■ 문안을 요하지 않는 서류 (보수표 Ⅶ-2 · 1건당 40,000원)</b><br>기일변경·지정신청서 · 판결확정·송달증명신청서 · 집행문부여신청서 · 정식재판청구서 · 기록열람신청서 · 도면<br><span class="hint">▸ 「문안 不요 서류」 화면에서 건수만 넣으시면 됩니다.</span><br><br><span class="hint">※ 소송물가액이 <b>없거나 산정할 수 없으면 5천만원</b>으로 봅니다(§23① 후단). 위 소가 칸을 비워 두시면 그대로 적용됩니다.</span></div></details></div><div class="line"><span class="lbl">보수 산정표</span><select id="so_tbl" onchange="calcLawsuit()"><option value="1" selected>첫째 표 Ⅶ-1① — 소장·답변서·준비서면·항고장·이유서·고소장·회생/파산 신청서 등</option><option value="2">둘째 표 Ⅶ-1② — 공시최고·소송비용확정·민사/가사/형사/소년 신청 등</option></select><span class="hint">서류 종류에 맞는 표를 고르십시오 <span class="law" title="법무사보수기준 §23① — 문안을 요하는 서류의 작성에 관한 기본보수는 두 개의 표로 나뉜다">§23①</span></span></div><div class="line"><span class="lbl">사건유형</span><select id="so_type" onchange="calcLawsuit()">
         <option value="sm">1심 소액사건</option>
         <option value="dan">1심 단독·합의사건</option>
         <option value="hs">민사 항소사건</option>
@@ -3453,11 +3453,11 @@ const SCENARIO={
  "가처분":{cat:'civil',full:'injunction'},
  "압류·추심명령":{cat:'civil',full:'seizure'},
  "민사 신청사건(기타)":{cat:'civil',full:'misc'},
- "재산명시신청":{cat:'civil',kind:'tier',tier:'Ⅶ-1①',baseLabel:'집행채권액 ([B] Ⅶ-1①·집행신청)',noSga:true,prof:{injiKind:'flat',injiFlat:1000,songCnt:5,songParty:'신청인+상대방',partyDef:2,
+ "재산명시신청":{cat:'civil',kind:'tier',tier:'Ⅶ-1①',baseLabel:'집행채권액(비우면 5천만 의제)',prof:{injiKind:'flat',injiFlat:1000,songCnt:5,songParty:'신청인+상대방',partyDef:2,
    guide:'▸ <b>재산명시신청서에는 1,000원의 인지</b>를 첩부하고 <b>송달료 5회분</b>을 납부합니다(대법원 「나홀로소송」 안내). <span class="tag A">A</span><br>· <b>집행권원</b>(판결정본 등)의 <b>원본과 사본</b>을 함께 제출합니다.<br>· 채무자가 명시기일에 <b>출석하지 아니하거나</b> 재산목록 제출·선서를 거부하면 <b>감치</b>될 수 있고, <b>거짓 목록을 제출하면 형사처벌</b> 대상입니다(민사집행법 §68).<br>· 재산명시절차를 거친 후 <b>재산조회</b>를 신청할 수 있습니다(민사집행법 §74).'}},
- "재산조회신청":{cat:'civil',kind:'tier',tier:'Ⅶ-1①',baseLabel:'집행채권액 ([B] Ⅶ-1①·집행신청)',noSga:true,prof:{injiKind:'flat',injiFlat:1000,songCnt:2,songParty:'신청인',partyDef:1,
+ "재산조회신청":{cat:'civil',kind:'tier',tier:'Ⅶ-1①',baseLabel:'집행채권액(비우면 5천만 의제)',prof:{injiKind:'flat',injiFlat:1000,songCnt:2,songParty:'신청인',partyDef:1,
    guide:'▸ <b>재산조회는 「재산명시절차를 거친 후」</b>에 할 수 있는 것이 원칙입니다(민사집행법 §74). 재산명시를 먼저 신청하셨는지 확인하십시오.<br>· <span style="color:#b03a3a;font-weight:700;">★ 인지·송달료보다 「조회기관별 조회비용」이 훨씬 큽니다.</span> 민사집행규칙 §36①에 따라 <b>조회에 드는 비용을 미리 납부</b>해야 하며, <b>조회할 기관의 수·종류에 따라 합산</b>됩니다(금융기관을 다수 지정하면 수십만원에 이를 수 있음).<br>· 조회기관별 단가는 확인하지 못했으므로 <b>자동계산하지 않습니다.</b> 접수 법원에 확인한 금액을 아래 공과금란 <b>「기타 비용」에 직접 입력</b>하십시오. <span class="tag chk">확인필요</span><br>· 회신 결과는 <b>열람·복사</b> 방식으로 확인하며, 재산조회 결과를 <b>제3자에게 누설하면 처벌</b>될 수 있습니다(민사집행법 §76②).'}},
- "공시최고·소송비용확정":{cat:'civil',kind:'tier',tier:'Ⅶ-1②',noSga:true,prof:{injiKind:'flat',injiFlat:1000,songCnt:5,songParty:'신청인+상대방',partyDef:2}},
+ "공시최고·소송비용확정":{cat:'civil',kind:'tier',tier:'Ⅶ-1②',baseLabel:'대상 가액 — 공시최고는 증권·증서 액면금액, 소송비용확정은 확정 대상 비용액(비우면 5천만 의제)',prof:{injiKind:'flat',injiFlat:1000,songCnt:5,songParty:'신청인+상대방',partyDef:2}},
  "지급명령·조정신청":{cat:'civil',full:'payorder'},
  "공탁":{cat:'civil',kind:'tier',tier:'Ⅴ',baseLabel:'공탁가액',addFee:'집행공탁 사유신고서 작성 가산보수',addFeeDefault:580000,addFeeGuide:'<b>변제공탁</b>(민법§487)과 <b>집행공탁</b>(민사집행법§248 등)을 구분하세요. ① <b>변제공탁</b> — 피공탁자에게 공탁통지, 초본발급·보정 중심(사유신고 불요). ② <b>집행공탁</b> — 공탁 후 집행법원에 <b>사유신고</b>를 하며(민집§248④), 사유신고 시점이 배당요구 종기입니다(민집§247①1호). <b>집행공탁이면 아래 「사유신고서 가산보수」를 체크</b>하세요(기본 580,000·사안별 협의 조정). <span class="tag chk">확인필요</span> 협회 정액이 아니라 협의 가산보수입니다(법무사보수기준§19②).',prof:{injiKind:'none',songCnt:0}},
  "부동산경매 상담":{cat:'civil',kind:'tier',tier:'Ⅵ-1',baseLabel:'감정가액'},
@@ -3467,7 +3467,7 @@ const SCENARIO={
    guide:'▸ <b>개인회생절차개시 신청서 인지 30,000원</b>(민사소송 등 인지법 <b>§9①3호</b>). <span class="tag A">A</span><br>· <b>송달료 = 10회분 + (채권자수 × 8회분)</b>(「송달료규칙의 시행에 따른 업무처리요령」 <b>별표1</b>) — 위 「당사자 수」에 <b>채권자 수</b>를 입력하십시오. <span class="tag A">A</span><br>· 금지명령·중지명령 신청서는 <b>각 2,000원</b>(「채무자 회생 및 파산에 관한 규칙」 §4 10호) — 별도 가산하십시오.<br>· 공고비용·절차비용은 법원 예납명령에 따릅니다(회생파산규칙 §87).'}},
  "개인파산·면책":{cat:'civil',kind:'tier',tier:'Ⅷ',baseLabel:'채무금액',prof:{injiKind:'flat',injiFlat:2000,songCnt:0,songFormula:'bankrupt',songParty:'채권자 수',partyDef:1,
    guide:'▸ <b>인지 2,000원 — 파산 1,000원 + 면책 1,000원</b>(「민사접수서류에 붙일 인지액 및 그 편철방법 등에 관한 예규」 <b>별표</b>). 전자소송 포털도 「개인파산 및 면책 신청수수료 2,000원」으로 안내합니다. <span class="tag A">A</span><br>· <b>파산신청서와 면책신청서를 각각 작성</b>하는 경우 <b>각 신청서에 1,000원</b>씩 붙입니다.<br>· <b>송달료 = 20회분 + (채권자수 × 7회분)</b> — 파산 <b>[10회 + 채권자수×4회]</b> + 면책 <b>[10회 + 채권자수×3회]</b>(「송달료규칙의 시행에 따른 업무처리요령」 <b>별표1</b>). <span class="tag A">A</span><br>· 파산·면책은 <b>별개 사건</b>이므로 <b>송달료납부서를 각각</b> 제출합니다.<br>· <b>공고</b>는 법원 홈페이지 법원공고란 게시로 하므로 <b>별도 비용이 들지 않습니다.</b><br>· <b>파산관재인 보수(예납금)</b> — 동시폐지를 하지 아니하는 경우 법원이 <b>파산재단의 규모, 부인권 대상 행위의 존부와 수, 예상 소요기간, 재단수집의 난이도, 채권자의 수</b> 등을 고려하여 정합니다(「개인파산 및 면책신청사건의 처리에 관한 예규」 <b>§2의4</b>). 사건별 예납명령에 따르므로 아래 공과금란에 <b>직접 입력</b>하십시오. <span class="tag chk">확인필요</span>'}},
- "증거보전 신청":{cat:'civil',kind:'tier',tier:'Ⅶ-1②',noSga:true,prof:{injiKind:'flat',injiFlat:1000,songCnt:3,songParty:'당사자',partyDef:2}},
+ "증거보전 신청":{cat:'civil',kind:'tier',tier:'Ⅶ-1②',baseLabel:'본안 소송물가액(비우면 5천만 의제)',prof:{injiKind:'flat',injiFlat:1000,songCnt:3,songParty:'당사자',partyDef:2}},
  // 가사
  "상속포기·한정승인 신고":{cat:'family',kind:'tier',tier:'Ⅶ-1①',baseLabel:'상속재산가액(없으면 5천만)',prof:{injiKind:'flat',injiFlat:5000,songCnt:6,songParty:'청구인(라류 6~10회)',partyDef:1,fam:true}},
  "상속재산분할 심판청구":{cat:'family',kind:'tier',tier:'Ⅶ-1①',baseLabel:'분할대상 재산가액',lawyer:true,prof:{injiKind:'flat',injiFlat:10000,songCnt:12,songParty:'상대방(마류)',partyDef:1,fam:true,chk:true,guide:'[확인필요] 상속재산분할은 마류 가사비송(가사소송법 §2①2.나10))으로, 2016.7.1.개정 가사소송수수료규칙 §3①에 따라 인지가 정액이 아니라 「공유물분할청구의 소」로 보아 민사소송 등 인지법 §2를 준용해 산정됩니다. 화면의 10,000원은 임시 표시치이므로, 분할대상 가액 기준으로 인지를 직접 재산정·입력하세요(송달료는 당사자 1인당 12회분).'}},
@@ -3476,7 +3476,7 @@ const SCENARIO={
  "양육비 청구·심판":{cat:'family',kind:'tier',tier:'Ⅶ-1②',baseLabel:'청구금액',lawyer:true,prof:{injiKind:'flat',injiFlat:10000,songCnt:12,songParty:'상대방(마류)',partyDef:1,fam:true}},
  "친권자·양육자 지정":{cat:'family',kind:'tier',tier:'Ⅶ-1②',noSga:true,lawyer:true,prof:{injiKind:'flat',injiFlat:10000,songCnt:12,songParty:'상대방(마류)',partyDef:1,fam:true}},
  "개명·가족관계등록 정정":{cat:'family',kind:'tier',tier:'Ⅶ-1②',noSga:true,prof:{injiKind:'flat',injiFlat:1000,songCnt:0,fam:true,bGrade:true,guide:'[B] 실무: 개명허가·가족관계등록부 정정 신청 인지는 1,000원 수준입니다(가족관계등록 비송). 법원별 차이 가능.'}},
- "실종선고·부재자재산관리인":{cat:'family',kind:'tier',tier:'Ⅶ-1①',noSga:true,prof:{injiKind:'flat',injiFlat:5000,songCnt:6,songParty:'청구인(라류)',partyDef:1,fam:true}},
+ "실종선고·부재자재산관리인":{cat:'family',kind:'tier',tier:'Ⅶ-1①',baseLabel:'관리 대상 재산가액(비우면 5천만 의제)',prof:{injiKind:'flat',injiFlat:5000,songCnt:6,songParty:'청구인(라류)',partyDef:1,fam:true}},
  "후견 신청 및 등기":{cat:'civil',full:'guardian'},
  "소송비용액확정(변호사보수 산입)":{cat:'civil',full:'litcost',ref:'변호사보수규칙 별표'},
  "문안 不요 서류":{cat:'civil',kind:'flat',flat:'Ⅶ-2'}
@@ -6503,7 +6503,7 @@ function calcLawsuit(fromEdit){
   document.getElementById('so_publicSum').textContent=won(publicSum);
   const adj=parseFloat(document.getElementById('so_adjust').value)||1;
   const sgaForFee=sga>0?sga:5e7;
-  const feeBase=Math.round(tierFee('Ⅶ-1①',sgaForFee)*adj);
+  const feeBase=Math.round(tierFee((document.getElementById('so_tbl')&&document.getElementById('so_tbl').value==='2')?'Ⅶ-1②':'Ⅶ-1①',sgaForFee)*adj);   /* §23① — 서류 종류에 따라 첫째 표·둘째 표 선택 */
   document.getElementById('so_feeBaseCell').textContent=won(feeBase);
   document.getElementById('so_feeBaseNote').textContent='(Ⅶ-1①'+(sga<=0?' ·5천만의제':'')+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   let fee=feeBase;
