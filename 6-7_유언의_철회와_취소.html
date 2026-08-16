@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[6-7] 예전에 쓴 유언을 바꾸거나 취소하고 싶어요 — 유언의 철회 | 산 법무사 김재섭</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(280px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.case{background:var(--box); border-radius:10px; padding:14px 16px; margin:14px 0; border-left:4px solid #b9a98c;}
+.case .ct{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+.sit-wrap{display:flex; gap:12px; margin:14px 0;}
+.sit{flex:1; background:#f8f5ee; border:1px solid var(--line); border-top:3px solid var(--gold); border-radius:10px; padding:13px 15px; font-size:14.5px; line-height:1.75;}
+.sit .sl{display:block; font-weight:700; color:var(--gold-d); margin-bottom:6px; font-size:14px;}
+@media (max-width:680px){ .sit-wrap{flex-direction:column;} }
+/* 전체 길 흐름도 */
+.flow{background:linear-gradient(180deg,#faf7f0,#f6f1e6); border:1px solid var(--line); border-radius:14px; padding:22px 20px; margin:16px 0;}
+.flow .fl-t{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:18px; text-align:center; letter-spacing:.3px;}
+.flow .node{position:relative; background:#fff; border:1px solid #e3d8c4; border-radius:11px; padding:15px 18px 15px 56px; font-size:14.5px; line-height:1.72; box-shadow:0 2px 6px rgba(122,82,48,.07);}
+.flow .node .num{position:absolute; left:15px; top:14px; width:30px; height:30px; line-height:30px; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; border-radius:50%; font-weight:800; font-size:15px; font-family:'Nanum Myeongjo',serif; box-shadow:0 2px 5px rgba(122,82,48,.3);}
+.flow .node b{color:#241a10;}
+.flow .down{display:flex; justify-content:center; align-items:center; padding:7px 0;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+/* 작성례 박스 */
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:15px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .tag{margin-bottom:0;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;}
+.tag.cred{background:#5a9a72;}
+.tag.debt{background:#d9694a;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:18px;margin:12px 0;font-family:'D2Coding','Courier New',monospace;font-size:13px;line-height:1.6;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:16px;letter-spacing:2px;margin-bottom:12px;color:#241a10;}
+.howto{font-size:14px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0 4px;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:13px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:7px 13px;cursor:pointer;transition:.15s;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.75;}
+.lawbox .ll{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:#241a10;border-radius:5px;padding:2px 9px;margin-right:7px;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.hire p{margin:7px 0; font-size:15px; line-height:1.8;}
+.cta{display:block;text-align:center;background:var(--gold-d);color:#fff;font-weight:700;font-size:17px;text-decoration:none;padding:15px;border-radius:11px;margin:18px 0;font-family:'Nanum Myeongjo',serif;letter-spacing:1px;}
+.cta:hover{background:#5e3f24;}
+@media print{
+  body{background:#fff; max-width:100%;}
+  .tldr,.case,.warn,.tip,.cost,.steps li,.tnote,.sit,.flow,.flow li,.lawbox,.hire{background:#fff !important; border-color:#ccc !important;}
+  .tnote{display:none;}
+  .term{border:none; color:inherit; font-weight:inherit;}
+  .term>.bub{display:inline !important; position:static; width:auto; background:none; color:inherit; box-shadow:none; padding:0; font-size:inherit; line-height:inherit;}
+  .term>.bub::before{content:" ("; }
+  .term>.bub::after{content:")"; border:none; position:static;}
+  .fold-body{display:block !important;}.fold-btn .chev{display:none;}.form-tools{display:none;}
+  .cta{background:#fff !important; color:#241a10 !important; border:1px solid #ccc;}
+}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+
+<h1>[6-7] 예전에 쓴 유언을 바꾸거나 취소하고 싶어요 — 유언의 철회</h1>
+
+<div class="tnote">어려운 법률용어에는 <b>점선 밑줄</b>이 그어져 있습니다. <b>PC는 마우스를 올리면</b>, <b>휴대폰은 손가락으로 톡 누르면</b> 쉬운 설명이 뜹니다. (인쇄하면 괄호로 함께 나옵니다.)</div>
+
+<div class="hire">
+<div class="ht">이 매뉴얼을 끝까지 읽으시는 분께</div>
+<p>이 매뉴얼은 <b>의뢰인이 직접 법원에 신청할 수 있도록 모든 서류 양식·비용·요건을 구체적으로 담았습니다.</b> 하지만 소송은 살아있는 생물과 같아 상대방의 격렬한 저항이 뒤따릅니다. 혼자 진행하시다가 막히는 부분이 생기거나 방어막이 필요할 때, 언제든 이 매뉴얼을 들고 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</p>
+</div>
+
+<div class="tldr">
+<div class="tt">⭐ 30초 결론부터</div>
+<ul>
+<li><b>유언은 살아 있는 동안 언제든지 자유롭게 바꾸거나 취소할 수 있습니다.</b> 이를 <span class="term">철회<span class="bub">이미 한 유언을 없던 것으로 되돌리는 것. 유언자가 살아 있는 동안 자유롭게 할 수 있습니다.</span></span>라 하며, <b>철회할 권리는 미리 포기할 수도 없습니다</b>(<span class="term">민법 §1108<span class="bub">"① 유언자는 언제든지 유언 또는 생전행위로써 유언의 전부나 일부를 철회할 수 있다. ② 유언자는 그 유언을 철회할 권리를 포기하지 못한다."</span></span>). "유언 못 바꾸기로 약속한다"는 합의는 효력이 없습니다(대법원 2015. 8. 19. 선고 2012다94940 판결).</li>
+<li><b>바꾸는 방법은 네 가지 — ① 새 유언으로 "앞 유언을 철회한다"고 명시 ② 앞과 다른 내용의 새 유언 작성 ③ 유언한 재산을 생전에 처분·증여 ④ 유언장(또는 목적물)을 고의로 없앰</b>입니다(§1108~§1110).</li>
+<li><b>여러 유언이 충돌하면 '나중 것'이 우선합니다.</b> 앞뒤 유언이 어긋나면 <b>그 어긋나는 부분만 앞 유언이 철회</b>된 것으로 봅니다(<span class="term">§1109<span class="bub">전후의 유언이 저촉되거나 유언 후의 생전행위가 유언과 저촉되면, 그 저촉된 부분의 전(前) 유언은 철회한 것으로 봅니다.</span></span>). 그래서 <b>새 유언에도 작성 날짜를 정확히</b> 적어야 어느 것이 나중인지 가려집니다.</li>
+<li><b>받을 사람이 약속(부담)을 안 지키면, 그 유증을 취소할 수 있습니다.</b> "재산을 줄 테니 나를 부양하라" 같은 <span class="term">부담부 유증<span class="bub">재산을 주는 대신 일정한 의무(부양·채무변제 등)를 지우는 유증.</span></span>에서 받은 사람이 의무를 이행하지 않으면, 상속인·유언집행자가 최고 후 <b>법원에 유언취소를 청구</b>할 수 있습니다(§1111, 아래 양면 서면).</li>
+</ul>
+</div>
+
+<h2>지금 어떤 상황인가요?</h2>
+<div class="sit-wrap">
+<div class="sit"><span class="sl">상황 ① · 마음이 바뀐 유언자</span>예전에 써 둔 유언을 <b>고치거나 없던 것으로 하고 싶은</b> 경우. → 아래 네 가지 방법 중 하나를 택합니다. 가장 깔끔한 것은 <b>새 유언에 "앞 유언을 철회한다"고 명시</b>하는 것입니다.</div>
+<div class="sit"><span class="sl">상황 ② · 부담을 못 받는 상속인</span>고인이 "부양·간병을 조건으로" 재산을 유증했는데 <b>받은 사람이 약속을 안 지키는</b> 경우. → 상속인·유언집행자가 최고 후 <b>법원에 유언취소를 청구</b>합니다.</div>
+</div>
+
+<h2>핵심 세 가지</h2>
+<ol class="steps">
+<li><b>철회는 유언자만, 살아 있는 동안만 할 수 있습니다.</b> 철회권은 <b>미리 포기할 수 없고</b>(§1108②), "앞으로 바꾸지 않겠다"는 약속도 효력이 없습니다(2012다94940). 반대로 <b>주변 사정이 좀 달라졌다고 저절로 철회되지도 않습니다</b> — 유언 후 재혼하셨다거나 유증하기로 한 재산 중 <b>일부만 처분</b>하신 사실이 있다고 해서, 나머지 재산에 대한 유언까지 철회한 것으로 보지는 않습니다(대법원 1998. 5. 29. 선고 97다38503 판결).</li>
+<li><b>새 유언은 '날짜'가 생명입니다.</b> 유언을 바꿀 때 가장 안전한 방법은 새 유언에 <b>"○년 ○월 ○일자 유언을 모두 철회한다"</b>고 적고 새 내용을 쓰는 것입니다. 명시하지 않더라도 나중 유언이 앞 유언과 어긋나면 그 부분은 철회된 것으로 보지만(§1109), 다툼을 막으려면 명시가 최선입니다.</li>
+<li><b>생전 처분·파기에는 함정이 있습니다.</b> 유언한 재산을 생전에 증여하면 그 유증은 철회되지만 <b>증여세</b>가 따를 수 있습니다. 또 <b>공정증서 유언</b>은 원본이 공증사무소에 있어, 유언자가 가진 <b>정본을 찢어도 철회되지 않습니다</b> — 반드시 새 유언이나 공증사무소 처리가 필요합니다.</li>
+</ol>
+
+<h2>판례로 보기 — 철회의 효력</h2>
+<div class="case">
+<span class="ct">○ 유언 후 생전 처분이 유언과 어긋나면 그 부분 철회 — 대법원 2002. 6. 25. 선고 2000다64427 판결</span>
+유언 후의 생전행위가 유언과 <b>저촉</b>되면 그 저촉된 부분의 앞 유언은 철회한 것으로 봅니다(§1109). 여기서 '저촉'이란 <b>앞 유언을 실효시키지 않고서는 뒤의 생전행위가 유효로 될 수 없는 경우</b>를 말하며, 물리적 집행불능만이 아니라 <b>뒤의 행위가 앞 유언과 양립할 수 없음이 명백하면</b> 충분합니다. 예: 아파트를 甲에게 유증한 뒤 생전에 그 아파트를 乙에게 증여·이전하면, 그 유증은 철회된 것으로 봅니다.
+</div>
+<div class="case">
+<span class="ct">○ 재혼했다고, 일부를 팔았다고 유언 전체가 철회되지는 않는다 — 대법원 1998. 5. 29. 선고 97다38503 판결</span>
+유언을 남기신 뒤 <b>재혼</b>을 하셨고, 유증하기로 했던 재산 가운데 <b>일부를 처분</b>하신 사안입니다. 상속인들은 "생활이 그렇게 바뀌었으니 유언은 철회된 것"이라고 다투었지만, 대법원은 그런 사정만으로는 <b>나머지 재산에 관한 유언까지 철회한 것으로 볼 수 없다</b>고 판단했습니다. <b>철회로 인정되는 것은 어디까지나 '저촉되는 그 부분'</b>이라는 뜻입니다.
+<span style="display:block;margin-top:8px">그래서 <b>일부만 처분하셨다면 나머지 유언은 그대로 살아 있습니다.</b> 유언 전체를 없애고 싶으시면 <b>새 유언에 "전부 철회한다"고 적으시는 것</b> 외에 확실한 방법이 없습니다.</span>
+</div>
+<div class="case">
+<span class="ct">○ 유언 철회의 자유를 막는 약정은 무효 — 대법원 2015. 8. 19. 선고 2012다94940 판결</span>
+유언자가 유언을 수정하려면 상속인들의 동의를 받도록 한 약정은 <b>사실상 유언 철회의 자유를 제한</b>하므로 §1108의 취지에 반하여 <b>무효</b>입니다. 유언자는 사전에 한 자신의 유언이나 그런 약정에 구속되지 않습니다.
+</div>
+
+
+<div class="case">
+<span class="ct">○ ★최신 — "죽으면 주겠다"는 각서(사인증여)도 철회할 수 있다 — 대법원 2022. 7. 28. 선고 2017다245330 판결</span>
+혼외자에게 부동산을 <b>사인증여</b>한다는 각서를 써 주고 상대방 앞으로 근저당권까지 설정해 준 뒤, 관계가 파탄되자 이를 되돌리려 한 사안입니다. 그동안 학계의 다수 견해는 <b>"사인증여는 계약이므로 상대방 동의 없이 일방적으로 철회할 수 없다"</b>는 것이었는데, 대법원은 이번에 <b>사인증여도 사망으로 효력이 생기는 무상행위여서 실질이 유증과 다르지 않으므로, 유언 철회에 관한 민법 제1108조 제1항이 준용된다</b>고 <b>처음으로</b> 명확히 밝혔습니다. 증여자가 아직 살아 있어 효력이 생기기 전이라면, <b>계약이라는 이유만으로 철회가 안 된다고 볼 것은 아니라는 것</b>입니다.
+</div>
+<div class="tip"><span class="pt">💡 이 판결이 실제로 쓰이는 자리</span>
+"어머니가 <b>돌아가시면 이 집은 네 것</b>이라고 각서를 써 주셨다"는 사건이 대단히 많습니다. 이런 각서는 유언장의 방식(자필 5요건 등)을 갖추지 못해 <b>유언으로는 무효</b>이지만, 주고받은 의사합치가 있으면 <b>사인증여</b>가 될 수 있습니다(→ 6-3). 이때 <b>어머니는 살아 계시는 동안 마음을 바꾸실 수 있습니다.</b> 유언과 마찬가지로 <b>나중에 한 처분·증여가 앞의 각서와 저촉되면 그 부분은 철회된 것으로 봅니다</b>(§1109 준용, 대법원 2014. 10. 27. 선고 2014다215369 판결 참조).</div>
+
+<h2>유언을 바꾸는 네 가지 방법</h2>
+<table>
+<tr><th>방법</th><th>어떻게</th><th>근거·주의</th></tr>
+<tr><td><b>① 새 유언으로 명시 철회</b></td><td>새 유언에 "○년 ○월 ○일자 유언을 모두 철회한다"고 적고 새 내용을 씀</td><td>가장 깔끔·확실. §1108</td></tr>
+<tr><td><b>② 저촉되는 새 유언</b></td><td>앞과 다른 내용의 유언을 새로 작성 → 어긋나는 부분만 앞 유언 철회</td><td>§1109. 날짜를 정확히 적어야 선후가 가려짐</td></tr>
+<tr><td><b>③ 저촉되는 생전행위</b></td><td>유언한 재산을 살아 있을 때 팔거나 증여 → 그 유증 철회</td><td>§1109. <b>증여세</b> 주의. 반드시 유언자 본인이 해야 함</td></tr>
+<tr><td><b>④ 유언장·목적물 파훼</b></td><td>유언자가 고의로 유언장을 찢거나 없앰 → 그 부분 철회</td><td>§1110. <b>공정증서는 정본 파기로 부족</b>(원본 공증사무소 보관)</td></tr>
+</table>
+
+
+
+<h2>⏰ 기한 정리 — 놓치면 되돌릴 수 없는 날짜</h2>
+<table><tr><th>구분</th><th>① 언제부터 (기산일)</th><th>② 근거 조문</th><th>③ 말일이 휴일이면</th><th>④ 최종 만료일</th></tr>
+<tr><td><b>유언의 철회</b></td><td>—</td><td>민법 §1108①</td><td>—</td><td><b>기한 없음.</b> 살아 계시는 동안에는 <b>언제든지, 몇 번이든</b> 바꾸실 수 있습니다. 다만 <b>돌아가신 뒤에는 단 하루도 늦출 수 없습니다</b> — 미루지 마십시오</td></tr>
+<tr><td><b>부담 이행의 최고</b></td><td>부담을 이행하지 않고 있는 것을 <b>안 때</b>부터 — 기간은 청구인이 정합니다</td><td>민법 §1111 본문</td><td>—</td><td>법이 정한 최소 기간은 없으나 <b>"상당한 기간"</b>이어야 합니다. 실무에서는 <b>2주~1개월</b>을 정해 내용증명으로 보냅니다</td></tr>
+<tr><td><b>유언취소 심판청구</b></td><td>최고한 기간이 <b>지난 다음 날</b>부터</td><td>민법 §1111 / §157</td><td>다음 근무일로 연장(§161)</td><td><b>제척기간 규정은 없습니다.</b> 다만 늦어질수록 <b>제3자가 새로 이해관계를 맺어</b> 취소해도 그 이익을 해치지 못하게 되므로(§1111 단서) 서두르셔야 합니다</td></tr>
+<tr><td><b>취소 심판에 대한 즉시항고</b></td><td>심판을 <b>고지받은 날</b>의 다음 날부터</td><td>가사소송법 §43⑤</td><td>다음 근무일로 연장(§161)</td><td><b>고지받은 날 + 14일</b></td></tr>
+<tr><td><b>증여세 신고</b>(생전 증여로 유언을 대신하실 때)</td><td>증여받은 날이 속한 <b>달의 말일</b>의 다음 날부터</td><td>상속세 및 증여세법 §68① <b>[확인필요]</b></td><td>다음 근무일로 연장</td><td><b>말일 + 3개월</b> — 유언을 생전 증여로 바꾸시면 <b>이 기한이 곧바로 시작됩니다.</b> 세액을 먼저 확인하십시오</td></tr>
+</table>
+<div class="tip"><span class="pt">💡 날짜 세는 법 — 딱 두 줄만 기억하십시오</span> <b>① 첫날은 세지 않습니다</b>(초일 불산입, 민법 §157). "송달받은 날부터 30일"이면 <b>받은 날 다음 날이 1일째</b>입니다. <b>② 마지막 날이 토·일·공휴일이면 그 다음 근무일까지</b> 연장됩니다(민법 §161). 다만 <b>하루라도 넘기면 되돌릴 방법이 사실상 없으므로</b>, 만료일 <b>이틀 전</b>을 스스로의 마감일로 잡으십시오.</div>
+<h2>관련 법령 — 이것만 알면 됩니다</h2>
+<div class="lawbox"><span class="ll">민법 §1108</span><b>언제든지, 이유 없이</b> — ① 유언자는 <b>언제든지</b> 유언 또는 생전행위로써 유언의 전부나 일부를 철회할 수 있습니다. ② 유언자는 <b>그 철회할 권리를 포기하지 못합니다</b>. 그래서 "다시는 바꾸지 않겠다"는 각서나 상속인 동의를 받게 한 약정은 <b>무효</b>입니다(2015. 8. 19. 선고 2012다94940).</div>
+<div class="lawbox"><span class="ll">민법 §1109</span><b>저촉되면 앞의 것이 지워진다</b> — 전후의 유언이 저촉되거나 유언 후의 생전행위가 유언과 저촉되는 경우, <b>그 저촉된 부분의 앞 유언은 철회한 것으로 봅니다</b>. '저촉'이란 앞 유언을 실효시키지 않고서는 뒤의 행위가 유효로 될 수 없는 관계를 말하고, <b>물리적으로 불가능한 경우만이 아니라 양립할 수 없음이 명백하면</b> 충분합니다(2000다64427).</div>
+<div class="lawbox"><span class="ll">민법 §1110</span><b>찢으면 그 부분만</b> — 유언자가 <b>고의로</b> 유언증서나 유증의 목적물을 파훼한 때에는 그 부분에 관한 유언은 철회한 것으로 봅니다. <b>'고의로'</b>가 중요합니다 — 불이 나서 타 버린 것은 철회가 아닙니다.</div>
+<div class="lawbox"><span class="ll">민법 §1073①</span><b>살아 계시는 동안엔 아무 권리도 없다</b> — 유언은 유언자가 사망한 때부터 효력이 생깁니다. 유증을 받기로 되어 있어도 <b>유언자가 사망하기까지 수증자는 아무 권리를 취득하지 못합니다</b>(2012다94940). 그래서 "이미 유언장에 내 이름이 있으니 못 바꾼다"는 말은 성립하지 않습니다.</div>
+<div class="lawbox"><span class="ll">민법 §1088·§1111</span><b>부담부 유증과 그 취소</b> — 부담 있는 유증을 받은 사람은 <b>유증의 목적 가액을 초과하지 않는 한도</b>에서 부담한 의무를 이행할 책임이 있습니다(§1088). 받은 사람이 부담을 이행하지 않으면 <b>상속인 또는 유언집행자</b>가 <b>상당한 기간을 정해 이행을 최고</b>한 뒤, 그래도 이행하지 않을 때 <b>법원에 유언의 취소를 청구</b>할 수 있습니다. 다만 <b>제3자의 이익을 해치지 못합니다</b>(§1111).</div>
+<div class="lawbox"><span class="ll">민법 §562</span><b>사인증여도 철회할 수 있습니다</b> — 증여자의 사망으로 효력이 생길 증여에는 유증에 관한 규정이 준용됩니다. 대법원은 <b>유언 철회에 관한 §1108①이 사인증여에도 준용된다</b>고 명시적으로 판단했습니다(2022. 7. 28. 선고 2017다245330). "각서를 써 줬으니 못 무른다"는 말은 <b>더 이상 맞지 않습니다.</b></div>
+<div class="lawbox"><span class="ll">가사소송법 §2①2가 48), §44 7호</span><b>어느 법원에</b> — 민법 제1111조에 따른 <b>부담 있는 유언의 취소</b>는 <b>라류 가사비송사건</b>이고, 관할은 <b>상속개시지(유언자의 최후 주소지) 가정법원</b>입니다. 지방법원에 민사로 내면 이송됩니다.</div>
+<div class="lawbox"><span class="ll">세금 주의</span><b>생전 증여로 바꾸실 때</b> — 유언한 재산을 살아 계실 때 넘기시면 그 유증은 철회되지만, 받는 사람에게 <b>증여세</b>가, 부동산이면 <b>증여 취득세</b>가 곧바로 발생합니다. 사후에 유증으로 받으면 상속세 체계로 처리되어 <b>세 부담이 달라질 수 있으므로</b>, 바꾸시기 전에 세액을 먼저 비교해 보십시오.</div>
+
+<h2>새 유언(철회·변경)은 이렇게 씁니다</h2>
+<div class="flow">
+<div class="fl-t">앞 유언을 확실하게 지우는 순서</div>
+<div class="node"><span class="num">1</span><b>방식을 다시 갖춥니다.</b> 철회·변경하는 새 유언도 <b>그 자체로 유효한 유언</b>이어야 합니다. 자필이면 전문·연월일·주소·성명 자서 + 날인의 5요건을 다시 갖춰야 합니다(→ 6-1). 형식이 흠이면 철회도 효력이 없습니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">2</span><b>"앞 유언을 철회한다"를 명시합니다.</b> 다툼을 막는 가장 좋은 방법입니다. 앞 유언의 작성일자를 특정해 철회 의사를 분명히 적습니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">3</span><b>날짜를 정확히 적습니다.</b> 여러 유언이 있으면 <b>나중 것</b>이 우선하므로, 새 유언의 연·월·일을 빠짐없이 적어 가장 나중 유언임을 분명히 합니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">4</span><b>공정증서였다면 공증사무소에서 처리합니다.</b> 앞 유언이 공정증서면 정본을 찢는 것만으로는 철회되지 않으므로, 새 유언을 만들거나 공증사무소를 통해 정리합니다.</div>
+</div>
+
+<h2>받을 사람이 약속을 안 지킬 때 — 부담부 유증 취소(양면 서면)</h2>
+<p>"부양·간병을 조건으로" 재산을 준 부담부 유증에서 받은 사람이 의무를 이행하지 않으면, <b>상속인 또는 유언집행자</b>가 ① <b>상당한 기간을 정해 이행을 최고</b>한 뒤 ② 그래도 이행하지 않으면 <b>가정법원에 유언취소를 청구</b>합니다(§1111, 가사비송 라류). 다만 이미 생긴 <b>제3자의 이익은 해치지 못합니다</b>. 아래는 ① 유언 철회서(작성) → ② 유언취소 심판청구서 → ③ 상대방 의견서입니다. ○○○만 채우면 됩니다.</p>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag">작성례 ① · 작성</span>유언 철회서 (새 자필 유언으로 앞 유언 철회)<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f0"><span class="ft">유 언 장 (철회)</span>유언자 성명  ○○○
+주민등록번호  ○○○○○○-○○○○○○○
+주소  ○○시 ○○구 ○○로 ○○, ○○○호 (○○동)
+
+유언사항
+
+1. 나는 20○○. ○○. ○○.자로 작성한 나의 종전 유언(○○○에게
+   ○○○를 유증한다는 내용)을 전부 철회한다.
+
+2. 나는 새로이 다음과 같이 유언한다.
+   가. ○○시 ○○구 ○○동 ○○ 대 ○○○㎡는 ○○○
+       (○○○○○○-○○○○○○○)에게 유증한다.
+   나. (그 밖의 유언사항을 적는다)
+
+작성일자  20○○년 ○○월 ○○일
+
+유언자 성명  ○○○ (인)
+주소  ○○시 ○○구 ○○로 ○○, ○○○호 (○○동)</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f0')">📋 복사</button><button type="button" onclick="printForm('f0')">🖨 인쇄</button><button type="button" onclick="downloadForm('f0','유언_철회서.txt')">⬇ 다운로드</button></div>
+<div class="howto">앞 유언을 바꾸는 <b>새 자필 유언장</b>입니다. <b>제목부터 이름까지 전부 손으로</b> 써야 하고(→ 6-1의 5요건), 1항처럼 <b>"○년 ○월 ○일자 유언을 전부 철회한다"</b>를 명시하면 다툼이 없습니다. 일부만 바꾸려면 "○○ 부분만 철회한다"로 적습니다. 앞 유언이 공정증서였더라도 새 자필 유언으로 철회할 수 있습니다.</div></div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ② · 가사(상속인측)</span>유언취소 심판청구서 (부담 불이행 — 상속인·유언집행자)<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f2"><span class="ft">유언취소 심판청구</span>청구인  ○○○ (상속인 또는 유언집행자)   (☎: ○○○-○○○○-○○○○)
+주민등록번호  ○○○○○○-○○○○○○○
+주소  ○○○
+
+상대방  ○○○ (부담부 유증을 받은 자)
+주소  ○○○
+
+사건본인(유언자)  망 ○○○
+사망일자  20○○. ○○. ○○.
+최후주소  ○○○
+
+         청 구 취 지
+유언자 망 ○○○이 20○○. ○○. ○○. 상대방에게 ○○○를
+유증하면서 부담을 지운 유언을 취소한다.
+라는 심판을 구합니다.
+
+         청 구 원 인
+1. 망인은 20○○. ○○. ○○. 유언으로 상대방에게 ○○○를
+   유증하면서, 그 부담으로 ○○○(예: 망인을 부양하고 그 채무
+   ○○○원을 변제할 것)을 정하였습니다.
+2. 그러나 상대방은 위 부담의무를 이행하지 아니하였습니다.
+3. 이에 청구인은 20○○. ○○. ○○. 상대방에게 상당한 기간을
+   정하여 그 이행을 최고하였으나(첨부 내용증명), 상대방은 그
+   기간이 지나도록 이행하지 아니하였습니다.
+4. 따라서 민법 제1111조에 따라 위 부담부 유증의 취소를
+   청구합니다. (다만 제3자의 이익을 해하지 아니합니다.)
+
+         첨 부 서 류
+1. 유언서 사본(또는 검인조서 등본)                  1통
+1. 이행최고 내용증명·배달증명                        1통
+1. 유언자 기본증명서(상세)·가족관계증명서(상세)      각 1통
+1. 청구인의 자격 소명자료(상속인/유언집행자)         1통
+
+              20○○. ○○. ○○.
+                청구인  ○○○ (인 또는 서명)
+
+○○가정법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f2')">📋 복사</button><button type="button" onclick="printForm('f2')">🖨 인쇄</button><button type="button" onclick="downloadForm('f2','유증_이전등기_소장.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>부담(부양·간병·채무변제 등)을 이행받지 못한 상속인·유언집행자</b>가 가정법원에 내는 양식입니다. 이 청구에서 가장 자주 걸리는 것은 <b>"최고를 했느냐"</b>입니다 — 민법 제1111조는 <b>상당한 기간을 정해 이행을 최고한 뒤에도 이행하지 않을 것</b>을 요구하므로, <b>내용증명으로 기간을 정해 최고한 사실</b>을 반드시 붙이십시오(최고 없이 낸 청구는 그 자체로 다투어집니다). 청구원인에는 ① 유언에 어떤 부담이 붙어 있었는지, ② 상대가 무엇을 하지 않았는지, ③ 언제 어떤 방법으로 최고했는지를 <b>날짜와 함께</b> 적습니다. 취소가 되더라도 <b>이미 생긴 제3자의 이익은 해치지 못한다</b>는 점(§1111 단서)도 미리 감안하십시오.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ③ · 가사(상대방)</span>의견서 — 유증받은 상대방의 대응<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f3"><span class="ft">의 견 서</span>사건   20○○느단○○○○호   유언취소
+청구인   ○○○ (상속인/유언집행자)
+상대방   ○○○ (부담부 유증을 받은 자)   (☎: ○○○-○○○○-○○○○)
+
+         의 견 의 취 지
+청구인의 청구를 기각한다(또는 각하한다).
+라는 심판을 구합니다.
+
+         의 견 의 이 유
+1. (이행했다는 경우)
+   상대방은 유언에서 정한 부담의무를 모두 이행하였습니다.
+   상대방은 망인을 ○○년간 부양하였고(을 제1호증 부양 자료),
+   채무 ○○○원도 변제하였습니다(을 제2호증 변제 자료).
+2. (최고가 없었다는 경우)
+   청구인은 상대방에게 상당한 기간을 정하여 이행을 최고한
+   사실이 없으므로, 이 사건 청구는 민법 제1111조의 요건을
+   갖추지 못하여 부적법합니다.
+3. (불이행에 정당한 사유가 있는 경우)
+   상대방이 부담을 이행하지 못한 데에는 ○○○(예: 망인의 거부,
+   불가항력)라는 정당한 사유가 있었습니다.
+4. 따라서 청구인의 청구는 이유 없으므로 기각(또는 각하)되어야
+   합니다.
+
+         첨 부 서 류
+1. 을 제1호증   부양·간병 사실 자료
+1. 을 제2호증   채무 변제 자료
+1. 의견서 부본   1통
+
+              20○○. ○○. ○○.
+                상대방  ○○○ (인)
+
+○○가정법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f3')">📋 복사</button><button type="button" onclick="printForm('f3')">🖨 인쇄</button><button type="button" onclick="downloadForm('f3','유증_이전등기_답변서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>유증을 받은 상대방</b>의 대응입니다. 가사비송이라 '답변서'가 아니라 <b>의견서</b>로 냅니다. 핵심 방어는 셋 — ① <b>부담을 이미 이행했다</b> ② <b>청구인이 이행 최고를 안 했다</b>(절차 흠) ③ <b>불이행에 정당한 사유가 있다</b> 중 해당하는 것을 고릅니다. 부양·변제 사실을 뒷받침할 자료를 최대한 모으세요.</div>
+</div></div>
+
+<div class="cost">
+<span class="ct">비용</span>
+<b>유언을 새로 쓰거나 철회하는 것 자체에는 비용이 들지 않습니다</b>(자필). 공정증서로 다시 만들면 공증수수료가 듭니다(→ 6-4). <b>부담부 유증 취소 심판(가사비송)</b>은 인지대(수천 원)+송달료로 소액이며, 청구 전 보내는 <b>이행 최고 내용증명</b> 비용(우체국)이 별도로 듭니다.
+<div style="margin-top:11px; padding-top:10px; border-top:1px dashed #cfe6d6; color:#c0392b; font-weight:600; line-height:1.8;">※ 비용문의는 상담폼을 완성후 메뉴의 <a href="https://sanlaw.co.kr/tools-calculator.html" style="color:#c0392b; text-decoration:underline; font-weight:700;">수수료 계산기</a>에서 수수료를 미리 알 수 있습니다.</div>
+</div>
+
+<h2>준비할 서류와 발급처</h2>
+<table>
+<tr><th>무엇을 (어디서)</th><th>서류</th><th>바로가기</th></tr>
+<tr><td>유언 견본<br>(법률구조공단)</td><td>자필증서 유언 서식(철회·변경에 활용)</td><td><a href="https://www.klac.or.kr/legalinfo/legalFrm.do">법률구조공단 법률서식</a></td></tr>
+<tr><td>이행 최고<br>(우체국)</td><td>부담 이행 최고 — 내용증명·배달증명</td><td><a href="https://service.epost.go.kr">인터넷우체국 내용증명</a></td></tr>
+<tr><td>상속·취소 청구<br>(전자가족관계·가정법원)</td><td>유언서·검인조서 등본, 유언자 기본·가족관계증명서(상세)</td><td><a href="https://efamily.scourt.go.kr">전자가족관계등록</a> / <a href="https://ecfs.scourt.go.kr">전자소송</a></td></tr>
+</table>
+
+<h2>본 사무소가 도와드리는 일</h2>
+<div class="hire">
+<p>본 사무소에서는 의뢰인들의 고충은 덜어드리고, 함께 절차를 진행하여 원하는 결과에 도달할 수 있도록 성심을 다하겠습니다.</p>
+<p style="margin-top:12px"><b>· 유언을 바꾸시려는 분</b><br>① 앞 유언을 특정해 <b>"전부 철회한다"</b>를 명시한 새 유언 초안 제공과 다섯 요건 대조, ② 일부만 바꿀 때의 <b>철회 범위 문구 정리</b>, ③ 앞 유언이 공정증서일 때의 처리 방법 안내, ④ 생전 증여로 바꾸실 경우의 <b>증여세·취득세 사전 검토</b>와 증여 등기까지 함께 처리해 드립니다.</p>
+<p style="margin-top:10px"><b>· 부담(부양·간병)을 못 받고 계신 상속인 쪽</b><br>① 이행 <b>최고 내용증명</b> 작성·발송(취소 청구의 전제입니다), ② <b>유언취소 심판청구서</b> 작성, ③ 상대방이 낼 <b>의견서</b>에 대한 재반박, ④ 반대로 유증받으신 쪽이라면 이행 사실을 입증하는 <b>의견서</b> 작성까지 양쪽 모두 지원합니다.</p>
+</div>
+<div class="warn"><span class="wt">⚠ 앞 유언을 찢는 것만으로 끝내지 마십시오</span>
+① <b>공정증서 유언</b>은 원본이 공증사무소에 있습니다. 손에 든 정본을 아무리 찢어도 원본은 그대로이니 <b>철회되지 않습니다</b> — 반드시 새 유언을 만드십시오. ② <b>여러 장이 남아 있으면</b> 사후에 "어느 것이 나중이냐"로 반드시 다툽니다. 새 유언에 <b>연·월·일을 빠짐없이</b> 적고, 가능하면 앞 유언을 회수하십시오. ③ <b>말로 한 철회</b>는 아무 효력이 없습니다. 자녀들 앞에서 "그 유언은 없던 걸로 하마"라고 하신 것은, 증인이 열 명이어도 철회가 아닙니다.</div>
+
+<a href="https://sanlaw.co.kr/tools-calculator.html" class="cta">🧮 내 사건 비용 미리 계산하기</a>
+<div style="text-align:center; background:#f6ecd8; border:1px solid var(--gold); border-radius:11px; padding:14px; margin:18px 0; font-size:15px; color:var(--gold-d); font-weight:700;">📞 상담은 홈 화면의 상담 창구를 이용하시면 됩니다.</div>
+
+<div class="tip"><span class="pt">💡 이어지는 카드</span> <a href="6-1_유언장_직접쓰기_자필증서.html" style="color:var(--tip-ink);font-weight:700">유언장 직접 쓰기(자필증서 5요건) → 6-1</a>, <a href="6-2_유언장검인_개봉절차.html" style="color:var(--tip-ink);font-weight:700">유언장을 발견했을 때 — 검인·개봉 → 6-2</a>, <a href="6-3_유언_형식요건_무효.html" style="color:var(--tip-ink);font-weight:700">주소·날짜가 빠져 무효가 의심될 때 → 6-3</a>, <a href="6-4_공정증서유언_자필과차이.html" style="color:var(--tip-ink);font-weight:700">검인이 필요 없는 공정증서 유언 → 6-4</a>, <a href="6-5_유언무효확인소송_필적의사.html" style="color:var(--tip-ink);font-weight:700">필적·의사능력을 다투는 유언무효확인소송 → 6-5</a>, <a href="6-6_유언집행자_역할과절차.html" style="color:var(--tip-ink);font-weight:700">유언집행자의 역할과 유증 이전등기 → 6-6</a>에서 다룹니다.</div>
+
+<div class="src">
+근거 — 민법 제562조(사인증여)·제1066조(자필증서)·제1073조(유언의 효력발생시기)·제1088조(부담 있는 유증과 수증자의 책임)·제1108조(유언의 철회·철회권 포기 금지)·제1109조(유언의 저촉)·제1110조(파훼로 인한 유언의 철회)·제1111조(부담 있는 유언의 취소) · 가사소송법 제2조 제1항 제2호 가목 48)(라류 가사비송)·제44조 제7호(상속개시지 관할)·가사소송규칙 제89조 · 대법원 2002. 6. 25. 선고 2000다64427 판결('저촉'의 의미) · 대법원 2015. 8. 19. 선고 2012다94940 판결(유언 철회의 자유를 제한하는 약정의 무효, 유언자 사망 전 수증자의 권리 부존재) · 대법원 1998. 5. 29. 선고 97다38503 판결(유언 후 재혼·목적물 일부 처분만으로는 나머지 유언이 철회되지 않음) · 대법원 2022. 7. 28. 선고 2017다245330 판결(사인증여에 민법 제1108조 제1항 준용 — 철회 가능) · 대법원 2014. 10. 27. 선고 2014다215369 판결(사인증여와 저촉되는 생전행위) · 법제처 찾기쉬운 생활법령정보 · 대한법률구조공단 · 대한민국 법원 전자민원센터. 본 자료는 일반적인 법률정보로, 개별 사건의 법률자문이 아닙니다.
+</div>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+})();
+function toggleFold(b){var fb=b.parentElement;var body=b.nextElementSibling;var open=fb.classList.toggle('open');if(body){body.style.display=open?'block':'none';}}
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('작성례가 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('작성례가 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['﻿'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('작성례를 내려받았습니다');}
+</script>
+</body>
+</html>

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[6-5] 이 유언장이 진짜 아버지가 쓴 게 맞는지 의심돼요 — 유언무효확인소송 | 산 법무사 김재섭</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(280px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.case{background:var(--box); border-radius:10px; padding:14px 16px; margin:14px 0; border-left:4px solid #b9a98c;}
+.case .ct{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+.sit-wrap{display:flex; gap:12px; margin:14px 0;}
+.sit{flex:1; background:#f8f5ee; border:1px solid var(--line); border-top:3px solid var(--gold); border-radius:10px; padding:13px 15px; font-size:14.5px; line-height:1.75;}
+.sit .sl{display:block; font-weight:700; color:var(--gold-d); margin-bottom:6px; font-size:14px;}
+@media (max-width:680px){ .sit-wrap{flex-direction:column;} }
+/* 전체 길 흐름도 */
+.flow{background:linear-gradient(180deg,#faf7f0,#f6f1e6); border:1px solid var(--line); border-radius:14px; padding:22px 20px; margin:16px 0;}
+.flow .fl-t{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:18px; text-align:center; letter-spacing:.3px;}
+.flow .node{position:relative; background:#fff; border:1px solid #e3d8c4; border-radius:11px; padding:15px 18px 15px 56px; font-size:14.5px; line-height:1.72; box-shadow:0 2px 6px rgba(122,82,48,.07);}
+.flow .node .num{position:absolute; left:15px; top:14px; width:30px; height:30px; line-height:30px; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; border-radius:50%; font-weight:800; font-size:15px; font-family:'Nanum Myeongjo',serif; box-shadow:0 2px 5px rgba(122,82,48,.3);}
+.flow .node b{color:#241a10;}
+.flow .down{display:flex; justify-content:center; align-items:center; padding:7px 0;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+/* 작성례 박스 */
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:15px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .tag{margin-bottom:0;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;}
+.tag.cred{background:#5a9a72;}
+.tag.debt{background:#d9694a;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:18px;margin:12px 0;font-family:'D2Coding','Courier New',monospace;font-size:13px;line-height:1.6;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:16px;letter-spacing:2px;margin-bottom:12px;color:#241a10;}
+.howto{font-size:14px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0 4px;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:13px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:7px 13px;cursor:pointer;transition:.15s;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.75;}
+.lawbox .ll{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:#241a10;border-radius:5px;padding:2px 9px;margin-right:7px;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.hire p{margin:7px 0; font-size:15px; line-height:1.8;}
+.cta{display:block;text-align:center;background:var(--gold-d);color:#fff;font-weight:700;font-size:17px;text-decoration:none;padding:15px;border-radius:11px;margin:18px 0;font-family:'Nanum Myeongjo',serif;letter-spacing:1px;}
+.cta:hover{background:#5e3f24;}
+@media print{
+  body{background:#fff; max-width:100%;}
+  .tldr,.case,.warn,.tip,.cost,.steps li,.tnote,.sit,.flow,.flow li,.lawbox,.hire{background:#fff !important; border-color:#ccc !important;}
+  .tnote{display:none;}
+  .term{border:none; color:inherit; font-weight:inherit;}
+  .term>.bub{display:inline !important; position:static; width:auto; background:none; color:inherit; box-shadow:none; padding:0; font-size:inherit; line-height:inherit;}
+  .term>.bub::before{content:" ("; }
+  .term>.bub::after{content:")"; border:none; position:static;}
+  .fold-body{display:block !important;}.fold-btn .chev{display:none;}.form-tools{display:none;}
+  .cta{background:#fff !important; color:#241a10 !important; border:1px solid #ccc;}
+}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+
+<h1>[6-5] 이 유언장이 진짜 아버지가 쓴 게 맞는지 의심돼요 — 유언무효확인소송</h1>
+
+<div class="tnote">어려운 법률용어에는 <b>점선 밑줄</b>이 그어져 있습니다. <b>PC는 마우스를 올리면</b>, <b>휴대폰은 손가락으로 톡 누르면</b> 쉬운 설명이 뜹니다. (인쇄하면 괄호로 함께 나옵니다.)</div>
+
+<div class="hire">
+<div class="ht">이 매뉴얼을 끝까지 읽으시는 분께</div>
+<p>이 매뉴얼은 <b>의뢰인이 직접 법원에 신청할 수 있도록 모든 서류 양식·비용·요건을 구체적으로 담았습니다.</b> 하지만 소송은 살아있는 생물과 같아 상대방의 격렬한 저항이 뒤따릅니다. 혼자 진행하시다가 막히는 부분이 생기거나 방어막이 필요할 때, 언제든 이 매뉴얼을 들고 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</p>
+</div>
+
+<div class="tldr">
+<div class="tt">⭐ 30초 결론부터</div>
+<ul>
+<li><b>유언이 가짜 같으면 「유언무효확인의 소」로 법원의 판단을 받습니다.</b> 주된 다툼은 둘입니다 — ① <b>필적</b>(정말 고인의 자필인가) ② <b>의사능력</b>(유언 당시 치매 등으로 판단력이 없었는가).</li>
+<li><b>★가장 중요한 점 — 입증책임은 '무효라고 주장하는 쪽'에 있습니다.</b> 대법원은 <b>의사무능력을 이유로 법률행위의 무효를 주장하는 쪽이 그 무능력을 증명해야 한다</b>고 밝히고 있으므로(대법원 2022. 12. 1. 선고 2022다261237 판결), 유언이 무효라고 주장하는 상속인이 <b>"유언 당시 판단능력이 없었다"는 점을 적극 증명</b>해야 합니다. <b>치매 진단서만으로는 부족</b>합니다.</li>
+<li><b>치매가 있어도 유언이 유효할 수 있습니다.</b> 치매는 좋아졌다 나빠지기를 반복하므로, 법원은 <b>유언한 바로 그 시점</b>의 상태를 따집니다. 성년후견 개시 전 임시후견인이 선임된 상태에서 한 유언도 <b>의사능력이 있으면 임시후견인의 동의 없이 할 수 있다</b>는 것이 대법원의 판단입니다(대법원 2022. 12. 1. 선고 2022다261237 판결).</li>
+<li><b>승패는 '증거 확보'에서 갈립니다.</b> 무효를 주장하려면 <span class="term">필적감정<span class="bub">유언서 글씨가 고인의 평소 글씨와 같은지 전문가가 대조·감정하는 것. 평소 필적 자료가 있어야 합니다.</span></span>, 진료기록·<span class="term">간이정신상태검사<span class="bub">치매 정도를 재는 검사. K-MMSE·CDR·GDS 등. 점수가 낮을수록 중증입니다.</span></span> 결과, 간병일지, 주치의 소견을 모아야 합니다.</li>
+</ul>
+</div>
+
+<h2>지금 어떤 상황인가요?</h2>
+<div class="sit-wrap">
+<div class="sit"><span class="sl">상황 ① · 유언이 가짜라 의심하는 상속인</span>다른 형제가 내민 유언장이 <b>고인의 글씨가 아닌 것 같거나</b>, 유언 무렵 고인이 <b>치매로 판단력이 없었던</b> 경우. → 필적감정·진료기록으로 <b>유언무효확인의 소</b>를 제기합니다.</div>
+<div class="sit"><span class="sl">상황 ② · 유언을 지키려는 수증자</span>고인의 진정한 뜻인데 다른 형제가 <b>억지로 무효를 주장</b>하는 경우. → 자필 진정·의사능력 자료로 <b>유효</b>를 방어합니다(피고 답변).</div>
+</div>
+
+<h2>핵심 세 가지</h2>
+<ol class="steps">
+<li><b>무효를 주장하는 사람이 증명해야 합니다.</b> <b>의사무능력을 이유로 무효를 주장하는 쪽이 그것을 증명해야 한다</b>는 것이 대법원의 태도이므로, "필적이 가짜다·판단능력이 없었다"는 점은 <b>유언을 부정하는 상속인이 적극 증명</b>해야 합니다. 막연히 "치매였다"는 주장만으로는 이기기 어렵습니다.</li>
+<li><b>필적은 '평소 글씨'와 대조해 감정합니다.</b> 유언서가 고인의 자필인지 다투려면, 고인이 평소 쓴 편지·서류·메모 등 <b>대조용 필적자료</b>를 확보해 법원에 <b>필적감정</b>을 신청합니다. 대조자료가 많고 작성 시기가 가까울수록 감정이 정확합니다.</li>
+<li><b>의사능력은 '그 시점'을 진료기록으로 입증합니다.</b> 유언한 날짜와 가까운 시기의 <b>진료기록·치매검사(K-MMSE·CDR·GDS)·간병일지·주치의 소견</b>을 모읍니다. 중증치매(예: K-MMSE 14점 이하, CDR 2 이상)에 가까울수록 의사능력 부정 가능성이 커집니다. 다만 점수만으로 결정되지 않고 당시 행동·대화를 종합해 판단합니다.</li>
+</ol>
+
+<h2>판례로 보기 — 의사능력과 입증책임</h2>
+<div class="case">
+<span class="ct">○ 의사능력이란 무엇인가 — 대법원 2002. 10. 11. 선고 2001다10113 판결</span>
+의사능력이란 <b>자기 행위의 의미와 결과를 정상적인 인식력과 예기력으로 합리적으로 판단할 수 있는 정신적 능력</b>을 말합니다. 유언능력도 이 틀 위에서 다뤄집니다. 다만 유언에서 요구되는 능력은 재산상 거래에서 요구되는 정도까지는 아니고, <b>유언의 취지를 이해할 수 있는 의사식별능력</b>이면 된다고 보는 것이 실무의 흐름입니다. <b>그리고 그 능력이 없었다는 점은 무효를 주장하는 쪽이 증명해야 합니다</b>(아래 2022다261237).
+</div>
+<div class="case">
+<span class="ct">○ ★최신 리딩 — 임시후견인이 선임된 치매 환자의 유언 — 대법원 2022. 12. 1. 선고 2022다261237 판결</span>
+성년후견 개시 심판을 청구해 둔 상태에서 <b>사전처분으로 임시후견인이 선임</b>되었고(2016. 12. 30.), 그 뒤 유언장이 작성되었으며(2017. 3. 24.), 이후 성년후견 개시 심판이 확정된 다음(2018. 2. 20.) 사망한(2020. 7. 20.) 사안입니다. 대법원은 다음 세 가지를 밝혔습니다.
+<span style="display:block;margin-top:8px">① <b>임시후견인이 선임되어 있어도, 유언자에게 의사능력이 있는 한 임시후견인의 동의 없이 유언할 수 있습니다.</b> 민법 제1062조가 유언에는 행위능력 제한 규정(§10·§13)을 적용하지 않도록 정하고 있기 때문입니다.<br>
+② <b>"의사가 심신 회복 상태를 유언서에 부기하고 서명날인해야 한다"는 민법 제1063조 제2항은 성년후견이 개시된 경우에만 적용됩니다.</b> 아직 개시 전이라면 이 부기가 없어도 그것만으로 무효가 되지 않습니다.<br>
+③ <b>의사무능력을 이유로 무효를 주장하는 쪽이 그 무능력을 증명해야 합니다.</b></span>
+<span style="display:block;margin-top:8px">즉 <b>치매 진단이나 후견 절차의 존재만으로 유언이 무효가 되지는 않고</b>, 법원은 <b>유언한 바로 그 시점</b>의 판단능력을 개별적으로 따집니다.</span>
+</div>
+<div class="case">
+<span class="ct">○ 치매검사 점수는 1차 기준일 뿐, 종합 판단 (실무)</span>
+법원은 유언 무렵의 치매검사 결과(K-MMSE·CDR·GDS)를 1차 기준으로 삼되, 진료기록·소견서·간병일지·당시 대화와 행동을 <b>종합</b>해 행위마다 개별적으로 판단합니다. 통상 경증치매는 의사능력이 인정되고, 중증치매부터 부정되는 경우가 많습니다(점수는 절대기준이 아님).
+</div>
+
+<h2>무효 사유는 두 갈래 — 무엇을 어떻게 입증하나</h2>
+<table>
+<tr><th>다투는 점</th><th>무효라고 보려면</th><th>이렇게 입증·방어합니다</th></tr>
+<tr><td><b>필적<br>(자필 진정)</b></td><td>유언서가 고인의 글씨가 아님 (위조·대필)</td><td>평소 편지·서류 등 <b>대조용 필적자료</b> 확보 → 법원에 <b>필적감정 신청</b>. (방어 측은 자필이 맞다는 평소 필적·정황 제시)</td></tr>
+<tr><td><b>의사능력<br>(판단력)</b></td><td>유언 당시 치매 등으로 판단능력이 없었음</td><td>유언일 무렵 <b>진료기록·치매검사(K-MMSE·CDR)·간병일지·소견서</b> 확보 → <b>문서송부촉탁·사실조회·신체감정</b> 신청. (방어 측은 당시 정상적 대화·거래 정황 제시)</td></tr>
+<tr><td><b>방식 흠</b></td><td>자필 5요건 흠(→6-3) 또는 공정증서 구수·증인 흠(→6-4)</td><td>해당 카드의 방식 요건으로 다툼</td></tr>
+</table>
+<div class="warn"><span class="wt">★ 무효를 주장하는 쪽이 반드시 기억할 것</span>
+"<b>아버지가 치매였다</b>"는 진단서 한 장만으로는 이기기 어렵습니다. 입증책임이 무효를 주장하는 쪽에 있으므로, <b>유언한 날짜와 최대한 가까운 시기</b>의 검사결과·진료기록을 모으고, 그 무렵 고인이 사람을 못 알아보거나 비정상적 행동을 했다는 <b>구체적 정황(간병일지·증인)</b>을 함께 제시해야 합니다. 반대로 유언을 지키려는 쪽은 그 시점에 <b>정상적으로 대화하고 거래했다는 정황</b>을 모으면 강력한 방어가 됩니다.</div>
+
+
+
+<h2>⏰ 기한 정리 — 놓치면 되돌릴 수 없는 날짜</h2>
+<p>이 소송 자체에는 제소기간이 없습니다. 그런데 <b>증거는 시간이 지날수록 사라집니다</b> — 진료기록 보존기간이 대표적입니다. 아래 표에서 <b>진료기록 보존기간</b>을 특히 눈여겨보십시오.</p>
+<table><tr><th>구분</th><th>① 언제부터 (기산일)</th><th>② 근거 조문</th><th>③ 말일이 휴일이면</th><th>④ 최종 만료일</th></tr>
+<tr><td><b>유언무효확인의 소</b></td><td>—</td><td>제소기간 규정 없음</td><td>—</td><td><b>기간 제한 없음.</b> 다만 상대가 처분해 버리면 회복이 어려우므로 <b>처분금지가처분</b>을 먼저 검토하십시오</td></tr>
+<tr><td><b>★진료기록 보존기간</b></td><td>진료가 끝난 날부터</td><td>의료법 시행규칙 §15① <b>[확인필요 — 항목별 연수]</b></td><td>—</td><td>기록 종류에 따라 다르며 <b>진료기록부는 통상 10년</b>입니다. <b>보존기간이 지나면 폐기되어 다시는 구할 수 없으므로</b>, 소송보다 먼저 <b>사본 발급부터</b> 받아 두십시오</td></tr>
+<tr><td><b>답변서 제출</b></td><td><b>소장 부본을 송달받은 날</b>의 다음 날부터</td><td>민사소송법 §256① / 민법 §157</td><td>다음 근무일로 연장(§161)</td><td><b>송달받은 날 + 30일</b>. 내지 않으면 <b>변론 없이 판결</b>이 날 수 있습니다(§257)</td></tr>
+<tr><td><b>항소</b></td><td><b>판결서를 송달받은 날</b>의 다음 날부터</td><td>민사소송법 §396①</td><td>다음 근무일로 연장</td><td><b>송달받은 날 + 2주</b> — 감정 결과가 불리해도 이 기간 안에 결정해야 합니다</td></tr>
+<tr><td><b>유류분 청구</b>(무효 주장이 받아들여지지 않을 때의 대비)</td><td>상속개시와 반환할 증여·유증이 있었음을 <b>안 날</b>의 다음 날부터</td><td>민법 §1117</td><td>다음 근무일로 연장(§161)</td><td><b>안 날 + 1년</b> / <b>사망일 + 10년</b> 중 먼저 오는 날. <b>무효를 다투는 사이에도 이 시계는 돕니다</b>(→ 2-5)</td></tr>
+</table>
+<div class="tip"><span class="pt">💡 날짜 세는 법 — 딱 두 줄만 기억하십시오</span> <b>① 첫날은 세지 않습니다</b>(초일 불산입, 민법 §157). "송달받은 날부터 30일"이면 <b>받은 날 다음 날이 1일째</b>입니다. <b>② 마지막 날이 토·일·공휴일이면 그 다음 근무일까지</b> 연장됩니다(민법 §161). 다만 <b>하루라도 넘기면 되돌릴 방법이 사실상 없으므로</b>, 만료일 <b>이틀 전</b>을 스스로의 마감일로 잡으십시오.</div>
+<h2>관련 법령 — 이것만 알면 됩니다</h2>
+<div class="lawbox"><span class="ll">민법 §1061</span><b>만 17세부터</b> — 만 17세에 이르지 못한 사람의 유언은 무효입니다. 나이는 다툼의 여지가 없는 <b>객관적 요건</b>이라 가장 먼저 확인할 대목입니다.</div>
+<div class="lawbox"><span class="ll">민법 §1062</span><b>후견을 받고 있어도 유언은 가능</b> — 유언에는 행위능력을 제한하는 민법 §10(피성년후견인)·§13(피한정후견인)이 적용되지 않습니다. 그래서 <b>"후견을 받고 있었으니 유언도 무효"라는 주장은 그 자체로는 성립하지 않습니다.</b></div>
+<div class="lawbox"><span class="ll">민법 §1063</span><b>피성년후견인의 유언</b> — <b>의사능력이 회복된 때</b>에만 유언할 수 있고, <b>의사가 심신 회복 상태를 유언서에 부기하고 서명날인</b>해야 합니다. 다만 이 조항은 <b>성년후견이 개시된 뒤</b>에 적용되고, 개시 전 임시후견인만 선임된 단계에는 적용되지 않습니다(2022다261237).</div>
+<div class="lawbox"><span class="ll">민법 §1060·§1066·§1068</span><b>방식 흠은 별개의 무기</b> — 의사능력을 다투는 것과 별개로, <b>자필증서의 다섯 요건</b>(→ 6-3)이나 <b>공정증서의 구수·증인 요건</b>(→ 6-4)에 흠이 있으면 그것만으로 무효입니다. 방식 흠은 <b>감정 없이 서면만으로 다툴 수 있어</b> 훨씬 빠르고 확실합니다. <b>먼저 방식부터 보십시오.</b></div>
+<div class="lawbox"><span class="ll">민사소송법 §335·§352·§294</span><b>증거를 끌어오는 세 가지 도구</b> — <b>감정 신청</b>(필적감정·정신감정), 병원에 대한 <b>문서송부촉탁</b>(진료기록), 주치의·공증인·금융기관에 대한 <b>사실조회</b>. 개인이 직접 못 구하는 자료는 <b>법원을 통해</b> 가져오면 됩니다.</div>
+<div class="lawbox"><span class="ll">민법 §562·판례</span><b>상대가 꺼낼 마지막 카드</b> — 유언이 무효로 판명되면 상대방은 대개 <b>"그렇다면 사인증여로는 유효하다"</b>고 예비적으로 주장합니다. 그러나 사인증여는 <b>계약</b>이어서 <b>청약과 승낙의 의사합치</b>가 필요하고, 대법원은 그 인정에 매우 신중합니다(2023. 9. 27. 선고 2022다302237 — 자세한 내용은 6-3).</div>
+
+<h2>소송은 이렇게 진행됩니다 — 증거 확보가 핵심</h2>
+<div class="flow">
+<div class="fl-t">증거 확보부터 판결 확정까지 — 이 소송은 증거가 전부입니다</div>
+<div class="node"><span class="num">1</span><b>증거부터 모읍니다(소 제기 전).</b> 유언서 사본, 고인의 <b>평소 필적자료</b>(편지·계약서·메모), 유언 무렵의 <b>진료기록·치매검사 결과·간병일지·요양등급 자료</b>를 최대한 확보합니다. 의료기관 기록은 유족이 직접 발급받거나 소송 중 문서송부촉탁으로 받습니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">2</span><b>유언무효확인의 소를 제기합니다.</b> 무효를 주장하는 상속인이 원고가 되어, 수증자(또는 유언 효력을 주장하는 상속인)를 피고로 소장을 냅니다. 부동산이 걸렸으면 피고의 처분을 막는 <b>처분금지가처분</b>을 함께 신청합니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">3</span><b>필적감정·진료기록 확보를 신청합니다.</b> 법원에 <b>필적감정</b>(대조자료 제출), 병원에 대한 <b>문서송부촉탁</b>(진료기록), 주치의·공증인에 대한 <b>사실조회</b>, 필요하면 <b>신체(정신)감정</b>을 신청합니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">4</span><b>변론·감정 결과로 다툽니다.</b> 감정·기록을 토대로 준비서면을 주고받습니다. 의사능력은 점수만이 아니라 <b>유언 당시의 구체적 대화·행동</b>까지 종합 판단되므로, 증인신문도 활용합니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">5</span><b>판결·확정 후 정리.</b> 무효 확정 시 유증 등기가 막히거나 말소되고, 유효 확정 시 수증자는 그 판결로 등기·인출을 진행합니다(→ 6-2 등기 연결).</div>
+</div>
+
+<h2>원·피고 양면 서면</h2>
+<p>유언이 무효라고 보는 상속인은 <b>「유언무효확인의 소」(원고)</b>를, 유언을 지키려는 수증자는 <b>「유언유효확인의 소」</b> 또는 답변으로 맞섭니다. 아래는 <b>전 과정 양면 서면</b>입니다 — ① 상대방이 내는 소장 → ② 답변서 → ③ 준비서면. <b>대법원 전자민원센터 공식 양식</b> 형식이며, ○○○만 채우면 됩니다.</p>
+
+<h3>민사소송 절차 — 관할·소가·인지·제출</h3>
+<table>
+<tr><th>항목</th><th>내용</th></tr>
+<tr><td>관할</td><td><b>피고 주소지</b> 지방법원(보통재판적). 유언 목적이 부동산이면 그 <b>부동산 소재지</b> 법원에도 낼 수 있습니다.</td></tr>
+<tr><td><span class="term">소가<span class="bub">소송목적의 값. 인지대와 관할(단독/합의)을 정하는 기준 금액.</span></span></td><td>확인의 소이므로 <b>다투는 유언 목적 재산의 가액</b>을 기준으로 산정합니다(민사소송등인지규칙 §12①). 부동산 가액은 개별공시지가의 50%로 평가합니다(같은 규칙 §9①).</td></tr>
+<tr><td>인지대</td><td>소가별 산식(민사소송 등 인지법 §2). <b>전자소송으로 내면 인지액의 10%가 깎입니다.</b> 송달료는 당사자 수×회당 송달료×정해진 회수로 예납.</td></tr>
+<tr><td>제출</td><td><a href="https://ecfs.scourt.go.kr">전자소송</a> 또는 관할 지방법원 종합민원실. 공식 양식은 <a href="https://www.scourt.go.kr/nm/min_9/min_9_2/index.html">대법원 전자민원센터 — 양식모음</a>.</td></tr>
+</table>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ① · 민사(상대방)</span>소장 — 유언무효확인의 소 (원고: 유언을 다투는 상속인)<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f2"><span class="ft">소        장</span>원고  ○○○ (상속인)   (☎: ○○○-○○○○-○○○○)
+      주소  ○○○
+피고  ○○○ (유증받았다고 주장하는 자)
+      주소  ○○○
+
+         유언무효확인의 소
+
+         청 구 취 지
+1. 유언자 망 ○○○이 20○○. ○○. ○○. 작성한 자필증서에 의한
+   유언은 무효임을 확인한다.
+2. 소송비용은 피고가 부담한다.
+   라는 판결을 구합니다.
+
+         청 구 원 인
+1. 당사자 관계
+   망 ○○○(20○○. ○○. ○○. 사망)의 상속인은 원고 등이고,
+   피고는 위 유언으로 유증을 받았다고 주장하는 사람입니다.
+2. 유언의 무효 사유
+   가. (필적) 위 유언서의 필적은 망인의 평소 필적과 달라 망인이
+       자서한 것으로 볼 수 없으므로, 자필증서 유언의 요건을
+       갖추지 못하여 무효입니다(필적감정 신청 예정).
+   나. (의사능력) 망인은 유언 작성 무렵 중증 치매로 사물을
+       변별하거나 의사를 결정할 능력이 없었으므로, 유언 당시
+       의사능력이 없어 그 유언은 무효입니다(갑 제3호증 진료기록,
+       치매검사 결과 등).
+3. 확인의 이익
+   피고가 위 유언이 유효함을 전제로 유증을 원인으로 한 소유권
+   이전등기를 시도하는 등 원고의 상속권을 다투므로, 그 무효의
+   확인을 구할 이익이 있습니다.
+4. 결론
+   따라서 청구취지와 같은 판결을 구합니다.
+
+         입 증 방 법
+1. 갑 제1호증   유언서 사본(또는 검인조서 등본)
+1. 갑 제2호증   가족관계증명서(상세)·기본증명서(상세)
+1. 갑 제3호증   진료기록·치매검사 결과·간병일지
+1. 갑 제4호증   망인의 평소 필적자료(편지·서류 등 대조용)
+
+         첨 부 서 류
+1. 위 입증방법 사본    각 1통
+1. 소장 부본           1통
+1. 인지·송달료 납부서   각 1통
+
+              20○○. ○○. ○○.
+                위 원고  ○○○ (인)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f2')">📋 복사</button><button type="button" onclick="printForm('f2')">🖨 인쇄</button><button type="button" onclick="downloadForm('f2','유언무효확인_소장.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>유언을 부정하려는 상속인(원고)</b>이 내는 양식입니다. 핵심은 <b>청구원인 2번</b> — 형식 흠(주소·날짜·날인)이나 의사능력 결여를 구체적으로 적습니다. 부동산이 걸려 있으면 <b>처분금지가처분</b>을 함께 검토하세요(피고가 먼저 등기·처분하는 것을 막기 위함). 필적·의사능력 다툼의 심화 입증은 6-5에서 다룹니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ② · 민사(첫 대응)</span>답변서 — 수증자(피고)의 첫 대응<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f3"><span class="ft">답 변 서</span>사건   20○○가단(또는 가합)○○○○호   유언무효확인
+원고   ○○○
+피고   ○○○   (☎: ○○○-○○○○-○○○○)
+
+         청구취지에 대한 답변
+1. 원고의 청구를 기각한다.
+2. 소송비용은 원고가 부담한다.
+   라는 판결을 구합니다.
+
+         답 변 이 유
+1. 이 사건 유언서는 망인이 직접 자서하고 날인한 것으로, 그
+   필적은 망인의 평소 필적과 일치합니다(을 제1호증 평소 필적
+   자료). 다툼이 계속되면 필적감정으로 그 진정함을 밝히겠습니다.
+2. 망인은 유언 작성 당시 유언 취지를 정확히 이해할 의사식별
+   능력이 있었습니다. 의사무능력을 이유로 무효를 주장하는
+   원고가 그 무능력을 증명하여야 합니다(대법원 2022. 12. 1.
+   선고 2022다261237 판결).
+3. 설령 망인에게 치매 진단이 있었더라도, 치매는 호전과 악화를
+   반복하므로 그것만으로 유언 당시 의사능력이 없었다고 단정할
+   수 없습니다(위 2022다261237 판결). 유언 무렵 망인은
+   정상적으로 대화하고 거래하였습니다(을 제2호증 정황자료).
+4. 따라서 원고의 청구는 이유 없으므로 기각되어야 합니다.
+
+         입 증 방 법
+1. 을 제1호증   망인의 평소 필적자료(대조용)
+1. 을 제2호증   유언 무렵 정상적 대화·거래 정황자료
+1. 을 제3호증   ○○○ (주치의 소견·금융거래내역 등)
+
+         첨 부 서 류
+1. 위 입증방법 사본    각 1통
+1. 답변서 부본         1통
+
+              20○○. ○○. ○○.
+                위 피고  ○○○ (인)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f3')">📋 복사</button><button type="button" onclick="printForm('f3')">🖨 인쇄</button><button type="button" onclick="downloadForm('f3','유언무효확인_답변서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>수증자(피고)의 첫 대응</b>입니다. 소장 부본을 받은 날부터 <b>30일 안에</b> 냅니다(민사소송법 §256①). 핵심은 <b>입증책임이 원고에게 있다</b>는 점과, <b>치매 진단만으로는 무효가 아니다(2022다261237)</b>는 점, 그리고 유언 무렵 망인이 정상적으로 활동했다는 정황을 제시하는 것입니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ③ · 민사(재반박)</span>준비서면 — 수증자(피고)의 재반박<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f4"><span class="ft">준 비 서 면</span>사건   20○○가단(또는 가합)○○○○호   유언무효확인
+원고   ○○○
+피고   ○○○
+
+위 사건에 관하여 피고는 원고의 준비서면 주장에 대하여 다음과
+같이 변론을 준비합니다.
+
+              다       음
+
+1. 원고 주장의 요지
+   원고는 유언서가 망인의 자필이 아니고, 유언 당시 망인에게
+   치매로 인한 의사무능력이 있었다고 주장합니다.
+
+2. 필적의 진정에 관하여
+   유언서의 필적은 망인이 평소 작성한 문서의 필적과 일치합니다
+   (을 제3호증 평소 필적자료). 원고가 다툼을 계속하면 피고는
+   문서감정(필적감정)을 신청하여 그 진정함을 밝히겠습니다.
+
+3. 의사능력에 관하여
+   의사무능력의 증명책임은 이를 주장하는 원고에게 있습니다
+   (대법원 2022. 12. 1. 선고 2022다261237 판결). 원고가 제출한
+   치매 진단만으로는 부족하며, 치매는 호전·악화를 반복하므로
+   유언 당시의 상태를 개별적으로 보아야 합니다. 또한 위 판결은
+   성년후견 개시 전 임시후견인이 선임된 상태에서도 의사능력이
+   있으면 그 동의 없이 유언할 수 있다고 판시하였습니다. 망인은 유언 무렵 가족·지인과 정상적으로 대화하고
+   금융거래를 하였습니다(을 제4호증 정황자료).
+
+4. 결론
+   그러므로 이 사건 유언은 적법·유효하고, 원고의 청구는 이유
+   없으므로 앞서 제출한 답변서와 같이 기각을 구합니다.
+
+         입 증 방 법
+1. 을 제3호증   망인의 평소 필적자료(대조용)
+1. 을 제4호증   유언 무렵 정상적 대화·금융거래 정황자료
+
+         첨 부 서 류
+1. 위 입증방법 사본    각 1통
+1. 준비서면 부본       1통
+
+              20○○. ○○. ○○.
+                위 피고  ○○○ (인)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f4')">📋 복사</button><button type="button" onclick="printForm('f4')">🖨 인쇄</button><button type="button" onclick="downloadForm('f4','유언무효확인_준비서면.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>두 번째 대응</b>입니다. 원고가 필적·의사능력을 파고들면, 이 서면으로 <b>평소 필적 일치(필요시 필적감정)·입증책임의 원고 부담·치매만으로 무효 아님(2022다261237)·정상 활동 정황</b>으로 되받습니다. 원고 측이라면 입장을 뒤집어 필적감정·진료기록으로 무효를 적극 주장하면 됩니다.</div>
+</div></div>
+
+<div class="cost">
+<span class="ct">비용</span>
+<b>유언무효·유효확인의 소(민사)</b>는 다투는 재산 가액(소가)에 따라 인지대·송달료가 정해지며, 전자소송이면 인지액이 10% 깎입니다. 여기에 <b>필적감정료·신체감정료</b>가 별도로 들고(감정 항목·기관에 따라 차이), 감정비용은 신청한 당사자가 먼저 예납한 뒤 소송비용으로 정산됩니다.
+<div style="margin-top:11px; padding-top:10px; border-top:1px dashed #cfe6d6; color:#c0392b; font-weight:600; line-height:1.8;">※ 비용문의는 상담폼을 완성후 메뉴의 <a href="https://sanlaw.co.kr/tools-calculator.html" style="color:#c0392b; text-decoration:underline; font-weight:700;">수수료 계산기</a>에서 수수료를 미리 알 수 있습니다.</div>
+</div>
+
+<h2>준비할 서류와 발급처</h2>
+<table>
+<tr><th>무엇을 (어디서)</th><th>서류·증거</th><th>바로가기</th></tr>
+<tr><td>의료기록<br>(진료받은 병원)</td><td>진료기록·치매검사(K-MMSE·CDR) 결과·소견서 — 유족이 직접 발급 또는 문서송부촉탁</td><td>해당 병원 의무기록실</td></tr>
+<tr><td>요양 자료<br>(국민건강보험공단)</td><td>장기요양인정·등급 자료, 간병일지</td><td><a href="https://www.longtermcare.or.kr">노인장기요양보험</a></td></tr>
+<tr><td>상속관계·재산<br>(전자가족관계·인터넷등기소)</td><td>가족관계증명서(상세), 부동산 등기사항증명서, 개별공시지가확인서(소가)</td><td><a href="https://efamily.scourt.go.kr">전자가족관계등록</a> / <a href="https://www.iros.go.kr">인터넷등기소</a></td></tr>
+<tr><td>소송 제출<br>(전자소송)</td><td>소장·감정신청·문서송부촉탁 — 공식 양식</td><td><a href="https://ecfs.scourt.go.kr">전자소송</a> / <a href="https://www.scourt.go.kr/nm/min_9/min_9_2/index.html">양식모음</a></td></tr>
+</table>
+
+<h2>본 사무소가 도와드리는 일</h2>
+<div class="hire">
+<p>본 사무소에서는 의뢰인들의 고충은 덜어드리고, 함께 절차를 진행하여 원하는 결과에 도달할 수 있도록 성심을 다하겠습니다.</p>
+<p style="margin-top:12px"><b>· 유언이 가짜라고 보시는 상속인 쪽</b><br>① 유언일과 가장 가까운 시기의 <b>진료기록·치매검사·장기요양 자료 확보 경로</b> 설계, ② <b>필적감정 신청서·문서송부촉탁·사실조회</b> 신청서 작성, ③ 유언무효확인 <b>소장</b>과 <b>처분금지가처분</b>, ④ 상대 답변에 대한 <b>준비서면</b>까지 준비합니다.</p>
+<p style="margin-top:10px"><b>· 유언을 지키시려는 수증자 쪽</b><br>① 유언 무렵 고인이 <b>정상적으로 대화·거래했다는 정황자료</b> 정리(통화·금융거래·계약 등), ② 증명책임이 원고에게 있다는 점을 앞세운 <b>답변서</b>, ③ 필적 대조자료 확보와 <b>준비서면</b>, ④ 확정 후 <b>유증 이전등기</b>까지 이어서 도와드립니다.</p>
+</div>
+<div class="warn"><span class="wt">⚠ 이 소송에서 가장 자주 지는 이유</span>
+<b>"치매 진단서 한 장"</b>만 들고 시작하기 때문입니다. 증명책임이 무효를 주장하는 쪽에 있으므로, 진단명이 아니라 <b>유언한 그날 전후의 구체적 상태</b>를 보여야 합니다. 반대로 지키는 쪽에서도 <b>"평소 멀쩡하셨다"는 말</b>만으로는 부족합니다 — 그 무렵 본인이 직접 은행에 가고, 전화로 대화하고, 계약서에 서명한 <b>기록</b>이 훨씬 강합니다. 어느 쪽이든 <b>기록이 말을 대신합니다.</b></div>
+
+<a href="https://sanlaw.co.kr/tools-calculator.html" class="cta">🧮 내 사건 비용 미리 계산하기</a>
+<div style="text-align:center; background:#f6ecd8; border:1px solid var(--gold); border-radius:11px; padding:14px; margin:18px 0; font-size:15px; color:var(--gold-d); font-weight:700;">📞 상담은 홈 화면의 상담 창구를 이용하시면 됩니다.</div>
+
+<div class="tip"><span class="pt">💡 이어지는 카드</span> <a href="6-1_유언장_직접쓰기_자필증서.html" style="color:var(--tip-ink);font-weight:700">유언장 직접 쓰기(자필증서 5요건) → 6-1</a>, <a href="6-2_유언장검인_개봉절차.html" style="color:var(--tip-ink);font-weight:700">유언장을 발견했을 때 — 검인·개봉 → 6-2</a>, <a href="6-3_유언_형식요건_무효.html" style="color:var(--tip-ink);font-weight:700">주소·날짜가 빠져 무효가 의심될 때 → 6-3</a>, <a href="6-4_공정증서유언_자필과차이.html" style="color:var(--tip-ink);font-weight:700">검인이 필요 없는 공정증서 유언 → 6-4</a>, <a href="6-6_유언집행자_역할과절차.html" style="color:var(--tip-ink);font-weight:700">유언집행자의 역할과 유증 이전등기 → 6-6</a>, <a href="6-7_유언의_철회와_취소.html" style="color:var(--tip-ink);font-weight:700">예전 유언을 바꾸거나 취소하기 → 6-7</a>에서 다룹니다.</div>
+
+<div class="src">
+근거 — 민법 제562조(사인증여)·제1060조(방식 위반 유언의 무효)·제1061조(유언적령)·제1062조(제한능력자 규정의 적용 배제)·제1063조(피성년후견인의 유언)·제1066조(자필증서)·제1068조(공정증서) · 민사소송법 제256조(답변서)·제274조(준비서면)·제294조(사실조회)·제335조 이하(감정)·제352조(문서송부촉탁) · 민사소송등인지규칙 제9조·제12조(확인의 소 소가) · 대법원 2022. 12. 1. 선고 2022다261237 판결(임시후견인 선임 중의 유언, 민법 제1063조 제2항의 적용범위, 의사무능력의 증명책임) · 대법원 2002. 10. 11. 선고 2001다10113 판결(의사능력의 의미) · 대법원 2023. 9. 27. 선고 2022다302237 판결(무효인 유언의 사인증여 전환 — 의사합치 필요) · 법제처 찾기쉬운 생활법령정보 · 대한민국 법원 전자민원센터. 본 자료는 일반적인 법률정보로, 개별 사건의 법률자문이 아닙니다.
+</div>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+})();
+function toggleFold(b){var fb=b.parentElement;var body=b.nextElementSibling;var open=fb.classList.toggle('open');if(body){body.style.display=open?'block':'none';}}
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('작성례가 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('작성례가 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['﻿'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('작성례를 내려받았습니다');}
+</script>
+</body>
+</html>
