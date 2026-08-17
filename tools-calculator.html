@@ -96,13 +96,15 @@
   .card.collapsible > h2:hover::after{color:var(--gold);border-color:var(--gold);}
   .card.collapsible > .body{display:none;}
   .card.collapsible.on > .body{display:block;}
-  /* ── 긴 안내문 자동 접기 ── */
-  .note.fold{max-height:4.6em;overflow:hidden;position:relative;}
-  .note.fold.on{max-height:none;}
-  .noteMore{display:block;width:100%;margin:-2px 0 8px;padding:5px 10px;font-family:inherit;
-    font-size:12px;font-weight:700;color:#8a6d24;background:transparent;border:none;
-    border-bottom:1px dashed var(--line);cursor:pointer;text-align:left;letter-spacing:-.2px;}
-  .noteMore:hover{color:var(--gold);background:rgba(176,141,87,.06);}
+  /* ── 긴 안내문 접기 ── */
+  .note.fold{display:none;}
+  .note.fold.on{display:block;}
+  .noteMore{display:block;width:100%;margin:8px 0;padding:8px 12px;font-family:inherit;
+    font-size:12.5px;font-weight:700;color:#7a6743;background:#f6f1e4;border:1px solid var(--line);
+    border-radius:7px;cursor:pointer;text-align:left;line-height:1.5;letter-spacing:-.2px;}
+  .noteMore:hover{background:#efe6cf;border-color:var(--gold);color:var(--gold);}
+  .noteMore.alert{background:#fdf2e6;border-color:#e0c08a;color:#9a6a1c;}
+  .noteMore.alert:hover{background:#fbe9d4;}
   /* ── 공시가격·시가표준액 조회 도우미 ── */
   .stdlk{display:block;background:#fbf7ec;border:1px dashed #c0b294;border-radius:7px;padding:10px 12px;margin:8px 0 4px;word-break:keep-all;overflow-wrap:break-word;}
   .stdlk .stdlk-t{font-size:12.5px;font-weight:700;color:var(--gold);margin-bottom:3px;}
@@ -3845,15 +3847,28 @@ function foldNotes(root){
     if(n.dataset.fold) return;                       /* 이미 처리함 */
     if(n.closest('details')) return;                 /* 이미 접힌 영역 안 */
     if(n.classList.contains('nofold')) return;       /* 접지 말라고 표시한 것 */
-    if((n.textContent||'').trim().length < NOTE_FOLD_MIN) return;
+    const raw=(n.textContent||'').trim();
+    if(raw.length < NOTE_FOLD_MIN) return;
+    /* 버튼에 쓸 이름 — 「경고 제목」이 있으면 그대로, 없으면 첫 문장을 줄여서 */
+    const head=n.querySelector('.head');
+    let label;
+    if(head){ label=head.textContent.trim(); }
+    else{
+      /* 조문 표시(§·A 배지 등)만 남는 짧은 라벨은 쓸모가 없다.
+         문장 끊기로 뽑되, 너무 짧으면 글자 수로 다시 자른다. */
+      let t=raw.replace(/^[▸▾·\s]+/,'').replace(/\s+/g,' ');
+      label=t.split(/[.。]\s|\s—\s/)[0].trim();
+      if(label.length<14) label=t.slice(0,40).trim();      /* 너무 짧으면 앞에서 40자 */
+      if(label.length>40) label=label.slice(0,40).trim()+'…';
+    }
     n.dataset.fold='1'; n.classList.add('fold');
     const btn=document.createElement('button');
-    btn.type='button'; btn.className='noteMore'; btn.textContent='▾ 자세히 보기';
-    btn.addEventListener('click',()=>{
-      const open=n.classList.toggle('on');
-      btn.textContent = open ? '▴ 접기' : '▾ 자세히 보기';
-    });
-    n.parentNode.insertBefore(btn, n.nextSibling);
+    btn.type='button';
+    btn.className='noteMore'+(n.classList.contains('alert')?' alert':'');
+    const set=open=>{ btn.textContent=(open?'▴ ':'▾ ')+label; };
+    set(false);
+    btn.addEventListener('click',()=>{ set(n.classList.toggle('on')); });
+    n.parentNode.insertBefore(btn, n);               /* 안내문 「앞」에 둔다 */
   });
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>foldNotes());
