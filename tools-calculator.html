@@ -1877,7 +1877,11 @@
     <h2 class="stitle">신탁등기 <small>보수표 Ⅰ-4 유형별 정액 · 등록면허세 건당 6,000원 · 소유권이전분 비과세</small></h2>
 
     <div class="card blue"><h2>① 신탁등기 정보</h2><div class="body">
-      <div class="line"><span class="lbl">신탁등기 유형</span><select id="st_trustType" onchange="calcSintak()"><option value="Ⅰ-4(1)" selected>신탁·재신탁·담보권신탁·고유재산 변경 등 (150,000)</option><option value="Ⅰ-4(2)">신탁원부 변경·합유명의인 변경·합병분할 (80,000)</option><option value="Ⅰ-4(3)">유한책임신탁 설정 (220,000)</option><option value="Ⅰ-4(4)">신탁등기 말소 (50,000)</option><option value="Ⅰ-4(5)">그 밖의 신탁 등기 (70,000)</option></select><span class="law" title="법무사보수기준 §11①·보수표 Ⅰ-4 — 신탁등기 유형별 정액 기본보수">보수기준 §11①</span></div>
+      <div class="line"><span class="lbl">신탁등기 유형</span><select id="st_trustType" onchange="calcSintak()"><option value="Ⅰ-4(1)" selected>신탁·재신탁·담보권신탁·고유재산 변경 등 (150,000)</option><option value="Ⅰ-4(2)">신탁원부 변경·합유명의인 변경·합병분할 (80,000)</option><option value="Ⅰ-4(3)">유한책임신탁 설정 (220,000)</option><option value="Ⅰ-4(4)">신탁등기 말소 (50,000)</option><option value="Ⅰ-4(5)">그 밖의 신탁 등기 (70,000)</option><option value="§11③">위탁자 선언·고유재산 변경·위탁자 지위이전 〔§11①1호 <b>+</b> §11③ 합산〕</option><option value="§11⑤">수탁자 경질로 인한 등기 〔§11⑤ → 소유권이전 보수로 <b>대체</b>〕</option><option value="§11⑧">담보신탁 수익자 변경·수익금액 증가 〔§11⑧ → 담보권 보수로 <b>대체</b>〕</option></select><span class="law" id="st_trustLaw" title="유형을 고르시면 해당 조문 전문이 이 자리에 표시됩니다.">보수기준 §11</span></div>
+      <div class="note" id="st_lawBox" style="border-left:3px solid var(--gold);display:none;"></div>
+      <div class="line" id="st_rowSimul"><span class="lbl">소유권이전 등을 <b>동시신청</b></span><label class="chk"><input type="checkbox" id="st_simul" onchange="calcSintak()"> 동시에 신청합니다</label><span class="law" title="법무사보수기준 §11② — 소유권이전등기와 (재)신탁등기, 소유권이전등기와 신탁등기의 말소등기, 청구권보전가등기와 신탁가등기, 담보권설정등기와 담보권신탁등기, 유언대용신탁을 원인으로 하는 소유권이전등기와 신탁등기를 동시에 신청하는 경우에는 두 유형의 등기에 대한 보수를 합산한다">보수기준 §11②</span></div>
+      <div class="line" id="st_rowSimulBase" style="display:none;"><span class="lbl">동시신청분 과세표준(원)</span><input type="number" class="amt" id="st_simulBase" placeholder="0" oninput="calcSintak()"><span class="hint">소유권이전·담보권설정 등의 과세표준 → <b>§9① 표</b>로 산정해 합산합니다</span></div>
+      <div class="line" id="st_rowSimulKind" style="display:none;"><span class="lbl">동시신청 등기 종류</span><select id="st_simulKind" onchange="calcSintak()"><option value="Ⅰ-1">소유권이전 · 담보권설정 등 〔§9① 표〕</option><option value="Ⅰ-3(4)">말소등기 〔§9⑤4호 80,000〕</option><option value="Ⅰ-3(2)">권리의 변경·경정 〔§9⑤2호 120,000〕</option></select><span class="hint">§11④ 일부처분은 「소유권일부이전 + 신탁말소」로 잡습니다</span></div>
       <div class="line"><span class="lbl">부동산가액(원)</span><input type="number" class="amt" id="st_base" placeholder="0" oninput="calcSintak()"><span class="hint">참고용(보수는 유형별 정액)</span></div>
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('st_cntEstate',-1,calcSintak)">−</button><input type="number" id="st_cntEstate" value="1" min="1" oninput="calcSintak()"><button onclick="step('st_cntEstate',1,calcSintak)">+</button></div></div>
       <div id="st_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="st_adjust" onchange="calcSintak()">
@@ -1885,7 +1889,8 @@
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
-        <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
+        <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select><span class="law" title="법무사보수기준 §11⑨ — 신탁계약서와 신탁원부 작성 등 신탁등기 신청과 관련한 업무의 난이도, 복잡 정도, 처리에 소요되는 시간 및 노력의 정도 등을 고려하여 위임인과 협의로 당해 기본보수의 100% 상당액까지 가산할 수 있다">보수기준 §11⑨</span></div>
+      <div class="note" style="border-left:3px solid var(--gold);">▸ <b>신탁은 따로 가산 규정이 있습니다</b> — 보수기준 <b>§11⑨</b> <span class="tag A">A</span><br><b>신탁계약서와 신탁원부 작성</b> 등 신탁등기 신청과 관련한 업무의 <b>난이도·복잡한 정도·소요 시간과 노력</b>을 고려하여, <b>위임인과 협의</b>로 <b>기본보수의 100%까지</b>(위 조정 <b>200%</b>) 가산할 수 있습니다.<br><span class="hint">▸ 이는 §10③(§2②각호 사유)과 <b>별개</b>입니다. §10③은 사건이 중대·복잡한 경우가 요건이지만, §11⑨는 <b>신탁원부를 짜는 일 자체의 부담</b>이 요건입니다.</span><br><span class="hint" style="color:var(--seal);">※ 가산은 <b>위임인과 협의</b>하여 정합니다. 계산기가 자동으로 올리지 않습니다.</span></div>
       <div class="line"><span class="lbl">당사자 다수 가산</span><span>등기권리자</span><input type="number" id="st_pnOwn" value="1" min="1" style="width:52px;margin:0 4px;" oninput="calcSintak()"><span>인</span><span style="margin-left:6px;">등기의무자</span><input type="number" id="st_pnObl" value="1" min="0" style="width:52px;margin:0 4px;" oninput="calcSintak()"><span>인</span><select id="st_pnAdd" onchange="calcSintak()" style="margin-left:8px;"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint" id="st_pnInfo" style="margin-left:8px;"></span></div><div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="st_frAdd" onchange="calcSintak()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§10⑥</b> — 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는</b> 등기 → <b>기본보수의 100%까지</b> 가산</span></div>
       <div class="line"><span class="lbl">여러 등기소 가산</span><select id="st_moAdd" onchange="calcSintak()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
     </div></div>
@@ -1922,11 +1927,7 @@
     <div class="actions"><button class="btn" onclick="calcSintak()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
 
     <div class="card green"><h2>④ 신탁등기 준비서류</h2><div class="body">
-      <div class="docs">
-        <b>위탁자(소유자)</b> — 등기권리증(등기필정보), 인감증명서 1통, 주민등록초본 1통, 인감도장, 신분증<br>
-        <b>수탁자</b> — 주민등록초본 1통, 도장, 신분증 (신탁업자면 법인등기사항증명서·법인인감증명서)<br>
-        <b>공통</b> — 신탁계약서, 신탁원부 작성용 정보, 등록면허세 영수필확인서, 등기수수료 영수필확인서, 위임장
-      </div>
+      <div class="note" style="border-left:3px solid var(--ok);">▸ <b>아래 서류를 갖추어 등기소에 내십시오.</b><br><span class="hint">근거 · 부동산등기법 §81·§82 · 신탁법 §3·§4 · 부동산등기규칙 §139의2</span></div><div class="note">▸ <b>신탁등기는 혼자 하는 등기가 아닙니다.</b> 소유권이전등기(또는 보존·설정등기)와 <b>반드시 동시에</b> 신청해야 합니다(부동산등기법 §82①).<br>▸ <b>가장 중요한 서류는 「신탁원부 작성용 정보」</b>입니다. 아래 ④번을 꼭 읽어 보십시오.</div><div class="docs" style="margin-top:10px;"><b>① 위탁자(재산을 맡기는 사람) — 등기의무자</b><br>· <b>등기권리증(등기필정보)</b> <span class="hint">(분실 시 확인서면 등으로 갈음 — 비용·시간이 더 듭니다)</span><br>· <b>인감증명서</b> 1통 <span class="hint">(발급 3개월 이내)</span> + <b>인감도장</b><br>· <b>주민등록초본</b> 1통 <span class="hint">(주소변동 내역 포함)</span><br>· 신분증<br>· <b>법인</b>이면 법인등기사항증명서 · 법인인감증명서 · 법인인감도장<br></div><div class="docs" style="margin-top:10px;"><b>② 수탁자(재산을 맡아 관리할 사람) — 등기권리자</b><br>· <b>주민등록초본</b> 1통 · 도장 · 신분증<br>· <b>신탁업자(신탁회사)</b>라면 법인등기사항증명서 · 법인인감증명서 · 법인인감도장<br>· <span class="hint">신탁업은 금융위원회 인가 사항입니다. 영업으로 하는 신탁이라면 <b>인가받은 신탁업자</b>여야 합니다</span><br></div><div class="docs" style="margin-top:10px;"><b>③ 공통으로 내는 것</b><br>· <b>신탁계약서</b> <span class="hint">(유언신탁이면 유언증서, 자기신탁이면 공정증서)</span><br>· <b>신탁원부 작성용 정보</b> ← <b>④번 참고</b><br>· <b>등록면허세 영수필확인서</b><br>· <b>등기신청수수료 영수필확인서</b><br>· <b>위임장</b> <span class="hint">(대리 신청 시)</span><br>· <b>부동산 등기사항전부증명서</b> — 현재 권리관계를 미리 확인하십시오<br></div><div class="docs" style="margin-top:10px;background:#fdf6ec;border-left:3px solid var(--gold);"><b>④ 「신탁원부 작성용 정보」란 무엇인가</b><br><span class="hint">신탁원부는 <b>등기부의 일부로 봅니다</b>(부동산등기법 §81③). 즉 여기 적은 내용이 <b>등기부에 그대로 공시</b>되어 누구나 열람할 수 있고, 나중에 고치려면 <b>변경등기</b>를 따로 해야 합니다. 처음에 정확히 정해 두시는 것이 중요합니다.</span><br><br><b>■ 반드시 정해야 하는 것</b><br>· <b>1. 위탁자·수탁자·수익자</b>의 성명(법인은 명칭)과 주소(법인은 사무소 소재지)<br>&nbsp;&nbsp;<span class="hint">→ 세 사람이 각각 누구인지 확정하십시오. <b>위탁자가 곧 수익자</b>인 경우(자익신탁)가 가장 흔합니다</span><br>· <b>9. 신탁의 목적</b> — <b>무엇을 하려고 맡기는가</b><br>&nbsp;&nbsp;<span class="hint">→ 관리를 맡기는 것인지(관리신탁), 팔아 달라는 것인지(처분신탁), 개발하려는 것인지(개발신탁), 대출 담보로 쓰려는 것인지(담보신탁)를 적습니다</span><br>· <b>10. 신탁재산의 관리·처분·운용·개발 방법</b> — <b>수탁자가 무엇을 할 수 있는가</b><br>&nbsp;&nbsp;<span class="hint">→ 임대를 놓을 수 있는지, 팔 수 있는지, 담보로 제공할 수 있는지, 그때 <b>위탁자·수익자의 동의가 필요한지</b>를 정합니다. <b>여기가 가장 중요합니다</b> — 적어 두지 않은 권한은 나중에 다툼이 됩니다</span><br>· <b>11. 신탁 종료 사유</b> — <b>언제 끝나는가</b><br>&nbsp;&nbsp;<span class="hint">→ 기간 만료, 목적 달성, 대출 상환 완료, 위탁자·수익자의 합의 등</span><br>· <b>12. 그 밖의 신탁 조항</b> — 신탁보수, 비용 부담, 수탁자 사임·해임, 잔여재산 귀속자 등<br><br><b>■ 해당할 때만 적는 것</b><br>· <b>2·3. 수익자를 지정·변경할 권한을 가진 사람</b>과 그 <b>방법</b><br>· <b>4. 수익권의 발생·소멸 조건</b> <span class="hint">(예: 대출 완제 시 수익권 소멸)</span><br>· <b>5. 신탁관리인</b>이 선임된 경우 그 성명·주소<br>· <b>6~8. 특수한 신탁</b>인 경우 그 뜻 — 수익자가 없는 <b>목적신탁</b>, <b>재신탁</b>, <b>유언대용신탁</b>, <b>수익자연속신탁</b>, <b>수익증권발행신탁</b>, <b>공익신탁</b>, <b>유한책임신탁</b><br>&nbsp;&nbsp;<span class="hint">→ 유한책임신탁이면 <b>신탁사업의 명칭</b>과 <b>신탁사무처리지</b>도 함께 적습니다</span><br><br><b>■ 실무는 이렇게 합니다</b><br>· 위탁자·수탁자·수익자·신탁관리인에 관한 사항 외의 조항은 <b>신탁계약서를 별지로 붙여</b> 공시하는 것이 현재 등기실무입니다<br>· 따라서 <b>신탁계약서를 잘 쓰는 것이 곧 신탁원부를 잘 만드는 것</b>입니다<br>· 등기소에 낼 때는 <b>전자문서(신탁원부 작성정보 파일)</b>로 제출하는 것이 원칙입니다 <b>[등기소 확인]</b><br>· <span style="color:var(--seal);"><b>신탁계약서·신탁원부 작성은 난이도가 높아 별도 가산 대상입니다</b>(보수기준 §11⑨ — 기본보수의 100%까지, 위임인과 협의)</span><br></div><div class="docs" style="margin-top:10px;"><b>⑤ 미리 생각해 두시면 좋은 것</b><br>· <b>세금</b> — 신탁으로 소유권이 넘어가도 취득세는 원칙적으로 비과세이나, 예외가 있습니다 <b>[관할 시군구 확인]</b><br>· <b>기존 담보권</b> — 근저당이 잡혀 있으면 금융기관의 동의가 필요할 수 있습니다<br>· <b>임차인</b> — 세입자가 있으면 임대인 지위가 어떻게 되는지 계약서에 정해 두십시오<br>· <b>신탁 후에는 등기부상 소유자가 수탁자</b>가 됩니다. 거래 상대방은 <b>신탁원부를 반드시 확인</b>해야 합니다<br></div><div class="line" style="border:none;padding-top:8px;"><span class="lbl">서류 떼는 곳</span><span style="display:flex;flex-wrap:wrap;gap:6px;"><a href="http://www.iros.go.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">인터넷등기소 ↗</a><a href="https://www.gov.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">정부24 ↗</a><a href="https://www.wetax.go.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">위택스 ↗</a></span></div><div class="note" style="background:#fdf6ec;border-left:3px solid var(--gold);">▸ <b>신탁은 계약서 한 줄이 몇 년 뒤 분쟁을 가릅니다.</b> 특히 <b>처분 권한</b>과 <b>종료 사유</b>는 반드시 짚고 넘어가십시오. <b>신탁계약서 작성부터 등기 접수까지 저희가 도와드립니다.</b></div>
     </div></div>
   </div>
 
@@ -6016,13 +6017,67 @@ function calcSintak(fromEdit){
   const adj=parseFloat(document.getElementById('st_adjust').value)||1;
   /* ★ 표상 기본보수(feeRaw) — 가산보수(§10③④⑥·§14①②⑤)는 「당해 기본보수」 = 표상 금액을
      기준으로 산정한다. 조정 후 금액에 가산율을 곱하면 가산에 가산이 얹혀 §2⑤(상한) 초과 소지. */
-  const _tt=(document.getElementById('st_trustType')||{}).value||'Ⅰ-4(1)';const feeRaw=FLAT[_tt]||FLAT['Ⅰ-4(1)'];
-  const feeBase=Math.round(feeRaw*adj);
+  const _tt=(document.getElementById('st_trustType')||{}).value||'Ⅰ-4(1)';
+  /* ══ 보수기준 §11 — 신탁등기 ══════════════════════════════════════
+     ①  유형별 정액 (보수표 Ⅰ-4 1~5호)
+     ③  위탁자 선언에 의한 신탁 / 수탁자의 고유재산으로의 변경 / 위탁자 지위이전
+         → 제9조제1항을 준용  (정액이 아니라 과세표준 기준 보수표 Ⅰ-1)
+     ⑤  수탁자의 경질로 인한 등기 → 소유권이전등기 보수 적용 (Ⅰ-1)
+     ⑧  담보신탁의 수익자 변경·수익금액 증가에 따른 신탁원부 기록 변경
+         → 담보권이전·채권액 증가에 따른 변경등기 보수 적용 (Ⅰ-1)
+     ②  소유권이전등기와 (재)신탁등기 등을 동시에 신청 → 두 유형의 보수를 합산
+     ④  일부처분·일부종료 → 소유권일부이전 + 신탁말소 보수를 합산 (②와 같은 방식으로 처리)
+     ⑦  합병·분할 등기와 동시에 말소·신규신탁 → 각 합산 (②와 같은 방식으로 처리)
+     ※ ③⑤⑧은 「부동산가액」칸이 참고용이 아니라 과세표준으로 쓰인다. */
+  /* ▸ §11③ 「제9조제1항을 준용한다」 → ①1호 정액(150,000)에 §9① 표를 <b>더한다</b>(합산).
+       ②④⑦이 「합산한다」로, ⑤⑧이 「…의 보수를 적용한다」(대체)로 각각 달리 적혀 있는 데 반해
+       ③만 「준용한다」이므로, ①1호를 배제하지 않고 이전등기분에 해당하는 보수를 더하는 것으로 본다.
+     ▸ §11⑤·§11⑧ 「…의 보수를 적용한다」 → 해당 보수로 <b>대체</b>한다(정액 미가산). */
+  const _T9=['§11③','§11⑤','§11⑧'];
+  const _isT9=_T9.indexOf(_tt)>=0;
+  const _isSum=(_tt==='§11③');                  /* 합산형 */
+  const feeRaw = _tt==='§11③' ? (FLAT['Ⅰ-4(1)'] + tierFee('Ⅰ-1', base))
+               : (_isT9 ? tierFee('Ⅰ-1', base) : (FLAT[_tt]||FLAT['Ⅰ-4(1)']));
+  /* §11② — 동시신청분 합산. 신탁분 보수와 별개로 산정해 더한다(조정률은 각각 동일 적용) */
+  const _sim=(document.getElementById('st_simul')||{}).checked;
+  const _simKind=(document.getElementById('st_simulKind')||{}).value||'Ⅰ-1';
+  const _simBase=val('st_simulBase');
+  let feeSimul=0;
+  if(_sim) feeSimul = (_simKind==='Ⅰ-1') ? tierFee('Ⅰ-1', _simBase) : (FLAT[_simKind]||0);
+  {const r1=document.getElementById('st_rowSimulBase'), r2=document.getElementById('st_rowSimulKind');
+   if(r1)r1.style.display=(_sim&&_simKind==='Ⅰ-1')?'':'none';
+   if(r2)r2.style.display=_sim?'':'none';
+   const bh=document.querySelector('#st_base+.hint');
+   if(bh)bh.innerHTML=_isT9?'<b>과세표준</b>으로 씁니다 (§11'+_tt.slice(3)+' → 보수표 Ⅰ-1 준용)':'참고용(보수는 유형별 정액)';}
+  const feeBase=Math.round((feeRaw+feeSimul)*adj);
   /* 보수기준 §10⑥ — 외국인·재외국민 포함 또는 등기원인 관련 서류를 외국에서 받아야 하는 등기
      → 당해 기본보수의 100% 상당액까지 가산 [A] */
   const _fr=frAddRate('st_frAdd'), feeForeign=Math.round(feeRaw*_fr);
   document.getElementById('st_feeBaseCell').textContent=won(feeBase);
-  document.getElementById('st_feeBaseNote').textContent='(보수표 '+_tt+' 정액 '+feeRaw.toLocaleString()+(adj!==1?' ×'+(adj*100)+'%':'')+')';
+  document.getElementById('st_feeBaseNote').textContent=
+    (_isSum ? '(§11①1호 150,000 + §11③ 보수표 Ⅰ-1 '+Math.round(tierFee('Ⅰ-1',base)).toLocaleString()+' = '+Math.round(feeRaw).toLocaleString()
+     : _isT9 ? '(§11'+_tt.slice(3)+' → 보수표 Ⅰ-1 적용 '+Math.round(feeRaw).toLocaleString()
+             : '(보수표 '+_tt+' 정액 '+feeRaw.toLocaleString())
+    +(feeSimul?' + 동시신청분 '+Math.round(feeSimul).toLocaleString()+' 〔§11②〕':'')
+    +(adj!==1?' ×'+(adj*100)+'%':'')+')';
+  /* 근거 조문 전문을 풍선과 안내상자에 함께 띄운다 */
+  {const _L={
+    'Ⅰ-4(1)':['§11①1호','신탁등기, 신탁가등기, 재신탁등기, 담보권신탁등기, 위탁자의 선언에 의한 신탁등기, 수탁자의 고유재산으로의 변경등기, 위탁자의 지위 이전에 의한 신탁등기 <b>150,000원</b>'],
+    'Ⅰ-4(2)':['§11①2호','신탁원부 기록의 변경등기, 수탁자가 수인인 등기의 합유명의인 변경등기, 신탁의 합병ㆍ분할에 따른 등기 <b>80,000원</b>'],
+    'Ⅰ-4(3)':['§11①3호','유한책임신탁의 설정등기 <b>220,000원</b>'],
+    'Ⅰ-4(4)':['§11①4호','신탁등기의 말소등기 <b>50,000원</b>'],
+    'Ⅰ-4(5)':['§11①5호','그 밖의 신탁에 관한 등기 <b>70,000원</b>'],
+    '§11③':['§11①1호 + §11③','<b>§11①1호</b> — 위탁자의 선언에 의한 신탁등기, 수탁자의 고유재산으로의 변경등기, 위탁자의 지위 이전에 의한 신탁등기 <b>150,000원</b><br><b>§11③</b> — 위탁자의 선언에 의한 신탁등기, 수탁자의 고유재산으로의 변경등기, 위탁자의 지위 이전에 의한 신탁등기 등의 경우에는 <b>제9조제1항을 준용한다.</b><br><span class="hint">▸ ②④⑦은 「<b>합산한다</b>」, ⑤⑧은 「…의 보수를 <b>적용한다</b>」로 각각 달리 적혀 있는 데 반해 ③만 「<b>준용한다</b>」입니다. 그래서 ①1호를 배제하지 않고, 이전등기분에 해당하는 보수를 <b>더하는</b> 것으로 봅니다.</span>'],
+    '§11⑤':['§11⑤','수탁자의 경질로 인한 등기는 <b>소유권이전등기에 대한 보수를 적용한다.</b><br><span class="hint">▸ 「적용한다」이므로 정액을 더하지 않고 <b>보수표 Ⅰ-1로 대체</b>합니다.</span>'],
+    '§11⑧':['§11⑧','담보신탁의 경우 수익자 변경, 수익금액의 증가에 따른 신탁원부 기록의 변경등기는 <b>담보권이전, 채권액의 증가에 따른 변경등기의 보수를 적용한다.</b><br><span class="hint">▸ 「적용한다」이므로 ①2호(80,000)를 더하지 않고 <b>보수표 Ⅰ-1로 대체</b>합니다.</span>']
+   }[_tt];
+   const _lawSpan=document.getElementById('st_trustLaw'), _box=document.getElementById('st_lawBox');
+   if(_L&&_lawSpan){_lawSpan.textContent='보수기준 '+_L[0];
+     _lawSpan.title='법무사보수기준 '+_L[0]+' — '+_L[1].replace(/<[^>]+>/g,'');}
+   if(_L&&_box){_box.style.display='';
+     _box.innerHTML='▸ <b>이 유형의 근거 조문</b> — 보수기준 <b>'+_L[0]+'</b> <span class="tag A">A</span><br>'+_L[1]
+       +(_sim?'<br><b>§11②</b> — 소유권이전등기와 (재)신탁등기, 소유권이전등기와 신탁등기의 말소등기, 청구권보전가등기와 신탁가등기, 담보권설정등기와 담보권신탁등기, 유언대용신탁을 원인으로 하는 소유권이전등기와 신탁등기를 동시에 신청하는 경우에는 <b>두 유형의 등기에 대한 보수를 합산한다.</b>':'');}
+  }
   const _frR=document.getElementById('st_feeForeignRow');
   if(_frR){_frR.style.display=feeForeign>0?'table-row':'none';document.getElementById('st_feeForeignCell').textContent=won(feeForeign);document.getElementById('st_feeForeignNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+(_fr*100)+'% · §10⑥)';}
   /* 보수기준 §10④ — 등기원인·등기목적이 동일한 여러 부동산이 여러 등기소 관할에 걸친 경우
