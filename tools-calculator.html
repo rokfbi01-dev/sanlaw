@@ -1892,7 +1892,7 @@
       <table class="t">
         <tr><td>등록면허세 (신탁 건당 6,000)<span class="law" title="신탁으로 인한 소유권이전분은 형식적 소유권 취득이어서 등록면허세를 부과하지 않습니다(§26②). 신탁등기 자체는 「그 밖의 등기」로 보아 건당 6,000원입니다.">지방세법 §26②·§28①1호마목</span></td><td><input class="cell" id="st_regTax" type="number" oninput="calcSintak(true)"></td></tr>
         <tr><td>지방교육세 (건당 1,200)<span class="law" title="지방교육세를 정한 조항입니다. 2호는 납부해야 할 「등록면허세액의 100분의 20(20%)」을 세액으로 합니다.">지방세법 §151①2호</span></td><td><input class="cell" id="st_eduTax" type="number" oninput="calcSintak(true)"></td></tr>
-        <tr><td>등기신청수수료 <select id="st_regMethod" class="mini" onchange="calcSintak()"><option value="e" selected>e-Form 6,000</option><option value="p">수기 8,000</option><option value="o">전자 4,000</option></select> <span class="hint" id="st_regNote"></span><span class="law" title="「등기사항증명서 등 수수료규칙」 §5의2 — 부동산 등기신청수수료. 2025.8.1. 시행(대법원규칙 제3222호)으로 방문서면·e-Form이 인상되었고 전자신청은 동결되었습니다.">수수료규칙 §5의2</span></td><td class="auto" id="st_regFeeCell">0 원</td></tr>
+        <tr><td>등기신청수수료 <select id="st_regMethod" class="mini" onchange="calcSintak()"><option value="e" selected>e-Form 6,000</option><option value="p">수기 6,000</option><option value="o">전자 4,000</option></select> <span class="hint" id="st_regNote"></span><span class="law" title="「등기사항증명서 등 수수료규칙」 §5의2 — 부동산 등기신청수수료. 2025.8.1. 시행(대법원규칙 제3222호)으로 방문서면·e-Form이 인상되었고 전자신청은 동결되었습니다.">수수료규칙 §5의2</span></td><td class="auto" id="st_regFeeCell">0 원</td></tr>
         <tr><td>대장·등본 우편 등 <span class="hint">(개수 곱)</span></td><td><input class="cell" id="st_postFee" type="number" value="6000" oninput="calcSintak(true)"></td></tr>
         <tr class="subtot"><td>공과금계</td><td id="st_publicSum">0 원</td></tr>
       </table>
@@ -3005,6 +3005,7 @@
         <tr class="subtot"><td>수수료계 (보수)</td><td id="g_feeSum">0 원</td></tr></table>
     </div></div>
     <div class="card blue" id="g_publicCard"><h2>③ 공과금 (VAT 비과세) <span class="tag chk" id="g_pubTag">확인필요</span></h2><div class="body" id="g_public"></div></div>
+    <div class="card green" id="g_docsCard" style="display:none;"><h2>④ 준비서류 — 법원에 낼 것</h2><div class="body"><div id="g_docsBox"></div></div></div>
     <div class="total"><div class="row"><span>법무사 보수 소계</span><span id="g_t_fee">0 원</span></div>
       <div class="row sub"><span>부가가치세 (10%)</span><span id="g_t_vat">0 원</span></div>
       <div class="row"><span>공과금계</span><span id="g_t_public">0 원</span></div>
@@ -7114,6 +7115,131 @@ function calcInjunction(fromEdit){
   tb.appendChild(tr);});})();
 
 /* ══════════════════════════════════════════════════════════════
+   준비서류 안내 — 공용(generic) 화면용
+   ─────────────────────────────────────────────────────────────
+   ▸ 계산만 하고 「무엇을 들고 가야 하는가」가 없으면 이용자는 결국 다시 헤맨다.
+     사건마다 실제 제출서류와 「어디서 떼는지」를 함께 적는다.
+   ▸ 서류마다 발급처를 밝히고, 공식 사이트가 있으면 바로가기를 단다.
+   ▸ 법원·사건마다 달라질 수 있는 항목은 반드시 [법원 확인]으로 표시한다.
+     추측으로 채우지 않는다.
+   구조 : SCENARIO 항목에 docs:{law, note, groups:[{t:제목, items:[...]}], links:[...]}
+   ══════════════════════════════════════════════════════════════ */
+const DOC_SITE={
+  gov   :{n:'정부24',                u:'https://www.gov.kr'},
+  family:{n:'전자가족관계등록시스템',   u:'https://efamily.scourt.go.kr'},
+  ecfs  :{n:'대한민국 법원 전자소송',   u:'https://ecfs.scourt.go.kr'},
+  iros  :{n:'인터넷등기소',            u:'http://www.iros.go.kr'},
+  slb   :{n:'서울회생법원 민원서식',    u:'https://slb.scourt.go.kr/rel/information/min/MinListAction.work?gubun=24'},
+  help  :{n:'법원 전자민원센터',        u:'https://help.scourt.go.kr'}
+};
+function docsHTML(d){
+  if(!d)return '';
+  let h='<div class="note" style="border-left:3px solid var(--ok);">'
+    +'▸ <b>아래 서류를 갖추어 법원에 내십시오.</b> 서류 이름 옆에 <b>어디서 떼는지</b>를 적어 두었습니다.'
+    +(d.law?'<br><span class="hint">근거 · '+d.law+'</span>':'')+'</div>';
+  if(d.note)h+='<div class="note">'+d.note+'</div>';
+  (d.groups||[]).forEach(g=>{
+    h+='<div class="docs" style="margin-top:10px;"><b>'+g.t+'</b><br>';
+    g.items.forEach(it=>{ h+='· '+it+'<br>'; });
+    h+='</div>';
+  });
+  if(d.links&&d.links.length){
+    h+='<div class="line" style="border:none;padding-top:10px;"><span class="lbl">서류 떼는 곳</span><span style="display:flex;flex-wrap:wrap;gap:6px;">';
+    d.links.forEach(k=>{const st=DOC_SITE[k]; if(!st)return;
+      h+='<a href="'+st.u+'" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">'+st.n+' ↗</a>';});
+    h+='</span></div>';
+  }
+  h+='<div class="note" style="margin-top:10px;background:#fdf6ec;border-left:3px solid var(--gold);">'
+    +'▸ <b>법원마다 요구 서류가 조금씩 다릅니다.</b> <b>[법원 확인]</b>이 붙은 항목은 접수 전 관할 법원에 한 번 물어보십시오. '
+    +'준비가 막막하시면 <b>서류 작성부터 제출까지 저희가 도와드립니다.</b></div>';
+  return h;
+}
+
+/* ── 사건별 준비서류 ────────────────────────────────────────── */
+const DOCS={
+
+"상속포기·한정승인 신고":{
+  law:'민법 §1019·§1030① · 가사소송법 §36③ · 가사소송규칙 §75①',
+  note:'▸ <b>기한이 있습니다.</b> 상속개시(사망)를 <b>안 날부터 3개월</b> 이내에 신고해야 합니다(민법 §1019①). 이 기간을 넘기면 원칙적으로 <b>단순승인</b>한 것이 됩니다.<br>▸ <b>가족관계증명서는 상속인 각자 본인 명의로 1통씩</b> 떼야 합니다. 손자녀가 함께 포기하는 경우 손자녀도 각자 본인 명의로 발급받아야 합니다.<br>▸ <b>인감증명서는 반드시 주민센터에서 발급받은 것</b>이어야 합니다. <b>인터넷 발급분은 법원 제출용으로 쓸 수 없습니다.</b>',
+  groups:[
+    {t:'① 신고서',items:[
+      '상속포기 신고서 <b>또는</b> 한정승인 신고서 1부',
+      '<b>한정승인은 「상속재산목록」을 반드시 첨부</b>합니다(민법 §1030①). 상속포기는 재산목록이 필요 없습니다.']},
+    {t:'② 돌아가신 분(피상속인) 서류',items:[
+      '기본증명서 <b>(상세)</b> 1통 — 전자가족관계등록시스템·주민센터',
+      '가족관계증명서 <b>(상세)</b> 1통 — 같은 곳',
+      '주민등록<b>말소자</b> 초본 1통 — 정부24·주민센터',
+      '<b>2007. 12. 31. 이전에 사망신고된 경우</b>에는 기본증명서·가족관계증명서 대신 <b>제적등본</b>을 준비합니다.']},
+    {t:'③ 신고인(상속인) 서류 — 각자 1통씩',items:[
+      '가족관계증명서 <b>(상세)</b> — <b>상속인 각자 본인 명의로</b>',
+      '주민등록 등본 또는 초본 <span class="hint">(상속인들이 한 등본에 함께 나오면 1통으로 됩니다)</span>',
+      '인감증명서 + <b>인감도장</b> <span class="hint">(주민센터 발급분만 가능)</span>',
+      '신분증']},
+    {t:'④ 사안에 따라 추가되는 서류',items:[
+      '<b>대습상속</b>(먼저 사망한 자녀를 대신해 손자녀가 상속) — 먼저 돌아가신 분의 <b>기본증명서(상세)·가족관계증명서(상세)·제적등본</b>',
+      '<b>미성년자</b>가 신고 — 법정대리인(부모)의 <b>인감증명서·인감도장</b>. 부모와 자녀의 이해가 충돌하면 <b>특별대리인 선임</b>이 필요할 수 있습니다 <b>[법원 확인]</b>',
+      '<b>재외국민</b> — 주민등록등본 대신 재외국민등록부등본·거주사실증명(영사관 인증)·국내거소신고사실증명 중 하나',
+      '<b>3개월이 지난 뒤</b> 빚을 알게 된 경우 — <b>특별한정승인</b>(민법 §1019③)으로 가며, <b>안 날을 소명하는 자료</b>(독촉장·통지서 등)가 필요합니다',
+      '참고 — <b>안심상속 원스톱 서비스</b>(사망자 재산조회) 결과는 재산·채무 파악에 큰 도움이 됩니다. 결과가 늦어지면 <b>먼저 신고하고 나중에 보완</b>해도 됩니다']}
+  ],
+  links:['family','gov','ecfs']},
+
+"개인파산·면책":{
+  law:'채무자회생법 · 법원 전자민원센터 「파산 및 면책 동시신청」 안내',
+  note:'▸ <b>파산과 면책은 같은 날 함께 신청</b>하는 것이 유리합니다. 서류 작성 부담이 줄고 면책심문기일도 더 빨리 잡힙니다.<br>▸ <b>진술서는 신청서 양식에 붙어 있습니다.</b> 따로 구할 필요 없이 양식의 해당 칸을 채우면 됩니다.<br>▸ 신청서 양식 곳곳의 <b>☆ 표시</b>가 "이럴 때는 이 서류를 내라"는 안내입니다. 그 부분을 빠뜨리지 마십시오.',
+  groups:[
+    {t:'① 신청서',items:[
+      '파산 및 면책 신청서 1부',
+      '신청서 및 첨부서류 <b>일체의 부본 1부</b>']},
+    {t:'② 진술서 1부 — 신청서 양식에 포함되어 있습니다',items:[
+      '채권자목록(채권자주소록)',
+      '재산목록',
+      '현재의 생활상황',
+      '수입 및 지출에 관한 목록']},
+    {t:'③ 신분·가족관계 서류 각 1부',items:[
+      '가족관계증명서',
+      '혼인관계증명서 <b>(이혼내역 포함)</b>',
+      '주민등록초본 <b>(주소변동내역 · 개명 · 주민등록번호 변동사항 포함)</b>',
+      '외국인은 주민등록초본 대신 <b>외국인등록사실증명</b>']},
+    {t:'④ 그 밖에',items:[
+      '신청서 양식 각 해당란의 <b>☆ 표시</b>가 요구하는 첨부서류',
+      '대리인이 신청하는 경우 — <b>위임장 + 인감증명서</b>. 다만 <b>심문기일에는 본인이 반드시 출석</b>해야 합니다',
+      '재산·소득·채무를 뒷받침할 소명자료는 사안마다 다릅니다 <b>[법원 확인]</b>']}
+  ],
+  links:['slb','help','family','gov']},
+
+"개인회생(개시신청)":{
+  law:'채무자회생법 §589① · 채무자회생규칙 §79②·§85① · 개인회생사건 처리지침 §4①',
+  note:'▸ <b>관공서에서 떼는 서류는 신청일로부터 2개월 안에 발급받은 것</b>이어야 합니다(개인회생사건 처리지침 §4①). 미리 떼어 두면 다시 떼야 할 수 있으니 순서에 유의하십시오.<br>▸ <b>부본을 넉넉히 준비하십시오.</b> 신청서 부본 1부 외에, <b>채권자 수에 2를 더한 만큼</b>의 채권자목록 부본이 필요합니다(규칙 §85①).',
+  groups:[
+    {t:'① 신청서와 목록',items:[
+      '개인회생절차 개시신청서 1부 + <b>부본 1부</b>',
+      '개인회생<b>채권자목록</b> — <b>부본은 채권자 수 + 2</b>부',
+      '<b>재산목록</b>',
+      '<b>수입 및 지출에 관한 목록</b>',
+      '<b>진술서</b>',
+      '<b>변제계획안</b>']},
+    {t:'② 신분·가족관계 서류',items:[
+      '주민등록등본',
+      '가족관계증명서']},
+    {t:'③ 소득을 밝히는 자료',items:[
+      '<b>급여소득자</b>임을 소명하는 자료 — 재직증명서, 급여명세서, 근로소득원천징수영수증 등',
+      '<b>영업소득자</b>임을 소명하는 자료 — 사업자등록증, 소득금액증명 등',
+      '어느 자료가 필요한지는 소득 형태에 따라 다릅니다 <b>[법원 확인]</b>']},
+    {t:'④ 재산을 밝히는 자료',items:[
+      '소유 부동산의 <b>등기사항증명서</b> — 인터넷등기소',
+      '자동차등록증 사본',
+      '임차보증금이 있으면 <b>임대차계약서</b>',
+      '보험·예금 등 그 밖의 재산 자료']},
+    {t:'⑤ 해당하는 경우에만',items:[
+      '신청일 전 <b>10년 이내</b>에 화의·파산·개인회생을 신청한 적이 있으면 <b>그 관련 서류</b>',
+      '채권자의 추심을 급히 멈춰야 하면 <b>금지명령·중지명령 신청서</b>를 함께 냅니다']}
+  ],
+  links:['slb','ecfs','iros','family','gov']}
+
+};
+
+/* ══════════════════════════════════════════════════════════════
    보수 조정(가산)의 근거 조문 — 화면별 자동 안내
    ─────────────────────────────────────────────────────────────
    보수기준은 각 장(章)마다 「§2②각호에 해당하면 §10③을 준용한다」는
@@ -7197,6 +7323,9 @@ function buildGeneric(name){
   }
   document.getElementById('g_inputs').innerHTML=h;
   {const _ag=document.getElementById('g_adjGuide'); if(_ag)_ag.innerHTML=adjGuideHTML(def);}
+  /* 준비서류 — DOCS에 등록된 사건만 카드를 띄운다 */
+  {const _dc=document.getElementById('g_docsCard'), _db=document.getElementById('g_docsBox'), _d=DOCS[name];
+   if(_dc&&_db){ if(_d){_db.innerHTML=docsHTML(_d); _dc.style.display='';} else {_db.innerHTML=''; _dc.style.display='none';} }}
   // 보수 추가항목(대행료) — 사건 카테고리별 필터
   const grp=def.cat==='re'?'reTransfer':(def.cat==='family'?'family':def.cat);
   let e='';
