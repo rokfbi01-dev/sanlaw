@@ -87,47 +87,6 @@
   .card .body{padding:14px 16px;}
   .line{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line);flex-wrap:wrap;}
   .line:last-child{border-bottom:none;}
-  /* ── 카드 접기(준비서류 등) ── */
-  .card.collapsible > h2{cursor:pointer;user-select:none;position:relative;padding-right:78px;}
-  .card.collapsible > h2::after{content:"▾ 펼치기";position:absolute;right:14px;top:50%;
-    transform:translateY(-50%);font-size:11.5px;font-weight:700;color:#8a6d24;
-    background:rgba(255,255,255,.75);border:1px solid var(--line);border-radius:12px;padding:2px 9px;letter-spacing:-.2px;}
-  .card.collapsible.on > h2::after{content:"▴ 접기";}
-  .card.collapsible > h2:hover::after{color:var(--gold);border-color:var(--gold);}
-  .card.collapsible > .body{display:none;}
-  .card.collapsible.on > .body{display:block;}
-  /* ── 긴 안내문 접기 ── */
-  .note.fold{display:none;}
-  .note.fold.on{display:block;}
-  .noteMore{display:block;width:100%;margin:8px 0;padding:8px 76px 8px 12px;font-family:inherit;
-    font-size:12.5px;font-weight:700;color:#7a6743;background:#f6f1e4;border:1px solid var(--line);
-    border-radius:7px;cursor:pointer;text-align:left;line-height:1.5;letter-spacing:-.2px;position:relative;}
-  .noteMore::after{content:"▾ 펼치기";position:absolute;right:10px;top:50%;transform:translateY(-50%);
-    font-size:11px;font-weight:700;color:#8a6d24;background:#fffdf8;border:1px solid var(--line);
-    border-radius:11px;padding:2px 9px;letter-spacing:-.2px;white-space:nowrap;}
-  .noteMore.on::after{content:"▴ 접기";}
-  .noteMore.alert::after{background:#fff;color:#9a6a1c;border-color:#e0c08a;}
-  /* 클래스 없는 details(사무소 설정·면제기준 안내 등)에도 같은 배지 */
-  details:not(.ref) > summary{position:relative !important;padding-right:76px !important;}
-  details:not(.ref) > summary::after{content:"▾ 펼치기";position:absolute;right:10px;top:50%;
-    transform:translateY(-50%);font-size:11px;font-weight:700;color:#8a6d24;
-    background:#f6f1e4;border:1px solid var(--line);border-radius:11px;padding:2px 9px;
-    letter-spacing:-.2px;white-space:nowrap;}
-  details:not(.ref)[open] > summary::after{content:"▴ 접기";}
-  details:not(.ref) > summary:hover::after{color:var(--gold);border-color:var(--gold);}
-  .noteMore:hover{background:#efe6cf;border-color:var(--gold);color:var(--gold);}
-  .noteMore.alert{background:#fdf2e6;border-color:#e0c08a;color:#9a6a1c;}
-  .noteMore.alert:hover{background:#fbe9d4;}
-  /* ── 공시가격·시가표준액 조회 도우미 ── */
-  .stdlk{display:block;background:#fbf7ec;border:1px dashed #c0b294;border-radius:7px;padding:10px 12px;margin:8px 0 4px;word-break:keep-all;overflow-wrap:break-word;}
-  .stdlk .stdlk-t{font-size:12.5px;font-weight:700;color:var(--gold);margin-bottom:3px;}
-  .stdlk .stdlk-g{font-size:11.5px;color:#8a8270;line-height:1.6;margin-bottom:7px;}
-  .stdlk .stdlk-addr{width:100%;font-size:13.5px;padding:7px 9px;border:1px solid var(--line);border-radius:6px;background:#fffdf8;margin-bottom:7px;}
-  .stdlk .stdlk-btns{display:flex;flex-wrap:wrap;gap:6px;}
-  .stdlk .stdlk-btns button{font-family:inherit;font-size:12.5px;font-weight:600;padding:7px 11px;border:1px solid var(--line);
-    background:var(--paper-2);color:var(--ink-soft);border-radius:6px;cursor:pointer;line-height:1.3;}
-  .stdlk .stdlk-btns button:hover{background:#e3d8bf;border-color:var(--gold);color:var(--gold);}
-  .stdlk .stdlk-msg{font-size:11.5px;color:var(--ok);margin-top:7px;line-height:1.6;min-height:1em;}
   .line .lbl{flex:0 0 140px;font-weight:600;color:var(--ink-soft);font-size:13.5px;}
   input[type=text],input[type=number],select{font-family:inherit;font-size:14px;padding:7px 9px;border:1px solid var(--line);border-radius:6px;background:#fffdf8;color:var(--ink);}
   input.amt{flex:1;min-width:160px;text-align:right;font-variant-numeric:tabular-nums;}
@@ -216,13 +175,6 @@
   details.ref>summary::-webkit-details-marker{display:none;}
   details.ref>summary::before{content:"▸ ";color:var(--seal);}
   details.ref[open]>summary::before{content:"▾ ";}
-  /* 접이식 상세에도 「펼치기」 배지 — 위 기본 규칙 뒤에 두어야 적용된다 */
-  details.ref>summary{position:relative !important;padding-right:76px !important;}
-  details.ref>summary::after{content:"▾ 펼치기";position:absolute;right:10px;top:50%;
-    transform:translateY(-50%);font-size:11px;font-weight:700;color:#8a6d24;
-    background:#f6f1e4;border:1px solid var(--line);border-radius:11px;padding:2px 9px;letter-spacing:-.2px;}
-  details.ref[open]>summary::after{content:"▴ 접기";}
-  details.ref>summary:hover::after{color:var(--gold);border-color:var(--gold);}
   details.ref .refbody{padding:10px 12px;}
   table.ref{width:100%;border-collapse:collapse;font-size:12px;}
   table.ref th,table.ref td{border:1px solid var(--line);padding:4px 7px;text-align:left;}
@@ -383,8 +335,6 @@
     <p>실제 수수료·공과금은 <b>부동산 가액 · 사건 내용 · 건수 · 추가 대행 항목</b> 등에 따라 달라질 수 있습니다.<br>
       <b>정확한 견적은 상담을 통해 안내</b>드리니, 이 금액은 <b>미리 가늠해 보시는 용도</b>로만 봐 주십시오. <span class="cta">부담 없이 물어보셔도 됩니다</span></p>
     <p class="sub">보수는 「법무사 보수기준」, 공과금(인지·송달료·국민주택채권 등)은 <b>현행 법령</b>을 기준으로 산정하되, <b>최종 금액은 접수 시점·법원·기관 기준</b>에 따릅니다.</p>
-    <p class="sub" style="margin-top:8px;">이 계산기의 보수는 대한법무사협회 <b>「법무사 보수기준」(2024.9.12. 시행)</b>이 정한 <b>상한</b> 안에서 산정합니다. 보수기준은 <b>상한</b>이므로 실제 보수는 이보다 <b>낮을 수 있습니다</b>.
-      <a href="https://kjaar.kabl.kr/mod/page/view.do?MID=kjaa_page_0202" target="_blank" rel="noopener" style="display:inline-block;margin-left:4px;padding:3px 10px;border:1px solid #b08d57;border-radius:5px;color:#8a6d24;font-weight:700;text-decoration:none;white-space:nowrap;">📖 협회 보수기준 원문 보기</a></p>
   </div>
   <div style="background:#fffdf9;border:1px solid #e3d6c2;border-left:4px solid #c8862d;border-radius:10px;padding:13px 16px;margin:14px 0;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
     <div style="font-size:13.5px;color:#6b5d49;line-height:1.55;flex:1 1 230px;">🤝 <b>상속세·양도세·증여세</b> 등 국세 신고는 <b>업무협약 세무사</b>와 함께 도와드립니다. <span style="color:#8a7c66;">(취득세는 등기와 함께 저희 사무소가 대행)</span></div>
@@ -529,9 +479,7 @@
       <details class="ref"><summary>매입률 참고표 <span class="reftag" style="background:#e7efe6;color:var(--ok);">A</span> <span class="hint">— 계산기에 내장된 실제 요율</span></summary><div class="refbody"><div class="bondRefMount"></div><p style="margin:8px 0 0;font-size:11.5px;color:#8a8270;line-height:1.6;"><b>근거</b> 주택도시기금법 §8②·시행령 §8② [별표] 부표 1(부동산 등기) — 위 표는 <b>계산기에 내장된 값을 그대로 출력</b>한 것입니다.<br><b>계산규칙</b> 5천원 미만 절사 / 5천원 이상 올림 → 만원 단위 · 각 부동산마다 개별 산정 · 공유지분은 지분율을 곱한 시가표준액으로 판정 · 공동주택은 세대당 시가표준액</p></div></details>
     </div></div>
 
-    <div class="card blue"><h2>③ 공과금 (VAT 비과세) <span class="tag chk">확인필요</span><span class="law" title="취득세 세율 자체는 지방세법 §11①에 확정되어 있습니다. 다만 주택 유상거래(§11①8호)의 세율 구간을 판정하는 기준(주택 수 산정 등)이 사안별로 달라 그 부분만 확인이 필요합니다.">사유: 주택 세율구간 판정</span></h2><div class="body"><div class="note" id="taxNote" style="background:#fff6e0;border:2px solid var(--gold);border-radius:8px;padding:11px 13px;"><div style="font-weight:800;color:var(--seal);font-size:13.5px;margin-bottom:6px;">★ 여러 사람이 지분으로 나눠 사는 경우</div><div style="font-size:12.5px;line-height:1.85;color:var(--ink-soft);"><b>㉠ 취득세는 각자 따로 냅니다.</b> 대표 한 사람이 몰아서 내는 것이 아닙니다. <span class="hint">매매는 <b>연대납세의무가 없습니다</b>(연대납세의무는 <b>상속</b>에만 — §7⑦→지방세기본법 §44).</span><br><b>㉡ 세율은 부동산 전체 금액으로, 세금은 내 지분에만.</b> <span class="hint">10억을 둘이 반씩 → 세율 <b>10억 기준 3%</b>, 과세표준 각자 <b>5억</b>. §11①8호 후단·§11②</span><br><b>㉢ 다주택자가 섞이면 사람마다 세율이 다릅니다.</b> <span class="hint">중과는 <b>취득자 각자의 세대</b> 기준. 같은 집·같은 지분인데 <b>1,500만원 vs 6,000만원</b>이 될 수 있습니다.</span></div></div>
-      <details class="ref" style="margin:10px 0;"><summary style="font-size:13px;"><b>▸ 취득세·교육세·농특세 세율과 중과 규정 보기</b> <span class="reftag" style="background:#e7efe6;color:var(--ok);">A</span> <span class="hint">— 계산기가 자동으로 넣는 값입니다</span></summary><div class="refbody"><div style="font-weight:800;color:#8a6d24;font-size:13px;margin:0 0 5px;padding-bottom:3px;border-bottom:1px solid var(--line);">1 · 취득세 세율</div><table class="ref" style="margin:0 0 4px;"><tr><th>구분</th><th class="r">세율</th></tr><tr><td>주택 — 6억 이하</td><td class="r">1%</td></tr><tr><td>주택 — 6억 초과 9억 이하</td><td class="r">1~3% <span class="hint">(가액×2÷3억−3)</span></td></tr><tr><td>주택 — 9억 초과</td><td class="r">3%</td></tr><tr><td>주택 외 (상가·토지 등)</td><td class="r">4%</td></tr><tr><td>농지</td><td class="r">3%</td></tr></table><div style="font-size:12.5px;line-height:1.8;color:var(--ink-soft);">▸ <b>중과</b> — 조정 2주택·비조정 3주택 <b>8%</b> / 조정 3주택 이상·법인 <b>12%</b> <span class="law" title="지방세법 제13조의2">§13의2</span></div><div style="font-weight:800;color:#8a6d24;font-size:13px;margin:14px 0 5px;padding-bottom:3px;border-bottom:1px solid var(--line);">2 · 함께 붙는 세금</div><div style="font-size:12.5px;line-height:1.8;color:var(--ink-soft);">▸ <b>지방교육세</b> — 주택은 취득세의 10%, 주택 외는 (표준세율−2%)×20% <span class="law" title="지방세법 제151조제1항제1호">§151①1호</span><br>▸ <b>농어촌특별세</b> — 전용 <b>85㎡ 초과</b>일 때 0.2% <span class="hint">(주택 외는 면적과 무관하게 0.2%)</span><br>▸ <b>등기신청수수료</b> — 부동산마다 서면 18,000 · e-Form 15,000 · 전자 10,000</div><div style="font-weight:800;color:#8a6d24;font-size:13px;margin:14px 0 5px;padding-bottom:3px;border-bottom:1px solid var(--line);">3 · 법인·단체가 사는 경우</div><div style="font-size:12.5px;line-height:1.8;color:var(--ink-soft);">▸ <b>법인 아닌 사단·재단도 「법인」입니다</b> — 종중·교회·사찰이 <b>주택</b>을 사면 <b>12%</b> <span class="law" title="지방세법 §13의2①1호 — 법인에는 국세기본법 §13에 따른 법인으로 보는 단체, 부동산등기법 §49①3호에 따른 법인 아닌 사단·재단 등 개인이 아닌 자를 포함한다">§13의2①1호 괄호</span><br>▸ <b>대도시 법인 5년 내 취득</b> — 과밀억제권역에서 법인을 설립·지점 설치하거나 그곳으로 전입한 뒤 <b>5년 이내</b>에 그 지역 부동산을 사면 중과됩니다. 주택 외 <b>4%→8%</b> · 농지 <b>3%→5%</b> · 주택은 <b>12%</b>. 지방교육세도 <b>3배</b>(주택 제외) <span class="law" title="지방세법 제13조제2항">§13②</span><br>&nbsp;&nbsp;<span class="hint">「대도시 중과 제외 업종」에 직접 사용할 목적이면 일반세율입니다(§13②단서·시행령 §26). 업종 판정은 사안별이라 자동으로 하지 않으니, 해당하면 위 체크를 해제하십시오.</span></div><div style="font-weight:800;color:#8a6d24;font-size:13px;margin:14px 0 5px;padding-bottom:3px;border-bottom:1px solid var(--line);">4 · 감면</div><div style="font-size:12.5px;line-height:1.8;color:var(--ink-soft);">▸ <b>생애최초</b> — 12억 이하 주택, <b>최대 200만원</b>(소형·저가는 300만원) 공제 + 중과 배제 <span class="law" title="지방세특례제한법 제36조의3">지특법 §36의3</span><br>&nbsp;&nbsp;<span class="hint">공동취득이면 <b>총 감면액이 한도</b>이며, 요건을 갖춘 사람만 받습니다.</span></div></div></details>
-      <details class="ref" style="margin:10px 0;"><summary style="font-size:13px;"><b>▸ 지분 공동취득 — 신고·납부, 다주택자 대응까지 자세히</b> <span class="reftag" style="background:#e7efe6;color:var(--ok);">A</span></summary><div class="refbody"><div style="font-weight:800;color:var(--seal);margin:2px 0 6px;">① 각자 냅니다 — 대표 한 사람이 몰아서 내는 것이 아닙니다</div><div style="font-size:12.5px;line-height:1.75;margin-bottom:12px;">취득세는 <b>「취득한 자」에게 부과</b>합니다(지방세법 §7①). 지분으로 나눠 사면 <b>각자가 자기 지분만큼 따로 납세의무</b>를 집니다.<br>· 신고서도 <b>취득자마다 각각</b> 냅니다. 실무상 한 자리에서 함께 접수하지만, <b>고지서와 납부는 사람별로 따로</b> 나옵니다.<br>· <b>연대납세의무가 아닙니다.</b> 한 사람이 안 내도 다른 사람에게 그 몫을 물리지 않습니다. <span class="hint">(연대납세의무는 <b>상속</b>(§7⑦ → 지방세기본법 §44①·⑤)과 <b>과점주주</b>(§7⑤)에만 있습니다. 일반 매매 공동취득은 해당하지 않습니다)</span><br>· 다만 <b>한 사람이 대신 내주는 것</b>은 가능합니다. 그 경우 <b>증여로 볼 여지</b>가 있으니 금액이 크면 미리 살펴보십시오.</div><div style="font-weight:800;color:var(--seal);margin:2px 0 6px;">② 세율은 「부동산 전체 금액」으로, 세금은 「내 지분」에만</div><div style="font-size:12.5px;line-height:1.75;margin-bottom:12px;">지분을 사도 <b>세율 구간은 부동산 전체 가액</b>으로 정합니다(§11①8호 후단). 그 세율을 <b>내 지분 상당액에만</b> 곱합니다(§11②).<br><span class="hint">예) 10억 아파트를 형제 둘이 반씩 → 세율은 <b>10억 기준(3%)</b>, 과세표준은 각자 <b>5억</b> → 각자 1,500만원.<br>「내가 5억어치 샀으니 6억 이하 1%」로 계산하면 <b>틀립니다.</b></span></div><div style="font-weight:800;color:var(--seal);margin:2px 0 6px;">③ 다주택자가 섞여 있으면 — <b>사람마다 세율이 다릅니다</b></div><div style="font-size:12.5px;line-height:1.75;margin-bottom:10px;">중과세율은 <b>「1세대」의 주택 수</b>로 판정합니다(§13의2·시행령 §28의4①). 그리고 <b>세대는 취득자마다 따로</b>입니다. 같은 집을 같은 날 함께 사도 <b>세율이 서로 다를 수 있습니다.</b><br><b>같은 세대인지 다른 세대인지</b>가 갈림길입니다.</div><table class="ref"><tr><th>상황</th><th>주택 수 판정</th><th class="r">결과</th></tr><tr><td><b>부부</b>가 공동명의<br><span class="hint">(같은 세대)</span></td><td><b>합쳐서 1주택</b>으로 봅니다 — 1세대 안에서 세대원이 공동소유하면 <b>1개를 소유한 것</b>(시행령 §28의4④)</td><td class="r">둘 다 <b>같은 세율</b></td></tr><tr><td><b>부모 + 독립세대 자녀</b><br><span class="hint">(다른 세대)</span></td><td><b>각자 자기 세대</b>의 주택 수로 따로 판정</td><td class="r"><b>세율이 갈립니다</b></td></tr><tr><td><b>형제·지인</b> 공동구입<br><span class="hint">(다른 세대)</span></td><td>각자 자기 세대 기준 — 한 명이 2주택자면 <b>그 사람만</b> 중과</td><td class="r"><b>세율이 갈립니다</b></td></tr></table><div style="background:#fdf6ec;border-left:3px solid var(--gold);border-radius:6px;padding:10px 12px;margin:12px 0;font-size:12.5px;line-height:1.75;"><b>▸ 실제로 이렇게 됩니다</b><br>10억원 아파트를 <b>무주택인 A</b>와 <b>2주택자인 B</b>가 각 50%씩 산다면(조정대상지역, 서로 다른 세대)<br>· <b>A</b> — 1주택 세율 <b>3%</b> × 과세표준 5억 = <b>1,500만원</b><br>· <b>B</b> — 3주택이 되어 중과 <b>12%</b> × 과세표준 5억 = <b>6,000만원</b><br><b>같은 집, 같은 지분인데 세금은 4배 차이</b>가 납니다. 이것을 모르고 계약하면 잔금 때 문제가 생깁니다.</div><div style="font-weight:800;color:var(--seal);margin:2px 0 6px;">④ 그러면 어떻게 하는 것이 좋은가</div><div style="font-size:12.5px;line-height:1.75;margin-bottom:12px;"><b>계약 전에</b> 정하셔야 합니다. 등기가 넘어간 뒤에는 되돌리기 어렵습니다.<br>· <b>지분 비율을 조정</b> — 중과 대상인 분의 지분을 줄이면 그만큼 세금이 줍니다. 다만 <b>실제 자금 부담과 지분이 어긋나면 증여 문제</b>가 생기니, 각자 낸 돈에 맞추는 것이 원칙입니다.<br>· <b>중과 대상자를 빼는 것</b>도 방법입니다. 다만 명의만 빌리는 것은 <b>부동산실명법 위반</b>이 되니 안 됩니다.<br>· <b>일시적 2주택</b>에 해당하는지 확인하십시오. 종전 주택을 <b>3년 안에</b> 팔면 중과를 피할 수 있습니다(시행령 §28의5).<br>· <b>주택 수에서 빠지는 것</b>이 있습니다 — 시가표준액 1억원 이하 주택, 농어촌주택, 상속 개시 5년 이내 상속주택 등(시행령 §28의4⑥). <b>내가 다주택자라고 생각했는데 아닐 수도</b> 있습니다.<br>· <b>취득 순서</b>를 정할 수 있습니다 — 같은 날 2개 이상을 취득하면 <b>납세의무자가 정하는 순서</b>로 봅니다(시행령 §28의4②).</div><div style="font-weight:800;color:var(--seal);margin:2px 0 6px;">⑤ 신고·납부는 이렇게</div><div style="font-size:12.5px;line-height:1.75;">· <b>기한</b> — 취득일부터 <b>60일 이내</b>(§20①). 넘기면 <b>무신고가산세 20%</b>와 납부지연가산세가 붙습니다.<br>· <b>어디에</b> — 부동산 소재지 시·군·구청. 위택스(서울은 이택스)에서 전자신고도 됩니다.<br>· <b>등기와의 관계</b> — 취득세를 <b>먼저 내고</b> 그 영수필확인서를 붙여야 등기가 접수됩니다. 공동취득이면 <b>전원의 영수필확인서</b>가 모여야 하므로, 한 사람이라도 늦으면 등기 전체가 멈춥니다.<br>· <b>감면은 사람마다</b> — 생애최초 감면(지특법 §36의3) 등은 <b>요건을 갖춘 사람만</b> 받습니다. 공동취득 시에는 <b>총 감면액이 한도</b>입니다.</div><p style="margin:12px 0 0;font-size:11.5px;color:#8a8270;line-height:1.7;border-top:1px solid var(--line);padding-top:10px;"><b>근거</b> 지방세법 §7①(납세의무자) · §11①8호 후단·§11②(지분 과세표준) · §13의2(중과세율) · §20①(신고납부) · 시행령 §28의4①②④⑤⑥(주택 수 산정) · §28의5(일시적 2주택) · 지방세기본법 §44(연대납세의무) · 지방세특례제한법 §36의3<br><b>주의</b> 세대 판정·주택 수 산정은 사안마다 다릅니다. 특히 <b>세대 분리 여부</b>는 주민등록만으로 정해지지 않습니다. 금액이 크면 <b>계약 전에</b> 관할 시·군·구청 세무과나 저희 사무소에 확인하십시오. <span class="tag chk">확인필요</span></p></div></details>
+    <div class="card blue"><h2>③ 공과금 (VAT 비과세) <span class="tag chk">확인필요</span><span class="law" title="취득세 세율 자체는 지방세법 §11①에 확정되어 있습니다. 다만 주택 유상거래(§11①8호)의 세율 구간을 판정하는 기준(주택 수 산정 등)이 사안별로 달라 그 부분만 확인이 필요합니다.">사유: 주택 세율구간 판정</span></h2><div class="body"><div class="note" id="taxNote">매매 취득세 자동(주택 6억↓ <b>1%</b> / 6~9억 <b>1~3%</b>(가액×2÷3억−3) / 9억↑ <b>3%</b> · 주택외 <b>4%</b> / 농지 <b>3%</b>). 중과 — 조정 2주택·비조정 3주택 <b>8%</b> / 조정 3주택↑·법인 <b>12%</b>(§13의2). 지방교육세 <b>취득세의 10%</b>(중과 시 0.4%) · 농특세 <b>85㎡ 초과 0.2%</b>(주택외는 면적 무관 0.2%). 생애최초 12억↓ <b>최대 200만(소형·저가 300만)</b> 공제·중과배제(지특법 §36의3). 등기수수료 매매 <b>부동산마다 18,000(서면)·15,000(e-Form)·10,000(전자)</b>.<br><b>지분 이전이면</b> 세율은 <b>부동산 전체 금액</b>으로 정하고(§11①8호 후단), 그 세율을 <b>지분 상당 과세표준</b>에만 곱합니다(§11②).<br><b style="color:var(--seal);">대도시 법인 5년 내 취득(§13②)</b> — 과밀억제권역에서 법인을 설립·지점 설치하거나 그곳으로 전입한 뒤 <b>5년 이내</b>에 그 지역 부동산을 사면 중과됩니다. 주택 외 <b>4%→8%</b> · 농지 <b>3%→5%</b> · 주택은 <b>12%</b>(§13②괄호→§13의2①1호). 지방교육세도 <b>3배</b>(§151①1호 가목, 주택 제외). <span class="hint">▸ 「대도시 중과 제외 업종」에 직접 사용할 목적이면 일반세율입니다(§13②단서·시행령 §26). 업종 판정은 사안별이라 자동으로 하지 않으니, 해당하면 체크를 해제하십시오.</span><br><b>법인 아닌 사단·재단도 「법인」입니다</b> — 종중·교회·사찰이 <b>주택</b>을 사면 <b>12%</b>입니다 <span class="law" title="지방세법 §13의2①1호 — 법인에는 국세기본법 §13에 따른 법인으로 보는 단체, 부동산등기법 §49①3호에 따른 법인 아닌 사단·재단 등 개인이 아닌 자를 포함한다">§13의2①1호 괄호</span>.<br><b>지방교육세</b> — 주택 유상거래는 세율×10%, 주택 외는 (표준세율−2%)×20% <span class="law" title="지방세법 §151①1호 본문 및 괄호">§151①1호</span>.</div>
       <div class="note alert"><span class="head">주택은 「몇 채째인지」에 따라 취득세가 1%에서 12%까지 달라집니다</span>세율 자체는 법(<b>지방세법 §11①8호</b>)에 정해져 있어 계산기가 자동으로 넣습니다. 그러나 <b>1주택인지 2·3주택인지, 조정대상지역인지</b>에 따라 세금이 <b>수천만원까지 차이</b>납니다. 이 판정은 세대·지역·일시적 2주택 여부 등 사안별이라 <b>계산기가 자동으로 정하지 않습니다.</b><br>▸ 위 「주택 수」를 <b>본인 세대 기준으로 정확히</b> 골라 주십시오. 헷갈리시면 <b>그대로 두고 상담 때 말씀해 주십시오.</b><br>▸ 나머지(교육세·농특세·등기신청수수료)는 <b>법에 확정된 값</b>으로 자동 계산됩니다. <span class="law" title="등기신청수수료는 「등기사항증명서 등 수수료규칙」 §5의2 — 2025.8.1. 시행 대법원규칙 제3222호에 따른 공식 금액입니다.">수수료규칙 §5의2 · 2025.8.1.</span></div>
       <details class="ref" style="margin-bottom:12px;"><summary>취득세 세율표 (적용 기준) <span class="reftag">확인필요</span></summary><div class="refbody">
         <table class="ref"><tr><th>구분</th><th class="r">취득세</th><th class="r">교육세</th><th class="r">농특세</th></tr>
@@ -647,7 +595,6 @@
     </div></div>
 
     <div class="card blue"><h2>③ 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
-      <details class="ref" style="margin:10px 0;"><summary><b>상속인이 여럿일 때 취득세는 누가 어떻게 내나</b> <span class="reftag" style="background:#e7efe6;color:var(--ok);">A</span> <span class="hint">— 매매와 규칙이 다릅니다</span></summary><div class="refbody"><div style="background:#eef6f0;border-left:3px solid var(--ok);border-radius:6px;padding:10px 12px;margin:0 0 12px;font-size:12.5px;line-height:1.75;"><b>▸ 먼저 안심하셔도 되는 것 — 상속에는 다주택 중과가 없습니다</b><br>중과세율(§13의2)은 <b>①「유상거래」로 주택을 사는 경우</b>와 <b>②조정대상지역의 일정가액 이상 주택을 「증여」로 받는 경우</b>에만 적용됩니다. <b>상속은 어느 쪽도 아닙니다.</b><br>· 이미 집이 있는 분이 상속으로 한 채를 더 받아 <b>2주택·3주택이 되어도 상속분 취득세는 중과되지 않습니다.</b><br>· <b>일시적 2주택인지 따질 필요도 없습니다.</b> 그 규정은 유상거래 중과(§13의2①2호)의 예외일 뿐이고, 상속은 처음부터 중과 대상이 아니기 때문입니다.<br>· 상속 취득세는 <b>농지 외 2.8% · 농지 2.3%</b>(§11①1호)이며, 요건을 갖추면 <b>1가구 1주택 특례 0.8%</b>·<b>자경농민 농지 0.3%</b>(§15①2호)까지 내려갑니다.<br><span class="hint">▸ 다만 <b>나중에 다른 집을 살 때</b>는 상속주택이 주택 수에 잡힐 수 있습니다. <b>상속개시일부터 5년 안</b>이면 주택 수에서 빼주고(시행령 §28의4⑥), 여러 명이 공동상속한 경우에는 <b>지분이 가장 큰 상속인</b>의 주택으로 봅니다(§28의4⑤).</span></div><div style="font-weight:800;color:var(--seal);margin:2px 0 6px;">① 상속인 한 사람이 전부 신고·납부해도 됩니다</div><div style="font-size:12.5px;line-height:1.75;margin-bottom:12px;">상속은 <b>상속인 각자가 자기 지분을 취득</b>한 것으로 보되(§7⑦ 전단), <b>납부의무는 「지방세기본법」 §44①·⑤를 준용</b>합니다(§7⑦ 후단). 즉 <b>상속인 전원의 연대납세의무</b>입니다.<br>· 그래서 <b>상속인 중 한 사람이 신고서를 작성해 전액을 납부해도 유효</b>합니다. 나머지 상속인의 납세의무도 함께 소멸합니다.<br>· 실무에서도 대표 상속인 1인이 <b>상속인 전원을 기재한 신고서</b>를 내고 한 번에 납부하는 것이 보통입니다.<br>· <b>내부적으로 각자 몫을 정산(구상)</b>하는 것은 상속인들 사이의 문제이며, 과세관청과는 무관합니다.<br><b>매매와 정반대입니다.</b> 매매로 지분을 공동취득하면 연대납세의무가 없어 <b>각자 따로</b> 내야 하지만, 상속은 <b>한 사람이 몰아서</b> 낼 수 있습니다.</div><div style="font-weight:800;color:var(--seal);margin:2px 0 6px;">② 다만 이런 점은 유의하십시오</div><div style="font-size:12.5px;line-height:1.75;margin-bottom:12px;">· <b>연대납세의무는 양날의 칼입니다.</b> 다른 상속인이 내지 않으면 <b>납부한 사람이 아니라 안 낸 사람에게도</b> 과세관청이 전액을 청구할 수 있습니다. 반대로 <b>내가 안 냈는데 남이 내주면</b> 내 의무도 함께 사라집니다.<br>· <b>1가구 1주택 특례(0.8%)는 사람마다 판정</b>합니다. 상속인 중 무주택자만 특례를 받고 다른 상속인은 2.8%가 될 수 있습니다. <b>한 장의 신고서 안에서 세율이 갈릴 수 있으니</b> 상속인별 주택 보유 현황을 미리 정리해 두십시오. <span class="tag chk">확인필요</span><br>· <b>협의분할을 하려면 신고 전에</b> 끝내는 편이 낫습니다. 법정상속분대로 신고한 뒤 협의분할로 지분이 바뀌면 <b>초과 취득분에 증여 문제</b>가 생길 수 있습니다(상속재산 분할 기한 내 협의분할은 예외).<br>· <b>상속포기·한정승인</b>을 검토 중이라면 <b>취득세 신고 전에</b> 정하십시오. 포기하면 처음부터 상속인이 아니었던 것이 됩니다.</div><div style="font-weight:800;color:var(--seal);margin:2px 0 6px;">③ 신고·납부 기한이 다릅니다</div><div style="font-size:12.5px;line-height:1.75;">· <b>상속개시일이 속하는 달의 말일부터 6개월 이내</b>입니다(§20①). 매매의 60일과 다릅니다.<br><span class="hint">예) 3월 10일 사망 → 3월 31일부터 6개월 → <b>9월 30일까지</b></span><br>· 상속인 중 <b>외국에 주소를 둔 사람</b>이 있으면 <b>9개월</b>입니다.<br>· <b>등기는 기한이 따로 없습니다.</b> 다만 취득세를 내야 등기가 되고, 미루면 서류 발급이 더 어려워집니다.<br>· 상속등기는 <b>상속인 중 한 사람이 전원을 위해 단독으로</b> 신청할 수 있습니다(법정상속분대로 하는 경우).</div><p style="margin:12px 0 0;font-size:11.5px;color:#8a8270;line-height:1.7;border-top:1px solid var(--line);padding-top:10px;"><b>근거</b> 지방세법 §7⑦(상속인 각자 취득 · 연대납부의무) · §11①1호(상속 세율) · §13의2①②(중과 — <b>유상거래·무상취득에 한정</b>) · §15①2호(1가구1주택·자경농민 특례) · §20①(신고기한) · 시행령 §28의4⑤⑥(공동상속 주택 수) · 지방세기본법 §44①⑤(연대납세의무)<br><b>주의</b> 1가구 1주택 특례 요건, 협의분할 시기, 상속주택의 주택 수 산정은 사안마다 다릅니다. <b>상속인이 여럿이고 그중 주택을 가진 분이 있다면</b> 신고 전에 확인하십시오. <span class="tag chk">확인필요</span></p></div></details>
       <div class="note" id="s_taxNote">상속 취득세 자동(농지외 <b>2.8%</b> / 농지 <b>2.3%</b> / 1가구1주택 특례 <b>0.8%</b> / 자경농민 농지 특례 <b>0.3%</b>). 특례 적용 시 <b>농특세는 면적 무관 0</b>(§15①2호 → 농특세법 §4 8호·시행령 §4④). 등기수수료 상속 <b>부동산마다 20,000(서면)·17,000(e-Form)·전자불가</b>.<br><b>지분 상속이면</b> 과세표준은 <b>지분 상당액</b>입니다(§11②).</div>
       <table class="t">
         <tr><td><span id="s_taxLabel">취득세</span> <span id="s_acqRate" class="hint"></span><span class="law" title="상속으로 받은 부동산의 취득세율 조항입니다. 농지와 농지 외를 나누어 정하고 있습니다.">지방세법 §11①1호</span></td><td><input class="cell" id="s_acqTax" type="number" oninput="calcInherit(true)"></td></tr>
@@ -747,7 +694,6 @@
     </div></div>
 
     <div class="card blue"><h2>③ 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
-      <details class="ref" style="margin:10px 0;"><summary><b>유증받은 사람이 여럿일 때 취득세는 누가 어떻게 내나</b> <span class="reftag" style="background:#e7efe6;color:var(--ok);">A</span> <span class="hint">— 「누가 받았느냐」로 규칙이 갈립니다</span></summary><div class="refbody"><div style="background:#fdf6ec;border-left:3px solid var(--gold);border-radius:6px;padding:10px 12px;margin:0 0 12px;font-size:12.5px;line-height:1.75;"><b>▸ 먼저 갈림길을 확인하십시오</b><br>§7⑦은 <b>상속</b>에 「<b>피상속인이 상속인에게 한 유증 및 포괄유증</b>」을 <b>포함</b>한다고 정합니다. 따라서 <b>같은 유증이라도 아래 두 갈래로 완전히 나뉩니다.</b><br>· <b>㉠ 「상속」으로 보는 유증</b> — 상속인에게 한 유증(포괄·특정 불문) <b>또는</b> 포괄유증<br>· <b>㉡ 그 밖의 유증</b> — <b>상속인이 아닌 사람</b>에게 한 <b>특정유증</b><br><b>위 「수증자 지위」와 「유증 유형」을 어떻게 고르셨는지에 따라 아래 규칙이 달라집니다.</b></div><div style="font-weight:800;color:var(--seal);margin:2px 0 6px;">㉠ 「상속」으로 보는 유증 — 상속과 똑같습니다</div><div style="font-size:12.5px;line-height:1.75;margin-bottom:14px;">· <b>세율</b> — 상속 세율 <b>2.8%</b>(농지 2.3%). 요건을 갖추면 1가구1주택 특례 <b>0.8%</b>·자경농민 <b>0.3%</b>(§15①2호)<br>· <b>중과 없음</b> — 중과(§13의2)는 <b>유상거래</b>와 <b>증여</b>에만 적용됩니다. <b>이미 집이 있어 2주택·3주택이 되어도 중과되지 않고, 일시적 2주택인지 따질 필요도 없습니다.</b><br>· <b>연대납세의무</b> — §7⑦ 후단이 지방세기본법 §44①·⑤를 준용합니다. 그래서 <b>수유자 중 한 사람이 신고서를 작성해 전액을 납부해도 유효</b>하고, 나머지 사람의 의무도 함께 사라집니다. <b>내부 정산(구상)은 당사자들 사이의 문제</b>입니다.<br>· <b>신고기한</b> — 상속개시일이 속하는 달의 말일부터 <b>6개월</b>(국외 주소자 있으면 9개월)</div><div style="font-weight:800;color:var(--seal);margin:2px 0 6px;">㉡ 상속인 아닌 사람에 대한 특정유증 — 증여와 같습니다</div><div style="font-size:12.5px;line-height:1.75;margin-bottom:14px;">· <b>세율</b> — 무상취득 <b>3.5%</b>(§11①2호). 비영리사업자는 <b>2.8%</b>(같은 호 단서)<br>· <b>연대납세의무가 없습니다.</b> §7⑦의 「상속」에 들어가지 않으므로 <b>각자 자기 지분만큼 따로</b> 신고·납부합니다. 한 사람이 안 내도 다른 사람에게 물리지 않습니다.<br>· <b>중과</b> — 조정대상지역의 일정가액 이상 주택이면 <b>§13의2② 검토 대상</b>이 될 수 있습니다. 다만 유증은 사망으로 효력이 생기는 것이어서 그 적용 여부가 사안마다 다릅니다. <span class="tag chk">확인필요</span><br>· <b>신고기한</b> — 취득일이 속하는 달의 말일부터 <b>3개월</b></div><table class="ref"><tr><th>구분</th><th>㉠ 「상속」으로 보는 유증</th><th>㉡ 상속인 아닌 자 특정유증</th></tr><tr><td>세율</td><td><b>2.8%</b> (특례 0.8%·0.3%)</td><td><b>3.5%</b> (비영리 2.8%)</td></tr><tr><td>다주택 중과</td><td><b>없음</b></td><td>§13의2② 검토 <span class="tag chk">확인필요</span></td></tr><tr><td>한 사람이 전액 납부</td><td><b>가능</b> (연대납세의무)</td><td><b>불가</b> — 각자 따로</td></tr><tr><td>신고기한</td><td><b>6개월</b></td><td><b>3개월</b></td></tr></table><div style="font-weight:800;color:var(--seal);margin:12px 0 6px;">유증에서만 생기는 문제들</div><div style="font-size:12.5px;line-height:1.75;">· <b>등기의무자가 있습니다.</b> 상속등기는 상속인 단독신청이지만, <b>유증등기는 공동신청</b>입니다. <b>유언집행자</b>(없으면 <b>상속인 전원</b>·민법 §1095)가 등기의무자가 되어 함께 신청해야 합니다.<br>· <b>검인</b> — <b>공정증서 유언만 검인이 필요 없습니다.</b> 자필·비밀·녹음·구수증서는 법원 검인(확인)을 거쳐야 등기가 됩니다.<br>· <b>유류분</b> — 다른 상속인의 유류분을 침해하면 반환청구를 당할 수 있습니다. 등기가 끝나도 분쟁이 남을 수 있으니, <b>유류분을 넘는 유증이라면 미리 상담</b>하십시오.<br>· <b>특정유증의 이행</b> — 수유자는 상속인(또는 유언집행자)에게 <b>이행을 청구</b>해야 합니다. 협조하지 않으면 <b>소송으로 등기를 넘겨받아야</b> 합니다.<br>· <b>법인·종중·교회도 유증을 받을 수 있습니다</b>(상속은 불가). 이 경우 서류가 크게 달라집니다.</div><p style="margin:12px 0 0;font-size:11.5px;color:#8a8270;line-height:1.7;border-top:1px solid var(--line);padding-top:10px;"><b>근거</b> 지방세법 §7⑦(상속에 유증·포괄유증 포함 · 연대납부의무) · §11①1호(상속 세율) · §11①2호(무상취득) · §13의2①②(중과 — 유상거래·증여에 한정) · §15①2호(특례) · §20①(신고기한) · 지방세기본법 §44①⑤ · 민법 §1095(유언집행자)<br><b>주의</b> ㉠·㉡의 구분은 <b>수증자가 상속인인지</b>와 <b>포괄유증인지 특정유증인지</b>로 갈립니다. 위 「유증 유형」·「수증자 지위」를 정확히 고르셔야 세율이 맞게 나옵니다. 판단이 서지 않으면 <b>유언장을 가지고 상담</b>하십시오. <span class="tag chk">확인필요</span></p></div></details>
       <div class="note" id="bq_taxNote">유증 취득세 — <b>수증자가 누구냐</b>에 따라 갈립니다.<br>▸ <b>상속인</b>에게 한 유증(포괄·특정 불문) 또는 <b>포괄유증</b> → <b>「상속」으로 보아 2.8%</b>(농지 2.3%) <span class="law" title="지방세법 제7조제7항 — 상속(피상속인이 상속인에게 한 유증 및 포괄유증과 신탁재산의 상속을 포함한다)으로 인하여 취득하는 경우에는 상속인 각자가 상속받는 취득물건을 취득한 것으로 본다">지방세법 §7⑦</span> <span class="tag chk">확인필요</span><br>▸ <b>상속인 아닌 자</b>에게 한 <b>특정유증</b> → <b>무상취득 3.5%</b>(지방세법 §11①2호). 비영리사업자는 <b>2.8%</b>(같은 호 단서)<br>▸ 1가구1주택 특례(0.8%)·자경농민 특례(0.3%)는 <b>「상속」으로 보는 경우</b>에만 검토 대상입니다(§15①2호).<br>▸ 지방교육세 — 상속 세율이면 <b>0.16%</b>((2.8%−2%)×20%), 무상 3.5%면 <b>0.3%</b>. 농특세 85㎡ 초과 0.2%.<br>▸ 등기수수료 <b>부동산마다 20,000(서면)·17,000(e-Form)·전자불가</b> <span class="hint">(상속·유증 동일)</span><br>▸ <b>신고기한</b> — 「상속」으로 보면 상속개시일이 속하는 달의 말일부터 <b>6개월</b>, 무상취득이면 취득일이 속하는 달의 말일부터 <b>3개월</b> <span class="tag chk">확인필요</span></div>
       <table class="t">
         <tr><td><span id="bq_taxLabel">취득세</span> <span id="bq_acqRate" class="hint"></span><span class="law" title="상속으로 받은 부동산의 취득세율 조항입니다. 농지와 농지 외를 나누어 정하고 있습니다.">지방세법 §11①1호</span></td><td><input class="cell" id="bq_acqTax" type="number" oninput="calcBequest(true)"></td></tr>
@@ -918,7 +864,6 @@
     </div></div>
 
     <div class="card blue"><h2>③ 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
-      <details class="ref" style="margin:10px 0;"><summary><b>여러 사람이 나눠 받으면 증여 취득세는 누가 어떻게 내나</b> <span class="reftag" style="background:#e7efe6;color:var(--ok);">A</span> <span class="hint">— 매매·상속과 각각 다릅니다</span></summary><div class="refbody"><div style="font-weight:800;color:var(--seal);margin:2px 0 6px;">① 받는 사람마다 따로 냅니다</div><div style="font-size:12.5px;line-height:1.75;margin-bottom:12px;">취득세는 <b>「취득한 자」에게</b> 부과합니다(§7①). 한 부동산을 여러 명이 나눠 받으면 <b>수증자 각자가 자기 지분만큼 따로 납세의무</b>를 집니다. 신고서·고지서·납부 모두 사람별입니다.<br>· <b>연대납세의무가 없습니다.</b> 이 점은 <b>상속과 정반대</b>입니다 — 상속은 §7⑦ 후단이 지방세기본법 §44를 준용해 상속인이 연대책임을 지지만, <b>증여에는 그런 규정이 없습니다.</b> 한 사람이 안 내도 다른 수증자에게 물리지 않습니다.<br>· <b>증여자가 대신 내주는 것</b>은 가능하지만, 그 취득세액도 <b>증여로 보아 증여세 과세대상</b>이 될 수 있습니다. 금액이 크면 미리 살펴보십시오. <span class="tag chk">확인필요</span></div><div style="font-weight:800;color:var(--seal);margin:2px 0 6px;">② 과세표준은 「시가인정액 × 내 지분」 — 세율은 3.5% 단일</div><div style="font-size:12.5px;line-height:1.75;margin-bottom:12px;">증여는 <b>무상취득 3.5%</b>(§11①2호) <b>단일세율</b>입니다. 매매처럼 <b>금액에 따라 1~3%로 나뉘는 구간이 없습니다.</b><br>· 과세표준은 <b>시가인정액</b>(§10의3)이며, 지분으로 받으면 <b>그 지분 상당액</b>이 과세표준입니다(§11②).<br>· <b>비영리사업자</b>가 받으면 <b>2.8%</b>입니다(§11①2호 단서).<br><span class="hint">예) 6억 아파트를 자녀 둘에게 반씩 → 각자 과세표준 3억 × 3.5% = 각 1,050만원.<br>매매와 달리 「전체 금액으로 세율 구간을 정하는」 문제가 없습니다.</span></div><div style="font-weight:800;color:var(--seal);margin:2px 0 6px;">③ 중과는 「조정대상지역 + 일정가액 이상 주택」일 때만</div><div style="font-size:12.5px;line-height:1.75;margin-bottom:10px;">증여 중과의 근거는 <b>§13의2②</b>입니다. 매매 중과(§13의2①)와 <b>요건이 전혀 다릅니다.</b><br><b>받는 사람이 몇 주택자인지는 보지 않습니다.</b> 대신 <b>주는 사람(증여자)이 1세대 1주택자인지</b>를 봅니다.</div><table class="ref"><tr><th>구분</th><th>매매 중과 §13의2①</th><th>증여 중과 §13의2②</th></tr><tr><td>판정 대상</td><td><b>사는 사람</b>의 세대 주택 수</td><td><b>주는 사람</b>이 1세대 1주택자인지</td></tr><tr><td>지역·가액</td><td>조정대상지역 여부로 기준 달라짐</td><td><b>조정대상지역 + 일정가액 이상</b>일 때만</td></tr><tr><td>세율</td><td>8% 또는 12%</td><td><b>12%</b></td></tr><tr><td>주요 예외</td><td>일시적 2주택(시행령 §28의5)</td><td><b>1세대 1주택자가 소유한 주택을 배우자·직계존비속이 받는 경우</b>(§13의2② 단서)</td></tr></table><div style="background:#fdf6ec;border-left:3px solid var(--gold);border-radius:6px;padding:10px 12px;margin:12px 0;font-size:12.5px;line-height:1.75;"><b>▸ 여기가 가장 헷갈리는 지점입니다</b><br>조정대상지역의 고가 아파트를 <b>자녀 둘에게 반씩</b> 증여할 때<br>· <b>증여자가 1세대 1주택자</b>이고 받는 사람이 <b>직계비속</b> → <b>단서에 걸려 중과 제외</b> → 둘 다 <b>3.5%</b><br>· <b>증여자가 2주택 이상</b> → <b>받는 사람이 무주택이어도 12%</b><br><b>받는 사람의 주택 수는 상관이 없습니다.</b> 매매와 정반대로 생각하셔야 합니다.</div><div style="font-weight:800;color:var(--seal);margin:2px 0 6px;">④ 신고·납부와 증여세는 별개입니다</div><div style="font-size:12.5px;line-height:1.75;">· <b>취득세</b> — 취득일이 속하는 달의 말일부터 <b>3개월 이내</b>, 부동산 소재지 시·군·구청(§20①). <b>지방세</b>입니다.<br>· <b>증여세</b> — 증여받은 달의 말일부터 <b>3개월 이내</b>, 수증자 주소지 <b>세무서</b>. <b>국세</b>이며 <b>완전히 별개</b>입니다.<br><span class="hint">이 계산기는 <b>취득세만</b> 계산합니다. 증여세는 배우자 6억·직계존비속 5천만원(미성년 2천만원) 등 공제가 따로 있어 <b>세무사·세무서에 확인</b>하십시오.</span><br>· <b>등기와의 관계</b> — 취득세를 먼저 내고 영수필확인서를 붙여야 등기가 됩니다. 여럿이 나눠 받으면 <b>전원의 영수필확인서</b>가 모여야 하므로, 한 사람이라도 늦으면 등기가 멈춥니다.<br>· <b>증여계약서 검인</b>이 필요합니다(판결·조정조서는 제외).</div><p style="margin:12px 0 0;font-size:11.5px;color:#8a8270;line-height:1.7;border-top:1px solid var(--line);padding-top:10px;"><b>근거</b> 지방세법 §7①(납세의무자) · §10의3(시가인정액) · §11①2호(무상취득 3.5%·비영리 2.8%) · §11②(지분 과세표준) · §13의2②(증여 중과 및 단서) · §20①(신고기한)<br><b>주의</b> 증여자의 1세대 1주택 판정, 조정대상지역·가액 기준은 사안과 시점에 따라 달라집니다. <b>중과 여부는 계산기가 자동 판정하지 않습니다.</b> 위 「증여자가 1세대 1주택」 선택을 확인하시고, 금액이 크면 사전에 상담하십시오. <span class="tag chk">확인필요</span></p></div></details>
       <div class="note" id="gv_taxNote">증여 취득세 <b>3.5%</b>(조정대상 3억↑ 주택은 <b>12% 중과</b>) 자동. 교육세 0.3%(중과 0.4%)·농특세 85㎡↑ 0.2%. 등기수수료 일반(매 부동산).<br><b>지분 이전이면</b> 과세표준은 <b>지분 상당액</b>입니다(§11②). 다만 <b>조정대상 3억 중과 판정</b>은 <b>주택 전체</b> 시가표준액 기준입니다(§13의2②).</div>
       <table class="t">
         <tr><td>취득세 <span id="gv_acqRate" class="hint"></span><span class="law" title="상속이 아닌 무상취득(증여)의 취득세율 조항입니다. 본문은 1천분의 35(3.5%), 단서는 대통령령이 정하는 비영리사업자에게 1천분의 28(2.8%)을 적용합니다.">지방세법 §11①2호</span></td><td><input class="cell" id="gv_acqTax" type="number" oninput="calcGift(true)"></td></tr>
@@ -1062,7 +1007,6 @@
         <label><input type="radio" name="ea_merger" value="normal"> 그 밖의 합병·분할 — §11⑤</label></div></div>
       <div class="note" id="ea_desc"></div>
       <div class="line"><span class="lbl">과세표준(원)</span><input type="number" class="amt" id="ea_price" placeholder="0" oninput="calcEtcAcq()"><span class="hint" id="ea_priceHint"></span></div>
-      <div class="stdlkMount" data-k="all"></div>
       <div class="line" id="ea_ptypeRow"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcEtcAcq()">
         <label><input type="radio" name="ea_ptype" value="house" checked> 주택</label>
         <label><input type="radio" name="ea_ptype" value="etc"> 주택외</label>
@@ -1191,7 +1135,6 @@
         <label><input type="radio" name="pt_bondKind" value="free" checked> 무상취득(18/28/42 · 14/25/39)</label>
         <label><input type="radio" name="pt_bondKind" value="paid"> 유상 소유권이전(주택13~31 등)</label></div></div>
       <div class="line"><span class="lbl">시가표준액(원)</span><input type="number" class="amt" id="pt_bondStd" placeholder="0" oninput="calcBondPartition()"><span class="hint">부동산마다 개별 산정 <span id="pt_bondPct" class="hint"></span></span></div>
-      <div class="stdlkMount" data-k="all"></div>
       <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="pt_region" value="metro" checked onchange="calcBondPartition()"> 특별시·광역시</label><label><input type="radio" name="pt_region" value="other" onchange="calcBondPartition()"> 기타지역</label></div></div>
       <div class="line"><span class="lbl">채권 매입금(원)</span><input type="number" class="amt" id="pt_bondBuy" placeholder="0" oninput="calcPartition()"><span class="hint">자동 산출(직접 수정 가능)</span></div>
       <details class="ref"><summary>매입률 참고표 <span class="reftag" style="background:#e7efe6;color:var(--ok);">A</span> <span class="hint">— 계산기에 내장된 실제 요율</span></summary><div class="refbody"><div class="bondRefMount"></div><p style="margin:8px 0 0;font-size:11.5px;color:#8a8270;line-height:1.6;"><b>근거</b> 주택도시기금법 §8②·시행령 §8② [별표] 부표 1(부동산 등기) — 위 표는 <b>계산기에 내장된 값을 그대로 출력</b>한 것입니다.<br><b>계산규칙</b> 5천원 미만 절사 / 5천원 이상 올림 → 만원 단위 · 각 부동산마다 개별 산정 · 공유지분은 지분율을 곱한 시가표준액으로 판정 · 공동주택은 세대당 시가표준액</p></div></details>
@@ -1315,14 +1258,12 @@
       <div class="note" style="border-left:3px solid var(--seal);">▸ 경매·공매 낙찰은 <b>대가를 지급하고 취득</b>하는 것이므로 <b>유상 소유권이전 요율</b>이 적용됩니다. 무상취득 요율이 아닙니다.</div>
       <div class="line" style="display:none;"><div class="radios"><label><input type="radio" name="nk_bondKind" value="paid" checked> 유상</label></div></div>
       <div class="line"><span class="lbl">시가표준액(원)</span><input type="number" class="amt" id="nk_bondStd" placeholder="0" oninput="calcBondNakchal()"><span class="hint">부동산마다 개별 산정 <span id="nk_bondPct" class="hint"></span></span></div>
-      <div class="stdlkMount" data-k="all"></div>
       <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="nk_region" value="metro" checked onchange="calcBondNakchal()"> 특별시·광역시</label><label><input type="radio" name="nk_region" value="other" onchange="calcBondNakchal()"> 기타지역</label></div></div>
       <div class="line"><span class="lbl">채권 매입금(원)</span><input type="number" class="amt" id="nk_bondBuy" placeholder="0" oninput="calcNakchal()"><span class="hint">자동 산출(직접 수정 가능)</span></div>
       <details class="ref"><summary>매입률 참고표 <span class="reftag" style="background:#e7efe6;color:var(--ok);">A</span> <span class="hint">— 계산기에 내장된 실제 요율</span></summary><div class="refbody"><div class="bondRefMount"></div><p style="margin:8px 0 0;font-size:11.5px;color:#8a8270;line-height:1.6;"><b>근거</b> 주택도시기금법 §8②·시행령 §8② [별표] 부표 1(부동산 등기) — 위 표는 <b>계산기에 내장된 값을 그대로 출력</b>한 것입니다.<br><b>계산규칙</b> 5천원 미만 절사 / 5천원 이상 올림 → 만원 단위 · 각 부동산마다 개별 산정 · 공유지분은 지분율을 곱한 시가표준액으로 판정 · 공동주택은 세대당 시가표준액</p></div></details>
     </div></div>
 
     <div class="card blue"><h2>③ 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
-      <details class="ref" style="margin:10px 0;"><summary><b>여러 사람이 지분으로 나눠 사면 취득세는 누가 어떻게 내나</b> <span class="reftag" style="background:#e7efe6;color:var(--ok);">A</span> <span class="hint">— 다주택자가 섞여 있을 때까지</span></summary><div class="refbody"><div style="font-weight:800;color:var(--seal);margin:2px 0 6px;">① 각자 냅니다 — 대표 한 사람이 몰아서 내는 것이 아닙니다</div><div style="font-size:12.5px;line-height:1.75;margin-bottom:12px;">취득세는 <b>「취득한 자」에게 부과</b>합니다(지방세법 §7①). 지분으로 나눠 사면 <b>각자가 자기 지분만큼 따로 납세의무</b>를 집니다.<br>· 신고서도 <b>취득자마다 각각</b> 냅니다. 실무상 한 자리에서 함께 접수하지만, <b>고지서와 납부는 사람별로 따로</b> 나옵니다.<br>· <b>연대납세의무가 아닙니다.</b> 한 사람이 안 내도 다른 사람에게 그 몫을 물리지 않습니다. <span class="hint">(연대납세의무는 <b>상속</b>(§7⑦ → 지방세기본법 §44①·⑤)과 <b>과점주주</b>(§7⑤)에만 있습니다. 일반 매매 공동취득은 해당하지 않습니다)</span><br>· 다만 <b>한 사람이 대신 내주는 것</b>은 가능합니다. 그 경우 <b>증여로 볼 여지</b>가 있으니 금액이 크면 미리 살펴보십시오.</div><div style="font-weight:800;color:var(--seal);margin:2px 0 6px;">② 세율은 「부동산 전체 금액」으로, 세금은 「내 지분」에만</div><div style="font-size:12.5px;line-height:1.75;margin-bottom:12px;">지분을 사도 <b>세율 구간은 부동산 전체 가액</b>으로 정합니다(§11①8호 후단). 그 세율을 <b>내 지분 상당액에만</b> 곱합니다(§11②).<br><span class="hint">예) 10억 아파트를 형제 둘이 반씩 → 세율은 <b>10억 기준(3%)</b>, 과세표준은 각자 <b>5억</b> → 각자 1,500만원.<br>「내가 5억어치 샀으니 6억 이하 1%」로 계산하면 <b>틀립니다.</b></span></div><div style="font-weight:800;color:var(--seal);margin:2px 0 6px;">③ 다주택자가 섞여 있으면 — <b>사람마다 세율이 다릅니다</b></div><div style="font-size:12.5px;line-height:1.75;margin-bottom:10px;">중과세율은 <b>「1세대」의 주택 수</b>로 판정합니다(§13의2·시행령 §28의4①). 그리고 <b>세대는 취득자마다 따로</b>입니다. 같은 집을 같은 날 함께 사도 <b>세율이 서로 다를 수 있습니다.</b><br><b>같은 세대인지 다른 세대인지</b>가 갈림길입니다.</div><table class="ref"><tr><th>상황</th><th>주택 수 판정</th><th class="r">결과</th></tr><tr><td><b>부부</b>가 공동명의<br><span class="hint">(같은 세대)</span></td><td><b>합쳐서 1주택</b>으로 봅니다 — 1세대 안에서 세대원이 공동소유하면 <b>1개를 소유한 것</b>(시행령 §28의4④)</td><td class="r">둘 다 <b>같은 세율</b></td></tr><tr><td><b>부모 + 독립세대 자녀</b><br><span class="hint">(다른 세대)</span></td><td><b>각자 자기 세대</b>의 주택 수로 따로 판정</td><td class="r"><b>세율이 갈립니다</b></td></tr><tr><td><b>형제·지인</b> 공동구입<br><span class="hint">(다른 세대)</span></td><td>각자 자기 세대 기준 — 한 명이 2주택자면 <b>그 사람만</b> 중과</td><td class="r"><b>세율이 갈립니다</b></td></tr></table><div style="background:#fdf6ec;border-left:3px solid var(--gold);border-radius:6px;padding:10px 12px;margin:12px 0;font-size:12.5px;line-height:1.75;"><b>▸ 실제로 이렇게 됩니다</b><br>10억원 아파트를 <b>무주택인 A</b>와 <b>2주택자인 B</b>가 각 50%씩 산다면(조정대상지역, 서로 다른 세대)<br>· <b>A</b> — 1주택 세율 <b>3%</b> × 과세표준 5억 = <b>1,500만원</b><br>· <b>B</b> — 3주택이 되어 중과 <b>12%</b> × 과세표준 5억 = <b>6,000만원</b><br><b>같은 집, 같은 지분인데 세금은 4배 차이</b>가 납니다. 이것을 모르고 계약하면 잔금 때 문제가 생깁니다.</div><div style="font-weight:800;color:var(--seal);margin:2px 0 6px;">④ 그러면 어떻게 하는 것이 좋은가</div><div style="font-size:12.5px;line-height:1.75;margin-bottom:12px;"><b>계약 전에</b> 정하셔야 합니다. 등기가 넘어간 뒤에는 되돌리기 어렵습니다.<br>· <b>지분 비율을 조정</b> — 중과 대상인 분의 지분을 줄이면 그만큼 세금이 줍니다. 다만 <b>실제 자금 부담과 지분이 어긋나면 증여 문제</b>가 생기니, 각자 낸 돈에 맞추는 것이 원칙입니다.<br>· <b>중과 대상자를 빼는 것</b>도 방법입니다. 다만 명의만 빌리는 것은 <b>부동산실명법 위반</b>이 되니 안 됩니다.<br>· <b>일시적 2주택</b>에 해당하는지 확인하십시오. 종전 주택을 <b>3년 안에</b> 팔면 중과를 피할 수 있습니다(시행령 §28의5).<br>· <b>주택 수에서 빠지는 것</b>이 있습니다 — 시가표준액 1억원 이하 주택, 농어촌주택, 상속 개시 5년 이내 상속주택 등(시행령 §28의4⑥). <b>내가 다주택자라고 생각했는데 아닐 수도</b> 있습니다.<br>· <b>취득 순서</b>를 정할 수 있습니다 — 같은 날 2개 이상을 취득하면 <b>납세의무자가 정하는 순서</b>로 봅니다(시행령 §28의4②).</div><div style="font-weight:800;color:var(--seal);margin:2px 0 6px;">⑤ 신고·납부는 이렇게</div><div style="font-size:12.5px;line-height:1.75;">· <b>기한</b> — 취득일부터 <b>60일 이내</b>(§20①). 넘기면 <b>무신고가산세 20%</b>와 납부지연가산세가 붙습니다.<br>· <b>어디에</b> — 부동산 소재지 시·군·구청. 위택스(서울은 이택스)에서 전자신고도 됩니다.<br>· <b>등기와의 관계</b> — 취득세를 <b>먼저 내고</b> 그 영수필확인서를 붙여야 등기가 접수됩니다. 공동취득이면 <b>전원의 영수필확인서</b>가 모여야 하므로, 한 사람이라도 늦으면 등기 전체가 멈춥니다.<br>· <b>감면은 사람마다</b> — 생애최초 감면(지특법 §36의3) 등은 <b>요건을 갖춘 사람만</b> 받습니다. 공동취득 시에는 <b>총 감면액이 한도</b>입니다.</div><p style="margin:12px 0 0;font-size:11.5px;color:#8a8270;line-height:1.7;border-top:1px solid var(--line);padding-top:10px;"><b>근거</b> 지방세법 §7①(납세의무자) · §11①8호 후단·§11②(지분 과세표준) · §13의2(중과세율) · §20①(신고납부) · 시행령 §28의4①②④⑤⑥(주택 수 산정) · §28의5(일시적 2주택) · 지방세기본법 §44(연대납세의무) · 지방세특례제한법 §36의3<br><b>주의</b> 세대 판정·주택 수 산정은 사안마다 다릅니다. 특히 <b>세대 분리 여부</b>는 주민등록만으로 정해지지 않습니다. 금액이 크면 <b>계약 전에</b> 관할 시·군·구청 세무과나 저희 사무소에 확인하십시오. <span class="tag chk">확인필요</span></p></div></details>
       <div class="note" id="nk_taxNote"></div>
       <details class="ref" style="margin-bottom:12px;"><summary>공유물분할 세율 근거 <span class="reftag">A</span></summary><div class="refbody">
         <table class="ref"><tr><th>구분</th><th class="r">취득세</th><th class="r">교육세</th><th class="r">농특세</th><th class="r">합계</th></tr>
@@ -1539,7 +1480,6 @@
       <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에 <b>등기 당일 값</b>을 넣으셔야 정확합니다.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
       <div class="note">부담부증여는 채권 매입률을 <b>부담부분(유상)·증여분(무상) 각각</b> 적용 후 합산합니다(협회 방식). 시가표준액과 각 매입률을 입력하세요.</div>
       <div class="line"><span class="lbl">시가표준액(원)</span><input type="number" class="amt" id="bv_bondStd" placeholder="0" oninput="calcBondBurden()"><span class="hint">전체 부동산 시가표준액</span></div>
-      <div class="stdlkMount" data-k="all"></div>
       <div class="line"><span class="lbl">부담부분 매입률(‰)</span><input type="number" id="bv_pctDebt" placeholder="예: 31" step="0.1" style="width:120px;" oninput="calcBondBurden()"><span class="hint">유상분 비율 × 시가표준액</span></div>
       <div class="line"><span class="lbl">증여분 매입률(‰)</span><input type="number" id="bv_pctGift" placeholder="예: 42" step="0.1" style="width:120px;" oninput="calcBondBurden()"><span class="hint">무상분 비율 × 시가표준액</span></div>
       <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="bv_region" value="metro" checked onchange="calcBondBurden()"> 특별시·광역시</label><label><input type="radio" name="bv_region" value="other" onchange="calcBondBurden()"> 기타지역</label></div></div>
@@ -1698,7 +1638,6 @@
         <label><input type="radio" name="ga_type" value="own" checked> 소유권이전청구권(부동산가액)</label>
         <label><input type="radio" name="ga_type" value="debt"> 담보가등기(채권액)</label></div></div>
       <div class="line"><span class="lbl">과세표준(원)</span><input type="number" class="amt" id="ga_base" placeholder="0" oninput="calcGadeungi()"><span class="hint">부동산가액 또는 채권액</span></div>
-      <div class="stdlkMount" data-k="all"></div>
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('ga_cntEstate',-1,calcGadeungi)">−</button><input type="number" id="ga_cntEstate" value="1" min="1" oninput="calcGadeungi()"><button onclick="step('ga_cntEstate',1,calcGadeungi)">+</button></div></div>
       <div class="line"><span class="lbl">감면·가산 등</span><div class="checks" onchange="calcGadeungi()">
         <label><input type="checkbox" id="ga_verify"> 확인서면(등기권리증 분실·법§51)</label></div></div>
@@ -1910,22 +1849,15 @@
       <div class="row"><span>공과금계</span><span id="rd_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계</span><span id="rd_t_grand">0 원</span></div></div>
     <div class="actions"><button class="btn" onclick="calcRedev()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
-
-    <div class="card green"><h2>⑨ 준비서류 — 등기소에 낼 것</h2><div class="body"><div class="note" style="border-left:3px solid var(--ok);">▸ <b>아래 서류를 갖추어 등기소에 내십시오.</b><br><span class="hint">근거 · 도시 및 주거환경정비법 §86 · 부동산등기법 §23 · 정비사업 등기 관련 등기예규</span></div><div class="note">▸ <b>이 등기는 조합이 일괄로 신청하는 것이 원칙</b>입니다. 조합원 개인이 따로 하는 절차가 아닙니다. 아래 목록은 <b>조합·시행자가 준비하는 서류</b>이며, <b>조합원 개인은 ⑤번만</b> 챙기시면 됩니다.<br>▸ <b>이전고시가 먼저입니다.</b> 이전고시가 있어야 등기를 신청할 수 있고(도시정비법 §86①), 고시 다음 날 소유권이 이전됩니다.<br>▸ <b>종전 등기 말소 → 신규 보존 → 담보권 등 이기</b>가 한 묶음으로 진행됩니다.</div><div class="docs" style="margin-top:10px;"><b>① 사업 진행을 증명하는 서류</b><br>· <b>이전고시</b> 관련 서류 <span class="hint">(고시문·고시가 실린 공보)</span><br>· <b>관리처분계획 인가서</b>와 인가 고시<br>· <b>준공인가서</b> · 사용검사(사용승인) 관련 서류<br>· <b>조합설립인가서</b>, 사업시행계획 인가서<br></div><div class="docs" style="margin-top:10px;"><b>② 조합(시행자) 서류</b><br>· <b>법인등기사항전부증명서</b> <span class="hint">(조합은 법인입니다)</span><br>· <b>법인인감증명서</b> · 법인인감도장<br>· <b>정관</b> · <b>총회 의사록</b> <span class="hint">(등기 신청에 관한 결의가 필요한 경우)</span><br>· <b>대표자 자격</b>을 증명하는 서류<br></div><div class="docs" style="margin-top:10px;"><b>③ 종전·신규 부동산을 특정하는 서류</b><br>· <b>종전</b> 토지·건물의 <b>등기사항전부증명서</b> — 말소 대상 전부<br>· <b>신규</b> 건물의 <b>건축물대장</b>(집합건축물대장 전유부·표제부), <b>대지권등록부</b><br>· <b>조성된 토지</b>의 토지대장, 지적도<br>· <b>환지·이전 대비표</b> — 종전 부동산과 새 부동산의 대응 관계를 보여 주는 표<br>· <b>등기촉탁·신청 목록</b> — 대상 물건이 많으므로 목록 작성이 실무의 핵심입니다<br></div><div class="docs" style="margin-top:10px;"><b>④ 담보권 등 권리를 옮길 때</b><br>· 종전 부동산에 있던 <b>저당권·전세권·임차권·가등기·가압류·가처분</b> 등의 내역<br>· <b>권리자별 동의·확인 서류</b> <span class="hint">(이기 대상과 순위를 정리해야 합니다)</span><br>· <b>말소할 권리</b>와 <b>새 부동산으로 옮길 권리</b>를 나눈 정리표<br>· 전유부분과 대지권에 <b>같은 내용</b>의 권리가 있으면 대지권은 별건으로 보지 않습니다(보수기준 §12 3호 단서)<br></div><div class="docs" style="margin-top:10px;"><b>⑤ 조합원 개인이 준비할 것</b><br>· <b>주민등록초본</b> <span class="hint">(주소변동 내역 포함 — 등기부 주소와 다르면 반드시)</span><br>· <b>인감증명서</b> · <b>인감도장</b> <span class="hint">(조합이 요청하는 경우)</span><br>· <b>등기권리증(등기필정보)</b> — 종전 부동산의 것<br>· 상속이 있었다면 <b>상속 관련 서류 전부</b> <span class="hint">(보수기준 §12 4호 — 상속이전을 함께 신청합니다)</span><br>· <b>취득세</b> 관련 서류 <span class="hint">(청산금을 더 낸 경우 등)</span> <b>[관할 시군구 확인]</b><br></div><div class="docs" style="margin-top:10px;"><b>⑥ 세금·수수료</b><br>· <b>취득세·등록면허세 영수필확인서</b><br>· <b>국민주택채권 매입필증</b><br>· <b>등기신청수수료 영수필확인서</b><br>· <b>위임장</b><br></div><div class="line" style="border:none;padding-top:8px;"><span class="lbl">서류 떼는 곳</span><span style="display:flex;flex-wrap:wrap;gap:6px;"><a href="http://www.iros.go.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">인터넷등기소 ↗</a><a href="https://www.gov.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">정부24 · 대장 발급 ↗</a><a href="https://www.eum.go.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">토지이음 ↗</a></span></div><div class="note" style="background:#fdf6ec;border-left:3px solid var(--gold);">▸ <b>정비사업 등기는 대상 물건이 많고 권리관계가 복잡합니다.</b> 목록 하나만 틀려도 전체가 보정 대상이 됩니다. <b>조합 차원에서 법무사에게 일괄 위임</b>하시는 것이 일반적입니다. <b>[등기소 사전협의 권장]</b></div></div></div>
   </div>
 
   <!-- ===== 신탁등기 (풀기능) ===== -->
-
   <div class="scene" id="scene-신탁등기">
     <button class="back" onclick="goMenu()">‹ 메인메뉴</button>
     <h2 class="stitle">신탁등기 <small>보수표 Ⅰ-4 유형별 정액 · 등록면허세 건당 6,000원 · 소유권이전분 비과세</small></h2>
 
     <div class="card blue"><h2>① 신탁등기 정보</h2><div class="body">
-      <div class="line"><span class="lbl">신탁등기 유형</span><select id="st_trustType" onchange="calcSintak()"><option value="Ⅰ-4(1)" selected>신탁·재신탁·담보권신탁·고유재산 변경 등 (150,000)</option><option value="Ⅰ-4(2)">신탁원부 변경·합유명의인 변경·합병분할 (80,000)</option><option value="Ⅰ-4(3)">유한책임신탁 설정 (220,000)</option><option value="Ⅰ-4(4)">신탁등기 말소 (50,000)</option><option value="Ⅰ-4(5)">그 밖의 신탁 등기 (70,000)</option><option value="§11③">위탁자 선언·고유재산 변경·위탁자 지위이전 〔§11①1호 <b>+</b> §11③ 합산〕</option><option value="§11⑤">수탁자 경질로 인한 등기 〔§11⑤ → 소유권이전 보수로 <b>대체</b>〕</option><option value="§11⑧">담보신탁 수익자 변경·수익금액 증가 〔§11⑧ → 담보권 보수로 <b>대체</b>〕</option></select><span class="law" id="st_trustLaw" title="유형을 고르시면 해당 조문 전문이 이 자리에 표시됩니다.">보수기준 §11</span></div>
-      <div class="note" id="st_lawBox" style="border-left:3px solid var(--gold);display:none;"></div>
-      <div class="line" id="st_rowSimul"><span class="lbl">소유권이전 등을 <b>동시신청</b></span><label class="chk"><input type="checkbox" id="st_simul" onchange="calcSintak()"> 동시에 신청합니다</label><span class="law" title="법무사보수기준 §11② — 소유권이전등기와 (재)신탁등기, 소유권이전등기와 신탁등기의 말소등기, 청구권보전가등기와 신탁가등기, 담보권설정등기와 담보권신탁등기, 유언대용신탁을 원인으로 하는 소유권이전등기와 신탁등기를 동시에 신청하는 경우에는 두 유형의 등기에 대한 보수를 합산한다">보수기준 §11②</span></div>
-      <div class="line" id="st_rowSimulBase" style="display:none;"><span class="lbl">동시신청분 과세표준(원)</span><input type="number" class="amt" id="st_simulBase" placeholder="0" oninput="calcSintak()"><span class="hint">소유권이전·담보권설정 등의 과세표준 → <b>§9① 표</b>로 산정해 합산합니다</span></div>
-      <div class="line" id="st_rowSimulKind" style="display:none;"><span class="lbl">동시신청 등기 종류</span><select id="st_simulKind" onchange="calcSintak()"><option value="Ⅰ-1">소유권이전 · 담보권설정 등 〔§9① 표〕</option><option value="Ⅰ-3(4)">말소등기 〔§9⑤4호 80,000〕</option><option value="Ⅰ-3(2)">권리의 변경·경정 〔§9⑤2호 120,000〕</option></select><span class="hint">§11④ 일부처분은 「소유권일부이전 + 신탁말소」로 잡습니다</span></div>
+      <div class="line"><span class="lbl">신탁등기 유형</span><select id="st_trustType" onchange="calcSintak()"><option value="Ⅰ-4(1)" selected>신탁·재신탁·담보권신탁·고유재산 변경 등 (150,000)</option><option value="Ⅰ-4(2)">신탁원부 변경·합유명의인 변경·합병분할 (80,000)</option><option value="Ⅰ-4(3)">유한책임신탁 설정 (220,000)</option><option value="Ⅰ-4(4)">신탁등기 말소 (50,000)</option><option value="Ⅰ-4(5)">그 밖의 신탁 등기 (70,000)</option></select><span class="law" title="법무사보수기준 §11①·보수표 Ⅰ-4 — 신탁등기 유형별 정액 기본보수">보수기준 §11①</span></div>
       <div class="line"><span class="lbl">부동산가액(원)</span><input type="number" class="amt" id="st_base" placeholder="0" oninput="calcSintak()"><span class="hint">참고용(보수는 유형별 정액)</span></div>
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('st_cntEstate',-1,calcSintak)">−</button><input type="number" id="st_cntEstate" value="1" min="1" oninput="calcSintak()"><button onclick="step('st_cntEstate',1,calcSintak)">+</button></div></div>
       <div id="st_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="st_adjust" onchange="calcSintak()">
@@ -1933,8 +1865,7 @@
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
-        <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select><span class="law" title="법무사보수기준 §11⑨ — 신탁계약서와 신탁원부 작성 등 신탁등기 신청과 관련한 업무의 난이도, 복잡 정도, 처리에 소요되는 시간 및 노력의 정도 등을 고려하여 위임인과 협의로 당해 기본보수의 100% 상당액까지 가산할 수 있다">보수기준 §11⑨</span></div>
-      <div class="note" style="border-left:3px solid var(--gold);">▸ <b>신탁은 따로 가산 규정이 있습니다</b> — 보수기준 <b>§11⑨</b> <span class="tag A">A</span><br><b>신탁계약서와 신탁원부 작성</b> 등 신탁등기 신청과 관련한 업무의 <b>난이도·복잡한 정도·소요 시간과 노력</b>을 고려하여, <b>위임인과 협의</b>로 <b>기본보수의 100%까지</b>(위 조정 <b>200%</b>) 가산할 수 있습니다.<br><span class="hint">▸ 이는 §10③(§2②각호 사유)과 <b>별개</b>입니다. §10③은 사건이 중대·복잡한 경우가 요건이지만, §11⑨는 <b>신탁원부를 짜는 일 자체의 부담</b>이 요건입니다.</span><br><span class="hint" style="color:var(--seal);">※ 가산은 <b>위임인과 협의</b>하여 정합니다. 계산기가 자동으로 올리지 않습니다.</span></div>
+        <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
       <div class="line"><span class="lbl">당사자 다수 가산</span><span>등기권리자</span><input type="number" id="st_pnOwn" value="1" min="1" style="width:52px;margin:0 4px;" oninput="calcSintak()"><span>인</span><span style="margin-left:6px;">등기의무자</span><input type="number" id="st_pnObl" value="1" min="0" style="width:52px;margin:0 4px;" oninput="calcSintak()"><span>인</span><select id="st_pnAdd" onchange="calcSintak()" style="margin-left:8px;"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint" id="st_pnInfo" style="margin-left:8px;"></span></div><div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="st_frAdd" onchange="calcSintak()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§10⑥</b> — 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는</b> 등기 → <b>기본보수의 100%까지</b> 가산</span></div>
       <div class="line"><span class="lbl">여러 등기소 가산</span><select id="st_moAdd" onchange="calcSintak()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
     </div></div>
@@ -1944,7 +1875,7 @@
       <table class="t">
         <tr><td>등록면허세 (신탁 건당 6,000)<span class="law" title="신탁으로 인한 소유권이전분은 형식적 소유권 취득이어서 등록면허세를 부과하지 않습니다(§26②). 신탁등기 자체는 「그 밖의 등기」로 보아 건당 6,000원입니다.">지방세법 §26②·§28①1호마목</span></td><td><input class="cell" id="st_regTax" type="number" oninput="calcSintak(true)"></td></tr>
         <tr><td>지방교육세 (건당 1,200)<span class="law" title="지방교육세를 정한 조항입니다. 2호는 납부해야 할 「등록면허세액의 100분의 20(20%)」을 세액으로 합니다.">지방세법 §151①2호</span></td><td><input class="cell" id="st_eduTax" type="number" oninput="calcSintak(true)"></td></tr>
-        <tr><td>등기신청수수료 <select id="st_regMethod" class="mini" onchange="calcSintak()"><option value="e" selected>e-Form 6,000</option><option value="p">수기 6,000</option><option value="o">전자 4,000</option></select> <span class="hint" id="st_regNote"></span><span class="law" title="「등기사항증명서 등 수수료규칙」 §5의2 — 부동산 등기신청수수료. 2025.8.1. 시행(대법원규칙 제3222호)으로 방문서면·e-Form이 인상되었고 전자신청은 동결되었습니다.">수수료규칙 §5의2</span></td><td class="auto" id="st_regFeeCell">0 원</td></tr>
+        <tr><td>등기신청수수료 <select id="st_regMethod" class="mini" onchange="calcSintak()"><option value="e" selected>e-Form 6,000</option><option value="p">수기 8,000</option><option value="o">전자 4,000</option></select> <span class="hint" id="st_regNote"></span><span class="law" title="「등기사항증명서 등 수수료규칙」 §5의2 — 부동산 등기신청수수료. 2025.8.1. 시행(대법원규칙 제3222호)으로 방문서면·e-Form이 인상되었고 전자신청은 동결되었습니다.">수수료규칙 §5의2</span></td><td class="auto" id="st_regFeeCell">0 원</td></tr>
         <tr><td>대장·등본 우편 등 <span class="hint">(개수 곱)</span></td><td><input class="cell" id="st_postFee" type="number" value="6000" oninput="calcSintak(true)"></td></tr>
         <tr class="subtot"><td>공과금계</td><td id="st_publicSum">0 원</td></tr>
       </table>
@@ -1971,7 +1902,11 @@
     <div class="actions"><button class="btn" onclick="calcSintak()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
 
     <div class="card green"><h2>④ 신탁등기 준비서류</h2><div class="body">
-      <div class="note" style="border-left:3px solid var(--ok);">▸ <b>아래 서류를 갖추어 등기소에 내십시오.</b><br><span class="hint">근거 · 부동산등기법 §81·§82 · 신탁법 §3·§4 · 부동산등기규칙 §139의2</span></div><div class="note">▸ <b>신탁등기는 혼자 하는 등기가 아닙니다.</b> 소유권이전등기(또는 보존·설정등기)와 <b>반드시 동시에</b> 신청해야 합니다(부동산등기법 §82①).<br>▸ <b>가장 중요한 서류는 「신탁원부 작성용 정보」</b>입니다. 아래 ④번을 꼭 읽어 보십시오.</div><div class="docs" style="margin-top:10px;"><b>① 위탁자(재산을 맡기는 사람) — 등기의무자</b><br>· <b>등기권리증(등기필정보)</b> <span class="hint">(분실 시 확인서면 등으로 갈음 — 비용·시간이 더 듭니다)</span><br>· <b>인감증명서</b> 1통 <span class="hint">(발급 3개월 이내)</span> + <b>인감도장</b><br>· <b>주민등록초본</b> 1통 <span class="hint">(주소변동 내역 포함)</span><br>· 신분증<br>· <b>법인</b>이면 법인등기사항증명서 · 법인인감증명서 · 법인인감도장<br></div><div class="docs" style="margin-top:10px;"><b>② 수탁자(재산을 맡아 관리할 사람) — 등기권리자</b><br>· <b>주민등록초본</b> 1통 · 도장 · 신분증<br>· <b>신탁업자(신탁회사)</b>라면 법인등기사항증명서 · 법인인감증명서 · 법인인감도장<br>· <span class="hint">신탁업은 금융위원회 인가 사항입니다. 영업으로 하는 신탁이라면 <b>인가받은 신탁업자</b>여야 합니다</span><br></div><div class="docs" style="margin-top:10px;"><b>③ 공통으로 내는 것</b><br>· <b>신탁계약서</b> <span class="hint">(유언신탁이면 유언증서, 자기신탁이면 공정증서)</span><br>· <b>신탁원부 작성용 정보</b> ← <b>④번 참고</b><br>· <b>등록면허세 영수필확인서</b><br>· <b>등기신청수수료 영수필확인서</b><br>· <b>위임장</b> <span class="hint">(대리 신청 시)</span><br>· <b>부동산 등기사항전부증명서</b> — 현재 권리관계를 미리 확인하십시오<br></div><div class="docs" style="margin-top:10px;background:#fdf6ec;border-left:3px solid var(--gold);"><b>④ 「신탁원부 작성용 정보」란 무엇인가</b><br><span class="hint">신탁원부는 <b>등기부의 일부로 봅니다</b>(부동산등기법 §81③). 즉 여기 적은 내용이 <b>등기부에 그대로 공시</b>되어 누구나 열람할 수 있고, 나중에 고치려면 <b>변경등기</b>를 따로 해야 합니다. 처음에 정확히 정해 두시는 것이 중요합니다.</span><br><br><b>■ 반드시 정해야 하는 것</b><br>· <b>1. 위탁자·수탁자·수익자</b>의 성명(법인은 명칭)과 주소(법인은 사무소 소재지)<br>&nbsp;&nbsp;<span class="hint">→ 세 사람이 각각 누구인지 확정하십시오. <b>위탁자가 곧 수익자</b>인 경우(자익신탁)가 가장 흔합니다</span><br>· <b>9. 신탁의 목적</b> — <b>무엇을 하려고 맡기는가</b><br>&nbsp;&nbsp;<span class="hint">→ 관리를 맡기는 것인지(관리신탁), 팔아 달라는 것인지(처분신탁), 개발하려는 것인지(개발신탁), 대출 담보로 쓰려는 것인지(담보신탁)를 적습니다</span><br>· <b>10. 신탁재산의 관리·처분·운용·개발 방법</b> — <b>수탁자가 무엇을 할 수 있는가</b><br>&nbsp;&nbsp;<span class="hint">→ 임대를 놓을 수 있는지, 팔 수 있는지, 담보로 제공할 수 있는지, 그때 <b>위탁자·수익자의 동의가 필요한지</b>를 정합니다. <b>여기가 가장 중요합니다</b> — 적어 두지 않은 권한은 나중에 다툼이 됩니다</span><br>· <b>11. 신탁 종료 사유</b> — <b>언제 끝나는가</b><br>&nbsp;&nbsp;<span class="hint">→ 기간 만료, 목적 달성, 대출 상환 완료, 위탁자·수익자의 합의 등</span><br>· <b>12. 그 밖의 신탁 조항</b> — 신탁보수, 비용 부담, 수탁자 사임·해임, 잔여재산 귀속자 등<br><br><b>■ 해당할 때만 적는 것</b><br>· <b>2·3. 수익자를 지정·변경할 권한을 가진 사람</b>과 그 <b>방법</b><br>· <b>4. 수익권의 발생·소멸 조건</b> <span class="hint">(예: 대출 완제 시 수익권 소멸)</span><br>· <b>5. 신탁관리인</b>이 선임된 경우 그 성명·주소<br>· <b>6~8. 특수한 신탁</b>인 경우 그 뜻 — 수익자가 없는 <b>목적신탁</b>, <b>재신탁</b>, <b>유언대용신탁</b>, <b>수익자연속신탁</b>, <b>수익증권발행신탁</b>, <b>공익신탁</b>, <b>유한책임신탁</b><br>&nbsp;&nbsp;<span class="hint">→ 유한책임신탁이면 <b>신탁사업의 명칭</b>과 <b>신탁사무처리지</b>도 함께 적습니다</span><br><br><b>■ 실무는 이렇게 합니다</b><br>· 위탁자·수탁자·수익자·신탁관리인에 관한 사항 외의 조항은 <b>신탁계약서를 별지로 붙여</b> 공시하는 것이 현재 등기실무입니다<br>· 따라서 <b>신탁계약서를 잘 쓰는 것이 곧 신탁원부를 잘 만드는 것</b>입니다<br>· 등기소에 낼 때는 <b>전자문서(신탁원부 작성정보 파일)</b>로 제출하는 것이 원칙입니다 <b>[등기소 확인]</b><br>· <span style="color:var(--seal);"><b>신탁계약서·신탁원부 작성은 난이도가 높아 별도 가산 대상입니다</b>(보수기준 §11⑨ — 기본보수의 100%까지, 위임인과 협의)</span><br></div><div class="docs" style="margin-top:10px;"><b>⑤ 미리 생각해 두시면 좋은 것</b><br>· <b>세금</b> — 신탁으로 소유권이 넘어가도 취득세는 원칙적으로 비과세이나, 예외가 있습니다 <b>[관할 시군구 확인]</b><br>· <b>기존 담보권</b> — 근저당이 잡혀 있으면 금융기관의 동의가 필요할 수 있습니다<br>· <b>임차인</b> — 세입자가 있으면 임대인 지위가 어떻게 되는지 계약서에 정해 두십시오<br>· <b>신탁 후에는 등기부상 소유자가 수탁자</b>가 됩니다. 거래 상대방은 <b>신탁원부를 반드시 확인</b>해야 합니다<br></div><div class="line" style="border:none;padding-top:8px;"><span class="lbl">서류 떼는 곳</span><span style="display:flex;flex-wrap:wrap;gap:6px;"><a href="http://www.iros.go.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">인터넷등기소 ↗</a><a href="https://www.gov.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">정부24 ↗</a><a href="https://www.wetax.go.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">위택스 ↗</a></span></div><div class="note" style="background:#fdf6ec;border-left:3px solid var(--gold);">▸ <b>신탁은 계약서 한 줄이 몇 년 뒤 분쟁을 가릅니다.</b> 특히 <b>처분 권한</b>과 <b>종료 사유</b>는 반드시 짚고 넘어가십시오. <b>신탁계약서 작성부터 등기 접수까지 저희가 도와드립니다.</b></div>
+      <div class="docs">
+        <b>위탁자(소유자)</b> — 등기권리증(등기필정보), 인감증명서 1통, 주민등록초본 1통, 인감도장, 신분증<br>
+        <b>수탁자</b> — 주민등록초본 1통, 도장, 신분증 (신탁업자면 법인등기사항증명서·법인인감증명서)<br>
+        <b>공통</b> — 신탁계약서, 신탁원부 작성용 정보, 등록면허세 영수필확인서, 등기수수료 영수필확인서, 위임장
+      </div>
     </div></div>
   </div>
 
@@ -2303,7 +2238,6 @@
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
         <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
-      <div class="note" style="border-left:3px solid var(--gold);">▸ <b>보수가 더 붙을 수 있는 경우입니다</b> — 보수기준 <b>§14⑥</b> → <b>§10③ 준용</b> <span class="tag A">A</span><br>아래에 해당하면 <b>기본보수의 100%까지</b>(위 조정 <b>200%</b>) 더할 수 있습니다. <b>사유가 여러 개 겹쳐도 한 번만</b> 더합니다(§10③ 후단).<br><span class="hint"><b>①</b> 사건이 특별히 중대하거나 복잡한 경우 &nbsp; <b>②</b> 처리기간이 현저히 오래 걸릴 것으로 예상되는 경우 &nbsp; <b>③</b> 특별한 조사·분석·연구·상담·자문이 필요한 경우 &nbsp; <b>④</b> 당사자나 직접적인 이해관계인이 <b>5인 이상</b>인 경우 &nbsp; <b>⑤</b> 그 밖에 보수기준이 특별히 정한 경우</span><br><span class="hint" style="color:var(--seal);">※ 가산은 <b>위임인과 협의</b>하여 정합니다. 계산기가 자동으로 올리지 않습니다.</span></div>
     </div></div>
 
     <div class="card blue"><h2>② 공과금 (VAT 비과세)<span class="tag A">A</span></h2><div class="body">
@@ -2383,7 +2317,6 @@
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
         <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
-      <div class="note" style="border-left:3px solid var(--gold);">▸ <b>보수가 더 붙을 수 있는 경우입니다</b> — 보수기준 <b>§14⑥</b> → <b>§10③ 준용</b> <span class="tag A">A</span><br>아래에 해당하면 <b>기본보수의 100%까지</b>(위 조정 <b>200%</b>) 더할 수 있습니다. <b>사유가 여러 개 겹쳐도 한 번만</b> 더합니다(§10③ 후단).<br><span class="hint"><b>①</b> 사건이 특별히 중대하거나 복잡한 경우 &nbsp; <b>②</b> 처리기간이 현저히 오래 걸릴 것으로 예상되는 경우 &nbsp; <b>③</b> 특별한 조사·분석·연구·상담·자문이 필요한 경우 &nbsp; <b>④</b> 당사자나 직접적인 이해관계인이 <b>5인 이상</b>인 경우 &nbsp; <b>⑤</b> 그 밖에 보수기준이 특별히 정한 경우</span><br><span class="hint" style="color:var(--seal);">※ 가산은 <b>위임인과 협의</b>하여 정합니다. 계산기가 자동으로 올리지 않습니다.</span></div>
       <div class="line" id="cv_rowPurpose"><span class="lbl">등기 목적 수</span><div class="stepper"><button onclick="cvPurposeTouch();step('cv_purposeN',-1,calcCorpChange)">−</button><input type="number" id="cv_purposeN" value="1" min="1" oninput="cvPurposeTouch();calcCorpChange()"><button onclick="cvPurposeTouch();step('cv_purposeN',1,calcCorpChange)">+</button></div><span class="hint">보수기준 <b>§14③</b> — 등기의 목적이 <b>1개를 초과</b>하면 초과 1개마다 <b>50,000원</b> 가산 <b>(임원변경은 제외)</b> <span class="tag A">A</span><br><span id="cv_purposeSync" style="color:var(--gold);">▸ 위 <b>「변경 건수」를 자동으로 따라갑니다.</b> 직접 고치면 그 값으로 고정됩니다. (등록면허세의 「건」은 지방세법 §28①6호, 보수의 「등기의 목적」은 보수기준 §14③으로 <b>근거가 서로 다릅니다</b>)</span></span></div>
       <div class="line" id="cv_rowOfficer" style="display:none;"><span class="lbl">임원 수(선임·변경)</span><div class="stepper"><button onclick="step('cv_officerN',-1,calcCorpChange)">−</button><input type="number" id="cv_officerN" value="1" min="1" oninput="calcCorpChange()"><button onclick="step('cv_officerN',1,calcCorpChange)">+</button></div><span class="hint">보수기준 <b>§14④</b> — 임원이 <b>4인을 초과</b>하면 초과 1인마다 <b>20,000원</b> 가산 <span class="tag A">A</span></span></div>
       <div class="line"><span class="lbl">당사자 다수 가산</span><span>등기권리자</span><input type="number" id="cv_pnOwn" value="1" min="1" style="width:52px;margin:0 4px;" oninput="calcCorpChange()"><span>인</span><span style="margin-left:6px;">등기의무자</span><input type="number" id="cv_pnObl" value="1" min="0" style="width:52px;margin:0 4px;" oninput="calcCorpChange()"><span>인</span><select id="cv_pnAdd" onchange="calcCorpChange()" style="margin-left:8px;"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint" id="cv_pnInfo" style="margin-left:8px;"></span></div><div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="cv_frAdd" onchange="calcCorpChange()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§14②</b> — <b>임원 중</b> 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는 변경등기</b> → <b>기본보수의 100%까지</b> 가산 <span class="tag A">A</span></span></div>
@@ -2580,9 +2513,7 @@
       <div class="row"><span>공과금계</span><span id="cs_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계 <span class="hint" id="cs_t_ratio"></span></span><span id="cs_t_grand">0 원</span></div></div>
     <div class="actions"><button class="btn" onclick="calcSeizure()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
-    <div class="card green"><h2>④ 준비서류 — 법원에 낼 것</h2><div class="body"><div class="note" style="border-left:3px solid var(--ok);">▸ <b>아래 서류를 갖추어 법원에 내십시오.</b> 서류 이름 옆에 <b>어디서 떼는지</b>를 적어 두었습니다.<br><span class="hint">근거 · 민사집행법 §223~§229 · 민사집행규칙 §159</span></div><div class="note">▸ <b>가압류와 결정적으로 다릅니다.</b> 이것은 <b>본집행</b>이라 <b>집행권원(판결·지급명령 등)이 반드시 있어야</b> 하고, 대신 <b>담보를 제공하지 않습니다.</b><br>▸ <b>압류와 추심을 한 장에 함께</b> 신청하는 것이 보통입니다. 따로 하면 절차를 두 번 밟습니다.<br>▸ <b>제3채무자에게 결정이 송달되어야</b> 효력이 생깁니다. 송달이 안 되면 아무 일도 일어나지 않으니 주소를 정확히 적으십시오.<br>▸ 추심명령을 받으면 <b>제3채무자에게 직접 청구</b>할 수 있고, 받은 뒤에는 법원에 <b>추심신고</b>를 해야 합니다(민사집행법 §236).</div><div class="docs" style="margin-top:10px;"><b><b>① 신청서</b></b><br>· 채권압류 및 추심명령 신청서 1부<br>· <b>압류할 채권의 표시</b> — 채무자가 제3채무자에 대해 가진 채권을 구체적으로<br>· <b>청구금액</b> — 원금·이자·집행비용을 나누어 적습니다<br></div><div class="docs" style="margin-top:10px;"><b><b>② 집행권원 관련 — 이것이 없으면 안 됩니다</b></b><br>· <b>집행력 있는 정본</b> — 판결정본에 <b>집행문</b>을 받은 것<br>· <b>송달증명원</b><br>· <b>확정증명원</b> <span class="hint">(가집행선고부 판결이면 확정증명 없이도 집행할 수 있습니다)</span><br>· <b>지급명령·이행권고결정</b>은 송달·확정증명이 함께 있어 별도로 붙이지 않아도 됩니다<br></div><div class="docs" style="margin-top:10px;"><b><b>③ 당사자·제3채무자 서류</b></b><br>· <b>채무자의 주민등록초본</b><br>· <b>제3채무자</b>가 법인이면 <b>법인등기사항증명서</b><br>· 제3채무자가 여럿이면 그 수만큼 송달료가 늘어납니다<br>· <b>담보는 필요 없습니다</b> — 본집행이므로 공탁금·보증보험료가 들지 않습니다<br></div><div class="docs" style="margin-top:10px;"><b><b>④ 압류할 수 없는 채권에 유의</b></b><br>· 급여는 <b>일정 범위가 압류금지</b>입니다(민사집행법 §246 · 시행령)<br>· 기초생활 급여, 일정액 이하 예금 등도 압류금지 대상입니다<br>· 압류금지 범위를 넘겨 신청하면 그 부분은 효력이 없습니다 <b>[법원 확인]</b><br></div><div class="line" style="border:none;padding-top:8px;"><span class="lbl">서류 떼는 곳</span><span style="display:flex;flex-wrap:wrap;gap:6px;"><a href="https://ecfs.scourt.go.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">대한민국 법원 전자소송 ↗</a><a href="http://www.iros.go.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">인터넷등기소 ↗</a><a href="https://www.gov.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">정부24 ↗</a></span></div><div class="note" style="background:#fdf6ec;border-left:3px solid var(--gold);">▸ <b>법원마다 요구가 조금씩 다릅니다.</b> <b>[법원 확인]</b>이 붙은 항목은 접수 전 관할 법원에 한 번 물어보십시오. 준비가 막막하시면 <b>서류 작성부터 제출까지 저희가 도와드립니다.</b></div></div></div>
-
-    <div class="card green"><h2>⑤ 비용 안내</h2><div class="body"><div class="docs"><b>인지</b> — 전자소송 포털 기준 압류 1,800·추심 1,800(전자), 종이 각 2,000원. 압류와 추심을 함께 신청하면 합산됩니다.<br><b>송달</b> — (채권자+채무자+제3채무자)×2회×<b>상단 단가</b> [A·재일 87-4 별표1].<br><b>담보 없음</b> — 본집행이므로 보증보험료·공탁금이 없습니다.</div></div></div>
+    <div class="card green"><h2>④ 안내</h2><div class="body"><div class="docs"><b>인지</b> — 전자소송 포털 기준 압류 1,800·추심 1,800(전자), 종이 각 2,000원. 압류와 추심을 함께 신청하면 합산됩니다.<br><b>송달</b> — (채권자+채무자+제3채무자)×2회×<b>상단 단가</b> [A·재일 87-4 별표1].<br><b>담보 없음</b> — 본집행이므로 보증보험료·공탁금이 없습니다.</div></div></div>
   </div>
 
   <!-- ===== 유체동산가압류 (풀기능) Ⅶ-1① · 등기 없음 ===== -->
@@ -2622,9 +2553,7 @@
       <div class="row"><span>공과금계</span><span id="ad_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계 <span class="hint" id="ad_t_ratio"></span></span><span id="ad_t_grand">0 원</span></div></div>
     <div class="actions"><button class="btn" onclick="calcAttachGoods()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
-    <div class="card green"><h2>④ 준비서류 — 법원에 낼 것</h2><div class="body"><div class="note" style="border-left:3px solid var(--ok);">▸ <b>아래 서류를 갖추어 법원에 내십시오.</b> 서류 이름 옆에 <b>어디서 떼는지</b>를 적어 두었습니다.<br><span class="hint">근거 · 민사집행법 §276~§280·§296 · 민사소송법 §122</span></div><div class="note">▸ <b>물건을 미리 특정하지 않아도 됩니다.</b> 신청서에는 <b>있을 만한 장소</b>를 적고, 실제로 무엇을 묶을지는 <b>집행관이 현장에 가서</b> 정합니다.<br>▸ <b>선담보제공을 할 수 없습니다.</b> 유체동산은 민사집행규칙 §204의 대상이 아니어서, 담보제공명령을 받은 뒤에 담보를 내야 합니다.<br>▸ <b>결정만으로 끝나지 않습니다.</b> 결정을 받은 뒤 <b>집행관에게 집행을 위임</b>해야 실제로 압류가 됩니다. 집행관 수수료가 따로 듭니다.</div><div class="docs" style="margin-top:10px;"><b><b>① 신청서</b></b><br>· 유체동산가압류 신청서 1부<br>· <b>피보전권리의 요지</b>(민사집행법 §279①)<br>· <b>목적물 소재지</b> — 채무자의 주거·영업장 등 <b>물건이 있을 장소</b>를 적습니다<br></div><div class="docs" style="margin-top:10px;"><b><b>② 소명자료 — 여기서 결정됩니다</b></b><br>· <b>받을 돈이 있다는 자료(피보전권리)</b> — 차용증, 계약서, 세금계산서, 거래명세서, 계좌이체 내역, 각서, 문자·메신저 대화 등<br>· <b>지금 묶어 두어야 할 사정(보전의 필요성)</b> — 채무자가 재산을 처분·은닉하려는 정황, 다른 채권자의 압류, 폐업·이전 정황 등<br>· <b>가압류는 판결 없이도 됩니다.</b> 대신 위 두 가지를 <b>서류로 보여 주는 것</b>이 전부입니다. 자료가 부족하면 기각되거나 담보가 크게 잡힙니다<br></div><div class="docs" style="margin-top:10px;"><b><b>③ 담보제공 — 가압류의 고비입니다</b></b><br>· 법원이 <b>담보제공명령</b>을 내리면 정해진 기일(<b>보통 7일</b>) 안에 담보를 제공해야 합니다. <b>기한을 넘기면 신청이 각하</b>됩니다(민사집행법 §280③).<br>· 담보를 제공하는 방법은 <b>두 가지</b>입니다(민사소송법 §122, 민사소송규칙 §22②).<br>· &nbsp;&nbsp;㉠ <b>현금·유가증권 공탁</b> → 공탁 후 <b>공탁서 사본</b>을 법원에 제출<br>· &nbsp;&nbsp;㉡ <b>공탁보증보험증권</b>(지급보증위탁계약체결문서) → 보험회사와 계약 후 <b>증권 원본</b>을 법원에 제출<br>· <b>㉡가 부담이 훨씬 적습니다.</b> 현금을 묶어 두지 않고 보험료만 내면 되기 때문입니다. 다만 <b>법원이 현금공탁을 명하는 경우도 있습니다</b> <b>[법원 확인]</b><br>· 담보 <b>금액</b>은 청구채권액을 기준으로 <b>법원이 재량으로</b> 정하며, 가압류 종류와 법원에 따라 다릅니다<br></div><div class="docs" style="margin-top:10px;"><b><b>④ 그 밖에</b></b><br>· 목적물 소재지가 <b>채무자의 주소와 다르면</b> 그곳이 채무자의 점유임을 밝히는 자료<br>· <b>압류할 수 없는 물건</b>이 있습니다 — 생활필수품, 생계에 필요한 최소한의 물건 등(민사집행법 §195)<br>· 결정 후 <b>집행관 집행위임</b>과 그 수수료·여비가 별도로 듭니다 <b>[법원 확인]</b><br></div><div class="docs" style="margin-top:10px;"><b><b>당사자를 밝히는 서류</b></b><br>· <b>채무자의 주민등록초본</b> — 주소를 특정해야 송달이 됩니다<br>· 당사자가 <b>법인</b>이면 <b>법인등기사항증명서</b> <span class="hint">(신청서의 법인명·주사무소·대표자를 등기부와 똑같이 적어야 합니다)</span><br>· 채무자의 <b>현주소</b>와 <b>등기부·등록원부상 주소가 다르면</b> 둘 다 적어 <b>같은 사람임을 밝혀야</b> 합니다<br></div><div class="line" style="border:none;padding-top:8px;"><span class="lbl">서류 떼는 곳</span><span style="display:flex;flex-wrap:wrap;gap:6px;"><a href="https://ecfs.scourt.go.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">대한민국 법원 전자소송 ↗</a><a href="http://www.iros.go.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">인터넷등기소 ↗</a><a href="https://www.gov.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">정부24 ↗</a></span></div><div class="note" style="background:#fdf6ec;border-left:3px solid var(--gold);">▸ <b>법원마다 요구가 조금씩 다릅니다.</b> <b>[법원 확인]</b>이 붙은 항목은 접수 전 관할 법원에 한 번 물어보십시오. 준비가 막막하시면 <b>서류 작성부터 제출까지 저희가 도와드립니다.</b></div></div></div>
-
-    <div class="card green"><h2>⑤ 비용 안내</h2><div class="body"><div class="docs"><b>담보금</b> — 유체동산가압류 담보는 통상 청구금액의 4/5 수준이나 법원 재량 [확인필요·결과 샘플로 확정 가능].<br><b>klac</b>은 인지 전자할인·송달 회차가 협회와 다를 수 있습니다.</div></div></div>
+    <div class="card green"><h2>④ 안내</h2><div class="body"><div class="docs"><b>담보금</b> — 유체동산가압류 담보는 통상 청구금액의 4/5 수준이나 법원 재량 [확인필요·결과 샘플로 확정 가능].<br><b>klac</b>은 인지 전자할인·송달 회차가 협회와 다를 수 있습니다.</div></div></div>
   </div>
 
   <!-- ===== 자동차가압류 (풀기능) Ⅶ-1① · 등록면허세 있음 ===== -->
@@ -2668,9 +2597,7 @@
       <div class="row"><span>공과금계</span><span id="av_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계 <span class="hint" id="av_t_ratio"></span></span><span id="av_t_grand">0 원</span></div></div>
     <div class="actions"><button class="btn" onclick="calcAttachCar()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
-    <div class="card green"><h2>④ 준비서류 — 법원에 낼 것</h2><div class="body"><div class="note" style="border-left:3px solid var(--ok);">▸ <b>아래 서류를 갖추어 법원에 내십시오.</b> 서류 이름 옆에 <b>어디서 떼는지</b>를 적어 두었습니다.<br><span class="hint">근거 · 민사집행법 §276~§280 · 민사집행규칙 §210·§204 · 민사소송법 §122</span></div><div class="note">▸ <b>자동차등록원부의 표시를 그대로</b> 옮겨 적어야 합니다. 등록번호·차대번호·차종이 하나라도 다르면 보정명령을 받습니다.<br>▸ 가압류는 <b>자동차등록원부에 기입</b>되므로 등록면허세가 듭니다.<br>▸ <b>선담보제공을 할 수 있습니다</b>(민사집행규칙 §204).</div><div class="docs" style="margin-top:10px;"><b><b>① 신청서</b></b><br>· 자동차가압류 신청서 1부<br>· <b>피보전권리의 요지</b>(민사집행법 §279①)<br>· <b>목적물의 표시</b> — 등록번호·차명·차대번호·연식 등 등록원부 그대로<br></div><div class="docs" style="margin-top:10px;"><b><b>② 소명자료 — 여기서 결정됩니다</b></b><br>· <b>받을 돈이 있다는 자료(피보전권리)</b> — 차용증, 계약서, 세금계산서, 거래명세서, 계좌이체 내역, 각서, 문자·메신저 대화 등<br>· <b>지금 묶어 두어야 할 사정(보전의 필요성)</b> — 채무자가 재산을 처분·은닉하려는 정황, 다른 채권자의 압류, 폐업·이전 정황 등<br>· <b>가압류는 판결 없이도 됩니다.</b> 대신 위 두 가지를 <b>서류로 보여 주는 것</b>이 전부입니다. 자료가 부족하면 기각되거나 담보가 크게 잡힙니다<br></div><div class="docs" style="margin-top:10px;"><b><b>③ 담보제공 — 가압류의 고비입니다</b></b><br>· 법원이 <b>담보제공명령</b>을 내리면 정해진 기일(<b>보통 7일</b>) 안에 담보를 제공해야 합니다. <b>기한을 넘기면 신청이 각하</b>됩니다(민사집행법 §280③).<br>· 담보를 제공하는 방법은 <b>두 가지</b>입니다(민사소송법 §122, 민사소송규칙 §22②).<br>· &nbsp;&nbsp;㉠ <b>현금·유가증권 공탁</b> → 공탁 후 <b>공탁서 사본</b>을 법원에 제출<br>· &nbsp;&nbsp;㉡ <b>공탁보증보험증권</b>(지급보증위탁계약체결문서) → 보험회사와 계약 후 <b>증권 원본</b>을 법원에 제출<br>· <b>㉡가 부담이 훨씬 적습니다.</b> 현금을 묶어 두지 않고 보험료만 내면 되기 때문입니다. 다만 <b>법원이 현금공탁을 명하는 경우도 있습니다</b> <b>[법원 확인]</b><br>· 담보 <b>금액</b>은 청구채권액을 기준으로 <b>법원이 재량으로</b> 정하며, 가압류 종류와 법원에 따라 다릅니다<br></div><div class="docs" style="margin-top:10px;"><b><b>④ 선담보제공 — 미리 해 두면 빨라집니다</b></b><br>· <b>부동산 · 자동차 · 건설기계 · 소형선박 · 금전채권</b> 가압류는 담보제공명령을 <b>기다리지 않고 미리</b> 담보를 낼 수 있습니다(민사집행규칙 §204).<br>· 먼저 <b>선담보제공 허가신청</b>을 하고 공탁보증보험에 가입하는 방식입니다. 절차가 한 단계 줄어 <b>더 빨리</b> 결정이 납니다.<br>· <b>급여채권·영업자예금채권 가압류는 선담보제공을 할 수 없습니다.</b><br></div><div class="docs" style="margin-top:10px;"><b><b>⑤ 목적물 서류</b></b><br>· <b>자동차등록원부</b>(등본) — 정부24·자동차민원 대국민포털<br>· <b>채무자 소유</b>인지, <b>저당권이 얼마나 잡혀 있는지</b> 반드시 확인하십시오 <span class="hint">(할부·리스 차량은 실익이 없을 수 있습니다)</span><br>· <b>운행 중인 차량</b>은 소재 파악이 어려워 인도명령·집행이 별도로 필요할 수 있습니다 <b>[법원 확인]</b><br></div><div class="docs" style="margin-top:10px;"><b><b>당사자를 밝히는 서류</b></b><br>· <b>채무자의 주민등록초본</b> — 주소를 특정해야 송달이 됩니다<br>· 당사자가 <b>법인</b>이면 <b>법인등기사항증명서</b> <span class="hint">(신청서의 법인명·주사무소·대표자를 등기부와 똑같이 적어야 합니다)</span><br>· 채무자의 <b>현주소</b>와 <b>등기부·등록원부상 주소가 다르면</b> 둘 다 적어 <b>같은 사람임을 밝혀야</b> 합니다<br></div><div class="line" style="border:none;padding-top:8px;"><span class="lbl">서류 떼는 곳</span><span style="display:flex;flex-wrap:wrap;gap:6px;"><a href="https://ecfs.scourt.go.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">대한민국 법원 전자소송 ↗</a><a href="http://www.iros.go.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">인터넷등기소 ↗</a><a href="https://www.gov.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">정부24 ↗</a></span></div><div class="note" style="background:#fdf6ec;border-left:3px solid var(--gold);">▸ <b>법원마다 요구가 조금씩 다릅니다.</b> <b>[법원 확인]</b>이 붙은 항목은 접수 전 관할 법원에 한 번 물어보십시오. 준비가 막막하시면 <b>서류 작성부터 제출까지 저희가 도와드립니다.</b></div></div></div>
-
-    <div class="card green"><h2>⑤ 비용 안내</h2><div class="body"><div class="docs"><b>등록면허세</b> — 자동차 가압류는 자동차등록원부 등록(건당 정액 추정 15,000) [확인필요·결과 샘플로 확정].<br><b>담보금</b> — 통상 청구금액의 일정 비율, 법원 재량 [확인필요].</div></div></div>
+    <div class="card green"><h2>④ 안내</h2><div class="body"><div class="docs"><b>등록면허세</b> — 자동차 가압류는 자동차등록원부 등록(건당 정액 추정 15,000) [확인필요·결과 샘플로 확정].<br><b>담보금</b> — 통상 청구금액의 일정 비율, 법원 재량 [확인필요].</div></div></div>
   </div>
 
   <!-- ===== 채권가압류 (풀기능) Ⅶ-1① · 등기 공과금 없음 ===== -->
@@ -2720,9 +2647,7 @@
       <div class="row grand"><span>총 합계 <span class="hint" id="ac_t_ratio"></span></span><span id="ac_t_grand">0 원</span></div></div>
     <div class="actions"><button class="btn" onclick="calcAttachClaim()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
 
-    <div class="card green"><h2>④ 준비서류 — 법원에 낼 것</h2><div class="body"><div class="note" style="border-left:3px solid var(--ok);">▸ <b>아래 서류를 갖추어 법원에 내십시오.</b> 서류 이름 옆에 <b>어디서 떼는지</b>를 적어 두었습니다.<br><span class="hint">근거 · 민사집행법 §276~§280·§291 · 민사소송법 §122 · 민사집행규칙 §204</span></div><div class="note">▸ <b>제3채무자가 누구인지가 핵심</b>입니다. 채무자가 돈을 받을 상대(은행·회사·거래처)를 특정해야 하고, <b>그 사람에게 송달이 되어야</b> 효력이 생깁니다.<br>▸ <b>등기가 없으므로 등록면허세도 없습니다.</b> 대신 제3채무자에게 보내는 송달료가 늘어납니다.<br>▸ <b>급여채권은 압류금지 범위가 있습니다.</b> 최저생계비 등은 가압류할 수 없습니다(민사집행법 §246).</div><div class="docs" style="margin-top:10px;"><b><b>① 신청서</b></b><br>· 채권가압류 신청서 1부<br>· <b>피보전권리의 요지</b>(민사집행법 §279①)<br>· <b>가압류할 채권의 표시</b> — 채무자가 <b>제3채무자에 대해</b> 가진 어떤 채권인지 <b>구체적으로</b> 적습니다 <span class="hint">(예금이면 계좌 종류, 급여면 근로계약, 임차보증금이면 임대차계약)</span><br></div><div class="docs" style="margin-top:10px;"><b><b>② 소명자료 — 여기서 결정됩니다</b></b><br>· <b>받을 돈이 있다는 자료(피보전권리)</b> — 차용증, 계약서, 세금계산서, 거래명세서, 계좌이체 내역, 각서, 문자·메신저 대화 등<br>· <b>지금 묶어 두어야 할 사정(보전의 필요성)</b> — 채무자가 재산을 처분·은닉하려는 정황, 다른 채권자의 압류, 폐업·이전 정황 등<br>· <b>가압류는 판결 없이도 됩니다.</b> 대신 위 두 가지를 <b>서류로 보여 주는 것</b>이 전부입니다. 자료가 부족하면 기각되거나 담보가 크게 잡힙니다<br></div><div class="docs" style="margin-top:10px;"><b><b>③ 담보제공 — 가압류의 고비입니다</b></b><br>· 법원이 <b>담보제공명령</b>을 내리면 정해진 기일(<b>보통 7일</b>) 안에 담보를 제공해야 합니다. <b>기한을 넘기면 신청이 각하</b>됩니다(민사집행법 §280③).<br>· 담보를 제공하는 방법은 <b>두 가지</b>입니다(민사소송법 §122, 민사소송규칙 §22②).<br>· &nbsp;&nbsp;㉠ <b>현금·유가증권 공탁</b> → 공탁 후 <b>공탁서 사본</b>을 법원에 제출<br>· &nbsp;&nbsp;㉡ <b>공탁보증보험증권</b>(지급보증위탁계약체결문서) → 보험회사와 계약 후 <b>증권 원본</b>을 법원에 제출<br>· <b>㉡가 부담이 훨씬 적습니다.</b> 현금을 묶어 두지 않고 보험료만 내면 되기 때문입니다. 다만 <b>법원이 현금공탁을 명하는 경우도 있습니다</b> <b>[법원 확인]</b><br>· 담보 <b>금액</b>은 청구채권액을 기준으로 <b>법원이 재량으로</b> 정하며, 가압류 종류와 법원에 따라 다릅니다<br></div><div class="docs" style="margin-top:10px;"><b><b>④ 선담보제공</b></b><br>· <b>금전채권</b> 가압류는 선담보제공을 할 수 있습니다(민사집행규칙 §204).<br>· <b>다만 급여채권·영업자예금채권은 선담보제공 대상에서 제외</b>됩니다.<br></div><div class="docs" style="margin-top:10px;"><b><b>⑤ 제3채무자 관련</b></b><br>· 제3채무자가 <b>법인</b>이면 <b>법인등기사항증명서</b> <span class="hint">(은행이면 본점 표시에 유의)</span><br>· <b>제3채무자 수만큼</b> 송달료가 더 듭니다<br>· 임차보증금이면 <b>임대차계약서</b>, 급여면 <b>재직 사실</b> 자료를 함께 내면 특정이 쉬워집니다<br></div><div class="docs" style="margin-top:10px;"><b><b>당사자를 밝히는 서류</b></b><br>· <b>채무자의 주민등록초본</b> — 주소를 특정해야 송달이 됩니다<br>· 당사자가 <b>법인</b>이면 <b>법인등기사항증명서</b> <span class="hint">(신청서의 법인명·주사무소·대표자를 등기부와 똑같이 적어야 합니다)</span><br>· 채무자의 <b>현주소</b>와 <b>등기부·등록원부상 주소가 다르면</b> 둘 다 적어 <b>같은 사람임을 밝혀야</b> 합니다<br></div><div class="line" style="border:none;padding-top:8px;"><span class="lbl">서류 떼는 곳</span><span style="display:flex;flex-wrap:wrap;gap:6px;"><a href="https://ecfs.scourt.go.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">대한민국 법원 전자소송 ↗</a><a href="http://www.iros.go.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">인터넷등기소 ↗</a><a href="https://www.gov.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">정부24 ↗</a></span></div><div class="note" style="background:#fdf6ec;border-left:3px solid var(--gold);">▸ <b>법원마다 요구가 조금씩 다릅니다.</b> <b>[법원 확인]</b>이 붙은 항목은 접수 전 관할 법원에 한 번 물어보십시오. 준비가 막막하시면 <b>서류 작성부터 제출까지 저희가 도와드립니다.</b></div></div></div>
-
-    <div class="card green"><h2>⑤ 비용 안내</h2><div class="body">
+    <div class="card green"><h2>④ 안내</h2><div class="body">
       <div class="docs">
         <b>채권가압류 특징</b> — 등기를 하지 않아 등록면허세·지방교육세·등기수수료가 없습니다. 인지 10,000원 정액, 송달은 채권자·채무자·제3채무자에게 합니다.<br>
         <b>담보금</b> — 통상 청구금액의 2/5(40%) 수준이나 법원 재량으로 달라집니다(현금공탁 또는 보증보험).<br>
@@ -2782,9 +2707,7 @@
       <div class="row grand"><span>총 합계 <span class="hint" id="at_t_ratio"></span></span><span id="at_t_grand">0 원</span></div></div>
     <div class="actions"><button class="btn" onclick="calcAttach()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
 
-    <div class="card green"><h2>④ 준비서류 — 법원에 낼 것</h2><div class="body"><div class="note" style="border-left:3px solid var(--ok);">▸ <b>아래 서류를 갖추어 법원에 내십시오.</b> 서류 이름 옆에 <b>어디서 떼는지</b>를 적어 두었습니다.<br><span class="hint">근거 · 민사집행법 §276~§280 · 민사소송법 §122 · 민사소송규칙 §22② · 민사집행규칙 §204</span></div><div class="note">▸ <b>목적 부동산을 정확히 특정</b>해야 합니다. 등기사항증명서의 표시를 <b>그대로 옮겨 적으십시오.</b> 한 글자라도 다르면 보정명령을 받습니다.<br>▸ 가압류가 되면 <b>등기부에 기입</b>됩니다. 그래서 등록면허세(채권액의 0.2%)와 지방교육세가 따로 듭니다.</div><div class="docs" style="margin-top:10px;"><b><b>① 신청서</b></b><br>· 부동산가압류 신청서 1부<br>· <b>피보전권리의 요지</b>를 신청취지·이유보다 <b>앞에</b> 간결하게 적습니다(민사집행법 §279①)<br>· <b>목적물의 표시</b> — 등기사항증명서 표제부 그대로<br></div><div class="docs" style="margin-top:10px;"><b><b>② 소명자료 — 여기서 결정됩니다</b></b><br>· <b>받을 돈이 있다는 자료(피보전권리)</b> — 차용증, 계약서, 세금계산서, 거래명세서, 계좌이체 내역, 각서, 문자·메신저 대화 등<br>· <b>지금 묶어 두어야 할 사정(보전의 필요성)</b> — 채무자가 재산을 처분·은닉하려는 정황, 다른 채권자의 압류, 폐업·이전 정황 등<br>· <b>가압류는 판결 없이도 됩니다.</b> 대신 위 두 가지를 <b>서류로 보여 주는 것</b>이 전부입니다. 자료가 부족하면 기각되거나 담보가 크게 잡힙니다<br></div><div class="docs" style="margin-top:10px;"><b><b>③ 담보제공 — 가압류의 고비입니다</b></b><br>· 법원이 <b>담보제공명령</b>을 내리면 정해진 기일(<b>보통 7일</b>) 안에 담보를 제공해야 합니다. <b>기한을 넘기면 신청이 각하</b>됩니다(민사집행법 §280③).<br>· 담보를 제공하는 방법은 <b>두 가지</b>입니다(민사소송법 §122, 민사소송규칙 §22②).<br>· &nbsp;&nbsp;㉠ <b>현금·유가증권 공탁</b> → 공탁 후 <b>공탁서 사본</b>을 법원에 제출<br>· &nbsp;&nbsp;㉡ <b>공탁보증보험증권</b>(지급보증위탁계약체결문서) → 보험회사와 계약 후 <b>증권 원본</b>을 법원에 제출<br>· <b>㉡가 부담이 훨씬 적습니다.</b> 현금을 묶어 두지 않고 보험료만 내면 되기 때문입니다. 다만 <b>법원이 현금공탁을 명하는 경우도 있습니다</b> <b>[법원 확인]</b><br>· 담보 <b>금액</b>은 청구채권액을 기준으로 <b>법원이 재량으로</b> 정하며, 가압류 종류와 법원에 따라 다릅니다<br></div><div class="docs" style="margin-top:10px;"><b><b>④ 선담보제공 — 미리 해 두면 빨라집니다</b></b><br>· <b>부동산 · 자동차 · 건설기계 · 소형선박 · 금전채권</b> 가압류는 담보제공명령을 <b>기다리지 않고 미리</b> 담보를 낼 수 있습니다(민사집행규칙 §204).<br>· 먼저 <b>선담보제공 허가신청</b>을 하고 공탁보증보험에 가입하는 방식입니다. 절차가 한 단계 줄어 <b>더 빨리</b> 결정이 납니다.<br>· <b>급여채권·영업자예금채권 가압류는 선담보제공을 할 수 없습니다.</b><br></div><div class="docs" style="margin-top:10px;"><b><b>⑤ 목적물·당사자 서류</b></b><br>· <b>부동산 등기사항전부증명서</b> — 인터넷등기소<br>· <b>토지대장·건축물대장</b> <span class="hint">(부동산 표시가 등기부와 다를 때)</span><br>· <b>채무자 소유</b>임을 확인하십시오 — 남의 명의 부동산에는 가압류가 되지 않습니다<br></div><div class="docs" style="margin-top:10px;"><b><b>당사자를 밝히는 서류</b></b><br>· <b>채무자의 주민등록초본</b> — 주소를 특정해야 송달이 됩니다<br>· 당사자가 <b>법인</b>이면 <b>법인등기사항증명서</b> <span class="hint">(신청서의 법인명·주사무소·대표자를 등기부와 똑같이 적어야 합니다)</span><br>· 채무자의 <b>현주소</b>와 <b>등기부·등록원부상 주소가 다르면</b> 둘 다 적어 <b>같은 사람임을 밝혀야</b> 합니다<br></div><div class="line" style="border:none;padding-top:8px;"><span class="lbl">서류 떼는 곳</span><span style="display:flex;flex-wrap:wrap;gap:6px;"><a href="https://ecfs.scourt.go.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">대한민국 법원 전자소송 ↗</a><a href="http://www.iros.go.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">인터넷등기소 ↗</a><a href="https://www.gov.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">정부24 ↗</a></span></div><div class="note" style="background:#fdf6ec;border-left:3px solid var(--gold);">▸ <b>법원마다 요구가 조금씩 다릅니다.</b> <b>[법원 확인]</b>이 붙은 항목은 접수 전 관할 법원에 한 번 물어보십시오. 준비가 막막하시면 <b>서류 작성부터 제출까지 저희가 도와드립니다.</b></div></div></div>
-
-    <div class="card green"><h2>⑤ 비용 안내</h2><div class="body">
+    <div class="card green"><h2>④ 안내</h2><div class="body">
       <div class="docs">
         <b>인지·송달</b> — 가압류 신청 인지는 10,000원 정액, 송달료는 당사자수×3회분 [B 조견표].<br>
         <b>등록면허세</b> — 가압류 기입등기는 채권액의 0.2%, 지방교육세는 그 20%.<br>
@@ -2847,9 +2770,7 @@
       <div class="row grand"><span>총 합계 <span class="hint" id="inj_t_ratio"></span></span><span id="inj_t_grand">0 원</span></div></div>
     <div class="actions"><button class="btn" onclick="calcInjunction()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
 
-    <div class="card green"><h2>④ 준비서류 — 법원에 낼 것</h2><div class="body"><div class="note" style="border-left:3px solid var(--ok);">▸ <b>아래 서류를 갖추어 법원에 내십시오.</b> 서류 이름 옆에 <b>어디서 떼는지</b>를 적어 두었습니다.<br><span class="hint">근거 · 민사집행법 §300~§312 · 민사소송법 §122 · 민사소송규칙 §22②</span></div><div class="note">▸ <b>가압류와 다릅니다.</b> 가압류는 「돈」을 받기 위해 재산을 묶는 것이고, 가처분은 <b>다툼이 있는 물건이나 지위</b>를 지금 상태로 붙잡아 두는 것입니다.<br>▸ <b>임시지위 가처분</b>(공사중지·직무집행정지·업무방해금지 등)은 원칙적으로 <b>심문기일을 열어</b> 양쪽 말을 듣습니다(민사집행법 §304). 서류만으로 끝나지 않습니다.<br>▸ <b>계쟁물 가처분</b>(점유이전금지·처분금지)은 서면심리로 나는 경우가 많습니다.</div><div class="docs" style="margin-top:10px;"><b><b>① 신청서</b></b><br>· 가처분 신청서 1부<br>· <b>피보전권리</b>와 <b>보전의 필요성</b>을 나누어 적습니다<br>· <b>신청취지를 정확히</b> — 무엇을 금지하는지가 곧 결정 주문이 됩니다 <span class="hint">(점유이전금지 / 처분금지 / 공사중지 / 직무집행정지 등)</span><br></div><div class="docs" style="margin-top:10px;"><b><b>② 소명자료</b></b><br>· <b>다툼의 대상에 관한 권리</b>를 보여 주는 자료 — 매매계약서, 등기부, 임대차계약서, 정관·의사록, 도급계약서 등<br>· <b>지금 막지 않으면 안 되는 사정</b> — 처분·점유이전이 임박한 정황, 공사 진행 사진, 손해가 커지는 상황<br>· <b>임시지위 가처분은 소명 수준이 더 높습니다.</b> 사실상 본안에 준하는 심리를 하는 경우가 많습니다<br></div><div class="docs" style="margin-top:10px;"><b><b>③ 담보제공 — 가압류의 고비입니다</b></b><br>· 법원이 <b>담보제공명령</b>을 내리면 정해진 기일(<b>보통 7일</b>) 안에 담보를 제공해야 합니다. <b>기한을 넘기면 신청이 각하</b>됩니다(민사집행법 §280③).<br>· 담보를 제공하는 방법은 <b>두 가지</b>입니다(민사소송법 §122, 민사소송규칙 §22②).<br>· &nbsp;&nbsp;㉠ <b>현금·유가증권 공탁</b> → 공탁 후 <b>공탁서 사본</b>을 법원에 제출<br>· &nbsp;&nbsp;㉡ <b>공탁보증보험증권</b>(지급보증위탁계약체결문서) → 보험회사와 계약 후 <b>증권 원본</b>을 법원에 제출<br>· <b>㉡가 부담이 훨씬 적습니다.</b> 현금을 묶어 두지 않고 보험료만 내면 되기 때문입니다. 다만 <b>법원이 현금공탁을 명하는 경우도 있습니다</b> <b>[법원 확인]</b><br>· 담보 <b>금액</b>은 청구채권액을 기준으로 <b>법원이 재량으로</b> 정하며, 가압류 종류와 법원에 따라 다릅니다<br></div><div class="docs" style="margin-top:10px;"><b><b>④ 목적물 서류</b></b><br>· 부동산이면 <b>등기사항전부증명서</b> — 인터넷등기소<br>· <b>점유이전금지</b>가처분은 <b>현재 점유자</b>를 특정해야 합니다 <span class="hint">(등기명의인과 점유자가 다를 수 있습니다)</span><br>· 법인 관련이면 <b>법인등기사항증명서·정관·의사록</b><br>· <b>처분금지</b>가처분은 등기부에 기입되므로 등록면허세가 듭니다<br></div><div class="docs" style="margin-top:10px;"><b><b>당사자를 밝히는 서류</b></b><br>· <b>채무자의 주민등록초본</b> — 주소를 특정해야 송달이 됩니다<br>· 당사자가 <b>법인</b>이면 <b>법인등기사항증명서</b> <span class="hint">(신청서의 법인명·주사무소·대표자를 등기부와 똑같이 적어야 합니다)</span><br>· 채무자의 <b>현주소</b>와 <b>등기부·등록원부상 주소가 다르면</b> 둘 다 적어 <b>같은 사람임을 밝혀야</b> 합니다<br></div><div class="line" style="border:none;padding-top:8px;"><span class="lbl">서류 떼는 곳</span><span style="display:flex;flex-wrap:wrap;gap:6px;"><a href="https://ecfs.scourt.go.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">대한민국 법원 전자소송 ↗</a><a href="http://www.iros.go.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">인터넷등기소 ↗</a><a href="https://www.gov.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">정부24 ↗</a></span></div><div class="note" style="background:#fdf6ec;border-left:3px solid var(--gold);">▸ <b>법원마다 요구가 조금씩 다릅니다.</b> <b>[법원 확인]</b>이 붙은 항목은 접수 전 관할 법원에 한 번 물어보십시오. 준비가 막막하시면 <b>서류 작성부터 제출까지 저희가 도와드립니다.</b></div></div></div>
-
-    <div class="card green"><h2>⑤ 비용 안내</h2><div class="body">
+    <div class="card green"><h2>④ 안내</h2><div class="body">
       <div class="docs">
         <b>점유이전금지가처분</b> — 계쟁물 가처분, 인지 10,000원(전자 9,000)·송달 당사자×3회. 등기를 기입하지 않으므로 등록면허세·등기수수료 없음(집행은 집행관).<br>
         <b>처분금지가처분</b> — 등기를 기입하므로 등록면허세 <b>채권금액(피보전권리가액, 없으면 목적물가액)×0.2%·최저 6,000원</b>, 지방교육세 그 20% [A: 지방세법 §28①1호 라목3]. 인지 10,000원(전자 9,000)·송달 당사자×3회. 가등기·근저당·전세권에 대한 처분금지도 0.2% 적용.<br>
@@ -2937,9 +2858,7 @@
       <div class="note" style="margin-top:8px;">※ 본안 송달료는 <b>단독·합의 15회</b> 기준입니다. 소가 3,000만원 이하로 <b>소액사건</b> 이행 시 10회(소액)가 적용되어 줄어들 수 있습니다 [확인필요].</div>
     </div></div>
 
-    <div class="card green"><h2>⑤ 준비서류 — 법원에 낼 것</h2><div class="body"><div class="note" style="border-left:3px solid var(--ok);">▸ <b>아래 서류를 갖추어 법원에 내십시오.</b> 서류 이름 옆에 <b>어디서 떼는지</b>를 적어 두었습니다.<br><span class="hint">근거 · 민사소송법 §248·§249·§254 · 민사소송규칙 §62·§63</span></div><div class="note">▸ <b>소장은 「무엇을 달라」와 「왜 달라」 두 가지</b>로 됩니다. 청구취지(신청취지)와 청구원인입니다.<br>▸ <b>청구취지는 그대로 판결 주문이 됩니다.</b> 「피고는 원고에게 금 ○○원 및 이에 대하여 ○년 ○월 ○일부터 다 갚는 날까지 연 ○%의 비율로 계산한 돈을 지급하라」처럼 <b>집행할 수 있을 만큼 특정</b>해야 합니다.<br>▸ <b>증거는 「갑 제1호증」부터 번호를 붙여</b> 소장에 함께 냅니다. 나중에 내도 되지만 처음부터 붙이는 편이 유리합니다.<br>▸ <b>인지·송달료를 내지 않으면 보정명령</b>이 오고, 따르지 않으면 소장이 각하됩니다(민사소송법 §254).</div><div class="docs" style="margin-top:10px;"><b><b>① 소장</b></b><br>· 소장 1부 + <b>피고 수만큼의 부본</b><br>· <b>당사자 표시</b> — 이름·주소를 정확히. 법인이면 <b>법인등기사항증명서와 똑같이</b><br>· <b>청구취지</b> — 판결 주문이 될 문장<br>· <b>청구원인</b> — 언제·누구와·무슨 일이 있었고 왜 청구하는지<br>· <b>입증방법</b>과 <b>첨부서류</b> 목록<br></div><div class="docs" style="margin-top:10px;"><b><b>② 당사자를 밝히는 서류</b></b><br>· <b>피고의 주민등록초본</b> — 주소를 알아야 송달됩니다<br>· 피고가 <b>법인</b>이면 <b>법인등기사항증명서</b><br>· 원고가 법인이면 <b>법인등기사항증명서</b>와 대표자 자격 증명<br>· 주소를 모르면 <b>주소보정명령</b>을 받은 뒤 사실조회·보정할 수 있습니다<br></div><div class="docs" style="margin-top:10px;"><b><b>③ 증거 — 사건 종류에 따라</b></b><br>· <b>대여금</b> — 차용증, 계좌이체 내역, 문자·메신저 대화<br>· <b>물품대금·용역비</b> — 계약서, 거래명세서, 세금계산서, 발주서<br>· <b>임대차</b> — 임대차계약서, 등기사항증명서, 내용증명<br>· <b>손해배상</b> — 진단서, 수리견적서, 사고 자료, 사진<br>· <b>매매</b> — 매매계약서, 영수증, 등기사항증명서<br>· 어떤 자료가 결정적인지는 사건마다 다릅니다 <b>[상담 권장]</b><br></div><div class="docs" style="margin-top:10px;"><b><b>④ 비용</b></b><br>· <b>인지</b> — 소가에 따라 정해집니다. 전자소송은 <b>10% 할인</b><br>· <b>송달료</b> — 당사자 수 × 회차<br>· <b>답변서·준비서면에는 인지가 붙지 않습니다</b> — 위 계산에서 인지대를 0으로 고쳐 쓰십시오<br></div><div class="line" style="border:none;padding-top:8px;"><span class="lbl">서류 떼는 곳</span><span style="display:flex;flex-wrap:wrap;gap:6px;"><a href="https://ecfs.scourt.go.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">대한민국 법원 전자소송 ↗</a><a href="https://www.gov.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">정부24 ↗</a><a href="http://www.iros.go.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">인터넷등기소 ↗</a></span></div><div class="note" style="background:#fdf6ec;border-left:3px solid var(--gold);">▸ <b>법원마다 요구가 조금씩 다릅니다.</b> <b>[법원 확인]</b>이 붙은 항목은 접수 전 관할 법원에 한 번 물어보십시오. 준비가 막막하시면 <b>서류 작성부터 제출까지 저희가 도와드립니다.</b></div></div></div>
-
-    <div class="card green"><h2>⑥ 비용 안내</h2><div class="body">
+    <div class="card green"><h2>④ 안내</h2><div class="body">
       <div class="docs">
         <b>인지대</b> — 소가별 누진(1심), 항소 ×1.5, 상고 ×2, 제소전화해 ×1/5, 조정·지급명령 ×1/10, 전자소송 10% 할인, 100원 미만 절사<br>
         <b>송달료</b> — 당사자수 × 회차 × <b>상단 단가</b> (소액10·단독합의15·항소12·상고8·항고5·화해4·조정5·독촉6회)<br>
@@ -3035,9 +2954,7 @@
       </div>
     </details>
 
-    <div class="card green"><h2>③ 준비서류 — 법원에 낼 것</h2><div class="body"><div class="note" style="border-left:3px solid var(--ok);">▸ <b>아래 서류를 갖추어 법원에 내십시오.</b> 서류 이름 옆에 <b>어디서 떼는지</b>를 적어 두었습니다.<br><span class="hint">근거 · 민사소송법 §110~§115 · 변호사보수의 소송비용 산입에 관한 규칙</span></div><div class="note">▸ <b>판결에서 「소송비용은 피고가 부담한다」고 나왔어도 그것만으로는 돈을 받지 못합니다.</b> 얼마인지 정하는 <b>확정결정</b>을 따로 받아야 하고, 그 결정이 집행권원이 됩니다.<br>▸ <b>영수증이 전부입니다.</b> 실제로 낸 것을 증빙으로 보여 주지 못하면 산입되지 않습니다. 인지·송달료 납부영수증, 변호사 보수 <b>지급 증빙</b>(세금계산서·이체내역)을 챙기십시오.<br>▸ <b>본안 사건이 끝난 뒤</b> 그 <b>1심 법원</b>에 신청합니다.</div><div class="docs" style="margin-top:10px;"><b><b>① 신청서</b></b><br>· 소송비용액확정 신청서 1부 + 상대방 수만큼의 <b>부본</b><br>· <b>비용계산서</b> — 항목별로 얼마인지 적은 표<br>· <b>본안 사건번호</b>를 정확히 적습니다<br></div><div class="docs" style="margin-top:10px;"><b><b>② 본안 재판 관련</b></b><br>· <b>판결정본</b> 또는 결정·화해권고결정·조정조서 등<br>· <b>확정증명원</b><br>· <b>송달증명원</b><br>· <span class="hint">같은 법원 사건이면 기록으로 확인되어 생략되는 경우도 있습니다 <b>[법원 확인]</b></span><br></div><div class="docs" style="margin-top:10px;"><b><b>③ 실제로 냈다는 증빙 — 가장 중요합니다</b></b><br>· <b>인지</b> 납부영수증 <span class="hint">(전자소송이면 납부내역 출력)</span><br>· <b>송달료</b> 납부영수증 · 잔액환급 내역<br>· <b>변호사 보수</b> — 위임계약서 + <b>세금계산서·계좌이체 내역</b> <span class="hint">(약정액이 아니라 실제 지급액이 기준입니다)</span><br>· <b>감정료·검증료·증인여비</b> 등 예납·지출 영수증<br>· <b>등기사항증명서·주민등록초본 발급 수수료</b> 등 실비 영수증<br></div><div class="docs" style="margin-top:10px;"><b><b>④ 알아두실 점</b></b><br>· 변호사 보수는 <b>약정 전액이 아니라 규칙 별표 한도</b>까지만, 그것도 <b>실제 지급액을 넘지 못합니다</b><br>· <b>1심·항소심·상고심을 각각</b> 산정해 합칩니다<br>· 전부자백·무변론·이행권고결정으로 끝났으면 <b>별표액의 1/2</b><br>· 가압류·가처분 사건도 <b>1/2</b>(변론을 거친 신청사건에 한함)<br></div><div class="line" style="border:none;padding-top:8px;"><span class="lbl">서류 떼는 곳</span><span style="display:flex;flex-wrap:wrap;gap:6px;"><a href="https://ecfs.scourt.go.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">대한민국 법원 전자소송 ↗</a><a href="https://www.gov.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">정부24 ↗</a></span></div><div class="note" style="background:#fdf6ec;border-left:3px solid var(--gold);">▸ <b>법원마다 요구가 조금씩 다릅니다.</b> <b>[법원 확인]</b>이 붙은 항목은 접수 전 관할 법원에 한 번 물어보십시오. 준비가 막막하시면 <b>서류 작성부터 제출까지 저희가 도와드립니다.</b></div></div></div>
-
-    <div class="card green"><h2>④ 실무 안내 · 주의</h2><div class="body">
+    <div class="card green"><h2>③ 실무 안내 · 주의</h2><div class="body">
       <div class="docs">
         <b>산입 한도</b> — 산입액 = <b>min(별표 산정액, 실지급 보수액)</b>. 약정보수 전액이 아니라 별표 한도까지만, 그것도 실제 지급액을 넘지 못합니다(규칙 §3①).<br>
         <b>심급별 별도</b> — 1심·항소심·상고심마다 각 심급 소가 기준으로 따로 산정하여 합산합니다.<br>
@@ -3064,12 +2981,10 @@
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
         <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
-      <div id="g_adjGuide"></div>
       <table class="t"><tbody id="g_extra"></tbody>
         <tr class="subtot"><td>수수료계 (보수)</td><td id="g_feeSum">0 원</td></tr></table>
     </div></div>
     <div class="card blue" id="g_publicCard"><h2>③ 공과금 (VAT 비과세) <span class="tag chk" id="g_pubTag">확인필요</span></h2><div class="body" id="g_public"></div></div>
-    <div class="card green" id="g_docsCard" style="display:none;"><h2>④ 준비서류 — 법원에 낼 것</h2><div class="body"><div id="g_docsBox"></div></div></div>
     <div class="total"><div class="row"><span>법무사 보수 소계</span><span id="g_t_fee">0 원</span></div>
       <div class="row sub"><span>부가가치세 (10%)</span><span id="g_t_vat">0 원</span></div>
       <div class="row"><span>공과금계</span><span id="g_t_public">0 원</span></div>
@@ -3320,39 +3235,6 @@ function bsItemStd(p,it,tr){const d=bsData(p);
   }
   return Math.floor((it.std||0)*tr);}
 /* 지분표에 세금 분담을 보여주기 위한 공과금 항목 id */
-/* ══════════════════════════════════════════════════════════════
-   취득자별 취득세 — 사람마다 세율이 다를 수 있다
-   ─────────────────────────────────────────────────────────────
-   ▸ 취득세는 「취득한 자」에게 부과한다(지방세법 §7①). 지분으로 나눠 사면
-     각자가 자기 지분만큼 따로 납세의무를 진다. 매매·증여는 연대납세의무가 없다.
-   ▸ 그런데 중과 판정(§13의2)은 「1세대」의 주택 수로 한다(시행령 §28의4①).
-     세대는 취득자마다 다르므로, 같은 집을 같은 날 함께 사도 세율이 갈릴 수 있다.
-       예) 10억 아파트를 무주택 A와 2주택자 B가 반씩(조정지역·다른 세대)
-           A = 3% × 5억 = 1,500만원 / B = 12% × 5억 = 6,000만원
-   ▸ 그래서 취득자마다 주택 수를 고르게 하고, 각자 세율로 따로 계산한다.
-     세율 구간은 언제나 「부동산 전체 금액」으로 정한다(§11①8호 후단).
-   ▸ 상속은 다르다. §7⑦ 후단이 지방세기본법 §44를 준용해 연대납세의무이고
-     중과도 없으므로, 주택 수를 묻지 않고 종전대로 몫대로 나눈다.
-   ══════════════════════════════════════════════════════════════ */
-/* 주택 수 선택을 쓰는 화면 — 매매·증여만. (상속·유증·보존은 중과 대상이 아니다) */
-const BS_HN={'':1,'gv_':1};
-const BS_HN_OPT=[['0','무주택 (이번이 첫 주택)'],['1','1주택'],['2','2주택'],['3','3주택 이상'],['corp','법인·단체']];
-/* 화면별 세율 산정 — 전체 금액으로 구간을 정하고, 그 사람의 주택 수로 중과를 판정 */
-function bsRateOf(p,hn,whole){
-  if(p===''){                                   /* 매매 — §11①8호 · §13의2① */
-    if(radio('ptype')!=='house')return null;    /* 주택이 아니면 사람별 차등 없음 */
-    if(hn==='corp')return 0.12;
-    const adj=chk('adjusted');                  /* 조정대상지역 */
-    if(hn==='0'||hn==='1')return houseBaseRate(whole);
-    if(hn==='2')return adj?0.08:houseBaseRate(whole);
-    if(hn==='3')return adj?0.12:0.08;
-    return null;
-  }
-  if(p==='gv_'){                                /* 증여 — §13의2②는 「주는 사람」 기준 */
-    return null;                                /* 받는 사람의 주택 수와 무관 → 차등 없음 */
-  }
-  return null;
-}
 const BS_TAX={'':['acqTax','eduTax','ruralTax'],'s_':['s_acqTax','s_eduTax','s_ruralTax'],
               'bq_':['bq_acqTax','bq_eduTax','bq_ruralTax'],
               'gv_':['gv_acqTax','gv_eduTax','gv_ruralTax'],'pr_':['pr_acqTax','pr_eduTax','pr_ruralTax']};
@@ -3424,10 +3306,6 @@ function bsRender(p,items){
         +'<span style="margin:0 5px;font-weight:800;">/</span>'
         +'<input type="number" value="'+bsEsc(r.den)+'" min="1" step="any" oninput="bsSet(\''+p+'\','+i+',\'den\',this.value)" style="width:66px;text-align:right;">'
         +(d.list.length>1?'<button type="button" onclick="bsDel(\''+p+'\','+i+')" style="margin-left:10px;border:1px solid #cbbf9f;background:#fff;border-radius:4px;padding:2px 9px;cursor:pointer;">삭제</button>':'')
-      +(BS_HN[p]?'<br><span class="lbl" style="font-size:12px;">└ 이 사람의 주택 수</span>'
-        +'<select onchange="bsSet(\''+p+'\','+i+',\'hn\',this.value)" style="font-size:12.5px;">'
-        +BS_HN_OPT.map(function(o){return '<option value="'+o[0]+'"'+((r.hn||'1')===o[0]?' selected':'')+'>'+o[1]+'</option>';}).join('')
-        +'</select><span class="hint" style="margin-left:6px;">본인 <b>세대</b> 기준 — 이 등기로 갖게 될 주택까지 세십시오</span>':'')
         +'</div>';
     });
     h+='<div class="line" style="border:none;"><span class="lbl"></span>'
@@ -3471,18 +3349,16 @@ function bsApply(p,items,metro){
   const tk=BS_TAX[p]||[];
   const taxAll=tk.reduce(function(a,id){return a+val(id);},0);
 
-  let total=0, taxSum=0, taxIndiv=false;
-  /* 사람마다 세율이 갈리는 화면인지 — 매매 주택일 때만 참이 된다 */
-  const _hnOn = !!BS_HN[p] && bsRateOf(p,'1',1) != null;
-  const _whole = _hnOn ? val(p==='' ? 'price' : 'gv_price') : 0;   /* 부동산 전체 금액 */
-  const _over85 = _hnOn && chk(p==='' ? 'over85' : 'gv_over85');
+  let total=0;
   let h='<div class="note" style="background:#f6f1e3;">'
     +'<b>① 부동산 전체</b> '+won(stdAll)+' &nbsp;→&nbsp; <b>② 이전 지분</b> '+bsEsc(d.trNum)+'/'+bsEsc(d.trDen)
     +' &nbsp;→&nbsp; <b>③ 이전분</b> '+won(trStdAll)+' &nbsp;→&nbsp; <b>④ 취득자별로 나눔</b>'+(d.manual?' <span class="hint">(③ 직접 입력)</span>':'')+'</div>';
   h+='<table class="ref" style="margin-top:8px;">'
     +'<tr><th>취득자</th><th>이전분 중 몫</th><th>전체 대비 지분</th><th class="r">지분 시가표준액</th>'
     +'<th class="r">채권 매입률</th><th class="r">채권 매입금</th><th class="r">할인손실</th>'
-    +(taxAll>0?'<th class="r">'+(_hnOn?'세율':'')+'</th><th class="r">취득세 등<br><span class="hint">(교육세·농특세 포함)</span></th>':'')+'</tr>';
+    +'<th class="r">취득세 등<br><span class="hint">(지방교육세·농특세 포함)</span></th></tr>';
+  /* ※ 열을 조건부로 넣으면 헤더와 데이터 수가 어긋나 표가 한 칸씩 밀린다.
+       그래서 취득세 열은 「항상」 만들고, 값이 없을 때만 － 로 표시한다. 27회차 정정. */
   d.list.forEach(function(r,i){
     const ratio=fs[i]*tr;                   /* 전체 대비 지분 */
     let sub=0,stdTxt=[],rateTxt=[];
@@ -3496,39 +3372,18 @@ function bsApply(p,items,metro){
     });
     total+=sub;
     const nm=(r.n&&String(r.n).trim())?bsEsc(r.n):(i+1)+'번 취득자';
-    /* 취득세 — 사람마다 세율이 다를 수 있으면 각자 계산, 아니면 몫대로 안분 */
-    let myTax=Math.round(taxAll*fs[i]), rTxt='';
-    if(_hnOn){
-      const rr=bsRateOf(p,(r.hn||'1'),_whole);
-      if(rr!=null){
-        const myBase=Math.round(_whole*ratio);              /* 과세표준 = 전체 × 내 지분 (§11②) */
-        const acq=myBase*rr;
-        const edu=(rr>=0.08)?myBase*0.004:myBase*rr*0.1;    /* §151①1호 */
-        const rur=_over85?myBase*0.002:0;                   /* 85㎡ 초과분 */
-        myTax=taxLocal(Math.round(acq))+taxLocal(Math.round(edu))+taxLocal(Math.round(rur));
-        rTxt=(rr*100).toFixed(rr*100%1?2:0)+'%'+(rr>=0.08?' <b style="color:var(--seal);">중과</b>':'');
-        taxSum+=myTax; taxIndiv=true;
-      }else rTxt='<span class="hint">—</span>';
-    }
     h+='<tr><td>'+nm+'</td><td>'+bsEsc(r.num)+'/'+bsEsc(r.den)+'</td>'
       +'<td>'+(ratio>0?bsPct(ratio*100)+'%':'—')+'</td>'
       +'<td class="r">'+stdTxt.join('<br>')+'</td><td class="r">'+rateTxt.join('<br>')+'</td>'
       +'<td class="r"><b>'+won(sub)+'</b></td><td class="r">'+won(Math.round(sub*dr/100))+'</td>'
-      +(taxAll>0?(_hnOn?'<td class="r">'+rTxt+'</td>':'')+'<td class="r"><b>'+won(myTax)+'</b></td>':'')+'</tr>';
+      +'<td class="r">'+(taxAll>0?won(Math.round(taxAll*fs[i])):'<span style="color:#a99;">—</span>')+'</td></tr>';
   });
   h+='<tr><td colspan="5" style="background:#f6f1e3;font-weight:800;">합계</td>'
     +'<td class="r" style="background:#f6f1e3;font-weight:800;">'+won(total)+'</td>'
     +'<td class="r" style="background:#f6f1e3;font-weight:800;">'+won(Math.round(total*dr/100))+'</td>'
-    +(taxAll>0?(_hnOn?'<td style="background:#f6f1e3;"></td>':'')
-      +'<td class="r" style="background:#f6f1e3;font-weight:800;">'+won(taxIndiv?taxSum:Math.round(taxAll*Math.min(fSum,1)))+'</td>':'')
+    +'<td class="r" style="background:#f6f1e3;font-weight:800;">'
+      +(taxAll>0?won(Math.round(taxAll*Math.min(fSum,1))):'<span style="color:#a99;">—</span>')+'</td>'
     +'</tr></table>';
-  if(taxIndiv)
-    h+='<div class="note" style="background:#fff6e0;border:2px solid var(--gold);border-radius:8px;">'
-      +'<b>▸ 취득세는 각자 따로 냅니다.</b> 매매는 <b>연대납세의무가 없어</b>(연대납세의무는 상속에만 — §7⑦→지방세기본법 §44) '
-      +'신고서·고지서·납부가 <b>사람별로</b> 나옵니다. 위 표의 금액을 <b>각자</b> 내시면 됩니다.<br>'
-      +'<span class="hint">▸ 세율은 <b>부동산 전체 금액</b>으로 정하고(§11①8호 후단), 그 세율을 <b>각자 지분 금액</b>에만 곱합니다(§11②).<br>'
-      +'▸ 중과 판정은 <b>취득자 각자의 세대</b> 기준입니다(시행령 §28의4①). <b>부부는 합쳐 1주택</b>으로 봅니다(같은 조 ④항).<br>'
-      +'▸ <b>등기는 전원의 영수필확인서가 모여야 접수됩니다.</b> 한 사람이라도 늦으면 등기 전체가 멈춥니다.</span></div>';
 
   if(Math.abs(fSum-1)>0.0001)
     h+='<div class="note alert" style="margin-top:6px;"><b>취득자 몫의 합이 1이 되지 않습니다.</b> 현재 합계 '
@@ -3889,75 +3744,6 @@ function buildMenu(){
     g[def.cat].appendChild(b);
   }
 }
-/* ══════════════════════════════════════════════════════════════
-   긴 안내문 자동 접기
-   ─────────────────────────────────────────────────────────────
-   ▸ 화면마다 안내가 길어 첫인상이 산만하다. 그렇다고 지우면 근거가 사라진다.
-     그래서 HTML은 그대로 두고 «보이는 높이»만 줄인 뒤 「자세히 보기」로 편다.
-   ▸ 이 방식은 note의 id·내용을 건드리지 않으므로, 계산할 때마다 innerHTML을
-     갈아끼우는 안내문(취득세 설명 등)에도 안전하다.
-   ▸ 짧은 안내는 접지 않는다. 접는 편이 오히려 불편하기 때문이다.
-   ══════════════════════════════════════════════════════════════ */
-/* ══════════════════════════════════════════════════════════════
-   준비서류 카드 접기
-   ─────────────────────────────────────────────────────────────
-   ▸ 준비서류는 길수록 좋은 자료지만, 화면을 열자마자 다 펼쳐져 있으면
-     정작 「얼마인가」를 보러 온 사람에게는 방해가 된다.
-   ▸ 그래서 제목만 남기고 접어 둔 뒤, 필요할 때 눌러 펴도록 한다.
-     제목 오른쪽의 「▾ 펼치기」가 그 자리다.
-   ▸ 카드 안의 입력 요소(라디오·셀렉트)는 그대로 살아 있으므로
-     계산 결과에는 아무 영향이 없다.
-   ══════════════════════════════════════════════════════════════ */
-function foldCards(root){
-  (root||document).querySelectorAll('.card.green > h2').forEach(h=>{
-    const card=h.parentElement;
-    if(card.dataset.cfold) return;
-    const t=(h.textContent||'');
-    if(t.indexOf('서류')<0) return;             /* 준비서류 카드만 */
-    card.dataset.cfold='1'; card.classList.add('collapsible');
-    h.addEventListener('click',()=>{
-      card.classList.toggle('on');
-      if(card.classList.contains('on')) foldNotes(card);   /* 펼칠 때 안의 긴 안내도 정리 */
-    });
-  });
-}
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>foldCards());
-else foldCards();
-
-const NOTE_FOLD_MIN = 170;      /* 이 글자 수를 넘는 안내문만 접는다 */
-function foldNotes(root){
-  (root||document).querySelectorAll('.note').forEach(n=>{
-    if(n.dataset.fold) return;                       /* 이미 처리함 */
-    if(n.closest('details')) return;                 /* 이미 접힌 영역 안 */
-    if(n.classList.contains('nofold')) return;       /* 접지 말라고 표시한 것 */
-    const raw=(n.textContent||'').trim();
-    if(raw.length < NOTE_FOLD_MIN) return;
-    /* 버튼에 쓸 이름 — 「경고 제목」이 있으면 그대로, 없으면 첫 문장을 줄여서 */
-    const head=n.querySelector('.head');
-    let label;
-    if(head){ label=head.textContent.trim(); }
-    else{
-      /* 조문 표시(§·A 배지 등)만 남는 짧은 라벨은 쓸모가 없다.
-         문장 끊기로 뽑되, 너무 짧으면 글자 수로 다시 자른다. */
-      let t=raw.replace(/^[▸▾·\s]+/,'').replace(/\s+/g,' ');
-      label=t.split(/[.。]\s|\s—\s/)[0].trim();
-      if(label.length<14) label=t.slice(0,40).trim();      /* 너무 짧으면 앞에서 40자 */
-      if(label.length>40) label=label.slice(0,40).trim()+'…';
-    }
-    n.dataset.fold='1'; n.classList.add('fold');
-    const btn=document.createElement('button');
-    btn.type='button';
-    btn.className='noteMore'+(n.classList.contains('alert')?' alert':'');
-    btn.textContent=label;          /* 화살표는 오른쪽 배지(CSS)가 맡는다 */
-    btn.addEventListener('click',()=>{
-      btn.classList.toggle('on', n.classList.toggle('on'));
-    });
-    n.parentNode.insertBefore(btn, n);               /* 안내문 「앞」에 둔다 */
-  });
-}
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>foldNotes());
-else foldNotes();
-
 function goMenu(){document.querySelectorAll('.scene').forEach(s=>s.classList.remove('active'));document.getElementById('menu').style.display='block';document.getElementById('hsub').textContent='산 법무사 김재섭 행정사 사무소 · 의뢰인 안내용';window.scrollTo(0,0);}
 function openScenario(name){
   if(window.requireUnlock){ window.requireUnlock(function(){ _doOpenScenario(name); }); }
@@ -3965,7 +3751,6 @@ function openScenario(name){
 }
 function _doOpenScenario(name){
   document.getElementById('menu').style.display='none';
-  setTimeout(()=>{foldNotes();foldCards();},0);   /* 새로 그려진 안내문·카드도 접는다 */
   document.querySelectorAll('.scene').forEach(s=>s.classList.remove('active'));
   document.getElementById('hsub').textContent=name;
   if(SCENARIO[name].full===true){document.getElementById('scene-매매').classList.add('active');calcSale();}
@@ -4010,78 +3795,6 @@ function _doOpenScenario(name){
 }
 
 /* ===================== 매매 (풀기능) ===================== */
-/* ══════════════════════════════════════════════════════════════
-   공시가격·시가표준액 조회 도우미
-   ─────────────────────────────────────────────────────────────
-   ▸ 각 조회 사이트는 「주소를 URL에 실어 보내는 방식」을 제공하지 않는다
-     (부동산공시가격 알리미·위택스·이택스 모두 POST/세션 방식).
-     따라서 「주소 자동복사 + 조회화면 바로열기」로 구현한다.
-     이용자는 열린 창에서 붙여넣기(Ctrl+V)만 하면 된다.
-   ▸ 건물 시가표준액은 서울(이택스)과 그 밖의 지역(위택스)의 조회처가 다르다.
-   ▸ 계산 로직에는 일절 관여하지 않는다. 안내·이동 전용.
-   ══════════════════════════════════════════════════════════════ */
-const STD_SITES={
-  apt  :{u:'https://www.realtyprice.kr/notice/town/searchOpinion.htm',   n:'공동주택가격(아파트·연립·다세대)'},
-  house:{u:'https://www.realtyprice.kr/notice/hpindividual/search.htm',  n:'개별단독주택가격'},
-  land :{u:'https://www.realtyprice.kr/notice/gsindividual/search.htm',  n:'개별공시지가(토지)'},
-  bldg :{u:'https://www.wetax.go.kr/tcp/loi/J030401M01.do',              n:'위택스 건물 시가표준액(서울 외 전국)'},
-  seoul:{u:'https://etax.seoul.go.kr/BldnStndAmtLstAction.view?gnb_id=0709&lnb_id=0701&gl_gubun=g', n:'서울 이택스 건물 시가표준액'}
-};
-/* kind : 'house'=주택 / 'etc'=주택외 / 'land'·'farm'=농지·토지 / 'all'=구분없음
-   ▸ 버튼은 언제나 5개를 모두 보여준다. 선택한 물건 종류에 맞는 것을 앞으로 당길 뿐이다.
-     (종류를 잘못 골랐거나, 대지권·부속토지 등 다른 값도 확인해야 하는 경우가 있다) */
-function stdLkBox(kind){
-  const all=['apt','house','land','bldg','seoul'];
-  let first=[];
-  if(kind==='house')                    first=['apt','house'];
-  else if(kind==='etc')                 first=['land','bldg','seoul'];
-  else if(kind==='land'||kind==='farm') first=['land'];
-  const keys=first.concat(all.filter(k=>first.indexOf(k)<0));
-  const lbl={apt:'아파트·빌라 공시가격',house:'단독주택 공시가격',land:'토지 공시지가',
-             bldg:'건물 시가표준액 (서울 외)',seoul:'건물 시가표준액 (서울)'};
-  let b='';
-  keys.forEach(k=>{ b+='<button type="button" onclick="stdLkGo(this,\''+k+'\')">'+lbl[k]+' 조회</button>'; });
-  return '<div class="stdlk">'
-    +'<div class="stdlk-t">▸ 공시가격을 모르시겠으면 여기서 바로 확인하세요</div>'
-    +'<div class="stdlk-g">부동산 주소를 적고 아래 버튼을 누르시면, <b>주소가 자동으로 복사되고</b> 조회 사이트가 새 창으로 열립니다. '
-    +'열린 화면의 검색칸에 <b>붙여넣기(Ctrl+V · 휴대전화는 길게 눌러 붙여넣기)</b> 하시면 됩니다.'
-    +'<br>· <b>건물 시가표준액</b>은 <b>서울</b>과 <b>그 밖의 지역</b>의 조회처가 다릅니다. 부동산 소재지에 맞는 버튼을 누르십시오.'
-    +'</div>'
-    +'<input type="text" class="stdlk-addr" placeholder="예) 서울특별시 강서구 화곡동 000-0  또는  도로명주소">'
-    +'<div class="stdlk-btns">'+b+'</div>'
-    +'<div class="stdlk-msg"></div></div>';
-}
-function stdLkGo(btn,kind){
-  const site=STD_SITES[kind]; if(!site)return;
-  const box=btn.closest('.stdlk'); if(!box)return;
-  const inp=box.querySelector('.stdlk-addr'), msg=box.querySelector('.stdlk-msg');
-  const addr=inp?inp.value.trim():'';
-  const open=()=>window.open(site.u,'_blank','noopener');
-  const say=t=>{ if(msg)msg.innerHTML=t; };
-  if(!addr){
-    say('주소를 먼저 적으시면 <b>자동으로 복사</b>해 드립니다. 우선 <b>'+site.n+'</b> 화면을 열었습니다.');
-    open(); return;
-  }
-  const done=()=>{ say('주소를 복사했습니다 → <b>'+site.n+'</b> 화면에서 <b>붙여넣기(Ctrl+V)</b> 하십시오.'); open(); };
-  const fail=()=>{ say('주소 복사가 안 되는 브라우저입니다. <b>'+site.n+'</b> 화면에 주소를 직접 적어 주십시오.'); open(); };
-  try{
-    if(navigator.clipboard&&navigator.clipboard.writeText){
-      navigator.clipboard.writeText(addr).then(done).catch(fail);
-    }else{
-      inp.select(); inp.setSelectionRange(0,99999);
-      document.execCommand('copy')?done():fail();
-    }
-  }catch(e){ fail(); }
-}
-/* 정적 화면에 심어둔 마운트를 일괄로 채운다 */
-function stdLkMountAll(){
-  document.querySelectorAll('.stdlkMount').forEach(el=>{
-    if(!el.dataset.done){ el.innerHTML=stdLkBox(el.dataset.k||'all'); el.dataset.done='1'; }
-  });
-}
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',stdLkMountAll);
-else stdLkMountAll();
-
 let curBondType=null;
 function renderBondUI(){
   bsRender('');                       /* 지분 입력칸은 화면 진입 즉시 노출 */
@@ -4101,7 +3814,7 @@ function renderBondUI(){
     h='<div class="line"><span class="lbl">토지공시가격(원)</span><input type="number" class="amt" id="bondStdLand" placeholder="0" oninput="calcBondSale()"></div>'+
       '<div class="line"><span class="lbl">토지 매입률(‰)</span><input type="number" id="bondPctLand" readonly placeholder="자동" style="width:120px;background:#efe7d6;font-weight:700;"></div>';
   }
-  bb.innerHTML=h+stdLkBox(t);
+  bb.innerHTML=h;
 }
 function calcBondSale(){
   const t=radio('ptype');const metro=radio('region')==='metro';let buy=0;let items=[];
@@ -4494,7 +4207,7 @@ function renderBondUIInherit(){
     h='<div class="line"><span class="lbl">토지공시가격(원)</span><input type="number" class="amt" id="s_bondStdLand" placeholder="0" oninput="calcBondInherit()"></div>'+
       '<div class="line"><span class="lbl">토지 매입률(‰)</span><input type="number" id="s_bondPctLand" readonly placeholder="자동" style="width:120px;background:#efe7d6;font-weight:700;" oninput="calcBondInherit()"></div>';
   }
-  bb.innerHTML=h+stdLkBox(t);
+  bb.innerHTML=h;
 }
 /* 상속 = [별표] 부표 1-나 "상속(증여 및 그 밖의 무상으로 취득하는 경우 포함)"
    → 물건종류 무관 무상 요율(18/28/42 · 14/25/39), 시가표준액 1천만원 미만 면제.
@@ -4861,7 +4574,7 @@ function renderBondUIBequest(){
     h='<div class="line"><span class="lbl">토지공시가격(원)</span><input type="number" class="amt" id="bq_bondStdLand" placeholder="0" oninput="calcBondBequest()"></div>'+
       '<div class="line"><span class="lbl">토지 매입률(‰)</span><input type="number" id="bq_bondPctLand" readonly placeholder="자동" style="width:120px;background:#efe7d6;font-weight:700;" oninput="calcBondBequest()"></div>';
   }
-  bb.innerHTML=h+stdLkBox(t);
+  bb.innerHTML=h;
 }
 function calcBondBequest(){
   const t=radio('bq_ptype');const metro=radio('bq_region')==='metro';let buy=0;let items=[];
@@ -4982,7 +4695,7 @@ function renderBondUIGift(){
       '<div class="line"><span class="lbl">건물시가표준액(원)</span><input type="number" class="amt" id="gv_bondStdBldg" placeholder="0" oninput="calcBondGift()"></div>'+
       '<div class="line"><span class="lbl">건물 매입률(‰)</span><input type="number" id="gv_bondPctBldg" readonly placeholder="자동" style="width:120px;background:#efe7d6;font-weight:700;" oninput="calcBondGift()"></div>';
   }
-  bb.innerHTML=h+stdLkBox(t);
+  bb.innerHTML=h;
 }
 /* 증여 = [별표] 부표 1-나 "상속(증여 및 그 밖의 무상으로 취득하는 경우 포함)" → 무상 요율 */
 function calcBondGift(){
@@ -5126,7 +4839,7 @@ function renderBondUIDivision(){
       '<div class="line"><span class="lbl">건물시가표준액(원)</span><input type="number" class="amt" id="dv_bondStdBldg" placeholder="0" oninput="calcBondDivision()"></div>'+
       '<div class="line"><span class="lbl">건물 매입률(‰)</span><input type="number" id="dv_bondPctBldg" readonly placeholder="자동" style="width:120px;background:#efe7d6;font-weight:700;"></div>';
   }
-  bb.innerHTML=h+stdLkBox(t);
+  bb.innerHTML=h;
 }
 /* 재산분할 채권 — 무상/유상 요율 선택식([확인필요]). 기본값 무상 */
 function calcBondDivision(){
@@ -6194,67 +5907,13 @@ function calcSintak(fromEdit){
   const adj=parseFloat(document.getElementById('st_adjust').value)||1;
   /* ★ 표상 기본보수(feeRaw) — 가산보수(§10③④⑥·§14①②⑤)는 「당해 기본보수」 = 표상 금액을
      기준으로 산정한다. 조정 후 금액에 가산율을 곱하면 가산에 가산이 얹혀 §2⑤(상한) 초과 소지. */
-  const _tt=(document.getElementById('st_trustType')||{}).value||'Ⅰ-4(1)';
-  /* ══ 보수기준 §11 — 신탁등기 ══════════════════════════════════════
-     ①  유형별 정액 (보수표 Ⅰ-4 1~5호)
-     ③  위탁자 선언에 의한 신탁 / 수탁자의 고유재산으로의 변경 / 위탁자 지위이전
-         → 제9조제1항을 준용  (정액이 아니라 과세표준 기준 보수표 Ⅰ-1)
-     ⑤  수탁자의 경질로 인한 등기 → 소유권이전등기 보수 적용 (Ⅰ-1)
-     ⑧  담보신탁의 수익자 변경·수익금액 증가에 따른 신탁원부 기록 변경
-         → 담보권이전·채권액 증가에 따른 변경등기 보수 적용 (Ⅰ-1)
-     ②  소유권이전등기와 (재)신탁등기 등을 동시에 신청 → 두 유형의 보수를 합산
-     ④  일부처분·일부종료 → 소유권일부이전 + 신탁말소 보수를 합산 (②와 같은 방식으로 처리)
-     ⑦  합병·분할 등기와 동시에 말소·신규신탁 → 각 합산 (②와 같은 방식으로 처리)
-     ※ ③⑤⑧은 「부동산가액」칸이 참고용이 아니라 과세표준으로 쓰인다. */
-  /* ▸ §11③ 「제9조제1항을 준용한다」 → ①1호 정액(150,000)에 §9① 표를 <b>더한다</b>(합산).
-       ②④⑦이 「합산한다」로, ⑤⑧이 「…의 보수를 적용한다」(대체)로 각각 달리 적혀 있는 데 반해
-       ③만 「준용한다」이므로, ①1호를 배제하지 않고 이전등기분에 해당하는 보수를 더하는 것으로 본다.
-     ▸ §11⑤·§11⑧ 「…의 보수를 적용한다」 → 해당 보수로 <b>대체</b>한다(정액 미가산). */
-  const _T9=['§11③','§11⑤','§11⑧'];
-  const _isT9=_T9.indexOf(_tt)>=0;
-  const _isSum=(_tt==='§11③');                  /* 합산형 */
-  const feeRaw = _tt==='§11③' ? (FLAT['Ⅰ-4(1)'] + tierFee('Ⅰ-1', base))
-               : (_isT9 ? tierFee('Ⅰ-1', base) : (FLAT[_tt]||FLAT['Ⅰ-4(1)']));
-  /* §11② — 동시신청분 합산. 신탁분 보수와 별개로 산정해 더한다(조정률은 각각 동일 적용) */
-  const _sim=(document.getElementById('st_simul')||{}).checked;
-  const _simKind=(document.getElementById('st_simulKind')||{}).value||'Ⅰ-1';
-  const _simBase=val('st_simulBase');
-  let feeSimul=0;
-  if(_sim) feeSimul = (_simKind==='Ⅰ-1') ? tierFee('Ⅰ-1', _simBase) : (FLAT[_simKind]||0);
-  {const r1=document.getElementById('st_rowSimulBase'), r2=document.getElementById('st_rowSimulKind');
-   if(r1)r1.style.display=(_sim&&_simKind==='Ⅰ-1')?'':'none';
-   if(r2)r2.style.display=_sim?'':'none';
-   const bh=document.querySelector('#st_base+.hint');
-   if(bh)bh.innerHTML=_isT9?'<b>과세표준</b>으로 씁니다 (§11'+_tt.slice(3)+' → 보수표 Ⅰ-1 준용)':'참고용(보수는 유형별 정액)';}
-  const feeBase=Math.round((feeRaw+feeSimul)*adj);
+  const _tt=(document.getElementById('st_trustType')||{}).value||'Ⅰ-4(1)';const feeRaw=FLAT[_tt]||FLAT['Ⅰ-4(1)'];
+  const feeBase=Math.round(feeRaw*adj);
   /* 보수기준 §10⑥ — 외국인·재외국민 포함 또는 등기원인 관련 서류를 외국에서 받아야 하는 등기
      → 당해 기본보수의 100% 상당액까지 가산 [A] */
   const _fr=frAddRate('st_frAdd'), feeForeign=Math.round(feeRaw*_fr);
   document.getElementById('st_feeBaseCell').textContent=won(feeBase);
-  document.getElementById('st_feeBaseNote').textContent=
-    (_isSum ? '(§11①1호 150,000 + §11③ 보수표 Ⅰ-1 '+Math.round(tierFee('Ⅰ-1',base)).toLocaleString()+' = '+Math.round(feeRaw).toLocaleString()
-     : _isT9 ? '(§11'+_tt.slice(3)+' → 보수표 Ⅰ-1 적용 '+Math.round(feeRaw).toLocaleString()
-             : '(보수표 '+_tt+' 정액 '+feeRaw.toLocaleString())
-    +(feeSimul?' + 동시신청분 '+Math.round(feeSimul).toLocaleString()+' 〔§11②〕':'')
-    +(adj!==1?' ×'+(adj*100)+'%':'')+')';
-  /* 근거 조문 전문을 풍선과 안내상자에 함께 띄운다 */
-  {const _L={
-    'Ⅰ-4(1)':['§11①1호','신탁등기, 신탁가등기, 재신탁등기, 담보권신탁등기, 위탁자의 선언에 의한 신탁등기, 수탁자의 고유재산으로의 변경등기, 위탁자의 지위 이전에 의한 신탁등기 <b>150,000원</b>'],
-    'Ⅰ-4(2)':['§11①2호','신탁원부 기록의 변경등기, 수탁자가 수인인 등기의 합유명의인 변경등기, 신탁의 합병ㆍ분할에 따른 등기 <b>80,000원</b>'],
-    'Ⅰ-4(3)':['§11①3호','유한책임신탁의 설정등기 <b>220,000원</b>'],
-    'Ⅰ-4(4)':['§11①4호','신탁등기의 말소등기 <b>50,000원</b>'],
-    'Ⅰ-4(5)':['§11①5호','그 밖의 신탁에 관한 등기 <b>70,000원</b>'],
-    '§11③':['§11①1호 + §11③','<b>§11①1호</b> — 위탁자의 선언에 의한 신탁등기, 수탁자의 고유재산으로의 변경등기, 위탁자의 지위 이전에 의한 신탁등기 <b>150,000원</b><br><b>§11③</b> — 위탁자의 선언에 의한 신탁등기, 수탁자의 고유재산으로의 변경등기, 위탁자의 지위 이전에 의한 신탁등기 등의 경우에는 <b>제9조제1항을 준용한다.</b><br><span class="hint">▸ ②④⑦은 「<b>합산한다</b>」, ⑤⑧은 「…의 보수를 <b>적용한다</b>」로 각각 달리 적혀 있는 데 반해 ③만 「<b>준용한다</b>」입니다. 그래서 ①1호를 배제하지 않고, 이전등기분에 해당하는 보수를 <b>더하는</b> 것으로 봅니다.</span>'],
-    '§11⑤':['§11⑤','수탁자의 경질로 인한 등기는 <b>소유권이전등기에 대한 보수를 적용한다.</b><br><span class="hint">▸ 「적용한다」이므로 정액을 더하지 않고 <b>보수표 Ⅰ-1로 대체</b>합니다.</span>'],
-    '§11⑧':['§11⑧','담보신탁의 경우 수익자 변경, 수익금액의 증가에 따른 신탁원부 기록의 변경등기는 <b>담보권이전, 채권액의 증가에 따른 변경등기의 보수를 적용한다.</b><br><span class="hint">▸ 「적용한다」이므로 ①2호(80,000)를 더하지 않고 <b>보수표 Ⅰ-1로 대체</b>합니다.</span>']
-   }[_tt];
-   const _lawSpan=document.getElementById('st_trustLaw'), _box=document.getElementById('st_lawBox');
-   if(_L&&_lawSpan){_lawSpan.textContent='보수기준 '+_L[0];
-     _lawSpan.title='법무사보수기준 '+_L[0]+' — '+_L[1].replace(/<[^>]+>/g,'');}
-   if(_L&&_box){_box.style.display='';
-     _box.innerHTML='▸ <b>이 유형의 근거 조문</b> — 보수기준 <b>'+_L[0]+'</b> <span class="tag A">A</span><br>'+_L[1]
-       +(_sim?'<br><b>§11②</b> — 소유권이전등기와 (재)신탁등기, 소유권이전등기와 신탁등기의 말소등기, 청구권보전가등기와 신탁가등기, 담보권설정등기와 담보권신탁등기, 유언대용신탁을 원인으로 하는 소유권이전등기와 신탁등기를 동시에 신청하는 경우에는 <b>두 유형의 등기에 대한 보수를 합산한다.</b>':'');}
-  }
+  document.getElementById('st_feeBaseNote').textContent='(보수표 '+_tt+' 정액 '+feeRaw.toLocaleString()+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   const _frR=document.getElementById('st_feeForeignRow');
   if(_frR){_frR.style.display=feeForeign>0?'table-row':'none';document.getElementById('st_feeForeignCell').textContent=won(feeForeign);document.getElementById('st_feeForeignNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+(_fr*100)+'% · §10⑥)';}
   /* 보수기준 §10④ — 등기원인·등기목적이 동일한 여러 부동산이 여러 등기소 관할에 걸친 경우
@@ -6410,7 +6069,7 @@ function renderBondUIPreserve(){
       '<div class="line"><span class="lbl">건물시가표준액(원)</span><input type="number" class="amt" id="pr_bondStdBldg" placeholder="0" oninput="calcBondPreserve()"></div>'+
       '<div class="line"><span class="lbl">건물 매입률(‰)</span><input type="number" id="pr_bondPctBldg" readonly placeholder="자동" style="width:120px;background:#efe7d6;font-weight:700;" oninput="calcBondPreserve()"></div>';
   }
-  bb.innerHTML=h+stdLkBox(t);
+  bb.innerHTML=h;
 }
 function calcBondPreserve(){
   const t=radio('pr_ptype');const metro=radio('pr_region')==='metro';let buy=0;let items=[];
@@ -6425,36 +6084,10 @@ function renderDocsPreserve(){renderPartyDocs('pr_',null,'pty_pr__buyer','','소
   else if(f==='house')ledger='<b>대장</b> — 일반건축물대장(사용승인), 토지대장, 토지이용계획확인원';
   else ledger='<b>대장</b> — 토지대장(임야는 임야대장), 토지이용계획확인원';
   document.getElementById('pr_docsBox').innerHTML=
-    '<div class="note" style="border-left:3px solid var(--ok);">▸ <b>아래 서류를 갖추어 등기소에 내십시오.</b>'
-    +'<br><span class="hint">근거 · 부동산등기법 §23②·§65 · 부동산등기규칙 §46·§121</span></div>'
-    +'<div class="note">▸ <b>보존등기는 소유자 혼자 신청합니다</b>(부동산등기법 §23②). 상대방이 없으므로 <b>「내가 소유자다」를 서류로 증명</b>하는 것이 전부입니다.'
-    +'<br>▸ <b>대장이 먼저입니다.</b> 건축물대장·토지대장이 만들어져 있어야 보존등기를 할 수 있습니다. 대장이 없거나 표시가 다르면 <b>대장부터 정리</b>해야 합니다.'
-    +'<br>▸ 대장의 <b>소유자 표시와 신청인이 다르면</b> 그 사이를 잇는 서류(상속·매매 등)가 더 필요합니다 <b>[등기소 확인]</b></div>'
-    +'<div class="docs" style="margin-top:10px;"><b>① 신청인(소유자)</b><br>'
-    +'· <b>주민등록초본</b> 1통 <span class="hint">(주소변동 내역 포함)</span><br>'
-    +'· <b>인감증명서</b> 1통 <span class="hint">(발급 3개월 이내)</span> + <b>인감도장</b><br>'
-    +'· 신분증<br>'
-    +'· <b>법인</b>이면 법인등기사항증명서 · 법인인감증명서 · 법인인감도장<br>'
-    +'· <b>공동명의</b>라면 <b>전원의</b> 서류와 <b>지분</b>을 정한 자료<br></div>'
-    +'<div class="docs" style="margin-top:10px;"><b>② 소유권을 증명하는 서류 — 핵심입니다</b><br>'
-    +'· <b>건물을 새로 지은 경우(원시취득)</b> — <b>사용승인서(준공검사필증)</b>, 건축허가서, <b>도급계약서</b>, 공사대금 지급 자료<br>'
-    +'· 건축주와 신청인이 <b>같은지</b> 확인하십시오. 다르면 그 경위를 밝히는 서류가 필요합니다<br>'
-    +'· <b>미등기 부동산을 물려받은 경우</b> — 피상속인 기준의 소유 증명 + 상속을 증명하는 서류 전부<br>'
-    +'· <b>판결로 하는 경우</b> — 확정판결정본 · 확정증명원<br></div>'
-    +'<div class="docs" style="margin-top:10px;"><b>③ 대장·공부</b><br>· '+ledger.replace('<b>대장</b> — ','')+'<br>'
-    +'· <b>대장상 표시와 등기 신청서의 표시가 한 글자라도 다르면</b> 보정명령을 받습니다<br></div>'
-    +'<div class="docs" style="margin-top:10px;"><b>④ 세금·수수료</b><br>'
-    +'· <b>취득세 영수필확인서</b> <span class="hint">(신축은 원시취득 세율이 적용됩니다)</span><br>'
-    +'· <b>국민주택채권 매입필증</b><br>'
-    +'· <b>등기신청수수료 영수필확인서</b><br>'
-    +'· <b>위임장</b> <span class="hint">(대리 신청 시)</span><br></div>'
-    +'<div class="line" style="border:none;padding-top:8px;"><span class="lbl">서류 떼는 곳</span><span style="display:flex;flex-wrap:wrap;gap:6px;">'
-    +'<a href="http://www.iros.go.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">인터넷등기소 ↗</a>'
-    +'<a href="https://www.gov.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">정부24 · 대장 발급 ↗</a>'
-    +'<a href="https://www.eum.go.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">토지이음 ↗</a>'
-    +'</span></div>'
-    +'<div class="note" style="background:#fdf6ec;border-left:3px solid var(--gold);">▸ <b>대장 정리가 안 되어 있으면 보존등기가 진행되지 않습니다.</b> 먼저 확인하십시오. '
-    +'준비가 막막하시면 <b>대장 정리부터 등기 접수까지 저희가 도와드립니다.</b></div>';}
+    '<b>소유자(신청인)</b> — 주민등록초본 1통, 인감증명서 1통, 인감도장, 신분증<br>'+
+    '<b>건물 신축(원시취득)</b> — 사용승인서(준공), 건축물대장, 소유권 증명서류(건축허가서·도급계약서 등)<br>'+
+    '<b>공통</b> — 취득세 영수필확인서, 채권 매입필증, 등기수수료 영수필확인서, 위임장<br>'+
+    '<div class="dl">'+ledger+'</div>';}
 function calcPreserve(fromEdit){
   renderBondUIPreserve();
   const mw=document.getElementById('pr_metroWarn');if(mw)mw.style.display=chk('pr_metro')?'block':'none';
@@ -6541,60 +6174,10 @@ function rtTypeChange(){
 }
 function renderDocsRight(){renderPartyDocs('rt_','pty_rt__seller','pty_rt__buyer','설정자(등기의무자)','권리자(등기권리자)');
   const t=radio('rt_type');
-  /* 유형별로 달라지는 부분을 따로 잡는다 — 전세권·지상권·임차권은 요구서류가 다르다 */
-  let sp='';
-  if(t==='전세권'){
-    sp='<div class="docs" style="margin-top:10px;"><b>④ 전세권이라서 더 필요한 것</b><br>'
-      +'· <b>전세금</b>을 계약서에 반드시 적습니다 — 전세금은 전세권의 <b>필수 기재사항</b>입니다(민법 §303①)<br>'
-      +'· <b>범위</b>를 특정합니다 — 건물 일부라면 <b>도면</b>을 첨부해야 합니다(부동산등기법 §72①·규칙 §128②)<br>'
-      +'· <b>존속기간</b> — 정하지 않아도 되지만, 정하면 <b>10년을 넘길 수 없습니다</b>(민법 §312①)<br>'
-      +'· 건물 전세권의 <b>최단기간은 1년</b>입니다(민법 §312②)<br>'
-      +'· <b>전세권설정등기가 되어야</b> 전세권입니다. 확정일자만 받은 것은 <b>임차권</b>이지 전세권이 아닙니다<br></div>';
-  }else if(t==='지상권'){
-    sp='<div class="docs" style="margin-top:10px;"><b>④ 지상권이라서 더 필요한 것</b><br>'
-      +'· <b>목적</b>을 적습니다 — 건물 소유인지, 공작물·수목 소유인지(민법 §279)<br>'
-      +'· <b>범위</b> — 토지 일부라면 <b>도면</b>이 필요합니다<br>'
-      +'· <b>존속기간</b> — 최단기간이 정해져 있습니다(민법 §280). 석조·석회조·연와조·견고한 건물이나 수목은 <b>30년</b>, 그 밖의 건물은 <b>15년</b>, 건물 외 공작물은 <b>5년</b><br>'
-      +'· <b>지료</b>는 정하지 않아도 되지만, 정했다면 등기해야 제3자에게 주장할 수 있습니다<br>'
-      +'· <b>구분지상권</b>(지하·공중의 일정 층)이면 <b>상하 범위</b>를 적고 도면을 붙입니다(민법 §289의2)<br></div>';
-  }else{
-    sp='<div class="docs" style="margin-top:10px;"><b>④ 임차권이라서 더 필요한 것</b><br>'
-      +'· <b>차임</b>은 필수 기재사항입니다. 보증금이 있으면 함께 적습니다<br>'
-      +'· <b>범위</b>가 건물 일부라면 <b>도면</b>이 필요합니다<br>'
-      +'· 임차권등기는 <b>소유자의 협력이 있어야</b> 합니다. 협력하지 않으면 <b>임차권등기명령</b>(주택임대차보호법 §3의3)으로 가야 하며 이는 <b>별도 절차</b>입니다<br></div>';
-  }
   document.getElementById('rt_docsBox').innerHTML=
-    '<div class="note" style="border-left:3px solid var(--ok);">▸ <b>아래 서류를 갖추어 등기소에 내십시오.</b>'
-    +'<br><span class="hint">근거 · 부동산등기법 §23①·§24·§72 · 부동산등기규칙 §46·§60 · 민법 §279~§312</span></div>'
-    +'<div class="note">▸ <b>등기는 설정자와 권리자가 함께 신청하는 것이 원칙</b>입니다(부동산등기법 §23①). 한쪽만으로는 되지 않으므로, 위임장을 받아 두시는 편이 좋습니다.'
-    +'<br>▸ <b>인감증명서는 발급일부터 3개월 이내</b>의 것이어야 합니다(부동산등기규칙 §62).'
-    +'<br>▸ <b>등기권리증(등기필정보)을 잃어버렸다면</b> 재발급이 되지 않습니다. 확인서면·확인조서·공증 중 하나로 갈음해야 하며 <b>비용과 시간이 더 듭니다</b>.</div>'
-    +'<div class="docs" style="margin-top:10px;"><b>① '+t+'설정자(소유자) — 등기의무자</b><br>'
-    +'· <b>등기권리증(등기필정보)</b> — 분실 시 확인서면 등으로 갈음<br>'
-    +'· <b>인감증명서</b> 1통 <span class="hint">(발급 3개월 이내)</span> + <b>인감도장</b><br>'
-    +'· <b>주민등록초본</b> 1통 <span class="hint">(주소변동 내역 포함 — 등기부상 주소와 다르면 반드시 필요)</span><br>'
-    +'· 신분증<br>'
-    +'· <b>법인</b>이면 법인등기사항증명서 · 법인인감증명서 · 법인인감도장<br></div>'
-    +'<div class="docs" style="margin-top:10px;"><b>② '+t+'자(권리자) — 등기권리자</b><br>'
-    +'· <b>주민등록초본</b> 1통<br>'
-    +'· 도장 · 신분증<br>'
-    +'· <b>법인</b>이면 법인등기사항증명서 · 법인인감증명서<br></div>'
-    +'<div class="docs" style="margin-top:10px;"><b>③ 공통으로 내는 것</b><br>'
-    +'· <b>'+t+'설정계약서</b> <span class="hint">(계약 내용이 등기사항이 되므로 정확히 적어야 합니다)</span><br>'
-    +'· <b>등록면허세 영수필확인서</b> — 위택스·이택스 또는 관할 시군구<br>'
-    +'· <b>국민주택채권 매입필증</b><br>'
-    +'· <b>등기신청수수료 영수필확인서</b><br>'
-    +'· <b>위임장</b> <span class="hint">(대리 신청 시)</span><br>'
-    +'· <b>부동산 등기사항전부증명서</b> — 인터넷등기소에서 현재 권리관계를 미리 확인하십시오<br></div>'
-    +sp
-    +'<div class="line" style="border:none;padding-top:8px;"><span class="lbl">서류 떼는 곳</span>'
-    +'<span style="display:flex;flex-wrap:wrap;gap:6px;">'
-    +'<a href="http://www.iros.go.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">인터넷등기소 ↗</a>'
-    +'<a href="https://www.gov.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">정부24 ↗</a>'
-    +'<a href="https://www.wetax.go.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">위택스 ↗</a>'
-    +'</span></div>'
-    +'<div class="note" style="background:#fdf6ec;border-left:3px solid var(--gold);">▸ <b>등기소마다 요구가 조금씩 다를 수 있습니다.</b> 도면이 필요한 경우 형식 요건이 까다로우니 미리 확인하십시오. '
-    +'준비가 막막하시면 <b>서류 작성부터 접수까지 저희가 도와드립니다.</b></div>';
+    '<b>설정자(소유자)</b> — 등기권리증(등기필정보), 인감증명서 1통, 주민등록초본 1통(주소변동 포함), 인감도장, 신분증<br>'+
+    '<b>'+t+'자(권리자)</b> — 주민등록초본 1통, 도장, 신분증 (법인이면 법인등기사항증명서·법인인감증명서)<br>'+
+    '<b>공통</b> — '+t+'설정계약서, 등록면허세 영수필확인서, 채권 매입필증, 등기수수료 영수필확인서, 위임장';
 }
 function calcRight(fromEdit){
   const price=val('rt_price');
@@ -6735,40 +6318,10 @@ function renderDocsCorpChange(){
   if(t==='자본증자'||t==='전환사채 발행')extra='<b>법인</b> — 정관 사본, 주주명부 사본, <b>잔고증명서 1통</b>(은행), 법인인감증명서 1통, 법인인감도장';
   else extra='<b>법인</b> — 정관 사본, 주주명부 사본, 법인인감증명서 1통, 법인인감도장';
   document.getElementById('cv_docsBox').innerHTML=
-    '<div class="note" style="border-left:3px solid var(--ok);">▸ <b>아래 서류를 갖추어 등기소에 내십시오.</b> — <b>'+t+'</b>'
-    +'<br><span class="hint">근거 · 상법 §317④·§183 · 상업등기법 §24·§25 · 상업등기규칙 §104~§106</span></div>'
-    +'<div class="note">▸ <b>변경이 있은 날부터 2주 안에</b> 등기해야 합니다(상법 §317④·§183). <b>늦으면 과태료</b>가 부과됩니다(상법 §635①1호).'
-    +'<br>▸ <b>의사록이 서류의 중심</b>입니다. 결의 내용이 등기 신청서와 <b>한 글자도 어긋나면 안 됩니다.</b>'
-    +'<br>▸ <b>의사록은 공증을 받는 것이 원칙</b>입니다. 다만 <b>자본금 10억원 미만</b>이면서 <b>주주 전원이 인감을 제출</b>하면 공증을 생략할 수 있습니다(공증인법 §66의2① 단서).</div>'
-    +'<div class="docs" style="margin-top:10px;"><b>① 결의 서류</b><br>'
-    +'· <b>주주총회 의사록</b> 또는 <b>이사회 의사록</b> <span class="hint">(무엇을 여는지는 변경 사항에 따라 다릅니다)</span><br>'
-    +'· <b>소집통지서</b>·소집절차 관련 서류<br>'
-    +'· 주주 전원 동의로 소집절차를 생략했다면 그 <b>동의서</b><br>'
-    +'· <b>공증</b>을 받는 경우 공증인 인증<br></div>'
-    +'<div class="docs" style="margin-top:10px;"><b>② 참석자 인감</b><br>'
-    +'· <b>이사회</b> — 출석 이사 <b>과반수</b>의 개인인감증명서 1통씩 + 개인인감도장<br>'
-    +'· <b>주주총회</b> — 주주 <b>과반수</b>의 개인인감증명서 1통씩 + 개인인감도장<br>'
-    +'· <span style="color:var(--seal);"><b>주주 전원이 인감을 내면 공증료를 아낄 수 있습니다</b></span><br>'
-    +'· 인감증명서는 <b>발급 3개월 이내</b>의 것<br></div>'
-    +'<div class="docs" style="margin-top:10px;"><b>③ 법인 서류</b><br>'+extra.replace('<b>법인</b> — ','').replace(', ','<br>· ')+'<br>'
-    +'· <b>법인등기사항전부증명서</b> — 현재 등기 내용을 먼저 확인하십시오<br></div>'
-    +'<div class="docs" style="margin-top:10px;"><b>④ 사항별로 더 필요한 것</b><br>'
-    +'· <b>임원 취임</b> — 취임승낙서 + 취임자의 <b>인감증명서·주민등록초본</b>. <b>인감을 제출하지 않는 임원은 본인서명사실확인서</b>로 갈음할 수 있습니다<br>'
-    +'· <b>임원 사임</b> — 사임서 + 사임자의 인감증명서 <span class="hint">(사임서에 인감을 찍은 경우)</span><br>'
-    +'· <b>상호·목적 변경</b> — 변경된 <b>정관</b><br>'
-    +'· <b>본점 이전</b> — 이전할 곳의 <b>주소를 증명하는 자료</b>. 관할이 바뀌면 <b>신·구 등기소 양쪽</b>에 신청합니다<br>'
-    +'· <b>자본 증가</b> — <b>주금납입보관증명서</b> 또는 <b>잔고증명서</b>, 신주발행사항 서류<br>'
-    +'· <b>지점 설치·이전</b> — 지점 소재지 자료<br></div>'
-    +'<div class="docs" style="margin-top:10px;"><b>⑤ 세금·수수료</b><br>'
-    +'· <b>등록면허세 영수필확인서</b> <span class="hint">(대도시 안에서는 중과될 수 있습니다 — 지방세법 §28②)</span><br>'
-    +'· <b>등기신청수수료 영수필확인서</b><br>· <b>위임장</b> <span class="hint">(대리 신청 시)</span><br></div>'
-    +'<div class="line" style="border:none;padding-top:8px;"><span class="lbl">서류 떼는 곳</span><span style="display:flex;flex-wrap:wrap;gap:6px;">'
-    +'<a href="http://www.iros.go.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">인터넷등기소 ↗</a>'
-    +'<a href="https://www.wetax.go.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">위택스 ↗</a>'
-    +'<a href="https://www.gov.kr" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">정부24 ↗</a>'
-    +'</span></div>'
-    +'<div class="note" style="background:#fdf6ec;border-left:3px solid var(--gold);">▸ <b>2주 기한을 넘기면 과태료</b>가 나옵니다. 결의를 마치셨으면 서둘러 접수하십시오. '
-    +'변경 사항마다 필요한 서류가 다르니 <b>[등기소 확인]</b> 후 진행하시거나, <b>저희에게 맡기셔도 됩니다.</b></div>';
+    '<b>['+t+' 준비서류]</b><br>'+
+    '<b>이사회</b> — 이사 과반수 개인인감증명서 1통, 개인인감도장<br>'+
+    '<b>주주총회</b> — 주주 과반수 개인인감증명서 1통, 개인인감도장 <span style="color:var(--seal);">(주주 전원 인감 제출 시 공증료 면제)</span><br>'+
+    extra;
 }
 function calcCorpChange(fromEdit){
   const def=CORP_CHG[document.getElementById('cv_type').value];
@@ -7471,657 +7024,6 @@ function calcInjunction(fromEdit){
   tr.innerHTML='<td><label class="checks" style="display:inline-flex;align-items:flex-start;"><input type="checkbox" id="inja_'+id+'" onchange="calcInjunction()" style="margin-top:2px;"> <span style="font-size:12.5px;">'+eaLabel(a,'civil')+' <b style="color:var(--seal);">'+FLAT[code].toLocaleString()+'원</b></span></label></td><td><input type="number" id="injaq_'+id+'" value="1" min="1" style="width:54px;text-align:center;" oninput="calcInjunction()"></td>';
   tb.appendChild(tr);});})();
 
-/* ══════════════════════════════════════════════════════════════
-   준비서류 안내 — 공용(generic) 화면용
-   ─────────────────────────────────────────────────────────────
-   ▸ 계산만 하고 「무엇을 들고 가야 하는가」가 없으면 이용자는 결국 다시 헤맨다.
-     사건마다 실제 제출서류와 「어디서 떼는지」를 함께 적는다.
-   ▸ 서류마다 발급처를 밝히고, 공식 사이트가 있으면 바로가기를 단다.
-   ▸ 법원·사건마다 달라질 수 있는 항목은 반드시 [법원 확인]으로 표시한다.
-     추측으로 채우지 않는다.
-   구조 : SCENARIO 항목에 docs:{law, note, groups:[{t:제목, items:[...]}], links:[...]}
-   ══════════════════════════════════════════════════════════════ */
-const DOC_SITE={
-  gov   :{n:'정부24',                u:'https://www.gov.kr'},
-  family:{n:'전자가족관계등록시스템',   u:'https://efamily.scourt.go.kr'},
-  ecfs  :{n:'대한민국 법원 전자소송',   u:'https://ecfs.scourt.go.kr'},
-  iros  :{n:'인터넷등기소',            u:'http://www.iros.go.kr'},
-  slb   :{n:'서울회생법원 민원서식',    u:'https://slb.scourt.go.kr/rel/information/min/MinListAction.work?gubun=24'},
-  help  :{n:'법원 전자민원센터',        u:'https://help.scourt.go.kr'}
-};
-function docsHTML(d){
-  if(!d)return '';
-  let h='<div class="note" style="border-left:3px solid var(--ok);">'
-    +'▸ <b>아래 서류를 갖추어 법원에 내십시오.</b> 서류 이름 옆에 <b>어디서 떼는지</b>를 적어 두었습니다.'
-    +(d.law?'<br><span class="hint">근거 · '+d.law+'</span>':'')+'</div>';
-  if(d.note)h+='<div class="note">'+d.note+'</div>';
-  (d.groups||[]).forEach(g=>{
-    h+='<div class="docs" style="margin-top:10px;"><b>'+g.t+'</b><br>';
-    g.items.forEach(it=>{ h+='· '+it+'<br>'; });
-    h+='</div>';
-  });
-  if(d.links&&d.links.length){
-    h+='<div class="line" style="border:none;padding-top:10px;"><span class="lbl">서류 떼는 곳</span><span style="display:flex;flex-wrap:wrap;gap:6px;">';
-    d.links.forEach(k=>{const st=DOC_SITE[k]; if(!st)return;
-      h+='<a href="'+st.u+'" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper-2);color:var(--ink-soft);text-decoration:none;">'+st.n+' ↗</a>';});
-    h+='</span></div>';
-  }
-  h+='<div class="note" style="margin-top:10px;background:#fdf6ec;border-left:3px solid var(--gold);">'
-    +'▸ <b>법원마다 요구 서류가 조금씩 다릅니다.</b> <b>[법원 확인]</b>이 붙은 항목은 접수 전 관할 법원에 한 번 물어보십시오. '
-    +'준비가 막막하시면 <b>서류 작성부터 제출까지 저희가 도와드립니다.</b></div>';
-  return h;
-}
-
-/* ── 사건별 준비서류 ────────────────────────────────────────── */
-const DOCS={
-
-"상속포기·한정승인 신고":{
-  law:'민법 §1019·§1030① · 가사소송법 §36③ · 가사소송규칙 §75①',
-  note:'▸ <b>기한이 있습니다.</b> 상속개시(사망)를 <b>안 날부터 3개월</b> 이내에 신고해야 합니다(민법 §1019①). 이 기간을 넘기면 원칙적으로 <b>단순승인</b>한 것이 됩니다.<br>▸ <b>가족관계증명서는 상속인 각자 본인 명의로 1통씩</b> 떼야 합니다. 손자녀가 함께 포기하는 경우 손자녀도 각자 본인 명의로 발급받아야 합니다.<br>▸ <b>인감증명서는 반드시 주민센터에서 발급받은 것</b>이어야 합니다. <b>인터넷 발급분은 법원 제출용으로 쓸 수 없습니다.</b>',
-  groups:[
-    {t:'① 신고서',items:[
-      '상속포기 신고서 <b>또는</b> 한정승인 신고서 1부',
-      '<b>한정승인은 「상속재산목록」을 반드시 첨부</b>합니다(민법 §1030①). 상속포기는 재산목록이 필요 없습니다.']},
-    {t:'② 돌아가신 분(피상속인) 서류',items:[
-      '기본증명서 <b>(상세)</b> 1통 — 전자가족관계등록시스템·주민센터',
-      '가족관계증명서 <b>(상세)</b> 1통 — 같은 곳',
-      '주민등록<b>말소자</b> 초본 1통 — 정부24·주민센터',
-      '<b>2007. 12. 31. 이전에 사망신고된 경우</b>에는 기본증명서·가족관계증명서 대신 <b>제적등본</b>을 준비합니다.']},
-    {t:'③ 신고인(상속인) 서류 — 각자 1통씩',items:[
-      '가족관계증명서 <b>(상세)</b> — <b>상속인 각자 본인 명의로</b>',
-      '주민등록 등본 또는 초본 <span class="hint">(상속인들이 한 등본에 함께 나오면 1통으로 됩니다)</span>',
-      '인감증명서 + <b>인감도장</b> <span class="hint">(주민센터 발급분만 가능)</span>',
-      '신분증']},
-    {t:'④ 사안에 따라 추가되는 서류',items:[
-      '<b>대습상속</b>(먼저 사망한 자녀를 대신해 손자녀가 상속) — 먼저 돌아가신 분의 <b>기본증명서(상세)·가족관계증명서(상세)·제적등본</b>',
-      '<b>미성년자</b>가 신고 — 법정대리인(부모)의 <b>인감증명서·인감도장</b>. 부모와 자녀의 이해가 충돌하면 <b>특별대리인 선임</b>이 필요할 수 있습니다 <b>[법원 확인]</b>',
-      '<b>재외국민</b> — 주민등록등본 대신 재외국민등록부등본·거주사실증명(영사관 인증)·국내거소신고사실증명 중 하나',
-      '<b>3개월이 지난 뒤</b> 빚을 알게 된 경우 — <b>특별한정승인</b>(민법 §1019③)으로 가며, <b>안 날을 소명하는 자료</b>(독촉장·통지서 등)가 필요합니다',
-      '참고 — <b>안심상속 원스톱 서비스</b>(사망자 재산조회) 결과는 재산·채무 파악에 큰 도움이 됩니다. 결과가 늦어지면 <b>먼저 신고하고 나중에 보완</b>해도 됩니다']}
-  ],
-  links:['family','gov','ecfs']},
-
-"개인파산·면책":{
-  law:'채무자회생법 · 법원 전자민원센터 「파산 및 면책 동시신청」 안내',
-  note:'▸ <b>파산과 면책은 같은 날 함께 신청</b>하는 것이 유리합니다. 서류 작성 부담이 줄고 면책심문기일도 더 빨리 잡힙니다.<br>▸ <b>진술서는 신청서 양식에 붙어 있습니다.</b> 따로 구할 필요 없이 양식의 해당 칸을 채우면 됩니다.<br>▸ 신청서 양식 곳곳의 <b>☆ 표시</b>가 "이럴 때는 이 서류를 내라"는 안내입니다. 그 부분을 빠뜨리지 마십시오.',
-  groups:[
-    {t:'① 신청서',items:[
-      '파산 및 면책 신청서 1부',
-      '신청서 및 첨부서류 <b>일체의 부본 1부</b>']},
-    {t:'② 진술서 1부 — 신청서 양식에 포함되어 있습니다',items:[
-      '채권자목록(채권자주소록)',
-      '재산목록',
-      '현재의 생활상황',
-      '수입 및 지출에 관한 목록']},
-    {t:'③ 신분·가족관계 서류 각 1부',items:[
-      '가족관계증명서',
-      '혼인관계증명서 <b>(이혼내역 포함)</b>',
-      '주민등록초본 <b>(주소변동내역 · 개명 · 주민등록번호 변동사항 포함)</b>',
-      '외국인은 주민등록초본 대신 <b>외국인등록사실증명</b>']},
-    {t:'④ 그 밖에',items:[
-      '신청서 양식 각 해당란의 <b>☆ 표시</b>가 요구하는 첨부서류',
-      '대리인이 신청하는 경우 — <b>위임장 + 인감증명서</b>. 다만 <b>심문기일에는 본인이 반드시 출석</b>해야 합니다',
-      '재산·소득·채무를 뒷받침할 소명자료는 사안마다 다릅니다 <b>[법원 확인]</b>']}
-  ],
-  links:['slb','help','family','gov']},
-
-"개인회생(개시신청)":{
-  law:'채무자회생법 §589① · 채무자회생규칙 §79②·§85① · 개인회생사건 처리지침 §4①',
-  note:'▸ <b>관공서에서 떼는 서류는 신청일로부터 2개월 안에 발급받은 것</b>이어야 합니다(개인회생사건 처리지침 §4①). 미리 떼어 두면 다시 떼야 할 수 있으니 순서에 유의하십시오.<br>▸ <b>부본을 넉넉히 준비하십시오.</b> 신청서 부본 1부 외에, <b>채권자 수에 2를 더한 만큼</b>의 채권자목록 부본이 필요합니다(규칙 §85①).',
-  groups:[
-    {t:'① 신청서와 목록',items:[
-      '개인회생절차 개시신청서 1부 + <b>부본 1부</b>',
-      '개인회생<b>채권자목록</b> — <b>부본은 채권자 수 + 2</b>부',
-      '<b>재산목록</b>',
-      '<b>수입 및 지출에 관한 목록</b>',
-      '<b>진술서</b>',
-      '<b>변제계획안</b>']},
-    {t:'② 신분·가족관계 서류',items:[
-      '주민등록등본',
-      '가족관계증명서']},
-    {t:'③ 소득을 밝히는 자료',items:[
-      '<b>급여소득자</b>임을 소명하는 자료 — 재직증명서, 급여명세서, 근로소득원천징수영수증 등',
-      '<b>영업소득자</b>임을 소명하는 자료 — 사업자등록증, 소득금액증명 등',
-      '어느 자료가 필요한지는 소득 형태에 따라 다릅니다 <b>[법원 확인]</b>']},
-    {t:'④ 재산을 밝히는 자료',items:[
-      '소유 부동산의 <b>등기사항증명서</b> — 인터넷등기소',
-      '자동차등록증 사본',
-      '임차보증금이 있으면 <b>임대차계약서</b>',
-      '보험·예금 등 그 밖의 재산 자료']},
-    {t:'⑤ 해당하는 경우에만',items:[
-      '신청일 전 <b>10년 이내</b>에 화의·파산·개인회생을 신청한 적이 있으면 <b>그 관련 서류</b>',
-      '채권자의 추심을 급히 멈춰야 하면 <b>금지명령·중지명령 신청서</b>를 함께 냅니다']}
-  ],
-  links:['slb','ecfs','iros','family','gov']},
-
-"상속재산분할 심판청구":{
-  law:'민법 §1013 · 가사소송법 §2①2호 나목 10)',
-  note:'▸ <b>상속인 전원이 참여해야 하는 소송</b>입니다(고유필수적 공동소송). 한 사람이라도 빠지면 진행되지 않으니, 청구인이 되지 않는 상속인은 <b>모두 상대방</b>으로 넣어야 합니다.<br>▸ <b>관할</b>은 <b>상대방의 주소지 가정법원</b>입니다. 상대방이 여럿이면 그중 한 사람의 주소지 법원에 내면 됩니다.<br>▸ <b>상대방 서류는 본인이 뗄 수 없습니다.</b> 우선 청구서를 접수하고, 법원의 <b>보정명령</b>을 받아 제출하는 것이 보통입니다. 서류가 없다고 접수를 미루지 마십시오.',
-  groups:[
-    {t:'① 청구서',items:[
-      '상속재산분할 심판청구서 1부',
-      '상속인 <b>전원</b>을 청구인 또는 상대방으로 빠짐없이 적습니다']},
-    {t:'② 돌아가신 분(피상속인) 서류',items:[
-      '<b>제적등본</b>',
-      '가족관계증명서 <b>(상세)</b>',
-      '기본증명서 <b>(상세)</b>',
-      '주민등록 <b>말소자</b> 초본']},
-    {t:'③ 청구인·상대방 서류 — 각자',items:[
-      '각 <b>가족관계증명서</b>',
-      '각 <b>주민등록초본</b>',
-      '<span class="hint">상대방 서류는 직접 발급이 안 되므로 보정명령 후 제출해도 됩니다</span>']},
-    {t:'④ 나눌 재산을 특정하는 서류',items:[
-      '부동산 — <b>등기사항전부증명서</b>, 토지대장, 건축물대장',
-      '예금 등 — 금융기관별 <b>잔고증명서(잔액확인서)</b>',
-      '자동차 — 자동차등록증',
-      '그 밖에 분할 대상을 특정할 수 있는 자료']},
-    {t:'⑤ 주장에 따라 추가되는 자료',items:[
-      '<b>기여분</b>을 주장하면 — 간병·부양·재산 형성에 기여한 사실을 뒷받침하는 자료(진료비 영수증, 송금내역, 사진, 진술서 등)',
-      '<b>특별수익</b>(생전 증여)을 주장하면 — 증여계약서, 등기부, 계좌이체 내역 등',
-      '어느 정도까지 내야 하는지는 사안마다 다릅니다 <b>[법원 확인]</b>']}
-  ],
-  links:['family','gov','iros','ecfs']},
-
-"협의이혼 의사확인 신청":{
-  law:'민법 §836의2 · 가족관계등록규칙 §77·§78',
-  note:'▸ <b>부부가 함께 법원에 출석</b>해 신청합니다. 신청 후 <b>숙려기간</b>을 거쳐 확인기일에 다시 출석해야 합니다.<br>▸ <b>숙려기간 — 미성년 자녀가 있으면 3개월, 없으면 1개월</b>(민법 §836의2②). 폭력 등으로 참기 어려운 고통이 예상되거나 급히 이혼해야 할 사정이 있으면 <b>단축·면제를 신청</b>할 수 있습니다.<br>▸ <b>확인만으로는 이혼이 되지 않습니다.</b> 확인서 등본을 받은 날부터 <b>3개월 안에</b> 시·구·읍·면사무소에 <b>이혼신고</b>를 해야 효력이 생깁니다. 이 기한을 넘기면 확인이 효력을 잃습니다.<br>▸ 출석통지를 받고도 <b>2회 불출석하면 취하한 것으로 봅니다</b>(규칙 §77).',
-  groups:[
-    {t:'① 신청서',items:[
-      '협의이혼의사확인 신청서 1부 <span class="hint">(법원 접수창구 비치 · 전자민원센터에서 내려받기 가능)</span>']},
-    {t:'② 부부 각자의 서류',items:[
-      '<b>가족관계증명서</b> 각 1통',
-      '<b>혼인관계증명서</b> 각 1통',
-      '<b>주민등록등본</b> 1통',
-      '신분증 · 도장']},
-    {t:'③ 미성년 자녀가 있으면 — 반드시',items:[
-      '<b>「자녀의 양육과 친권자결정에 관한 협의서」 원본 1통 + 사본 2통</b>',
-      '<b>임신 중인 자녀도 포함</b>됩니다',
-      '협의가 <b>자녀의 복리에 반하면</b> 법원이 보정을 명하고, 따르지 않으면 <b>확인서를 작성하지 않습니다</b>(규칙 §78① 단서)',
-      '협의가 확인되면 법원이 <b>양육비부담조서</b>를 함께 만들어 줍니다 — 이것만으로 <b>강제집행</b>이 가능하니 반드시 받아 두십시오']},
-    {t:'④ 해당하는 경우',items:[
-      '<b>재외국민</b> — 거주지 <b>재외공관</b>에 신청하며, <b>서울가정법원</b>이 확인합니다',
-      '이혼신고 때 필요한 서류는 시·구·읍·면사무소마다 조금씩 다릅니다 <b>[관청 확인]</b>']}
-  ],
-  links:['ecfs','family','gov','help']},
-
-"재판상 이혼":{
-  law:'민법 §840 · 가사소송법 §2①1호 나목 4)',
-  note:'▸ <b>이혼에 합의가 안 될 때</b> 가는 절차입니다. 가사소송은 <b>조정을 먼저 거치는 것이 원칙</b>이어서(조정전치주의), 소를 내도 조정기일이 먼저 잡히는 것이 보통입니다.<br>▸ <b>위자료·재산분할·친권자·양육자·양육비·면접교섭</b>을 <b>이혼과 함께</b> 청구할 수 있습니다. 나중에 따로 하면 절차를 두 번 밟게 되니 처음부터 함께 넣는 편이 낫습니다.<br>▸ <b>이혼 사유를 뒷받침하는 증거</b>가 핵심입니다. 서류 목록보다 <b>무엇을 증거로 낼 수 있는지</b>가 결과를 좌우합니다.',
-  groups:[
-    {t:'① 소장',items:[
-      '이혼 소장 1부 <span class="hint">(위자료·재산분할·친권자·양육비 등 함께 청구할 내용을 모두 적습니다)</span>',
-      '상대방 수만큼의 <b>부본</b>']},
-    {t:'② 기본 서류',items:[
-      '원고·피고의 <b>가족관계증명서</b>',
-      '<b>혼인관계증명서</b>',
-      '<b>주민등록등본</b>',
-      '미성년 자녀가 있으면 자녀의 <b>기본증명서·가족관계증명서</b>']},
-    {t:'③ 이혼 사유를 뒷받침하는 자료 (민법 §840 각 호)',items:[
-      '부정행위 — 사진, 메시지, 카드내역 등',
-      '악의의 유기·부당한 대우 — 진단서, 신고 접수증, 진술서 등',
-      '3년 이상 생사불명 — 관련 자료',
-      '혼인을 계속하기 어려운 중대한 사유 — 사안에 따라 다양합니다',
-      '<b>어떤 증거가 유효한지는 사안마다 크게 다릅니다.</b> 수집 방법이 위법하면 오히려 불리해질 수 있으니 <b>상담을 권합니다</b>']},
-    {t:'④ 재산분할을 청구하면',items:[
-      '부동산 <b>등기사항증명서</b>',
-      '예금·보험·퇴직금·연금 자료',
-      '대출 등 <b>채무</b> 자료',
-      '상대방 재산은 <b>사실조회·재산명시</b> 신청으로 밝힐 수 있습니다']}
-  ],
-  links:['ecfs','family','gov','iros']},
-
-"양육비 청구·심판":{
-  law:'민법 §837 · 가사소송법 §2①2호 나목 3)',
-  note:'▸ 이혼할 때 정하지 못했거나, 정한 뒤 <b>사정이 바뀐 경우</b>에도 청구할 수 있습니다.<br>▸ <b>양육비 산정</b>은 서울가정법원의 <b>「양육비산정기준표」</b>를 기준으로 합니다. 부모 <b>합산 소득</b>과 <b>자녀 나이</b>로 정해지므로, <b>양쪽 소득자료</b>가 가장 중요합니다.<br>▸ 상대방이 소득을 밝히지 않으면 <b>재산명시·사실조회</b>를 신청할 수 있습니다.<br>▸ 이미 <b>양육비부담조서나 심판</b>이 있는데 주지 않는 경우라면, 새로 청구할 것이 아니라 <b>이행명령·감치·직접지급명령</b> 등 집행 절차로 가야 합니다.',
-  groups:[
-    {t:'① 청구서',items:[
-      '양육비 심판청구서 1부 + 상대방 수만큼의 <b>부본</b>']},
-    {t:'② 기본 서류',items:[
-      '청구인·상대방의 <b>가족관계증명서</b>',
-      '<b>혼인관계증명서</b> <span class="hint">(이혼했다면 이혼사실이 나오는 것)</span>',
-      '<b>주민등록등본</b>',
-      '자녀의 <b>기본증명서·가족관계증명서</b>']},
-    {t:'③ 소득·재산 자료 — 양쪽 모두',items:[
-      '근로소득원천징수영수증, 급여명세서, 재직증명서',
-      '사업자는 <b>소득금액증명</b>',
-      '건강보험 자격득실확인서·보험료 납부확인서',
-      '부동산 <b>등기사항증명서</b>, 임대차계약서 등']},
-    {t:'④ 자녀 양육에 드는 비용 자료',items:[
-      '보육료·학원비·교육비 영수증',
-      '치료비·약제비 영수증 <span class="hint">(자녀가 아프면 증액 사유가 됩니다)</span>',
-      '그 밖에 실제 지출을 보여 주는 자료']},
-    {t:'⑤ 이미 정해진 양육비를 못 받고 있다면',items:[
-      '<b>이행명령</b> 신청 → 따르지 않으면 <b>감치</b>',
-      '급여에서 바로 떼는 <b>양육비 직접지급명령</b>',
-      '<b>담보제공명령·일시금지급명령</b>',
-      '어느 절차가 맞는지는 상황에 따라 다릅니다 <b>[법원 확인]</b>']}
-  ],
-  links:['ecfs','family','gov','iros']},
-
-"친권자·양육자 지정":{
-  law:'민법 §909④⑥·§837 · 가사소송법 §2①2호 나목 3)',
-  note:'▸ <b>친권자와 양육자는 다를 수 있습니다.</b> 친권은 재산관리·법률행위 대리 등을, 양육은 실제로 함께 살며 기르는 것을 말합니다. 한 사람이 둘 다 맡을 수도, 나누어 맡을 수도 있습니다.<br>▸ 법원의 판단 기준은 오직 <b>자녀의 복리</b>입니다. 누가 더 잘못했는지가 아니라 <b>누구와 지내는 것이 아이에게 나은가</b>를 봅니다.<br>▸ <b>13세 이상 자녀는 법원이 의견을 듣는 것이 원칙</b>입니다(가사소송규칙 §100).<br>▸ 지정과 함께 <b>양육비와 면접교섭</b>도 정해 두는 것이 좋습니다. 나중에 다시 다투지 않게 됩니다.',
-  groups:[
-    {t:'① 청구서',items:[
-      '친권자·양육자 지정(변경) 심판청구서 1부 + 상대방 수만큼의 <b>부본</b>',
-      '<b>양육비·면접교섭</b>도 함께 청구하는 것을 권합니다']},
-    {t:'② 기본 서류',items:[
-      '청구인·상대방의 <b>가족관계증명서</b>',
-      '<b>혼인관계증명서</b>',
-      '<b>주민등록등본</b> <span class="hint">(자녀가 현재 누구와 살고 있는지 드러납니다)</span>',
-      '자녀의 <b>기본증명서·가족관계증명서</b>']},
-    {t:'③ 양육 환경을 보여 주는 자료',items:[
-      '주거 상황 — 임대차계약서, 등기사항증명서, 사진',
-      '소득·재직 자료 — 재직증명서, 급여명세서, 소득금액증명',
-      '실제로 길러 온 사실 — 어린이집·학교 생활기록, 병원 진료기록, 양육 사진',
-      '조부모 등 <b>양육 조력자</b>가 있으면 그 사실 자료']},
-    {t:'④ 그 밖에',items:[
-      '상대방에게 양육을 맡기기 부적절한 사정이 있으면 그 자료',
-      '법원이 <b>가사조사관 조사</b>나 <b>자녀 의견 청취</b>를 하는 경우가 많습니다',
-      '자녀 나이·사안에 따라 절차가 달라집니다 <b>[법원 확인]</b>']}
-  ],
-  links:['ecfs','family','gov']},
-
-"공탁":{
-  law:'공탁법 · 공탁규칙 §15①·§16·§20①·§21·§22·§69 · 민법 §487·§488',
-  note:'▸ <b>공탁서는 2통</b>을 냅니다(공탁규칙 §20①). 수리되면 그중 <b>1통에 수리 표시와 사건번호·납입기일</b>을 적어 돌려주며, 그 공탁서를 가지고 <b>납입기일까지</b> 은행에 돈을 넣어야 합니다. <b>납입하지 않으면 수리 결정은 효력을 잃습니다.</b><br>▸ <b>관공서에서 뗀 자격증명서면은 발급일부터 3개월 이내</b>의 것이어야 합니다(§16 1호).<br>▸ <b>돈(금전) 공탁은 전자공탁</b>으로 할 수 있습니다(§69). 다만 유가증권·물품은 전자로 안 되고, 지급청구는 <b>총액 5,000만원 이하</b>만 됩니다.<br>▸ 같은 사람이 같은 공탁소에 <b>여러 건을 동시에</b> 내면서 첨부서면이 같다면 <b>1건에 1통만</b> 붙이고 나머지에는 그 뜻을 적으면 됩니다(§22).',
-  groups:[
-    {t:'① 공탁서',items:[
-      '<b>공탁서 2통</b> — 전자공탁 홈페이지 「이용안내 〉 공탁양식」에서 내려받을 수 있습니다',
-      '공탁 <b>원인사실</b>과 <b>법령 조항</b>을 적어야 합니다 <span class="hint">(변제공탁이면 민법 §487 — 수령 거절·수령 불능·채권자 불확지 중 무엇인지)</span>']},
-    {t:'② 공탁자가 누구냐에 따라',items:[
-      '<b>개인</b> — 신분증·도장',
-      '<b>법인</b> — 대표자·관리인의 <b>자격을 증명하는 서면</b>(법인등기사항증명서 등) <span class="hint">§21①</span>',
-      '<b>법인 아닌 사단·재단</b> — <b>정관 또는 규약</b> + 대표자·관리인 자격증명서면',
-      '<b>대리인이 낼 때</b> — 대리권을 증명하는 서면(위임장 등) <span class="hint">§21②</span>',
-      '위 자격·대리권 증명서면 중 <b>관공서 발급분은 3개월 이내</b> 것이어야 합니다']},
-    {t:'③ 변제공탁이면 추가로',items:[
-      '<b>피공탁자(채권자)의 주소를 소명하는 서면</b> — 공탁관이 <b>공탁통지서를 보내야</b> 하기 때문입니다',
-      '주소를 모르는 경우(채권자 불확지 등)에는 그 사정을 밝히는 자료',
-      '<b>공탁통지서 발송용 우편료</b>',
-      '채무를 다투는 상태라면 <b>「채무 없음을 전제로 한다」는 뜻</b>을 적을지 신중히 정해야 합니다 <span class="hint">(잘못 적으면 변제 효력이 문제될 수 있습니다)</span>']},
-    {t:'④ 그 밖에',items:[
-      '<b>재판상 담보공탁</b>이면 담보제공명령 정본 등',
-      '<b>집행공탁</b>이면 압류·가압류 결정문 등 관련 서류',
-      '<b>형사공탁</b>은 별도 서류가 더 필요합니다 <b>[공탁소 확인]</b>',
-      '원본을 돌려받고 싶으면 <b>「원본과 같다」고 적은 사본</b>을 함께 냅니다(§15①)']}
-  ],
-  links:['ecfs','iros','gov']},
-
-"재산명시신청":{
-  law:'민사집행법 §61~§69 · 민사집행규칙 §25②',
-  note:'▸ <b>판결이 확정되어야 합니다.</b> 「가집행할 수 있다」는 선고만 붙은 판결로는 압류는 되어도 <b>재산명시는 신청할 수 없습니다</b>(민사집행법 §61① 단서). 이 점을 놓쳐 각하되는 경우가 많습니다.<br>▸ <b>관할은 채무자의 주소지 법원</b>입니다(보통재판적). 채무자가 법인이면 주된 사무소·영업소 소재지.<br>▸ <b>지급명령</b>으로 신청하는 경우에는 송달·확정증명이 이미 포함되어 있어 <b>따로 붙이지 않아도 됩니다.</b><br>▸ 채무자가 기일에 나오지 않거나 재산목록 제출을 거부하면 <b>20일 이내 감치</b>, 거짓 목록을 내면 <b>3년 이하 징역 또는 500만원 이하 벌금</b>, 그리고 <b>채무불이행자명부 등재</b>로 이어질 수 있습니다.',
-  groups:[
-    {t:'① 신청서',items:[
-      '재산명시 신청서 1부',
-      '신청 취지에 <b>집행권원을 특정</b>해 적습니다']},
-    {t:'② 집행권원 관련 서류',items:[
-      '<b>집행력 있는 정본</b> — 판결정본에 <b>집행문</b>을 받은 것 <span class="hint">(판결정본만 있으면 먼저 집행문부터 받으십시오)</span>',
-      '집행력 있는 정본의 <b>사본</b> <span class="hint">민사집행규칙 §25②</span>',
-      '<b>송달증명원</b>',
-      '<b>확정증명원</b>',
-      '<b>지급명령·이행권고결정</b>이면 송달·확정증명이 함께 있어 별도 첨부가 필요 없습니다']},
-    {t:'③ 채무자 관련 서류',items:[
-      '채무자의 <b>주민등록초본</b> — 관할을 정하고 송달할 곳을 밝히는 데 씁니다',
-      '채무자가 <b>법인</b>이면 <b>법인등기사항증명서</b>',
-      '송달이 안 되면 법원이 <b>주소보정명령</b>을 냅니다. 응하지 않으면 <b>신청이 각하</b>되니 반드시 보정하십시오(§62⑥⑦)']},
-    {t:'④ 비용',items:[
-      '인지대·송달료 <span class="hint">(위 계산 결과 참고)</span>']}
-  ],
-  links:['ecfs','gov','iros']},
-
-"재산조회신청":{
-  law:'민사집행법 §74 · 민사집행규칙 §36①',
-  note:'▸ <b>재산명시를 먼저 거쳐야 합니다.</b> 재산조회는 <b>재산명시를 신청했던 채권자</b>만 할 수 있습니다(§74①). 다만 <b>채무자 소재불명으로 재산명시명령이 송달되지 않은 경우</b> 등에는 재산명시 없이 바로 신청할 수 있습니다(§74① 단서).<br>▸ <b>가장 큰 비용은 인지·송달료가 아니라 「조회비용」입니다.</b> 법원이 금융기관·국토교통부·국세청·건강보험공단 등에 묻는 <b>기관 수만큼</b> 수수료가 붙고, 이를 <b>미리 예납</b>해야 합니다(민사집행규칙 §36①). 조회 기관을 많이 고르면 수십만원이 될 수 있으니 <b>꼭 필요한 곳만</b> 고르십시오.<br>▸ 재산명시와 달리 <b>채무자의 협조가 없어도</b> 재산을 찾을 수 있는 것이 장점입니다.',
-  groups:[
-    {t:'① 신청서',items:[
-      '재산조회 신청서 1부',
-      '<b>조회할 기관과 조회 대상 재산</b>을 골라 적습니다 <span class="hint">(고른 기관 수만큼 비용이 늘어납니다)</span>']},
-    {t:'② 선행 절차를 밝히는 서류',items:[
-      '<b>재산명시 사건번호</b>를 적습니다 — 같은 법원이면 기록으로 확인됩니다',
-      '재산명시절차에서 <b>재산을 찾지 못했다는 점</b>을 소명하는 자료',
-      '<b>재산명시 없이</b> 바로 신청하는 경우 — 재산명시명령이 <b>송달되지 않았음</b>을 밝히는 자료(송달불능보고서 등)']},
-    {t:'③ 집행권원 관련 서류',items:[
-      '집행력 있는 정본 · 송달증명원 · 확정증명원 <span class="hint">(재산명시 때 낸 것과 같습니다)</span>',
-      '채무자의 주민등록초본, 법인이면 법인등기사항증명서']},
-    {t:'④ 비용 — 미리 넣어야 합니다',items:[
-      '<b>조회기관별 조회비용</b> 예납 <span class="hint">민사집행규칙 §36①</span>',
-      '인지대·송달료',
-      '기관별 단가는 바뀔 수 있습니다 <b>[법원 확인]</b>']}
-  ],
-  links:['ecfs','gov','iros']},
-
-"증거보전 신청":{
-  law:'민사소송법 §375~§384',
-  note:'▸ <b>지금 확보하지 않으면 나중에 조사할 수 없게 될 증거</b>를 미리 조사해 두는 절차입니다. 소를 내기 전에도, 소송 중에도 할 수 있습니다.<br>▸ 핵심은 <b>「왜 지금이어야 하는가」</b>입니다. 증거가 없어지거나 쓰기 어려워질 <b>구체적 사정</b>을 소명해야 합니다. 막연히 「나중에 필요할 것 같아서」로는 인정되지 않습니다.<br>▸ <b>급할수록 빨리</b> 내십시오. 진료기록 보존기간이 지나가거나, 현장이 철거되거나, 증인이 출국하는 등 <b>시간이 지나면 목적 자체가 사라집니다.</b>',
-  groups:[
-    {t:'① 신청서',items:[
-      '증거보전 신청서 1부',
-      '<b>증명할 사실</b>, <b>보전할 증거</b>, <b>왜 미리 조사해야 하는지(사유)</b>를 반드시 적습니다(민사소송법 §377)']},
-    {t:'② 사유를 소명하는 자료',items:[
-      '증거가 없어질 위험을 보여 주는 자료 <span class="hint">(보존기간 안내문, 철거·공사 예정 통지, 출국 예정 자료 등)</span>',
-      '상대방이 자료를 폐기·변경할 우려가 있다면 그 정황 자료']},
-    {t:'③ 증거 방법에 따라',items:[
-      '<b>문서</b>(진료기록·공사서류 등) — 소지자의 이름과 주소, 문서를 특정할 수 있는 자료',
-      '<b>검증</b>(현장·물건) — 대상의 위치·표시, 사진, 도면',
-      '<b>감정</b> — 감정을 구하는 사항, <b>감정료 예납</b>이 필요합니다',
-      '<b>증인신문</b> — 증인의 이름·주소, 신문사항']},
-    {t:'④ 당사자 서류',items:[
-      '신청인·상대방의 주민등록초본 <span class="hint">(법인이면 법인등기사항증명서)</span>',
-      '상대방을 특정할 수 없으면 그 사정을 적습니다(민사소송법 §378)',
-      '증거방법·법원에 따라 요구가 달라집니다 <b>[법원 확인]</b>']}
-  ],
-  links:['ecfs','gov','iros']},
-
-"동산·채권담보권 설정(설정·이전·채권액 증가)":{
-  law:'동산·채권 등의 담보에 관한 법률 §2·§5·§38 · 동산채권담보등기규칙',
-  note:'▸ <b>등기소가 다릅니다.</b> 부동산등기소가 아니라 <b>대전지방법원 등기국</b>이 <b>전국을 단독으로</b> 관할합니다(동산채권담보법 §39). 전국 어디의 담보든 이곳에 신청합니다.<br>▸ <b>담보권설정자는 법인 또는 상호등기를 한 사람</b>이어야 합니다(§2 5호). <b>개인은 상호등기를 먼저</b> 해야 이 담보를 쓸 수 있습니다.<br>▸ <b>존속기간은 5년을 넘길 수 없습니다</b>(§49①). 연장하려면 만료 전에 연장등기를 해야 합니다.',
-  groups:[
-    {t:'① 신청서와 계약서',items:[
-      '담보권설정등기 신청서',
-      '<b>담보약정서(담보권설정계약서)</b>',
-      '<b>담보목적물 목록</b> — 이것이 가장 중요합니다']},
-    {t:'② 담보목적물을 특정하는 자료',items:[
-      '<b>동산</b> — 종류·수량·소재지(보관장소)로 특정합니다. <b>같은 보관장소의 같은 종류 동산 전체를 1개로</b> 봅니다(보수기준 §17① 단서)',
-      '<b>채권</b> — 채무자(제3채무자)·채권의 종류·발생원인·금액으로 특정합니다',
-      '<b>장래에 생길 채권</b>도 담보로 잡을 수 있습니다. 다만 특정 기준이 명확해야 합니다',
-      '보관장소 <b>임대차계약서</b>나 사업장 자료를 함께 내면 특정이 쉬워집니다']},
-    {t:'③ 당사자 서류',items:[
-      '<b>담보권설정자</b> — 법인등기사항증명서 · 법인인감증명서 · 법인인감도장 <span class="hint">(개인 상호등기자는 상호등기사항증명서·인감증명서)</span>',
-      '<b>담보권자</b> — 법인등기사항증명서 또는 주민등록초본',
-      '<b>위임장</b> <span class="hint">(대리 신청 시)</span>']},
-    {t:'④ 세금·수수료',items:[
-      '<b>등록면허세 영수필확인서</b>',
-      '<b>등기신청수수료 영수필확인서</b>',
-      '목적물 수에 따라 보수가 가산됩니다 <span class="hint">(보수기준 §17① — 1개 초과 시 1개마다 20,000원)</span>']}
-  ],
-  links:['iros','gov','ecfs']},
-
-"동산·채권담보권 추가설정":{
-  law:'동산·채권 등의 담보에 관한 법률 §5·§38',
-  note:'▸ <b>이미 설정된 담보권에 목적물을 더하는 것</b>입니다. 새로 설정하는 것보다 보수가 낮습니다(보수기준 §16②).<br>▸ <b>기존 담보등기 사항을 정확히 인용</b>해야 합니다. 접수번호·등기번호가 틀리면 보정됩니다.<br>▸ 관할은 마찬가지로 <b>대전지방법원 등기국</b>입니다.',
-  groups:[
-    {t:'① 신청서',items:[
-      '담보권 추가설정등기 신청서',
-      '<b>기존 담보등기의 표시</b> — 등기번호·접수일자·접수번호',
-      '<b>추가 담보약정서</b>']},
-    {t:'② 추가할 목적물 자료',items:[
-      '<b>추가 담보목적물 목록</b>',
-      '동산은 종류·수량·보관장소, 채권은 제3채무자·발생원인·금액으로 특정',
-      '<b>기존 목적물과 겹치지 않는지</b> 확인하십시오']},
-    {t:'③ 당사자 서류',items:[
-      '담보권설정자 — 법인등기사항증명서 · 법인인감증명서 · 법인인감도장',
-      '담보권자 — 법인등기사항증명서 또는 주민등록초본',
-      '<b>위임장</b>']},
-    {t:'④ 세금·수수료',items:[
-      '등록면허세 · 등기신청수수료 영수필확인서',
-      '<b>기존 담보등기사항증명서</b>를 미리 떼어 내용을 확인하십시오']}
-  ],
-  links:['iros','gov']},
-
-"동산·채권담보권 변경·경정·연장·말소":{
-  law:'동산·채권 등의 담보에 관한 법률 §49·§50 · 동산채권담보등기규칙',
-  note:'▸ <b>연장은 기한이 생명입니다.</b> 존속기간 <b>5년</b>이 지나면 담보권이 소멸합니다(§49①). <b>만료 전에</b> 연장등기를 해야 하며, 놓치면 되살릴 수 없습니다.<br>▸ <b>말소</b>는 피담보채권이 소멸했을 때 합니다. 담보권자의 협력이 필요하며, 협력하지 않으면 <b>말소등기 청구의 소</b>로 가야 합니다.<br>▸ 관할은 <b>대전지방법원 등기국</b>입니다.',
-  groups:[
-    {t:'① 신청서 — 무엇을 하는지에 따라',items:[
-      '<b>변경</b> — 담보목적물·채권액 등이 바뀐 경우',
-      '<b>경정</b> — 처음부터 잘못 적힌 것을 바로잡는 경우',
-      '<b>연장</b> — 존속기간을 늘리는 경우 <span class="hint">(만료 전에!)</span>',
-      '<b>말소</b> — 담보권이 소멸한 경우']},
-    {t:'② 사유를 증명하는 서류',items:[
-      '<b>변경·연장</b> — 변경·연장 <b>합의서</b>',
-      '<b>경정</b> — 착오를 밝히는 자료',
-      '<b>말소</b> — <b>피담보채권 소멸을 증명하는 서류</b>(변제확인서·해지증서 등) 또는 담보권자의 <b>말소승낙서</b>',
-      '판결로 말소한다면 <b>확정판결정본·확정증명원</b>']},
-    {t:'③ 당사자 서류',items:[
-      '신청인 — 법인등기사항증명서 · 법인인감증명서 · 법인인감도장',
-      '상대방의 <b>승낙서와 인감증명서</b> <span class="hint">(공동신청이 원칙입니다)</span>',
-      '<b>위임장</b>']},
-    {t:'④ 세금·수수료',items:[
-      '등록면허세 · 등기신청수수료 영수필확인서',
-      '<b>담보등기사항증명서</b>로 현재 상태를 먼저 확인하십시오']}
-  ],
-  links:['iros','gov','ecfs']},
-
-"동산·채권담보 등기명의인 표시변경 등":{
-  law:'동산·채권 등의 담보에 관한 법률 · 동산채권담보등기규칙',
-  note:'▸ <b>권리 내용은 그대로 두고 이름·주소·상호만 바꾸는 등기</b>입니다. 담보권자나 설정자의 상호가 바뀌거나 본점을 옮긴 경우입니다.<br>▸ <b>단독으로 신청</b>할 수 있습니다. 상대방의 승낙이 필요 없습니다.<br>▸ 관할은 <b>대전지방법원 등기국</b>입니다.',
-  groups:[
-    {t:'① 신청서',items:[
-      '등기명의인 표시변경(경정) 등기 신청서',
-      '<b>바뀌기 전과 후</b>를 나란히 적습니다']},
-    {t:'② 변경 사실을 증명하는 서류',items:[
-      '<b>법인</b> — 법인등기사항증명서 <span class="hint">(상호변경·본점이전 사실이 등기부에 나타납니다)</span>',
-      '<b>개인</b> — 주민등록초본(주소변동 포함), 개명했다면 기본증명서',
-      '<b>상호등기자</b> — 상호등기사항증명서']},
-    {t:'③ 그 밖에',items:[
-      '법인인감증명서 · 법인인감도장 <span class="hint">(또는 개인 인감)</span>',
-      '<b>위임장</b>',
-      '등록면허세 · 등기신청수수료 영수필확인서']}
-  ],
-  links:['iros','gov']},
-
-"공시최고·소송비용확정":{
-  law:'민사소송법 §475~§497 · 어음법 §89 · 수표법 §75',
-  note:'▸ <b>수표·어음·주권 등을 잃어버렸을 때</b> 그 증권을 무효로 만드는 절차입니다(제권판결).<br>▸ <b>공고 기간이 깁니다.</b> 공시최고 결정 후 <b>3개월 이상</b> 공고하고, 그 기간이 지나야 제권판결 기일이 잡힙니다. <b>전체적으로 4~6개월</b>을 잡으셔야 합니다.<br>▸ <b>분실 즉시 지급정지</b>부터 신청하십시오. 그러지 않으면 그사이 다른 사람이 지급받아 갈 수 있습니다.',
-  groups:[
-    {t:'① 신청서',items:[
-      '공시최고 신청서 1부',
-      '<b>증권을 특정</b>합니다 — 종류·번호·금액·발행일·발행인·지급지',
-      '<b>어떻게 잃어버렸는지</b>(도난·분실·멸실) 구체적으로 적습니다']},
-    {t:'② 증권과 권리를 밝히는 자료',items:[
-      '<b>사고신고(지급정지) 접수증</b> — 은행에서 받습니다',
-      '<b>수표·어음 사본</b>이 있으면 반드시 첨부 <span class="hint">(없으면 발행인·은행의 확인서)</span>',
-      '<b>발행인의 확인서</b> 또는 거래내역',
-      '<b>내가 정당한 소지인</b>이라는 자료 — 취득 경위, 거래관계 자료']},
-    {t:'③ 분실 사실 자료',items:[
-      '<b>도난</b>이면 경찰 <b>도난신고 접수증</b>',
-      '<b>멸실</b>이면 화재·수해 등 관련 증빙',
-      '단순 분실이면 <b>경위서</b>']},
-    {t:'④ 신청인 서류',items:[
-      '주민등록초본 <span class="hint">(법인이면 법인등기사항증명서)</span>',
-      '<b>관할은 지급지 관할 지방법원</b>입니다',
-      '공고 방법·기간은 법원에 따라 다를 수 있습니다 <b>[법원 확인]</b>']}
-  ],
-  links:['ecfs','gov']},
-
-"부동산경매 상담":{
-  law:'법무사 보수기준 §20~§22 · 민사집행법 §78 이하',
-  note:'▸ <b>이것은 서류를 내는 절차가 아니라 「사기 전에 확인하는」 단계</b>입니다. 아래는 법원에 낼 서류가 아니라 <b>입찰 전에 반드시 보셔야 할 자료</b>입니다.<br>▸ <b>여기서 놓치면 낙찰 후에는 되돌릴 수 없습니다.</b> 잔금을 못 내면 보증금을 잃습니다.<br>▸ 권리분석의 핵심은 <b>「낙찰 후에도 남는 권리가 있는가」</b>입니다.',
-  groups:[
-    {t:'① 법원이 내놓는 자료 — 반드시 다 보십시오',items:[
-      '<b>매각물건명세서</b> — 가장 중요합니다. 인수되는 권리가 여기 적힙니다',
-      '<b>현황조사보고서</b> — 누가 살고 있는지, 점유 상태는 어떤지',
-      '<b>감정평가서</b> — 감정가와 그 산출 근거',
-      '<b>매각기일 공고</b> — 기일·최저가·보증금 비율']},
-    {t:'② 직접 떼어 보실 것',items:[
-      '<b>등기사항전부증명서</b> — 인터넷등기소 <span class="hint">(말소기준권리를 찾는 출발점입니다)</span>',
-      '<b>건축물대장·토지대장</b> — 위반건축물 여부 확인',
-      '<b>토지이용계획확인원</b> — 용도지역·행위제한',
-      '<b>전입세대확인서</b> — 대항력 있는 임차인이 있는지']},
-    {t:'③ 특히 살펴야 할 것',items:[
-      '<b>선순위 임차인</b> — 대항력이 있으면 <b>보증금을 낙찰자가 물어줘야</b> 합니다',
-      '<b>유치권 신고</b> — 신고만으로 성립하는 것은 아니지만 분쟁 소지가 큽니다',
-      '<b>법정지상권</b> — 토지만 낙찰받았는데 건물이 남아 있는 경우',
-      '<b>선순위 가등기·가처분</b> — 말소되지 않고 인수될 수 있습니다',
-      '<b>체납관리비·조세채권</b> — 낙찰자 부담이 되는 부분이 있습니다']},
-    {t:'④ 입찰할 때',items:[
-      '<b>입찰보증금</b> — 보통 최저매각가격의 <b>10%</b> <span class="hint">(재매각은 20~30%가 될 수 있습니다)</span>',
-      '신분증 · 도장',
-      '<b>대리 입찰</b>이면 위임장 + 인감증명서',
-      '법인이면 법인등기사항증명서 · 법인인감증명서']}
-  ],
-  links:['iros','gov','ecfs']},
-
-"문안 不요 서류":{
-  law:'법무사 보수기준 §23② (1건당 40,000원)',
-  note:'▸ <b>내용을 새로 지어낼 필요가 없는 간단한 서류</b>입니다. 기일변경신청서, 판결확정증명·송달증명 신청서, 집행문부여신청서, 기록열람신청서, 도면 등이 해당합니다.<br>▸ <b>대부분 사건번호만 정확히 적으면 됩니다.</b> 아래를 확인하십시오.',
-  groups:[
-    {t:'① 공통',items:[
-      '<b>사건번호</b>를 정확히 <span class="hint">(2026가단12345 형식 — 법원·연도·부호·번호)</span>',
-      '<b>당사자 이름</b>',
-      '신청인의 신분증 · 도장',
-      '<b>인지·수수료</b> <span class="hint">(증명서 1통당 500원, 집행문 500원 등)</span>']},
-    {t:'② 서류별로',items:[
-      '<b>확정증명·송달증명</b> — 판결정본 또는 사건번호만 있으면 됩니다',
-      '<b>집행문 부여</b> — <b>판결정본을 지참</b>하십시오. 정본 뒤에 붙여 줍니다',
-      '<b>기록열람·복사</b> — 당사자 본인이거나 <b>이해관계를 소명</b>해야 합니다',
-      '<b>기일변경신청</b> — <b>변경 사유를 소명하는 자료</b>가 필요합니다(진단서·출장명령서 등)',
-      '<b>주소보정</b> — 보정명령서 + 새 주민등록초본']},
-    {t:'③ 편한 방법',items:[
-      '<b>전자소송으로 진행한 사건</b>이면 증명서 발급도 온라인으로 됩니다',
-      '종이 사건이라도 <b>대법원 전자민원센터</b>에서 신청 가능한 것이 있습니다 <b>[법원 확인]</b>']}
-  ],
-  links:['ecfs','gov']},
-
-"상담·자문 (개별)":{
-  law:'법무사 보수기준 §26① (1건당 150,000원 · 사건 수임 시 면제 가능)',
-  note:'▸ <b>상담은 준비해 오신 만큼 정확해집니다.</b> 아래를 챙겨 오시면 훨씬 구체적인 답을 드릴 수 있습니다.<br>▸ <b>사건을 저희에게 맡기시면 상담료는 면제해 드립니다</b>(§26① 단서).',
-  groups:[
-    {t:'① 꼭 가져오실 것',items:[
-      '<b>받으신 서류 원본</b> — 소장·지급명령·내용증명·통지서 등 <b>봉투까지</b> <span class="hint">(언제 받았는지가 기한 계산의 출발점입니다)</span>',
-      '<b>계약서</b>·차용증·각서 등 근거 서류',
-      '<b>시간 순서로 정리한 메모</b> — 언제 무슨 일이 있었는지 한 장이면 충분합니다']},
-    {t:'② 있으면 좋은 것',items:[
-      '계좌이체 내역 · 영수증',
-      '문자·메신저 대화 <span class="hint">(캡처보다 원본 화면이 좋습니다)</span>',
-      '부동산이면 <b>등기사항증명서</b>',
-      '상대방의 이름·주소·연락처']},
-    {t:'③ 미리 생각해 오시면 좋은 것',items:[
-      '<b>무엇을 가장 원하시는지</b> — 돈을 받는 것인지, 관계를 정리하는 것인지',
-      '<b>언제까지</b> 해결되어야 하는지',
-      '들일 수 있는 <b>비용의 범위</b>']}
-  ],
-  links:['iros','gov','ecfs']},
-
-"상담·자문 (계속적·월액)":{
-  law:'법무사 보수기준 §26② (월액 600,000원 이하 · 사건 수임으로 이어져도 적용)',
-  note:'▸ <b>계속적 자문은 매달 정해진 금액으로 상시 상담을 받는 방식</b>입니다. 사업체나 단체에서 주로 이용하십니다.<br>▸ <b>사건 수임으로 이어지더라도 월 자문료는 그대로 적용</b>됩니다(§26②).',
-  groups:[
-    {t:'① 계약할 때 준비할 것',items:[
-      '<b>사업자등록증</b> <span class="hint">(개인이면 신분증)</span>',
-      '<b>법인등기사항증명서</b> · 법인인감증명서 <span class="hint">(법인인 경우)</span>',
-      '<b>정관·규약</b> <span class="hint">(단체인 경우)</span>']},
-    {t:'② 미리 정리해 두시면 좋은 것',items:[
-      '주로 어떤 일에 자문이 필요한지 <span class="hint">(계약서 검토·채권관리·인사·등기 등)</span>',
-      '<b>현재 진행 중인 분쟁</b>이 있으면 그 자료',
-      '<b>자주 쓰는 계약서 양식</b> — 미리 점검해 드릴 수 있습니다']},
-    {t:'③ 범위를 미리 정하십시오',items:[
-      '<b>자문에 포함되는 것</b>과 <b>별도 수임이 필요한 것</b>을 처음에 나누어 두면 나중에 다툼이 없습니다',
-      '소송·등기 등 <b>실제 사건 처리</b>는 별도 보수 대상입니다',
-      '연락 방법과 응답 시간도 함께 정해 두시길 권합니다']}
-  ],
-  links:['iros','gov']},
-
-"개명·가족관계등록 정정":{
-  law:'가족관계등록법 §99(개명)·§104·§105(정정) · 대법원 2005스26 결정',
-  note:'▸ <b>개명과 등록부 정정은 다른 절차</b>입니다. 개명은 이름을 <b>바꾸는</b> 것이고, 정정은 잘못 적힌 것을 <b>바로잡는</b> 것입니다.<br>▸ <b>개명은 허가를 받은 뒤 신고까지 해야 끝납니다.</b> 허가서를 받은 날부터 <b>1개월 안에</b> 시·구·읍·면에 신고하십시오.<br>▸ <b>개명 후에는 바꿀 곳이 많습니다</b> — 주민등록, 운전면허, 여권, 부동산 등기, 금융기관, 각종 자격증. 미리 목록을 만들어 두시면 편합니다.<br>▸ <b>범죄경력 조회</b>가 이루어집니다. 채무를 피하거나 신분을 감추려는 목적으로 보이면 허가되지 않습니다.',
-  groups:[
-    {t:'① 신청서',items:[
-      '<b>개명허가 신청서</b> 또는 <b>등록부정정 허가신청서</b> 1부',
-      '<b>개명 사유</b>를 구체적으로 적습니다 <span class="hint">(놀림·발음 곤란·한자 뜻·작명 오류·성별 혼동 등)</span>',
-      '<b>관할</b>은 주소지 또는 등록기준지 <b>가정법원</b>입니다']},
-    {t:'② 기본 서류',items:[
-      '<b>기본증명서 (상세)</b>',
-      '<b>가족관계증명서 (상세)</b>',
-      '<b>주민등록등본</b>',
-      '<b>부모의 가족관계증명서</b> <span class="hint">(신청인이 미성년이거나 가족관계를 밝혀야 할 때)</span>']},
-    {t:'③ 개명일 때 추가',items:[
-      '<b>범죄경력·수사경력 회보서</b> <span class="hint">(경찰서 발급 — 법원이 직접 조회하는 경우도 있습니다 [법원 확인])</span>',
-      '<b>사유를 뒷받침하는 자료</b> — 실제로 새 이름을 써 온 자료(학교·직장·통장·명함), 작명소 감정서, 진단서 등',
-      '<b>미성년자</b>는 법정대리인(부모)이 신청하며, 부모 <b>모두의 동의서</b>가 필요할 수 있습니다']},
-    {t:'④ 등록부 정정일 때 추가',items:[
-      '<b>잘못 기재되었음을 증명하는 자료</b> — 제적등본, 병원 출생증명서, 학적부, 옛 호적 자료 등',
-      '<b>가벼운 오기</b>는 시·구·읍·면에서 직권정정으로 되기도 합니다 — 먼저 문의해 보십시오',
-      '<b>신분관계에 영향을 주는 정정</b>(친자관계 등)은 <b>확정판결</b>이 있어야 합니다(가족관계등록법 §107)']},
-    {t:'⑤ 허가를 받은 뒤 — 여기서 끝이 아닙니다',items:[
-      '<b>1개월 안에</b> 시·구·읍·면에 <b>개명신고</b> <span class="hint">(허가서 등본 지참)</span>',
-      '주민등록 정정 → <b>주민등록증 재발급</b>',
-      '<b>부동산 등기명의인 표시변경</b> 등기 <span class="hint">(부동산이 있으시면 필요합니다)</span>',
-      '금융기관·보험·통신사·여권·운전면허·각종 자격증']}
-  ],
-  links:['family','gov','ecfs','iros']},
-
-"실종선고·부재자재산관리인":{
-  law:'민법 §22~§29 · 가사소송법 §2①2호 가목 · 가사소송규칙 §32 이하',
-  note:'▸ <b>두 절차는 목적이 다릅니다.</b> <b>부재자재산관리인</b>은 돌아올 수도 있는 사람의 재산을 <b>지키는</b> 것이고, <b>실종선고</b>는 <b>사망한 것으로 보아</b> 상속을 열게 하는 것입니다.<br>▸ <b>실종선고는 기간이 찼는지가 관건</b>입니다 — 보통실종 <b>5년</b>, 특별실종(전쟁·선박·항공기·기타 위난) <b>1년</b>(민법 §27).<br>▸ <b>공시최고를 거칩니다.</b> 법원이 <b>6개월 이상</b> 공고한 뒤에야 선고합니다(가사소송규칙 §53~§55). <b>전체적으로 8개월~1년</b>을 잡으셔야 합니다.<br>▸ <b>실종선고가 확정되면 실종기간 만료 시점에 사망한 것으로</b> 봅니다(민법 §28). 그때를 기준으로 상속이 열립니다.',
-  groups:[
-    {t:'① 신청서',items:[
-      '<b>실종선고 심판청구서</b> 또는 <b>부재자재산관리인 선임 청구서</b> 1부',
-      '<b>청구인의 이해관계</b>를 밝힙니다 <span class="hint">(배우자·상속인·채권자·검사 등 — 아무나 청구할 수 없습니다)</span>',
-      '<b>관할</b>은 부재자의 <b>마지막 주소지</b> 가정법원입니다']},
-    {t:'② 부재자(실종자) 서류',items:[
-      '<b>기본증명서 (상세)</b>',
-      '<b>가족관계증명서 (상세)</b>',
-      '<b>주민등록초본</b> <span class="hint">(주소변동 전부 — 마지막 주소를 확인합니다)</span>',
-      '<b>제적등본</b> <span class="hint">(오래된 사안이면 필요합니다)</span>']},
-    {t:'③ 청구인 서류',items:[
-      '청구인의 <b>가족관계증명서·주민등록등본</b>',
-      '<b>이해관계를 소명하는 자료</b> — 상속인이면 가족관계, 채권자면 채권 자료']},
-    {t:'④ 생사불명을 소명하는 자료 — 핵심입니다',items:[
-      '<b>가출·실종 신고 접수증</b> <span class="hint">(경찰)</span>',
-      '<b>출입국사실증명</b> <span class="hint">(해외에서 소식이 끊긴 경우)</span>',
-      '<b>주민등록 말소</b> 또는 거주불명 등록 자료',
-      '마지막으로 연락된 시점을 보여 주는 자료 — 통화·문자 기록, 편지, 목격자 진술서',
-      '<b>특별실종</b>이면 사고를 증명하는 자료 — 사고증명서, 조난·침몰·추락 관련 공적 자료, 언론 보도']},
-    {t:'⑤ 부재자재산관리인 선임일 때 추가',items:[
-      '<b>관리할 재산의 목록</b>과 자료 — 부동산 등기사항증명서, 예금 자료 등',
-      '<b>관리인 후보자</b>의 인적사항과 <b>승낙서</b>',
-      '<b>재산관리인은 처분행위를 하려면 법원의 허가</b>를 따로 받아야 합니다(민법 §25) <b>[법원 확인]</b>']},
-    {t:'⑥ 선고를 받은 뒤',items:[
-      '<b>1개월 안에</b> 시·구·읍·면에 <b>실종신고</b> <span class="hint">(심판서 등본·확정증명 지참)</span>',
-      '그 뒤에 <b>상속등기·상속재산 정리</b>로 이어집니다',
-      '<b>살아 돌아오면</b> 실종선고 취소를 청구할 수 있습니다(민법 §29)']}
-  ],
-  links:['family','gov','ecfs','iros']}
-
-};
-
-/* ══════════════════════════════════════════════════════════════
-   보수 조정(가산)의 근거 조문 — 화면별 자동 안내
-   ─────────────────────────────────────────────────────────────
-   보수기준은 각 장(章)마다 「§2②각호에 해당하면 §10③을 준용한다」는
-   가산 규정을 따로 두고 있다. 준용되는 §10③의 내용은 하나다.
-     §10③ — §2②각호에 해당하면 그 정도에 따라 당해 기본보수의 100% 상당액까지
-             가산할 수 있다. 이 경우 그 사유가 중복되더라도 별도로 가산하지 않는다.
-   → 조정 셀렉트의 상한 200%(= 기본보수 + 100% 가산)가 이 조문의 상한과 일치한다.
-   ※ 상담료·자문료(§26)에는 §10③ 준용 규정이 없으므로 안내를 표시하지 않는다. [A]
-   ══════════════════════════════════════════════════════════════ */
-const ADJ_LAW={
-  'Ⅱ-2':'§14⑥','Ⅱ-3':'§14⑥','Ⅱ-4(4)':'§14⑥','Ⅱ-4(6)':'§14⑥',   /* 제3장 상업·법인 */
-  'Ⅳ-1':'§17②','Ⅳ-2':'§17②','Ⅳ-3(1)':'§17②','Ⅳ-3(2)':'§17②',   /* 제5장 동산·채권담보 */
-  'Ⅴ':'§19①',                                                    /* 제6장 공탁 */
-  'Ⅵ-1':'§22③',                                                  /* 제7장 경매·공매 */
-  'Ⅶ-1①':'§24','Ⅶ-1②':'§24','Ⅶ-2':'§24',                        /* 제8장 송무·비송·집행 */
-  'Ⅷ':'§24의2'                                                    /* 제8장의2 개인파산·개인회생 */
-};
-const S2_2='<b>①</b> 사건이 특별히 중대하거나 복잡한 경우 &nbsp; <b>②</b> 처리기간이 현저히 오래 걸릴 것으로 예상되는 경우 &nbsp; <b>③</b> 특별한 조사·분석·연구·상담·자문이 필요한 경우 &nbsp; <b>④</b> 당사자나 직접적인 이해관계인이 <b>5인 이상</b>인 경우 &nbsp; <b>⑤</b> 그 밖에 보수기준이 특별히 정한 경우';
-/* §24의2 각 호 — 개인파산·개인회생 전용 가산사유 (원문 그대로) */
-const S24_2=['채권자의 종류가 다양하고 수가 많은 경우',
-  '비금융채권자가 많은 경우',
-  '업무수행기간이 1년 이상 소요될 것으로 예상되는 경우',
-  '보정이나 수정 횟수가 많거나 많을 것으로 예상되는 경우',
-  '별제권부 채권이 있거나 부인권 대상 행위가 있는 경우',
-  '파산관재인을 통한 환가 및 배당절차 진행이 예정되어 있는 경우'];
-function adjGuideHTML(def){
-  const law=ADJ_LAW[def.tier||def.flat]; if(!law)return '';
-  let h='<div class="note" style="border-left:3px solid var(--gold);">'
-    +'▸ <b>보수가 더 붙을 수 있는 경우입니다</b> — 보수기준 <b>'+law+'</b> → <b>§10③ 준용</b> <span class="tag A">A</span><br>'
-    +'아래에 해당하면 <b>기본보수의 100%까지</b>(위 조정 <b>200%</b>) 더할 수 있습니다. '
-    +'<b>사유가 여러 개 겹쳐도 한 번만</b> 더합니다(§10③ 후단).<br>'
-    +'<span class="hint">'+S2_2+'</span>';
-  if(law==='§24의2'){
-    h+='<br><b>개인파산·개인회생은 아래 사유가 함께 있어야 합니다</b>(§24의2 각 호). '
-      +'즉 <b>통상의 사건보다 절차 관여가 많거나 법률적 조력이 더 필요한 경우</b>여야 합니다.'
-      +'<div style="margin-top:5px;font-size:12.5px;line-height:1.75;">';
-    S24_2.forEach((t,i)=>{h+='<b>'+(i+1)+'.</b> '+t+'<br>';});
-    h+='</div>';
-  }
-  if(law==='§22③')h+='<br><span class="hint">▸ 경매·공매는 이와 <b>별도로 §22①</b>이 있습니다 — 난이도·응찰회수·낙찰여부·부동산 가격·소요시간 등을 감안하여 <b>기본보수의 100%를 넘지 않는 범위</b>에서 위임인과 협의로 정합니다.</span>';
-  h+='<br><span class="hint" style="color:var(--seal);">※ 가산은 <b>위임인과 협의</b>하여 정합니다. 계산기가 자동으로 올리지 않습니다.</span>';
-  return h+'</div>';
-}
-
 function buildGeneric(name){
   CUR=name;const def=SCENARIO[name];
   document.getElementById('g_lawyerNote').style.display=def.lawyer?'block':'none';
@@ -8160,10 +7062,6 @@ function buildGeneric(name){
     h+='<div class="line"><span class="lbl">전자소송 진행</span><label class="checks" style="display:inline-flex;"><input type="checkbox" id="g_e" checked onchange="calcGeneric()"> 예(인지 10% 할인)</label></div>';
   }
   document.getElementById('g_inputs').innerHTML=h;
-  {const _ag=document.getElementById('g_adjGuide'); if(_ag)_ag.innerHTML=adjGuideHTML(def);}
-  /* 준비서류 — DOCS에 등록된 사건만 카드를 띄운다 */
-  {const _dc=document.getElementById('g_docsCard'), _db=document.getElementById('g_docsBox'), _d=DOCS[name];
-   if(_dc&&_db){ if(_d){_db.innerHTML=docsHTML(_d); _dc.style.display='';} else {_db.innerHTML=''; _dc.style.display='none';} }}
   // 보수 추가항목(대행료) — 사건 카테고리별 필터
   const grp=def.cat==='re'?'reTransfer':(def.cat==='family'?'family':def.cat);
   let e='';
