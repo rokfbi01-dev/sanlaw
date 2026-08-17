@@ -87,13 +87,6 @@
   .card .body{padding:14px 16px;}
   .line{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line);flex-wrap:wrap;}
   .line:last-child{border-bottom:none;}
-  /* ── 접이식 상세(details)에도 「펼치기」 배지 ── */
-  details.ref > summary{position:relative;padding-right:74px;}
-  details.ref > summary::after{content:"▾ 펼치기";position:absolute;right:10px;top:50%;
-    transform:translateY(-50%);font-size:11px;font-weight:700;color:#8a6d24;
-    background:#f6f1e4;border:1px solid var(--line);border-radius:11px;padding:2px 9px;letter-spacing:-.2px;}
-  details.ref[open] > summary::after{content:"▴ 접기";}
-  details.ref > summary:hover::after{color:var(--gold);border-color:var(--gold);}
   /* ── 카드 접기(준비서류 등) ── */
   .card.collapsible > h2{cursor:pointer;user-select:none;position:relative;padding-right:78px;}
   .card.collapsible > h2::after{content:"▾ 펼치기";position:absolute;right:14px;top:50%;
@@ -210,6 +203,13 @@
   details.ref>summary::-webkit-details-marker{display:none;}
   details.ref>summary::before{content:"▸ ";color:var(--seal);}
   details.ref[open]>summary::before{content:"▾ ";}
+  /* 접이식 상세에도 「펼치기」 배지 — 위 기본 규칙 뒤에 두어야 적용된다 */
+  details.ref>summary{position:relative;padding-right:76px;}
+  details.ref>summary::after{content:"▾ 펼치기";position:absolute;right:10px;top:50%;
+    transform:translateY(-50%);font-size:11px;font-weight:700;color:#8a6d24;
+    background:#f6f1e4;border:1px solid var(--line);border-radius:11px;padding:2px 9px;letter-spacing:-.2px;}
+  details.ref[open]>summary::after{content:"▴ 접기";}
+  details.ref>summary:hover::after{color:var(--gold);border-color:var(--gold);}
   details.ref .refbody{padding:10px 12px;}
   table.ref{width:100%;border-collapse:collapse;font-size:12px;}
   table.ref th,table.ref td{border:1px solid var(--line);padding:4px 7px;text-align:left;}
