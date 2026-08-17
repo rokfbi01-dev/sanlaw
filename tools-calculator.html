@@ -88,7 +88,7 @@
   .line{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line);flex-wrap:wrap;}
   .line:last-child{border-bottom:none;}
   /* ── 공시가격·시가표준액 조회 도우미 ── */
-  .stdlk{display:block;background:#fbf7ec;border:1px dashed #c0b294;border-radius:7px;padding:10px 12px;margin:8px 0 4px;}
+  .stdlk{display:block;background:#fbf7ec;border:1px dashed #c0b294;border-radius:7px;padding:10px 12px;margin:8px 0 4px;word-break:keep-all;overflow-wrap:break-word;}
   .stdlk .stdlk-t{font-size:12.5px;font-weight:700;color:var(--gold);margin-bottom:3px;}
   .stdlk .stdlk-g{font-size:11.5px;color:#8a8270;line-height:1.6;margin-bottom:7px;}
   .stdlk .stdlk-addr{width:100%;font-size:13.5px;padding:7px 9px;border:1px solid var(--line);border-radius:6px;background:#fffdf8;margin-bottom:7px;}
@@ -3824,13 +3824,16 @@ const STD_SITES={
   bldg :{u:'https://www.wetax.go.kr/tcp/loi/J030401M01.do',              n:'위택스 건물 시가표준액(서울 외 전국)'},
   seoul:{u:'https://etax.seoul.go.kr/BldnStndAmtLstAction.view?gnb_id=0709&lnb_id=0701&gl_gubun=g', n:'서울 이택스 건물 시가표준액'}
 };
-/* kind : 'house'=주택 / 'etc'=주택외(토지+건물) / 'land'=농지·토지 / 'all'=전부 */
+/* kind : 'house'=주택 / 'etc'=주택외 / 'land'·'farm'=농지·토지 / 'all'=구분없음
+   ▸ 버튼은 언제나 5개를 모두 보여준다. 선택한 물건 종류에 맞는 것을 앞으로 당길 뿐이다.
+     (종류를 잘못 골랐거나, 대지권·부속토지 등 다른 값도 확인해야 하는 경우가 있다) */
 function stdLkBox(kind){
-  let keys;
-  if(kind==='house')      keys=['apt','house'];
-  else if(kind==='etc')   keys=['land','bldg','seoul'];
-  else if(kind==='land'||kind==='farm') keys=['land'];
-  else                    keys=['apt','house','land','bldg','seoul'];
+  const all=['apt','house','land','bldg','seoul'];
+  let first=[];
+  if(kind==='house')                    first=['apt','house'];
+  else if(kind==='etc')                 first=['land','bldg','seoul'];
+  else if(kind==='land'||kind==='farm') first=['land'];
+  const keys=first.concat(all.filter(k=>first.indexOf(k)<0));
   const lbl={apt:'아파트·빌라 공시가격',house:'단독주택 공시가격',land:'토지 공시지가',
              bldg:'건물 시가표준액 (서울 외)',seoul:'건물 시가표준액 (서울)'};
   let b='';
@@ -3839,7 +3842,7 @@ function stdLkBox(kind){
     +'<div class="stdlk-t">▸ 공시가격을 모르시겠으면 여기서 바로 확인하세요</div>'
     +'<div class="stdlk-g">부동산 주소를 적고 아래 버튼을 누르시면, <b>주소가 자동으로 복사되고</b> 조회 사이트가 새 창으로 열립니다. '
     +'열린 화면의 검색칸에 <b>붙여넣기(Ctrl+V · 휴대전화는 길게 눌러 붙여넣기)</b> 하시면 됩니다.'
-    +(keys.indexOf('bldg')>=0?'<br>· <b>건물 시가표준액</b>은 <b>서울</b>과 <b>그 밖의 지역</b>의 조회처가 다릅니다. 부동산 소재지에 맞는 버튼을 누르십시오.':'')
+    +'<br>· <b>건물 시가표준액</b>은 <b>서울</b>과 <b>그 밖의 지역</b>의 조회처가 다릅니다. 부동산 소재지에 맞는 버튼을 누르십시오.'
     +'</div>'
     +'<input type="text" class="stdlk-addr" placeholder="예) 서울특별시 강서구 화곡동 000-0  또는  도로명주소">'
     +'<div class="stdlk-btns">'+b+'</div>'
