@@ -108,7 +108,7 @@
   .noteMore.on::after{content:"▴ 접기";}
   .noteMore.alert::after{background:#fff;color:#9a6a1c;border-color:#e0c08a;}
   /* 클래스 없는 details(사무소 설정·면제기준 안내 등)에도 같은 배지 */
-  details:not(.ref) > summary{position:relative;padding-right:76px;}
+  details:not(.ref) > summary{position:relative !important;padding-right:76px !important;}
   details:not(.ref) > summary::after{content:"▾ 펼치기";position:absolute;right:10px;top:50%;
     transform:translateY(-50%);font-size:11px;font-weight:700;color:#8a6d24;
     background:#f6f1e4;border:1px solid var(--line);border-radius:11px;padding:2px 9px;
@@ -217,7 +217,7 @@
   details.ref>summary::before{content:"▸ ";color:var(--seal);}
   details.ref[open]>summary::before{content:"▾ ";}
   /* 접이식 상세에도 「펼치기」 배지 — 위 기본 규칙 뒤에 두어야 적용된다 */
-  details.ref>summary{position:relative;padding-right:76px;}
+  details.ref>summary{position:relative !important;padding-right:76px !important;}
   details.ref>summary::after{content:"▾ 펼치기";position:absolute;right:10px;top:50%;
     transform:translateY(-50%);font-size:11px;font-weight:700;color:#8a6d24;
     background:#f6f1e4;border:1px solid var(--line);border-radius:11px;padding:2px 9px;letter-spacing:-.2px;}
