@@ -87,6 +87,16 @@
   .card .body{padding:14px 16px;}
   .line{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line);flex-wrap:wrap;}
   .line:last-child{border-bottom:none;}
+  /* ── 공시가격·시가표준액 조회 도우미 ── */
+  .stdlk{display:block;background:#fbf7ec;border:1px dashed #c0b294;border-radius:7px;padding:10px 12px;margin:8px 0 4px;}
+  .stdlk .stdlk-t{font-size:12.5px;font-weight:700;color:var(--gold);margin-bottom:3px;}
+  .stdlk .stdlk-g{font-size:11.5px;color:#8a8270;line-height:1.6;margin-bottom:7px;}
+  .stdlk .stdlk-addr{width:100%;font-size:13.5px;padding:7px 9px;border:1px solid var(--line);border-radius:6px;background:#fffdf8;margin-bottom:7px;}
+  .stdlk .stdlk-btns{display:flex;flex-wrap:wrap;gap:6px;}
+  .stdlk .stdlk-btns button{font-family:inherit;font-size:12.5px;font-weight:600;padding:7px 11px;border:1px solid var(--line);
+    background:var(--paper-2);color:var(--ink-soft);border-radius:6px;cursor:pointer;line-height:1.3;}
+  .stdlk .stdlk-btns button:hover{background:#e3d8bf;border-color:var(--gold);color:var(--gold);}
+  .stdlk .stdlk-msg{font-size:11.5px;color:var(--ok);margin-top:7px;line-height:1.6;min-height:1em;}
   .line .lbl{flex:0 0 140px;font-weight:600;color:var(--ink-soft);font-size:13.5px;}
   input[type=text],input[type=number],select{font-family:inherit;font-size:14px;padding:7px 9px;border:1px solid var(--line);border-radius:6px;background:#fffdf8;color:var(--ink);}
   input.amt{flex:1;min-width:160px;text-align:right;font-variant-numeric:tabular-nums;}
@@ -1007,6 +1017,7 @@
         <label><input type="radio" name="ea_merger" value="normal"> 그 밖의 합병·분할 — §11⑤</label></div></div>
       <div class="note" id="ea_desc"></div>
       <div class="line"><span class="lbl">과세표준(원)</span><input type="number" class="amt" id="ea_price" placeholder="0" oninput="calcEtcAcq()"><span class="hint" id="ea_priceHint"></span></div>
+      <div class="stdlkMount" data-k="all"></div>
       <div class="line" id="ea_ptypeRow"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcEtcAcq()">
         <label><input type="radio" name="ea_ptype" value="house" checked> 주택</label>
         <label><input type="radio" name="ea_ptype" value="etc"> 주택외</label>
@@ -1135,6 +1146,7 @@
         <label><input type="radio" name="pt_bondKind" value="free" checked> 무상취득(18/28/42 · 14/25/39)</label>
         <label><input type="radio" name="pt_bondKind" value="paid"> 유상 소유권이전(주택13~31 등)</label></div></div>
       <div class="line"><span class="lbl">시가표준액(원)</span><input type="number" class="amt" id="pt_bondStd" placeholder="0" oninput="calcBondPartition()"><span class="hint">부동산마다 개별 산정 <span id="pt_bondPct" class="hint"></span></span></div>
+      <div class="stdlkMount" data-k="all"></div>
       <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="pt_region" value="metro" checked onchange="calcBondPartition()"> 특별시·광역시</label><label><input type="radio" name="pt_region" value="other" onchange="calcBondPartition()"> 기타지역</label></div></div>
       <div class="line"><span class="lbl">채권 매입금(원)</span><input type="number" class="amt" id="pt_bondBuy" placeholder="0" oninput="calcPartition()"><span class="hint">자동 산출(직접 수정 가능)</span></div>
       <details class="ref"><summary>매입률 참고표 <span class="reftag" style="background:#e7efe6;color:var(--ok);">A</span> <span class="hint">— 계산기에 내장된 실제 요율</span></summary><div class="refbody"><div class="bondRefMount"></div><p style="margin:8px 0 0;font-size:11.5px;color:#8a8270;line-height:1.6;"><b>근거</b> 주택도시기금법 §8②·시행령 §8② [별표] 부표 1(부동산 등기) — 위 표는 <b>계산기에 내장된 값을 그대로 출력</b>한 것입니다.<br><b>계산규칙</b> 5천원 미만 절사 / 5천원 이상 올림 → 만원 단위 · 각 부동산마다 개별 산정 · 공유지분은 지분율을 곱한 시가표준액으로 판정 · 공동주택은 세대당 시가표준액</p></div></details>
@@ -1258,6 +1270,7 @@
       <div class="note" style="border-left:3px solid var(--seal);">▸ 경매·공매 낙찰은 <b>대가를 지급하고 취득</b>하는 것이므로 <b>유상 소유권이전 요율</b>이 적용됩니다. 무상취득 요율이 아닙니다.</div>
       <div class="line" style="display:none;"><div class="radios"><label><input type="radio" name="nk_bondKind" value="paid" checked> 유상</label></div></div>
       <div class="line"><span class="lbl">시가표준액(원)</span><input type="number" class="amt" id="nk_bondStd" placeholder="0" oninput="calcBondNakchal()"><span class="hint">부동산마다 개별 산정 <span id="nk_bondPct" class="hint"></span></span></div>
+      <div class="stdlkMount" data-k="all"></div>
       <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="nk_region" value="metro" checked onchange="calcBondNakchal()"> 특별시·광역시</label><label><input type="radio" name="nk_region" value="other" onchange="calcBondNakchal()"> 기타지역</label></div></div>
       <div class="line"><span class="lbl">채권 매입금(원)</span><input type="number" class="amt" id="nk_bondBuy" placeholder="0" oninput="calcNakchal()"><span class="hint">자동 산출(직접 수정 가능)</span></div>
       <details class="ref"><summary>매입률 참고표 <span class="reftag" style="background:#e7efe6;color:var(--ok);">A</span> <span class="hint">— 계산기에 내장된 실제 요율</span></summary><div class="refbody"><div class="bondRefMount"></div><p style="margin:8px 0 0;font-size:11.5px;color:#8a8270;line-height:1.6;"><b>근거</b> 주택도시기금법 §8②·시행령 §8② [별표] 부표 1(부동산 등기) — 위 표는 <b>계산기에 내장된 값을 그대로 출력</b>한 것입니다.<br><b>계산규칙</b> 5천원 미만 절사 / 5천원 이상 올림 → 만원 단위 · 각 부동산마다 개별 산정 · 공유지분은 지분율을 곱한 시가표준액으로 판정 · 공동주택은 세대당 시가표준액</p></div></details>
@@ -1480,6 +1493,7 @@
       <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에 <b>등기 당일 값</b>을 넣으셔야 정확합니다.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
       <div class="note">부담부증여는 채권 매입률을 <b>부담부분(유상)·증여분(무상) 각각</b> 적용 후 합산합니다(협회 방식). 시가표준액과 각 매입률을 입력하세요.</div>
       <div class="line"><span class="lbl">시가표준액(원)</span><input type="number" class="amt" id="bv_bondStd" placeholder="0" oninput="calcBondBurden()"><span class="hint">전체 부동산 시가표준액</span></div>
+      <div class="stdlkMount" data-k="all"></div>
       <div class="line"><span class="lbl">부담부분 매입률(‰)</span><input type="number" id="bv_pctDebt" placeholder="예: 31" step="0.1" style="width:120px;" oninput="calcBondBurden()"><span class="hint">유상분 비율 × 시가표준액</span></div>
       <div class="line"><span class="lbl">증여분 매입률(‰)</span><input type="number" id="bv_pctGift" placeholder="예: 42" step="0.1" style="width:120px;" oninput="calcBondBurden()"><span class="hint">무상분 비율 × 시가표준액</span></div>
       <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="bv_region" value="metro" checked onchange="calcBondBurden()"> 특별시·광역시</label><label><input type="radio" name="bv_region" value="other" onchange="calcBondBurden()"> 기타지역</label></div></div>
@@ -1638,6 +1652,7 @@
         <label><input type="radio" name="ga_type" value="own" checked> 소유권이전청구권(부동산가액)</label>
         <label><input type="radio" name="ga_type" value="debt"> 담보가등기(채권액)</label></div></div>
       <div class="line"><span class="lbl">과세표준(원)</span><input type="number" class="amt" id="ga_base" placeholder="0" oninput="calcGadeungi()"><span class="hint">부동산가액 또는 채권액</span></div>
+      <div class="stdlkMount" data-k="all"></div>
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('ga_cntEstate',-1,calcGadeungi)">−</button><input type="number" id="ga_cntEstate" value="1" min="1" oninput="calcGadeungi()"><button onclick="step('ga_cntEstate',1,calcGadeungi)">+</button></div></div>
       <div class="line"><span class="lbl">감면·가산 등</span><div class="checks" onchange="calcGadeungi()">
         <label><input type="checkbox" id="ga_verify"> 확인서면(등기권리증 분실·법§51)</label></div></div>
@@ -3792,6 +3807,75 @@ function _doOpenScenario(name){
 }
 
 /* ===================== 매매 (풀기능) ===================== */
+/* ══════════════════════════════════════════════════════════════
+   공시가격·시가표준액 조회 도우미
+   ─────────────────────────────────────────────────────────────
+   ▸ 각 조회 사이트는 「주소를 URL에 실어 보내는 방식」을 제공하지 않는다
+     (부동산공시가격 알리미·위택스·이택스 모두 POST/세션 방식).
+     따라서 「주소 자동복사 + 조회화면 바로열기」로 구현한다.
+     이용자는 열린 창에서 붙여넣기(Ctrl+V)만 하면 된다.
+   ▸ 건물 시가표준액은 서울(이택스)과 그 밖의 지역(위택스)의 조회처가 다르다.
+   ▸ 계산 로직에는 일절 관여하지 않는다. 안내·이동 전용.
+   ══════════════════════════════════════════════════════════════ */
+const STD_SITES={
+  apt  :{u:'https://www.realtyprice.kr/notice/town/searchOpinion.htm',   n:'공동주택가격(아파트·연립·다세대)'},
+  house:{u:'https://www.realtyprice.kr/notice/hpindividual/search.htm',  n:'개별단독주택가격'},
+  land :{u:'https://www.realtyprice.kr/notice/gsindividual/search.htm',  n:'개별공시지가(토지)'},
+  bldg :{u:'https://www.wetax.go.kr/tcp/loi/J030401M01.do',              n:'위택스 건물 시가표준액(서울 외 전국)'},
+  seoul:{u:'https://etax.seoul.go.kr/BldnStndAmtLstAction.view?gnb_id=0709&lnb_id=0701&gl_gubun=g', n:'서울 이택스 건물 시가표준액'}
+};
+/* kind : 'house'=주택 / 'etc'=주택외(토지+건물) / 'land'=농지·토지 / 'all'=전부 */
+function stdLkBox(kind){
+  let keys;
+  if(kind==='house')      keys=['apt','house'];
+  else if(kind==='etc')   keys=['land','bldg','seoul'];
+  else if(kind==='land'||kind==='farm') keys=['land'];
+  else                    keys=['apt','house','land','bldg','seoul'];
+  const lbl={apt:'아파트·빌라 공시가격',house:'단독주택 공시가격',land:'토지 공시지가',
+             bldg:'건물 시가표준액 (서울 외)',seoul:'건물 시가표준액 (서울)'};
+  let b='';
+  keys.forEach(k=>{ b+='<button type="button" onclick="stdLkGo(this,\''+k+'\')">'+lbl[k]+' 조회</button>'; });
+  return '<div class="stdlk">'
+    +'<div class="stdlk-t">▸ 공시가격을 모르시겠으면 여기서 바로 확인하세요</div>'
+    +'<div class="stdlk-g">부동산 주소를 적고 아래 버튼을 누르시면, <b>주소가 자동으로 복사되고</b> 조회 사이트가 새 창으로 열립니다. '
+    +'열린 화면의 검색칸에 <b>붙여넣기(Ctrl+V · 휴대전화는 길게 눌러 붙여넣기)</b> 하시면 됩니다.'
+    +(keys.indexOf('bldg')>=0?'<br>· <b>건물 시가표준액</b>은 <b>서울</b>과 <b>그 밖의 지역</b>의 조회처가 다릅니다. 부동산 소재지에 맞는 버튼을 누르십시오.':'')
+    +'</div>'
+    +'<input type="text" class="stdlk-addr" placeholder="예) 서울특별시 강서구 화곡동 000-0  또는  도로명주소">'
+    +'<div class="stdlk-btns">'+b+'</div>'
+    +'<div class="stdlk-msg"></div></div>';
+}
+function stdLkGo(btn,kind){
+  const site=STD_SITES[kind]; if(!site)return;
+  const box=btn.closest('.stdlk'); if(!box)return;
+  const inp=box.querySelector('.stdlk-addr'), msg=box.querySelector('.stdlk-msg');
+  const addr=inp?inp.value.trim():'';
+  const open=()=>window.open(site.u,'_blank','noopener');
+  const say=t=>{ if(msg)msg.innerHTML=t; };
+  if(!addr){
+    say('주소를 먼저 적으시면 <b>자동으로 복사</b>해 드립니다. 우선 <b>'+site.n+'</b> 화면을 열었습니다.');
+    open(); return;
+  }
+  const done=()=>{ say('주소를 복사했습니다 → <b>'+site.n+'</b> 화면에서 <b>붙여넣기(Ctrl+V)</b> 하십시오.'); open(); };
+  const fail=()=>{ say('주소 복사가 안 되는 브라우저입니다. <b>'+site.n+'</b> 화면에 주소를 직접 적어 주십시오.'); open(); };
+  try{
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(addr).then(done).catch(fail);
+    }else{
+      inp.select(); inp.setSelectionRange(0,99999);
+      document.execCommand('copy')?done():fail();
+    }
+  }catch(e){ fail(); }
+}
+/* 정적 화면에 심어둔 마운트를 일괄로 채운다 */
+function stdLkMountAll(){
+  document.querySelectorAll('.stdlkMount').forEach(el=>{
+    if(!el.dataset.done){ el.innerHTML=stdLkBox(el.dataset.k||'all'); el.dataset.done='1'; }
+  });
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',stdLkMountAll);
+else stdLkMountAll();
+
 let curBondType=null;
 function renderBondUI(){
   bsRender('');                       /* 지분 입력칸은 화면 진입 즉시 노출 */
@@ -3811,7 +3895,7 @@ function renderBondUI(){
     h='<div class="line"><span class="lbl">토지공시가격(원)</span><input type="number" class="amt" id="bondStdLand" placeholder="0" oninput="calcBondSale()"></div>'+
       '<div class="line"><span class="lbl">토지 매입률(‰)</span><input type="number" id="bondPctLand" readonly placeholder="자동" style="width:120px;background:#efe7d6;font-weight:700;"></div>';
   }
-  bb.innerHTML=h;
+  bb.innerHTML=h+stdLkBox(t);
 }
 function calcBondSale(){
   const t=radio('ptype');const metro=radio('region')==='metro';let buy=0;let items=[];
@@ -4204,7 +4288,7 @@ function renderBondUIInherit(){
     h='<div class="line"><span class="lbl">토지공시가격(원)</span><input type="number" class="amt" id="s_bondStdLand" placeholder="0" oninput="calcBondInherit()"></div>'+
       '<div class="line"><span class="lbl">토지 매입률(‰)</span><input type="number" id="s_bondPctLand" readonly placeholder="자동" style="width:120px;background:#efe7d6;font-weight:700;" oninput="calcBondInherit()"></div>';
   }
-  bb.innerHTML=h;
+  bb.innerHTML=h+stdLkBox(t);
 }
 /* 상속 = [별표] 부표 1-나 "상속(증여 및 그 밖의 무상으로 취득하는 경우 포함)"
    → 물건종류 무관 무상 요율(18/28/42 · 14/25/39), 시가표준액 1천만원 미만 면제.
@@ -4571,7 +4655,7 @@ function renderBondUIBequest(){
     h='<div class="line"><span class="lbl">토지공시가격(원)</span><input type="number" class="amt" id="bq_bondStdLand" placeholder="0" oninput="calcBondBequest()"></div>'+
       '<div class="line"><span class="lbl">토지 매입률(‰)</span><input type="number" id="bq_bondPctLand" readonly placeholder="자동" style="width:120px;background:#efe7d6;font-weight:700;" oninput="calcBondBequest()"></div>';
   }
-  bb.innerHTML=h;
+  bb.innerHTML=h+stdLkBox(t);
 }
 function calcBondBequest(){
   const t=radio('bq_ptype');const metro=radio('bq_region')==='metro';let buy=0;let items=[];
@@ -4692,7 +4776,7 @@ function renderBondUIGift(){
       '<div class="line"><span class="lbl">건물시가표준액(원)</span><input type="number" class="amt" id="gv_bondStdBldg" placeholder="0" oninput="calcBondGift()"></div>'+
       '<div class="line"><span class="lbl">건물 매입률(‰)</span><input type="number" id="gv_bondPctBldg" readonly placeholder="자동" style="width:120px;background:#efe7d6;font-weight:700;" oninput="calcBondGift()"></div>';
   }
-  bb.innerHTML=h;
+  bb.innerHTML=h+stdLkBox(t);
 }
 /* 증여 = [별표] 부표 1-나 "상속(증여 및 그 밖의 무상으로 취득하는 경우 포함)" → 무상 요율 */
 function calcBondGift(){
@@ -4836,7 +4920,7 @@ function renderBondUIDivision(){
       '<div class="line"><span class="lbl">건물시가표준액(원)</span><input type="number" class="amt" id="dv_bondStdBldg" placeholder="0" oninput="calcBondDivision()"></div>'+
       '<div class="line"><span class="lbl">건물 매입률(‰)</span><input type="number" id="dv_bondPctBldg" readonly placeholder="자동" style="width:120px;background:#efe7d6;font-weight:700;"></div>';
   }
-  bb.innerHTML=h;
+  bb.innerHTML=h+stdLkBox(t);
 }
 /* 재산분할 채권 — 무상/유상 요율 선택식([확인필요]). 기본값 무상 */
 function calcBondDivision(){
@@ -6066,7 +6150,7 @@ function renderBondUIPreserve(){
       '<div class="line"><span class="lbl">건물시가표준액(원)</span><input type="number" class="amt" id="pr_bondStdBldg" placeholder="0" oninput="calcBondPreserve()"></div>'+
       '<div class="line"><span class="lbl">건물 매입률(‰)</span><input type="number" id="pr_bondPctBldg" readonly placeholder="자동" style="width:120px;background:#efe7d6;font-weight:700;" oninput="calcBondPreserve()"></div>';
   }
-  bb.innerHTML=h;
+  bb.innerHTML=h+stdLkBox(t);
 }
 function calcBondPreserve(){
   const t=radio('pr_ptype');const metro=radio('pr_region')==='metro';let buy=0;let items=[];
