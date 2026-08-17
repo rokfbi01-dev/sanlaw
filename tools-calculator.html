@@ -99,9 +99,22 @@
   /* ── 긴 안내문 접기 ── */
   .note.fold{display:none;}
   .note.fold.on{display:block;}
-  .noteMore{display:block;width:100%;margin:8px 0;padding:8px 12px;font-family:inherit;
+  .noteMore{display:block;width:100%;margin:8px 0;padding:8px 76px 8px 12px;font-family:inherit;
     font-size:12.5px;font-weight:700;color:#7a6743;background:#f6f1e4;border:1px solid var(--line);
-    border-radius:7px;cursor:pointer;text-align:left;line-height:1.5;letter-spacing:-.2px;}
+    border-radius:7px;cursor:pointer;text-align:left;line-height:1.5;letter-spacing:-.2px;position:relative;}
+  .noteMore::after{content:"▾ 펼치기";position:absolute;right:10px;top:50%;transform:translateY(-50%);
+    font-size:11px;font-weight:700;color:#8a6d24;background:#fffdf8;border:1px solid var(--line);
+    border-radius:11px;padding:2px 9px;letter-spacing:-.2px;white-space:nowrap;}
+  .noteMore.on::after{content:"▴ 접기";}
+  .noteMore.alert::after{background:#fff;color:#9a6a1c;border-color:#e0c08a;}
+  /* 클래스 없는 details(사무소 설정·면제기준 안내 등)에도 같은 배지 */
+  details:not(.ref) > summary{position:relative;padding-right:76px;}
+  details:not(.ref) > summary::after{content:"▾ 펼치기";position:absolute;right:10px;top:50%;
+    transform:translateY(-50%);font-size:11px;font-weight:700;color:#8a6d24;
+    background:#f6f1e4;border:1px solid var(--line);border-radius:11px;padding:2px 9px;
+    letter-spacing:-.2px;white-space:nowrap;}
+  details:not(.ref)[open] > summary::after{content:"▴ 접기";}
+  details:not(.ref) > summary:hover::after{color:var(--gold);border-color:var(--gold);}
   .noteMore:hover{background:#efe6cf;border-color:var(--gold);color:var(--gold);}
   .noteMore.alert{background:#fdf2e6;border-color:#e0c08a;color:#9a6a1c;}
   .noteMore.alert:hover{background:#fbe9d4;}
@@ -3935,9 +3948,10 @@ function foldNotes(root){
     const btn=document.createElement('button');
     btn.type='button';
     btn.className='noteMore'+(n.classList.contains('alert')?' alert':'');
-    const set=open=>{ btn.textContent=(open?'▴ ':'▾ ')+label; };
-    set(false);
-    btn.addEventListener('click',()=>{ set(n.classList.toggle('on')); });
+    btn.textContent=label;          /* 화살표는 오른쪽 배지(CSS)가 맡는다 */
+    btn.addEventListener('click',()=>{
+      btn.classList.toggle('on', n.classList.toggle('on'));
+    });
     n.parentNode.insertBefore(btn, n);               /* 안내문 「앞」에 둔다 */
   });
 }
