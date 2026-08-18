@@ -2985,6 +2985,7 @@
         <tr class="subtot"><td>수수료계 (보수)</td><td id="g_feeSum">0 원</td></tr></table>
     </div></div>
     <div class="card blue" id="g_publicCard"><h2>③ 공과금 (VAT 비과세) <span class="tag chk" id="g_pubTag">확인필요</span></h2><div class="body" id="g_public"></div></div>
+    <div class="card green" id="g_docsCard" style="display:none;"><h2 id="g_docsH">④ 준비서류</h2><div class="body"><div class="docs" id="g_docsBox"></div></div></div>
     <div class="total"><div class="row"><span>법무사 보수 소계</span><span id="g_t_fee">0 원</span></div>
       <div class="row sub"><span>부가가치세 (10%)</span><span id="g_t_vat">0 원</span></div>
       <div class="row"><span>공과금계</span><span id="g_t_public">0 원</span></div>
@@ -3552,7 +3553,7 @@ const SCENARIO={
    guide:'▸ <b>인지 2,000원 — 파산 1,000원 + 면책 1,000원</b>(「민사접수서류에 붙일 인지액 및 그 편철방법 등에 관한 예규」 <b>별표</b>). 전자소송 포털도 「개인파산 및 면책 신청수수료 2,000원」으로 안내합니다. <span class="tag A">A</span><br>· <b>파산신청서와 면책신청서를 각각 작성</b>하는 경우 <b>각 신청서에 1,000원</b>씩 붙입니다.<br>· <b>송달료 = 20회분 + (채권자수 × 7회분)</b> — 파산 <b>[10회 + 채권자수×4회]</b> + 면책 <b>[10회 + 채권자수×3회]</b>(「송달료규칙의 시행에 따른 업무처리요령」 <b>별표1</b>). <span class="tag A">A</span><br>· 파산·면책은 <b>별개 사건</b>이므로 <b>송달료납부서를 각각</b> 제출합니다.<br>· <b>공고</b>는 법원 홈페이지 법원공고란 게시로 하므로 <b>별도 비용이 들지 않습니다.</b><br>· <b>파산관재인 보수(예납금)</b> — 동시폐지를 하지 아니하는 경우 법원이 <b>파산재단의 규모, 부인권 대상 행위의 존부와 수, 예상 소요기간, 재단수집의 난이도, 채권자의 수</b> 등을 고려하여 정합니다(「개인파산 및 면책신청사건의 처리에 관한 예규」 <b>§2의4</b>). 사건별 예납명령에 따르므로 아래 공과금란에 <b>직접 입력</b>하십시오. <span class="tag chk">확인필요</span>'}},
  "증거보전 신청":{cat:'civil',kind:'tier',tier:'Ⅶ-1②',baseLabel:'본안 소송물가액(비우면 5천만 의제)',prof:{injiKind:'flat',injiFlat:1000,songCnt:3,songParty:'당사자',partyDef:2}},
  // 가사
- "상속포기·한정승인 신고":{cat:'family',kind:'tier',tier:'Ⅶ-1①',baseLabel:'상속재산가액(없으면 5천만)',prof:{injiKind:'flat',injiFlat:5000,songCnt:6,songParty:'청구인(라류 6~10회)',partyDef:1,fam:true}},
+ "상속포기·한정승인 신고":{cat:'family',kind:'tier',tier:'Ⅶ-1①',baseLabel:'상속재산가액(없으면 5천만)',prof:{injiKind:'flat',injiFlat:5000,songCnt:6,songParty:'청구인(라류 6~10회)',partyDef:1,fam:true},docs:'<b>[상속포기 · 한정승인 준비서류]</b><br><div class="note" style="margin:6px 0 10px;"><b>⏰ 기간부터 확인하십시오</b> — 돌아가신 사실과 내가 상속인이 된 사실을 <b>안 날부터 3개월</b> 안에 법원에 내야 합니다<span class="law" title="민법 제1019조제1항 — 상속인은 상속개시있음을 안 날로부터 3월내에 단순승인이나 한정승인 또는 포기를 할 수 있다">민법 §1019①</span>. 이 기간을 넘기면 <b>빚까지 그대로 물려받은 것</b>으로 봅니다<span class="law" title="민법 제1026조제2호 — 상속인이 제1019조제1항의 기간내에 한정승인 또는 포기를 하지 아니한 때">민법 §1026 2호</span>.</div><b>■ 포기 · 한정승인 공통</b><br>· <b>심판청구서(신고서)</b> — 돌아가신 분의 성명과 마지막 주소, 나와의 관계, 상속개시를 안 날, 포기(한정승인)한다는 뜻을 적고 <b>인감도장</b>을 찍습니다<span class="law" title="가사소송규칙 제75조제1항 — 상속의 한정승인 또는 포기의 신고는 법 제36조제3항에 규정한 사항외에 피상속인의 성명과 최후주소, 피상속인과의 관계, 상속개시 있음을 안 날, 한정승인 또는 포기를 하는 뜻을 기재하고 신고인 또는 대리인이 기명날인 또는 서명한 서면에 의하여야 한다">가사소송규칙 §75①</span><br>· <b>인감증명서</b> — 청구인 <b>각 1통</b>. 신고서에 반드시 붙여야 합니다<span class="law" title="가사소송규칙 제75조제2항 — 제1항의 신고서에는 신고인 또는 대리인의 인감증명서를 첨부하여야 한다">가사소송규칙 §75②</span><br>· <b>가족관계증명서(상세)</b> — 청구인 각 1통<br>· <b>주민등록등본</b> — 청구인 각 1통<br><br><b>■ 돌아가신 분(피상속인) 서류</b><br>· 사망신고를 <b>2007.12.31. 이전</b>에 한 경우 → <b>제적등본</b> 1통<br>· 사망신고를 <b>2008.1.1. 이후</b>에 한 경우 → 폐쇄가족관계등록부에 따른 <b>기본증명서(상세)</b> · <b>가족관계증명서(상세)</b> 각 1통<br>· <b>말소된 주민등록등본(초본)</b> 1통 — 마지막 주소를 확인하는 서류입니다. <span class="hint">이 주소지를 관할하는 가정법원에 냅니다.</span><br><br><b>■ 청구인이 자녀 · 손자녀(직계비속)가 아닌 경우</b><br>· <b>가계도</b> — 돌아가신 분과 내가 어떻게 이어지는지 그린 표. 관계를 이어 주는 <b>제적등본 · 가족관계증명서</b>를 함께 붙입니다.<br><br><b>■ 한정승인일 때만 더 필요합니다</b><br>· <b>상속재산목록</b> — 재산(부동산 · 예금 · 보험금 등)과 <b>빚</b>을 <b>빠짐없이</b> 적습니다<span class="law" title="민법 제1030조제1항 — 상속인이 한정승인을 함에는 제1019조제1항 또는 제3항의 기간 내에 상속재산의 목록을 첨부하여 법원에 한정승인의 신고를 하여야 한다">민법 §1030①</span><br>&nbsp;&nbsp;<span style="color:var(--seal);font-weight:700;">※ 알면서 재산을 목록에 적지 않으면 한정승인이 무너지고 빚 전부를 떠안게 됩니다(민법 §1026 3호). 반드시 빠뜨리지 마십시오.</span><br>· 빚이 더 많다는 사실을 <b>뒤늦게 안 경우</b>(특별한정승인)라면 → 이미 처분한 상속재산이 있을 때 그 <b>목록과 금액</b>도 함께<span class="law" title="민법 제1030조제2항 — 제1019조제3항의 규정에 의하여 한정승인을 한 경우 상속재산 중 이미 처분한 재산이 있는 때에는 그 목록과 가액을 함께 제출하여야 한다">민법 §1030②</span><br><br><b>■ 청구인이 미성년자이거나 후견을 받고 있으면</b><br>· 법정대리인(부모 · 후견인)이 대신 신고합니다. 다만 <b>부모와 자녀가 함께 상속인</b>인데 자녀만 포기하는 등 서로의 이해가 부딪히는 경우에는 법원에서 <b>특별대리인</b>을 먼저 선임받아야 할 수 있습니다. <span class="hint">사안마다 판단이 달라지므로 사무소에 미리 알려 주십시오.</span><br><br><b>■ 서류는 어디서 떼나요</b><br>· 가족관계증명서 · 기본증명서 · 제적등본 → <a href="https://efamily.scourt.go.kr" target="_blank" rel="noopener">전자가족관계등록시스템</a> 또는 가까운 주민센터<br>· 주민등록등본 · 초본 → <a href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a> 또는 가까운 주민센터<br>· <b>인감증명서</b> → 가까운 주민센터(전국 어디서나 발급). 인감을 신고한 적이 없으면 <b>인감신고부터</b> 하셔야 합니다.<br>· 돌아가신 분의 <b>말소된 주민등록등본(초본)</b> → 주민센터. <span class="hint">상속인임을 밝히는 서류(가족관계증명서 등)와 신분증을 지참하십시오.</span><br>· 법원 접수 → <a href="https://ecfs.scourt.go.kr" target="_blank" rel="noopener">대한민국 법원 전자소송</a><br><br><span class="hint">▸ 상속인이 여러 명이면 <b>각자</b> 인감증명서 · 가족관계증명서 · 주민등록등본을 준비하십시오.<br>▸ 위 목록은 법원이 공통으로 요구하는 서류입니다. <b>법원과 사안에 따라 서류를 더 요구할 수 있습니다.</b></span>'},
  "상속재산분할 심판청구":{cat:'family',kind:'tier',tier:'Ⅶ-1①',baseLabel:'분할대상 재산가액',lawyer:true,prof:{injiKind:'flat',injiFlat:10000,songCnt:12,songParty:'상대방(마류)',partyDef:1,fam:true,chk:true,guide:'[확인필요] 상속재산분할은 마류 가사비송(가사소송법 §2①2.나10))으로, 2016.7.1.개정 가사소송수수료규칙 §3①에 따라 인지가 정액이 아니라 「공유물분할청구의 소」로 보아 민사소송 등 인지법 §2를 준용해 산정됩니다. 화면의 10,000원은 임시 표시치이므로, 분할대상 가액 기준으로 인지를 직접 재산정·입력하세요(송달료는 당사자 1인당 12회분).'}},
  "협의이혼 의사확인 신청":{cat:'family',kind:'tier',tier:'Ⅶ-1②',noSga:true,prof:{injiKind:'none',songCnt:0,bGrade:true,guide:'[B] 실무: 협의이혼의사확인 신청은 인지를 첩부하지 않습니다(0원). 송달료만 납부하며, 부부 쌍방에 통지서가 송달됩니다.'}},
  "재판상 이혼":{cat:'family',kind:'tier',tier:'Ⅶ-1①',baseLabel:'소가(없으면 5천만)',lawyer:true,prof:{injiKind:'flat',injiFlat:20000,songCnt:15,songParty:'피고(나류)',partyDef:1,fam:true}},
@@ -7107,6 +7108,17 @@ function buildGeneric(name){
     p+='<div class="line" style="border:none;"><span class="lbl">공과금계</span><span class="auto" id="g_pubSum" style="font-variant-numeric:tabular-nums;">0 원</span></div>';
     document.getElementById('g_public').innerHTML=p;
   }else{pc.style.display='none';}
+  /* ④ 준비서류 — SCENARIO[name].docs 가 정의된 화면에서만 노출한다.
+     docs 키가 없는 기존 화면은 카드가 숨겨지므로 계산·표시에 전혀 영향이 없다. */
+  const dcard=document.getElementById('g_docsCard');
+  if(dcard){
+    if(def.docs){
+      dcard.style.display='block';
+      const dh=document.getElementById('g_docsH');
+      if(dh)dh.textContent=(pc.style.display==='none'?'③':'④')+' 준비서류';
+      document.getElementById('g_docsBox').innerHTML=def.docs;
+    }else{dcard.style.display='none';document.getElementById('g_docsBox').innerHTML='';}
+  }
   calcGeneric();
 }
 function calcGeneric(fromEdit){
