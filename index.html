@@ -428,7 +428,7 @@
 <script>
 (function(){
 var BIZ=[
- {han:"民",t:"민사·형사",d:"소장 작성·교도소 접견·집행유예",open:false},
+ {han:"民",t:"민사·형사",d:"가압류·가처분 방어·소장 작성·형사 서면",open:true,key:"minsa"},
  {han:"相",t:"상속",d:"분할·유류분·포기·등기·유언·회복",open:true,key:"sangsok"},
  {han:"登",t:"각종 등기",d:"부동산 권리·법인(상업) 등기 대리",open:true,key:"deunggi"},
  {han:"免",t:"개인회생·파산면책",d:"빚 분석·압류 해방·면책",open:false},
@@ -438,6 +438,16 @@ var BIZ=[
  {han:"行",t:"행정심판·인허가",d:"영업허가·불복 신청",open:false},
  {han:"法",t:"비영리법인 설립",d:"사단·재단법인 설립",open:false},
  {han:"出",t:"출입국·체류",d:"비자·체류자격 변경·기간연장 신청 대행",open:false}
+];
+var MINSA=[
+ {n:1,t:"보전처분(가압류·가처분)",d:"통장·부동산이 묶였을 때 푸는 법, 거는 법",items:[
+   {t:"억울하게 가압류를 당했어요 — 푸는 4가지 방법",u:"C-1_가압류이의_방어.html"},
+   {t:"가처분을 당했어요 — 방어하는 방법",r:false},
+   {t:"떼인 돈을 받으려 예금을 가압류하고 싶어요",r:false},
+   {t:"부동산을 가압류하고 싶어요",r:false},
+   {t:"급여(월급)를 가압류하고 싶어요",r:false}]},
+ {n:2,t:"민사 서면",d:"대여금·보증금·손해배상 소장과 답변서",items:[]},
+ {n:3,t:"형사 서면",d:"고소장·진정서·탄원서 작성",items:[]}
 ];
 var HUGYEON=[
  {n:1,t:"후견 개시 신청",d:"성년·한정·특정·임의 어느 것이 맞는지",items:[
@@ -539,7 +549,7 @@ var bizGrid=document.getElementById('bizGrid');
 BIZ.forEach(function(b){
   var c=document.createElement('div');c.className='pa-card lock';
   c.innerHTML='<span class="pa-b '+(b.open?'r">게시':'s">준비중')+'</span><div class="pa-han">'+b.han+'</div><div class="pa-tx"><h3>'+b.t+'</h3><p>'+b.d+'</p></div>';
-  c.addEventListener('click',function(){if(!agreed)return;if(b.open&&b.key==='sangsok')openCat('상속',SANGSOK);else if(b.open&&b.key==='deunggi')openCat('각종 등기',DEUNGGI);else if(b.open&&b.key==='hugyeon')openCat('후견',HUGYEON);});
+  c.addEventListener('click',function(){if(!agreed)return;if(b.open&&b.key==='minsa')openCat('민사·형사',MINSA);else if(b.open&&b.key==='sangsok')openCat('상속',SANGSOK);else if(b.open&&b.key==='deunggi')openCat('각종 등기',DEUNGGI);else if(b.open&&b.key==='hugyeon')openCat('후견',HUGYEON);});
   bizGrid.appendChild(c);
 });
 var catGrid=document.getElementById('catGrid');
@@ -573,7 +583,7 @@ function restoreFromCard(){
   var file=ref.split('/').pop().split('#')[0].split('?')[0];
   try{file=decodeURIComponent(file);}catch(e){}
   if(!file||file.indexOf('index')===0) return false;
-  var sets=[['상속',SANGSOK],['각종 등기',DEUNGGI],['후견',HUGYEON]];
+  var sets=[['민사·형사',MINSA],['상속',SANGSOK],['각종 등기',DEUNGGI],['후견',HUGYEON]];
   for(var i=0;i<sets.length;i++){
     for(var j=0;j<sets[i][1].length;j++){
       var its=sets[i][1][j].items||[];
