@@ -2573,7 +2573,8 @@
       <div class="row"><span>공과금계</span><span id="cs_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계 <span class="hint" id="cs_t_ratio"></span></span><span id="cs_t_grand">0 원</span></div></div>
     <div class="actions"><button class="btn" onclick="calcSeizure()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
-    <div class="card green"><h2>④ 안내</h2><div class="body"><div class="docs"><b>인지</b> — 전자소송 포털 기준 압류 1,800·추심 1,800(전자), 종이 각 2,000원. 압류와 추심을 함께 신청하면 합산됩니다.<br><b>송달</b> — (채권자+채무자+제3채무자)×2회×<b>상단 단가</b> [A·재일 87-4 별표1].<br><b>담보 없음</b> — 본집행이므로 보증보험료·공탁금이 없습니다.</div></div></div>
+    <div class="card green"><h2>④ 안내</h2><div class="body"><div class="docs"><b>인지</b> — 전자소송 포털 기준 압류 1,800·추심 1,800(전자), 종이 각 2,000원. 압류와 추심을 함께 신청하면 합산됩니다.<br><b>송달</b> — (채권자+채무자+제3채무자)×2회×<b>상단 단가</b> [A·재일 87-4 별표1].<br><b>담보 없음</b> — 본집행이므로 보증보험료·공탁금이 없습니다.</div></div>
+    <div class="card green"><h2>⑤ 준비서류</h2><div class="body"><div class="docs" id="cs_docsBox"></div></div></div></div>
   </div>
 
   <!-- ===== 유체동산가압류 (풀기능) Ⅶ-1① · 등기 없음 ===== -->
@@ -2613,7 +2614,8 @@
       <div class="row"><span>공과금계</span><span id="ad_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계 <span class="hint" id="ad_t_ratio"></span></span><span id="ad_t_grand">0 원</span></div></div>
     <div class="actions"><button class="btn" onclick="calcAttachGoods()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
-    <div class="card green"><h2>④ 안내</h2><div class="body"><div class="docs"><b>담보금</b> — 유체동산가압류 담보는 통상 청구금액의 4/5 수준이나 법원 재량 [확인필요·결과 샘플로 확정 가능].<br><b>klac</b>은 인지 전자할인·송달 회차가 협회와 다를 수 있습니다.</div></div></div>
+    <div class="card green"><h2>④ 안내</h2><div class="body"><div class="docs"><b>담보금</b> — 유체동산가압류 담보는 통상 청구금액의 4/5 수준이나 법원 재량 [확인필요·결과 샘플로 확정 가능].<br><b>klac</b>은 인지 전자할인·송달 회차가 협회와 다를 수 있습니다.</div></div>
+    <div class="card green"><h2>⑤ 준비서류</h2><div class="body"><div class="docs" id="ad_docsBox"></div></div></div></div>
   </div>
 
   <!-- ===== 자동차가압류 (풀기능) Ⅶ-1① · 등록면허세 있음 ===== -->
@@ -2657,7 +2659,8 @@
       <div class="row"><span>공과금계</span><span id="av_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계 <span class="hint" id="av_t_ratio"></span></span><span id="av_t_grand">0 원</span></div></div>
     <div class="actions"><button class="btn" onclick="calcAttachCar()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
-    <div class="card green"><h2>④ 안내</h2><div class="body"><div class="docs"><b>등록면허세</b> — 자동차 가압류는 자동차등록원부 등록(건당 정액 추정 15,000) [확인필요·결과 샘플로 확정].<br><b>담보금</b> — 통상 청구금액의 일정 비율, 법원 재량 [확인필요].</div></div></div>
+    <div class="card green"><h2>④ 안내</h2><div class="body"><div class="docs"><b>등록면허세</b> — 자동차 가압류는 자동차등록원부 등록(건당 정액 추정 15,000) [확인필요·결과 샘플로 확정].<br><b>담보금</b> — 통상 청구금액의 일정 비율, 법원 재량 [확인필요].</div></div>
+    <div class="card green"><h2>⑤ 준비서류</h2><div class="body"><div class="docs" id="av_docsBox"></div></div></div></div>
   </div>
 
   <!-- ===== 채권가압류 (풀기능) Ⅶ-1① · 등기 공과금 없음 ===== -->
@@ -2714,6 +2717,7 @@
         <b>보증보험료</b> — 담보금×0.085%(최저 약 15,000), SGI 요율에 따라 차이날 수 있어 수정 가능 [확인필요].
       </div>
     </div></div>
+    <div class="card green"><h2>⑤ 준비서류</h2><div class="body"><div class="docs" id="ac_docsBox"></div></div></div>
   </div>
 
   <!-- ===== 부동산가압류 (풀기능) Ⅶ-1① + 등기 공과금 ===== -->
@@ -2774,6 +2778,7 @@
         <b>보증보험료·증권발급대행</b> — SGI 요율·사무소 관행에 따라 달라지므로 직접 수정 가능 [확인필요].
       </div>
     </div></div>
+    <div class="card green"><h2>⑤ 준비서류</h2><div class="body"><div class="docs" id="at_docsBox"></div></div></div>
   </div>
 
   <!-- ===== 가처분 (점유이전금지·처분금지·임시지위) ===== -->
@@ -2838,6 +2843,7 @@
         <b>보증보험료</b> — SGI 요율·사무소 관행에 따라 달라지므로 직접 수정 가능 [확인필요].
       </div>
     </div></div>
+    <div class="card green"><h2>⑤ 준비서류</h2><div class="body"><div class="docs" id="inj_docsBox"></div></div></div>
   </div>
 
   <!-- ===== 민사 소장·신청서 (풀기능) ===== -->
@@ -7195,6 +7201,264 @@ function calcRedev(fromEdit){
        이전고시를 증명하는 서면을 첨부. 신청 대상은 ① 종전 토지 등기 말소
        ② 신축 건축시설·조성 대지 소유권보존 ③ 존속하는 담보권등 권리의 등기.
    ※ 이 화면은 사업시행자(조합) 기준이다. 조합원 개인이 따로 신청하는 등기가 아니다. */
+
+/* ═══════════ 보전처분(가압류·가처분) · 채권압류추심 준비서류 ═══════════
+   [A] 민사집행법 §276(가압류의 목적)·§277(보전의 필요)·§279(가압류신청)
+       §280②③(담보제공)·§288(가압류 취소)·§292②(집행기간 2주)
+       §300(가처분의 목적)·§301(가압류 규정의 준용)
+   [A] 민사집행법 §227(금전채권의 압류)·§229(추심명령·전부명령)
+   [A] 민사집행법 §39①(집행문)·§40①(집행개시의 요건)
+   ※ 담보(공탁·보증보험)의 비율은 법원·목적물별로 다르므로 수치를 단정하지 않는다. [확인필요]
+   2026-08 신설(5단계 2차분). */
+const BDOC_HEAD =
+ '<div class="note" style="margin:6px 0 10px;"><b>가압류·가처분이 무엇인가요</b> — 재판에서 이기더라도 그 사이에 상대방이 <b>재산을 팔아 치우면</b> 받을 길이 없어집니다. 그래서 <b>미리 묶어 두는</b> 절차입니다'
++'<span class="law" title="민사집행법 제276조제1항 — 가압류는 금전채권이나 금전으로 환산할 수 있는 채권에 대하여 동산 또는 부동산에 대한 강제집행을 보전하기 위하여 할 수 있다">민사집행법 §276</span>.<br>'
++'<b style="color:var(--seal);">상대방 몰래 진행됩니다.</b> 알리면 재산을 빼돌릴 수 있기 때문에, 법원은 상대방을 부르지 않고 서류만 보고 결정합니다. 그래서 <b>서류가 곧 전부</b>입니다.</div>';
+
+const BDOC_CLAIM =
+ '<b>■ ① 받을 돈이 있다는 것을 보여 주는 자료</b> <span class="hint">(청구채권의 소명 — 가장 중요합니다)</span><br>'
++'<span class="law" title="민사집행법 제279조제2항 — 청구채권과 가압류의 이유는 소명하여야 한다">민사집행법 §279②</span>'
++' 있는 대로 전부 주십시오. 완벽하지 않아도 됩니다.<br>'
++'· <b>계약서 · 차용증 · 각서 · 지불각서</b><br>'
++'· <b>세금계산서 · 거래명세서 · 발주서 · 견적서</b><br>'
++'· <b>계좌이체 내역</b>(돈을 보낸 기록·받지 못한 기록)<br>'
++'· <b>문자 · 카카오톡 · 이메일 · 통화 녹음</b> — <span class="hint">빚을 인정하는 말이 담겨 있으면 매우 강력한 자료입니다. 캡처해서 주십시오.</span><br>'
++'· <b>내용증명우편</b>과 그 <b>등기 발송·배달 증명</b><br>'
++'· 판결·지급명령·공정증서가 이미 있으면 그 <b>정본</b><br><br>';
+
+const BDOC_NEED =
+ '<b>■ ② 지금 묶어 두지 않으면 안 되는 사정</b> <span class="hint">(보전의 필요성)</span><br>'
++'<span class="law" title="민사집행법 제277조 — 가압류는 이를 하지 아니하면 판결을 집행할 수 없거나 판결을 집행하는 것이 매우 곤란할 염려가 있을 경우에 할 수 있다">민사집행법 §277</span><br>'
++'· 상대방이 <b>재산을 팔거나 명의를 옮기려 한다</b>는 정황 — 부동산 등기부의 최근 변동, 매물로 내놓은 광고 캡처<br>'
++'· 상대방이 <b>다른 곳에서도 빚 독촉을 받고 있다</b>는 자료 — 다른 압류·가압류 등기, 신용정보<br>'
++'· <b>연락을 끊었거나 잠적</b>한 사정 — 반송된 우편물, 통화 시도 기록<br>'
++'· <b>폐업 · 사업 중단</b> 자료<br>'
++'<span class="hint">▸ 이런 자료가 없어도 신청은 됩니다. 다만 있으면 인용 가능성이 높아집니다.</span><br><br>';
+
+const BDOC_PARTY =
+ '<b>■ ③ 당사자를 특정하는 서류</b><br>'
++'· <b>신청하시는 분(채권자)</b> — <b>주민등록초본</b> 1통 <span class="hint">(법인이면 <b>법인등기사항증명서</b> 1통)</span> · <b>도장</b> · <b>신분증</b><br>'
++'· <b>상대방(채무자)</b> — <b>주민등록초본</b> 1통 <span style="color:var(--seal);font-weight:700;">(주소를 모르시면 말씀해 주십시오)</span><br>'
++'&nbsp;&nbsp;<span class="hint">→ 상대방 초본은 아무나 뗄 수 없습니다. <b>채권·채무 관계를 증명하는 서류</b>(계약서·차용증 등)를 가지고 주민센터에 가시면 <b>이해관계인</b>으로 발급받을 수 있습니다. 안 되면 법원에 <b>보정명령</b>을 받아 발급받습니다.</span><br>'
++'&nbsp;&nbsp;· 상대방이 <b>법인</b>이면 → <b>법인등기사항증명서</b> 1통<br>'
++'&nbsp;&nbsp;· 상대방이 <b>사망</b>했으면 → <b>가족관계증명서·기본증명서</b>로 상속인을 확정해야 합니다<br>'
++'· <b>위임장</b> — 사무소에서 작성해 드립니다<br><br>';
+
+const BDOC_SEC =
+ '<b>■ ④ 담보 — 법원이 「보증」을 요구합니다</b><br>'
++'<span class="law" title="민사집행법 제280조제2항·제3항 — 법원은 담보를 제공하게 하고 가압류를 명할 수 있으며, 청구채권과 가압류의 이유를 소명한 때에도 법원은 담보를 제공하게 하고 가압류를 명할 수 있다">민사집행법 §280②③</span> '
++'잘못된 가압류로 상대방이 손해를 입을 수 있어서, 법원이 <b>담보를 걸라</b>고 명합니다.<br>'
++'· <b>보증보험증권</b>(공탁보증보험) — <span style="color:var(--seal);font-weight:700;">보험료만 내면 되므로 대부분 이 방법을 씁니다.</span> <span class="hint">서울보증보험(SGI)에서 발급합니다. 사무소에서 대행해 드립니다.</span><br>'
++'· <b>현금공탁</b> — 법원이 일부 또는 전부를 현금으로 걸라고 하는 경우가 있습니다. <span class="hint">본안에서 이기면 돌려받습니다.</span><br>'
++'· <span class="tag chk">확인필요</span> <b>담보 금액과 현금·보증보험 비율은 법원과 목적물에 따라 다릅니다.</b> 담보제공명령이 나오면 바로 알려 드립니다.<br>'
++'· <b>보증보험 발급에 필요한 것</b> — 신분증, 도장, <span class="hint">신용 상태에 따라 연대보증인이나 추가 서류를 요구할 수 있습니다.</span><br><br>';
+
+const BDOC_TAIL =
+ '<div class="dl" style="border-top:1px dashed var(--line);margin-top:6px;padding-top:6px;">'
++'<b style="color:#b03a3a;">⏰ 결정을 받으면 2주 안에 집행해야 합니다</b><br>'
++'가압류·가처분 결정을 받고 <b>2주가 지나면 집행할 수 없습니다</b>'
++'<span class="law" title="민사집행법 제292조제2항 — 가압류에 대한 재판의 집행은 채권자에게 재판을 고지한 날부터 2주를 넘긴 때에는 하지 못한다. 제301조에 따라 가처분에 준용된다">민사집행법 §292②·§301</span>. '
++'<span class="hint">부동산·자동차는 법원이 등기·등록을 촉탁해 주지만, 유체동산은 <b>따로 집행관에게 신청</b>해야 하므로 특히 조심하십시오.</span><br><br>'
++'<b>■ 서류는 어디서 떼나요</b><br>'
++'· <b>주민등록초본 · 인감증명서</b> → 주민센터 또는 <a href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a><br>'
++'· <b>법인등기사항증명서</b> · <b>부동산등기사항증명서</b> → <a href="https://www.iros.go.kr" target="_blank" rel="noopener">인터넷등기소</a><br>'
++'· <b>토지대장 · 건축물대장 · 자동차등록원부</b> → <a href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a><br>'
++'· <b>가족관계증명서 · 기본증명서</b> → <a href="https://efamily.scourt.go.kr" target="_blank" rel="noopener">전자가족관계등록시스템</a><br>'
++'· <b>공시가격(시가표준액)</b> → <a href="https://www.realtyprice.kr" target="_blank" rel="noopener">부동산공시가격 알리미</a><br>'
++'· <b>등록면허세 납부</b> → <a href="https://www.wetax.go.kr" target="_blank" rel="noopener">위택스</a><br>'
++'· <b>신청·진행 확인</b> → <a href="https://ecfs.scourt.go.kr" target="_blank" rel="noopener">법원 전자소송</a> · 양식은 <a href="https://help.scourt.go.kr" target="_blank" rel="noopener">나홀로소송</a><br>'
++'<br><span class="hint">▸ <b>상대방 재산을 먼저 찾아야</b> 합니다. 어디에 무엇이 있는지 모르시면 말씀해 주십시오. 재산 파악 방법부터 같이 찾아 드립니다.<br>'
++'▸ 위 목록은 일반적인 경우이며, 법원과 사안에 따라 서류가 달라질 수 있습니다.</span></div>';
+
+const BDOCS={
+at:  /* 부동산가압류 */
+ '<b>[부동산 가압류 준비서류]</b><br>'+BDOC_HEAD
++'<b>■ ⓪ 묶을 부동산을 특정하는 서류</b><br>'
++'· <b>부동산 등기사항증명서</b>(전부증명서) — 토지·건물 각 1통, <b>최근 것</b>으로<br>'
++'· <b>토지대장 · 건축물대장</b> 각 1통 <span class="hint">(집합건물이면 전유부 대장)</span><br>'
++'· <b>공시가격 자료</b> — 등록면허세 계산과 담보액 산정에 씁니다<br>'
++'· <span class="hint">▸ 등기부에 <b>이미 근저당·가압류가 얼마나 걸려 있는지</b> 꼭 확인하십시오. 남는 게 없으면 가압류를 해도 실익이 없습니다. 함께 봐 드립니다.</span><br>'
++'· <span class="hint">▸ <b>상대방 명의가 아닌</b> 부동산(배우자·가족 명의)은 원칙적으로 가압류할 수 없습니다.</span><br><br>'
++BDOC_CLAIM+BDOC_NEED+BDOC_PARTY+BDOC_SEC
++'<b>■ ⑤ 세금·비용</b><br>'
++'· <b>등록면허세</b> — 청구금액의 <b>0.2%</b>, <b>지방교육세</b>는 그 20% <span class="hint">(위 ③ 공과금란에서 자동 계산됩니다)</span><br>'
++'· <b>인지 · 송달료</b> · <b>등기신청수수료</b><br>'
++'· <b>보증보험료</b> 또는 <b>공탁금</b><br><br>'
++BDOC_TAIL,
+
+ac:  /* 채권가압류 */
+ '<b>[채권 가압류 준비서류]</b><br>'+BDOC_HEAD
++'<div class="note" style="margin:6px 0 10px;"><b>채권가압류란</b> — 상대방이 <b>다른 사람에게서 받을 돈</b>(예금·급여·매출대금·보증금)을 묶는 것입니다. 돈을 쥐고 있는 그 사람을 <b>제3채무자</b>라고 합니다.</div>'
++'<b>■ ⓪ 제3채무자와 채권을 특정하는 자료</b> <span class="hint">(여기서 성패가 갈립니다)</span><br>'
++'· <b>예금</b>이면 → <b>은행 이름</b>과 <b>지점</b>까지 <span class="hint">(모르시면 「모든 지점」으로 신청하는 방법이 있습니다)</span><br>'
++'· <b>급여</b>이면 → <b>회사 이름 · 주소 · 대표자</b> + <b>법인등기사항증명서</b> 1통<br>'
++'&nbsp;&nbsp;<span style="color:var(--seal);font-weight:700;">※ 급여는 원칙적으로 <b>2분의 1까지만</b> 압류할 수 있습니다</span>'
++'<span class="law" title="민사집행법 제246조제1항제4호 — 급료·연금·봉급·상여금·퇴직연금, 그 밖에 이와 비슷한 성질을 가진 급여채권의 2분의 1에 해당하는 금액은 압류하지 못한다">민사집행법 §246①4호</span><br>'
++'· <b>공사대금 · 물품대금</b>이면 → 발주처 이름·주소, <b>계약서 · 세금계산서</b><br>'
++'· <b>임대차보증금</b>이면 → <b>임대인의 이름·주소</b>, 임대차계약서 사본, 건물 등기사항증명서<br>'
++'· <b>제3채무자가 법인</b>이면 <b>법인등기사항증명서</b> 1통 <span class="hint">(대표자와 본점 주소를 정확히 적어야 송달이 됩니다)</span><br>'
++'· <span class="hint">▸ <b>압류할 채권을 얼마나 정확히 적느냐</b>가 관건입니다. 애매하면 법원이 각하합니다. 함께 문구를 잡아 드립니다.</span><br><br>'
++BDOC_CLAIM+BDOC_NEED+BDOC_PARTY+BDOC_SEC
++'<b>■ ⑤ 세금·비용</b><br>'
++'· <b>등록면허세 없음</b> — 등기·등록을 하지 않습니다<br>'
++'· <b>인지 · 송달료</b> — 송달 대상이 <b>채권자·채무자·제3채무자</b> 셋이라 송달료가 늘어납니다<br>'
++'· <b>보증보험료</b> 또는 <b>공탁금</b><br><br>'
++BDOC_TAIL,
+
+ad:  /* 유체동산가압류 */
+ '<b>[유체동산 가압류 준비서류]</b><br>'+BDOC_HEAD
++'<div class="note" style="margin:6px 0 10px;"><b>유체동산이란</b> — 집이나 사무실 안에 있는 <b>물건</b>(가전·가구·기계·재고)입니다. 집행관이 직접 찾아가 <b>빨간 딱지</b>를 붙입니다.<br>'
++'<b style="color:#b03a3a;">⚠ 실익을 먼저 따져 보십시오</b> — 중고 물건값은 생각보다 낮고, <b>법이 압류를 금지한 생활필수품</b>도 많습니다'
++'<span class="law" title="민사집행법 제195조 — 채무자 등의 생활에 필요한 의복·침구·가구·부엌기구, 2월간의 식료품·연료·조명재료, 생활에 필요한 금전 등은 압류하지 못한다">민사집행법 §195</span>. '
++'심리적 압박 효과를 노리는 경우가 많습니다.</div>'
++'<b>■ ⓪ 물건이 있는 곳을 특정하는 자료</b><br>'
++'· <b>정확한 주소</b> — 동·호수까지 <span class="hint">(집행관이 찾아가야 하므로 반드시 정확해야 합니다)</span><br>'
++'· 그곳이 <b>상대방의 주거·사업장이라는 자료</b> — 주민등록초본, 사업자등록증, 임대차계약서, 등기사항증명서<br>'
++'· <b>어떤 물건이 있는지</b> 아시면 목록·사진 <span class="hint">(몰라도 신청은 됩니다)</span><br>'
++'· <span style="color:var(--seal);font-weight:700;">※ 남의 집(가족·동거인 소유)에 있는 물건은 다툼이 생길 수 있습니다.</span><br><br>'
++BDOC_CLAIM+BDOC_NEED+BDOC_PARTY+BDOC_SEC
++'<b>■ ⑤ 비용과 집행</b><br>'
++'· <b>등록면허세 없음</b> — 등기·등록을 하지 않습니다<br>'
++'· <b>인지 · 송달료</b> · <b>보증보험료</b> 또는 <b>공탁금</b><br>'
++'· <b style="color:#b03a3a;">집행관 집행신청</b> — 결정을 받은 뒤 <b>따로</b> 관할 법원 <b>집행관사무소</b>에 신청해야 합니다. <b>2주를 넘기면 집행할 수 없습니다.</b><br>'
++'· <b>집행관 수수료·여비</b>를 미리 예납합니다 <span class="hint">(현장에 함께 가시면 물건을 지목하실 수 있습니다)</span><br><br>'
++BDOC_TAIL,
+
+av:  /* 자동차가압류 */
+ '<b>[자동차 가압류 준비서류]</b><br>'+BDOC_HEAD
++'<b>■ ⓪ 자동차를 특정하는 서류</b><br>'
++'· <b>자동차등록원부(갑구)</b> 1통 — <span style="color:var(--seal);font-weight:700;">가장 먼저 떼어 보십시오.</span> <span class="hint">이미 <b>저당권(할부금융)</b>이 잔뜩 잡혀 있으면 실익이 없습니다.</span><br>'
++'· <b>차량번호 · 차대번호 · 차종 · 연식</b><br>'
++'· <b>중고 시세 자료</b> — 담보액 산정에 씁니다<br>'
++'· <b>차량이 있는 곳</b>(보관 장소) — 인도명령까지 하시려면 필요합니다<br>'
++'· <span class="hint">▸ <b>리스·렌트 차량</b>은 명의가 상대방이 아니므로 가압류할 수 없습니다.</span><br><br>'
++BDOC_CLAIM+BDOC_NEED+BDOC_PARTY+BDOC_SEC
++'<b>■ ⑤ 세금·비용</b><br>'
++'· <b>등록면허세</b> — 청구금액의 <b>0.2%</b>, <b>지방교육세</b>는 그 20%<br>'
++'· <b>인지 · 송달료</b><br>'
++'· <b>보증보험료</b> 또는 <b>공탁금</b><br>'
++'· <span class="hint">▸ 법원이 <b>시·군·구청에 등록</b>을 촉탁해 줍니다. 등록되면 상대방이 팔거나 이전할 수 없습니다.</span><br><br>'
++BDOC_TAIL,
+
+cs:  /* 채권압류 및 추심 */
+ '<b>[채권압류 및 추심명령 준비서류]</b><br>'
++'<div class="note" style="margin:6px 0 10px;"><b>가압류와 다릅니다</b> — 가압류는 <b>묶어만 두는</b> 것이고, 압류·추심은 <b>실제로 받아 내는</b> 절차입니다. 그래서 <b>이미 판결 등을 받으신 분</b>만 할 수 있고, <b>담보가 필요 없습니다.</b></div>'
++'<b>■ ① 집행권원 — 이것이 없으면 시작할 수 없습니다</b><br>'
++'<span class="law" title="민사집행법 제39조제1항 — 강제집행은 집행문이 있는 판결정본에 기초하여 실시한다. 제40조제1항 — 집행은 이행기가 지난 뒤에 개시할 수 있다">민사집행법 §39①·§40①</span> 다음 중 하나를 <b>정본</b>으로 준비합니다.<br>'
++'· <b>판결정본</b> + <b>확정증명원</b> + <b>송달증명원</b> <span class="hint">(가집행선고가 붙어 있으면 확정증명 없이도 됩니다)</span><br>'
++'· <b>지급명령정본</b> + <b>확정증명원</b> + <b>송달증명원</b><br>'
++'· <b>화해조서 · 조정조서 · 이행권고결정</b> 정본 + 송달증명원<br>'
++'· <b>공정증서</b>(강제집행 인낙 문구가 있는 것) 정본 + 송달증명원<br>'
++'· <b>집행문</b> — <span class="hint">당사자가 바뀌었거나 조건이 붙은 경우에는 <b>승계집행문</b>이 필요합니다. 원래 재판을 한 법원에서 받습니다.</span><br><br>'
++'<b>■ ② 압류할 채권과 제3채무자</b><br>'
++'· <b>예금</b> → 은행 이름·지점 / <b>급여</b> → 회사 이름·주소·대표자 + <b>법인등기사항증명서</b><br>'
++'· <b>공사·물품대금</b> → 발주처 정보 / <b>임대차보증금</b> → 임대인 정보·계약서<br>'
++'· <span style="color:var(--seal);font-weight:700;">급여는 원칙적으로 2분의 1까지만</b>, 최저생계비에 해당하는 금액은 압류할 수 없습니다'
++'<span class="law" title="민사집행법 제246조제1항제4호 및 같은 조 제2항, 민사집행법 시행령 — 급여채권의 2분의 1에 해당하는 금액은 압류하지 못하며, 대통령령으로 정하는 최저생계비 이하는 압류가 금지된다">민사집행법 §246</span><br>'
++'· <b>이미 다른 압류가 걸려 있는지</b> 확인하십시오 <span class="hint">(순위가 밀리면 못 받을 수 있습니다)</span><br><br>'
++'<b>■ ③ 당사자 서류</b><br>'
++'· <b>신청인</b> — 주민등록초본 1통(법인은 법인등기사항증명서) · 도장 · 신분증<br>'
++'· <b>채무자</b> — 주민등록초본 1통 <span class="hint">(집행권원이 있으면 이해관계인으로 발급받으실 수 있습니다)</span><br>'
++'· <b>제3채무자</b> — 법인이면 법인등기사항증명서 1통<br>'
++'· <b>위임장</b> — 사무소에서 작성해 드립니다<br><br>'
++'<b>■ ④ 비용</b><br>'
++'· <b>인지 · 송달료</b> <span class="hint">(채권자·채무자·제3채무자 셋에게 보냅니다)</span><br>'
++'· <b style="color:#1d6b3f;">담보·보증보험이 없습니다</b> — 본집행이기 때문입니다<br><br>'
++'<div class="dl" style="border-top:1px dashed var(--line);margin-top:6px;padding-top:6px;">'
++'<b>■ 결정을 받은 뒤</b><br>'
++'· 제3채무자에게 결정문이 <b>송달된 날부터 1주일</b>이 지나면 <b>직접 받아 낼 수 있습니다</b>'
++'<span class="law" title="민사집행법 제229조제1항·제227조제3항 — 압류명령은 제3채무자에게 송달함으로써 효력이 생기며, 추심명령을 받은 채권자는 대위절차 없이 압류채권을 추심할 수 있다">민사집행법 §227③·§229</span><br>'
++'· <b>제3채무자에게 연락</b>해 지급을 청구합니다. 주지 않으면 <b>추심금 소송</b>을 냅니다<br>'
++'· 받으신 뒤에는 법원에 <b>추심신고</b>를 해야 합니다<br><br>'
++'<b>■ 서류는 어디서</b><br>'
++'· <b>확정증명 · 송달증명 · 집행문</b> → <b>판결을 한 법원</b> 또는 <a href="https://ecfs.scourt.go.kr" target="_blank" rel="noopener">전자소송</a><br>'
++'· <b>주민등록초본</b> → 주민센터 · <a href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a><br>'
++'· <b>법인등기사항증명서</b> → <a href="https://www.iros.go.kr" target="_blank" rel="noopener">인터넷등기소</a><br>'
++'· <b>상대방 재산을 모르시면</b> → <b>재산명시신청</b> · <b>재산조회신청</b>을 먼저 하는 방법이 있습니다<br>'
++'<br><span class="hint">▸ 위 목록은 일반적인 경우이며, 집행권원의 종류에 따라 달라집니다.</span></div>'};
+
+/* 가처분 — 유형별로 필요 서류가 갈린다 */
+function injunctionDocs(t){
+  if(t==='occupy'){
+    return '<b>[점유이전금지가처분 준비서류]</b><br>'
+     +'<div class="note" style="margin:6px 0 10px;"><b>어떤 경우에 하나요</b> — 명도(집을 비워 달라)·인도 소송을 하려는데, 소송 중에 상대방이 <b>다른 사람에게 넘겨 버리면</b> 이겨도 소용이 없습니다. 그래서 <b>점유자를 고정</b>해 두는 절차입니다'
+     +'<span class="law" title="민사집행법 제300조제1항 — 다툼의 대상에 관한 가처분은 현상이 바뀌면 당사자가 권리를 실행하지 못하거나 이를 실행하는 것이 매우 곤란할 염려가 있을 경우에 한다">민사집행법 §300①</span>.<br>'
+     +'<b>등기를 하지 않습니다</b> — 집행관이 현장에 가서 <b>고시문을 붙입니다.</b> 그래서 등록면허세가 없습니다.</div>'
+     +'<b>■ ⓪ 목적물과 점유 상태를 보여 주는 자료</b><br>'
+     +'· <b>부동산 등기사항증명서</b> 1통 · <b>건축물대장</b> 1통<br>'
+     +'· <b>정확한 주소</b>(동·호수) — 집행관이 찾아갑니다<br>'
+     +'· <b>임대차계약서</b> 사본 <span class="hint">(임대인이 신청하시는 경우)</span><br>'
+     +'· <b>현재 누가 살고 있는지</b> 알 수 있는 자료 — 현장 사진, 관리비 고지서, 전입세대 확인서<br>'
+     +'· <b>내용증명우편</b>(계약 해지·명도 요구)과 발송·배달증명<br>'
+     +'· <span class="hint">▸ 등기부상 소유자와 실제 점유자가 다르면 <b>둘 다</b> 상대방으로 삼아야 할 수 있습니다.</span><br><br>'
+     +BDOC_CLAIM+BDOC_PARTY+BDOC_SEC
+     +'<b>■ ⑤ 비용과 집행</b><br>'
+     +'· <b>등록면허세 없음</b> · <b>인지 · 송달료</b> · <b>보증보험료</b> 또는 <b>공탁금</b><br>'
+     +'· <b style="color:#b03a3a;">집행관 집행신청</b> — 결정 후 <b>따로</b> 신청해야 하고 <b>2주를 넘기면 안 됩니다.</b> 집행관 수수료·여비를 예납합니다<br>'
+     +'· <span class="hint">현장에 사람이 없으면 <b>열쇠공·증인</b>을 부르는 비용이 더 들 수 있습니다.</span><br><br>'
+     +BDOC_TAIL;
+  }
+  if(t==='status'){
+    return '<b>[임시지위를 정하는 가처분 준비서류]</b><br>'
+     +'<div class="note" style="margin:6px 0 10px;"><b>어떤 경우에 하나요</b> — 지금 당장 <b>큰 손해가 생기는 것을 막기 위해</b> 임시로 지위나 상태를 정해 달라는 절차입니다'
+     +'<span class="law" title="민사집행법 제300조제2항 — 다툼이 있는 권리관계에 대하여 임시의 지위를 정하기 위한 가처분은 특히 계속하는 권리관계에 끼칠 현저한 손해를 피하거나 급박한 위험을 막기 위하여, 또는 그 밖의 필요한 이유가 있을 경우에 하여야 한다">민사집행법 §300②</span>. '
+     +'<span class="hint">직무집행정지, 이사회결의 효력정지, 공사중지, 업무방해금지, 출입금지 등이 여기에 해당합니다.</span><br>'
+     +'<b style="color:#b03a3a;">⚠ 이것만은 다릅니다 — 상대방을 불러 심문합니다.</b> 다른 보전처분과 달리 <b>변론이나 심문기일이 열리는 것이 원칙</b>이므로'
+     +'<span class="law" title="민사집행법 제304조 — 제300조제2항의 규정에 의한 가처분의 재판은 변론기일 또는 채무자가 참석할 수 있는 심문기일을 연 뒤에 하여야 한다. 다만 그 기일을 열어 심리하면 가처분의 목적을 달성할 수 없는 사정이 있는 때에는 그러하지 아니하다">민사집행법 §304</span>, '
+     +'<b>상대방의 반박까지 예상한 자료</b>가 필요합니다.</div>'
+     +'<b>■ ⓪ 사안에 따라 필요한 자료</b><br>'
+     +'· <b>회사 관련</b>(직무집행정지·결의효력정지) → <b>법인등기사항증명서</b>, <b>정관</b>, <b>주주명부</b>, <b>이사회·주주총회 의사록</b>, 소집통지서, 회의 녹음·녹취록<br>'
+     +'· <b>공사 관련</b>(공사중지) → 도급계약서, 설계도면, 인허가 서류, <b>피해 사진·동영상</b>, 감정·측정 자료(소음·진동·일조)<br>'
+     +'· <b>업무·출입 관련</b> → 현장 사진, 폐쇄회로 영상, 목격자 진술서, 경찰 신고 접수증<br>'
+     +'· <b>지식재산·명예 관련</b> → 등록원부, 침해 화면 캡처(날짜가 보이게), 게시물 URL<br><br>'
+     +'<b>■ ① 권리가 있다는 자료</b> <span class="hint">(피보전권리)</span><br>'
+     +'· 계약서·정관·등기부·등록원부 등 <b>권리의 근거</b><br>'
+     +'· 상대방에게 <b>중단을 요구한 기록</b> — 내용증명, 공문, 문자<br><br>'
+     +'<b>■ ② 지금 당장이어야 하는 이유</b> <span class="hint">(보전의 필요성 — 가장 중요합니다)</span><br>'
+     +'· <b>손해가 계속 커지고 있다</b>는 자료 — 매출 감소 자료, 견적서, 진단서<br>'
+     +'· <b>본안 판결을 기다릴 수 없다</b>는 사정<br>'
+     +'· <span style="color:var(--seal);font-weight:700;">이 부분이 약하면 기각됩니다.</span> 시간 순서로 정리해 드립니다.<br><br>'
+     +BDOC_PARTY+BDOC_SEC
+     +'<b>■ ⑤ 비용</b><br>'
+     +'· <b>등록면허세 없음</b>(등기를 하지 않는 유형) · <b>인지</b>는 본안 인지액의 <b>1/2</b>(상한 50만원)<br>'
+     +'· <b>송달료</b> — 심문기일이 열리므로 <b>여러 번</b> 송달됩니다<br>'
+     +'· <b>보증보험료</b> 또는 <b>공탁금</b> — <span class="hint">임시지위 가처분은 담보가 <b>높게 정해지는 편</b>입니다. <span class="tag chk">확인필요</span></span><br>'
+     +'· <span class="hint">▸ 심문기일에 <b>직접 나가셔야 할 수 있습니다.</b> 예상 질문을 미리 정리해 드립니다.</span><br><br>'
+     +BDOC_TAIL;
+  }
+  /* disposal — 처분금지가처분 */
+  return '<b>[처분금지가처분 준비서류]</b><br>'
+   +'<div class="note" style="margin:6px 0 10px;"><b>어떤 경우에 하나요</b> — <b>「그 부동산을 나에게 넘겨 달라」</b>고 다투는 중에 상대방이 남에게 팔아 버리면 소용이 없어집니다. 그래서 <b>팔지 못하게 등기를 걸어 두는</b> 절차입니다'
+   +'<span class="law" title="민사집행법 제300조제1항 — 다툼의 대상에 관한 가처분">민사집행법 §300①</span>.<br>'
+   +'<b>가압류와 다른 점</b> — 가압류는 <b>돈</b>을 받으려는 것이고, 처분금지가처분은 <b>그 물건 자체</b>를 넘겨받으려는 것입니다.</div>'
+   +'<b>■ ⓪ 목적물을 특정하는 서류</b><br>'
+   +'· <b>부동산 등기사항증명서</b>(전부증명서) 1통 — <b>최근 것</b><br>'
+   +'· <b>토지대장 · 건축물대장</b> 각 1통<br>'
+   +'· <b>공시가격 자료</b> — 등록면허세·담보액 산정용<br>'
+   +'· <span class="hint">▸ 지분만 다투신다면 <b>그 지분</b>만 대상으로 삼습니다.</span><br><br>'
+   +'<b>■ ① 넘겨받을 권리가 있다는 자료</b> <span class="hint">(피보전권리 — 가장 중요합니다)</span><br>'
+   +'· <b>매매계약서</b>와 <b>대금 지급 증빙</b>(계좌이체 내역·영수증)<br>'
+   +'· <b>명의신탁</b>이면 → 자금 출처 자료, 관련 문서·문자<br>'
+   +'· <b>상속·유증</b>이면 → 가족관계증명서·유언증서<br>'
+   +'· <b>이혼 재산분할</b>이면 → 혼인관계증명서, 재산 형성 기여 자료<br>'
+   +'· <b>취득시효</b>이면 → 점유 기간을 보여 주는 자료(공과금 납부·경작·거주 사실)<br>'
+   +'· 상대방에게 <b>이전등기를 요구한 기록</b> — 내용증명우편과 발송·배달증명<br><br>'
+   +BDOC_NEED+BDOC_PARTY+BDOC_SEC
+   +'<b>■ ⑤ 세금·비용</b><br>'
+   +'· <b>등록면허세</b> — 피보전권리 가액(없으면 목적물 가액)의 <b>0.2%</b>(최저 6,000원), <b>지방교육세</b>는 그 20%<br>'
+   +'· <b>인지 · 송달료</b> · <b>등기신청수수료</b><br>'
+   +'· <b>보증보험료</b> 또는 <b>공탁금</b><br>'
+   +'· <span class="hint">▸ 법원이 <b>등기소에 촉탁</b>해 줍니다. 등기가 되면 그 뒤에 산 사람은 나중에 이깁니다.</span><br><br>'
+   +BDOC_TAIL;
+}
+function renderDocsBojeon(){
+  const M={at_docsBox:BDOCS.at, ac_docsBox:BDOCS.ac, ad_docsBox:BDOCS.ad,
+           av_docsBox:BDOCS.av, cs_docsBox:BDOCS.cs};
+  for(const k in M){const e=document.getElementById(k); if(e&&!e.innerHTML)e.innerHTML=M[k];}
+  const ij=document.getElementById('inj_docsBox');
+  if(ij){const t=(document.getElementById('inj_type')||{}).value||'disposal'; ij.innerHTML=injunctionDocs(t);}
+}
+
 function renderDocsRedev(){
   renderPartyDocs('rd_',null,null,'','');
   const db=document.getElementById('rd_docsBox');
@@ -7559,6 +7823,7 @@ function calcSeizure(fromEdit){
   const vat=Math.round(fee*0.1);
   document.getElementById('cs_t_fee').textContent=won(fee);document.getElementById('cs_t_vat').textContent=won(vat);document.getElementById('cs_t_public').textContent=won(publicSum);
   const grand=fee+vat+publicSum;document.getElementById('cs_t_grand').textContent=won(grand);
+  renderDocsBojeon();
   document.getElementById('cs_t_ratio').textContent=claim>0?'('+(grand/claim*100).toFixed(2)+'%)':'';
 }
 (function(){const tb=document.getElementById('cs_extraAgent');if(!tb)return;EXTRA_AGENT.filter(a=>a[3].includes('civil')&&a[0]!=='ea5').forEach(a=>{const [id,name,code]=a;const tr=document.createElement('tr');
@@ -7588,6 +7853,7 @@ function calcAttachGoods(fromEdit){
   const vat=Math.round(fee*0.1);
   document.getElementById('ad_t_fee').textContent=won(fee);document.getElementById('ad_t_vat').textContent=won(vat);document.getElementById('ad_t_public').textContent=won(publicSum);
   const grand=fee+vat+publicSum;document.getElementById('ad_t_grand').textContent=won(grand);
+  renderDocsBojeon();
   document.getElementById('ad_t_ratio').textContent=claim>0?'('+(grand/claim*100).toFixed(2)+'%)':'';
 }
 (function(){const tb=document.getElementById('ad_extraAgent');if(!tb)return;EXTRA_AGENT.filter(a=>a[3].includes('civil')&&a[0]!=='ea5').forEach(a=>{const [id,name,code]=a;const tr=document.createElement('tr');
@@ -7619,6 +7885,7 @@ function calcAttachCar(fromEdit){
   const vat=Math.round(fee*0.1);
   document.getElementById('av_t_fee').textContent=won(fee);document.getElementById('av_t_vat').textContent=won(vat);document.getElementById('av_t_public').textContent=won(publicSum);
   const grand=fee+vat+publicSum;document.getElementById('av_t_grand').textContent=won(grand);
+  renderDocsBojeon();
   document.getElementById('av_t_ratio').textContent=claim>0?'('+(grand/claim*100).toFixed(2)+'%)':'';
 }
 (function(){const tb=document.getElementById('av_extraAgent');if(!tb)return;EXTRA_AGENT.filter(a=>a[3].includes('civil')&&a[0]!=='ea5').forEach(a=>{const [id,name,code]=a;const tr=document.createElement('tr');
@@ -7655,6 +7922,7 @@ function calcAttachClaim(fromEdit){
   document.getElementById('ac_t_public').textContent=won(publicSum);
   const grand=fee+vat+publicSum;
   document.getElementById('ac_t_grand').textContent=won(grand);
+  renderDocsBojeon();
   document.getElementById('ac_t_ratio').textContent=claim>0?'('+(grand/claim*100).toFixed(2)+'%)':'';
 }
 (function(){const tb=document.getElementById('ac_extraAgent');if(!tb)return;EXTRA_AGENT.filter(a=>a[3].includes('civil')&&a[0]!=='ea5').forEach(a=>{const [id,name,code]=a;const tr=document.createElement('tr');
@@ -7697,6 +7965,7 @@ function calcAttach(fromEdit){
   document.getElementById('at_t_public').textContent=won(publicSum);
   const grand=fee+vat+publicSum;
   document.getElementById('at_t_grand').textContent=won(grand);
+  renderDocsBojeon();
   document.getElementById('at_t_ratio').textContent=claim>0?'('+(grand/claim*100).toFixed(2)+'%)':'';
 }
 (function(){const tb=document.getElementById('at_extraAgent');if(!tb)return;EXTRA_AGENT.filter(a=>a[3].includes('civil')&&a[0]!=='ea5').forEach(a=>{const [id,name,code]=a;const tr=document.createElement('tr');
@@ -7762,6 +8031,7 @@ function calcInjunction(fromEdit){
   document.getElementById('inj_t_public').textContent=won(publicSum);
   const grand=fee+vat+publicSum;
   document.getElementById('inj_t_grand').textContent=won(grand);
+  renderDocsBojeon();
   document.getElementById('inj_t_ratio').textContent=claim>0?'('+(grand/claim*100).toFixed(2)+'%)':'';
 }
 (function(){const tb=document.getElementById('inj_extraAgent');if(!tb)return;EXTRA_AGENT.filter(a=>a[3].includes('civil')&&a[0]!=='ea5').forEach(a=>{const [id,name,code]=a;const tr=document.createElement('tr');
