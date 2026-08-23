@@ -2499,6 +2499,7 @@
         <b>법원예납금</b> — 감정평가수수료·현황조사료·매각수수료·신문공고료 합산으로 법원·감정가에 따라 상이하므로 직접 입력 [확인필요].
       </div>
     </div></div>
+    <div class="card green"><h2>⑤ 준비서류</h2><div class="body"><div class="docs" id="am_docsBox"></div></div></div>
   </div>
 
   <!-- ===== 민사 신청사건(기타) 만능 — 전자소송 포털 50종 ===== -->
@@ -2534,7 +2535,8 @@
       <div class="row"><span>공과금계</span><span id="mi_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계</span><span id="mi_t_grand">0 원</span></div></div>
     <div class="actions"><button class="btn" onclick="calcMisc()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
-    <div class="card green"><h2>④ 안내</h2><div class="body"><div class="docs"><b>인지·송달</b>은 전자소송 포털 기준 기본값이며, 포털에서 정확한 금액 확인 후 수정 가능합니다.<br><b>임차권등기명령</b> 신청은 등록면허세가 추가되니 기타 공과금에 입력하세요.<br><b>송달 회차</b>는 신청 종류·법원에 따라 다를 수 있어 송달칸 직접 수정이 가능합니다.</div></div></div>
+    <div class="card green"><h2>④ 안내</h2><div class="body"><div class="docs"><b>인지·송달</b>은 전자소송 포털 기준 기본값이며, 포털에서 정확한 금액 확인 후 수정 가능합니다.<br><b>임차권등기명령</b> 신청은 등록면허세가 추가되니 기타 공과금에 입력하세요.<br><b>송달 회차</b>는 신청 종류·법원에 따라 다를 수 있어 송달칸 직접 수정이 가능합니다.</div></div>
+    <div class="card green"><h2>⑤ 준비서류</h2><div class="body"><div class="docs" id="mi_docsBox"></div></div></div></div>
   </div>
 
   <!-- ===== 압류·추심명령 (채권집행) Ⅶ-1① · 등기·보증보험 없음 ===== -->
@@ -2931,6 +2933,7 @@
         <b>주의</b> — 답변서·준비서면은 인지대가 없으므로 인지대 0으로 수정하세요. 송달료 회차는 법원별 조견표로 재확인 권장 [B].
       </div>
     </div></div>
+    <div class="card green"><h2>⑤ 준비서류</h2><div class="body"><div class="docs" id="so_docsBox"></div></div></div>
   </div>
 
   <!-- ===== 소송비용액확정 (변호사보수 산입) ===== -->
@@ -3032,6 +3035,7 @@
         <b>법무사 직무</b> — 소송비용액확정신청서 작성·제출대행 및 본인소송 보조는 법무사 업무범위입니다(법무사법 §2). 작성보수는 별도(신청서 보수 Ⅶ-1② 등)이며 본 화면에는 포함하지 않았습니다.
       </div>
     </div></div>
+    <div class="card green"><h2>④ 준비서류</h2><div class="body"><div class="docs" id="lc_docsBox"></div></div></div>
   </div>
 
   <div class="scene" id="scene-generic">
@@ -7903,6 +7907,241 @@ function injunctionDocs(t){
    +'· <span class="hint">▸ 법원이 <b>등기소에 촉탁</b>해 줍니다. 등기가 되면 그 뒤에 산 사람은 나중에 이깁니다.</span><br><br>'
    +BDOC_TAIL;
 }
+
+/* ═══════════ 소송·집행신청 준비서류 (전용화면) ═══════════════════════
+   [A] 민사소송법 §248(소의 제기)·§249(소장의 기재사항)·§254(소장심사)
+       §462(지급명령의 신청)·§470(이의신청)·§472(소송으로의 이행)
+       §109(변호사의 보수와 소송비용)·§110(소송비용액의 확정결정)
+   [A] 민사집행법 §80(강제경매신청서)·§81(첨부서류)·§264①(담보권 실행을 위한 경매신청)
+   [A] 주택임대차보호법 §3의3 / 상가건물 임대차보호법 §6(임차권등기명령)
+   [A] 「변호사보수의 소송비용 산입에 관한 규칙」
+   2026-08 신설(5단계 5차분·완결). */
+const SDOC_PARTY =
+ '<b>■ 당사자를 특정하는 서류</b><br>'
++'· <b>신청·제소하시는 분</b> — <b>주민등록초본</b> 1통 <span class="hint">(법인이면 <b>법인등기사항증명서</b> 1통)</span> · <b>도장</b> · <b>신분증</b><br>'
++'· <b>상대방</b> — <b>주민등록초본</b> 1통 <span style="color:var(--seal);font-weight:700;">(주소를 모르시면 말씀해 주십시오)</span><br>'
++'&nbsp;&nbsp;<span class="hint">→ 계약서·차용증 등 <b>채권·채무 관계를 증명하는 서류</b>를 들고 주민센터에 가시면 <b>이해관계인</b>으로 발급받을 수 있습니다. 안 되면 법원의 <b>보정명령</b>을 받아 발급받습니다.</span><br>'
++'&nbsp;&nbsp;· 상대방이 <b>법인</b>이면 → <b>법인등기사항증명서</b> 1통 <span class="hint">(대표자와 본점 주소가 정확해야 송달이 됩니다)</span><br>'
++'&nbsp;&nbsp;· 상대방이 <b>사망</b>했으면 → <b>가족관계증명서·기본증명서·제적등본</b>으로 상속인을 확정합니다<br>'
++'· <b>위임장</b> <span class="hint">(사무소에서 작성해 드립니다)</span><br><br>';
+
+const SDOC_TAIL =
+ '<div class="dl" style="border-top:1px dashed var(--line);margin-top:6px;padding-top:6px;">'
++'<b>■ 서류는 어디서 떼나요</b><br>'
++'· <b>주민등록초본 · 인감증명서</b> → 주민센터 또는 <a href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a><br>'
++'· <b>법인등기사항증명서 · 부동산등기사항증명서</b> → <a href="https://www.iros.go.kr" target="_blank" rel="noopener">인터넷등기소</a><br>'
++'· <b>토지대장 · 건축물대장 · 자동차등록원부</b> → <a href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a><br>'
++'· <b>가족관계증명서 · 제적등본</b> → <a href="https://efamily.scourt.go.kr" target="_blank" rel="noopener">전자가족관계등록시스템</a><br>'
++'· <b>확정증명 · 송달증명 · 집행문</b> → <b>판결을 한 법원</b> 또는 <a href="https://ecfs.scourt.go.kr" target="_blank" rel="noopener">전자소송</a><br>'
++'· <b>공시가격</b> → <a href="https://www.realtyprice.kr" target="_blank" rel="noopener">부동산공시가격 알리미</a> · <b>등록면허세</b> → <a href="https://www.wetax.go.kr" target="_blank" rel="noopener">위택스</a><br>'
++'· <b>양식·절차 안내</b> → <a href="https://help.scourt.go.kr" target="_blank" rel="noopener">나홀로소송</a><br>'
++'<br><span class="hint">▸ 증거는 <b>있는 대로 전부</b> 주십시오. 무엇이 쓸모 있는지는 저희가 골라 드립니다.<br>'
++'▸ 위 목록은 일반적인 경우이며, 사건과 법원에 따라 달라질 수 있습니다.</span></div>';
+
+/* ── 소장 · 지급명령 ───────────────────────────────────────── */
+function lawsuitDocs(t){
+  if(t==='jd'){
+    return '<b>[지급명령(독촉절차) 준비서류]</b><br>'
+     +'<div class="note" style="margin:6px 0 10px;"><b>어떤 절차인가요</b> — 재판을 열지 않고 <b>서류만 보고</b> 「돈을 갚으라」는 명령을 내려 주는 간이 절차입니다. <b>인지가 소송의 10분의 1</b>이라 비용이 적게 듭니다.<br>'
+     +'<b style="color:#b03a3a;">⚠ 두 가지를 주의하십시오</b><br>'
+     +'· 상대방이 <b>2주 안에 이의</b>하면 <b>보통의 소송으로 넘어갑니다</b>'
+     +'<span class="law" title="민사소송법 제470조제1항 — 채무자는 지급명령을 송달받은 날부터 2주 이내에 이의신청을 할 수 있다. 제472조 — 이의신청이 있으면 지급명령을 신청한 때에 소가 제기된 것으로 본다">민사소송법 §470·§472</span>. <span class="hint">그때 부족한 인지를 더 내야 합니다.</span><br>'
+     +'· <b>공시송달을 할 수 없습니다</b>'
+     +'<span class="law" title="민사소송법 제462조 단서 — 다만, 그 청구가 대한민국에서 공시송달 외의 방법으로 송달할 수 있는 경우에 한한다">민사소송법 §462 단서</span> <span class="tag A">A</span> '
+     +'<span style="color:var(--seal);font-weight:700;">상대방 주소를 모르거나 송달이 안 되면 지급명령으로는 진행할 수 없습니다.</span> 이런 경우에는 처음부터 <b>소송</b>이 낫습니다.</div>'
+     +'<b>■ 돈을 받을 권리가 있다는 자료</b><br>'
+     +'· <b>차용증 · 계약서 · 각서 · 지불각서</b><br>'
+     +'· <b>세금계산서 · 거래명세서 · 발주서</b><br>'
+     +'· <b>계좌이체 내역</b> — 빌려준 기록, 받지 못한 기록<br>'
+     +'· <b>문자 · 카카오톡 · 이메일</b> <span class="hint">(빚을 인정하는 말이 있으면 특히 좋습니다)</span><br>'
+     +'· <b>내용증명우편</b>과 발송·배달증명<br>'
+     +'· <span class="hint">▸ 지급명령은 <b>증거를 깊이 심사하지 않습니다.</b> 다만 이의가 들어오면 결국 소송이 되므로 미리 갖춰 두시는 것이 좋습니다.</span><br><br>'
+     +'<b>■ 청구금액 정리</b><br>'
+     +'· <b>원금</b>과 <b>이자·지연손해금</b>을 나누어 정리 <span class="hint">(약정 이율이 있으면 그 근거)</span><br>'
+     +'· 일부 받으신 것이 있으면 그 내역<br><br>'
+     +SDOC_PARTY
+     +'<b>■ 상대방 주소가 중요합니다</b><br>'
+     +'· <b>실제로 송달이 될 주소</b>여야 합니다<br>'
+     +'· 송달이 안 되면 → <b>주소보정</b> → 그래도 안 되면 <b>소송으로 옮겨</b> 진행합니다<br>'
+     +'· <span class="hint">▸ 상대방 직장 주소로도 보낼 수 있습니다.</span><br><br>'
+     +'<b>■ 확정된 뒤</b><br>'
+     +'· 이의 없이 <b>2주</b>가 지나면 확정되어 <b>판결과 같은 효력</b>을 가집니다<br>'
+     +'· <b>확정증명원 · 송달증명원</b>을 받아 압류·추심 등 집행을 합니다<br><br>'
+     +SDOC_TAIL;
+  }
+  const nm=({sm:'소액사건',dan:'단독·합의사건',hs:'항소사건',sg:'상고사건',hg:'항고·재항고',
+             hw:'제소전화해',jo:'민사조정'})[t]||'민사소송';
+  let h='<b>['+nm+' 준비서류]</b><br>';
+  if(t==='hs'||t==='sg'||t==='hg'){
+    h+='<div class="note" style="margin:6px 0 10px;"><b style="color:#b03a3a;">⏰ 기간을 넘기면 되돌릴 수 없습니다</b> — 판결문을 <b>받은 날</b>이 기준입니다. 받으신 우편물의 <b>송달일</b>을 가장 먼저 확인해 주십시오.<br>'
+     +'· <b>항소·상고</b>는 판결서를 송달받은 날부터 <b>2주</b><br>'
+     +'· <b>즉시항고</b>는 결정을 고지받은 날부터 <b>1주</b><br>'
+     +'<span class="hint">기간 안에 「항소장」만 먼저 내고, 이유서는 나중에 낼 수 있습니다.</span></div>'
+     +'<b>■ 반드시 필요한 것</b><br>'
+     +'· <b>판결문(결정문) 정본 또는 사본</b> — <b>전부</b><br>'
+     +'· <b>송달받은 날</b>을 알 수 있는 것 — 우편 봉투, 전자소송 수신 기록<br>'
+     +'· <b>1심(원심) 기록</b> — 소장·답변서·준비서면·제출한 증거 <span class="hint">(전자소송이면 사건번호만 알려 주셔도 됩니다)</span><br>'
+     +'· <b>어느 부분이 잘못되었다고 보시는지</b> — 메모로 정리해 주시면 큰 도움이 됩니다<br>'
+     +'· <b>새로 낼 증거</b>가 있으면 그 자료<br><br>';
+  } else if(t==='hw'){
+    h+='<div class="note" style="margin:6px 0 10px;"><b>제소전화해란</b> — 소송을 걸기 전에 <b>합의 내용을 법원에서 조서로 남기는</b> 절차입니다. 이 조서는 <b>확정판결과 같은 효력</b>이 있어, 상대가 약속을 안 지키면 <b>바로 강제집행</b>을 할 수 있습니다.<br>'
+     +'<span class="hint">임대차에서 명도(집을 비워 주는 것)를 확실히 해 두려고 많이 씁니다.</span></div>'
+     +'<b>■ 합의 내용에 관한 자료</b><br>'
+     +'· <b>합의서 초안</b> — 무엇을 언제까지 어떻게 하겠다는 내용을 구체적으로<br>'
+     +'· <b>계약서</b>(임대차계약서 등) 사본<br>'
+     +'· <b>목적물 서류</b> — 부동산이면 등기사항증명서·건축물대장<br>'
+     +'· <span style="color:var(--seal);font-weight:700;">양쪽이 모두 동의해야 합니다.</span> 상대방과 미리 이야기가 되어 있어야 진행됩니다<br>'
+     +'· <span class="hint">▸ 화해조항이 <b>집행할 수 있게</b> 구체적으로 적혀 있어야 합니다. 문구를 함께 잡아 드립니다.</span><br><br>';
+  } else if(t==='jo'){
+    h+='<div class="note" style="margin:6px 0 10px;"><b>민사조정이란</b> — 재판보다 <b>빠르고 비용이 적게</b> 서로 양보해 마무리하는 절차입니다. 인지도 소송의 <b>10분의 1</b>입니다.<br>'
+     +'조정이 성립하면 <b>확정판결과 같은 효력</b>이 있고, 안 되면 소송으로 넘어갑니다.</div>'
+     +'<b>■ 준비하실 자료</b><br>'
+     +'· <b>주장을 뒷받침하는 자료</b> — 계약서, 거래 내역, 문자·카카오톡<br>'
+     +'· <b>어디까지 양보하실 수 있는지</b> — 미리 생각해 오시면 좋습니다<br>'
+     +'· <b>상대방이 주장할 내용</b>과 그에 대한 반박 자료<br><br>';
+  } else {
+    h+='<div class="note" style="margin:6px 0 10px;"><b>소장에 반드시 적어야 하는 것</b> — 당사자, <b>청구취지</b>(무엇을 해 달라는지), <b>청구원인</b>(왜 그런지)'
+     +'<span class="law" title="민사소송법 제249조제1항 — 소장에는 당사자와 법정대리인, 청구의 취지와 원인을 적어야 한다">민사소송법 §249①</span> <span class="tag A">A</span>. '
+     +'<span class="hint">사무소에서 작성해 드립니다.</span>'
+     +(t==='sm'?'<br><b>소액사건</b>은 청구금액이 <b>3,000만원 이하</b>인 사건입니다. 절차가 간단하고 빠릅니다.':'')+'</div>'
+     +'<b>■ 청구를 뒷받침하는 자료</b> <span class="hint">(가장 중요합니다 — 있는 대로 전부)</span><br>'
+     +'· <b>계약서 · 차용증 · 각서 · 합의서</b><br>'
+     +'· <b>세금계산서 · 거래명세서 · 견적서 · 발주서</b><br>'
+     +'· <b>계좌이체 내역 · 영수증</b><br>'
+     +'· <b>문자 · 카카오톡 · 이메일 · 통화 녹음</b> <span class="hint">(날짜가 보이게 캡처)</span><br>'
+     +'· <b>사진 · 동영상</b> — 하자, 손해 상황<br>'
+     +'· <b>진단서 · 수리 견적서</b> — 손해액을 밝히는 자료<br>'
+     +'· <b>내용증명우편</b>과 발송·배달증명<br>'
+     +'· <b>증인이 될 분</b>의 이름·연락처와 <b>사실확인서</b><br>'
+     +'· <span class="hint">▸ 증거는 <b>사본 2부</b>(법원용·상대방용)가 필요합니다. 원본은 보관하십시오.</span><br><br>'
+     +'<b>■ 청구금액 정리</b><br>'
+     +'· <b>원금 · 이자 · 지연손해금</b>을 나누어 정리<br>'
+     +'· 일부 변제받으신 내역<br>'
+     +'· <span class="hint">▸ 청구금액에 따라 인지가 정해집니다. 지나치게 부풀리면 인지만 늘어납니다.</span><br><br>';
+  }
+  h+=SDOC_PARTY
+   +'<b>■ 함께 생각하실 것</b><br>'
+   +'· <b style="color:var(--seal);">소멸시효</b> — 빚의 종류에 따라 <b>3년·5년·10년</b> 등으로 다릅니다. 시효가 임박했으면 서둘러야 합니다<br>'
+   +'· <b>상대방 재산</b> — 이겨도 재산이 없으면 못 받습니다. <b>가압류</b>를 먼저 하는 것이 좋을 수 있습니다<br>'
+   +'· <b>비용이 부담되시면</b> → <b>소송구조</b>(인지·송달료 등을 유예·면제)를 신청할 수 있습니다<br><br>'
+   +SDOC_TAIL;
+  return h;
+}
+
+/* ── 부동산경매 신청 ───────────────────────────────────────── */
+const AUCDOC=
+ '<b>[부동산 경매신청 준비서류]</b><br>'
++'<div class="note" style="margin:6px 0 10px;"><b>두 가지가 있습니다</b><br>'
++'· <b>강제경매</b> — <b>판결 등 집행권원</b>을 가지고 신청합니다<br>'
++'· <b>임의경매</b> — <b>근저당권·전세권 등 담보권</b>을 가지고 신청합니다. 판결이 없어도 됩니다<br>'
++'<b style="color:#b03a3a;">⚠ 실익부터 따져 보십시오</b> — 등기부에 <b>앞선 근저당·가압류</b>가 많으면 낙찰되어도 <b>한 푼도 못 받을 수</b> 있습니다. 배당 순위를 먼저 계산해 드립니다.</div>'
++'<b>■ ① 강제경매 — 집행권원</b><br>'
++'<span class="law" title="민사집행법 제80조 — 강제경매신청서에는 채권자·채무자와 법원의 표시, 부동산의 표시, 경매의 이유가 된 일정한 채권과 집행할 수 있는 일정한 집행권원을 적어야 한다">민사집행법 §80</span><br>'
++'· <b>판결정본 · 지급명령정본 · 화해·조정조서 정본 · 공정증서 정본</b> 중 하나<br>'
++'· <b>송달증명원</b> · <b>확정증명원</b> · <b>집행문</b> <span class="hint">(당사자가 바뀌었으면 승계집행문)</span><br><br>'
++'<b>■ ①′ 임의경매 — 담보권이 있다는 서류</b><br>'
++'<span class="law" title="민사집행법 제264조제1항 — 부동산을 목적으로 하는 담보권을 실행하기 위한 경매신청에는 담보권이 있다는 것을 증명하는 서류를 내야 한다">민사집행법 §264①</span> <span class="tag A">A</span><br>'
++'· <b>등기사항증명서</b> — 근저당권 등이 등기되어 있으면 이것으로 충분합니다<br>'
++'· <b>근저당권설정계약서 · 대출약정서</b><br>'
++'· <b>채권최고액과 실제 채권액</b>을 알 수 있는 자료 — 원금·이자 계산표, 거래내역<br>'
++'· <b>기한이익 상실</b>을 알리는 통지서와 발송 증명 <span class="hint">(있으면)</span><br><br>'
++'<b>■ ② 부동산을 특정하는 서류</b><br>'
++'<span class="law" title="민사집행법 제81조제1항제1호 — 강제경매신청서에는 채무자의 소유로 등기된 부동산에 대하여는 등기사항증명서를 붙여야 한다">민사집행법 §81①1호</span><br>'
++'· <b>부동산 등기사항증명서</b>(토지·건물 각 1통) — <b>최근 것</b>으로<br>'
++'· <b>토지대장 · 건축물대장</b> 각 1통 <span class="hint">(집합건물이면 전유부 대장·대지권등록부)</span><br>'
++'· <b>공시가격 자료</b> — 등록면허세 계산에 씁니다<br>'
++'· <b>미등기 건물</b>이면 → 건축허가·사용승인 서류, 건축물대장, 소유를 증명하는 서류 <span class="tag chk">확인필요</span><br>'
++'· <b>부동산 목록</b> — 여러 개면 목록으로 정리합니다<br><br>'
++SDOC_PARTY
++'<b>■ ③ 세금·비용</b><br>'
++'· <b>등록면허세</b> — 청구금액의 <b>0.2%</b>, <b>지방교육세</b>는 그 20% <span class="hint">(위 공과금란에서 자동 계산됩니다)</span><br>'
++'· <b>인지 · 등기신청수수료</b><br>'
++'· <b style="color:var(--seal);">집행비용 예납</b> — 감정료·현황조사료·신문공고료·매각수수료 등을 <b>미리 냅니다</b>. 물건 수와 감정가에 따라 달라지므로 법원 안내를 받아 납부합니다<br>'
++'&nbsp;&nbsp;<span class="hint">→ 예납한 집행비용은 나중에 <b>배당에서 가장 먼저</b> 돌려받습니다.</span><br><br>'
++'<b>■ 신청한 뒤의 흐름</b><br>'
++'· 경매개시결정 → <b>등기부에 기입</b> → 감정평가·현황조사 → 매각기일 공고 → 입찰 → 매각허가 → 대금납부 → <b>배당</b><br>'
++'· <span class="hint">보통 <b>6개월~1년</b> 걸립니다. 유찰되면 더 길어집니다.</span><br>'
++'· <b>배당요구 종기</b>까지 다른 채권자도 배당을 요구합니다<br><br>'
++SDOC_TAIL;
+
+/* ── 기타 신청 (44종 공통 + 빈도 높은 유형) ───────────────── */
+const MISCDOC=
+ '<b>[각종 신청서 준비서류]</b><br>'
++'<div class="note" style="margin:6px 0 10px;">신청 종류가 많아 <b>공통으로 필요한 것</b>과 <b>자주 하시는 신청</b>을 정리했습니다. 위 ①에서 고르신 신청서에 맞추어 다시 안내해 드리니, 어떤 상황인지 말씀만 해 주십시오.</div>'
++'<b>■ 어느 신청이든 공통</b><br>'
++'· <b>사건번호</b>와 <b>관할 법원</b> <span style="color:var(--seal);font-weight:700;">— 이것부터 알려 주십시오</b><br>'
++'· <b>법원에서 받은 우편물 전부</b> — 결정문·명령서·통지서 <span class="hint">(뜯지 않으셨어도 그대로)</span><br>'
++'· <b>신청인</b> — 주민등록초본 1통(법인은 법인등기사항증명서) · 도장 · 신분증<br>'
++'· <b>상대방</b> — 주민등록초본 또는 법인등기사항증명서<br>'
++'· <b>위임장</b><br>'
++'· <b style="color:#b03a3a;">기간이 정해진 신청은 날짜부터</b> — 받으신 서류의 <b>송달일</b>을 확인해 주십시오<br><br>'
++'<b>■ 임차권등기명령</b> <span class="hint">(보증금을 못 받고 이사 가셔야 할 때 — 가장 문의가 많습니다)</span><br>'
++'<span class="law" title="주택임대차보호법 제3조의3 — 임대차가 끝난 후 보증금을 반환받지 못한 임차인은 임차주택의 소재지를 관할하는 지방법원 등에 임차권등기명령을 신청할 수 있다. 상가건물 임대차보호법 제6조도 같은 취지">주택임대차보호법 §3의3 · 상가임대차법 §6</span> <span class="tag A">A</span><br>'
++'· <b>임대차계약서</b> 원본 <span class="hint">(확정일자가 찍힌 것)</span><br>'
++'· <b>주민등록등본</b> — <span style="color:var(--seal);font-weight:700;">아직 전입신고를 빼지 마십시오.</span> 등기가 될 때까지 유지해야 합니다<br>'
++'· <b>부동산 등기사항증명서</b> · <b>건축물대장</b><br>'
++'· <b>임대차가 끝났다는 자료</b> — 계약 만료일, 해지 통지(내용증명우편)와 발송·배달증명<br>'
++'· <b>보증금을 못 받았다는 자료</b> — 계좌 내역, 문자·카카오톡<br>'
++'· <b>등록면허세 · 등기신청수수료</b>가 별도로 듭니다<br>'
++'· <span class="hint">▸ <b>등기가 된 것을 확인한 뒤에</b> 이사 가시고 전입신고를 옮기셔야 대항력과 우선변제권이 유지됩니다.</span><br><br>'
++'<b>■ 강제집행정지 신청</b><br>'
++'· <b>정지하려는 집행의 사건번호</b>와 결정문<br>'
++'· <b>본안 사건</b>(청구이의·재심·항소 등)의 <b>접수증명원</b> 또는 소장 사본<br>'
++'· <b>담보</b>가 필요합니다 — 보증보험 또는 현금공탁 <span class="hint">(법원이 금액을 정합니다)</span><br><br>'
++'<b>■ 담보취소 · 권리행사최고</b> <span class="hint">(가압류 때 건 담보를 돌려받을 때)</span><br>'
++'· <b>담보를 제공한 사건의 결정문</b> · <b>공탁서</b> 또는 <b>보증보험증권</b> 사본<br>'
++'· <b>본안 사건이 끝났다는 자료</b> — 판결문·확정증명원, 소 취하증명원<br>'
++'· 상대방의 <b>동의서 + 인감증명서</b> <span class="hint">(동의를 받으면 훨씬 빠릅니다)</span><br>'
++'· 동의를 못 받으면 → <b>권리행사최고</b>를 거쳐 담보취소를 받습니다<br><br>'
++'<b>■ 소송구조 신청</b> <span class="hint">(비용이 부담되실 때)</span><br>'
++'· <b>재산·소득이 적다는 자료</b> — 소득금액증명원, 건강보험료 납부확인서, 기초생활수급자증명서<br>'
++'· <b>가족관계증명서 · 주민등록등본</b><br>'
++'· <b>승소 가능성</b>을 보여 주는 자료 — 청구를 뒷받침하는 증거<br><br>'
++'<b>■ 판결·결정 경정 신청</b> <span class="hint">(이름·숫자 등이 잘못 적혔을 때)</span><br>'
++'· <b>판결문·결정문 정본</b><br>'
++'· <b>잘못 적혔다는 것을 증명하는 자료</b> — 주민등록초본, 등기사항증명서, 소장 등<br><br>'
++SDOC_TAIL;
+
+/* ── 소송비용액확정 ───────────────────────────────────────── */
+const LCDOC=
+ '<b>[소송비용액확정 준비서류]</b><br>'
++'<div class="note" style="margin:6px 0 10px;"><b>왜 따로 해야 하나요</b> — 판결문에 「소송비용은 피고가 부담한다」고 되어 있어도 <b>금액은 정해져 있지 않습니다.</b> 그 금액을 정해 달라고 신청하는 절차입니다'
++'<span class="law" title="민사소송법 제110조제1항 — 소송비용의 부담을 정하는 재판에서 그 액수가 정하여지지 아니한 경우에 제1심 법원은 그 재판이 확정되거나 소송비용부담의 재판이 집행력을 갖게 된 후에 당사자의 신청을 받아 결정으로 그 액수를 정한다">민사소송법 §110①</span> <span class="tag A">A</span>.<br>'
++'<b style="color:var(--seal);">확정 결정을 받으면 그것 자체가 집행권원</b>이 되어 <b>바로 압류</b>할 수 있습니다.</div>'
++'<b>■ ① 반드시 필요한 것</b><br>'
++'· <b>판결정본</b>(또는 결정·화해·조정조서 정본)<br>'
++'· <b>확정증명원</b> · <b>송달증명원</b><br>'
++'· <span class="hint">▸ <b>1심 법원</b>에 신청합니다. 항소심에서 끝났더라도 1심 법원입니다.</span><br><br>'
++'<b>■ ② 비용계산서와 영수증</b> <span class="hint">(영수증이 없으면 인정받지 못합니다)</span><br>'
++'· <b>인지 · 송달료</b> 납부 영수증 <span class="hint">(전자소송이면 납부내역 출력)</span><br>'
++'· <b>감정료 · 검증비용 · 증인 여비</b> 영수증<br>'
++'· <b>등기사항증명서 · 각종 증명서</b> 발급 수수료 영수증<br>'
++'· <b>공시송달 · 특별송달 비용</b><br>'
++'· <b>법무사 보수</b> — 영수증·세금계산서 <span class="hint">(인정 범위는 규칙에 따릅니다)</span><br><br>'
++'<b>■ ③ 변호사 보수를 넣으시려면</b><br>'
++'<span class="law" title="민사소송법 제109조제1항 — 소송을 대리한 변호사에게 당사자가 지급하였거나 지급할 보수는 대법원규칙이 정하는 금액의 범위 안에서 소송비용으로 인정한다">민사소송법 §109①</span> <span class="tag A">A</span><br>'
++'· <b>소송위임계약서</b> — 보수 약정이 적힌 것<br>'
++'· <b>실제로 지급한 증빙</b> — 계좌이체 내역, <b>세금계산서</b>, 영수증<br>'
++'· <b>변호사 선임계</b>(소송위임장) 사본<br>'
++'· <span style="color:#b03a3a;font-weight:700;">주의 — 실제로 낸 금액 전부가 인정되지 않습니다.</span> 「변호사보수의 소송비용 산입에 관한 규칙」이 정한 <b>소송목적의 값에 따른 한도</b> 안에서만 인정됩니다<br>'
++'&nbsp;&nbsp;<span class="hint">→ 일부만 이기셨으면 그 <b>비율만큼</b>만 인정됩니다. 예상 금액을 미리 계산해 드립니다.</span><br><br>'
++'<b>■ ④ 당사자 서류</b><br>'
++'· <b>신청인</b> — 주민등록초본 1통(법인은 법인등기사항증명서) · 도장 · 신분증<br>'
++'· <b>상대방</b> — <b>주민등록초본</b> 1통 <span class="hint">(결정문을 보내야 합니다)</span><br>'
++'· <b>위임장</b><br><br>'
++'<b>■ 확정 결정을 받은 뒤</b><br>'
++'· <b>확정증명원</b>을 받아 <b>압류·추심</b>을 신청합니다<br>'
++'· <span class="hint">▸ 금액이 크지 않으면 집행 비용이 더 들 수도 있습니다. 실익을 함께 따져 보시는 것이 좋습니다.</span><br><br>'
++SDOC_TAIL;
+
+function renderDocsSuit(){
+  const a=document.getElementById('so_docsBox');
+  if(a){const t=(document.getElementById('so_type')||{}).value||'sm'; a.innerHTML=lawsuitDocs(t);}
+  const b=document.getElementById('am_docsBox'); if(b&&!b.innerHTML)b.innerHTML=AUCDOC;
+  const c=document.getElementById('mi_docsBox'); if(c&&!c.innerHTML)c.innerHTML=MISCDOC;
+  const e=document.getElementById('lc_docsBox'); if(e&&!e.innerHTML)e.innerHTML=LCDOC;
+}
+
 function renderDocsBojeon(){
   const M={at_docsBox:BDOCS.at, ac_docsBox:BDOCS.ac, ad_docsBox:BDOCS.ad,
            av_docsBox:BDOCS.av, cs_docsBox:BDOCS.cs};
@@ -8101,6 +8340,7 @@ function calcLawsuit(fromEdit){
   document.getElementById('so_t_vat').textContent=won(vat);
   document.getElementById('so_t_public').textContent=won(publicSum);
   document.getElementById('so_t_grand').textContent=won(fee+vat+publicSum);
+  renderDocsSuit();
   // 본안 이행 시 추가 공과금 (지급명령 jd / 조정 jo / 제소전화해 hw)
   const adjBox=document.getElementById('so_mainAdjBox');
   if(['jd','jo','hw'].includes(ty)&&sga>0){
@@ -8197,6 +8437,7 @@ function calcAuctionFile(fromEdit){
   document.getElementById('am_t_public').textContent=won(publicSum);
   const grand=fee+vat+publicSum;
   document.getElementById('am_t_grand').textContent=won(grand);
+  renderDocsSuit();
   document.getElementById('am_t_ratio').textContent=claim>0?'('+(grand/claim*100).toFixed(2)+'%)':'';
   // klac 예납금 세부내역 (참고)
   const kSurvey=63260*Math.max(1,val('am_surveyN'));
@@ -8248,6 +8489,7 @@ function calcMisc(fromEdit){
   const vat=Math.round(fee*0.1);
   document.getElementById('mi_t_fee').textContent=won(fee);document.getElementById('mi_t_vat').textContent=won(vat);document.getElementById('mi_t_public').textContent=won(publicSum);
   document.getElementById('mi_t_grand').textContent=won(fee+vat+publicSum);
+  renderDocsSuit();
 }
 
 function calcSeizure(fromEdit){
@@ -8771,6 +9013,7 @@ function calcLitCost(){
   document.getElementById('lc_t_cost').textContent=won(costSum);
   document.getElementById('lc_t_pct').textContent=pct+'%';
   document.getElementById('lc_t_grand').textContent=won(grand);
+  renderDocsSuit();
 }
 function copyLitCost(){
   const LCN=['제1심','항소심(2심)','상고심(3심)'];

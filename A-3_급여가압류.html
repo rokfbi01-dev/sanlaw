@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[보전 A-3] 상대 월급(급여)을 가압류하고 싶어요 — 급여채권 가압류 | 산 법무사 김재섭</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(280px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.case{background:var(--box); border-radius:10px; padding:14px 16px; margin:14px 0; border-left:4px solid #b9a98c;}
+.case .ct{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+.sit-wrap{display:flex; gap:12px; margin:14px 0;}
+.sit{flex:1; background:#f8f5ee; border:1px solid var(--line); border-top:3px solid var(--gold); border-radius:10px; padding:13px 15px; font-size:14.5px; line-height:1.75;}
+.sit .sl{display:block; font-weight:700; color:var(--gold-d); margin-bottom:6px; font-size:14px;}
+@media (max-width:680px){ .sit-wrap{flex-direction:column;} }
+/* 전체 길 흐름도 (A-1 추가 — 기존 톤 재활용) */
+.flow{background:linear-gradient(180deg,#faf7f0,#f6f1e6); border:1px solid var(--line); border-radius:14px; padding:22px 20px; margin:16px 0;}
+.flow .fl-t{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:18px; text-align:center; letter-spacing:.3px;}
+.flow .node{position:relative; background:#fff; border:1px solid #e3d8c4; border-radius:11px; padding:15px 18px 15px 56px; font-size:14.5px; line-height:1.72; box-shadow:0 2px 6px rgba(122,82,48,.07);}
+.flow .node .num{position:absolute; left:15px; top:14px; width:30px; height:30px; line-height:30px; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; border-radius:50%; font-weight:800; font-size:15px; font-family:'Nanum Myeongjo',serif; box-shadow:0 2px 5px rgba(122,82,48,.3);}
+.flow .node b{color:#241a10;}
+.flow .down{display:flex; justify-content:center; align-items:center; padding:7px 0;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+/* 작성례 박스 */
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:15px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .tag{margin-bottom:0;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;}
+.tag.cred{background:#5a9a72;}
+.tag.debt{background:#d9694a;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:18px;margin:12px 0;font-family:'D2Coding','Courier New',monospace;font-size:13px;line-height:1.6;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:16px;letter-spacing:2px;margin-bottom:12px;color:#241a10;}
+.howto{font-size:14px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0 4px;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:13px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:7px 13px;cursor:pointer;transition:.15s;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.75;}
+.lawbox .ll{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold-d);border-radius:5px;padding:2px 9px;margin-right:7px;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.hire p{margin:7px 0; font-size:15px; line-height:1.8;}
+.cta{display:block;text-align:center;background:var(--gold-d);color:#fff;font-weight:700;font-size:17px;text-decoration:none;padding:15px;border-radius:11px;margin:18px 0;font-family:'Nanum Myeongjo',serif;letter-spacing:1px;}
+.cta:hover{background:#5e3f24;}
+@media print{
+  body{background:#fff; max-width:100%;}
+  .tldr,.case,.warn,.tip,.cost,.steps li,.tnote,.sit,.flow,.flow li,.lawbox,.hire{background:#fff !important; border-color:#ccc !important;}
+  .tnote{display:none;}
+  .term{border:none; color:inherit; font-weight:inherit;}
+  .term>.bub{display:inline !important; position:static; width:auto; background:none; color:inherit; box-shadow:none; padding:0; font-size:inherit; line-height:inherit;}
+  .term>.bub::before{content:" ("; }
+  .term>.bub::after{content:")"; border:none; position:static;}
+  .fold-body{display:block !important;}.fold-btn .chev{display:none;}.form-tools{display:none;}
+  .cta{background:#fff !important; color:#241a10 !important; border:1px solid #ccc;}
+}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+
+
+<h1>[보전 A-3] 빌려준 돈을 안 갚는 상대의 월급(급여)을 가압류하고 싶어요 — 급여채권 가압류</h1>
+
+<div class="tnote">어려운 법률용어에는 <b>점선 밑줄</b>이 그어져 있습니다. <b>PC는 마우스를 올리면</b>, <b>휴대폰은 손가락으로 톡 터치하면</b> 쉬운 설명이 뜹니다. (인쇄하면 괄호로 함께 나옵니다.)</div>
+
+<div class="hire">
+<div class="ht">이 매뉴얼을 끝까지 읽으시는 분께</div>
+<p>이 매뉴얼은 <b>의뢰인이 직접 법원에 신청할 수 있도록 모든 서류 양식·비용·요건을 구체적으로 담았습니다.</b> 하지만 소송은 살아있는 생물과 같아 상대방의 격렬한 저항이 뒤따릅니다. 혼자 진행하시다가 막히는 부분이 생기거나 방어막이 필요할 때, 언제든 이 매뉴얼을 들고 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</p>
+</div>
+
+<div class="tldr">
+<div class="tt">⭐ 30초 결론부터</div>
+<ul>
+<li><b>급여채권 가압류는 채무자가 회사에서 받을 월급을 미리 보전해 두는 사전 잠금장치입니다.</b> 본안 소송에서 승소하여도 회수가 어려울 수 있으므로, <b>본안 소송 전에 먼저</b> 채무자의 회사에 대한 급여채권을 가압류합니다(<span class="term">민사집행법 §276<span class="bub">가압류의 근거 조문. 금전채권을 위해, 나중에 강제집행을 할 수 없거나 매우 곤란해질 우려가 있을 때 미리 재산을 보전하는 제도.</span></span>·§296). 이때 <b>제3채무자는 채무자가 다니는 회사(고용주)</b>입니다.</li>
+<li><b>두 가지 요건만 갖추면 됩니다 — ① <span class="term">피보전권리<span class="bub">가압류로 지켜내려는 '받을 권리' 자체. 예: 빌려준 돈(대여금), 지급받지 못한 물품대금·공사대금. 차용증·계좌이체내역·계약서로 소명합니다.</span></span>(받을 돈이 있다) ② <span class="term">보전의 필요성<span class="bub">지금 묶지 않으면 나중에 변제받지 못하게 될 위험. 상대방이 재산을 처분·은닉하거나 처분할 우려가 있다는 사정.</span></span>(가압류하지 아니하면 변제받지 못한다).</b> 둘 다 <span class="term">소명<span class="bub">'증명'보다 낮은 단계. 법관이 "대체로 그럴 것 같다"고 믿을 정도의 자료. 가압류는 급하므로 완전한 증명까지는 요구하지 않습니다.</span></span>하면 결정이 납니다.</li>
+<li><b>가압류만으로 돈이 들어오지는 않습니다.</b> 가압류해 둔 뒤 <b>본안 소송(대여금 청구 등)에서 승소</b> 판결을 받고, 그 가압류를 <b><span class="term">본압류<span class="bub">가압류(임시 잠금)를 판결 확정 뒤 정식 압류로 전환하는 것. 이때부터 회사로부터 매월 압류분을 추심하여 회수할 수 있습니다(민집 §291).</span></span>로 전환하여 추심</b>하여야 비로소 채권자에게 회수됩니다. 회사가 매월 급여 지급 시 압류분을 채권자에게 지급합니다(아래 전체 흐름도).</li>
+<li><b>당한 사람도 방어 수단이 있습니다.</b> 억울하게 가압류를 당하였다면 <b>이의신청·<span class="term">해방공탁<span class="bub">묶인 금액만큼 돈을 법원에 맡기고(공탁) 가압류 집행을 풀어 급여를 정상 수령하는 방법. 공탁금이 가압류의 대상으로 바뀝니다(민집 §282).</span></span>·<span class="term">제소명령<span class="bub">"본안 소송을 일정 기간 안에 제기하라"고 법원에 요구하는 신청. 채권자가 그 기간 내 소를 제기하지 아니하면 가압류가 취소됩니다(민집 §287).</span></span> 신청</b>으로 풀 수 있고, 나중에 채권자가 본안에서 패소하면 <b>부당가압류 손해배상</b>으로 되받을 수 있습니다(아래 양면 서면).</li>
+</ul>
+</div>
+
+<h2>지금 어떤 상황인가요?</h2>
+<div class="sit-wrap">
+<div class="sit"><span class="sl">상황 ① · 돈을 받아야 하는 분 (채권자·신청인)</span>빌려준 돈·물품대금·공사대금 등을 <b>변제받지 못하고 있고, 상대에게 마땅한 재산은 없으나 다니는 직장(월급)은 있는</b> 경우. → 먼저 급여채권을 가압류하고, 본안 소송에서 승소하여 매월 추심으로 회수합니다. <b>아래 작성례 ①·②·⑥</b>이 채권자의 서류입니다.</div>
+<div class="sit"><span class="sl">상황 ② · 월급(급여)이 가압류로 묶인 분 (채무자·상대방)</span>회사에 가압류 통지가 가서 <b>월급의 일부를 받지 못하게 된</b> 경우, 또는 압류금지 범위(월 185만원 등)를 넘겨 과다하게 가압류된 경우. → 이의신청·해방공탁·압류범위변경·제소명령으로 풀 수 있습니다. <b>아래 작성례 ③·④·⑤</b>가 채무자의 서류입니다.</div>
+</div>
+
+<h2>돈이 들어오기까지 — 전체 길 한눈에 보기</h2>
+<div class="flow">
+<div class="fl-t">채권자가 가야 할 4단계 (가압류 → 본안 → 본압류 → 추심)</div>
+<div class="node"><span class="num">1</span><b>급여채권 가압류 신청</b> — 채무자가 회사로부터 받을 급여채권을 먼저 가압류합니다. 채무자가 알지 못하게 진행되어(<span class="term">밀행성<span class="bub">가압류는 채무자에게 미리 알리지 않고 비공개로 심리·결정하는 성질. 미리 알면 퇴사 등으로 회피할 수 있으므로 기습적으로 진행하기 위한 것입니다.</span></span>) 회피를 방지합니다. <b><span class="term">담보제공명령<span class="bub">잘못된 가압류로 채무자가 입을 손해에 대비해 법원이 채권자에게 일정 금액을 미리 맡기라고 명하는 것. 급여채권 가압류는 선담보가 허용되지 않아 청구액의 1/5 이상을 현금공탁해야 합니다(민집규 §204 단서).</span></span></b>을 이행하면, 결정문이 <b>제3채무자인 회사</b>에 송달되어 집행됩니다(민집 §296).</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">2</span><b>본안 소송 제기</b> — 가압류는 임시조치일 뿐이므로, <b>대여금·물품대금 청구의 소</b>를 본격적으로 제기하여 '받을 권리'를 판결로 확정받습니다(작성례 ②).</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">3</span><b>가압류 → 본압류 전환</b> — 본안 승소 확정 판결문으로 <b>채권압류 및 추심명령</b>을 신청하여, 임시로 보전해 둔 급여채권을 본압류로 전환합니다(민집 §291·§229, 작성례 ⑥).</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">4</span><b>추심(회수)</b> — 추심명령을 받아 <b><span class="term">제3채무자<span class="bub">채무자가 거꾸로 돈을 받을 곳. 급여채권에서는 채무자가 다니는 회사(고용주)가 제3채무자입니다. 가압류 결정문이 회사에 도달하면 회사는 압류분을 채무자에게 지급하지 못합니다.</span></span>(회사)</b>에게 청구하여, <b>회사가 매월 급여 지급 시 압류분을 채권자에게 지급</b>합니다. 회사가 지급을 거절하면 <span class="term">추심금 청구의 소<span class="bub">추심명령을 받았는데도 회사(제3채무자)가 지급을 거절할 때, 채권자가 회사를 상대로 내는 소송.</span></span>로 회수합니다.</div>
+</div>
+
+<h2>핵심 세 가지</h2>
+<ol class="steps">
+<li><b>월급은 절반(1/2)까지만 가압류할 수 있습니다.</b> 채무자의 생계 보장을 위하여 급여(실수령액)의 <b>2분의 1</b>만 가압류 대상이 됩니다(민집 §246①4호). 따라서 청구금액이 크더라도 매월 급여의 절반씩만 회수되므로, 회수에 여러 달이 걸릴 수 있습니다.</li>
+<li><b>월 185만원 이하 급여는 전액 보호됩니다(압류금지 최저선).</b> 급여의 1/2이 185만원에 미치지 못하면 <b>185만원까지는 가압류할 수 없습니다</b>(민집시행령 §3). 실무상 월 실수령 <b>250만원 이하</b>면 사실상 회수가 어렵습니다(예: 250만원 → 가압류 가능액 65만원). 월 600만원 초과 시에는 상한 공식이 적용됩니다(시행령 §4). 가압류 전 채무자의 급여 수준을 가늠하여야 실익을 판단할 수 있습니다.</li>
+<li><b>'퇴직연금'은 한 푼도 가압류하지 못합니다(채권자가 빠지기 쉬운 함정).</b> 퇴직<b>금</b>은 1/2 가압류가 가능하지만, <b>퇴직연금</b>은 근로자퇴직급여 보장법 §7에 따라 <b>전액 압류금지</b>입니다(대법원 2013다71180). 둘을 혼동하여 퇴직연금을 가압류하면 실효가 없습니다. 또한 부당하게 과다 가압류하였다가 본안에서 패소하면 손해배상 책임을 부담합니다(대법원 2020다242935).</li>
+</ol>
+
+<h2>관련 법령 — 쉬운 풀이</h2>
+<div class="lawbox"><span class="ll">민사집행법 §276</span><b>가압류의 목적</b> — 금전채권(또는 돈으로 환산할 수 있는 채권)에 대해, 나중에 강제집행을 하지 못하거나 매우 곤란해질 우려가 있을 때 미리 채무자의 재산을 보전하는 제도입니다. 쉽게 말해 <b>"판결 받을 때까지 상대방이 처분하지 못하게 잠가두는 것"</b>입니다.</div>
+<div class="lawbox"><span class="ll">민사집행법 §246①4호</span><b>급여채권의 압류금지</b> — 급료·봉급·상여금·퇴직연금 등 급여채권은 그 <b>2분의 1</b>만 가압류할 수 있습니다. 다만 그 1/2이 월 <b>185만원</b>에 미치지 못하면 185만원까지 보호되고(시행령 §3), 1/2이 월 <b>300만원</b>을 초과하면 상한 공식이 적용됩니다(시행령 §4). 기준은 세금·4대보험을 공제한 <b>실수령액</b>이며, 여러 직장의 급여는 합산합니다(시행령 §5).</div>
+<div class="lawbox"><span class="ll">민사집행법 §282·§299</span><b>해방공탁</b> — 가압류를 당한 채무자가 그 금액만큼을 법원에 맡기면(공탁) 급여 가압류 집행을 풀 수 있습니다. 급여채권 대신 공탁금이 가압류 대상으로 바뀌는 구조라, <b>월급을 정상적으로 수령하고 싶은 채무자</b>의 가장 빠른 방어책입니다.</div>
+<div class="lawbox"><span class="ll">민사집행법 §287</span><b>제소명령</b> — 채권자가 가압류만 걸고 본안 소송을 미루면, 채무자가 "기간 안에 소를 제기하라"고 법원에 신청할 수 있습니다. 그 기간(보통 2주 이상)에 채권자가 소를 제기하지 아니하면 <b>가압류가 취소</b>됩니다.</div>
+
+<h2>판례로 보기 — 양쪽 모두 알아야 할 두 가지</h2>
+<div class="case">
+<span class="ct">○ 아직 받지 않은 '장래의 급여'도 가압류할 수 있다 — 대법원 2000마5221 결정 등</span>
+장래에 발생할 채권이나 조건부 채권이라도, <b>현재 그 권리의 특정이 가능하고 가까운 장래에 발생할 것이 상당 정도 기대되는 경우</b>에는 이를 가압류할 수 있습니다. 매월 발생하는 급여채권은 고용관계가 유지되는 한 장래분도 가압류 대상이 됩니다. 따라서 채권자는 <b>한 번의 가압류로 장래의 월급분까지</b> 보전할 수 있습니다. (→ 채권자에게 유리한 법리)
+</div>
+<div class="case">
+<span class="ct">○ 본안에서 패소하면 채권자에게 손해배상 책임 추정 — 대법원 2023. 6. 1. 선고 2020다242935 판결(92다8453 법리 재확인)</span>
+가압류는 채권자가 자기 책임 아래 소명만으로 하는 것이므로, <b>가압류 집행 후 채권자가 본안에서 패소 확정</b>되면, 특별한 반증이 없는 한 채권자의 <b>고의·과실이 추정</b>되어 채무자가 입은 손해를 배상해야 합니다(대법원 1992. 9. 25. 선고 92다8453 판결의 법리를 재확인). 청구액을 과다하게 부풀린 부분도 마찬가지입니다. 다만 최근 판례는 <b>판단이 갈린 경위 등을 참작하여 배상책임을 일부 제한</b>할 수 있다고 보았습니다. (→ 채무자의 역공 근거이자, 채권자의 책임제한 항변 근거)
+</div>
+<div class="warn">
+<span class="wt">⚠ 채권자가 빠지기 쉬운 함정 — 퇴직연금과 1/2 한도</span>
+첫째, <b>퇴직연금</b>은 근로자퇴직급여 보장법 §7에 따라 <b>전액 압류금지</b>이므로 가압류하여도 회수할 수 없습니다(대법원 2013다71180). 퇴직<b>금</b>(1/2 가압류 가능)과 반드시 구별하여야 합니다. 둘째, 급여는 <b>1/2·185만원 한도</b>가 있어, 월 실수령 250만원 이하 채무자라면 가압류의 실익이 거의 없습니다. 채무자의 급여 수준과 재직 형태를 먼저 확인하여야 헛된 비용 지출을 피할 수 있습니다.
+</div>
+
+<h2>채권자: 어떻게 보전하고 회수하나 — 신청 절차</h2>
+<ol class="steps">
+<li><b>관할 법원 확인</b> — 가압류는 <b>① 제3채무자(회사) 소재지</b> <b>또는 ② 본안의 관할 법원</b>(채무자 주소지 등)에 신청합니다(민집 §278).</li>
+<li><b>채무자의 근무처 확인</b> — 급여 가압류는 <b>회사를 제3채무자</b>로 특정해야 하므로, 채무자의 재직 회사명·사업자 정보·소재지를 확인합니다. 회사 법인 등기사항증명서로 정확한 법인명과 대표자를 확인합니다.</li>
+<li><b>신청서·소명자료 준비</b> — 가압류신청서(작성례 ①)에 차용증·계좌이체내역 등 피보전권리 소명자료와 보전 필요성 소명자료, <b>가압류할 급여채권 목록(별지)</b>을 붙입니다. <b>가압류신청 진술서</b>도 함께 냅니다.</li>
+<li><b>담보제공·현금공탁</b> — 법원이 담보를 명하면 제공합니다. 다만 <b>급여채권 가압류는 선담보제공이 허용되지 않고</b>, 청구금액의 <b>1/5 이상은 반드시 현금공탁</b>하여야 합니다(민집규 §204 단서). 나머지는 <span class="term">보증보험증권<span class="bub">서울보증보험 등에서 발급. 현금 공탁 대신 보험증권으로 담보를 대신하는 방법.</span></span>으로 제공할 수 있습니다.</li>
+<li><b>결정·집행</b> — 가압류 결정이 나면 법원이 <b>제3채무자(회사)</b>에 결정문을 송달하고, 그 순간부터 회사는 압류분을 채무자에게 지급하지 못합니다. <b><span class="term">제3채무자 진술최고<span class="bub">회사(제3채무자)에게 "채무자의 급여가 얼마인지, 다른 압류가 있는지 밝히라"고 법원을 통해 요구하는 신청. 회수 실익이 있는지 확인하는 수단입니다(민집 §237).</span></span></b>를 신청하면 회사가 급여액·다른 압류 유무를 회신합니다.</li>
+<li><b>본안 소송 → 본압류 전환 → 추심</b> — 위 전체 흐름도 2~4단계. 본안 승소 후 채권압류 및 추심명령(작성례 ⑥)으로, 회사로부터 매월 압류분을 회수합니다.</li>
+</ol>
+
+<h2>채무자: 억울하게 가압류를 당하였다면 — 방어 절차</h2>
+<ol class="steps">
+<li><b>가압류 이의신청</b> — 피보전권리가 없거나 보전 필요성이 없음을 다툽니다(민집 §283, 작성례 ③). 결정을 인가·변경·취소하는 재판을 받습니다.</li>
+<li><b>해방공탁으로 즉시 풀기</b> — 월급을 정상적으로 수령해야 하면, 가압류 금액을 공탁하고 집행취소를 신청합니다(민집 §282·§299). 급여채권 대신 공탁금이 가압류되지만 급여는 정상 지급됩니다.</li>
+<li><b>제소명령 신청</b> — 채권자가 본안을 제기하지 아니하고 시간만 끌면, 법원에 "기간 내 제소하라"고 신청합니다(민집 §287, 작성례 ⑤). 채권자가 기간 내 소를 제기하지 아니하면 가압류 취소를 구할 수 있습니다.</li>
+<li><b>압류금지 범위 변경 신청</b> — 압류금지액(1/2·185만원)을 넘겨 과다하게 가압류되었거나, 부양가족이 많아 생계가 곤란하면, 법원에 <b>압류범위 변경(축소)</b>을 신청할 수 있습니다(민집 §246③·§196). 급여 가압류 채무자의 핵심 방어수단입니다.</li>
+<li><b><span class="term">사정변경<span class="bub">가압류 결정 당시와 사정이 달라진 것. 받을 권리가 사라졌거나, 채권자가 본안에서 졌거나, 3년간 본안소송을 내지 않은 경우 등을 말합니다(민집 §288).</span></span> 등 취소</b> — 피보전권리 소멸, 본안 패소 확정, 3년간 본안 미제기 등 사정변경이 있으면 가압류 취소를 신청합니다(민집 §288).</li>
+<li><b>부당가압류 손해배상 역공</b> — 채권자가 본안에서 패소하면, 그 가압류로 입은 손해(급여 일부를 받지 못하여 발생한 생계상 손해 등)를 손해배상으로 청구합니다(민 §750, 대법원 2020다242935). 본안의 <span class="term">반소<span class="bub">피고가 같은 소송 절차 안에서 원고를 상대로 거꾸로 제기하는 소. 채무부존재확인·손해배상 등을 함께 다툴 수 있습니다.</span></span>로 함께 제기할 수 있습니다.</li>
+</ol>
+
+<h2>신청서·서면 작성례 — 양 당사자 모두</h2>
+<p style="font-size:14px;color:var(--muted)">아래 작성례는 <b>채권자(돈 받을 분)용</b>과 <b>채무자(가압류된 분)용</b>으로 나뉩니다. 각 <b>제목줄을 클릭하면(▾)</b> 내용이 펼쳐집니다. 빈칸 <b>○○○</b>를 자기 사건 내용으로 채우고, <b>복사·인쇄·다운로드</b> 버튼으로 바로 활용하시면 됩니다. 채권자가 처음 내는 가압류신청서에는 <b>①-1 별지(채권목록)와 ①-2 진술서가 반드시 함께</b> 붙어야 합니다. 모든 양식은 대법원 전자민원센터·법원 공식 양식을 따릅니다.</p>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ① · 채권자</span>급여채권 가압류신청서<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f1"><span class="ft">채권가압류신청서</span>채권자  ○○○   (☎: ○○○-○○○○-○○○○)
+주민등록번호  ○○○○○○-○○○○○○○
+주소  ○○○
+
+채무자  ○○○
+주민등록번호(아는 경우)  ○○○○○○-○○○○○○○
+주소  ○○○
+
+제3채무자  주식회사 ○○ (채무자의 근무처)
+대표이사  ○○○
+본점  ○○○
+
+         청구채권의 표시
+금 ○○○원
+(채권자가 채무자에 대하여 가지는 20○○. ○○. ○○. 대여금
+채권. 변제기 20○○. ○○. ○○.)
+
+         가압류할 채권의 표시
+별지 목록 기재와 같음
+
+         신 청 취 지
+채권자가 채무자에 대하여 가지는 위 청구채권의 집행을 보전하기
+위하여, 채무자가 제3채무자로부터 매월 지급받는 별지 목록 기재
+급여채권을 가압류한다.
+제3채무자는 채무자에게 위 채권에 관한 지급을 하여서는 아니 된다.
+라는 결정을 구합니다.
+
+         신 청 이 유
+1. 피보전권리
+   채권자는 채무자에게 20○○. ○○. ○○. 금 ○○○원을 변제기
+   20○○. ○○. ○○.로 정하여 대여하였으나(소갑 제1호증 차용증,
+   소갑 제2호증 계좌이체내역), 채무자는 변제기가 지나도록 이를
+   변제하지 아니하고 있습니다.
+2. 보전의 필요성
+   채무자는 별다른 책임재산이 없고 제3채무자 회사에서 받는
+   급여가 유일한 수입원이므로, 지금 가압류해 두지 아니하면
+   채권자가 장차 본안소송에서 승소하더라도 집행이 불가능하거나
+   현저히 곤란할 우려가 있습니다.
+3. 담보제공
+   담보제공은 청구금액의 5분의 1 이상을 현금공탁하고 나머지는
+   보증보험증권으로 갈음할 수 있도록 허가하여 주시기 바랍니다.
+
+         소 명 방 법
+1. 소갑 제1호증   차용증
+1. 소갑 제2호증   계좌이체내역
+1. 소갑 제3호증   ○○○ (채무자 재직 소명자료)
+
+         첨 부 서 류
+1. 위 소명방법 사본       각 1통
+1. 가압류신청 진술서       1통
+1. 별지 가압류할 채권 목록 1통
+1. 법인 등기사항전부증명서(제3채무자 회사) 1통
+1. 송달료납부서           1통
+
+              20○○. ○○. ○○.
+                위 채권자  ○○○ (인 또는 서명)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1')">📋 복사</button><button type="button" onclick="printForm('f1')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1','급여채권_가압류신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>돈을 받아야 하는 채권자(신청인)</b>가 내는 핵심 서면입니다. 성패는 <b>신청이유 1·2번</b>에 달렸습니다 — ①받을 권리(차용증·이체내역으로 소명) ②가압류하지 아니하면 변제받지 못한다는 사정(재산 처분·은닉 정황)을 구체적으로 적습니다. 이 신청서에는 <b>아래 「별지」와 「진술서」가 반드시 함께</b> 붙어야 합니다(누락되면 보정·각하). 작성법은 바로 다음 두 박스를 참고합니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ①-1 · 채권자(필수 별지)</span>별지 — 가압류할 급여채권의 표시<span class="chev">▾</span></button><div class="fold-body">
+<div class="howto" style="margin-bottom:10px"><b>이게 왜 중요한가요?</b> 급여 가압류의 핵심은 <b>압류금지 범위(1/2·185만원)를 제외</b>한다는 문구입니다. 이 문구가 없으면 법원이 보정을 명하거나, 회사가 얼마를 떼야 할지 몰라 집행이 지연됩니다. 아래 법원 표준 형식을 그대로 사용하면 됩니다.</div>
+<div class="form" id="f1a"><span class="ft">별        지</span>      가압류할 채권의 표시
+
+금 ○○○원   (☜ 신청서의 청구채권 금액과 동일하게 기재)
+
+채무자 ○○○(주민등록번호 ○○○○○○-○○○○○○○)이(가)
+제3채무자 주식회사 ○○(채무자의 사용자)로부터 매월 지급받는
+다음 급여채권 중, 청구금액에 이를 때까지의 금액.
+
+         다       음
+1. 채무자가 제3채무자로부터 매월 지급받는 급여(본봉·각종
+   수당·상여금을 포함한다)에서 제세공과금을 공제한 잔액의
+   2분의 1에 해당하는 금액.
+
+2. 다만, 위 2분의 1에 해당하는 금액이 「민사집행법 시행령」
+   제3조의 금액(월 185만원)에 미치지 못하는 경우에는 그 초과액,
+   같은 영 제4조의 금액(월 300만원)을 초과하는 경우에는 그 부분.
+
+3. 위 가압류된 채권은 채무자가 제3채무자로부터 매월 지급받을
+   장래의 급여채권에 대하여도 청구금액에 이를 때까지 효력이
+   미친다.
+                                                    끝.
+
+※ 「민사집행법」 제246조 제1항 제4호 및 같은 법 시행령 제3조·
+  제4조에 따른 압류금지 금액은 위 가압류 대상에서 제외한다.</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1a')">📋 복사</button><button type="button" onclick="printForm('f1a')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1a','별지_가압류할급여채권.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>채워 넣는 방법.</b> 첫 금액칸에 청구채권과 <b>동일한 금액</b>을 기재합니다. 회사명을 ○○에 넣고, <b>1·2·3항은 그대로 두면 됩니다</b> — 이것이 "급여의 1/2, 단 185만원은 보호, 장래 급여분까지"라는 표준 문구입니다. 맨 아래 <b>압류금지 제외 문구는 삭제하지 않습니다</b>. 채무자가 여러 직장에 다니면 회사마다 별지를 나누어 작성합니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ①-2 · 채권자(필수 첨부)</span>가압류신청 진술서<span class="chev">▾</span></button><div class="fold-body">
+<div class="howto" style="margin-bottom:10px"><b>이게 왜 필요한가요?</b> 법원은 똑같은 채권으로 여러 차례 가압류하거나 청구금액을 부풀려 가압류하는 <b>남용을 막으려고</b> 이 진술서를 필수로 받습니다. 제기하지 아니하면 보정명령이 떨어져 시간만 지연됩니다. 아래 질문에 <b>사실대로 ○/× 또는 해당 내용</b>을 적으면 됩니다. (양식은 법원마다 항목 표현이 조금 다를 수 있으니, 전자소송 양식의 같은 취지 항목에 답하시면 됩니다.)</div>
+<div class="form" id="f1b"><span class="ft">가압류신청 진술서</span>채권자는 가압류 신청과 관련하여 다음 사실을 진술하며, 만약
+허위 진술 시 가압류 신청이 기각되거나 손해배상 책임을 질 수
+있음을 잘 알고 있습니다.
+
+              20○○. ○○. ○○.
+                채권자  ○○○ (인 또는 서명)
+
+         다       음
+
+【1. 피보전권리(청구채권)에 관하여】
+1) 채무자가 신청서에 적은 청구채권을 인정하고 있습니까?
+   → ○○○ (예: 아니오. 변제를 미루고만 있습니다)
+2) 채무자의 주장이나 예상되는 항변은 무엇입니까?
+   → ○○○ (예: 변제기 연장을 주장할 것으로 보이나 근거 없음)
+
+【2. 보전의 필요성에 관하여】
+1) 채권자가 보전처분을 신청하게 된 동기·사정은?
+   → ○○○ (예: 채무자가 부동산을 급히 내놓는 등 재산 처분 정황)
+2) 채무자에게 다른 충분한 재산(부동산 등)이 있습니까?
+   → ○○○ (예: 확인되지 않으며, 급여 외 별다른 재산이 없음)
+
+【3. 중복·과잉 가압류에 관하여】
+1) 이 신청 외에 같은 청구채권으로 다른 가압류·가처분을
+   신청하거나 받은 사실이 있습니까?
+   → ○○○ (예: 없음)
+2) 있다면 그 법원·사건번호·결과를 적어 주십시오.
+   → ○○○ (예: 해당 없음)
+
+【4. 그 밖의 사항】
+1) 채무자의 다른 채권자가 이미 압류·가압류한 사실을 압니까?
+   → ○○○ (예: 알지 못함)
+2) 본안소송을 제기하였거나 제기할 예정입니까?
+   → ○○○ (예: 가압류 직후 대여금 청구의 소를 제기할 예정)</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1b')">📋 복사</button><button type="button" onclick="printForm('f1b')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1b','가압류신청_진술서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>채우는 요령.</b> 괄호 안 (예: …)는 <b>이해를 돕는 예시</b>이니, 지우고 본인 사실을 기재합니다. 핵심은 <b>2번(보전 필요성)</b>입니다 — "채무자가 재산을 처분·은닉할 정황"을 구체적으로 적을수록 인용 확률이 올라갑니다. <b>3번은 정직하게</b> 답해야 합니다. 같은 빚으로 이미 다른 재산을 충분히 가압류해 두고 다시 신청하면 과잉가압류로 기각되거나 나중에 손해배상 대상이 됩니다(대법원 2020다242935 참조). 전자소송으로 신청하면 이 진술서가 <b>입력 양식 형태</b>로 제공되어 그대로 채울 수 있습니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ② · 채권자(본안)</span>소장 — 대여금 청구의 소 (원고: 채권자)<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f2"><span class="ft">소        장</span>원고  ○○○ (채권자)   (☎: ○○○-○○○○-○○○○)
+      주소  ○○○
+피고  ○○○ (채무자)
+      주소  ○○○
+
+         대여금 청구의 소
+
+         청 구 취 지
+1. 피고는 원고에게 금 ○○○원 및 이에 대하여 20○○. ○○. ○○.
+   부터 이 사건 소장 부본 송달일까지는 연 5%의, 그 다음 날부터
+   다 갚는 날까지는 연 12%의 각 비율로 계산한 돈을 지급하라.
+2. 소송비용은 피고가 부담한다.
+3. 제1항은 가집행할 수 있다.
+   라는 판결을 구합니다.
+
+         청 구 원 인
+1. 대여 사실
+   원고는 피고에게 20○○. ○○. ○○. 금 ○○○원을 변제기
+   20○○. ○○. ○○., 이자 약정 ○○○로 정하여 대여하였습니다
+   (갑 제1호증 차용증, 갑 제2호증 계좌이체내역).
+2. 변제기 도과
+   변제기가 지났음에도 피고는 원금과 이자를 지급하지 않고
+   있습니다.
+3. 보전처분 경위(해당 시)
+   원고는 집행 보전을 위하여 ○○지방법원 20○○카단○○○○호로
+   피고의 급여채권에 대한 가압류결정을 받았습니다(갑 제3호증).
+4. 결론
+   따라서 원고는 청구취지와 같은 판결을 구합니다.
+
+         입 증 방 법
+1. 갑 제1호증   차용증
+1. 갑 제2호증   계좌이체내역
+1. 갑 제3호증   가압류결정문
+
+         첨 부 서 류
+1. 위 입증방법 사본   각 1통
+1. 소장 부본          1통
+1. 송달료납부서       1통
+
+              20○○. ○○. ○○.
+                위 원고  ○○○ (인)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f2')">📋 복사</button><button type="button" onclick="printForm('f2')">🖨 인쇄</button><button type="button" onclick="downloadForm('f2','대여금_소장.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>채권자(원고)</b>가 가압류 후 '받을 권리'를 판결로 확정받기 위해 내는 본안 소장입니다. 가압류는 임시조치라 이 본안 승소가 있어야 추심으로 갈 수 있습니다. <b>청구취지 1번</b>의 지연이자는 소장 송달 다음 날부터 <span class="term">지연손해금<span class="bub">돈을 제때 갚지 않아 늦어진 기간만큼 물어야 하는 손해. 소송을 내면 소장 송달 다음 날부터 법정이율(현재 연 12%)이 붙습니다.</span></span>은 <b>소송촉진법상 연 12%</b>가 적용됩니다(현행 요율은 계산기에서 자동 반영). 가압류를 미리 해 두었다면 <b>청구원인 3번</b>에 사건번호를 기재하여 연결한다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ③ · 채무자</span>가압류 이의신청서 (상대방: 채무자)<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f3"><span class="ft">가압류결정에 대한 이의신청서</span>신청인(채무자)  ○○○   (☎: ○○○-○○○○-○○○○)
+                주소  ○○○
+피신청인(채권자)  ○○○
+                주소  ○○○
+
+         신 청 취 지
+1. ○○지방법원 20○○카단○○○○호 채권가압류 신청사건에
+   관하여 위 법원이 20○○. ○○. ○○. 한 가압류결정을 취소한다.
+2. 피신청인의 가압류신청을 기각한다.
+3. 소송비용은 피신청인이 부담한다.
+   라는 재판을 구합니다.
+
+         신 청 이 유
+1. 피보전권리의 부존재
+   피신청인은 신청인에 대하여 대여금 채권이 있다고 주장하나,
+   ○○○(예: 위 돈은 이미 전액 변제되었고 / 애초에 빌린 사실이
+   없으며 / 투자금이지 대여금이 아님). 따라서 피보전권리가
+   존재하지 않습니다(을 제1호증 ○○○).
+2. 보전의 필요성 흠결
+   신청인은 ○○○(예: 안정된 직장과 충분한 부동산을 보유하여)
+   재산을 처분·은닉할 우려가 전혀 없으므로, 보전의 필요성이 없습니다.
+   특히 피신청인은 이미 충분한 담보를 보유하고 있어, 추가 가압류는 위법합니다(대법원 2020다242935 참조).
+3. 결론
+   따라서 이 사건 가압류결정은 취소되어야 합니다.
+
+         소 명 방 법
+1. 을 제1호증   ○○○ (변제 영수증·계좌내역 등)
+1. 을 제2호증   ○○○ (재산상태·직업 소명자료)
+
+         첨 부 서 류
+1. 위 소명방법 사본   각 1통
+1. 신청서 부본        1통
+
+              20○○. ○○. ○○.
+                위 신청인(채무자)  ○○○ (인)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f3')">📋 복사</button><button type="button" onclick="printForm('f3')">🖨 인쇄</button><button type="button" onclick="downloadForm('f3','가압류_이의신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>예금이 가압류된 채무자(상대방)</b>가 결정 자체를 다투는 서면입니다. 두 갈래로 공격합니다 — ①받을 권리가 없다(변제·부존재·성질 다툼) ②보전의 필요성이 없다(책임재산 충분·은닉 우려 없음). <b>충분한 담보가 있는데 다른 재산까지 가압류되었다면</b> 압류금지 범위(1/2·185만원)를 초과한 부분을 적극 다툽니다. 급여 가압류를 <b>빨리 풀어야 하면</b> 이의와 별개로 아래 해방공탁을 병행하는 것이 실전입니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ④ · 채무자(본안)</span>답변서 — 대여금 청구에 대한 채무자의 반박 (피고)<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f4"><span class="ft">답 변 서</span>사건   20○○가단(또는 가합)○○○○호   대여금
+원고   ○○○ (채권자)
+피고   ○○○ (채무자)   (☎: ○○○-○○○○-○○○○)
+
+         청구취지에 대한 답변
+1. 원고의 청구를 기각한다.
+2. 소송비용은 원고가 부담한다.
+   라는 판결을 구합니다.
+
+         청구원인에 대한 답변
+1. (변제를 주장하는 경우)
+   피고는 원고로부터 금원을 차용한 사실은 인정하나, 20○○. ○○.
+   ○○. 전액 변제하였습니다(을 제1호증 입금내역). 따라서 원고의
+   채권은 소멸하였습니다.
+2. (대여 사실 자체를 부인하는 경우)
+   피고가 원고로부터 받은 돈은 대여금이 아니라 ○○○(예: 동업
+   투자금 / 물품대금)이므로, 반환 의무가 없습니다.
+3. (소멸시효를 주장하는 경우)
+   설령 대여금이라 하더라도 변제기 20○○. ○○. ○○.부터 ○년이
+   지나 소멸시효가 완성되었으므로, 피고는 이를 원용합니다.
+4. (부당가압류에 대한 반박·예고)
+   원고는 피보전권리 없이 피고의 예금을 가압류하여 피고에게
+   손해를 입혔는바, 피고는 별도(또는 반소)로 손해배상을 구할
+   예정입니다.
+5. 따라서 원고의 청구는 이유 없으므로 기각되어야 합니다.
+
+         입 증 방 법
+1. 을 제1호증   ○○○ (변제 입금내역 등)
+
+         첨 부 서 류
+1. 위 입증방법 사본   각 1통
+1. 답변서 부본        1통
+
+              20○○. ○○. ○○.
+                위 피고  ○○○ (인)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f4')">📋 복사</button><button type="button" onclick="printForm('f4')">🖨 인쇄</button><button type="button" onclick="downloadForm('f4','대여금_답변서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>본안에서 채무자(피고)</b>가 내는 반박 서면입니다. 소장 부본을 받은 날부터 <b>30일 안에</b> 냅니다(민소 §256①). 자기 사안에 맞는 방어만 골라 기재합니다 — 변제(1번)·대여 부인(2번)·소멸시효(3번). <b>4번</b>은 가압류가 부당했다는 점을 미리 깔아두고, 본안 승소 시 손해배상 <b>반소</b>로 되받는 포석입니다. 시효는 반드시 "원용한다"고 명시해야 효력이 있습니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ⑤ · 채무자</span>제소명령 신청서 (채권자가 본안을 제기하지 아니할 때)<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f5"><span class="ft">제소명령 신청서</span>신청인(채무자)  ○○○   (☎: ○○○-○○○○-○○○○)
+                주소  ○○○
+피신청인(채권자)  ○○○
+                주소  ○○○
+
+         신 청 취 지
+피신청인은 ○○지방법원 20○○카단○○○○호 채권가압류
+신청사건의 본안소송을 제기하고 그 증명서류를 제출할 것을
+명한다.
+라는 재판을 구합니다.
+
+         신 청 이 유
+1. 피신청인은 신청인의 급여채권에 대하여 위 사건으로 20○○.
+   ○○. ○○. 가압류결정을 받아 집행하였습니다.
+2. 그러나 상당한 기간이 지나도록 피신청인은 본안소송을 제기하지
+   않은 채 신청인의 예금을 묶어두고 있어, 신청인은 통장을
+   사용하지 못하는 등 큰 불이익을 겪고 있습니다.
+3. 이에 민사집행법 제287조에 따라 피신청인에게 본안소송을
+   제기하도록 명하여 주시기 바랍니다.
+
+         첨 부 서 류
+1. 가압류결정문 사본   1통
+1. 신청서 부본         1통
+
+              20○○. ○○. ○○.
+                위 신청인(채무자)  ○○○ (인)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f5')">📋 복사</button><button type="button" onclick="printForm('f5')">🖨 인쇄</button><button type="button" onclick="downloadForm('f5','제소명령_신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>채무자(상대방)</b>가 채권자를 압박하는 강력한 카드입니다. 가압류만 걸고 본안을 미루는 채권자에게, 법원이 "정해진 기간(보통 2주 이상) 안에 소를 제기하라"고 명합니다. 채권자가 그 기간 내에 본안소송을 제기하지 않으면, 채무자는 <b>가압류 취소</b>를 신청할 수 있습니다(민집 §287③). 예금을 장기간 가압류해 두고 협상에만 이용하는 상대방에게 효과적입니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ⑥ · 채권자(집행)</span>채권압류 및 추심명령 신청서 (급여 → 본압류 이전)<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f6"><span class="ft">채권압류 및 추심명령 신청서</span>채권자  ○○○   (☎: ○○○-○○○○-○○○○)
+        주소  ○○○
+채무자  ○○○
+        주소  ○○○
+제3채무자  주식회사 ○○ (채무자의 근무처)
+        대표이사  ○○○   본점  ○○○
+
+         집행권원의 표시
+○○지방법원 20○○가단○○○○호 대여금 사건의 집행력 있는
+판결 정본
+
+         청구금액
+금 ○○○원 (원금 ○○○원 및 지연손해금 ○○○원)
+
+         압류 및 추심할 채권의 표시
+별지 목록 기재와 같음
+
+         신 청 취 지
+1. 채무자가 제3채무자로부터 매월 지급받는 별지 목록 기재
+   급여채권을 압류한다.
+2. 제3채무자는 채무자에게 위 채권에 관한 지급을 하여서는 아니
+   된다.
+3. 채무자는 위 채권의 처분과 영수를 하여서는 아니 된다.
+4. 위 압류된 채권은 채권자가 추심할 수 있다.
+   라는 결정을 구합니다.
+
+         신 청 이 유
+채권자는 위 <span class="term">집행권원<span class="bub">강제집행을 할 수 있음을 공적으로 증명하는 문서. 확정판결문·지급명령·공정증서 등이 이에 해당합니다.</span></span>에 기하여 채무자에 대하여 청구금액 기재
+채권을 가지고 있으나 채무자가 이를 변제하지 아니하므로, 그
+집행을 위하여 채무자의 제3채무자에 대한 급여채권에 관하여
+압류 및 추심명령을 구합니다. (이 사건 채권은 앞서 ○○지방법원
+20○○카단○○○○호로 가압류된 채권으로, 본압류로 이전합니다.)
+
+         첨 부 서 류
+1. 집행력 있는 판결 정본   1통
+1. 송달증명원·확정증명원   각 1통
+1. 별지 압류할 채권 목록   1통
+1. 법인 등기사항전부증명서(제3채무자 회사) 1통
+1. 송달료납부서           1통
+
+              20○○. ○○. ○○.
+                위 채권자  ○○○ (인)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f6')">📋 복사</button><button type="button" onclick="printForm('f6')">🖨 인쇄</button><button type="button" onclick="downloadForm('f6','채권압류_추심명령_신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>본안에서 이긴 채권자</b>가 마지막 회수 단계에서 내는 서면입니다. 앞서 가압류해 둔 채권이라면 <b>가압류에서 본압류로 이전</b>하는 형태로 신청합니다(민집 §291). <b>추심명령</b>을 받으면 채권자가 은행에 직접 청구해 받을 수 있습니다. 압류금지 185만원은 여기서도 적용되며, 은행이 지급을 거절하면 <b>추심금 청구의 소</b>로 회수합니다. 이 신청서에도 <b>아래 「별지」가 함께</b> 붙어야 합니다. (전부명령과의 선택은 다른 압류채권자 유무에 따라 달라지니 상담 시 검토합니다.)</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ⑥-1 · 채권자(필수 별지)</span>별지 — 압류 및 추심할 급여채권의 표시<span class="chev">▾</span></button><div class="fold-body">
+<div class="howto" style="margin-bottom:10px"><b>가압류 때의 별지와 거의 같습니다.</b> 다만 본압류 단계라 제목이 "압류 및 추심할 채권"으로 바뀌고, 금액은 <b>판결로 확정된 원금+지연이자</b>를 적습니다. 순서·압류금지 제외 문구는 동일합니다.</div>
+<div class="form" id="f6a"><span class="ft">별        지</span>      압류 및 추심할 채권의 표시
+
+금 ○○○원   (☜ 판결 확정 원금 + 지연손해금 합계)
+
+채무자 ○○○이(가) 제3채무자 주식회사 ○○(채무자의 사용자)
+로부터 매월 지급받는 다음 급여채권 중 청구금액에 이를 때까지의
+금액.
+
+         다       음
+1. 매월 급여(본봉·각종 수당·상여금 포함)에서 제세공과금을
+   공제한 잔액의 2분의 1에 해당하는 금액.
+2. 다만, 「민사집행법」 제246조 제1항 제4호 및 같은 법 시행령
+   제3조·제4조에 따른 압류금지 금액은 제외한다.
+3. 위 압류의 효력은 채무자가 장래 매월 지급받을 급여채권에도
+   청구금액에 이를 때까지 미친다.
+                                                    끝.
+
+(※ 가압류신청 때의 별지 ①-1을 그대로 옮겨 적되, 제목만
+   "압류 및 추심할 채권"으로, 금액은 판결 확정액으로 한다.)</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f6a')">📋 복사</button><button type="button" onclick="printForm('f6a')">🖨 인쇄</button><button type="button" onclick="downloadForm('f6a','별지_압류추심할급여채권.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>가압류 별지와의 차이는 딱 두 가지</b> — 제목("압류 및 추심")과 금액(판결 확정액)뿐입니다. 앞서 가압류해 둔 그 계좌를 그대로 본압류로 잇는 것이므로, 가능하면 <b>가압류 때 적은 은행·계좌와 동일하게</b> 기재하여 연속성을 분명히 합니다.</div>
+</div></div>
+
+<div class="cost">
+<span class="ct">비용 — 인지액과 송달료는 다릅니다</span>
+<b>① 급여채권 가압류 신청</b>: 인지액 <b>10,000원</b>(정액) + 송달료(당사자 수 × 회차 × 단가) 별도 예납. <b>담보</b>가 추가되는데, 급여채권은 <b>선담보가 허용되지 않아 청구금액의 1/5 이상을 현금공탁</b>해야 하고 나머지는 보증보험증권으로 가능합니다(민집규 §204 단서).<br>
+<b>② 본안 대여금 소송</b>: 인지액은 <b><span class="term">소가<span class="bub">소송 목적의 값. 청구하는 금액을 말하며, 인지대와 사건 관할을 정하는 기준이 됩니다. 예: 5천만원을 청구하면 소가는 5천만원.</span></span></b>(청구금액)에 따라 산식으로 정해지며, <b>전자소송이면 인지액 10% 할인</b>. 송달료 별도.<br>
+<b>③ 채권압류 및 추심명령</b>: 인지액 <b>4,000원</b>(압류+추심) + 송달료 별도. 회사(제3채무자)에 대한 송달이 필요합니다.<br>
+<b>④ 이의·제소명령 등(채무자측)</b>: 이의신청 10,000원, 제소명령 신청 1,000원, 해방공탁 집행취소 1,000원 + 각 송달료.
+<div style="margin-top:11px; padding-top:10px; border-top:1px dashed #cfe6d6; color:#c0392b; font-weight:600; line-height:1.8;">※ 정확한 인지액·송달료·담보 예상액은 사건 정보를 넣으면 <a href="https://sanlaw.co.kr/tools-calculator.html" style="color:#c0392b; text-decoration:underline; font-weight:700;">🧮 수수료 계산기</a>에서 미리 확인할 수 있습니다.</div>
+</div>
+
+<h2>고충은 덜어드리고, 결과로 보답하겠습니다</h2>
+<div class="hire">
+<p>본 사무소에서는 의뢰인들의 고충은 덜어드리고, 함께 소송을 진행하여 원하는 결과에 도달할 수 있도록 성심을 다하겠습니다.</p>
+<p style="margin-top:12px"><b>· 채권자(돈 받을 분)의 경우</b><br>① <b>급여채권 가압류신청서·진술서·별지 급여채권목록</b> 작성, ② <b>본안 대여금 소장</b> 작성, ③ <b>채권압류 및 추심명령 신청서</b> 작성, ④ <b>본안소송</b> 진행과 담보제공(현금공탁 1/5)·근무처 확인까지 <b>본인소송의 전 과정을 함께</b> 준비해 드립니다.</p>
+<p style="margin-top:10px"><b>· 채무자(예금이 가압류된 분)의 경우</b><br>① <b>이의신청서·답변서</b>, ② <b>해방공탁·제소명령·압류범위변경 신청서</b>, ③ <b>부당가압류 손해배상(반소)</b> 전략을 함께 수립해 드립니다.</p>
+</div>
+<div class="warn"><span class="wt">⚠ 자력구제 금지</span>상대가 채무를 변제하지 아니한다는 이유로 <b>직접 물건을 가져오거나 급여를 강제로 받아내는 행위는 불법</b>입니다(형사처벌 대상). 반드시 법원의 가압류·압류 절차를 통해야 합니다. 가압류를 당한 채무자도 마찬가지로, 임의로 예금을 빼돌리면 <b><span class="term">강제집행면탈죄<span class="bub">강제집행을 피할 목적으로 재산을 숨기거나 빼돌려 채권자를 해치는 범죄(형법 §327). 3년 이하 징역 또는 1천만원 이하 벌금.</span></span></b>가 문제될 수 있습니다.</div>
+
+<a href="https://sanlaw.co.kr/tools-calculator.html" class="cta">🧮 내 사건 비용 미리 계산하기</a>
+<div style="text-align:center; background:#f6ecd8; border:1px solid var(--gold); border-radius:11px; padding:14px; margin:18px 0; font-size:15px; color:var(--gold-d); font-weight:700;">📞 상담은 홈 화면의 상담 창구를 이용하시면 됩니다.</div>
+
+<h2>준비할 서류와 발급처</h2>
+<p style="font-size:13.5px;color:var(--muted)">아래 '바로가기'를 클릭하면 해당 사이트로 이동합니다. 만약 첫 화면으로 연결되면, 옆의 <b>찾아가기 경로</b>를 따라 메뉴를 클릭하면 됩니다.</p>
+<table>
+<tr><th>무엇을 (어디서)</th><th>서류</th><th>바로가기 · 찾아가기 경로</th></tr>
+<tr><td>당사자 확인<br>(정부24)</td><td>채무자 주소보정용 자료, 신청인 신분 소명</td><td><a href="https://www.gov.kr">정부24</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 검색창에 '주민등록표 초본' 검색 → 발급</span></td></tr>
+<tr><td>제3채무자(회사) 확인<br>(인터넷등기소)</td><td>채무자 근무 회사의 법인 등기사항전부증명서(법인명·대표자 기재용)</td><td><a href="https://www.iros.go.kr">인터넷등기소</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 등기열람/발급 → 법인 → 열람/발급하기 → 상호로 검색</span></td></tr>
+<tr><td>피보전권리 소명<br>(본인 보관·거래은행)</td><td>차용증·계약서(본인 보관), 계좌이체내역(거래은행·인터넷뱅킹 발급)</td><td><span style="font-size:12.5px;color:var(--muted)">본인 보관 자료 / 거래은행 앱·인터넷뱅킹 '거래내역 조회'에서 출력</span></td></tr>
+<tr><td>담보 제공<br>(서울보증보험·법원공탁)</td><td>현금공탁(1/5 이상)+공탁보증보험증권</td><td><a href="https://www.sgic.co.kr">서울보증보험</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 법원공탁보증 메뉴 / 현금공탁은 관할 법원 공탁계 방문</span></td></tr>
+<tr><td>신청·소송 제출<br>(전자소송)</td><td>급여채권 가압류신청서·소장·추심명령 신청서 — 공식 양식</td><td><a href="https://ecfs.scourt.go.kr">전자소송</a> / <a href="https://www.scourt.go.kr/nm/min_9/min_9_2/index.html">양식모음</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 전자소송 → 서류제출 → 민사신청 → 채권가압류</span></td></tr>
+</table>
+
+<div class="tip"><span class="pt">💡 이어지는 카드</span> <b>부동산 가압류</b>, <b>급여(월급) 가압류</b>, <b>전세보증금 가압류</b>, <b>담보(공탁) 부담 줄이기</b>, <b>억울하게 가압류되었을 때 해제하는 법</b>, <b>판결 후 실제로 받아내기(추심·전부)</b> 등 보전처분 전 과정을 순차적으로 다룹니다. <span style="color:var(--muted);font-size:13px">(※ 각 카드 링크는 시리즈 완성 시 연결 예정)</span></div>
+
+<div class="src">
+근거 — 민사집행법 제276조(가압류의 목적)·제277조·제278조(관할)·제280조(담보제공)·제282조·제299조(해방공탁·집행취소)·제283조(이의)·제287조(제소명령)·제288조(사정변경 취소)·제291조(가압류의 본압류 이전)·제296조(채권가압류 집행)·제229조(추심·전부명령)·제246조 제1항 제4호(급여 압류금지) · 민사집행법 시행령 제3조·제4조·제5조(압류금지 최저 185만원·최고액·합산) · 민사집행규칙 제204조(급여채권 선담보 제한) · 민법 제750조(불법행위 손해배상) · 민사소송법 제256조(답변서) · 대법원 2023. 6. 1. 선고 2020다242935 판결(부당가압류 손해배상 책임 추정 및 책임제한, 대법원 92다8453 법리 재확인) · 법제처 찾기쉬운 생활법령정보 · 대한법률구조공단 · 대법원 전자민원센터. 본 자료는 일반적인 법률정보로, 개별 사건의 법률자문이 아닙니다.
+</div>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+})();
+function toggleFold(b){var fb=b.parentElement;var body=b.nextElementSibling;var open=fb.classList.toggle('open');if(body){body.style.display=open?'block':'none';}}
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('작성례가 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('작성례가 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('작성례를 내려받았습니다');}
+</script>
+</body>
+</html>

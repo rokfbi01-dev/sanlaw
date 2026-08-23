@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[보전 A-2] 상대가 집을 팔아버릴 것 같아요 — 부동산 가압류 | 산 법무사 김재섭</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(280px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.case{background:var(--box); border-radius:10px; padding:14px 16px; margin:14px 0; border-left:4px solid #b9a98c;}
+.case .ct{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+.sit-wrap{display:flex; gap:12px; margin:14px 0;}
+.sit{flex:1; background:#f8f5ee; border:1px solid var(--line); border-top:3px solid var(--gold); border-radius:10px; padding:13px 15px; font-size:14.5px; line-height:1.75;}
+.sit .sl{display:block; font-weight:700; color:var(--gold-d); margin-bottom:6px; font-size:14px;}
+@media (max-width:680px){ .sit-wrap{flex-direction:column;} }
+/* 전체 길 흐름도 (A-1 추가 — 기존 톤 재활용) */
+.flow{background:linear-gradient(180deg,#faf7f0,#f6f1e6); border:1px solid var(--line); border-radius:14px; padding:22px 20px; margin:16px 0;}
+.flow .fl-t{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:18px; text-align:center; letter-spacing:.3px;}
+.flow .node{position:relative; background:#fff; border:1px solid #e3d8c4; border-radius:11px; padding:15px 18px 15px 56px; font-size:14.5px; line-height:1.72; box-shadow:0 2px 6px rgba(122,82,48,.07);}
+.flow .node .num{position:absolute; left:15px; top:14px; width:30px; height:30px; line-height:30px; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; border-radius:50%; font-weight:800; font-size:15px; font-family:'Nanum Myeongjo',serif; box-shadow:0 2px 5px rgba(122,82,48,.3);}
+.flow .node b{color:#241a10;}
+.flow .down{display:flex; justify-content:center; align-items:center; padding:7px 0;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+/* 작성례 박스 */
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:15px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .tag{margin-bottom:0;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;}
+.tag.cred{background:#5a9a72;}
+.tag.debt{background:#d9694a;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:18px;margin:12px 0;font-family:'D2Coding','Courier New',monospace;font-size:13px;line-height:1.6;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:16px;letter-spacing:2px;margin-bottom:12px;color:#241a10;}
+.howto{font-size:14px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0 4px;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:13px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:7px 13px;cursor:pointer;transition:.15s;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.75;}
+.lawbox .ll{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold-d);border-radius:5px;padding:2px 9px;margin-right:7px;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.hire p{margin:7px 0; font-size:15px; line-height:1.8;}
+.cta{display:block;text-align:center;background:var(--gold-d);color:#fff;font-weight:700;font-size:17px;text-decoration:none;padding:15px;border-radius:11px;margin:18px 0;font-family:'Nanum Myeongjo',serif;letter-spacing:1px;}
+.cta:hover{background:#5e3f24;}
+@media print{
+  body{background:#fff; max-width:100%;}
+  .tldr,.case,.warn,.tip,.cost,.steps li,.tnote,.sit,.flow,.flow li,.lawbox,.hire{background:#fff !important; border-color:#ccc !important;}
+  .tnote{display:none;}
+  .term{border:none; color:inherit; font-weight:inherit;}
+  .term>.bub{display:inline !important; position:static; width:auto; background:none; color:inherit; box-shadow:none; padding:0; font-size:inherit; line-height:inherit;}
+  .term>.bub::before{content:" ("; }
+  .term>.bub::after{content:")"; border:none; position:static;}
+  .fold-body{display:block !important;}.fold-btn .chev{display:none;}.form-tools{display:none;}
+  .cta{background:#fff !important; color:#241a10 !important; border:1px solid #ccc;}
+}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+
+
+<h1>[보전 A-2] 빌려준 돈은 안 갚는데 상대가 집을 팔아버릴 것 같아요 — 부동산 가압류</h1>
+
+<div class="tnote">어려운 법률용어에는 <b>점선 밑줄</b>이 그어져 있습니다. <b>PC는 마우스를 올리면</b>, <b>휴대폰은 손가락으로 톡 터치하면</b> 쉬운 설명이 뜹니다. (인쇄하면 괄호로 함께 나옵니다.)</div>
+
+<div class="hire">
+<div class="ht">이 매뉴얼을 끝까지 읽으시는 분께</div>
+<p>이 매뉴얼은 <b>의뢰인이 직접 법원에 신청할 수 있도록 모든 서류 양식·비용·요건을 구체적으로 담았습니다.</b> 하지만 소송은 살아있는 생물과 같아 상대방의 격렬한 저항이 뒤따릅니다. 혼자 진행하시다가 막히는 부분이 생기거나 방어막이 필요할 때, 언제든 이 매뉴얼을 들고 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</p>
+</div>
+
+<div class="tldr">
+<div class="tt">⭐ 30초 결론부터</div>
+<ul>
+<li><b>부동산 가압류는 상대방의 집·땅을 미리 가압류하여 함부로 처분하지 못하게 하는 사전 잠금장치입니다.</b> 재판에서 승소하여도 상대방이 부동산을 처분해 버리면 받을 길이 막히므로, <b>본안 소송 전에 먼저</b> 등기부에 가압류를 기재해 둡니다(<span class="term">민사집행법 §276<span class="bub">가압류의 근거 조문. 금전채권을 위해, 나중에 강제집행을 할 수 없거나 매우 곤란해질 우려가 있을 때 미리 재산을 묶는 제도.</span></span>·§293).</li>
+<li><b>두 가지 요건만 갖추면 됩니다 — ① <span class="term">피보전권리<span class="bub">가압류로 지켜내려는 '받을 권리' 자체. 예: 빌려준 돈(대여금), 지급받지 못한 물품대금·공사대금. 차용증·계좌이체내역·계약서로 소명합니다.</span></span>(받을 돈이 있다) ② <span class="term">보전의 필요성<span class="bub">지금 묶지 않으면 나중에 변제받지 못하게 될 위험. 상대방이 부동산을 처분하거나 타인 명의로 이전할 우려가 있다는 사정.</span></span>(가압류하지 아니하면 변제받지 못한다).</b> 둘 다 <span class="term">소명<span class="bub">'증명'보다 낮은 단계. 법관이 "대체로 그럴 것 같다"고 믿을 정도의 자료. 가압류는 급하므로 완전한 증명까지는 요구하지 않습니다.</span></span>하면 결정이 납니다.</li>
+<li><b>가압류만으로 돈이 들어오지는 않습니다.</b> 가압류해 둔 뒤 <b>본안 소송(대여금 청구 등)에서 승소</b> 판결을 받고, 그 가압류를 <b><span class="term">본압류<span class="bub">가압류(임시 잠금)를 판결 확정 뒤 정식 압류로 전환하는 것. 부동산은 이때부터 강제경매로 넘겨 매각대금에서 회수합니다(민집 §291).</span></span>로 전환하여 강제경매</b>를 신청하여야 비로소 채권자에게 회수됩니다(아래 전체 흐름도).</li>
+<li><b>당한 사람도 방어 수단이 있습니다.</b> 억울하게 가압류를 당하였다면 <b>이의신청·<span class="term">해방공탁<span class="bub">묶인 금액만큼 돈을 법원에 맡기고(공탁) 가압류 집행을 풀어 부동산 등기를 정상화하는 방법. 공탁금이 가압류의 대상으로 바뀝니다(민집 §282).</span></span>·<span class="term">제소명령<span class="bub">"본안 소송을 일정 기간 안에 제기하라"고 법원에 요구하는 신청. 채권자가 그 기간 내 소를 제기하지 아니하면 가압류가 취소됩니다(민집 §287).</span></span> 신청</b>으로 풀 수 있고, 나중에 채권자가 본안에서 패소하면 <b>부당가압류 손해배상</b>으로 되받을 수 있습니다(아래 양면 서면).</li>
+</ul>
+</div>
+
+<h2>지금 어떤 상황인가요?</h2>
+<div class="sit-wrap">
+<div class="sit"><span class="sl">상황 ① · 돈을 받아야 하는 분 (채권자·신청인)</span>빌려준 돈·물품대금·공사대금 등을 <b>변제받지 못하고 있고, 상대가 집·땅을 팔아(처분하여) 재산을 빼돌릴까 불안한</b> 경우. → 먼저 부동산을 가압류하고, 본안 소송에서 승소하여 강제경매로 회수합니다. <b>아래 작성례 ①·②·⑥</b>이 채권자의 서류입니다.</div>
+<div class="sit"><span class="sl">상황 ② · 부동산(집·땅)이 가압류로 묶인 분 (채무자·상대방)</span>영문도 모른 채 <b>집·땅에 가압류가 들어와(묶여) 팔거나 담보로 쓰지 못하는</b> 경우, 또는 채권이 부당하거나 과다한 경우. → 이의신청·해방공탁·제소명령으로 풀고, 부당하면 손해배상으로 되받습니다. <b>아래 작성례 ③·④·⑤</b>가 채무자의 서류입니다.</div>
+</div>
+
+<h2>돈이 들어오기까지 — 전체 길 한눈에 보기</h2>
+<div class="flow">
+<div class="fl-t">채권자가 가야 할 4단계 (가압류 → 본안 → 강제경매 → 배당)</div>
+<div class="node"><span class="num">1</span><b>부동산 가압류 신청</b> — 채무자의 부동산을 먼저 가압류합니다. 상대가 알지 못하게 진행되어(<span class="term">밀행성<span class="bub">가압류는 상대(채무자)에게 미리 알리지 않고 비공개로 심리·결정하는 성질. 미리 알면 부동산을 처분해 버리므로, 기습적으로 묶기 위한 것입니다.</span></span>) 처분을 막습니다. <b><span class="term">담보제공명령<span class="bub">잘못된 가압류로 상대가 입을 수 있는 손해에 대비해, 법원이 채권자에게 일정 금액을 미리 맡기라고 명하는 것. 현금공탁 또는 보증보험증권으로 제공합니다(민집 §280).</span></span></b>(보통 청구액의 일부)을 이행하면, 법원이 <span class="term">등기촉탁<span class="bub">법원이 등기소에 "이 부동산에 가압류를 기입하라"고 보내는 것. 채권자가 직접 등기하는 게 아니라 법원이 등기소에 촉탁하여 등기부에 기재합니다(민집 §293).</span></span>으로 등기부에 가압류를 기재합니다(민집 §293).</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">2</span><b>본안 소송 제기</b> — 가압류는 임시조치일 뿐이므로, <b>대여금·물품대금 청구의 소</b>를 본격적으로 제기하여 '받을 권리'를 판결로 확정받습니다(작성례 ②).</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">3</span><b>가압류 → 강제경매 신청</b> — 본안 승소 확정 판결문(집행권원)으로 <b>강제경매</b>를 신청합니다. 앞서 등재된 가압류가 본압류로 이전되어 경매가 시작됩니다(민집 §291, 작성례 ⑥).</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">4</span><b>경매·배당(회수)</b> — 부동산이 경매로 팔리면, 그 매각대금에서 <span class="term">배당<span class="bub">경매로 부동산이 팔린 돈을 채권자들에게 순위와 금액에 따라 나누어 주는 절차. 가압류해 둔 채권자도 이 배당에 참여하여 받습니다.</span></span>을 받아 회수합니다. 가압류를 일찍 해 둘수록 배당 순위 확보에 유리합니다.</div>
+</div>
+
+<h2>핵심 세 가지</h2>
+<ol class="steps">
+<li><b>가압류는 '속도전'입니다.</b> 채무자가 부동산을 타인 명의로 이전하기 전에 가압류를 해 두어야 보전의 실효를 거둘 수 있습니다. 가압류는 상대에게 알리지 않고(밀행성) 서면심리만으로 빠르게 결정·등기됩니다. 망설이는 사이 소유권이 이전되면 가압류 집행이 훨씬 까다로워집니다.</li>
+<li><b>가압류를 해도 상대방은 집을 처분할 수 있으나 — 다만 채권자에게는 효력이 없습니다.</b> 부동산 가압류의 처분금지는 <b>상대적 효력</b>만 있어, 채무자가 가압류된 집을 매매·증여할 수는 있습니다. 그러나 그 처분은 <b>가압류채권자에게 대항하지 못하므로</b>, 채권자는 부동산이 제3자에게 이전되었더라도 경매로 넘겨 회수할 수 있습니다(대법원 98다43441). 예금과 달리 '완전 동결'이 아니라는 점을 알아야 헛걸음을 피합니다.</li>
+<li><b>부당한 가압류는 거꾸로 손해배상 책임을 부담합니다.</b> 받을 권리도 없으면서, 또는 청구금액을 부풀려 가압류하였다가 <b>본안에서 패소하면</b> 채권자에게 고의·과실이 추정되어 <b>채무자에게 손해를 배상</b>해야 합니다(대법원 2020다242935). 부동산은 가압류로 처분이 사실상 제한되어 손해가 커질 수 있으니, 채권액을 정직하게 산정해야 합니다.</li>
+</ol>
+
+<h2>관련 법령 — 쉬운 풀이</h2>
+<div class="lawbox"><span class="ll">민집 §276</span><b>가압류의 목적</b> — 금전채권(또는 돈으로 환산할 수 있는 채권)에 대해, 나중에 강제집행을 하지 못하거나 매우 곤란해질 우려가 있을 때 미리 채무자의 재산을 보전하는 제도입니다. 쉽게 말해 <b>"판결 받을 때까지 상대방이 집을 처분하지 못하게 잠가두는 것"</b>입니다.</div>
+<div class="lawbox"><span class="ll">민집 §293</span><b>부동산 가압류의 집행</b> — 부동산 가압류는 <b>등기부에 가압류를 기입하는 방법</b>으로 집행합니다. 채권자가 직접 등기하는 것이 아니라, <b>법원이 등기소에 촉탁</b>하여 기재합니다. 등기가 등재되는 순간 집행이 끝나며, 이후 누구든 등기부만 떼어 보면 가압류 사실을 알 수 있습니다.</div>
+<div class="lawbox"><span class="ll">민집 §282·§299</span><b>해방공탁</b> — 가압류를 당한 채무자가 그 금액만큼을 법원에 맡기면(공탁) 가압류 집행을 풀 수 있습니다. 부동산 등기의 가압류가 해제되고 공탁금이 대신 가압류되는 구조라, <b>집을 팔거나 담보로 써야 하는 채무자</b>의 가장 빠른 방어책입니다.</div>
+<div class="lawbox"><span class="ll">민집 §287</span><b>제소명령</b> — 채권자가 가압류만 걸고 본안 소송을 미루면, 채무자가 "기간 안에 소를 제기하라"고 법원에 신청할 수 있습니다. 그 기간(보통 2주 이상)에 채권자가 소를 제기하지 아니하면 <b>가압류가 취소</b>됩니다.</div>
+
+<h2>판례로 보기 — 양쪽 모두 알아야 할 두 가지</h2>
+<div class="case">
+<span class="ct">○ 가압류된 부동산이 팔려도 채권자는 경매로 받아낼 수 있다 — 대법원 1998. 11. 13. 선고 98다43441 판결 등</span>
+부동산 가압류의 처분금지 효력은 <b>상대적</b>입니다. 채무자가 가압류된 부동산을 제3자에게 팔 수는 있으나, 그 처분은 <b>가압류채권자에게 대항하지 못합니다.</b> 따라서 채권자는 집행권원을 얻은 뒤 <b>가압류채무자를 집행채무자로 하여 그 부동산을 경매</b>에 넘겨 청구금액 한도에서 받아낼 수 있습니다. 집이 남에게 넘어갔다고 포기할 필요가 없습니다. (→ 채권자에게 유리한 핵심 법리)
+</div>
+<div class="case">
+<span class="ct">○ 본안에서 패소하면 채권자에게 손해배상 책임 추정 — 대법원 2023. 6. 1. 선고 2020다242935 판결(92다8453 법리 재확인)</span>
+가압류는 채권자가 자기 책임 아래 소명만으로 하는 것이므로, <b>가압류 집행 후 채권자가 본안에서 패소 확정</b>되면, 특별한 반증이 없는 한 채권자의 <b>고의·과실이 추정</b>되어 채무자가 입은 손해를 배상해야 합니다(대법원 1992. 9. 25. 선고 92다8453 판결의 법리를 재확인). 청구액을 과다하게 부풀린 부분도 마찬가지입니다. 다만 최근 판례는 <b>판단이 갈린 경위 등을 참작하여 배상책임을 일부 제한</b>할 수 있다고 보았습니다. (→ 채무자의 역공 근거이자, 채권자의 책임제한 항변 근거)
+</div>
+<div class="warn">
+<span class="wt">⚠ 채권자가 빠지기 쉬운 함정 — '껍데기 부동산'</span>
+부동산을 가압류하여도, 해당 부동산에 <b>이미 선순위 근저당(은행 대출)이 잔뜩 잡혀 있거나, 소액임차인의 우선변제권</b>이 있으면, 막상 경매로 매각되어도 채권자 순위까지 배당이 돌아오지 않을 수 있습니다. 가압류 전에 반드시 <b>등기사항증명서로 선순위 채권액을 확인</b>하고, '시세 − 선순위 채권 − 임차보증금'이 남는지 따져야 합니다. 등기만 확인하고 가압류하였다가 <b>등록면허세·등기비용만 날리는</b> 경우가 있으니, 실익 판단이 먼저입니다.
+</div>
+
+<h2>채권자: 어떻게 보전하고 회수하나 — 신청 절차</h2>
+<ol class="steps">
+<li><b>관할 법원 확인</b> — 부동산 가압류는 <b>① 가압류할 부동산 소재지</b> 지방법원 <b>또는 ② 본안의 관할 법원</b>(채무자 주소지 등)에 신청합니다(민집 §278).</li>
+<li><b>등기사항증명서로 실익 확인</b> — 신청 전에 <b>등기사항전부증명서</b>를 떼어 선순위 근저당·다른 가압류·임차권 등을 확인합니다. '시세 − 선순위 채권 − 임차보증금'이 남아야 가압류할 실익이 있습니다.</li>
+<li><b>신청서·소명자료 준비</b> — 가압류신청서(작성례 ①)에 차용증·계좌이체내역·계약서 등 피보전권리 소명자료와 보전 필요성 소명자료, <b>부동산 목록(별지)·등기사항증명서</b>를 붙입니다. <b>가압류신청 진술서</b>도 함께 냅니다.</li>
+<li><b>담보제공·세금 납부</b> — 법원이 담보(보통 청구액의 일정 비율)를 명하면 <b>현금공탁</b> 또는 <span class="term">보증보험증권<span class="bub">서울보증보험 등에서 발급. 현금을 직접 공탁하는 대신 보험증권으로 담보를 대신해, 목돈 부담을 줄이는 방법.</span></span>으로 제공합니다(민집 §280). 또한 <b><span class="term">등록면허세<span class="bub">가압류 등기를 새길 때 내는 지방세. 청구금액의 0.2%(1,000분의 2)이며, 여기에 지방교육세(등록면허세의 20%)가 붙습니다. 구청 세무과·위택스에서 납부.</span></span></b>와 등기수입증지(부동산당 3,000원)를 납부합니다.</li>
+<li><b>결정·등기촉탁(집행)</b> — 가압류 결정이 나면 <b>법원이 등기소에 촉탁</b>하여 등기부에 가압류가 등재됩니다(민집 §293). 이 등기가 곧 집행이며, 이후 본안 승소 → 강제경매로 회수합니다(흐름도 2~4단계).</li>
+</ol>
+
+<h2>채무자: 억울하게 가압류를 당하였다면 — 방어 절차</h2>
+<ol class="steps">
+<li><b>가압류 이의신청</b> — 피보전권리가 없거나 보전 필요성이 없음을 다툽니다(민집 §283, 작성례 ③). 결정을 인가·변경·취소하는 재판을 받습니다.</li>
+<li><b>해방공탁으로 즉시 풀기</b> — 집을 팔거나 담보로 써야 하면, 가압류 금액을 공탁하고 집행취소를 신청합니다(민집 §282·§299). 채권은 공탁금으로 옮겨 가압류되지만 부동산 등기는 해제됩니다.</li>
+<li><b>제소명령 신청</b> — 채권자가 본안을 제기하지 아니하고 시간만 끌면, 법원에 "기간 내 제소하라"고 신청합니다(민집 §287, 작성례 ⑤). 채권자가 기간 내 소를 제기하지 아니하면 가압류 취소를 구할 수 있습니다.</li>
+<li><b><span class="term">사정변경<span class="bub">가압류 결정 당시와 사정이 달라진 것. 받을 권리가 사라졌거나, 채권자가 본안에서 졌거나, 3년간 본안소송을 내지 않은 경우 등을 말합니다(민집 §288).</span></span> 등 취소</b> — 피보전권리 소멸, 본안 패소 확정, 3년간 본안 미제기 등 사정변경이 있으면 가압류 취소를 신청합니다(민집 §288).</li>
+<li><b>부당가압류 손해배상 역공</b> — 채권자가 본안에서 패소하면, 그 가압류로 입은 손해(부동산 처분 지연으로 인한 손해, 매매 무산 등)를 손해배상으로 청구합니다(민 §750, 대법원 2020다242935). 부동산 처분이 가압류로 막혀 손해가 발생했고 그 인과관계가 입증되면 배상 대상이 됩니다(대법원 2001다69122 취지). 본안의 <span class="term">반소<span class="bub">피고가 같은 소송 절차 안에서 원고를 상대로 거꾸로 제기하는 소. 채무부존재확인·손해배상 등을 함께 다툴 수 있습니다.</span></span>로 함께 제기할 수 있습니다.</li>
+</ol>
+
+<h2>신청서·서면 작성례 — 양 당사자 모두</h2>
+<p style="font-size:14px;color:var(--muted)">아래 작성례는 <b>채권자(돈 받을 분)용</b>과 <b>채무자(가압류된 분)용</b>으로 나뉩니다. 각 <b>제목줄을 클릭하면(▾)</b> 내용이 펼쳐집니다. 빈칸 <b>○○○</b>를 자기 사건 내용으로 채우고, <b>복사·인쇄·다운로드</b> 버튼으로 바로 활용하시면 됩니다. 채권자가 처음 내는 가압류신청서에는 <b>①-1 별지(채권목록)와 ①-2 진술서가 반드시 함께</b> 붙어야 합니다. 모든 양식은 대법원 전자민원센터·법원 공식 양식을 따릅니다.</p>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ① · 채권자</span>부동산 가압류신청서<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f1"><span class="ft">부동산가압류신청서</span>채권자  ○○○   (☎: ○○○-○○○○-○○○○)
+주민등록번호  ○○○○○○-○○○○○○○
+주소  ○○○
+
+채무자  ○○○
+주민등록번호(아는 경우)  ○○○○○○-○○○○○○○
+주소  ○○○
+
+         청구채권의 표시
+금 ○○○원
+(채권자가 채무자에 대하여 가지는 20○○. ○○. ○○. 대여금
+채권. 변제기 20○○. ○○. ○○.)
+
+         가압류할 부동산의 표시
+별지 목록 기재와 같음
+
+         신 청 취 지
+채권자가 채무자에 대하여 가지는 위 청구채권의 집행을 보전하기
+위하여, 채무자 소유의 별지 목록 기재 부동산을 가압류한다.
+라는 결정을 구합니다.
+
+         신 청 이 유
+1. 피보전권리
+   채권자는 채무자에게 20○○. ○○. ○○. 금 ○○○원을 변제기
+   20○○. ○○. ○○.로 정하여 대여하였으나(소갑 제1호증 차용증,
+   소갑 제2호증 계좌이체내역), 채무자는 변제기가 지나도록 이를
+   변제하지 아니하고 있습니다.
+2. 보전의 필요성
+   채무자는 최근 ○○○(예: 소유 부동산을 시세보다 싸게 내놓거나,
+   가족 명의로 돌리려 하는 등) 사정이 있어, 지금 가압류해 두지
+   아니하면 채권자가 장차 본안소송에서 승소하더라도 집행이
+   불가능하거나 현저히 곤란할 우려가 있습니다.
+   채무자에게는 위 부동산 외에 별다른 책임재산이 없습니다.
+3. 담보제공
+   담보제공은 보증보험증권(공탁보증보험)으로 갈음할 수 있도록
+   허가하여 주시기 바랍니다.
+
+         소 명 방 법
+1. 소갑 제1호증   차용증
+1. 소갑 제2호증   계좌이체내역
+1. 소갑 제3호증   부동산 등기사항전부증명서
+1. 소갑 제4호증   ○○○ (보전 필요성 소명자료)
+
+         첨 부 서 류
+1. 위 소명방법 사본       각 1통
+1. 가압류신청 진술서       1통
+1. 별지 가압류할 부동산 목록 5통
+1. 부동산 등기사항전부증명서 1통
+1. 등록면허세·지방교육세 납부서 1통
+1. 등기수입증지(부동산당 3,000원) 1통
+1. 송달료납부서           1통
+
+              20○○. ○○. ○○.
+                위 채권자  ○○○ (인 또는 서명)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1')">📋 복사</button><button type="button" onclick="printForm('f1')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1','부동산_가압류신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>돈을 받아야 하는 채권자(신청인)</b>가 내는 핵심 서면입니다. 예금 가압류와 달리 <b>제3채무자(은행)란이 없고</b>, 대신 <b>가압류할 부동산의 표시(별지)</b>가 들어갑니다. 성패는 <b>신청이유 1·2번</b>에 달렸습니다 — ①받을 권리(차용증·이체내역으로 소명) ②가압류하지 아니하면 변제받지 못한다는 사정을 구체적으로 적습니다. <b>부동산 목록(별지)은 5통</b>을 첨부하고(법원→등기소 촉탁용), 등록면허세·등기수입증지도 함께 냅니다. 별지·진술서 작성법은 다음 두 박스를 참고합니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ①-1 · 채권자(필수 별지)</span>별지 — 가압류할 부동산의 표시<span class="chev">▾</span></button><div class="fold-body">
+<div class="howto" style="margin-bottom:10px"><b>이게 왜 중요한가요?</b> 등기소는 결정문에 적힌 <b>「별지 부동산의 표시」만 보고</b> 어느 부동산을 가압류할지 정합니다. 그래서 <b>등기사항전부증명서 맨 위 표제부의 소재지·지번·지목·면적·구조를 그대로 옮겨 적어야</b> 합니다. 한 글자라도 다르면 등기촉탁이 반려됩니다. 아래 형식에 <b>등기부 표제부 내용을 그대로 베껴 넣으면</b> 됩니다.</div>
+<div class="form" id="f1a"><span class="ft">별        지</span>      가압류할 부동산의 표시
+
+[1동의 건물인 경우 — 예시]
+
+1. 1동의 건물의 표시
+   ○○시 ○○구 ○○동 ○○○                         (소재지번)
+   [도로명주소] ○○시 ○○구 ○○로 ○○
+   철근콘크리트조 슬래브지붕 ○층 ○○○            (구조·층수)
+   1층 ○○○.○○㎡
+   2층 ○○○.○○㎡                                  (각 층 면적)
+
+2. 토지의 표시
+   ○○시 ○○구 ○○동 ○○○ 대 ○○○.○㎡           (지목·면적)
+
+[아파트 등 집합건물인 경우 — 예시]
+
+1. 1동의 건물의 표시
+   ○○시 ○○구 ○○동 ○○○ ○○아파트 제○○○동
+2. 전유부분의 건물의 표시
+   제○층 제○○○호  철근콘크리트조 ○○.○○㎡
+3. 대지권의 표시
+   ○○동 ○○○ 대 ○○○○㎡ 중 ○○○.○○분의 ○○.○○
+
+                                                    끝.</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1a')">📋 복사</button><button type="button" onclick="printForm('f1a')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1a','별지_가압류할부동산표시.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>채워 넣는 방법.</b> 위 두 예시 중 <b>자신의 부동산 종류에 맞는 하나</b>를 골라, <b>등기사항전부증명서 표제부</b>의 소재지·지번·지목·구조·면적을 <b>그대로 옮겨</b> 적습니다(한 글자도 틀리면 안 됩니다). 단독주택·토지는 위쪽 예시, 아파트·빌라·오피스텔은 아래쪽(집합건물) 예시를 씁니다. <b>이 목록은 5통</b>을 만들어 신청서에 첨부합니다(법원이 등기소에 촉탁할 때 사용). 토지·건물을 함께 가압류하려면 둘 다 적습니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ①-2 · 채권자(필수 첨부)</span>가압류신청 진술서<span class="chev">▾</span></button><div class="fold-body">
+<div class="howto" style="margin-bottom:10px"><b>이게 왜 필요한가요?</b> 법원은 똑같은 채권으로 여러 차례 가압류하거나 청구금액을 부풀려 가압류하는 <b>남용을 막으려고</b> 이 진술서를 필수로 받습니다. 제기하지 아니하면 보정명령이 떨어져 시간만 지연됩니다. 아래 질문에 <b>사실대로 ○/× 또는 해당 내용</b>을 적으면 됩니다. (양식은 법원마다 항목 표현이 조금 다를 수 있으니, 전자소송 양식의 같은 취지 항목에 답하시면 됩니다.)</div>
+<div class="form" id="f1b"><span class="ft">가압류신청 진술서</span>채권자는 가압류 신청과 관련하여 다음 사실을 진술하며, 만약
+허위 진술 시 가압류 신청이 기각되거나 손해배상 책임을 질 수
+있음을 잘 알고 있습니다.
+
+              20○○. ○○. ○○.
+                채권자  ○○○ (인 또는 서명)
+
+         다       음
+
+【1. 피보전권리(청구채권)에 관하여】
+1) 채무자가 신청서에 적은 청구채권을 인정하고 있습니까?
+   → ○○○ (예: 아니오. 변제를 미루고만 있습니다)
+2) 채무자의 주장이나 예상되는 항변은 무엇입니까?
+   → ○○○ (예: 변제기 연장을 주장할 것으로 보이나 근거 없음)
+
+【2. 보전의 필요성에 관하여】
+1) 채권자가 보전처분을 신청하게 된 동기·사정은?
+   → ○○○ (예: 채무자가 부동산을 급히 내놓는 등 재산 처분 정황)
+2) 채무자에게 다른 충분한 재산(부동산 등)이 있습니까?
+   → ○○○ (예: 확인되지 않으며, 예금 외 별다른 재산이 없음)
+
+【3. 중복·과잉 가압류에 관하여】
+1) 이 신청 외에 같은 청구채권으로 다른 가압류·가처분을
+   신청하거나 받은 사실이 있습니까?
+   → ○○○ (예: 없음)
+2) 있다면 그 법원·사건번호·결과를 적어 주십시오.
+   → ○○○ (예: 해당 없음)
+
+【4. 그 밖의 사항】
+1) 채무자의 다른 채권자가 이미 압류·가압류한 사실을 압니까?
+   → ○○○ (예: 알지 못함)
+2) 본안소송을 제기하였거나 제기할 예정입니까?
+   → ○○○ (예: 가압류 직후 대여금 청구의 소를 제기할 예정)</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1b')">📋 복사</button><button type="button" onclick="printForm('f1b')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1b','가압류신청_진술서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>채우는 요령.</b> 괄호 안 (예: …)는 <b>이해를 돕는 예시</b>이니, 지우고 본인 사실을 기재합니다. 핵심은 <b>2번(보전 필요성)</b>입니다 — "채무자가 재산을 처분·은닉할 정황"을 구체적으로 적을수록 인용 확률이 올라갑니다. <b>3번은 정직하게</b> 답해야 합니다. 같은 빚으로 이미 다른 재산을 충분히 가압류해 두고 다시 신청하면 과잉가압류로 기각되거나 나중에 손해배상 대상이 됩니다(대법원 2020다242935 참조). 전자소송으로 신청하면 이 진술서가 <b>입력 양식 형태</b>로 제공되어 그대로 채울 수 있습니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ② · 채권자(본안)</span>소장 — 대여금 청구의 소 (원고: 채권자)<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f2"><span class="ft">소        장</span>원고  ○○○ (채권자)   (☎: ○○○-○○○○-○○○○)
+      주소  ○○○
+피고  ○○○ (채무자)
+      주소  ○○○
+
+         대여금 청구의 소
+
+         청 구 취 지
+1. 피고는 원고에게 금 ○○○원 및 이에 대하여 20○○. ○○. ○○.
+   부터 이 사건 소장 부본 송달일까지는 연 5%의, 그 다음 날부터
+   다 갚는 날까지는 연 12%의 각 비율로 계산한 돈을 지급하라.
+2. 소송비용은 피고가 부담한다.
+3. 제1항은 가집행할 수 있다.
+   라는 판결을 구합니다.
+
+         청 구 원 인
+1. 대여 사실
+   원고는 피고에게 20○○. ○○. ○○. 금 ○○○원을 변제기
+   20○○. ○○. ○○., 이자 약정 ○○○로 정하여 대여하였습니다
+   (갑 제1호증 차용증, 갑 제2호증 계좌이체내역).
+2. 변제기 도과
+   변제기가 지났음에도 피고는 원금과 이자를 지급하지 않고
+   있습니다.
+3. 보전처분 경위(해당 시)
+   원고는 집행 보전을 위하여 ○○지방법원 20○○카단○○○○호로
+   피고 소유 부동산에 대한 가압류결정을 받았습니다(갑 제3호증).
+4. 결론
+   따라서 원고는 청구취지와 같은 판결을 구합니다.
+
+         입 증 방 법
+1. 갑 제1호증   차용증
+1. 갑 제2호증   계좌이체내역
+1. 갑 제3호증   가압류결정문
+
+         첨 부 서 류
+1. 위 입증방법 사본   각 1통
+1. 소장 부본          1통
+1. 송달료납부서       1통
+
+              20○○. ○○. ○○.
+                위 원고  ○○○ (인)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f2')">📋 복사</button><button type="button" onclick="printForm('f2')">🖨 인쇄</button><button type="button" onclick="downloadForm('f2','대여금_소장.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>채권자(원고)</b>가 가압류 후 '받을 권리'를 판결로 확정받기 위해 내는 본안 소장입니다. 가압류는 임시조치라 이 본안 승소가 있어야 추심으로 갈 수 있습니다. <b>청구취지 1번</b>의 지연이자는 소장 송달 다음 날부터 <span class="term">지연손해금<span class="bub">돈을 제때 갚지 않아 늦어진 기간만큼 물어야 하는 손해. 소송을 내면 소장 송달 다음 날부터 법정이율(현재 연 12%)이 붙습니다.</span></span>은 <b>소송촉진법상 연 12%</b>가 적용됩니다(현행 요율은 계산기에서 자동 반영). 가압류를 미리 해 두었다면 <b>청구원인 3번</b>에 사건번호를 기재하여 연결한다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ③ · 채무자</span>가압류 이의신청서 (상대방: 채무자)<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f3"><span class="ft">가압류결정에 대한 이의신청서</span>신청인(채무자)  ○○○   (☎: ○○○-○○○○-○○○○)
+                주소  ○○○
+피신청인(채권자)  ○○○
+                주소  ○○○
+
+         신 청 취 지
+1. ○○지방법원 20○○카단○○○○호 채권가압류 신청사건에
+   관하여 위 법원이 20○○. ○○. ○○. 한 가압류결정을 취소한다.
+2. 피신청인의 가압류신청을 기각한다.
+3. 소송비용은 피신청인이 부담한다.
+   라는 재판을 구합니다.
+
+         신 청 이 유
+1. 피보전권리의 부존재
+   피신청인은 신청인에 대하여 대여금 채권이 있다고 주장하나,
+   ○○○(예: 위 돈은 이미 전액 변제되었고 / 애초에 빌린 사실이
+   없으며 / 투자금이지 대여금이 아님). 따라서 피보전권리가
+   존재하지 않습니다(을 제1호증 ○○○).
+2. 보전의 필요성 흠결
+   신청인은 ○○○(예: 안정된 직장과 충분한 부동산을 보유하여)
+   재산을 처분·은닉할 우려가 전혀 없으므로, 보전의 필요성이 없습니다.
+   특히 피신청인은 이미 충분한 담보를 보유하고 있어, 추가 가압류는 위법합니다(대법원 2020다242935 참조).
+3. 결론
+   따라서 이 사건 가압류결정은 취소되어야 합니다.
+
+         소 명 방 법
+1. 을 제1호증   ○○○ (변제 영수증·계좌내역 등)
+1. 을 제2호증   ○○○ (재산상태·직업 소명자료)
+
+         첨 부 서 류
+1. 위 소명방법 사본   각 1통
+1. 신청서 부본        1통
+
+              20○○. ○○. ○○.
+                위 신청인(채무자)  ○○○ (인)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f3')">📋 복사</button><button type="button" onclick="printForm('f3')">🖨 인쇄</button><button type="button" onclick="downloadForm('f3','가압류_이의신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>부동산이 가압류된 채무자(상대방)</b>가 결정 자체를 다투는 서면입니다. 두 갈래로 공격합니다 — ①받을 권리가 없다(변제·부존재·성질 다툼) ②보전의 필요성이 없다(책임재산 충분·은닉 우려 없음). <b>충분한 담보가 있는데 다른 재산까지 가압류되었다면</b> 신청이유 2번의 판례(2020다242935)를 적극 원용합니다. 통장을 <b>빨리 풀어야 하면</b> 이의와 별개로 아래 해방공탁을 병행하는 것이 실전입니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ④ · 채무자(본안)</span>답변서 — 대여금 청구에 대한 채무자의 반박 (피고)<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f4"><span class="ft">답 변 서</span>사건   20○○가단(또는 가합)○○○○호   대여금
+원고   ○○○ (채권자)
+피고   ○○○ (채무자)   (☎: ○○○-○○○○-○○○○)
+
+         청구취지에 대한 답변
+1. 원고의 청구를 기각한다.
+2. 소송비용은 원고가 부담한다.
+   라는 판결을 구합니다.
+
+         청구원인에 대한 답변
+1. (변제를 주장하는 경우)
+   피고는 원고로부터 금원을 차용한 사실은 인정하나, 20○○. ○○.
+   ○○. 전액 변제하였습니다(을 제1호증 입금내역). 따라서 원고의
+   채권은 소멸하였습니다.
+2. (대여 사실 자체를 부인하는 경우)
+   피고가 원고로부터 받은 돈은 대여금이 아니라 ○○○(예: 동업
+   투자금 / 물품대금)이므로, 반환 의무가 없습니다.
+3. (소멸시효를 주장하는 경우)
+   설령 대여금이라 하더라도 변제기 20○○. ○○. ○○.부터 ○년이
+   지나 소멸시효가 완성되었으므로, 피고는 이를 원용합니다.
+4. (부당가압류에 대한 반박·예고)
+   원고는 피보전권리 없이 피고의 예금을 가압류하여 피고에게
+   손해를 입혔는바, 피고는 별도(또는 반소)로 손해배상을 구할
+   예정입니다.
+5. 따라서 원고의 청구는 이유 없으므로 기각되어야 합니다.
+
+         입 증 방 법
+1. 을 제1호증   ○○○ (변제 입금내역 등)
+
+         첨 부 서 류
+1. 위 입증방법 사본   각 1통
+1. 답변서 부본        1통
+
+              20○○. ○○. ○○.
+                위 피고  ○○○ (인)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f4')">📋 복사</button><button type="button" onclick="printForm('f4')">🖨 인쇄</button><button type="button" onclick="downloadForm('f4','대여금_답변서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>본안에서 채무자(피고)</b>가 내는 반박 서면입니다. 소장 부본을 받은 날부터 <b>30일 안에</b> 냅니다(민소 §256①). 자기 사안에 맞는 방어만 골라 기재합니다 — 변제(1번)·대여 부인(2번)·소멸시효(3번). <b>4번</b>은 가압류가 부당했다는 점을 미리 깔아두고, 본안 승소 시 손해배상 <b>반소</b>로 되받는 포석입니다. 시효는 반드시 "원용한다"고 명시해야 효력이 있습니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ⑤ · 채무자</span>제소명령 신청서 (채권자가 본안을 제기하지 아니할 때)<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f5"><span class="ft">제소명령 신청서</span>신청인(채무자)  ○○○   (☎: ○○○-○○○○-○○○○)
+                주소  ○○○
+피신청인(채권자)  ○○○
+                주소  ○○○
+
+         신 청 취 지
+피신청인은 ○○지방법원 20○○카단○○○○호 채권가압류
+신청사건의 본안소송을 제기하고 그 증명서류를 제출할 것을
+명한다.
+라는 재판을 구합니다.
+
+         신 청 이 유
+1. 피신청인은 신청인 소유 부동산에 대하여 위 사건으로 20○○.
+   ○○. ○○. 가압류결정을 받아 집행하였습니다.
+2. 그러나 상당한 기간이 지나도록 피신청인은 본안소송을 제기하지
+   않은 채 신청인의 예금을 묶어두고 있어, 신청인은 통장을
+   사용하지 못하는 등 큰 불이익을 겪고 있습니다.
+3. 이에 민사집행법 제287조에 따라 피신청인에게 본안소송을
+   제기하도록 명하여 주시기 바랍니다.
+
+         첨 부 서 류
+1. 가압류결정문 사본   1통
+1. 신청서 부본         1통
+
+              20○○. ○○. ○○.
+                위 신청인(채무자)  ○○○ (인)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f5')">📋 복사</button><button type="button" onclick="printForm('f5')">🖨 인쇄</button><button type="button" onclick="downloadForm('f5','제소명령_신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>채무자(상대방)</b>가 채권자를 압박하는 강력한 카드입니다. 가압류만 걸고 본안을 미루는 채권자에게, 법원이 "정해진 기간(보통 2주 이상) 안에 소를 제기하라"고 명합니다. 채권자가 그 기간 내에 본안소송을 제기하지 않으면, 채무자는 <b>가압류 취소</b>를 신청할 수 있습니다(민집 §287③). 예금을 장기간 가압류해 두고 협상에만 이용하는 상대방에게 효과적입니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ⑥ · 채권자(집행)</span>부동산 강제경매 신청서 (가압류 → 본압류 이전)<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f6"><span class="ft">부동산강제경매신청서</span>채권자  ○○○   (☎: ○○○-○○○○-○○○○)
+        주소  ○○○
+채무자  ○○○
+        주소  ○○○
+
+         집행권원의 표시
+○○지방법원 20○○가단○○○○호 대여금 사건의 집행력 있는
+판결 정본
+
+         청구금액
+금 ○○○원 및 이에 대한 지연손해금
+(원금 ○○○원 및 지연손해금 ○○○원)
+
+         경매할 부동산의 표시
+별지 목록 기재와 같음
+
+         신 청 취 지
+채권자는 채무자에 대한 위 집행권원에 기한 청구금액의 변제를
+받기 위하여 별지 목록 기재 부동산에 대한 강제경매절차의 개시를
+구합니다.
+라는 재판을 구합니다.
+
+         신 청 이 유
+1. 채권자는 위 <span class="term">집행권원<span class="bub">강제집행을 할 수 있음을 공적으로 증명하는 문서. 확정판결문·지급명령·공정증서 등이 이에 해당합니다.</span></span>에 기하여 채무자에 대하여 청구금액
+   기재 채권을 가지고 있으나, 채무자가 이를 변제하지 아니하고
+   있습니다.
+2. 채권자는 위 부동산에 대하여 앞서 ○○지방법원 20○○카단
+   ○○○○호로 가압류집행을 하였는바(등기사항증명서 참조), 이제
+   집행권원을 얻었으므로 위 가압류를 본압류로 이전하여 강제경매
+   절차의 개시를 구합니다.
+
+         첨 부 서 류
+1. 집행력 있는 판결 정본   1통
+1. 송달증명원·확정증명원   각 1통
+1. 부동산 등기사항전부증명서 1통
+1. 별지 부동산 목록        1통
+1. 등록면허세·등기수입증지 (경매개시결정 기입등기용)
+1. 송달료납부서           1통
+
+              20○○. ○○. ○○.
+                위 채권자  ○○○ (인)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f6')">📋 복사</button><button type="button" onclick="printForm('f6')">🖨 인쇄</button><button type="button" onclick="downloadForm('f6','부동산_강제경매신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>본안에서 이긴 채권자</b>가 부동산을 현금화해 회수하는 마지막 서면입니다. 앞서 가압류해 둔 부동산이라면 <b>가압류를 본압류로 이전</b>하면서 강제경매를 신청합니다(민집 §291). 경매로 부동산이 팔리면 그 대금에서 <b>배당</b>을 받습니다. 선순위 근저당이 있으면 그 다음 순위로 배당되므로, 앞서 본 <b>실익 판단</b>이 중요합니다. 이 신청서에도 <b>아래 부동산 목록(별지)</b>이 함께 붙어야 합니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ⑥-1 · 채권자(필수 별지)</span>별지 — 경매할 부동산의 표시<span class="chev">▾</span></button><div class="fold-body">
+<div class="howto" style="margin-bottom:10px"><b>가압류 때 만든 별지(①-1)와 동일합니다.</b> 앞서 가압류해 둔 해당 부동산을 그대로 경매에 넘기는 것이므로, <b>가압류 별지의 부동산 표시를 그대로</b> 그대로 옮겨 적습니다.</div>
+<div class="form" id="f6a"><span class="ft">별        지</span>        경매할 부동산의 표시
+
+1. 1동의 건물의 표시
+   ○○시 ○○구 ○○동 ○○○                         (소재지번)
+   [도로명주소] ○○시 ○○구 ○○로 ○○
+   철근콘크리트조 슬래브지붕 ○층 ○○○            (구조·층수)
+   1층 ○○○.○○㎡
+   2층 ○○○.○○㎡
+
+2. 토지의 표시
+   ○○시 ○○구 ○○동 ○○○ 대 ○○○.○㎡           (지목·면적)
+
+(※ 가압류신청 때의 별지 ①-1 부동산 표시를 그대로 옮겨 적는다.
+   아파트·빌라 등 집합건물은 ①-1의 집합건물 예시를 사용한다.)
+                                                    끝.</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f6a')">📋 복사</button><button type="button" onclick="printForm('f6a')">🖨 인쇄</button><button type="button" onclick="downloadForm('f6a','별지_경매할부동산표시.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>가압류 별지(①-1)와 똑같이</b> 등기부 표제부를 그대로 옮겨 적습니다. 앞서 가압류해 둔 해당 부동산을 경매로 잇는 것이므로, <b>가압류 때 적은 부동산 표시와 동일하게</b> 기재하여 연속성을 분명히 합니다.</div>
+</div></div>
+
+<div class="cost">
+<span class="ct">비용 — 인지액과 송달료는 다릅니다</span>
+<b>① 부동산 가압류 신청</b>: 인지액 <b>10,000원</b>(정액) + 송달료(당사자 수 × 회차 × 단가) 별도 예납. 부동산은 예금과 달리 다음 세 가지가 추가됩니다 — <b>㉠ <span class="term">등록면허세<span class="bub">가압류 등기를 새길 때 내는 지방세. 청구금액의 0.2%입니다. 예: 청구액 5천만원이면 100,000원. 단, 산출액이 6,000원 미만이면 6,000원.</span></span></b>(청구금액의 0.2%) <b>㉡ 지방교육세</b>(등록면허세의 20%) <b>㉢ 등기수입증지</b>(부동산 1건당 3,000원). 또한 <b>담보</b>(현금공탁 또는 보증보험증권)가 붙습니다.<br>
+<b>② 본안 대여금 소송</b>: 인지액은 <b><span class="term">소가<span class="bub">소송 목적의 값. 청구하는 금액을 말하며, 인지대와 사건 관할을 정하는 기준이 됩니다. 예: 5천만원을 청구하면 소가는 5천만원.</span></span></b>(청구금액)에 따라 산식으로 정해지며, <b>전자소송이면 인지액 10% 할인</b>. 송달료 별도.<br>
+<b>③ 부동산 강제경매 신청</b>: 인지액 <b>5,000원</b> + 송달료 + 경매예납금(감정료·현황조사료 등, 법원이 정함) 별도.<br>
+<b>④ 이의·제소명령 등(채무자측)</b>: 이의신청 10,000원, 제소명령 신청 1,000원, 해방공탁 집행취소 1,000원 + 각 송달료.
+<div style="margin-top:11px; padding-top:10px; border-top:1px dashed #cfe6d6; color:#c0392b; font-weight:600; line-height:1.8;">※ 정확한 인지액·송달료·담보 예상액은 사건 정보를 넣으면 <a href="https://sanlaw.co.kr/tools-calculator.html" style="color:#c0392b; text-decoration:underline; font-weight:700;">🧮 수수료 계산기</a>에서 미리 확인할 수 있습니다.</div>
+</div>
+
+<h2>고충은 덜어드리고, 결과로 보답하겠습니다</h2>
+<div class="hire">
+<p>본 사무소에서는 의뢰인들의 고충은 덜어드리고, 함께 소송을 진행하여 원하는 결과에 도달할 수 있도록 성심을 다하겠습니다.</p>
+<p style="margin-top:12px"><b>· 채권자(돈 받을 분)의 경우</b><br>① <b>부동산 가압류신청서·진술서·별지 부동산목록</b> 작성, ② <b>본안 대여금 소장</b> 작성, ③ <b>부동산 강제경매 신청서</b> 작성, ④ <b>본안소송</b> 진행과 담보제공·등록면허세 안내까지 <b>본인소송의 전 과정을 함께</b> 준비해 드립니다.</p>
+<p style="margin-top:10px"><b>· 채무자(부동산이 가압류된 분)의 경우</b><br>① <b>이의신청서·답변서</b>, ② <b>해방공탁·제소명령 신청서</b>, ③ <b>부당가압류 손해배상(반소)</b> 전략을 함께 수립해 드립니다.</p>
+</div>
+<div class="warn"><span class="wt">⚠ 자력구제 금지</span>상대가 채무를 변제하지 아니한다는 이유로 <b>직접 물건을 가져오거나 통장을 강제로 막는 행위는 불법</b>입니다(형사처벌 대상). 반드시 법원의 가압류·압류 절차를 통해야 합니다. 가압류를 당한 채무자도 마찬가지로, 가압류된 부동산을 빼돌리면 <b><span class="term">강제집행면탈죄<span class="bub">강제집행을 피할 목적으로 재산을 숨기거나 빼돌려 채권자를 해치는 범죄(형법 §327). 3년 이하 징역 또는 1천만원 이하 벌금.</span></span></b>가 문제될 수 있습니다.</div>
+
+<a href="https://sanlaw.co.kr/tools-calculator.html" class="cta">🧮 내 사건 비용 미리 계산하기</a>
+<div style="text-align:center; background:#f6ecd8; border:1px solid var(--gold); border-radius:11px; padding:14px; margin:18px 0; font-size:15px; color:var(--gold-d); font-weight:700;">📞 상담은 홈 화면의 상담 창구를 이용하시면 됩니다.</div>
+
+<h2>준비할 서류와 발급처</h2>
+<p style="font-size:13.5px;color:var(--muted)">아래 '바로가기'를 클릭하면 해당 사이트로 이동합니다. 만약 첫 화면으로 연결되면, 옆의 <b>찾아가기 경로</b>를 따라 메뉴를 클릭하면 됩니다.</p>
+<table>
+<tr><th>무엇을 (어디서)</th><th>서류</th><th>바로가기 · 찾아가기 경로</th></tr>
+<tr><td>당사자 확인<br>(정부24)</td><td>채무자 주소보정용 자료, 신청인 신분 소명</td><td><a href="https://www.gov.kr">정부24</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 검색창에 '주민등록표 초본' 검색 → 발급</span></td></tr>
+<tr><td>가압류할 부동산 확인<br>(인터넷등기소)</td><td>부동산 등기사항전부증명서(별지 표제부·선순위 채권 확인용)</td><td><a href="https://www.iros.go.kr">인터넷등기소</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 등기열람/발급 → 부동산 → 열람/발급하기 → 소재지번·도로명으로 검색</span></td></tr>
+<tr><td>피보전권리 소명<br>(본인 보관·거래은행)</td><td>차용증·계약서(본인 보관), 계좌이체내역(거래은행·인터넷뱅킹 발급)</td><td><span style="font-size:12.5px;color:var(--muted)">본인 보관 자료 / 거래은행 앱·인터넷뱅킹 '거래내역 조회'에서 출력</span></td></tr>
+<tr><td>등록면허세 납부<br>(위택스·구청)</td><td>등록면허세·지방교육세 납부서(청구액의 0.2%+그 20%)</td><td><a href="https://www.wetax.go.kr">위택스</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 신고하기 → 등록면허세 → '정률분(가압류)' / 또는 부동산 소재지 구청 세무과 방문</span></td></tr>
+<tr><td>담보 제공<br>(서울보증보험)</td><td>공탁보증보험증권(현금공탁 대체용)</td><td><a href="https://www.sgic.co.kr">서울보증보험</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 법원공탁보증 메뉴 / 또는 가까운 지점·법원 내 출장소 방문</span></td></tr>
+<tr><td>신청·소송 제출<br>(전자소송)</td><td>부동산 가압류신청서·소장·강제경매신청서 — 공식 양식</td><td><a href="https://ecfs.scourt.go.kr">전자소송</a> / <a href="https://www.scourt.go.kr/nm/min_9/min_9_2/index.html">양식모음</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 전자소송 → 서류제출 → 민사신청 → 부동산가압류</span></td></tr>
+</table>
+
+<div class="tip"><span class="pt">💡 이어지는 카드</span> <b>예금(통장) 가압류</b>, <b>급여(월급) 가압류</b>, <b>전세보증금 가압류</b>, <b>담보(공탁) 부담 줄이기</b>, <b>억울하게 가압류되었을 때 해제하는 법</b>, <b>판결 후 실제로 받아내기(추심·전부)</b> 등 보전처분 전 과정을 순차적으로 다룹니다. <span style="color:var(--muted);font-size:13px">(※ 각 카드 링크는 시리즈 완성 시 연결 예정)</span></div>
+
+<div class="src">
+근거 — 민사집행법 제276조(가압류의 목적)·제277조·제278조(관할)·제280조(담보제공)·제282조·제299조(해방공탁·집행취소)·제283조(이의)·제287조(제소명령)·제288조(사정변경 취소)·제291조(가압류의 본압류 이전)·제296조(채권가압류 집행)·제229조(추심·전부명령)·제293조(부동산가압류 집행·등기촉탁)·제291조(가압류의 본압류 이전)·제80조 이하(부동산 강제경매) · 민법 제750조(불법행위 손해배상) · 민사소송법 제256조(답변서) · 대법원 2023. 6. 1. 선고 2020다242935 판결(부당가압류 손해배상 책임 추정 및 책임제한, 대법원 92다8453 법리 재확인) · 대법원 2000. 10. 2.자 2000마5221 결정(장래·조건부 채권의 가압류 가능, 대법원 92다29801 법리 계승) · 대법원 1998. 11. 13. 선고 98다43441 판결(부동산 가압류 처분금지의 상대적 효력) · 법제처 찾기쉬운 생활법령정보 · 대한법률구조공단 · 대법원 전자민원센터. 본 자료는 일반적인 법률정보로, 개별 사건의 법률자문이 아닙니다.
+</div>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+})();
+function toggleFold(b){var fb=b.parentElement;var body=b.nextElementSibling;var open=fb.classList.toggle('open');if(body){body.style.display=open?'block':'none';}}
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('작성례가 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('작성례가 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('작성례를 내려받았습니다');}
+</script>
+</body>
+</html>
