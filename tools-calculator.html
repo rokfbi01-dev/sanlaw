@@ -746,7 +746,7 @@
         <option value="dongpo">외국국적동포 — 국내거소신고</option>
         <option value="alien-in">외국인 — 외국인등록(국내 거주)</option>
         <option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select></div>
-      <div class="line"><span class="lbl">수증자 — 법인격</span><select id="pty_bq__buyer" onchange="renderDocsBequest()"><option value="ind" selected>개인</option><option value="corp">법인 (재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option></select><span class="hint">법인·종중·교회도 <b>유증은 받을 수 있습니다</b>(상속은 불가)</span></div><div id="bq_partyDocsBox"></div><div class="docs" id="bq_docsBox"></div>
+      <div class="line"><span class="lbl">수증자 — 법인격</span><select id="pty_bq__buyer" onchange="renderDocsBequest()"><option value="ind" selected>개인</option><option value="corp">법인 (재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option></select><span class="hint">법인·종중·교회도 <b>유증은 받을 수 있습니다</b>(상속은 불가)</span></div><div class="line"><span class="lbl">유언집행자·상속인(등기의무자) — 외국 당사자</span><select id="bq_frOb" data-lbl="유언집행자·상속인(등기의무자)" onchange="renderDocsBequest()"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">내주는 쪽이 <b>외국인·재외국민</b>이면 <b>처분위임장·인감</b>이 달라집니다</span></div><div class="line"><span class="lbl">수증자(등기권리자) — 외국 당사자</span><select id="bq_frRi" data-lbl="수증자(등기권리자)" onchange="renderDocsBequest()"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">받는 쪽이 <b>외국인</b>이면 <b>취득신고·토지취득허가</b>가 따라옵니다</span></div><div id="bq_partyDocsBox"></div><div class="docs" id="bq_docsBox"></div>
     </div></div>
   </div>
 
@@ -1089,7 +1089,11 @@
       <div class="row grand"><span>총 합계</span><span id="ea_t_grand">0 원</span></div></div>
     <div class="actions"><button class="btn" onclick="calcEtcAcq()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
 
-    <div class="card green"><h2>④ 안내</h2><div class="body"><div class="docs" id="ea_docsBox"></div></div></div>
+    <div class="card green"><h2>④ 기타 취득원인 준비서류 · 대장</h2><div class="body">
+      <div class="line"><span class="lbl">등기의무자 — 법인격</span><select id="pty_ea__seller" onchange="renderDocsEtcAcq()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">내주는 쪽이 <b>법인·종중·교회</b>면 서류가 완전히 달라집니다</span></div>
+      <div class="line"><span class="lbl">등기권리자 — 법인격</span><select id="pty_ea__buyer" onchange="renderDocsEtcAcq()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">종교단체를 고르면 <b>취득세 감면 안내</b>가 함께 나옵니다</span></div>
+      <div class="line"><span class="lbl">등기의무자(내주는 쪽) — 외국 당사자</span><select id="ea_frOb" data-lbl="등기의무자(내주는 쪽)" onchange="renderDocsEtcAcq()"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">내주는 쪽이 <b>외국인·재외국민</b>이면 <b>처분위임장·인감</b>이 달라집니다</span></div><div class="line"><span class="lbl">등기권리자(받는 쪽) — 외국 당사자</span><select id="ea_frRi" data-lbl="등기권리자(받는 쪽)" onchange="renderDocsEtcAcq()"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">받는 쪽이 <b>외국인</b>이면 <b>취득신고·토지취득허가</b>가 따라옵니다</span></div><div id="ea_partyDocsBox"></div><div class="docs" id="ea_docsBox"></div>
+    </div></div>
   </div>
 
   <!-- ===== 공유물분할 (풀기능) ===== -->
@@ -1206,7 +1210,7 @@
         <label><input type="radio" name="pt_bform" value="apt" checked> 집합건물(아파트·빌라)</label>
         <label><input type="radio" name="pt_bform" value="house"> 일반건물(단독 등)</label>
         <label><input type="radio" name="pt_bform" value="land"> 토지만</label></div></div>
-      <div class="line"><span class="lbl">공유자(등기의무자) — 법인격</span><select id="pty_pt__seller" onchange="renderDocsPartition()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">파는 쪽이 <b>법인·종중·교회</b>면 서류가 완전히 달라집니다</span></div><div class="line"><span class="lbl">취득자(등기권리자) — 법인격</span><select id="pty_pt__buyer" onchange="renderDocsPartition()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">종교단체를 고르면 <b>취득세 감면 안내</b>가 함께 나옵니다</span></div><div id="pt_partyDocsBox"></div><div class="docs" id="pt_docsBox"></div>
+      <div class="line"><span class="lbl">공유자(등기의무자) — 법인격</span><select id="pty_pt__seller" onchange="renderDocsPartition()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">파는 쪽이 <b>법인·종중·교회</b>면 서류가 완전히 달라집니다</span></div><div class="line"><span class="lbl">취득자(등기권리자) — 법인격</span><select id="pty_pt__buyer" onchange="renderDocsPartition()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">종교단체를 고르면 <b>취득세 감면 안내</b>가 함께 나옵니다</span></div><div class="line"><span class="lbl">공유자(등기의무자) — 외국 당사자</span><select id="pt_frOb" data-lbl="공유자(등기의무자)" onchange="renderDocsPartition()"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">내주는 쪽이 <b>외국인·재외국민</b>이면 <b>처분위임장·인감</b>이 달라집니다</span></div><div class="line"><span class="lbl">취득자(등기권리자) — 외국 당사자</span><select id="pt_frRi" data-lbl="취득자(등기권리자)" onchange="renderDocsPartition()"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">받는 쪽이 <b>외국인</b>이면 <b>취득신고·토지취득허가</b>가 따라옵니다</span></div><div id="pt_partyDocsBox"></div><div class="docs" id="pt_docsBox"></div>
     </div></div>
   </div>
 
@@ -1330,7 +1334,7 @@
         <label><input type="radio" name="nk_bform" value="apt" checked> 집합건물(아파트·빌라)</label>
         <label><input type="radio" name="nk_bform" value="house"> 일반건물(단독 등)</label>
         <label><input type="radio" name="nk_bform" value="land"> 토지만</label></div></div>
-      <div class="line"><span class="lbl">매수인(등기권리자) — 법인격</span><select id="pty_nk__buyer" onchange="renderDocsNakchal()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">종교단체를 고르면 <b>취득세 감면 안내</b>가 함께 나옵니다</span></div><div id="nk_partyDocsBox"></div><div class="docs" id="nk_docsBox"></div>
+      <div class="line"><span class="lbl">매수인(등기권리자) — 법인격</span><select id="pty_nk__buyer" onchange="renderDocsNakchal()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">종교단체를 고르면 <b>취득세 감면 안내</b>가 함께 나옵니다</span></div><div class="line"><span class="lbl">매수인(등기권리자) — 외국 당사자</span><select id="nk_frRi" data-lbl="매수인(등기권리자)" onchange="renderDocsNakchal()"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">받는 쪽이 <b>외국인</b>이면 <b>취득신고·토지취득허가</b>가 따라옵니다</span></div><div id="nk_partyDocsBox"></div><div class="docs" id="nk_docsBox"></div>
     </div></div>
   </div>
 
@@ -1441,7 +1445,7 @@
         <label><input type="radio" name="dv_bform" value="apt" checked> 집합건물(아파트·빌라)</label>
         <label><input type="radio" name="dv_bform" value="house"> 일반건물(단독 등)</label>
         <label><input type="radio" name="dv_bform" value="land"> 토지만</label></div></div>
-      <div class="line"><span class="lbl">분할의무자(등기의무자) — 법인격</span><select id="pty_dv__seller" onchange="renderDocsDivision()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">파는 쪽이 <b>법인·종중·교회</b>면 서류가 완전히 달라집니다</span></div><div class="line"><span class="lbl">분할권리자(등기권리자) — 법인격</span><select id="pty_dv__buyer" onchange="renderDocsDivision()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">종교단체를 고르면 <b>취득세 감면 안내</b>가 함께 나옵니다</span></div><div id="dv_partyDocsBox"></div><div class="docs" id="dv_docsBox"></div>
+      <div class="line"><span class="lbl">분할의무자(등기의무자) — 법인격</span><select id="pty_dv__seller" onchange="renderDocsDivision()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">파는 쪽이 <b>법인·종중·교회</b>면 서류가 완전히 달라집니다</span></div><div class="line"><span class="lbl">분할권리자(등기권리자) — 법인격</span><select id="pty_dv__buyer" onchange="renderDocsDivision()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">종교단체를 고르면 <b>취득세 감면 안내</b>가 함께 나옵니다</span></div><div class="line"><span class="lbl">분할의무자(등기의무자) — 외국 당사자</span><select id="dv_frOb" data-lbl="분할의무자(등기의무자)" onchange="renderDocsDivision()"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">내주는 쪽이 <b>외국인·재외국민</b>이면 <b>처분위임장·인감</b>이 달라집니다</span></div><div class="line"><span class="lbl">분할권리자(등기권리자) — 외국 당사자</span><select id="dv_frRi" data-lbl="분할권리자(등기권리자)" onchange="renderDocsDivision()"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">받는 쪽이 <b>외국인</b>이면 <b>취득신고·토지취득허가</b>가 따라옵니다</span></div><div id="dv_partyDocsBox"></div><div class="docs" id="dv_docsBox"></div>
     </div></div>
   </div>
 
@@ -1620,6 +1624,9 @@
     <div class="actions"><button class="btn" onclick="calcMortgage()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
 
     <div class="card green"><h2>⑤ 근저당권 준비서류</h2><div class="body">
+      <div class="line"><span class="lbl">소유자(등기의무자) — 외국 당사자</span><select id="mt_frOb" data-lbl="소유자(등기의무자)" data-role="ob" onchange="renderPartyDocs('mt_',null,null,'','')"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">내주는 쪽이 <b>외국인·재외국민</b>이면 <b>처분위임장·인감</b>이 달라집니다</span></div>
+      <div class="line"><span class="lbl">근저당권자(채권자) — 외국 당사자</span><select id="mt_frRi" data-lbl="근저당권자(채권자)" data-role="rn" onchange="renderPartyDocs('mt_',null,null,'','')"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">받는 쪽이 <b>외국인·재외국민</b>이면 <b>주소증명·등록번호</b>가 필요합니다</span></div>
+      <div id="mt_partyDocsBox"></div>
       <div class="docs">
         <b>소유자(등기의무자)</b> — 등기권리증(등기필정보), 인감증명서 1통, 주민등록초본 1통(주소변동 포함), 인감도장, 신분증<br>
         <b>근저당권자(채권자)</b> — 주민등록초본 1통, 도장, 신분증 (법인이면 법인등기사항증명서·법인인감증명서·사용인감계)<br>
@@ -1684,6 +1691,9 @@
     <div class="actions"><button class="btn" onclick="calcGadeungi()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
 
     <div class="card green"><h2>④ 가등기 준비서류</h2><div class="body">
+      <div class="line"><span class="lbl">등기의무자(소유자) — 외국 당사자</span><select id="ga_frOb" data-lbl="등기의무자(소유자)" data-role="ob" onchange="renderPartyDocs('ga_',null,null,'','')"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">내주는 쪽이 <b>외국인·재외국민</b>이면 <b>처분위임장·인감</b>이 달라집니다</span></div>
+      <div class="line"><span class="lbl">가등기권자(등기권리자) — 외국 당사자</span><select id="ga_frRi" data-lbl="가등기권자(등기권리자)" data-role="rn" onchange="renderPartyDocs('ga_',null,null,'','')"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">받는 쪽이 <b>외국인·재외국민</b>이면 <b>주소증명·등록번호</b>가 필요합니다</span></div>
+      <div id="ga_partyDocsBox"></div>
       <div class="docs">
         <b>등기의무자(소유자)</b> — 등기권리증(등기필정보), 인감증명서 1통, 주민등록초본 1통, 인감도장, 신분증<br>
         <b>등기권리자(가등기권자)</b> — 주민등록초본 1통, 도장, 신분증<br>
@@ -1849,6 +1859,7 @@
       <div class="row"><span>공과금계</span><span id="rd_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계</span><span id="rd_t_grand">0 원</span></div></div>
     <div class="actions"><button class="btn" onclick="calcRedev()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+    <div class="card green"><h2>④ 이전고시 등기 준비서류</h2><div class="body"><div class="line"><span class="lbl">조합원 — 외국 당사자</span><select id="rd_frRi" data-lbl="조합원(분양받는 분)" data-role="ri" onchange="renderPartyDocs('rd_',null,null,'','')"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">조합원 중 <b>외국인·재외국민</b>이 있으면 서류가 달라집니다</span></div><div id="rd_partyDocsBox"></div><div class="docs" id="rd_docsBox"></div></div></div>
   </div>
 
   <!-- ===== 신탁등기 (풀기능) ===== -->
@@ -1902,6 +1913,9 @@
     <div class="actions"><button class="btn" onclick="calcSintak()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
 
     <div class="card green"><h2>④ 신탁등기 준비서류</h2><div class="body">
+      <div class="line"><span class="lbl">위탁자(소유자) — 외국 당사자</span><select id="st_frOb" data-lbl="위탁자(소유자)" data-role="ob" onchange="renderPartyDocs('st_',null,null,'','')"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">내주는 쪽이 <b>외국인·재외국민</b>이면 <b>처분위임장·인감</b>이 달라집니다</span></div>
+      <div class="line"><span class="lbl">수탁자(등기권리자) — 외국 당사자</span><select id="st_frRi" data-lbl="수탁자(등기권리자)" data-role="ri" onchange="renderPartyDocs('st_',null,null,'','')"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">받는 쪽이 <b>외국인·재외국민</b>이면 <b>주소증명·등록번호</b>가 필요합니다</span></div>
+      <div id="st_partyDocsBox"></div>
       <div class="docs">
         <b>위탁자(소유자)</b> — 등기권리증(등기필정보), 인감증명서 1통, 주민등록초본 1통, 인감도장, 신분증<br>
         <b>수탁자</b> — 주민등록초본 1통, 도장, 신분증 (신탁업자면 법인등기사항증명서·법인인감증명서)<br>
@@ -1930,10 +1944,44 @@
       <div class="note" style="margin-top:8px;">최고가매수신고인 또는 매수인이 되지 못한 경우에는 <b>500,000원 범위 내</b>에서 위임인과 협의합니다(보수표 Ⅵ-2 단서). 본 화면은 보수 <b>상한 안내용</b>이며, 실제 보수는 위임계약으로 확정됩니다.</div>
     </div></div>
 
-    <div class="card green"><h2>③ 참고</h2><div class="body">
+    <div class="card green"><h2>③ 매수신청대리 준비서류</h2><div class="body">
       <div class="docs">
+        <b>[입찰 전에 준비하실 것]</b><br>
+        <div class="note" style="margin:6px 0 10px;"><b>⏰ 입찰기일 하루 전까지는 끝내야 합니다</b> — 위임장에 찍을 <b>인감증명서</b>는 발급받는 데 시간이 걸리고, 입찰보증금도 미리 준비하셔야 합니다. <b>매각기일 최소 2~3일 전</b>에 연락 주십시오.</div>
+        <b>■ 위임하시는 분(매수희망자)이 준비할 것</b><br>
+        · <b>매수신청대리 위임장</b> — 대법원규칙에 정해진 양식입니다. <span class="hint">사무소에서 만들어 드리므로 <b>인감도장만</b> 가져오시면 됩니다.</span><br>
+        · <b>인감증명서</b> 1통 <span style="color:var(--seal);font-weight:700;">— 위임장에는 반드시 인감증명서를 붙여야 합니다.</span> <span class="hint">본인서명사실확인서로 갈음되는지는 법원마다 다르므로 미리 확인해 드립니다. <span class="tag chk">확인필요</span></span><br>
+        · <b>인감도장</b><br>
+        · <b>주민등록등본</b> 1통 · <b>신분증</b><br>
+        · <b>법인</b>이시면 → <b>법인등기사항증명서</b> 1통 · <b>법인인감증명서</b> 1통 · <b>법인인감도장</b> · <b>사업자등록증</b> 사본<br>
+        · <b>공동으로 입찰</b>하시면 → <b>공동입찰신고서</b> · <b>공동입찰자 목록</b>(지분 표시) · 공동입찰자 <b>각자의 인감증명서·인감도장</b><br><br>
+        <b>■ 외국인·재외국민이 입찰하시는 경우</b><br>
+        · <b>외국인등록을 하셨거나 국내거소신고를 하신 분</b> → <b>대한민국 인감증명서</b>(인감 신고 가능)<span class="law" title="인감증명법 제3조제3항 — 국내거소신고를 한 외국국적동포와 외국인등록을 한 외국인도 인감을 신고할 수 있다">인감증명법 §3③</span> · <b>인감도장</b> · <b>외국인등록 사실증명</b> 또는 <b>국내거소신고 사실증명</b> · <b>여권</b><br>
+        · <b>등록이 없는 외국 거주 외국인</b> → <b>본국의 인감증명 + 아포스티유</b>, 또는 <b>본국 공증인의 서명공증서면 + 아포스티유</b>, 또는 <b>주한 본국 대사관·영사관의 「서명 확인서면」</b> · <b>본국 주소증명서 + 아포스티유</b> · <b>여권 사본</b>(공증)<br>
+        · <b>외국 거주 재외국민</b> → <b>재외국민등록부 등본</b> · 대한민국 인감증명서(재외공관 인증을 받은 인감증명 발급 위임장으로 대리 발급) 또는 <b>재외공관의 공증</b><br>
+        · <b>외국어로 된 서면에는 번역문</b> + <b>번역확인서</b><br>
+        · <b>부동산등기용등록번호</b> — 낙찰 후 소유권이전등기 촉탁에 필요합니다. 국내에 체류지가 없으면 <b>서울출입국·외국인관서</b>에서 부여받습니다<span class="law" title="재외국민 및 외국인의 부동산등기신청절차에 관한 예규 제14조 제2호(등기예규 제1778호)">등기예규 제1778호 §14</span><br>
+        · <span style="color:var(--seal);font-weight:700;">★ 낙찰 뒤 「외국인 부동산 취득 신고」 — 경매로 취득하면 <b>취득한 날부터 6개월 이내</b>에 부동산 소재지 시·군·구청에 신고합니다</span><span class="law" title="부동산 거래신고 등에 관한 법률 제8조제2항 — 외국인등이 상속·경매 등 계약 외의 원인으로 부동산등을 취득한 때에는 취득한 날부터 6개월 이내에 신고관청에 신고하여야 한다">부동산거래신고법 §8②</span><br>
+        · <span style="color:#b03a3a;font-weight:700;">★ 입찰 전에 확인 — 군사기지·군사시설 보호구역, 지정문화유산·천연기념물 보호구역, 생태·경관보전지역, 야생생물 특별보호구역</span>의 토지인지 <a href="https://www.eum.go.kr" target="_blank" rel="noopener">토지이음</a>에서 미리 확인하십시오. <span class="hint">경매는 계약이 아니라 법원의 매각이지만, 취득 후 이용에 제한이 따를 수 있습니다. <span class="tag chk">확인필요</span></span><br><br>
+        <b>■ 입찰보증금</b><br>
+        · <b>최저매각가격의 10분의 1</b>이 원칙입니다<span class="law" title="민사집행규칙 제63조제1항 — 기일입찰에서 매수신청의 보증금액은 최저매각가격의 10분의 1로 한다">민사집행규칙 §63①</span>. <span class="hint">재매각 사건은 20~30%로 올라가는 경우가 있으니 <b>매각물건명세서를 반드시 확인</b>하십시오.</span><br>
+        · <b>자기앞수표 1장</b>으로 준비하시는 것이 가장 안전합니다. <span class="hint">현금·여러 장 수표도 되지만 계수 시간이 걸립니다.</span><br>
+        · 낙찰되지 못하면 <b>그 자리에서 바로 돌려받습니다.</b><br><br>
+        <b>■ 낙찰된 뒤에 필요한 것</b><br>
+        · <b>잔금</b> — 법원이 정한 <b>대금지급기한</b>까지 냅니다. <span class="hint">기한을 넘기면 보증금을 잃을 수 있습니다.</span><br>
+        · <b>소유권이전등기 촉탁</b>에 필요한 서류 — 주민등록등본, 취득세 영수필확인서, 국민주택채권 매입, 등기신청수수료, 말소할 등기 목록<br>
+        · <span class="hint">낙찰 후 등기는 메뉴의 <b>「경매·공매 낙찰(촉탁등기)」</b> 화면에서 비용을 확인하실 수 있습니다.</span><br><br>
+        <b>■ 미리 보시면 좋은 자료</b> <span class="hint">(모두 무료입니다)</span><br>
+        · <b>매각물건명세서 · 현황조사보고서 · 감정평가서</b> → <a href="https://www.courtauction.go.kr" target="_blank" rel="noopener">법원경매정보</a>에서 매각기일 <b>1주일 전</b>부터 공개됩니다<span class="law" title="민사집행법 제105조제2항 — 법원은 매각물건명세서·현황조사보고서 및 평가서의 사본을 법원에 비치하여 누구든지 볼 수 있도록 하여야 한다">민사집행법 §105②</span><br>
+        · <b>등기사항증명서</b> → <a href="https://www.iros.go.kr" target="_blank" rel="noopener">인터넷등기소</a><br>
+        · <b>건축물대장 · 토지대장</b> → <a href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a><br>
+        · <b>토지이용계획</b> → <a href="https://www.eum.go.kr" target="_blank" rel="noopener">토지이음</a><br>
+        · <b>인감증명서 · 주민등록등본</b> → 주민센터 또는 <a href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a><br><br>
+        <div class="dl" style="border-top:1px dashed var(--line);margin-top:6px;padding-top:6px;">
         <b>Ⅵ-1 vs Ⅵ-2</b> — 재산취득 상담·권리분석(Ⅵ-1)과 매수신청 대리(Ⅵ-2)는 <b>별개 보수</b>입니다. 상담 후 대리까지 수임하면 각각 산정·협의할 수 있습니다.<br>
-        <b>매수신청대리인 등록</b> — 법원 매수신청대리 업무는 지방법원에 등록한 법무사만 수행할 수 있습니다(민사집행규칙·대법원규칙). 등록 여부 확인 필요.
+        <b>매수신청대리인 등록</b> — 법원 매수신청대리는 <b>지방법원에 매수신청대리인으로 등록한 법무사</b>만 할 수 있습니다(「법무사의 경매·공매사건의 매수신청대리인 등록 등에 관한 규칙」).<br>
+        <span class="hint">▸ 대리행위를 할 때마다 <b>본인의 인감증명서가 붙은 위임장</b>과 <b>대리인등록증 사본</b> 등 대리권을 증명하는 서면을 법원에 냅니다. <span class="tag chk">확인필요</span> — 같은 날 같은 장소에서 여러 사건을 대리하는 경우의 처리 등 세부는 법원별 운용을 확인합니다.<br>
+        ▸ 위 목록은 일반적인 경우입니다. <b>법원과 사건에 따라 서류가 더 필요할 수 있습니다.</b></span></div>
       </div>
     </div></div>
   </div>
@@ -2003,6 +2051,9 @@
     <div class="actions"><button class="btn" onclick="calcMortgageAdd()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
 
     <div class="card green"><h2>⑤ 담보권 추가설정 준비서류</h2><div class="body">
+      <div class="line"><span class="lbl">소유자(등기의무자) — 외국 당사자</span><select id="ma_frOb" data-lbl="소유자(등기의무자)" data-role="ob" onchange="renderPartyDocs('ma_',null,null,'','')"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">내주는 쪽이 <b>외국인·재외국민</b>이면 <b>처분위임장·인감</b>이 달라집니다</span></div>
+      <div class="line"><span class="lbl">근저당권자(채권자) — 외국 당사자</span><select id="ma_frRi" data-lbl="근저당권자(채권자)" data-role="rn" onchange="renderPartyDocs('ma_',null,null,'','')"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">받는 쪽이 <b>외국인·재외국민</b>이면 <b>주소증명·등록번호</b>가 필요합니다</span></div>
+      <div id="ma_partyDocsBox"></div>
       <div class="docs">
         <b>소유자(등기의무자)</b> — 등기권리증(등기필정보), 인감증명서 1통, 주민등록초본 1통, 인감도장, 신분증<br>
         <b>근저당권자(채권자)</b> — 주민등록초본 1통, 도장, 신분증 (법인이면 법인등기사항증명서·법인인감증명서·사용인감계)<br>
@@ -2058,6 +2109,9 @@
     <div class="actions"><button class="btn" onclick="calcMortCancel()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
 
     <div class="card green"><h2>④ 근저당권말소 준비서류</h2><div class="body">
+      <div class="line"><span class="lbl">근저당권자(등기의무자) — 외국 당사자</span><select id="mtc_frOb" data-lbl="근저당권자(등기의무자)" data-role="ob" onchange="renderPartyDocs('mtc_',null,null,'','')"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">내주는 쪽이 <b>외국인·재외국민</b>이면 <b>처분위임장·인감</b>이 달라집니다</span></div>
+      <div class="line"><span class="lbl">소유자(등기권리자) — 외국 당사자</span><select id="mtc_frRi" data-lbl="소유자(등기권리자)" data-role="rn" onchange="renderPartyDocs('mtc_',null,null,'','')"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">받는 쪽이 <b>외국인·재외국민</b>이면 <b>주소증명·등록번호</b>가 필요합니다</span></div>
+      <div id="mtc_partyDocsBox"></div>
       <div class="docs">
         <b>근저당권자(채권자)</b> — 근저당권 <b>해지증서(말소원인증서)</b>, 등기필정보(등기권리증), 법인이면 법인등기사항증명서·법인인감증명서·위임장<br>
         <b>소유자(설정자)</b> — 신분증, 도장 (소유자는 등기권리자로서 통상 첨부서류 적음)<br>
@@ -2148,7 +2202,7 @@
         <label><input type="radio" name="pr_bform" value="apt" checked> 집합건물(아파트·빌라)</label>
         <label><input type="radio" name="pr_bform" value="house"> 일반건물(단독 등)</label>
         <label><input type="radio" name="pr_bform" value="land"> 토지</label></div></div>
-      <div class="line"><span class="lbl">소유자(등기권리자) — 법인격</span><select id="pty_pr__buyer" onchange="renderDocsPreserve()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">종교단체를 고르면 <b>취득세 감면 안내</b>가 함께 나옵니다</span></div><div id="pr_partyDocsBox"></div><div class="docs" id="pr_docsBox"></div>
+      <div class="line"><span class="lbl">소유자(등기권리자) — 법인격</span><select id="pty_pr__buyer" onchange="renderDocsPreserve()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">종교단체를 고르면 <b>취득세 감면 안내</b>가 함께 나옵니다</span></div><div class="line"><span class="lbl">소유자(등기권리자) — 외국 당사자</span><select id="pr_frRi" data-lbl="소유자(등기권리자)" onchange="renderDocsPreserve()"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">받는 쪽이 <b>외국인</b>이면 <b>취득신고·토지취득허가</b>가 따라옵니다</span></div><div id="pr_partyDocsBox"></div><div class="docs" id="pr_docsBox"></div>
     </div></div>
   </div>
 
@@ -2211,7 +2265,7 @@
     <div class="actions"><button class="btn" onclick="calcRight()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
 
     <div class="card green"><h2>④ 준비서류</h2><div class="body">
-      <div class="line"><span class="lbl">설정자(등기의무자) — 법인격</span><select id="pty_rt__seller" onchange="renderDocsRight()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">파는 쪽이 <b>법인·종중·교회</b>면 서류가 완전히 달라집니다</span></div><div class="line"><span class="lbl">권리자(등기권리자) — 법인격</span><select id="pty_rt__buyer" onchange="renderDocsRight()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">종교단체를 고르면 <b>취득세 감면 안내</b>가 함께 나옵니다</span></div><div id="rt_partyDocsBox"></div><div class="docs" id="rt_docsBox"></div>
+      <div class="line"><span class="lbl">설정자(등기의무자) — 법인격</span><select id="pty_rt__seller" onchange="renderDocsRight()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">파는 쪽이 <b>법인·종중·교회</b>면 서류가 완전히 달라집니다</span></div><div class="line"><span class="lbl">권리자(등기권리자) — 법인격</span><select id="pty_rt__buyer" onchange="renderDocsRight()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">종교단체를 고르면 <b>취득세 감면 안내</b>가 함께 나옵니다</span></div><div class="line"><span class="lbl">설정자(등기의무자) — 외국 당사자</span><select id="rt_frOb" data-lbl="설정자(등기의무자)" onchange="renderDocsRight()"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">내주는 쪽이 <b>외국인·재외국민</b>이면 <b>처분위임장·인감</b>이 달라집니다</span></div><div class="line"><span class="lbl">권리자(등기권리자) — 외국 당사자</span><select id="rt_frRi" data-lbl="권리자(등기권리자)" onchange="renderDocsRight()"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">받는 쪽이 <b>외국인</b>이면 <b>취득신고·토지취득허가</b>가 따라옵니다</span></div><div id="rt_partyDocsBox"></div><div class="docs" id="rt_docsBox"></div>
     </div></div>
   </div>
 
@@ -3477,6 +3531,161 @@ const EXTRA_AGENT=[
    정관·의사록 등 법인 전용 용어가 민사·비송 화면에 표시되지 않도록 한다. (앞으로 추가되는 항목에도 동일 적용) */
 function eaLabel(a,cat){return (a[4]&&a[4][cat])?a[4][cat]:a[1];}
 
+/* ═══════════ 동산·채권 담보등기 준비서류 ═══════════════════════════
+   [A] 「동산·채권 등의 담보에 관한 법률」 §2 5호·§3②(담보권설정자 자격)
+       §39②(관할 등기소 — 담보권설정자의 주소) · §43①(등기신청에 필요한 서면)
+   [A] 「동산·채권의 담보등기 등에 관한 규칙」 §29①(당사자 특정 서면)·§29④(자필서명 정보)
+   [A] 등기예규 제1885호(2026. 8. 19. 결재, 2026. 8. 20. 시행)
+       — 위임장 = 별지 제16호 / 자격자대리인의 등기의무자 확인 및 자필서명 정보 = 별지 제17호 신설
+       — 시행 전 접수되어 처리 중인 신청에도 적용(부칙 §2)
+   ※ 대전지방법원 등기국 「단일 관할」이라는 종전 표기는 오기였다. 2026-08 감사 정정. */
+const DC_HEAD =
+ '<div class="note" style="margin:6px 0 10px;"><b>⚠ 먼저 확인하십시오 — 아무나 할 수 있는 등기가 아닙니다</b><br>'
++'담보를 제공하는 쪽(<b>담보권설정자</b>)이 <b>법인</b>이거나 <b>사업자등록을 한 사람</b>이어야 합니다'
++'<span class="law" title="동산·채권 등의 담보에 관한 법률 제2조제5호 — 담보권설정자는 법인 또는 사업자등록을 한 사람으로 한정한다">법 §2 5호</span>. '
++'사업자등록이 없는 일반 개인은 이 등기를 할 수 없습니다. '
++'<span class="hint">2022. 4. 21.부터는 상호등기를 하지 않았더라도 사업자등록만 있으면 가능합니다.</span><br>'
++'<span class="hint">▸ 담보를 제공하는 분이 반드시 빚을 진 사람일 필요는 없습니다. 남의 빚을 위해 자기 물건을 담보로 내놓는 것(물상보증)도 됩니다.</span></div>';
+
+const DC_JURIS =
+ '<b>■ 어느 등기소에 내나요</b><br>'
++'· 담보를 제공하는 분의 <b>주소</b>를 관할하는 등기소 중 <b>담보등기를 취급하는 곳</b>입니다'
++'<span class="law" title="동산·채권 등의 담보에 관한 법률 제39조제2항 — 등기사무에 관하여는 대법원장이 지정·고시한 지방법원, 그 지원 또는 등기소 중 담보권설정자의 주소를 관할하는 지방법원, 그 지원 또는 등기소를 관할 등기소로 한다(2020.10.20. 개정)">법 §39②</span> <span class="tag A">A</span><br>'
++'&nbsp;&nbsp;· <b>법인</b>이면 → 법인등기부의 <b>본점(주된 사무소)</b> 소재지<br>'
++'&nbsp;&nbsp;· <b>사업자등록을 한 사람</b>이면 → <b>주민등록상 주소</b><br>'
++'&nbsp;&nbsp;· 국내에 영업소·사무소 설치등기를 하지 않은 <b>외국법인</b>이면 → <b>대법원 소재지를 관할하는 등기소</b>(서울중앙지방법원 등기국)<br>'
++'· <span style="color:var(--seal);font-weight:700;">전국 모든 등기소가 담보등기를 취급하지는 않습니다.</span> '
++'<a href="https://www.iros.go.kr" target="_blank" rel="noopener">인터넷등기소</a> → 고객센터 → 전국 등기소 안내 → 등기소 찾기에서 확인하십시오.<br>'
++'· 본점이나 주소를 옮겨 관할이 바뀐 경우에는 <b>새 주소를 증명하는 서류</b>를 함께 내면 새 관할 등기소에서 처리해 줍니다.<br><br>';
+
+const DC_PARTY =
+ '<b>■ 담보를 제공하는 분(담보권설정자)이 내는 서류</b><br>'
++'· <b>인감증명서</b> 또는 <b>본인서명사실확인서</b>(또는 전자본인서명확인서 발급증) — 1통. 인감증명서를 낼 때에는 신청서·위임장에 <b>같은 인감도장</b>을 찍습니다.<br>'
++'· <b>인감도장</b>(본인서명사실확인서를 낸 경우에는 자필서명)<br>'
++'· 다음 중 해당하는 서류<span class="law" title="동산·채권의 담보등기 등에 관한 규칙 제29조제1항 — 담보권설정자 또는 등기권리자의 특정을 위한 서면등">규칙 §29①</span><br>'
++'&nbsp;&nbsp;· <b>법인</b> → <b>법인등기사항증명서</b> 1통<br>'
++'&nbsp;&nbsp;· <b>사업자등록을 한 사람</b> → <b>주민등록등(초)본</b> 1통 + <b>사업자등록증명</b> 1통<br>'
++'· <b>등기필정보</b>(등기필증) — <span class="hint">해당 담보권설정자 이름으로 <b>담보등기가 이미 있는 경우</b>에만 냅니다. 맨 처음 설정등기라면 필요 없습니다.</span><br>'
++'· <b>위임장</b> — 법무사에게 맡기실 때. <b>2026. 8. 20.부터 정해진 양식(별지 제16호·A4)</b>을 씁니다'
++'<span class="law" title="동산·채권의 담보등기 신청에 관한 업무처리지침 제4조제2항 — 대리인이 제출하는 위임장의 양식은 별지 제16호와 같이 하며 용지규격은 A4로 한다(등기예규 제1885호, 2026.8.20. 시행)">등기예규 제1885호</span> <span class="tag A">A</span> '
++'<span class="hint">사무소에서 만들어 드리므로 <b>도장만</b> 준비하시면 됩니다.</span><br>'
++'<div style="border-left:3px solid var(--gold);padding:6px 8px;margin:8px 0;background:#fdfaf0;border-radius:4px;line-height:1.6;">'
++'▸ <span style="color:#b03a3a;font-weight:700;">[담보를 제공하는 분이 외국인·재외국민·외국법인이면]</span><br>'
++'· <b>주민등록번호가 없는 재외국민·외국인</b>은 <b>부동산등기용등록번호</b>를 부여받아 그 <b>등록번호증명서</b>를 내야 합니다'
++'<span class="law" title="동산·채권의 담보등기 등에 관한 규칙 제29조제1항제1호 가목 — 담보권설정자나 등기권리자가 자연인인 경우 성명·주소 및 주민등록번호(주민등록번호가 없는 재외국민과 외국인의 경우에는 「부동산등기법」 제49조제1항제2호 또는 제4호에 따라 부여받은 부동산등기용등록번호를 말한다)를 증명하는 서면등">규칙 §29①1호 가목</span> <span class="tag A">A</span><br>'
++'· <b>외국인등록 또는 국내거소신고를 하신 경우</b> → <b>외국인등록 사실증명</b> 또는 <b>국내거소신고 사실증명</b>(주소증명) + <b>대한민국 인감증명서</b>'
++'<span class="law" title="인감증명법 제3조제3항 — 국내거소신고를 한 외국국적동포와 외국인등록을 한 외국인도 인감을 신고할 수 있다">인감증명법 §3③</span> + <b>인감도장</b> + <b>외국인등록증·국내거소신고증</b><br>'
++'· <b>등록 없이 외국에 사시는 경우</b> → <b>본국 관공서 주소증명서 + 아포스티유</b>(또는 영사확인), <b>본국의 인감증명 + 아포스티유</b> 또는 <b>본국 공증인의 서명공증서면 + 아포스티유</b>'
++'<span class="hint">(날인 제도가 없는 나라이면 <b>주한 본국 대사관·영사관의 「서명 확인서면」</b>)</span>, <b>위임장은 공증 + 아포스티유</b> 또는 재외공관 인증<br>'
++'· <b>외국 거주 재외국민</b> → <b>재외국민등록부 등본</b> + 대한민국 인감증명서(재외공관 인증을 받은 발급 위임장으로 대리 발급) 또는 <b>재외공관의 공증</b><br>'
++'· <b>외국법인</b> → 본국의 <b>법인 존재·대표자 자격을 증명하는 서면 + 아포스티유</b>, 국내 영업소 설치등기를 하셨으면 <b>그 등기사항증명서</b><br>'
++'&nbsp;&nbsp;<span class="hint">국내에 영업소·사무소 설치등기가 없으면 관할은 <b>서울중앙지방법원 등기국</b>입니다.</span><br>'
++'· <b>외국어로 된 서면에는 번역문</b> + <b>번역확인서</b>(번역인의 자격·서명) + 번역인 신분증 사본<br>'
++'<span class="hint">▸ 아포스티유는 <b>헤이그 협약 가입국</b>에서만 됩니다. 미가입국이면 <b>주재 대한민국 영사의 확인</b>을 받으십시오.</span></div>';
+
+const DC_LENDER =
+ '<b>■ 담보를 받는 분(담보권자)이 내는 서류</b><br>'
++'· <b>법인등기사항증명서</b>(법인) 또는 <b>주민등록등(초)본</b>(개인) 1통<br>'
++'· <b>도장</b>·신분증<br>'
++'<div style="border-left:3px solid var(--gold);padding:6px 8px;margin:8px 0;background:#fdfaf0;border-radius:4px;line-height:1.6;">'
++'▸ <span style="color:#1d6b3f;font-weight:700;">[담보를 받는 분이 외국인·재외국민·외국법인이면]</span><br>'
++'· 주민등록번호가 없으면 <b>부동산등기용등록번호증명서</b>(규칙 §29①1호 가목)<br>'
++'· <b>주소증명</b> — 외국인등록 사실증명 / 국내거소신고 사실증명 / 재외국민등록부 등본 / 본국 주소증명서 + 아포스티유<br>'
++'· <b>외국법인</b> → 본국의 법인 증명서 + 아포스티유, 또는 국내 영업소 등기사항증명서<br>'
++'· <b>외국어 서면에는 번역문 + 번역확인서</b><br>'
++'<span class="hint">▸ 받는 쪽은 <b>인감증명서가 필요 없습니다.</b> 담보등기는 소유권을 얻는 등기가 아니므로 <b>「외국인 부동산 취득 신고」도 하지 않습니다.</b></span></div>';
+
+const DC_OFFICE =
+ '<b>■ 법무사가 만들어 제출하는 서류</b> <span class="hint">(의뢰인이 준비하실 것은 아닙니다)</span><br>'
++'· <b>등기신청서</b> — 등기 종류에 맞는 대법원 양식<br>'
++'· <b>자격자대리인의 등기의무자 확인 및 자필서명 정보</b> — <b>2026. 8. 20. 신설</b>. 법무사가 신분증·인감증명서 등으로 본인을 확인하고 자필서명하여 냅니다(별지 제17호)'
++'<span class="law" title="동산·채권의 담보등기 신청에 관한 업무처리지침 제4조제1항제6호·제3항 신설 — 「동산·채권의 담보등기 등에 관한 규칙」 제29조제4항에 따른 서면등. 작성방법은 「자격자대리인의 등기의무자 확인 및 자필서명 정보 제공에 관한 예규」를 준용한다(등기예규 제1885호)">등기예규 제1885호</span> <span class="tag A">A</span><br>'
++'· <b>등록면허세영수필확인서</b> · <b>등기신청수수료영수필확인서</b><br><br>';
+
+const DC_WHERE =
+ '<div class="dl" style="border-top:1px dashed var(--line);margin-top:6px;padding-top:6px;">'
++'<b>■ 서류는 어디서 떼나요</b><br>'
++'· <b>인감증명서 · 본인서명사실확인서 · 주민등록등(초)본</b> → 가까운 <b>주민센터</b> 또는 <a href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a><br>'
++'· <b>법인등기사항증명서</b> → <a href="https://www.iros.go.kr" target="_blank" rel="noopener">인터넷등기소</a><br>'
++'· <b>사업자등록증명</b> → <a href="https://hometax.go.kr" target="_blank" rel="noopener">국세청 홈택스</a> → 증명·등록·신청 → 사업자등록증명<br>'
++'· <b>등록면허세</b> 신고·납부 → <a href="https://www.wetax.go.kr" target="_blank" rel="noopener">위택스</a> 또는 관할 시·군·구청<br>'
++'· <b>등기신청수수료</b> 납부 → <a href="https://www.iros.go.kr" target="_blank" rel="noopener">인터넷등기소</a>(카드·계좌이체) 또는 등기소 무인발급기<br>'
++'· <b>담보등기 신청서 양식</b> → <a href="https://www.iros.go.kr" target="_blank" rel="noopener">인터넷등기소</a> → 자료센터 → 등기신청양식 → 동산·채권담보등기<br>'
++'<br><span class="hint">▸ 모든 서류는 <b>주민등록번호 뒷자리가 나오게</b> 발급받으십시오.<br>'
++'▸ 담보등기는 <b>전자신청·전자표준양식(e-Form)</b>으로 하면 등기신청수수료가 줄어듭니다.<br>'
++'▸ 위 목록은 일반적인 경우입니다. <b>사안에 따라 서류가 더 필요할 수 있습니다.</b></span></div>';
+
+const DC_OBJ =
+ '<b>■ 담보로 잡을 물건·채권을 적은 목록</b> <span class="hint">(가장 중요합니다)</span><br>'
++'· <b>동산</b>을 담보로 할 때 — 다음 둘 중 하나로 특정합니다<span class="law" title="동산·채권의 담보등기 등에 관한 규칙 제35조제1항제1호 — 동산의 특성에 따라 특정하는 경우 동산의 종류 및 제조번호 또는 제품번호 등, 보관장소에 따라 특정하는 경우 동산의 종류 및 보관장소의 소재지(같은 보관장소의 같은 종류 동산 전체를 담보목적물로 하는 경우에 한정)">규칙 §35①</span><br>'
++'&nbsp;&nbsp;① <b>물건 하나하나로</b> — 동산의 종류 + <b>제조번호·제품번호</b> 등 다른 물건과 구별되는 정보<br>'
++'&nbsp;&nbsp;② <b>보관장소로</b> — 동산의 종류 + <b>보관장소의 주소</b>. <span class="hint">이때는 그 창고에 있는 같은 종류 물건 <b>전체</b>를 담보로 잡는 경우에만 됩니다.</span><br>'
++'· <b>채권</b>을 담보로 할 때 — 채권의 <b>채권자</b>와 <b>채무자</b>의 이름·주소, 발생 원인, 발생 연월일 등<br>'
++'&nbsp;&nbsp;<span class="hint">아직 생기지 않은 장래의 채권이라 채무자가 정해지지 않았으면 채무자를 적지 않을 수 있습니다.</span><br>'
++'· 목록은 <a href="https://www.iros.go.kr" target="_blank" rel="noopener">인터넷등기소</a>에서 <b>전자적으로 작성·제출</b>할 수 있습니다(양식 제15호).<br><br>';
+
+const DCDOCS={
+set:
+ '<b>[동산·채권 담보권 설정등기 준비서류]</b><br>'
++DC_HEAD
++'<b>■ 등기원인을 증명하는 서류</b><br>'
++'· <b>담보권설정계약서</b> — 채권액을 정한 경우<br>'
++'· <b>근담보권설정계약서</b> — <b>채권최고액</b>만 정하고 앞으로 늘었다 줄었다 하는 거래를 담보할 경우'
++'<span class="law" title="동산·채권 등의 담보에 관한 법률 제5조제1항 — 동산담보권은 그 담보할 채무의 최고액만을 정하고 채무의 확정을 장래에 보류하여 설정할 수 있다">법 §5①</span><br>'
++'· 등기원인에 <b>제3자의 허가·동의·승낙</b>이 필요하면 그 서류'
++'<span class="law" title="동산·채권 등의 담보에 관한 법률 제43조제1항제3호">법 §43①3호</span><br><br>'
++DC_OBJ+DC_PARTY+DC_LENDER+DC_OFFICE+DC_JURIS+DC_WHERE,
+
+add:
+ '<b>[동산·채권 담보권 추가설정등기 준비서류]</b><br>'
++'<div class="note" style="margin:6px 0 10px;">이미 담보등기가 되어 있는 상태에서 <b>같은 채권을 위해 담보물을 더 잡는</b> 등기입니다. 처음 설정할 때와 서류는 거의 같지만, <b>기존 등기를 특정하는 정보</b>(등기고유번호·등기일련번호)와 <b>등기필정보</b>가 반드시 필요합니다.</div>'
++'<b>■ 등기원인을 증명하는 서류</b><br>'
++'· <b>추가 담보권설정계약서</b>(근담보이면 추가 근담보권설정계약서)<br>'
++'· <b>기존 담보등기의 등기사항증명서</b> — 등기고유번호·등기일련번호 확인용<br><br>'
++DC_OBJ
++'<b>■ 담보를 제공하는 분(담보권설정자)이 내는 서류</b><br>'
++'· <b>인감증명서</b> 또는 <b>본인서명사실확인서</b> 1통 + <b>인감도장</b><br>'
++'· <b>법인등기사항증명서</b>(법인) / <b>주민등록등(초)본</b> + <b>사업자등록증명</b>(사업자등록을 한 사람)<br>'
++'· <b style="color:var(--seal);">등기필정보(등기필증) — 추가설정에서는 반드시 필요합니다.</b> <span class="hint">잃어버리셨으면 미리 알려 주십시오.</span><br>'
++'· <b>위임장</b>(별지 제16호·A4) — 사무소에서 만들어 드립니다<span class="law" title="동산·채권의 담보등기 신청에 관한 업무처리지침 제4조제2항(등기예규 제1885호, 2026.8.20. 시행)">등기예규 제1885호</span><br><br>'
++DC_LENDER+DC_OFFICE+DC_JURIS+DC_WHERE,
+
+chg:
+ '<b>[담보목적물·담보권의 변경 · 경정 · 연장 · 말소등기 준비서류]</b><br>'
++'<div class="note" style="margin:6px 0 10px;"><b>⏰ 연장등기는 기간을 넘기면 안 됩니다</b> — 담보등기의 <b>존속기간은 5년을 넘을 수 없고</b>, 계속 담보로 두시려면 <b>존속기간이 끝나기 전에</b> 연장등기를 하셔야 합니다'
++'<span class="law" title="동산·채권 등의 담보에 관한 법률 제49조제1항·제2항 — 담보권의 존속기간은 5년을 초과할 수 없다. 다만 5년을 초과하지 않는 기간으로 이를 갱신할 수 있다">법 §49</span>. 기간이 지나면 담보권이 사라집니다.</div>'
++'<b>■ 등기원인을 증명하는 서류</b> <span class="hint">(하시려는 등기에 맞는 것 하나)</span><br>'
++'· <b>변경</b> — 담보목적물 변경계약서, 보관장소 변경을 증명하는 서류, 채권최고액·존속기간 변경계약서 등<br>'
++'· <b>경정</b> — 잘못 적힌 사실을 증명하는 서류(계약서 원본 등)<br>'
++'· <b>연장</b> — <b>연장에 관한 합의를 증명하는 서류</b>. <span class="hint">존속기간 만료 전에 신청하셔야 합니다.</span><br>'
++'· <b>말소</b> — <b>해지증서</b>(빚을 다 갚았다는 담보권자의 서류) 또는 담보권 소멸을 증명하는 서류<br><br>'
++'<b>■ 등기의무자가 되는 쪽이 내는 서류</b><br>'
++'· <b>말소·담보권자에게 불리한 변경</b> → <b>담보권자</b>가 등기의무자입니다. <b>인감증명서</b>(또는 본인서명사실확인서) + <b>인감도장</b> + <b>등기필정보</b><br>'
++'· <b>담보권설정자에게 불리한 변경</b> → <b>담보권설정자</b>가 등기의무자입니다. 위와 같은 서류<br>'
++'· <b>법인등기사항증명서</b>(법인) / <b>주민등록등(초)본</b>(개인) 각 1통<br>'
++'· <b>위임장</b>(별지 제16호·A4)<span class="law" title="동산·채권의 담보등기 신청에 관한 업무처리지침 제4조제2항(등기예규 제1885호, 2026.8.20. 시행)">등기예규 제1885호</span><br>'
++'<span class="hint">▸ 어느 쪽이 등기의무자인지는 등기 내용에 따라 달라집니다. 어느 분 도장이 필요한지 사무소에서 확인해 알려 드립니다.</span><br><br>'
++'<b>■ 보관장소를 바꾸는 경우</b><br>'
++'· 바뀐 <b>보관장소의 주소</b>와 그 사실을 확인할 수 있는 서류(임대차계약서·창고계약서 등)<br>'
++'· 전용 양식(담보권변경등기신청 — 보관장소)이 따로 있습니다.<br><br>'
++DC_OFFICE+DC_JURIS+DC_WHERE,
+
+name:
+ '<b>[등기명의인 표시변경 · 담보권설정자 표시변경 등 준비서류]</b><br>'
++'<div class="note" style="margin:6px 0 10px;">담보권의 <b>내용은 그대로</b> 두고, 이름·상호·주소·본점 같은 <b>표시만 고치는</b> 등기입니다.</div>'
++'<b>■ 변경 사실을 증명하는 서류</b> <span class="hint">(바뀐 내용에 맞는 것)</span><br>'
++'· <b>상호·명칭·본점(주된 사무소) 변경</b> → <b>법인등기사항증명서</b> 1통<br>'
++'· <b>성명 변경</b> → <b>기본증명서(상세)</b> 1통<br>'
++'· <b>주소 변경</b> → <b>주민등록초본</b>(주소 이력이 전부 나오게) 1통<br>'
++'· <b>사업자등록 사항 변경</b> → <b>사업자등록증명</b> 1통<br>'
++'<span style="color:var(--seal);font-weight:700;">※ 담보권설정자의 법인등기부상 상호·명칭·본점이 바뀐 경우에는 등기관이 통지를 받아 <b>직권으로</b> 고쳐 주므로, 따로 신청하지 않으셔도 되는 경우가 있습니다'
++'<span class="law" title="동산·채권의 담보등기 등에 관한 규칙 제36조제2항 — 담보등기부에 기록된 담보권설정자의 법인등기부상 상호, 명칭, 본점 또는 주된 사무소나 영업소가 변경되어 법 제51조제3항에 따른 통지를 받은 경우 등기관은 직권으로 변경하여야 한다">규칙 §36②</span>. 먼저 등기사항증명서를 확인해 보십시오.</span><br><br>'
++'<b>■ 신청인이 내는 서류</b><br>'
++'· <b>도장</b>(인감도장이 아니어도 됩니다) · 신분증<br>'
++'· <b>위임장</b>(별지 제16호·A4)<span class="law" title="동산·채권의 담보등기 신청에 관한 업무처리지침 제4조제2항(등기예규 제1885호, 2026.8.20. 시행)">등기예규 제1885호</span><br>'
++'<span class="hint">▸ 표시변경등기는 등기명의인 <b>혼자서</b> 신청할 수 있습니다. 상대방 도장은 필요 없습니다.</span><br><br>'
++DC_OFFICE+DC_JURIS+DC_WHERE};
+
 /* ===================== 사건 정의 ===================== */
 // kind: tier(누진) / flat(정액)  · regType: 부동산 등기수수료 / regCorp: 상업수수료 · tax: 세금 라벨
 const SCENARIO={
@@ -3528,14 +3737,22 @@ const SCENARIO={
  "지급명령·조정신청":{cat:'civil',full:'payorder'},
  "동산·채권담보권 설정(설정·이전·채권액 증가)":{cat:'re',kind:'tier',tier:'Ⅳ-1',baseLabel:'채권액(채권최고액)',
    unitFee:20000, unitLabel:'담보목적물(동산·채권) 개수', unitLaw:'보수기준 §17① — 1개 초과 시 초과 1개마다 20,000원',
-   prof:{guide:'▸ 「동산·채권 등의 담보에 관한 법률」에 따른 <b>담보등기</b>입니다. 관할은 <b>대전지방법원 등기국</b> 단일 관할입니다.<br>▸ 담보목적물인 동산 또는 채권이 <b>1개를 초과하면 초과 1개마다 20,000원</b>을 가산합니다(보수기준 <b>§17①</b>). 다만 동산을 <b>보관장소로 특정</b>하는 경우에는 같은 보관장소의 같은 종류 동산 전체를 <b>1개</b>로 봅니다.',injiKind:'none',songCnt:0}},
+   regType:'일반', unitsLabel:'등기 사건의 개수', regLic:{rate:0.001,min:9000,label:'담보권 설정·이전 — 채권금액의 1천분의 1(최저 9,000원)'},
+   pubGuide:'▸ 「동산·채권 등의 담보에 관한 법률」에 따른 <b>담보등기</b>입니다. 관할은 <b>담보권설정자의 주소</b>(법인은 본점·주된 사무소)를 관할하는 등기소 중 담보등기를 취급하는 곳입니다(법 <b>§39②</b>). <span class="tag A">A</span> 아래 「준비서류」에서 확인하십시오.<br>▸ <b>등록면허세</b>는 채권금액의 <b>1천분의 1</b>, 다만 그 금액이 9,000원보다 적으면 <b>9,000원</b>입니다(지방세법 <b>§28①5호의2</b>). <b>지방교육세</b>는 등록면허세의 <b>20%</b>입니다.<br>▸ <b>등기신청수수료</b>는 부동산등기 수수료를 준용하되 「부동산 개수」를 <b>「사건의 개수」</b>로 봅니다(등기예규 <b>제1856호 4.가.·4의2.라.</b>). <span class="tag A">A</span><br>▸ 담보등기에는 <b>인지·송달료·국민주택채권</b>이 없습니다.',
+   docs:DCDOCS.set},
  "동산·채권담보권 추가설정":{cat:'re',kind:'tier',tier:'Ⅳ-2',baseLabel:'채권액(채권최고액)',
    unitFee:20000, unitLabel:'담보목적물(동산·채권) 개수', unitLaw:'보수기준 §17① — 1개 초과 시 초과 1개마다 20,000원',
-   prof:{injiKind:'none',songCnt:0}},
+   regType:'일반', unitsLabel:'등기 사건의 개수', regLic:{rate:0.001,min:9000,label:'담보권 설정·이전 — 채권금액의 1천분의 1(최저 9,000원)'},
+   pubGuide:'▸ 이미 담보등기가 되어 있는 상태에서 <b>같은 채권을 위해 담보물을 더 잡는</b> 등기입니다.<br>▸ <b>등록면허세</b>는 채권금액의 <b>1천분의 1</b>(최저 9,000원), <b>지방교육세</b>는 그 <b>20%</b>입니다(지방세법 <b>§28①5호의2</b>). <span class="tag A">A</span><br>▸ 관할은 <b>담보권설정자의 주소</b>를 관할하는 등기소입니다(법 <b>§39②</b>).<br>▸ 담보등기에는 <b>인지·송달료·국민주택채권</b>이 없습니다.',
+   docs:DCDOCS.add},
  "동산·채권담보권 변경·경정·연장·말소":{cat:'re',kind:'flat',flat:'Ⅳ-3(1)',
-   prof:{guide:'▸ 담보목적물의 변경, 담보권의 변경·경정·연장·말소 — 건당 <b>100,000원</b>(보수표 Ⅳ-3)',injiKind:'none',songCnt:0}},
+   regType:'기타', unitsLabel:'등기 사건의 개수', regLic:{flat:9000,label:'그 밖의 등기 — 건당 9,000원'},
+   pubGuide:'▸ 담보목적물의 변경, 담보권의 변경·경정·연장·말소 — 법무사 보수는 건당 <b>100,000원</b>(보수표 Ⅳ-3).<br>▸ <b>등록면허세</b>는 「그 밖의 등기」로서 <b>건당 9,000원</b>, <b>지방교육세</b>는 그 <b>20%</b>입니다(지방세법 <b>§28①5호의2 나목</b>). <span class="tag A">A</span><br>▸ <b>연장등기</b>는 존속기간(최장 5년)이 <b>끝나기 전에</b> 하셔야 합니다(법 <b>§49</b>).<br>▸ 담보등기에는 <b>인지·송달료·국민주택채권</b>이 없습니다.',
+   docs:DCDOCS.chg},
  "동산·채권담보 등기명의인 표시변경 등":{cat:'re',kind:'flat',flat:'Ⅳ-3(2)',
-   prof:{guide:'▸ 등기명의인 표시의 변경·경정, 그 밖의 등기(담보권설정자의 변경·경정) — 건당 <b>70,000원</b>(보수표 Ⅳ-3)',injiKind:'none',songCnt:0}},
+   regType:'기타', unitsLabel:'등기 사건의 개수', regLic:{flat:9000,label:'그 밖의 등기 — 건당 9,000원'},
+   pubGuide:'▸ 등기명의인 표시의 변경·경정, 그 밖의 등기(담보권설정자의 변경·경정) — 법무사 보수는 건당 <b>70,000원</b>(보수표 Ⅳ-3).<br>▸ <b>등록면허세</b>는 「그 밖의 등기」로서 <b>건당 9,000원</b>, <b>지방교육세</b>는 그 <b>20%</b>입니다(지방세법 <b>§28①5호의2 나목</b>). <span class="tag A">A</span><br>▸ 담보권설정자의 법인등기부상 상호·본점이 바뀐 경우에는 등기관이 <b>직권으로</b> 고치므로 신청이 필요 없을 수 있습니다(규칙 <b>§36②</b>).<br>▸ 담보등기에는 <b>인지·송달료·국민주택채권</b>이 없습니다.',
+   docs:DCDOCS.name},
  "상담·자문 (개별)":{cat:'civil',kind:'flat',flat:'Ⅹ-1(1)',
    prof:{guide:'▸ 의뢰인과의 개별적 상담·자문료는 <b>1건당 150,000원</b>입니다(보수기준 <b>§26①</b>).<br>▸ 다만 <b>사건의 수임이 따르는 경우에는 상담·자문료를 면제할 수 있습니다</b>(같은 항 단서). 수임으로 이어지면 위 「수임 범위」와 별개로 면제 여부를 정하십시오.',injiKind:'none',songCnt:0}},
  "상담·자문 (계속적·월액)":{cat:'civil',kind:'flat',flat:'Ⅹ-1(2)',
@@ -4000,7 +4217,11 @@ function renderPartyDocs(prefix,sellerSel,buyerSel,sellerName,buyerName){
   const be=buyerSel?document.getElementById(buyerSel):null;
   const st=se?(se.value||'ind'):'ind';
   const bt=be?(be.value||'ind'):'ind';
-  if(st==='ind'&&bt==='ind'){box.innerHTML='';return;}
+  /* 외국인·재외국민 — {prefix}frOb(등기의무자) · {prefix}frRi(등기권리자) 셀렉트가 있는 화면에만 붙는다.
+     매매·상속·증여·부담부증여는 화면 자체에 전용 셀렉트가 있으므로 여기서는 건너뛴다. 2026-08 신설 */
+  const _fo=document.getElementById(prefix+'frOb'), _fr=document.getElementById(prefix+'frRi');
+  const _fov=_fo?_fo.value:'', _frv=_fr?_fr.value:'';
+  if(st==='ind'&&bt==='ind'&&!_fov&&!_frv){box.innerHTML='';return;}
   let h='';
   [[st,true,sellerName],[bt,false,buyerName]].forEach(function(x){
     if(x[0]==='ind'||!x[2])return;
@@ -4009,6 +4230,8 @@ function renderPartyDocs(prefix,sellerSel,buyerSel,sellerName,buyerName){
   });
   if(st==='relig'||bt==='relig'){h+=religExemptHTML();
     if(['s_','gv_','bv_'].indexOf(prefix)>=0)h+=religGratisHTML();}
+  if(_fov)h+=foreignBlock(_fov,_fo.getAttribute('data-lbl')||sellerName||'등기의무자',_fo.getAttribute('data-role')||'ob');
+  if(_frv)h+=foreignBlock(_frv,_fr.getAttribute('data-lbl')||buyerName||'등기권리자',_fr.getAttribute('data-role')||'ri');
   box.innerHTML=h;
 }
 
@@ -4071,8 +4294,8 @@ function renderDocsSale(){renderPartyDocs('','pty_sale_seller','pty_sale_buyer',
     '· 부동산등기부등본 <span class="hint">(근저당·가압류 등 부담 확인)</span><br>'+
     '· <b>토지거래허가구역</b>이면 <b>토지거래계약 허가증</b> <span class="tag chk">확인필요</span><br>'+
     '· <b>농지</b>이면 <b>농지취득자격증명</b>(관할 시·구·읍·면장)<br>'+
-    foreignBlock(frS,'매도인')+
-    foreignBlock(frB,'매수인')+
+    foreignBlock(frS,'매도인','ob')+
+    foreignBlock(frB,'매수인','ri')+
     (frB&&frB!=='kor-in'&&frB!=='kor-out'?'<div style="border-left:3px solid var(--seal);padding:6px 8px;margin:6px 0;background:#fdeaea;border-radius:4px;line-height:1.6;">▸ <b>외국인등의 부동산 취득</b> — 「부동산 거래신고 등에 관한 법률」 <span class="tag chk">확인필요</span><br>· <b>계약(매매)으로 취득</b> → 부동산거래신고를 하면 별도 취득신고는 하지 않습니다(중복 배제).<br>· <span style="color:#b03a3a;font-weight:700;">★ 「토지」를 취득하는 계약 — 군사기지 및 군사시설 보호구역, 문화유산·자연유산 보호구역, 생태·경관보전지역, 야생생물 특별보호구역 등은 「계약 체결 전」에 관할 시장·군수·구청장의 허가</b>를 받아야 하며, <b>허가 없이 체결한 계약은 무효</b>입니다. <b>토지이용계획확인원</b>으로 반드시 확인하십시오.<br>· 종전 「외국인토지법」은 <b>폐지</b>되어 위 법률로 통합되었습니다.</div>':'')+
     (frS?'<div style="border-left:3px solid var(--seal);padding:6px 8px;margin:6px 0;background:#fdeaea;border-radius:4px;line-height:1.6;">▸ <b>매도인이 소득세법상 「비거주자」</b>이면 양도소득세 신고·납부 방법과 원천징수 여부가 달라질 수 있습니다. <b>세무 전문가의 검토</b>를 받으십시오. <span class="tag chk">확인필요</span> <span class="hint">— 법무사의 직무범위(법무사법 §2)를 벗어나는 세무 판단은 하지 않습니다.</span></div>':'')+
     '<div class="dl" style="border-top:1px dashed var(--line);margin-top:6px;padding-top:6px;">'+
@@ -4259,8 +4482,8 @@ function renderDocsInherit(){renderPartyDocs('s_',null,'pty_s__buyer','','상속
     '· 신청서, <b>위임장</b>, 취득세 영수필확인서, <b>국민주택채권 매입 영수증</b>(발행번호 기재), 등기신청수수료 영수필확인서<br>'+
     '· 부동산등기부등본<br>'+
     '· <span class="hint">상속등기는 <b>등기필증(권리증)이 필요 없습니다</b>(단독신청·포괄승계).</span><br>'+
-    foreignBlock(frDec,'피상속인')+
-    foreignBlock(frHeir,'상속인')+
+    foreignBlock(frDec,'피상속인','dec')+
+    foreignBlock(frHeir,'상속인','ri')+
     (frDec||frHeir?'<div style="border-left:3px solid var(--seal);padding:6px 8px;margin:6px 0;background:#fdeaea;border-radius:4px;line-height:1.6;">▸ <b>외국 당사자가 있는 상속등기의 특례</b><br>· <b>외국인인 상속인</b>은 대한민국 가족관계등록부가 없으므로 <b>본국 관공서 발행 신분·친족관계 증명서</b>(출생증명서·혼인증명서·사망증명서 등) + <b>아포스티유</b>(또는 영사확인) + <b>번역문</b>으로 상속인 범위를 소명합니다.<br>· <b>준거법</b> — 「국제사법」상 상속은 <b>피상속인의 본국법</b>에 따르는 것이 원칙입니다. 피상속인이 외국인이면 <b>본국법의 상속인 범위·상속분</b>을 확인해야 하며, 그 내용을 소명하는 <b>법률의견서·본국 관공서 증명</b>이 요구될 수 있습니다. <span class="tag chk">확인필요</span><br>· <b>외국국적 취득으로 성명이 변경</b>된 상속인 → <b>동일인 증명서</b>(본국 관공서 증명·공증 + 아포스티유)<br>· <b>협의분할</b>에 참여하는 외국 거주 상속인 → <b>협의분할 위임장</b>(공증 + 아포스티유 또는 재외공관 인증)</div>':'')+
     '<div class="dl" style="border-top:1px dashed var(--line);margin-top:6px;padding-top:6px;">'+
     '<b style="color:var(--seal);">※ 모든 서류에 주민등록번호 뒷자리가 나오게 발급받으십시오.</b><br>'+ledger+'</div>';}
@@ -4747,8 +4970,8 @@ function renderDocsGift(){renderPartyDocs('gv_','pty_gv__seller','pty_gv__buyer'
     '· <b>자격자대리인의 등기의무자 확인 및 자필서명 정보</b><br>'+
     '· 취득세 영수필확인서, <b>국민주택채권 매입 영수증</b>(채권발행번호 기재), 등기신청수수료 영수필확인서<br>'+
     '· 부동산등기부등본 <span class="hint">(증여인의 부채 유무 확인용)</span><br>'+
-    foreignBlock(document.getElementById('gv_frDonor')?document.getElementById('gv_frDonor').value:'','증여자')+
-    foreignBlock(document.getElementById('gv_frDonee')?document.getElementById('gv_frDonee').value:'','수증자')+
+    foreignBlock(document.getElementById('gv_frDonor')?document.getElementById('gv_frDonor').value:'','증여자','ob')+
+    foreignBlock(document.getElementById('gv_frDonee')?document.getElementById('gv_frDonee').value:'','수증자','ri')+
     '<div class="dl" style="border-top:1px dashed var(--line);margin-top:6px;padding-top:6px;">'+
     '<b style="color:var(--seal);">※ 모든 서류에 주민등록번호 뒷자리가 나오게 발급받으십시오.</b><br>'+ledger+'</div>';}
 function calcGift(fromEdit){
@@ -5002,48 +5225,138 @@ function kinDocs(rel){
 /* ============ 공통 — 외국 당사자 추가서류 (요약) ============
    근거: 「재외국민 및 외국인의 부동산등기신청절차에 관한 예규」(등기예규 제1778호, 2024.5.16.)
    상세는 메뉴 「외국인·재외국민 준비서류」 화면 참조 */
-function foreignBlock(kind,roleLbl){
+/* ═══════════ 외국인·재외국민 — 등기의무자 / 등기권리자 분기 ═══════════
+   [A] 「재외국민 및 외국인의 부동산등기신청절차에 관한 예규」(등기예규 제1778호, 2024.5.16.)
+       §5 처분위임장 · §8 국적변경 표시변경 · §9 재외국민의 인감증명
+       §10·§11 재외국민의 주소·등록번호 · §12 외국인의 인감·서명 공증·인증
+       §13 외국인의 주소증명정보 · §14 외국인의 부동산등기용등록번호
+       §15~§17 외국인 토지취득허가증의 첨부
+   [A] 「부동산 거래신고 등에 관한 법률」 §8(취득·계속보유 신고) · §9(토지취득 허가)
+   ※ role — 'ob' 등기의무자(내주는 쪽) / 'ri' 등기권리자(받는 쪽) / 'dec' 피상속인 / '' 종합
+     의무자에게만 필요한 것(처분위임장·인감증명·등기필정보)과 권리자에게만 필요한 것
+     (주소증명·등록번호·취득신고·토지취득허가증)을 섞지 않는다. 2026-08 신설. */
+function foreignBlock(kind,roleLbl,role){
   if(!kind)return '';
   const K={
    'kor-in':{nm:'재외국민 — 입국하여 직접 처리',
-     d:'· <b>재외국민등록부 등본</b>(재외공관 발급) 또는 <b>재외국민 주민등록표 초본</b> — 주소증명<br>'+
-       '· <b>대한민국 인감증명서</b>(처분 시 <b>부동산매도용</b>) · 인감도장 — 입국하여 직접 발급<br>'+
-       '· <b>여권</b>, <b>재외국민 주민등록증</b>(있는 경우)<br>'+
-       '· 주민등록번호가 없으면 <b>부동산등기용등록번호 부여신청</b>(부동산등기법 §49①2호)<br>'},
+     ob:'· <b>대한민국 인감증명서</b> — 처분하는 경우 <b>「부동산 매도용」</b>으로 발급. 입국하여 직접 발급받습니다 · <b>인감도장</b><br>'
+       +'· <b>등기필정보(등기필증)</b> — 없으면 확인서면을 작성합니다<br>'
+       +'· <b>재외국민등록부 등본</b>(재외공관 발급) 또는 <b>재외국민 주민등록표 초본</b> — 등기부상 주소와 다르면 주소변경을 증명합니다<br>'
+       +'· <b>여권</b> · <b>재외국민 주민등록증</b>(있으면)<br>',
+     ri:'· <b>재외국민등록부 등본</b> 또는 <b>재외국민 주민등록표 초본</b> — <b>주소증명</b>(예규 §10)<br>'
+       +'· 주민등록번호가 없으면 <b>부동산등기용등록번호 부여신청</b>'
+       +'<span class="law" title="부동산등기법 제49조제1항제2호 — 주민등록번호가 없는 재외국민의 등록번호는 대법원 소재지 관할 등기소의 등기관이 부여한다">부동산등기법 §49①2호</span><br>'
+       +'· <b>여권</b> · <b>도장</b> <span class="hint">(받는 쪽은 인감증명서가 필요 없습니다)</span><br>',
+     dec:'· <b>재외국민등록부 등본</b> 또는 <b>말소된 주민등록표 초본</b> — 마지막 주소를 증명합니다<br>'
+       +'· <b>사망사실을 증명하는 서면</b> — 재외공관 발급 사망증명 또는 거주국 관공서 사망증명서 + <b>아포스티유</b>(또는 영사확인)<br>'},
+
    'kor-out':{nm:'재외국민 — 외국 거주(입국하지 않음)',
-     d:'· <b>재외국민등록부 등본</b> — 주소증명<br>'+
-       '· <b>처분위임장</b> <span style="color:#b03a3a;font-weight:700;">[필수]</span> — 처분권한 일체 수여 취지 + <b>인감 날인</b><br>'+
-       '&nbsp;&nbsp;→ <b>거주국 공증인의 공증 + 아포스티유</b> 또는 <b>대한민국 재외공관(영사)의 인증</b>(예규 §12)<br>'+
-       '· <b>대한민국 인감증명서</b> — 인감증명 발급 위임장(재외공관 인증)으로 대리 발급<br>'+
-       '&nbsp;&nbsp;→ <b>재외공관에서 서면에 공증</b>을 받았다면 <b>인감증명 제출 불요</b>(예규 §9①)<br>'+
-       '· <b>수임인(대리인)</b>의 인감증명서·인감도장·신분증<br>'+
-       '· 등기필정보가 <b>없으면</b> 위임장에 「<b>등기필정보가 없다</b>」는 뜻 기재 + 공증 → 등기필정보 갈음<br>'},
+     ob:'· <b>처분위임장</b> <span style="color:#b03a3a;font-weight:700;">[필수]</span> — 처분권한 일체를 준다는 뜻을 적고 <b>인감을 날인</b>합니다(예규 §5)<br>'
+       +'&nbsp;&nbsp;→ <b>거주국 공증인의 공증 + 아포스티유</b> 또는 <b>대한민국 재외공관(영사)의 인증</b><br>'
+       +'· <b>대한민국 인감증명서</b> — 인감증명 발급 위임장(재외공관 인증)으로 대리 발급받습니다<br>'
+       +'&nbsp;&nbsp;→ <b>재외공관의 공증</b>을 받은 경우에는 <b>인감증명을 내지 않아도 됩니다</b>(예규 §9). 이때 <b>재외국민임을 증명하는 정보</b>를 함께 냅니다<br>'
+       +'· <b>재외국민등록부 등본</b> — 주소증명<br>'
+       +'· <b>수임인(대리인)의 인감증명서 · 인감도장 · 신분증</b><br>'
+       +'&nbsp;&nbsp;<span class="hint">→ 매매를 원인으로 하는 소유권이전등기라도 <b>대리인의 인감증명서는 「매도용」이 아니어도 됩니다</b>(예규 §5④ 단서). <span class="tag A">A</span></span><br>'
+       +'· <b>등기필정보가 없으면</b> → 위임장에 「등기필정보가 없다」는 뜻을 적고 공증을 받아 갈음합니다<br>',
+     ri:'· <b>재외국민등록부 등본</b> — <b>주소증명</b>(예규 §10)<br>'
+       +'· 주민등록번호가 없으면 <b>부동산등기용등록번호 부여신청</b><br>'
+       +'· <b>등기신청 위임장</b> — 받는 쪽은 <b>처분위임장까지는 필요 없습니다.</b> <span class="hint">다만 본인 확인을 위해 공증·인증을 요구받을 수 있습니다. <span class="tag chk">확인필요</span></span><br>'
+       +'· <b>여권 사본</b><br>',
+     dec:'· <b>재외국민등록부 등본</b> 또는 <b>말소된 주민등록표 초본</b><br>'
+       +'· <b>사망증명서</b>(거주국 관공서) + <b>아포스티유</b> + <b>번역문</b><br>'},
+
    'dongpo':{nm:'외국국적동포 — 국내거소신고',
-     d:'· <b>국내거소신고 사실증명</b>(「재외동포의 출입국과 법적 지위에 관한 법률」 <b>§7⑤</b>) — 주소증명<br>'+
-       '· <b>대한민국 인감증명서</b> — 국내거소신고자는 <b>인감 신고 가능</b>(「인감증명법」 <b>§3③</b>) · 인감도장<br>'+
-       '· <b>국내거소신고증</b>, <b>여권</b><br>'+
-       '· 등록번호 = <b>국내거소신고번호</b><br>'+
-       '· <b>외국국적 취득으로 성명이 변경</b>되었으면 <b>동일인 증명서</b>(본국 관공서 증명·본국 공증인 공증·재외공관 인증 + <b>아포스티유</b>)<br>'},
+     ob:'· <b>대한민국 인감증명서</b> — 국내거소신고를 한 분은 <b>인감을 신고할 수 있습니다</b>'
+       +'<span class="law" title="인감증명법 제3조제3항 — 국내거소신고를 한 외국국적동포와 외국인등록을 한 외국인도 인감을 신고할 수 있다">인감증명법 §3③</span> · <b>인감도장</b><br>'
+       +'· <b>등기필정보(등기필증)</b><br>'
+       +'· <b>국내거소신고 사실증명</b> — 주소가 바뀌었으면 주소변경 증명<br>'
+       +'· <b>국내거소신고증</b> · <b>여권</b><br>'
+       +'· <b>외국국적을 얻으면서 이름이 바뀌었으면</b> → <b>동일인 증명서</b>(본국 관공서 증명 · 본국 공증인 공증 · 재외공관 인증 중 하나 + <b>아포스티유</b>)<br>',
+     ri:'· <b>국내거소신고 사실증명</b> — <b>주소증명</b>'
+       +'<span class="law" title="재외동포의 출입국과 법적 지위에 관한 법률 제7조제5항 — 국내거소신고 사실증명">재외동포법 §7⑤</span><br>'
+       +'· 등록번호 = <b>국내거소신고번호</b><br>'
+       +'· <b>국내거소신고증</b> · <b>여권</b> · <b>도장</b><br>',
+     dec:'· <b>국내거소신고 사실증명</b> 또는 본국 주소증명<br>'
+       +'· <b>사망증명서</b> + <b>아포스티유</b> + <b>번역문</b><br>'},
+
    'alien-in':{nm:'외국인 — 외국인등록(국내 거주)',
-     d:'· <b>외국인등록 사실증명</b>(「출입국관리법」 <b>§88의2</b>) — 주소증명<br>'+
-       '· <b>대한민국 인감증명서</b> — 외국인등록자는 <b>인감 신고 가능</b>(「인감증명법」 <b>§3③</b>) · 인감도장<br>'+
-       '&nbsp;&nbsp;→ 인감을 신고하지 않았으면 <b>주한 본국 대사관·영사관의 「서명 확인서면」</b>으로 갈음<br>'+
-       '· <b>외국인등록증</b>, <b>여권</b><br>'+
-       '· 등록번호 = <b>외국인등록번호</b><br>'},
+     ob:'· <b>대한민국 인감증명서</b> — 외국인등록을 한 분은 <b>인감을 신고할 수 있습니다</b>'
+       +'<span class="law" title="인감증명법 제3조제3항 — 외국인등록을 한 외국인도 인감을 신고할 수 있다">인감증명법 §3③</span> · <b>인감도장</b><br>'
+       +'&nbsp;&nbsp;→ 인감을 신고하지 않았으면 <b>주한 본국 대사관·영사관의 「서명 확인서면」</b>으로 갈음합니다(예규 §12)<br>'
+       +'· <b>등기필정보(등기필증)</b><br>'
+       +'· <b>외국인등록 사실증명</b> — 주소가 바뀌었으면 주소변경 증명<br>'
+       +'· <b>외국인등록증</b> · <b>여권</b><br>',
+     ri:'· <b>외국인등록 사실증명</b> — <b>주소증명</b>(예규 §13)'
+       +'<span class="law" title="출입국관리법 제88조의2 — 외국인등록 사실증명">출입국관리법 §88의2</span><br>'
+       +'· 등록번호 = <b>외국인등록번호</b><br>'
+       +'· <b>외국인등록증</b> · <b>여권</b> · <b>도장</b><br>',
+     dec:'· <b>외국인등록 사실증명</b>(말소된 것 포함)<br>'
+       +'· <b>사망증명서</b> — 본국 관공서 발급 + <b>아포스티유</b> + <b>번역문</b><br>'},
+
    'alien-out':{nm:'외국인 — 외국 거주(등록 없음)',
-     d:'· <b>본국 관공서 발행 주소증명서</b> + <b>아포스티유</b>(또는 영사확인)<br>'+
-       '&nbsp;&nbsp;→ 본국에 <b>주소증명제도가 없으면</b> <b>본국 공증인의 주소공증서면</b> + <b>체류자격 증명</b>(영주권 확인증명·장기체류 비자 증명) + 아포스티유<br>'+
-       '· <b>본국의 인감증명</b> + 아포스티유 <b>또는</b> <b>본국 공증인의 서명공증서면</b> + 아포스티유<br>'+
-       '&nbsp;&nbsp;→ <b>날인제도가 없는 국가</b>이면 <b>주한 본국 대사관·영사관의 「서명 확인서면」</b><br>'+
-       '· <b>처분위임장</b> — 공증 + 아포스티유 또는 재외공관 인증(예규 §12)<br>'+
-       '· 등록번호 — <b>국내에 체류지가 없으면 「서울출입국·외국인관서」의 장</b>이 부여(예규 <b>§14 2호</b>)<br>'+
-       '· <b>여권</b> 사본(공증)<br>'}
+     ob:'· <b>처분위임장</b> <span style="color:#b03a3a;font-weight:700;">[필수]</span> — 처분권한 일체를 준다는 뜻 + 서명(또는 날인)<br>'
+       +'&nbsp;&nbsp;→ <b>본국 공증인의 공증 + 아포스티유</b> 또는 <b>대한민국 재외공관의 인증</b>(예규 §5·§12)<br>'
+       +'· <b>본국의 인감증명 + 아포스티유</b>, <b>또는</b> <b>본국 공증인의 서명공증서면 + 아포스티유</b><br>'
+       +'&nbsp;&nbsp;→ <b>날인(도장) 제도가 없는 나라</b>이면 <b>주한 본국 대사관·영사관의 「서명 확인서면」</b><br>'
+       +'· <b>등기필정보(등기필증)</b> — 없으면 위임장에 그 뜻을 적고 공증을 받아 갈음<br>'
+       +'· <b>본국 관공서 발행 주소증명서 + 아포스티유</b><br>'
+       +'· <b>여권 사본</b>(공증)<br>'
+       +'· <b>수임인(대리인)의 인감증명서 · 인감도장</b> <span class="hint">(매매라도 「매도용」이 아니어도 됩니다 — 예규 §5④ 단서)</span><br>',
+     ri:'· <b>본국 관공서 발행 주소증명서 + 아포스티유</b>(또는 영사확인) — <b>주소증명</b>(예규 §13)<br>'
+       +'&nbsp;&nbsp;→ 본국에 <b>주소증명 제도가 없으면</b> <b>본국 공증인의 주소공증서면</b> + <b>체류자격 증명</b>(영주권 확인증명·장기체류 비자 증명) + 아포스티유<br>'
+       +'· <b>부동산등기용등록번호</b> — 국내에 체류지가 없으면 <b>「서울출입국·외국인관서」의 장</b>이 부여합니다(예규 §14 2호)<br>'
+       +'· <b>여권 사본</b>(공증) · <b>도장 또는 서명</b><br>'
+       +'· 국내 대리인에게 맡기시면 <b>등기신청 위임장</b>(공증 + 아포스티유 또는 재외공관 인증)<br>',
+     dec:'· <b>본국 관공서 발행 사망증명서 + 아포스티유</b> + <b>번역문</b><br>'
+       +'· <b>등기부상 명의인과 같은 사람임을 증명하는 서류</b>(동일인 증명서)<br>'}
   }[kind];
   if(!K)return '';
-  return '<div style="border-left:3px solid var(--gold);padding:6px 8px;margin:8px 0;background:#fdfaf0;border-radius:4px;line-height:1.6;">'+
-    '▸ <b>'+roleLbl+' — '+K.nm+'</b> <span class="hint">(등기예규 제1778호)</span><br>'+K.d+
-    '· <b>외국어 서면에는 번역문</b> + <b>번역확인서</b>(번역인 자격·서명) + 번역인 신분증 사본<br>'+
-    '<span class="hint">▸ 유형별 상세는 메인메뉴 → <b>「외국인·재외국민 준비서류」</b> 화면을 보십시오.</span></div>';
+
+  /* rn — 근저당권자·가등기권자처럼 「소유권을 취득하지 않는」 권리자.
+     취득신고·토지취득허가는 소유권 취득에만 생기므로 그 안내를 붙이지 않는다. */
+  const r=(role==='ob')?'ob':(role==='ri')?'ri':(role==='rn')?'rn':(role==='dec')?'dec':'';
+  let body;
+  if(r==='rn'){ body=K.ri||''; }
+  else if(r){ body=K[r]||''; }
+  else { body=(K.ob||'')+(K.ri||''); }   /* 역할을 지정하지 않으면 종합 표시(하위호환) */
+
+  /* 역할별 머리말 */
+  const head=(r==='ob')?'<span style="color:#b03a3a;font-weight:700;">[등기의무자 — 내주는 쪽]</span> '
+            :(r==='ri'||r==='rn')?'<span style="color:#1d6b3f;font-weight:700;">[등기권리자 — 받는 쪽]</span> '
+            :(r==='dec')?'<span style="color:#6b5540;font-weight:700;">[피상속인 — 돌아가신 분]</span> ':'';
+
+  /* 등기권리자 공통 — 취득 신고·허가는 「받는 쪽」에만 생긴다 */
+  let tail='';
+  if(r==='ri'&&kind!=='kor-in'&&kind!=='kor-out'){
+    tail+='<div style="border-top:1px dashed #d8cfae;margin-top:6px;padding-top:6px;">'
+      +'<b style="color:var(--seal);">★ 등기와 별개로 반드시 챙기실 것</b><br>'
+      +'· <b>외국인 부동산 취득 신고</b> — <b>계약</b>으로 취득하면 <b>계약일부터 60일</b>, <b>상속·경매·판결</b> 등으로 취득하면 <b>취득일부터 6개월</b> 안에 부동산 소재지 시·군·구청에 신고합니다'
+      +'<span class="law" title="부동산 거래신고 등에 관한 법률 제8조제1항·제2항 — 외국인등이 계약을 체결하였을 때에는 계약체결일부터 60일 이내에, 상속·경매 등 계약 외의 원인으로 취득한 때에는 취득한 날부터 6개월 이내에 신고관청에 신고하여야 한다">부동산거래신고법 §8①②</span> '
+      +'<span class="hint">매매로 부동산거래신고를 한 경우에는 그것으로 갈음됩니다.</span><br>'
+      +'· <b style="color:#b03a3a;">토지 취득 허가</b> — <b>군사기지·군사시설 보호구역, 지정문화유산·천연기념물 보호구역, 생태·경관보전지역, 야생생물 특별보호구역</b>의 토지는 <b>계약을 맺기 전에</b> 허가를 받아야 하고, <b>허가 없이 맺은 계약은 효력이 없습니다</b>'
+      +'<span class="law" title="부동산 거래신고 등에 관한 법률 제9조제1항·제3항 — 외국인등이 취득하려는 토지가 각 호의 구역·지역에 있으면 토지취득계약을 체결하기 전에 신고관청으로부터 허가를 받아야 하며, 허가를 받지 아니하고 체결한 토지취득계약은 그 효력이 발생하지 아니한다">부동산거래신고법 §9①③</span> <span class="tag A">A</span><br>'
+      +'&nbsp;&nbsp;→ 이 경우 <b>등기를 신청할 때 「외국인 토지취득허가증」을 함께 냅니다</b>(예규 §15~§17). '
+      +'<span class="hint">국내거소신고를 한 외국국적동포는 <b>군사기지 등 지역</b>의 토지에 대해서만 허가가 필요합니다(재외동포법 §11①).</span><br>'
+      +'&nbsp;&nbsp;→ 계약 전에 <a href="https://www.eum.go.kr" target="_blank" rel="noopener">토지이음</a>에서 <b>토지이용계획확인원</b>으로 보호구역 여부를 먼저 확인하십시오.<br>'
+      +'· <b>부동산 취득자금</b> — 해외에서 송금해 오면 <b>외국환은행</b>에, 국내 차입금이 섞이면 <b>한국은행</b>에 신고합니다. <span class="tag chk">확인필요</span> <span class="hint">은행 담당자와 미리 상의하십시오.</span></div>';
+  }
+  if(r==='rn'&&kind!=='kor-in'&&kind!=='kor-out'){
+    tail+='<div style="border-top:1px dashed #d8cfae;margin-top:6px;padding-top:6px;">'
+      +'<span class="hint">▸ 이 등기는 <b>소유권을 취득하는 등기가 아니므로</b> 「외국인 부동산 취득 신고」나 「외국인 토지취득 허가」는 필요하지 않습니다. '
+      +'<b>나중에 소유권을 넘겨받게 되면</b> 그때 신고 여부를 확인하십시오.</span></div>';
+  }
+  if(r==='ob'){
+    tail+='<div style="border-top:1px dashed #d8cfae;margin-top:6px;padding-top:6px;">'
+      +'<span class="hint">▸ <b>등기부에 적힌 이름·주소가 지금과 다르면</b> 먼저 <b>등기명의인표시변경등기</b>를 해야 합니다. 국적이 바뀐 경우도 마찬가지입니다(예규 §8).<br>'
+      +'▸ <b>비거주자</b>가 파는 경우 매수인에게 <b>양도소득세 원천징수</b> 의무가 생길 수 있습니다. <span class="tag chk">확인필요</span> — 세무사와 미리 상의하십시오.</span></div>';
+  }
+
+  return '<div style="border-left:3px solid var(--gold);padding:6px 8px;margin:8px 0;background:#fdfaf0;border-radius:4px;line-height:1.6;">'
+    +'▸ '+head+'<b>'+roleLbl+' — '+K.nm+'</b> <span class="hint">(등기예규 제1778호)</span><br>'+body
+    +'· <b>외국어로 된 서면에는 번역문</b> + <b>번역확인서</b>(번역인의 자격·서명) + 번역인 신분증 사본을 붙입니다<br>'
+    +tail
+    +'<span class="hint">▸ 유형별 상세는 메인메뉴 → <b>「외국인·재외국민 준비서류」</b> 화면을 보십시오.</span></div>';
 }
 
 /* ============ 외국인·재외국민 준비서류 (안내 전용) ============
@@ -5309,12 +5622,148 @@ function calcEtcAcqTail(){
   document.getElementById('ea_t_vat').textContent=won(vat);
   document.getElementById('ea_t_public').textContent=won(publicSum);
   document.getElementById('ea_t_grand').textContent=won(fee+vat+publicSum);
-  const db=document.getElementById('ea_docsBox');
-  if(db)db.innerHTML='<b>공통</b> — 등기원인증서, 신청서, 위임장, 자격자대리인의 등기의무자 확인 및 자필서명 정보, 취득세 영수필확인서, 등기신청수수료 영수필확인서, 등기부등본, 대장<br>'+
-    '<b>등기의무자</b> — 등기필증(분실 시 확인서면), 인감증명서(<b>부동산매도용 아님</b>), 인감도장, 주민등록초본(주소이력 전부)<br>'+
-    '<b>등기권리자</b> — 주민등록등본, 도장, 신분증<br>'+
-    '<div class="dl" style="border-top:1px dashed var(--line);margin-top:6px;padding-top:6px;"><b style="color:var(--seal);">※ 국민주택채권은 취득원인별 매입용도가 달라 자동계산하지 않습니다. 주택도시기금 「셀프 채권매입 도우미」로 확인 후 직접 입력하십시오. </b><br>※ 모든 서류에 주민등록번호 뒷자리가 나오게 발급받으십시오.</div>';
+  renderDocsEtcAcq();
 }
+/* ═══════════ 기타 취득원인 준비서류 ═══════════════════════════════
+   취득원인(ea_type) 5종별로 필요 서류가 전혀 다르므로 분기한다.
+   [A] 민법 §590~§595(환매) · §591①(환매기간 부동산 5년)
+   [A] 부동산등기법 §53(환매특약의 등기) · 부동산등기규칙 §114(환매특약등기의 말소)
+   [A] 지방세법 §15①1호(환매)·5호(건축물 이전)·3호(적격합병)·7호(그 밖의 형식적 취득)·§15②
+   ※ §15①7호는 시행령 열거를 확인하지 못했으므로 서류도 일반론만 안내한다. [확인필요] */
+function renderDocsEtcAcq(){
+  renderPartyDocs('ea_','pty_ea__seller','pty_ea__buyer','등기의무자(내주는 쪽)','등기권리자(받는 쪽)');
+  const t=(document.getElementById('ea_type')||{}).value||'repurchase';
+  const db=document.getElementById('ea_docsBox');
+  if(!db)return;
+  let h='';
+
+  if(t==='repurchase'){
+    h+='<b>[환매등기 병행 매매 — 환매로 되찾는 소유권이전등기]</b><br>'
+      +'<div class="note" style="margin:6px 0 10px;"><b>어떤 등기인가요</b> — 팔면서 <b>「나중에 다시 사 오겠다」는 약속(환매특약)</b>을 등기해 두었다가, 그 기간 안에 실제로 되사서 <b>소유권을 도로 가져오는</b> 등기입니다.<br>'
+      +'<b>⏰ 기간을 넘기면 되찾을 수 없습니다</b> — 부동산의 환매기간은 <b>5년</b>을 넘지 못하고, 약정이 5년을 넘으면 5년으로 줄어듭니다'
+      +'<span class="law" title="민법 제591조제1항 — 환매기간은 부동산은 5년, 동산은 3년을 넘지 못한다. 약정기간이 이를 넘는 때에는 부동산은 5년, 동산은 3년으로 단축한다">민법 §591①</span>. '
+      +'<b>한 번 정한 환매기간은 다시 늘릴 수 없습니다</b><span class="law" title="민법 제591조제2항 — 환매기간을 정한 때에는 다시 이를 연장하지 못한다">민법 §591②</span>.</div>'
+      +'<b>■ 등기원인을 증명하는 서류</b><br>'
+      +'· <b>환매특약부 매매계약서</b> — 처음 팔 때 만든 계약서(환매특약이 적힌 것)<br>'
+      +'· <b>환매권을 행사한 사실을 증명하는 서류</b> — 되사겠다는 뜻을 밝힌 <b>내용증명우편</b> 등<br>'
+      +'· <b>환매대금(처음 받은 매매대금 + 매매비용)을 돌려준 증빙</b> — 계좌이체 확인서·영수증'
+      +'<span class="law" title="민법 제594조제1항 — 매도인은 기간내에 대금과 매매비용을 매수인에게 제공하지 아니하면 환매할 권리를 잃는다">민법 §594①</span><br>'
+      +'· <b>등기사항증명서</b> — 환매특약등기가 되어 있는지 반드시 먼저 확인하십시오<br>'
+      +'<span class="hint">▸ 환매등기를 마치면 <b>환매특약등기는 말소</b>됩니다<span class="law" title="부동산등기규칙 제114조 — 환매에 따른 권리취득의 등기를 하였을 때에는 법 제53조의 환매특약등기를 말소하여야 한다">부동산등기규칙 §114</span>. 따로 말소 신청을 하지 않으셔도 됩니다.</span><br><br>'
+      +'<b>■ 등기의무자(지금 소유자 = 처음 산 사람)가 준비할 것</b><br>'
+      +'· <b>등기필정보(등기필증)</b> — 처음 소유권이전등기를 받을 때 나온 것. <span class="hint">잃어버리셨으면 확인서면을 작성합니다(추가 보수 발생).</span><br>'
+      +'· <b>인감증명서</b> 1통 + <b>인감도장</b> <span class="hint">환매도 대가를 주고받는 이전이므로 등기소에 따라 <b>「부동산 매도용」</b>을 요구할 수 있습니다. 발급 전에 사무소로 확인해 주십시오. <span class="tag chk">확인필요</span></span><br>'
+      +'· <b>주민등록초본</b> — <b>주소 이력이 전부</b> 나오게 1통<br><br>'
+      +'<b>■ 등기권리자(환매권자 = 처음 판 사람)가 준비할 것</b><br>'
+      +'· <b>주민등록등본</b> 1통 · <b>도장</b> · <b>신분증</b><br><br>'
+      +'<div class="note" style="margin:6px 0 10px;"><b>💡 취득세가 절반 또는 그 이하입니다</b> — 환매기간 안에 되산 경우에는 <b>되산 사람과 처음 산 사람 양쪽 모두</b> 세율 특례를 받습니다'
+      +'<span class="law" title="지방세법 제15조제1항제1호 — 환매등기를 병행하는 부동산의 매매로서 환매기간 내에 매도자가 환매한 경우의 그 매도자와 매수자의 취득">지방세법 §15①1호</span>. 위 ② 공과금란에서 자동 계산됩니다.</div>';
+  }
+
+  else if(t==='bldgmove'){
+    h+='<b>[건축물의 이전 — 준비서류]</b><br>'
+      +'<div class="note" style="margin:6px 0 10px;"><b>어떤 경우인가요</b> — 건물을 <b>헐지 않고 통째로 옮기는</b> 경우입니다. 새로 짓는 것이 아니라 <b>있던 건물을 옮긴 것</b>이므로 취득세를 낮게 봅니다'
+      +'<span class="law" title="지방세법 제15조제1항제5호 — 건축물의 이전으로 인한 취득. 다만 이전한 건축물의 가액이 종전 건축물의 가액을 초과하는 경우에 그 초과하는 가액에 대하여는 그러하지 아니하다">지방세법 §15①5호</span>.<br>'
+      +'<b style="color:var(--seal);">⚠ 옮긴 뒤 건물값이 옛 건물값보다 커지면, 그 늘어난 부분은 특례를 받지 못하고 새로 지은 것(원시취득 2.8%)으로 봅니다.</b> 위 ① 화면의 <b>「종전 건축물 가액」</b>을 꼭 넣어 주십시오.</div>'
+      +'<b>■ 이전 사실을 증명하는 서류</b><br>'
+      +'· <b>건축물대장</b> — 이전 사실이 반영된 것 1통<br>'
+      +'· <b>건축물 이전 허가서</b> 또는 <b>신고필증</b> — 시·군·구청 발급<br>'
+      +'· <b>이전 공사 도급계약서 · 공사비 내역서</b> — 취득가액을 밝히는 자료<br>'
+      +'· <b>종전 건축물의 가액을 알 수 있는 자료</b> — 종전 건축물대장, 시가표준액 확인서, 감정평가서 등<br><br>'
+      +'<b>■ 등기 관련</b><br>'
+      +'· 옮긴 결과에 따라 <b>건물 표시변경등기</b>를 하는 경우와 <b>새로 소유권보존등기</b>를 하는 경우가 나뉩니다. '
+      +'<span class="hint">어느 쪽인지는 건축물대장 정리 내용과 지번·구조 변동에 따라 달라집니다. <span class="tag chk">확인필요</span> — 건축물대장을 먼저 보내 주시면 확인해 알려 드립니다.</span><br>'
+      +'· <b>토지대장</b>(옮겨 간 땅) 1통 · <b>토지 사용권을 증명하는 서류</b>(등기사항증명서·토지사용승낙서 등)<br><br>'
+      +'<b>■ 소유자가 준비할 것</b><br>'
+      +'· <b>등기필정보(등기필증)</b> · <b>인감증명서</b> 1통 + <b>인감도장</b> · <b>주민등록초본</b>(주소 이력 전부)<br>'
+      +'<span class="hint">▸ 표시변경등기만 하는 경우에는 인감증명서 없이 <b>도장과 등본</b>만으로 되는 경우도 있습니다.</span><br>';
+  }
+
+  else if(t==='formal'){
+    h+='<b>[그 밖의 형식적인 취득 — 준비서류]</b><br>'
+      +'<div class="note" style="margin:6px 0 10px;"><b>실질은 그대로인데 이름만 바뀌는 취득</b>에 대해 취득세를 낮춰 주는 규정입니다'
+      +'<span class="law" title="지방세법 제15조제1항제7호 — 그 밖의 형식적인 취득 등 대통령령으로 정하는 취득">지방세법 §15①7호</span>. '
+      +'<b>어떤 경우가 여기에 해당하는지는 시행령이 하나하나 정해 두었고, 사안마다 판단이 갈립니다.</b> <span class="tag chk">확인필요</span><br>'
+      +'그래서 이 화면에서는 <b>세금을 자동으로 계산해 드리지 않습니다.</b> 아래 서류를 갖추어 사무소로 연락 주시면 해당 여부부터 확인해 드립니다.</div>'
+      +'<b>■ 먼저 보내 주실 것</b><br>'
+      +'· <b>등기사항증명서</b>(토지·건물) 각 1통<br>'
+      +'· <b>토지대장 · 건축물대장</b> 각 1통<br>'
+      +'· <b>취득 원인을 알 수 있는 서류</b> — 계약서, 판결문, 조정조서, 협의서, 행정청 처분서 등 있는 대로<br>'
+      +'· 당사자들의 <b>관계</b>를 알 수 있는 서류(가족관계증명서·법인등기사항증명서 등)<br><br>'
+      +'<b>■ 등기를 하게 되면 공통으로 필요한 것</b><br>'
+      +'· 등기의무자 — <b>등기필정보</b> · <b>인감증명서</b> + <b>인감도장</b> · <b>주민등록초본</b>(주소 이력 전부)<br>'
+      +'· 등기권리자 — <b>주민등록등본</b> · <b>도장</b> · <b>신분증</b><br>';
+  }
+
+  else if(t==='merger'){
+    h+='<b>[법인의 합병 · 분할로 인한 부동산 취득 — 준비서류]</b><br>'
+      +'<div class="note" style="margin:6px 0 10px;">회사가 <b>합쳐지거나 쪼개지면서</b> 부동산이 넘어가는 경우입니다. <b>법인등기(합병·분할등기)를 먼저 마친 다음</b> 부동산 소유권이전등기를 합니다.<br>'
+      +'<b>법인세법상 「적격합병」 요건</b>을 갖추면 취득세 세율 특례를 받습니다'
+      +'<span class="law" title="지방세법 제15조제1항제3호 — 「법인세법」 제44조제2항 또는 제3항에 해당하는 적격합병으로 인한 취득. 그 밖의 합병·분할은 지방세법 제11조제5항에 따라 제11조제1항제7호의 세율(농지 3%, 농지 외 4%)">지방세법 §15①3호·§11⑤</span>. '
+      +'<span class="tag chk">확인필요</span> — 적격 요건과 사후 추징사유는 세무 검토가 필요합니다.</div>'
+      +'<b>■ 등기원인을 증명하는 서류</b><br>'
+      +'· <b>합병계약서</b> (분할이면 <b>분할계획서</b> 또는 <b>분할합병계약서</b>)<br>'
+      +'· <b>합병(분할)등기가 마쳐진 법인등기사항증명서</b> — 존속·신설법인, 소멸법인 각 1통<br>'
+      +'· <b>주주총회(사원총회) 의사록</b> — 합병·분할 승인 결의. <span class="hint">공증을 받아야 하는 경우가 많습니다.</span><br>'
+      +'· <b>채권자 보호절차를 거친 증명</b> — 공고문(신문 스크랩·전자공고 출력본), 개별 최고서 발송 증빙<br>'
+      +'· <b>승계 재산목록(부동산 목록)</b> — 넘어가는 부동산이 특정되어야 합니다<br><br>'
+      +'<b>■ 소멸(분할)법인이 준비할 것</b><br>'
+      +'· <b>등기필정보(등기필증)</b> · <b>법인인감증명서</b> 1통 + <b>법인인감도장</b> · <b>법인등기사항증명서</b> 1통<br><br>'
+      +'<b>■ 존속(신설)법인이 준비할 것</b><br>'
+      +'· <b>법인등기사항증명서</b> 1통 · <b>법인인감증명서</b> 1통 · <b>법인인감도장</b> · <b>대표자 신분증</b><br>'
+      +'· <b>주주명부</b> — 대도시 중과(§13②) 해당 여부 확인용<br><br>'
+      +'<b>■ 세율 특례를 받으시려면 추가로</b><br>'
+      +'· <b>적격합병 요건을 증명하는 서류</b> — 사업 계속 확인서, 주식 보유 확인서, 종업원 승계 자료 등'
+      +'<span class="law" title="법인세법 제44조제2항 각 호 — 합병등기일 현재 1년 이상 사업을 계속하던 내국법인 간의 합병일 것, 주식등의 보유·배정 요건, 사업의 계속 요건, 종업원 승계 요건 등">법인세법 §44②</span> <span class="tag chk">확인필요</span><br>'
+      +'· <b>세무대리인 검토의견서</b> — 있으면 함께 주십시오<br>';
+  }
+
+  else{ /* mid2 — §15② 중과기준세율만 */
+    h+='<b>[중과기준세율(2%)만 내는 취득 — 준비서류]</b><br>'
+      +'<div class="note" style="margin:6px 0 10px;"><b>소유자가 바뀌지 않는데도 재산 가치가 늘어난 경우</b> 등에 <b>2%</b>만 내는 규정입니다'
+      +'<span class="law" title="지방세법 제15조제2항 — 개수(제11조제3항의 면적 증가 제외), 과점주주의 간주취득, 토지의 지목변경, 외국인 소유 물건의 조건부 임차, 시설대여업자·대금지급자의 차량 취득, 무덤 부지, 레저·저장·도크 등 시설의 취득 → 중과기준세율">지방세법 §15②</span>. '
+      +'<b>대부분 등기가 따로 없고 「취득세 신고」만</b> 하시게 됩니다. 위 ①의 <b>「등기신청 없음」</b>을 체크하십시오.</div>'
+      +'<b>■ 개수(대수선)를 한 경우</b><br>'
+      +'· <b>건축물대장</b> 1통 · <b>대수선 허가서</b> 또는 <b>신고필증</b><br>'
+      +'· <b>공사 도급계약서 · 공사비 내역서 · 세금계산서</b> — 취득가액을 밝히는 자료<br>'
+      +'· <span class="hint">면적이 늘어난 부분은 개수가 아니라 <b>새로 지은 것</b>으로 보아 원시취득(2.8%)이 됩니다(§11③).</span><br><br>'
+      +'<b>■ 과점주주가 되어 간주취득한 경우</b><br>'
+      +'· <b>주주명부</b> — 취득 전후 각 1부<br>'
+      +'· <b>주식양수도계약서</b> · 대금 지급 증빙<br>'
+      +'· <b>법인등기사항증명서</b> 1통<br>'
+      +'· <b>법인이 가진 부동산·차량·기계장비 목록</b>과 각 시가표준액 자료<br>'
+      +'· <span style="color:var(--seal);font-weight:700;">등기는 하지 않습니다. 취득세 신고만 하는 사안입니다</span>'
+      +'<span class="law" title="지방세법 제7조제5항 — 법인의 주식 또는 지분을 취득함으로써 과점주주가 되었을 때에는 그 법인의 부동산등을 취득한 것으로 본다">지방세법 §7⑤</span><br><br>'
+      +'<b>■ 토지의 지목을 바꾼 경우</b><br>'
+      +'· <b>토지대장</b> — 지목 변경 <b>전·후</b> 각 1통<br>'
+      +'· <b>개발행위허가서 · 농지전용허가서 · 산지전용허가서</b> 등 관련 인허가 서류<br>'
+      +'· <b>공사비 자료</b>(성토·정지 등) 또는 <b>변경 전후 시가표준액 확인서</b><br>'
+      +'· <span class="hint">지목변경도 등기가 아니라 <b>토지대장 정리</b>로 처리되며, 취득세만 신고합니다.</span><br>';
+  }
+
+  /* ── 모든 원인 공통 ── */
+  h+='<div class="dl" style="border-top:1px dashed var(--line);margin-top:10px;padding-top:8px;">'
+    +'<b>■ 등기를 하시는 경우 공통으로 들어가는 서류</b><br>'
+    +'· <b>등기신청서</b> · <b>위임장</b> · <b>자격자대리인의 등기의무자 확인 및 자필서명 정보</b> <span class="hint">— 사무소에서 만들어 드립니다</span><br>'
+    +'· <b>취득세 영수필확인서</b> · <b>등기신청수수료 영수필확인서</b><br>'
+    +'· <b>토지대장 · 건축물대장</b> 각 1통 <span class="hint">(집합건물이면 전유부 대장)</span><br>'
+    +'· <b>등기사항증명서</b> 1통<br><br>'
+    +'<b>■ 서류는 어디서 떼나요</b><br>'
+    +'· <b>주민등록등(초)본 · 인감증명서 · 본인서명사실확인서</b> → 가까운 <a href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a> 또는 주민센터<br>'
+    +'· <b>토지대장 · 건축물대장 · 지적도</b> → <a href="https://www.eum.go.kr" target="_blank" rel="noopener">부동산종합증명(일사편리)</a> 또는 <a href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a><br>'
+    +'· <b>등기사항증명서</b> → <a href="https://www.iros.go.kr" target="_blank" rel="noopener">인터넷등기소</a><br>'
+    +'· <b>법인등기사항증명서 · 법인인감증명서</b> → <a href="https://www.iros.go.kr" target="_blank" rel="noopener">인터넷등기소</a><br>'
+    +'· <b>취득세 신고 · 납부</b> → <a href="https://www.wetax.go.kr" target="_blank" rel="noopener">위택스</a> 또는 부동산 소재지 시·군·구청<br>'
+    +'· <b>공시가격(시가표준액) 조회</b> → <a href="https://www.realtyprice.kr" target="_blank" rel="noopener">부동산공시가격 알리미</a><br>'
+    +'· <b>건축 인허가 서류</b> → <a href="https://www.eais.go.kr" target="_blank" rel="noopener">세움터</a> 또는 시·군·구청 건축과<br>'
+    +'<br><span style="color:var(--seal);font-weight:700;">※ 국민주택채권은 취득원인별 매입용도가 달라 자동계산하지 않습니다. '
+    +'<a href="https://nhuf.molit.go.kr" target="_blank" rel="noopener">주택도시기금 「셀프 채권매입 도우미」</a>로 확인한 금액을 위 ② 공과금란에 직접 넣으십시오.</span><br>'
+    +'<span class="hint">▸ 모든 서류는 <b>주민등록번호 뒷자리가 나오게</b> 발급받으십시오.<br>'
+    +'▸ 위 목록은 일반적인 경우입니다. <b>사안에 따라 서류가 더 필요할 수 있습니다.</b></span></div>';
+
+  db.innerHTML=h;
+}
+
 (function(){const tb=document.getElementById('ea_extraAgent');if(!tb)return;EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const tr=document.createElement('tr');
   tr.innerHTML='<td><label class="checks" style="display:inline-flex;align-items:flex-start;"><input type="checkbox" id="eaa_'+id+'" onchange="calcEtcAcq()" style="margin-top:2px;"> <span style="font-size:12.5px;">'+name+' <b style="color:var(--seal);">'+FLAT[code].toLocaleString()+'</b></span></label> <input type="number" id="eaaq_'+id+'" value="1" min="1" style="width:52px;" oninput="calcEtcAcq()"></td><td class="auto">-</td>';
   tb.appendChild(tr);});})();
@@ -5632,8 +6081,8 @@ function renderDocsBurden(){renderPartyDocs('bv_','pty_bv__seller','pty_bv__buye
     '· 신청서, <b>위임장</b>(위임인 = 수증자), <b>자격자대리인의 등기의무자 확인 및 자필서명 정보</b><br>'+
     '· 취득세 영수필확인서, <b>국민주택채권 매입 영수증</b>(채권발행번호 기재), 등기신청수수료 영수필확인서<br>'+
     '· 부동산등기부등본<br>'+
-    foreignBlock(document.getElementById('bv_frDonor')?document.getElementById('bv_frDonor').value:'','증여자')+
-    foreignBlock(document.getElementById('bv_frDonee')?document.getElementById('bv_frDonee').value:'','수증자')+
+    foreignBlock(document.getElementById('bv_frDonor')?document.getElementById('bv_frDonor').value:'','증여자','ob')+
+    foreignBlock(document.getElementById('bv_frDonee')?document.getElementById('bv_frDonee').value:'','수증자','ri')+
     '<div class="dl" style="border-top:1px dashed var(--line);margin-top:6px;padding-top:6px;">'+
     '<b style="color:var(--seal);">※ 모든 서류에 주민등록번호 뒷자리가 나오게 발급받으십시오.</b><br>'+ledger+'</div>';}
 function calcBurden(fromEdit){
@@ -6514,7 +6963,78 @@ function calcRedev(fromEdit){
   document.getElementById('rd_t_vat').textContent=won(vat);
   document.getElementById('rd_t_public').textContent=won(publicSum);
   document.getElementById('rd_t_grand').textContent=won(fee+vat+publicSum);
+  renderDocsRedev();
 }
+/* ═══════════ 재건축·재개발(이전고시) 등기 준비서류 ═══════════════════
+   [A] 도시 및 주거환경정비법 §86②(이전고시) · §87①(권리의 확정) ·
+       §88①②③(등기절차 및 권리변동의 제한) · §89①(청산금)
+   [A] 「도시 및 주거환경정비 등기규칙」 — 관리처분계획 및 그 인가를 증명하는 서면과
+       이전고시를 증명하는 서면을 첨부. 신청 대상은 ① 종전 토지 등기 말소
+       ② 신축 건축시설·조성 대지 소유권보존 ③ 존속하는 담보권등 권리의 등기.
+   ※ 이 화면은 사업시행자(조합) 기준이다. 조합원 개인이 따로 신청하는 등기가 아니다. */
+function renderDocsRedev(){
+  renderPartyDocs('rd_',null,null,'','');
+  const db=document.getElementById('rd_docsBox');
+  if(!db)return;
+  db.innerHTML=
+   '<b>[이전고시에 따른 대지·건축물 등기 준비서류]</b><br>'
+  +'<div class="note" style="margin:6px 0 10px;"><b>누가 신청하나요</b> — <b>조합(사업시행자)이 한꺼번에</b> 신청합니다. 조합원 개개인이 따로 등기하는 것이 아닙니다'
+  +'<span class="law" title="도시 및 주거환경정비법 제88조제1항 — 사업시행자는 제86조제2항에 따른 이전고시가 있은 때에는 지체 없이 대지 및 건축물에 관한 등기를 지방법원지원 또는 등기소에 촉탁 또는 신청하여야 한다">도시정비법 §88①</span> <span class="tag A">A</span><br>'
+  +'<b style="color:var(--seal);">⚠ 이전고시가 난 날부터 이 등기가 끝날 때까지는 저당권 등 다른 등기를 할 수 없습니다</b>'
+  +'<span class="law" title="도시 및 주거환경정비법 제88조제3항 — 정비사업에 관하여 이전고시가 있은 날부터 제1항에 따른 등기가 있을 때까지는 저당권 등의 다른 등기를 하지 못한다">도시정비법 §88③</span>. '
+  +'조합원분 대출·담보 일정이 여기에 걸리므로 <b>지체 없이</b> 진행해야 합니다.</div>'
+
+  +'<b>■ 한 번에 신청하는 등기 세 가지</b><br>'
+  +'· ① <b>종전 토지·건물 등기의 말소</b><br>'
+  +'· ② <b>새로 지은 건물과 조성된 대지의 소유권보존등기</b><br>'
+  +'· ③ 종전 부동산에 있던 <b>저당권·전세권·임차권·가등기·가압류 등</b>으로서 새 부동산에 그대로 남는 등기<br>'
+  +'<span class="hint">▸ 종전에 등기되어 있던 권리는 <b>새로 분양받은 대지·건축물에 그대로 옮겨 붙은 것</b>으로 봅니다'
+  +'<span class="law" title="도시 및 주거환경정비법 제87조제1항 — 대지 또는 건축물을 분양받을 자에게 소유권을 이전한 경우 종전의 토지 또는 건축물에 설정된 지상권·전세권·저당권·임차권·가등기담보권·가압류 등 등기된 권리 및 대항력을 갖춘 임차권은 소유권을 이전받은 대지 또는 건축물에 설정된 것으로 본다">도시정비법 §87①</span>.</span><br><br>'
+
+  +'<b>■ 반드시 붙여야 하는 서면</b> <span class="hint">(「도시 및 주거환경정비 등기규칙」)</span><br>'
+  +'· <b>이전고시를 증명하는 서면</b> — 이전고시문 및 <b>고시가 실린 공보</b> 사본<br>'
+  +'· <b>관리처분계획 및 그 인가를 증명하는 서면</b> — 관리처분계획서 + <b>인가서</b>(변경인가가 있었으면 <b>최종 변경인가서까지 전부</b>)<br>'
+  +'· <b>대지 및 건축물의 명세</b> — 조합원별 분양 내역(동·호수, 대지권 비율)<br>'
+  +'· <b>종전 토지·건축물의 명세</b> — 말소할 등기를 특정하는 자료<br><br>'
+
+  +'<b>■ 사업시행자(조합)가 준비할 서류</b><br>'
+  +'· <b>조합 법인등기사항증명서</b> 1통 · <b>조합 인감증명서</b> 1통 · <b>조합 인감도장</b><br>'
+  +'· <b>조합 정관</b> 1부 · <b>조합설립인가서</b> 사본<br>'
+  +'· <b>조합장 신분증</b> · 위임장(사무소에서 작성)<br>'
+  +'· <b>부동산등기용등록번호</b>를 증명하는 서류 <span class="hint">(법인 아닌 조합인 경우)</span><br><br>'
+
+  +'<b>■ 준공·대지 확정 관련 서류</b><br>'
+  +'· <b>준공인가서</b>(또는 공사완료 고시문) 1부<br>'
+  +'· <b>건축물대장</b> — 신축 건물 <b>전유부 전부</b>. <span class="hint">집합건축물대장(표제부·전유부)이 먼저 생성되어야 보존등기를 할 수 있습니다.</span><br>'
+  +'· <b>토지대장</b> — <b>대지확정측량과 토지분할이 끝난</b> 뒤의 것'
+  +'<span class="law" title="도시 및 주거환경정비법 제86조제2항 — 사업시행자는 준공인가 후 대지확정측량을 하고 토지의 분할절차를 거쳐 관리처분계획에 정한 사항을 분양받을 자에게 통지하고 대지 또는 건축물의 소유권을 이전하여야 한다">도시정비법 §86②</span><br>'
+  +'· <b>지적도 · 대지권 비율 산정표</b><br>'
+  +'· <b>종전 토지·건물의 등기사항증명서</b> — 전 필지·전 건물분<br><br>'
+
+  +'<b>■ 조합원(분양받으신 분)이 준비할 것</b><br>'
+  +'· <b>주민등록등본</b> 1통 <span class="hint">(주소가 바뀌셨으면 <b>초본</b>으로 주소 이력 전부)</span><br>'
+  +'· <b>도장</b> · <b>신분증</b><br>'
+  +'· 조합원 지위를 <b>상속·매매로 넘겨받으신</b> 경우 → 그 사실을 증명하는 서류(가족관계증명서·매매계약서 등)와 <b>조합원 명의변경 확인서</b><br>'
+  +'<span class="hint">▸ 대부분의 서류는 조합이 일괄 제출하므로, 조합원께서는 조합에서 알려 드리는 서류만 내시면 됩니다.</span><br><br>'
+
+  +'<b>■ 세금·비용</b><br>'
+  +'· <b>취득세</b> — 새로 지은 건물은 <b>원시취득</b>, 늘어난 대지 지분은 <b>승계취득</b>으로 나누어 계산합니다. <span class="tag chk">확인필요</span> <span class="hint">사업별로 과세관청 해석이 갈리므로 관할 시·군·구청 세무과에 미리 확인하십시오.</span><br>'
+  +'· <b>청산금</b> — 종전 재산 가격과 분양받은 재산 가격에 차이가 있으면 <b>이전고시 후에</b> 주고받습니다'
+  +'<span class="law" title="도시 및 주거환경정비법 제89조제1항 — 대지 또는 건축물을 분양받은 자가 종전에 소유하고 있던 토지 또는 건축물의 가격과 분양받은 대지 또는 건축물의 가격 사이에 차이가 있는 경우 사업시행자는 이전고시가 있은 후에 그 차액에 상당하는 금액을 징수하거나 지급하여야 한다">도시정비법 §89①</span>. <span class="hint">등기 비용과는 별개입니다.</span><br>'
+  +'· <b>국민주택채권</b> — 보존등기·이전등기 여부에 따라 매입액이 달라집니다. 위 ② 공과금란에 확인한 금액을 넣으십시오.<br><br>'
+
+  +'<div class="dl" style="border-top:1px dashed var(--line);margin-top:6px;padding-top:6px;">'
+  +'<b>■ 서류는 어디서 떼나요</b><br>'
+  +'· <b>이전고시문 · 관리처분계획 인가서 · 준공인가서</b> → <b>인가권자인 시장·군수·구청장</b>(정비사업과·주택과)<br>'
+  +'· <b>집합건축물대장</b> → <a href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a> 또는 <a href="https://www.eais.go.kr" target="_blank" rel="noopener">세움터</a><br>'
+  +'· <b>토지대장 · 지적도</b> → <a href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a> 또는 <a href="https://www.eum.go.kr" target="_blank" rel="noopener">토지이음</a><br>'
+  +'· <b>조합 법인등기사항증명서 · 인감증명서</b> → <a href="https://www.iros.go.kr" target="_blank" rel="noopener">인터넷등기소</a><br>'
+  +'· <b>종전 부동산 등기사항증명서</b> → <a href="https://www.iros.go.kr" target="_blank" rel="noopener">인터넷등기소</a><br>'
+  +'· <b>취득세 신고 · 납부</b> → <a href="https://www.wetax.go.kr" target="_blank" rel="noopener">위택스</a> 또는 관할 시·군·구청<br>'
+  +'<br><span class="hint">▸ 조합원 수가 많고 종전 부동산에 붙은 권리가 복잡할수록 <b>사전 정리에 시간이 오래 걸립니다.</b> 이전고시 전에 미리 상담해 주십시오.<br>'
+  +'▸ 위 목록은 일반적인 경우입니다. <b>사업 유형과 관할 등기소에 따라 서류가 더 필요할 수 있습니다.</b></span></div>';
+}
+
 (function(){const tb=document.getElementById('rd_extraAgent');if(!tb)return;EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(a=>{const [id,name,code]=a;const tr=document.createElement('tr');
   tr.innerHTML='<td><label class="checks" style="display:inline-flex;align-items:flex-start;"><input type="checkbox" id="rda_'+id+'" onchange="calcRedev()" style="margin-top:2px;"> <span style="font-size:12.5px;">'+eaLabel(a,'reTransfer')+' <b style="color:var(--seal);">'+FLAT[code].toLocaleString()+'원</b></span></label></td><td><input type="number" id="rdaq_'+id+'" value="1" min="1" style="width:54px;text-align:center;" oninput="calcRedev()"></td>';
   tb.appendChild(tr);});})();
@@ -7057,7 +7577,7 @@ function buildGeneric(name){
         +'<b>개별매각</b>의 여러 물건을 함께 권리분석 — 각 부동산마다 50,000원(§22②2호)</label></div>';
     h+='<div class="line" style="border:none;"><span class="lbl"></span><span class="hint" id="g_uNote"></span></div>';
   }
-  if(def.regType){h+='<div class="line"><span class="lbl">부동산/대상 개수</span><div class="stepper"><button onclick="step(\'g_units\',-1,calcGeneric)">−</button><input type="number" id="g_units" value="1" min="1" oninput="calcGeneric()"><button onclick="step(\'g_units\',1,calcGeneric)">+</button></div><span class="hint">등기수수료 곱</span></div>';}
+  if(def.regType){h+='<div class="line"><span class="lbl">'+(def.unitsLabel||'부동산/대상 개수')+'</span><div class="stepper"><button onclick="step(\'g_units\',-1,calcGeneric)">−</button><input type="number" id="g_units" value="1" min="1" oninput="calcGeneric()"><button onclick="step(\'g_units\',1,calcGeneric)">+</button></div><span class="hint">등기수수료 곱</span></div>';}
   if(def.prof){
     if(def.prof.songCnt)h+='<div class="line"><span class="lbl">당사자 수 <span class="hint">('+(def.prof.songParty||'당사자')+')</span></span><div class="stepper"><button onclick="step(\'g_party\',-1,()=>calcGeneric())">−</button><input type="number" id="g_party" value="'+(def.prof.partyDef||2)+'" min="1" oninput="calcGeneric()"><button onclick="step(\'g_party\',1,()=>calcGeneric())">+</button></div></div>';
     h+='<div class="line"><span class="lbl">전자소송 진행</span><label class="checks" style="display:inline-flex;"><input type="checkbox" id="g_e" checked onchange="calcGeneric()"> 예(인지 10% 할인)</label></div>';
@@ -7080,15 +7600,20 @@ function buildGeneric(name){
     pc.style.display='block';
     const tag=document.getElementById('g_pubTag');
     if(tag){
-      const needChk=def.tax||def.regType||(def.prof&&def.prof.chk);
+      const needChk=def.tax||(def.regType&&!def.regLic)||(def.prof&&def.prof.chk);
       if(def.prof&&def.prof.bGrade){tag.textContent='B';tag.className='tag B';}
       else{tag.textContent=needChk?'확인필요':'A';tag.className='tag '+(needChk?'chk':'A');}
     }
     let p='';
-    if(def.prof&&def.prof.guide)p+='<div class="note" style="margin-bottom:8px;">'+def.prof.guide+'</div>';
+    const _pg=def.pubGuide||(def.prof&&def.prof.guide);
+    if(_pg)p+='<div class="note" style="margin-bottom:8px;">'+_pg+'</div>';
     if(def.prof){
       p+='<div class="line"><span class="lbl">인지대</span><input type="number" class="cell" id="g_inji" value="0" oninput="calcGeneric(true)"><span class="hint" id="g_injiNote"></span></div>';
       if(def.prof.songCnt)p+='<div class="line"><span class="lbl">송달료</span><input type="number" class="cell" id="g_song" value="0" oninput="calcGeneric(true)"><span class="hint" id="g_songNote"></span></div>';
+    }
+    if(def.regLic){
+      p+='<div class="line"><span class="lbl">등록면허세</span><input type="number" class="cell" id="g_lic" value="0" oninput="calcGeneric(true)"><span class="hint" id="g_licNote"></span><span class="law" title="지방세법 제28조제1항제5호의2 — 동산담보권 및 채권담보권 등기 또는 지식재산권담보권 등록. 가목 담보권 설정·이전 등기: 채권금액의 1천분의 1 / 나목 그 밖의 등기: 건당 9천원. 같은 항 단서에 따라 가목으로 산출한 세액이 나목보다 적으면 나목의 세율을 적용한다.">지방세법 §28①5호의2</span></div>';
+      p+='<div class="line"><span class="lbl">지방교육세</span><input type="number" class="cell" id="g_licEdu" value="0" oninput="calcGeneric(true)"><span class="hint">등록면허세의 20%</span><span class="law" title="지방세법 제151조제1항 — 등록에 대한 등록면허세액의 100분의 20. 세부 호수는 재확인 대상입니다.">지방세법 §151①</span></div>';
     }
     if(def.regType){
       const opts=['e','p','o'];const labels={e:'e-Form',p:'수기',o:'전자'};
@@ -7103,7 +7628,7 @@ function buildGeneric(name){
     if(def.tax){
       p+='<div class="line"><span class="lbl">'+def.tax+'</span><input type="number" class="cell" id="g_tax" value="0" oninput="calcGeneric()"><span class="hint">직접 입력</span></div>';
     }
-    if(def.regType){p+='<div class="line"><span class="lbl">채권 할인손실(원)</span><input type="number" class="cell" id="g_bond" value="0" oninput="calcGeneric()"></div>';}
+    if(def.regType&&!def.regLic){p+='<div class="line"><span class="lbl">채권 할인손실(원)</span><input type="number" class="cell" id="g_bond" value="0" oninput="calcGeneric()"></div>';}
     p+='<div class="line"><span class="lbl">기타 공과금(원)</span><input type="number" class="cell" id="g_etcpub" value="0" oninput="calcGeneric()"><span class="hint">우편·증명서 등</span></div>';
     p+='<div class="line" style="border:none;"><span class="lbl">공과금계</span><span class="auto" id="g_pubSum" style="font-variant-numeric:tabular-nums;">0 원</span></div>';
     document.getElementById('g_public').innerHTML=p;
@@ -7161,6 +7686,23 @@ function calcGeneric(fromEdit){
   // 공과금
   let pub=0;
   const units=Math.max(1,val('g_units'));
+  /* 등록면허세·지방교육세 — [A] 지방세법 §28①5호의2 (동산담보권·채권담보권 등기)
+       가목 담보권 설정·이전 = 채권금액 × 1/1,000  ·  나목 그 밖의 등기 = 건당 9,000원
+       §28① 단서 — 가목으로 산출한 세액이 나목보다 적으면 나목(9,000원)을 적용한다.
+       지방교육세 = 등록면허세 × 20% (지방세법 §151①)  ·  10원 미만 절사(taxLocal) */
+  if(def.regLic){
+    const _le=document.getElementById('g_lic'), _ee=document.getElementById('g_licEdu');
+    if(_le&&_ee){
+      let _lic;
+      if(def.regLic.flat)_lic=def.regLic.flat*units;
+      else _lic=Math.max(def.regLic.min||0, taxLocal(val('g_base')*def.regLic.rate));   /* 채권금액 기준 — 사건마다 채권금액이 다르므로 건수를 곱하지 않는다 */
+      const _edu=taxLocal(_lic*0.2);
+      if(!fromEdit){_le.value=_lic;_ee.value=_edu;}
+      const _ln=document.getElementById('g_licNote');
+      if(_ln)_ln.textContent=def.regLic.label+(def.regLic.flat?(units>1?' × '+units+'건':''):(units>1?' — 사건이 여러 건이면 각 채권금액별로 따로 산정하십시오':''));
+      pub+=val('g_lic')+val('g_licEdu');
+    }
+  }
   if(def.regType){const m=document.getElementById('g_regMethod').value;const idx=m==='p'?0:(m==='o'?2:1);let unit=REG_RE[def.regType][idx];if(unit===null)unit=0;const rf=unit*units;document.getElementById('g_regCell').textContent=won(rf);pub+=rf;}
   if(def.regCorp){const cm=document.getElementById('g_regCorpMethod').value;const cix=cm==='p'?0:(cm==='o'?2:1);const rc=REG_CORP[def.regCorp][cix]*units;document.getElementById('g_regCorpCell').textContent=won(rc);pub+=rc;}
   if(def.tax){pub+=val('g_tax');}
