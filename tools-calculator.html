@@ -439,10 +439,13 @@
       </div>
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('cntEstate',-1,calcSale)">−</button><input type="number" id="cntEstate" value="1" min="1" oninput="calcSale()"><button onclick="step('cntEstate',1,calcSale)">+</button></div><span class="hint">등기수수료·우편 개수 곱</span></div>
       <div class="line"><span class="lbl">등기권리자(인)</span><div class="stepper"><button onclick="step('cntOwner',-1,calcSale)">−</button><input type="number" id="cntOwner" value="1" min="1" oninput="calcSale()"><button onclick="step('cntOwner',1,calcSale)">+</button></div><span class="hint">보수기준 <b>§2②4호</b> — 당사자·이해관계인 <b>5인 이상</b> 판정용 (아래 「당사자 다수 가산」과 연동)</span></div>
-      <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcSale()">
+      <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcSale();junjuToggle()">
         <label><input type="radio" name="ptype" value="house" checked> 주택</label>
+        <label><input type="radio" name="ptype" value="etc" id="ptype_jun"> 준주택<span class="law" title="「주택법」 제2조제1호의2 및 같은 법 시행령 제4조 — 주택 외의 건축물과 그 부속토지로서 주거시설로 이용가능한 시설. 제1호 기숙사, 제2호 다중생활시설, 제3호 「노인복지법」 제32조제1항제3호의 노인복지주택, 제4호 오피스텔. 준주택은 「주택법」 제2조제1호의 주택이 아니므로 지방세법 제11조제1항제8호의 주택 유상거래 특례세율(1~3%)이 적용되지 아니한다.">주택법 §2 1호의2</span></label>
         <label><input type="radio" name="ptype" value="etc"> 주택외</label>
         <label><input type="radio" name="ptype" value="farm"> 농지</label></div></div>
+      <div class="note" id="junHint"><b>노인복지주택·오피스텔·기숙사·고시원(다중생활시설)</b>이라면 「주택」이 아니라 <b>「준주택」</b>을 골라 주십시오. 대장에 「노인복지주택」이라고 적혀 있어도 <b>세법상 주택이 아닙니다.</b> 잘못 고르면 세금이 <b>4배까지 차이</b>납니다. <span class="hint">▸ 헷갈리시면 그대로 두시고 상담 때 말씀해 주십시오.</span></div>
+      <div class="note alert" id="junWarn" style="display:none;"><span class="head">준주택은 「주택」이 아니어서 세율이 다릅니다</span>노인복지주택·오피스텔·기숙사·다중생활시설은 <b>건축물대장에 「주택」처럼 적혀 있어도</b> 「주택법」 제2조제1호의 <b>주택이 아닙니다</b>(같은 조 제1호의2·시행령 §4 → <b>준주택</b>). 따라서 <b>주택에 주는 취득세 할인을 받지 못합니다.</b><br>▸ <b>매매 4.6%</b>(취득 4 + 교육 0.4 + 농특 0.2) · <b>증여 4.0%</b>(3.5+0.3+0.2) · <b>상속 3.16%</b>(2.8+0.16+0.2) <span class="law" title="지방세법 §11①7호나목·제2호·제1호나목, §151①1호 본문, 농어촌특별세법 §5①6호">지방세법 §11①·§151①1호</span><br>▸ <b>전용 85㎡ 이하라도 농어촌특별세 0.2%를 냅니다.</b> 농특세 비과세(농특세법 §4 11호)는 「주택법」상 <b>국민주택규모 주택</b>이 대상이어서 준주택은 해당하지 않습니다.<br>▸ 다주택 중과(§13의2)·조정대상지역·생애최초 감면은 <b>모두 적용되지 않습니다.</b> 위 항목은 비워 두십시오.<br><b style="color:#c0392b;">계약 전 반드시 확인하십시오.</b> 같은 노인복지주택이라도 <b>등기사항전부증명서 표제부에 「아파트」·「공동주택」으로 기재</b>되어 있으면 결론이 달라질 수 있습니다. 물건 소재지 <b>시·군·구청 세무과</b>에 「노인복지주택 취득 시 적용 세율」을 문의하신 뒤 진행하시기 바랍니다. <span class="tag chk">확인필요</span></div>
       <div class="line" id="houseNline"><span class="lbl">보유 주택 수</span><div class="radios" onchange="calcSale()">
         <label><input type="radio" name="hn" value="1" checked> 1주택</label>
         <label><input type="radio" name="hn" value="2"> 2주택</label>
@@ -561,10 +564,13 @@
       <div class="line"><span class="lbl">상속재산 과세표준(원)</span><input type="number" class="amt" id="s_price" placeholder="0" oninput="calcInherit()"><span class="hint">시가표준액 합산</span></div>
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('s_cntEstate',-1,calcInherit)">−</button><input type="number" id="s_cntEstate" value="1" min="1" oninput="calcInherit()"><button onclick="step('s_cntEstate',1,calcInherit)">+</button></div><span class="hint">등기수수료(매 부동산 20,000/17,000)·우편 곱</span></div>
       <div class="line"><span class="lbl">상속인(인)</span><div class="stepper"><button onclick="step('s_cntHeir',-1,calcInherit)">−</button><input type="number" id="s_cntHeir" value="1" min="1" oninput="calcInherit()"><button onclick="step('s_cntHeir',1,calcInherit)">+</button></div><span class="hint">보수기준 <b>§2②4호</b> — 당사자·이해관계인 <b>5인 이상</b> 판정용 (아래 「당사자 다수 가산」과 연동)</span></div>
-      <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcInherit()">
+      <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcInherit();junjuToggle()">
         <label><input type="radio" name="s_ptype" value="house" checked> 주택</label>
+        <label><input type="radio" name="s_ptype" value="etc" id="s_ptype_jun"> 준주택<span class="law" title="「주택법」 제2조제1호의2 및 같은 법 시행령 제4조 — 주택 외의 건축물과 그 부속토지로서 주거시설로 이용가능한 시설. 제1호 기숙사, 제2호 다중생활시설, 제3호 「노인복지법」 제32조제1항제3호의 노인복지주택, 제4호 오피스텔. 준주택은 「주택법」 제2조제1호의 주택이 아니므로 지방세법 제11조제1항제8호의 주택 유상거래 특례세율(1~3%)이 적용되지 아니한다.">주택법 §2 1호의2</span></label>
         <label><input type="radio" name="s_ptype" value="etc"> 주택외</label>
         <label><input type="radio" name="s_ptype" value="farm"> 농지</label></div></div>
+      <div class="note" id="s_junHint"><b>노인복지주택·오피스텔·기숙사·고시원(다중생활시설)</b>이라면 「주택」이 아니라 <b>「준주택」</b>을 골라 주십시오. 대장에 「노인복지주택」이라고 적혀 있어도 <b>세법상 주택이 아닙니다.</b> 잘못 고르면 세금이 <b>4배까지 차이</b>납니다. <span class="hint">▸ 헷갈리시면 그대로 두시고 상담 때 말씀해 주십시오.</span></div>
+      <div class="note alert" id="s_junWarn" style="display:none;"><span class="head">준주택은 「주택」이 아니어서 세율이 다릅니다</span>노인복지주택·오피스텔·기숙사·다중생활시설은 <b>건축물대장에 「주택」처럼 적혀 있어도</b> 「주택법」 제2조제1호의 <b>주택이 아닙니다</b>(같은 조 제1호의2·시행령 §4 → <b>준주택</b>). 따라서 <b>주택에 주는 취득세 할인을 받지 못합니다.</b><br>▸ <b>매매 4.6%</b>(취득 4 + 교육 0.4 + 농특 0.2) · <b>증여 4.0%</b>(3.5+0.3+0.2) · <b>상속 3.16%</b>(2.8+0.16+0.2) <span class="law" title="지방세법 §11①7호나목·제2호·제1호나목, §151①1호 본문, 농어촌특별세법 §5①6호">지방세법 §11①·§151①1호</span><br>▸ <b>전용 85㎡ 이하라도 농어촌특별세 0.2%를 냅니다.</b> 농특세 비과세(농특세법 §4 11호)는 「주택법」상 <b>국민주택규모 주택</b>이 대상이어서 준주택은 해당하지 않습니다.<br>▸ 다주택 중과(§13의2)·조정대상지역·생애최초 감면은 <b>모두 적용되지 않습니다.</b> 위 항목은 비워 두십시오.<br><b style="color:#c0392b;">계약 전 반드시 확인하십시오.</b> 같은 노인복지주택이라도 <b>등기사항전부증명서 표제부에 「아파트」·「공동주택」으로 기재</b>되어 있으면 결론이 달라질 수 있습니다. 물건 소재지 <b>시·군·구청 세무과</b>에 「노인복지주택 취득 시 적용 세율」을 문의하신 뒤 진행하시기 바랍니다. <span class="tag chk">확인필요</span></div>
       <div class="line"><span class="lbl">세목 기준 <span class="tag A">A</span></span><div class="radios" onchange="calcInherit()">
         <label><input type="radio" name="s_taxMode" value="acq" checked> 2011.1.1.〜 상속개시(취득세)</label>
         <label><input type="radio" name="s_taxMode" value="reg"> 〜2010.12.31. 상속개시(舊 등록세)</label></div></div>
@@ -833,9 +839,12 @@
       <div class="line"><span class="lbl">시가인정액(원)</span><input type="number" class="amt" id="gv_price" placeholder="0" oninput="calcGift()"><span class="hint">증여 취득세 과세표준(시가인정액)</span></div>
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('gv_cntEstate',-1,calcGift)">−</button><input type="number" id="gv_cntEstate" value="1" min="1" oninput="calcGift()"><button onclick="step('gv_cntEstate',1,calcGift)">+</button></div></div>
       <div class="line"><span class="lbl">등기권리자(수증자)</span><div class="stepper"><button onclick="step('gv_cntOwner',-1,calcGift)">−</button><input type="number" id="gv_cntOwner" value="1" min="1" oninput="calcGift()"><button onclick="step('gv_cntOwner',1,calcGift)">+</button></div><span class="hint">보수기준 <b>§2②4호</b> — 당사자·이해관계인 <b>5인 이상</b> 판정용 (아래 「당사자 다수 가산」과 연동)</span></div>
-      <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcGift()">
+      <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcGift();junjuToggle()">
         <label><input type="radio" name="gv_ptype" value="house" checked> 주택</label>
+        <label><input type="radio" name="gv_ptype" value="etc" id="gv_ptype_jun"> 준주택<span class="law" title="「주택법」 제2조제1호의2 및 같은 법 시행령 제4조 — 주택 외의 건축물과 그 부속토지로서 주거시설로 이용가능한 시설. 제1호 기숙사, 제2호 다중생활시설, 제3호 「노인복지법」 제32조제1항제3호의 노인복지주택, 제4호 오피스텔. 준주택은 「주택법」 제2조제1호의 주택이 아니므로 지방세법 제11조제1항제8호의 주택 유상거래 특례세율(1~3%)이 적용되지 아니한다.">주택법 §2 1호의2</span></label>
         <label><input type="radio" name="gv_ptype" value="etc"> 주택외</label></div></div>
+      <div class="note" id="gv_junHint"><b>노인복지주택·오피스텔·기숙사·고시원(다중생활시설)</b>이라면 「주택」이 아니라 <b>「준주택」</b>을 골라 주십시오. 대장에 「노인복지주택」이라고 적혀 있어도 <b>세법상 주택이 아닙니다.</b> 잘못 고르면 세금이 <b>4배까지 차이</b>납니다. <span class="hint">▸ 헷갈리시면 그대로 두시고 상담 때 말씀해 주십시오.</span></div>
+      <div class="note alert" id="gv_junWarn" style="display:none;"><span class="head">준주택은 「주택」이 아니어서 세율이 다릅니다</span>노인복지주택·오피스텔·기숙사·다중생활시설은 <b>건축물대장에 「주택」처럼 적혀 있어도</b> 「주택법」 제2조제1호의 <b>주택이 아닙니다</b>(같은 조 제1호의2·시행령 §4 → <b>준주택</b>). 따라서 <b>주택에 주는 취득세 할인을 받지 못합니다.</b><br>▸ <b>매매 4.6%</b>(취득 4 + 교육 0.4 + 농특 0.2) · <b>증여 4.0%</b>(3.5+0.3+0.2) · <b>상속 3.16%</b>(2.8+0.16+0.2) <span class="law" title="지방세법 §11①7호나목·제2호·제1호나목, §151①1호 본문, 농어촌특별세법 §5①6호">지방세법 §11①·§151①1호</span><br>▸ <b>전용 85㎡ 이하라도 농어촌특별세 0.2%를 냅니다.</b> 농특세 비과세(농특세법 §4 11호)는 「주택법」상 <b>국민주택규모 주택</b>이 대상이어서 준주택은 해당하지 않습니다.<br>▸ 다주택 중과(§13의2)·조정대상지역·생애최초 감면은 <b>모두 적용되지 않습니다.</b> 위 항목은 비워 두십시오.<br><b style="color:#c0392b;">계약 전 반드시 확인하십시오.</b> 같은 노인복지주택이라도 <b>등기사항전부증명서 표제부에 「아파트」·「공동주택」으로 기재</b>되어 있으면 결론이 달라질 수 있습니다. 물건 소재지 <b>시·군·구청 세무과</b>에 「노인복지주택 취득 시 적용 세율」을 문의하신 뒤 진행하시기 바랍니다. <span class="tag chk">확인필요</span></div>
       <div class="line"><span class="lbl">감면·가산 등</span><div class="checks" onchange="calcGift()">
         <label><input type="checkbox" id="gv_adj3"> 조정대상지역 3억↑ 주택(12% 중과)</label>
         <label><input type="checkbox" id="gv_donorOneHouse" onchange="calcGift()"> └ 증여자가 1세대 1주택(§13의2② 단서 → 중과 배제)</label>
@@ -4499,6 +4508,29 @@ setInterval(moneyScan,200);
 function won(n){n=Math.round(n||0);return n.toLocaleString('ko-KR')+' 원';}
 function val(id){const el=document.getElementById(id);if(!el)return 0;const v=numOf(el.value);return isNaN(v)?0:v;}
 function radio(name){const el=document.querySelector('input[name="'+name+'"]:checked');return el?el.value:'';}
+/* ═══════════════ 준주택 안내 토글 ═══════════════════════════════════
+   [A] 주택법 §2 1호의2 · 같은 법 시행령 §4 — 준주택(기숙사·다중생활시설·
+       노인복지주택·오피스텔)은 「주택법」 §2 1호의 주택이 아니다.
+       → 지방세법 §11①8호 주택 유상거래 특례세율(1~3%) 적용 대상이 아니고,
+         농어촌특별세법 §4 11호 국민주택규모 비과세도 적용되지 않는다.
+   ※ 준주택 라디오의 value 는 기존 '주택외'와 같은 'etc' 이다.
+     radio() 는 checked 요소의 value 를 반환하므로 계산 로직은 수정 불요.
+     여기서는 id 로만 구별하여 안내 문구를 노출한다. */
+function junjuToggle(){
+  [['','ptype'],['s_','s_ptype'],['gv_','gv_ptype']].forEach(function(p){
+    var pre=p[0], jun=document.getElementById(pre+'ptype_jun');
+    var w=document.getElementById(pre+'junWarn'), h=document.getElementById(pre+'junHint');
+    var on=!!(jun&&jun.checked);
+    if(w)w.style.display=on?'block':'none';
+    if(h)h.style.display=on?'none':'block';
+    if(!on)return;
+    /* 준주택이면 주택 전용 항목을 잠근다 — 중과·감면은 준주택에 적용되지 않는다 */
+    [pre+'over85', pre+'adj3', pre+'oneHouse', pre+'adjusted', pre+'firstHome'].forEach(function(id){
+      var e=document.getElementById(id); if(e&&e.checked){e.checked=false;}
+    });
+  });
+}
+document.addEventListener('DOMContentLoaded',junjuToggle);
 function chk(id){const e=document.getElementById(id);return e&&e.checked;}
 function step(id,d,fn){const el=document.getElementById(id);el.value=Math.max(1,(numOf(el.value)||1)+d);if(fn)fn();}
 /* ★ 세금 끝수(단수) 처리 — 27-3회차 신설 / 27-4회차 정정
