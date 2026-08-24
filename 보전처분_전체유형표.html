@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[보전 색인] 가압류·가처분 전체 유형표 — 내 경우는 어디에 해당하나 | 산 법무사 김재섭</title>
+<meta name="description" content="가압류·가처분·보전처분 취소·집행까지 모든 유형을 한 장에 정리했습니다. 유형별 근거조문·인지액·송달료를 함께 확인하실 수 있습니다.">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:22px 0 8px;}
+p{margin:10px 0;}
+a{color:var(--gold-d);}
+
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+
+.hire{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:5px solid var(--ok-line); border-radius:11px; padding:16px 18px; margin:16px 0 26px;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--ok-ink); font-size:17px; margin-bottom:7px;}
+.hire p{margin:8px 0 0; font-size:15px; line-height:1.85;}
+
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+
+.lawbox{background:#f0ebe1;border-radius:9px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.75;}
+.lawbox .ll{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:#241a10;border-radius:5px;padding:2px 9px;margin-right:7px;}
+
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+
+.tbwrap{overflow-x:auto; -webkit-overflow-scrolling:touch; margin:14px 0;}
+table{width:100%; border-collapse:collapse; font-size:14px; min-width:560px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); font-weight:700; text-decoration:none; border-bottom:1px solid var(--gold);}
+.jo{display:inline-block; font-size:11.5px; font-weight:700; color:#fff; background:#241a10; border-radius:4px; padding:1px 7px; margin-right:5px; white-space:nowrap;}
+.won{white-space:nowrap; font-weight:700; color:var(--gold-d);}
+.chk{display:inline-block; font-size:11.5px; font-weight:700; color:var(--warn-ink); background:#fdf2ee; border:1px solid #f0c9bd; border-radius:4px; padding:1px 6px; white-space:nowrap;}
+.soon{display:inline-block; font-size:12px; font-weight:700; color:#8a7f6d; background:#f2efe8; border:1px solid var(--line); border-radius:6px; padding:2px 8px; white-space:nowrap;}
+.ext{display:inline-block; font-size:12px; font-weight:700; color:var(--tip-ink); background:var(--tip-bg); border:1px solid #cfe0ea; border-radius:6px; padding:2px 8px; margin-top:4px; text-decoration:none; white-space:nowrap;}
+.ext:hover{background:#dfeaf2;}
+.lk{margin:10px 0; padding-left:0; list-style:none;}
+.lk li{margin:9px 0; padding-left:20px; position:relative; font-size:14.5px; line-height:1.7;}
+.lk li::before{content:"\25B8"; color:var(--gold); position:absolute; left:2px; font-weight:700;}
+.lk .path{display:block; font-size:12.5px; color:var(--muted); margin-top:1px;}
+.calc{color:#c0392b; font-weight:700;}
+
+.cta{display:block;text-align:center;background:var(--gold-d);color:#fff;font-weight:700;font-size:17px;text-decoration:none;padding:15px;border-radius:11px;margin:22px 0;font-family:'Nanum Myeongjo',serif;letter-spacing:1px;}
+.cta:hover{background:#5e3f24;}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(280px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+
+@media (max-width:680px){
+  body{font-size:15.5px; padding:22px 14px 70px;}
+  h1{font-size:21px;}
+  h2{font-size:18px;}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none !important; animation:none !important;}}
+@media print{
+  body{background:#fff; max-width:none;}
+  .backbar, .cta{display:none !important;}
+  .tnote{display:none;}
+  .tldr,.warn,.tip,.cost,.lawbox,.hire{background:#fff !important; border-color:#ccc !important;}
+  .tbwrap{overflow:visible;}
+  table{min-width:0;}
+  .term{border:none; color:inherit; font-weight:inherit;}
+  .term>.bub{display:inline !important; position:static; width:auto; background:none; color:inherit; box-shadow:none; padding:0; font-size:inherit; line-height:inherit;}
+  .term>.bub::before{content:" ("; }
+  .term>.bub::after{content:")"; border:none; position:static;}
+}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+
+<h1>[보전 색인] 가압류·가처분 전체 유형표 — 내 경우는 어디에 해당하나</h1>
+
+<div class="tnote">어려운 법률용어에는 <b>점선 밑줄</b>이 그어져 있습니다. <b>PC는 마우스를 올리면</b>, <b>휴대폰은 손가락으로 톡 터치하면</b> 쉬운 설명이 뜹니다. (인쇄하면 괄호로 함께 나옵니다.)</div>
+
+<div class="hire">
+<div class="ht">이 매뉴얼을 끝까지 읽으시는 분께</div>
+<p>이 매뉴얼은 의뢰인이 직접 법원에 신청할 수 있도록 모든 서류 양식, 비용, 요건을 구체적으로 담았습니다. 하지만 소송은 살아있는 생물과 같아 상대방의 격렬한 저항이 뒤따릅니다. 혼자 진행하시다가 막히는 부분이 생기거나 방어막이 필요할 때, 언제든 이 매뉴얼을 들고 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</p>
+</div>
+
+<div class="tldr">
+<div class="tt">30초 결론 — 이 표를 보는 법</div>
+<ul>
+<li><b>가압류</b>는 <b>받을 돈</b>을 지키는 것입니다. 돈으로 계산되는 권리(빌려준 돈, 물품대금, 손해배상금 등)가 대상입니다.</li>
+<li><b>가처분</b>은 <b>물건·자리·권리</b>를 지키는 것입니다. 돈이 아닌 권리(부동산을 넘겨받을 권리, 점유, 직위 등)가 대상입니다.</li>
+<li>표 오른쪽 칸을 보십시오. <b>상세 카드</b>는 신청서 작성례까지 담긴 카드로 이어지고, <b>준비중</b>은 카드를 만들고 있다는 뜻입니다.</li>
+<li>준비중인 줄에도 <b>법제처·법률구조공단 자료</b>를 함께 걸어 두었으니, 카드가 나오기 전에도 스스로 진행하실 수 있습니다.</li>
+<li>인지액은 <b>정해진 금액</b>이지만 송달료·<span class="term" tabindex="0">등록면허세<span class="bub">부동산이나 자동차처럼 나라에 등록된 재산을 묶을 때, 그 기록을 남기는 대가로 시·군·구청에 내는 지방세입니다. 통장 가압류에는 없습니다.</span></span>는 <b>사정마다 달라집니다.</b></li>
+</ul>
+</div>
+
+<h2>이 표에 담긴 것과 담기지 않은 것</h2>
+
+<p>보전처분은 종류가 대단히 많습니다. 실무에서 자주 쓰이는 것만 골라 안내하면 사업을 하시는 분이나 전문 분야에 계신 분은 자기 사정을 찾지 못하고 돌아가게 됩니다. 그래서 <b>드물게 쓰이는 유형까지 빠짐없이</b> 이 한 장에 실었습니다.</p>
+
+<p>다만 자주 쓰이는 유형에는 <b>따로 상세 카드</b>를 두었습니다. 신청서 빈칸을 채우는 작성례, 첨부서류 발급처, 상대방의 반격과 대응책까지 담겨 있습니다. 표에서 <b>[상세 카드]</b> 표시가 있는 줄이 그것입니다.</p>
+
+<div class="tip">
+<span class="pt">먼저 알아두실 것 — 가압류·가처분은 '본 재판'이 아닙니다</span>
+가압류·가처분은 재판에서 이기더라도 상대가 재산을 이미 처분해 버려 <b>받을 것이 남지 않는 사태</b>를 막는 <b>사전 잠금장치</b>입니다. 이것만으로 돈을 받아내지는 못합니다. 반드시 <b>본안소송</b>(대여금 청구 소송 등)을 따로 제기해 <span class="term" tabindex="0">집행권원<span class="bub">강제로 재산을 처분해 돈을 받아낼 수 있다고 나라가 인정해 준 서류입니다. 확정된 판결문, 지급명령, 공정증서 등이 여기에 해당합니다.</span></span>을 받아야 실제 회수로 이어집니다.
+</div>
+
+<h2>모든 유형에 공통되는 비용 규칙</h2>
+
+<p>표의 '인지액'은 <b>법원에 내는 수수료</b>입니다. 여기에 <b>송달료</b>가 반드시 별도로 붙고, 부동산·자동차 등을 묶을 때는 <b>등록면허세</b>가 추가됩니다. 세 가지를 합쳐야 실제 비용이 됩니다.</p>
+
+<div class="lawbox">
+<span class="ll">인지액</span>가압류·가처분 <b>신청</b>, 그 결정에 대한 <b>이의</b>·<b>취소</b> 신청서는 <b>1만원</b>입니다. 다만 <span class="term" tabindex="0">임시의 지위를 정하기 위한 가처분<span class="bub">판결이 나기 전이라도 당장 급해서 임시로 자리·지위를 정해 두는 가처분입니다. 해고 다툼 중 임금을 계속 받게 하거나, 이사의 직무를 정지시키는 것이 여기에 해당합니다.</span></span>은 <b>본안 소송 인지액의 절반</b>이고, 최대 <b>50만원</b>을 넘지 않습니다. (민사소송 등 인지법 §9②)
+</div>
+
+<div class="cost">
+<span class="ct">💰 전자소송으로 내면 인지액이 10% 깎입니다</span>
+전자소송(<a href="https://ecfs.scourt.go.kr" target="_blank" rel="noopener">ecfs.scourt.go.kr</a>)으로 제출하면 인지액의 <b>10분의 9</b>만 냅니다(민사소송 등 인지법 §14). 그래서 가압류 신청은 종이로 내면 <b>10,000원</b>, 전자로 내면 <b>9,000원</b>입니다. 아래 표의 금액은 <b>종이 접수 기준</b>이니, 전자소송을 이용하시면 10%를 빼고 보시면 됩니다.
+</div>
+
+<h3>송달료 — 당사자 수와 횟수를 곱합니다</h3>
+
+<p>송달료는 법원이 서류를 우편으로 보내는 데 드는 실비입니다. 계산식은 다음과 같습니다.</p>
+
+<div class="lawbox">
+<span class="ll">계산식</span><b>송달료 = 1회 단가 × 당사자 수 × 1명당 납부 횟수</b><br>
+예를 들어 채권자 1명, 채무자 1명인 가압류 신청은 <b>1회 단가 × 2명 × 3회분</b>입니다.
+</div>
+
+<div class="tbwrap">
+<table>
+<thead><tr><th style="width:38%">신청 종류</th><th>1명당 납부 횟수</th><th>근거</th></tr></thead>
+<tbody>
+<tr><td>가압류·가처분 신청</td><td><b>3회분</b></td><td>송달료규칙 시행 업무처리요령 별표1</td></tr>
+<tr><td>제소명령 신청</td><td><b>2회분</b></td><td>같은 별표1</td></tr>
+<tr><td>제소기간 도과에 따른 가압류취소</td><td><b>8회분</b></td><td>같은 별표1</td></tr>
+<tr><td>가압류·가처분 이의신청</td><td><span class="chk">확인필요</span> 접수 법원 확인</td><td>법원별 운용 차이</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="warn">
+<span class="wt">⚠ 1회 송달료 단가는 자주 바뀝니다 <span class="chk">확인필요</span></span>
+법제처 생활법령정보에 <b>2026. 5. 31. 기준 1회 5,500원</b>으로 안내되어 있고, 이후 <b>2026. 7. 1. 우편요금 인상분(1회 5,640원)</b>이 반영된 것으로 파악됩니다. 단가는 우편요금 고시가 바뀔 때마다 조정되므로, <b>접수 직전에 반드시 대법원 홈페이지 공지 또는 접수 법원에 확인</b>하시기 바랍니다.<br>
+<span class="calc">※ 정확한 금액은 <a href="https://sanlaw.co.kr/tools-calculator.html">수수료 계산기</a>에서 당사자 수를 넣어 확인하십시오.</span>
+</div>
+
+<h3>등록면허세 — 부동산·자동차를 묶을 때만</h3>
+
+<div class="lawbox">
+<span class="ll">부동산가압류</span>등록면허세 = <b>청구채권금액 × 1,000분의 2</b>, 지방교육세 = <b>등록면허세 × 100분의 20</b> (지방세법 §28①1라, §151①2)<br>
+<span class="ll">등기촉탁 수수료</span>부동산 1개당 <b>3,000원</b> <span class="chk">확인필요 — 4,000원으로 안내하는 자료도 있어 접수 전 등기소 확인 권장</span>
+</div>
+
+<div class="tip">
+<span class="pt">통장(예금) 가압류에는 등록면허세가 없습니다</span>
+등록면허세는 <b>등기·등록되는 재산</b>에만 붙습니다. 예금채권·급여채권·공사대금채권처럼 등기부가 없는 재산은 인지액과 송달료만 들어갑니다. 가처분 유형에 따라서도 세액이 달라지므로 <b>임의로 추정하지 마시고</b> 계산기를 이용하십시오.
+</div>
+
+<h2>A. 가압류 — 받을 돈을 미리 묶기</h2>
+
+<p>돈으로 계산할 수 있는 권리를 가진 분이 쓰는 제도입니다. 신청서에는 <span class="term" tabindex="0">피보전권리<span class="bub">가압류로 지켜내려는 '받을 권리' 그 자체입니다. 예를 들어 3,000만원을 빌려주고 못 받고 있다면 그 대여금 반환청구권이 피보전권리입니다.</span></span>와 <span class="term" tabindex="0">보전의 필요성<span class="bub">지금 묶어두지 않으면 나중에 재판에서 이겨도 받아낼 재산이 남지 않을 위험이 있다는 사정입니다. 상대가 재산을 팔려 한다거나 다른 빚이 많다는 점 등을 적습니다.</span></span> 두 가지를 반드시 적어야 합니다.</p>
+
+<h3>자주 쓰이는 유형</h3>
+<div class="tbwrap">
+<table>
+<thead><tr><th style="width:26%">유형</th><th>어떤 경우에 쓰나</th><th style="width:14%">인지액</th><th style="width:15%">연결</th></tr></thead>
+<tbody>
+<tr><td><b>예금채권 가압류</b></td><td><span class="jo">민집 §276·§296</span>상대의 통장을 묶어 돈을 빼가지 못하게 합니다. 은행이 <span class="term" tabindex="0">제3채무자<span class="bub">채무자에게 돈을 지급할 의무가 있는 제3자입니다. 통장 가압류에서는 예금을 내줄 의무가 있는 은행이 제3채무자가 됩니다.</span></span>가 됩니다.</td><td class="won">10,000원</td><td><a href="A-1_예금채권가압류.html">상세 카드</a></td></tr>
+<tr><td><b>부동산 가압류</b></td><td><span class="jo">민집 §276·§293</span>상대 명의의 집·땅을 묶어 팔거나 담보로 잡히지 못하게 합니다.</td><td class="won">10,000원</td><td><a href="A-2_부동산가압류.html">상세 카드</a></td></tr>
+<tr><td><b>급여채권 가압류</b></td><td><span class="jo">민집 §296·§246</span>상대의 월급을 묶습니다. 생계 보장을 위해 <b>압류할 수 없는 범위</b>가 법으로 정해져 있습니다.</td><td class="won">10,000원</td><td><a href="A-3_급여가압류.html">상세 카드</a></td></tr>
+<tr><td><b>임차보증금 가압류</b></td><td><span class="jo">민집 §296</span>상대가 집주인에게 받을 전세·월세 보증금을 묶습니다.</td><td class="won">10,000원</td><td><a href="A-4_전세보증금가압류.html">상세 카드</a></td></tr>
+<tr><td><b>지명채권 가압류</b></td><td><span class="jo">민집 §296</span>상대가 거래처에서 받을 공사대금·물품대금을 묶습니다.</td><td class="won">10,000원</td><td><a href="A-5_지명채권가압류.html">상세 카드</a></td></tr>
+<tr><td><b>유체동산 가압류</b></td><td><span class="jo">민집 §296·§190</span>상대의 집·가게 안에 있는 가전·집기를 묶습니다. 집행관이 현장에 나가 표시를 붙입니다.</td><td class="won">10,000원</td><td><a href="A-6_유체동산가압류.html">상세 카드</a></td></tr>
+<tr><td><b>자동차 가압류</b></td><td><span class="jo">민집 §296</span>상대 명의로 등록된 차량을 묶어 팔지 못하게 합니다.</td><td class="won">10,000원</td><td><a href="A-7_자동차가압류.html">상세 카드</a></td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>그 밖의 가압류 유형</h3>
+<div class="tbwrap">
+<table>
+<thead><tr><th style="width:30%">유형</th><th>어떤 경우에 쓰나</th><th style="width:14%">인지액</th><th style="width:12%">연결</th></tr></thead>
+<tbody>
+<tr><td>주식·사원지분 가압류</td><td><span class="jo">민집 §296</span>상대가 가진 회사 주식이나 지분을 묶습니다.</td><td class="won">10,000원</td><td><span class="soon">준비중</span></td></tr>
+<tr><td>회원권 가압류</td><td><span class="jo">민집 §296</span>골프·콘도·스포츠 회원권 등 그 밖의 재산권을 묶습니다.</td><td class="won">10,000원</td><td><span class="soon">준비중</span></td></tr>
+<tr><td>전세권 가압류</td><td><span class="jo">민집 §296</span>등기된 전세권 자체를 묶습니다. 보증금반환채권 가압류와 구분됩니다.</td><td class="won">10,000원</td><td><span class="soon">준비중</span></td></tr>
+<tr><td>저당권부채권 가압류</td><td><span class="jo">민집 §296</span>상대가 가진, 저당권이 붙어 있는 채권을 묶습니다.</td><td class="won">10,000원</td><td><span class="soon">준비중</span></td></tr>
+<tr><td>지시채권 가압류</td><td><span class="jo">민집 §296</span>어음·수표처럼 증권을 넘겨야 권리가 옮겨가는 채권을 묶습니다.</td><td class="won">10,000원</td><td><span class="soon">준비중</span></td></tr>
+<tr><td>출자증권 가압류</td><td><span class="jo">민집 §296</span>협동조합 출자증권 등을 묶습니다.</td><td class="won">10,000원</td><td><span class="soon">준비중</span></td></tr>
+<tr><td>지식재산권 가압류</td><td><span class="jo">민집 §296</span>특허권·상표권·저작권 등을 묶습니다.</td><td class="won">10,000원</td><td><span class="soon">준비중</span></td></tr>
+<tr><td>인도청구권 가압류</td><td><span class="jo">민집 §296</span>상대가 제3자에게 물건을 넘겨받을 권리를 묶습니다.</td><td class="won">10,000원</td><td><span class="soon">준비중</span></td></tr>
+<tr><td>선박·항공기·건설기계 가압류</td><td><span class="jo">민집 §276 이하</span>등록된 대형 재산을 묶습니다. 절차와 첨부서류가 따로 있습니다.</td><td class="won">10,000원</td><td><span class="soon">준비중</span></td></tr>
+<tr><td>부동산 수익권 가압류(강제관리 방법)</td><td><span class="jo">민집 §276 이하</span>부동산을 팔지 않고 임대수익을 관리인이 걷어 확보하는 방식입니다.</td><td class="won">5,000원</td><td><span class="soon">준비중</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>B. 가처분 — 물건·자리·권리를 지금 지키기</h2>
+
+<p>돈이 아닌 권리를 지키는 제도입니다. 크게 둘로 나뉩니다. 하나는 <span class="term" tabindex="0">계쟁물<span class="bub">지금 다투고 있는 그 물건이나 권리 자체를 말합니다. 매매계약을 두고 다투는 아파트, 명도소송 중인 상가 점포 등이 여기에 해당합니다.</span></span>에 관한 가처분이고, 다른 하나는 임시의 지위를 정하는 가처분입니다.</p>
+
+<div class="warn">
+<span class="wt">⚠ 임시의 지위 가처분은 인지액이 크게 다릅니다</span>
+아래 표에서 <b>임시지위</b>로 표시된 유형은 정액 1만원이 아니라 <b>본안 소송 인지액의 절반</b>(상한 50만원)입니다. 본안의 <span class="term" tabindex="0">소가<span class="bub">소송으로 얻으려는 이익을 돈으로 환산한 금액입니다. 이 금액에 따라 법원에 내는 인지액이 정해집니다.</span></span>가 클수록 인지액도 커지므로, 신청 전에 반드시 계산해 보셔야 합니다.<br>
+<span class="calc">※ <a href="https://sanlaw.co.kr/tools-calculator.html">수수료 계산기</a>에서 본안 소가를 넣으면 자동으로 계산됩니다.</span>
+</div>
+
+<h3>자주 쓰이는 유형</h3>
+<div class="tbwrap">
+<table>
+<thead><tr><th style="width:28%">유형</th><th>어떤 경우에 쓰나</th><th style="width:16%">인지액</th><th style="width:12%">연결</th></tr></thead>
+<tbody>
+<tr><td><b>부동산 처분금지가처분</b></td><td><span class="jo">민집 §300①·§305</span>계약한 부동산을 상대가 다른 사람에게 팔아넘기지 못하게 합니다.</td><td class="won">10,000원</td><td><span class="soon">준비중</span><br><a class="ext" href="https://www.easylaw.go.kr/CSP/CnpClsMain.laf?popMenu=ov&amp;csmSeq=295&amp;ccfNo=3&amp;cciNo=1&amp;cnpClsNo=1" target="_blank" rel="noopener">📖 신청례 보기</a></td></tr>
+<tr><td><b>점유이전금지가처분</b></td><td><span class="jo">민집 §300①</span>명도소송 중 세입자가 점유를 제3자에게 넘겨 판결이 헛되지 않게 막습니다.</td><td class="won">10,000원</td><td><span class="soon">준비중</span></td></tr>
+<tr><td><b>공사금지가처분</b></td><td><span class="jo">민집 §300②</span>옆 건물 공사로 내 건물이 위험할 때 공사를 멈추게 합니다. <b>임시지위</b></td><td class="won">본안 1/2<br>(상한 50만원)</td><td><span class="soon">준비중</span></td></tr>
+<tr><td><b>인격권침해금지가처분</b></td><td><span class="jo">민집 §300②</span>허위 게시물을 삭제하게 하거나 계속되는 비방을 멈추게 합니다. <b>임시지위</b></td><td class="won">본안 1/2<br>(상한 50만원)</td><td><span class="soon">준비중</span></td></tr>
+<tr><td><b>직무집행정지·직무대행자선임</b></td><td><span class="jo">민집 §300②·§306</span>회사 대표·이사의 직무를 정지시키고 대행자를 세웁니다. <b>임시지위</b></td><td class="won">본안 1/2<br>(상한 50만원)</td><td><span class="soon">준비중</span></td></tr>
+<tr><td><b>임금지급가처분</b></td><td><span class="jo">민집 §300②</span>해고 다툼 중 복직 판결 전까지 생계를 위한 임금을 받게 합니다. <b>임시지위</b></td><td class="won">본안 1/2<br>(상한 50만원)</td><td><span class="soon">준비중</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>그 밖의 가처분 유형</h3>
+<div class="tbwrap">
+<table>
+<thead><tr><th style="width:34%">유형</th><th>어떤 경우에 쓰나</th><th style="width:12%">연결</th></tr></thead>
+<tbody>
+<tr><td>방해물배제가처분</td><td><span class="jo">민집 §300</span>통행로를 막은 물건 등 방해물을 치우게 합니다.</td><td><span class="soon">준비중</span></td></tr>
+<tr><td>통행방해금지가처분</td><td><span class="jo">민집 §300</span>지나다니던 길을 막지 못하게 합니다.</td><td><span class="soon">준비중</span></td></tr>
+<tr><td>접근금지가처분</td><td><span class="jo">민집 §300②</span>상대가 일정 거리 안으로 접근하지 못하게 합니다.</td><td><span class="soon">준비중</span></td></tr>
+<tr><td>채권추심·처분금지가처분</td><td><span class="jo">민집 §300①</span>다투는 채권을 상대가 거두어 가거나 남에게 넘기지 못하게 합니다.</td><td><span class="soon">준비중</span><br><a class="ext" href="https://www.easylaw.go.kr/CSP/CnpClsMain.laf?popMenu=ov&amp;csmSeq=295&amp;ccfNo=3&amp;cciNo=4&amp;cnpClsNo=1" target="_blank" rel="noopener">📖 신청례 보기</a></td></tr>
+<tr><td>가등기를 명하는 가처분</td><td><span class="jo">부등 §89·§90</span>가등기의무자가 협조하지 않을 때 법원 명령으로 단독 가등기를 합니다.</td><td><span class="soon">준비중</span></td></tr>
+<tr><td>건축허가명의 처분금지가처분</td><td><span class="jo">민집 §300①</span>건축허가 명의를 함부로 넘기지 못하게 합니다.</td><td><span class="soon">준비중</span></td></tr>
+<tr><td>허가권 양도금지가처분</td><td><span class="jo">민집 §300①</span>영업허가 등 행정상 권리의 양도를 막습니다.</td><td><span class="soon">준비중</span></td></tr>
+<tr><td>미등기건물 수분양자 권리 처분금지가처분</td><td><span class="jo">민집 §300①</span>아직 등기 전인 분양권을 상대가 넘기지 못하게 합니다.</td><td><span class="soon">준비중</span></td></tr>
+<tr><td>무허가건물관리대장 명의변경금지가처분</td><td><span class="jo">민집 §300①</span>무허가건물 대장상 명의가 바뀌는 것을 막습니다.</td><td><span class="soon">준비중</span></td></tr>
+<tr><td>금전지급가처분</td><td><span class="jo">민집 §300②</span>생계·치료비 등 급박한 사정에서 판결 전 금전 지급을 명하게 합니다. <b>임시지위</b></td><td><span class="soon">준비중</span></td></tr>
+<tr><td>보증보험금·신용장대금 지급금지가처분</td><td><span class="jo">민집 §300①</span>부당한 청구로 보험금·대금이 빠져나가는 것을 막습니다.</td><td><span class="soon">준비중</span></td></tr>
+<tr><td>유가증권 가처분</td><td><span class="jo">민집 §300①</span>어음·수표·주권 등의 처분을 막습니다.</td><td><span class="soon">준비중</span></td></tr>
+<tr><td>광업권 가처분</td><td><span class="jo">민집 §300①</span>광업권의 처분을 막습니다.</td><td><span class="soon">준비중</span></td></tr>
+<tr><td>선박·항공기·자동차 가처분</td><td><span class="jo">민집 §300①</span>등록된 대형 재산의 처분·이전을 막습니다.</td><td><span class="soon">준비중</span></td></tr>
+<tr><td>이사 행위금지·주주총회 관련 가처분</td><td><span class="jo">민집 §300②</span>총회 개최·결의 효력·의결권 행사 등을 다툽니다. <b>임시지위</b></td><td><span class="soon">준비중</span></td></tr>
+<tr><td>상호사용금지가처분</td><td><span class="jo">민집 §300②</span>유사한 상호·상표의 사용을 멈추게 합니다. <b>임시지위</b></td><td><span class="soon">준비중</span></td></tr>
+<tr><td>입찰 속행금지가처분</td><td><span class="jo">민집 §300②</span>절차에 하자가 있는 입찰의 진행을 멈추게 합니다. <b>임시지위</b></td><td><span class="soon">준비중</span></td></tr>
+<tr><td>독점판매권 침해금지·전속계약 출연금지가처분</td><td><span class="jo">민집 §300②</span>계약상 독점적 지위의 침해를 멈추게 합니다. <b>임시지위</b></td><td><span class="soon">준비중</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>C. 당했을 때 — 푸는 방법</h2>
+
+<p>가압류·가처분은 상대방 몰래(<span class="term" tabindex="0">밀행성<span class="bub">채무자가 미리 알면 재산을 빼돌릴 수 있으므로, 법원이 채무자에게 알리지 않고 신속히 결정하는 원칙입니다. 그래서 결정문을 받고 나서야 알게 되는 경우가 많습니다.</span></span>) 결정되는 것이 보통이라, 어느 날 갑자기 통장이 막힙니다. 당황하지 마시고 아래 다섯 가지 길 중 내 사정에 맞는 것을 고르십시오.</p>
+
+<div class="tbwrap">
+<table>
+<thead><tr><th style="width:24%">방법</th><th>어떤 경우에 쓰나</th><th style="width:14%">인지액</th><th style="width:15%">연결</th></tr></thead>
+<tbody>
+<tr><td><b>이의신청</b></td><td><span class="jo">민집 §283</span>애초에 요건을 갖추지 못한 부당한 가압류라고 다툽니다. 기간 제한이 없습니다.</td><td class="won">10,000원</td><td><a href="C-1_가압류이의_방어.html">상세 카드</a></td></tr>
+<tr><td><b>가처분 이의</b></td><td><span class="jo">민집 §301·§283</span>가처분에 대해서도 같은 방법으로 다툽니다.</td><td class="won">10,000원</td><td><a href="C-2_가처분방어.html">상세 카드</a></td></tr>
+<tr><td><b>해방공탁</b></td><td><span class="jo">민집 §282·§299</span>결정문에 적힌 <span class="term" tabindex="0">해방금액<span class="bub">가압류 결정문에 함께 적히는 금액으로, 이 돈을 법원에 맡기면 가압류 집행을 풀어 주겠다는 액수입니다. 돈이 묶이는 것은 같지만 통장 전체가 아니라 이 금액만 묶입니다.</span></span>을 법원에 맡기고 <b>집행을 즉시 풀어냅니다.</b> 가장 빠른 길입니다.</td><td class="won">1,000원</td><td><span class="soon">준비중</span></td></tr>
+<tr><td><b>제소명령 신청</b></td><td><span class="jo">민집 §287①</span>상대가 가압류만 걸어두고 본안소송을 걸지 않을 때, 법원이 <b>2주 이상의 기간</b>을 정해 소를 제기하라고 명하게 합니다.</td><td class="won">1,000원</td><td><span class="soon">준비중</span><br><a class="ext" href="https://www.easylaw.go.kr/CSP/CnpClsMain.laf?popMenu=ov&amp;csmSeq=294&amp;ccfNo=5&amp;cciNo=2&amp;cnpClsNo=1" target="_blank" rel="noopener">📖 법제처 해설</a></td></tr>
+<tr><td><b>제소기간 도과 취소</b></td><td><span class="jo">민집 §287③</span>제소명령을 받고도 상대가 소를 제기하지 않으면 <b>법원은 결정으로 가압류를 취소</b>합니다.</td><td class="won">10,000원</td><td><span class="soon">준비중</span><br><a class="ext" href="https://www.easylaw.go.kr/CSP/CnpClsMain.laf?popMenu=ov&amp;csmSeq=294&amp;ccfNo=5&amp;cciNo=2&amp;cnpClsNo=1" target="_blank" rel="noopener">📖 법제처 해설</a></td></tr>
+<tr><td><b>사정변경 취소</b></td><td><span class="jo">민집 §288①</span>빚을 갚았거나 본안에서 이기는 등 <span class="term" tabindex="0">사정변경<span class="bub">가압류 결정 이후에 사정이 달라져 더는 묶어둘 이유가 없게 된 것을 말합니다. 채무를 변제했거나, 본안소송에서 채권자가 패소한 경우가 대표적입니다.</span></span>이 생겼을 때 취소를 구합니다.</td><td class="won">10,000원</td><td><span class="soon">준비중</span></td></tr>
+<tr><td><b>부당가압류 손해배상</b></td><td><span class="jo">민 §750</span>근거 없는 가압류로 영업 손실 등을 입었을 때 손해배상을 청구합니다. <b>본안소송</b>입니다.</td><td class="won">소가에 따름</td><td><span class="soon">준비중</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="tip">
+<span class="pt">가처분에는 해방공탁이 없습니다</span>
+해방금액을 걸고 푸는 방법(민집 §282)은 <b>가압류에만</b> 있습니다. 가압류는 결국 '돈' 문제라 돈으로 바꿔칠 수 있지만, 가처분은 물건·자리 자체가 대상이라 돈으로 대신할 수 없기 때문입니다. 가처분에서는 특별사정에 의한 취소(민집 §307)가 그 역할을 대신합니다.
+</div>
+
+<h2>D. 그래서 돈은 언제 받나 — 집행으로 이어가기</h2>
+
+<p>가압류는 <b>묶어두기</b>일 뿐입니다. 본안소송에서 이겨 판결이 확정되면, 묶어둔 것을 <span class="term" tabindex="0">본압류<span class="bub">임시로 묶어둔 가압류를 진짜 압류로 바꾸는 것입니다. 이 단계가 되어야 비로소 그 돈을 실제로 받아낼 수 있습니다.</span></span>로 바꾸어야 비로소 회수가 됩니다.</p>
+
+<div class="tbwrap">
+<table>
+<thead><tr><th style="width:30%">절차</th><th>어떤 경우에 쓰나</th><th style="width:14%">인지액</th><th style="width:12%">연결</th></tr></thead>
+<tbody>
+<tr><td>가압류를 본압류로 이전하는 압류명령</td><td><span class="jo">민집 §291·§225</span>본안에서 이긴 뒤 가압류를 압류로 전환합니다.</td><td class="won">2,000원</td><td><span class="soon">준비중</span></td></tr>
+<tr><td>채권압류 및 <span class="term" tabindex="0">추심명령<span class="bub">법원이 채권자에게 '채무자 대신 제3채무자에게서 직접 받아 가라'고 허락해 주는 결정입니다. 받은 돈은 다른 채권자와 나누어야 할 수 있습니다.</span></span></td><td><span class="jo">민집 §227·§229</span>통장 등을 압류해 직접 받아냅니다. 가장 널리 쓰입니다.</td><td class="won">4,000원</td><td><span class="soon">준비중</span></td></tr>
+<tr><td>채권압류 및 <span class="term" tabindex="0">전부명령<span class="bub">채무자가 가진 채권 자체를 채권자에게 통째로 넘겨주는 결정입니다. 다른 채권자와 나누지 않아 유리하지만, 제3채무자에게 돈이 없으면 한 푼도 못 받고 끝날 위험이 있습니다.</span></span></td><td><span class="jo">민집 §229</span>채권 자체를 넘겨받습니다. 유리하지만 위험도 함께 있습니다.</td><td class="won">4,000원</td><td><span class="soon">준비중</span></td></tr>
+<tr><td>부동산 강제경매</td><td><span class="jo">민집 §80</span>판결문 등 집행권원으로 상대 부동산을 경매에 넘깁니다.</td><td class="won">5,000원</td><td><span class="soon">준비중</span></td></tr>
+<tr><td>부동산 임의경매</td><td><span class="jo">민집 §264</span>근저당권 등 담보권을 실행해 경매에 넘깁니다.</td><td class="won">5,000원</td><td><span class="soon">준비중</span></td></tr>
+<tr><td>재산명시 신청</td><td><span class="jo">민집 §61</span>상대 재산을 모를 때, 법원이 상대에게 재산목록을 내게 합니다.</td><td class="won">1,000원</td><td><span class="soon">준비중</span></td></tr>
+<tr><td>재산조회 신청</td><td><span class="jo">민집 §74</span>재산명시로도 나오지 않으면 금융기관·공공기관에 직접 조회합니다.</td><td class="won">1,000원</td><td><span class="soon">준비중</span></td></tr>
+<tr><td>채무불이행자명부 등재</td><td><span class="jo">민집 §70</span>끝까지 갚지 않는 상대를 명부에 올려 신용상 압박을 가합니다.</td><td class="won">1,000원</td><td><span class="soon">준비중</span></td></tr>
+<tr><td>청구이의의 소 <span style="color:var(--warn-ink)">(방어)</span></td><td><span class="jo">민집 §44</span>이미 갚았는데도 집행이 들어올 때 집행력을 없앱니다.</td><td class="won">소가에 따름</td><td><span class="soon">준비중</span></td></tr>
+<tr><td>제3자이의의 소 <span style="color:var(--warn-ink)">(방어)</span></td><td><span class="jo">민집 §48</span>내 물건인데 남의 빚으로 압류됐을 때 집행에서 빼냅니다.</td><td class="won">소가에 따름</td><td><span class="soon">준비중</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>★ 끝까지 챙기셔야 할 것 — 담보 취소와 회수</h2>
+
+<div class="warn">
+<span class="wt">⚠ 가장 많이 놓치는 대목입니다</span>
+가압류를 걸 때 법원은 <span class="term" tabindex="0">담보제공명령<span class="bub">가압류가 나중에 부당한 것으로 밝혀졌을 때 상대방이 입은 손해를 물어줄 수 있도록, 신청인에게 미리 돈을 맡기거나 보증보험에 들라고 명하는 결정입니다.</span></span>을 내립니다. 여기에 맡긴 돈은 <b>사건이 끝난다고 자동으로 돌아오지 않습니다.</b> 반드시 <b>담보취소 신청</b>을 하셔야 하고, 그 결정을 받아야 공탁금을 <b>회수</b>할 수 있습니다. 신청하지 않으면 그대로 법원에 남아 있습니다.
+</div>
+
+<h3>현금공탁과 보증보험, 무엇을 고를까</h3>
+<div class="tbwrap">
+<table>
+<thead><tr><th style="width:22%">구분</th><th>현금공탁</th><th>지급보증위탁계약(보증보험)</th></tr></thead>
+<tbody>
+<tr><td>내는 돈</td><td>법원이 정한 담보액 <b>전액</b>을 맡깁니다.</td><td>담보액에 요율을 곱한 <b>보험료만</b> 냅니다.</td></tr>
+<tr><td>부담</td><td>목돈이 한 번에 묶입니다.</td><td>부담이 훨씬 가볍습니다.</td></tr>
+<tr><td>돌려받기</td><td>담보취소 결정을 받아 <b>전액 회수</b>합니다.</td><td>보험료는 <b>돌아오지 않습니다.</b></td></tr>
+<tr><td>이용</td><td>법원이 현금공탁을 명한 부분은 반드시 현금.</td><td>서울보증보험에서 가입합니다. 사전에 법원의 담보제공 허가가 필요합니다.</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="tip">
+<span class="pt">법원은 흔히 둘을 섞어서 명합니다</span>
+실무에서는 담보액 중 일부는 현금으로, 나머지는 보증보험으로 하라는 명령이 자주 나옵니다. 현금 비율은 <b>대상 재산의 성격과 법원에 따라 달라지므로</b>, 담보제공명령을 받으신 뒤 그 내용대로 따르시면 됩니다. <span class="chk">확인필요</span> 현금 비율을 미리 단정해 준비하지 마십시오.
+</div>
+
+<div class="lawbox">
+<span class="ll">담보취소</span>민사집행법 §19③ → 민사소송법 §125 (담보의 취소)<br>
+<span class="ll">공탁금 회수</span>공탁법 §9②3<br>
+<span class="ll">시효</span>공탁금의 회수·출급 청구권은 <b>행사할 수 있는 때부터 10년</b>이 지나면 시효로 소멸합니다(공탁법 §9③).
+</div>
+
+<div class="tbwrap">
+<table>
+<thead><tr><th style="width:24%">이런 때</th><th>이렇게 하십시오</th></tr></thead>
+<tbody>
+<tr><td>결정 전에 취하·각하됐을 때</td><td>담보 사유가 사라졌으므로 담보취소를 신청합니다.</td></tr>
+<tr><td>본안에서 이겨 확정됐을 때</td><td>가압류가 정당했음이 확정된 것이므로 담보취소를 신청합니다.</td></tr>
+<tr><td>상대방이 동의할 때</td><td>동의서를 붙이면 절차가 빠릅니다.</td></tr>
+<tr><td>상대방이 응하지 않을 때</td><td>법원이 상대방에게 일정 기간 안에 권리를 행사하라고 최고하고, 행사하지 않으면 동의한 것으로 봅니다.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>⚠ 직접 문을 따고 들어가시면 안 됩니다</h2>
+
+<div class="warn">
+<span class="wt">자력구제는 범죄가 됩니다</span>
+가압류·가처분 결정문을 받으셨더라도, <b>결정문은 스스로 집행할 권한을 주지 않습니다.</b> 반드시 집행관 또는 법원의 절차를 거쳐야 합니다. 다음과 같은 행위는 형사처벌 대상입니다.
+<ul style="margin:9px 0 0; padding-left:20px;">
+<li><b>주거침입죄</b>(형법 §319) — 상대의 집·가게에 동의 없이 들어가는 것. 3년 이하의 징역 또는 500만원 이하의 벌금</li>
+<li><b>재물손괴죄</b>(형법 §366) — 문·자물쇠를 부수는 것. 3년 이하의 징역 또는 700만원 이하의 벌금</li>
+<li><b>권리행사방해죄</b>(형법 §323) — 상대가 점유하는 물건을 임의로 가져오는 것. 5년 이하의 징역 또는 700만원 이하의 벌금</li>
+<li><b>절도죄</b>(형법 §329) — 내 돈을 받으려는 것이었더라도, 상대 물건을 몰래 가져오면 절도가 성립할 수 있습니다.</li>
+</ul>
+<b>내 돈을 받으려던 것이라는 사정은 죄가 되지 않는 이유가 되지 못합니다.</b> 집기를 잡으실 때는 반드시 유체동산 압류 절차를 통해 집행관과 함께 가십시오.
+</div>
+
+<div class="warn">
+<span class="wt">채무자 쪽에서도 조심하십시오</span>
+가압류된 물건에 붙은 표시를 떼거나 그 물건을 몰래 팔면 <b>공무상표시무효죄</b>(형법 §140)가 성립할 수 있습니다. 재산을 숨기거나 빼돌려 채권자를 해하면 <span class="term" tabindex="0">강제집행면탈죄<span class="bub">강제집행을 당할 상황에서 재산을 숨기거나 남의 명의로 돌려놓아 채권자에게 손해를 입히는 죄입니다. 형법 제327조에 정해져 있습니다.</span></span>(형법 §327)로 처벌될 수 있습니다.
+</div>
+
+<h2>지금 바로 볼 수 있는 공식 자료</h2>
+
+<p>카드가 아직 준비 중인 유형이라도, 아래 공공기관 자료로 <b>혼자 진행하실 수 있습니다.</b> 모두 무료이고 신청서 서식과 작성례까지 제공합니다.</p>
+
+<div class="tip">
+<span class="pt">🔗 링크가 첫 화면으로 연결되면 옆에 적은 찾아가기 경로를 따라가십시오</span>
+기관 홈페이지가 개편되면 주소가 바뀔 수 있어 경로를 함께 적어 두었습니다.
+</div>
+
+<h3>법제처 — 찾기쉬운 생활법령정보</h3>
+<ul class="lk">
+<li><a href="https://www.easylaw.go.kr/CSP/CnpClsMain.laf?popMenu=ov&amp;csmSeq=294&amp;ccfNo=1&amp;cciNo=1&amp;cnpClsNo=2" target="_blank" rel="noopener">가압류란 무엇인가 — 개념과 절차 전체</a>
+<span class="path">경로: 생활법령정보 → 검색 "가압류 신청" → 가압류 알아보기</span></li>
+<li><a href="https://www.easylaw.go.kr/CSP/CnpClsMain.laf?popMenu=ov&amp;csmSeq=294&amp;ccfNo=2&amp;cciNo=3&amp;cnpClsNo=1" target="_blank" rel="noopener">가압류 인지 첩부 — 얼마를 어떻게 붙이나</a>
+<span class="path">경로: 가압류 신청 → 가압류 신청준비 → 신청비용 납부 → 인지 첩부</span></li>
+<li><a href="https://www.easylaw.go.kr/CSP/CnpClsMain.laf?popMenu=ov&amp;csmSeq=294&amp;ccfNo=2&amp;cciNo=3&amp;cnpClsNo=2" target="_blank" rel="noopener">가압류 송달료 예납 — 회차별 납부기준표</a>
+<span class="path">경로: 가압류 신청 → 가압류 신청준비 → 신청비용 납부 → 송달료 예납</span></li>
+<li><a href="https://www.easylaw.go.kr/CSP/CnpClsMain.laf?popMenu=ov&amp;csmSeq=294&amp;ccfNo=5&amp;cciNo=2&amp;cnpClsNo=1" target="_blank" rel="noopener">가압류를 당한 사람의 구제 — 제소명령과 취소</a>
+<span class="path">경로: 가압류 신청 → 가압류채무자구제 → 채무자에 따른 가압류취소</span></li>
+<li><a href="https://www.easylaw.go.kr/CSP/SysChartRetrievePLst.laf?csmSeq=295" target="_blank" rel="noopener">가처분 — 유형별 신청례 전체 목차</a>
+<span class="path">경로: 생활법령정보 → 검색 "가처분 신청" → 유형별 가처분신청례</span></li>
+<li><a href="https://www.easylaw.go.kr/CSP/CnpClsMain.laf?popMenu=ov&amp;csmSeq=295&amp;ccfNo=2&amp;cciNo=2&amp;cnpClsNo=1" target="_blank" rel="noopener">가처분 신청서 작성 요령</a>
+<span class="path">경로: 가처분 신청 → 가처분신청준비 → 가처분 신청서 작성</span></li>
+<li><a href="https://www.easylaw.go.kr/CSP/CnpClsMain.laf?popMenu=ov&amp;csmSeq=2587&amp;ccfNo=2&amp;cciNo=1&amp;cnpClsNo=1" target="_blank" rel="noopener">가처분 신청 요건 — 피보전권리와 보전의 필요성</a>
+<span class="path">경로: 가처분 신청 → 가처분의 신청 → 가처분 신청 요건 등</span></li>
+<li><a href="https://www.easylaw.go.kr/CSP/CnpClsMain.laf?popMenu=ov&amp;csmSeq=2587&amp;ccfNo=4&amp;cciNo=1&amp;cnpClsNo=1" target="_blank" rel="noopener">가처분 집행과 집행취소 — 2주 집행기간 주의</a>
+<span class="path">경로: 가처분 신청 → 가처분의 집행 및 집행취소 등</span></li>
+<li><a href="https://www.easylaw.go.kr/CSP/OnhunqueansLstPopRetrieve.laf?csmSeq=295" target="_blank" rel="noopener">가처분 100문 100답 — 실제 사례 질의응답</a>
+<span class="path">경로: 가처분 신청 → 100문 100답</span></li>
+<li><a href="https://www.easylaw.go.kr/CSP/CnpClsMain.laf?popMenu=ov&amp;csmSeq=568&amp;ccfNo=2&amp;cciNo=4&amp;cnpClsNo=3" target="_blank" rel="noopener">나홀로 민사소송 — 인지액 및 송달료 조견표</a>
+<span class="path">경로: 생활법령정보 → 검색 "나홀로 민사소송" → 소송비용의 산정방법</span></li>
+</ul>
+
+<h3>대한법률구조공단 — 서식과 비용계산</h3>
+<ul class="lk">
+<li><a href="https://www.klac.or.kr/legalinfo/legalFrm.do" target="_blank" rel="noopener">법률서식 — 가압류·가처분 신청서 양식 내려받기</a>
+<span class="path">경로: 공단 홈페이지 → 법률정보 → 법률서식 → 검색창에 "가압류" 입력</span></li>
+<li><a href="https://www.klac.or.kr/legalstruct/conservationCase3.do" target="_blank" rel="noopener">보전사건 비용 자동계산 — 청구금액·당사자수 입력</a>
+<span class="path">경로: 공단 홈페이지 → 법률정보 → 소송비용 등 자동계산 → 보전사건 비용계산</span></li>
+<li><a href="https://support.klac.or.kr/eklac/main.do" target="_blank" rel="noopener">혼자하는 소송 법률지원센터 — 서식 직접 작성 지원</a>
+<span class="path">경로: 공단 홈페이지 → 상단 배너 "혼자하는 소송" 또는 support.klac.or.kr 직접 접속</span></li>
+</ul>
+
+<h3>대법원 — 전자소송으로 제출하기</h3>
+<ul class="lk">
+<li><a href="https://ecfs.scourt.go.kr" target="_blank" rel="noopener">전자소송 포털 — 인지액 10% 감액, 24시간 접수</a>
+<span class="path">경로: 접속 → 회원가입(공동인증서 필요) → 서류제출 → 민사 신청 → 가압류·가처분</span></li>
+<li><a href="https://www.scourt.go.kr/nm/min_9/min_9_2/index.html" target="_blank" rel="noopener">대법원 나홀로 소송 — 절차 안내와 서식</a>
+<span class="path">경로: 대법원 홈페이지 → 대국민서비스 → 나홀로 소송</span></li>
+</ul>
+
+<div class="warn">
+<span class="wt">⚠ 공단 서식은 그대로 쓰시면 안 됩니다</span>
+공단 서식은 <b>기본 틀</b>입니다. 신청취지와 신청이유는 <b>사정마다 달리 써야</b> 하고, 여기서 부실하면 보정명령을 받거나 기각됩니다. 특히 <b>보전의 필요성</b>은 "상대가 재산을 처분할 우려가 있다"고만 적으면 부족하고, <b>그렇게 볼 만한 구체적 사정</b>을 적어야 합니다.
+</div>
+
+<h2>비용을 정확히 알고 싶으시다면</h2>
+
+<div class="cost">
+<span class="ct">🧮 계산기로 확인하십시오</span>
+<span class="calc">※ 인지액·송달료·등록면허세는 <b>청구금액과 당사자 수</b>에 따라 달라집니다. 이 표의 금액은 인지액만 담은 최솟값입니다.</span><br>
+<a href="https://sanlaw.co.kr/tools-calculator.html">▶ 수수료 계산기로 이동</a>
+</div>
+
+<a class="cta" href="index.html#contact">내 경우를 상담받고 싶습니다</a>
+
+<div class="src">
+<b>근거 자료</b> · 민사집행법, 민사소송 등 인지법, 민사소송법, 공탁법, 지방세법, 형법(국가법령정보센터 law.go.kr) · 송달료규칙의 시행에 따른 업무처리요령(재일 87-4) · 민사접수서류에 붙일 인지액 및 그 편철방법 등에 관한 예규 · 법제처 찾기쉬운 생활법령정보(easylaw.go.kr) · 대한법률구조공단(klac.or.kr)<br><br>
+<b>표시 안내</b> · <span class="chk">확인필요</span> 표시가 붙은 항목은 법원·시점에 따라 달라질 수 있어 접수 전 확인이 필요한 부분입니다.<br><br>
+본 자료는 일반적인 법률정보를 쉽게 전달하기 위한 것으로, 개별 사건에 대한 법률자문이 아닙니다. 구체적 사정에 따라 결과가 달라질 수 있습니다.
+</div>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  function closeAll(except){terms.forEach(function(t){if(t!==except)t.classList.remove('on');});}
+  terms.forEach(function(t){
+    t.setAttribute('role','button');
+    t.addEventListener('click',function(e){e.stopPropagation();var on=t.classList.contains('on');closeAll(t);t.classList.toggle('on',!on);});
+    t.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '){e.preventDefault();var on=t.classList.contains('on');closeAll(t);t.classList.toggle('on',!on);}
+      if(e.key==='Escape'){t.classList.remove('on');t.blur();}
+    });
+  });
+  document.addEventListener('click',function(){closeAll(null);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll(null);});
+})();
+</script>
+</body>
+</html>
