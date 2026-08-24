@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[보전 C-6] 부당한 가압류로 손해를 봤어요 — 손해배상과 담보권 실행 | 산 법무사 김재섭</title>
+<meta name="description" content="근거 없는 가압류로 계약이 깨지고 영업이 막혔을 때, 손해배상을 청구하고 채권자가 맡긴 담보에서 우선변제받는 절차를 담았습니다.">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:22px 0 8px;}
+p{margin:10px 0;}
+a{color:var(--gold-d);}
+
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+
+.hire{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:5px solid var(--ok-line); border-radius:11px; padding:16px 18px; margin:16px 0 26px;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--ok-ink); font-size:17px; margin-bottom:7px;}
+.hire p{margin:8px 0 0; font-size:15px;}
+
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+
+.sit{background:var(--box); border:1px solid var(--line); border-radius:10px; padding:14px 17px; margin:12px 0;}
+.sit .st{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+
+.lawbox{background:#f0ebe1;border-radius:9px;padding:13px 16px;margin:14px 0;font-size:14.5px;}
+.lawbox .ll{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:#241a10;border-radius:5px;padding:2px 9px;margin-right:7px;}
+
+.case{background:#f4f2ee; border:1px solid #ddd6c8; border-left:4px solid #8a8172; border-radius:8px; padding:14px 17px; margin:14px 0;}
+.case .cn{font-weight:700; color:#4a453c; display:block; margin-bottom:5px; font-size:15px;}
+.case .fact{font-size:14.5px; color:#55504a; margin:7px 0;}
+.case .hold{font-size:14.5px; margin:7px 0 0; padding-top:8px; border-top:1px dashed #ccc4b4;}
+
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+
+.tbwrap{overflow-x:auto; -webkit-overflow-scrolling:touch; margin:14px 0;}
+table{width:100%; border-collapse:collapse; font-size:14px; min-width:520px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+.won{white-space:nowrap; font-weight:700; color:var(--gold-d);}
+.chk{display:inline-block; font-size:11.5px; font-weight:700; color:var(--warn-ink); background:#fdf2ee; border:1px solid #f0c9bd; border-radius:4px; padding:1px 6px; white-space:nowrap;}
+.calc{color:#c0392b; font-weight:700;}
+
+.flow{margin:16px 0;}
+.flow svg{width:100%; height:auto; display:block;}
+
+details.fold{border:1px solid var(--line); border-radius:10px; margin:12px 0; background:#fff; overflow:hidden;}
+details.fold>summary{cursor:pointer; list-style:none; padding:12px 16px; background:var(--box); font-weight:700; color:var(--gold-d); font-size:15px;}
+details.fold>summary::-webkit-details-marker{display:none;}
+details.fold>summary::after{content:" ▾"; color:var(--gold);}
+details.fold[open]>summary::after{content:" ▴";}
+.form{font-family:'D2Coding','Nanum Gothic Coding',monospace; font-size:13px; line-height:1.9; white-space:pre-wrap; padding:16px; background:#fff; border-top:1px solid var(--line); overflow-x:auto;}
+.fnote{font-size:13.5px; color:var(--muted); padding:0 16px 14px; background:#fff;}
+
+.cta{display:block;text-align:center;background:var(--gold-d);color:#fff;font-weight:700;font-size:17px;text-decoration:none;padding:15px;border-radius:11px;margin:22px 0;font-family:'Nanum Myeongjo',serif;letter-spacing:1px;}
+.cta:hover{background:#5e3f24;}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(280px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+
+@media (max-width:680px){ body{font-size:15.5px; padding:22px 14px 70px;} h1{font-size:21px;} h2{font-size:18px;} .form{font-size:11.5px;} }
+@media (prefers-reduced-motion:reduce){*{transition:none !important; animation:none !important;}}
+@media print{
+  body{background:#fff; max-width:none;}
+  .backbar,.cta,.tnote{display:none !important;}
+  .tldr,.warn,.tip,.cost,.lawbox,.hire,.case,.sit{background:#fff !important; border-color:#ccc !important;}
+  details.fold{border-color:#ccc;} details.fold>summary{background:#fff;}
+  details.fold:not([open])>*{display:block !important;}
+  .tbwrap{overflow:visible;} table{min-width:0;}
+  .term{border:none; color:inherit; font-weight:inherit;}
+  .term>.bub{display:inline !important; position:static; width:auto; background:none; color:inherit; box-shadow:none; padding:0; font-size:inherit;}
+  .term>.bub::before{content:" (";} .term>.bub::after{content:")"; border:none; position:static;}
+}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+
+<h1>[보전 C-6] 부당한 가압류로 손해를 봤어요 — 손해배상과 담보권 실행</h1>
+
+<div class="tnote">어려운 법률용어에는 <b>점선 밑줄</b>이 그어져 있습니다. <b>PC는 마우스를 올리면</b>, <b>휴대폰은 손가락으로 톡 터치하면</b> 쉬운 설명이 뜹니다. (인쇄하면 괄호로 함께 나옵니다.)</div>
+
+<div class="hire">
+<div class="ht">이 매뉴얼을 끝까지 읽으시는 분께</div>
+<p>이 매뉴얼은 의뢰인이 직접 법원에 신청할 수 있도록 모든 서류 양식, 비용, 요건을 구체적으로 담았습니다. 하지만 소송은 살아있는 생물과 같아 상대방의 격렬한 저항이 뒤따릅니다. 혼자 진행하시다가 막히는 부분이 생기거나 방어막이 필요할 때, 언제든 이 매뉴얼을 들고 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</p>
+</div>
+
+<div class="tldr">
+<div class="tt">⭐ 30초 결론부터</div>
+<ul>
+<li>가압류를 건 채권자가 <b>본안소송에서 패소 확정</b>되면, 특별한 반증이 없는 한 <b>고의 또는 과실이 추정</b>됩니다. 채무자가 채권자의 잘못을 따로 증명하지 않아도 됩니다.</li>
+<li><b>진짜 채권액보다 지나치게 부풀려</b> 가압류한 경우에도, 본안에서 권리가 없다고 확인된 부분만큼은 마찬가지로 배상 대상이 됩니다.</li>
+<li>가장 확실한 회수 방법은 채권자가 가압류 때 맡긴 <b>담보(공탁금)에서 우선변제</b>받는 것입니다. 채무자는 그 공탁금에 <b>질권자와 같은 권리</b>를 가집니다.</li>
+<li>다만 <b>손해액을 증명하는 것이 관문</b>입니다. "가압류 때문에 손해를 봤다"는 말만으로는 부족하고, 무산된 계약서·이자 명세·매출 자료가 있어야 합니다.</li>
+<li>법원은 <b>책임을 제한</b>할 수 있습니다. 전액을 다 받지 못하실 수 있다는 점을 미리 아셔야 합니다.</li>
+</ul>
+</div>
+
+<h2>지금 어떤 상황인가요</h2>
+
+<div class="sit">
+<span class="st">상황 ① · 가압류 때문에 계약이 깨진 분</span>
+부동산 매매계약을 했는데 등기부에 가압류가 기재되어 매수인이 계약을 해제한 경우. 계약금을 배액으로 물어주었거나, 대출이 막혀 더 높은 이자를 부담하게 된 경우도 같습니다. → 본안에서 이기신 뒤 <b>그 손해를 청구</b>하실 수 있습니다.
+</div>
+
+<div class="sit">
+<span class="st">상황 ② · 통장이 묶여 사업이 멈춘 분</span>
+거래처에 가압류 통지가 가서 거래가 끊겼거나, 계좌가 막혀 임금·자재대금을 지급하지 못해 영업이 중단된 경우. 신용등급이 떨어져 금융거래가 제한된 경우도 포함됩니다. → <b>매출 감소분과 추가로 든 비용</b>이 손해가 됩니다.
+</div>
+
+<h2>핵심 세 가지</h2>
+
+<p><b>첫째, 증명 부담이 채권자에게 넘어갑니다.</b> 보전처분은 법원의 재판으로 집행되지만, 실체적 권리가 있는지는 본안에 맡기고 <b>소명만으로 채권자의 책임 아래</b> 이루어집니다. 그래서 본안에서 패소가 확정되면 고의·과실이 <b>추정</b>되고, 채권자가 반증을 들어 이를 뒤집어야 합니다.</p>
+
+<p><b>둘째, 담보에서 먼저 받는 것이 실효적입니다.</b> 손해배상 판결을 받아도 채권자에게 재산이 없으면 헛일입니다. 그런데 채권자는 가압류를 걸 때 이미 법원에 <b>담보를 제공</b>해 두었습니다. 채무자는 그 공탁금에 대해 질권자와 같은 지위를 가지므로, <b>다른 채권자보다 앞서</b> 받을 수 있습니다.</p>
+
+<p><b>셋째, 손해액 증명이 가장 어렵습니다.</b> 고의·과실은 추정되지만 <b>손해의 발생과 액수</b>는 채무자가 증명해야 합니다. 무산된 계약서, 해제 통지서, 이자 명세, 전후 매출 비교 자료를 미리 모아두셔야 합니다.</p>
+
+<h2>관련 법령 — 쉬운 풀이</h2>
+
+<div class="lawbox">
+<span class="ll">민 §750</span><b>불법행위의 내용</b> — 고의 또는 과실로 인한 위법행위로 타인에게 손해를 가한 자는 그 손해를 배상할 책임이 있습니다. → <i>부당한 가압류 집행이 여기에 해당합니다.</i>
+</div>
+<div class="lawbox">
+<span class="ll">민 §763 → §393</span><b>손해배상의 범위</b> — 통상의 손해를 한도로 하며, 특별한 사정으로 인한 손해는 채권자가 그 사정을 알았거나 알 수 있었을 때에 한하여 배상책임이 있습니다. → <i>어떤 손해까지 인정되는지의 기준입니다.</i>
+</div>
+<div class="lawbox">
+<span class="ll">민 §766</span><b>소멸시효</b> — 손해 및 가해자를 <b>안 날부터 3년</b>, 불법행위를 한 날부터 <b>10년</b>이 지나면 시효로 소멸합니다. → <i>본안에서 이기셨다면 미루지 마십시오.</i>
+</div>
+<div class="lawbox">
+<span class="ll">민집 §19③ → 민소 §123</span><b>담보물에 대한 권리</b> — 재판상 담보공탁에서 <b>담보권리자(피공탁자)는 담보물에 대하여 질권자와 동일한 권리</b>가 있습니다. → <i>가압류를 당한 채무자가 그 담보공탁금에 대해 갖는 지위입니다.</i>
+</div>
+<div class="lawbox">
+<span class="ll">민집 §280②·③</span><b>담보제공</b> — 법원은 가압류로 생길 수 있는 채무자의 손해에 대하여 <b>담보를 제공하게 하고</b> 가압류를 명할 수 있습니다. → <i>바로 이 담보가 나중에 배상의 재원이 됩니다.</i>
+</div>
+
+<h2>판례는 이렇게 말합니다</h2>
+
+<div class="case">
+<span class="cn">대법원 2023. 6. 1. 선고 2020다242935 판결 — 추정은 되지만 전액은 아닐 수 있습니다</span>
+<div class="fact"><b>어떤 사안이었나</b> · 지식재산권 침해를 이유로 한 손해배상채권을 피보전권리로 보전처분이 집행되었는데, 본안소송의 1심과 2심 판단이 <b>엇갈릴 만큼</b> 사실관계가 복잡한 사건이었습니다. 결국 채권자가 주장한 채권액 가운데 상당 부분은 <b>권리가 없는 것으로 확인</b>되었고, 채무자는 그 집행으로 입은 손해의 배상을 구했습니다.</div>
+<div class="hold"><b>법원의 판단</b> · 세 가지를 밝혔습니다. ① 보전처분 집행 후 채권자가 본안에서 <b>패소 확정</b>되었다면 특별한 반증이 없는 한 <b>고의 또는 과실이 추정</b>됩니다. ② 채권자가 진정한 채권액보다 <b>지나치게 과다한 가액</b>을 주장하여 그대로 가압류결정이 된 경우, 본안에서 피보전권리가 없다고 확인된 <b>부분의 범위 내에서</b> 고의·과실이 추정됩니다. ③ 다만 손해부담의 공평을 위하여 <b>책임을 제한</b>할 수 있습니다. 보전처분과 본안에서 판단이 달라진 경위, 판단의 난이도, 당사자의 인식과 검토 정도 등을 살펴 전액 배상이 공평의 이념에 반한다면 책임을 줄일 수 있다는 것입니다.</div>
+</div>
+
+<div class="case">
+<span class="cn">대법원 2004. 11. 26. 선고 2003다19183 판결 — 담보에서 먼저 받아갈 수 있습니다</span>
+<div class="fact"><b>어떤 사안이었나</b> · 채권자가 배당금이 부당이득이라고 주장하며 그 배당금지급청구권을 가압류하였고, 법원의 담보제공명령에 따라 <b>채무자를 피공탁자로 1,000만 원을 공탁</b>했습니다. 그 뒤 채권자가 제기한 본안소송의 결과에 따라, 채무자가 그 공탁금에서 손해를 회수하려 하자 <b>다른 일반 채권자의 압류</b>와 순위가 다투어졌습니다.</div>
+<div class="hold"><b>법원의 판단</b> · 재판상 담보공탁에서 담보권리자는 담보물에 대하여 <b>질권자와 동일한 권리</b>를 가지며, 이는 공탁자의 <b>공탁금회수청구권 위에 채권질권</b>을 갖는다는 뜻이라고 보았습니다. 담보권리자가 공탁금회수청구권을 압류하고 추심명령이나 확정된 전부명령을 받은 뒤 담보취소결정을 받아 회수청구하는 것은 담보권을 포기한 것이 아니라 <b>적극적인 담보권 실행</b>이므로, 그에 <b>선행하는 일반 채권자의 압류·추심·전부명령으로는 대항할 수 없다</b>고 판단했습니다. → <i>먼저 압류한 다른 채권자가 있어도 채무자가 앞섭니다.</i></div>
+</div>
+
+<div class="tip">
+<span class="pt">📌 함께 알아두실 판례</span>
+<b>대법원 1998. 5. 15. 선고 97다58316 판결</b> — 가처분채권자가 담보제공명령에 따라 금전을 공탁한 경우, 피공탁자인 가처분채무자는 그 담보공탁금에 대하여 질권자와 동일한 권리를 가지며, <b>손해배상청구소송의 승소판결을 얻은 후</b> 우선변제를 받을 수 있습니다.<br>
+<b>대법원 1992. 9. 25. 선고 92다8453 판결</b> — 본안 패소 확정 시 고의·과실을 추정하는 법리를 세운 판결입니다. 위 2020다242935 판결이 이 법리를 재확인하면서 <b>책임제한 법리를 더했습니다.</b>
+</div>
+
+<h2>어떤 손해가 인정되나</h2>
+
+<div class="tbwrap">
+<table>
+<thead><tr><th style="width:22%">손해 항목</th><th style="width:38%">이런 경우</th><th>무엇으로 증명하나</th></tr></thead>
+<tbody>
+<tr><td><b>계약 무산 손해</b></td><td>가압류 기재로 매매계약이 해제되어 계약금을 배액 상환한 경우</td><td>매매계약서, 해제 통지서, 계약금 반환 내역, 등기사항증명서</td></tr>
+<tr><td><b>금융비용 증가</b></td><td>대출이 거절되거나 금리가 올라 이자를 더 부담한 경우</td><td>대출 거절 통지, 종전·변경 후 여신거래약정서, 이자 납입 내역</td></tr>
+<tr><td><b>영업 손실</b></td><td>계좌가 묶여 자재를 사지 못하거나 거래가 끊겨 매출이 준 경우</td><td>가압류 전후 매출 비교, 거래 중단 통보, 세금계산서, 부가가치세 신고서</td></tr>
+<tr><td><b>추가 지출</b></td><td>급하게 사채를 쓰거나 대체 계좌 개설·이전에 든 비용</td><td>차용증과 이자 지급 내역, 비용 영수증</td></tr>
+<tr><td><b>정신적 손해</b></td><td>재산적 손해로 회복되지 않는 특별한 사정이 있는 경우</td><td>사정을 뒷받침하는 자료 <span class="chk">인정 범위가 좁습니다</span></td></tr>
+<tr><td><b>소송비용</b></td><td>가압류를 풀기 위해 지출한 비용</td><td>영수증 <span class="chk">소송비용액확정 절차와 중복되지 않도록 주의</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="warn">
+<span class="wt">⚠ 여기가 가장 어렵습니다 — 인과관계</span>
+"가압류가 없었다면 그 손해가 없었을 것"이라는 <b>연결고리</b>를 밝히셔야 합니다. 예를 들어 매출이 줄었더라도 <b>경기 침체나 다른 사정</b> 때문이라는 반박이 나옵니다. 그래서 가압류가 걸린 <b>바로 그 계좌·부동산</b>과 손해 사이의 직접적인 연결을 보여주는 자료가 필요합니다. 매수인의 <b>해제 통지서에 가압류가 이유로 적혀 있는 것</b>이 가장 강력한 증거입니다.
+</div>
+
+<h2>절차 전 과정</h2>
+
+<div class="flow">
+<svg viewBox="0 0 700 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="부당가압류 손해배상 및 담보권 실행 절차 흐름도">
+<defs><marker id="ah" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#a47148"/></marker>
+<filter id="sh" x="-6%" y="-12%" width="112%" height="130%"><feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#000" flood-opacity="0.13"/></filter></defs>
+<g font-family="Pretendard,sans-serif" font-size="14">
+<rect x="60" y="8" width="580" height="52" rx="9" fill="#fff" stroke="#e7e0d4" filter="url(#sh)"/>
+<circle cx="90" cy="34" r="14" fill="#a47148"/><text x="90" y="39" fill="#fff" font-size="14" font-weight="700" text-anchor="middle">1</text>
+<text x="116" y="29" fill="#241a10" font-weight="700">본안소송에서 승소 · 확정</text>
+<text x="116" y="49" fill="#6b6b6b" font-size="12.5">이 단계가 전제입니다 · 판결정본과 확정증명원을 확보하십시오</text>
+<line x1="350" y1="60" x2="350" y2="82" stroke="#a47148" stroke-width="2.5" marker-end="url(#ah)"/>
+
+<rect x="60" y="86" width="580" height="52" rx="9" fill="#fff" stroke="#e7e0d4" filter="url(#sh)"/>
+<circle cx="90" cy="112" r="14" fill="#a47148"/><text x="90" y="117" fill="#fff" font-size="14" font-weight="700" text-anchor="middle">2</text>
+<text x="116" y="107" fill="#241a10" font-weight="700">손해 자료 정리 · 담보 확인</text>
+<text x="116" y="127" fill="#6b6b6b" font-size="12.5">계약서·해제통지·이자명세·매출자료 수집 · 공탁번호와 담보액 확인</text>
+<line x1="350" y1="138" x2="350" y2="160" stroke="#a47148" stroke-width="2.5" marker-end="url(#ah)"/>
+
+<rect x="60" y="164" width="580" height="52" rx="9" fill="#fff" stroke="#e7e0d4" filter="url(#sh)"/>
+<circle cx="90" cy="190" r="14" fill="#a47148"/><text x="90" y="195" fill="#fff" font-size="14" font-weight="700" text-anchor="middle">3</text>
+<text x="116" y="185" fill="#241a10" font-weight="700">손해배상청구의 소 제기</text>
+<text x="116" y="205" fill="#6b6b6b" font-size="12.5">별도의 본안소송입니다 · 인지·송달료는 청구금액(소가)에 따라 달라집니다</text>
+<line x1="350" y1="216" x2="350" y2="238" stroke="#a47148" stroke-width="2.5" marker-end="url(#ah)"/>
+
+<rect x="60" y="242" width="580" height="52" rx="9" fill="#fff" stroke="#e7e0d4" filter="url(#sh)"/>
+<circle cx="90" cy="268" r="14" fill="#a47148"/><text x="90" y="273" fill="#fff" font-size="14" font-weight="700" text-anchor="middle">4</text>
+<text x="116" y="263" fill="#241a10" font-weight="700">승소판결 확정 — 책임제한 여부 확인</text>
+<text x="116" y="283" fill="#6b6b6b" font-size="12.5">전액이 아니라 일정 비율로 제한될 수 있습니다(대법원 2020다242935)</text>
+<line x1="350" y1="294" x2="350" y2="316" stroke="#a47148" stroke-width="2.5" marker-end="url(#ah)"/>
+
+<rect x="60" y="320" width="580" height="60" rx="9" fill="#f8f5ee" stroke="#e7e0d4" filter="url(#sh)"/>
+<circle cx="90" cy="350" r="14" fill="#a47148"/><text x="90" y="355" fill="#fff" font-size="14" font-weight="700" text-anchor="middle">5</text>
+<text x="116" y="341" fill="#241a10" font-weight="700">담보권 실행 — 공탁금회수청구권 압류</text>
+<text x="116" y="360" fill="#6b6b6b" font-size="12.5">채권자의 공탁금회수청구권에 채권압류 및 추심(또는 전부)명령 신청</text>
+<text x="116" y="377" fill="#6b6b6b" font-size="12.5">먼저 압류한 다른 채권자가 있어도 채무자가 앞섭니다</text>
+<line x1="350" y1="380" x2="350" y2="402" stroke="#a47148" stroke-width="2.5" marker-end="url(#ah)"/>
+
+<rect x="60" y="406" width="580" height="52" rx="9" fill="#fff" stroke="#e7e0d4" filter="url(#sh)"/>
+<circle cx="90" cy="432" r="14" fill="#a47148"/><text x="90" y="437" fill="#fff" font-size="14" font-weight="700" text-anchor="middle">6</text>
+<text x="116" y="427" fill="#241a10" font-weight="700">담보취소 결정을 받아 공탁금 회수</text>
+<text x="116" y="447" fill="#6b6b6b" font-size="12.5">담보권을 포기하는 것이 아니라 적극적인 담보권 실행 방법입니다</text>
+<line x1="350" y1="458" x2="350" y2="480" stroke="#a47148" stroke-width="2.5" marker-end="url(#ah)"/>
+
+<rect x="60" y="484" width="580" height="66" rx="9" fill="#eef6f0" stroke="#cfe6d6" filter="url(#sh)"/>
+<circle cx="90" cy="517" r="14" fill="#5a9a72"/><text x="90" y="522" fill="#fff" font-size="14" font-weight="700" text-anchor="middle">7</text>
+<text x="116" y="508" fill="#2f6a47" font-weight="700">★ 담보액을 넘는 부분은 일반 강제집행으로</text>
+<text x="116" y="527" fill="#4a6b56" font-size="12.5">담보는 한도가 있습니다 · 남은 금액은 채권자의 다른 재산에 집행</text>
+<text x="116" y="544" fill="#4a6b56" font-size="12.5">재산을 모르면 재산명시·재산조회로 찾습니다</text>
+</g>
+</svg>
+</div>
+
+<h2>첨부서류와 발급처</h2>
+
+<div class="tbwrap">
+<table>
+<thead><tr><th style="width:24%">무엇을 (어디서)</th><th style="width:34%">서류</th><th>바로가기 · 찾아가기 경로</th></tr></thead>
+<tbody>
+<tr><td>본안 결과 확인<br>(전자소송·법원)</td><td>본안 <b>판결정본 + 확정증명원</b> — 가장 중요한 증거</td><td><a href="https://ecfs.scourt.go.kr" target="_blank" rel="noopener">전자소송</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 전자소송 → 제증명 → 확정증명 신청 / 또는 판결 법원 종합민원실</span></td></tr>
+<tr><td>담보 확인<br>(법원·전자공탁)</td><td>가압류결정문(담보제공 조건 확인), <b>공탁사실증명</b></td><td><a href="https://ekt.scourt.go.kr" target="_blank" rel="noopener">전자공탁</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 전자공탁 → 사건검색 / 또는 공탁소에서 공탁사실증명 발급</span></td></tr>
+<tr><td>부동산 손해<br>(인터넷등기소)</td><td>등기사항전부증명서 — <b>가압류 기재·말소 시점</b> 확인</td><td><a href="http://www.iros.go.kr" target="_blank" rel="noopener">인터넷등기소</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 등기열람/발급 → 부동산 → 열람하기 → 주소 검색</span></td></tr>
+<tr><td>영업 손해<br>(홈택스)</td><td>부가가치세 신고서, 매출 세금계산서 — 전후 비교용</td><td><a href="https://www.hometax.go.kr" target="_blank" rel="noopener">홈택스</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 로그인 → My홈택스 → 신고내역 / 전자세금계산서 조회</span></td></tr>
+<tr><td>소장 제출<br>(전자소송)</td><td>손해배상청구 소장 — 공식 양식</td><td><a href="https://ecfs.scourt.go.kr/psp/index.on?m=PSP720M24" target="_blank" rel="noopener">양식모음</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 전자소송 → 사건유형별 절차안내 → 공통안내 → 양식 및 작성안내</span></td></tr>
+<tr><td>서식 내려받기<br>(법률구조공단)</td><td>손해배상청구 소장 작성례</td><td><a href="https://www.klac.or.kr/legalinfo/legalFrm.do" target="_blank" rel="noopener">법률서식</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 법률정보 → 법률서식 → 검색창에 '손해배상' 입력</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="tip">
+<span class="pt">🌏 외국인·법인이 당사자인 경우</span>
+외국인은 <b>외국인등록번호</b>(또는 국내거소신고번호)와 <b>외국인등록사실증명</b>으로 인적사항을 갈음합니다. <a href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a>에서 발급받으십시오.<span style="font-size:12.5px;color:var(--muted)"> 경로: 검색창에 '외국인등록사실증명' 입력 → 발급</span> 국내 등록이 없으면 여권 사본과 번역문(번역자 확인서 첨부)이 필요합니다. 법인은 <a href="http://www.iros.go.kr" target="_blank" rel="noopener">인터넷등기소</a>에서 법인등기사항증명서를 발급받습니다.<span style="font-size:12.5px;color:var(--muted)"> 경로: 등기열람/발급 → 법인 → 열람/발급하기 → 상호 검색</span>
+</div>
+
+<h2>비용 — 청구금액에 따라 달라집니다</h2>
+
+<p>손해배상청구는 정액 신청이 아니라 <b>본안소송</b>입니다. 인지액은 청구하는 금액(<span class="term" tabindex="0">소가<span class="bub">소송으로 얻으려는 이익을 돈으로 환산한 금액입니다. 손해배상청구에서는 청구하는 손해액이 소가가 됩니다.</span></span>)에 따라 정해집니다.</p>
+
+<div class="tbwrap">
+<table>
+<thead><tr><th style="width:32%">항목</th><th style="width:26%">금액</th><th>비고</th></tr></thead>
+<tbody>
+<tr><td>손해배상 소장 인지</td><td class="won">소가에 따름</td><td>인지법 §2 · 전자소송 제출 시 10분의 9</td></tr>
+<tr><td>송달료</td><td class="won">당사자 1인당 15회분 <span class="chk">확인필요</span></td><td>소액·단독·합의 사건별로 다릅니다</td></tr>
+<tr><td>담보권 실행<br>(채권압류 및 추심명령)</td><td class="won">4,000원</td><td>공탁금회수청구권을 대상으로 신청</td></tr>
+<tr><td>담보취소 신청</td><td class="won">1,000원 <span class="chk">확인필요</span></td><td>담보권 실행의 한 방법</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="cost">
+<span class="ct">💰 소송비용을 낼 형편이 안 되신다면</span>
+부당한 가압류로 이미 자금이 막힌 분께는 소송비용 자체가 부담입니다. <b>소송구조</b> 제도를 이용하시면 인지·송달료 등의 납부를 유예받거나 면제받으실 수 있습니다.<br>
+<a href="https://ecfs.scourt.go.kr/psp/index.on?m=PSP720M06" target="_blank" rel="noopener">▶ 전자소송 포털 — 소송구조제도 안내</a><br>
+<span class="calc">※ 인지액·송달료는 청구금액에 따라 크게 달라집니다. <a href="https://sanlaw.co.kr/tools-calculator.html">수수료 계산기</a>에서 소가를 넣어 확인하십시오.</span>
+</div>
+
+<h2>소멸시효 — 미루면 권리를 잃습니다</h2>
+
+<div class="tbwrap">
+<table>
+<thead><tr><th style="width:22%">구분</th><th>① 기산일</th><th>② 근거</th><th>③ 말일 처리</th><th>④ 만료</th></tr></thead>
+<tbody>
+<tr><td><b>단기 3년</b></td><td>손해 및 가해자를 <b>안 날</b>의 다음 날<br><span style="font-size:12.5px;color:var(--muted)">실무상 본안 패소가 확정되어 부당함이 드러난 때를 기준으로 보는 경우가 많습니다 <span class="chk">B등급</span></span></td><td>민 §766① · 민 §157</td><td>말일이 토요일·공휴일이면 <b>그 다음 날</b>(민 §161)</td><td>안 날부터 <b>3년</b></td></tr>
+<tr><td><b>장기 10년</b></td><td><b>불법행위를 한 날</b>의 다음 날<br><span style="font-size:12.5px;color:var(--muted)">가압류가 집행된 날 또는 손해가 발생한 날</span></td><td>민 §766②</td><td>같음</td><td>불법행위일부터 <b>10년</b></td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="tip">
+<span class="pt">💡 시효가 지나도 자동으로 사라지지는 않습니다</span>
+시효가 완성되어도 채권이 저절로 없어지는 것이 아니라, <b>상대방이 시효완성을 주장(원용)해야</b> 비로소 청구가 배척됩니다. 또 상대방이 시효완성을 알면서 채무를 인정하는 등 <b>시효의 이익을 포기</b>하였다면 다시 청구할 수 있습니다. 다만 이는 기대할 일이 아니므로, <b>본안에서 이기신 뒤 곧바로 준비</b>하시는 것이 안전합니다.
+</div>
+
+<h2>서류 작성례</h2>
+
+<h3>채무자(가압류를 당한 쪽)가 쓰는 서류</h3>
+
+<details class="fold">
+<summary>작성례 ① · 손해배상청구 소장</summary>
+<div class="form">                            소       장
+
+원       고   ○○○   (☎: ○○○-○○○○-○○○○)
+              주소  ○○○
+피       고   ◇◇◇
+              주소  ○○○
+
+손해배상(기) 청구의 소
+
+                       청 구 취 지
+
+1. 피고는 원고에게 금 ○○○원 및 이에 대하여 20○○. ○. ○.부터
+   이 사건 소장 부본 송달일까지는 연 5%의, 그 다음 날부터
+   다 갚는 날까지는 연 12%의 각 비율로 계산한 돈을 지급하라.
+2. 소송비용은 피고가 부담한다.
+3. 제1항은 가집행할 수 있다.
+   라는 판결을 구합니다.
+
+                       청 구 원 인
+
+1. 당사자의 지위
+   원고는 ○○업을 영위하는 자이고, 피고는 원고에 대하여
+   대여금채권이 있다고 주장한 자입니다.
+
+2. 피고의 가압류 집행
+   피고는 원고에 대한 대여금채권 금 ○○○원을 피보전권리로
+   주장하며 20○○. ○. ○. ○○지방법원 20○○카단○○○호로
+   원고 소유의 별지 목록 기재 부동산에 대한 가압류결정을
+   받아 20○○. ○. ○. 그 기입등기를 마쳤습니다.
+
+3. 본안소송에서의 피고 패소 확정
+   피고는 20○○. ○. ○. 원고를 상대로 ○○지방법원
+   20○○가단○○○호로 위 대여금의 지급을 구하는 소를
+   제기하였으나, 20○○. ○. ○. 청구기각 판결을 선고받았고
+   위 판결은 20○○. ○. ○. 확정되었습니다.
+
+4. 피고의 고의·과실
+   보전처분은 채권자의 소명만으로 그 책임 아래 이루어지는
+   것이므로, 본안소송에서 패소가 확정된 이상 특별한 반증이
+   없는 한 피고에게 고의 또는 과실이 있다고 추정됩니다.
+
+5. 원고가 입은 손해
+   가. 매매계약 해제로 인한 손해   금 ○○○원
+       원고는 20○○. ○. ○. 소외 △△△와 위 부동산에 관하여
+       매매대금 금 ○○○원의 매매계약을 체결하였으나,
+       위 가압류 기입등기를 이유로 20○○. ○. ○. 위 계약이
+       해제되어 계약금의 배액인 금 ○○○원을 상환하였습니다.
+   나. 금융비용 증가로 인한 손해   금 ○○○원
+       원고는 위 가압류로 인하여 종전 대출의 연장이 거절되어
+       연 ○%의 고금리 대출로 전환할 수밖에 없었고, 그로 인해
+       금 ○○○원의 이자를 추가로 부담하였습니다.
+   다. 합계                       금 ○○○원
+
+6. 결론
+   따라서 피고는 원고에게 위 손해액 금 ○○○원 및 이에 대한
+   지연손해금을 지급할 의무가 있으므로, 청구취지와 같은
+   판결을 구합니다.
+
+                       입 증 방 법
+
+1. 갑 제1호증   가압류결정문                  1통
+1. 갑 제2호증   등기사항전부증명서             1통
+1. 갑 제3호증   본안 판결정본                 1통
+1. 갑 제4호증   확정증명원                    1통
+1. 갑 제5호증   매매계약서                    1통
+1. 갑 제6호증   계약해제 통지서               1통
+1. 갑 제7호증   계약금 반환 내역               1통
+1. 갑 제8호증   여신거래약정서 및 이자납입내역  1통
+
+                       첨 부 서 류
+
+1. 위 입증방법                               각 1통
+1. 소장 부본                                 1통
+1. 송달료납부서                              1통
+
+                              20○○.  ○.  ○.
+                            위 원고 ○○○ (인)
+
+○○지방법원 귀중</div>
+<div class="fnote"><b>청구원인 4번과 5번이 승패를 가릅니다</b> · 4번은 <b>고의·과실이 추정된다</b>는 점을 밝히는 부분이고, 5번은 <b>손해액</b>을 항목별로 특정하는 부분입니다. 4번은 판례 법리이므로 길게 쓸 필요가 없으나, 5번은 <b>항목마다 금액과 증거를 대응</b>시켜야 합니다. 계약해제 통지서에 <b>가압류가 해제 사유로 적혀 있는지</b> 반드시 확인하십시오. 지연손해금의 기산일은 통상 <b>손해가 발생한 날</b>로 적습니다. 소송촉진 등에 관한 특례법상의 이율은 변동될 수 있으니 접수 전 확인하십시오.<span class="chk">확인필요</span></div>
+</details>
+
+<details class="fold">
+<summary>작성례 ② · 담보권 실행을 위한 채권압류 및 추심명령 신청서</summary>
+<div class="form">          채권압류 및 추심명령 신청서 (담보권 실행)
+
+채  권  자   ○○○   (☎: ○○○-○○○○-○○○○)
+             주소  ○○○
+채  무  자   ◇◇◇
+             주소  ○○○
+제3채무자    대한민국 (소관: ○○지방법원 공탁관)
+
+집행권원의 표시
+  ○○지방법원 20○○가단○○○호 손해배상(기) 사건의
+  집행력 있는 판결정본
+
+청구금액   금 ○○○원
+           (위 판결에 따른 손해배상금 및 지연손해금)
+
+                       신 청 취 지
+
+1. 채무자가 제3채무자에 대하여 가지는 별지 목록 기재
+   공탁금회수청구권 중 위 청구금액에 이르기까지의 금액을
+   압류한다.
+2. 제3채무자는 채무자에게 위 금액을 지급하여서는
+   아니 된다.
+3. 채무자는 위 채권의 처분과 영수를 하여서는 아니 된다.
+4. 채권자는 위 압류된 채권을 추심할 수 있다.
+   라는 재판을 구합니다.
+
+                       신 청 이 유
+
+1. 채무자는 20○○. ○. ○. ○○지방법원 20○○카단○○○호로
+   채권자 소유의 부동산에 대한 가압류결정을 받으면서,
+   위 법원의 담보제공명령에 따라 채권자를 피공탁자로 하여
+   20○○년 금 제○○○호로 금 ○○○원을 공탁하였습니다.
+
+2. 채권자는 위 가압류의 부당한 집행으로 인한 손해에 관하여
+   ○○지방법원 20○○가단○○○호 손해배상 사건에서
+   승소판결을 받았고 위 판결은 확정되었습니다.
+
+3. 위 담보공탁금에 관하여 채권자는 담보권리자로서
+   민사집행법 제19조 제3항, 민사소송법 제123조에 따라
+   질권자와 동일한 권리를 가지므로, 담보권 실행을 위하여
+   이 사건 신청에 이르렀습니다.
+
+                       첨 부 서 류
+
+1. 집행력 있는 판결정본                       1통
+1. 송달증명원·확정증명원                      각 1통
+1. 가압류결정문 등본                          1통
+1. 공탁사실증명                               1통
+
+                              20○○.  ○.  ○.
+                          위 채권자 ○○○ (인)
+
+○○지방법원 귀중</div>
+<div class="fnote"><b>이 절차가 실질적인 회수 수단입니다</b> · 손해배상 판결만 받아두고 이 단계를 밟지 않으면 돈이 들어오지 않습니다. 신청이유 3번의 <b>담보권 실행</b>이라는 점을 반드시 밝히십시오. 그래야 <b>먼저 압류한 일반 채권자보다 앞설 수 있습니다</b>(대법원 2003다19183 판결). 이후 <b>담보취소결정</b>을 받아 공탁금 회수청구를 하시면 되는데, 이때 담보취소를 신청하는 것은 담보권을 포기하는 것이 아니라 <b>담보권을 실행하는 방법</b>으로 인정됩니다. 담보액을 넘는 손해는 채무자의 다른 재산에 강제집행하셔야 합니다.</div>
+</details>
+
+<h3>채권자(가압류를 건 쪽)가 쓰는 서류</h3>
+
+<details class="fold">
+<summary>작성례 ③ · 답변서 — 추정을 뒤집고 책임을 제한받으려면</summary>
+<div class="form">                          답 변 서
+
+사       건   ○○지방법원 20○○가단○○○호 손해배상(기)
+원       고   ○○○
+피       고   ◇◇◇   (☎: ○○○-○○○○-○○○○)
+
+위 사건에 관하여 피고는 다음과 같이 답변합니다.
+
+                       청구취지에 대한 답변
+
+1. 원고의 청구를 기각한다.
+2. 소송비용은 원고가 부담한다.
+   라는 판결을 구합니다.
+
+                       청구원인에 대한 답변
+
+1. 인정하는 사실
+   피고가 원고 주장과 같이 가압류결정을 받아 집행한 사실,
+   본안소송에서 패소하여 그 판결이 확정된 사실은 인정합니다.
+
+2. 고의·과실 추정의 번복
+   가. 피고는 가압류 신청 당시 원고와의 거래내역, 차용증
+       사본 등 객관적 자료에 근거하여 채권의 존재를 믿을
+       만한 상당한 이유가 있었습니다.
+   나. 본안소송의 제1심에서는 피고의 청구가 인용되었다가
+       항소심에서 판단이 달라진 것으로서, 이는 사실관계가
+       복잡하고 법률적 평가가 엇갈린 데 따른 것입니다.
+   다. 따라서 피고에게 고의 또는 과실이 있다고 볼 수 없어
+       위 추정은 번복되어야 합니다.
+
+3. 인과관계의 부존재
+   원고가 주장하는 매출 감소는 같은 시기 해당 업종 전반의
+   업황 악화에 기인한 것으로, 이 사건 가압류와 상당인과
+   관계가 없습니다.
+
+4. 책임의 제한
+   설령 피고의 책임이 인정된다 하더라도, 보전처분과
+   본안소송에서 판단이 달라진 경위, 해당 판단 요소의
+   사실적·법률적 성격과 판단의 난이도 등에 비추어 피고에게
+   손해 전부를 배상하게 하는 것은 공평의 이념에 반하므로,
+   피고의 책임은 상당한 비율로 제한되어야 합니다
+   (대법원 2023. 6. 1. 선고 2020다242935 판결 참조).
+
+                       입 증 방 법
+
+1. 을 제1호증   차용증 사본                   1통
+1. 을 제2호증   거래내역서                    1통
+1. 을 제3호증   본안 제1심 판결문              1통
+1. 을 제4호증   업종별 매출 통계자료           1통
+
+                              20○○.  ○.  ○.
+                            위 피고 ◇◇◇ (인)
+
+○○지방법원 귀중</div>
+<div class="fnote"><b>채권자께서 다툴 수 있는 세 갈래입니다</b> · ① <b>추정의 번복</b> — 가압류 신청 당시 채권의 존재를 믿을 만한 객관적 근거가 있었음을 밝힙니다. 특히 <b>1심에서는 이겼다가 항소심에서 뒤집힌 경우</b>가 유력한 사정입니다. ② <b>인과관계 부존재</b> — 원고의 손해가 가압류가 아닌 다른 원인에서 비롯되었음을 자료로 반박합니다. ③ <b>책임제한</b> — 판단이 갈린 경위와 난이도를 들어 배상 범위를 줄입니다. 책임제한 비율은 사실심의 전권사항이므로, <b>1심·2심 단계에서 충실히 주장</b>하셔야 합니다.</div>
+</details>
+
+<h2>이런 점은 미리 아셔야 합니다</h2>
+
+<div class="warn">
+<span class="wt">⚠ 불리한 점도 솔직히 말씀드립니다</span>
+<b>① 본안 승소가 전제입니다.</b> 본안이 아직 진행 중이거나 화해·조정으로 끝났다면 "패소 확정"이 없어 추정이 작동하지 않습니다. 이때는 채권자의 고의·과실을 직접 증명하셔야 하며 훨씬 어렵습니다.<br>
+<b>② 전액을 받지 못하실 수 있습니다.</b> 법원은 판단이 갈린 경위 등을 살펴 <b>책임을 제한</b>할 수 있습니다(대법원 2020다242935 판결).<br>
+<b>③ 손해액 증명이 관문입니다.</b> 고의·과실은 추정되지만 <b>손해의 발생과 액수는 청구하는 쪽이 증명</b>해야 합니다. 자료가 없으면 인정 액수가 크게 줄어듭니다.<br>
+<b>④ 담보액에 한도가 있습니다.</b> 채권자가 맡긴 담보는 통상 청구금액의 일부입니다. 손해가 담보액을 넘으면 나머지는 <b>채권자의 다른 재산</b>에 집행하셔야 하며, 채권자에게 재산이 없으면 회수가 어렵습니다.<br>
+<b>⑤ 시간과 비용이 듭니다.</b> 별도의 본안소송이므로 인지·송달료가 청구금액에 따라 들고, 1심만도 상당한 기간이 걸립니다.
+</div>
+
+<div class="tip">
+<span class="pt">💡 채권자께 드리는 말씀 — 가압류 전에 확인하십시오</span>
+가압류는 신속하고 강력한 수단이지만, <b>본안에서 지면 그 자체가 불법행위가 됩니다.</b> 특히 <b>청구금액을 부풀려</b> 신청하시면 권리가 없다고 확인된 부분만큼 배상책임을 지게 됩니다. 신청 전에 채권의 근거를 객관적으로 점검하시고, <b>금액도 입증 가능한 범위로</b> 잡으십시오. 그것이 결국 채권자를 지키는 길입니다.
+</div>
+
+<h2>본 사무소가 도와드리는 일</h2>
+
+<div class="hire">
+<p><b>부당한 가압류로 손해를 보신 분</b> — ① 손해배상 청구가 가능한 사안인지 판단(본안 확정 여부·추정 작동 여부), ② 손해 항목별 자료 정리와 <b>손해액 산정</b>, ③ <b>손해배상청구 소장</b> 작성, ④ 채권자가 맡긴 <b>담보의 확인</b>과 담보권 실행을 위한 <b>채권압류 및 추심명령 신청서</b> 작성, ⑤ <b>담보취소 신청</b>과 공탁금 회수, ⑥ 담보를 넘는 부분에 대한 재산명시·재산조회까지 함께 준비해 드립니다.</p>
+<p><b>손해배상을 청구당하신 분(채권자)</b> — 고의·과실 추정을 뒤집는 <b>답변서</b> 작성, 인과관계 부존재 주장의 정리, <b>책임제한</b> 주장을 위한 자료 준비를 도와드립니다.</p>
+<p style="font-size:14px;color:var(--muted)">법무사는 법원·검찰청에 제출하는 서류의 작성과 공탁 신청의 대리를 할 수 있습니다(법무사법 §2). 본인소송의 서류 작성과 절차 진행을 지원하는 방식으로 함께합니다.</p>
+</div>
+
+<div class="tip">
+<span class="pt">💡 이어지는 카드</span>
+가압류를 당하셨을 때 <b>어느 방어를 고를지</b>는 <a href="C-1_가압류이의_방어.html">C-1 가압류 이의·방어</a>에서 비교했습니다. <b>즉시 풀어야 하시면</b> <a href="C-3_해방공탁.html">C-3 해방공탁</a>, <b>채권자를 움직이게 하려면</b> <a href="C-4_제소명령.html">C-4 제소명령</a>, <b>사정이 달라졌다면</b> <a href="C-5_사정변경취소.html">C-5 사정변경 취소</a>를 보십시오. <b>가처분</b>은 <a href="C-2_가처분방어.html">C-2 가처분 방어</a>에서 다룹니다. 가압류를 <b>거는 쪽</b>의 절차는 <a href="A-1_예금채권가압류.html">A-1 예금채권 가압류</a> 이하 카드에, 전체 유형은 <a href="보전처분_전체유형표.html">보전처분 전체 유형표</a>에 있습니다.
+</div>
+
+<a class="cta" href="index.html#contact">손해배상을 받을 수 있는 사안인지 상담받고 싶습니다</a>
+
+<div class="src">
+<b>근거</b> · 민법 제750조(불법행위의 내용)·제751조(재산 이외의 손해의 배상)·제763조·제393조(손해배상의 범위)·제766조(손해배상청구권의 소멸시효)·제157조(초일 불산입)·제161조(공휴일 등과 기간의 만료점) · 민사집행법 제19조제3항(담보제공·공탁 법원)·제280조(가압류명령)·제288조(사정변경 등에 따른 가압류취소) · 민사소송법 제123조(담보물에 대한 피고의 권리)·제125조(담보의 취소) · 민사소송 등 인지법 제2조 · 소송촉진 등에 관한 특례법 제3조<br>
+<b>판례</b> · 대법원 2023. 6. 1. 선고 2020다242935 판결(본안 패소 확정 시 고의·과실 추정, 과다 가압류 부분의 추정, 책임제한 법리 적용 가능) · 대법원 2004. 11. 26. 선고 2003다19183 판결(담보권리자는 공탁금회수청구권 위에 채권질권을 가지며, 담보취소를 받아 회수청구하는 것도 담보권 실행방법으로서 선행하는 일반 채권자에 우선) · 대법원 1998. 5. 15. 선고 97다58316 판결(담보권리자의 우선변제) · 대법원 1992. 9. 25. 선고 92다8453 판결(고의·과실 추정 법리)<br>
+<b>출처</b> · 국가법령정보센터(law.go.kr) · 법제처 찾기쉬운 생활법령정보(easylaw.go.kr) · 대한법률구조공단(klac.or.kr) · 대법원 전자소송포털<br><br>
+<span class="chk">확인필요</span> 표시 항목은 법원·시점에 따라 달라질 수 있어 접수 전 확인이 필요합니다. 본 자료는 일반적인 법률정보로, 개별 사건의 법률자문이 아닙니다.
+</div>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  function closeAll(except){terms.forEach(function(t){if(t!==except)t.classList.remove('on');});}
+  terms.forEach(function(t){
+    t.setAttribute('role','button');
+    t.addEventListener('click',function(e){e.stopPropagation();var on=t.classList.contains('on');closeAll(t);t.classList.toggle('on',!on);});
+    t.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '){e.preventDefault();var on=t.classList.contains('on');closeAll(t);t.classList.toggle('on',!on);}
+      if(e.key==='Escape'){t.classList.remove('on');t.blur();}
+    });
+  });
+  document.addEventListener('click',function(){closeAll(null);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll(null);});
+})();
+</script>
+</body>
+</html>
