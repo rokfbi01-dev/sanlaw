@@ -428,30 +428,200 @@
 <script>
 (function(){
 var BIZ=[
- {han:"民",t:"민사·형사",d:"가압류·가처분 방어·소장 작성·형사 서면",open:true,key:"minsa"},
+ {han:"訟",t:"민사 소송(본안)",d:"대여금·손해배상·명도·소유권이전등기·확인의 소",open:true,key:"suit"},
+ {han:"申",t:"민사 신청",d:"가압류·가처분·지급명령·공시송달·담보취소",open:true,key:"motion"},
+ {han:"執",t:"민사 집행",d:"경매·채권압류추심·재산명시·배당·담보회수",open:true,key:"exec"},
  {han:"相",t:"상속",d:"분할·유류분·포기·등기·유언·회복",open:true,key:"sangsok"},
  {han:"登",t:"각종 등기",d:"부동산 권리·법인(상업) 등기 대리",open:true,key:"deunggi"},
- {han:"免",t:"개인회생·파산면책",d:"빚 분석·압류 해방·면책",open:false},
  {han:"後",t:"후견",d:"성년·한정·특정·임의후견 신청",open:true,key:"hugyeon"},
- {han:"家",t:"가사 사건",d:"이혼·친권·양육 서면",open:false},
- {han:"勞",t:"노동·노무",d:"임금체불·부당해고 대응",open:false},
- {han:"行",t:"행정심판·인허가",d:"영업허가·불복 신청",open:false},
- {han:"法",t:"비영리법인 설립",d:"사단·재단법인 설립",open:false},
- {han:"出",t:"출입국·체류",d:"비자·체류자격 변경·기간연장 신청 대행",open:false}
+ {han:"家",t:"가사 사건",d:"이혼·친권·양육비·부양료 서면",open:false,key:"gasa"},
+ {han:"免",t:"개인회생·파산면책",d:"빚 분석·압류 해방·면책",open:false,key:"dosan"},
+ {han:"勞",t:"노동·노무",d:"임금체불·부당해고 대응",open:false,key:"nodong"},
+ {han:"行",t:"행정심판·행정소송",d:"영업정지·과징금·조세 부과 불복",open:false,key:"haeng"},
+ {han:"法",t:"비영리법인 설립",d:"사단·재단법인 설립 허가",open:false,key:"bupin"},
+ {han:"出",t:"출입국·체류",d:"비자·체류자격 변경·기간연장 신청",open:false,key:"chul"},
+ {han:"刑",t:"형사 서면",d:"고소장·고발장·진정서·탄원서 작성 지원",open:false,key:"hyeongsa"},
+ {han:"保",t:"보호사건",d:"소년보호·가정보호(가정폭력) 서면",open:false,key:"boho"},
+ {han:"族",t:"가족관계등록",d:"개명·창성창본·등록부 정정 허가",open:false,key:"jok"},
+ {han:"供",t:"공탁",d:"변제·집행·혼합·해방·재판상 보증공탁",open:false,key:"gongtak"}
 ];
-var MINSA=[
- {n:1,t:"보전처분(가압류·가처분)",d:"통장·부동산이 묶였을 때 푸는 법, 거는 법",items:[
-   {t:"억울하게 가압류를 당했어요 — 푸는 4가지 방법",u:"C-1_가압류이의_방어.html"},
-   {t:"가처분을 당했어요 — 방어하는 5가지 방법",u:"C-2_가처분방어.html"},
+/* ── ① 민사 소송(본안) ── */
+var CIVIL_SUIT=[
+ {n:1,t:"돈을 받아내는 소송",d:"대여금·손해배상·부당이득·대금·보증금",items:[
+   {t:"빌려준 돈을 안 갚아요 (대여금 청구)",r:false},
+   {t:"사고·잘못으로 손해를 봤어요 (손해배상 청구)",r:false},
+   {t:"교통사고 보상이 너무 적어요",r:false},
+   {t:"받을 이유 없는 돈을 상대가 가져갔어요 (부당이득 반환)",r:false},
+   {t:"제가 대신 갚았으니 돌려받고 싶어요 (구상금)",r:false},
+   {t:"물품대금·공사대금을 못 받았어요",r:false},
+   {t:"전세·월세 보증금을 안 돌려줘요",r:false},
+   {t:"약속한 돈을 안 줘요 (약정금·위약금)",r:false}]},
+ {n:2,t:"집·땅을 둘러싼 소송",d:"명도·철거·소유권이전·말소·사해행위",items:[
+   {t:"세입자가 나가지 않아요 (건물인도·명도)",r:false},
+   {t:"남의 건물이 내 땅을 밟고 있어요 (철거·퇴거)",r:false},
+   {t:"돈은 다 줬는데 등기를 안 넘겨줘요 (소유권이전등기)",r:false},
+   {t:"잘못된 등기를 지우고 싶어요 (말소등기)",r:false},
+   {t:"빚진 사람이 재산을 빼돌렸어요 (사해행위취소)",r:false},
+   {t:"제 땅을 누가 무단으로 쓰고 있어요 (점유회수)",r:false}]},
+ {n:3,t:"권리를 확인받는 소송",d:"채무부존재·소유권확인·해고무효·결의무효",items:[
+   {t:"갚을 빚이 없다는 걸 확인받고 싶어요 (채무부존재확인)",r:false},
+   {t:"이 땅이 제 것임을 확인받고 싶어요 (소유권확인)",r:false},
+   {t:"해고가 부당합니다 (해고무효확인)",r:false},
+   {t:"총회·이사회 결의가 엉터리예요 (결의무효·취소)",r:false},
+   {t:"공유 부동산을 나누고 싶어요 (공유물분할)",r:false},
+   {t:"이웃과 땅 경계가 다퉈져요 (경계확정)",r:false}]},
+ {n:4,t:"소송 서면 작성",d:"소장·답변서·준비서면·항소이유서",items:[
+   {t:"소장, 이렇게 씁니다 (작성례 포함)",r:false},
+   {t:"소장을 받았어요 — 답변서 쓰는 법(인정형·부인형)",r:false},
+   {t:"준비서면으로 반박하는 법",r:false},
+   {t:"1심에서 졌어요 — 항소이유서",r:false},
+   {t:"소송 전에 보내는 내용증명",r:false}]}
+];
+/* ── ② 민사 신청 (보전처분 = 작업지시서 A·B·C 트리) ── */
+var CIVIL_MOTION=[
+ {n:1,t:"가압류 — 받을 돈 미리 묶기",d:"통장·부동산·급여·보증금·차량·물건",items:[
    {t:"떼인 돈을 받으려 예금(통장)을 가압류하고 싶어요",u:"A-1_예금채권가압류.html"},
    {t:"부동산(집·땅)을 가압류하고 싶어요",u:"A-2_부동산가압류.html"},
    {t:"급여(월급)를 가압류하고 싶어요",u:"A-3_급여가압류.html"},
    {t:"전세보증금을 떼일 것 같아요 — 임대인 부동산 가압류",u:"A-4_전세보증금가압류.html"},
    {t:"상대가 제3자에게 받을 돈(공사대금·물품대금)을 묶고 싶어요",u:"A-5_지명채권가압류.html"},
-   {t:"상대 집·가게 안 물건(가전·집기)을 잡을 수 있나요",u:"A-6_유체동산가압류.html"},
-   {t:"상대 명의 자동차를 묶고 싶어요",u:"A-7_자동차가압류.html"}]},
- {n:2,t:"민사 서면",d:"대여금·보증금·손해배상 소장과 답변서",items:[]},
- {n:3,t:"형사 서면",d:"고소장·진정서·탄원서 작성",items:[]}
+   {t:"상대 집·가게 안 물건(가전·집기)을 잡을 수 있나요",r:false},
+   {t:"상대 명의 자동차를 묶고 싶어요",r:false},
+   {t:"상대 주식·회사 지분을 잡고 싶어요",r:false},
+   {t:"골프·콘도·스포츠 회원권을 가압류할 수 있나요",r:false},
+   {t:"가압류하려면 돈을 먼저 걸어야 하나요 (담보제공·보증보험)",r:false}]},
+ {n:2,t:"가처분 — 물건·자리·권리 지키기",d:"처분금지·점유이전금지·공사중지·직무정지",items:[
+   {t:"계약한 부동산을 상대가 딴 데 팔까 불안해요 (처분금지)",r:false},
+   {t:"명도소송 중 세입자가 점유를 넘길까 걱정돼요 (점유이전금지)",r:false},
+   {t:"옆 건물 공사로 내 집이 위험해요 (공사중지)",r:false},
+   {t:"인터넷 허위글로 계속 비방당해요 (게시물 삭제·인격권)",r:false},
+   {t:"회사 임원의 직무를 정지시키고 싶어요 (직무집행정지)",r:false},
+   {t:"부당해고 다툼 중 복직 전까지 임금을 받고 싶어요",r:false},
+   {t:"가등기·분양권 등 내 권리를 지키고 싶어요",r:false}]},
+ {n:3,t:"당했을 때 — 푸는 방법",d:"이의·해방공탁·제소명령·취소·손해배상",items:[
+   {t:"억울하게 가압류를 당했어요 — 푸는 4가지 방법",u:"C-1_가압류이의_방어.html"},
+   {t:"가처분을 당했어요 — 방어하는 5가지 방법",u:"C-2_가처분방어.html"},
+   {t:"돈을 공탁하고 가압류를 즉시 풀고 싶어요 (해방공탁)",r:false},
+   {t:"상대가 가압류만 걸고 본안소송을 안 걸어요 (제소명령)",r:false},
+   {t:"시간이 지났는데 가압류가 그대로예요 (사정변경 취소)",r:false},
+   {t:"부당한 가압류로 손해를 봤어요 (손해배상 역공)",r:false}]},
+ {n:4,t:"독촉·화해",d:"지급명령·제소전화해",items:[
+   {t:"소송 없이 빨리 받고 싶어요 (지급명령·독촉절차)",r:false},
+   {t:"지급명령을 받았어요 — 이의신청하는 법",r:false},
+   {t:"합의 내용을 판결처럼 만들고 싶어요 (제소전화해)",r:false}]},
+ {n:5,t:"송달·집행 준비",d:"공시송달·집행문·승계집행문",items:[
+   {t:"상대 주소를 모르겠어요 (공시송달 신청)",r:false},
+   {t:"판결문으로 집행하려면 (집행문 부여 신청)",r:false},
+   {t:"채무자가 사망·법인이 바뀌었어요 (승계집행문)",r:false}]},
+ {n:6,t:"부수·기타 신청",d:"증거보전·소송구조·임차권등기·담보취소",items:[
+   {t:"증거가 없어질 것 같아요 (증거보전 신청)",r:false},
+   {t:"이긴 소송의 비용을 받아내고 싶어요 (소송비용액확정)",r:false},
+   {t:"소송비용을 낼 형편이 안 돼요 (소송구조 신청)",r:false},
+   {t:"이사 가야 하는데 보증금을 못 받았어요 (임차권등기명령)",r:false},
+   {t:"경매·압류를 잠시 멈추고 싶어요 (강제집행정지)",r:false},
+   {t:"맡긴 담보(공탁금)를 돌려받고 싶어요 (담보취소·회수)",r:false}]},
+ {n:7,t:"보전처분 전체 유형표",d:"드문 유형까지 한 장에 — 색인",items:[
+   {t:"가압류·가처분 전체 유형 한눈에 보기",r:false}]}
+];
+/* ── ③ 민사 집행 ── */
+var CIVIL_EXEC=[
+ {n:1,t:"채권 압류로 받아내기",d:"추심·전부명령·본압류 이전",items:[
+   {t:"판결은 받았는데 안 줘요 — 통장 압류해 받아내기(추심)",r:false},
+   {t:"추심명령과 전부명령, 뭐가 다른가요",r:false},
+   {t:"상대 월급을 압류하면 얼마까지 되나요 (압류금지 범위)",r:false},
+   {t:"본안에서 이겼어요 — 가압류를 진짜 압류로 바꾸기",r:false}]},
+ {n:2,t:"부동산 경매",d:"강제경매·임의경매·매수신청·인도명령",items:[
+   {t:"상대 부동산을 경매에 넘기고 싶어요 (강제경매)",r:false},
+   {t:"근저당을 잡아뒀어요 — 임의경매 신청",r:false},
+   {t:"경매로 집을 사고 싶어요 (매수신청 대리 안내)",r:false},
+   {t:"낙찰받았는데 점유자가 안 나가요 (인도명령)",r:false}]},
+ {n:3,t:"물건·인도 집행",d:"유체동산·명도집행·대체집행·간접강제",items:[
+   {t:"집 안 물건을 압류해 경매하기 (유체동산압류)",r:false},
+   {t:"판결받은 집을 실제로 비우게 하기 (부동산인도집행)",r:false},
+   {t:"직접 문 따고 들어가면 안 되나요 — 형사처벌 위험",r:false},
+   {t:"철거·수거를 대신 시키기 (대체집행·간접강제)",r:false}]},
+ {n:4,t:"재산 찾기·압박",d:"재산명시·재산조회·명부등재",items:[
+   {t:"받을 돈은 있는데 상대 재산을 몰라요 (재산명시)",r:false},
+   {t:"재산명시로도 안 나와요 (재산조회)",r:false},
+   {t:"끝까지 안 갚는 상대를 압박하고 싶어요 (채무불이행자명부)",r:false}]},
+ {n:5,t:"집행을 당했을 때 방어",d:"청구이의·제3자이의·집행정지",items:[
+   {t:"이미 갚았는데 또 집행당해요 (청구이의의 소)",r:false},
+   {t:"내 물건인데 남의 빚으로 압류됐어요 (제3자이의의 소)",r:false},
+   {t:"압류된 통장이 생계비예요 (압류금지채권 범위변경)",r:false},
+   {t:"일단 집행을 멈추고 싶어요 (강제집행정지)",r:false}]},
+ {n:6,t:"배당·정산·마무리",d:"배당요구·배당이의·담보 회수",items:[
+   {t:"경매에 배당을 요구하려면 (배당요구 종기)",r:false},
+   {t:"배당표가 잘못됐어요 (배당이의)",r:false},
+   {t:"끝났는데 공탁금이 남아 있어요 (담보취소·공탁금 회수)",r:false}]}
+];
+/* ── ⑬ 형사 서면 (법무사법 §2 — 서류 작성 지원 범위) ── */
+var HYEONGSA=[
+ {n:1,t:"수사 단계 서면",d:"고소장·고발장·진정서·탄원서",items:[
+   {t:"고소장, 이렇게 씁니다",r:false},
+   {t:"고발장과 고소장은 어떻게 다른가요",r:false},
+   {t:"진정서·탄원서 작성 요령",r:false}]},
+ {n:2,t:"불기소에 대한 불복",d:"검찰항고·재정신청",items:[
+   {t:"불기소 처분을 받았어요 — 검찰항고이유서",r:false},
+   {t:"항고도 기각됐어요 — 재정신청 안내",r:false}]},
+ {n:3,t:"피해자 구제",d:"배상명령·형사보상",items:[
+   {t:"형사재판에서 바로 피해배상 받기 (배상명령신청)",r:false},
+   {t:"무죄가 확정됐어요 (형사보상 청구)",r:false}]}
+];
+/* ── ⑯ 공탁 ── */
+var GONGTAK=[
+ {n:1,t:"변제공탁",d:"상대가 안 받아줄 때 맡기고 끝내기",items:[
+   {t:"집주인이 월세를 안 받아줘요 (변제공탁)",r:false},
+   {t:"채권자를 모르겠어요 (채권자 불확지 공탁)",r:false}]},
+ {n:2,t:"보증·해방공탁",d:"가압류 담보·해방금액",items:[
+   {t:"가압류 담보로 내는 공탁 (재판상 보증공탁)",r:false},
+   {t:"가압류를 풀려고 내는 공탁 (해방공탁)",r:false}]},
+ {n:3,t:"집행·혼합공탁",d:"압류가 겹쳤을 때",items:[
+   {t:"내 돈에 압류가 여러 개 들어왔어요 (집행공탁)",r:false},
+   {t:"압류와 양도가 겹쳤어요 (혼합공탁)",r:false}]},
+ {n:4,t:"공탁금 찾기",d:"출급·회수 청구",items:[
+   {t:"공탁된 돈을 찾으려면 (출급청구)",r:false},
+   {t:"내가 맡긴 공탁금을 돌려받으려면 (회수청구)",r:false}]}
+];
+/* ── 나머지 분야 (카테고리 골격 · 카드 순차 게시) ── */
+var GASA=[
+ {n:1,t:"이혼",d:"협의·재판상 이혼·위자료·재산분할",items:[]},
+ {n:2,t:"친권·양육",d:"양육자 지정·양육비·면접교섭",items:[]},
+ {n:3,t:"친자관계",d:"인지·친생자관계존부·입양·파양",items:[]},
+ {n:4,t:"가사비송",d:"실종선고·부재자재산관리인",items:[]}
+];
+var DOSAN=[
+ {n:1,t:"개인회생",d:"소득이 있을 때 3년 변제 후 면책",items:[]},
+ {n:2,t:"개인파산·면책",d:"갚을 능력이 없을 때",items:[]},
+ {n:3,t:"법인회생·파산",d:"사업체의 재기와 정리",items:[]}
+];
+var NODONG=[
+ {n:1,t:"임금·퇴직금",d:"체불 진정·소송",items:[]},
+ {n:2,t:"부당해고",d:"구제신청·해고무효확인",items:[]},
+ {n:3,t:"산재",d:"요양·장해 불승인 불복",items:[]}
+];
+var HAENG=[
+ {n:1,t:"행정심판",d:"취소심판·의무이행심판",items:[]},
+ {n:2,t:"행정소송",d:"취소·무효확인·부작위위법확인",items:[]},
+ {n:3,t:"자주 다투는 처분",d:"영업정지·과징금·조세·면허취소",items:[]}
+];
+var BUPIN=[
+ {n:1,t:"비영리사단법인",d:"설립허가 신청·정관",items:[]},
+ {n:2,t:"비영리재단법인",d:"출연재산·설립허가",items:[]},
+ {n:3,t:"설립 후 절차",d:"설립등기·사업자등록·보고",items:[]}
+];
+var CHUL=[
+ {n:1,t:"체류자격",d:"변경·연장·자격외활동",items:[]},
+ {n:2,t:"국적·영주",d:"귀화·국적회복·영주권",items:[]},
+ {n:3,t:"권리구제",d:"강제퇴거 이의·출국금지 해제",items:[]}
+];
+var BOHO=[
+ {n:1,t:"소년보호사건",d:"보호처분·의견서·항고",items:[]},
+ {n:2,t:"가정보호사건",d:"가정폭력 임시조치·보호처분",items:[]}
+];
+var JOK=[
+ {n:1,t:"이름·성본",d:"개명·창성창본 허가",items:[]},
+ {n:2,t:"등록부 정정",d:"출생연월일·가족관계 정정",items:[]},
+ {n:3,t:"신고",d:"출생·혼인·이혼·사망 신고",items:[]}
 ];
 var HUGYEON=[
  {n:1,t:"후견 개시 신청",d:"성년·한정·특정·임의 어느 것이 맞는지",items:[
@@ -545,6 +715,26 @@ var DEUNGGI=[
    {t:"지점설치·이전",r:false},
    {t:"법인 해산·청산",r:false}]}
 ];
+/* ── 분야 ↔ 카테고리 연결표 (분야 추가 시 이 표만 수정) ── */
+var CATMAP={
+ suit:['민사 소송(본안)',CIVIL_SUIT],
+ motion:['민사 신청',CIVIL_MOTION],
+ exec:['민사 집행',CIVIL_EXEC],
+ sangsok:['상속',SANGSOK],
+ deunggi:['각종 등기',DEUNGGI],
+ hugyeon:['후견',HUGYEON],
+ gasa:['가사 사건',GASA],
+ dosan:['개인회생·파산면책',DOSAN],
+ nodong:['노동·노무',NODONG],
+ haeng:['행정심판·행정소송',HAENG],
+ bupin:['비영리법인 설립',BUPIN],
+ chul:['출입국·체류',CHUL],
+ hyeongsa:['형사 서면',HYEONGSA],
+ boho:['보호사건',BOHO],
+ jok:['가족관계등록',JOK],
+ gongtak:['공탁',GONGTAK]
+};
+
 var vBiz=document.getElementById('view-biz'),vCat=document.getElementById('view-cat'),vItem=document.getElementById('view-item');
 function show(v){[vBiz,vCat,vItem].forEach(function(x){x.classList.add('pa-hidden');});v.classList.remove('pa-hidden');
   var sec=document.getElementById('practice');if(sec)sec.scrollIntoView({behavior:'smooth',block:'start'});}
@@ -553,7 +743,7 @@ var bizGrid=document.getElementById('bizGrid');
 BIZ.forEach(function(b){
   var c=document.createElement('div');c.className='pa-card lock';
   c.innerHTML='<span class="pa-b '+(b.open?'r">게시':'s">준비중')+'</span><div class="pa-han">'+b.han+'</div><div class="pa-tx"><h3>'+b.t+'</h3><p>'+b.d+'</p></div>';
-  c.addEventListener('click',function(){if(!agreed)return;if(b.open&&b.key==='minsa')openCat('민사·형사',MINSA);else if(b.open&&b.key==='sangsok')openCat('상속',SANGSOK);else if(b.open&&b.key==='deunggi')openCat('각종 등기',DEUNGGI);else if(b.open&&b.key==='hugyeon')openCat('후견',HUGYEON);});
+  c.addEventListener('click',function(){if(!agreed)return;var m=b.key?CATMAP[b.key]:null;if(b.open&&m)openCat(m[0],m[1]);});
   bizGrid.appendChild(c);
 });
 var catGrid=document.getElementById('catGrid');
@@ -587,7 +777,7 @@ function restoreFromCard(){
   var file=ref.split('/').pop().split('#')[0].split('?')[0];
   try{file=decodeURIComponent(file);}catch(e){}
   if(!file||file.indexOf('index')===0) return false;
-  var sets=[['민사·형사',MINSA],['상속',SANGSOK],['각종 등기',DEUNGGI],['후견',HUGYEON]];
+  var sets=[];for(var kk in CATMAP){if(Object.prototype.hasOwnProperty.call(CATMAP,kk))sets.push(CATMAP[kk]);}
   for(var i=0;i<sets.length;i++){
     for(var j=0;j<sets[i][1].length;j++){
       var its=sets[i][1][j].items||[];
