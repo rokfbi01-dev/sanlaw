@@ -61,6 +61,22 @@ td a{color:var(--gold-d); word-break:break-all;}
 .src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
 /* 작성례 박스 */
 .formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+details.sec{border:1px solid var(--line); border-radius:11px; margin:18px 0; background:#fff; overflow:hidden;}
+details.sec>summary{cursor:pointer; list-style:none; padding:14px 17px 14px 15px; background:var(--box); border-left:4px solid var(--gold); font-family:'Nanum Myeongjo',serif; font-size:18px; font-weight:700; color:var(--gold-d); line-height:1.55;}
+details.sec>summary::-webkit-details-marker{display:none;}
+details.sec>summary .sub{display:block; font-family:'Pretendard',sans-serif; font-size:13.5px; font-weight:400; color:var(--muted); margin-top:3px;}
+details.sec>summary::after{content:"펼치기 ▾"; float:right; font-family:'Pretendard',sans-serif; font-size:12.5px; font-weight:700; color:var(--gold); background:#fff; border:1px solid var(--line); border-radius:20px; padding:2px 10px; margin-left:8px;}
+details.sec[open]>summary::after{content:"접기 ▴";}
+details.sec>summary:hover{background:#f2ede3;}
+.secbody{padding:4px 17px 16px;}
+.secbody>h3:first-of-type{margin-top:14px;}
+.toc{background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 17px; margin:8px 0 22px;}
+.toc .tct{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:9px;}
+.toc ol{margin:0; padding-left:20px;}
+.toc li{margin:5px 0; font-size:14.5px;}
+.toc a{text-decoration:none; border-bottom:1px dotted var(--gold);}
+.allbtn{display:inline-block; margin-top:11px; font-size:13.5px; font-weight:700; color:var(--gold-d); background:var(--box); border:1px solid var(--line); border-radius:8px; padding:7px 14px; cursor:pointer;}
+.allbtn:hover{background:#f2ede3;}
 .fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:15px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
 .fold-btn:hover{background:#ebe4d6;}
 .fold-btn .tag{margin-bottom:0;}
@@ -94,6 +110,8 @@ td a{color:var(--gold-d); word-break:break-all;}
   .term>.bub::before{content:" ("; }
   .term>.bub::after{content:")"; border:none; position:static;}
   .fold-body{display:block !important;}.fold-btn .chev{display:none;}.form-tools{display:none;}
+  details.sec:not([open])>*{display:block !important;}
+  details.sec>summary::after{display:none;} .allbtn,.toc{display:none !important;}
   .cta{background:#fff !important; color:#241a10 !important; border:1px solid #ccc;}
 }
 .cl{color:var(--gold-d);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--gold-d);}
@@ -132,20 +150,36 @@ td a{color:var(--gold-d); word-break:break-all;}
 </ul>
 </div>
 
-<h2>지금 어떤 상황인가요?</h2>
+<div class="toc">
+<div class="tct">이 카드에 담긴 것 — 필요한 곳만 펼쳐 보십시오</div>
+<ol>
+<li><a href="#s1">지금 어떤 상황인가요?</a></li>
+<li><a href="#s2">핵심 세 가지</a></li>
+<li><a href="#s3">가처분을 푸는 절차 — 한눈에 보기</a></li>
+<li><a href="#s4">기한 정리 — 놓치면 안 되는 날짜</a></li>
+<li><a href="#s5">관련 법령 — 쉬운 풀이</a></li>
+<li><a href="#s6">판례로 보기 — 방어하는 채무자가 알아야 할 두 가지</a></li>
+<li><a href="#s7">다섯 갈래 방어법 — 어느 것을 고를까</a></li>
+<li><a href="#s8">서류 작성례 6가지 — 빈칸만 채우면 됩니다</a></li>
+<li><a href="#s9">준비할 서류와 발급처 — 어디서 떼나</a></li>
+<li><a href="#s10">고충은 덜어드리고, 결과로 보답하겠습니다</a></li>
+</ol>
+<span class="allbtn" id="allBtn" role="button" tabindex="0">전체 펼치기</span>
+</div>
+<h2 id="s1">지금 어떤 상황인가요?</h2>
 <div class="sit-wrap">
 <div class="sit"><span class="sl">상황 ① · 집·땅(부동산)이 가처분으로 묶인 분</span><b>등기부에 처분금지가처분이 기재되어 집·땅을 팔거나 담보로 쓰지 못하는</b> 경우. 매매·대출이 막혀 발이 묶인 상황입니다. → 소유권을 다툴 여지가 있으면 <b>이의신청</b>, 채권자가 본안을 제기하지 아니하면 <b>제소명령</b>, 손해가 크면 <b>특별사정 취소</b>로 진행합니다. <b>아래 작성례 ①·③·④·⑤</b>가 출발점입니다.</div>
 <div class="sit"><span class="sl">상황 ② · 가게·공사·직무가 가처분으로 막힌 분</span><b>점유이전금지·공사금지·영업금지·직무집행정지 가처분으로 지금 당장 영업·공사·직무를 하지 못하는</b> 경우. 하루하루 손해가 쌓이는 상황입니다. → <b>이의신청과 함께 집행정지</b>를 신청하여 우선 급한 불을 끄고, 동시에 <b>특별사정 취소</b>를 검토합니다. <b>아래 작성례 ①·②·⑤</b>를 활용합니다.</div>
 </div>
 
-<h2>핵심 세 가지</h2>
+<h2 id="s2">핵심 세 가지</h2>
 <ol class="steps">
 <li><b>가처분에는 해방공탁이 없습니다.</b> 가압류는 금전채권을 보전하는 것이므로 같은 금액의 돈을 공탁하면 목적을 달성할 수 있습니다. 그러나 가처분은 <span class="term">계쟁물<span class="bub">다툼의 대상이 되고 있는 그 물건이나 권리 자체. 예를 들어 "이 아파트를 나에게 넘겨 달라"는 소송에서는 그 아파트가 계쟁물입니다.</span></span>에 관한 이행청구권이나 다툼이 있는 권리관계 자체를 보전하는 것이어서, 돈으로 갈음할 수 없습니다. 따라서 <b>해방금액을 공탁하고 집행을 취소해 달라는 신청은 받아들여지지 아니합니다.</b> 그 자리를 대신하는 것이 <b>담보를 제공하고 가처분 자체를 취소받는 민집 §307의 특별사정 취소</b>입니다.</li>
 <li><b>이의신청만으로는 집행이 멈추지 않지만, 가처분에는 '집행정지'라는 별도의 길이 있습니다.</b> 이의신청이나 취소신청을 하여도 그 자체로 가처분 집행이 정지되지는 아니합니다(민집 §283③·§301). 다만 <b>본안에서 이긴 것과 사실상 같은 결과가 되는 가처분</b>(이른바 <span class="term">만족적 가처분<span class="bub">본안 판결을 받은 것과 사실상 같은 상태를 미리 만들어 주는 가처분. 영업금지·공사금지·직무집행정지·임금지급 가처분 등이 여기에 해당합니다. 반대로 처분금지·점유이전금지 가처분은 현상을 그대로 묶어 두는 것이어서 만족적 가처분이 아닙니다.</span></span>)이라면, ㉠주장하는 사유가 법률상 정당하다고 인정되고 ㉡그 사실이 소명되며 ㉢집행으로 <b>회복할 수 없는 손해</b>가 생길 위험이 소명되는 때에 법원은 집행정지를 명할 수 있습니다(민집 §309①). 이 소명은 <b>보증금 공탁이나 선서로 대신할 수 없습니다</b>(§309②). 제소기간 도과·사정변경·특별사정에 따른 취소신청에도 같은 길이 열려 있습니다(§310).</li>
 <li><b>가처분등기가 일단 말소되면 그 효력은 확정적입니다.</b> 가처분취소 결정이 집행되어 등기부에서 가처분등기가 지워지면, 그 뒤에 부동산을 취득한 제3자는 더 이상 처분금지의 제한을 받지 아니합니다. 채무자에게는 <b>취소를 받아내는 것이 곧 종결</b>이라는 뜻이고, 반대로 채권자에게는 취소결정에 대하여 <span class="term">즉시항고<span class="bub">결정·명령에 불복하여 상급 법원의 판단을 구하는 절차. 재판을 고지받은 날부터 1주 안에 하여야 하며, 이 기간은 늘릴 수 없는 불변기간입니다(민집 §15②).</span></span>와 함께 <b>효력정지</b>를 서둘러 신청하여야 한다는 뜻입니다(민집 §289·§301).</li>
 </ol>
 
-<h2>가처분을 푸는 절차 — 한눈에 보기</h2>
+<h2 id="s3">가처분을 푸는 절차 — 한눈에 보기</h2>
 <div class="flow">
 <div class="fl-t">"무엇이 가장 시급한가"에 따라 절차를 선택합니다 (다섯 갈래 + 사후 역공)</div>
 <div class="node"><span class="num">0</span><b>먼저 결정문을 확인합니다</b> — 가처분 결정문(또는 통지서)에서 <b>① 어느 법원의 몇 카단·카합 사건인지 ② 무슨 권리(피보전권리)로 ③ 무엇을 금지하는지(처분금지·점유이전금지·공사금지·직무집행정지 등) ④ 채권자가 언제 결정을 고지받았는지</b>를 확인합니다. 가압류와 달리 <b>해방금액란은 없습니다.</b> 모든 방어는 이 정보에서 출발합니다.</div>
@@ -163,7 +197,8 @@ td a{color:var(--gold-d); word-break:break-all;}
 <div class="node"><span class="num">6</span><b>【사후 역공】 원상회복 + 부당가처분 손해배상</b> — 채권자가 가처분에 기하여 물건이나 금전을 이미 받아 갔다면, 취소 결정을 하는 때에 <b>반환을 명하여 달라</b>고 신청할 수 있습니다(민집 §308). 나아가 본안에서 <b>채권자가 패소 확정</b>되면 그 가처분으로 입은 손해를 손해배상으로 되받습니다(민 §750, 대법원 2020다242935).</div>
 </div>
 
-<h2>⏰ 기한 정리 — 놓치면 안 되는 날짜들</h2>
+<details class="sec" id="s4"><summary>기한 정리 — 놓치면 안 되는 날짜<span class="sub">이의신청은 기한 없음 · 즉시항고 1주 · 집행기간 2주</span></summary>
+<div class="secbody">
 <p style="font-size:13.5px;color:var(--muted)">가처분 방어도 <b>기한이 없는 것</b>과 <b>하루도 못 늦추는 것</b>이 섞여 있습니다. 아래 표에서 <b>내 사건에 지금 걸려 있는 줄</b>을 먼저 찾으십시오.</p>
 <table>
 <tr><th style="width:20%">무엇을</th><th style="width:14%">기한</th><th>① 기산일 · ③ 계산 방법</th><th style="width:20%">② 근거 · 놓치면</th></tr>
@@ -209,7 +244,9 @@ td a{color:var(--gold-d); word-break:break-all;}
 </table>
 <div class="warn"><span class="wt">⚠ 이 표에서 가장 자주 놓치는 두 가지</span><b>ⓐ '3년'의 기산일은 결정일이 아니라 집행일입니다.</b> 부동산 가처분은 <b>가처분등기가 기재된 날</b>이 집행일입니다. 등기부 등본에서 접수일자를 확인하십시오.<br><b>ⓑ 3년이 지나도 가처분은 자동으로 풀리지 않습니다.</b> 반드시 <b>취소를 신청</b>하여야 하며, 신청하지 아니하면 등기부에 그대로 남아 있습니다.</div>
 
-<h2>관련 법령 — 쉬운 풀이</h2>
+</div></details>
+<details class="sec" id="s5"><summary>관련 법령 — 쉬운 풀이<span class="sub">민집 §300 가처분 · §301 준용 · §307 특별사정 취소</span></summary>
+<div class="secbody">
 <div class="lawbox"><span class="ll">민사집행법 §300</span><b>가처분의 두 종류</b> — ① <b>계쟁물에 관한 가처분</b>(§300①)은 다투고 있는 물건의 현상이 바뀌면 판결을 받아도 소용없게 될 때 하는 것으로, <b>처분금지가처분·점유이전금지가처분</b>이 대표적입니다. ② <b>임시의 지위를 정하는 가처분</b>(§300②)은 다툼 있는 권리관계에 관하여 <b>현저한 손해를 피하거나 급박한 위험을 막기 위하여</b> 하는 것으로, <b>공사금지·영업금지·직무집행정지·임금지급</b> 가처분 등이 여기에 속합니다.</div>
 <div class="lawbox"><span class="ll">민사집행법 §301</span><b>가압류 규정의 준용</b> — 가처분절차에는 가압류절차에 관한 규정을 준용합니다. 이의신청(§283)·제소명령(§287)·사정변경 취소(§288)·취소결정의 효력정지(§289)·집행기간(§292)이 모두 이 조문을 통하여 가처분에 적용됩니다. <b>다만 해방금액을 정한 §282는 가처분의 성질상 준용되지 아니합니다.</b></div>
 <div class="lawbox"><span class="ll">민사집행법 §283</span><b>가처분 이의신청</b> — 가처분을 당한 채무자는 그 결정에 대하여 이의를 신청할 수 있습니다. 법원은 심문을 열어 <b>가처분이 정당하였는지</b>를 다시 심리하여 결정을 <b>인가·변경·취소</b>합니다. "피보전권리가 존재하지 아니한다 / 보전의 필요성이 없었다"가 핵심 주장입니다. <b>이의신청 자체로는 집행이 정지되지 아니합니다</b>(§283③).</div>
@@ -220,7 +257,9 @@ td a{color:var(--gold-d); word-break:break-all;}
 <div class="lawbox"><span class="ll">민사집행법 §309·§310</span><b>가처분의 집행정지</b> — 본안에서 이긴 것과 같은 내용의 가처분에 대하여 이의신청이 있는 경우, ㉠주장 사유가 법률상 정당하다고 인정되고 ㉡그 사실이 소명되며 ㉢집행으로 <b>회복할 수 없는 손해</b>가 생길 위험이 소명되면, 법원은 담보를 제공하게 하거나 제공하게 하지 아니하고 <b>집행을 정지</b>하도록 명할 수 있고, 담보를 제공하게 하고 <b>이미 집행한 처분을 취소</b>하도록 명할 수도 있습니다(§309①). 이 소명은 <b>보증금 공탁이나 선서로 대신할 수 없으며</b>(§309②), 이 재판에 대하여는 <b>불복할 수 없습니다</b>(§309⑤). 제소기간 도과(§287③)·사정변경(§288①)·특별사정(§307)에 따른 취소신청에도 준용됩니다(§310).</div>
 <div class="lawbox"><span class="ll">민법 §750</span><b>부당가처분 손해배상</b> — 피보전권리도 없이 가처분한 채권자가 <b>본안에서 패소 확정</b>되면, 그로 인하여 채무자가 입은 손해를 배상할 책임을 집니다. 불법행위(고의·과실)에 따른 손해배상의 일반 근거 조문입니다.</div>
 
-<h2>판례로 보기 — 방어하는 채무자가 알아야 할 두 가지</h2>
+</div></details>
+<details class="sec" id="s6"><summary>판례로 보기 — 방어하는 채무자가 알아야 할 두 가지<span class="sub">가처분에는 해방공탁이 없습니다 · 특별사정 취소의 요건</span></summary>
+<div class="secbody">
 <div class="case">
 <span class="ct">○ 기간이 지난 뒤에 소제기 증명서류를 내도 가처분은 취소된다 — 대법원 2003. 8. 22.자 2003마1209 결정</span>
 채무자의 신청으로 제소명령이 내려졌는데도 채권자가 <b>정하여진 기간 안에</b> 소를 제기하고 그 사실을 증명하는 서류를 제출하지 아니하였다면, 법원은 민사집행법 제287조 제3항에 따라 <b>가처분을 취소하여야</b> 합니다. <b>그 기간이 지난 뒤에 증명서류를 제출하였더라도 마찬가지입니다.</b> 또한 가처분 신청절차에서 이루어진 소송위임의 효력은 <b>제소명령 신청사건에도 미치므로</b>, 채권자의 소송대리인에게 한 제소명령 송달도 적법합니다. (→ 채무자에게 가장 강력한 무기. 채권자가 "대리인에게만 송달되어 몰랐다"고 빠져나갈 수 없습니다)
@@ -231,7 +270,8 @@ td a{color:var(--gold-d); word-break:break-all;}
 </div>
 <div class="warn"><span class="wt">⚠ 불리한 점도 말씀드립니다 — 추정은 번복될 수 있습니다</span>본안 패소만으로 언제나 배상을 받는 것은 아닙니다. 대법원은 <b>채권자가 신청 당시 그 권리가 있다고 믿을 만한 상당한 이유가 있었던 경우</b>에는 고의·과실의 추정이 번복될 수 있다고 봅니다(대법원 2007. 4. 26. 선고 2005다31033 판결). 특히 <b>사실관계가 아니라 법률 해석의 차이로 패소한 경우</b>에는 추정이 깨지는 사례가 적지 않습니다. 손해배상은 <b>가처분을 푸는 절차와 별개로</b> 준비하여야 하며, 손해 자료를 구체적으로 남기는 것이 관건입니다.</div>
 
-<h2>다섯 갈래 방어법 — 어느 것을 고를까</h2>
+</div></details>
+<h2 id="s7">다섯 갈래 방어법 — 어느 것을 고를까</h2>
 <table>
 <tr><th>나의 상황</th><th>골라야 할 방어</th><th>근거·작성례</th></tr>
 <tr><td>채권자가 주장하는 권리가 없다 / 보전의 필요성이 없었다</td><td><b>가처분 이의신청</b><br>가처분 자체를 취소</td><td>민집 §283·§301<br>작성례 ①</td></tr>
@@ -253,7 +293,8 @@ td a{color:var(--gold-d); word-break:break-all;}
 이 카드는 <b>가처분을 당한 채무자</b>의 방어를 중심으로 합니다. 채무자가 이의·취소로 다퉈 오면 채권자는 <b>답변서</b>로 대응하는데, 그 양식은 <b>아래 작성례 ⑥</b>에 함께 실었습니다. 또한 가처분을 <b>취소하는 결정</b>이 내려지면 채권자는 <b>1주 안에 즉시항고</b>를 하면서 <b>취소결정의 효력정지</b>를 함께 신청하여야 합니다(민집 §289·§301). 가처분등기가 말소되고 나면 되돌릴 수 없기 때문입니다.
 </div>
 
-<h2>신청서·서면 작성례 — 채무자(방어하는 쪽) 중심 + 채권자 대응</h2>
+<details class="sec" id="s8"><summary>서류 작성례 6가지 — 빈칸만 채우면 됩니다<span class="sub">이의신청서 · 특별사정 취소 · 제소명령 · 채권자 대응서면</span></summary>
+<div class="secbody">
 <p style="font-size:13.5px;color:var(--muted)">아래 작성례의 빈칸(○○○)을 채워 그대로 제출할 수 있습니다. 제목은 가운데 정렬된 법원 제출 양식입니다. <b>복사·인쇄·다운로드</b> 버튼을 활용하십시오.</p>
 
 <div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ① · 채무자</span>가처분결정에 대한 이의신청서<span class="chev">&#9662;</span></button><div class="fold-body">
@@ -553,7 +594,9 @@ td a{color:var(--gold-d); word-break:break-all;}
 <b>③ 직무집행정지가처분</b>을 받고도 직무를 계속 수행하면 그 행위는 <b>무효</b>이고, 사안에 따라 업무방해·손해배상 문제가 생깁니다.<br>
 <b>④ 잠긴 문을 임의로 열고 들어가거나 상대방의 물건을 치우는 행위</b>는 <b>주거침입·재물손괴·권리행사방해</b>로 형사처벌을 받을 수 있습니다. 가처분이 부당하다고 생각되더라도 <b>반드시 위 합법적 절차</b>에 따라야 합니다.</div>
 
-<h2>준비할 서류와 발급처</h2>
+</div></details>
+<details class="sec" id="s9"><summary>준비할 서류와 발급처 — 어디서 떼나<span class="sub">결정문 · 등기사항증명서 · 소명자료 · 담보 서류 (딥링크 포함)</span></summary>
+<div class="secbody">
 <p style="font-size:13.5px;color:var(--muted)">아래 '바로가기'를 클릭하면 해당 사이트로 이동합니다. 만약 첫 화면으로 연결되면, 옆의 <b>찾아가기 경로</b>를 따라 메뉴를 클릭하면 됩니다.</p>
 <table>
 <tr><th>무엇을 (어디서)</th><th>서류</th><th>바로가기 · 찾아가기 경로</th></tr>
@@ -562,10 +605,11 @@ td a{color:var(--gold-d); word-break:break-all;}
 <tr><td>법인 가처분 확인<br>(직무집행정지 등)</td><td>법인등기사항증명서(가처분 기재·직무대행자 확인)</td><td><a href="https://www.iros.go.kr">인터넷등기소</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 등기열람/발급 → 법인 → 열람/발급하기 → 상호검색</span></td></tr>
 <tr><td>본안 진행·패소 확인<br>(전자소송)</td><td>본안 판결문, 확정증명원, 사건검색 결과(제소 여부 확인)</td><td><a href="https://ecfs.scourt.go.kr">전자소송</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 나의전자소송 → 사건확인 → 판결문·확정증명 발급</span></td></tr>
 <tr><td>담보 제공<br>(전자공탁·보증보험)</td><td>담보제공명령에 따른 금전 공탁서 또는 지급보증위탁계약 체결 증서</td><td><a href="https://ekt.scourt.go.kr">전자공탁</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 공탁신청 → 금전공탁 / 보증보험은 서울보증보험 지점 또는 법원 내 창구</span></td></tr>
-<tr><td>신청·소송 제출<br>(전자소송)</td><td>이의신청서·집행정지신청서·제소명령신청서·취소신청서 — 공식 양식</td><td><a href="https://ecfs.scourt.go.kr">전자소송</a> / <a href="https://www.scourt.go.kr/nm/min_9/min_9_2/index.html">양식모음</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 전자소송 → 서류제출 → 민사신청 → 가압류/가처분</span></td></tr>
+<tr><td>신청·소송 제출<br>(전자소송)</td><td>이의신청서·집행정지신청서·제소명령신청서·취소신청서 — 공식 양식</td><td><a href="https://ecfs.scourt.go.kr">전자소송</a> / <a href="https://ecfs.scourt.go.kr/psp/index.on?m=PSP720M24">양식모음</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 전자소송 → 서류제출 → 민사신청 → 가압류/가처분</span></td></tr>
 </table>
 
-<h2>고충은 덜어드리고, 결과로 보답하겠습니다</h2>
+</div></details>
+<h2 id="s10">고충은 덜어드리고, 결과로 보답하겠습니다</h2>
 <div class="hire">
 <p>본 사무소에서는 의뢰인들의 고충은 덜어드리고, 함께 소송을 진행하여 원하는 결과에 도달할 수 있도록 성심을 다하겠습니다.</p>
 <p style="margin-top:12px"><b>· 가처분을 당하신 분(채무자)의 경우</b><br>① 결정문·등기부를 대조하여 <b>집행일과 3년 기산일</b>을 확정하고, ② <b>이의신청서</b>와 <b>집행정지 신청서</b>를 함께 작성하며, ③ <b>제소명령·가처분취소 신청서</b> 작성, ④ 손해가 큰 사안에서는 <b>특별사정 취소</b>와 담보 제공 절차, ⑤ 채권자가 본안에서 패소한 경우 <b>부당가처분 손해배상(반소 포함)</b> 준비까지 <b>본인소송의 전 과정을 함께</b> 준비해 드립니다.</p>
@@ -575,7 +619,7 @@ td a{color:var(--gold-d); word-break:break-all;}
 <a href="https://sanlaw.co.kr/tools-calculator.html" class="cta">🧮 내 사건 비용 미리 계산하기</a>
 <div style="text-align:center; background:#f6ecd8; border:1px solid var(--gold); border-radius:11px; padding:14px; margin:18px 0; font-size:15px; color:var(--gold-d); font-weight:700;">📞 상담은 홈 화면의 상담 창구를 이용하시면 됩니다.</div>
 
-<div class="tip"><span class="pt">💡 이어지는 카드</span> <b>가압류를 당하신 분</b>은 <a class="cl" href="C-1_가압류이의_방어.html"><b>가압류 이의·방어(C-1)</b></a>에서 해방공탁·이의신청·제소명령·부당가압류 손해배상까지 다룹니다. <b>가압류를 거는 쪽</b>은 <a class="cl" href="A-1_예금채권가압류.html"><b>예금(통장) 가압류(A-1)</b></a>·<a class="cl" href="A-2_부동산가압류.html"><b>부동산 가압류(A-2)</b></a>·<a class="cl" href="A-3_급여가압류.html"><b>급여(월급) 가압류(A-3)</b></a>·<a class="cl" href="A-4_전세보증금가압류.html"><b>전세보증금 가압류(A-4)</b></a>·<a class="cl" href="A-5_지명채권가압류.html"><b>지명채권 가압류(A-5)</b></a>·<a class="cl" href="A-6_유체동산가압류.html"><b>유체동산 가압류(A-6)</b></a>·<a class="cl" href="A-7_자동차가압류.html"><b>자동차 가압류(A-7)</b></a>를 보십시오. <span style="color:var(--muted);font-size:13px">(※ 가처분을 <b>거는 쪽</b>의 신청·서류·담보를 다루는 카드는 준비 중입니다.)</span></div>
+<div class="tip"><span class="pt">💡 이어지는 카드</span> <b>같은 방어라도 사정에 따라 카드가 다릅니다.</b> 목돈으로 즉시 풀려면 <a class="cl" href="C-3_해방공탁.html"><b>해방공탁(C-3)</b></a>, 채권자가 소송을 안 걸면 <a class="cl" href="C-4_제소명령.html"><b>제소명령(C-4)</b></a>, 갚았거나 3년이 지났다면 <a class="cl" href="C-5_사정변경취소.html"><b>사정변경 취소(C-5)</b></a>, 부당한 가압류로 손해를 보셨다면 <a class="cl" href="C-6_부당가압류_손해배상.html"><b>손해배상(C-6)</b></a>을 보십시오. 전체 유형은 <a class="cl" href="보전처분_전체유형표.html"><b>보전처분 전체 유형표</b></a>에 있습니다. <b>가압류를 당하신 분</b>은 <a class="cl" href="C-1_가압류이의_방어.html"><b>가압류 이의·방어(C-1)</b></a>에서 해방공탁·이의신청·제소명령·부당가압류 손해배상까지 다룹니다. <b>가압류를 거는 쪽</b>은 <a class="cl" href="A-1_예금채권가압류.html"><b>예금(통장) 가압류(A-1)</b></a>·<a class="cl" href="A-2_부동산가압류.html"><b>부동산 가압류(A-2)</b></a>·<a class="cl" href="A-3_급여가압류.html"><b>급여(월급) 가압류(A-3)</b></a>·<a class="cl" href="A-4_전세보증금가압류.html"><b>전세보증금 가압류(A-4)</b></a>·<a class="cl" href="A-5_지명채권가압류.html"><b>지명채권 가압류(A-5)</b></a>·<a class="cl" href="A-6_유체동산가압류.html"><b>유체동산 가압류(A-6)</b></a>·<a class="cl" href="A-7_자동차가압류.html"><b>자동차 가압류(A-7)</b></a>를 보십시오. <span style="color:var(--muted);font-size:13px">(※ 가처분을 <b>거는 쪽</b>의 신청·서류·담보를 다루는 카드는 준비 중입니다.)</span></div>
 
 <div class="src">
 근거 — 민사집행법 제15조 제2항(즉시항고)·제283조(가처분결정에 대한 채무자의 이의신청)·제286조(이의신청에 대한 심리와 재판)·제287조(본안의 제소명령)·제288조(사정변경 등에 따른 취소)·제289조(가처분취소결정의 효력정지)·제292조 제2항(집행기간)·제300조(가처분의 목적)·제301조(가압류절차의 준용)·제307조(가처분의 취소)·제308조(원상회복재판)·제309조(가처분의 집행정지)·제310조(준용규정) · 민법 제157조(초일 불산입)·제161조(공휴일 등과 기간의 만료점)·제750조(불법행위 손해배상)·제766조(손해배상청구권의 소멸시효) · 형법 제140조(공무상비밀표시무효)·제327조(강제집행면탈) · 대법원 2003. 8. 22.자 2003마1209 결정(제소기간 경과 후 증명서류 제출과 가처분취소, 보전처분 소송위임의 효력 범위) · 대법원 2003. 6. 18.자 2003마793 결정(같은 취지) · 대법원 2023. 6. 1. 선고 2020다242935 판결(부당 보전처분 손해배상 책임 추정 및 책임제한, 대법원 92다8453 법리 재확인) · 대법원 2007. 4. 26. 선고 2005다31033 판결(고의·과실 추정의 번복) · 대법원 1966. 2. 28. 선고 65다2560 판결(사정변경 사유가 인정되면 특별사정의 존재를 따질 필요 없이 취소 신청 가능) · 법원실무제요 민사집행Ⅳ·Ⅴ(제소명령 실무, 가처분 집행) · 국가법령정보센터 법령·판례·법령용어 · 법제처 찾기쉬운 생활법령정보 · 사법정보공개포털 · 대한법률구조공단. 본 자료는 일반적인 법률정보로, 개별 사건의 법률자문이 아닙니다. 가처분에는 가압류의 해방공탁(민집 제282조)이 준용되지 아니하며, 그에 대응하는 제도는 민사집행법 제307조의 특별사정에 의한 가처분취소입니다.
@@ -589,6 +633,31 @@ td a{color:var(--gold-d); word-break:break-all;}
     t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
   });
   document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+})();
+
+(function(){
+  document.querySelectorAll('.toc a').forEach(function(a){
+    a.addEventListener('click',function(){
+      var el=document.querySelector(a.getAttribute('href'));
+      if(el&&el.tagName==='DETAILS')el.open=true;
+    });
+  });
+  var btn=document.getElementById('allBtn');
+  if(!btn)return;
+  function toggleAll(){
+    var opening=btn.textContent.indexOf('펼치기')>-1;
+    document.querySelectorAll('details.sec').forEach(function(d){d.open=opening;});
+    document.querySelectorAll('.formbox').forEach(function(fb){
+      fb.classList.toggle('open',opening);
+      var body=fb.querySelector('.fold-body');
+      if(body)body.style.display=opening?'block':'none';
+    });
+    btn.textContent=opening?'전체 접기':'전체 펼치기';
+  }
+  btn.addEventListener('click',toggleAll);
+  btn.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleAll();}});
+})();
+(function(){
 })();
 function toggleFold(b){var fb=b.parentElement;var body=b.nextElementSibling;var open=fb.classList.toggle('open');if(body){body.style.display=open?'block':'none';}}
 function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
