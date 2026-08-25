@@ -61,6 +61,22 @@ td a{color:var(--gold-d); word-break:break-all;}
 .src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
 /* 작성례 박스 */
 .formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+details.sec{border:1px solid var(--line); border-radius:11px; margin:18px 0; background:#fff; overflow:hidden;}
+details.sec>summary{cursor:pointer; list-style:none; padding:14px 17px 14px 15px; background:var(--box); border-left:4px solid var(--gold); font-family:'Nanum Myeongjo',serif; font-size:18px; font-weight:700; color:var(--gold-d); line-height:1.55;}
+details.sec>summary::-webkit-details-marker{display:none;}
+details.sec>summary .sub{display:block; font-family:'Pretendard',sans-serif; font-size:13.5px; font-weight:400; color:var(--muted); margin-top:3px;}
+details.sec>summary::after{content:"펼치기 ▾"; float:right; font-family:'Pretendard',sans-serif; font-size:12.5px; font-weight:700; color:var(--gold); background:#fff; border:1px solid var(--line); border-radius:20px; padding:2px 10px; margin-left:8px;}
+details.sec[open]>summary::after{content:"접기 ▴";}
+details.sec>summary:hover{background:#f2ede3;}
+.secbody{padding:4px 17px 16px;}
+.secbody>h3:first-of-type{margin-top:14px;}
+.toc{background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 17px; margin:8px 0 22px;}
+.toc .tct{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:9px;}
+.toc ol{margin:0; padding-left:20px;}
+.toc li{margin:5px 0; font-size:14.5px;}
+.toc a{text-decoration:none; border-bottom:1px dotted var(--gold);}
+.allbtn{display:inline-block; margin-top:11px; font-size:13.5px; font-weight:700; color:var(--gold-d); background:var(--box); border:1px solid var(--line); border-radius:8px; padding:7px 14px; cursor:pointer;}
+.allbtn:hover{background:#f2ede3;}
 .fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:15px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
 .fold-btn:hover{background:#ebe4d6;}
 .fold-btn .tag{margin-bottom:0;}
@@ -94,6 +110,8 @@ td a{color:var(--gold-d); word-break:break-all;}
   .term>.bub::before{content:" ("; }
   .term>.bub::after{content:")"; border:none; position:static;}
   .fold-body{display:block !important;}.fold-btn .chev{display:none;}.form-tools{display:none;}
+  details.sec:not([open])>*{display:block !important;}
+  details.sec>summary::after{display:none;} .allbtn,.toc{display:none !important;}
   .cta{background:#fff !important; color:#241a10 !important; border:1px solid #ccc;}
 }
 .cl{color:var(--gold-d);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--gold-d);}
@@ -133,13 +151,31 @@ td a{color:var(--gold-d); word-break:break-all;}
 </ul>
 </div>
 
-<h2>지금 어떤 상황인가요?</h2>
+<div class="toc">
+<div class="tct">이 카드에 담긴 것 — 필요한 곳만 펼쳐 보십시오</div>
+<ol>
+<li><a href="#s1">지금 어떤 상황인가요?</a></li>
+<li><a href="#s2">등록에서 경매까지 — 전체 길 한눈에 보기</a></li>
+<li><a href="#s3">핵심 세 가지</a></li>
+<li><a href="#s4">기한 정리 — 놓치면 안 되는 날짜</a></li>
+<li><a href="#s5">관련 법령 — 쉬운 풀이</a></li>
+<li><a href="#s6">판례로 보기 — 신청 전에 반드시 읽어야 할 두 가지</a></li>
+<li><a href="#s7">채권자 — 신청부터 회수까지 상세 절차</a></li>
+<li><a href="#s8">★ 담보 취소·회수 — 여기서 끝내지 마십시오</a></li>
+<li><a href="#s9">채무자 — 억울하게 당하였다면 방어 절차</a></li>
+<li><a href="#s10">서류 작성례 — 빈칸만 채우면 됩니다</a></li>
+<li><a href="#s11">준비할 서류와 발급처 — 어디서 떼나</a></li>
+<li><a href="#s12">고충은 덜어드리고, 결과로 보답하겠습니다</a></li>
+</ol>
+<span class="allbtn" id="allBtn" role="button" tabindex="0">전체 펼치기</span>
+</div>
+<h2 id="s1">지금 어떤 상황인가요?</h2>
 <div class="sit-wrap">
 <div class="sit"><span class="sl">상황 ① · 채무자 명의의 승용차를 묶으려는 분</span><b>돈을 빌려주었거나 사고 합의금·손해배상을 받아야 하는데, 채무자에게 부동산은 없고 차만 있는</b> 경우. → 등록원부만 확인하면 되고 비용도 싸므로 <b>가장 먼저 검토할 만한 유형</b>입니다. 다만 <b>저당권이 얼마나 잡혀 있는지</b>를 먼저 보십시오. 신차 할부 차량은 실익이 거의 없습니다. <b>아래 작성례 ①·①-1</b>이 출발점입니다.</div>
 <div class="sit"><span class="sl">상황 ② · 채무자의 영업용 차량·건설기계를 묶으려는 분</span><b>거래처가 공사대금·물품대금을 주지 아니하는데, 화물차·굴착기·지게차 등을 보유한</b> 경우. → 영업용 차량은 채무자에게 <b>사업의 생명줄</b>이므로 압박 효과가 큽니다. <b>건설기계·소형선박도 자동차 가압류 규정을 그대로 준용</b>합니다(민집규 §211). 다만 <b>지입 차량</b>이면 등록명의가 지입회사이므로 잡을 수 없습니다. <b>작성례 ①~③</b>을 함께 보십시오.</div>
 </div>
 
-<h2>등록에서 경매까지 — 전체 길 한눈에 보기</h2>
+<h2 id="s2">등록에서 경매까지 — 전체 길 한눈에 보기</h2>
 <div class="flow">
 <div class="fl-t">자동차는 <b>등록으로 묶고, 필요하면 인도명령으로 세웁니다</b></div>
 <div class="node"><span class="num">0</span><b>먼저 자동차등록원부를 떼어 봅니다</b> — <b>자동차민원 대국민포털</b> 또는 정부24에서 발급받아 ① <b>소유자가 채무자 본인인지</b>, ② <b>저당권이 얼마나 잡혀 있는지</b>(을구), ③ <b>이미 다른 압류·가압류가 있는지</b>, ④ <b>사용본거지</b>가 어디인지를 확인합니다. 이 네 가지가 신청의 전제입니다.</div>
@@ -161,7 +197,7 @@ td a{color:var(--gold-d); word-break:break-all;}
 <div class="node"><span class="num">8</span><b>담보 취소·회수 — 여기서 끝내지 마십시오</b> — 본안 승소가 확정되거나 가압류를 취하하였다면 <b>담보취소를 신청하여 공탁금을 돌려받거나 보증보험증권을 정리</b>하여야 합니다(민소 §125, 작성례 ⑦). 신청하지 아니하면 그대로 남아 있습니다. <b>가장 많이 놓치는 대목입니다.</b></div>
 </div>
 
-<h2>핵심 세 가지</h2>
+<h2 id="s3">핵심 세 가지</h2>
 <ol class="steps">
 <li><b>신청 전에 자동차등록원부 「을구」를 반드시 확인하십시오.</b> 자동차 가압류의 성패는 <b>저당권</b>이 가릅니다. 예를 들어 중고 시세 1,500만원인 차에 캐피탈 저당권 1,300만원이 잡혀 있다면, 경매비용을 빼고 나면 <b>일반채권자에게 돌아올 몫은 사실상 없습니다.</b> 등록원부는 몇 백 원이면 뗄 수 있으니, <b>신청서를 쓰기 전에 먼저 확인</b>하십시오. 저당권이 과다하면 <b>예금·부동산·급여</b> 등 다른 재산을 먼저 검토하는 편이 낫습니다.</li>
 <li><b>등록명의가 채무자 본인이어야 합니다.</b> 자동차 소유권의 득실변경은 <b>등록으로</b> 효력이 생기고, 인도(점유 이전)만으로는 소유권이 넘어가지 않습니다(자동차관리법 §6, 대법원 2016다205373). 그래서 ① 채무자가 <b>타고 다녀도 명의가 남이면</b> 잡을 수 없고, ② 채무자가 <b>이미 팔았어도 명의가 남아 있으면</b> 잡을 수 있습니다. 다만 <b>리스·지입·명의신탁</b> 차량은 등록명의자가 리스회사·지입회사·명의수탁자이므로, 채무자가 실제로 쓰고 있어도 그의 재산으로 잡을 수 없습니다.</li>
@@ -173,7 +209,8 @@ td a{color:var(--gold-d); word-break:break-all;}
 <b>못한 점</b> — ① <b>저당권이 앞서면</b> 배당이 없음, ② 차는 시간이 갈수록 <b>값이 떨어짐</b>, ③ 등록만으로는 <b>운행을 막지 못함</b>, ④ 인도명령을 받으면 <b>보관비 부담</b>, ⑤ <b>등록명의</b>가 다르면 아예 불가.
 </div>
 
-<h2>⏰ 기한 정리 — 놓치면 안 되는 날짜들</h2>
+<details class="sec" id="s4"><summary>기한 정리 — 놓치면 안 되는 날짜<span class="sub">집행기간 2주 · 즉시항고 1주 · 제소명령 2주 이상</span></summary>
+<div class="secbody">
 <p style="font-size:13.5px;color:var(--muted)">자동차는 법원이 등록을 촉탁해 주므로 유체동산보다 안전하지만, <b>담보제공이 늦어 2주를 넘기는</b> 사고가 실제로 생깁니다.</p>
 <table>
 <tr><th style="width:20%">무엇을</th><th style="width:14%">기한</th><th>① 기산일 · ③ 계산 방법</th><th style="width:20%">② 근거 · 놓치면</th></tr>
@@ -211,7 +248,9 @@ td a{color:var(--gold-d); word-break:break-all;}
 <td>민법 <b>§162①·§163·§165·§166·§168</b><br>상법 <b>§64</b></td></tr>
 </table>
 
-<h2>관련 법령 — 쉬운 풀이</h2>
+</div></details>
+<details class="sec" id="s5"><summary>관련 법령 — 쉬운 풀이<span class="sub">피보전권리 · 보전의 필요성 · 담보 · 집행기간 · 본압류 이전</span></summary>
+<div class="secbody">
 <div class="lawbox"><span class="ll">자동차관리법 §6</span><b>자동차 소유권 변동의 효력 — 이 카드의 출발점</b> — "자동차 소유권의 <b>득실변경은 등록을 하여야 그 효력이 생긴다</b>." 자동차는 재산적 가치가 크므로, 민법의 불완전한 공시방법인 <b>인도</b>가 아니라 공적 장부에 의한 <b>등록</b>으로 소유권 변동을 공시하도록 한 것입니다. 그래서 <b>선의취득(민법 §249)도 적용되지 아니합니다</b>(대법원 2016다205373).</div>
 <div class="lawbox"><span class="ll">민사집행법 §187 · 민사집행규칙 §210①</span><b>자동차 가압류는 부동산의 예에 따릅니다</b> — 등록된 자동차에 대한 가압류는 <b>부동산의 예</b>(다만 강제관리의 방법은 제외)에 따릅니다. 따라서 유체동산처럼 집행관에게 위임하는 것이 아니라, <b>법원사무관등이 등록관청에 가압류 기입등록을 촉탁</b>함으로써 집행됩니다(민집 §293, 민집규 §108).</div>
 <div class="lawbox"><span class="ll">민사집행규칙 §108·§109</span><b>표시 방법과 관할</b> — <b>§108</b> 자동차는 <b>자동차등록원부의 기재</b>를 바탕으로 표시합니다 — 등록번호, 형식승인번호, 차명, 차종, 차대번호, 원동기의 형식 및 연식, <b>사용본거지</b>, 등록연월일. <b>§109</b> 집행법원은 <b>사용본거지</b>를 관할하는 지방법원입니다. 별지 기재가 등록원부와 다르면 <b>등록촉탁이 반려</b>되므로, 원부를 그대로 옮겨 적으십시오.</div>
@@ -222,7 +261,9 @@ td a{color:var(--gold-d); word-break:break-all;}
 <div class="lawbox"><span class="ll">민사집행법 §195 15호</span><b>장애인용 경형자동차는 압류하지 못합니다</b> — 채무자 등의 일상생활에 필요한 자동차로서 <b>자동차관리법이 정하는 장애인용 경형자동차</b>는 압류가 금지됩니다. 등록원부에 장애인용으로 되어 있는지 확인하십시오.</div>
 <div class="lawbox"><span class="ll">민사집행법 §48</span><b>제3자이의의 소</b> — 가압류된 차가 <b>자기 소유</b>라고 주장하는 제3자는 채권자를 상대로 집행의 배제를 구하는 소를 제기할 수 있습니다. 자동차에서는 <b>등록명의자가 소유자로 인정되므로</b>, 명의가 채무자로 되어 있는 한 실제 구매자가 제3자이의를 내어도 인용되기 어렵습니다. 반대로 <b>리스·지입 차량</b>을 잘못 잡으면 리스회사·지입회사의 제3자이의로 풀립니다.</div>
 
-<h2>판례로 보기 — 신청 전에 반드시 읽어야 할 두 가지</h2>
+</div></details>
+<details class="sec" id="s6"><summary>판례로 보기 — 신청 전에 반드시 읽어야 할 두 가지<span class="sub">실제 사건에서 법원이 어떻게 판단했는지</span></summary>
+<div class="secbody">
 <div class="case">
 <span class="ct">○ 자동차는 '인도'가 아니라 '등록'으로 소유권이 넘어간다 — 대법원 2016. 12. 15. 선고 2016다205373 판결</span>
 자동차관리법 §6가 "자동차 소유권의 득실변경은 등록을 하여야 그 효력이 생긴다"고 정한 취지에 관하여, 대법원은 <b>현대사회에서 자동차의 경제적 효용과 재산적 가치가 크므로, 민법상 불완전한 공시방법인 「인도」가 아니라 공적 장부에 의한 체계적인 공시방법인 「등록」으로 소유권 변동을 공시</b>하여 거래의 안전을 더 두텁게 보호하려는 데 있다고 밝혔습니다. 그 결과 자동차관리법이 적용되는 자동차의 소유권을 취득하는 데에는 <b>인도에 의할 수 없고</b>, 이를 전제로 하는 <b>민법 §249의 선의취득 규정도 적용되지 아니한다</b>고 하였습니다. (→ 채권자: <b>등록원부의 소유자란이 채무자인지</b>만 보면 됩니다. 채무자가 남의 차를 타고 다녀도 잡을 수 없고, 반대로 <b>이미 팔았지만 이전등록을 하지 않은 차</b>는 여전히 채무자의 재산이므로 잡을 수 있습니다.)
@@ -232,7 +273,9 @@ td a{color:var(--gold-d); word-break:break-all;}
 지입한 차량을 지입차주 측이 임의로 처분하고, 이를 사들인 사람이 <b>장물취득</b> 등으로 기소된 사안입니다. 대법원 전원합의체는 <b>지입한 차량은 등록명의자인 각 지입회사의 소유</b>임을 전제로 하면서, <b>소유권 취득에 등록이 필요한 타인 소유의 차량을 인도받아 보관하는 사람이 이를 사실상 처분하면 횡령죄가 성립하고, 그 보관 위임자나 보관자가 차량의 등록명의자일 필요는 없다</b>고 판시하여 종전 판례를 변경하였습니다. (→ 채권자: <b>지입차주를 채무자로 하여 그가 운행하는 지입차량을 가압류할 수는 없습니다.</b> 등록명의가 지입회사이기 때문입니다. 화물차·버스·굴착기를 대상으로 삼을 때에는 <b>등록원부의 소유자가 운수회사인지 개인인지</b>를 먼저 확인하십시오. 리스 차량, 가족 명의 차량도 같은 이유로 대상이 되지 않습니다.)
 </div>
 
-<h2>채권자: 어떻게 묶고 회수하나 — 신청 절차</h2>
+</div></details>
+<details class="sec" id="s7"><summary>채권자 — 신청부터 회수까지 상세 절차<span class="sub">관할 · 인지 · 송달료 · 담보제공 · 집행 · 본압류 이전</span></summary>
+<div class="secbody">
 <ol class="steps">
 <li><b>자동차등록원부를 먼저 발급받습니다.</b> <b>자동차민원 대국민포털</b>에서 차량번호로 발급할 수 있습니다. <b>갑구</b>에서 소유자가 채무자 본인인지, <b>을구</b>에서 저당권·압류가 얼마나 있는지, 그리고 <b>사용본거지</b>를 확인합니다. 저당채권 합계가 중고 시세에 육박하면 <b>이 단계에서 포기하고 다른 재산을 검토</b>하는 것이 현명합니다.</li>
 <li><b>신청서와 별지, 진술서를 작성합니다.</b> 자동차가압류 신청서(작성례 ①)에 <b>별지 「자동차의 표시」</b>(작성례 ①-1)를 붙이고, <b>가압류신청 진술서</b>를 함께 냅니다. 진술서를 빠뜨리거나 허위로 적으면 <b>보정명령 없이 기각</b>될 수 있습니다(재민 2003-4 §3). 별지는 <b>등록원부 기재를 한 글자도 다르지 않게</b> 옮겨 적으십시오 — 다르면 등록촉탁이 반려됩니다.</li>
@@ -252,7 +295,9 @@ td a{color:var(--gold-d); word-break:break-all;}
 <span style="font-size:13px">그럼에도 <b>비용이 싸고 절차가 간편</b>하다는 점 때문에, 다른 재산과 <b>병행</b>하여 걸어 두는 전략이 실무에서 자주 쓰입니다.</span>
 </div>
 
-<h2>담보 취소·회수 — 여기서 끝내지 마십시오</h2>
+</div></details>
+<details class="sec" id="s8"><summary>★ 담보 취소·회수 — 여기서 끝내지 마십시오<span class="sub">맡긴 담보는 신청해야 돌아옵니다 · 가장 많이 놓치는 대목</span></summary>
+<div class="secbody">
 <p>가압류를 위하여 제공한 담보는 <b>가만히 두면 정리되지 않습니다.</b> 현금공탁이라면 공탁금이 법원에 남고, 보증보험증권이라면 <b>보험이 그대로 유지되어 매년 보험료가 나갈 수도</b> 있습니다. 반드시 <b>담보취소 결정</b>까지 받으십시오.</p>
 <ol class="steps">
 <li><b>담보 사유가 소멸하였을 때</b> — 본안소송에서 <b>승소 확정판결</b>을 받았다면, 그 판결문과 확정증명원을 붙여 담보취소를 신청합니다(민소 §125①). 가장 간명한 길입니다.</li>
@@ -261,7 +306,9 @@ td a{color:var(--gold-d); word-break:break-all;}
 <li><b>회수·정리</b> — 담보취소 결정이 확정되면 <b>확정증명원</b>을 받아, 현금공탁이면 공탁소에 <b>공탁금 회수청구</b>를, 보증보험증권이면 <b>보험사에 결정문을 제출</b>하여 정리합니다. 아울러 가압류를 <b>취하·해제</b>하는 경우에는 <b>가압류등록 말소촉탁</b>도 함께 신청하여 등록원부를 깨끗이 정리하십시오.</li>
 </ol>
 
-<h2>채무자·제3자: 억울하게 잡혔다면 — 방어 절차</h2>
+</div></details>
+<details class="sec" id="s9"><summary>채무자 — 억울하게 당하였다면 방어 절차<span class="sub">이의신청 · 해방공탁 · 제소명령 · 사정변경 취소</span></summary>
+<div class="secbody">
 <ol class="steps">
 <li><b>내 차가 아닌데 잡혔다면 — 제3자이의의 소</b>(민집 §48) <b>리스회사·지입회사</b>처럼 등록명의자가 따로 있는데 채무자의 재산으로 잡혔다면, 등록원부를 증거로 제3자이의의 소를 제기합니다(작성례 ⑤). 다만 <b>등록명의가 채무자로 되어 있는 이상</b>, 실제 돈을 낸 사람이 "내 차"라고 주장하여도 인용되기 어렵습니다.</li>
 <li><b>가압류 자체가 부당하다면 — 가압류이의</b>(민집 §283) 채무를 부담한 사실이 없거나 이미 변제하였거나 보전의 필요성이 없다면 <b>이의신청</b>으로 결정 자체를 다툽니다(작성례 ⑥). <b>저당권이 시세를 초과하여 아무런 실익이 없는 가압류</b>라는 점도 보전의 필요성을 다투는 사유가 될 수 있습니다.</li>
@@ -276,7 +323,9 @@ td a{color:var(--gold-d); word-break:break-all;}
 <div class="warn"><span class="wt">⚠ 채권자도 마찬가지입니다 — 직접 차를 끌고 오면 안 됩니다</span>
 "가압류를 걸었으니 내 차나 마찬가지"라고 생각하시면 위험합니다. 가압류는 <b>처분을 막는 것일 뿐</b> 점유를 넘겨받는 것이 아닙니다. 채권자가 <b>임의로 차를 견인하거나 열쇠공을 불러 문을 열면</b> <b>절도죄</b>(형법 §329, 6년 이하 징역 또는 1천만원 이하 벌금)나 <b>권리행사방해죄</b>(형법 §323, 5년 이하 징역 또는 700만원 이하 벌금)가 문제될 수 있습니다. 차를 확보하려면 반드시 <b>인도명령을 받아 집행관에게 위임</b>하여야 합니다(민집규 §210②).</div>
 
-<h2>신청서·서면 작성례 — 양 당사자 모두</h2>
+</div></details>
+<details class="sec" id="s10"><summary>서류 작성례 — 빈칸만 채우면 됩니다<span class="sub">신청서 · 별지 · 진술최고 · 채무자 대응서면 (복사·인쇄 가능)</span></summary>
+<div class="secbody">
 <p style="font-size:13.5px;color:var(--muted)">아래 작성례의 빈칸(○○○)을 채워 그대로 제출할 수 있습니다. 제목은 가운데 정렬된 법원 제출 양식입니다. <b>복사·인쇄·다운로드</b> 버튼을 활용하십시오.</p>
 
 <div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ① · 채권자</span>자동차가압류 신청서<span class="chev">&#9662;</span></button><div class="fold-body">
@@ -654,7 +703,9 @@ td a{color:var(--gold-d); word-break:break-all;}
 <div class="howto"><b>가장 많이 잊히는 서면입니다.</b> 세 갈래 중 해당하는 것을 고르십시오 — ① <b>본안 승소 확정</b>(가장 간명, 민소 §125①), ② <b>채무자의 동의</b>(인감증명서 첨부, 같은 조 ②), ③ <b>권리행사최고</b>(동의를 못 받을 때, 같은 조 ③). 자동차는 <b>보증보험증권으로 담보를 제공한 경우가 많은데</b>, 이때에도 담보취소 결정을 받아 <b>보험사에 제출</b>하여야 정리됩니다. 아울러 사건을 끝낼 때에는 <b>가압류등록 말소촉탁</b>도 잊지 마십시오 — 말소하지 않으면 등록원부에 가압류가 그대로 남아 채무자와 분쟁의 소지가 됩니다.</div>
 </div></div>
 
-<h2>준비할 서류와 발급처</h2>
+</div></details>
+<details class="sec" id="s11"><summary>준비할 서류와 발급처 — 어디서 떼나<span class="sub">발급처별 딥링크와 찾아가기 경로를 함께 담았습니다</span></summary>
+<div class="secbody">
 <p style="font-size:13.5px;color:var(--muted)">아래 '바로가기'를 클릭하면 해당 사이트로 이동합니다. 만약 첫 화면으로 연결되면, 옆의 <b>찾아가기 경로</b>를 따라 메뉴를 클릭하면 됩니다.</p>
 <table>
 <tr><th>무엇을 (어디서)</th><th>서류</th><th>바로가기 · 찾아가기 경로</th></tr>
@@ -667,7 +718,7 @@ td a{color:var(--gold-d); word-break:break-all;}
 <tr style="background:#fdf6ee"><td><b>등록면허세 15,000원</b><br>(위택스·시군구청)</td><td>등록면허세 납부영수증<br><span style="font-size:12.5px">(자동차는 지방교육세 없음)</span></td><td><a href="https://www.wetax.go.kr">위택스</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 신고하기 → 등록면허세(등록분) / 또는 <b>사용본거지 관할 시·군·구청</b> 세무과 방문. 각하·취하 시 <b>미사용증명원</b>으로 환급받습니다.</span></td></tr>
 <tr><td>담보 제공<br>(서울보증보험)</td><td>공탁보증보험증권 원본<br><span style="font-size:12.5px">(청구금액의 1/10 선담보제공)</span></td><td><a href="https://www.sgic.co.kr">서울보증보험</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 법원공탁보증 메뉴 / 또는 가까운 지점·법원 내 출장소 방문. <b>심사에 며칠 걸립니다</b></span></td></tr>
 <tr><td>현금공탁·공탁금 회수<br>(전자공탁)</td><td>금전 공탁서, 공탁금 회수청구서</td><td><a href="https://ekt.scourt.go.kr">전자공탁</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 공탁신청 → 금전공탁 / 회수는 담보취소 결정 확정 후</span></td></tr>
-<tr><td>신청서 제출<br>(전자소송)</td><td>자동차가압류 신청서·별지·가압류신청 진술서(A4705) 등</td><td><a href="https://ecfs.scourt.go.kr">전자소송</a> / <a href="https://www.scourt.go.kr/nm/min_9/min_9_2/index.html">양식모음</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 전자소송 → 서류제출 → 민사신청 → 가압류/가처분</span></td></tr>
+<tr><td>신청서 제출<br>(전자소송)</td><td>자동차가압류 신청서·별지·가압류신청 진술서(A4705) 등</td><td><a href="https://ecfs.scourt.go.kr">전자소송</a> / <a href="https://ecfs.scourt.go.kr/psp/index.on?m=PSP720M24">양식모음</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 전자소송 → 서류제출 → 민사신청 → 가압류/가처분</span></td></tr>
 <tr><td>본안 판결·확정 확인<br>(전자소송)</td><td>판결정본, 확정증명원, 송달증명원, 집행문</td><td><a href="https://ecfs.scourt.go.kr">전자소송</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 나의전자소송 → 사건확인 → 판결문·확정증명·집행문 발급</span></td></tr>
 </table>
 
@@ -682,7 +733,8 @@ td a{color:var(--gold-d); word-break:break-all;}
 <div style="margin-top:11px; padding-top:10px; border-top:1px dashed #cfe6d6; color:#c0392b; font-weight:600; line-height:1.8;">※ 정확한 인지액·송달료·담보 예상액은 사건 정보를 넣으면 <a href="https://sanlaw.co.kr/tools-calculator.html" style="color:#c0392b; text-decoration:underline; font-weight:700;">🧮 수수료 계산기</a>에서 미리 확인할 수 있습니다.</div>
 </div>
 
-<h2>고충은 덜어드리고, 결과로 보답하겠습니다</h2>
+</div></details>
+<h2 id="s12">고충은 덜어드리고, 결과로 보답하겠습니다</h2>
 <div class="hire">
 <p>본 사무소에서는 의뢰인들의 고충은 덜어드리고, 함께 소송을 진행하여 원하는 결과에 도달할 수 있도록 성심을 다하겠습니다.</p>
 <p style="margin-top:12px"><b>· 채권자(돈 받을 분)의 경우</b><br>① <b>자동차등록원부 확인과 실익 판단</b>(저당권이 많아 헛수고가 될 사안인지부터 솔직히 말씀드립니다), ② <b>자동차가압류 신청서·별지·진술서</b> 작성, ③ <b>선담보제공(1/10) 허가신청</b>과 보증보험 안내, ④ <b>자동차인도명령 신청서</b> 작성, ⑤ <b>본안 소장</b>과 <b>자동차강제경매 신청서</b> 작성, ⑥ <b>담보취소·말소촉탁</b>까지 <b>본인소송의 전 과정을 함께</b> 준비해 드립니다.</p>
@@ -692,7 +744,7 @@ td a{color:var(--gold-d); word-break:break-all;}
 <a href="https://sanlaw.co.kr/tools-calculator.html" class="cta">🧮 내 사건 비용 미리 계산하기</a>
 <div style="text-align:center; background:#f6ecd8; border:1px solid var(--gold); border-radius:11px; padding:14px; margin:18px 0; font-size:15px; color:var(--gold-d); font-weight:700;">📞 상담은 홈 화면의 상담 창구를 이용하시면 됩니다.</div>
 
-<div class="tip"><span class="pt">💡 이어지는 카드</span> 같은 채권자 입장에서 <a class="cl" href="A-1_예금채권가압류.html"><b>예금(통장) 가압류(A-1)</b></a>·<a class="cl" href="A-2_부동산가압류.html"><b>부동산 가압류(A-2)</b></a>·<a class="cl" href="A-3_급여가압류.html"><b>급여(월급) 가압류(A-3)</b></a>·<a class="cl" href="A-4_전세보증금가압류.html"><b>전세보증금 가압류(A-4)</b></a>·<a class="cl" href="A-5_지명채권가압류.html"><b>지명채권 가압류(A-5)</b></a>·<a class="cl" href="A-6_유체동산가압류.html"><b>유체동산 가압류(A-6)</b></a>를 함께 검토하십시오. <b>저당권이 많이 잡힌 차량이라면</b> 자동차보다 <b>예금·부동산·급여</b>를 먼저 살펴보시는 편이 낫습니다. 반대로 <b>가압류를 당하신 분</b>은 <a class="cl" href="C-1_가압류이의_방어.html"><b>가압류를 당했을 때의 방어(C-1)</b></a>, <b>가처분을 당하신 분</b>은 <a class="cl" href="C-2_가처분방어.html"><b>가처분을 당했을 때의 방어(C-2)</b></a>를 보십시오.</div>
+<div class="tip"><span class="pt">💡 이어지는 카드</span> <b>가압류를 걸었는데 상대가 반격해 온다면</b> — 해방공탁으로 풀어오면 <a class="cl" href="C-3_해방공탁.html"><b>C-3</b></a>, 제소명령이 오면 <a class="cl" href="C-4_제소명령.html"><b>C-4</b></a>, 사정변경·3년 미제소 취소를 구해오면 <a class="cl" href="C-5_사정변경취소.html"><b>C-5</b></a>, 부당가압류라며 손해배상을 청구해오면 <a class="cl" href="C-6_부당가압류_손해배상.html"><b>C-6</b></a>을 보십시오. 전체 유형은 <a class="cl" href="보전처분_전체유형표.html"><b>보전처분 전체 유형표</b></a>에 있습니다. 같은 채권자 입장에서 <a class="cl" href="A-1_예금채권가압류.html"><b>예금(통장) 가압류(A-1)</b></a>·<a class="cl" href="A-2_부동산가압류.html"><b>부동산 가압류(A-2)</b></a>·<a class="cl" href="A-3_급여가압류.html"><b>급여(월급) 가압류(A-3)</b></a>·<a class="cl" href="A-4_전세보증금가압류.html"><b>전세보증금 가압류(A-4)</b></a>·<a class="cl" href="A-5_지명채권가압류.html"><b>지명채권 가압류(A-5)</b></a>·<a class="cl" href="A-6_유체동산가압류.html"><b>유체동산 가압류(A-6)</b></a>를 함께 검토하십시오. <b>저당권이 많이 잡힌 차량이라면</b> 자동차보다 <b>예금·부동산·급여</b>를 먼저 살펴보시는 편이 낫습니다. 반대로 <b>가압류를 당하신 분</b>은 <a class="cl" href="C-1_가압류이의_방어.html"><b>가압류를 당했을 때의 방어(C-1)</b></a>, <b>가처분을 당하신 분</b>은 <a class="cl" href="C-2_가처분방어.html"><b>가처분을 당했을 때의 방어(C-2)</b></a>를 보십시오.</div>
 
 <div class="src">
 근거 — 자동차관리법 제5조(등록)·제6조(자동차 소유권 변동의 효력)·제12조(이전등록) · 민사집행법 제16조(집행에 관한 이의신청)·제48조(제3자이의의 소)·제53조(집행비용의 부담)·제187조(자동차 등에 대한 강제집행)·제193조(압류물의 인도명령)·제195조 제15호(장애인용 경형자동차의 압류금지)·제276조(가압류의 목적)·제277조(보전의 필요)·제278조(가압류법원)·제280조(가압류명령·담보제공)·제282조·제299조(해방공탁·집행취소)·제283조(이의신청)·제287조(제소명령)·제288조(사정변경 등에 따른 가압류취소)·제291조(가압류집행에 대한 본집행의 준용)·제292조 제2항(집행기간 2주)·제293조(부동산가압류의 집행)·제296조 제5항(가압류물의 현금화 금지) · 민사집행규칙 제108조(자동차의 표시)·제109조(집행법원)·제111조(인도명령)·제115조(보관·공시)·제117조(운행허가)·제130조(건설기계·소형선박)·제204조(선담보제공)·제210조(자동차가압류의 집행·인도명령)·제211조(건설기계·소형선박에 대한 가압류) · 지방세법 제28조 제1항 제4호(자동차 등록면허세 건당 15,000원)·제150조 제2호(자동차 등록에 따른 지방교육세 제외)·제151조 제1항 제2호 · 민사소송법 제125조(담보의 취소) · 집행관수수료규칙 제25조(비용의 예납) · 보전처분 신청사건의 사무처리요령(재민 2003-4) 제3조(가압류신청 진술서) · 지급보증위탁계약체결문서의 제출에 의한 담보제공과 관련한 사무처리요령(재판예규 제1787호) 제6조 제1항 제1호(청구금액의 10분의 1) · 형법 제140조 제1항(공무상비밀표시무효)·제323조(권리행사방해)·제327조(강제집행면탈)·제329조(절도) · 민법 제157조·제161조(기간 계산)·제162조·제163조·제165조·제166조·제168조(소멸시효)·제249조(선의취득)·제750조(불법행위 손해배상) · 상법 제64조 · 대법원 2016. 12. 15. 선고 2016다205373 판결(자동차 소유권은 등록으로 변동되고 선의취득 규정이 적용되지 아니함) · 대법원 2015. 6. 25. 선고 2015도1944 전원합의체 판결(지입차량의 소유권은 등록명의자인 지입회사에 있음) · 국가법령정보센터 법령용어 · 법제처 찾기쉬운 생활법령정보 · 대한법률구조공단 · 대법원 전자민원센터. 본 자료는 일반적인 법률정보로, 개별 사건의 법률자문이 아닙니다. 담보액과 집행관 수수료 개산액은 법원·집행관사무소별로 다르므로 접수 전 확인이 필요합니다.
@@ -705,6 +757,31 @@ td a{color:var(--gold-d); word-break:break-all;}
     t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
   });
   document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+})();
+
+(function(){
+  document.querySelectorAll('.toc a').forEach(function(a){
+    a.addEventListener('click',function(){
+      var el=document.querySelector(a.getAttribute('href'));
+      if(el&&el.tagName==='DETAILS')el.open=true;
+    });
+  });
+  var btn=document.getElementById('allBtn');
+  if(!btn)return;
+  function toggleAll(){
+    var opening=btn.textContent.indexOf('펼치기')>-1;
+    document.querySelectorAll('details.sec').forEach(function(d){d.open=opening;});
+    document.querySelectorAll('.formbox').forEach(function(fb){
+      fb.classList.toggle('open',opening);
+      var body=fb.querySelector('.fold-body');
+      if(body)body.style.display=opening?'block':'none';
+    });
+    btn.textContent=opening?'전체 접기':'전체 펼치기';
+  }
+  btn.addEventListener('click',toggleAll);
+  btn.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleAll();}});
+})();
+(function(){
 })();
 function toggleFold(b){var fb=b.parentElement;var body=b.nextElementSibling;var open=fb.classList.toggle('open');if(body){body.style.display=open?'block':'none';}}
 function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}

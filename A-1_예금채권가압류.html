@@ -61,6 +61,22 @@ td a{color:var(--gold-d); word-break:break-all;}
 .src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
 /* 작성례 박스 */
 .formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+details.sec{border:1px solid var(--line); border-radius:11px; margin:18px 0; background:#fff; overflow:hidden;}
+details.sec>summary{cursor:pointer; list-style:none; padding:14px 17px 14px 15px; background:var(--box); border-left:4px solid var(--gold); font-family:'Nanum Myeongjo',serif; font-size:18px; font-weight:700; color:var(--gold-d); line-height:1.55;}
+details.sec>summary::-webkit-details-marker{display:none;}
+details.sec>summary .sub{display:block; font-family:'Pretendard',sans-serif; font-size:13.5px; font-weight:400; color:var(--muted); margin-top:3px;}
+details.sec>summary::after{content:"펼치기 ▾"; float:right; font-family:'Pretendard',sans-serif; font-size:12.5px; font-weight:700; color:var(--gold); background:#fff; border:1px solid var(--line); border-radius:20px; padding:2px 10px; margin-left:8px;}
+details.sec[open]>summary::after{content:"접기 ▴";}
+details.sec>summary:hover{background:#f2ede3;}
+.secbody{padding:4px 17px 16px;}
+.secbody>h3:first-of-type{margin-top:14px;}
+.toc{background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 17px; margin:8px 0 22px;}
+.toc .tct{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:9px;}
+.toc ol{margin:0; padding-left:20px;}
+.toc li{margin:5px 0; font-size:14.5px;}
+.toc a{text-decoration:none; border-bottom:1px dotted var(--gold);}
+.allbtn{display:inline-block; margin-top:11px; font-size:13.5px; font-weight:700; color:var(--gold-d); background:var(--box); border:1px solid var(--line); border-radius:8px; padding:7px 14px; cursor:pointer;}
+.allbtn:hover{background:#f2ede3;}
 .fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:15px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
 .fold-btn:hover{background:#ebe4d6;}
 .fold-btn .tag{margin-bottom:0;}
@@ -94,6 +110,8 @@ td a{color:var(--gold-d); word-break:break-all;}
   .term>.bub::before{content:" ("; }
   .term>.bub::after{content:")"; border:none; position:static;}
   .fold-body{display:block !important;}.fold-btn .chev{display:none;}.form-tools{display:none;}
+  details.sec:not([open])>*{display:block !important;}
+  details.sec>summary::after{display:none;} .allbtn,.toc{display:none !important;}
   .cta{background:#fff !important; color:#241a10 !important; border:1px solid #ccc;}
 }
 .cl{color:var(--gold-d);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--gold-d);}
@@ -131,13 +149,29 @@ td a{color:var(--gold-d); word-break:break-all;}
 </ul>
 </div>
 
-<h2>지금 어떤 상황인가요?</h2>
+<div class="toc">
+<div class="tct">이 카드에 담긴 것 — 필요한 곳만 펼쳐 보십시오</div>
+<ol>
+<li><a href="#s1">지금 어떤 상황인가요?</a></li>
+<li><a href="#s2">돈이 들어오기까지 — 전체 길 한눈에 보기</a></li>
+<li><a href="#s3">핵심 세 가지</a></li>
+<li><a href="#s4">관련 법령 — 쉬운 풀이</a></li>
+<li><a href="#s5">판례로 보기 — 양쪽 모두 알아야 할 두 가지</a></li>
+<li><a href="#s6">채권자 — 신청부터 회수까지 상세 절차</a></li>
+<li><a href="#s7">채무자 — 억울하게 당하였다면 방어 절차</a></li>
+<li><a href="#s8">서류 작성례 — 빈칸만 채우면 됩니다</a></li>
+<li><a href="#s9">고충은 덜어드리고, 결과로 보답하겠습니다</a></li>
+<li><a href="#s10">준비할 서류와 발급처 — 어디서 떼나</a></li>
+</ol>
+<span class="allbtn" id="allBtn" role="button" tabindex="0">전체 펼치기</span>
+</div>
+<h2 id="s1">지금 어떤 상황인가요?</h2>
 <div class="sit-wrap">
 <div class="sit"><span class="sl">상황 ① · 돈을 받아야 하는 분 (채권자·신청인)</span>빌려준 돈·물품대금·공사대금 등을 <b>변제받지 못하고 있고, 상대가 재산을 처분·은닉할까 불안한</b> 경우. → 먼저 예금채권을 가압류하고, 본안 소송에서 승소하여 추심을 통하여 회수합니다. <b>아래 작성례 ①·②·⑥</b>이 채권자의 서류입니다.</div>
 <div class="sit"><span class="sl">상황 ② · 예금(통장)이 가압류로 묶인 분 (채무자·상대방)</span>영문도 모른 채 <b>통장이 가압류되어(묶여) 돈을 쓰지 못하는</b> 경우, 또는 채권이 부당하거나 과다한 경우. → 이의신청·해방공탁·제소명령으로 풀고, 부당하면 손해배상으로 되받습니다. <b>아래 작성례 ③·④·⑤</b>가 채무자의 서류입니다.</div>
 </div>
 
-<h2>돈이 들어오기까지 — 전체 길 한눈에 보기</h2>
+<h2 id="s2">돈이 들어오기까지 — 전체 길 한눈에 보기</h2>
 <div class="flow">
 <div class="fl-t">채권자가 가야 할 4단계 (가압류 → 본안 → 본압류 → 추심)</div>
 <div class="node"><span class="num">1</span><b>예금 가압류 신청</b> — 채무자의 예금채권을 먼저 가압류합니다. 상대가 알지 못하게 진행되어(<span class="term">밀행성<span class="bub">가압류는 상대(채무자)에게 미리 알리지 않고 비공개로 심리·결정하는 성질. 미리 알면 통장을 비워버리므로, 기습적으로 묶기 위한 것입니다.</span></span>) 처분·은닉을 막습니다. <b><span class="term">담보제공명령<span class="bub">잘못된 가압류로 상대가 입을 수 있는 손해에 대비해, 법원이 채권자에게 일정 금액을 미리 맡기라고 명하는 것. 현금공탁 또는 보증보험증권으로 제공합니다(민집 §280).</span></span></b>(보통 청구액의 일부를 현금공탁 또는 보증보험증권으로)을 이행하면 결정·집행된다(민집 §280·§291).</div>
@@ -149,20 +183,23 @@ td a{color:var(--gold-d); word-break:break-all;}
 <div class="node"><span class="num">4</span><b>추심(회수)</b> — 추심명령을 받아 <b><span class="term">제3채무자<span class="bub">빚진 사람(채무자)이 거꾸로 돈을 받을 곳. 예금이면 그 은행이 제3채무자입니다. 가압류 결정문이 이 은행에 도착하는 순간 통장이 묶입니다(법원실무제요 민사집행).</span></span>(은행)</b>에게 직접 청구하여 채권자의 계좌로 회수합니다. 은행이 지급을 거절하면 <span class="term">추심금 청구의 소<span class="bub">추심명령을 받았는데도 은행(제3채무자)이 지급을 거절할 때, 채권자가 은행을 상대로 내는 소송.</span></span>로 받는다.</div>
 </div>
 
-<h2>핵심 세 가지</h2>
+<h2 id="s3">핵심 세 가지</h2>
 <ol class="steps">
 <li><b>가압류는 '속도전'입니다.</b> 채무자가 예금을 인출하기 전에 가압류를 해 두어야 보전의 실효를 거둘 수 있습니다. 그래서 가압류는 상대에게 알리지 않고(밀행성) 서면심리만으로 빠르게 결정됩니다. 망설이는 사이 예금이 인출되면 잔액 없는 계좌만 가압류하게 됩니다.</li>
 <li><b>통장에서 250만원은 인출하지 못합니다(채무자 보호).</b> 압류금지 예금이 있어, <b>전 금융기관을 합쳐 250만원까지</b>는 채무자의 <span class="term">압류금지채권<span class="bub">법이 압류를 금지한 채권. 채무자의 최소 생활을 지키기 위한 것으로, 1개월 생계유지에 필요한 예금(전 금융기관 합산 250만원)이 여기 해당합니다(민집 §246①9호, 민집시행령 §7).</span></span>으로 보호됩니다. 여기에 더하여 <b>2026. 2. 1.부터 <span class="term">생계비계좌<span class="bub">채무자가 전 금융기관을 통틀어 1개만 개설할 수 있는 압류금지 전용 계좌. 이 계좌에 예치된 예금은 월 250만원 한도에서 아예 압류되지 아니합니다(민집 §246의2·§246①8호). 1개월 누적 입금액도 250만원으로 제한됩니다.</span></span> 제도</b>가 시행되어, 채무자가 생계비계좌를 개설해 두었다면 그 계좌는 <b>가압류 자체가 되지 아니합니다.</b> 잔액이 적은 예금만 가압류하면 한 푼도 회수하지 못할 수 있으니, 가압류 전에 채무자의 재산을 가늠하여야 합니다.</li>
 <li><b>부당한 가압류는 거꾸로 손해배상 책임을 부담합니다.</b> 받을 권리도 없으면서, 또는 청구금액을 과도하게 부풀려 가압류하였다가 <b>본안에서 패소하면</b> 채권자에게 고의·과실이 추정되어 <b>채무자에게 손해를 배상</b>해야 합니다(대법원 2020다242935). 채권액은 정직하게 산정해야 합니다.</li>
 </ol>
 
-<h2>관련 법령 — 쉬운 풀이</h2>
+<details class="sec" id="s4"><summary>관련 법령 — 쉬운 풀이<span class="sub">피보전권리 · 보전의 필요성 · 담보 · 집행기간 · 본압류 이전</span></summary>
+<div class="secbody">
 <div class="lawbox"><span class="ll">민사집행법 §276</span><b>가압류의 목적</b> — 금전채권(또는 돈으로 환산할 수 있는 채권)에 대해, 나중에 강제집행을 하지 못하거나 매우 곤란해질 우려가 있을 때 미리 채무자의 재산을 보전하는 제도입니다. 쉽게 말해 <b>"판결 받을 때까지 상대방이 처분하지 못하게 잠가두는 것"</b>입니다.</div>
 <div class="lawbox"><span class="ll">민사집행법 §246①9호 · §246의2</span><b>압류금지 예금과 생계비계좌</b> — <b>9호</b> 채무자의 1개월 생계유지에 필요한 예금은 가압류할 수 없습니다. 그 금액은 <b>모든 금융기관 예금을 합산하여 250만원</b>입니다(시행령 §7). 한 은행 한 계좌 기준이 아니라 <b>개인별 합산</b>이라는 점이 핵심입니다. <b>8호·§246의2</b> 이와 별도로 채무자가 <b>생계비계좌</b>(1인 1계좌)를 개설한 경우 그 계좌의 예금은 <b>월 250만원 한도에서 전액 압류금지</b>입니다. 두 가지가 겹치는 때에는 <b>합하여 250만원</b>이 되도록 조정합니다(시행령 §2·§7·§8). <span style="font-size:13px;color:#9c3a22">2026. 2. 1. 시행 개정으로 금액이 185만원에서 250만원으로 올랐고, <b>시행 이후 최초로 접수되는 압류명령 신청사건</b>부터 적용됩니다.</span></div>
 <div class="lawbox"><span class="ll">민사집행법 §282·§299</span><b>해방공탁</b> — 가압류를 당한 채무자가 그 금액만큼을 법원에 맡기면(공탁) 통장 집행을 풀 수 있습니다. 예금 대신 공탁금이 가압류 대상으로 바뀌는 구조라, <b>통장을 정상화하고 싶은 채무자</b>의 가장 빠른 방어책입니다.</div>
 <div class="lawbox"><span class="ll">민사집행법 §287</span><b>제소명령</b> — 채권자가 가압류만 걸고 본안 소송을 미루면, 채무자가 "기간 안에 소를 제기하라"고 법원에 신청할 수 있습니다. 그 기간(보통 2주 이상)에 채권자가 소를 제기하지 아니하면 <b>가압류가 취소</b>됩니다.</div>
 
-<h2>판례로 보기 — 양쪽 모두 알아야 할 두 가지</h2>
+</div></details>
+<details class="sec" id="s5"><summary>판례로 보기 — 양쪽 모두 알아야 할 두 가지<span class="sub">실제 사건에서 법원이 어떻게 판단했는지</span></summary>
+<div class="secbody">
 <div class="case">
 <span class="ct">○ 금전 손해배상으로 해결될 수 있으면 보전의 필요성을 신중히 판단 — 대법원 2022. 2. 8.자 2021마6668 결정</span>
 보전처분은 채무자가 충분한 방어 기회를 갖지 못한 채 집행을 당하므로, 그 필요성은 당사자 쌍방의 이해득실, 본안 승패의 예상 등을 고려하여 신중히 판단하여야 합니다. 특히 <b>나중에 금전 손해배상으로 충분히 회복될 수 있는 경우</b>에는 보전의 필요성을 한층 엄격히 보아야 합니다. (→ 채무자 방어 논리: 과도한 보전에 대한 다툼 근거)
@@ -176,7 +213,9 @@ td a{color:var(--gold-d); word-break:break-all;}
 예금을 가압류하여도 <b>전 금융기관 합산 250만원</b>은 생계비로 빠져나갑니다. 게다가 채무자가 <b>생계비계좌</b>를 개설해 두었다면 그 계좌는 <b>처음부터 가압류의 대상이 되지 아니합니다.</b> 다만 압류금지에 해당한다는 점의 <b>증명책임은 채무자</b>에게 있습니다(대법원 2024. 2. 8. 선고 2021다206356 판결 — 채무자가 계좌정보통합조회 내역 등으로 증명). 따라서 <b>잔액이 적은 예금 하나만 가압류하는 것은 실익이 거의 없습니다.</b> 채무자의 주거래 은행·고액 계좌를 대상으로 하거나, 부동산·급여 등 다른 책임재산과 병행하는 전략이 필요합니다.
 </div>
 
-<h2>채권자: 어떻게 보전하고 회수하나 — 신청 절차</h2>
+</div></details>
+<details class="sec" id="s6"><summary>채권자 — 신청부터 회수까지 상세 절차<span class="sub">관할 · 인지 · 송달료 · 담보제공 · 집행 · 본압류 이전</span></summary>
+<div class="secbody">
 <ol class="steps">
 <li><b>관할 법원 확인</b> — 가압류는 <b>① 가압류할 물건(예금채권)의 소재지</b>(보통 제3채무자=은행 본점 소재지) <b>또는 ② 본안의 관할 법원</b>(채무자 주소지 등)에 신청합니다(민집 §278).</li>
 <li><b>신청서·소명자료 준비</b> — 가압류신청서(작성례 ①)에 차용증·계좌이체내역·계약서 등 피보전권리 소명자료와, 재산을 처분·은닉할 우려를 보여주는 보전 필요성 소명자료를 붙입니다. <b>가압류신청 진술서</b>(중복·부당 가압류 방지용)도 함께 냅니다.</li>
@@ -185,7 +224,9 @@ td a{color:var(--gold-d); word-break:break-all;}
 <li><b>본안 소송 → 본압류 전환 → 추심</b> — 위 전체 흐름도 2~4단계. 본안 승소 후 채권압류 및 추심명령(작성례 ⑥)으로 회수합니다.</li>
 </ol>
 
-<h2>채무자: 억울하게 가압류를 당하였다면 — 방어 절차</h2>
+</div></details>
+<details class="sec" id="s7"><summary>채무자 — 억울하게 당하였다면 방어 절차<span class="sub">이의신청 · 해방공탁 · 제소명령 · 사정변경 취소</span></summary>
+<div class="secbody">
 <ol class="steps">
 <li><b>가압류 이의신청</b> — 피보전권리가 없거나 보전 필요성이 없음을 다툽니다(민집 §283, 작성례 ③). 결정을 인가·변경·취소하는 재판을 받습니다.</li>
 <li><b>해방공탁으로 즉시 풀기</b> — 통장을 빨리 정상화해야 하면, 가압류 금액을 공탁하고 집행취소를 신청합니다(민집 §282·§299). 채권은 공탁금으로 옮겨 가압류되지만 예금 자체는 해제됩니다.</li>
@@ -194,7 +235,9 @@ td a{color:var(--gold-d); word-break:break-all;}
 <li><b>부당가압류 손해배상 역공</b> — 채권자가 본안에서 패소하면, 그 가압류로 입은 손해(예금 동결로 인한 이자·신용 손해 등)를 손해배상으로 청구합니다(민 §750, 대법원 2020다242935). 본안의 <span class="term">반소<span class="bub">피고가 같은 소송 절차 안에서 원고를 상대로 거꾸로 제기하는 소. 채무부존재확인·손해배상 등을 함께 다툴 수 있습니다.</span></span>로 함께 제기할 수 있습니다.</li>
 </ol>
 
-<h2>신청서·서면 작성례 — 양 당사자 모두</h2>
+</div></details>
+<details class="sec" id="s8"><summary>서류 작성례 — 빈칸만 채우면 됩니다<span class="sub">신청서 · 별지 · 진술최고 · 채무자 대응서면 (복사·인쇄 가능)</span></summary>
+<div class="secbody">
 <p style="font-size:14px;color:var(--muted)">아래 작성례는 <b>채권자(돈 받을 분)용</b>과 <b>채무자(가압류된 분)용</b>으로 나뉩니다. 각 <b>제목줄을 클릭하면(▾)</b> 내용이 펼쳐집니다. 빈칸 <b>○○○</b>를 자기 사건 내용으로 채우고, <b>복사·인쇄·다운로드</b> 버튼으로 바로 활용하시면 됩니다. 채권자가 처음 내는 가압류신청서에는 <b>①-1 별지(채권목록)와 ①-2 진술서가 반드시 함께</b> 붙어야 합니다. 모든 양식은 대법원 전자민원센터·법원 공식 양식을 따릅니다.</p>
 
 <div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ① · 채권자</span>예금채권 가압류신청서<span class="chev">▾</span></button><div class="fold-body">
@@ -581,7 +624,8 @@ td a{color:var(--gold-d); word-break:break-all;}
 <div style="margin-top:11px; padding-top:10px; border-top:1px dashed #cfe6d6; color:#c0392b; font-weight:600; line-height:1.8;">※ 정확한 인지액·송달료·담보 예상액은 사건 정보를 넣으면 <a href="https://sanlaw.co.kr/tools-calculator.html" style="color:#c0392b; text-decoration:underline; font-weight:700;">🧮 수수료 계산기</a>에서 미리 확인할 수 있습니다.</div>
 </div>
 
-<h2>고충은 덜어드리고, 결과로 보답하겠습니다</h2>
+</div></details>
+<h2 id="s9">고충은 덜어드리고, 결과로 보답하겠습니다</h2>
 <div class="hire">
 <p>본 사무소에서는 의뢰인들의 고충은 덜어드리고, 함께 소송을 진행하여 원하는 결과에 도달할 수 있도록 성심을 다하겠습니다.</p>
 <p style="margin-top:12px"><b>· 채권자(돈 받을 분)의 경우</b><br>① <b>가압류신청서·가압류신청 진술서·별지 채권목록</b> 작성, ② <b>본안 대여금 소장</b> 작성, ③ <b>채권압류 및 추심명령 신청서</b> 작성, ④ <b>본안소송</b> 진행과 담보제공·보증보험 안내까지 <b>본인소송의 전 과정을 함께</b> 준비해 드립니다.</p>
@@ -592,7 +636,8 @@ td a{color:var(--gold-d); word-break:break-all;}
 <a href="https://sanlaw.co.kr/tools-calculator.html" class="cta">🧮 내 사건 비용 미리 계산하기</a>
 <div style="text-align:center; background:#f6ecd8; border:1px solid var(--gold); border-radius:11px; padding:14px; margin:18px 0; font-size:15px; color:var(--gold-d); font-weight:700;">📞 상담은 홈 화면의 상담 창구를 이용하시면 됩니다.</div>
 
-<h2>준비할 서류와 발급처</h2>
+<details class="sec" id="s10"><summary>준비할 서류와 발급처 — 어디서 떼나<span class="sub">발급처별 딥링크와 찾아가기 경로를 함께 담았습니다</span></summary>
+<div class="secbody">
 <p style="font-size:13.5px;color:var(--muted)">아래 '바로가기'를 클릭하면 해당 사이트로 이동합니다. 만약 첫 화면으로 연결되면, 옆의 <b>찾아가기 경로</b>를 따라 메뉴를 클릭하면 됩니다.</p>
 <table>
 <tr><th>무엇을 (어디서)</th><th>서류</th><th>바로가기 · 찾아가기 경로</th></tr>
@@ -603,8 +648,9 @@ td a{color:var(--gold-d); word-break:break-all;}
 <tr><td>신청·소송 제출<br>(전자소송)</td><td>가압류신청서·소장·추심명령 신청서 — 공식 양식</td><td><a href="https://ecfs.scourt.go.kr">전자소송</a> / <a href="https://ecfs.scourt.go.kr/psp/index.on?m=PSP720M24">양식모음</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 전자소송 → 서류제출 → 민사신청 → 가압류</span></td></tr>
 </table>
 
-<div class="tip"><span class="pt">💡 이어지는 카드</span> 같은 채권자 입장에서 <a class="cl" href="A-2_부동산가압류.html"><b>부동산 가압류(A-2)</b></a>·<a class="cl" href="A-3_급여가압류.html"><b>급여(월급) 가압류(A-3)</b></a>·<a class="cl" href="A-4_전세보증금가압류.html"><b>전세보증금 가압류(A-4)</b></a>·<a class="cl" href="A-5_지명채권가압류.html"><b>지명채권 가압류(A-5)</b></a>·<a class="cl" href="A-6_유체동산가압류.html"><b>유체동산 가압류(A-6)</b></a>·<a class="cl" href="A-7_자동차가압류.html"><b>자동차 가압류(A-7)</b></a>를 함께 검토하십시오. 반대로 <b>가압류를 당하신 분</b>은 <a class="cl" href="C-1_가압류이의_방어.html"><b>가압류를 당했을 때의 방어(C-1)</b></a>, <b>가처분을 당하신 분</b>은 <a class="cl" href="C-2_가처분방어.html"><b>가처분을 당했을 때의 방어(C-2)</b></a>를 보십시오. <span style="color:var(--muted);font-size:13px">(※ 담보(공탁) 부담 줄이기, 판결 후 실제로 받아내기(추심·전부) 카드는 준비 중입니다.)</span></div>
+<div class="tip"><span class="pt">💡 이어지는 카드</span> <b>가압류를 걸었는데 상대가 반격해 온다면</b> — 해방공탁으로 풀어오면 <a class="cl" href="C-3_해방공탁.html"><b>C-3</b></a>, 제소명령이 오면 <a class="cl" href="C-4_제소명령.html"><b>C-4</b></a>, 사정변경·3년 미제소 취소를 구해오면 <a class="cl" href="C-5_사정변경취소.html"><b>C-5</b></a>, 부당가압류라며 손해배상을 청구해오면 <a class="cl" href="C-6_부당가압류_손해배상.html"><b>C-6</b></a>을 보십시오. 전체 유형은 <a class="cl" href="보전처분_전체유형표.html"><b>보전처분 전체 유형표</b></a>에 있습니다. 같은 채권자 입장에서 <a class="cl" href="A-2_부동산가압류.html"><b>부동산 가압류(A-2)</b></a>·<a class="cl" href="A-3_급여가압류.html"><b>급여(월급) 가압류(A-3)</b></a>·<a class="cl" href="A-4_전세보증금가압류.html"><b>전세보증금 가압류(A-4)</b></a>·<a class="cl" href="A-5_지명채권가압류.html"><b>지명채권 가압류(A-5)</b></a>·<a class="cl" href="A-6_유체동산가압류.html"><b>유체동산 가압류(A-6)</b></a>·<a class="cl" href="A-7_자동차가압류.html"><b>자동차 가압류(A-7)</b></a>를 함께 검토하십시오. 반대로 <b>가압류를 당하신 분</b>은 <a class="cl" href="C-1_가압류이의_방어.html"><b>가압류를 당했을 때의 방어(C-1)</b></a>, <b>가처분을 당하신 분</b>은 <a class="cl" href="C-2_가처분방어.html"><b>가처분을 당했을 때의 방어(C-2)</b></a>를 보십시오. <span style="color:var(--muted);font-size:13px">(※ 담보(공탁) 부담 줄이기, 판결 후 실제로 받아내기(추심·전부) 카드는 준비 중입니다.)</span></div>
 
+</div></details>
 <div class="src">
 근거 — 민사집행법 제276조(가압류의 목적)·제277조·제278조(관할)·제280조(담보제공)·제282조·제299조(해방공탁·집행취소)·제283조(이의)·제287조(제소명령)·제288조(사정변경 취소)·제291조(가압류의 본압류 이전)·제296조(채권가압류 집행)·제229조(추심·전부명령)·제246조 제1항 제9호(압류금지 예금)·제246조의2(생계비계좌) · 민사집행법 시행령 제2조·제7조·제8조(압류금지 예금 250만원, 생계비계좌 250만원 — 2026. 2. 1. 시행) · 민법 제750조(불법행위 손해배상) · 민사소송법 제256조(답변서) · 대법원 2023. 6. 1. 선고 2020다242935 판결(부당가압류 손해배상 책임 추정 및 책임제한, 대법원 92다8453 법리 재확인) · 대법원 2000. 10. 2.자 2000마5221 결정(장래·조건부 채권의 가압류 가능, 대법원 92다29801 법리 계승) · 대법원 2022. 2. 8.자 2021마6668 결정(금전배상으로 전보 가능 시 보전필요성 신중 판단) · 대법원 2024. 2. 8. 선고 2021다206356 판결(압류금지 예금 증명책임은 채무자) · 법제처 찾기쉬운 생활법령정보 · 대한법률구조공단 · 대법원 전자민원센터. 본 자료는 일반적인 법률정보로, 개별 사건의 법률자문이 아닙니다.
 </div>
@@ -617,6 +663,31 @@ td a{color:var(--gold-d); word-break:break-all;}
     t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
   });
   document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+})();
+
+(function(){
+  document.querySelectorAll('.toc a').forEach(function(a){
+    a.addEventListener('click',function(){
+      var el=document.querySelector(a.getAttribute('href'));
+      if(el&&el.tagName==='DETAILS')el.open=true;
+    });
+  });
+  var btn=document.getElementById('allBtn');
+  if(!btn)return;
+  function toggleAll(){
+    var opening=btn.textContent.indexOf('펼치기')>-1;
+    document.querySelectorAll('details.sec').forEach(function(d){d.open=opening;});
+    document.querySelectorAll('.formbox').forEach(function(fb){
+      fb.classList.toggle('open',opening);
+      var body=fb.querySelector('.fold-body');
+      if(body)body.style.display=opening?'block':'none';
+    });
+    btn.textContent=opening?'전체 접기':'전체 펼치기';
+  }
+  btn.addEventListener('click',toggleAll);
+  btn.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleAll();}});
+})();
+(function(){
 })();
 function toggleFold(b){var fb=b.parentElement;var body=b.nextElementSibling;var open=fb.classList.toggle('open');if(body){body.style.display=open?'block':'none';}}
 function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}

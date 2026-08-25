@@ -61,6 +61,22 @@ td a{color:var(--gold-d); word-break:break-all;}
 .src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
 /* 작성례 박스 */
 .formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+details.sec{border:1px solid var(--line); border-radius:11px; margin:18px 0; background:#fff; overflow:hidden;}
+details.sec>summary{cursor:pointer; list-style:none; padding:14px 17px 14px 15px; background:var(--box); border-left:4px solid var(--gold); font-family:'Nanum Myeongjo',serif; font-size:18px; font-weight:700; color:var(--gold-d); line-height:1.55;}
+details.sec>summary::-webkit-details-marker{display:none;}
+details.sec>summary .sub{display:block; font-family:'Pretendard',sans-serif; font-size:13.5px; font-weight:400; color:var(--muted); margin-top:3px;}
+details.sec>summary::after{content:"펼치기 ▾"; float:right; font-family:'Pretendard',sans-serif; font-size:12.5px; font-weight:700; color:var(--gold); background:#fff; border:1px solid var(--line); border-radius:20px; padding:2px 10px; margin-left:8px;}
+details.sec[open]>summary::after{content:"접기 ▴";}
+details.sec>summary:hover{background:#f2ede3;}
+.secbody{padding:4px 17px 16px;}
+.secbody>h3:first-of-type{margin-top:14px;}
+.toc{background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 17px; margin:8px 0 22px;}
+.toc .tct{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:9px;}
+.toc ol{margin:0; padding-left:20px;}
+.toc li{margin:5px 0; font-size:14.5px;}
+.toc a{text-decoration:none; border-bottom:1px dotted var(--gold);}
+.allbtn{display:inline-block; margin-top:11px; font-size:13.5px; font-weight:700; color:var(--gold-d); background:var(--box); border:1px solid var(--line); border-radius:8px; padding:7px 14px; cursor:pointer;}
+.allbtn:hover{background:#f2ede3;}
 .fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:15px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
 .fold-btn:hover{background:#ebe4d6;}
 .fold-btn .tag{margin-bottom:0;}
@@ -94,6 +110,8 @@ td a{color:var(--gold-d); word-break:break-all;}
   .term>.bub::before{content:" ("; }
   .term>.bub::after{content:")"; border:none; position:static;}
   .fold-body{display:block !important;}.fold-btn .chev{display:none;}.form-tools{display:none;}
+  details.sec:not([open])>*{display:block !important;}
+  details.sec>summary::after{display:none;} .allbtn,.toc{display:none !important;}
   .cta{background:#fff !important; color:#241a10 !important; border:1px solid #ccc;}
 }
 .cl{color:var(--gold-d);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--gold-d);}
@@ -132,13 +150,32 @@ td a{color:var(--gold-d); word-break:break-all;}
 </ul>
 </div>
 
-<h2>지금 어떤 상황인가요?</h2>
+<div class="toc">
+<div class="tct">이 카드에 담긴 것 — 필요한 곳만 펼쳐 보십시오</div>
+<ol>
+<li><a href="#s1">지금 어떤 상황인가요?</a></li>
+<li><a href="#s2">표목이 붙기까지, 그리고 돈이 들어오기까지 — 전체 길 한눈에 보기</a></li>
+<li><a href="#s3">핵심 세 가지</a></li>
+<li><a href="#s4">무엇을 잡을 수 있고 무엇은 못 잡나 — 압류금지 물건</a></li>
+<li><a href="#s5">기한 정리 — 놓치면 안 되는 날짜</a></li>
+<li><a href="#s6">관련 법령 — 쉬운 풀이</a></li>
+<li><a href="#s7">판례로 보기 — 신청 전에 반드시 읽어야 할 두 가지</a></li>
+<li><a href="#s8">채권자 — 신청부터 회수까지 상세 절차</a></li>
+<li><a href="#s9">★ 담보 취소·회수 — 여기서 끝내지 마십시오</a></li>
+<li><a href="#s10">채무자 — 억울하게 당하였다면 방어 절차</a></li>
+<li><a href="#s11">서류 작성례 — 빈칸만 채우면 됩니다</a></li>
+<li><a href="#s12">준비할 서류와 발급처 — 어디서 떼나</a></li>
+<li><a href="#s13">고충은 덜어드리고, 결과로 보답하겠습니다</a></li>
+</ol>
+<span class="allbtn" id="allBtn" role="button" tabindex="0">전체 펼치기</span>
+</div>
+<h2 id="s1">지금 어떤 상황인가요?</h2>
 <div class="sit-wrap">
 <div class="sit"><span class="sl">상황 ① · 채무자의 집 안 물건(가전·가구)을 잡으려는 분</span><b>돈을 빌려주었는데 갚지 아니하고, 채무자 명의의 부동산·통장도 찾지 못한</b> 경우. 집 안의 TV·냉장고·에어컨 등을 잡으려는 상황. → <b>실익은 크지 않을 수 있습니다.</b> 생활필수품은 압류금지이고 중고 가전의 감정가는 낮습니다. <b>아래 압류금지 목록</b>을 먼저 확인하시고, 그래도 진행한다면 <b>작성례 ①~③</b> 순서로 준비하십시오.</div>
 <div class="sit"><span class="sl">상황 ② · 채무자의 가게·공장 안 물건(재고·기계·집기)을 잡으려는 분</span><b>거래처가 물품대금·공사대금을 주지 아니하는데, 사업장에 재고와 기계가 쌓여 있는</b> 경우. → <b>유체동산 가압류의 실익이 가장 큰 유형</b>입니다. 영업용 물건은 압류금지의 폭이 좁고 감정가도 상당합니다. 다만 <b>리스·할부 물건이나 타인 소유 물건</b>이 섞여 있으면 <span class="term">제3자이의의 소<span class="bub">압류된 물건이 채무자가 아니라 자기 소유라고 주장하는 제3자가, 그 물건에 대한 집행을 배제하여 달라고 제기하는 소송(민집 §48).</span></span>로 빠져나갑니다. <b>작성례 ①~③·⑤</b>를 함께 보십시오.</div>
 </div>
 
-<h2>표목이 붙기까지, 그리고 돈이 들어오기까지 — 전체 길 한눈에 보기</h2>
+<h2 id="s2">표목이 붙기까지, 그리고 돈이 들어오기까지 — 전체 길 한눈에 보기</h2>
 <div class="flow">
 <div class="fl-t">유체동산은 <b>법원 결정 → 집행관 현장 집행</b>의 두 단계로 나뉩니다</div>
 <div class="node"><span class="num">0</span><b>먼저 '무엇이 어디에 있는지'를 확인합니다</b> — 유체동산 가압류 신청서에는 물건을 하나하나 특정할 필요가 없고, <b>물건이 있는 장소</b>(채무자의 주소·사업장 소재지)를 적으면 됩니다(민집규 §131 3호 취지). 다만 <b>헛걸음을 줄이려면</b> 그 장소에 값나가는 물건이 실제로 있는지, 아래 <b>압류금지 목록</b>에 걸리지 아니하는지를 먼저 가늠해 보십시오.</div>
@@ -162,14 +199,15 @@ td a{color:var(--gold-d); word-break:break-all;}
 <div class="node"><span class="num">9</span><b>담보 취소·회수 — 여기서 끝내지 마십시오</b> — 본안 승소가 확정되거나 가압류를 취하하였다면, <b>담보취소를 신청하여 공탁금을 돌려받아야</b> 합니다(민소 §125, 작성례 ⑥). 신청하지 아니하면 공탁금은 법원에 그대로 남아 있습니다. <b>가장 많이 놓치는 대목입니다.</b></div>
 </div>
 
-<h2>핵심 세 가지</h2>
+<h2 id="s3">핵심 세 가지</h2>
 <ol class="steps">
 <li><b>유체동산 가압류는 '받아내는 절차'가 아니라 '묶어 두는 절차'입니다.</b> <b>가압류물은 현금화를 하지 못합니다</b>(민집 §296⑤ 본문). 표목이 붙은 뒤에도 물건은 대개 채무자가 그대로 쓰고 있고, 채권자에게 들어오는 돈은 <b>한 푼도 없습니다.</b> 실제 회수는 <b>본안 승소 → 본압류 이전 → 경매 → 배당</b>을 거쳐야 비로소 이루어집니다. "표목을 붙였으니 곧 돈이 들어오겠지"라는 기대는 접으시고, 본안소송을 곧바로 준비하십시오.</li>
 <li><b>결정문을 받은 날부터 2주 안에 집행관에게 위임하지 아니하면 결정이 무용지물이 됩니다.</b> 예금 가압류는 법원이 은행에 결정문을 보내 주고, 부동산 가압류는 법원이 등기를 촉탁해 줍니다. 그러나 <b>유체동산은 채권자가 직접 집행관사무소를 찾아가 집행을 위임하고 비용을 예납하여야</b> 집행이 시작됩니다(민집 §292②). 담보를 넣고 결정까지 받아 놓고도 이 2주를 흘려보내 처음부터 다시 하는 사례가 실무에서 드물지 않습니다.</li>
 <li><b>압류금지 물건과 무잉여를 미리 계산해 보십시오.</b> 민집 §195는 <b>생활필수품, 2개월분 식료품·연료, 1개월분 생계비 250만원, 직업에 없어서는 아니 될 도구, 신체보조기구, 장애인용 경형자동차</b> 등을 압류금지 물건으로 정하고 있습니다. 집행관은 <b>채권자의 이익을 해치지 아니하는 범위에서 채무자의 이익도 고려</b>하여 압류할 물건을 고릅니다(민집규 §132). 게다가 매각대금이 집행비용에도 못 미치면 <b>집행관이 압류를 취소</b>합니다(민집 §188③, 민집규 §140②). 집행관 수수료·운반보관비를 들이고도 아무것도 남지 않을 수 있다는 점을 먼저 감안하십시오.</li>
 </ol>
 
-<h2>무엇을 잡을 수 있고, 무엇은 잡을 수 없나 — 압류금지 물건(민집 §195)</h2>
+<details class="sec" id="s4"><summary>무엇을 잡을 수 있고 무엇은 못 잡나 — 압류금지 물건<span class="sub">민집 §195 · 생계비 250만원 · 생업 도구 등 16가지</span></summary>
+<div class="secbody">
 <p style="font-size:13.5px;color:var(--muted)">아래 <b>16가지는 법이 정한 압류금지 물건</b>입니다. 채무자의 집에 있더라도 잡을 수 없습니다. 신청 전에 <b>남는 것이 있을지</b>를 이 표로 가늠해 보십시오.</p>
 <table>
 <tr><th style="width:8%">호</th><th style="width:46%">압류하지 못하는 물건</th><th>실제로는 이런 뜻입니다</th></tr>
@@ -187,7 +225,9 @@ td a{color:var(--gold-d); word-break:break-all;}
 <div class="tip"><span class="pt">💡 거꾸로, 이런 것은 유체동산으로 잡을 수 있습니다</span>
 민집 §189②는 다음을 <b>유체동산으로 봅니다</b>. ① <b>등기할 수 없는 토지의 정착물</b>로서 독립하여 거래의 객체가 될 수 있는 것(비닐하우스·컨테이너 등), ② <b>토지에서 분리하기 전의 과실</b>로서 1개월 이내에 수확할 수 있는 것, ③ <b>배서가 금지되지 아니한 유가증권</b>. 그 밖에 사업장의 <b>재고·원자재·기계·집기·비품</b>, 가정의 <b>고가 가전·귀금속·미술품</b> 등이 실제 압류 대상이 됩니다. 다만 <b>등록된 자동차·건설기계·선박·항공기는 유체동산이 아니라 별도의 절차</b>(자동차등가압류)로 진행합니다.</div>
 
-<h2>⏰ 기한 정리 — 놓치면 안 되는 날짜들</h2>
+</div></details>
+<details class="sec" id="s5"><summary>기한 정리 — 놓치면 안 되는 날짜<span class="sub">집행기간 2주 · 즉시항고 1주 · 제소명령 2주 이상</span></summary>
+<div class="secbody">
 <p style="font-size:13.5px;color:var(--muted)">유체동산은 <b>②번 줄(집행위임 2주)</b>이 승패를 가릅니다. 다른 어떤 줄보다 먼저 확인하십시오.</p>
 <table>
 <tr><th style="width:20%">무엇을</th><th style="width:14%">기한</th><th>① 기산일 · ③ 계산 방법</th><th style="width:20%">② 근거 · 놓치면</th></tr>
@@ -229,7 +269,9 @@ td a{color:var(--gold-d); word-break:break-all;}
 <td>민법 <b>§162①·§163·§165·§166·§168</b><br>상법 <b>§64</b></td></tr>
 </table>
 
-<h2>관련 법령 — 쉬운 풀이</h2>
+</div></details>
+<details class="sec" id="s6"><summary>관련 법령 — 쉬운 풀이<span class="sub">피보전권리 · 보전의 필요성 · 담보 · 집행기간 · 본압류 이전</span></summary>
+<div class="secbody">
 <div class="lawbox"><span class="ll">민사집행법 §276·§277</span><b>가압류의 목적과 보전의 필요</b> — 가압류는 <b>금전채권</b>이나 금전으로 환산할 수 있는 채권을 보전하기 위하여, 동산 또는 부동산에 대한 강제집행을 미리 확보해 두는 제도입니다(§276①). 다만 <b>가압류를 하지 아니하면 판결을 집행할 수 없거나 집행이 매우 곤란할 염려</b>가 있어야 합니다(§277). 이것이 <span class="term">보전의 필요성<span class="bub">지금 묶어 두지 아니하면 나중에 이겨도 받을 것이 없어질 위험. 채무자가 재산을 처분·은닉하려는 정황, 다른 채권자들의 집행이 잇따르는 사정 등으로 소명합니다.</span></span>입니다.</div>
 <div class="lawbox"><span class="ll">민사집행법 §278</span><b>관할</b> — <b>가압류할 물건이 있는 곳을 관할하는 지방법원</b>이나 <b>본안의 관할법원</b>이 관할합니다. 유체동산은 <b>물건이 놓여 있는 장소</b>(채무자의 주소·사업장 소재지)를 기준으로 삼으면 간명합니다.</div>
 <div class="lawbox"><span class="ll">민사집행법 §296</span><b>동산가압류집행 — 이 카드의 뼈대</b> — ① 동산에 대한 가압류의 집행은 <b>압류와 같은 원칙</b>에 따릅니다(즉 유체동산 강제집행 규정인 §188 이하가 그대로 적용됩니다). ⑤ <b>가압류물은 현금화를 하지 못합니다.</b> 다만 즉시 매각하지 아니하면 값이 크게 떨어질 염려가 있거나 보관에 지나치게 많은 비용이 드는 경우에는 집행관이 매각하여 <b>매각대금을 공탁</b>합니다.</div>
@@ -241,7 +283,9 @@ td a{color:var(--gold-d); word-break:break-all;}
 <div class="lawbox"><span class="ll">민사집행법 §48</span><b>제3자이의의 소</b> — 압류된 물건에 대하여 <b>소유권이 있다고 주장하는 제3자</b>는, 채권자를 상대로 그 집행의 배제를 구하는 소를 제기할 수 있습니다. 배우자·가족·리스회사·거래처가 자주 활용합니다. 채권자로서는 <b>가장 큰 리스크</b>이므로, 신청 전에 그 장소의 물건이 정말 채무자의 것인지 살펴 두십시오.</div>
 <div class="lawbox"><span class="ll">형법 §140①</span><b>공무상표시무효 — 표목을 떼면 형사처벌</b> — 공무원이 그 직무에 관하여 실시한 <b>봉인 또는 압류, 그 밖의 강제처분의 표시를 손상·은닉하거나 그 밖의 방법으로 그 효용을 해한 자</b>는 <b>5년 이하의 징역 또는 700만원 이하의 벌금</b>에 처합니다. 표목을 떼는 것은 물론, <b>압류물을 집행관의 승인 없이 다른 장소로 옮기는 것</b>도 효용을 해한 것으로 처벌될 수 있습니다.</div>
 
-<h2>판례로 보기 — 신청 전에 반드시 읽어야 할 두 가지</h2>
+</div></details>
+<details class="sec" id="s7"><summary>판례로 보기 — 신청 전에 반드시 읽어야 할 두 가지<span class="sub">실제 사건에서 법원이 어떻게 판단했는지</span></summary>
+<div class="secbody">
 <div class="case">
 <span class="ct">○ 집행관이 물건을 '직접' 점유하지 아니한 압류는 무효이다 — 대법원 2020. 1. 30. 선고 2019다265475 판결</span>
 어느 회사가 관리하는 <b>항만에 장치되어 있던 유체동산</b>(컨테이너 5개에 든 20㎏들이 액화석유가스통 4,425개)에 대하여, 채권자가 집행관에게 집행을 위임하였습니다. 그런데 집행관은 그 물건을 실제로 지배하지 아니한 채 보관자에게 <b>"점유가 집행관에게 옮겨졌으니 처분하지 말라"고 고지하는 데 그쳤습니다.</b> 대법원은, 유체동산 압류에서 말하는 <b>집행관의 점유란 채무자나 제3자의 점유를 전면적으로 배제하고 집행관이 직접점유하는 것</b>을 뜻하므로, <b>직접점유 없이 압류 선언만 한 것은 유효한 압류가 아니라고</b> 판단하였습니다. 채무자 등에게 보관시키는 경우에도 <b>집행관이 먼저 직접적인 지배를 취득한 뒤 표시를 하고</b> 나서야 보관시킬 수 있다고 하였습니다. (→ 채권자: 집행 현장에 <b>가급적 입회</b>하여 집행관이 실제로 물건을 점유하고 표시하였는지 확인하십시오. 뒤늦게 압류가 무효로 판명되면 그 뒤의 경매·소유권 취득까지 무너집니다.)
@@ -251,7 +295,9 @@ td a{color:var(--gold-d); word-break:break-all;}
 채무자의 주거에 있던 가재도구가 <b>배우자의 것인지 채무자의 것인지 분명하지 아니한</b> 사안입니다. 대법원은 <b>민집 §190</b>(채무자와 배우자의 공유로서 채무자가 점유하거나 배우자와 공동으로 점유하는 유체동산은 압류할 수 있다)이 <b>혼인신고만 하지 아니하였을 뿐 부부공동생활의 실체를 갖춘 사실혼 관계의 부부</b>가 공유하는 유체동산에도 <b>유추적용된다</b>고 판단하였습니다. 부부 중 누구에게 속하는지 분명하지 아니한 재산은 <b>공유로 추정</b>되므로(민법 §830②), 배우자의 특유재산임이 명백하지 아니한 한 압류할 수 있습니다. (→ 채권자: "배우자 물건이라 못 잡는다"는 말은 정확하지 아니합니다. 다만 <b>배우자가 단독으로 점유</b>하거나 <b>배우자의 특유재산임이 명백</b>하면 잡을 수 없고, 압류하여도 <b>제3자이의의 소</b>로 풀립니다. 또한 배우자에게는 경매에서 <b>우선매수권</b>(민집 §206①)과 <b>매각대금 중 자기 지분의 지급을 요구할 권리</b>(민집 §221①)가 있어, 실제 배당액은 줄어들 수 있습니다.)
 </div>
 
-<h2>채권자: 어떻게 묶고 회수하나 — 신청 절차</h2>
+</div></details>
+<details class="sec" id="s8"><summary>채권자 — 신청부터 회수까지 상세 절차<span class="sub">관할 · 인지 · 송달료 · 담보제공 · 집행 · 본압류 이전</span></summary>
+<div class="secbody">
 <ol class="steps">
 <li><b>먼저 '남을 것이 있는지'를 가늠합니다.</b> 채무자의 집·사업장에 무엇이 있는지, 위 <b>압류금지 목록</b>에 걸리지 아니하는 물건이 있는지를 살핍니다. 집행관 수수료·여비·운반보관비를 들이고도 <b>무잉여로 취소</b>되면 그 비용은 채권자의 손실로 남습니다. 값나가는 물건이 없다고 판단되면 <b>예금·부동산·급여·채권 가압류</b>를 먼저 검토하는 편이 낫습니다.</li>
 <li><b>신청서와 진술서를 작성하여 제출합니다.</b> 유체동산가압류 신청서(작성례 ①)와 <b>가압류신청 진술서</b>(작성례 ②)를 함께 냅니다. 진술서를 빠뜨리거나 허위로 적으면 <b>보정명령 없이 곧바로 기각</b>될 수 있습니다(재민 2003-4 §3). 인지 <b>10,000원</b> + 송달료. 관할은 <b>물건이 있는 곳의 지방법원</b> 또는 본안 관할법원입니다(민집 §278).</li>
@@ -271,7 +317,9 @@ td a{color:var(--gold-d); word-break:break-all;}
 <span style="font-size:13px">그럼에도 진행할 가치가 있는지는 <b>물건의 종류와 규모</b>에 달려 있습니다. 사업장의 재고·기계라면 실익이 크고, 일반 가정의 가전이라면 신중히 판단하십시오.</span>
 </div>
 
-<h2>담보 취소·회수 — 여기서 끝내지 마십시오</h2>
+</div></details>
+<details class="sec" id="s9"><summary>★ 담보 취소·회수 — 여기서 끝내지 마십시오<span class="sub">맡긴 담보는 신청해야 돌아옵니다 · 가장 많이 놓치는 대목</span></summary>
+<div class="secbody">
 <p>가압류를 위하여 공탁한 담보금은 <b>가만히 두면 돌아오지 아니합니다.</b> 반드시 <b>담보취소 결정</b>을 받아 <b>공탁금 회수</b>까지 마쳐야 절차가 끝납니다. 이 대목을 놓쳐 수백만 원이 법원에 잠들어 있는 사례가 매우 많습니다.</p>
 <ol class="steps">
 <li><b>담보 사유가 소멸하였을 때</b> — 본안소송에서 <b>승소 확정판결</b>을 받았다면, 그 판결문과 확정증명원을 붙여 담보취소를 신청합니다(민소 §125①). 가장 간명한 길입니다.</li>
@@ -282,7 +330,9 @@ td a{color:var(--gold-d); word-break:break-all;}
 <div class="tip"><span class="pt">💡 집행비용도 따로 회수할 수 있습니다</span>
 집행관 수수료·여비·운반보관비 등 <b>집행에 들인 비용은 채무자가 부담</b>합니다(민집 §53①). 매각대금에서 우선 공제되지 아니하고 남은 부분이 있으면, <b>집행비용액확정 결정</b>을 받아 채무자의 다른 재산에 다시 집행할 수 있습니다. <b>영수증을 빠짐없이 보관</b>하십시오 — 영수증이 없으면 비용으로 인정받기 어렵습니다.</div>
 
-<h2>채무자·제3자: 억울하게 잡혔다면 — 방어 절차</h2>
+</div></details>
+<details class="sec" id="s10"><summary>채무자 — 억울하게 당하였다면 방어 절차<span class="sub">이의신청 · 해방공탁 · 제소명령 · 사정변경 취소</span></summary>
+<div class="secbody">
 <ol class="steps">
 <li><b>압류금지 물건이 잡혔다면 — 집행에 관한 이의</b>(민집 §16) 생활필수품, 1개월 생계비 <b>250만원</b>, 직업에 없어서는 아니 될 도구 등이 압류되었다면 <b>집행법원에 이의</b>를 신청합니다(작성례 ⑥). "이 물건이 없으면 생업을 유지할 수 없다"는 점을 <b>구체적으로 소명</b>하는 것이 관건입니다.</li>
 <li><b>지나치게 많이 잡혔다면 — 초과압류·무잉여압류 주장</b> 청구금액과 집행비용에 필요한 한도를 넘는 압류(민집 §188②), 팔아도 집행비용밖에 안 나오는 압류(같은 조 ③)는 <b>집행관이 취소하여야 합니다</b>(민집규 §140). 이 점도 집행에 관한 이의로 다툽니다.</li>
@@ -297,7 +347,9 @@ td a{color:var(--gold-d); word-break:break-all;}
 <div class="warn"><span class="wt">⚠ 채권자도 마찬가지입니다 — 직접 문 따고 들어가면 안 됩니다</span>
 "내 돈 받으러 가는데 무슨 문제냐"고 생각하시면 위험합니다. 채권자가 <b>스스로 채무자의 집·가게에 들어가는 것</b>은 <b>주거침입죄</b>(형법 §319①, 3년 이하 징역 또는 500만원 이하 벌금)입니다. <b>문·자물쇠를 부수면 재물손괴죄</b>(형법 §366, 3년 이하 징역 또는 700만원 이하 벌금), <b>물건을 가져오면</b> 사안에 따라 <b>권리행사방해죄</b>(형법 §323, 5년 이하 징역 또는 700만원 이하 벌금)나 절도죄가 문제됩니다. 문을 여는 일, 물건을 가져가는 일은 <b>모두 집행관의 권한</b>입니다(민집 §5). 채권자는 <b>입회하여 의견을 낼 수 있을 뿐</b>입니다.</div>
 
-<h2>신청서·서면 작성례 — 양 당사자 모두</h2>
+</div></details>
+<details class="sec" id="s11"><summary>서류 작성례 — 빈칸만 채우면 됩니다<span class="sub">신청서 · 별지 · 진술최고 · 채무자 대응서면 (복사·인쇄 가능)</span></summary>
+<div class="secbody">
 <p style="font-size:13.5px;color:var(--muted)">아래 작성례의 빈칸(○○○)을 채워 그대로 제출할 수 있습니다. 제목은 가운데 정렬된 법원 제출 양식입니다. <b>복사·인쇄·다운로드</b> 버튼을 활용하십시오.</p>
 
 <div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ① · 채권자</span>유체동산가압류 신청서<span class="chev">&#9662;</span></button><div class="fold-body">
@@ -630,7 +682,9 @@ td a{color:var(--gold-d); word-break:break-all;}
 <div class="howto"><b>가장 많이 잊히는 서면입니다.</b> 공탁금은 신청하지 아니하면 <b>법원에 그대로 남습니다.</b> 세 갈래 중 해당하는 것을 고르십시오 — ① <b>본안 승소 확정</b>(가장 간명, 민소 §125①), ② <b>채무자의 동의</b>(인감증명서 첨부, 같은 조 ②), ③ <b>권리행사최고</b>(동의를 못 받을 때, 같은 조 ③). 담보취소 결정이 <b>확정</b>되면 <b>확정증명원</b>을 받아 공탁소에 <b>공탁금 회수청구</b>를 하여야 실제로 돈이 들어옵니다. 여기까지 마쳐야 절차가 끝납니다. 보증보험증권으로 담보를 제공하였다면 <b>결정문을 보험사에 제출</b>하여 정리하십시오. 합의로 사건을 끝낼 때에는 <b>합의서에 "담보취소에 동의한다"는 조항</b>을 반드시 넣으십시오 — 나중에 연락이 끊기면 권리행사최고를 거쳐야 하여 몇 달이 더 걸립니다.</div>
 </div></div>
 
-<h2>준비할 서류와 발급처</h2>
+</div></details>
+<details class="sec" id="s12"><summary>준비할 서류와 발급처 — 어디서 떼나<span class="sub">발급처별 딥링크와 찾아가기 경로를 함께 담았습니다</span></summary>
+<div class="secbody">
 <p style="font-size:13.5px;color:var(--muted)">아래 '바로가기'를 클릭하면 해당 사이트로 이동합니다. 만약 첫 화면으로 연결되면, 옆의 <b>찾아가기 경로</b>를 따라 메뉴를 클릭하면 됩니다.</p>
 <table>
 <tr><th>무엇을 (어디서)</th><th>서류</th><th>바로가기 · 찾아가기 경로</th></tr>
@@ -641,7 +695,7 @@ td a{color:var(--gold-d); word-break:break-all;}
 <tr><td>사업장 물건인 경우<br>(국세청 홈택스)</td><td>사업자등록 상태 조회, 거래 세금계산서</td><td><a href="https://www.hometax.go.kr">홈택스</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 상담·불복·고충·제보·기타 → 사업자등록번호로 조회 / 전자세금계산서 조회</span></td></tr>
 <tr><td>담보 제공<br>(서울보증보험)</td><td>공탁보증보험증권(현금공탁 대체용)</td><td><a href="https://www.sgic.co.kr">서울보증보험</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 법원공탁보증 메뉴 / 또는 가까운 지점·법원 내 출장소 방문. <b>심사에 며칠 걸립니다</b></span></td></tr>
 <tr><td>현금공탁·공탁금 회수<br>(전자공탁)</td><td>금전 공탁서, 공탁금 회수청구서</td><td><a href="https://ekt.scourt.go.kr">전자공탁</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 공탁신청 → 금전공탁 / 회수는 담보취소 결정 확정 후</span></td></tr>
-<tr><td>신청서 제출<br>(전자소송)</td><td>유체동산가압류 신청서(A4702)·가압류신청 진술서(A4705) 등 공식 양식</td><td><a href="https://ecfs.scourt.go.kr">전자소송</a> / <a href="https://www.scourt.go.kr/nm/min_9/min_9_2/index.html">양식모음</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 전자소송 → 서류제출 → 민사신청 → 가압류/가처분</span></td></tr>
+<tr><td>신청서 제출<br>(전자소송)</td><td>유체동산가압류 신청서(A4702)·가압류신청 진술서(A4705) 등 공식 양식</td><td><a href="https://ecfs.scourt.go.kr">전자소송</a> / <a href="https://ecfs.scourt.go.kr/psp/index.on?m=PSP720M24">양식모음</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 전자소송 → 서류제출 → 민사신청 → 가압류/가처분</span></td></tr>
 <tr style="background:#fdeeee"><td><b>집행 위임 (2주 이내)</b><br>(집행관사무소 — 방문)</td><td>강제집행(가압류집행) 신청서, 가압류결정 정본, 담보제공 서류, <b>약도</b></td><td><span style="font-size:12.5px;color:#9c3a22"><b>전자소송으로 되지 않습니다.</b> <b>물건이 있는 곳을 관할하는 법원의 집행관사무소</b>를 직접 방문하여 접수하고 <b>집행비용을 예납</b>합니다. 관할 법원은 <a href="https://www.scourt.go.kr/region/location/RegionSearchListAction.work">법원 찾기</a>에서 확인하십시오.</span></td></tr>
 <tr><td>본안 판결·확정 확인<br>(전자소송)</td><td>판결정본, 확정증명원, 송달증명원, 집행문</td><td><a href="https://ecfs.scourt.go.kr">전자소송</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 나의전자소송 → 사건확인 → 판결문·확정증명·집행문 발급</span></td></tr>
 </table>
@@ -656,7 +710,8 @@ td a{color:var(--gold-d); word-break:break-all;}
 <div style="margin-top:11px; padding-top:10px; border-top:1px dashed #cfe6d6; color:#c0392b; font-weight:600; line-height:1.8;">※ 정확한 인지액·송달료·담보 예상액은 사건 정보를 넣으면 <a href="https://sanlaw.co.kr/tools-calculator.html" style="color:#c0392b; text-decoration:underline; font-weight:700;">🧮 수수료 계산기</a>에서 미리 확인할 수 있습니다. <b>집행관 수수료는 집행관사무소 문의가 가장 정확합니다.</b></div>
 </div>
 
-<h2>고충은 덜어드리고, 결과로 보답하겠습니다</h2>
+</div></details>
+<h2 id="s13">고충은 덜어드리고, 결과로 보답하겠습니다</h2>
 <div class="hire">
 <p>본 사무소에서는 의뢰인들의 고충은 덜어드리고, 함께 소송을 진행하여 원하는 결과에 도달할 수 있도록 성심을 다하겠습니다.</p>
 <p style="margin-top:12px"><b>· 채권자(돈 받을 분)의 경우</b><br>① <b>유체동산가압류 신청서·가압류신청 진술서</b> 작성, ② 담보제공·보증보험 안내와 <b>2주 집행위임</b> 일정 관리, ③ <b>집행관 강제집행 신청서</b> 작성, ④ <b>본안 소장</b>과 <b>본압류 이전 강제집행 신청서</b> 작성, ⑤ <b>담보취소·공탁금 회수</b>까지 <b>본인소송의 전 과정을 함께</b> 준비해 드립니다. 아울러 신청 전에 <b>유체동산 가압류가 실익이 있는 사안인지</b>부터 솔직하게 말씀드리겠습니다.</p>
@@ -666,7 +721,7 @@ td a{color:var(--gold-d); word-break:break-all;}
 <a href="https://sanlaw.co.kr/tools-calculator.html" class="cta">🧮 내 사건 비용 미리 계산하기</a>
 <div style="text-align:center; background:#f6ecd8; border:1px solid var(--gold); border-radius:11px; padding:14px; margin:18px 0; font-size:15px; color:var(--gold-d); font-weight:700;">📞 상담은 홈 화면의 상담 창구를 이용하시면 됩니다.</div>
 
-<div class="tip"><span class="pt">💡 이어지는 카드</span> 같은 채권자 입장에서 <a class="cl" href="A-1_예금채권가압류.html"><b>예금(통장) 가압류(A-1)</b></a>·<a class="cl" href="A-2_부동산가압류.html"><b>부동산 가압류(A-2)</b></a>·<a class="cl" href="A-3_급여가압류.html"><b>급여(월급) 가압류(A-3)</b></a>·<a class="cl" href="A-4_전세보증금가압류.html"><b>전세보증금 가압류(A-4)</b></a>·<a class="cl" href="A-5_지명채권가압류.html"><b>지명채권 가압류(A-5)</b></a>·<a class="cl" href="A-7_자동차가압류.html"><b>자동차 가압류(A-7)</b></a>를 함께 검토하십시오. <b>유체동산은 실효성이 낮은 편이므로, 다른 재산을 먼저 찾아보시는 편이 낫습니다.</b> 반대로 <b>가압류를 당하신 분</b>은 <a class="cl" href="C-1_가압류이의_방어.html"><b>가압류를 당했을 때의 방어(C-1)</b></a>, <b>가처분을 당하신 분</b>은 <a class="cl" href="C-2_가처분방어.html"><b>가처분을 당했을 때의 방어(C-2)</b></a>를 보십시오.</div>
+<div class="tip"><span class="pt">💡 이어지는 카드</span> <b>가압류를 걸었는데 상대가 반격해 온다면</b> — 해방공탁으로 풀어오면 <a class="cl" href="C-3_해방공탁.html"><b>C-3</b></a>, 제소명령이 오면 <a class="cl" href="C-4_제소명령.html"><b>C-4</b></a>, 사정변경·3년 미제소 취소를 구해오면 <a class="cl" href="C-5_사정변경취소.html"><b>C-5</b></a>, 부당가압류라며 손해배상을 청구해오면 <a class="cl" href="C-6_부당가압류_손해배상.html"><b>C-6</b></a>을 보십시오. 전체 유형은 <a class="cl" href="보전처분_전체유형표.html"><b>보전처분 전체 유형표</b></a>에 있습니다. 같은 채권자 입장에서 <a class="cl" href="A-1_예금채권가압류.html"><b>예금(통장) 가압류(A-1)</b></a>·<a class="cl" href="A-2_부동산가압류.html"><b>부동산 가압류(A-2)</b></a>·<a class="cl" href="A-3_급여가압류.html"><b>급여(월급) 가압류(A-3)</b></a>·<a class="cl" href="A-4_전세보증금가압류.html"><b>전세보증금 가압류(A-4)</b></a>·<a class="cl" href="A-5_지명채권가압류.html"><b>지명채권 가압류(A-5)</b></a>·<a class="cl" href="A-7_자동차가압류.html"><b>자동차 가압류(A-7)</b></a>를 함께 검토하십시오. <b>유체동산은 실효성이 낮은 편이므로, 다른 재산을 먼저 찾아보시는 편이 낫습니다.</b> 반대로 <b>가압류를 당하신 분</b>은 <a class="cl" href="C-1_가압류이의_방어.html"><b>가압류를 당했을 때의 방어(C-1)</b></a>, <b>가처분을 당하신 분</b>은 <a class="cl" href="C-2_가처분방어.html"><b>가처분을 당했을 때의 방어(C-2)</b></a>를 보십시오.</div>
 
 <div class="src">
 근거 — 민사집행법 제5조(집행관의 강제력 사용)·제6조(참여자)·제16조(집행에 관한 이의신청)·제48조(제3자이의의 소)·제53조(집행비용의 부담)·제188조(동산집행의 개시, 초과압류·무잉여압류의 금지)·제189조(채무자가 점유하고 있는 물건의 압류)·제190조(부부공유 유체동산의 압류)·제191조(채무자 외의 사람이 점유하고 있는 물건의 압류)·제195조(압류가 금지되는 물건)·제206조(배우자의 우선매수권)·제221조(배우자의 지분에 대한 지급요구)·제276조(가압류의 목적)·제277조(보전의 필요)·제278조(가압류법원)·제280조(가압류명령·담보제공)·제288조(사정변경 등에 따른 가압류취소)·제291조(가압류집행에 대한 본집행의 준용)·제292조(집행개시의 요건)·제296조(동산가압류집행) · 민사집행규칙 제131조(강제집행신청서의 기재사항)·제132조(압류할 유체동산의 선택)·제140조(초과압류 등의 취소) · 민사집행법 시행령 제2조(압류금지 생계비 250만원, 2026. 2. 1. 시행) · 민사소송법 제125조(담보의 취소) · 집행관수수료규칙 제25조(비용의 예납) · 보전처분 신청사건의 사무처리요령(재민 2003-4) 제2조·제3조(전산양식 A4702·A4705, 가압류신청 진술서) · 형법 제140조 제1항(공무상비밀표시무효)·제319조 제1항(주거침입)·제323조(권리행사방해)·제327조(강제집행면탈)·제366조(재물손괴) · 민법 제157조·제161조(기간 계산)·제162조·제163조·제165조·제166조·제168조(소멸시효)·제830조(부부재산의 귀속) · 상법 제64조 · 대법원 2020. 1. 30. 선고 2019다265475 판결(유체동산 압류에서 집행관의 직접점유 필요, 압류 선언만으로는 무효) · 대법원 1997. 11. 11. 선고 97다34273 판결(민사집행법 제190조는 사실혼 부부의 공유 유체동산에도 유추적용) · 국가법령정보센터 법령용어 · 법제처 찾기쉬운 생활법령정보 · 대한법률구조공단 · 대법원 전자민원센터. 본 자료는 일반적인 법률정보로, 개별 사건의 법률자문이 아닙니다. 담보 비율과 집행관 수수료 개산액은 법원·집행관사무소별로 다르므로 접수 전 확인이 필요합니다.
@@ -679,6 +734,31 @@ td a{color:var(--gold-d); word-break:break-all;}
     t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
   });
   document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+})();
+
+(function(){
+  document.querySelectorAll('.toc a').forEach(function(a){
+    a.addEventListener('click',function(){
+      var el=document.querySelector(a.getAttribute('href'));
+      if(el&&el.tagName==='DETAILS')el.open=true;
+    });
+  });
+  var btn=document.getElementById('allBtn');
+  if(!btn)return;
+  function toggleAll(){
+    var opening=btn.textContent.indexOf('펼치기')>-1;
+    document.querySelectorAll('details.sec').forEach(function(d){d.open=opening;});
+    document.querySelectorAll('.formbox').forEach(function(fb){
+      fb.classList.toggle('open',opening);
+      var body=fb.querySelector('.fold-body');
+      if(body)body.style.display=opening?'block':'none';
+    });
+    btn.textContent=opening?'전체 접기':'전체 펼치기';
+  }
+  btn.addEventListener('click',toggleAll);
+  btn.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleAll();}});
+})();
+(function(){
 })();
 function toggleFold(b){var fb=b.parentElement;var body=b.nextElementSibling;var open=fb.classList.toggle('open');if(body){body.style.display=open?'block':'none';}}
 function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
