@@ -65,6 +65,22 @@ th{background:#f0ebe1; font-weight:700; color:#241a10;}
 .flow{margin:16px 0;}
 .flow svg{width:100%; height:auto; display:block;}
 
+details.sec{border:1px solid var(--line); border-radius:11px; margin:18px 0; background:#fff; overflow:hidden;}
+details.sec>summary{cursor:pointer; list-style:none; padding:14px 17px 14px 15px; background:var(--box); border-left:4px solid var(--gold); font-family:'Nanum Myeongjo',serif; font-size:18px; font-weight:700; color:var(--gold-d); line-height:1.55;}
+details.sec>summary::-webkit-details-marker{display:none;}
+details.sec>summary .sub{display:block; font-family:'Pretendard',sans-serif; font-size:13.5px; font-weight:400; color:var(--muted); margin-top:3px;}
+details.sec>summary::after{content:"펼치기 ▾"; float:right; font-family:'Pretendard',sans-serif; font-size:12.5px; font-weight:700; color:var(--gold); background:#fff; border:1px solid var(--line); border-radius:20px; padding:2px 10px; margin-left:8px;}
+details.sec[open]>summary::after{content:"접기 ▴";}
+details.sec>summary:hover{background:#f2ede3;}
+.secbody{padding:4px 17px 16px;}
+.secbody>h3:first-of-type{margin-top:14px;}
+.toc{background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 17px; margin:8px 0 22px;}
+.toc .tct{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:9px;}
+.toc ol{margin:0; padding-left:20px;}
+.toc li{margin:5px 0; font-size:14.5px;}
+.toc a{text-decoration:none; border-bottom:1px dotted var(--gold);}
+.allbtn{display:inline-block; margin-top:11px; font-size:13.5px; font-weight:700; color:var(--gold-d); background:var(--box); border:1px solid var(--line); border-radius:8px; padding:7px 14px; cursor:pointer;}
+.allbtn:hover{background:#f2ede3;}
 details.fold{border:1px solid var(--line); border-radius:10px; margin:12px 0; background:#fff; overflow:hidden;}
 details.fold>summary{cursor:pointer; list-style:none; padding:12px 16px; background:var(--box); font-weight:700; color:var(--gold-d); font-size:15px;}
 details.fold>summary::-webkit-details-marker{display:none;}
@@ -90,6 +106,8 @@ details.fold[open]>summary::after{content:" ▴";}
   .tldr,.warn,.tip,.cost,.lawbox,.hire,.case,.sit{background:#fff !important; border-color:#ccc !important;}
   details.fold{border-color:#ccc;} details.fold>summary{background:#fff;}
   details.fold:not([open])>*{display:block !important;}
+  details.sec:not([open])>*{display:block !important;}
+  details.sec>summary::after{display:none;} .allbtn,.toc{display:none !important;}
   .tbwrap{overflow:visible;} table{min-width:0;}
   .term{border:none; color:inherit; font-weight:inherit;}
   .term>.bub{display:inline !important; position:static; width:auto; background:none; color:inherit; box-shadow:none; padding:0; font-size:inherit;}
@@ -124,7 +142,26 @@ details.fold[open]>summary::after{content:" ▴";}
 </ul>
 </div>
 
-<h2>지금 어떤 상황인가요</h2>
+<div class="toc">
+<div class="tct">이 카드에 담긴 것 — 필요한 곳만 펼쳐 보십시오</div>
+<ol>
+<li><a href="#s1">지금 어떤 상황인가요</a></li>
+<li><a href="#s2">핵심 세 가지</a></li>
+<li><a href="#s3">관련 법령 5개</a></li>
+<li><a href="#s4">판례 4건 — 공탁했다고 안심할 수 없는 이유</a></li>
+<li><a href="#s5">세 가지 공탁의 차이 — 잘못 고르면 돈을 그대로 빼앗깁니다</a></li>
+<li><a href="#s6">절차 전 과정</a></li>
+<li><a href="#s7">준비할 서류 7가지 — 어디서 떼나</a></li>
+<li><a href="#s8">비용 상세표 — 인지 1,000원 + 송달료</a></li>
+<li><a href="#s8b">기한 정리 — 놓치면 안 되는 날짜</a></li>
+<li><a href="#s9">서류 작성례 4가지 — 빈칸만 채우면 됩니다</a></li>
+<li><a href="#s10">공탁금은 결국 누구에게 — 본안 결과별 5가지</a></li>
+<li><a href="#s11">이런 경우에는 해방공탁이 답이 아닙니다</a></li>
+<li><a href="#s12">본 사무소가 도와드리는 일</a></li>
+</ol>
+<span class="allbtn" id="allBtn" role="button" tabindex="0">전체 펼치기</span>
+</div>
+<h2 id="s1">지금 어떤 상황인가요</h2>
 
 <div class="sit">
 <span class="st">상황 ① · 집을 팔아야 하는데 가압류가 걸려 있는 분</span>
@@ -136,7 +173,7 @@ details.fold[open]>summary::after{content:" ▴";}
 통장이 막혀 급여·자재대금을 지급하지 못하거나, 거래처에 가압류 통지가 가서 신용에 문제가 생긴 경우. → 해방공탁으로 <b>먼저 집행을 풀고</b>, 채권이 정말 있는지는 이의신청이나 본안소송에서 따로 다투면 됩니다.
 </div>
 
-<h2>핵심 세 가지</h2>
+<h2 id="s2">핵심 세 가지</h2>
 
 <p><b>첫째, 해방공탁은 '빚을 갚는 것'이 아닙니다.</b> 이 점을 오해하시면 큰 손해를 봅니다. 해방공탁은 가압류의 대상을 통장·부동산에서 <b>공탁금 회수청구권</b>으로 바꾸어 놓는 것일 뿐입니다. 채권자는 여전히 그 돈을 노리고 있고, 본안소송에서 이기면 그 공탁금을 가져갑니다.</p>
 
@@ -144,7 +181,8 @@ details.fold[open]>summary::after{content:" ▴";}
 
 <p><b>셋째, 형식을 어기면 효력이 없습니다.</b> 현금이 아닌 유가증권, 일부 금액만의 공탁, 제3자가 대신 하는 공탁 — 모두 해방공탁으로 인정되지 않습니다. 돈은 묶이고 가압류는 안 풀리는 최악의 상황이 됩니다.</p>
 
-<h2>관련 법령 — 쉬운 풀이</h2>
+<details class="sec" id="s3"><summary>관련 법령 5개<span class="sub">민집 §282 해방금액 · §299 집행취소 · 공탁법 §9 시효</span></summary>
+<div class="secbody">
 
 <div class="lawbox">
 <span class="ll">민집 §282</span><b>가압류해방금액</b> — 법원은 가압류명령을 할 때, 가압류의 집행을 정지시키거나 이미 집행한 가압류를 취소시키기 위하여 <b>채무자가 공탁할 금액</b>을 가압류명령서에 적어야 합니다. → <i>결정문을 받으시면 이 금액부터 찾아보십시오.</i>
@@ -162,7 +200,9 @@ details.fold[open]>summary::after{content:" ▴";}
 <span class="ll">공탁법 §9③</span><b>공탁금 청구권의 시효</b> — 공탁금의 회수·출급 청구권은 그 권리를 행사할 수 있는 때부터 <b>10년</b>간 행사하지 아니하면 시효로 소멸합니다.
 </div>
 
-<h2>판례는 이렇게 말합니다</h2>
+</div></details>
+<details class="sec" id="s4"><summary>판례 4건 — 공탁했다고 안심할 수 없는 이유<span class="sub">다른 채권자와 경합 · 빌려준 사람도 먼저 못 받음 · 현금만 · 전액만</span></summary>
+<div class="secbody">
 
 <div class="case">
 <span class="cn">대법원 1996. 11. 11.자 95마252 결정 — 공탁했다고 안심할 수 없습니다</span>
@@ -182,7 +222,9 @@ details.fold[open]>summary::after{content:" ▴";}
 <b>대법원 1995. 7. 20.자 95마190 결정</b> — 공탁의 효력은 <b>공탁서에 적힌 공탁원인사실을 기준으로 객관적으로</b> 판단합니다. 따라서 해방금액의 <b>일부만</b> 공탁하였다면 해방공탁으로서의 효력이 없습니다.
 </div>
 
-<h2>해방공탁 · 변제공탁 · 담보공탁 — 헷갈리기 쉽습니다</h2>
+</div></details>
+<details class="sec" id="s5"><summary>세 가지 공탁의 차이 — 잘못 고르면 돈을 그대로 빼앗깁니다<span class="sub">누가·왜·근거·피공탁자 기재까지 한 표로</span></summary>
+<div class="secbody">
 
 <div class="tbwrap">
 <table>
@@ -203,7 +245,8 @@ details.fold[open]>summary::after{content:" ▴";}
 "어차피 맡기는 것이니 같지 않으냐"고 생각해 <b>변제공탁</b>을 하시면, 채권자가 <b>즉시 찾아갈 수 있습니다.</b> 채권이 정말 있는지 다투어 볼 기회가 사라집니다. 채권의 존부를 다투실 생각이라면 반드시 <b>해방공탁</b>이어야 합니다. 공탁서의 <b>법령조항란에 '민사집행법 제282조'</b>를 적고, <b>피공탁자란은 비워 두는 것</b>이 그 구분입니다.
 </div>
 
-<h2>절차 전 과정</h2>
+</div></details>
+<h2 id="s6">절차 전 과정</h2>
 
 <div class="flow">
 <svg viewBox="0 0 700 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="해방공탁 절차 흐름도">
@@ -255,7 +298,8 @@ details.fold[open]>summary::after{content:" ▴";}
 </svg>
 </div>
 
-<h2>첨부서류와 발급처</h2>
+<details class="sec" id="s7"><summary>준비할 서류 7가지 — 어디서 떼나<span class="sub">결정문 · 공탁서 · 등록면허세 · 등기수수료 · 외국인 서류 (딥링크 포함)</span></summary>
+<div class="secbody">
 
 <div class="tbwrap">
 <table>
@@ -277,7 +321,9 @@ details.fold[open]>summary::after{content:" ▴";}
 공탁·신청서에 기재하는 인적사항은 <b>외국인등록번호</b>(또는 국내거소신고번호)와 <b>외국인등록사실증명</b>으로 갈음합니다. 국내 등록이 없는 외국인은 여권 사본과 번역문(번역자 확인서 첨부)이 필요합니다. 외국인등록사실증명은 <a href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a>에서 발급받으실 수 있습니다.<span style="font-size:12.5px;color:var(--muted)"> 경로: 검색창에 '외국인등록사실증명' 입력 → 발급</span> 법인이 채무자라면 법인등기사항증명서를 <a href="http://www.iros.go.kr" target="_blank" rel="noopener">인터넷등기소</a>에서 발급받습니다.
 </div>
 
-<h2>비용 — 얼마나 드나</h2>
+</div></details>
+<details class="sec" id="s8"><summary>비용 상세표 — 인지 1,000원 + 송달료<span class="sub">부동산 말소 시 등록면허세·지방교육세·등기수수료 추가</span></summary>
+<div class="secbody">
 
 <div class="tbwrap">
 <table>
@@ -299,7 +345,28 @@ details.fold[open]>summary::after{content:" ▴";}
 <span class="calc">※ 당사자 수·부동산 필지 수에 따라 달라집니다. <a href="https://sanlaw.co.kr/tools-calculator.html">수수료 계산기</a>에서 확인하십시오. 공단의 <a href="https://www.klac.or.kr/legalstruct/conservationCase3.do" target="_blank" rel="noopener">보전사건 비용 자동계산</a>도 함께 이용하실 수 있습니다.</span>
 </div>
 
-<h2>서류 작성례</h2>
+</div></details>
+<details class="sec" id="s8b"><summary>기한 정리 — 놓치면 안 되는 날짜<span class="sub">즉시항고 1주 · 공탁금 청구권 10년 · 해방공탁 자체는 기한 없음</span></summary>
+<div class="secbody">
+<div class="tbwrap">
+<table>
+<thead><tr><th style="width:22%">구분</th><th>① 기산일</th><th>② 근거</th><th>③ 말일 처리</th><th>④ 만료</th></tr></thead>
+<tbody>
+<tr><td><b>해방공탁·집행취소 신청</b><br>(채무자)</td><td colspan="4">기한이 없습니다. 가압류가 살아 있는 한 언제든 하실 수 있습니다.</td></tr>
+<tr><td><b>즉시항고</b><br>(채권자)</td><td>집행취소결정을 <b>고지받은 날</b>의 다음 날</td><td>민집 §299③ · §15② · 민 §157(초일 불산입)</td><td>말일이 토요일·공휴일이면 <b>그 다음 날</b>(민 §161)</td><td><b>1주</b>의 불변기간</td></tr>
+<tr><td><b>공탁금 회수·출급 청구권</b></td><td>권리를 <b>행사할 수 있는 때</b>의 다음 날<br><span style="font-size:12.5px;color:var(--muted)">가압류취소 확정·취하 등 공탁원인이 소멸한 때</span></td><td>공탁법 §9③</td><td>같음</td><td><b>10년</b></td></tr>
+<tr><td><b>3년 미제소 취소</b><br>(참고)</td><td>가압류가 <b>집행된 날</b>의 다음 날</td><td>민집 §288①3</td><td>같음</td><td><b>3년</b> · <a href="C-5_사정변경취소.html">C-5 카드</a> 참조</td></tr>
+</tbody>
+</table>
+</div>
+<div class="warn">
+<span class="wt">⚠ 가장 자주 놓치는 것은 '공탁금 회수'입니다</span>
+가압류가 풀렸다고 공탁금이 자동으로 돌아오지 않습니다. <b>공탁원인이 소멸하였음을 증명하는 서면</b>을 붙여 직접 청구하셔야 하고, 그대로 두면 <b>10년</b>이 지나 시효로 소멸합니다. 다만 시효가 지나도 자동으로 사라지는 것이 아니라 상대방이 이를 주장해야 청구가 배척되므로, 기간이 지났더라도 우선 문의해 보십시오.
+</div>
+</div></details>
+
+<details class="sec" id="s9"><summary>서류 작성례 4가지 — 빈칸만 채우면 됩니다<span class="sub">공탁서 · 집행취소 신청서 · 회수청구서 · 채권자용 추심명령</span></summary>
+<div class="secbody">
 
 <h3>채무자(가압류를 당한 쪽)가 쓰는 서류</h3>
 
@@ -467,7 +534,9 @@ details.fold[open]>summary::after{content:" ▴";}
 <div class="fnote"><b>채권자께서 반드시 아셔야 할 점</b> · 해방공탁이 되었다고 채권자가 그 돈을 <b>바로 찾아갈 수는 없습니다.</b> 해방공탁금에 대하여 채권자에게는 출급청구권이 없고, 채무자의 <b>회수청구권</b>만 존재합니다. 본안에서 이긴 뒤 <b>가압류를 본압류로 이전</b>하고 추심명령 또는 전부명령을 받아야 회수됩니다(대법원 95마252 결정). 또한 <b>우선변제권이 없으므로</b> 다른 채권자가 먼저 압류하면 경합이 생겨 배당절차로 갑니다. <b>본안소송을 미루면 그만큼 위험이 커집니다.</b></div>
 </details>
 
-<h2>공탁금은 결국 누구에게 가나</h2>
+</div></details>
+<details class="sec" id="s10"><summary>공탁금은 결국 누구에게 — 본안 결과별 5가지<span class="sub">승소·패소·미제소·합의·경합에 따라 갈립니다</span></summary>
+<div class="secbody">
 
 <div class="tbwrap">
 <table>
@@ -482,7 +551,8 @@ details.fold[open]>summary::after{content:" ▴";}
 </table>
 </div>
 
-<h2>이런 경우에는 해방공탁이 답이 아닙니다</h2>
+</div></details>
+<h2 id="s11">이런 경우에는 해방공탁이 답이 아닙니다</h2>
 
 <div class="warn">
 <span class="wt">⚠ 다섯 가지를 확인하십시오</span>
@@ -498,7 +568,7 @@ details.fold[open]>summary::after{content:" ▴";}
 가압류된 유체동산에 붙은 표시를 떼어내면 <b>공무상표시무효죄</b>(형법 §140, 5년 이하의 징역 또는 700만원 이하의 벌금)가 성립할 수 있습니다. 가압류를 피하려고 재산을 숨기거나 다른 사람 명의로 돌려놓으면 <span class="term" tabindex="0">강제집행면탈죄<span class="bub">강제집행을 당할 상황에서 재산을 숨기거나 남의 명의로 돌려놓아 채권자에게 손해를 입히는 죄입니다. 형법 제327조에 정해져 있습니다.</span></span>(형법 §327, 3년 이하의 징역 또는 1천만원 이하의 벌금)로 처벌될 수 있습니다. 반드시 이 카드에 적힌 법적 절차로 푸십시오.
 </div>
 
-<h2>본 사무소가 도와드리는 일</h2>
+<h2 id="s12">본 사무소가 도와드리는 일</h2>
 
 <div class="hire">
 <p><b>가압류를 당하신 분(채무자)</b> — ① 결정문 검토와 해방공탁 여부 판단(공탁이 유리한지, 이의신청이 유리한지), ② <b>금전 공탁서</b> 작성과 공탁 신청 대리, ③ <b>가압류집행취소 신청서</b> 작성, ④ 부동산 말소 관련 등록면허세·등기수수료 처리, ⑤ 본안 종결 후 <b>공탁금 회수청구서</b> 작성까지 전 과정을 함께 준비해 드립니다.</p>
@@ -532,6 +602,26 @@ details.fold[open]>summary::after{content:" ▴";}
       if(e.key==='Escape'){t.classList.remove('on');t.blur();}
     });
   });
+
+  // 목차 클릭 → 해당 섹션 자동 펼침
+  document.querySelectorAll('.toc a').forEach(function(a){
+    a.addEventListener('click',function(){
+      var el=document.querySelector(a.getAttribute('href'));
+      if(el&&el.tagName==='DETAILS')el.open=true;
+    });
+  });
+  // 전체 펼치기 / 접기
+  var btn=document.getElementById('allBtn');
+  if(btn){
+    function toggleAll(){
+      var ds=document.querySelectorAll('details.sec, details.fold');
+      var opening=btn.textContent.indexOf('펼치기')>-1;
+      ds.forEach(function(d){d.open=opening;});
+      btn.textContent=opening?'전체 접기':'전체 펼치기';
+    }
+    btn.addEventListener('click',toggleAll);
+    btn.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleAll();}});
+  }
   document.addEventListener('click',function(){closeAll(null);});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll(null);});
 })();
