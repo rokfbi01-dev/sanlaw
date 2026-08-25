@@ -65,6 +65,22 @@ th{background:#f0ebe1; font-weight:700; color:#241a10;}
 .flow{margin:16px 0;}
 .flow svg{width:100%; height:auto; display:block;}
 
+details.sec{border:1px solid var(--line); border-radius:11px; margin:18px 0; background:#fff; overflow:hidden;}
+details.sec>summary{cursor:pointer; list-style:none; padding:14px 17px 14px 15px; background:var(--box); border-left:4px solid var(--gold); font-family:'Nanum Myeongjo',serif; font-size:18px; font-weight:700; color:var(--gold-d); line-height:1.55;}
+details.sec>summary::-webkit-details-marker{display:none;}
+details.sec>summary .sub{display:block; font-family:'Pretendard',sans-serif; font-size:13.5px; font-weight:400; color:var(--muted); margin-top:3px;}
+details.sec>summary::after{content:"펼치기 ▾"; float:right; font-family:'Pretendard',sans-serif; font-size:12.5px; font-weight:700; color:var(--gold); background:#fff; border:1px solid var(--line); border-radius:20px; padding:2px 10px; margin-left:8px;}
+details.sec[open]>summary::after{content:"접기 ▴";}
+details.sec>summary:hover{background:#f2ede3;}
+.secbody{padding:4px 17px 16px;}
+.secbody>h3:first-of-type{margin-top:14px;}
+.toc{background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 17px; margin:8px 0 22px;}
+.toc .tct{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:9px;}
+.toc ol{margin:0; padding-left:20px;}
+.toc li{margin:5px 0; font-size:14.5px;}
+.toc a{text-decoration:none; border-bottom:1px dotted var(--gold);}
+.allbtn{display:inline-block; margin-top:11px; font-size:13.5px; font-weight:700; color:var(--gold-d); background:var(--box); border:1px solid var(--line); border-radius:8px; padding:7px 14px; cursor:pointer;}
+.allbtn:hover{background:#f2ede3;}
 details.fold{border:1px solid var(--line); border-radius:10px; margin:12px 0; background:#fff; overflow:hidden;}
 details.fold>summary{cursor:pointer; list-style:none; padding:12px 16px; background:var(--box); font-weight:700; color:var(--gold-d); font-size:15px;}
 details.fold>summary::-webkit-details-marker{display:none;}
@@ -90,6 +106,8 @@ details.fold[open]>summary::after{content:" ▴";}
   .tldr,.warn,.tip,.cost,.lawbox,.hire,.case,.sit{background:#fff !important; border-color:#ccc !important;}
   details.fold{border-color:#ccc;} details.fold>summary{background:#fff;}
   details.fold:not([open])>*{display:block !important;}
+  details.sec:not([open])>*{display:block !important;}
+  details.sec>summary::after{display:none;} .allbtn,.toc{display:none !important;}
   .tbwrap{overflow:visible;} table{min-width:0;}
   .term{border:none; color:inherit; font-weight:inherit;}
   .term>.bub{display:inline !important; position:static; width:auto; background:none; color:inherit; box-shadow:none; padding:0; font-size:inherit;}
@@ -124,7 +142,26 @@ details.fold[open]>summary::after{content:" ▴";}
 </ul>
 </div>
 
-<h2>지금 어떤 상황인가요</h2>
+<div class="toc">
+<div class="tct">이 카드에 담긴 것 — 필요한 곳만 펼쳐 보십시오</div>
+<ol>
+<li><a href="#s1">지금 어떤 상황인가요</a></li>
+<li><a href="#s2">핵심 세 가지</a></li>
+<li><a href="#s3">관련 법령 5개</a></li>
+<li><a href="#s4">판례 3건 — 3년이 지나도 안 풀리는 경우</a></li>
+<li><a href="#s5">세 가지 사유 비교 — 어느 것을 고를까</a></li>
+<li><a href="#s6">절차 전 과정</a></li>
+<li><a href="#s7">준비할 서류 7가지 — 어디서 떼나</a></li>
+<li><a href="#s8">비용 상세표 — 인지 10,000원 + 송달료</a></li>
+<li><a href="#s9">기한 정리 — 3년은 언제부터 세나</a></li>
+<li><a href="#s10">서류 작성례 4가지 — 빈칸만 채우면 됩니다</a></li>
+<li><a href="#s11">이의신청·제소명령·취소신청 비교</a></li>
+<li><a href="#s12">이런 점은 미리 아셔야 합니다</a></li>
+<li><a href="#s13">본 사무소가 도와드리는 일</a></li>
+</ol>
+<span class="allbtn" id="allBtn" role="button" tabindex="0">전체 펼치기</span>
+</div>
+<h2 id="s1">지금 어떤 상황인가요</h2>
 
 <div class="sit">
 <span class="st">상황 ① · 빚을 다 갚았는데 가압류가 그대로 남아 있는 분</span>
@@ -136,7 +173,7 @@ details.fold[open]>summary::after{content:" ▴";}
 가압류가 집행된 지 3년이 넘었는데 채권자는 소송을 걸지도, 가압류를 풀지도 않는 경우. 잊혔거나 방치된 가압류입니다. → <b>제3호 사유</b>로 취소를 신청하십시오. 그 부동산을 사들인 분처럼 <b>이해관계인</b>도 직접 신청할 수 있습니다.
 </div>
 
-<h2>핵심 세 가지</h2>
+<h2 id="s2">핵심 세 가지</h2>
 
 <p><b>첫째, 이의신청과는 다툼의 시점이 다릅니다.</b> <span class="term" tabindex="0">이의신청<span class="bub">가압류 결정 자체가 처음부터 잘못되었다고 다투는 절차입니다. 민사집행법 제283조에 정해져 있습니다.</span></span>은 "가압류 결정이 <b>처음부터</b> 잘못됐다"고 다투는 것이고, 취소신청은 "결정 <b>이후에</b> 사정이 달라졌다"고 다투는 것입니다. 이 구분을 잘못하면 신청 자체가 배척됩니다.</p>
 
@@ -144,7 +181,8 @@ details.fold[open]>summary::after{content:" ▴";}
 
 <p><b>셋째, 취소결정이 나도 곧바로 안 풀릴 수 있습니다.</b> 법원은 채권자가 고지받은 날부터 <b>2주를 넘지 않는 범위</b>에서 효력 발생을 미룰 수 있고(민집 §286⑥), 채권자는 즉시항고와 함께 <b>효력정지</b>를 신청할 수 있습니다(민집 §289). 이 점이 해방공탁과 다릅니다.</p>
 
-<h2>관련 법령 — 쉬운 풀이</h2>
+<details class="sec" id="s3"><summary>관련 법령 5개<span class="sub">민집 §288 세 가지 사유 · 심문절차 · §289 효력정지</span></summary>
+<div class="secbody">
 
 <div class="lawbox">
 <span class="ll">민집 §288①</span><b>취소 사유</b> — 채무자는 다음 어느 하나에 해당하면 가압류가 인가된 뒤에도 취소를 신청할 수 있습니다. <b>제3호</b>에 해당하는 경우에는 <b>이해관계인도</b> 신청할 수 있습니다.<br>
@@ -163,7 +201,9 @@ details.fold[open]>summary::after{content:" ▴";}
 <span class="ll">민집 §301</span><b>가처분에도 준용</b> — 사정변경에 따른 취소는 가처분에도 적용됩니다. 다만 가처분에는 <b>특별사정에 의한 취소</b>(민집 §307)라는 별도의 길이 함께 있습니다.
 </div>
 
-<h2>판례는 이렇게 말합니다</h2>
+</div></details>
+<details class="sec" id="s4"><summary>판례 3건 — 3년이 지나도 안 풀리는 경우<span class="sub">대법원 2013마1412(공정증서) · 2020마7039(기존 확정판결)</span></summary>
+<div class="secbody">
 
 <div class="case">
 <span class="cn">대법원 2016. 3. 24.자 2013마1412 결정 — 공정증서를 받아둔 채권자에게는 3년 규정이 적용되지 않습니다</span>
@@ -183,7 +223,9 @@ details.fold[open]>summary::after{content:" ▴";}
 다만 <b>1심에서 채권자가 패소한 것만으로는 부족</b>하고 그 판결이 <b>확정</b>되어야 한다는 것이 판례의 태도입니다.
 </div>
 
-<h2>세 가지 사유, 어느 것을 고를까</h2>
+</div></details>
+<details class="sec" id="s5"><summary>세 가지 사유 비교 — 어느 것을 고를까<span class="sub">제1호 사정변경 · 제2호 담보제공 · 제3호 3년 미제소(이해관계인 가능)</span></summary>
+<div class="secbody">
 
 <div class="tbwrap">
 <table>
@@ -201,7 +243,8 @@ details.fold[open]>summary::after{content:" ▴";}
 <b>해방공탁</b>(민집 §282)은 가압류의 <b>집행만</b> 취소하는 것이고 가압류결정 자체는 남습니다. <b>제2호 담보</b>는 가압류 <b>결정 자체를</b> 없앱니다. 다만 채무자가 제공한 담보는 <b>직접 피보전권리를 담보</b>하는 것이라 채권자가 그에 대해 일종의 질권을 갖게 되며, 본안 1심에서 채권자가 패소하더라도 <b>확정되기 전에는</b> 담보사유가 소멸하지 않는 것이 원칙입니다. 담보액은 법원이 재량으로 정합니다.
 </div>
 
-<h2>절차 전 과정</h2>
+</div></details>
+<h2 id="s6">절차 전 과정</h2>
 
 <div class="flow">
 <svg viewBox="0 0 700 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="사정변경에 따른 가압류취소 절차 흐름도">
@@ -254,7 +297,8 @@ details.fold[open]>summary::after{content:" ▴";}
 </svg>
 </div>
 
-<h2>첨부서류와 발급처</h2>
+<details class="sec" id="s7"><summary>준비할 서류 7가지 — 어디서 떼나<span class="sub">결정문 · 등기사항증명서 · 확정증명원 · 담보 서류 (딥링크 포함)</span></summary>
+<div class="secbody">
 
 <div class="tbwrap">
 <table>
@@ -276,7 +320,9 @@ details.fold[open]>summary::after{content:" ▴";}
 외국인은 <b>외국인등록번호</b>(또는 국내거소신고번호)와 <b>외국인등록사실증명</b>으로 인적사항을 갈음합니다. <a href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a>에서 발급받으십시오.<span style="font-size:12.5px;color:var(--muted)"> 경로: 검색창에 '외국인등록사실증명' 입력 → 발급</span> 국내 등록이 없으면 여권 사본과 번역문(번역자 확인서 첨부)이 필요합니다. 법인은 <a href="http://www.iros.go.kr" target="_blank" rel="noopener">인터넷등기소</a>에서 법인등기사항증명서를 발급받습니다.<span style="font-size:12.5px;color:var(--muted)"> 경로: 등기열람/발급 → 법인 → 열람/발급하기 → 상호 검색</span>
 </div>
 
-<h2>비용 — 얼마나 드나</h2>
+</div></details>
+<details class="sec" id="s8"><summary>비용 상세표 — 인지 10,000원 + 송달료<span class="sub">부동산 말소 시 등록면허세·등기수수료 추가</span></summary>
+<div class="secbody">
 
 <div class="tbwrap">
 <table>
@@ -298,7 +344,9 @@ details.fold[open]>summary::after{content:" ▴";}
 <span class="calc">※ 송달료는 당사자 수에 따라 달라집니다. <a href="https://sanlaw.co.kr/tools-calculator.html">수수료 계산기</a>에서 확인하시고, 공단의 <a href="https://www.klac.or.kr/legalstruct/conservationCase3.do" target="_blank" rel="noopener">보전사건 비용 자동계산</a>도 함께 이용하십시오.</span>
 </div>
 
-<h2>기간 계산 — 3년은 언제부터 세나</h2>
+</div></details>
+<details class="sec" id="s9"><summary>기한 정리 — 3년은 언제부터 세나<span class="sub">결정일이 아니라 집행일 기준 · 즉시항고 1주</span></summary>
+<div class="secbody">
 
 <div class="tbwrap">
 <table>
@@ -316,7 +364,9 @@ details.fold[open]>summary::after{content:" ▴";}
 채권자가 <b>공정증서(집행증서)를 받아두었거나</b>(대법원 2013마1412 결정), 가압류 <b>이전에 이미 확정판결을 받아둔 경우</b>(대법원 2020마7039 결정)에는 제3호 사유에 해당하지 않습니다. 이런 경우에는 <b>제1호 사유</b>(변제·소멸시효 완성 등)로 다투셔야 합니다. 신청 전에 <b>나의 사건검색</b>으로 본안소송 유무를 확인하시고, 채권자가 공정증서를 가지고 있는지도 살펴보십시오.
 </div>
 
-<h2>서류 작성례</h2>
+</div></details>
+<details class="sec" id="s10"><summary>서류 작성례 4가지 — 빈칸만 채우면 됩니다<span class="sub">제1호·제2호·제3호 취소 신청서 · 채권자용 효력정지 신청서</span></summary>
+<div class="secbody">
 
 <h3>채무자·이해관계인이 쓰는 서류</h3>
 
@@ -539,7 +589,9 @@ details.fold[open]>summary::after{content:" ▴";}
 <div class="fnote"><b>채권자께서 아셔야 할 두 가지</b> · ① <b>즉시항고만으로는 부족합니다.</b> 가압류취소결정에 대한 즉시항고에는 집행정지 효력이 없으므로(민집 §286⑦), 별도로 <b>효력정지를 신청</b>하셔야 취소를 막을 수 있습니다(민집 §289①). ② 3번의 <b>회복하기 어려운 손해</b>가 핵심입니다. 채무자에게 다른 재산이 없다거나 처분 정황이 있다는 점을 구체적으로 적으십시오. 법원은 담보를 제공하게 하거나 제공하지 않게 하고 효력을 정지시킬 수 있습니다.</div>
 </details>
 
-<h2>이의신청·제소명령·취소신청 — 무엇이 다른가</h2>
+</div></details>
+<details class="sec" id="s11"><summary>이의신청·제소명령·취소신청 비교<span class="sub">다투는 시점 · 인지액 · 심리방식 · 이해관계인 가능 여부</span></summary>
+<div class="secbody">
 
 <div class="tbwrap">
 <table>
@@ -560,7 +612,8 @@ details.fold[open]>summary::after{content:" ▴";}
 "3년이 지났고, 설령 그렇지 않더라도 이미 변제하였다"처럼 <b>제3호와 제1호를 함께</b> 주장하실 수 있습니다. 하나가 배척되어도 다른 하나로 취소를 받을 수 있으므로, 사정에 맞는 사유는 모두 적어 두시는 편이 유리합니다. 이의신청과 취소신청을 <b>동시에</b> 진행하는 것도 가능합니다.
 </div>
 
-<h2>이런 점은 미리 아셔야 합니다</h2>
+</div></details>
+<h2 id="s12">이런 점은 미리 아셔야 합니다</h2>
 
 <div class="warn">
 <span class="wt">⚠ 불리한 점도 솔직히 말씀드립니다</span>
@@ -575,7 +628,7 @@ details.fold[open]>summary::after{content:" ▴";}
 취소결정이 확정되기 전까지 가압류는 살아 있습니다. 유체동산에 붙은 표시를 떼면 <b>공무상표시무효죄</b>(형법 §140, 5년 이하의 징역 또는 700만원 이하의 벌금)가, 재산을 숨기거나 남의 명의로 돌려놓으면 <span class="term" tabindex="0">강제집행면탈죄<span class="bub">강제집행을 당할 상황에서 재산을 숨기거나 남의 명의로 돌려놓아 채권자에게 손해를 입히는 죄입니다. 형법 제327조에 정해져 있습니다.</span></span>(형법 §327, 3년 이하의 징역 또는 1천만원 이하의 벌금)가 성립할 수 있습니다. 반드시 이 카드에 적힌 법적 절차로 푸십시오.
 </div>
 
-<h2>본 사무소가 도와드리는 일</h2>
+<h2 id="s13">본 사무소가 도와드리는 일</h2>
 
 <div class="hire">
 <p><b>가압류를 당하신 분(채무자·이해관계인)</b> — ① 세 가지 사유 중 어느 것이 유리한지 판단, ② 3년 기산점 확인과 본안 유무 조사, ③ <b>가압류취소 신청서</b> 작성과 증거 정리, ④ 심문기일 대비 서면 준비, ⑤ 취소 후 등기 말소와 <b>담보취소·공탁금 회수</b>까지 전 과정을 함께 준비해 드립니다.</p>
@@ -609,6 +662,24 @@ details.fold[open]>summary::after{content:" ▴";}
       if(e.key==='Escape'){t.classList.remove('on');t.blur();}
     });
   });
+
+  document.querySelectorAll('.toc a').forEach(function(a){
+    a.addEventListener('click',function(){
+      var el=document.querySelector(a.getAttribute('href'));
+      if(el&&el.tagName==='DETAILS')el.open=true;
+    });
+  });
+  var btn=document.getElementById('allBtn');
+  if(btn){
+    function toggleAll(){
+      var ds=document.querySelectorAll('details.sec, details.fold');
+      var opening=btn.textContent.indexOf('펼치기')>-1;
+      ds.forEach(function(d){d.open=opening;});
+      btn.textContent=opening?'전체 접기':'전체 펼치기';
+    }
+    btn.addEventListener('click',toggleAll);
+    btn.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleAll();}});
+  }
   document.addEventListener('click',function(){closeAll(null);});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll(null);});
 })();

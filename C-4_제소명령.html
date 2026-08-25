@@ -65,6 +65,22 @@ th{background:#f0ebe1; font-weight:700; color:#241a10;}
 .flow{margin:16px 0;}
 .flow svg{width:100%; height:auto; display:block;}
 
+details.sec{border:1px solid var(--line); border-radius:11px; margin:18px 0; background:#fff; overflow:hidden;}
+details.sec>summary{cursor:pointer; list-style:none; padding:14px 17px 14px 15px; background:var(--box); border-left:4px solid var(--gold); font-family:'Nanum Myeongjo',serif; font-size:18px; font-weight:700; color:var(--gold-d); line-height:1.55;}
+details.sec>summary::-webkit-details-marker{display:none;}
+details.sec>summary .sub{display:block; font-family:'Pretendard',sans-serif; font-size:13.5px; font-weight:400; color:var(--muted); margin-top:3px;}
+details.sec>summary::after{content:"펼치기 ▾"; float:right; font-family:'Pretendard',sans-serif; font-size:12.5px; font-weight:700; color:var(--gold); background:#fff; border:1px solid var(--line); border-radius:20px; padding:2px 10px; margin-left:8px;}
+details.sec[open]>summary::after{content:"접기 ▴";}
+details.sec>summary:hover{background:#f2ede3;}
+.secbody{padding:4px 17px 16px;}
+.secbody>h3:first-of-type{margin-top:14px;}
+.toc{background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 17px; margin:8px 0 22px;}
+.toc .tct{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:9px;}
+.toc ol{margin:0; padding-left:20px;}
+.toc li{margin:5px 0; font-size:14.5px;}
+.toc a{text-decoration:none; border-bottom:1px dotted var(--gold);}
+.allbtn{display:inline-block; margin-top:11px; font-size:13.5px; font-weight:700; color:var(--gold-d); background:var(--box); border:1px solid var(--line); border-radius:8px; padding:7px 14px; cursor:pointer;}
+.allbtn:hover{background:#f2ede3;}
 details.fold{border:1px solid var(--line); border-radius:10px; margin:12px 0; background:#fff; overflow:hidden;}
 details.fold>summary{cursor:pointer; list-style:none; padding:12px 16px; background:var(--box); font-weight:700; color:var(--gold-d); font-size:15px;}
 details.fold>summary::-webkit-details-marker{display:none;}
@@ -90,6 +106,8 @@ details.fold[open]>summary::after{content:" ▴";}
   .tldr,.warn,.tip,.cost,.lawbox,.hire,.case,.sit{background:#fff !important; border-color:#ccc !important;}
   details.fold{border-color:#ccc;} details.fold>summary{background:#fff;}
   details.fold:not([open])>*{display:block !important;}
+  details.sec:not([open])>*{display:block !important;}
+  details.sec>summary::after{display:none;} .allbtn,.toc{display:none !important;}
   .tbwrap{overflow:visible;} table{min-width:0;}
   .term{border:none; color:inherit; font-weight:inherit;}
   .term>.bub{display:inline !important; position:static; width:auto; background:none; color:inherit; box-shadow:none; padding:0; font-size:inherit;}
@@ -124,7 +142,24 @@ details.fold[open]>summary::after{content:" ▴";}
 </ul>
 </div>
 
-<h2>지금 어떤 상황인가요</h2>
+<div class="toc">
+<div class="tct">이 카드에 담긴 것 — 필요한 곳만 펼쳐 보십시오</div>
+<ol>
+<li><a href="#s1">지금 어떤 상황인가요</a></li>
+<li><a href="#s2">핵심 세 가지</a></li>
+<li><a href="#s3">관련 법령 6개</a></li>
+<li><a href="#s4">판례 5건 — 소를 취하하면 처음부터 안 낸 것</a></li>
+<li><a href="#s5">절차 전 과정</a></li>
+<li><a href="#s6">준비할 서류 6가지 — 어디서 떼나</a></li>
+<li><a href="#s7">비용 상세표 — 두 단계 합쳐 인지 11,000원</a></li>
+<li><a href="#s8">기한 정리 — 놓치면 안 되는 날짜</a></li>
+<li><a href="#s9">서류 작성례 3가지 — 빈칸만 채우면 됩니다</a></li>
+<li><a href="#s10">양쪽이 각각 조심할 것 — 흔한 실수 5가지</a></li>
+<li><a href="#s11">본 사무소가 도와드리는 일</a></li>
+</ol>
+<span class="allbtn" id="allBtn" role="button" tabindex="0">전체 펼치기</span>
+</div>
+<h2 id="s1">지금 어떤 상황인가요</h2>
 
 <div class="sit">
 <span class="st">상황 ① · 몇 달째 가압류만 걸려 있고 소장은 오지 않는 분</span>
@@ -141,7 +176,7 @@ details.fold[open]>summary::after{content:" ▴";}
 <b>이의신청</b>(민집 §283)은 "가압류 자체가 잘못됐다"고 다투는 것이고, <b>해방공탁</b>(민집 §282)은 돈을 맡기고 집행을 푸는 것입니다. <b>제소명령</b>은 둘과 달리 <b>채권자를 움직이게 만드는</b> 수단입니다. 셋은 함께 진행할 수 있습니다. 급하면 해방공탁으로 먼저 집행을 풀고, 동시에 제소명령으로 채권자를 압박하는 방법이 실무에서 자주 쓰입니다.
 </div>
 
-<h2>핵심 세 가지</h2>
+<h2 id="s2">핵심 세 가지</h2>
 
 <p><b>첫째, 반드시 두 번 신청해야 합니다.</b> 제소명령이 내려졌다고 가압류가 풀리는 것이 아닙니다. 채권자가 기간을 넘겨야 비로소 <b>가압류취소를 따로 신청</b>할 수 있고, 그 신청이 있어야 법원이 취소합니다. 기간이 지났다고 저절로 풀리지 않습니다.</p>
 
@@ -149,7 +184,8 @@ details.fold[open]>summary::after{content:" ▴";}
 
 <p><b>셋째, 채무자에게 입증 부담이 거의 없습니다.</b> 소명할 것은 가압류가 발령되었다는 사실뿐입니다. "채권자가 소송을 안 걸고 있다"는 소극적 사실을 증명할 필요가 없다는 점이, 이 제도를 다른 방어수단보다 쉽게 만듭니다.</p>
 
-<h2>관련 법령 — 쉬운 풀이</h2>
+<details class="sec" id="s3"><summary>관련 법령 6개<span class="sub">민집 §287 제소명령 · 2주 이상 · 취소 의무 · 소 취하 시 효력</span></summary>
+<div class="secbody">
 
 <div class="lawbox">
 <span class="ll">민집 §287①</span><b>제소명령</b> — 가압류법원은 채무자의 신청에 따라 <b>변론 없이</b> 채권자에게 상당한 기간 이내에 본안의 소를 제기하여 이를 증명하는 서류를 제출하거나, 이미 소를 제기하였으면 소송계속사실을 증명하는 서류를 제출하도록 <b>명하여야</b> 합니다. → <i>심문기일 없이 서류만으로 결정됩니다.</i>
@@ -170,7 +206,9 @@ details.fold[open]>summary::after{content:" ▴";}
 <span class="ll">민집 §301</span><b>가처분에도 준용</b> — 제소명령은 가압류뿐 아니라 <b>가처분</b>에도 그대로 적용됩니다.
 </div>
 
-<h2>판례는 이렇게 말합니다</h2>
+</div></details>
+<details class="sec" id="s4"><summary>판례 5건 — 소를 취하하면 처음부터 안 낸 것<span class="sub">대법원 2008마332 · 헌재 2013헌바74 · 2003마1209 · 2003마793</span></summary>
+<div class="secbody">
 
 <div class="case">
 <span class="cn">대법원 2008. 7. 10.자 2008마332 결정 — 소를 취하하면 처음부터 안 낸 것으로 봅니다</span>
@@ -191,7 +229,8 @@ details.fold[open]>summary::after{content:" ▴";}
 <b>하급심 사례</b> <span class="chk">B등급</span> — 제소기간을 <b>2주보다 짧게</b> 정한 제소명령은 민사집행법 §287②에 반하여 무효로 본 사례가 있습니다(울산지방법원). 결정문에 적힌 기간이 2주 미만이라면 다투어 볼 여지가 있습니다.
 </div>
 
-<h2>절차 전 과정</h2>
+</div></details>
+<h2 id="s5">절차 전 과정</h2>
 
 <div class="flow">
 <svg viewBox="0 0 700 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="제소명령 및 가압류취소 절차 흐름도">
@@ -244,7 +283,8 @@ details.fold[open]>summary::after{content:" ▴";}
 </svg>
 </div>
 
-<h2>첨부서류와 발급처</h2>
+<details class="sec" id="s6"><summary>준비할 서류 6가지 — 어디서 떼나<span class="sub">결정문 · 등기사항증명서 · 나의 사건검색 · 외국인 서류 (딥링크 포함)</span></summary>
+<div class="secbody">
 
 <div class="tbwrap">
 <table>
@@ -265,7 +305,9 @@ details.fold[open]>summary::after{content:" ▴";}
 외국인은 <b>외국인등록번호</b>(또는 국내거소신고번호)와 <b>외국인등록사실증명</b>으로 인적사항을 갈음합니다. <a href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a>에서 발급받으십시오.<span style="font-size:12.5px;color:var(--muted)"> 경로: 검색창에 '외국인등록사실증명' 입력 → 발급</span> 국내 등록이 없으면 여권 사본과 번역문(번역자 확인서 첨부)이 필요합니다. 법인은 <a href="http://www.iros.go.kr" target="_blank" rel="noopener">인터넷등기소</a>에서 법인등기사항증명서를 발급받습니다.<span style="font-size:12.5px;color:var(--muted)"> 경로: 등기열람/발급 → 법인 → 열람/발급하기 → 상호 검색</span>
 </div>
 
-<h2>비용 — 두 단계로 나누어 듭니다</h2>
+</div></details>
+<details class="sec" id="s7"><summary>비용 상세표 — 두 단계 합쳐 인지 11,000원<span class="sub">① 제소명령 1,000원 ② 가압류취소 10,000원 + 송달료</span></summary>
+<div class="secbody">
 
 <div class="tbwrap">
 <table>
@@ -285,7 +327,9 @@ details.fold[open]>summary::after{content:" ▴";}
 <span class="calc">※ 송달료는 당사자 수에 따라 달라집니다. <a href="https://sanlaw.co.kr/tools-calculator.html">수수료 계산기</a>에서 확인하시고, 공단의 <a href="https://www.klac.or.kr/legalstruct/conservationCase3.do" target="_blank" rel="noopener">보전사건 비용 자동계산</a>도 함께 이용하십시오.</span>
 </div>
 
-<h2>기간 계산 — 놓치면 안 됩니다</h2>
+</div></details>
+<details class="sec" id="s8"><summary>기한 정리 — 놓치면 안 되는 날짜<span class="sub">채권자 이행기간 2주 이상 · 즉시항고 1주 · 신청 자체는 기한 없음</span></summary>
+<div class="secbody">
 
 <div class="tbwrap">
 <table>
@@ -303,7 +347,9 @@ details.fold[open]>summary::after{content:" ▴";}
 제소명령을 받으셨다면 <b>소 제기</b>와 <b>증명서류 제출</b>을 <u>둘 다</u> 기간 안에 마치셔야 합니다. 소만 걸고 증명서류를 늦게 내면 가압류는 취소됩니다(대법원 2003마1209 결정). 기간이 촉박하다면 <b>소장 접수 즉시 접수증명원을 발급받아</b> 곧바로 제출하십시오. 전자소송으로 접수하시면 접수증명을 바로 출력하실 수 있습니다.
 </div>
 
-<h2>서류 작성례</h2>
+</div></details>
+<details class="sec" id="s9"><summary>서류 작성례 3가지 — 빈칸만 채우면 됩니다<span class="sub">제소명령 신청서 · 가압류취소 신청서 · 채권자용 소제기증명원</span></summary>
+<div class="secbody">
 
 <h3>채무자(가압류를 당한 쪽)가 쓰는 서류</h3>
 
@@ -447,7 +493,9 @@ details.fold[open]>summary::after{content:" ▴";}
 <div class="fnote"><b>채권자께서 반드시 지키셔야 할 세 가지</b> · ① <b>기간 안에 제출</b>하십시오. 하루라도 넘기면 가압류가 취소됩니다. ② 본안의 소는 <b>가압류의 피보전권리와 같은 채권</b>이어야 합니다. 다른 채권으로 소를 걸면 제소명령에 응한 것으로 보기 어렵습니다. ③ 제출한 뒤 그 소를 <b>취하하지 마십시오.</b> 취하하면 처음부터 내지 않은 것으로 봅니다(민집 §287④, 대법원 2008마332 결정). 청구를 바꾸실 일이 있으면 취하 대신 <b>청구취지·청구원인 변경</b>으로 처리하십시오.</div>
 </details>
 
-<h2>채무자·채권자가 각각 조심할 것</h2>
+</div></details>
+<details class="sec" id="s10"><summary>양쪽이 각각 조심할 것 — 흔한 실수 5가지<span class="sub">두 번째 신청 누락 · 증명서류 제출 누락 · 가처분 준용</span></summary>
+<div class="secbody">
 
 <div class="tbwrap">
 <table>
@@ -472,7 +520,8 @@ details.fold[open]>summary::after{content:" ▴";}
 가압류가 아직 살아 있는 동안 유체동산에 붙은 표시를 떼면 <b>공무상표시무효죄</b>(형법 §140, 5년 이하의 징역 또는 700만원 이하의 벌금)가 성립할 수 있습니다. 재산을 숨기거나 남의 명의로 돌려놓으면 <span class="term" tabindex="0">강제집행면탈죄<span class="bub">강제집행을 당할 상황에서 재산을 숨기거나 남의 명의로 돌려놓아 채권자에게 손해를 입히는 죄입니다. 형법 제327조에 정해져 있습니다.</span></span>(형법 §327, 3년 이하의 징역 또는 1천만원 이하의 벌금)로 처벌될 수 있습니다. 반드시 이 카드에 적힌 법적 절차로 푸십시오.
 </div>
 
-<h2>본 사무소가 도와드리는 일</h2>
+</div></details>
+<h2 id="s11">본 사무소가 도와드리는 일</h2>
 
 <div class="hire">
 <p><b>가압류를 당하신 분(채무자)</b> — ① 제소명령이 유리한지 이의신청·해방공탁이 유리한지 판단, ② <b>제소명령 신청서</b> 작성, ③ 제소명령 송달증명원 등 증거 확보, ④ 기간 도과 시 <b>가압류취소 신청서</b> 작성, ⑤ 해방공탁을 하셨다면 취소결정 후 <b>공탁금 회수청구</b>까지 전 과정을 함께 준비해 드립니다.</p>
@@ -506,6 +555,24 @@ details.fold[open]>summary::after{content:" ▴";}
       if(e.key==='Escape'){t.classList.remove('on');t.blur();}
     });
   });
+
+  document.querySelectorAll('.toc a').forEach(function(a){
+    a.addEventListener('click',function(){
+      var el=document.querySelector(a.getAttribute('href'));
+      if(el&&el.tagName==='DETAILS')el.open=true;
+    });
+  });
+  var btn=document.getElementById('allBtn');
+  if(btn){
+    function toggleAll(){
+      var ds=document.querySelectorAll('details.sec, details.fold');
+      var opening=btn.textContent.indexOf('펼치기')>-1;
+      ds.forEach(function(d){d.open=opening;});
+      btn.textContent=opening?'전체 접기':'전체 펼치기';
+    }
+    btn.addEventListener('click',toggleAll);
+    btn.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleAll();}});
+  }
   document.addEventListener('click',function(){closeAll(null);});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll(null);});
 })();

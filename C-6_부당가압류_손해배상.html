@@ -65,6 +65,22 @@ th{background:#f0ebe1; font-weight:700; color:#241a10;}
 .flow{margin:16px 0;}
 .flow svg{width:100%; height:auto; display:block;}
 
+details.sec{border:1px solid var(--line); border-radius:11px; margin:18px 0; background:#fff; overflow:hidden;}
+details.sec>summary{cursor:pointer; list-style:none; padding:14px 17px 14px 15px; background:var(--box); border-left:4px solid var(--gold); font-family:'Nanum Myeongjo',serif; font-size:18px; font-weight:700; color:var(--gold-d); line-height:1.55;}
+details.sec>summary::-webkit-details-marker{display:none;}
+details.sec>summary .sub{display:block; font-family:'Pretendard',sans-serif; font-size:13.5px; font-weight:400; color:var(--muted); margin-top:3px;}
+details.sec>summary::after{content:"펼치기 ▾"; float:right; font-family:'Pretendard',sans-serif; font-size:12.5px; font-weight:700; color:var(--gold); background:#fff; border:1px solid var(--line); border-radius:20px; padding:2px 10px; margin-left:8px;}
+details.sec[open]>summary::after{content:"접기 ▴";}
+details.sec>summary:hover{background:#f2ede3;}
+.secbody{padding:4px 17px 16px;}
+.secbody>h3:first-of-type{margin-top:14px;}
+.toc{background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 17px; margin:8px 0 22px;}
+.toc .tct{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:9px;}
+.toc ol{margin:0; padding-left:20px;}
+.toc li{margin:5px 0; font-size:14.5px;}
+.toc a{text-decoration:none; border-bottom:1px dotted var(--gold);}
+.allbtn{display:inline-block; margin-top:11px; font-size:13.5px; font-weight:700; color:var(--gold-d); background:var(--box); border:1px solid var(--line); border-radius:8px; padding:7px 14px; cursor:pointer;}
+.allbtn:hover{background:#f2ede3;}
 details.fold{border:1px solid var(--line); border-radius:10px; margin:12px 0; background:#fff; overflow:hidden;}
 details.fold>summary{cursor:pointer; list-style:none; padding:12px 16px; background:var(--box); font-weight:700; color:var(--gold-d); font-size:15px;}
 details.fold>summary::-webkit-details-marker{display:none;}
@@ -90,6 +106,8 @@ details.fold[open]>summary::after{content:" ▴";}
   .tldr,.warn,.tip,.cost,.lawbox,.hire,.case,.sit{background:#fff !important; border-color:#ccc !important;}
   details.fold{border-color:#ccc;} details.fold>summary{background:#fff;}
   details.fold:not([open])>*{display:block !important;}
+  details.sec:not([open])>*{display:block !important;}
+  details.sec>summary::after{display:none;} .allbtn,.toc{display:none !important;}
   .tbwrap{overflow:visible;} table{min-width:0;}
   .term{border:none; color:inherit; font-weight:inherit;}
   .term>.bub{display:inline !important; position:static; width:auto; background:none; color:inherit; box-shadow:none; padding:0; font-size:inherit;}
@@ -124,7 +142,25 @@ details.fold[open]>summary::after{content:" ▴";}
 </ul>
 </div>
 
-<h2>지금 어떤 상황인가요</h2>
+<div class="toc">
+<div class="tct">이 카드에 담긴 것 — 필요한 곳만 펼쳐 보십시오</div>
+<ol>
+<li><a href="#s1">지금 어떤 상황인가요</a></li>
+<li><a href="#s2">핵심 세 가지</a></li>
+<li><a href="#s3">관련 법령 5개</a></li>
+<li><a href="#s4">판례 4건 — 추정은 되지만 전액은 아닐 수 있습니다</a></li>
+<li><a href="#s5">인정되는 손해 6가지 — 무엇으로 증명하나</a></li>
+<li><a href="#s6">절차 전 과정</a></li>
+<li><a href="#s7">준비할 서류 6가지 — 어디서 떼나</a></li>
+<li><a href="#s8">비용 — 청구금액(소가)에 따라 달라집니다</a></li>
+<li><a href="#s9">기한 정리 — 미루면 권리를 잃습니다</a></li>
+<li><a href="#s10">서류 작성례 3가지 — 빈칸만 채우면 됩니다</a></li>
+<li><a href="#s11">불리한 점 5가지 — 솔직히 말씀드립니다</a></li>
+<li><a href="#s12">본 사무소가 도와드리는 일</a></li>
+</ol>
+<span class="allbtn" id="allBtn" role="button" tabindex="0">전체 펼치기</span>
+</div>
+<h2 id="s1">지금 어떤 상황인가요</h2>
 
 <div class="sit">
 <span class="st">상황 ① · 가압류 때문에 계약이 깨진 분</span>
@@ -136,7 +172,7 @@ details.fold[open]>summary::after{content:" ▴";}
 거래처에 가압류 통지가 가서 거래가 끊겼거나, 계좌가 막혀 임금·자재대금을 지급하지 못해 영업이 중단된 경우. 신용등급이 떨어져 금융거래가 제한된 경우도 포함됩니다. → <b>매출 감소분과 추가로 든 비용</b>이 손해가 됩니다.
 </div>
 
-<h2>핵심 세 가지</h2>
+<h2 id="s2">핵심 세 가지</h2>
 
 <p><b>첫째, 증명 부담이 채권자에게 넘어갑니다.</b> 보전처분은 법원의 재판으로 집행되지만, 실체적 권리가 있는지는 본안에 맡기고 <b>소명만으로 채권자의 책임 아래</b> 이루어집니다. 그래서 본안에서 패소가 확정되면 고의·과실이 <b>추정</b>되고, 채권자가 반증을 들어 이를 뒤집어야 합니다.</p>
 
@@ -144,7 +180,8 @@ details.fold[open]>summary::after{content:" ▴";}
 
 <p><b>셋째, 손해액 증명이 가장 어렵습니다.</b> 고의·과실은 추정되지만 <b>손해의 발생과 액수</b>는 채무자가 증명해야 합니다. 무산된 계약서, 해제 통지서, 이자 명세, 전후 매출 비교 자료를 미리 모아두셔야 합니다.</p>
 
-<h2>관련 법령 — 쉬운 풀이</h2>
+<details class="sec" id="s3"><summary>관련 법령 5개<span class="sub">민 §750 불법행위 · §766 시효 · 민소 §123 질권자와 동일한 권리</span></summary>
+<div class="secbody">
 
 <div class="lawbox">
 <span class="ll">민 §750</span><b>불법행위의 내용</b> — 고의 또는 과실로 인한 위법행위로 타인에게 손해를 가한 자는 그 손해를 배상할 책임이 있습니다. → <i>부당한 가압류 집행이 여기에 해당합니다.</i>
@@ -162,7 +199,9 @@ details.fold[open]>summary::after{content:" ▴";}
 <span class="ll">민집 §280②·③</span><b>담보제공</b> — 법원은 가압류로 생길 수 있는 채무자의 손해에 대하여 <b>담보를 제공하게 하고</b> 가압류를 명할 수 있습니다. → <i>바로 이 담보가 나중에 배상의 재원이 됩니다.</i>
 </div>
 
-<h2>판례는 이렇게 말합니다</h2>
+</div></details>
+<details class="sec" id="s4"><summary>판례 4건 — 추정은 되지만 전액은 아닐 수 있습니다<span class="sub">대법원 2020다242935(책임제한) · 2003다19183(담보 우선변제)</span></summary>
+<div class="secbody">
 
 <div class="case">
 <span class="cn">대법원 2023. 6. 1. 선고 2020다242935 판결 — 추정은 되지만 전액은 아닐 수 있습니다</span>
@@ -182,7 +221,9 @@ details.fold[open]>summary::after{content:" ▴";}
 <b>대법원 1992. 9. 25. 선고 92다8453 판결</b> — 본안 패소 확정 시 고의·과실을 추정하는 법리를 세운 판결입니다. 위 2020다242935 판결이 이 법리를 재확인하면서 <b>책임제한 법리를 더했습니다.</b>
 </div>
 
-<h2>어떤 손해가 인정되나</h2>
+</div></details>
+<details class="sec" id="s5"><summary>인정되는 손해 6가지 — 무엇으로 증명하나<span class="sub">계약 무산 · 금융비용 · 영업손실 · 추가지출 · 정신적 손해</span></summary>
+<div class="secbody">
 
 <div class="tbwrap">
 <table>
@@ -203,7 +244,8 @@ details.fold[open]>summary::after{content:" ▴";}
 "가압류가 없었다면 그 손해가 없었을 것"이라는 <b>연결고리</b>를 밝히셔야 합니다. 예를 들어 매출이 줄었더라도 <b>경기 침체나 다른 사정</b> 때문이라는 반박이 나옵니다. 그래서 가압류가 걸린 <b>바로 그 계좌·부동산</b>과 손해 사이의 직접적인 연결을 보여주는 자료가 필요합니다. 매수인의 <b>해제 통지서에 가압류가 이유로 적혀 있는 것</b>이 가장 강력한 증거입니다.
 </div>
 
-<h2>절차 전 과정</h2>
+</div></details>
+<h2 id="s6">절차 전 과정</h2>
 
 <div class="flow">
 <svg viewBox="0 0 700 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="부당가압류 손해배상 및 담보권 실행 절차 흐름도">
@@ -256,7 +298,8 @@ details.fold[open]>summary::after{content:" ▴";}
 </svg>
 </div>
 
-<h2>첨부서류와 발급처</h2>
+<details class="sec" id="s7"><summary>준비할 서류 6가지 — 어디서 떼나<span class="sub">판결정본·확정증명원 · 공탁사실증명 · 매출자료 (딥링크 포함)</span></summary>
+<div class="secbody">
 
 <div class="tbwrap">
 <table>
@@ -277,7 +320,9 @@ details.fold[open]>summary::after{content:" ▴";}
 외국인은 <b>외국인등록번호</b>(또는 국내거소신고번호)와 <b>외국인등록사실증명</b>으로 인적사항을 갈음합니다. <a href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a>에서 발급받으십시오.<span style="font-size:12.5px;color:var(--muted)"> 경로: 검색창에 '외국인등록사실증명' 입력 → 발급</span> 국내 등록이 없으면 여권 사본과 번역문(번역자 확인서 첨부)이 필요합니다. 법인은 <a href="http://www.iros.go.kr" target="_blank" rel="noopener">인터넷등기소</a>에서 법인등기사항증명서를 발급받습니다.<span style="font-size:12.5px;color:var(--muted)"> 경로: 등기열람/발급 → 법인 → 열람/발급하기 → 상호 검색</span>
 </div>
 
-<h2>비용 — 청구금액에 따라 달라집니다</h2>
+</div></details>
+<details class="sec" id="s8"><summary>비용 — 청구금액(소가)에 따라 달라집니다<span class="sub">본안소송이라 정액이 아닙니다 · 소송구조 제도 안내 포함</span></summary>
+<div class="secbody">
 
 <p>손해배상청구는 정액 신청이 아니라 <b>본안소송</b>입니다. 인지액은 청구하는 금액(<span class="term" tabindex="0">소가<span class="bub">소송으로 얻으려는 이익을 돈으로 환산한 금액입니다. 손해배상청구에서는 청구하는 손해액이 소가가 됩니다.</span></span>)에 따라 정해집니다.</p>
 
@@ -300,7 +345,9 @@ details.fold[open]>summary::after{content:" ▴";}
 <span class="calc">※ 인지액·송달료는 청구금액에 따라 크게 달라집니다. <a href="https://sanlaw.co.kr/tools-calculator.html">수수료 계산기</a>에서 소가를 넣어 확인하십시오.</span>
 </div>
 
-<h2>소멸시효 — 미루면 권리를 잃습니다</h2>
+</div></details>
+<details class="sec" id="s9"><summary>기한 정리 — 미루면 권리를 잃습니다<span class="sub">안 날부터 3년 · 불법행위일부터 10년 (민 §766)</span></summary>
+<div class="secbody">
 
 <div class="tbwrap">
 <table>
@@ -317,7 +364,9 @@ details.fold[open]>summary::after{content:" ▴";}
 시효가 완성되어도 채권이 저절로 없어지는 것이 아니라, <b>상대방이 시효완성을 주장(원용)해야</b> 비로소 청구가 배척됩니다. 또 상대방이 시효완성을 알면서 채무를 인정하는 등 <b>시효의 이익을 포기</b>하였다면 다시 청구할 수 있습니다. 다만 이는 기대할 일이 아니므로, <b>본안에서 이기신 뒤 곧바로 준비</b>하시는 것이 안전합니다.
 </div>
 
-<h2>서류 작성례</h2>
+</div></details>
+<details class="sec" id="s10"><summary>서류 작성례 3가지 — 빈칸만 채우면 됩니다<span class="sub">손해배상 소장 · 담보권 실행 추심명령 · 채권자용 답변서</span></summary>
+<div class="secbody">
 
 <h3>채무자(가압류를 당한 쪽)가 쓰는 서류</h3>
 
@@ -524,7 +573,9 @@ details.fold[open]>summary::after{content:" ▴";}
 <div class="fnote"><b>채권자께서 다툴 수 있는 세 갈래입니다</b> · ① <b>추정의 번복</b> — 가압류 신청 당시 채권의 존재를 믿을 만한 객관적 근거가 있었음을 밝힙니다. 특히 <b>1심에서는 이겼다가 항소심에서 뒤집힌 경우</b>가 유력한 사정입니다. ② <b>인과관계 부존재</b> — 원고의 손해가 가압류가 아닌 다른 원인에서 비롯되었음을 자료로 반박합니다. ③ <b>책임제한</b> — 판단이 갈린 경위와 난이도를 들어 배상 범위를 줄입니다. 책임제한 비율은 사실심의 전권사항이므로, <b>1심·2심 단계에서 충실히 주장</b>하셔야 합니다.</div>
 </details>
 
-<h2>이런 점은 미리 아셔야 합니다</h2>
+</div></details>
+<details class="sec" id="s11"><summary>불리한 점 5가지 — 솔직히 말씀드립니다<span class="sub">본안 승소 전제 · 책임제한 · 손해액 증명 · 담보 한도</span></summary>
+<div class="secbody">
 
 <div class="warn">
 <span class="wt">⚠ 불리한 점도 솔직히 말씀드립니다</span>
@@ -540,7 +591,8 @@ details.fold[open]>summary::after{content:" ▴";}
 가압류는 신속하고 강력한 수단이지만, <b>본안에서 지면 그 자체가 불법행위가 됩니다.</b> 특히 <b>청구금액을 부풀려</b> 신청하시면 권리가 없다고 확인된 부분만큼 배상책임을 지게 됩니다. 신청 전에 채권의 근거를 객관적으로 점검하시고, <b>금액도 입증 가능한 범위로</b> 잡으십시오. 그것이 결국 채권자를 지키는 길입니다.
 </div>
 
-<h2>본 사무소가 도와드리는 일</h2>
+</div></details>
+<h2 id="s12">본 사무소가 도와드리는 일</h2>
 
 <div class="hire">
 <p><b>부당한 가압류로 손해를 보신 분</b> — ① 손해배상 청구가 가능한 사안인지 판단(본안 확정 여부·추정 작동 여부), ② 손해 항목별 자료 정리와 <b>손해액 산정</b>, ③ <b>손해배상청구 소장</b> 작성, ④ 채권자가 맡긴 <b>담보의 확인</b>과 담보권 실행을 위한 <b>채권압류 및 추심명령 신청서</b> 작성, ⑤ <b>담보취소 신청</b>과 공탁금 회수, ⑥ 담보를 넘는 부분에 대한 재산명시·재산조회까지 함께 준비해 드립니다.</p>
@@ -574,6 +626,24 @@ details.fold[open]>summary::after{content:" ▴";}
       if(e.key==='Escape'){t.classList.remove('on');t.blur();}
     });
   });
+
+  document.querySelectorAll('.toc a').forEach(function(a){
+    a.addEventListener('click',function(){
+      var el=document.querySelector(a.getAttribute('href'));
+      if(el&&el.tagName==='DETAILS')el.open=true;
+    });
+  });
+  var btn=document.getElementById('allBtn');
+  if(btn){
+    function toggleAll(){
+      var ds=document.querySelectorAll('details.sec, details.fold');
+      var opening=btn.textContent.indexOf('펼치기')>-1;
+      ds.forEach(function(d){d.open=opening;});
+      btn.textContent=opening?'전체 접기':'전체 펼치기';
+    }
+    btn.addEventListener('click',toggleAll);
+    btn.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleAll();}});
+  }
   document.addEventListener('click',function(){closeAll(null);});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll(null);});
 })();
