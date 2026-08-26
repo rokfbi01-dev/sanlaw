@@ -208,13 +208,15 @@
 <div id="leadGate" style="position:fixed;inset:0;z-index:99999;background:linear-gradient(135deg,#2a2118,#3a2f22);display:none;align-items:flex-start;justify-content:center;padding:20px;overflow:auto;font-family:'맑은 고딕','Malgun Gothic',sans-serif;">
   <div style="max-width:480px;width:100%;margin:auto;background:#fbf8f1;border:1px solid #e0d6c2;border-radius:14px;padding:32px 28px;box-shadow:0 20px 50px rgba(0,0,0,.45);">
     <div style="text-align:center;font-size:13px;letter-spacing:3px;color:#a86b1f;font-weight:700;">산 법무사 · 행정사 사무소</div>
-    <h2 style="margin:10px 0 6px;font-size:21px;color:#2a2118;text-align:center;">수수료 계산기 · 상담 신청</h2>
-    <p style="margin:0 0 18px;font-size:13.5px;color:#6b5d49;line-height:1.6;text-align:center;">선택하신 계산을 이용하시려면 <b>간단한 상담 신청</b> 후 바로 사용하실 수 있습니다.<br>남겨주신 내용은 상담 안내에만 사용됩니다.</p>
+    <h2 style="margin:10px 0 6px;font-size:21px;color:#2a2118;text-align:center;">견적서 저장 · 상담 신청</h2>
+    <p style="margin:0 0 18px;font-size:13.5px;color:#6b5d49;line-height:1.6;text-align:center;"><b>계산기는 신청 없이 자유롭게</b> 쓰실 수 있습니다.<br>계산 결과를 <b>엑셀 견적서로 저장</b>하실 때만 아래를 남겨 주십시오.<br>남겨주신 내용은 상담 안내에만 사용하고 <b>7일 후 파기</b>합니다.</p>
     <!-- 카카오톡 바로 상담 -->
     <a href="https://pf.kakao.com/_znJqX/chat" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:15px;margin:4px 0 14px;background:#FEE500;color:#3c1e1e;font-size:15.5px;font-weight:700;border-radius:8px;text-decoration:none;box-sizing:border-box;">💬 카카오톡으로 바로 상담</a>
-    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;color:#a99878;font-size:12.5px;"><span style="flex:1;height:1px;background:#e0d6c2;"></span>또는 아래 폼으로 문의 남기기<span style="flex:1;height:1px;background:#e0d6c2;"></span></div>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;color:#a99878;font-size:12.5px;"><span style="flex:1;height:1px;background:#e0d6c2;"></span>또는 아래 폼을 남기고 견적서 받기<span style="flex:1;height:1px;background:#e0d6c2;"></span></div>
     <form id="leadForm" onsubmit="return submitLead(event)">
       <input type="hidden" name="_subject" value="[홈페이지] 수수료 계산기 상담 신청">
+      <!-- 자동 프로그램(봇) 거르기 — 사람 눈에는 보이지 않는 칸이다. 값이 채워져 오면 봇으로 본다. -->
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
       <input name="이름" id="lf_name" type="text" placeholder="이름 *" required style="width:100%;padding:13px 14px;margin-bottom:10px;font-size:15.5px;border:1.5px solid #cfc2a8;border-radius:8px;box-sizing:border-box;outline:none;">
       <input name="연락처" id="lf_phone" type="tel" placeholder="연락처 (휴대폰) *" required style="width:100%;padding:13px 14px;margin-bottom:10px;font-size:15.5px;border:1.5px solid #cfc2a8;border-radius:8px;box-sizing:border-box;outline:none;">
       <input name="email" id="lf_email" type="email" placeholder="이메일 (회신용) *" required style="width:100%;padding:13px 14px;margin-bottom:10px;font-size:15.5px;border:1.5px solid #cfc2a8;border-radius:8px;box-sizing:border-box;outline:none;">
@@ -232,9 +234,9 @@
         <span>(필수) 상담 접수·안내를 위해 <b>성명·연락처·이메일·상담내용</b>을 수집·이용하는 데 동의합니다. 수집한 정보는 <b>접수일로부터 7일(일주일) 후 파기</b>하며, 동의를 거부하실 수 있으나 거부 시 상담 신청이 제한됩니다.</span>
       </label>
       <div id="lf_err" style="display:none;color:#b3261e;font-size:13px;margin:6px 0;"></div>
-      <button id="lf_btn" type="submit" style="margin-top:10px;width:100%;padding:13px;background:#a86b1f;color:#fff;border:none;border-radius:8px;font-size:16px;font-weight:700;cursor:pointer;">신청하고 계산기 사용하기</button>
+      <button id="lf_btn" type="submit" style="margin-top:10px;width:100%;padding:13px;background:#a86b1f;color:#fff;border:none;border-radius:8px;font-size:16px;font-weight:700;cursor:pointer;">신청하고 견적서 저장하기</button>
     </form>
-    <div style="margin-top:16px;padding-top:13px;border-top:1px solid #ece3d2;font-size:12.5px;color:#8a7c66;text-align:center;line-height:1.6;">제출 즉시 계산기가 열립니다. 계산 결과는 개산(예상) 금액이며, 정확한 견적은 상담을 통해 안내드립니다.<br><a href="javascript:void(0)" onclick="closeLeadGate()" style="display:inline-block;margin-top:8px;color:#6b5d49;font-weight:700;text-decoration:none;">✕ 닫고 메뉴 계속 보기</a>　·　<a href="index.html" style="color:#a86b1f;font-weight:700;text-decoration:none;">사무소 홈 →</a></div>
+    <div style="margin-top:16px;padding-top:13px;border-top:1px solid #ece3d2;font-size:12.5px;color:#8a7c66;text-align:center;line-height:1.6;">제출 즉시 견적서가 저장되고, 이후 <b>12시간 동안</b>은 다시 묻지 않습니다.<br>계산 결과는 개산(예상) 금액이며, 정확한 견적은 상담을 통해 안내드립니다.<br><a href="javascript:void(0)" onclick="closeLeadGate()" style="display:inline-block;margin-top:8px;color:#6b5d49;font-weight:700;text-decoration:none;">✕ 닫고 메뉴 계속 보기</a>　·　<a href="index.html" style="color:#a86b1f;font-weight:700;text-decoration:none;">사무소 홈 →</a></div>
   </div>
 </div>
 <script>
@@ -254,14 +256,87 @@
   function showGate(cb){
     pending=cb||null;
     var g=document.getElementById('leadGate'); if(g)g.style.display='flex'; HTML.style.overflow='hidden';
-    var b=document.getElementById('lf_btn'); if(b){b.disabled=false;b.textContent='신청하고 계산기 사용하기';}
+    var b=document.getElementById('lf_btn'); if(b){b.disabled=false;b.textContent='신청하고 견적서 저장하기';}
     var er=document.getElementById('lf_err'); if(er)er.style.display='none';
+    try{ window._leadShownAt=Date.now(); }catch(e){}
     setTimeout(function(){var i=document.getElementById('lf_name'); if(i)i.focus();},120);
   }
   window.calcUnlocked=unlocked;
   window.requireUnlock=function(cb){ if(unlocked()){ cb&&cb(); } else { showGate(cb); } };
   window.closeLeadGate=function(){ hideGate(); pending=null; };
-  function showErr(m){var e=document.getElementById('lf_err'); e.textContent=m; e.style.display='block';}
+  function showErr(m){var e=document.getElementById('lf_err'); e.innerHTML=m; e.style.display='block';}
+
+  /* ───────── 장난·오기입 거르기 ─────────
+     2026-08 신설. 종전에는 빈칸 검사와 이메일 「@」 확인만 있어,
+     「:&&:&」 같은 이름이나 「Xndjdndjdndkddndkddnddn」 같은 내용이 그대로 접수되었다.
+     ※ 형식이 맞는 가짜(존재하지 않는 번호·도메인)까지는 본인확인 없이 걸러낼 수 없다.
+       여기서는 「사람이 실제로 쓴 글로 보이는가」를 기준으로 거른다. */
+
+  /* 같은 글자가 n번 넘게 이어지는가 — 「nnnnn」 「ㅋㅋㅋㅋㅋ」 */
+  function _repeated(t,n){ var c=1; for(var i=1;i<t.length;i++){ if(t[i]===t[i-1]){ if(++c>n) return true; } else c=1; } return false; }
+  /* 두 낱말이 얼마나 다른가 (레벤슈타인 거리) — 흔한 도메인 오타를 짚어 주기 위함 */
+  function _dist(a,b){
+    var m=a.length,n=b.length,d=[],i,j;
+    for(i=0;i<=m;i++){ d[i]=[i]; }
+    for(j=0;j<=n;j++){ d[0][j]=j; }
+    for(i=1;i<=m;i++) for(j=1;j<=n;j++)
+      d[i][j]=Math.min(d[i-1][j]+1, d[i][j-1]+1, d[i-1][j-1]+(a[i-1]===b[j-1]?0:1));
+    return d[m][n];
+  }
+  var _DOMAINS=['naver.com','gmail.com','daum.net','hanmail.net','kakao.com','nate.com',
+                'outlook.com','hotmail.com','yahoo.com','icloud.com','korea.kr','gmail.co.kr'];
+
+  function leadCheck(name,phone,email,msg){
+    /* ── 이름 : 한글·영문만. 특수문자와 숫자는 받지 않는다 */
+    if(!/^[가-힣a-zA-Z][가-힣a-zA-Z\s·.]{0,29}$/.test(name))
+      return '<b>이름</b>을 한글 또는 영문으로 정확히 적어 주세요. <span style="color:#8a7c66;">(특수문자·숫자는 넣을 수 없습니다)</span>';
+    if(name.replace(/[\s·.]/g,'').length<2) return '<b>이름</b>은 두 글자 이상 적어 주세요.';
+    if(_repeated(name,2)) return '<b>이름</b>을 다시 확인해 주세요.';
+
+    /* ── 연락처 : 휴대폰 번호 형식 */
+    var ph=phone.replace(/[^0-9]/g,'');
+    if(!/^01[016789][0-9]{7,8}$/.test(ph))
+      return '<b>연락처</b>는 휴대폰 번호로 적어 주세요. <span style="color:#8a7c66;">(예: 010-1234-5678)</span>';
+    if(_repeated(ph,5)) return '<b>연락처</b>를 다시 확인해 주세요.';
+
+    /* ── 이메일 : 형식 + 흔한 도메인 오타 확인 */
+    if(!/^[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}$/.test(email))
+      return '<b>이메일</b> 형식을 확인해 주세요. <span style="color:#8a7c66;">(예: hong@naver.com)</span>';
+    var dom=email.split('@')[1].toLowerCase();
+    if(_repeated(dom,2)) return '<b>이메일 주소</b>를 다시 확인해 주세요. <span style="color:#8a7c66;">같은 글자가 여러 번 이어져 있습니다.</span>';
+    if(_repeated(email.split('@')[0],3)) return '<b>이메일 주소</b>를 다시 확인해 주세요.';
+    /* 흔한 도메인 오타 짚어 주기.
+       ※ 목록에 정확히 있는 도메인은 곧바로 통과시켜야 한다.
+         (그러지 않으면 naver.com 이 nate.com 의 오타로 잘못 걸린다 — 2026-08 오탐 수정)
+       ※ 오타로 의심될 뿐 틀렸다고 단정할 수는 없으므로, 한 번 알려 드리고
+         그대로 두신 채 다시 누르시면 그 주소로 보낸다. */
+    if(_DOMAINS.indexOf(dom)<0){
+      for(var k=0;k<_DOMAINS.length;k++){
+        if(_dist(dom,_DOMAINS[k])<=2){
+          if(window._leadTypoOK===email) break;         /* 이미 확인하셨으면 통과 */
+          window._leadTypoOK=email;
+          return '혹시 <b>'+_DOMAINS[k]+'</b>을(를) 잘못 적으신 것은 아닌지요? '
+               + '<span style="color:#8a7c66;">맞게 적으신 것이라면 <b>한 번 더 눌러</b> 주십시오.</span>';
+        }
+      }
+    }
+
+    /* ── 상담 내용 : 사람이 쓴 문장으로 보이는가 */
+    if(msg.length<15) return '<b>상담 내용</b>을 조금만 더 적어 주세요. <span style="color:#8a7c66;">(15자 이상 · 무슨 일로 오셨는지만 적으셔도 됩니다)</span>';
+    if(/^[ㄱ-ㅎㅏ-ㅣ\s]+$/.test(msg)) return '<b>상담 내용</b>을 문장으로 적어 주세요.';
+    if(_repeated(msg,3)) return '<b>상담 내용</b>을 다시 확인해 주세요.';
+    var han=(msg.match(/[가-힣]/g)||[]).length;
+    var lat=(msg.match(/[A-Za-z]/g)||[]).length;
+    if(han<3 && lat>=10){                       /* 한글이 거의 없고 영문뿐이면 모음 비율을 본다 */
+      var vow=(msg.match(/[aeiouAEIOU]/g)||[]).length;
+      if(vow/lat < 0.2) return '<b>상담 내용</b>을 문장으로 적어 주세요. <span style="color:#8a7c66;">무슨 일로 문의하시는지 짧게 적어 주시면 됩니다.</span>';
+    }
+    var tok=msg.split(/\s+/);
+    for(var t=0;t<tok.length;t++) if(tok[t].length>=25 && !/[가-힣]/.test(tok[t]))
+      return '<b>상담 내용</b>을 띄어쓰기하여 문장으로 적어 주세요.';
+    return '';
+  }
+
   window.submitLead=function(ev){
     ev.preventDefault();
     var name=(document.getElementById('lf_name').value||"").trim();
@@ -269,14 +344,51 @@
     var email=(document.getElementById('lf_email').value||"").trim();
     var msg=(document.getElementById('lf_msg').value||"").trim();
     if(!name||!phone||!email||!msg){ showErr("이름·연락처·이메일·상담 내용을 모두 입력해 주세요."); return false; }
-    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ showErr("이메일 형식을 확인해 주세요."); return false; }
+
+    /* 봇 거르기 — 보이지 않는 칸이 채워져 왔다면 사람이 아니다 */
+    var hp=document.querySelector('#leadForm input[name="_gotcha"]');
+    if(hp && hp.value){ showErr("전송하지 못했습니다. 잠시 후 다시 시도해 주세요."); return false; }
+
+    /* 너무 빨리 낸 제출 거르기 */
+    try{
+      if(window._leadShownAt && (Date.now()-window._leadShownAt)<5000){
+        showErr("입력하신 내용을 한 번만 더 확인해 주시고 다시 눌러 주세요."); return false;
+      }
+    }catch(e){}
+
+    /* 짧은 시간에 되풀이해 내는 제출 거르기 */
+    try{
+      var LAST='sanlaw_lead_last', DAY='sanlaw_lead_day';
+      var last=parseInt(localStorage.getItem(LAST)||"0",10);
+      if(last && Date.now()-last < 60000){ showErr("방금 신청하셨습니다. <b>1분 뒤</b>에 다시 시도해 주세요."); return false; }
+      var today=new Date().toISOString().slice(0,10);
+      var rec=(localStorage.getItem(DAY)||"").split('|');
+      var cnt=(rec[0]===today)?parseInt(rec[1]||"0",10):0;
+      if(cnt>=3){
+        showErr('오늘은 신청이 <b>3건</b>까지입니다. 급하시면 <a href="https://pf.kakao.com/_znJqX/chat" target="_blank" rel="noopener" style="color:#a86b1f;font-weight:700;">카카오톡 상담</a>으로 연락 주십시오.');
+        return false;
+      }
+    }catch(e){}
+
+    var bad=leadCheck(name,phone,email,msg);
+    if(bad){ showErr(bad); return false; }
     var btn=document.getElementById('lf_btn'); btn.disabled=true; btn.textContent="전송 중...";
     fetch(ENDPOINT,{method:"POST",headers:{"Accept":"application/json"},body:new FormData(document.getElementById('leadForm'))})
       .then(function(r){
-        if(r.ok){ try{ localStorage.setItem(KEY,String(Date.now())); }catch(e){} var cb=pending; pending=null; hideGate(); if(cb)cb(); }
-        else { btn.disabled=false; btn.textContent="신청하고 계산기 사용하기"; showErr("전송에 실패했습니다. 잠시 후 다시 시도하시거나 상담 문의로 연락 주세요."); }
+        if(r.ok){
+          try{
+            localStorage.setItem(KEY,String(Date.now()));
+            localStorage.setItem('sanlaw_lead_last',String(Date.now()));
+            var td=new Date().toISOString().slice(0,10);
+            var rc=(localStorage.getItem('sanlaw_lead_day')||"").split('|');
+            var cc=(rc[0]===td)?parseInt(rc[1]||"0",10):0;
+            localStorage.setItem('sanlaw_lead_day',td+'|'+(cc+1));
+          }catch(e){}
+          var cb=pending; pending=null; hideGate(); if(cb)cb();
+        }
+        else { btn.disabled=false; btn.textContent="신청하고 견적서 저장하기"; showErr("전송에 실패했습니다. 잠시 후 다시 시도하시거나 상담 문의로 연락 주세요."); }
       })
-      .catch(function(){ btn.disabled=false; btn.textContent="신청하고 계산기 사용하기"; showErr("네트워크 오류로 전송하지 못했습니다. 다시 시도해 주세요."); });
+      .catch(function(){ btn.disabled=false; btn.textContent="신청하고 견적서 저장하기"; showErr("네트워크 오류로 전송하지 못했습니다. 다시 시도해 주세요."); });
     return false;
   };
 })();
@@ -4762,10 +4874,11 @@ function buildMenu(){
   }
 }
 function goMenu(){document.querySelectorAll('.scene').forEach(s=>s.classList.remove('active'));document.getElementById('menu').style.display='block';document.getElementById('hsub').textContent='산 법무사 김재섭 행정사 사무소 · 의뢰인 안내용';window.scrollTo(0,0);}
-function openScenario(name){
-  if(window.requireUnlock){ window.requireUnlock(function(){ _doOpenScenario(name); }); }
-  else { _doOpenScenario(name); }
-}
+/* 계산기 화면은 누구나 바로 쓰실 수 있다.
+   상담 신청은 「엑셀 견적서 저장」을 누르실 때만 받는다(exportExcel 참조).
+   ※ 종전에는 화면 진입 자체를 막아, 계산만 해 보려는 분들이 상담폼에
+     아무 값이나 넣고 통과하는 일이 잦았다. 2026-08 구조 변경. */
+function openScenario(name){ _doOpenScenario(name); }
 function _doOpenScenario(name){
   document.getElementById('menu').style.display='none';
   document.querySelectorAll('.scene').forEach(s=>s.classList.remove('active'));
@@ -9970,7 +10083,12 @@ function buildReceiptSheet(ws,caseName,base,feeRows,pubRows,vat,office,off){
   notes.forEach((tx,i)=>{ mrg(nr+i,1,nr+i,6); setc(nr+i,1,tx,9,false,'left',true); ws.getRow(nr+i).height=30; });
   return nr+notes.length;
 }
-async function exportExcel(){
+/* 엑셀 견적서 저장 — 여기서만 상담 신청을 받는다(12시간 동안 다시 묻지 않음) */
+function exportExcel(){
+  if(window.requireUnlock){ window.requireUnlock(function(){ _exportExcelCore(); }); }
+  else { _exportExcelCore(); }
+}
+async function _exportExcelCore(){
   const scene=document.querySelector('.scene.active');
   if(!scene){alert('사건을 먼저 선택해 주세요.');return;}
   if(typeof ExcelJS==='undefined'){alert('엑셀 라이브러리 로딩 중입니다. 잠시 후 다시 눌러주세요.');return;}
