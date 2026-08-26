@@ -468,7 +468,7 @@
         <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option>
       </select></div>
       <div class="line"><span class="lbl">당사자 다수 가산</span><span style="margin-left:6px;">등기의무자</span><input type="number" id="pnObl" value="1" min="0" style="width:52px;margin:0 4px;" oninput="calcSale()"><span>인</span><select id="pnAdd" onchange="calcSale()" style="margin-left:8px;"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint" id="pnInfo" style="margin-left:8px;"></span></div><div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="frAdd" onchange="calcSale()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§10⑥</b> — 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는</b> 등기 → <b>기본보수의 100%까지</b> 가산</span></div>
-      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="moAdd" onchange="calcSale()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
+      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="moAdd" onchange="calcSale()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">같은 원인·같은 목적의 등기를 하는데 <b>부동산들이 서로 다른 등기소에 속해 있으면</b> 기본보수의 <b>50%까지</b> 더 받을 수 있습니다<span class="law" title="법무사 보수기준 제10조제4항 — 등기원인 및 등기목적이 동일한 것으로서 여러 개의 등기소의 관할에 걸쳐 있는 여러 개의 부동산에 관한 권리의 등기를 신청하는 경우에는 당해 기본보수의 50% 상당액까지 가산할 수 있다.">보수기준 §10④</span><span class="tag A">A</span><br>· <b>해당하는 예</b> — 상속받은 <b>서울 아파트</b>와 <b>용인 땅</b>을 함께 이전등기. 등기소가 두 곳이라 <b>신청서도 따로</b> 내야 하고 그만큼 품이 더 듭니다.<br>· <b>해당하지 않는 예</b> — 부동산이 여러 개라도 <b>모두 같은 등기소</b>에 속하는 경우. 이때는 아래 「부동산 개수」 가산(1개 초과 시 개당 20,000원)만 적용됩니다<span class="law" title="법무사 보수기준 제10조제1항 — 대상 부동산이 1개를 초과하는 경우에는 초과하는 1개마다 20,000원을 가산한다.">§10①</span>.</span></div>
       <div class="note" style="border-left:3px solid var(--gold);">▸ <b>보수기준 §9⑥</b> <span class="tag A">A</span> — ① <b>1건의 신청서로 수개의 부동산</b>에 관한 소유권 보존·이전 등기를 하는 경우 <b>각 부동산의 과세표준액을 합산</b>하여 기본보수를 산정합니다(위 과세표준란에 <b>합산액</b>을 입력하십시오). ② <b>쌍방대리</b>(등기의무자·등기권리자 양쪽을 함께 대리)의 경우에도 <b>1건으로 보아</b> 기본보수를 산정합니다 — <b>매도인·매수인에게 각각 기본보수를 청구할 수 없습니다.</b></div>
     </div></div>
 
@@ -563,6 +563,7 @@
     <div class="card blue"><h2>① 상속 정보</h2><div class="body">
       <div class="line"><span class="lbl">상속재산 과세표준(원)</span><input type="number" class="amt" id="s_price" placeholder="0" oninput="calcInherit()"><span class="hint">시가표준액 합산</span></div>
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('s_cntEstate',-1,calcInherit)">−</button><input type="number" id="s_cntEstate" value="1" min="1" oninput="calcInherit()"><button onclick="step('s_cntEstate',1,calcInherit)">+</button></div><span class="hint">등기수수료(매 부동산 20,000/17,000)·우편 곱</span></div>
+      <div class="note" style="border-left:3px solid var(--gold);">▸ <b>보수기준 §9⑥</b> <span class="tag A">A</span> — <b>여러 부동산을 한 장의 신청서로</b> 상속등기하시는 경우, 각 부동산의 <b>과세표준을 모두 더한 금액</b>으로 기본보수를 <b>한 번만</b> 산정합니다<span class="law" title="법무사 보수기준 제9조제6항 — 1건의 신청서로 수개의 부동산에 관한 소유권 보존·이전 등기를 하는 경우에는 각 부동산의 과세표준액을 합산하며, 쌍방대리의 경우에는 1건으로 하여 기본보수를 산정한다.">§9⑥</span>. 위 「상속재산 과세표준」란에 <b>합산액</b>을 넣으십시오.<br>▸ 부동산이 여러 개면 기본보수와 별도로 <b>1개 초과분마다 20,000원</b>이 붙습니다<span class="law" title="법무사 보수기준 제10조제1항 — 대상 부동산이 1개를 초과하는 경우에는 초과하는 1개마다 20,000원을 가산한다.">§10①</span>. 아래 「부동산 개수」에 실제 개수를 넣으시면 자동 계산됩니다.<br>▸ <span class="hint">상속등기는 상속인이 <b>혼자 신청</b>하는 등기라 「쌍방대리」 문제가 생기지 않습니다.</span></div>
       <div class="line"><span class="lbl">상속인(인)</span><div class="stepper"><button onclick="step('s_cntHeir',-1,calcInherit)">−</button><input type="number" id="s_cntHeir" value="1" min="1" oninput="calcInherit()"><button onclick="step('s_cntHeir',1,calcInherit)">+</button></div><span class="hint">보수기준 <b>§2②4호</b> — 당사자·이해관계인 <b>5인 이상</b> 판정용 (아래 「당사자 다수 가산」과 연동)</span></div>
       <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcInherit();junjuToggle()">
         <label><input type="radio" name="s_ptype" value="house" checked> 주택</label>
@@ -587,7 +588,7 @@
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
         <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
       <div class="line"><span class="lbl">당사자 다수 가산</span><span>등기권리자</span><input type="number" id="s_pnOwn" value="1" min="1" style="width:52px;margin:0 4px;" oninput="calcInherit()"><span>인</span><span style="margin-left:6px;">등기의무자</span><input type="number" id="s_pnObl" value="1" min="0" style="width:52px;margin:0 4px;" oninput="calcInherit()"><span>인</span><select id="s_pnAdd" onchange="calcInherit()" style="margin-left:8px;"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint" id="s_pnInfo" style="margin-left:8px;"></span></div><div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="s_frAdd" onchange="calcInherit()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§10⑥</b> — 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는</b> 등기 → <b>기본보수의 100%까지</b> 가산</span></div>
-      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="s_moAdd" onchange="calcInherit()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
+      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="s_moAdd" onchange="calcInherit()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">같은 원인·같은 목적의 등기를 하는데 <b>부동산들이 서로 다른 등기소에 속해 있으면</b> 기본보수의 <b>50%까지</b> 더 받을 수 있습니다<span class="law" title="법무사 보수기준 제10조제4항 — 등기원인 및 등기목적이 동일한 것으로서 여러 개의 등기소의 관할에 걸쳐 있는 여러 개의 부동산에 관한 권리의 등기를 신청하는 경우에는 당해 기본보수의 50% 상당액까지 가산할 수 있다.">보수기준 §10④</span><span class="tag A">A</span><br>· <b>해당하는 예</b> — 상속받은 <b>서울 아파트</b>와 <b>용인 땅</b>을 함께 이전등기. 등기소가 두 곳이라 <b>신청서도 따로</b> 내야 하고 그만큼 품이 더 듭니다.<br>· <b>해당하지 않는 예</b> — 부동산이 여러 개라도 <b>모두 같은 등기소</b>에 속하는 경우. 이때는 아래 「부동산 개수」 가산(1개 초과 시 개당 20,000원)만 적용됩니다<span class="law" title="법무사 보수기준 제10조제1항 — 대상 부동산이 1개를 초과하는 경우에는 초과하는 1개마다 20,000원을 가산한다.">§10①</span>.</span></div>
     </div></div>
 
     <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 직접 입력하셔야 합니다. 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
@@ -665,6 +666,7 @@
     <div class="card blue"><h2>① 유증 정보</h2><div class="body"><div class="line"><span class="lbl">유증 유형</span><div class="radios" onchange="calcBequest()"><label><input type="radio" name="bq_kind" value="pogwal" checked> 포괄유증</label><label><input type="radio" name="bq_kind" value="teukjeong"> 특정유증</label></div><span class="hint">재산 <b>전부·비율</b>로 주면 포괄유증, <b>특정 부동산</b>을 지정하면 특정유증</span></div><div class="line"><span class="lbl">수증자 지위</span><div class="radios" onchange="calcBequest()"><label><input type="radio" name="bq_heir" value="yes" checked> 상속인</label><label><input type="radio" name="bq_heir" value="no"> 상속인 아님</label></div><span class="hint">이 선택으로 <b>취득세율이 2.8%와 3.5%로 갈립니다</b>(지방세법 §7⑦)</span></div><div class="line"><span class="lbl">유언 방식</span><select id="bq_willType" onchange="renderDocsBequest();calcBequest()"><option value="gongjeong">공정증서 — 검인 불요</option><option value="japil">자필증서 — 법원 검인 필요</option><option value="bimil">비밀증서 — 법원 검인 필요</option><option value="nokeum">녹음 — 법원 검인 필요</option><option value="gusu">구수증서 — 법원 검인(확인) 필요</option><option value="pangyeol">판결·조정으로 갈음</option></select><span class="hint">공정증서만 <b>검인 없이</b> 바로 등기됩니다</span></div><div class="line"><span class="lbl">유언집행자</span><div class="radios" onchange="renderDocsBequest()"><label><input type="radio" name="bq_exec" value="yes" checked> 지정·선임 있음</label><label><input type="radio" name="bq_exec" value="no"> 없음 (상속인 전원이 의무자)</label></div><span class="hint">없으면 <b>상속인 전원</b>이 등기의무자가 됩니다(민법 §1095)</span></div>
       <div class="line"><span class="lbl">유증재산 과세표준(원)</span><input type="number" class="amt" id="bq_price" placeholder="0" oninput="calcBequest()"><span class="hint">시가표준액 합산</span></div>
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('bq_cntEstate',-1,calcBequest)">−</button><input type="number" id="bq_cntEstate" value="1" min="1" oninput="calcBequest()"><button onclick="step('bq_cntEstate',1,calcBequest)">+</button></div><span class="hint">등기수수료(매 부동산 20,000/17,000)·우편 곱</span></div>
+      <div class="note" style="border-left:3px solid var(--gold);">▸ <b>보수기준 §9⑥</b> <span class="tag A">A</span> — ① <b>여러 부동산을 한 장의 신청서로</b> 유증등기하시는 경우, 각 부동산의 <b>과세표준을 모두 더한 금액</b>으로 기본보수를 <b>한 번만</b> 산정합니다<span class="law" title="법무사 보수기준 제9조제6항 — 1건의 신청서로 수개의 부동산에 관한 소유권 보존·이전 등기를 하는 경우에는 각 부동산의 과세표준액을 합산하며, 쌍방대리의 경우에는 1건으로 하여 기본보수를 산정한다.">§9⑥</span>. 위 「유증재산 과세표준」란에 <b>합산액</b>을 넣으십시오.<br>② 유증등기는 <b>유언집행자(또는 상속인)와 수증자가 함께</b> 신청하는 등기입니다. 법무사가 <b>양쪽을 모두 대리</b>하더라도 보수는 <b>1건으로만</b> 계산합니다 — <b>양쪽에 각각 기본보수를 청구할 수 없습니다.</b><br>▸ 부동산이 여러 개면 <b>1개 초과분마다 20,000원</b>이 별도로 붙습니다<span class="law" title="법무사 보수기준 제10조제1항 — 대상 부동산이 1개를 초과하는 경우에는 초과하는 1개마다 20,000원을 가산한다.">§10①</span>.</div>
       <div class="line"><span class="lbl">수증자(인)</span><div class="stepper"><button onclick="step('bq_cntHeir',-1,calcBequest)">−</button><input type="number" id="bq_cntHeir" value="1" min="1" oninput="calcBequest()"><button onclick="step('bq_cntHeir',1,calcBequest)">+</button></div><span class="hint">보수기준 <b>§2②4호</b> — 당사자·이해관계인 <b>5인 이상</b> 판정용 (아래 「당사자 다수 가산」과 연동)</span></div>
       <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcBequest()">
         <label><input type="radio" name="bq_ptype" value="house" checked> 주택</label>
@@ -686,7 +688,7 @@
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
         <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
       <div class="line"><span class="lbl">당사자 다수 가산</span><span>등기권리자</span><input type="number" id="bq_pnOwn" value="1" min="1" style="width:52px;margin:0 4px;" oninput="calcBequest()"><span>인</span><span style="margin-left:6px;">등기의무자</span><input type="number" id="bq_pnObl" value="1" min="0" style="width:52px;margin:0 4px;" oninput="calcBequest()"><span>인</span><select id="bq_pnAdd" onchange="calcBequest()" style="margin-left:8px;"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint" id="bq_pnInfo" style="margin-left:8px;"></span></div><div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="bq_frAdd" onchange="calcBequest()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§10⑥</b> — 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는</b> 등기 → <b>기본보수의 100%까지</b> 가산</span></div>
-      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="bq_moAdd" onchange="calcBequest()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
+      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="bq_moAdd" onchange="calcBequest()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">같은 원인·같은 목적의 등기를 하는데 <b>부동산들이 서로 다른 등기소에 속해 있으면</b> 기본보수의 <b>50%까지</b> 더 받을 수 있습니다<span class="law" title="법무사 보수기준 제10조제4항 — 등기원인 및 등기목적이 동일한 것으로서 여러 개의 등기소의 관할에 걸쳐 있는 여러 개의 부동산에 관한 권리의 등기를 신청하는 경우에는 당해 기본보수의 50% 상당액까지 가산할 수 있다.">보수기준 §10④</span><span class="tag A">A</span><br>· <b>해당하는 예</b> — 상속받은 <b>서울 아파트</b>와 <b>용인 땅</b>을 함께 이전등기. 등기소가 두 곳이라 <b>신청서도 따로</b> 내야 하고 그만큼 품이 더 듭니다.<br>· <b>해당하지 않는 예</b> — 부동산이 여러 개라도 <b>모두 같은 등기소</b>에 속하는 경우. 이때는 아래 「부동산 개수」 가산(1개 초과 시 개당 20,000원)만 적용됩니다<span class="law" title="법무사 보수기준 제10조제1항 — 대상 부동산이 1개를 초과하는 경우에는 초과하는 1개마다 20,000원을 가산한다.">§10①</span>.</span></div>
     </div></div>
 
     <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 직접 입력하셔야 합니다. 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
@@ -858,7 +860,7 @@
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
         <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
       <div class="line"><span class="lbl">당사자 다수 가산</span><span style="margin-left:6px;">등기의무자</span><input type="number" id="gv_pnObl" value="1" min="0" style="width:52px;margin:0 4px;" oninput="calcGift()"><span>인</span><select id="gv_pnAdd" onchange="calcGift()" style="margin-left:8px;"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint" id="gv_pnInfo" style="margin-left:8px;"></span></div><div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="gv_frAdd" onchange="calcGift()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§10⑥</b> — 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는</b> 등기 → <b>기본보수의 100%까지</b> 가산</span></div>
-      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="gv_moAdd" onchange="calcGift()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
+      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="gv_moAdd" onchange="calcGift()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">같은 원인·같은 목적의 등기를 하는데 <b>부동산들이 서로 다른 등기소에 속해 있으면</b> 기본보수의 <b>50%까지</b> 더 받을 수 있습니다<span class="law" title="법무사 보수기준 제10조제4항 — 등기원인 및 등기목적이 동일한 것으로서 여러 개의 등기소의 관할에 걸쳐 있는 여러 개의 부동산에 관한 권리의 등기를 신청하는 경우에는 당해 기본보수의 50% 상당액까지 가산할 수 있다.">보수기준 §10④</span><span class="tag A">A</span><br>· <b>해당하는 예</b> — 상속받은 <b>서울 아파트</b>와 <b>용인 땅</b>을 함께 이전등기. 등기소가 두 곳이라 <b>신청서도 따로</b> 내야 하고 그만큼 품이 더 듭니다.<br>· <b>해당하지 않는 예</b> — 부동산이 여러 개라도 <b>모두 같은 등기소</b>에 속하는 경우. 이때는 아래 「부동산 개수」 가산(1개 초과 시 개당 20,000원)만 적용됩니다<span class="law" title="법무사 보수기준 제10조제1항 — 대상 부동산이 1개를 초과하는 경우에는 초과하는 1개마다 20,000원을 가산한다.">§10①</span>.</span></div>
       <div class="note" style="border-left:3px solid var(--gold);">▸ <b>보수기준 §9⑥</b> <span class="tag A">A</span> — ① <b>1건의 신청서로 수개의 부동산</b>에 관한 소유권 보존·이전 등기를 하는 경우 <b>각 부동산의 과세표준액을 합산</b>하여 기본보수를 산정합니다(위 과세표준란에 <b>합산액</b>을 입력하십시오). ② <b>쌍방대리</b>(등기의무자·등기권리자 양쪽을 함께 대리)의 경우에도 <b>1건으로 보아</b> 기본보수를 산정합니다 — <b>매도인·매수인에게 각각 기본보수를 청구할 수 없습니다.</b></div>
     </div></div>
 
@@ -1035,7 +1037,7 @@
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
         <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
       <div class="line"><span class="lbl">당사자 다수 가산</span><span style="margin-left:6px;">등기의무자</span><input type="number" id="ea_pnObl" value="1" min="0" style="width:52px;margin:0 4px;" oninput="calcEtcAcq()"><span>인</span><select id="ea_pnAdd" onchange="calcEtcAcq()" style="margin-left:8px;"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint" id="ea_pnInfo" style="margin-left:8px;"></span></div><div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="ea_frAdd" onchange="calcEtcAcq()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§10⑥</b> — 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는</b> 등기 → <b>기본보수의 100%까지</b> 가산</span></div>
-      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="ea_moAdd" onchange="calcEtcAcq()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
+      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="ea_moAdd" onchange="calcEtcAcq()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">같은 원인·같은 목적의 등기를 하는데 <b>부동산들이 서로 다른 등기소에 속해 있으면</b> 기본보수의 <b>50%까지</b> 더 받을 수 있습니다<span class="law" title="법무사 보수기준 제10조제4항 — 등기원인 및 등기목적이 동일한 것으로서 여러 개의 등기소의 관할에 걸쳐 있는 여러 개의 부동산에 관한 권리의 등기를 신청하는 경우에는 당해 기본보수의 50% 상당액까지 가산할 수 있다.">보수기준 §10④</span><span class="tag A">A</span><br>· <b>해당하는 예</b> — 상속받은 <b>서울 아파트</b>와 <b>용인 땅</b>을 함께 이전등기. 등기소가 두 곳이라 <b>신청서도 따로</b> 내야 하고 그만큼 품이 더 듭니다.<br>· <b>해당하지 않는 예</b> — 부동산이 여러 개라도 <b>모두 같은 등기소</b>에 속하는 경우. 이때는 아래 「부동산 개수」 가산(1개 초과 시 개당 20,000원)만 적용됩니다<span class="law" title="법무사 보수기준 제10조제1항 — 대상 부동산이 1개를 초과하는 경우에는 초과하는 1개마다 20,000원을 가산한다.">§10①</span>.</span></div>
       <div class="note" style="border-left:3px solid var(--gold);">▸ <b>보수기준 §9⑥</b> <span class="tag A">A</span> — ① <b>1건의 신청서로 수개의 부동산</b>에 관한 소유권 보존·이전 등기를 하는 경우 <b>각 부동산의 과세표준액을 합산</b>하여 기본보수를 산정합니다(위 과세표준란에 <b>합산액</b>을 입력하십시오). ② <b>쌍방대리</b>(등기의무자·등기권리자 양쪽을 함께 대리)의 경우에도 <b>1건으로 보아</b> 기본보수를 산정합니다 — <b>매도인·매수인에게 각각 기본보수를 청구할 수 없습니다.</b></div>
     </div></div>
 
@@ -1137,7 +1139,7 @@
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
         <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
       <div class="line"><span class="lbl">당사자 다수 가산</span><span style="margin-left:6px;">등기의무자</span><input type="number" id="pt_pnObl" value="1" min="0" style="width:52px;margin:0 4px;" oninput="calcPartition()"><span>인</span><select id="pt_pnAdd" onchange="calcPartition()" style="margin-left:8px;"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint" id="pt_pnInfo" style="margin-left:8px;"></span></div><div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="pt_frAdd" onchange="calcPartition()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§10⑥</b> — 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는</b> 등기 → <b>기본보수의 100%까지</b> 가산</span></div>
-      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="pt_moAdd" onchange="calcPartition()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
+      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="pt_moAdd" onchange="calcPartition()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">같은 원인·같은 목적의 등기를 하는데 <b>부동산들이 서로 다른 등기소에 속해 있으면</b> 기본보수의 <b>50%까지</b> 더 받을 수 있습니다<span class="law" title="법무사 보수기준 제10조제4항 — 등기원인 및 등기목적이 동일한 것으로서 여러 개의 등기소의 관할에 걸쳐 있는 여러 개의 부동산에 관한 권리의 등기를 신청하는 경우에는 당해 기본보수의 50% 상당액까지 가산할 수 있다.">보수기준 §10④</span><span class="tag A">A</span><br>· <b>해당하는 예</b> — 상속받은 <b>서울 아파트</b>와 <b>용인 땅</b>을 함께 이전등기. 등기소가 두 곳이라 <b>신청서도 따로</b> 내야 하고 그만큼 품이 더 듭니다.<br>· <b>해당하지 않는 예</b> — 부동산이 여러 개라도 <b>모두 같은 등기소</b>에 속하는 경우. 이때는 아래 「부동산 개수」 가산(1개 초과 시 개당 20,000원)만 적용됩니다<span class="law" title="법무사 보수기준 제10조제1항 — 대상 부동산이 1개를 초과하는 경우에는 초과하는 1개마다 20,000원을 가산한다.">§10①</span>.</span></div>
       <div class="note" style="border-left:3px solid var(--gold);">▸ <b>보수기준 §9⑥</b> <span class="tag A">A</span> — ① <b>1건의 신청서로 수개의 부동산</b>에 관한 소유권 보존·이전 등기를 하는 경우 <b>각 부동산의 과세표준액을 합산</b>하여 기본보수를 산정합니다(위 과세표준란에 <b>합산액</b>을 입력하십시오). ② <b>쌍방대리</b>(등기의무자·등기권리자 양쪽을 함께 대리)의 경우에도 <b>1건으로 보아</b> 기본보수를 산정합니다 — <b>매도인·매수인에게 각각 기본보수를 청구할 수 없습니다.</b></div>
     </div></div>
 
@@ -1262,7 +1264,7 @@
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
         <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
       <div class="line"><span class="lbl">당사자 다수 가산</span><span style="margin-left:6px;">등기의무자</span><input type="number" id="nk_pnObl" value="1" min="0" style="width:52px;margin:0 4px;" oninput="calcNakchal()"><span>인</span><select id="nk_pnAdd" onchange="calcNakchal()" style="margin-left:8px;"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint" id="nk_pnInfo" style="margin-left:8px;"></span></div><div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="nk_frAdd" onchange="calcNakchal()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§10⑥</b> — 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는</b> 등기 → <b>기본보수의 100%까지</b> 가산</span></div>
-      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="nk_moAdd" onchange="calcNakchal()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
+      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="nk_moAdd" onchange="calcNakchal()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">같은 원인·같은 목적의 등기를 하는데 <b>부동산들이 서로 다른 등기소에 속해 있으면</b> 기본보수의 <b>50%까지</b> 더 받을 수 있습니다<span class="law" title="법무사 보수기준 제10조제4항 — 등기원인 및 등기목적이 동일한 것으로서 여러 개의 등기소의 관할에 걸쳐 있는 여러 개의 부동산에 관한 권리의 등기를 신청하는 경우에는 당해 기본보수의 50% 상당액까지 가산할 수 있다.">보수기준 §10④</span><span class="tag A">A</span><br>· <b>해당하는 예</b> — 상속받은 <b>서울 아파트</b>와 <b>용인 땅</b>을 함께 이전등기. 등기소가 두 곳이라 <b>신청서도 따로</b> 내야 하고 그만큼 품이 더 듭니다.<br>· <b>해당하지 않는 예</b> — 부동산이 여러 개라도 <b>모두 같은 등기소</b>에 속하는 경우. 이때는 아래 「부동산 개수」 가산(1개 초과 시 개당 20,000원)만 적용됩니다<span class="law" title="법무사 보수기준 제10조제1항 — 대상 부동산이 1개를 초과하는 경우에는 초과하는 1개마다 20,000원을 가산한다.">§10①</span>.</span></div>
       <div class="note" style="border-left:3px solid var(--gold);">▸ <b>보수기준 §9⑥</b> <span class="tag A">A</span> — <b>1건의 신청서로 수개의 부동산</b>에 관한 소유권이전 등기를 하는 경우 <b>각 부동산의 과세표준액을 합산</b>하여 기본보수를 산정합니다(위 낙찰가란에 <b>합산액</b>을 입력하십시오).<br>▸ <b>권리분석·상담은 별개 보수</b>입니다 — 낙찰 <b>전</b> 권리분석과 상담은 보수표 <b>Ⅵ-1</b>(메인메뉴의 「부동산경매 상담」), 입찰 대리는 <b>Ⅵ-2</b>(「경매 매수신청대리」)로 각각 산정합니다.</div>
     </div></div>
 
@@ -1380,7 +1382,7 @@
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
         <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
       <div class="line"><span class="lbl">당사자 다수 가산</span><span style="margin-left:6px;">등기의무자</span><input type="number" id="dv_pnObl" value="1" min="0" style="width:52px;margin:0 4px;" oninput="calcDivision()"><span>인</span><select id="dv_pnAdd" onchange="calcDivision()" style="margin-left:8px;"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint" id="dv_pnInfo" style="margin-left:8px;"></span></div><div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="dv_frAdd" onchange="calcDivision()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§10⑥</b> — 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는</b> 등기 → <b>기본보수의 100%까지</b> 가산</span></div>
-      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="dv_moAdd" onchange="calcDivision()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
+      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="dv_moAdd" onchange="calcDivision()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">같은 원인·같은 목적의 등기를 하는데 <b>부동산들이 서로 다른 등기소에 속해 있으면</b> 기본보수의 <b>50%까지</b> 더 받을 수 있습니다<span class="law" title="법무사 보수기준 제10조제4항 — 등기원인 및 등기목적이 동일한 것으로서 여러 개의 등기소의 관할에 걸쳐 있는 여러 개의 부동산에 관한 권리의 등기를 신청하는 경우에는 당해 기본보수의 50% 상당액까지 가산할 수 있다.">보수기준 §10④</span><span class="tag A">A</span><br>· <b>해당하는 예</b> — 상속받은 <b>서울 아파트</b>와 <b>용인 땅</b>을 함께 이전등기. 등기소가 두 곳이라 <b>신청서도 따로</b> 내야 하고 그만큼 품이 더 듭니다.<br>· <b>해당하지 않는 예</b> — 부동산이 여러 개라도 <b>모두 같은 등기소</b>에 속하는 경우. 이때는 아래 「부동산 개수」 가산(1개 초과 시 개당 20,000원)만 적용됩니다<span class="law" title="법무사 보수기준 제10조제1항 — 대상 부동산이 1개를 초과하는 경우에는 초과하는 1개마다 20,000원을 가산한다.">§10①</span>.</span></div>
       <div class="note" style="border-left:3px solid var(--gold);">▸ <b>보수기준 §9⑥</b> <span class="tag A">A</span> — ① <b>1건의 신청서로 수개의 부동산</b>에 관한 소유권 보존·이전 등기를 하는 경우 <b>각 부동산의 과세표준액을 합산</b>하여 기본보수를 산정합니다(위 과세표준란에 <b>합산액</b>을 입력하십시오). ② <b>쌍방대리</b>(등기의무자·등기권리자 양쪽을 함께 대리)의 경우에도 <b>1건으로 보아</b> 기본보수를 산정합니다 — <b>매도인·매수인에게 각각 기본보수를 청구할 수 없습니다.</b></div>
     </div></div>
 
@@ -1485,7 +1487,7 @@
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
         <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
       <div class="line"><span class="lbl">당사자 다수 가산</span><span style="margin-left:6px;">등기의무자</span><input type="number" id="bv_pnObl" value="1" min="0" style="width:52px;margin:0 4px;" oninput="calcBurden()"><span>인</span><select id="bv_pnAdd" onchange="calcBurden()" style="margin-left:8px;"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint" id="bv_pnInfo" style="margin-left:8px;"></span></div><div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="bv_frAdd" onchange="calcBurden()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§10⑥</b> — 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는</b> 등기 → <b>기본보수의 100%까지</b> 가산</span></div>
-      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="bv_moAdd" onchange="calcBurden()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
+      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="bv_moAdd" onchange="calcBurden()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">같은 원인·같은 목적의 등기를 하는데 <b>부동산들이 서로 다른 등기소에 속해 있으면</b> 기본보수의 <b>50%까지</b> 더 받을 수 있습니다<span class="law" title="법무사 보수기준 제10조제4항 — 등기원인 및 등기목적이 동일한 것으로서 여러 개의 등기소의 관할에 걸쳐 있는 여러 개의 부동산에 관한 권리의 등기를 신청하는 경우에는 당해 기본보수의 50% 상당액까지 가산할 수 있다.">보수기준 §10④</span><span class="tag A">A</span><br>· <b>해당하는 예</b> — 상속받은 <b>서울 아파트</b>와 <b>용인 땅</b>을 함께 이전등기. 등기소가 두 곳이라 <b>신청서도 따로</b> 내야 하고 그만큼 품이 더 듭니다.<br>· <b>해당하지 않는 예</b> — 부동산이 여러 개라도 <b>모두 같은 등기소</b>에 속하는 경우. 이때는 아래 「부동산 개수」 가산(1개 초과 시 개당 20,000원)만 적용됩니다<span class="law" title="법무사 보수기준 제10조제1항 — 대상 부동산이 1개를 초과하는 경우에는 초과하는 1개마다 20,000원을 가산한다.">§10①</span>.</span></div>
       <div class="note" style="border-left:3px solid var(--gold);">▸ <b>보수기준 §9⑥</b> <span class="tag A">A</span> — ① <b>1건의 신청서로 수개의 부동산</b>에 관한 소유권 보존·이전 등기를 하는 경우 <b>각 부동산의 과세표준액을 합산</b>하여 기본보수를 산정합니다(위 과세표준란에 <b>합산액</b>을 입력하십시오). ② <b>쌍방대리</b>(등기의무자·등기권리자 양쪽을 함께 대리)의 경우에도 <b>1건으로 보아</b> 기본보수를 산정합니다 — <b>매도인·매수인에게 각각 기본보수를 청구할 수 없습니다.</b></div>
     </div></div>
 
@@ -1588,7 +1590,7 @@
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
         <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
       <div class="line"><span class="lbl">당사자 다수 가산</span><span>등기권리자</span><input type="number" id="mt_pnOwn" value="1" min="1" style="width:52px;margin:0 4px;" oninput="calcMortgage()"><span>인</span><span style="margin-left:6px;">등기의무자</span><input type="number" id="mt_pnObl" value="1" min="0" style="width:52px;margin:0 4px;" oninput="calcMortgage()"><span>인</span><select id="mt_pnAdd" onchange="calcMortgage()" style="margin-left:8px;"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint" id="mt_pnInfo" style="margin-left:8px;"></span></div><div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="mt_frAdd" onchange="calcMortgage()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§10⑥</b> — 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는</b> 등기 → <b>기본보수의 100%까지</b> 가산</span></div>
-      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="mt_moAdd" onchange="calcMortgage()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
+      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="mt_moAdd" onchange="calcMortgage()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">같은 원인·같은 목적의 등기를 하는데 <b>부동산들이 서로 다른 등기소에 속해 있으면</b> 기본보수의 <b>50%까지</b> 더 받을 수 있습니다<span class="law" title="법무사 보수기준 제10조제4항 — 등기원인 및 등기목적이 동일한 것으로서 여러 개의 등기소의 관할에 걸쳐 있는 여러 개의 부동산에 관한 권리의 등기를 신청하는 경우에는 당해 기본보수의 50% 상당액까지 가산할 수 있다.">보수기준 §10④</span><span class="tag A">A</span><br>· <b>해당하는 예</b> — 상속받은 <b>서울 아파트</b>와 <b>용인 땅</b>을 함께 이전등기. 등기소가 두 곳이라 <b>신청서도 따로</b> 내야 하고 그만큼 품이 더 듭니다.<br>· <b>해당하지 않는 예</b> — 부동산이 여러 개라도 <b>모두 같은 등기소</b>에 속하는 경우. 이때는 아래 「부동산 개수」 가산(1개 초과 시 개당 20,000원)만 적용됩니다<span class="law" title="법무사 보수기준 제10조제1항 — 대상 부동산이 1개를 초과하는 경우에는 초과하는 1개마다 20,000원을 가산한다.">§10①</span>.</span></div>
     </div></div>
 
     <div class="card pink"><h2>② 국민주택채권 <span class="tag A">A</span></h2><div class="body">
@@ -1664,7 +1666,7 @@
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
         <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
       <div class="line"><span class="lbl">당사자 다수 가산</span><span>등기권리자</span><input type="number" id="ga_pnOwn" value="1" min="1" style="width:52px;margin:0 4px;" oninput="calcGadeungi()"><span>인</span><span style="margin-left:6px;">등기의무자</span><input type="number" id="ga_pnObl" value="1" min="0" style="width:52px;margin:0 4px;" oninput="calcGadeungi()"><span>인</span><select id="ga_pnAdd" onchange="calcGadeungi()" style="margin-left:8px;"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint" id="ga_pnInfo" style="margin-left:8px;"></span></div><div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="ga_frAdd" onchange="calcGadeungi()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§10⑥</b> — 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는</b> 등기 → <b>기본보수의 100%까지</b> 가산</span></div>
-      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="ga_moAdd" onchange="calcGadeungi()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
+      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="ga_moAdd" onchange="calcGadeungi()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">같은 원인·같은 목적의 등기를 하는데 <b>부동산들이 서로 다른 등기소에 속해 있으면</b> 기본보수의 <b>50%까지</b> 더 받을 수 있습니다<span class="law" title="법무사 보수기준 제10조제4항 — 등기원인 및 등기목적이 동일한 것으로서 여러 개의 등기소의 관할에 걸쳐 있는 여러 개의 부동산에 관한 권리의 등기를 신청하는 경우에는 당해 기본보수의 50% 상당액까지 가산할 수 있다.">보수기준 §10④</span><span class="tag A">A</span><br>· <b>해당하는 예</b> — 상속받은 <b>서울 아파트</b>와 <b>용인 땅</b>을 함께 이전등기. 등기소가 두 곳이라 <b>신청서도 따로</b> 내야 하고 그만큼 품이 더 듭니다.<br>· <b>해당하지 않는 예</b> — 부동산이 여러 개라도 <b>모두 같은 등기소</b>에 속하는 경우. 이때는 아래 「부동산 개수」 가산(1개 초과 시 개당 20,000원)만 적용됩니다<span class="law" title="법무사 보수기준 제10조제1항 — 대상 부동산이 1개를 초과하는 경우에는 초과하는 1개마다 20,000원을 가산한다.">§10①</span>.</span></div>
     </div></div>
 
     <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
@@ -1887,7 +1889,7 @@
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
         <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
       <div class="line"><span class="lbl">당사자 다수 가산</span><span>등기권리자</span><input type="number" id="st_pnOwn" value="1" min="1" style="width:52px;margin:0 4px;" oninput="calcSintak()"><span>인</span><span style="margin-left:6px;">등기의무자</span><input type="number" id="st_pnObl" value="1" min="0" style="width:52px;margin:0 4px;" oninput="calcSintak()"><span>인</span><select id="st_pnAdd" onchange="calcSintak()" style="margin-left:8px;"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint" id="st_pnInfo" style="margin-left:8px;"></span></div><div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="st_frAdd" onchange="calcSintak()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§10⑥</b> — 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는</b> 등기 → <b>기본보수의 100%까지</b> 가산</span></div>
-      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="st_moAdd" onchange="calcSintak()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
+      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="st_moAdd" onchange="calcSintak()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">같은 원인·같은 목적의 등기를 하는데 <b>부동산들이 서로 다른 등기소에 속해 있으면</b> 기본보수의 <b>50%까지</b> 더 받을 수 있습니다<span class="law" title="법무사 보수기준 제10조제4항 — 등기원인 및 등기목적이 동일한 것으로서 여러 개의 등기소의 관할에 걸쳐 있는 여러 개의 부동산에 관한 권리의 등기를 신청하는 경우에는 당해 기본보수의 50% 상당액까지 가산할 수 있다.">보수기준 §10④</span><span class="tag A">A</span><br>· <b>해당하는 예</b> — 상속받은 <b>서울 아파트</b>와 <b>용인 땅</b>을 함께 이전등기. 등기소가 두 곳이라 <b>신청서도 따로</b> 내야 하고 그만큼 품이 더 듭니다.<br>· <b>해당하지 않는 예</b> — 부동산이 여러 개라도 <b>모두 같은 등기소</b>에 속하는 경우. 이때는 아래 「부동산 개수」 가산(1개 초과 시 개당 20,000원)만 적용됩니다<span class="law" title="법무사 보수기준 제10조제1항 — 대상 부동산이 1개를 초과하는 경우에는 초과하는 1개마다 20,000원을 가산한다.">§10①</span>.</span></div>
     </div></div>
 
     <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag chk">확인필요</span><span class="law" title="신탁등기의 건당 6,000원은 조문에 직접 규정된 것이 아니라 법제처 해석례([B])에 따른 것이어서 확인이 필요합니다. 신탁으로 인한 소유권이전분이 비과세인 것(§26②)은 조문에 확정되어 있습니다.">사유: 근거가 해석례([B])</span></h2><div class="body">
@@ -2013,7 +2015,7 @@
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
         <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
       <div class="line"><span class="lbl">당사자 다수 가산</span><span>등기권리자</span><input type="number" id="ma_pnOwn" value="1" min="1" style="width:52px;margin:0 4px;" oninput="calcMortgageAdd()"><span>인</span><span style="margin-left:6px;">등기의무자</span><input type="number" id="ma_pnObl" value="1" min="0" style="width:52px;margin:0 4px;" oninput="calcMortgageAdd()"><span>인</span><select id="ma_pnAdd" onchange="calcMortgageAdd()" style="margin-left:8px;"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint" id="ma_pnInfo" style="margin-left:8px;"></span></div><div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="ma_frAdd" onchange="calcMortgageAdd()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§10⑥</b> — 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는</b> 등기 → <b>기본보수의 100%까지</b> 가산</span></div>
-      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="ma_moAdd" onchange="calcMortgageAdd()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
+      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="ma_moAdd" onchange="calcMortgageAdd()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">같은 원인·같은 목적의 등기를 하는데 <b>부동산들이 서로 다른 등기소에 속해 있으면</b> 기본보수의 <b>50%까지</b> 더 받을 수 있습니다<span class="law" title="법무사 보수기준 제10조제4항 — 등기원인 및 등기목적이 동일한 것으로서 여러 개의 등기소의 관할에 걸쳐 있는 여러 개의 부동산에 관한 권리의 등기를 신청하는 경우에는 당해 기본보수의 50% 상당액까지 가산할 수 있다.">보수기준 §10④</span><span class="tag A">A</span><br>· <b>해당하는 예</b> — 상속받은 <b>서울 아파트</b>와 <b>용인 땅</b>을 함께 이전등기. 등기소가 두 곳이라 <b>신청서도 따로</b> 내야 하고 그만큼 품이 더 듭니다.<br>· <b>해당하지 않는 예</b> — 부동산이 여러 개라도 <b>모두 같은 등기소</b>에 속하는 경우. 이때는 아래 「부동산 개수」 가산(1개 초과 시 개당 20,000원)만 적용됩니다<span class="law" title="법무사 보수기준 제10조제1항 — 대상 부동산이 1개를 초과하는 경우에는 초과하는 1개마다 20,000원을 가산한다.">§10①</span>.</span></div>
     </div></div>
 
     <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 직접 입력하셔야 합니다. 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
@@ -2086,7 +2088,7 @@
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
         <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
       <div class="line"><span class="lbl">당사자 다수 가산</span><span>등기권리자</span><input type="number" id="mtc_pnOwn" value="1" min="1" style="width:52px;margin:0 4px;" oninput="calcMortCancel()"><span>인</span><span style="margin-left:6px;">등기의무자</span><input type="number" id="mtc_pnObl" value="1" min="0" style="width:52px;margin:0 4px;" oninput="calcMortCancel()"><span>인</span><select id="mtc_pnAdd" onchange="calcMortCancel()" style="margin-left:8px;"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint" id="mtc_pnInfo" style="margin-left:8px;"></span></div><div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="mtc_frAdd" onchange="calcMortCancel()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§10⑥</b> — 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는</b> 등기 → <b>기본보수의 100%까지</b> 가산</span></div>
-      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="mtc_moAdd" onchange="calcMortCancel()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
+      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="mtc_moAdd" onchange="calcMortCancel()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">같은 원인·같은 목적의 등기를 하는데 <b>부동산들이 서로 다른 등기소에 속해 있으면</b> 기본보수의 <b>50%까지</b> 더 받을 수 있습니다<span class="law" title="법무사 보수기준 제10조제4항 — 등기원인 및 등기목적이 동일한 것으로서 여러 개의 등기소의 관할에 걸쳐 있는 여러 개의 부동산에 관한 권리의 등기를 신청하는 경우에는 당해 기본보수의 50% 상당액까지 가산할 수 있다.">보수기준 §10④</span><span class="tag A">A</span><br>· <b>해당하는 예</b> — 상속받은 <b>서울 아파트</b>와 <b>용인 땅</b>을 함께 이전등기. 등기소가 두 곳이라 <b>신청서도 따로</b> 내야 하고 그만큼 품이 더 듭니다.<br>· <b>해당하지 않는 예</b> — 부동산이 여러 개라도 <b>모두 같은 등기소</b>에 속하는 경우. 이때는 아래 「부동산 개수」 가산(1개 초과 시 개당 20,000원)만 적용됩니다<span class="law" title="법무사 보수기준 제10조제1항 — 대상 부동산이 1개를 초과하는 경우에는 초과하는 1개마다 20,000원을 가산한다.">§10①</span>.</span></div>
     </div></div>
 
     <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
@@ -2138,6 +2140,7 @@
       <div class="note">소유권보존은 신축 등 <b>원시취득</b>으로 취득세 <b>2.8%</b>(매매·증여와 다름)·교육세 0.16%·농특세(85㎡↑) 0.2%입니다.</div>
       <div class="line"><span class="lbl">과세표준(원)</span><input type="number" class="amt" id="pr_price" placeholder="0" oninput="calcPreserve()"><span class="hint">시가표준액(신축가액)</span></div>
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('pr_cntEstate',-1,calcPreserve)">−</button><input type="number" id="pr_cntEstate" value="1" min="1" oninput="calcPreserve()"><button onclick="step('pr_cntEstate',1,calcPreserve)">+</button></div></div>
+      <div class="note" style="border-left:3px solid var(--gold);">▸ <b>보수기준 §9⑥</b> <span class="tag A">A</span> — <b>여러 부동산을 한 장의 신청서로</b> 보존등기하시는 경우, 각 부동산의 <b>과세표준을 모두 더한 금액</b>으로 기본보수를 <b>한 번만</b> 산정합니다<span class="law" title="법무사 보수기준 제9조제6항 — 1건의 신청서로 수개의 부동산에 관한 소유권 보존·이전 등기를 하는 경우에는 각 부동산의 과세표준액을 합산하며, 쌍방대리의 경우에는 1건으로 하여 기본보수를 산정한다.">§9⑥</span>. 위 「과세표준」란에 <b>합산액</b>을 넣으십시오.<br>▸ 다만 <b>구분건물(아파트·빌라 등)</b>을 한 신청서로 보존등기할 때에는 <b>각 세대를 별건으로</b> 보아 세대마다 따로 산정하고, <b>대지권이 있으면 세대당 40,000원</b>이 더 붙습니다<span class="law" title="법무사 보수기준 제10조제2항 — 수개의 구분건물을 1건의 신청서로 소유권보존등기를 하는 경우에는 각 구분건물마다 별건으로 보며, 대지권이 있는 구분건물의 소유권보존등기는 건당 40,000원, 소유권이전등기는 건당 20,000원을 가산한다.">§10②</span>. 아래 「보존 유형」에서 <b>구분건물</b>을 골라 주십시오.<br>▸ <span class="hint">보존등기는 소유자가 <b>혼자 신청</b>하는 등기라 「쌍방대리」 문제가 생기지 않습니다.</span></div>
       <div class="line"><span class="lbl">보존 유형</span><div class="radios">
         <label><input type="radio" name="pr_bldgType" value="normal" checked onchange="calcPreserve()"> 일반 부동산</label>
         <label><input type="radio" name="pr_bldgType" value="apt" onchange="calcPreserve()"> 구분건물(집합건물)</label>
@@ -2159,7 +2162,7 @@
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
         <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
       <div class="line"><span class="lbl">당사자 다수 가산</span><span style="margin-left:6px;">등기의무자</span><input type="number" id="pr_pnObl" value="1" min="0" style="width:52px;margin:0 4px;" oninput="calcPreserve()"><span>인</span><select id="pr_pnAdd" onchange="calcPreserve()" style="margin-left:8px;"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint" id="pr_pnInfo" style="margin-left:8px;"></span></div><div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="pr_frAdd" onchange="calcPreserve()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§10⑥</b> — 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는</b> 등기 → <b>기본보수의 100%까지</b> 가산</span></div>
-      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="pr_moAdd" onchange="calcPreserve()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
+      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="pr_moAdd" onchange="calcPreserve()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">같은 원인·같은 목적의 등기를 하는데 <b>부동산들이 서로 다른 등기소에 속해 있으면</b> 기본보수의 <b>50%까지</b> 더 받을 수 있습니다<span class="law" title="법무사 보수기준 제10조제4항 — 등기원인 및 등기목적이 동일한 것으로서 여러 개의 등기소의 관할에 걸쳐 있는 여러 개의 부동산에 관한 권리의 등기를 신청하는 경우에는 당해 기본보수의 50% 상당액까지 가산할 수 있다.">보수기준 §10④</span><span class="tag A">A</span><br>· <b>해당하는 예</b> — 상속받은 <b>서울 아파트</b>와 <b>용인 땅</b>을 함께 이전등기. 등기소가 두 곳이라 <b>신청서도 따로</b> 내야 하고 그만큼 품이 더 듭니다.<br>· <b>해당하지 않는 예</b> — 부동산이 여러 개라도 <b>모두 같은 등기소</b>에 속하는 경우. 이때는 아래 「부동산 개수」 가산(1개 초과 시 개당 20,000원)만 적용됩니다<span class="law" title="법무사 보수기준 제10조제1항 — 대상 부동산이 1개를 초과하는 경우에는 초과하는 1개마다 20,000원을 가산한다.">§10①</span>.</span></div>
     </div></div>
 
     <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 직접 입력하셔야 합니다. 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
@@ -2237,7 +2240,7 @@
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
         <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
       <div class="line"><span class="lbl">당사자 다수 가산</span><span>등기권리자</span><input type="number" id="rt_pnOwn" value="1" min="1" style="width:52px;margin:0 4px;" oninput="calcRight()"><span>인</span><span style="margin-left:6px;">등기의무자</span><input type="number" id="rt_pnObl" value="1" min="0" style="width:52px;margin:0 4px;" oninput="calcRight()"><span>인</span><select id="rt_pnAdd" onchange="calcRight()" style="margin-left:8px;"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint" id="rt_pnInfo" style="margin-left:8px;"></span></div><div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="rt_frAdd" onchange="calcRight()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§10⑥</b> — 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는</b> 등기 → <b>기본보수의 100%까지</b> 가산</span></div>
-      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="rt_moAdd" onchange="calcRight()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§10④</b> — <b>등기원인·등기목적이 동일</b>한 여러 개의 부동산이 <b>여러 개의 등기소 관할</b>에 걸쳐 있는 경우 → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
+      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="rt_moAdd" onchange="calcRight()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">같은 원인·같은 목적의 등기를 하는데 <b>부동산들이 서로 다른 등기소에 속해 있으면</b> 기본보수의 <b>50%까지</b> 더 받을 수 있습니다<span class="law" title="법무사 보수기준 제10조제4항 — 등기원인 및 등기목적이 동일한 것으로서 여러 개의 등기소의 관할에 걸쳐 있는 여러 개의 부동산에 관한 권리의 등기를 신청하는 경우에는 당해 기본보수의 50% 상당액까지 가산할 수 있다.">보수기준 §10④</span><span class="tag A">A</span><br>· <b>해당하는 예</b> — 상속받은 <b>서울 아파트</b>와 <b>용인 땅</b>을 함께 이전등기. 등기소가 두 곳이라 <b>신청서도 따로</b> 내야 하고 그만큼 품이 더 듭니다.<br>· <b>해당하지 않는 예</b> — 부동산이 여러 개라도 <b>모두 같은 등기소</b>에 속하는 경우. 이때는 아래 「부동산 개수」 가산(1개 초과 시 개당 20,000원)만 적용됩니다<span class="law" title="법무사 보수기준 제10조제1항 — 대상 부동산이 1개를 초과하는 경우에는 초과하는 1개마다 20,000원을 가산한다.">§10①</span>.</span></div>
     </div></div>
 
     <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
@@ -2357,14 +2360,20 @@
     <div class="card pink"><h2>① 변경 정보</h2><div class="body">
       <div class="note">변경 유형을 선택하면 보수·등록면허세·등기수수료가 자동 세팅됩니다. 등록면허세는 사안·연도별 변동이 있어 직접 수정 가능합니다.</div>
       <div class="line"><span class="lbl">변경 유형</span><select id="cv_type" onchange="cvTypeChange()">
-        <option value="자본증자">자본증자</option>
+        <option value="자본증자">자본증자 (증자)</option>
+        <option value="자본감소(감자)">자본감소 (감자)</option>
         <option value="전환사채 발행">전환사채 발행</option>
+        <option value="주식의 병합·분할·소각">주식의 병합·분할·소각</option>
+        <option value="자본증가 없는 합병">자본증가 없는 합병</option>
         <option value="임원 선임·변경">임원 선임·변경</option>
+        <option value="무능력자·법정대리인 등기">무능력자·법정대리인 등기 (미성년자 영업등기 등)</option>
         <option value="상호·목적·정관 변경">상호·목적·정관 변경</option>
         <option value="본점 관내이전">본점 관내이전</option>
         <option value="본점 관외이전">본점 관외이전</option>
         <option value="지점 설치·이전">지점 설치·이전</option>
-        <option value="법인 해산·청산">법인 해산·청산</option></select></div>
+        <option value="외국회사 영업소 설치·변경·폐지">외국회사 영업소(분사무소) 설치·변경·폐지</option>
+        <option value="법인 해산·청산">법인 해산·청산</option>
+        <option value="그 밖의 등기">그 밖의 등기 (위에 없는 변경등기)</option></select></div>
       <div class="line" id="cv_capLine" style="display:none;"><span class="lbl" id="cv_capLbl">자본 증가액(원)</span><input type="number" class="amt" id="cv_cap" placeholder="0" oninput="calcCorpChange()"></div>
       <div class="line"><span class="lbl">변경 건수</span><div class="stepper"><button onclick="step('cv_cnt',-1,calcCorpChange)">−</button><input type="number" id="cv_cnt" value="1" min="1" oninput="calcCorpChange()"><button onclick="step('cv_cnt',1,calcCorpChange)">+</button></div></div>
       <div class="line"><span class="lbl">의사록 작성</span><div class="stepper"><button onclick="step('cv_docN',-1,calcCorpChange)">−</button><input type="number" id="cv_docN" value="1" min="0" oninput="calcCorpChange()"><button onclick="step('cv_docN',1,calcCorpChange)">+</button></div><span class="hint">Ⅸ-5 종류마다 80,000</span></div>
@@ -2377,6 +2386,7 @@
       <div class="line" id="cv_rowBranch" style="display:none;"><span class="lbl">중과 요건</span><label class="checks" style="display:inline-flex;"><input type="checkbox" id="cv_branchNew" onchange="calcCorpChange()"> 지점·분사무소 <b>설치</b>(이전·폐지 아님)</label><span class="hint">마목 → §28②1호. <b>지점 이전은 바목 → 중과 배제</b></span></div>
       <div class="line" id="cv_rowMidExempt" style="display:none;"><span class="lbl">중과 배제</span><label class="checks" style="display:inline-flex;"><input type="checkbox" id="cv_midExempt" onchange="calcCorpChange()"> <b>대도시 중과 제외 업종</b>에 해당</label><span class="hint">§28② 단서 · 시행령 §26① <span class="tag chk">확인필요</span></span></div>
       <div id="cv_midWarn" style="display:none;margin:6px 0;padding:8px 10px;background:#fdeaea;border:1px solid var(--seal-soft);border-radius:6px;font-size:12.5px;color:var(--seal);line-height:1.6;">▸ 이 등기는 지방세법 <b>§28①6호 바목(그 밖의 등기)</b>이므로 <b>§28④에 따라 대도시 중과세율이 적용되지 않습니다</b>. 대도시를 체크해도 <b>40,200원 × 건수</b> 그대로입니다. <span class="tag A">A</span></div>
+      <div id="cv_typeGuide" style="display:none;margin:6px 0;padding:9px 11px;background:#f3f8f4;border:1px solid #cfe3d6;border-radius:6px;font-size:12.5px;line-height:1.75;"></div>
       <div id="cv_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="cv_adjust" onchange="calcCorpChange()">
         <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
@@ -2387,6 +2397,7 @@
       <div class="line" id="cv_rowOfficer" style="display:none;"><span class="lbl">임원 수(선임·변경)</span><div class="stepper"><button onclick="step('cv_officerN',-1,calcCorpChange)">−</button><input type="number" id="cv_officerN" value="1" min="1" oninput="calcCorpChange()"><button onclick="step('cv_officerN',1,calcCorpChange)">+</button></div><span class="hint">보수기준 <b>§14④</b> — 임원이 <b>4인을 초과</b>하면 초과 1인마다 <b>20,000원</b> 가산 <span class="tag A">A</span></span></div>
       <div class="line"><span class="lbl">당사자 다수 가산</span><span>등기권리자</span><input type="number" id="cv_pnOwn" value="1" min="1" style="width:52px;margin:0 4px;" oninput="calcCorpChange()"><span>인</span><span style="margin-left:6px;">등기의무자</span><input type="number" id="cv_pnObl" value="1" min="0" style="width:52px;margin:0 4px;" oninput="calcCorpChange()"><span>인</span><select id="cv_pnAdd" onchange="calcCorpChange()" style="margin-left:8px;"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint" id="cv_pnInfo" style="margin-left:8px;"></span></div><div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="cv_frAdd" onchange="calcCorpChange()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§14②</b> — <b>임원 중</b> 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는 변경등기</b> → <b>기본보수의 100%까지</b> 가산 <span class="tag A">A</span></span></div>
       <div class="line" id="cv_rowFar" style="display:none;"><span class="lbl">관외 본점이전 가산</span><select id="cv_farAdd" onchange="calcCorpChange()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">보수기준 <b>§14⑤</b> — <b>다른 등기소 관내로의 본점이전등기</b> → <b>기본보수의 50%까지</b> 가산 <span class="tag A">A</span></span></div>
+      <div class="line" id="cv_row14_1" style="display:none;"><span class="lbl">설립·증자 특례 가산</span><select id="cv_fr14_1" onchange="calcCorpChange()"><option value="0" selected>해당 없음</option><option value="0.5">50%</option><option value="1">100%</option><option value="1.5">150% (상한)</option></select><span class="hint">아래에 해당하는 <b>자본증가</b>이면 기본보수의 <b>150%까지</b> 더 받을 수 있습니다<span class="law" title="법무사 보수기준 제14조제1항 — 「외국인투자촉진법」에 의한 법인의 설립 또는 자본증가의 등기, 현물출자에 의한 설립·자본증가의 등기, 분할·합병·주식이전·조직변경에 의한 설립이나 흡수합병·분할합병·주식교환에 의한 자본증가의 등기, 설립이나 자본증가에 있어서 종류주식의 발행이나 주식매수선택권의 규정이 포함되는 경우에는 당해 기본보수의 150% 상당액까지 가산할 수 있다.">보수기준 §14①</span><span class="tag A">A</span><br>· <b>외국인투자</b>에 따른 자본증가 · <b>현물출자</b>(돈이 아니라 부동산·기계·특허 등으로 출자)<br>· <b>흡수합병·분할합병·주식교환</b>으로 인한 자본증가<br>· 증자하면서 <b>종류주식</b>(우선주 등)을 발행하거나 <b>주식매수선택권(스톡옵션)</b> 규정을 두는 경우</span></div>
     </div></div>
 
     <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag chk">확인필요</span><span class="law" title="등록면허세 정액(40,200원)은 연도별로 바뀔 수 있어 확인이 필요합니다. 세율 구조 자체(§28①6호·§28②·§28④)는 조문에 확정되어 있습니다.">사유: 정액이 연도별 변동</span></h2><div class="body">
@@ -2407,6 +2418,7 @@
         <tr><td>기본료 <span class="hint" id="cv_feeBaseNote"></span></td><td class="auto" id="cv_feeBaseCell">0 원</td></tr>
         <tr id="cv_feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="cv_feeForeignNote"></span></td><td class="auto" id="cv_feeForeignCell">0 원</td></tr><tr id="cv_feePartyRow" style="display:none;"><td>당사자 다수 가산 <span class="hint" id="cv_feePartyNote"></span></td><td class="auto" id="cv_feePartyCell">0 원</td></tr>
         <tr id="cv_feeFarRow" style="display:none;"><td>관외 본점이전 가산 <span class="hint" id="cv_feeFarNote"></span></td><td class="auto" id="cv_feeFarCell">0 원</td></tr>
+        <tr id="cv_fee14_1Row" style="display:none;"><td>설립·증자 특례 가산 <span class="hint" id="cv_fee14_1Note"></span></td><td class="auto" id="cv_fee14_1Cell">0 원</td></tr>
         <tr id="cv_feePurposeRow" style="display:none;"><td>등기목적 초과 가산 <span class="hint" id="cv_feePurposeNote"></span></td><td class="auto" id="cv_feePurposeCell">0 원</td></tr>
         <tr id="cv_feeOfficerRow" style="display:none;"><td>임원 초과 가산 <span class="hint" id="cv_feeOfficerNote"></span></td><td class="auto" id="cv_feeOfficerCell">0 원</td></tr>
         <tr><td>문서작성료 <span class="hint" id="cv_docNote"></span></td><td class="auto" id="cv_docCell">0 원</td></tr>
@@ -2441,7 +2453,7 @@
     <h2 class="stitle">부동산경매(신청) <small>인지 5,000 정액 · 등록면허세 0.2% · 보수 Ⅶ-1①(집행신청)</small></h2>
 
     <div class="card blue"><h2>① 신청 정보</h2><div class="body">
-      <div class="line"><span class="lbl">소가(청구금액, 원)</span><input type="number" class="amt" id="am_claim" placeholder="0" oninput="calcAuctionFile()"><span class="hint">등록면허세·기본료 기준</span></div>
+      <div class="line"><span class="lbl">소가(청구금액, 원)</span><input type="number" class="amt" id="am_claim" placeholder="0" oninput="calcAuctionFile()"><span class="hint">등록면허세·기본료 기준</span><span class="hint">비워 두시면 <b>5천만원</b>으로 보아 계산합니다<span class="law" title="법무사 보수기준 제23조제1항 후단 — 이 경우 소송물가액이 없거나 소송물가액을 산정할 수 없는 경우에는 5천만원으로 한다.">§23① 후단</span><span class="tag A">A</span> — 이때 기본보수는 <b>580,000원</b>입니다.</span></div>
       <div class="line"><span class="lbl">부동산가액(감정가, 원)</span><input type="number" class="amt" id="am_estVal" placeholder="0" oninput="calcAuctionFile()"><span class="hint">법원예납금 기준</span></div>
       <div class="line"><span class="lbl">물건 종류</span><div class="checks" onchange="calcAuctionFile()"><label><input type="radio" name="am_kind" value="apt" checked> 아파트(감정료 70%)</label><label><input type="radio" name="am_kind" value="etc"> 아파트외(80%)</label></div></div>
       <div class="line"><span class="lbl">이해관계인 수</span><div class="stepper"><button onclick="step('am_party',-1,calcAuctionFile)">−</button><input type="number" id="am_party" value="2" min="0" oninput="calcAuctionFile()"><button onclick="step('am_party',1,calcAuctionFile)">+</button></div></div>
@@ -2449,7 +2461,7 @@
       <div class="line"><span class="lbl">집행권원/담보권 수</span><div class="stepper"><button onclick="step('am_titleN',-1,calcAuctionFile)">−</button><input type="number" id="am_titleN" value="1" min="1" oninput="calcAuctionFile()"><button onclick="step('am_titleN',1,calcAuctionFile)">+</button></div><span class="hint">인지 5,000×건</span></div>
       <div class="line"><span class="lbl">현황조사 건수</span><div class="stepper"><button onclick="step('am_surveyN',-1,calcAuctionFile)">−</button><input type="number" id="am_surveyN" value="1" min="1" oninput="calcAuctionFile()"><button onclick="step('am_surveyN',1,calcAuctionFile)">+</button></div><span class="hint">klac 현황조사료 63,260×건</span></div>
       <div class="line"><span class="lbl">전자소송 진행</span><label class="checks" style="display:inline-flex;"><input type="checkbox" id="am_e" checked onchange="calcAuctionFile()"> 예(인지 10% 할인·klac 참고)</label></div>
-      <div id="am_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="am_adjust" onchange="calcAuctionFile()">
+      <div id="am_s24Box"></div><div id="am_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="am_adjust" onchange="calcAuctionFile()">
         <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
@@ -2486,7 +2498,7 @@
 
     <div class="card pink"><h2>③ 수수료 (법무사 보수, VAT 별도) <span class="tag A">A</span></h2><div class="body">
       <table class="t">
-        <tr><td>기본료 <span class="hint" id="am_feeBaseNote"></span></td><td class="auto" id="am_feeBaseCell">0 원</td></tr>
+        <tr><td>기본료 <span class="hint" id="am_feeBaseNote"></span></td><td class="auto" id="am_feeBaseCell">0 원</td></tr><tr id="am_s24Row" style="display:none;"><td>특례 가산보수 <span class="hint" id="am_s24RowNote"></span></td><td class="auto" id="am_s24Cell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="am_submit" checked onchange="calcAuctionFile()"> 제출대행 (Ⅸ-8 40,000)</label></td><td class="auto">40,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="am_taxAgent" checked onchange="calcAuctionFile()"> 등록세신고 대행 (Ⅸ-2 50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
@@ -2521,7 +2533,7 @@
       <div class="line"><span class="lbl">청구(소송목적)금액(원)</span><input type="number" class="amt" id="mi_claim" placeholder="0" oninput="calcMisc()"><span class="hint">보수 Ⅶ-1② 기준 · <b>소송물가액이 없거나 산정할 수 없으면 5천만원으로 의제</b>(보수기준 <b>§23①</b> 후단 → 262,000원) <span class="tag A">A</span></span></div>
       <div class="line"><span class="lbl">당사자 수</span><div class="stepper"><button onclick="step('mi_party',-1,calcMisc)">−</button><input type="number" id="mi_party" value="2" min="1" oninput="calcMisc()"><button onclick="step('mi_party',1,calcMisc)">+</button></div><span class="hint">신청인+상대방</span></div>
       <div class="line"><span class="lbl">전자소송 진행</span><label class="checks" style="display:inline-flex;"><input type="checkbox" id="mi_e" checked onchange="buildMisc()"> 예(인지 10% 할인)</label></div>
-      <div id="mi_pwBox"></div><div class="line"><span class="lbl">보수 조정</span><select id="mi_adjust" onchange="calcMisc()">
+      <div id="mi_s24Box"></div><div id="mi_pwBox"></div><div class="line"><span class="lbl">보수 조정</span><select id="mi_adjust" onchange="calcMisc()">
         <option value="0.8">80%</option><option value="0.9">90%</option><option value="1" selected>100%</option><option value="1.2">120%</option><option value="1.5">150%</option><option value="2">200%</option></select></div>
     </div></div>
     <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
@@ -2534,7 +2546,7 @@
     </div></div>
     <div class="card pink"><h2>③ 수수료 (VAT 별도) <span class="tag A">A</span></h2><div class="body">
       <table class="t">
-        <tr><td>기본료 <span class="hint" id="mi_feeBaseNote"></span></td><td class="auto" id="mi_feeBaseCell">0 원</td></tr>
+        <tr><td>기본료 <span class="hint" id="mi_feeBaseNote"></span></td><td class="auto" id="mi_feeBaseCell">0 원</td></tr><tr id="mi_s24Row" style="display:none;"><td>특례 가산보수 <span class="hint" id="mi_s24RowNote"></span></td><td class="auto" id="mi_s24Cell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="mi_submit" checked onchange="calcMisc()"> 제출대행 (Ⅸ-8 40,000)</label></td><td class="auto">40,000 원</td></tr>
         <tr class="subtot"><td>수수료계</td><td id="mi_feeSum">0 원</td></tr>
       </table>
@@ -2554,11 +2566,11 @@
     <h2 class="stitle">채권압류 및 추심명령 <small>인지 압류+추심 · 송달 당사자×2회 · 등기·담보 없음 · 보수 Ⅶ-1①</small></h2>
     <div class="card blue"><h2>① 신청 정보 <span class="tag A">전자소송 포털 기준</span></h2><div class="body">
       <div class="note">집행권원에 기한 <b>본집행</b>이라 담보(보증보험)가 없고, 등기도 하지 않습니다. 제3채무자에게 송달합니다.</div>
-      <div class="line"><span class="lbl">청구채권액(원)</span><input type="number" class="amt" id="cs_claim" placeholder="0" oninput="calcSeizure()"></div>
+      <div class="line"><span class="lbl">청구채권액(원)</span><input type="number" class="amt" id="cs_claim" placeholder="0" oninput="calcSeizure()"><span class="hint">비워 두시면 <b>5천만원</b>으로 보아 계산합니다<span class="law" title="법무사 보수기준 제23조제1항 후단 — 이 경우 소송물가액이 없거나 소송물가액을 산정할 수 없는 경우에는 5천만원으로 한다.">§23① 후단</span><span class="tag A">A</span> — 이때 기본보수는 <b>580,000원</b>입니다.</span></div>
       <div class="line"><span class="lbl">당사자 수</span><div class="stepper"><button onclick="step('cs_party',-1,calcSeizure)">−</button><input type="number" id="cs_party" value="3" min="1" oninput="calcSeizure()"><button onclick="step('cs_party',1,calcSeizure)">+</button></div><span class="hint">채권자+채무자+제3채무자 (기본 3)</span></div>
       <div class="line"><span class="lbl">신청 유형</span><label class="checks" style="display:inline-flex;gap:12px;"><label><input type="checkbox" id="cs_seize" checked onchange="calcSeizure()"> 압류</label><label><input type="checkbox" id="cs_collect" checked onchange="calcSeizure()"> 추심</label></label><span class="hint">각 2,000원(전자 1,800)</span></div>
       <div class="line"><span class="lbl">전자소송 진행</span><label class="checks" style="display:inline-flex;"><input type="checkbox" id="cs_e" checked onchange="calcSeizure()"> 예(인지 10% 할인)</label></div>
-      <div id="cs_pwBox"></div><div class="line"><span class="lbl">보수 조정</span><select id="cs_adjust" onchange="calcSeizure()">
+      <div id="cs_s24Box"></div><div id="cs_pwBox"></div><div class="line"><span class="lbl">보수 조정</span><select id="cs_adjust" onchange="calcSeizure()">
         <option value="0.8">80%</option><option value="0.9">90%</option><option value="1" selected>100%</option><option value="1.2">120%</option><option value="1.5">150%</option><option value="2">200%</option></select></div>
     </div></div>
     <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
@@ -2571,7 +2583,7 @@
     </div></div>
     <div class="card pink"><h2>③ 수수료 (VAT 별도) <span class="tag A">A</span></h2><div class="body">
       <table class="t">
-        <tr><td>기본료 <span class="hint" id="cs_feeBaseNote"></span></td><td class="auto" id="cs_feeBaseCell">0 원</td></tr>
+        <tr><td>기본료 <span class="hint" id="cs_feeBaseNote"></span></td><td class="auto" id="cs_feeBaseCell">0 원</td></tr><tr id="cs_s24Row" style="display:none;"><td>특례 가산보수 <span class="hint" id="cs_s24RowNote"></span></td><td class="auto" id="cs_s24Cell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="cs_submit" checked onchange="calcSeizure()"> 제출대행 (Ⅸ-8 40,000)</label></td><td class="auto">40,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="cs_statement" onchange="calcSeizure()"> 진술최고신청 <span class="hint">(문안작성·인지송달 직접입력)</span></label></td><td><input class="cell" id="cs_statementFee" type="number" value="0" oninput="calcSeizure(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (Ⅸ)</td></tr>
@@ -2594,11 +2606,11 @@
     <h2 class="stitle">유체동산가압류 <small>인지 10,000 · 송달 당사자×3회 · 등기 없음 · 보수 Ⅶ-1①</small></h2>
     <div class="card blue"><h2>① 신청 정보</h2><div class="body">
       <div class="note">유체동산가압류는 집행관이 압류하므로 <b>등기·등록 공과금이 없고 제3채무자도 없습니다</b>.</div>
-      <div class="line"><span class="lbl">채권액(피보전채권액, 원)</span><input type="number" class="amt" id="ad_claim" placeholder="0" oninput="calcAttachGoods()"></div>
+      <div class="line"><span class="lbl">채권액(피보전채권액, 원)</span><input type="number" class="amt" id="ad_claim" placeholder="0" oninput="calcAttachGoods()"><span class="hint">비워 두시면 <b>5천만원</b>으로 보아 계산합니다<span class="law" title="법무사 보수기준 제23조제1항 후단 — 이 경우 소송물가액이 없거나 소송물가액을 산정할 수 없는 경우에는 5천만원으로 한다.">§23① 후단</span><span class="tag A">A</span> — 이때 기본보수는 <b>580,000원</b>입니다.</span></div>
       <div class="line"><span class="lbl">당사자 수</span><div class="stepper"><button onclick="step('ad_party',-1,calcAttachGoods)">−</button><input type="number" id="ad_party" value="2" min="1" oninput="calcAttachGoods()"><button onclick="step('ad_party',1,calcAttachGoods)">+</button></div><span class="hint">채권자+채무자 (기본 2)</span></div>
       <div class="line"><span class="lbl">전자소송 진행</span><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ad_e" checked onchange="calcAttachGoods()"> 예</label><span class="hint">인지 10,000원 → 9,000원(§16②·§9 준용)</span></div>
       <div class="line"><span class="lbl">가압류담보금(원)</span><input type="number" class="amt" id="ad_deposit" placeholder="0" oninput="calcAttachGoods(true)"><span class="hint">담보제공명령 청구액×4/5 (klac 확정) [A]·수정가능</span></div>
-      <div id="ad_pwBox"></div><div class="line"><span class="lbl">보수 조정</span><select id="ad_adjust" onchange="calcAttachGoods()">
+      <div id="ad_s24Box"></div><div id="ad_pwBox"></div><div class="line"><span class="lbl">보수 조정</span><select id="ad_adjust" onchange="calcAttachGoods()">
         <option value="0.8">80%</option><option value="0.9">90%</option><option value="1" selected>100%</option><option value="1.2">120%</option><option value="1.5">150%</option><option value="2">200%</option></select></div>
     </div></div>
     <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
@@ -2612,7 +2624,7 @@
     </div></div>
     <div class="card pink"><h2>③ 수수료 (VAT 별도) <span class="tag A">A</span></h2><div class="body">
       <table class="t">
-        <tr><td>기본료 <span class="hint" id="ad_feeBaseNote"></span></td><td class="auto" id="ad_feeBaseCell">0 원</td></tr>
+        <tr><td>기본료 <span class="hint" id="ad_feeBaseNote"></span></td><td class="auto" id="ad_feeBaseCell">0 원</td></tr><tr id="ad_s24Row" style="display:none;"><td>특례 가산보수 <span class="hint" id="ad_s24RowNote"></span></td><td class="auto" id="ad_s24Cell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ad_submit" checked onchange="calcAttachGoods()"> 제출대행 (Ⅸ-8 40,000)</label></td><td class="auto">40,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ad_cert" checked onchange="calcAttachGoods()"> 증권발급대행</label></td><td><input class="cell" id="ad_certFee" type="number" value="100000" oninput="calcAttachGoods(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (Ⅸ)</td></tr>
@@ -2635,12 +2647,12 @@
     <h2 class="stitle">자동차가압류 <small>인지 10,000 · 등록면허세(자동차등록) · 보수 Ⅶ-1①</small></h2>
     <div class="card blue"><h2>① 신청 정보</h2><div class="body">
       <div class="note">자동차가압류는 <b>자동차등록원부에 가압류를 등록</b>하므로 등록면허세가 있습니다(부동산 등기와는 별개).</div>
-      <div class="line"><span class="lbl">채권액(피보전채권액, 원)</span><input type="number" class="amt" id="av_claim" placeholder="0" oninput="calcAttachCar()"></div>
+      <div class="line"><span class="lbl">채권액(피보전채권액, 원)</span><input type="number" class="amt" id="av_claim" placeholder="0" oninput="calcAttachCar()"><span class="hint">비워 두시면 <b>5천만원</b>으로 보아 계산합니다<span class="law" title="법무사 보수기준 제23조제1항 후단 — 이 경우 소송물가액이 없거나 소송물가액을 산정할 수 없는 경우에는 5천만원으로 한다.">§23① 후단</span><span class="tag A">A</span> — 이때 기본보수는 <b>580,000원</b>입니다.</span></div>
       <div class="line"><span class="lbl">당사자 수</span><div class="stepper"><button onclick="step('av_party',-1,calcAttachCar)">−</button><input type="number" id="av_party" value="2" min="1" oninput="calcAttachCar()"><button onclick="step('av_party',1,calcAttachCar)">+</button></div><span class="hint">채권자+채무자 (기본 2)</span></div>
       <div class="line"><span class="lbl">전자소송 진행</span><label class="checks" style="display:inline-flex;"><input type="checkbox" id="av_e" checked onchange="calcAttachCar()"> 예</label><span class="hint">인지 10,000원 → 9,000원(§16②·§9 준용)</span></div>
       <div class="line"><span class="lbl">자동차 대수</span><div class="stepper"><button onclick="step('av_cnt',-1,calcAttachCar)">−</button><input type="number" id="av_cnt" value="1" min="1" oninput="calcAttachCar()"><button onclick="step('av_cnt',1,calcAttachCar)">+</button></div></div>
       <div class="line"><span class="lbl">가압류담보금(원)</span><input type="number" class="amt" id="av_deposit" placeholder="0" oninput="calcAttachCar(true)"><span class="hint">기본 청구금액×1/10 (klac 확정) [A]</span></div>
-      <div id="av_pwBox"></div><div class="line"><span class="lbl">보수 조정</span><select id="av_adjust" onchange="calcAttachCar()">
+      <div id="av_s24Box"></div><div id="av_pwBox"></div><div class="line"><span class="lbl">보수 조정</span><select id="av_adjust" onchange="calcAttachCar()">
         <option value="0.8">80%</option><option value="0.9">90%</option><option value="1" selected>100%</option><option value="1.2">120%</option><option value="1.5">150%</option><option value="2">200%</option></select></div>
     </div></div>
     <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
@@ -2656,7 +2668,7 @@
     </div></div>
     <div class="card pink"><h2>③ 수수료 (VAT 별도) <span class="tag A">A</span></h2><div class="body">
       <table class="t">
-        <tr><td>기본료 <span class="hint" id="av_feeBaseNote"></span></td><td class="auto" id="av_feeBaseCell">0 원</td></tr>
+        <tr><td>기본료 <span class="hint" id="av_feeBaseNote"></span></td><td class="auto" id="av_feeBaseCell">0 원</td></tr><tr id="av_s24Row" style="display:none;"><td>특례 가산보수 <span class="hint" id="av_s24RowNote"></span></td><td class="auto" id="av_s24Cell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="av_submit" checked onchange="calcAttachCar()"> 제출대행 (Ⅸ-8 40,000)</label></td><td class="auto">40,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="av_taxAgent" checked onchange="calcAttachCar()"> 등록세신고 대행 (Ⅸ-2 50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="av_cert" checked onchange="calcAttachCar()"> 증권발급대행</label></td><td><input class="cell" id="av_certFee" type="number" value="100000" oninput="calcAttachCar(true)"></td></tr>
@@ -2681,11 +2693,11 @@
 
     <div class="card blue"><h2>① 신청 정보</h2><div class="body">
       <div class="note">채권가압류는 <b>등기를 하지 않으므로 등록면허세·등기수수료가 없습니다</b>. 제3채무자에게 송달합니다.</div>
-      <div class="line"><span class="lbl">채권액(피보전채권액, 원)</span><input type="number" class="amt" id="ac_claim" placeholder="0" oninput="calcAttachClaim()"></div>
+      <div class="line"><span class="lbl">채권액(피보전채권액, 원)</span><input type="number" class="amt" id="ac_claim" placeholder="0" oninput="calcAttachClaim()"><span class="hint">비워 두시면 <b>5천만원</b>으로 보아 계산합니다<span class="law" title="법무사 보수기준 제23조제1항 후단 — 이 경우 소송물가액이 없거나 소송물가액을 산정할 수 없는 경우에는 5천만원으로 한다.">§23① 후단</span><span class="tag A">A</span> — 이때 기본보수는 <b>580,000원</b>입니다.</span></div>
       <div class="line"><span class="lbl">당사자 수</span><div class="stepper"><button onclick="step('ac_party',-1,calcAttachClaim)">−</button><input type="number" id="ac_party" value="3" min="1" oninput="calcAttachClaim()"><button onclick="step('ac_party',1,calcAttachClaim)">+</button></div><span class="hint">채권자+채무자+제3채무자 (기본 3)</span></div>
       <div class="line"><span class="lbl">가압류담보금(원)</span><input type="number" class="amt" id="ac_deposit" placeholder="0" oninput="calcAttachClaim(true)"><span class="hint">기본 채권액×40% (직접수정 가능)</span></div>
       <div class="line"><span class="lbl">전자소송 진행</span><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ac_e" checked onchange="calcAttachClaim()"> 예</label><span class="hint">인지 10,000원 → 9,000원(§16②·§9 준용)</span></div>
-      <div id="ac_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="ac_adjust" onchange="calcAttachClaim()">
+      <div id="ac_s24Box"></div><div id="ac_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="ac_adjust" onchange="calcAttachClaim()">
         <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
@@ -2705,7 +2717,7 @@
 
     <div class="card pink"><h2>③ 수수료 (법무사 보수, VAT 별도) <span class="tag A">A</span></h2><div class="body">
       <table class="t">
-        <tr><td>기본료 <span class="hint" id="ac_feeBaseNote"></span></td><td class="auto" id="ac_feeBaseCell">0 원</td></tr>
+        <tr><td>기본료 <span class="hint" id="ac_feeBaseNote"></span></td><td class="auto" id="ac_feeBaseCell">0 원</td></tr><tr id="ac_s24Row" style="display:none;"><td>특례 가산보수 <span class="hint" id="ac_s24RowNote"></span></td><td class="auto" id="ac_s24Cell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ac_submit" checked onchange="calcAttachClaim()"> 제출대행 (Ⅸ-8 40,000)</label></td><td class="auto">40,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ac_cert" checked onchange="calcAttachClaim()"> 증권발급대행</label> <span class="hint">[화면표기·수정가능]</span></td><td><input class="cell" id="ac_certFee" type="number" value="100000" oninput="calcAttachClaim(true)"></td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ac_statement" onchange="calcAttachClaim()"> 진술최고신청 <span class="hint">(민집§291·§237 준용·직접입력)</span></label></td><td><input class="cell" id="ac_statementFee" type="number" value="0" oninput="calcAttachClaim(true)"></td></tr>
@@ -2737,12 +2749,12 @@
     <h2 class="stitle">부동산가압류 <small>인지 10,000 정액 · 송달 3회 · 등록면허세 0.2% · 보수 Ⅶ-1①</small></h2>
 
     <div class="card blue"><h2>① 신청 정보</h2><div class="body">
-      <div class="line"><span class="lbl">채권액(피보전채권액, 원)</span><input type="number" class="amt" id="at_claim" placeholder="0" oninput="calcAttach()"></div>
+      <div class="line"><span class="lbl">채권액(피보전채권액, 원)</span><input type="number" class="amt" id="at_claim" placeholder="0" oninput="calcAttach()"><span class="hint">비워 두시면 <b>5천만원</b>으로 보아 계산합니다<span class="law" title="법무사 보수기준 제23조제1항 후단 — 이 경우 소송물가액이 없거나 소송물가액을 산정할 수 없는 경우에는 5천만원으로 한다.">§23① 후단</span><span class="tag A">A</span> — 이때 기본보수는 <b>580,000원</b>입니다.</span></div>
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('at_cntEstate',-1,calcAttach)">−</button><input type="number" id="at_cntEstate" value="1" min="1" oninput="calcAttach()"><button onclick="step('at_cntEstate',1,calcAttach)">+</button></div></div>
       <div class="line"><span class="lbl">당사자 수</span><div class="stepper"><button onclick="step('at_party',-1,calcAttach)">−</button><input type="number" id="at_party" value="2" min="1" oninput="calcAttach()"><button onclick="step('at_party',1,calcAttach)">+</button></div></div>
       <div class="line"><span class="lbl">전자소송 진행</span><label class="checks" style="display:inline-flex;"><input type="checkbox" id="at_e" checked onchange="calcAttach()"> 예</label><span class="hint">인지 10,000원 → 9,000원(§16②·§9 준용)</span></div>
       <div class="line"><span class="lbl">가압류담보금(원)</span><input type="number" class="amt" id="at_deposit" placeholder="0" oninput="calcAttach(true)"><span class="hint">기본 채권액×10% (직접수정 가능)</span></div>
-      <div id="at_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="at_adjust" onchange="calcAttach()">
+      <div id="at_s24Box"></div><div id="at_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="at_adjust" onchange="calcAttach()">
         <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
@@ -2766,7 +2778,7 @@
 
     <div class="card pink"><h2>③ 수수료 (법무사 보수, VAT 별도) <span class="tag A">A</span></h2><div class="body">
       <table class="t">
-        <tr><td>기본료 <span class="hint" id="at_feeBaseNote"></span></td><td class="auto" id="at_feeBaseCell">0 원</td></tr>
+        <tr><td>기본료 <span class="hint" id="at_feeBaseNote"></span></td><td class="auto" id="at_feeBaseCell">0 원</td></tr><tr id="at_s24Row" style="display:none;"><td>특례 가산보수 <span class="hint" id="at_s24RowNote"></span></td><td class="auto" id="at_s24Cell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="at_submit" checked onchange="calcAttach()"> 제출대행 (Ⅸ-8 40,000)</label></td><td class="auto">40,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="at_taxAgent" checked onchange="calcAttach()"> 등록세신고 대행 (Ⅸ-2 50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="at_cert" checked onchange="calcAttach()"> 증권발급대행</label> <span class="hint">[화면표기·관행, 수정가능]</span></td><td><input class="cell" id="at_certFee" type="number" value="100000" oninput="calcAttach(true)"></td></tr>
@@ -2802,12 +2814,12 @@
         <option value="occupy">점유이전금지가처분 (계쟁물·등기없음)</option>
         <option value="disposal" selected>처분금지가처분 (계쟁물·등기기입)</option>
         <option value="status">임시지위 가처분 (본안인지×1/2)</option></select></div>
-      <div class="line"><span class="lbl" id="inj_claimLbl">피보전권리가액(원)</span><input type="number" class="amt" id="inj_claim" placeholder="0" oninput="calcInjunction()"><span class="hint" id="inj_claimHint">없으면 목적물가액 (대법원 2011두9683)</span></div>
+      <div class="line"><span class="lbl" id="inj_claimLbl">피보전권리가액(원)</span><input type="number" class="amt" id="inj_claim" placeholder="0" oninput="calcInjunction()"><span class="hint" id="inj_claimHint">없으면 목적물가액 (대법원 2011두9683)</span><span class="hint">비워 두시면 <b>5천만원</b>으로 보아 계산합니다<span class="law" title="법무사 보수기준 제23조제1항 후단 — 이 경우 소송물가액이 없거나 소송물가액을 산정할 수 없는 경우에는 5천만원으로 한다.">§23① 후단</span><span class="tag A">A</span> — 이때 기본보수는 <b>580,000원</b>입니다.</span></div>
       <div class="line" id="inj_cntLine"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('inj_cntEstate',-1,calcInjunction)">−</button><input type="number" id="inj_cntEstate" value="1" min="1" oninput="calcInjunction()"><button onclick="step('inj_cntEstate',1,calcInjunction)">+</button></div></div>
       <div class="line"><span class="lbl">당사자 수</span><div class="stepper"><button onclick="step('inj_party',-1,calcInjunction)">−</button><input type="number" id="inj_party" value="2" min="1" oninput="calcInjunction()"><button onclick="step('inj_party',1,calcInjunction)">+</button></div></div>
       <div class="line"><span class="lbl">담보금(원)</span><input type="number" class="amt" id="inj_deposit" placeholder="0" oninput="calcInjunction(true)"><span class="hint">기본 피보전권리×10% (직접수정 가능)</span></div>
       <div class="line"><span class="lbl">전자소송 진행</span><label class="checks" style="display:inline-flex;"><input type="checkbox" id="inj_e" checked onchange="calcInjunction()"> 예(인지 10% 할인)</label></div>
-      <div id="inj_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="inj_adjust" onchange="calcInjunction()">
+      <div id="inj_s24Box"></div><div id="inj_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="inj_adjust" onchange="calcInjunction()">
         <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
@@ -2830,7 +2842,7 @@
 
     <div class="card pink"><h2>③ 수수료 (법무사 보수, VAT 별도) <span class="tag A">A</span></h2><div class="body">
       <table class="t">
-        <tr><td>기본료 <span class="hint" id="inj_feeBaseNote"></span></td><td class="auto" id="inj_feeBaseCell">0 원</td></tr>
+        <tr><td>기본료 <span class="hint" id="inj_feeBaseNote"></span></td><td class="auto" id="inj_feeBaseCell">0 원</td></tr><tr id="inj_s24Row" style="display:none;"><td>특례 가산보수 <span class="hint" id="inj_s24RowNote"></span></td><td class="auto" id="inj_s24Cell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="inj_submit" checked onchange="calcInjunction()"> 제출대행 (Ⅸ-8 40,000)</label></td><td class="auto">40,000 원</td></tr>
         <tr id="inj_taxAgentRow"><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="inj_taxAgent" checked onchange="calcInjunction()"> 등록세신고 대행 (Ⅸ-2 50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="inj_cert" checked onchange="calcInjunction()"> 증권발급대행</label> <span class="hint">[화면표기·관행, 수정가능]</span></td><td><input class="cell" id="inj_certFee" type="number" value="100000" oninput="calcInjunction(true)"></td></tr>
@@ -2863,8 +2875,8 @@
     <h2 class="stitle">민사 소장·신청서 <small>인지대·송달료 자동 · 보수 Ⅶ-1①</small></h2>
 
     <div class="card blue"><h2>① 소장 정보</h2><div class="body">
-      <div class="line"><span class="lbl">소가(소송물가액, 원)</span><input type="number" class="amt" id="so_sga" placeholder="0" oninput="calcLawsuit()"><span class="hint">없으면 5천만 의제(보수)</span></div>
-      <div class="line" style="border:none;padding-bottom:0;"><span class="lbl"></span><details style="width:100%;background:#fdf6e8;border:1px solid #e8dcc0;border-radius:6px;padding:8px 10px;"><summary style="cursor:pointer;font-weight:800;color:var(--gold-d);">📋 이 화면으로 계산되는 서류 — 보수기준 §23① 전체 보기</summary><div style="margin-top:8px;line-height:1.85;font-size:13px;"><b>■ 첫째 표 (보수표 Ⅶ-1① · 3천만원까지 560,000원~)</b><br>소장(상소장) · 항고장 · 답변서 · 준비서면 · 증거신청서 · 화해신청서 · 고소·고발장 · 항고·상소이유서 · 보전처분·집행·비송사건의 신청서 · 회생절차 개시신청서 · 회생채권신고서 · 채권조사확정재판 신청서 · 간이회생절차 개시신청서 · 파산신청서 · 지급명령 · 조정신청서<br><span class="hint">▸ 위 서류는 <b>모두 이 화면</b>에서 계산하십시오. 소가만 넣으시면 같은 표로 산정됩니다.<br>▸ <b>보전처분</b>(가압류·가처분)은 인지·송달료가 달라 <b>전용 화면</b>이 따로 있습니다.<br>▸ <b>개인</b>회생·개인파산은 §24의1 <b>별도 표(Ⅷ)</b>입니다 — 「개인회생」·「개인파산·면책」 화면을 쓰십시오.</span><br><br><b>■ 둘째 표 (보수표 Ⅶ-1② · 3천만원까지 260,000원~)</b><br>공시최고 · 소송비용확정신청서 · 민사신청 · 가사신청 · 형사신청 · 소년신청(보전신청 제외) · 그 밖에 문안을 요하는 서류<br><span class="hint">▸ <b>민사신청 48종</b>은 「민사 신청사건(기타)」 화면에 목록으로 들어 있습니다.<br>▸ <b>가사신청</b>은 협의이혼·양육비·친권자·개명 등 전용 화면을 쓰십시오.<br>▸ <b>형사·소년신청</b>은 아래 표를 「둘째 표」로 바꿔 계산하십시오.</span><br><br><b>■ 문안을 요하지 않는 서류 (보수표 Ⅶ-2 · 1건당 40,000원)</b><br>기일변경·지정신청서 · 판결확정·송달증명신청서 · 집행문부여신청서 · 정식재판청구서 · 기록열람신청서 · 도면<br><span class="hint">▸ 「문안 不요 서류」 화면에서 건수만 넣으시면 됩니다.</span><br><br><span class="hint">※ 소송물가액이 <b>없거나 산정할 수 없으면 5천만원</b>으로 봅니다(§23① 후단). 위 소가 칸을 비워 두시면 그대로 적용됩니다.</span></div></details></div><div class="line"><span class="lbl">보수 산정표</span><select id="so_tbl" onchange="calcLawsuit()"><option value="1" selected>첫째 표 Ⅶ-1① — 소장·답변서·준비서면·항고장·이유서·고소장·회생/파산 신청서 등</option><option value="2">둘째 표 Ⅶ-1② — 공시최고·소송비용확정·민사/가사/형사/소년 신청 등</option></select><span class="hint">서류 종류에 맞는 표를 고르십시오 <span class="law" title="법무사보수기준 §23① — 문안을 요하는 서류의 작성에 관한 기본보수는 두 개의 표로 나뉜다">§23①</span></span></div><div class="line"><span class="lbl">작성 서류</span><select id="so_doc" onchange="calcLawsuit()"><option value="inji" selected>인지 붙이는 서류 — 소장·상소장·지급명령·조정신청·제소전화해</option><option value="none">인지 없는 서류 — 답변서·준비서면·증거신청서·상소이유서·고소·고발장</option></select><span class="hint">답변서·준비서면에는 <b>인지를 붙이지 않습니다</b> <span class="law" title="민사소송 등 인지법은 소장(§2)·항소장·상고장(§3)·반소장(§4)·청구변경(§5)·재심소장(§6)·지급명령(§7의2)·신청서(§9)·소송비용액확정 등(§10)에 인지를 붙이도록 정하고 있을 뿐, 답변서·준비서면·증거신청서에는 인지 규정이 없습니다.">민사소송 등 인지법</span></span></div><div class="line"><span class="lbl">사건유형</span><select id="so_type" onchange="calcLawsuit()">
+      <div class="line"><span class="lbl">소가(소송물가액, 원)</span><input type="number" class="amt" id="so_sga" placeholder="0" oninput="calcLawsuit()"><span class="hint">비워 두시면 <b>5천만원</b>으로 보아 계산합니다<span class="law" title="법무사 보수기준 제23조제1항 후단 — 이 경우 소송물가액이 없거나 소송물가액을 산정할 수 없는 경우에는 5천만원으로 한다.">§23① 후단</span><span class="tag A">A</span> — 이때 기본보수는 첫째 표 <b>580,000원</b>·둘째 표 <b>262,000원</b>입니다. <span style="color:#8a8070;">(인지·송달료는 실제 소가로 따로 계산됩니다)</span></span></div>
+      <div class="line" style="border:none;padding-bottom:0;"><span class="lbl"></span><details style="width:100%;background:#fdf6e8;border:1px solid #e8dcc0;border-radius:6px;padding:8px 10px;"><summary style="cursor:pointer;font-weight:800;color:var(--gold-d);">📋 이 화면으로 계산되는 서류 — 보수기준 §23① 전체 보기</summary><div style="margin-top:8px;line-height:1.85;font-size:13px;"><b>■ 첫째 표 (보수표 Ⅶ-1① · 3천만원까지 560,000원~)</b><br>소장(상소장) · 항고장 · 답변서 · 준비서면 · 증거신청서 · 화해신청서 · 고소·고발장 · 항고·상소이유서 · 보전처분·집행·비송사건의 신청서 · 회생절차 개시신청서 · 회생채권신고서 · 채권조사확정재판 신청서 · 간이회생절차 개시신청서 · 파산신청서 · 지급명령 · 조정신청서<br><span class="hint">▸ 위 서류는 <b>모두 이 화면</b>에서 계산하십시오. 소가만 넣으시면 같은 표로 산정됩니다.<br>▸ <b>보전처분</b>(가압류·가처분)은 인지·송달료가 달라 <b>전용 화면</b>이 따로 있습니다.<br>▸ <b>개인</b>회생·개인파산은 §24의1 <b>별도 표(Ⅷ)</b>입니다 — 「개인회생」·「개인파산·면책」 화면을 쓰십시오.</span><br><br><b>■ 둘째 표 (보수표 Ⅶ-1② · 3천만원까지 260,000원~)</b><br>공시최고 · 소송비용확정신청서 · 민사신청 · 가사신청 · 형사신청 · 소년신청(보전신청 제외) · 그 밖에 문안을 요하는 서류<br><span class="hint">▸ <b>민사신청 48종</b>은 「민사 신청사건(기타)」 화면에 목록으로 들어 있습니다.<br>▸ <b>가사신청</b>은 협의이혼·양육비·친권자·개명 등 전용 화면을 쓰십시오.<br>▸ <b>형사·소년신청</b>은 아래 표를 「둘째 표」로 바꿔 계산하십시오.</span><br><br><b>■ 문안을 요하지 않는 서류 (보수표 Ⅶ-2 · 1건당 40,000원)</b><br>기일변경·지정신청서 · 판결확정·송달증명신청서 · 집행문부여신청서 · 정식재판청구서 · 기록열람신청서 · 도면<br><span class="hint">▸ 「문안 不요 서류」 화면에서 건수만 넣으시면 됩니다.</span><br><br><span class="hint">※ 소송물가액이 <b>없거나 산정할 수 없으면 5천만원</b>으로 봅니다(§23① 후단). 위 소가 칸을 비워 두시면 그대로 적용됩니다.</span><br><br><b>■ 사건이 유난히 무거운 경우 — 특례 가산보수 (§24② · 2026.8.20. 신설)</b><br><span class="hint">건설·의료·지식재산권·환경 손해배상, 채권자대위·사해행위취소, 주주권확인·이사해임·총회결의무효확인, <b>법인</b>파산·<b>법인</b>회생, 교회·사찰·종중 분쟁, 상속인 5인 이상 상속재산분할·유류분, 유치권·법정지상권 다툼 집행, 당사자 5인 이상·승계집행문 건물철거·토지인도 집행, 법인 관련 임시지위 가처분, 미등기건물 보전처분·강제집행<br>▸ 위 <b>10가지 사건</b>에 해당하고 통상보다 품이 훨씬 많이 들면, 의뢰인과 <b>미리 협의</b>하여 기본보수의 <b>250%까지</b> 더 받을 수 있습니다. 아래 「특례 가산보수」에서 고르십시오.<br>▸ 이때 법무사는 <b>어느 호에 해당하는지·어떻게 계산했는지·왜 더 받아야 하는지</b>를 반드시 설명해야 합니다(§24② 후단).<br>▸ <b>개인</b>파산·<b>개인</b>회생은 제4호의 「법인」에 해당하지 않아 이 가산을 쓸 수 없습니다.</span></div></details></div><div class="line"><span class="lbl">보수 산정표</span><select id="so_tbl" onchange="calcLawsuit()"><option value="1" selected>첫째 표 Ⅶ-1① — 소장·답변서·준비서면·항고장·이유서·고소장·회생/파산 신청서 등</option><option value="2">둘째 표 Ⅶ-1② — 공시최고·소송비용확정·민사/가사/형사/소년 신청 등</option></select><span class="hint">서류 종류에 맞는 표를 고르십시오 <span class="law" title="법무사보수기준 §23① — 문안을 요하는 서류의 작성에 관한 기본보수는 두 개의 표로 나뉜다">§23①</span></span></div><div class="line"><span class="lbl">작성 서류</span><select id="so_doc" onchange="calcLawsuit()"><option value="inji" selected>인지 붙이는 서류 — 소장·상소장·지급명령·조정신청·제소전화해</option><option value="none">인지 없는 서류 — 답변서·준비서면·증거신청서·상소이유서·고소·고발장</option></select><span class="hint">답변서·준비서면에는 <b>인지를 붙이지 않습니다</b> <span class="law" title="민사소송 등 인지법은 소장(§2)·항소장·상고장(§3)·반소장(§4)·청구변경(§5)·재심소장(§6)·지급명령(§7의2)·신청서(§9)·소송비용액확정 등(§10)에 인지를 붙이도록 정하고 있을 뿐, 답변서·준비서면·증거신청서에는 인지 규정이 없습니다.">민사소송 등 인지법</span></span></div><div class="line"><span class="lbl">사건유형</span><select id="so_type" onchange="calcLawsuit()">
         <option value="sm">1심 소액사건</option>
         <option value="dan">1심 단독·합의사건</option>
         <option value="hs">민사 항소사건</option>
@@ -2888,7 +2900,7 @@
         <label><input type="checkbox" id="so_submit" checked> 제출대행(Ⅸ-8 40,000)</label>
         <label><input type="checkbox" id="so_recv"> 송달영수(Ⅸ-10 50,000)</label>
         <label><input type="checkbox" id="so_read"> 기록열람(Ⅸ-9 40,000)</label></div></div>
-      <div id="so_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="so_adjust" onchange="calcLawsuit()">
+      <div id="so_s24Box"></div><div id="so_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="so_adjust" onchange="calcLawsuit()">
         <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
@@ -2909,7 +2921,7 @@
 
     <div class="card pink"><h2>③ 수수료 (법무사 보수, VAT 별도) <span class="tag A">A</span></h2><div class="body">
       <table class="t">
-        <tr><td>기본료 <span class="hint" id="so_feeBaseNote"></span></td><td class="auto" id="so_feeBaseCell">0 원</td></tr>
+        <tr><td>기본료 <span class="hint" id="so_feeBaseNote"></span></td><td class="auto" id="so_feeBaseCell">0 원</td></tr><tr id="so_s24Row" style="display:none;"><td>특례 가산보수 <span class="hint" id="so_s24RowNote"></span></td><td class="auto" id="so_s24Cell">0 원</td></tr>
         <tr id="so_submitRow"><td>제출대행료 (Ⅸ-8)</td><td class="auto" id="so_submitCell">0 원</td></tr>
         <tr id="so_recvRow" style="display:none;"><td>송달영수 (Ⅸ-10)</td><td class="auto" id="so_recvCell">0 원</td></tr>
         <tr id="so_readRow" style="display:none;"><td>기록열람 (Ⅸ-9)</td><td class="auto" id="so_readCell">0 원</td></tr>
@@ -3053,14 +3065,16 @@
     <div class="note" id="g_lawyerNote" style="display:none;"><b>📝 법무사가 도와드립니다</b> — 이 사건의 소장·신청서 등 <b>법원 제출서류 작성·제출대행</b>과 본인소송 절차를 지원합니다. 다만 법정에서의 변론(소송대리)이 필요한 경우에는 변호사와 연계해 안내드립니다.</div>
     <div class="card blue"><h2 id="g_h1">① 기준 입력</h2><div class="body" id="g_inputs"></div></div>
     <div class="card pink"><h2>② 법무사 보수 (VAT 별도)</h2><div class="body">
-      <div class="line"><span class="lbl">기본보수</span><span class="auto" id="g_feeBase" style="font-variant-numeric:tabular-nums;">0 원</span> <span class="hint" id="g_feeNote"></span></div>
-      <div id="g_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="g_adjust" onchange="calcGeneric()">
+      <div id="g_s24Box"></div><div id="g_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="g_adjust" onchange="calcGeneric()">
         <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
         <option value="0.9">90%</option><option value="1" selected>100%</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
         <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
-      <table class="t"><tbody id="g_extra"></tbody>
+      <table class="t">
+        <tr><td>기본료 <span class="hint" id="g_feeNote"></span></td><td class="auto" id="g_feeBase" style="font-variant-numeric:tabular-nums;">0 원</td></tr>
+        <tr id="g_s24Row" style="display:none;"><td>특례 가산보수 <span class="hint" id="g_s24RowNote"></span></td><td class="auto" id="g_s24Cell">0 원</td></tr>
+        <tbody id="g_extra"></tbody>
         <tr class="subtot"><td>수수료계 (보수)</td><td id="g_feeSum">0 원</td></tr></table>
     </div></div>
     <div class="card blue" id="g_publicCard"><h2>③ 공과금 (VAT 비과세) <span class="tag chk" id="g_pubTag">확인필요</span></h2><div class="body" id="g_public"></div></div>
@@ -3074,15 +3088,26 @@
   </div>
 
   <footer>
-    <div>산정근거 <b>대한법무사협회 법무사보수표(2024.9.12)</b> · 등기신청수수료 <b>법원행정처 공식표(2025.8.1)</b> · 보수 부가세 미포함(별도)</div>
+    <div>산정근거 <b>대한법무사협회 「법무사 보수기준」(2026.8.20. 개정 시행)</b> · 보수표 <b>부표(2024.9.12. 금액 그대로)</b> · 등기신청수수료 <b>법원행정처 공식표(2025.8.1)</b> · 보수 부가세 미포함(별도)</div>
     <div>취득세·채권 매입률·할인율은 수시 변동 — 기준일 확인 후 사용. © 산 법무사 김재섭 행정사 사무소</div>
   </footer>
 </div>
 
 <script>
-/* ===================== 검증된 보수표 단일 데이터 (2024.9.12) ===================== */
+/* ===================== 검증된 보수표 단일 데이터 ===================== */
+/* 「법무사 보수기준」 2026.8.20. 개정 시행 (대법원 인가 대인 제365호 · 대한법무사협회 제64회
+   정기총회 2026.6.25. 의결 / 대법협2026-00521, 2026.8.24.) [A]
+   ▸ 개정 내용은 두 가지뿐이다.
+     ① 제1조(목적) — 「기준의 상한을 정함」 → 「기준을 정함」
+     ② 제24조(가산보수) — 종전 단항을 제1항으로 하고, 제2항 신설
+        (송무·비송·집행 사건 중 10개 호에 해당하면 위임인과 협의로 기본보수의
+         250%까지 가산 + 적용사유·산정기준·증액필요성 설명의무)
+   ▸ 부표(보수표)의 12개 표 82개 구간 금액·요율은 2024.9.12.자와 전부 동일하다.
+     → TIERS·FLAT 상수는 수정하지 않는다. 2026-08-25 신구 전문 문자단위 대조 확인.
+   ▸ 제2조제5항(「보수액은 상한액으로 이를 초과하여 받지 못한다」)과 부표 각주의
+     「상한액」 표기는 개정되지 않고 그대로 남아 있으므로 화면 표기도 그대로 둔다. */
 const 만=10000,억=1e8,천만=1e7;
-/* 법무사 보수표 [부표] — 2024.9.12. 시행 [A]
+/* 법무사 보수표 [부표] — 2024.9.12. 시행 · 2026.8.20. 개정에서 금액 변동 없음 [A]
    ※ 본 표는 기본보수의 「상한액(산정방법)」이며, 개별 사건에서 「법무사보수기준」에 따라 가산·감액될 수 있다.
    ※ 보수에는 부가가치세가 포함되지 아니한다.
    2026-07-15 감사: 12개 표 82개 구간 전부 원문 대조 일치 */
@@ -3102,7 +3127,7 @@ const TIERS={
  /* 변호사보수의 소송비용 산입에 관한 규칙 [별표] — 대법원규칙 제2936호(시행 2020.12.28.) [A] */
  "변호사보수산입":[[300*만,300000,0,0],[2000*만,300000,300*만,0.10],[5000*만,2000000,2000*만,0.08],[1*억,4400000,5000*만,0.06],[1.5*억,7400000,1*억,0.04],[2*억,9400000,1.5*억,0.02],[5*억,10400000,2*억,0.01],[Infinity,13400000,5*억,0.005]]
 };
-/* 정액 보수 — 법무사 보수표 [부표] 2024.9.12. 시행 [A]
+/* 정액 보수 — 법무사 보수표 [부표] 2024.9.12. 시행 · 2026.8.20. 개정에서 금액 변동 없음 [A]
    2026-07-15 감사: 39개 항목 전부 원문 대조 일치
    참고(보수표 말미): 동일인 보증서 200,000 / 본인확인서면 120,000 기본,
      대상인원 1인 또는 부동산 1개 초과 시 초과 1인·1개마다 30,000 가산(법무사보수기준 §10⑤) */
@@ -3235,6 +3260,119 @@ function pwApply(p,fee){
         +' · 공과금은 감액 대상이 아닙니다</span>';
   }
   return out;
+}
+
+/* ═══════════ §24② 송무·비송·집행 특례 가산보수 ═══════════════════════
+   [A] 법무사 보수기준 제24조제2항 — 2026.8.20. 신설
+       (대한법무사협회 제64회 정기총회 2026.6.25. 의결 / 대법원 인가 대인 제365호,
+        2026.8.20. · 대한법무사협회 2026.8.25. 시행 대법협2026-00521)
+       「송무·비송·집행 사건 중 다음 각 호의 어느 하나에 해당하는 경우에는 업무의
+         난이도, 복잡 정도, 처리에 소요되는 시간 및 노력의 정도 등을 고려하여
+         위임인과 협의로 당해 기본보수의 250% 상당액까지 가산할 수 있다.
+         이 경우 법무사는 그 적용 사유, 산정 기준 및 증액의 필요성을 위임인에게
+         설명하여야 한다.」
+   ※ 같은 조 제1항(§2②각호 → §10③ 준용 · 100%)과의 관계 — 중복 가산이 아니다.
+     §10③ 후단이 「그 사유가 중복되더라도 별도로 가산하지 아니한다」고 정하고,
+     두 항 모두 「당해 기본보수」를 같은 모수로 삼으므로 250%를 총 가산한도로 본다.
+     → 기본보수 대비 최대 350%. 화면의 「보수 조정」에서 이미 100%를 넘겨 가산한
+       부분은 여기서 자동으로 차감한다.
+   ※ 적용 범위 — 제8장(§23) 송무·비송·집행 사건에 한한다.
+     부동산등기(2장)·상업법인등기(3장)·후견(4장)·동산채권담보(5장)·공탁(6장)·
+     경매상담/매수신청대리(7장)·개인파산/개인회생(8장의2 §24의1)에는 적용하지 않는다.
+     특히 제4호는 「법인」파산·회생이므로 개인파산·개인회생 화면에는 붙이지 않는다.
+   ※ 모든 가산은 feeRaw(보수표에 적힌 기본보수) 기준이며 조정 후 금액 기준이 아니다(§2⑤).
+   24회차 신설. */
+const S242_ITEMS=[
+ '건설·의료·지식재산권·환경 관련 손해배상 사건',
+ '채권자대위 및 사해행위취소 사건',
+ '주주권확인, 대표자지위(부존재)확인, 이사해임, 총회결의무효확인 사건',
+ '법인파산 및 법인회생 사건 <span class="hint">(개인파산·개인회생은 해당 없음)</span>',
+ '교회·사찰·종중 관련 분쟁 사건',
+ '상속인이 5인 이상인 상속재산분할·유류분 사건',
+ '유치권·법정지상권 관련 다툼이 있는 집행 사건',
+ '당사자가 5인 이상이거나 승계집행문 부여가 수반되는 건물철거 및 토지인도 집행 사건',
+ '법인 관련 임시의 지위를 정하기 위한 가처분 사건',
+ '미등기건물에 대한 보전처분 및 강제집행 사건'
+];
+const S242={};
+function s242Data(p){if(!S242[p])S242[p]={on:[],rate:0,open:false};return S242[p];}
+function s242Reset(p){S242[p]={on:[],rate:0,open:false};}
+function s242Run(fn){if(fn&&typeof window[fn]==='function')window[fn]();}
+function s242Toggle(p,i,fn){const d=s242Data(p);const k=d.on.indexOf(i);
+  if(k<0)d.on.push(i);else d.on.splice(k,1);
+  if(!d.on.length)d.rate=0; d.open=true; s242Run(fn);}
+function s242SetRate(p,v,fn){s242Data(p).rate=parseFloat(v)||0;s242Data(p).open=true;s242Run(fn);}
+function s242Open(p,v){s242Data(p).open=!!v;}
+/* 선택한 호를 「4호·7호」 형태로 돌려준다 — 영수증 적요·설명서에 쓴다 */
+function s242Label(p){const d=s242Data(p);if(!d.on.length)return '';
+  return d.on.slice().sort(function(a,b){return a-b;}).map(function(i){return (i+1)+'호';}).join('·');}
+function s242Render(p,fn){
+  const box=document.getElementById(p+'s24Box'); if(!box)return;
+  const d=s242Data(p);
+  let h='<div class="line" style="border:none;padding-bottom:0;"><span class="lbl"></span>'
+   +'<details style="width:100%;background:#fdf6e8;border:1px solid #e8dcc0;border-radius:6px;padding:8px 10px;"'
+   +(d.open?' open':'')+' ontoggle="s242Open(\''+p+'\',this.open)">'
+   +'<summary style="cursor:pointer;font-weight:800;color:var(--gold-d);">'
+   +'⚖ 사건이 유난히 무거울 때 — 특례 가산보수 (보수기준 §24② · 2026.8.20. 신설)'
+   +(d.on.length?' <span class="tag" style="background:var(--seal);color:#fff;">'+d.on.length+'개 선택</span>':'')
+   +'</summary><div style="margin-top:8px;line-height:1.8;font-size:13px;">'
+   +'<div class="hint" style="margin-bottom:6px;">아래 <b>10가지 사건</b> 중 하나에 해당하고 <b>통상의 사건보다 품이 훨씬 많이 드는 경우</b>에만, '
+   +'의뢰인과 <b>미리 협의</b>하여 기본보수의 <b>250%까지</b> 더 받을 수 있습니다. 해당 사항이 없으면 그대로 두십시오.</div>';
+  S242_ITEMS.forEach(function(t,i){
+    h+='<label class="checks" style="display:flex;align-items:flex-start;gap:6px;margin:3px 0;">'
+      +'<input type="checkbox" '+(d.on.indexOf(i)>=0?'checked ':'')
+      +'onchange="s242Toggle(\''+p+'\','+i+',\''+fn+'\')" style="margin-top:3px;">'
+      +'<span style="font-size:12.5px;"><b>'+(i+1)+'호</b> '+t+'</span></label>';
+  });
+  h+='<div class="line" style="border:none;margin-top:8px;"><span class="lbl">가산율</span>'
+   +'<select onchange="s242SetRate(\''+p+'\',this.value,\''+fn+'\')"'+(d.on.length?'':' disabled')+'>';
+  [0,0.5,1,1.5,2,2.5].forEach(function(r){
+    h+='<option value="'+r+'"'+(Math.abs(d.rate-r)<1e-9?' selected':'')+'>'
+      +(r===0?'적용 안 함 (0%)':'＋'+Math.round(r*100)+'%')+'</option>';
+  });
+  h+='</select> <span class="hint" id="'+p+'s24Note"></span></div>'
+   +'<div class="hint" id="'+p+'s24Warn" style="margin-top:6px;"></div>'
+   +'</div></details></div>';
+  box.innerHTML=h;
+}
+/* feeRaw(표상 기본보수) 기준 가산액을 돌려주고 안내문·내역행을 갱신한다.
+   adj = 화면의 「보수 조정」 값(1=100%). 조정으로 이미 가산한 (adj-1)만큼을
+   250% 한도에서 빼고 남은 범위 안에서만 반영한다. */
+function s242Add(p,feeRaw,adj,fn){
+  s242Render(p,fn);
+  const d=s242Data(p);
+  const used=Math.max(0,(adj||1)-1);
+  const cap=Math.max(0,2.5-used);
+  const req=d.on.length?d.rate:0;
+  const eff=Math.min(req,cap);
+  const v=Math.round((feeRaw||0)*eff);
+  const note=document.getElementById(p+'s24Note');
+  if(note)note.innerHTML=(v>0)
+    ?'<b style="color:var(--seal);">가산 '+won(v)+'</b> = 기본보수 '+won(feeRaw)+' × '+Math.round(eff*100)+'%'
+    :(d.on.length?'가산율을 고르십시오':'해당하는 사건을 먼저 고르십시오');
+  const warn=document.getElementById(p+'s24Warn');
+  if(warn){
+    let w;
+    if(d.on.length&&req>cap+1e-9)
+      w='<b style="color:var(--seal);">⚠ 위 「보수 조정」에서 이미 '+Math.round(used*100)+'%를 가산하셨습니다.</b> '
+       +'§24②의 한도는 <b>기본보수의 250%</b>이므로 여기서는 <b>'+Math.round(cap*100)+'%까지만</b> 반영됩니다'
+       +'(기본보수 대비 합계 최대 350%).';
+    else if(v>0)
+      w='<b>📢 설명해 드려야 합니다</b> — §24② 후단에 따라 <b>어느 호에 해당하는지·어떻게 계산했는지·왜 더 받아야 하는지</b>를 '
+       +'의뢰인에게 설명하고 협의하셔야 합니다. 선택하신 <b>'+s242Label(p)+'</b>는 영수증 적요에 함께 인쇄됩니다.';
+    else
+      w='<span class="law" title="법무사 보수기준 제24조제2항(2026.8.20. 신설) — 송무·비송·집행 사건 중 각 호의 어느 하나에 해당하는 경우 업무의 난이도, 복잡 정도, 처리에 소요되는 시간 및 노력의 정도 등을 고려하여 위임인과 협의로 당해 기본보수의 250% 상당액까지 가산할 수 있다. 이 경우 법무사는 그 적용 사유, 산정 기준 및 증액의 필요성을 위임인에게 설명하여야 한다.">§24②</span> '
+       +'<span class="tag A">A</span> 통상의 사건은 가산하지 않습니다. 부동산·법인 등기, 공탁, 개인파산·개인회생에는 적용되지 않습니다.';
+    warn.innerHTML=w;
+  }
+  const row=document.getElementById(p+'s24Row');
+  if(row){
+    row.style.display=v>0?'table-row':'none';
+    const cell=document.getElementById(p+'s24Cell'); if(cell)cell.textContent=won(v);
+    const rn=document.getElementById(p+'s24RowNote');
+    if(rn)rn.textContent='(§24② '+s242Label(p)+' · 기본보수 '+won(feeRaw)+' × '+Math.round(eff*100)+'%)';
+  }
+  return v;
 }
 
 /* ═══════════ §2②4호 → §10③ 당사자 다수 가산 ═══════════════════════
@@ -3502,16 +3640,40 @@ const REG_RE={
 const REG_CORP={설립:[35000,28000,20000], 변경:[7000,5000,2000]};
 
 /* 법인 변경등기 유형별 기준 — 보수표 Ⅱ + 등록면허세(지방세법 §28)
-   [★ 기본보수 — 법무사보수기준(2024.9.12. 시행) §13④] 2026-07 감사 정정 [A]
+   [★ 기본보수 — 법무사 보수기준 §13④] 2026-07 감사 정정 · 2026-08 감사 종결 [A]
+     ※ 「법무사 보수기준」은 2026.8.20. 개정되었으나 §13조·부표 Ⅱ의 금액은 변동 없다.
      4호 = 해산·청산종결·계속, 상호의 신설·가등기, 「본점(주사무소)의 이전」,
           「지점(분사무소)의 설치·이전」, 상호·목적의 변경        → 120,000원 (Ⅱ-4(4))
      7호 = 「지점 및 분사무소 소재지에서의 등기」                  →  60,000원 (Ⅱ-4(7))
      → 지점 「설치·이전」 자체는 4호(120,000)다. 7호는 (본점 등기와 별도로) 지점 소재지
        관할 등기소에서 하던 등기를 말하는 것으로 전혀 다른 항목이다.
        종전 코드는 지점 설치·이전에 7호(60,000)를 적용하고 있어 이를 4호로 정정한다.
-     ※ 「상법」(법률 제20436호, 2024.9.20. 공포 / 2025.1.31. 시행) §181·§182②로
-        지점등기부가 폐지되어 지점 설치·이전 등기는 「본점 소재지 등기소」에서만 한다.
-        → 7호(지점 소재지에서의 등기)는 현행법상 적용 여지가 사실상 소멸했다.
+     ※ 【7호의 적용 여지 소멸 — 2026-08 확인 [A]】 아래 두 법이 같은 날 함께 시행되어
+        「지점(분사무소) 소재지에서의 등기」 제도 자체가 없어졌다. 따라서 신규 사건에
+        7호(60,000)를 적용할 자리는 없다. 4호(120,000) 적용이 확정이다.
+        · 「상법」 §181·§182② (법률 제20436호, 2024.9.20. 공포 / 2025.1.31. 시행)
+          — 지점 등기부 폐지. 지점 설치·이전 등기는 「본점 소재지」에서만 한다.
+        · 「민법」 §50·§51② (법률 제20432호, 2024.9.20. 공포 / 2025.1.31. 시행)
+          — 분사무소 설치·이전 등기는 「주사무소 소재지」에서만 한다.
+          (민법법인·특수법인도 상법상 회사와 같아졌다는 뜻이다.)
+        ※ 시행일(2025.1.31.) 전에 이미 신청한 사건에 한해 7호가 남는다.
+   ※ 【유형 6종 신설 — 2026-08】 종전에는 8종만 있어 보수표 Ⅱ-4의 절반과 Ⅱ-2의 「감자」를
+      계산할 수 없었다. 아래 6종을 추가한다(금액은 FLAT·TIERS에 이미 정의되어 있었다).
+        · 자본감소(감자)            Ⅱ-2  누진 — 「납입금액 「또는 감소하는 자본(자산)의 가액」」(§13②)
+        · 주식의 병합·분할·소각      Ⅱ-4(3) 150,000 (§13④3호)
+        · 자본증가 없는 합병         Ⅱ-4(2) 180,000 (§13④2호)
+        · 무능력자·법정대리인 등기    Ⅱ-4(5)  70,000 (§13④5호)
+        · 외국회사 영업소 설치·변경·폐지 Ⅱ-4(1) 280,000 (§13④1호)
+        · 그 밖의 등기              Ⅱ-4(8)  60,000 (§13④8호)
+      ※ 「무능력자」는 보수표의 표기를 그대로 옮긴 것이다. 민법상 용어는 2013.7.1.자로
+        「제한능력자」로 바뀌었고, 실제 등기는 상법 §6(미성년자의 영업과 등기)·
+        §8(법정대리인에 의한 영업의 등기)에 따른 것이므로 화면에는 이를 병기한다.
+      ※ 【신설 6종의 등록면허세】 지방세법 §28①6호는 가~마목에 설립·납입, 자본증가·출자증가,
+        본점 이전, 지점 설치만을 열거하고 나머지는 「바목 그 밖의 등기」로 처리한다.
+        → 감자·합병·주식병합·무능력자·그 밖의 등기는 모두 「바목 40,200원」이고,
+          §28④에 따라 대도시 중과세율이 적용되지 않는다. [A]
+        → 「외국회사 영업소 설치」만은 「마목(지점·분사무소의 설치)」이므로 중과 대상이다.
+          변경·폐지는 바목이라 중과되지 않으므로 화면의 「설치」 체크로 구분한다.
    [등록면허세 §28①6호]
      가. 상사회사·영리법인 설립·납입 → 납입액 1,000분의 4 (최저 112,500)
      다. 자본증가·출자증가        → 납입액 1,000분의 4 (최저 112,500)
@@ -3529,14 +3691,20 @@ const REG_CORP={설립:[35000,28000,20000], 변경:[7000,5000,2000]};
      (행안부 유권해석: 본점과 같은 관할 내 지점 「설치」도 마목 → 중과 대상)
    mid: 'cap5y'=설립/휴면법인 인수 후 5년 이내 자본증가 시 / 'transfer'=대도시 전입 시 / 'branch'=지점 설치 시 / false=중과 없음 */
 const CORP_CHG={
- '자본증자':           {feeMode:'tier', tier:'Ⅱ-2', cap:true, capLabel:'자본 증가액(원)', reg:'cap',   regFee:'변경', mid:'cap5y'},
+ '자본증자':           {feeMode:'tier', tier:'Ⅱ-2', cap:true, capLabel:'자본 증가액(원)', reg:'cap',   regFee:'변경', mid:'cap5y', s14_1:true},
+ '자본감소(감자)':      {feeMode:'tier', tier:'Ⅱ-2', cap:true, capLabel:'감소하는 자본(자산)의 가액(원)', reg:'40200', regFee:'변경', mid:false},
  '전환사채 발행':       {feeMode:'tier', tier:'Ⅱ-3', cap:true, capLabel:'사채 총액(원)',   reg:'40200', regFee:'변경', mid:false},
+ '주식의 병합·분할·소각':{feeMode:'flat', flat:'Ⅱ-4(3)', reg:'40200', regFee:'변경', mid:false},
+ '자본증가 없는 합병':   {feeMode:'flat', flat:'Ⅱ-4(2)', reg:'40200', regFee:'변경', mid:false},
  '임원 선임·변경':      {feeMode:'flat', flat:'Ⅱ-4(6)', reg:'40200', regFee:'변경', mid:false},
+ '무능력자·법정대리인 등기':{feeMode:'flat', flat:'Ⅱ-4(5)', reg:'40200', regFee:'변경', mid:false},
  '상호·목적·정관 변경': {feeMode:'flat', flat:'Ⅱ-4(4)', reg:'40200', regFee:'변경', mid:false},
  '본점 관내이전':       {feeMode:'flat', flat:'Ⅱ-4(4)', reg:'112500', regFee:'변경', mid:false},
  '본점 관외이전':       {feeMode:'flat', flat:'Ⅱ-4(4)', reg:'112500', regFee:'설립', mid:'transfer'},
  '지점 설치·이전':      {feeMode:'flat', flat:'Ⅱ-4(4)', reg:'40200', regFee:'변경', mid:'branch'},
- '법인 해산·청산':      {feeMode:'flat', flat:'Ⅱ-4(4)', reg:'40200', regFee:'변경', mid:false}
+ '외국회사 영업소 설치·변경·폐지':{feeMode:'flat', flat:'Ⅱ-4(1)', reg:'40200', regFee:'변경', mid:'branch'},
+ '법인 해산·청산':      {feeMode:'flat', flat:'Ⅱ-4(4)', reg:'40200', regFee:'변경', mid:false},
+ '그 밖의 등기':        {feeMode:'flat', flat:'Ⅱ-4(8)', reg:'40200', regFee:'변경', mid:false}
 };
 
 /* 기타 대행료 Ⅸ (공통) */
@@ -4337,11 +4505,11 @@ const SCENARIO={
  "가처분":{cat:'civil',full:'injunction'},
  "압류·추심명령":{cat:'civil',full:'seizure'},
  "민사 신청사건(기타)":{cat:'civil',full:'misc'},
- "재산명시신청":{docs:EDOCS.disclose, cat:'civil',kind:'tier',tier:'Ⅶ-1①',baseLabel:'집행채권액(비우면 5천만 의제)',prof:{injiKind:'flat',injiFlat:1000,songCnt:5,songParty:'신청인+상대방',partyDef:2,
+ "재산명시신청":{s242:true,docs:EDOCS.disclose, cat:'civil',kind:'tier',tier:'Ⅶ-1①',baseLabel:'집행채권액(비우면 5천만 의제)',prof:{injiKind:'flat',injiFlat:1000,songCnt:5,songParty:'신청인+상대방',partyDef:2,
    guide:'▸ <b>재산명시신청서에는 1,000원의 인지</b>를 첩부하고 <b>송달료 5회분</b>을 납부합니다(대법원 「나홀로소송」 안내). <span class="tag A">A</span><br>· <b>집행권원</b>(판결정본 등)의 <b>원본과 사본</b>을 함께 제출합니다.<br>· 채무자가 명시기일에 <b>출석하지 아니하거나</b> 재산목록 제출·선서를 거부하면 <b>감치</b>될 수 있고, <b>거짓 목록을 제출하면 형사처벌</b> 대상입니다(민사집행법 §68).<br>· 재산명시절차를 거친 후 <b>재산조회</b>를 신청할 수 있습니다(민사집행법 §74).'}},
- "재산조회신청":{docs:EDOCS.search, cat:'civil',kind:'tier',tier:'Ⅶ-1①',baseLabel:'집행채권액(비우면 5천만 의제)',prof:{injiKind:'flat',injiFlat:1000,songCnt:2,songParty:'신청인',partyDef:1,
+ "재산조회신청":{s242:true,docs:EDOCS.search, cat:'civil',kind:'tier',tier:'Ⅶ-1①',baseLabel:'집행채권액(비우면 5천만 의제)',prof:{injiKind:'flat',injiFlat:1000,songCnt:2,songParty:'신청인',partyDef:1,
    guide:'▸ <b>재산조회는 「재산명시절차를 거친 후」</b>에 할 수 있는 것이 원칙입니다(민사집행법 §74). 재산명시를 먼저 신청하셨는지 확인하십시오.<br>· <span style="color:#b03a3a;font-weight:700;">★ 인지·송달료보다 「조회기관별 조회비용」이 훨씬 큽니다.</span> 민사집행규칙 §36①에 따라 <b>조회에 드는 비용을 미리 납부</b>해야 하며, <b>조회할 기관의 수·종류에 따라 합산</b>됩니다(금융기관을 다수 지정하면 수십만원에 이를 수 있음).<br>· 조회기관별 단가는 확인하지 못했으므로 <b>자동계산하지 않습니다.</b> 접수 법원에 확인한 금액을 아래 공과금란 <b>「기타 비용」에 직접 입력</b>하십시오. <span class="tag chk">확인필요</span><br>· 회신 결과는 <b>열람·복사</b> 방식으로 확인하며, 재산조회 결과를 <b>제3자에게 누설하면 처벌</b>될 수 있습니다(민사집행법 §76②).'}},
- "공시최고·소송비용확정":{docs:EDOCS.publicNotice, cat:'civil',kind:'tier',tier:'Ⅶ-1②',baseLabel:'대상 가액 — 공시최고는 증권·증서 액면금액, 소송비용확정은 확정 대상 비용액(비우면 5천만 의제)',prof:{injiKind:'flat',injiFlat:1000,songCnt:5,songParty:'신청인+상대방',partyDef:2}},
+ "공시최고·소송비용확정":{s242:true,docs:EDOCS.publicNotice, cat:'civil',kind:'tier',tier:'Ⅶ-1②',baseLabel:'대상 가액 — 공시최고는 증권·증서 액면금액, 소송비용확정은 확정 대상 비용액(비우면 5천만 의제)',prof:{injiKind:'flat',injiFlat:1000,songCnt:5,songParty:'신청인+상대방',partyDef:2}},
  "지급명령·조정신청":{cat:'civil',full:'payorder'},
  "동산·채권담보권 설정(설정·이전·채권액 증가)":{cat:'re',kind:'tier',tier:'Ⅳ-1',baseLabel:'채권액(채권최고액)',
    unitFee:20000, unitLabel:'담보목적물(동산·채권) 개수', unitLaw:'보수기준 §17① — 1개 초과 시 초과 1개마다 20,000원',
@@ -4376,16 +4544,16 @@ const SCENARIO={
    guide:'▸ <b>개인회생절차개시 신청서 인지 30,000원</b>(민사소송 등 인지법 <b>§9①3호</b>). <span class="tag A">A</span><br>· <b>송달료 = 10회분 + (채권자수 × 8회분)</b>(「송달료규칙의 시행에 따른 업무처리요령」 <b>별표1</b>) — 위 「당사자 수」에 <b>채권자 수</b>를 입력하십시오. <span class="tag A">A</span><br>· 금지명령·중지명령 신청서는 <b>각 2,000원</b>(「채무자 회생 및 파산에 관한 규칙」 §4 10호) — 별도 가산하십시오.<br>· 공고비용·절차비용은 법원 예납명령에 따릅니다(회생파산규칙 §87).'}},
  "개인파산·면책":{docs:MDOCS.bankrupt, cat:'civil',kind:'tier',tier:'Ⅷ',baseLabel:'채무금액',prof:{injiKind:'flat',injiFlat:2000,songCnt:0,songFormula:'bankrupt',songParty:'채권자 수',partyDef:1,
    guide:'▸ <b>인지 2,000원 — 파산 1,000원 + 면책 1,000원</b>(「민사접수서류에 붙일 인지액 및 그 편철방법 등에 관한 예규」 <b>별표</b>). 전자소송 포털도 「개인파산 및 면책 신청수수료 2,000원」으로 안내합니다. <span class="tag A">A</span><br>· <b>파산신청서와 면책신청서를 각각 작성</b>하는 경우 <b>각 신청서에 1,000원</b>씩 붙입니다.<br>· <b>송달료 = 20회분 + (채권자수 × 7회분)</b> — 파산 <b>[10회 + 채권자수×4회]</b> + 면책 <b>[10회 + 채권자수×3회]</b>(「송달료규칙의 시행에 따른 업무처리요령」 <b>별표1</b>). <span class="tag A">A</span><br>· 파산·면책은 <b>별개 사건</b>이므로 <b>송달료납부서를 각각</b> 제출합니다.<br>· <b>공고</b>는 법원 홈페이지 법원공고란 게시로 하므로 <b>별도 비용이 들지 않습니다.</b><br>· <b>파산관재인 보수(예납금)</b> — 동시폐지를 하지 아니하는 경우 법원이 <b>파산재단의 규모, 부인권 대상 행위의 존부와 수, 예상 소요기간, 재단수집의 난이도, 채권자의 수</b> 등을 고려하여 정합니다(「개인파산 및 면책신청사건의 처리에 관한 예규」 <b>§2의4</b>). 사건별 예납명령에 따르므로 아래 공과금란에 <b>직접 입력</b>하십시오. <span class="tag chk">확인필요</span>'}},
- "증거보전 신청":{docs:EDOCS.evidence, cat:'civil',kind:'tier',tier:'Ⅶ-1②',baseLabel:'본안 소송물가액(비우면 5천만 의제)',prof:{injiKind:'flat',injiFlat:1000,songCnt:3,songParty:'당사자',partyDef:2}},
+ "증거보전 신청":{s242:true,docs:EDOCS.evidence, cat:'civil',kind:'tier',tier:'Ⅶ-1②',baseLabel:'본안 소송물가액(비우면 5천만 의제)',prof:{injiKind:'flat',injiFlat:1000,songCnt:3,songParty:'당사자',partyDef:2}},
  // 가사
- "상속포기·한정승인 신고":{cat:'family',kind:'tier',tier:'Ⅶ-1①',baseLabel:'상속재산가액(없으면 5천만)',prof:{injiKind:'flat',injiFlat:5000,songCnt:6,songParty:'청구인(라류 6~10회)',partyDef:1,fam:true},docs:'<b>[상속포기 · 한정승인 준비서류]</b><br><div class="note" style="margin:6px 0 10px;"><b>⏰ 기간부터 확인하십시오</b> — 돌아가신 사실과 내가 상속인이 된 사실을 <b>안 날부터 3개월</b> 안에 법원에 내야 합니다<span class="law" title="민법 제1019조제1항 — 상속인은 상속개시있음을 안 날로부터 3월내에 단순승인이나 한정승인 또는 포기를 할 수 있다">민법 §1019①</span>. 이 기간을 넘기면 <b>빚까지 그대로 물려받은 것</b>으로 봅니다<span class="law" title="민법 제1026조제2호 — 상속인이 제1019조제1항의 기간내에 한정승인 또는 포기를 하지 아니한 때">민법 §1026 2호</span>.</div><b>■ 포기 · 한정승인 공통</b><br>· <b>심판청구서(신고서)</b> — 돌아가신 분의 성명과 마지막 주소, 나와의 관계, 상속개시를 안 날, 포기(한정승인)한다는 뜻을 적고 <b>인감도장</b>을 찍습니다<span class="law" title="가사소송규칙 제75조제1항 — 상속의 한정승인 또는 포기의 신고는 법 제36조제3항에 규정한 사항외에 피상속인의 성명과 최후주소, 피상속인과의 관계, 상속개시 있음을 안 날, 한정승인 또는 포기를 하는 뜻을 기재하고 신고인 또는 대리인이 기명날인 또는 서명한 서면에 의하여야 한다">가사소송규칙 §75①</span><br>· <b>인감증명서</b> — 청구인 <b>각 1통</b>. 신고서에 반드시 붙여야 합니다<span class="law" title="가사소송규칙 제75조제2항 — 제1항의 신고서에는 신고인 또는 대리인의 인감증명서를 첨부하여야 한다">가사소송규칙 §75②</span><br>· <b>가족관계증명서(상세)</b> — 청구인 각 1통<br>· <b>주민등록등본</b> — 청구인 각 1통<br><br><b>■ 돌아가신 분(피상속인) 서류</b><br>· 사망신고를 <b>2007.12.31. 이전</b>에 한 경우 → <b>제적등본</b> 1통<br>· 사망신고를 <b>2008.1.1. 이후</b>에 한 경우 → 폐쇄가족관계등록부에 따른 <b>기본증명서(상세)</b> · <b>가족관계증명서(상세)</b> 각 1통<br>· <b>말소된 주민등록등본(초본)</b> 1통 — 마지막 주소를 확인하는 서류입니다. <span class="hint">이 주소지를 관할하는 가정법원에 냅니다.</span><br><br><b>■ 청구인이 자녀 · 손자녀(직계비속)가 아닌 경우</b><br>· <b>가계도</b> — 돌아가신 분과 내가 어떻게 이어지는지 그린 표. 관계를 이어 주는 <b>제적등본 · 가족관계증명서</b>를 함께 붙입니다.<br><br><b>■ 한정승인일 때만 더 필요합니다</b><br>· <b>상속재산목록</b> — 재산(부동산 · 예금 · 보험금 등)과 <b>빚</b>을 <b>빠짐없이</b> 적습니다<span class="law" title="민법 제1030조제1항 — 상속인이 한정승인을 함에는 제1019조제1항 또는 제3항의 기간 내에 상속재산의 목록을 첨부하여 법원에 한정승인의 신고를 하여야 한다">민법 §1030①</span><br>&nbsp;&nbsp;<span style="color:var(--seal);font-weight:700;">※ 알면서 재산을 목록에 적지 않으면 한정승인이 무너지고 빚 전부를 떠안게 됩니다(민법 §1026 3호). 반드시 빠뜨리지 마십시오.</span><br>· 빚이 더 많다는 사실을 <b>뒤늦게 안 경우</b>(특별한정승인)라면 → 이미 처분한 상속재산이 있을 때 그 <b>목록과 금액</b>도 함께<span class="law" title="민법 제1030조제2항 — 제1019조제3항의 규정에 의하여 한정승인을 한 경우 상속재산 중 이미 처분한 재산이 있는 때에는 그 목록과 가액을 함께 제출하여야 한다">민법 §1030②</span><br><br><b>■ 청구인이 미성년자이거나 후견을 받고 있으면</b><br>· 법정대리인(부모 · 후견인)이 대신 신고합니다. 다만 <b>부모와 자녀가 함께 상속인</b>인데 자녀만 포기하는 등 서로의 이해가 부딪히는 경우에는 법원에서 <b>특별대리인</b>을 먼저 선임받아야 할 수 있습니다. <span class="hint">사안마다 판단이 달라지므로 사무소에 미리 알려 주십시오.</span><br><br><b>■ 서류는 어디서 떼나요</b><br>· 가족관계증명서 · 기본증명서 · 제적등본 → <a href="https://efamily.scourt.go.kr" target="_blank" rel="noopener">전자가족관계등록시스템</a> 또는 가까운 주민센터<br>· 주민등록등본 · 초본 → <a href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a> 또는 가까운 주민센터<br>· <b>인감증명서</b> → 가까운 주민센터(전국 어디서나 발급). 인감을 신고한 적이 없으면 <b>인감신고부터</b> 하셔야 합니다.<br>· 돌아가신 분의 <b>말소된 주민등록등본(초본)</b> → 주민센터. <span class="hint">상속인임을 밝히는 서류(가족관계증명서 등)와 신분증을 지참하십시오.</span><br>· 법원 접수 → <a href="https://ecfs.scourt.go.kr" target="_blank" rel="noopener">대한민국 법원 전자소송</a><br><br><span class="hint">▸ 상속인이 여러 명이면 <b>각자</b> 인감증명서 · 가족관계증명서 · 주민등록등본을 준비하십시오.<br>▸ 위 목록은 법원이 공통으로 요구하는 서류입니다. <b>법원과 사안에 따라 서류를 더 요구할 수 있습니다.</b></span>'},
- "상속재산분할 심판청구":{docs:EDOCS.inherit, cat:'family',kind:'tier',tier:'Ⅶ-1①',baseLabel:'분할대상 재산가액',lawyer:true,prof:{injiKind:'flat',injiFlat:10000,songCnt:12,songParty:'상대방(마류)',partyDef:1,fam:true,chk:true,guide:'[확인필요] 상속재산분할은 마류 가사비송(가사소송법 §2①2.나10))으로, 2016.7.1.개정 가사소송수수료규칙 §3①에 따라 인지가 정액이 아니라 「공유물분할청구의 소」로 보아 민사소송 등 인지법 §2를 준용해 산정됩니다. 화면의 10,000원은 임시 표시치이므로, 분할대상 가액 기준으로 인지를 직접 재산정·입력하세요(송달료는 당사자 1인당 12회분).'}},
- "협의이혼 의사확인 신청":{docs:FDOCS.divorceAgree, cat:'family',kind:'tier',tier:'Ⅶ-1②',noSga:true,prof:{injiKind:'none',songCnt:0,bGrade:true,guide:'[B] 실무: 협의이혼의사확인 신청은 인지를 첩부하지 않습니다(0원). 송달료만 납부하며, 부부 쌍방에 통지서가 송달됩니다.'}},
- "재판상 이혼":{docs:FDOCS.divorceSuit, cat:'family',kind:'tier',tier:'Ⅶ-1①',baseLabel:'소가(없으면 5천만)',lawyer:true,prof:{injiKind:'flat',injiFlat:20000,songCnt:15,songParty:'피고(나류)',partyDef:1,fam:true}},
- "양육비 청구·심판":{docs:FDOCS.childSupport, cat:'family',kind:'tier',tier:'Ⅶ-1②',baseLabel:'청구금액',lawyer:true,prof:{injiKind:'flat',injiFlat:10000,songCnt:12,songParty:'상대방(마류)',partyDef:1,fam:true}},
- "친권자·양육자 지정":{docs:FDOCS.custody, cat:'family',kind:'tier',tier:'Ⅶ-1②',noSga:true,lawyer:true,prof:{injiKind:'flat',injiFlat:10000,songCnt:12,songParty:'상대방(마류)',partyDef:1,fam:true}},
- "개명·가족관계등록 정정":{docs:FDOCS.rename, cat:'family',kind:'tier',tier:'Ⅶ-1②',noSga:true,prof:{injiKind:'flat',injiFlat:1000,songCnt:0,fam:true,bGrade:true,guide:'[B] 실무: 개명허가·가족관계등록부 정정 신청 인지는 1,000원 수준입니다(가족관계등록 비송). 법원별 차이 가능.'}},
- "실종선고·부재자재산관리인":{docs:FDOCS.missing, cat:'family',kind:'tier',tier:'Ⅶ-1①',baseLabel:'관리 대상 재산가액(비우면 5천만 의제)',prof:{injiKind:'flat',injiFlat:5000,songCnt:6,songParty:'청구인(라류)',partyDef:1,fam:true}},
+ "상속포기·한정승인 신고":{s242:true,cat:'family',kind:'tier',tier:'Ⅶ-1①',baseLabel:'상속재산가액(없으면 5천만)',prof:{injiKind:'flat',injiFlat:5000,songCnt:6,songParty:'청구인(라류 6~10회)',partyDef:1,fam:true},docs:'<b>[상속포기 · 한정승인 준비서류]</b><br><div class="note" style="margin:6px 0 10px;"><b>⏰ 기간부터 확인하십시오</b> — 돌아가신 사실과 내가 상속인이 된 사실을 <b>안 날부터 3개월</b> 안에 법원에 내야 합니다<span class="law" title="민법 제1019조제1항 — 상속인은 상속개시있음을 안 날로부터 3월내에 단순승인이나 한정승인 또는 포기를 할 수 있다">민법 §1019①</span>. 이 기간을 넘기면 <b>빚까지 그대로 물려받은 것</b>으로 봅니다<span class="law" title="민법 제1026조제2호 — 상속인이 제1019조제1항의 기간내에 한정승인 또는 포기를 하지 아니한 때">민법 §1026 2호</span>.</div><b>■ 포기 · 한정승인 공통</b><br>· <b>심판청구서(신고서)</b> — 돌아가신 분의 성명과 마지막 주소, 나와의 관계, 상속개시를 안 날, 포기(한정승인)한다는 뜻을 적고 <b>인감도장</b>을 찍습니다<span class="law" title="가사소송규칙 제75조제1항 — 상속의 한정승인 또는 포기의 신고는 법 제36조제3항에 규정한 사항외에 피상속인의 성명과 최후주소, 피상속인과의 관계, 상속개시 있음을 안 날, 한정승인 또는 포기를 하는 뜻을 기재하고 신고인 또는 대리인이 기명날인 또는 서명한 서면에 의하여야 한다">가사소송규칙 §75①</span><br>· <b>인감증명서</b> — 청구인 <b>각 1통</b>. 신고서에 반드시 붙여야 합니다<span class="law" title="가사소송규칙 제75조제2항 — 제1항의 신고서에는 신고인 또는 대리인의 인감증명서를 첨부하여야 한다">가사소송규칙 §75②</span><br>· <b>가족관계증명서(상세)</b> — 청구인 각 1통<br>· <b>주민등록등본</b> — 청구인 각 1통<br><br><b>■ 돌아가신 분(피상속인) 서류</b><br>· 사망신고를 <b>2007.12.31. 이전</b>에 한 경우 → <b>제적등본</b> 1통<br>· 사망신고를 <b>2008.1.1. 이후</b>에 한 경우 → 폐쇄가족관계등록부에 따른 <b>기본증명서(상세)</b> · <b>가족관계증명서(상세)</b> 각 1통<br>· <b>말소된 주민등록등본(초본)</b> 1통 — 마지막 주소를 확인하는 서류입니다. <span class="hint">이 주소지를 관할하는 가정법원에 냅니다.</span><br><br><b>■ 청구인이 자녀 · 손자녀(직계비속)가 아닌 경우</b><br>· <b>가계도</b> — 돌아가신 분과 내가 어떻게 이어지는지 그린 표. 관계를 이어 주는 <b>제적등본 · 가족관계증명서</b>를 함께 붙입니다.<br><br><b>■ 한정승인일 때만 더 필요합니다</b><br>· <b>상속재산목록</b> — 재산(부동산 · 예금 · 보험금 등)과 <b>빚</b>을 <b>빠짐없이</b> 적습니다<span class="law" title="민법 제1030조제1항 — 상속인이 한정승인을 함에는 제1019조제1항 또는 제3항의 기간 내에 상속재산의 목록을 첨부하여 법원에 한정승인의 신고를 하여야 한다">민법 §1030①</span><br>&nbsp;&nbsp;<span style="color:var(--seal);font-weight:700;">※ 알면서 재산을 목록에 적지 않으면 한정승인이 무너지고 빚 전부를 떠안게 됩니다(민법 §1026 3호). 반드시 빠뜨리지 마십시오.</span><br>· 빚이 더 많다는 사실을 <b>뒤늦게 안 경우</b>(특별한정승인)라면 → 이미 처분한 상속재산이 있을 때 그 <b>목록과 금액</b>도 함께<span class="law" title="민법 제1030조제2항 — 제1019조제3항의 규정에 의하여 한정승인을 한 경우 상속재산 중 이미 처분한 재산이 있는 때에는 그 목록과 가액을 함께 제출하여야 한다">민법 §1030②</span><br><br><b>■ 청구인이 미성년자이거나 후견을 받고 있으면</b><br>· 법정대리인(부모 · 후견인)이 대신 신고합니다. 다만 <b>부모와 자녀가 함께 상속인</b>인데 자녀만 포기하는 등 서로의 이해가 부딪히는 경우에는 법원에서 <b>특별대리인</b>을 먼저 선임받아야 할 수 있습니다. <span class="hint">사안마다 판단이 달라지므로 사무소에 미리 알려 주십시오.</span><br><br><b>■ 서류는 어디서 떼나요</b><br>· 가족관계증명서 · 기본증명서 · 제적등본 → <a href="https://efamily.scourt.go.kr" target="_blank" rel="noopener">전자가족관계등록시스템</a> 또는 가까운 주민센터<br>· 주민등록등본 · 초본 → <a href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a> 또는 가까운 주민센터<br>· <b>인감증명서</b> → 가까운 주민센터(전국 어디서나 발급). 인감을 신고한 적이 없으면 <b>인감신고부터</b> 하셔야 합니다.<br>· 돌아가신 분의 <b>말소된 주민등록등본(초본)</b> → 주민센터. <span class="hint">상속인임을 밝히는 서류(가족관계증명서 등)와 신분증을 지참하십시오.</span><br>· 법원 접수 → <a href="https://ecfs.scourt.go.kr" target="_blank" rel="noopener">대한민국 법원 전자소송</a><br><br><span class="hint">▸ 상속인이 여러 명이면 <b>각자</b> 인감증명서 · 가족관계증명서 · 주민등록등본을 준비하십시오.<br>▸ 위 목록은 법원이 공통으로 요구하는 서류입니다. <b>법원과 사안에 따라 서류를 더 요구할 수 있습니다.</b></span>'},
+ "상속재산분할 심판청구":{s242:true,docs:EDOCS.inherit, cat:'family',kind:'tier',tier:'Ⅶ-1①',baseLabel:'분할대상 재산가액',lawyer:true,prof:{injiKind:'flat',injiFlat:10000,songCnt:12,songParty:'상대방(마류)',partyDef:1,fam:true,chk:true,guide:'[확인필요] 상속재산분할은 마류 가사비송(가사소송법 §2①2.나10))으로, 2016.7.1.개정 가사소송수수료규칙 §3①에 따라 인지가 정액이 아니라 「공유물분할청구의 소」로 보아 민사소송 등 인지법 §2를 준용해 산정됩니다. 화면의 10,000원은 임시 표시치이므로, 분할대상 가액 기준으로 인지를 직접 재산정·입력하세요(송달료는 당사자 1인당 12회분).'}},
+ "협의이혼 의사확인 신청":{s242:true,docs:FDOCS.divorceAgree, cat:'family',kind:'tier',tier:'Ⅶ-1②',noSga:true,prof:{injiKind:'none',songCnt:0,bGrade:true,guide:'[B] 실무: 협의이혼의사확인 신청은 인지를 첩부하지 않습니다(0원). 송달료만 납부하며, 부부 쌍방에 통지서가 송달됩니다.'}},
+ "재판상 이혼":{s242:true,docs:FDOCS.divorceSuit, cat:'family',kind:'tier',tier:'Ⅶ-1①',baseLabel:'소가(없으면 5천만)',lawyer:true,prof:{injiKind:'flat',injiFlat:20000,songCnt:15,songParty:'피고(나류)',partyDef:1,fam:true}},
+ "양육비 청구·심판":{s242:true,docs:FDOCS.childSupport, cat:'family',kind:'tier',tier:'Ⅶ-1②',baseLabel:'청구금액',lawyer:true,prof:{injiKind:'flat',injiFlat:10000,songCnt:12,songParty:'상대방(마류)',partyDef:1,fam:true}},
+ "친권자·양육자 지정":{s242:true,docs:FDOCS.custody, cat:'family',kind:'tier',tier:'Ⅶ-1②',noSga:true,lawyer:true,prof:{injiKind:'flat',injiFlat:10000,songCnt:12,songParty:'상대방(마류)',partyDef:1,fam:true}},
+ "개명·가족관계등록 정정":{s242:true,docs:FDOCS.rename, cat:'family',kind:'tier',tier:'Ⅶ-1②',noSga:true,prof:{injiKind:'flat',injiFlat:1000,songCnt:0,fam:true,bGrade:true,guide:'[B] 실무: 개명허가·가족관계등록부 정정 신청 인지는 1,000원 수준입니다(가족관계등록 비송). 법원별 차이 가능.'}},
+ "실종선고·부재자재산관리인":{s242:true,docs:FDOCS.missing, cat:'family',kind:'tier',tier:'Ⅶ-1①',baseLabel:'관리 대상 재산가액(비우면 5천만 의제)',prof:{injiKind:'flat',injiFlat:5000,songCnt:6,songParty:'청구인(라류)',partyDef:1,fam:true}},
  "후견 신청 및 등기":{cat:'civil',full:'guardian'},
  "소송비용액확정(변호사보수 산입)":{cat:'civil',full:'litcost',ref:'변호사보수규칙 별표'},
  "문안 不요 서류":{cat:'civil',kind:'flat',flat:'Ⅶ-2'}
@@ -7386,10 +7554,108 @@ function calcCorp(fromEdit){
 
 /* ===================== 법인 변경등기 통합 (풀기능) ===================== */
 function cvPurposeTouch(){const e=document.getElementById('cv_purposeN');if(e)e.dataset.touched='1';}
+/* 변경 유형별 「알아두실 점」 — 의뢰인이 읽는 안내다. 계산에는 영향을 주지 않는다.
+   ※ 지점(분사무소) 항목은 2025.1.31. 시행 상법 §181·§182②·민법 §50·§51②로
+     등기부 자체가 본점(주사무소) 하나로 합쳐진 큰 변화를 반영한 것이다. [A] */
+const CV_GUIDE={
+ '지점 설치·이전':
+   '<b>▸ 2025년 1월 31일부터 지점(분사무소) 등기부가 없어졌습니다.</b><br>'
+  +'예전에는 <b>본점 관할 등기소</b>와 <b>지점 관할 등기소</b>에 <b>따로따로</b> 신청해야 했지만, '
+  +'지금은 <b>본점(주사무소) 관할 등기소 한 곳에만</b> 신청하면 됩니다'
+  +'<span class="law" title="상법 제181조(지점 설치의 등기) — 회사가 지점을 설치한 경우에는 본점의 소재지에서 2주일 내에 그 지점의 소재지와 설치 연월일을 등기하여야 한다. 제182조제2항 — 회사가 지점을 이전한 경우에는 본점의 소재지에서 2주일 내에 새 소재지와 이전 연월일을 등기하여야 한다.">상법 §181·§182②</span>'
+  +'<span class="tag A">A</span>. 사단·재단법인 등 <b>민법상 법인의 분사무소</b>도 똑같이 '
+  +'<b>주사무소 관할 한 곳</b>입니다'
+  +'<span class="law" title="민법 제50조(분사무소 설치의 등기) — 법인이 분사무소를 설치한 경우에는 주사무소의 소재지에서 3주일 내에 분사무소 소재지와 설치 연월일을 등기하여야 한다. 제51조제2항 — 법인이 분사무소를 이전한 경우에는 주사무소 소재지에서 3주일 내에 새 소재지와 이전 연월일을 등기하여야 한다. (법률 제20432호, 2025.1.31. 시행)">민법 §50·§51②</span>'
+  +'<span class="tag A">A</span>.<br>'
+  +'<b>▸ 그래서 보수도 한 건입니다.</b> 보수표 <b>Ⅱ-4(4) 120,000원</b>이 적용됩니다'
+  +'<span class="law" title="법무사 보수기준 제13조제4항 제4호 — 회사(법인)의 해산·청산종결·계속에 관한 등기, 상호의 신설 또는 가등기, 본점(주사무소)의 이전, 지점(분사무소)의 설치·이전, 상호·목적의 변경 → 120,000원">보수기준 §13④4호</span>'
+  +'<span class="tag A">A</span>. '
+  +'<span class="hint">같은 항 7호의 「지점 및 분사무소 소재지에서의 등기」(60,000원)는 '
+  +'지점 소재지 등기 제도가 없어져 2025.1.31. 이후 새로 신청하는 사건에는 해당하지 않습니다.</span><br>'
+  +'<b>▸ 세금은 설치와 이전이 다릅니다.</b> <b>설치</b>는 등록면허세 40,200원이지만 '
+  +'대도시에서는 <b>3배로 무거워질 수 있고</b>, <b>이전</b>은 「그 밖의 등기」라 <b>중과되지 않습니다</b>'
+  +'<span class="law" title="지방세법 제28조제1항제6호 마목(지점·분사무소의 설치) 40,200원 / 바목(그 밖의 등기) 40,200원. 같은 조 제2항제1호는 대도시에서의 지점·분사무소 설치 등기에 100분의 300의 중과세율을 적용하되, 같은 조 제4항은 제1항제6호 바목에 대해서는 중과세율을 적용하지 아니한다고 정한다.">지방세법 §28①6호·②1호·④</span>'
+  +'<span class="tag A">A</span>.',
+ '자본감소(감자)':
+   '<b>▸ 자본금을 줄이는 등기입니다.</b> 보수는 <b>줄어드는 자본금</b>을 기준으로 계산합니다'
+  +'<span class="law" title="법무사 보수기준 제13조제2항 — 회사의 자본(자산)의 증감(흡수합병·분할합병 또는 주식교환으로 인한 자본증가를 포함한다)에 관한 등기의 기본보수는 납입(출자)금액 「또는 감소하는 자본(자산)의 가액」을 기준으로 산정한다.">보수기준 §13②</span>'
+  +'<span class="tag A">A</span>. 위 칸에 <b>감소액</b>을 넣으십시오(줄어든 뒤의 자본금이 아닙니다).<br>'
+  +'<b>▸ 등록면허세는 40,200원입니다.</b> 감자는 지방세법이 열거한 「자본증가」가 아니라 '
+  +'<b>「그 밖의 등기」</b>에 해당하므로, 대도시라도 <b>3배 중과되지 않습니다</b>'
+  +'<span class="law" title="지방세법 제28조제1항제6호 바목(그 밖의 등기) 40,200원. 같은 조 제4항 — 제1항제6호 바목에 대해서는 중과세율을 적용하지 아니한다.">지방세법 §28①6호바목·④</span>'
+  +'<span class="tag A">A</span>.<br>'
+  +'<b>▸ 채권자 보호절차를 먼저 밟으셔야 합니다.</b> 자본감소를 결의한 뒤 <b>1개월 이상</b> 기간을 정해 '
+  +'채권자에게 이의를 제출하라고 <b>공고</b>하고, 회사가 알고 있는 채권자에게는 <b>따로 알려야</b> 합니다'
+  +'<span class="law" title="상법 제439조제2항 — 자본금 감소의 경우에는 제232조를 준용한다. 제232조제1항 — 회사는 결의가 있은 날부터 2주 내에 채권자에 대하여 이의가 있으면 1월 이상의 기간 내에 이를 제출할 것을 공고하고 알고 있는 채권자에 대하여는 따로따로 이를 최고하여야 한다.">상법 §439②→§232</span>'
+  +'<span class="tag A">A</span>. <span class="hint">이 절차를 마쳤다는 서면(공고문·최고서·이의 없음 증명 등)이 등기신청에 필요합니다.</span>',
+ '주식의 병합·분할·소각':
+   '<b>▸ 주식 수만 바뀌고 자본금은 그대로인 경우</b>가 대부분입니다. 그래서 금액과 관계없는 '
+  +'<b>정액 150,000원</b>입니다'
+  +'<span class="law" title="법무사 보수기준 제13조제4항 제3호 — 주식의 병합·분할·소각 → 150,000원">보수기준 §13④3호</span>'
+  +'<span class="tag A">A</span>.<br>'
+  +'<b>▸ 다만 자본금이 함께 줄어드는 소각</b>이라면 <b>「자본감소(감자)」</b>를 고르셔야 합니다. '
+  +'그때는 감소액 기준 누진 보수(Ⅱ-2)로 계산됩니다.<br>'
+  +'▸ <span class="hint">주식병합·주식소각도 채권자 보호절차가 필요한 경우가 있습니다(상법 §440·§441·§343②).</span>',
+ '자본증가 없는 합병':
+   '<b>▸ 합병하면서 자본금은 늘지 않는 경우</b>입니다(예: 완전자회사를 흡수하는 무증자 합병). '
+  +'정액 <b>180,000원</b>입니다'
+  +'<span class="law" title="법무사 보수기준 제13조제4항 제2호 — 자본증가 없는 합병 → 180,000원">보수기준 §13④2호</span>'
+  +'<span class="tag A">A</span>.<br>'
+  +'<b>▸ 자본금이 늘어나는 흡수합병이라면</b> <b>「자본증자」</b>를 고르십시오. 그때는 늘어난 자본금 기준 '
+  +'누진 보수(Ⅱ-2)이고, <b>「설립·증자 특례 가산」(최대 150%)</b>도 쓸 수 있습니다'
+  +'<span class="law" title="법무사 보수기준 제14조제1항 — 흡수합병·분할합병·주식교환에 의한 자본증가의 등기 등에는 당해 기본보수의 150% 상당액까지 가산할 수 있다.">§14①</span>.<br>'
+  +'▸ <span class="hint">합병은 소멸회사의 해산등기도 함께 신청합니다. 아래 「등기 목적 수」를 늘리면 초과분마다 50,000원이 가산됩니다(§14③).</span>',
+ '무능력자·법정대리인 등기':
+   '<b>▸ 보수표의 「무능력자」는 지금의 「제한능력자」를 말합니다.</b> 민법 용어가 2013년 7월 1일부터 '
+  +'바뀌었지만 보수표 표기는 그대로여서 함께 적어 둡니다.<br>'
+  +'<b>▸ 실제로 하시는 등기는 이런 것들입니다.</b><br>'
+  +'· <b>미성년자가 영업을 하는 경우</b>의 등기 — 법정대리인의 허락을 받아야 합니다'
+  +'<span class="law" title="상법 제6조(미성년자의 영업과 등기) — 미성년자가 법정대리인의 허락을 얻어 영업을 하는 때에는 등기를 하여야 한다.">상법 §6</span><br>'
+  +'· <b>법정대리인이 대신 영업하는 경우</b>의 등기'
+  +'<span class="law" title="상법 제8조(법정대리인에 의한 영업의 등기) ① 법정대리인이 미성년자, 피한정후견인 또는 피성년후견인을 위하여 영업을 하는 때에는 등기를 하여야 한다.">상법 §8</span><br>'
+  +'<b>▸ 정액 70,000원</b>입니다'
+  +'<span class="law" title="법무사 보수기준 제13조제4항 제5호 — 무능력자 등기, 법정대리인 등기 → 70,000원">보수기준 §13④5호</span>'
+  +'<span class="tag A">A</span>.',
+ '외국회사 영업소 설치·변경·폐지':
+   '<b>▸ 외국 회사가 우리나라에 영업소(지점)를 두는 등기</b>입니다. 정액 <b>280,000원</b>으로, '
+  +'국내 회사의 지점(120,000원)보다 높게 정해져 있습니다'
+  +'<span class="law" title="법무사 보수기준 제13조제4항 제1호 — 외국회사(법인)의 영업소(분사무소) 설치·변경·폐지 → 280,000원">보수기준 §13④1호</span>'
+  +'<span class="tag A">A</span>. 준비할 서류를 <b>본국에서 받아 와야</b> 하는 등 품이 훨씬 많이 들기 때문입니다.<br>'
+  +'<b>▸ 본국 서류에는 인증·번역이 필요합니다.</b> 그런 사정이 있으면 아래 '
+  +'<b>「외국인·재외국민 가산」(최대 100%)</b>을 함께 쓰실 수 있습니다'
+  +'<span class="law" title="법무사 보수기준 제14조제2항 — 임원 중 외국인 또는 재외국민이 포함되어 있거나 등기원인과 관련되는 서류를 외국으로부터 받아야 하는 변경등기는 기본보수의 100% 상당액까지 가산할 수 있다.">§14②</span>.<br>'
+  +'<b>▸ 세금은 「설치」일 때만 무거워집니다.</b> 설치는 대도시에서 <b>3배 중과</b> 대상이지만, '
+  +'변경·폐지는 「그 밖의 등기」라 중과되지 않습니다'
+  +'<span class="law" title="지방세법 제28조제1항제6호 마목(지점 또는 분사무소의 설치) 40,200원, 같은 조 제2항제1호(대도시에서의 지점·분사무소 설치 등기 100분의 300). 변경·폐지는 같은 항 제6호 바목이므로 같은 조 제4항에 따라 중과세율이 적용되지 아니한다.">지방세법 §28①6호·②1호·④</span>'
+  +'<span class="tag A">A</span>. 대도시를 체크하시면 아래에 <b>「설치인지」 확인란</b>이 나옵니다.<br>'
+  +'▸ <span class="hint">2025년 1월 31일부터 외국회사 등기제도가 정비되어 등기할 사항이 구체화되었습니다(상법 §614~§616의2).</span>',
+ '그 밖의 등기':
+   '<b>▸ 위 목록에 없는 변경등기</b>를 계산하실 때 쓰십시오. 정액 <b>60,000원</b>입니다'
+  +'<span class="law" title="법무사 보수기준 제13조제4항 제8호 — 그 밖의 등기 → 60,000원">보수기준 §13④8호</span>'
+  +'<span class="tag A">A</span>.<br>'
+  +'<b>▸ 이런 것들이 여기에 해당합니다</b> — 지배인 선임·해임, 명의개서대리인 설치·폐지, '
+  +'주식양도 제한 규정의 신설·변경, 공고방법 변경, 발행예정주식총수 변경, 등기사항의 경정 등.<br>'
+  +'<b>▸ 다만 목록에 있는 항목은 그쪽을 고르셔야 정확합니다.</b> 예를 들어 <b>지배인</b>은 보수표가 '
+  +'임원(이사·감사·사원·<b>지배인</b>·청산인)에 함께 적어 두었으므로 <b>「임원 선임·변경」(100,000원)</b>이 맞습니다'
+  +'<span class="law" title="법무사 보수기준 제13조제4항 제6호 — 임원(이사·감사·사원·지배인·청산인 등)의 선임·변경 → 100,000원">§13④6호</span>.<br>'
+  +'▸ <span class="hint">여러 가지를 한 신청서로 하시면 아래 「등기 목적 수」를 실제 개수로 올려 주십시오. 초과분마다 50,000원이 가산됩니다(§14③).</span>',
+ '본점 관외이전':
+   '<b>▸ 본점을 다른 등기소 관할로 옮기는 경우입니다.</b> 2025년 1월 31일부터는 '
+  +'<b>옮기기 전 등기소·옮긴 뒤 등기소 중 한 곳</b>에 신청하면 됩니다'
+  +'<span class="law" title="상법 제182조제1항 — 회사가 본점을 이전한 경우에는 종전 소재지 또는 새 소재지에서 2주일 내에 새 소재지와 이전 연월일을 등기하여야 한다.">상법 §182①</span>'
+  +'<span class="tag A">A</span>.<br>'
+  +'<b>▸ 대도시 <u>밖</u>에서 대도시로 들어오는 경우에만</b> 등록면허세가 3배가 됩니다. '
+  +'서울 안에서 서울로 옮기는 것처럼 <b>대도시 안에서의 이동은 중과되지 않습니다</b>'
+  +'<span class="law" title="지방세법 제28조제2항제2호 — 대도시 밖에 있는 법인의 본점·주사무소를 대도시로 전입함에 따른 등기에 100분의 300의 중과세율을 적용한다.">지방세법 §28②2호</span>'
+  +'<span class="tag A">A</span>.'
+};
 function cvTypeChange(){
-  const def=CORP_CHG[document.getElementById('cv_type').value];
+  const t=document.getElementById('cv_type').value;
+  const def=CORP_CHG[t];
   document.getElementById('cv_capLine').style.display=def.cap?'flex':'none';
   if(def.cap)document.getElementById('cv_capLbl').textContent=def.capLabel;
+  const g=document.getElementById('cv_typeGuide');
+  if(g){ const txt=CV_GUIDE[t]||''; g.innerHTML=txt; g.style.display=txt?'block':'none'; }
   renderDocsCorpChange();
   calcCorpChange();
 }
@@ -7479,16 +7745,358 @@ function renderCorpForeign(p){
   box.innerHTML=corpForeignBlock(o?o.value:'', s?s.value:'');
 }
 
+/* ═══════════ 법인 변경등기 준비서류 — 유형별 14종 ═══════════════════════
+   종전에는 「자본증자·전환사채」 두 갈래만 나뉘어 있어, 감자의 채권자 이의절차 서류나
+   합병계약서·외국회사의 본국 증명서 같은 필수 서류가 전부 빠져 있었다. 2026-08 전면 보강.
+   ▸ 조문번호는 「상법」 등 1차 법령으로 확인한 것만 붙인다. 상업등기규칙의 세부 첨부서면
+     조문은 확인 범위 밖이므로 번호를 달지 않고 실무 서술로 적는다.
+   ▸ 사안마다 서류가 달라지는 지점은 [확인필요]로 남기고 등기소 확인을 권한다. */
+
+/* 모든 변경등기에 공통으로 붙는 머리말 — 기간을 놓치면 과태료가 나온다 */
+const CD_HEAD =
+ '<div class="note" style="margin:6px 0 10px;"><b>⏰ 기간을 지켜 주십시오</b><br>'
++'변경할 일이 생긴 날부터 <b>본점 소재지에서 2주 안에</b> 등기하셔야 합니다'
++'<span class="law" title="상법 제317조제4항은 주식회사의 변경등기에 관하여 제183조를 준용하고, 제183조는 등기사항에 변경이 있는 때에는 본점소재지에서 2주간 내에 변경등기를 하여야 한다고 정한다.">상법 §317④→§183</span>'
++'<span class="tag A">A</span>. 늦으면 <b>500만원 이하의 과태료</b>가 부과될 수 있습니다'
++'<span class="law" title="상법 제635조제1항제1호 — 회사의 이사·감사 등이 이 편에 정한 등기를 게을리한 때에는 500만원 이하의 과태료에 처한다.">상법 §635①1호</span>'
++'<span class="tag A">A</span>. <span class="hint">기간은 결의한 날이 아니라 「효력이 생긴 날」부터 셉니다.</span></div>';
+
+/* 의사록 — 어느 회의체의 결의인지에 따라 준비물이 달라진다 */
+function cdMeet(kind){
+  var h='<b>■ 결의를 증명하는 서류</b><br>';
+  if(kind.indexOf('주총')>=0)
+    h+='· <b>주주총회의사록</b> — <b>주주 과반수</b>의 <b>개인 인감증명서</b> 각 1통 + <b>개인 인감도장</b><br>';
+  if(kind.indexOf('이사회')>=0)
+    h+='· <b>이사회의사록</b> — <b>이사 과반수</b>의 <b>개인 인감증명서</b> 각 1통 + <b>개인 인감도장</b><br>';
+  h+='· <b>주주명부</b>(주주총회를 연 경우) · <b>정관</b> 사본<br>'
+   +'<div class="note" style="margin:6px 0;"><b>▸ 의사록 공증(인증)이 필요할 수 있습니다.</b> '
+   +'원칙적으로 법인등기의 원인이 되는 의사록은 <b>공증인의 인증</b>을 받아야 합니다'
+   +'<span class="law" title="공증인법 제66조의2 제1항 — 법인 등기를 할 때 그 등기의 원인이 되는 사항에 관하여 법인의 총회 등의 의사록을 작성하는 경우에는 공증인이 그 의사록에 대하여 인증을 하여야 한다. 같은 조 제2항은 대통령령으로 정하는 법인의 경우 이를 적용하지 아니한다고 정한다.">공증인법 §66의2</span>'
+   +'<span class="tag A">A</span>. 다만 <b>자본금 총액 10억원 미만</b>의 주식회사가 <b>주주 전원의 동의</b>로 '
+   +'소집절차를 생략하고 연 주주총회의 의사록 등은 <b>인증이 면제</b>됩니다. '
+   +'<span class="hint">면제 여부는 회사의 자본금·결의 방식에 따라 갈리므로 미리 확인해 드립니다. '
+   +'인증을 받으시면 위 「의사록 공증」 칸에 건수를 넣으십시오.</span></div>';
+  return h;
+}
+
+/* 회사가 늘 내는 서류 */
+const CD_COMMON =
+ '<b>■ 회사가 준비하실 서류</b><br>'
++'· <b>법인 인감증명서</b> 1통 + <b>법인 인감도장</b> <span class="hint">(등기신청 위임장에 찍습니다)</span><br>'
++'· <b>법인등기사항증명서</b> 1통 <span class="hint">(사무소에서 열람해 드릴 수 있습니다)</span><br>'
++'· <b>정관</b> 사본 — 가장 최근에 고친 것<br><br>';
+
+/* 법무사가 만들어 내는 서류 */
+const CD_OFFICE =
+ '<b>■ 법무사가 만들어 제출하는 서류</b> <span class="hint">(의뢰인이 준비하실 것은 아닙니다)</span><br>'
++'· <b>등기신청서</b> · <b>등기신청 위임장</b><br>'
++'· <b>등록면허세영수필확인서</b> · <b>등기신청수수료영수필확인서</b><br>'
++'· 필요하면 <b>의사록·정관 등 문안 작성</b> 및 <b>공증 대행</b><br><br>';
+
+/* 발급처 — 어디서 떼는지 바로 갈 수 있게 */
+const CD_WHERE =
+ '<div class="dl" style="border-top:1px dashed var(--line);margin-top:6px;padding-top:6px;">'
++'<b>■ 서류는 어디서 떼나요</b><br>'
++'· <b>개인 인감증명서 · 본인서명사실확인서 · 주민등록등(초)본 · 가족관계증명서</b> → 가까운 <b>주민센터</b> 또는 <a href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a><br>'
++'· <b>법인 인감증명서 · 법인등기사항증명서</b> → <a href="https://www.iros.go.kr" target="_blank" rel="noopener">인터넷등기소</a> 또는 등기소 무인발급기<br>'
++'· <b>주금납입금 보관증명서 · 잔액(잔고)증명서</b> → <b>거래 은행</b><br>'
++'· <b>등록면허세</b> 신고·납부 → <a href="https://www.wetax.go.kr" target="_blank" rel="noopener">위택스</a> 또는 관할 시·군·구청<br>'
++'· <b>등기신청수수료</b> 납부 → <a href="https://www.iros.go.kr" target="_blank" rel="noopener">인터넷등기소</a>(카드·계좌이체)<br>'
++'· <b>법인등기 신청서 양식</b> → <a href="https://www.iros.go.kr" target="_blank" rel="noopener">인터넷등기소</a> → 자료센터 → 등기신청양식 → 법인등기<br>'
++'· <b>외국 서류의 아포스티유·영사확인</b> → <a href="https://www.0404.go.kr/callcenter/apostille_intro.jsp" target="_blank" rel="noopener">외교부 아포스티유·영사확인 안내</a><br>'
++'<br><span class="hint">▸ 인감증명서는 <b>발급일부터 3개월 이내</b>의 것이어야 합니다.<br>'
++'▸ <b>본인서명사실확인서</b>로도 인감증명서를 갈음할 수 있습니다.<br>'
++'▸ 위 목록은 일반적인 경우입니다. <b>사안에 따라 서류가 더 필요할 수 있습니다.</b> '
++'상담 때 회사 사정을 말씀해 주시면 빠짐없이 챙겨 드립니다.</span></div>';
+
+const CORP_DOCS={
+ '자본증자':
+   cdMeet('이사회')
+  +'<span class="hint">▸ 신주를 얼마나·누구에게 발행할지는 <b>원칙적으로 이사회</b>가 정합니다. 다만 <b>정관으로 주주총회가 정하도록</b> 해 두었다면 주주총회의사록이 필요합니다'
+  +'<span class="law" title="상법 제416조 — 회사가 그 성립 후에 주식을 발행하는 경우에는 다음의 사항으로서 정관에 규정이 없는 것은 이사회가 결정한다. 다만, 이 법에 다른 규정이 있거나 정관으로 주주총회에서 결정하기로 정한 경우에는 그러하지 아니하다.">상법 §416</span><span class="tag A">A</span>.</span><br><br>'
+  +'<b>■ 돈이 들어왔음을 증명하는 서류</b> <span style="color:var(--seal);">(가장 중요합니다)</span><br>'
+  +'· <b>주식청약서</b> · <b>주식인수증</b><br>'
+  +'· <b>증자 후 자본금이 10억원 이상</b>이 되면 → <b>주금납입금 보관증명서</b>(은행 발급) <b>필수</b><br>'
+  +'· <b>증자 후에도 10억원 미만</b>이면 → 실무상 <b>잔액(잔고)증명서</b>로 갈음합니다 <span class="tag" style="background:#8a8070;color:#fff;">B</span> '
+  +'<span class="hint">등기소에 따라 달리 볼 수 있어 미리 확인해 드립니다.</span><br>'
+  +'<div class="note" style="margin:6px 0;"><b>⚠ 납입일 당일에는 그 돈을 빼거나 옮기지 마십시오.</b> '
+  +'잔액증명서에 적힌 <b>「증명 기준일」의 잔액</b>이 납입금 이상이어야 등기가 됩니다. '
+  +'발급받기 <b>전에</b> 인출하시면 다시 받으셔야 합니다.</div>'
+  +'<b>■ 사정에 따라 더 필요한 서류</b><br>'
+  +'· <b>현물출자</b>(돈이 아니라 부동산·기계·특허 등으로 출자) → <b>감정인의 감정서</b> 또는 <b>검사인의 조사보고서</b>와 <b>법원의 인가</b>'
+  +'<span class="law" title="상법 제422조제1항 — 현물출자를 하는 자가 있는 경우 이사는 제416조제4호의 사항을 조사하게 하기 위하여 검사인의 선임을 법원에 청구하여야 한다. 이 경우 검사인의 조사는 공인된 감정인의 감정으로 갈음할 수 있다.">상법 §422</span><span class="tag A">A</span> '
+  +'<span class="hint">소액·시장가격이 분명한 경우 등은 이 절차가 면제될 수 있습니다(같은 조 제2항). <span class="tag chk">확인필요</span></span><br>'
+  +'· <b>기존 주주가 아닌 제3자에게</b> 신주를 주는 경우 → <b>정관의 근거 규정</b>과 <b>주주에게 알린 사실을 증명하는 서류</b>(통지서·공고문)'
+  +'<span class="law" title="상법 제418조제2항 — 회사는 정관에 정하는 바에 따라 주주 외의 자에게 신주를 배정할 수 있다. 이 경우에는 신기술의 도입, 재무구조의 개선 등 회사의 경영상 목적을 달성하기 위하여 필요한 경우에 한한다. 같은 조 제4항은 그 사항을 납입기일의 2주 전까지 주주에게 통지하거나 공고하도록 정한다.">상법 §418②④</span><span class="tag A">A</span><br>'
+  +'· <b>기존 주주에게</b> 주는 경우 → <b>신주인수권자에 대한 최고서</b>와 그 발송을 증명하는 서류'
+  +'<span class="law" title="상법 제419조제1항 — 회사는 신주의 인수권을 가진 자에 대하여 그 인수권을 가지는 주식의 종류 및 수와 일정한 기일까지 주식인수의 청약을 하지 아니하면 그 권리를 잃는다는 뜻을 통지하여야 한다.">상법 §419①</span><span class="tag A">A</span><br><br>'
+  +CD_COMMON+CD_OFFICE+CD_WHERE,
+
+ '자본감소(감자)':
+   '<div class="note" style="margin:6px 0 10px;border-left:3px solid var(--seal);"><b>⚠ 채권자 보호절차를 먼저 밟지 않으면 등기가 되지 않습니다.</b><br>'
+  +'자본금을 줄이면 회사 재산이 줄어 <b>돈을 빌려준 사람들이 불리해지므로</b>, 법이 미리 이의를 낼 기회를 주라고 정해 두었습니다. '
+  +'이 절차를 마쳤다는 서류가 <b>등기신청의 필수 첨부서류</b>입니다.</div>'
+  +cdMeet('주총')
+  +'<span class="hint">▸ 자본금 감소는 <b>주주총회 특별결의</b>(출석주주 의결권의 3분의 2 이상 + 발행주식총수의 3분의 1 이상)가 원칙입니다'
+  +'<span class="law" title="상법 제438조제1항 — 자본금의 감소에는 제434조에 따른 결의가 있어야 한다. 제434조는 출석한 주주의 의결권의 3분의 2 이상의 수와 발행주식총수의 3분의 1 이상의 수로써 하여야 한다고 정한다.">상법 §438①→§434</span><span class="tag A">A</span>. '
+  +'다만 <b>결손을 메우기 위한 감자</b>는 보통결의로 할 수 있습니다'
+  +'<span class="law" title="상법 제438조제2항 — 결손의 보전을 위한 자본금의 감소는 제368조제1항의 결의에 의한다.">상법 §438②</span><span class="tag A">A</span>.</span><br><br>'
+  +'<b>■ 채권자 보호절차를 마쳤음을 증명하는 서류</b> <span style="color:var(--seal);">(빠뜨리면 반려됩니다)</span><br>'
+  +'· <b>이의제출 공고문</b> — 결의한 날부터 <b>2주 안에</b> 공고를 내고, <b>1개월 이상</b>의 이의제출 기간을 주어야 합니다'
+  +'<span class="law" title="상법 제439조제2항은 자본금 감소의 경우 제232조를 준용한다. 제232조제1항 — 회사는 결의가 있은 날부터 2주 내에 채권자에 대하여 이의가 있으면 1월 이상의 기간 내에 이를 제출할 것을 공고하고 알고 있는 채권자에 대하여는 따로따로 이를 최고하여야 한다.">상법 §439②→§232①</span><span class="tag A">A</span><br>'
+  +'&nbsp;&nbsp;<span class="hint">공고는 <b>정관에 정한 방법</b>으로 냅니다(신문 또는 회사 홈페이지 전자공고). 신문이면 <b>그 신문 원본 또는 사본</b>, 전자공고면 <b>공고 화면을 갈무리한 자료</b>를 준비하십시오.</span><br>'
+  +'· <b>알고 있는 채권자에게 따로 보낸 최고서</b>와 그 <b>발송을 증명하는 서류</b>(내용증명 우편영수증 등)<br>'
+  +'· <b>이의를 낸 채권자가 없다는 대표이사의 진술서</b><br>'
+  +'· 이의를 낸 채권자가 있으면 → <b>변제·담보제공·신탁을 증명하는 서류</b>'
+  +'<span class="law" title="상법 제232조제3항 — 이의를 제출한 채권자가 있는 때에는 회사는 그 채권자에 대하여 변제 또는 상당한 담보를 제공하거나 이를 목적으로 하여 상당한 재산을 신탁회사에 신탁하여야 한다.">상법 §232③</span><span class="tag A">A</span><br><br>'
+  +'<b>■ 주식을 병합하는 방법으로 감자하는 경우</b><br>'
+  +'· <b>주권제출 공고문</b> — <b>1개월 이상</b>의 기간을 정해 주권을 내라고 공고하고 주주에게 통지해야 합니다'
+  +'<span class="law" title="상법 제440조 — 주식을 병합할 경우에는 회사는 1월 이상의 기간을 정하여 그 뜻과 그 기간 내에 주권을 회사에 제출할 것을 공고하고 주주명부에 기재된 주주와 질권자에 대하여는 각별로 그 통지를 하여야 한다.">상법 §440</span><span class="tag A">A</span><br>'
+  +'· <b>구주권을 회수한 사실</b> 또는 <b>주권을 발행하지 않았다는 대표이사의 진술서</b><br><br>'
+  +CD_COMMON+CD_OFFICE+CD_WHERE,
+
+ '전환사채 발행':
+   cdMeet('이사회')
+  +'<span class="hint">▸ 전환사채 발행은 <b>원칙적으로 이사회</b>가 정합니다'
+  +'<span class="law" title="상법 제513조제2항 — 전환사채의 총액 등 각 호의 사항은 정관에 규정이 없으면 이사회가 이를 결정한다. 그러나 정관으로 주주총회에서 이를 결정하기로 정한 경우에는 그러하지 아니하다.">상법 §513②</span><span class="tag A">A</span>. '
+  +'다만 <b>주주가 아닌 제3자에게</b> 발행하려면 정관에 근거가 있거나 <b>주주총회 특별결의</b>가 있어야 합니다'
+  +'<span class="law" title="상법 제513조제3항 — 주주 외의 자에 대하여 전환사채를 발행하는 경우에 그에 관하여 정관에 규정이 없으면 제434조의 결의로써 이를 정하여야 한다.">상법 §513③</span><span class="tag A">A</span>.</span><br><br>'
+  +'<b>■ 사채가 발행되었음을 증명하는 서류</b><br>'
+  +'· <b>사채청약서</b> · <b>사채인수증</b><br>'
+  +'· <b>사채 납입을 증명하는 서류</b>(은행 입금 자료·잔액증명서 등)<br>'
+  +'· <b>사채원부</b><br>'
+  +'· 제3자 배정이면 → <b>주주에게 알린 사실을 증명하는 서류</b><br><br>'
+  +'<div class="note" style="margin:6px 0;"><b>▸ 나중에 주식으로 바뀔 때 또 등기해야 합니다.</b> '
+  +'사채권자가 전환권을 행사하면 <b>자본금이 늘어나므로</b> 그때 다시 <b>자본증자 등기</b>를 하셔야 합니다. '
+  +'<span class="hint">전환 청구가 있은 달의 마지막 날부터 2주 안에 하시면 됩니다.</span></div>'
+  +CD_COMMON+CD_OFFICE+CD_WHERE,
+
+ '주식의 병합·분할·소각':
+   '<div class="note" style="margin:6px 0 10px;"><b>▸ 자본금이 함께 줄어드는 경우라면</b> 이 화면이 아니라 '
+  +'<b>「자본감소(감자)」</b>를 고르셔야 합니다. 절차도 서류도 다릅니다.</div>'
+  +cdMeet('주총·이사회')
+  +'<b>■ 주식병합·주식분할을 할 때</b><br>'
+  +'· <b>주권제출 공고문</b> — <b>1개월 이상</b> 기간을 정해 공고하고 주주·질권자에게 각각 통지'
+  +'<span class="law" title="상법 제440조 — 주식을 병합할 경우에는 회사는 1월 이상의 기간을 정하여 그 뜻과 그 기간 내에 주권을 회사에 제출할 것을 공고하고 주주명부에 기재된 주주와 질권자에 대하여는 각별로 그 통지를 하여야 한다. 제329조의2 제3항은 주식분할에 이를 준용한다.">상법 §440 · §329의2③</span><span class="tag A">A</span><br>'
+  +'· <b>구주권 회수 사실</b> 또는 <b>주권 미발행 진술서</b><br>'
+  +'· <b>주식분할</b>은 <b>주주총회 특별결의</b>가 필요합니다'
+  +'<span class="law" title="상법 제329조의2 제1항 — 회사는 제434조의 규정에 의한 주주총회의 결의로 주식을 분할할 수 있다.">상법 §329의2①</span><span class="tag A">A</span> '
+  +'<span class="hint">1주의 금액이 정관 기재사항이므로 <b>정관변경</b>이 함께 필요한 경우가 많습니다.</span><br><br>'
+  +'<b>■ 주식을 소각할 때</b><br>'
+  +'· <b>회사가 가진 자기주식을 없애는 소각</b>이면 → <b>이사회의사록</b>'
+  +'<span class="law" title="상법 제343조제1항 단서 — 이사회의 결의에 의하여 회사가 보유하는 자기주식을 소각하는 경우에는 그러하지 아니하다.">상법 §343① 단서</span><span class="tag A">A</span><br>'
+  +'· <b>자본금을 줄이면서 하는 소각</b>이면 → <b>자본금 감소 절차</b>(주주총회 특별결의 + 채권자 이의절차)를 그대로 밟아야 합니다'
+  +'<span class="law" title="상법 제343조제1항 본문 — 주식은 자본금 감소에 관한 규정에 따라서만 소각할 수 있다.">상법 §343① 본문</span><span class="tag A">A</span><br>'
+  +'· <b>자기주식 취득을 증명하는 서류</b>(취득 결의·거래 자료)<br><br>'
+  +CD_COMMON+CD_OFFICE+CD_WHERE,
+
+ '자본증가 없는 합병':
+   '<div class="note" style="margin:6px 0 10px;"><b>▸ 자본금이 늘어나는 합병이라면</b> <b>「자본증자」</b>를 고르십시오. '
+  +'여기는 <b>합병을 해도 자본금이 늘지 않는 경우</b>(완전자회사 흡수 등)입니다.</div>'
+  +cdMeet('주총')
+  +'<b>■ 합병 자체를 증명하는 서류</b><br>'
+  +'· <b>합병계약서</b>'
+  +'<span class="law" title="상법 제522조제1항 — 회사가 합병을 함에는 합병계약서를 작성하여 주주총회의 승인을 얻어야 한다.">상법 §522①</span><span class="tag A">A</span><br>'
+  +'· <b>합병 승인 주주총회의사록</b> — <b>특별결의</b>'
+  +'<span class="law" title="상법 제522조제3항 — 합병계약서의 승인결의는 제434조의 규정에 의하여야 한다.">상법 §522③</span><span class="tag A">A</span><br>'
+  +'&nbsp;&nbsp;<span class="hint">완전자회사를 흡수하는 <b>간이합병</b>이나 규모가 작은 <b>소규모합병</b>이면 주주총회 대신 <b>이사회 승인</b>으로 갈음할 수 있습니다'
+  +'<span class="law" title="상법 제527조의2(간이합병) 제1항 — 합병할 회사의 일방이 합병 후 존속하는 경우에 소멸하는 회사의 총주주의 동의가 있거나 그 회사의 발행주식총수의 100분의 90 이상을 합병 후 존속하는 회사가 소유하고 있는 때에는 소멸하는 회사의 주주총회의 승인은 이사회의 승인으로 갈음할 수 있다. 제527조의3(소규모합병)도 유사한 특칙을 둔다.">상법 §527의2·§527의3</span>. 이때는 <b>공고·통지 증명서류</b>가 따로 필요합니다.</span><br>'
+  +'· <b>합병 대차대조표 등 공시서류</b>'
+  +'<span class="law" title="상법 제522조의2 제1항 — 이사는 제522조제1항의 주주총회 회일의 2주 전부터 합병을 한 날 이후 6월이 경과하는 날까지 합병계약서, 각 회사의 최종 대차대조표 등을 본점에 비치하여야 한다.">상법 §522의2</span><span class="tag A">A</span><br><br>'
+  +'<b>■ 채권자 보호절차를 마쳤음을 증명하는 서류</b> <span style="color:var(--seal);">(합병에도 반드시 필요합니다)</span><br>'
+  +'· <b>이의제출 공고문</b>(1개월 이상) · <b>알고 있는 채권자에 대한 개별 최고서</b>와 발송 증명'
+  +'<span class="law" title="상법 제527조의5 제1항 — 회사는 제522조의 주주총회의 승인결의가 있은 날부터 2주 내에 채권자에 대하여 합병에 이의가 있으면 1월 이상의 기간 내에 이를 제출할 것을 공고하고 알고 있는 채권자에 대하여는 따로따로 이를 최고하여야 한다.">상법 §527의5</span><span class="tag A">A</span><br>'
+  +'· <b>이의 없음 진술서</b> 또는 <b>변제·담보제공 증명서류</b><br><br>'
+  +'<div class="note" style="margin:6px 0;"><b>▸ 소멸하는 회사의 해산등기도 함께 신청합니다.</b> '
+  +'존속회사의 변경등기와 소멸회사의 해산등기는 <b>같은 신청서로 한꺼번에</b> 냅니다. '
+  +'<span class="hint">등기할 목적이 둘 이상이 되므로 위 「등기 목적 수」를 늘려 주십시오(§14③ · 초과 1개마다 50,000원).</span></div>'
+  +CD_COMMON+CD_OFFICE+CD_WHERE,
+
+ '임원 선임·변경':
+   cdMeet('주총·이사회')
+  +'<span class="hint">▸ <b>이사·감사</b>는 <b>주주총회</b>에서'
+  +'<span class="law" title="상법 제382조제1항 — 이사는 주주총회에서 선임한다. 제409조제1항 — 감사는 주주총회에서 선임한다.">상법 §382①·§409①</span>, '
+  +'<b>대표이사</b>는 <b>이사회</b>에서 뽑습니다'
+  +'<span class="law" title="상법 제389조제1항 — 회사는 이사회의 결의로 회사를 대표할 이사를 선정하여야 한다. 그러나 정관으로 주주총회에서 이를 선정할 것을 정할 수 있다.">상법 §389①</span><span class="tag A">A</span>. '
+  +'정관으로 주주총회에서 대표이사를 뽑도록 정한 회사도 있습니다.</span><br><br>'
+  +'<b>■ 새로 취임하시는 분이 내는 서류</b><br>'
+  +'· <b>취임승낙서</b> + <b>개인 인감증명서</b> 1통 + <b>개인 인감도장</b> '
+  +'<span class="hint">(인감증명서 대신 <b>공증인의 인증</b>을 받은 취임승낙서도 됩니다)</span>'
+  +'<span class="law" title="상업등기규칙 제104조제2항은 취임승낙을 증명하는 서면에 인감증명서를 첨부하거나 공증인의 인증을 받도록 정하고, 같은 규칙 제154조제2항은 이를 주식회사의 이사·대표이사·집행임원·청산인·감사에 준용한다.">상업등기규칙 §104②·§154②</span><span class="tag A">A</span><br>'
+  +'· <b>주민등록등(초)본</b> 1통 <span class="hint">(등기부에 올릴 주소를 확인합니다. <b>대표이사·대표사원만</b> 주소가 등기됩니다)</span><br>'
+  +'· <b>신분증 사본</b><br><br>'
+  +'<b>■ 그만두시는 분이 내는 서류</b><br>'
+  +'· <b>사임서</b> + <b>개인 인감증명서</b> 1통 + <b>개인 인감도장</b> <span class="hint">(또는 공증인의 인증)</span><br>'
+  +'· <b>임기만료</b>로 물러나시면 사임서 없이 <b>임기만료 사실</b>만 확인하면 됩니다<br>'
+  +'· <b>해임</b>이면 → <b>주주총회의사록</b>(해임 결의)<br>'
+  +'· <b>사망</b>이면 → <b>기본증명서</b> 또는 <b>가족관계증명서</b>(사망사실 기재)<br><br>'
+  +'<div class="note" style="margin:6px 0;"><b>▸ 외국인·재외국민 임원이 계시면</b> 위 화면의 '
+  +'<b>「임원 중 외국인」</b>을 골라 주십시오. 필요한 서류(본국 관청 증명·인증·번역문 등)와 '
+  +'<b>가산보수(§14② 최대 100%)</b>가 함께 안내됩니다.</div>'
+  +CD_COMMON+CD_OFFICE+CD_WHERE,
+
+ '무능력자·법정대리인 등기':
+   '<div class="note" style="margin:6px 0 10px;"><b>▸ 보수표의 「무능력자」는 지금의 「제한능력자」</b>를 말합니다. '
+  +'민법 용어가 2013년 7월 1일부터 바뀌었으나 보수표 표기는 그대로입니다.</div>'
+  +'<b>■ 미성년자가 영업을 하는 경우</b>'
+  +'<span class="law" title="상법 제6조(미성년자의 영업과 등기) — 미성년자가 법정대리인의 허락을 얻어 영업을 하는 때에는 등기를 하여야 한다.">상법 §6</span><span class="tag A">A</span><br>'
+  +'· <b>법정대리인의 영업 허락을 증명하는 서면</b> + 법정대리인의 <b>개인 인감증명서</b> 1통 + <b>인감도장</b><br>'
+  +'· <b>가족관계증명서(상세)</b> · <b>기본증명서(상세)</b> — 친권자가 맞는지 확인합니다<br>'
+  +'· 미성년자의 <b>주민등록등(초)본</b> · <b>기본증명서</b><br><br>'
+  +'<b>■ 법정대리인이 대신 영업하는 경우</b>'
+  +'<span class="law" title="상법 제8조(법정대리인에 의한 영업의 등기) 제1항 — 법정대리인이 미성년자, 피한정후견인 또는 피성년후견인을 위하여 영업을 하는 때에는 등기를 하여야 한다.">상법 §8①</span><span class="tag A">A</span><br>'
+  +'· <b>법정대리인 자격을 증명하는 서면</b><br>'
+  +'&nbsp;&nbsp;· 친권자이면 → <b>가족관계증명서(상세)</b> · <b>기본증명서(상세)</b><br>'
+  +'&nbsp;&nbsp;· 후견인이면 → <b>후견등기사항증명서</b> <span class="hint">(가정법원 후견등기부 · 인터넷등기소에서 발급)</span><br>'
+  +'· 법정대리인의 <b>개인 인감증명서</b> 1통 + <b>인감도장</b> · <b>주민등록등(초)본</b><br>'
+  +'· 본인(미성년자·피후견인)의 <b>기본증명서</b> · <b>주민등록등(초)본</b><br><br>'
+  +'<div class="note" style="margin:6px 0;"><b>▸ 이 등기는 「상호등기」와 함께 하는 경우가 많습니다.</b> '
+  +'개인 상인의 영업에 관한 등기이므로, 회사(법인)의 등기와는 성격이 다릅니다. '
+  +'<span class="hint">어떤 등기가 필요한지 상담 때 정확히 잡아 드립니다.</span></div>'
+  +CD_COMMON+CD_OFFICE+CD_WHERE,
+
+ '상호·목적·정관 변경':
+   cdMeet('주총')
+  +'<span class="hint">▸ 상호·목적은 <b>정관에 적혀 있는 사항</b>이므로 <b>주주총회 특별결의</b>로 정관을 고쳐야 합니다'
+  +'<span class="law" title="상법 제433조제1항 — 정관의 변경은 주주총회의 결의에 의하여야 한다. 제434조 — 그 결의는 출석한 주주의 의결권의 3분의 2 이상의 수와 발행주식총수의 3분의 1 이상의 수로써 하여야 한다.">상법 §433①·§434</span><span class="tag A">A</span>.</span><br><br>'
+  +'<b>■ 상호를 바꾸실 때 미리 확인할 것</b><br>'
+  +'· <b>같은 관할 안에 같거나 비슷한 상호가 있는지</b> 먼저 조사합니다. 사무소에서 <a href="https://www.iros.go.kr" target="_blank" rel="noopener">인터넷등기소</a>로 확인해 드립니다'
+  +'<span class="law" title="상법 제22조 — 타인이 등기한 상호는 동일한 특별시·광역시·시·군에서 동종영업의 상호로 등기하지 못한다.">상법 §22</span><span class="tag A">A</span><br>'
+  +'· <b>법인 인감을 새로 파실지</b> 정하십시오 <span class="hint">(상호가 새겨진 인감이면 새로 만들어 <b>인감신고</b>를 해야 합니다)</span><br>'
+  +'· 상호를 바꾸시면 <b>사업자등록·통장·계약서·간판</b>도 함께 정리하셔야 합니다<br><br>'
+  +'<b>■ 목적(사업 내용)을 바꾸실 때</b><br>'
+  +'· <b>바꾸려는 목적을 정리한 문안</b> — 사무소에서 등기 가능한 표현으로 다듬어 드립니다<br>'
+  +'· <b>허가·등록·신고가 필요한 업종</b>이면 관계 관청의 절차가 따로 있습니다 '
+  +'<span class="tag chk">확인필요</span> <span class="hint">등기가 되었다고 해서 그 영업을 할 수 있게 되는 것은 아닙니다.</span><br><br>'
+  +CD_COMMON+CD_OFFICE+CD_WHERE,
+
+ '본점 관내이전':
+   cdMeet('이사회')
+  +'<span class="hint">▸ 정관에는 보통 <b>「본점을 ○○시에 둔다」</b>처럼 <b>행정구역</b>까지만 적습니다. '
+  +'그 안에서 옮기시는 것이면 <b>이사회 결의</b>만으로 됩니다'
+  +'<span class="law" title="상법 제393조제1항 — 중요한 자산의 처분 및 양도, 대규모 재산의 차입, 지배인의 선임 또는 해임과 지점의 설치·이전 또는 폐지 등 회사의 업무집행은 이사회의 결의로 한다.">상법 §393①</span>. '
+  +'정관에 <b>번지까지</b> 적혀 있거나 <b>다른 행정구역</b>으로 옮기시면 <b>주주총회 특별결의</b>로 정관을 고쳐야 합니다'
+  +'<span class="law" title="상법 제433조제1항·제434조 — 정관의 변경은 주주총회의 특별결의에 의하여야 한다.">상법 §433①·§434</span><span class="tag A">A</span>.</span><br><br>'
+  +'<b>■ 새 주소를 확인할 수 있는 자료</b><br>'
+  +'· <b>도로명주소</b>가 정확히 적힌 자료(임대차계약서·건축물대장 등) <span class="hint">(등기부에 그대로 올라갑니다)</span><br><br>'
+  +'<div class="note" style="margin:6px 0;"><b>▸ 이전 후에도 챙기실 것</b> — <b>사업자등록 정정</b>(세무서), '
+  +'각종 <b>인허가 소재지 변경</b>, 4대보험 사업장 주소 변경 등이 따로 필요합니다.</div>'
+  +CD_COMMON+CD_OFFICE+CD_WHERE,
+
+ '본점 관외이전':
+   cdMeet('주총·이사회')
+  +'<span class="hint">▸ 다른 등기소 관할로 옮기시는 경우입니다. 정관의 본점 소재지가 바뀌므로 '
+  +'<b>주주총회 특별결의로 정관을 고치고</b>, 구체적 장소는 이사회가 정하는 것이 보통입니다'
+  +'<span class="law" title="상법 제433조제1항·제434조 — 정관의 변경은 주주총회의 특별결의에 의하여야 한다.">상법 §433①·§434</span><span class="tag A">A</span>.</span><br><br>'
+  +'<b>■ 미리 확인할 것</b><br>'
+  +'· <b>새 관할에 같거나 비슷한 상호가 있는지</b> 조사합니다'
+  +'<span class="law" title="상법 제22조 — 타인이 등기한 상호는 동일한 특별시·광역시·시·군에서 동종영업의 상호로 등기하지 못한다.">상법 §22</span><span class="tag A">A</span> '
+  +'<span class="hint">있으면 상호를 함께 바꾸셔야 할 수 있습니다.</span><br>'
+  +'· <b>새 주소</b>를 확인할 수 있는 자료(임대차계약서·건축물대장 등)<br><br>'
+  +'<div class="note" style="margin:6px 0;"><b>▸ 2025년 1월 31일부터 신청이 간단해졌습니다.</b> '
+  +'<b>옮기기 전 등기소·옮긴 뒤 등기소 중 한 곳</b>에만 신청하시면 됩니다'
+  +'<span class="law" title="상법 제182조제1항 — 회사가 본점을 이전한 경우에는 종전 소재지 또는 새 소재지에서 2주일 내에 새 소재지와 이전 연월일을 등기하여야 한다.">상법 §182①</span><span class="tag A">A</span>.<br>'
+  +'<b>▸ 대도시 밖에서 대도시로</b> 들어오시면 등록면허세가 <b>3배</b>가 됩니다. 위 화면에서 확인하십시오.</div>'
+  +CD_COMMON+CD_OFFICE+CD_WHERE,
+
+ '지점 설치·이전':
+   cdMeet('이사회')
+  +'<span class="hint">▸ 지점의 설치·이전·폐지는 <b>이사회</b>가 정합니다'
+  +'<span class="law" title="상법 제393조제1항 — 중요한 자산의 처분 및 양도, 대규모 재산의 차입, 지배인의 선임 또는 해임과 지점의 설치·이전 또는 폐지 등 회사의 업무집행은 이사회의 결의로 한다.">상법 §393①</span><span class="tag A">A</span>. '
+  +'정관에 지점에 관한 규정이 있으면 정관도 함께 보아야 합니다.</span><br><br>'
+  +'<b>■ 지점 주소를 확인할 수 있는 자료</b><br>'
+  +'· <b>도로명주소</b>가 정확히 적힌 자료(임대차계약서·건축물대장 등)<br><br>'
+  +'<div class="note" style="margin:6px 0;"><b>▸ 2025년 1월 31일부터 지점 등기부가 없어졌습니다.</b> '
+  +'예전처럼 <b>지점 관할 등기소에 따로 신청하실 필요가 없고</b>, '
+  +'<b>본점(주사무소) 관할 한 곳</b>에만 신청하면 됩니다'
+  +'<span class="law" title="상법 제181조 — 회사가 지점을 설치한 경우에는 본점의 소재지에서 2주일 내에 그 지점의 소재지와 설치 연월일을 등기하여야 한다. 제182조제2항 — 회사가 지점을 이전한 경우에는 본점의 소재지에서 2주일 내에 새 소재지와 이전 연월일을 등기하여야 한다.">상법 §181·§182②</span>'
+  +'<span class="tag A">A</span>. 사단·재단법인의 <b>분사무소</b>도 같습니다'
+  +'<span class="law" title="민법 제50조 — 법인이 분사무소를 설치한 경우에는 주사무소의 소재지에서 3주일 내에 분사무소 소재지와 설치 연월일을 등기하여야 한다. 제51조제2항 — 법인이 분사무소를 이전한 경우에는 주사무소 소재지에서 3주일 내에 새 소재지와 이전 연월일을 등기하여야 한다. (법률 제20432호, 2025.1.31. 시행)">민법 §50·§51②</span>'
+  +'<span class="tag A">A</span>.<br>'
+  +'<b>▸ 대도시에 지점을 「설치」</b>하시면 등록면허세가 <b>3배</b>입니다. <b>이전</b>은 중과되지 않습니다.</div>'
+  +CD_COMMON+CD_OFFICE+CD_WHERE,
+
+ '외국회사 영업소 설치·변경·폐지':
+   '<div class="note" style="margin:6px 0 10px;border-left:3px solid var(--gold);"><b>▸ 본국에서 받아 오실 서류가 많습니다.</b> '
+  +'준비에 <b>몇 주가 걸릴 수 있으니</b> 미리 시작하시는 것이 좋습니다. 어떤 서류를 어떤 형식으로 받아야 하는지 '
+  +'사무소에서 목록을 만들어 드립니다.</div>'
+  +'<b>■ 본국에서 받아 오실 서류</b> <span style="color:var(--seal);">(모두 인증 + 번역이 필요합니다)</span><br>'
+  +'· <b>본국에 회사가 존재한다는 증명서</b> — 본국 관청 또는 공증인이 발급한 것<br>'
+  +'· <b>본국 회사의 정관</b><br>'
+  +'· <b>대표자를 정한 것을 증명하는 서류</b>(이사회의사록 등)<br>'
+  +'· <b>대한민국에서의 대표자를 정한 서류</b>와 그 <b>대표자의 취임승낙서</b><br>'
+  +'· <b>영업소 설치를 결정한 서류</b><br>'
+  +'<div class="note" style="margin:6px 0;"><b>▸ 인증은 두 가지 중 하나입니다.</b><br>'
+  +'· <b>아포스티유 협약 가입국</b>이면 → 그 나라 발급기관의 <b>아포스티유(Apostille)</b><br>'
+  +'· <b>가입하지 않은 나라</b>이면 → 그 나라 주재 <b>대한민국 대사관·영사관의 확인</b><br>'
+  +'<span class="hint">어느 쪽인지는 <a href="https://www.0404.go.kr/callcenter/apostille_intro.jsp" target="_blank" rel="noopener">외교부 아포스티유 안내</a>에서 확인하실 수 있습니다. '
+  +'모든 외국어 서류에는 <b>번역문</b>과 <b>번역인의 확인서</b>를 붙입니다.</span></div>'
+  +'<b>■ 대한민국 내 대표자가 내는 서류</b><br>'
+  +'· <b>주소를 증명하는 서류</b> — 내국인이면 <b>주민등록등(초)본</b>, 국내에 사시는 외국인이면 <b>외국인등록사실증명</b>'
+  +'<span class="law" title="상업등기선례 제1-154호 — 대표이사가 국내에 외국인등록을 한 외국국적자인 경우 주소증명서면은 외국인등록표등본에 의하고, 등기할 주소는 그 등본상의 국내 체류지에 의한다.">상업등기선례 1-154</span><span class="tag" style="background:#8a8070;color:#fff;">B</span><br>'
+  +'· <b>인감증명서</b> 1통 + <b>인감도장</b> <span class="hint">(외국인등록·국내거소신고를 하신 분도 인감을 신고하실 수 있습니다'
+  +'<span class="law" title="인감증명법 제3조제3항 — 재외국민과 외국인등록 또는 국내거소신고를 한 사람도 인감을 신고할 수 있다.">인감증명법 §3③</span>)</span><br>'
+  +'· 인감신고가 어려우면 → <b>본국 공증인 또는 대한민국 공증인의 인증</b>을 받은 서면 '
+  +'<span class="tag chk">확인필요</span> <span class="hint">관할 등기소에 미리 확인해 드립니다.</span><br><br>'
+  +'<b>■ 영업소를 「변경」하거나 「폐지」하실 때</b><br>'
+  +'· 변경·폐지를 결정한 <b>본국 회사의 서류</b>(인증 + 번역문)<br>'
+  +'· 대표자를 바꾸시면 → <b>새 대표자의 취임승낙서·주소증명·인감</b>, 물러나는 분의 <b>사임서</b><br><br>'
+  +'<div class="note" style="margin:6px 0;"><b>▸ 2025년 1월 31일부터 외국회사 등기제도가 정비되어</b> '
+  +'등기할 사항이 구체적으로 정해졌습니다(상법 §614~§616의2). '
+  +'<span class="hint">종전에 등기해 두신 영업소도 앞으로 변경등기를 하실 때 새 기준이 적용됩니다.</span></div>'
+  +CD_COMMON+CD_OFFICE+CD_WHERE,
+
+ '법인 해산·청산':
+   '<div class="note" style="margin:6px 0 10px;"><b>▸ 회사를 정리하는 절차는 세 단계입니다.</b> '
+  +'<b>① 해산등기 → ② 청산 사무(빚 갚고 재산 나누기) → ③ 청산종결등기</b>. '
+  +'각각 따로 등기하므로, 지금 어느 단계인지 말씀해 주십시오.</div>'
+  +cdMeet('주총')
+  +'<span class="hint">▸ 회사를 해산하려면 <b>주주총회 특별결의</b>가 있어야 합니다'
+  +'<span class="law" title="상법 제518조 — 회사의 해산결의는 제434조의 규정에 의하여야 한다.">상법 §518→§434</span><span class="tag A">A</span>.</span><br><br>'
+  +'<b>■ ① 해산등기를 하실 때</b><br>'
+  +'· <b>해산 결의 주주총회의사록</b><br>'
+  +'· <b>청산인 선임을 증명하는 서류</b> <span class="hint">(정관이나 주주총회에서 따로 정하지 않으면 <b>이사가 그대로 청산인</b>이 됩니다'
+  +'<span class="law" title="상법 제531조제1항 — 회사가 해산한 때에는 합병·분할·분할합병 또는 파산의 경우 외에는 이사가 청산인이 된다. 다만, 정관에 다른 정함이 있거나 주주총회에서 타인을 선임한 때에는 그러하지 아니하다.">상법 §531①</span>)</span><br>'
+  +'· <b>청산인의 취임승낙서</b> + <b>개인 인감증명서</b> 1통 + <b>인감도장</b><br>'
+  +'· <b>청산인의 주민등록등(초)본</b> <span class="hint">(대표청산인의 주소가 등기됩니다)</span><br><br>'
+  +'<b>■ ② 청산 사무 중에 하실 일</b><br>'
+  +'· <b>채권신고 공고</b> — <b>2개월 이상</b> 기간을 정해 공고하고, 알고 있는 채권자에게는 따로 알립니다'
+  +'<span class="law" title="상법 제535조제1항 — 청산인은 취임한 날로부터 2월 내에 회사채권자에 대하여 일정한 기간 내에 그 채권을 신고할 것과 그 기간 내에 신고하지 아니하면 청산에서 제외될 뜻을 2회 이상 공고로써 최고하여야 한다. 그 기간은 2월 이상이어야 한다.">상법 §535①</span><span class="tag A">A</span><br>'
+  +'· 빚을 다 갚은 뒤 <b>남은 재산을 주주에게 나눕니다</b><br><br>'
+  +'<b>■ ③ 청산종결등기를 하실 때</b><br>'
+  +'· <b>결산보고서</b>와 이를 <b>승인한 주주총회의사록</b>'
+  +'<span class="law" title="상법 제540조제1항 — 청산사무가 종결한 때에는 청산인은 지체없이 결산보고서를 작성하고 이를 주주총회에 제출하여 승인을 얻어야 한다.">상법 §540①</span><span class="tag A">A</span><br>'
+  +'· <b>채권신고 공고문</b> 및 <b>최고 발송 증명</b><br><br>'
+  +'<div class="note" style="margin:6px 0;"><b>▸ 세무 정리도 함께 하셔야 합니다.</b> '
+  +'해산·청산 과정에서 <b>사업자등록 폐업신고</b>와 <b>법인세 신고</b>가 따로 필요합니다. '
+  +'<span class="hint">세무 부분은 세무사·회계사와 상의하십시오.</span></div>'
+  +CD_COMMON+CD_OFFICE+CD_WHERE,
+
+ '그 밖의 등기':
+   '<div class="note" style="margin:6px 0 10px;"><b>▸ 위 목록에 없는 변경등기</b>를 하실 때입니다. '
+  +'지배인 선임·해임, 명의개서대리인 설치·폐지, 주식양도 제한 규정의 신설·변경, 공고방법 변경, '
+  +'발행예정주식총수 변경, 등기사항의 경정 등이 여기에 해당합니다.<br>'
+  +'<span class="hint">다만 <b>지배인</b>은 보수표가 임원에 함께 적어 두었으므로 <b>「임원 선임·변경」</b>을 고르셔야 정확합니다.</span></div>'
+  +cdMeet('주총·이사회')
+  +'<span class="hint">▸ 어느 회의체가 정하는지는 <b>등기할 내용</b>에 따라 다릅니다. '
+  +'<b>정관에 적힌 사항</b>(공고방법·발행예정주식총수·주식양도 제한 등)을 바꾸시려면 <b>주주총회 특별결의</b>가, '
+  +'<b>업무집행에 관한 사항</b>(지배인 선임·해임 등)이면 <b>이사회 결의</b>가 필요합니다'
+  +'<span class="law" title="상법 제433조제1항·제434조는 정관 변경에 주주총회 특별결의를 요구하고, 제393조제1항은 지배인의 선임 또는 해임 등 업무집행을 이사회의 결의사항으로 정한다.">상법 §433①·§434 / §393①</span><span class="tag A">A</span>.</span><br><br>'
+  +'<b>■ 사정에 따라 더 필요한 서류</b><br>'
+  +'· <b>지배인</b>을 두시면 → 지배인의 <b>인감증명서·인감도장·주민등록등(초)본</b><br>'
+  +'· <b>명의개서대리인</b>을 두시면 → <b>위탁계약서</b>와 그 <b>회사의 승낙서</b><br>'
+  +'· <b>등기사항을 바로잡는 경정등기</b>이면 → <b>잘못 등기된 사실을 증명하는 서류</b><br><br>'
+  +'<div class="note" style="margin:6px 0;"><b>▸ 여러 가지를 한 신청서로 하실 수 있습니다.</b> '
+  +'그때는 위 「등기 목적 수」를 실제 개수로 올려 주십시오. '
+  +'<span class="hint">초과 1개마다 50,000원이 가산됩니다(§14③).</span></div>'
+  +CD_COMMON+CD_OFFICE+CD_WHERE
+};
+
 function renderDocsCorpChange(){
   const t=document.getElementById('cv_type').value;
-  let extra='';
-  if(t==='자본증자'||t==='전환사채 발행')extra='<b>법인</b> — 정관 사본, 주주명부 사본, <b>잔고증명서 1통</b>(은행), 법인인감증명서 1통, 법인인감도장';
-  else extra='<b>법인</b> — 정관 사본, 주주명부 사본, 법인인감증명서 1통, 법인인감도장';
+  const body=CORP_DOCS[t]||(cdMeet('주총·이사회')+CD_COMMON+CD_OFFICE+CD_WHERE);
   document.getElementById('cv_docsBox').innerHTML=
-    '<b>['+t+' 준비서류]</b><br>'+
-    '<b>이사회</b> — 이사 과반수 개인인감증명서 1통, 개인인감도장<br>'+
-    '<b>주주총회</b> — 주주 과반수 개인인감증명서 1통, 개인인감도장 <span style="color:var(--seal);">(주주 전원 인감 제출 시 공증료 면제)</span><br>'+
-    extra;
+    '<b>['+t+' 준비서류]</b><br>'+CD_HEAD+body;
 }
 function calcCorpChange(fromEdit){
   const def=CORP_CHG[document.getElementById('cv_type').value];
@@ -7546,7 +8154,15 @@ function calcCorpChange(fromEdit){
      ③ 등기의 목적이 1개를 초과(임원변경 제외) → 초과 1개마다 50,000원
      ④ 임원의 선임·변경등기에서 임원이 4인을 초과 → 초과 1인마다 20,000원
      ⑤ 다른 등기소 관내로의 본점이전등기 → 기본보수의 50%까지
-     ※ ①(외국인투자촉진법·현물출자·조직변경 설립 등 150%)은 「법인설립」 화면 소관 */
+     ① 「외국인투자촉진법」에 의한 설립 「또는 자본증가」, 현물출자에 의한 설립·「자본증가」,
+        분할·합병·주식이전·조직변경에 의한 설립, 「흡수합병·분할합병·주식교환에 의한 자본증가」,
+        설립이나 「자본증가」에 종류주식 발행·주식매수선택권 규정이 포함되는 경우
+        → 당해 기본보수의 150% 상당액까지
+        ※ 2026-08 정정 — 종전 주석은 ①을 「법인설립 화면 소관」이라고만 적어 두었으나,
+          조문상 ①은 「자본증가」에도 명시적으로 적용된다. 설립은 co_ 화면, 자본증가는
+          이 화면의 「자본증자」 유형에서 각각 처리한다(CORP_CHG.s14_1).
+        ※ 전환사채·신주인수권부사채·이익참가부사채의 「발행」(§13③)은 ①의 열거에 없으므로
+          이 가산을 붙이지 않는다. */
   const _isOfficer=(document.getElementById('cv_type').value==='임원 선임·변경');
   const _isFar=(document.getElementById('cv_type').value==='본점 관외이전');
   /* (c) 등기 목적 수 — 기본값은 「변경 건수」를 따라가되, 직접 수정하면 그 값으로 고정.
@@ -7559,6 +8175,8 @@ function calcCorpChange(fromEdit){
   const _rowP=document.getElementById('cv_rowPurpose'); if(_rowP)_rowP.style.display=_isOfficer?'none':'flex';
   const _rowO=document.getElementById('cv_rowOfficer'); if(_rowO)_rowO.style.display=_isOfficer?'flex':'none';
   const _rowF=document.getElementById('cv_rowFar');     if(_rowF)_rowF.style.display=_isFar?'flex':'none';
+  const _is14_1=!!def.s14_1;
+  const _row1=document.getElementById('cv_row14_1'); if(_row1)_row1.style.display=_is14_1?'flex':'none';
   // ② 외국인·재외국민
   const _fr=frAddRate('cv_frAdd'), feeForeign=Math.round(feeRaw*_fr);
   const feeParty=partyAdd('cv_',feeRaw);   /* §2②4호→§10③ 당사자 다수 가산 */
@@ -7576,7 +8194,11 @@ function calcCorpChange(fromEdit){
   const _on=_isOfficer?Math.max(1,val('cv_officerN')):0, feeOfficer=Math.max(0,_on-4)*20000;
   const _r4=document.getElementById('cv_feeOfficerRow');
   if(_r4){_r4.style.display=feeOfficer>0?'table-row':'none';document.getElementById('cv_feeOfficerCell').textContent=won(feeOfficer);document.getElementById('cv_feeOfficerNote').textContent='(§14④ 초과 '+Math.max(0,_on-4)+'인 × 20,000)';}
-  let fee=feeBase+feeForeign+feeFar+feePurpose+feeOfficer+feeParty;
+  // ① 설립·자본증가 특례 (외국인투자·현물출자·합병/주식교환 증자·종류주식·스톡옵션)
+  const _r14=_is14_1?frAddRate('cv_fr14_1'):0, fee14_1=Math.round(feeRaw*_r14);
+  const _r5=document.getElementById('cv_fee14_1Row');
+  if(_r5){_r5.style.display=fee14_1>0?'table-row':'none';document.getElementById('cv_fee14_1Cell').textContent=won(fee14_1);document.getElementById('cv_fee14_1Note').textContent='(표상 기본보수 '+won(feeRaw)+' × '+Math.round(_r14*100)+'% · §14①)';}
+  let fee=feeBase+feeForeign+feeFar+feePurpose+feeOfficer+feeParty+fee14_1;
   // 문서작성료
   const docN=Math.max(0,val('cv_docN'));
   const docFee=Math.round(FLAT['Ⅸ-5']*docN*adj);
@@ -8353,10 +8975,12 @@ function calcLawsuit(fromEdit){
   document.getElementById('so_publicSum').textContent=won(publicSum);
   const adj=parseFloat(document.getElementById('so_adjust').value)||1;
   const sgaForFee=sga>0?sga:5e7;
-  const feeBase=Math.round(tierFee((document.getElementById('so_tbl')&&document.getElementById('so_tbl').value==='2')?'Ⅶ-1②':'Ⅶ-1①',sgaForFee)*adj);   /* §23① — 서류 종류에 따라 첫째 표·둘째 표 선택 */
+  const feeRaw=tierFee((document.getElementById('so_tbl')&&document.getElementById('so_tbl').value==='2')?'Ⅶ-1②':'Ⅶ-1①',sgaForFee);   /* 표상 기본보수 — §24② 가산의 모수 */
+  const feeBase=Math.round(feeRaw*adj);   /* §23① — 서류 종류에 따라 첫째 표·둘째 표 선택 */
   document.getElementById('so_feeBaseCell').textContent=won(feeBase);
-  document.getElementById('so_feeBaseNote').textContent='('+((document.getElementById('so_tbl')&&document.getElementById('so_tbl').value==='2')?'Ⅶ-1②':'Ⅶ-1①')+(sga<=0?' · 소가 없음 → 5천만 의제(§23① 후단)':'')+(adj!==1?' ×'+(adj*100)+'%':'')+')';
+  document.getElementById('so_feeBaseNote').textContent='('+((document.getElementById('so_tbl')&&document.getElementById('so_tbl').value==='2')?'Ⅶ-1②':'Ⅶ-1①')+(sga<=0?' · 소가 없음 → 5천만원으로 봄(§23①)':'')+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   let fee=feeBase;
+  fee+=s242Add('so_',feeRaw,adj,'calcLawsuit');   /* §24② 송무·비송·집행 특례 가산(2026.8.20. 신설) */
   const subRow=document.getElementById('so_submitRow');
   if(chk('so_submit')){subRow.style.display='table-row';document.getElementById('so_submitCell').textContent=won(40000);fee+=40000;}else subRow.style.display='none';
   const recvRow=document.getElementById('so_recvRow');
@@ -8453,10 +9077,12 @@ function calcAuctionFile(fromEdit){
   const publicSum=val('am_regTax')+val('am_eduTax')+val('am_inji')+val('am_song')+val('am_regFee')+val('am_court')+val('am_correct')+pubCustomSum('scene-부동산경매신청');
   document.getElementById('am_publicSum').textContent=won(publicSum);
   const adj=parseFloat(document.getElementById('am_adjust').value)||1;
-  const feeBase=Math.round(tierFee('Ⅶ-1①',claim>0?claim:5e7)*adj);
+  const feeRaw=tierFee('Ⅶ-1①',claim>0?claim:5e7);   /* 표상 기본보수 — §24② 가산의 모수 */
+  const feeBase=Math.round(feeRaw*adj);
   document.getElementById('am_feeBaseCell').textContent=won(feeBase);
-  document.getElementById('am_feeBaseNote').textContent='(Ⅶ-1①·청구금액'+(claim<=0?' ·5천만의제':'')+(adj!==1?' ×'+(adj*100)+'%':'')+')';
+  document.getElementById('am_feeBaseNote').textContent='(Ⅶ-1①·청구금액'+(claim<=0?' · 소가 없음 → 5천만원으로 봄(§23①)':'')+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   let fee=feeBase;
+  fee+=s242Add('am_',feeRaw,adj,'calcAuctionFile');   /* §24② 송무·비송·집행 특례 가산(2026.8.20. 신설) */
   if(chk('am_submit'))fee+=40000;
   if(chk('am_taxAgent'))fee+=50000;
   EXTRA_AGENT.filter(a=>a[3].includes('civil')&&a[0]!=='ea5').forEach(a=>{const c=document.getElementById('ama_'+a[0]);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('amaq_'+a[0]).value)||1);fee+=FLAT[a[2]]*q;}});
@@ -8512,10 +9138,12 @@ function calcMisc(fromEdit){
   document.getElementById('mi_publicSum').textContent=won(publicSum);
   const adj=parseFloat(document.getElementById('mi_adjust').value)||1;
   /* 보수기준 §23① 후단 — 「소송물가액이 없거나 소송물가액을 산정할 수 없는 경우에는 5천만원으로 한다」 [A] */
-  const feeBase=Math.round(tierFee('Ⅶ-1②',claim>0?claim:5e7)*adj);
+  const feeRaw=tierFee('Ⅶ-1②',claim>0?claim:5e7);   /* 표상 기본보수 — §24② 가산의 모수 */
+  const feeBase=Math.round(feeRaw*adj);
   document.getElementById('mi_feeBaseCell').textContent=won(feeBase);
-  document.getElementById('mi_feeBaseNote').textContent='(Ⅶ-1②'+(claim<=0?'·5천만 의제 §23①':'·청구액')+(adj!==1?' ×'+(adj*100)+'%':'')+')';
-  let fee=feeBase; if(chk('mi_submit'))fee+=40000;
+  document.getElementById('mi_feeBaseNote').textContent='(Ⅶ-1②'+(claim<=0?' · 소가 없음 → 5천만원으로 봄(§23①)':'·청구액')+(adj!==1?' ×'+(adj*100)+'%':'')+')';
+  let fee=feeBase;
+  fee+=s242Add('mi_',feeRaw,adj,'calcMisc');   /* §24② 송무·비송·집행 특례 가산(2026.8.20. 신설) */ if(chk('mi_submit'))fee+=40000;
   fee=pwApply('mi_',fee);   /* §6·§5① 부분수임·중단 감액 */
   document.getElementById('mi_feeSum').textContent=won(fee);
   const vat=Math.round(fee*0.1);
@@ -8537,10 +9165,12 @@ function calcSeizure(fromEdit){
   const publicSum=val('cs_inji')+val('cs_song')+val('cs_correct')+pubCustomSum('scene-압류추심');
   document.getElementById('cs_publicSum').textContent=won(publicSum);
   const adj=parseFloat(document.getElementById('cs_adjust').value)||1;
-  const feeBase=Math.round(tierFee('Ⅶ-1①',claim>0?claim:5e7)*adj);
+  const feeRaw=tierFee('Ⅶ-1①',claim>0?claim:5e7);   /* 표상 기본보수 — §24② 가산의 모수 */
+  const feeBase=Math.round(feeRaw*adj);
   document.getElementById('cs_feeBaseCell').textContent=won(feeBase);
-  document.getElementById('cs_feeBaseNote').textContent='(Ⅶ-1①·청구채권액'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
-  let fee=feeBase; if(chk('cs_submit'))fee+=40000;
+  document.getElementById('cs_feeBaseNote').textContent='(Ⅶ-1①·청구채권액'+(claim<=0?' · 소가 없음 → 5천만원으로 봄(§23①)':'')+(adj!==1?' ×'+(adj*100)+'%':'')+')';
+  let fee=feeBase;
+  fee+=s242Add('cs_',feeRaw,adj,'calcSeizure');   /* §24② 송무·비송·집행 특례 가산(2026.8.20. 신설) */ if(chk('cs_submit'))fee+=40000;
   if(chk('cs_statement'))fee+=val('cs_statementFee'); // 진술최고신청(민집§237) 문안작성 [A]
   EXTRA_AGENT.filter(a=>a[3].includes('civil')&&a[0]!=='ea5').forEach(a=>{const c=document.getElementById('csa_'+a[0]);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('csaq_'+a[0]).value)||1);fee+=FLAT[a[2]]*q;}});
   fee+=customSum('cs_extraAgent');
@@ -8568,10 +9198,12 @@ function calcAttachGoods(fromEdit){
   const publicSum=val('ad_inji')+val('ad_song')+val('ad_bond')+val('ad_correct')+pubCustomSum('scene-유체동산가압류');
   document.getElementById('ad_publicSum').textContent=won(publicSum);
   const adj=parseFloat(document.getElementById('ad_adjust').value)||1;
-  const feeBase=Math.round(tierFee('Ⅶ-1①',claim>0?claim:5e7)*adj);
+  const feeRaw=tierFee('Ⅶ-1①',claim>0?claim:5e7);   /* 표상 기본보수 — §24② 가산의 모수 */
+  const feeBase=Math.round(feeRaw*adj);
   document.getElementById('ad_feeBaseCell').textContent=won(feeBase);
-  document.getElementById('ad_feeBaseNote').textContent='(Ⅶ-1①·채권액'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
-  let fee=feeBase; if(chk('ad_submit'))fee+=40000; if(chk('ad_cert'))fee+=val('ad_certFee');
+  document.getElementById('ad_feeBaseNote').textContent='(Ⅶ-1①·채권액'+(claim<=0?' · 소가 없음 → 5천만원으로 봄(§23①)':'')+(adj!==1?' ×'+(adj*100)+'%':'')+')';
+  let fee=feeBase;
+  fee+=s242Add('ad_',feeRaw,adj,'calcAttachGoods');   /* §24② 송무·비송·집행 특례 가산(2026.8.20. 신설) */ if(chk('ad_submit'))fee+=40000; if(chk('ad_cert'))fee+=val('ad_certFee');
   EXTRA_AGENT.filter(a=>a[3].includes('civil')&&a[0]!=='ea5').forEach(a=>{const c=document.getElementById('ada_'+a[0]);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('adaq_'+a[0]).value)||1);fee+=FLAT[a[2]]*q;}});
   fee+=customSum('ad_extraAgent');
   fee=pwApply('ad_',fee);   /* §6·§5① 부분수임·중단 감액 */
@@ -8600,10 +9232,12 @@ function calcAttachCar(fromEdit){
   const publicSum=val('av_regTax')+val('av_eduTax')+val('av_inji')+val('av_song')+val('av_bond')+val('av_correct')+pubCustomSum('scene-자동차가압류');
   document.getElementById('av_publicSum').textContent=won(publicSum);
   const adj=parseFloat(document.getElementById('av_adjust').value)||1;
-  const feeBase=Math.round(tierFee('Ⅶ-1①',claim>0?claim:5e7)*adj);
+  const feeRaw=tierFee('Ⅶ-1①',claim>0?claim:5e7);   /* 표상 기본보수 — §24② 가산의 모수 */
+  const feeBase=Math.round(feeRaw*adj);
   document.getElementById('av_feeBaseCell').textContent=won(feeBase);
-  document.getElementById('av_feeBaseNote').textContent='(Ⅶ-1①·채권액'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
-  let fee=feeBase; if(chk('av_submit'))fee+=40000; if(chk('av_taxAgent'))fee+=50000; if(chk('av_cert'))fee+=val('av_certFee');
+  document.getElementById('av_feeBaseNote').textContent='(Ⅶ-1①·채권액'+(claim<=0?' · 소가 없음 → 5천만원으로 봄(§23①)':'')+(adj!==1?' ×'+(adj*100)+'%':'')+')';
+  let fee=feeBase;
+  fee+=s242Add('av_',feeRaw,adj,'calcAttachCar');   /* §24② 송무·비송·집행 특례 가산(2026.8.20. 신설) */ if(chk('av_submit'))fee+=40000; if(chk('av_taxAgent'))fee+=50000; if(chk('av_cert'))fee+=val('av_certFee');
   EXTRA_AGENT.filter(a=>a[3].includes('civil')&&a[0]!=='ea5').forEach(a=>{const c=document.getElementById('ava_'+a[0]);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('avaq_'+a[0]).value)||1);fee+=FLAT[a[2]]*q;}});
   fee+=customSum('av_extraAgent');
   fee=pwApply('av_',fee);   /* §6·§5① 부분수임·중단 감액 */
@@ -8631,10 +9265,12 @@ function calcAttachClaim(fromEdit){
   const publicSum=val('ac_inji')+val('ac_song')+val('ac_bond')+val('ac_correct')+pubCustomSum('scene-채권가압류');
   document.getElementById('ac_publicSum').textContent=won(publicSum);
   const adj=parseFloat(document.getElementById('ac_adjust').value)||1;
-  const feeBase=Math.round(tierFee('Ⅶ-1①',claim>0?claim:5e7)*adj);
+  const feeRaw=tierFee('Ⅶ-1①',claim>0?claim:5e7);   /* 표상 기본보수 — §24② 가산의 모수 */
+  const feeBase=Math.round(feeRaw*adj);
   document.getElementById('ac_feeBaseCell').textContent=won(feeBase);
-  document.getElementById('ac_feeBaseNote').textContent='(Ⅶ-1①·채권액'+(claim<=0?' ·5천만의제':'')+(adj!==1?' ×'+(adj*100)+'%':'')+')';
+  document.getElementById('ac_feeBaseNote').textContent='(Ⅶ-1①·채권액'+(claim<=0?' · 소가 없음 → 5천만원으로 봄(§23①)':'')+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   let fee=feeBase;
+  fee+=s242Add('ac_',feeRaw,adj,'calcAttachClaim');   /* §24② 송무·비송·집행 특례 가산(2026.8.20. 신설) */
   if(chk('ac_submit'))fee+=40000;
   if(chk('ac_cert'))fee+=val('ac_certFee');
   if(chk('ac_statement'))fee+=val('ac_statementFee'); // 진술최고신청(민집§291→§237 준용) 문안작성 [A]
@@ -8674,10 +9310,12 @@ function calcAttach(fromEdit){
   const publicSum=val('at_regTax')+val('at_eduTax')+val('at_inji')+val('at_song')+val('at_bond')+val('at_regFee')+val('at_correct')+pubCustomSum('scene-부동산가압류');
   document.getElementById('at_publicSum').textContent=won(publicSum);
   const adj=parseFloat(document.getElementById('at_adjust').value)||1;
-  const feeBase=Math.round(tierFee('Ⅶ-1①',claim>0?claim:5e7)*adj);
+  const feeRaw=tierFee('Ⅶ-1①',claim>0?claim:5e7);   /* 표상 기본보수 — §24② 가산의 모수 */
+  const feeBase=Math.round(feeRaw*adj);
   document.getElementById('at_feeBaseCell').textContent=won(feeBase);
-  document.getElementById('at_feeBaseNote').textContent='(Ⅶ-1①·채권액'+(claim<=0?' ·5천만의제':'')+(adj!==1?' ×'+(adj*100)+'%':'')+')';
+  document.getElementById('at_feeBaseNote').textContent='(Ⅶ-1①·채권액'+(claim<=0?' · 소가 없음 → 5천만원으로 봄(§23①)':'')+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   let fee=feeBase;
+  fee+=s242Add('at_',feeRaw,adj,'calcAttach');   /* §24② 송무·비송·집행 특례 가산(2026.8.20. 신설) */
   if(chk('at_submit'))fee+=40000;
   if(chk('at_taxAgent'))fee+=50000;
   if(chk('at_cert'))fee+=val('at_certFee');
@@ -8740,10 +9378,12 @@ function calcInjunction(fromEdit){
   const publicSum=regTax+eduTax+val('inj_inji')+val('inj_song')+val('inj_bond')+regFee+val('inj_correct')+pubCustomSum('scene-가처분');
   document.getElementById('inj_publicSum').textContent=won(publicSum);
   const adj=parseFloat(document.getElementById('inj_adjust').value)||1;
-  const feeBase=Math.round(tierFee('Ⅶ-1①',claim>0?claim:5e7)*adj);
+  const feeRaw=tierFee('Ⅶ-1①',claim>0?claim:5e7);   /* 표상 기본보수 — §24② 가산의 모수 */
+  const feeBase=Math.round(feeRaw*adj);
   document.getElementById('inj_feeBaseCell').textContent=won(feeBase);
-  document.getElementById('inj_feeBaseNote').textContent='(Ⅶ-1①'+(claim<=0?'·5천만의제':'')+(adj!==1?' ×'+(adj*100)+'%':'')+')';
+  document.getElementById('inj_feeBaseNote').textContent='(Ⅶ-1①'+(claim<=0?' · 소가 없음 → 5천만원으로 봄(§23①)':'')+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   let fee=feeBase;
+  fee+=s242Add('inj_',feeRaw,adj,'calcInjunction');   /* §24② 송무·비송·집행 특례 가산(2026.8.20. 신설) */
   if(chk('inj_submit'))fee+=40000;
   if(isDisposal&&chk('inj_taxAgent'))fee+=50000;
   if(chk('inj_cert'))fee+=val('inj_certFee');
@@ -8766,6 +9406,7 @@ function calcInjunction(fromEdit){
 
 function buildGeneric(name){
   CUR=name;const def=SCENARIO[name];
+  s242Reset('g_');   /* 화면을 바꾸면 §24② 선택을 지운다 */
   document.getElementById('g_lawyerNote').style.display=def.lawyer?'block':'none';
   document.getElementById('g_title').textContent=name;
   document.getElementById('g_title').innerHTML=name+' <small>보수표 '+(def.tier||def.flat)+(def.regType?' · 등기수수료 '+def.regType:'')+(def.regCorp?' · 상업수수료 '+def.regCorp:'')+'</small>';
@@ -8777,7 +9418,7 @@ function buildGeneric(name){
     }else{
       const _s23=(def.tier==='Ⅶ-1①'||def.tier==='Ⅶ-1②');
       h+='<div class="line"><span class="lbl">'+def.baseLabel+'(원)</span><input type="number" class="amt" id="g_base" placeholder="0" oninput="calcGeneric()"></div>';
-      if(_s23)h+='<div class="line"><span class="lbl"></span><span class="hint">비워두면 <b>소송물가액이 없거나 산정할 수 없는 경우</b>로 보아 <b>5천만원으로 의제</b>합니다(보수기준 <b>§23①</b> 후단). <span class="tag A">A</span></span></div>';
+      if(_s23)h+='<div class="line"><span class="lbl"></span><span class="hint">비워 두시면 <b>5천만원</b>으로 보아 계산합니다<span class="law" title="법무사 보수기준 제23조제1항 후단 — 이 경우 소송물가액이 없거나 소송물가액을 산정할 수 없는 경우에는 5천만원으로 한다.">§23① 후단</span><span class="tag A">A</span> — 청구하실 금액을 알고 계시면 넣어 주십시오.</span></div>';
     }
   }else{
     h+='<div class="line"><span class="lbl">건수</span><div class="stepper"><button onclick="step(\'g_cnt\',-1,calcGeneric)">−</button><input type="number" id="g_cnt" value="1" min="1" oninput="calcGeneric()"><button onclick="step(\'g_cnt\',1,calcGeneric)">+</button></div><span class="hint">정액 '+(FLAT[def.flat]||0).toLocaleString()+'원 × 건수</span></div>';
@@ -8876,14 +9517,21 @@ function calcGeneric(fromEdit){
     let base=def.noSga?50000000:val('g_base');
     const _imp=_s23&&base<=0; if(_imp)base=50000000;
     feeBase=tierFee(def.tier,base);
-    note='(보수표 '+def.tier+((def.noSga||_imp)?' · 소가 없음 → 5천만 의제(§23① 후단) · 3천만까지는 '+won(tierFee(def.tier,3e7)):'')+')';
+    note='(보수표 '+def.tier+((def.noSga||_imp)?' · 소가 없음 → 5천만원으로 봄(§23①) · 3천만까지는 '+won(tierFee(def.tier,3e7)):'')+')';
   }
   else{feeBase=(FLAT[def.flat]||0)*Math.max(1,val('g_cnt'));note='(보수표 '+def.flat+' 정액)';}
   const adj=parseFloat(document.getElementById('g_adjust').value)||1;
+  const feeRaw=feeBase;   /* 표상 기본보수 — §24② 가산의 모수 */
   feeBase=Math.round(feeBase*adj);
   document.getElementById('g_feeBase').textContent=won(feeBase);
   document.getElementById('g_feeNote').textContent=note+(adj!==1?' ×'+(adj*100)+'%':'');
   let fee=feeBase;
+  /* §24② 송무·비송·집행 특례 가산 — 제8장 화면(s242:true)에서만 노출한다 */
+  const _s24b=document.getElementById('g_s24Box');
+  if(def.s242){ if(_s24b)_s24b.style.display=''; fee+=s242Add('g_',feeRaw,adj,'calcGeneric'); }
+  else { if(_s24b){_s24b.style.display='none';_s24b.innerHTML='';}
+         const _s24r=document.getElementById('g_s24Row'); if(_s24r)_s24r.style.display='none';
+         const _s24c=document.getElementById('g_s24Cell'); if(_s24c)_s24c.textContent=won(0); }
   EXTRA_AGENT.forEach(([id,nm,code])=>{const c=document.getElementById('gck_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('gqt_'+id).value)||1);fee+=FLAT[code]*q;}});
   if(def.addFee&&document.getElementById('g_addFeeChk')&&chk('g_addFeeChk'))fee+=val('g_addFee'); // 집행공탁 사유신고 가산보수(§19② 협의) [A]
   /* 목적물·부동산 수량 가산 — §17① / §22② */
@@ -9173,6 +9821,10 @@ function collectRows(card,stripParen){
   const rows=[];if(!card)return rows;
   card.querySelectorAll('table.t tr').forEach(tr=>{
     if(tr.classList.contains('subtot'))return;
+    /* 화면에서 숨겨진 행은 보수 계산에 들어가지 않은 항목이다.
+       체크를 해제했다가 되돌린 경우 등 셀에 이전 금액이 남아 있을 수 있으므로
+       영수증에도 담지 않는다. (28회차 — §24② 반영 중 발견) */
+    if(tr.style.display==='none')return;
     if(tr.querySelector('td[colspan]'))return;
     if(tr.classList.contains('custom-row')){
       const nm=tr.querySelector('.custom-name'),amt=tr.querySelector('.custom-amt');
