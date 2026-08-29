@@ -462,14 +462,15 @@
     <div class="mcat family"><h3>가사</h3><div class="mgrid" id="grid-family"></div></div>
     <div class="verifybar" id="verifybar">데이터 검증 대기…</div>
     <details class="office-set" style="margin-top:14px;background:#fffdf8;border:1px solid var(--line);border-radius:10px;padding:4px 14px;">
-      <summary style="cursor:pointer;font-weight:700;color:var(--ink);padding:8px 0;">⚙ 사무소 정보 설정 <span class="hint">(영수증·견적서 출력에 사용 · 수정 가능)</span></summary>
+      <summary style="cursor:pointer;font-weight:700;color:var(--ink);padding:8px 0;">⚙ 사무소 정보 설정 <span class="hint">(영수증·견적서 출력에 사용 · 수정 가능)</span><span id="of_badge" style="display:none;margin-left:6px;padding:2px 8px;border-radius:10px;background:var(--seal);color:#fff;font-size:11.5px;font-weight:700;">미입력</span></summary>
       <div style="padding:8px 0 14px;">
-        <div class="line"><span class="lbl">상호(법인명)</span><input type="text" id="of_name" value="산 법무사 김재섭 행정사 사무소" style="width:100%;"></div>
-        <div class="line"><span class="lbl">사업자등록번호</span><input type="text" id="of_bizno" placeholder="000-00-00000" style="width:100%;"></div>
-        <div class="line"><span class="lbl">사무소 주소</span><input type="text" id="of_addr" placeholder="서울 구로구 …" style="width:100%;"></div>
-        <div class="line"><span class="lbl">전화</span><input type="text" id="of_tel" placeholder="02-0000-0000" style="width:100%;"></div>
-        <div class="line"><span class="lbl">취급자</span><input type="text" id="of_agent" value="김재섭" style="width:100%;"></div>
-        <div class="hint" style="margin-top:6px;">※ 입력하신 정보는 엑셀/한셀 출력 시 영수증 하단에 자동으로 들어갑니다.</div>
+        <div class="line"><span class="lbl">상호(법인명)</span><input type="text" id="of_name" value="산 법무사 김재섭 행정사 사무소" oninput="saveOffice();officeReady()" style="width:100%;"></div>
+        <div class="line"><span class="lbl">사업자등록번호</span><input type="text" id="of_bizno" placeholder="000-00-00000" oninput="saveOffice();officeReady()" style="width:100%;"></div>
+        <div class="line"><span class="lbl">사무소 주소</span><input type="text" id="of_addr" placeholder="서울 구로구 …" oninput="saveOffice();officeReady()" style="width:100%;"></div>
+        <div class="line"><span class="lbl">전화</span><input type="text" id="of_tel" placeholder="02-0000-0000" oninput="saveOffice();officeReady()" style="width:100%;"></div>
+        <div class="line"><span class="lbl">취급자</span><input type="text" id="of_agent" value="김재섭" oninput="saveOffice()" style="width:100%;"></div>
+        <div class="hint" id="of_warn" style="margin-top:6px;"></div>
+        <div class="hint" style="margin-top:4px;">※ 상호·사업자등록번호·사무소 주소·전화는 엑셀 영수증 하단에 <b>자동으로</b> 들어갑니다.<br>※ 입력하신 내용은 <b>이 기기에 저장</b>되어 다음에 여실 때 그대로 남아 있습니다.<br>※ <b>취급자</b>는 협회 양식상 「취급자인」 칸에 <b>직접 날인</b>하시는 자리라 인쇄되지 않습니다.</div>
       </div>
     </details>
     <details class="exempt-set" style="margin-top:14px;background:#fffdf8;border:1px solid var(--line);border-radius:10px;padding:4px 14px;">
@@ -4834,6 +4835,25 @@ function saveBondRate(){try{
   localStorage.setItem('sanlaw_bondRateDay',todayKey());
 }catch(e){}
   paintBondRateBadge();}
+/* 사무소 정보는 이 기기에 저장해 둔다 — 매번 다시 넣지 않으셔도 된다. 2026-08 신설 */
+const OF_IDS=['of_name','of_bizno','of_addr','of_tel','of_agent'];
+function saveOffice(){ try{ OF_IDS.forEach(function(id){ const e=document.getElementById(id); if(e) localStorage.setItem('sanlaw_'+id, e.value); }); }catch(e){} }
+function loadOffice(){ try{ OF_IDS.forEach(function(id){ const e=document.getElementById(id); const v=localStorage.getItem('sanlaw_'+id); if(e&&v!==null&&v!=='') e.value=v; }); }catch(e){} }
+function officeReady(){
+  const miss=[];
+  if(!ofVal('of_bizno')) miss.push('사업자등록번호');
+  if(!ofVal('of_addr'))  miss.push('사무소 주소');
+  if(!ofVal('of_tel'))   miss.push('전화');
+  const bg=document.getElementById('of_badge');
+  if(bg){ bg.style.display=miss.length?'inline-block':'none'; bg.textContent=miss.length+'개 미입력'; }
+  const w=document.getElementById('of_warn');
+  if(w){
+    w.innerHTML = miss.length
+      ? '<b style="color:var(--seal);">⚠ '+miss.join(' · ')+'</b> 이(가) 비어 있습니다. 영수증 해당 칸이 <b>빈칸으로 인쇄</b>됩니다.'
+      : '<b style="color:#1d7a46;">✔ 영수증에 들어갈 사무소 정보가 모두 채워졌습니다.</b>';
+  }
+  return miss;
+}
 function paintBondRateBadge(){
   const el=document.getElementById('bondRateBadge');if(!el)return;
   let day=null;try{day=localStorage.getItem('sanlaw_bondRateDay');}catch(e){}
@@ -9773,6 +9793,7 @@ function verifyData(){
 
 document.querySelectorAll('.bondRefMount').forEach(el=>el.innerHTML=bondRefTable()); // 채권 참고표 = BOND_RATE 자동출력
 buildMenu();verifyData();goMenu();
+try{ loadOffice(); officeReady(); }catch(e){}
 
 /* ===================== 소송비용액확정 — 변호사보수 산입 =====================
    근거: 변호사보수의 소송비용 산입에 관한 규칙 [별표] (대법원규칙 제2936호, 시행 2020.12.28.) [A] */
@@ -10046,10 +10067,18 @@ function buildReceiptSheet(ws,caseName,base,feeRows,pubRows,vat,office,off){
   mrg(con,1,con,2); setc(con,1,'위와 같이 영수합니다.',10,true,'right');
   const _dt=new Date(); const _dstr=_dt.getFullYear()+' 년    '+(_dt.getMonth()+1)+' 월    '+_dt.getDate()+' 일';
   mrg(d,1,d,6); setc(d,1,_dstr,10,false,'center');
-  // 수정2: 라벨 우측정렬 (다. 라인) - A:C 병합 우측정렬로 "다." 위치에 맞춤
-  mrg(biz,1,biz,2); setc(biz,1,'사업자등록번호 :',10,false,'right');
+  // 라벨 우측정렬 (A:B 병합) + 값 좌측정렬 (C 이후)
+  /* ★ 2026-08 수정 — 종전에는 라벨만 찍고 office 를 쓰지 않아 사무소 정보가
+     영수증에 통째로 비어 나왔다(메뉴의 「⚙ 사무소 정보 설정」에 입력해도 무의미했다). */
+  const _ofNm=(office&&office.name)||'', _ofBiz=(office&&office.bizno)||'';
+  const _ofAd=(office&&office.addr)||'', _ofTel=(office&&office.tel)||'';
+  mrg(biz,1,biz,2);  setc(biz,1,'사업자등록번호 :',10,false,'right');
+  mrg(biz,3,biz,5);  setc(biz,3,_ofBiz,10,false,'left');
   mrg(offr,1,offr,2); setc(offr,1,'사무소 :',10,false,'right');
-  mrg(nm,1,nm,2); setc(nm,1,'상호(법인명) :',10,false,'right'); setc(nm,5,'인',10,false,'center');
+  mrg(offr,3,offr,5); setc(offr,3,(_ofAd+(_ofTel?'   '+_ofTel:'')).trim(),10,false,'left',true);
+  mrg(nm,1,nm,2);    setc(nm,1,'상호(법인명) :',10,false,'right');
+  mrg(nm,3,nm,4);    setc(nm,3,_ofNm,10,false,'left',true);
+  setc(nm,5,'인',10,false,'center');
   // 수정3,4: 취급자인 박스 좌선 복원 + 우측 조금 작게(E:F 유지, 세로 축소)
   setc(biz,6,'취급자인',8,false,'center');
   mrg(offr,6,nm,6); setc(offr,6,'인',10,false,'center');
@@ -10083,10 +10112,60 @@ function buildReceiptSheet(ws,caseName,base,feeRows,pubRows,vat,office,off){
   notes.forEach((tx,i)=>{ mrg(nr+i,1,nr+i,6); setc(nr+i,1,tx,9,false,'left',true); ws.getRow(nr+i).height=30; });
   return nr+notes.length;
 }
+/* ───────── 사무소 정보 확인 ─────────
+   영수증 아래쪽의 사업자등록번호·사무소 주소·전화는 기본값이 없어 직접 넣으셔야 한다.
+   그런데 그 입력칸이 메인메뉴의 접힌 상자 안에 있어, 펼치지 않으면 비어 있다는 사실조차
+   알 수 없었다. 그래서 영수증이 빈칸으로 인쇄되는 일이 생겼다.
+   → 출력하기 직전에 한 번 짚어 드리고, 그 자리에서 채워 넣을 수 있게 한다. 2026-08 신설 */
+function officeGate(cb){
+  var miss=(typeof officeReady==='function')?officeReady():[];
+  if(!miss.length){ cb(); return; }
+  var old=document.getElementById('ofGate'); if(old)old.remove();
+  var g=document.createElement('div');
+  g.id='ofGate';
+  g.style.cssText='position:fixed;inset:0;z-index:99998;background:rgba(42,33,24,.72);display:flex;'
+    +'align-items:center;justify-content:center;padding:20px;overflow:auto;';
+  g.innerHTML=
+    '<div style="max-width:440px;width:100%;background:#fbf8f1;border:1px solid #e0d6c2;border-radius:14px;'
+   +'padding:26px 24px;box-shadow:0 20px 50px rgba(0,0,0,.45);">'
+   +'<h3 style="margin:0 0 8px;font-size:18px;color:#2a2118;">영수증에 넣을 사무소 정보가 비어 있습니다</h3>'
+   +'<p style="margin:0 0 14px;font-size:13.5px;color:#6b5d49;line-height:1.65;">'
+   +'<b>'+miss.join(' · ')+'</b> 이(가) 없어 영수증 아래쪽이 <b>빈칸으로 인쇄</b>됩니다.<br>'
+   +'여기서 채워 넣으시면 <b>이 기기에 저장</b>되어 다음부터는 묻지 않습니다.</p>'
+   +'<div style="display:flex;flex-direction:column;gap:8px;">'
+   +'<input id="ofg_bizno" type="text" placeholder="사업자등록번호   예) 000-00-00000" style="width:100%;padding:11px 12px;font-size:14.5px;border:1.5px solid #cfc2a8;border-radius:8px;box-sizing:border-box;">'
+   +'<input id="ofg_addr" type="text" placeholder="사무소 주소   예) 서울 구로구 …" style="width:100%;padding:11px 12px;font-size:14.5px;border:1.5px solid #cfc2a8;border-radius:8px;box-sizing:border-box;">'
+   +'<input id="ofg_tel" type="text" placeholder="전화   예) 02-0000-0000" style="width:100%;padding:11px 12px;font-size:14.5px;border:1.5px solid #cfc2a8;border-radius:8px;box-sizing:border-box;">'
+   +'</div>'
+   +'<button id="ofg_save" style="margin-top:14px;width:100%;padding:12px;background:#a86b1f;color:#fff;border:none;border-radius:8px;font-size:15.5px;font-weight:700;cursor:pointer;">저장하고 영수증 내려받기</button>'
+   +'<button id="ofg_skip" style="margin-top:8px;width:100%;padding:10px;background:none;color:#8a7c66;border:1px solid #ddd0b8;border-radius:8px;font-size:13.5px;cursor:pointer;">그냥 내려받기 <span style="color:#b3261e;">(해당 칸은 빈칸으로 인쇄됩니다)</span></button>'
+   +'<div style="margin-top:12px;font-size:12px;color:#8a7c66;line-height:1.6;">'
+   +'※ 상호와 취급자는 이미 채워져 있습니다. 바꾸시려면 메인메뉴 아래 <b>「⚙ 사무소 정보 설정」</b>에서 수정하십시오.</div>'
+   +'</div>';
+  document.body.appendChild(g);
+  ['bizno','addr','tel'].forEach(function(k){
+    var src=document.getElementById('of_'+k), dst=document.getElementById('ofg_'+k);
+    if(src&&dst&&src.value) dst.value=src.value;
+  });
+  function close(){ g.remove(); }
+  document.getElementById('ofg_save').onclick=function(){
+    ['bizno','addr','tel'].forEach(function(k){
+      var dst=document.getElementById('of_'+k), src=document.getElementById('ofg_'+k);
+      if(dst&&src) dst.value=src.value.trim();
+    });
+    if(typeof saveOffice==='function')saveOffice();
+    if(typeof officeReady==='function')officeReady();
+    close(); cb();
+  };
+  document.getElementById('ofg_skip').onclick=function(){ close(); cb(); };
+  setTimeout(function(){var i=document.getElementById('ofg_bizno'); if(i)i.focus();},100);
+}
+
 /* 엑셀 견적서 저장 — 여기서만 상담 신청을 받는다(12시간 동안 다시 묻지 않음) */
 function exportExcel(){
-  if(window.requireUnlock){ window.requireUnlock(function(){ _exportExcelCore(); }); }
-  else { _exportExcelCore(); }
+  var go=function(){ officeGate(function(){ _exportExcelCore(); }); };
+  if(window.requireUnlock){ window.requireUnlock(go); }
+  else { go(); }
 }
 async function _exportExcelCore(){
   const scene=document.querySelector('.scene.active');
@@ -10104,7 +10183,8 @@ async function _exportExcelCore(){
   const base=baseInput?numOf(baseInput.value)||0:0;
   const feeSum=feeRows.reduce((a,r)=>a+r[1],0);
   const vat=Math.round(feeSum*0.1);
-  const office={name:ofVal('of_name','산 법무사 김재섭 행정사 사무소'),bizno:ofVal('of_bizno'),addr:ofVal('of_addr'),agent:ofVal('of_agent','김재섭')};
+    /* of_tel 이 빠져 있어 receiptTable 에서 office.tel 이 undefined 였다 — 2026-08 보완 */
+  const office={name:ofVal('of_name','산 법무사 김재섭 행정사 사무소'),bizno:ofVal('of_bizno'),addr:ofVal('of_addr'),tel:ofVal('of_tel'),agent:ofVal('of_agent','김재섭')};
   const wb=new ExcelJS.Workbook();
   const ws=wb.addWorksheet('보수영수증',{views:[{showGridLines:false}]});
   // 수정6: 2부 좌우 배치 (1부 off=0, 분리 G·H 2칸, 2부 off=8)
