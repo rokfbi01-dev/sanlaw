@@ -553,6 +553,8 @@
         ▸ <b>재개발·재건축 조합원 입주권</b>은 취득 구조가 달라 이 도우미로 계산하지 마십시오. 특히 <b>승계조합원이 지급한 프리미엄</b>의 과세표준 포함 여부는 실무가 엇갈립니다 — 관할 시·군·구청 세무과에 확인하십시오. <span class="tag chk">확인필요</span></div>
       </div>
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('cntEstate',-1,calcSale)">−</button><input type="number" id="cntEstate" value="1" min="1" oninput="calcSale()"><button onclick="step('cntEstate',1,calcSale)">+</button></div><span class="hint">등기수수료·우편 개수 곱</span></div>
+      <div class="line" style="background:#fdf6e8;border-radius:6px;padding:8px;"><span class="lbl">★ 함께 지울<br>근저당권 등 건수</span><div class="stepper"><button onclick="step('cntCancel',-1,saleCancelChg)">−</button><input type="number" id="cntCancel" value="0" min="0" oninput="saleCancelChg()"><button onclick="step('cntCancel',1,saleCancelChg)">+</button></div><span class="hint">잔금 때 <b>함께 지우는</b> 근저당권·전세권·지상권·임차권의 건수입니다. <b>등기사항전부증명서 을구</b>에서 지워질 항목을 세어 넣으십시오. 없으면 <b>0</b> 그대로 두시면 됩니다.</span></div>
+      <div class="note" id="cancelNote" style="display:none;">▸ <b>말소 비용은 원칙적으로 매도인이 부담합니다.</b> 파는 사람은 <b>온전한 소유권</b>을 넘겨줄 의무가 있기 때문입니다 <span class="law" title="민법 제568조제1항 — 매도인은 매수인에 대하여 매매의 목적이 된 권리를 이전하여야 한다. 제576조 — 매매의 목적이 된 부동산에 저당권·전세권의 행사로 매수인이 소유권을 취득할 수 없는 때에는 매수인은 계약을 해제할 수 있다.">민법 §568①·§576</span>. 다만 실무에서는 <b>잔금날 매수인 측 법무사가 한꺼번에 처리</b>하고 그 비용을 매매대금에서 정산하는 경우가 많아, 이 계산기는 <b>총액을 한 장에 보여드리려고</b> 함께 표시합니다. 누가 낼지는 <b>계약서·특약</b>에 따릅니다.<br>▸ 1건마다 <b>등록면허세 6,000원 + 지방교육세 1,200원 + 등기신청수수료</b>가 들고, 법무사 보수는 <b>1건당 80,000원</b>입니다 <span class="law" title="법무사 보수기준 제9조제5항제4호 및 보수표 Ⅰ-3(4) — 말소등기의 기본보수는 80,000원">보수기준 §9⑤4호</span>.<br>▸ <b>가압류·가처분·압류(체납)는 이 건수에 넣지 마십시오.</b> 이것들은 당사자가 신청해서 지우는 등기가 아니라 <b>법원·세무서가 촉탁</b>해서 지웁니다. 채권자의 집행해제(취하)신청 또는 체납액 완납이 먼저이며, <b>잔금 전에 해제 여부를 반드시 확인</b>하십시오. <span class="tag chk">확인필요</span></div>
       <div class="line"><span class="lbl">등기권리자(인)</span><div class="stepper"><button onclick="step('cntOwner',-1,calcSale)">−</button><input type="number" id="cntOwner" value="1" min="1" oninput="calcSale()"><button onclick="step('cntOwner',1,calcSale)">+</button></div><span class="hint">보수기준 <b>§2②4호</b> — 당사자·이해관계인 <b>5인 이상</b> 판정용 (아래 「당사자 다수 가산」과 연동)</span></div>
       <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcSale();junjuToggle()">
         <label><input type="radio" name="ptype" value="house" checked> 주택</label>
@@ -619,6 +621,8 @@
         <tr><td>지방교육세<span class="law" title="지방교육세를 정한 조항입니다. 1호 본문은 취득세율에서 1천분의 20(2%)을 뺀 세율로 계산한 금액의 100분의 20(20%)을 세액으로 합니다(주택 유상거래는 그 세율에 100분의 50을 곱한 세율로 산출). 취득세와 함께 신고·납부합니다(§152①). 같은 호 다목 — 지방세특례제한법 등 지방세감면법령에서 취득세를 감면하는 경우에는 본문 계산방법으로 산출한 지방교육세액을 「해당 취득세 감면율로 감면하고 남은 금액」으로 합니다.">지방세법 §151①1호</span> <span class="hint" id="eduRate"></span></td><td><input class="cell" id="eduTax" type="number" oninput="calcSale(true)"></td></tr>
         <tr><td>농어촌특별세<span class="law" title="농어촌특별세 조항입니다. 취득세 표준세율을 2%로 적용해 산출한 금액의 100분의 10(10%)이 본세입니다(§5①6호). 전용면적 85㎡ 이하 주택은 비과세입니다(§4 11호).">농어촌특별세법 §5①6호·§4 11호</span></td><td><input class="cell" id="ruralTax" type="number" oninput="calcSale(true)"></td></tr>
         <tr><td>채권 할인손실<span class="law" title="등기할 때 의무적으로 사야 하는 국민주택채권의 매입률표입니다. 대부분 곧바로 되팔기 때문에 실제 부담은 「사고 팔 때 생기는 차액(할인손실)」뿐입니다.">주택도시기금법 시행령 [별표]</span></td><td class="auto" id="bondLossCell">0 원</td></tr>
+        <tr id="cancelRegRow" style="display:none;background:#fdf6e8;"><td>말소 등록면허세 <span class="hint" id="cancelRegNote"></span><span class="law" title="지방세법 제28조제1항제1호 마목 — 부동산 등기 중 「그 밖의 등기」는 건당 6,000원입니다. 말소등기가 여기에 해당하며, 지워지는 권리 건수만큼 부과됩니다.">지방세법 §28①1호마목</span></td><td class="auto" id="cancelRegCell">0 원</td></tr>
+        <tr id="cancelEduRow" style="display:none;background:#fdf6e8;"><td>말소분 지방교육세 <span class="hint">(등록면허세×20%)</span><span class="law" title="지방세법 제151조제1항제2호 — 등록면허세액의 100분의 20을 지방교육세로 함께 납부합니다.">지방세법 §151①2호</span></td><td class="auto" id="cancelEduCell">0 원</td></tr>
         <tr><td>등기신청수수료 <select id="regMethod" class="mini" onchange="calcSale()"><option value="e" selected>e-Form 15,000</option><option value="p">수기 18,000</option><option value="o">전자 10,000</option></select> <span class="hint" id="regNote"></span><span class="law" title="「등기사항증명서 등 수수료규칙」 §5의2 — 부동산 등기신청수수료. 2025.8.1. 시행(대법원규칙 제3222호)으로 방문서면·e-Form이 인상되었고 전자신청은 동결되었습니다.">수수료규칙 §5의2</span></td><td class="auto" id="regFeeCell">0 원</td></tr>
         <tr><td>수입인지 <button class="btn ghost" style="padding:2px 8px;font-size:11px;" onclick="autoDutySale()">자동</button></td><td><input class="cell" id="stampDuty" type="number" value="0" oninput="calcSale(true)"></td></tr>
         <tr><td>대장·등본 우편 등 <span class="hint">(개수 곱)</span></td><td><input class="cell" id="postFee" type="number" value="6000" oninput="calcSale(true)"></td></tr>
@@ -631,6 +635,7 @@
         <tr><td>기본보수 <span class="hint" id="feeBaseNote"></span></td><td class="auto" id="feeBaseCell">0 원</td></tr>
         <tr id="feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="feeForeignNote"></span></td><td class="auto" id="feeForeignCell">0 원</td></tr><tr id="feePartyRow" style="display:none;"><td>당사자 다수 가산 <span class="hint" id="feePartyNote"></span></td><td class="auto" id="feePartyCell">0 원</td></tr>
         <tr id="feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="feeMultiNote"></span></td><td class="auto" id="feeMultiCell">0 원</td></tr><tr id="feeCntRow" style="display:none;"><td>부동산 개수 가산 <span class="hint" id="feeCntNote"></span><span class="law" title="법무사보수기준 §10① — 대상 부동산이 1개를 초과하는 경우 초과하는 1개마다 20,000원을 가산합니다. (환지등기는 종전 토지 10필지 초과분)">보수기준 §10①</span></td><td class="auto" id="feeCntCell">0 원</td></tr>
+        <tr id="feeCancelRow" style="display:none;background:#fdf6e8;"><td>말소등기 보수 <span class="hint" id="feeCancelNote"></span><span class="law" title="법무사 보수기준 제9조제5항제4호 및 보수표 Ⅰ-3(4) — 말소등기의 기본보수는 1건당 80,000원입니다. 지워지는 권리 건수만큼 산정합니다.">보수표 Ⅰ-3(4)</span></td><td class="auto" id="feeCancelCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="f_origin" checked onchange="calcSale()"> 등기원인증서 작성·검인 (50,000)</label> <select id="originAdd" onchange="calcSale()" style="font-size:12px;margin-left:4px;"><option value="0" selected>문안 일반</option><option value="1">복잡·특수 +100%</option></select> <span class="law" title="법무사보수기준 §25②→§10③ — 업무가 특별히 중대·복잡하거나 특별한 조사·분석·연구·문안이 필요한 경우(§2②각호) 당해 기본보수(50,000)의 100%까지 가산. §2⑤ 상한.">보수기준 §25②</span></td><td class="auto" id="originCell">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="f_tax" checked onchange="calcSale()"> 취득세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="f_bond" checked onchange="calcSale()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
@@ -4817,7 +4822,19 @@ function junjuToggle(){
 }
 document.addEventListener('DOMContentLoaded',junjuToggle);
 function chk(id){const e=document.getElementById(id);return e&&e.checked;}
-function step(id,d,fn){const el=document.getElementById(id);el.value=Math.max(1,(numOf(el.value)||1)+d);if(fn)fn();}
+/* 스테퍼 — 하한(min)을 존중하도록 정정 [29회차]
+   종전에는 하한이 1로 고정되어 있어, HTML에 min="0"으로 선언해 둔 칸
+   (매매 말소 건수 · 재개발 종전/종후 건수 · 법인 등본·인감 통수 · 경매 당사자 ·
+    공탁 특별대리인 등 15곳)을 − 버튼으로 0까지 내릴 수 없었다.
+   또 (numOf(v)||1) 때문에 값이 0일 때 + 를 누르면 1이 아니라 2가 되던 문제도
+   함께 정정한다. min 속성이 없는 칸은 종전과 똑같이 1이 하한이다. */
+function step(id,d,fn){
+  const el=document.getElementById(id);if(!el)return;
+  const mn=parseInt(el.getAttribute('min'),10), lo=isNaN(mn)?1:mn;
+  const cur=numOf(el.value), now=isNaN(cur)?lo:cur;
+  el.value=Math.max(lo,now+d);
+  if(fn)fn();
+}
 /* ★ 세금 끝수(단수) 처리 — 27-3회차 신설 / 27-4회차 정정
    지방세·국세 모두 「10원 미만 절사」가 원칙이다.
    · 국세(인지세 등): 국고금관리법 §47① — 10원 미만의 끝수는 계산하지 아니한다.
@@ -5305,6 +5322,37 @@ function renderPartyDocs(prefix,sellerSel,buyerSel,sellerName,buyerName){
   box.innerHTML=h;
 }
 
+/* 말소 동시신청 준비서류 — 근저당권·전세권 등 공동신청 말소분 [A]
+   부동산 등기 준비서류와 같은 수준으로 서류명을 빠짐없이 적는다. */
+function saleCancelDocs(){
+  const c=Math.max(0,val('cntCancel'));
+  if(c<=0)return '';
+  return '<div style="border-left:3px solid var(--seal);padding:6px 8px;margin:6px 0;background:#fdf6e8;border-radius:4px;line-height:1.6;">'+
+    '<b style="color:var(--seal);">★ 함께 지우는 등기(말소) 준비서류 — '+c+'건</b><br>'+
+    '<b>근저당권 말소</b> <span class="hint">(근저당권자 = 등기의무자)</span><br>'+
+    '· <b>근저당권 해지증서</b>(말소원인증서) — 해지 연월일·해지할 근저당권의 접수번호가 기재된 것<br>'+
+    '· <b>등기필증(등기권리증)</b> 또는 <b>등기필정보통지서</b> — 근저당권설정 당시 근저당권자가 받은 것<br>'+
+    '· <b>등기신청 위임장</b> — 근저당권자 날인(법인은 법인인감 날인)<br>'+
+    '· 근저당권자가 법인이면 <b>법인등기사항전부증명서</b>, <b>법인인감증명서</b><br>'+
+    '· <span class="hint">교부처 — 대출을 갚은 <b>거래 은행 영업점</b>. 잔금일에 맞춰 「말소서류를 준비해 달라」고 <b>미리</b> 요청하십시오. 당일 발급이 안 되는 곳이 있습니다.</span><br>'+
+    '<b>전세권·지상권·임차권 말소</b> <span class="hint">(전세권자 등 = 등기의무자)</span><br>'+
+    '· <b>해지증서</b>(또는 소멸증명서·포기증서), <b>등기필증(등기권리증)</b><br>'+
+    '· <b>인감증명서</b>(용도 제한 없음), <b>인감도장</b>, <b>등기신청 위임장</b><br>'+
+    '· 등기부상 주소가 다르면 <b>주민등록표 초본</b>(주소이력 전부 포함)<br>'+
+    '<b>소유자(매도인 = 등기권리자)</b><br>'+
+    '· <b>신분증</b>, 도장 <span class="hint">(말소등기에서는 소유자가 받는 쪽이라 첨부서류가 적습니다)</span><br>'+
+    '<b>공통</b><br>'+
+    '· <b>등록면허세 영수필확인서</b>(건당 6,000원), <b>등기신청수수료 영수필확인서</b><br>'+
+    '· <b>등기사항전부증명서</b> — 지울 권리의 <b>접수일자·접수번호</b> 확인용<br>'+
+    '<div style="border-top:1px dashed var(--line);margin-top:5px;padding-top:5px;">'+
+    '▸ <b>가압류·가처분·압류(체납)는 위 서류로 지울 수 없습니다.</b> 법원·세무서 등이 <b>촉탁</b>해서 지우는 등기입니다.<br>'+
+    '· <b>가압류·가처분</b> — 채권자가 법원에 <b>집행해제(취하)신청서</b>를 내면 법원이 말소를 촉탁합니다<br>'+
+    '· <b>압류(체납)</b> — 체납액을 완납하면 세무서·지방자치단체가 <b>압류해제</b> 후 말소를 촉탁합니다<br>'+
+    '· <span class="hint">처리에 며칠이 걸리므로 <b>잔금 전에 해제 여부를 반드시 확인</b>하십시오.</span> <span class="tag chk">확인필요</span></div>'+
+    '</div>';
+}
+/* 말소 건수를 바꾸면 금액과 준비서류를 함께 갱신한다 */
+function saleCancelChg(){calcSale();renderDocsSale();}
 function renderDocsSale(){renderPartyDocs('','pty_sale_seller','pty_sale_buyer','매도인(등기의무자)','매수인(등기권리자)');const f=radio('bform');let ledger='';
   if(f==='apt')ledger='<b>대장</b> — 집합건축물대장(전유부+표제부), 대지권등록부, 대지권 목적 토지대장';
   else if(f==='house')ledger='<b>대장</b> — 일반건축물대장, 토지대장, 토지이용계획확인원 (필요시 지적도)';
@@ -5368,6 +5416,7 @@ function renderDocsSale(){renderPartyDocs('','pty_sale_seller','pty_sale_buyer',
     foreignBlock(frB,'매수인','ri')+
     (frB&&frB!=='kor-in'&&frB!=='kor-out'?'<div style="border-left:3px solid var(--seal);padding:6px 8px;margin:6px 0;background:#fdeaea;border-radius:4px;line-height:1.6;">▸ <b>외국인등의 부동산 취득</b> — 「부동산 거래신고 등에 관한 법률」 <span class="tag chk">확인필요</span><br>· <b>계약(매매)으로 취득</b> → 부동산거래신고를 하면 별도 취득신고는 하지 않습니다(중복 배제).<br>· <span style="color:#b03a3a;font-weight:700;">★ 「토지」를 취득하는 계약 — 군사기지 및 군사시설 보호구역, 문화유산·자연유산 보호구역, 생태·경관보전지역, 야생생물 특별보호구역 등은 「계약 체결 전」에 관할 시장·군수·구청장의 허가</b>를 받아야 하며, <b>허가 없이 체결한 계약은 무효</b>입니다. <b>토지이용계획확인원</b>으로 반드시 확인하십시오.<br>· 종전 「외국인토지법」은 <b>폐지</b>되어 위 법률로 통합되었습니다.</div>':'')+
     (frS?'<div style="border-left:3px solid var(--seal);padding:6px 8px;margin:6px 0;background:#fdeaea;border-radius:4px;line-height:1.6;">▸ <b>매도인이 소득세법상 「비거주자」</b>이면 양도소득세 신고·납부 방법과 원천징수 여부가 달라질 수 있습니다. <b>세무 전문가의 검토</b>를 받으십시오. <span class="tag chk">확인필요</span> <span class="hint">— 법무사의 직무범위(법무사법 §2)를 벗어나는 세무 판단은 하지 않습니다.</span></div>':'')+
+    saleCancelDocs()+
     '<div class="dl" style="border-top:1px dashed var(--line);margin-top:6px;padding-top:6px;">'+
     '<b style="color:var(--seal);">※ 모든 서류에 주민등록번호 뒷자리가 나오게 발급받으십시오.</b><br>'+ledger+'</div>';}
 
@@ -5454,12 +5503,27 @@ function calcSale(fromEdit){
   const bondLoss=Math.round(val('bondBuy')*val('bondRate')/100);
   document.getElementById('bondLossCell').textContent=won(bondLoss)+' ('+val('bondRate')+'%)';
   const cntE=Math.max(1,val('cntEstate'));
+  /* ★ 말소 동시신청 — 잔금 때 함께 지우는 근저당권·전세권·지상권·임차권 [A]
+       · 등기신청수수료 : 「그 밖의 등기」 단가 × 건수 (수수료규칙 §5의2 ④)
+       · 등록면허세     : 건당 6,000원 (지방세법 §28①1호 마목 「그 밖의 등기」)
+       · 지방교육세     : 등록면허세의 20% (지방세법 §151①2호)
+       · 보수           : 건당 80,000원 (보수기준 §9⑤4호 · 부표 Ⅰ-3(4)) — 아래 보수부에서 가산
+     ※ 가압류·가처분·압류는 촉탁말소여서 이 건수에 넣지 않는다(화면 안내문에 명시). */
+  const cntC=Math.max(0,val('cntCancel'));
   const m=document.getElementById('regMethod').value;const idx=m==='p'?0:(m==='o'?2:1);
-  const unit=REG_RE.일반[idx];const regFee=unit*cntE;
+  const unit=REG_RE.일반[idx], unitC=REG_RE.기타[idx];
+  const regFee=unit*cntE+unitC*cntC;
   document.getElementById('regFeeCell').textContent=won(regFee);
-  document.getElementById('regNote').textContent='건당 '+unit.toLocaleString();
+  document.getElementById('regNote').textContent=(cntC>0)
+    ?('이전 '+unit.toLocaleString()+'×'+cntE+'개 + 말소 '+unitC.toLocaleString()+'×'+cntC+'건')
+    :('건당 '+unit.toLocaleString());
+  const cancelReg=6000*cntC, cancelEdu=Math.round(cancelReg*0.2);
+  {const _crR=document.getElementById('cancelRegRow'), _ceR=document.getElementById('cancelEduRow'), _cN=document.getElementById('cancelNote');
+   if(_crR){_crR.style.display=cntC>0?'table-row':'none';document.getElementById('cancelRegCell').textContent=won(cancelReg);document.getElementById('cancelRegNote').textContent=cntC>0?('(6,000 × '+cntC+'건)'):'';}
+   if(_ceR){_ceR.style.display=cntC>0?'table-row':'none';document.getElementById('cancelEduCell').textContent=won(cancelEdu);}
+   if(_cN)_cN.style.display=cntC>0?'block':'none';}
   const post=val('postFee')*cntE;
-  const publicSum=val('acqTax')+val('eduTax')+val('ruralTax')+bondLoss+regFee+val('stampDuty')+post+pubCustomSum('scene-매매');
+  const publicSum=val('acqTax')+val('eduTax')+val('ruralTax')+bondLoss+regFee+cancelReg+cancelEdu+val('stampDuty')+post+pubCustomSum('scene-매매');
   document.getElementById('publicSum').textContent=won(publicSum);
   const adj=parseFloat(document.getElementById('feeAdjust').value)||1;
   /* ★ 표상 기본보수(feeRaw) — 가산보수(§10③④⑥·§14①②⑤)는 「당해 기본보수」 = 표상 금액을
@@ -5484,6 +5548,11 @@ function calcSale(fromEdit){
   const _cntE=Math.max(1,val('cntEstate')), feeCnt=(_cntE-1)*20000;
   {const _cR=document.getElementById('feeCntRow');if(_cR){_cR.style.display=feeCnt>0?'table-row':'none';document.getElementById('feeCntCell').textContent=won(feeCnt);document.getElementById('feeCntNote').textContent=feeCnt>0?'('+_cntE+'개 · 초과 '+(_cntE-1)+'개×20,000)':'';}}
   fee+=feeCnt;
+  /* 말소등기 보수 — 보수기준 §9⑤4호(부표 Ⅰ-3(4)) 80,000원 × 건수. 보수 조정률을 같이 적용한다. */
+  const feeCancel=Math.round(FLAT['Ⅰ-3(4)']*cntC*adj);
+  {const _fcR=document.getElementById('feeCancelRow');
+   if(_fcR){_fcR.style.display=cntC>0?'table-row':'none';document.getElementById('feeCancelCell').textContent=won(feeCancel);document.getElementById('feeCancelNote').textContent=cntC>0?('(80,000 × '+cntC+'건'+(adj!==1?' ×'+(adj*100)+'%':'')+')'):'';}}
+  fee+=feeCancel;
   if(chk('f_origin')){const _oa=parseFloat((document.getElementById('originAdd')||{}).value)||0;const _oAdd=Math.round(50000*_oa);fee+=50000+_oAdd;const _oc=document.getElementById('originCell');if(_oc)_oc.textContent=won(50000+_oAdd)+(_oAdd>0?' (기본50,000+§25②가산'+won(_oAdd)+')':'');}else{const _oc=document.getElementById('originCell');if(_oc)_oc.textContent='0 원';}if(chk('f_tax'))fee+=50000;if(chk('f_bond'))fee+=40000;if(chk('f_trip'))fee+=val('tripFee');
   if(chk('f_same')){const n=Math.max(1,val('sameN')),e=Math.max(1,val('cntEstate'));const v=200000+((n-1)+(e-1))*30000;document.getElementById('sameCell').textContent=won(v);fee+=v;}else document.getElementById('sameCell').textContent='0 원';
   const vRow=document.getElementById('verifyRow');
