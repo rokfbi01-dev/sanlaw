@@ -47,7 +47,7 @@ b,strong{font-weight:700;}
 .sit{flex:1; background:#f8f5ee; border:1px solid var(--line); border-top:3px solid var(--gold); border-radius:10px; padding:13px 15px; font-size:14.5px; line-height:1.75;}
 .sit .sl{display:block; font-weight:700; color:var(--gold-d); margin-bottom:6px; font-size:14px;}
 @media (max-width:680px){ .sit-wrap{flex-direction:column;} }
-/* 전체 길 흐름도 */
+/* 전체 길 흐름도 (A-1 추가 — 기존 톤 재활용) */
 .flow{background:linear-gradient(180deg,#faf7f0,#f6f1e6); border:1px solid var(--line); border-radius:14px; padding:22px 20px; margin:16px 0;}
 .flow .fl-t{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:18px; text-align:center; letter-spacing:.3px;}
 .flow .node{position:relative; background:#fff; border:1px solid #e3d8c4; border-radius:11px; padding:15px 18px 15px 56px; font-size:14.5px; line-height:1.72; box-shadow:0 2px 6px rgba(122,82,48,.07);}
@@ -61,6 +61,22 @@ td a{color:var(--gold-d); word-break:break-all;}
 .src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
 /* 작성례 박스 */
 .formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+details.sec{border:1px solid var(--line); border-radius:11px; margin:18px 0; background:#fff; overflow:hidden;}
+details.sec>summary{cursor:pointer; list-style:none; padding:14px 17px 14px 15px; background:var(--box); border-left:4px solid var(--gold); font-family:'Nanum Myeongjo',serif; font-size:18px; font-weight:700; color:var(--gold-d); line-height:1.55;}
+details.sec>summary::-webkit-details-marker{display:none;}
+details.sec>summary .sub{display:block; font-family:'Pretendard',sans-serif; font-size:13.5px; font-weight:400; color:var(--muted); margin-top:3px;}
+details.sec>summary::after{content:"펼치기 ▾"; float:right; font-family:'Pretendard',sans-serif; font-size:12.5px; font-weight:700; color:var(--gold); background:#fff; border:1px solid var(--line); border-radius:20px; padding:2px 10px; margin-left:8px;}
+details.sec[open]>summary::after{content:"접기 ▴";}
+details.sec>summary:hover{background:#f2ede3;}
+.secbody{padding:4px 17px 16px;}
+.secbody>h3:first-of-type{margin-top:14px;}
+.toc{background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 17px; margin:8px 0 22px;}
+.toc .tct{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:9px;}
+.toc ol{margin:0; padding-left:20px;}
+.toc li{margin:5px 0; font-size:14.5px;}
+.toc a{text-decoration:none; border-bottom:1px dotted var(--gold);}
+.allbtn{display:inline-block; margin-top:11px; font-size:13.5px; font-weight:700; color:var(--gold-d); background:var(--box); border:1px solid var(--line); border-radius:8px; padding:7px 14px; cursor:pointer;}
+.allbtn:hover{background:#f2ede3;}
 .fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:15px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
 .fold-btn:hover{background:#ebe4d6;}
 .fold-btn .tag{margin-bottom:0;}
@@ -78,13 +94,14 @@ td a{color:var(--gold-d); word-break:break-all;}
 .form-tools button{font-family:'Pretendard',sans-serif;font-size:13px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:7px 13px;cursor:pointer;transition:.15s;}
 .form-tools button:hover{background:var(--gold);color:#fff;}
 .lawbox{background:#f0ebe1;border-radius:9px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.75;}
-.lawbox .ll{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:#241a10;border-radius:5px;padding:2px 9px;margin-right:7px;}
+.lawbox .ll{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold-d);border-radius:5px;padding:2px 9px;margin-right:7px;}
 .hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
 .hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
 .hire p{margin:7px 0; font-size:15px; line-height:1.8;}
 .cta{display:block;text-align:center;background:var(--gold-d);color:#fff;font-weight:700;font-size:17px;text-decoration:none;padding:15px;border-radius:11px;margin:18px 0;font-family:'Nanum Myeongjo',serif;letter-spacing:1px;}
 .cta:hover{background:#5e3f24;}
 @media print{
+  .backbar{display:none !important;}
   body{background:#fff; max-width:100%;}
   .tldr,.case,.warn,.tip,.cost,.steps li,.tnote,.sit,.flow,.flow li,.lawbox,.hire{background:#fff !important; border-color:#ccc !important;}
   .tnote{display:none;}
@@ -92,11 +109,17 @@ td a{color:var(--gold-d); word-break:break-all;}
   .term>.bub{display:inline !important; position:static; width:auto; background:none; color:inherit; box-shadow:none; padding:0; font-size:inherit; line-height:inherit;}
   .term>.bub::before{content:" ("; }
   .term>.bub::after{content:")"; border:none; position:static;}
-  .form-tools{display:none;}
-  .fold-body{display:block !important;}
-  .fold-btn .chev{display:none;}
+  .fold-body{display:block !important;}.fold-btn .chev{display:none;}.form-tools{display:none;}
+  details.sec:not([open])>*{display:block !important;}
+  details.sec>summary::after{display:none;} .allbtn,.toc{display:none !important;}
   .cta{background:#fff !important; color:#241a10 !important; border:1px solid #ccc;}
 }
+.cl{color:var(--gold-d);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--gold-d);}
+.cl:hover{background:#fbf5e8;}
+.tip .cl,.tip .cl b{color:var(--tip-ink);}
+.tip .cl{border-bottom-color:var(--tip-ink);}
+.warn .cl,.warn .cl b{color:var(--warn-ink);}
+.warn .cl{border-bottom-color:var(--warn-ink);}
 </style>
 </head>
 <body>
@@ -105,6 +128,7 @@ td a{color:var(--gold-d); word-break:break-all;}
   <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
   <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
 </nav>
+
 
 <h1>[상속 2-6] 형이 생전에 얼마를 받아갔는지 알 수 없을 때</h1>
 
@@ -126,14 +150,32 @@ td a{color:var(--gold-d); word-break:break-all;}
 </ul>
 </div>
 
-<h2>지금 어떤 상황인가요?</h2>
+<div class="toc">
+<div class="tct">이 카드에 담긴 것 — 필요한 곳만 펼쳐 보십시오</div>
+<ol>
+<li><a href="#s1">지금 어떤 상황인가요?</a></li>
+<li><a href="#s2">먼저 알아두면 쉬운 4가지</a></li>
+<li><a href="#s3">실제로 해결하는 절차 — 전체 길 한눈에 보기</a></li>
+<li><a href="#s4">판례는 이렇게 말합니다</a></li>
+<li><a href="#s5">⏰ 기한 정리 — 자료를 모으는 동안에도 시계는 돕니다</a></li>
+<li><a href="#s6">관련 법령 — 쉬운 풀이</a></li>
+<li><a href="#s7">신청서 작성례 — 빈칸(○○○)만 채우면 됩니다</a></li>
+<li><a href="#s8">준비할 서류와 발급처</a></li>
+<li><a href="#s9">본 사무소가 도와드리는 일</a></li>
+</ol>
+<span class="allbtn" id="allBtn" role="button" tabindex="0">전체 펼치기</span>
+</div>
+
+<h2 id="s1">지금 어떤 상황인가요?</h2>
+
 <p>부모님이 돌아가신 뒤 남은 재산을 열어 보니 생각보다 훨씬 적습니다. 형제 중 한 사람이 부모님 곁에서 통장과 도장을 관리했고, 나머지는 그 안에서 무슨 일이 있었는지 전혀 모릅니다. 물어보면 "받은 것 없다"는 말뿐입니다. <b>분명히 무언가 있었을 텐데 증명할 방법이 없다</b> — 이 카드가 다루는 고민입니다.</p>
 <div class="sit-wrap">
 <div class="sit"><span class="sl">상황 ① · 알아내려는 쪽</span>· 부모님 재산이 사망 당시엔 거의 남아 있지 않다<br>· 형제 한 사람이 통장·도장을 관리했다<br>· 그 형제가 집을 사거나 사업자금을 댄 시기가 있다<br>· 통장 내역을 보자고 해도 응하지 않는다</div>
 <div class="sit"><span class="sl">상황 ② · 내역을 요구당한 쪽</span>· 부모님을 모시며 생활비를 대신 관리했을 뿐이다<br>· 오간 돈은 병원비·간병비·생활비였다<br>· 20년 전 일까지 다 내놓으라 한다<br>· 사생활이 통째로 드러나는 것이 부담스럽다</div>
 </div>
 
-<h2>먼저 알아두면 쉬운 4가지</h2>
+<h2 id="s2">먼저 알아두면 쉬운 4가지</h2>
+
 <ol class="steps">
 <li><b>은행이 거절하는 데는 이유가 있습니다.</b> 금융회사 직원은 <span class="term">명의인<span class="bub">통장 주인. 여기서는 돌아가신 부모님을 말합니다.</span></span>의 서면 요구나 동의 없이 거래 내용을 남에게 줄 수 없습니다. 창구에서 "상속인 전원 동의서를 가져오시라"고 하는 이유이고, 하필 <b>동의해 줄 그 형제가 거부하는 것</b>이 이 사건의 본질입니다.</li>
 <li><b>상속인 금융거래조회로는 '흐름'이 안 나옵니다.</b> 이 조회로 알 수 있는 것은 거래한 금융회사가 어디인지, 남은 잔액과 빚이 얼마인지까지입니다. "2019년 3월에 5,000만원이 형 계좌로 갔다"는 <b>움직임</b>은 나오지 않습니다. 그래도 <b>어느 은행을 공략할지</b>가 정해지므로 반드시 먼저 하십시오.</li>
@@ -141,7 +183,8 @@ td a{color:var(--gold-d); word-break:break-all;}
 <li><b>기간 제한이 없다는 것과 자료가 남아 있다는 것은 다릅니다.</b> 법이 20년 전 증여도 계산에 넣는다고 해서, 은행 전산에 20년 전 기록이 남아 있다는 뜻은 아닙니다. 금융회사·계좌 종류에 따라 조회 가능 기간이 다르므로 <b>[확인필요]</b> — 신청 전 해당 은행에 "몇 년치까지 조회되느냐"부터 물어보시면 헛품을 덜 수 있습니다. <b>확보는 빠를수록 좋습니다.</b></li>
 </ol>
 
-<h2>실제로 해결하는 절차 — 전체 길 한눈에 보기</h2>
+<h2 id="s3">실제로 해결하는 절차 — 전체 길 한눈에 보기</h2>
+
 <div class="flow">
 <div class="fl-t">계좌 목록 확보부터 판결까지 — 이 길을 그대로 따라가면 됩니다</div>
 <div class="node"><span class="num">0</span><b>어느 은행인지부터 찾습니다</b> — 사망신고를 하면서 <b>안심상속 원스톱서비스</b>를 함께 신청하면 금융거래·부동산·자동차·세금·연금을 한 번에 조회해 줍니다. 결과가 오면 <b>부모님이 거래한 금융회사 목록</b>이 손에 들어옵니다. 이것이 출발점입니다.</div>
@@ -161,8 +204,8 @@ td a{color:var(--gold-d); word-break:break-all;}
 <div class="node"><span class="num">7</span><b>성격을 둘러싼 공방, 그리고 판결</b> — 상대는 "부양의 대가였다", "빌려준 돈을 갚은 것이다", "심부름한 것뿐이다"라고 다툽니다(작성례 ③은 그쪽 서면입니다). 법원이 <span class="term">특별수익<span class="bub">공동상속인이 피상속인에게서 미리 받아 간 재산. 상속분을 앞당겨 받은 것으로 보아 나중에 계산에 넣습니다(민법 §1008).</span></span>으로 인정하면 그만큼 유류분 계산의 기초재산이 늘어납니다.</div>
 </div>
 
-<h2>판례는 이렇게 말합니다</h2>
-
+<details class="sec" id="s4"><summary>판례는 이렇게 말합니다</summary>
+<div class="secbody">
 <div class="case"><span class="ct">① 20년 전에 준 것도 들어갑니다 — 대법원 1996. 2. 9. 선고 95다17885 판결</span>
 <b>어떤 사건이었나.</b> 아버지가 생전에 일부 자녀에게만 재산을 넘겨준 뒤 사망하자, 받지 못한 자녀들이 유류분 반환을 청구한 사안입니다. 받은 쪽은 <b>"그 증여는 사망 훨씬 전의 일이니 계산에 넣을 수 없다"</b>고 다투었습니다.
 <b>법원의 판단.</b> 민법 §1114는 원칙적으로 <b>사망 1년 이내</b>의 증여만 계산에 넣도록 정하고 있지만, <b>공동상속인이 받은 증여에는 이 조항이 적용되지 않는다</b>고 보았습니다. 상속분을 미리 받아 간 것으로 보아 형제간 공평을 맞추려는 것이 민법 §1008의 취지이기 때문입니다. 따라서 <b>1년 이전인지, 서로 손해를 끼칠 것을 알았는지 따지지 않고</b> 유류분 산정의 기초재산에 들어갑니다.
@@ -172,8 +215,11 @@ td a{color:var(--gold-d); word-break:break-all;}
 <b>어떤 사건이었나.</b> 피상속인을 오랜 기간 곁에서 부양·간호한 상속인이 생전에 재산을 받았고, 다른 상속인들이 유류분 반환을 청구한 사안입니다.
 <b>법원의 판단.</b> 생전 증여라고 해서 무조건 특별수익이 되는 것은 아니고, 그것이 <b>부양·기여에 대한 대가</b>로 준 것이라고 볼 사정이 있으면 특별수익에서 <b>제외할 수 있다</b>고 보았습니다.
 <b>불리한 점을 솔직히 말씀드립니다.</b> 어렵게 내역을 확보해 "형에게 3억이 갔다"를 밝혀도, 형은 <b>"10년간 모시고 병간호한 대가였다"</b>고 다툴 수 있습니다. 이 다툼은 그 자체로 큰 쟁점이라 <b><a href="2-3_유류분_기여대가.html" style="color:var(--gold-d);font-weight:700">상속 2-3 카드</a></b>에서 따로 다룹니다. <b>증거 확보는 시작이지 끝이 아닙니다.</b></div>
+</div>
+</details>
 
-<h2>⏰ 기한 정리 — 자료를 모으는 동안에도 시계는 돕니다</h2>
+<details class="sec" id="s5"><summary>⏰ 기한 정리 — 자료를 모으는 동안에도 시계는 돕니다</summary>
+<div class="secbody">
 <p>이 카드에서 가장 위험한 함정입니다. "완벽하게 모은 다음 청구하자"고 미루다 기간을 넘긴 사례가 실제로 있습니다. 아래 두 기간 중 <b>먼저 오는 날</b>에 권리가 사라집니다.</p>
 <table>
 <tr><th>구분</th><th>① 기산일 (언제부터)</th><th>② 계산근거</th><th>③ 말일 처리</th><th>④ 최종 만료일</th></tr>
@@ -181,16 +227,22 @@ td a{color:var(--gold-d); word-break:break-all;}
 <tr><td><b>10년</b></td><td>상속이 시작된 날(부모님이 돌아가신 날)</td><td>민법 §1117 후단</td><td>위와 같음</td><td>사망일부터 10년이 되는 날</td></tr>
 </table>
 <div class="tip"><span class="pt">💡 순서를 뒤집으십시오</span> <b>증거 → 청구</b>가 아니라 <b>청구 → 증거</b>입니다. 내용증명을 먼저 보내거나 소를 먼저 제기해 기간을 멈춰 두고, <b>소송이 시작된 뒤에</b> 법원을 통해 자료를 받는 것이 정석입니다. 애초에 제출명령은 사건이 걸려 있어야 신청할 수 있으니, 순서를 바꾸면 아무것도 못 합니다. 기간 계산과 내용증명 문구는 <b><a href="2-5_유류분_청구기간.html" style="color:var(--tip-ink);font-weight:700">상속 2-5 카드</a></b>에 있습니다.</div>
+</div>
+</details>
 
-<h2>관련 법령 — 쉬운 풀이</h2>
+<details class="sec" id="s6"><summary>관련 법령 — 쉬운 풀이</summary>
+<div class="secbody">
 <div class="lawbox"><span class="ll">금융실명법 §4①</span><b>은행이 못 주는 이유</b> — 금융회사 직원은 명의인의 서면상 요구나 동의를 받지 않고는 금융거래 내용을 남에게 제공하거나 알려줄 수 없습니다. 상속인이라도 예외가 아니라고 보아 창구에서 거절당하는 일이 생깁니다.</div>
 <div class="lawbox"><span class="ll">금융실명법 §4①1호</span><b>그러나 법원 명령은 예외</b> — <b>법원의 제출명령</b>이나 법관이 발부한 영장에 따른 제공은 위 금지의 예외입니다. 이 한 줄이 이 카드 전체의 근거입니다. 다만 <b>사용 목적에 필요한 최소한의 범위</b>여야 하므로, 기간과 대상을 좁혀 신청해야 합니다.</div>
 <div class="lawbox"><span class="ll">민법 §1008 · §1118</span><b>미리 받은 것은 미리 받은 것</b> — 공동상속인 중 피상속인에게서 증여·유증을 받은 사람이 있으면 그 받은 재산은 <b>상속분을 앞당겨 받은 것</b>으로 보아 계산에 넣습니다. §1118이 이 조항을 유류분에도 준용합니다.</div>
 <div class="lawbox"><span class="ll">민법 §1114</span><b>1년의 벽, 그리고 예외</b> — 원칙은 상속개시 전 1년간의 증여만 유류분 계산에 넣는 것입니다. 그러나 <b>공동상속인이 받은 증여에는 이 조항이 적용되지 않는다</b>는 것이 대법원의 확립된 해석입니다(95다17885). 형제가 받은 것이라면 <b>기간의 벽이 없습니다.</b></div>
 <div class="lawbox"><span class="ll">민사소송법 §294</span><b>기관에 물어보는 절차</b> — 법원은 공공기관·학교·단체 등에 그 업무에 속하는 사항의 조사나 <b>보관 중인 문서의 사본 송부</b>를 촉탁할 수 있습니다. 병원·요양원·건강보험공단에 "정말 간병을 했는지"를 확인할 때 씁니다.</div>
 <div class="lawbox"><span class="ll">상속세 및 증여세법 §13① · §15①1호</span><b>세금은 별개의 계산입니다</b> — 상속개시일 전 <b>10년</b> 이내에 상속인에게, <b>5년</b> 이내에 상속인이 아닌 사람(손주·며느리 등)에게 준 재산은 상속재산에 더합니다. 또 사망 전 <b>1년 이내 2억원·2년 이내 5억원</b> 이상을 처분·인출했는데 쓰임새가 객관적으로 분명하지 않으면 <b>상속받은 것으로 추정</b>합니다. 다만 <b>세금 신고와 세무조사 대응은 세무사의 업무 영역</b>이므로, 국세상담센터(126)나 <a href="https://hometax.go.kr">홈택스</a>를 이용하십시오.</div>
+</div>
+</details>
 
-<h2>신청서 작성례 — 빈칸(○○○)만 채우면 됩니다</h2>
+<details class="sec" id="s7"><summary>신청서 작성례 — 빈칸(○○○)만 채우면 됩니다</summary>
+<div class="secbody">
 <p><b>제목 줄을 누르면 펼쳐집니다.</b> 펼친 뒤 <b>복사·인쇄·다운로드</b> 버튼으로 바로 쓰실 수 있습니다. ①②④는 알아내려는 쪽(원고), ③은 요구당한 쪽(피고)이 내는 서면입니다. 공식 양식은 <a href="https://www.scourt.go.kr/nm/minwon/doc/DocListAction.work">대법원 전자민원센터 양식모음</a>에서도 내려받을 수 있습니다.</p>
 
 <div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag">작성례 ① · 원고</span>금융거래정보 제출명령 신청서<span class="chev">▾</span></button><div class="fold-body">
@@ -376,8 +428,11 @@ td a{color:var(--gold-d); word-break:break-all;}
 <div class="form-tools"><button type="button" onclick="copyForm('f5')">📋 복사</button><button type="button" onclick="printForm('f5')">🖨 인쇄</button><button type="button" onclick="downloadForm('f5','증여내역_정리표.txt')">⬇ 다운로드</button></div>
 <div class="howto"><b>'비고'란이 핵심입니다.</b> 그 돈이 <b>언제, 무엇을 위해</b> 쓰였는지 정황을 한 줄로 적으면 단순한 입출금이 비로소 '증여'로 읽히기 시작합니다. 생활비로 보이는 소액 이체는 과감히 빼십시오. <b>다투는 항목을 줄일수록 설득력이 올라갑니다.</b></div>
 </div></div>
+</div>
+</details>
 
-<h2>준비할 서류와 발급처</h2>
+<details class="sec" id="s8"><summary>준비할 서류와 발급처</summary>
+<div class="secbody">
 <table>
 <tr><th>무엇에 쓰나</th><th>서류</th><th>어디서 (바로가기)</th></tr>
 <tr><td>상속인 자격 증명</td><td>피상속인 기본증명서(상세)·가족관계증명서(상세)·제적등본</td><td><a href="https://efamily.scourt.go.kr">전자가족관계등록시스템</a></td></tr>
@@ -400,8 +455,11 @@ td a{color:var(--gold-d); word-break:break-all;}
 <b>④ 증명서 발급료</b>: 가족관계·기본증명서는 통당 <b>1,000원 안팎</b>, 등기사항증명서는 인터넷 열람 <b>700원</b>·발급 <b>1,000원</b> 수준입니다.
 <div style="margin-top:11px; padding-top:10px; border-top:1px dashed #cfe6d6; color:#c0392b; font-weight:600; line-height:1.8;">※ 인지대·송달료를 포함한 내 사건의 예상 비용은 <a href="https://sanlaw.co.kr/tools-calculator.html" style="color:#c0392b; text-decoration:underline; font-weight:700;">🧮 수수료 계산기</a>에서 미리 확인할 수 있습니다.</div>
 </div>
+</div>
+</details>
 
-<h2>본 사무소가 도와드리는 일</h2>
+<h2 id="s9">본 사무소가 도와드리는 일</h2>
+
 <div class="hire">
 <p>본 사무소에서는 의뢰인들의 고충은 덜어드리고, 함께 절차를 진행하여 원하는 결과에 도달할 수 있도록 성심을 다하겠습니다.</p>
 <p style="margin-top:12px"><b>· 내역을 알아내려는 분의 경우</b><br>① 안심상속 원스톱·상속인 금융거래조회 결과를 토대로 한 <b>공략 대상 금융회사 선별</b>, ② 등기사항증명서로 상대방의 재산 취득 시기를 역산한 <b>조회 기간 설계</b>(이 설계가 허가 여부를 가릅니다), ③ <b>금융거래정보·과세정보 제출명령 신청서 작성</b>과 전자소송 제출 지원, ④ 회신된 내역에서 쟁점 이체만 골라낸 <b>정리표와 준비서면 작성</b>까지 함께합니다.</p>
@@ -421,7 +479,6 @@ td a{color:var(--gold-d); word-break:break-all;}
 ※ 제출명령의 허가 여부, 금융회사의 조회 가능 기간, 회신 실비는 재판부와 기관에 따라 달라집니다. 접수 시 법원 안내를 따르십시오. 세금 신고·세무조사 대응은 세무사의 업무 영역입니다.
 </div>
 
-
 <script>
 (function(){
   var terms=document.querySelectorAll('.term');
@@ -431,14 +488,38 @@ td a{color:var(--gold-d); word-break:break-all;}
   });
   document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
 })();
+
+(function(){
+  document.querySelectorAll('.toc a').forEach(function(a){
+    a.addEventListener('click',function(){
+      var el=document.querySelector(a.getAttribute('href'));
+      if(el&&el.tagName==='DETAILS')el.open=true;
+    });
+  });
+  var btn=document.getElementById('allBtn');
+  if(!btn)return;
+  function toggleAll(){
+    var opening=btn.textContent.indexOf('펼치기')>-1;
+    document.querySelectorAll('details.sec').forEach(function(d){d.open=opening;});
+    document.querySelectorAll('.formbox').forEach(function(fb){
+      fb.classList.toggle('open',opening);
+      var body=fb.querySelector('.fold-body');
+      if(body)body.style.display=opening?'block':'none';
+    });
+    btn.textContent=opening?'전체 접기':'전체 펼치기';
+  }
+  btn.addEventListener('click',toggleAll);
+  btn.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleAll();}});
+})();
+(function(){
+})();
 function toggleFold(b){var fb=b.parentElement;var body=b.nextElementSibling;var open=fb.classList.toggle('open');if(body){body.style.display=open?'block':'none';}}
 function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
 function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
 function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('작성례가 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
 function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('작성례가 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
 function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
-function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['﻿'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('작성례를 내려받았습니다');}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('작성례를 내려받았습니다');}
 </script>
-
 </body>
 </html>

@@ -7,7 +7,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 <style>
-
 :root{
   --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
   --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
@@ -48,7 +47,7 @@ b,strong{font-weight:700;}
 .sit{flex:1; background:#f8f5ee; border:1px solid var(--line); border-top:3px solid var(--gold); border-radius:10px; padding:13px 15px; font-size:14.5px; line-height:1.75;}
 .sit .sl{display:block; font-weight:700; color:var(--gold-d); margin-bottom:6px; font-size:14px;}
 @media (max-width:680px){ .sit-wrap{flex-direction:column;} }
-/* 전체 길 흐름도 */
+/* 전체 길 흐름도 (A-1 추가 — 기존 톤 재활용) */
 .flow{background:linear-gradient(180deg,#faf7f0,#f6f1e6); border:1px solid var(--line); border-radius:14px; padding:22px 20px; margin:16px 0;}
 .flow .fl-t{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:18px; text-align:center; letter-spacing:.3px;}
 .flow .node{position:relative; background:#fff; border:1px solid #e3d8c4; border-radius:11px; padding:15px 18px 15px 56px; font-size:14.5px; line-height:1.72; box-shadow:0 2px 6px rgba(122,82,48,.07);}
@@ -62,6 +61,22 @@ td a{color:var(--gold-d); word-break:break-all;}
 .src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
 /* 작성례 박스 */
 .formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+details.sec{border:1px solid var(--line); border-radius:11px; margin:18px 0; background:#fff; overflow:hidden;}
+details.sec>summary{cursor:pointer; list-style:none; padding:14px 17px 14px 15px; background:var(--box); border-left:4px solid var(--gold); font-family:'Nanum Myeongjo',serif; font-size:18px; font-weight:700; color:var(--gold-d); line-height:1.55;}
+details.sec>summary::-webkit-details-marker{display:none;}
+details.sec>summary .sub{display:block; font-family:'Pretendard',sans-serif; font-size:13.5px; font-weight:400; color:var(--muted); margin-top:3px;}
+details.sec>summary::after{content:"펼치기 ▾"; float:right; font-family:'Pretendard',sans-serif; font-size:12.5px; font-weight:700; color:var(--gold); background:#fff; border:1px solid var(--line); border-radius:20px; padding:2px 10px; margin-left:8px;}
+details.sec[open]>summary::after{content:"접기 ▴";}
+details.sec>summary:hover{background:#f2ede3;}
+.secbody{padding:4px 17px 16px;}
+.secbody>h3:first-of-type{margin-top:14px;}
+.toc{background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 17px; margin:8px 0 22px;}
+.toc .tct{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:9px;}
+.toc ol{margin:0; padding-left:20px;}
+.toc li{margin:5px 0; font-size:14.5px;}
+.toc a{text-decoration:none; border-bottom:1px dotted var(--gold);}
+.allbtn{display:inline-block; margin-top:11px; font-size:13.5px; font-weight:700; color:var(--gold-d); background:var(--box); border:1px solid var(--line); border-radius:8px; padding:7px 14px; cursor:pointer;}
+.allbtn:hover{background:#f2ede3;}
 .fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:15px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
 .fold-btn:hover{background:#ebe4d6;}
 .fold-btn .tag{margin-bottom:0;}
@@ -79,13 +94,14 @@ td a{color:var(--gold-d); word-break:break-all;}
 .form-tools button{font-family:'Pretendard',sans-serif;font-size:13px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:7px 13px;cursor:pointer;transition:.15s;}
 .form-tools button:hover{background:var(--gold);color:#fff;}
 .lawbox{background:#f0ebe1;border-radius:9px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.75;}
-.lawbox .ll{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:#241a10;border-radius:5px;padding:2px 9px;margin-right:7px;}
+.lawbox .ll{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold-d);border-radius:5px;padding:2px 9px;margin-right:7px;}
 .hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
 .hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
 .hire p{margin:7px 0; font-size:15px; line-height:1.8;}
 .cta{display:block;text-align:center;background:var(--gold-d);color:#fff;font-weight:700;font-size:17px;text-decoration:none;padding:15px;border-radius:11px;margin:18px 0;font-family:'Nanum Myeongjo',serif;letter-spacing:1px;}
 .cta:hover{background:#5e3f24;}
 @media print{
+  .backbar{display:none !important;}
   body{background:#fff; max-width:100%;}
   .tldr,.case,.warn,.tip,.cost,.steps li,.tnote,.sit,.flow,.flow li,.lawbox,.hire{background:#fff !important; border-color:#ccc !important;}
   .tnote{display:none;}
@@ -93,12 +109,17 @@ td a{color:var(--gold-d); word-break:break-all;}
   .term>.bub{display:inline !important; position:static; width:auto; background:none; color:inherit; box-shadow:none; padding:0; font-size:inherit; line-height:inherit;}
   .term>.bub::before{content:" ("; }
   .term>.bub::after{content:")"; border:none; position:static;}
-  .form-tools{display:none;}
-  .fold-body{display:block !important;}
-  .fold-btn .chev{display:none;}
+  .fold-body{display:block !important;}.fold-btn .chev{display:none;}.form-tools{display:none;}
+  details.sec:not([open])>*{display:block !important;}
+  details.sec>summary::after{display:none;} .allbtn,.toc{display:none !important;}
   .cta{background:#fff !important; color:#241a10 !important; border:1px solid #ccc;}
 }
-
+.cl{color:var(--gold-d);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--gold-d);}
+.cl:hover{background:#fbf5e8;}
+.tip .cl,.tip .cl b{color:var(--tip-ink);}
+.tip .cl{border-bottom-color:var(--tip-ink);}
+.warn .cl,.warn .cl b{color:var(--warn-ink);}
+.warn .cl{border-bottom-color:var(--warn-ink);}
 </style>
 </head>
 <body>
@@ -107,6 +128,7 @@ td a{color:var(--gold-d); word-break:break-all;}
   <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
   <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
 </nav>
+
 
 <h1>[가사 5-1] 파혼(약혼해제) — 누가, 무엇을, 얼마나 물어내야 하나</h1>
 
@@ -129,7 +151,25 @@ td a{color:var(--gold-d); word-break:break-all;}
 </ul>
 </div>
 
-<h2>지금 어떤 상황인가요?</h2>
+<div class="toc">
+<div class="tct">이 카드에 담긴 것 — 필요한 곳만 펼쳐 보십시오</div>
+<ol>
+<li><a href="#s1">지금 어떤 상황인가요?</a></li>
+<li><a href="#s2">먼저 알아두면 쉬운 6가지</a></li>
+<li><a href="#s3">실제로 해결하는 절차 — 전체 길 한눈에 보기</a></li>
+<li><a href="#s4">내 경우는 어디에 해당하나요? — 판례로 보는 기준</a></li>
+<li><a href="#s5">⏰ 기한 정리 — 놓치면 안 되는 날짜들</a></li>
+<li><a href="#s6">관련 법령 — 쉬운 풀이</a></li>
+<li><a href="#s7">내 상황에 맞는 서류 고르기</a></li>
+<li><a href="#s8">서면 작성례 — 빈칸(○○○)만 채우면 됩니다</a></li>
+<li><a href="#s9">준비할 서류와 발급처</a></li>
+<li><a href="#s10">본 사무소가 도와드리는 일</a></li>
+</ol>
+<span class="allbtn" id="allBtn" role="button" tabindex="0">전체 펼치기</span>
+</div>
+
+<h2 id="s1">지금 어떤 상황인가요?</h2>
+
 <p>결혼을 준비하다 관계가 깨졌습니다. 그리고 얼마 뒤 내용증명이 도착합니다. 이 카드를 찾으신 분은 대개 아래 두 쪽 중 한쪽에 서 계십니다.</p>
 <div class="sit-wrap">
 <div class="sit"><span class="sl">상황 ① · 청구하려는 쪽</span>상대가 일방적으로 파혼을 통보했고, 예식장 위약금과 <span class="term">스드메<span class="bub">스튜디오·드레스·메이크업. 결혼 준비 3종 패키지를 줄여 부르는 말입니다.</span></span> 취소 수수료가 고스란히 남았습니다. → <b>흐름도 0~2단계</b>를 따라 날짜와 영수증부터 정리하고, <b>작성례 ①(청구 내용증명)</b>을 보내십시오.</div>
@@ -137,7 +177,8 @@ td a{color:var(--gold-d); word-break:break-all;}
 </div>
 <p>어느 쪽이든 승패를 가르는 것은 하나입니다 — <b>"누가 먼저, 왜 깨뜨렸는가."</b></p>
 
-<h2>먼저 알아두면 쉬운 6가지</h2>
+<h2 id="s2">먼저 알아두면 쉬운 6가지</h2>
+
 <ol class="steps">
 <li><b>약혼은 강제할 수 없습니다.</b> 민법 §803은 <b>약혼의 강제이행을 청구하지 못한다</b>고 못박습니다. 즉 "결혼해 달라"고 소송할 수는 없습니다. 대신 <b>정당한 이유 없이 깨뜨린 쪽이 돈으로 책임</b>집니다(§806). 파혼 자체를 막는 소송은 없다고 보시면 됩니다.</li>
 <li><b>깨뜨릴 만한 사유가 있으면 책임이 없습니다.</b> 민법 §804는 정당한 해제사유 8가지를 정해 두었는데, 실무에서 문제 되는 것은 거의 <b>7호(정당한 이유 없이 혼인을 거절하거나 시기를 늦추는 경우)</b>와 <b>8호(그 밖에 중대한 사유)</b>입니다. 대법원은 8호를 <b>1호~7호에 준하는 중대성</b>을 요구하는 것으로 좁게 해석합니다.</li>
@@ -147,7 +188,8 @@ td a{color:var(--gold-d); word-break:break-all;}
 <li><b>★ 회신할 때 "얼마 주겠다"는 말은 조심해서 쓰십시오.</b> 금액을 특정해 지급을 약속하면 <b>채무의 승인</b>(민법 §168 3호)으로 읽히고, 나아가 <b>"잘못을 인정했다"</b>는 정황으로 인용됩니다. 반드시 <b>"화해 제안일 뿐 책임 인정이 아니며 합의 불성립 시 효력을 잃는다"</b>는 문장을 함께 넣으십시오.</li>
 </ol>
 
-<h2>실제로 해결하는 절차 — 전체 길 한눈에 보기</h2>
+<h2 id="s3">실제로 해결하는 절차 — 전체 길 한눈에 보기</h2>
+
 <div class="flow">
 <div class="fl-t">기록 확보부터 조정 종결까지 — 이 길을 그대로 따라가면 됩니다</div>
 
@@ -172,8 +214,8 @@ td a{color:var(--gold-d); word-break:break-all;}
 <div class="node"><span class="num">6</span><b>조정이 깨지면 소송으로 넘어갑니다</b> — 조정불성립이면 자동으로 소가 제기된 것으로 보아 심리가 이어집니다. 이 단계에서는 <b>0단계에서 모아 둔 기록</b>이 그대로 증거가 됩니다. 감정적 주장보다 <b>날짜표와 계산서</b>가 훨씬 힘이 셉니다.</div>
 </div>
 
-<h2>내 경우는 어디에 해당하나요? — 판례로 보는 기준</h2>
-
+<details class="sec" id="s4"><summary>내 경우는 어디에 해당하나요? — 판례로 보는 기준</summary>
+<div class="secbody">
 <div class="case">
 <span class="ct">★ 리딩케이스 ① 누가 청구하고, 누가 물어내나 — 대법원 1975. 1. 14. 선고 74므11 판결</span>
 약혼해제 손해배상의 <b>당사자 범위</b>를 정한 기준 판결입니다. 대법원은 ① 약혼을 부당히 파기한 <b>약혼 당사자뿐만 아니라, 그 부모가 부당파기에 「가담한 경우」에는 부모도 포함하여</b> 손해배상을 청구할 수 있고, ② 파기당한 사람뿐만 아니라 <b>그로 인해 당연히 정신적 고통을 받게 되는 그 부모 또한</b> 손해배상을 청구할 수 있다고 보았습니다.<br>
@@ -226,8 +268,11 @@ td a{color:var(--gold-d); word-break:break-all;}
 <span class="wt">★ 실무 감각 — 실제로 얼마나 인정되나</span>
 <b>위자료</b>는 대체로 <b>1,000만~2,000만 원 선</b>에서 정해지고 <b>2,000만 원을 넘는 경우는 드뭅니다</b>(부모 반대를 이유로 결혼을 무작정 미루다 파혼한 사안에서 500만 원이 인정된 예도 있습니다). <b>재산상 손해</b>로는 상견례 비용, 웨딩촬영비, 예식장 예약금·위약금 등 <b>결혼식 준비를 위해 실제로 지출된 비용</b>이 인정됩니다. 반면 <b>신부 마사지 비용, 아버지의 가발 비용, 가족들이 결혼식에 입으려고 산 옷값, 함값</b> 등은 배상 범위에서 <b>제외</b>된 예가 있습니다. <span style="font-size:12.5px;color:#9c3a22">[하급심 실무례 · 개별 사건에 따라 달라집니다]</span>
 </div>
+</div>
+</details>
 
-<h2>⏰ 기한 정리 — 놓치면 안 되는 날짜들</h2>
+<details class="sec" id="s5"><summary>⏰ 기한 정리 — 놓치면 안 되는 날짜들</summary>
+<div class="secbody">
 <table>
 <tr><th>구분</th><th>① 언제부터 (기산일)</th><th>② 근거</th><th>③ 말일이 휴일이면</th><th>④ 최종 만료일</th></tr>
 <tr><td><b>내용증명이 정한 회신기한</b></td><td>내용증명이 <b>도달한 날의 다음 날</b>부터(초일 불산입)</td><td>법정기간이 아님 / 민법 §157</td><td>민법 §161 준용</td><td>도달일 + 상대가 정한 일수(보통 7~14일). <b>넘겨도 권리는 살아 있으나, 침묵은 「다툼 없음」으로 읽힙니다.</b></td></tr>
@@ -238,8 +283,11 @@ td a{color:var(--gold-d); word-break:break-all;}
 <div class="tip"><span class="pt">💡 무엇보다 급한 것은 시효가 아니라 「기록」입니다</span>
 파혼 사건의 소멸시효는 비교적 넉넉합니다. 정작 놓치면 회복이 안 되는 것은 <b>통신사 통화상세내역</b>입니다. 보관·제공 기간이 지나면 <b>어떤 방법으로도 복원되지 않습니다.</b> "그날 누가 먼저 전화했는가"가 쟁점이 될 사건이라면, <b>다른 무엇보다 이것부터 신청</b>하십시오. <span style="font-size:12.5px">[통신사별 제공 기간이 다릅니다 — 가입 통신사에 확인 필요]</span>
 </div>
+</div>
+</details>
 
-<h2>관련 법령 — 쉬운 풀이</h2>
+<details class="sec" id="s6"><summary>관련 법령 — 쉬운 풀이</summary>
+<div class="secbody">
 <div class="lawbox"><span class="ll">민법 §800·§801</span><b>약혼은 약속만으로 성립합니다</b> — 성년은 자유롭게 약혼할 수 있고, 18세가 된 사람은 부모나 미성년후견인의 동의를 받아 약혼할 수 있습니다. <b>약혼식을 올리거나 예물을 주고받지 않아도, 결혼하기로 합의하면 그것으로 약혼</b>입니다. 그래서 "우리가 약혼한 사이였느냐"부터 다투는 일은 실무에서 드뭅니다.</div>
 <div class="lawbox"><span class="ll">민법 §803</span><b>결혼을 강제할 수는 없습니다</b> — 약혼은 강제이행을 청구하지 못합니다. 마음이 떠난 사람에게 결혼하라고 명할 법은 없고, 남는 것은 <b>돈으로 하는 책임</b>뿐입니다.</div>
 <div class="lawbox"><span class="ll">민법 §804</span><b>깨뜨려도 되는 8가지</b> — ① 약혼 후 자격정지 이상의 형 선고, ② 성년후견·한정후견 개시 심판, ③ 성병·불치의 정신병 등, ④ 약혼 후 다른 사람과 약혼·혼인, ⑤ 약혼 후 다른 사람과 간음, ⑥ 1년 이상 생사 불명, ⑦ <b>정당한 이유 없이 혼인을 거절하거나 그 시기를 늦추는 경우</b>, ⑧ <b>그 밖에 중대한 사유</b>. 실무에서 다투는 것은 거의 <b>7호와 8호</b>입니다.</div>
@@ -248,8 +296,11 @@ td a{color:var(--gold-d); word-break:break-all;}
 <div class="lawbox"><span class="ll">민법 §741</span><b>돌려주어야 할 돈</b> — 법률상 원인 없이 타인의 재산으로 이익을 얻고 그로 인해 손해를 가한 사람은 <b>그 이익을 반환</b>해야 합니다. 혼인을 전제로 건넨 돈·예물의 회수는 이 조문과 <b>형평의 원칙</b>(대법원 2000므1257)에 기댑니다.</div>
 <div class="lawbox"><span class="ll">가사소송법 §2①1다1)·§13·§50</span><b>어디에 내나</b> — 약혼 해제(및 사실혼 부당파기)를 원인으로 하는 손해배상청구는 <b>제3자에 대한 청구를 포함하여</b> 다류 가사소송사건으로서 <b>가정법원 전속관할</b>이고, <b>소를 내기 전에 먼저 조정을 신청</b>해야 합니다. 일반 민사법원에 냈다가 관할위반으로 이송되는 일이 실제로 있습니다.</div>
 <div class="lawbox"><span class="ll">민법 §168 3호</span><b>말 한마디가 채무 승인이 됩니다</b> — <b>승인</b>은 소멸시효를 중단시킵니다. 회신에서 "얼마를 주겠다"고 특정해 버리면 <b>그 부분은 인정한 것</b>으로 읽힐 수 있습니다. 정산 제안을 할 때는 반드시 <b>화해 목적임과 합의 불성립 시 효력 상실</b>을 함께 적으십시오.</div>
+</div>
+</details>
 
-<h2>내 상황에 맞는 서류 고르기</h2>
+<details class="sec" id="s7"><summary>내 상황에 맞는 서류 고르기</summary>
+<div class="secbody">
 <table>
 <tr><th>나의 상황</th><th>내야 할 서류</th><th>작성례</th></tr>
 <tr><td>상대가 일방적으로 파혼했다 — <b>비용을 받아내겠다</b></td><td><b>손해배상 청구 내용증명</b> (우체국)</td><td>작성례 ①</td></tr>
@@ -259,8 +310,11 @@ td a{color:var(--gold-d); word-break:break-all;}
 <tr><td>합의가 됐다 — <b>다시는 다투지 않게 못 박겠다</b></td><td><b>합의서</b> (부제소 합의 포함)</td><td>작성례 ⑤</td></tr>
 </table>
 <div class="tip"><span class="pt">💡 상대가 변호사를 선임했다면</span> 내용증명은 <b>상대방 본인 앞으로 한 통, 변호사 앞으로 한 통</b>을 <b>같은 날</b> 보내십시오. 본문은 <b>글자 하나 바꾸지 말고</b> 수신인·참조란만 서로 맞바꿉니다. 변호사에게만 보내면 나중에 <b>"수령 권한이 없었다"</b>며 도달 자체가 다투어질 수 있고, 두 통의 내용이 다르면 <b>"말이 바뀐다"</b>는 공격을 받습니다.</div>
+</div>
+</details>
 
-<h2>서면 작성례 — 빈칸(○○○)만 채우면 됩니다</h2>
+<details class="sec" id="s8"><summary>서면 작성례 — 빈칸(○○○)만 채우면 됩니다</summary>
+<div class="secbody">
 <p style="font-size:13.5px;color:var(--muted)">아래 작성례의 빈칸(○○○)을 본인 상황에 맞게 채우면 그대로 사용할 수 있습니다. 법원 제출 서면은 대법원·법률구조공단 공개 서식을 기준으로 하였습니다. <b>복사·인쇄·다운로드</b> 버튼을 활용하십시오.</p>
 
 <div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ① · 청구하는 분</span>약혼 부당파기 손해배상 청구 내용증명<span class="chev">&#9662;</span></button><div class="fold-body">
@@ -619,8 +673,11 @@ td a{color:var(--gold-d); word-break:break-all;}
 <div class="howto"><b>제3조가 이 합의서의 심장입니다.</b> <b>"상대방의 부모·가족에 대하여도"</b>라는 문구를 반드시 넣으십시오. 이 문구가 없으면 <b>당사자끼리는 합의했는데 부모를 상대로 다시 소를 내는</b> 일이 실제로 벌어집니다.<br><br>
 <b>돈을 먼저 주지 마십시오.</b> 합의서에 <b>서명·날인을 받은 뒤</b> 지급하는 것이 원칙입니다. 물품 반환은 <b>등기·택배 송장을 보관</b>하고 내용물 사진을 남기십시오. 금액이 크거나 상대를 믿기 어렵다면 <b><span class="term">공증<span class="bub">공증인이 문서의 내용을 확인해 주는 절차. 「강제집행 인낙」 문구를 넣으면 재판 없이 바로 강제집행을 할 수 있습니다.</span></span></b>을 받아 두는 것도 방법입니다.</div>
 </div></div>
+</div>
+</details>
 
-<h2>준비할 서류와 발급처</h2>
+<details class="sec" id="s9"><summary>준비할 서류와 발급처</summary>
+<div class="secbody">
 <p style="font-size:13.5px;color:var(--muted)">아래 '바로가기'를 클릭하면 발급·조회 화면으로 이동합니다. 만약 첫 화면으로 연결되면, 옆의 <b>찾아가기 경로</b>를 따라 메뉴를 클릭하면 됩니다.</p>
 <table>
 <tr><th>무엇을</th><th>서류</th><th>어디서 · 찾아가기 경로</th></tr>
@@ -644,8 +701,11 @@ td a{color:var(--gold-d); word-break:break-all;}
 <b>④ 감정료</b>: 파혼 사건에서는 부동산 감정이 필요한 경우가 드물어, 유류분·상속 사건과 달리 <b>추가 비용이 크지 않은 편</b>입니다.
 <div style="margin-top:11px; padding-top:10px; border-top:1px dashed #cfe6d6; color:#c0392b; font-weight:600; line-height:1.8;">※ 사건 정보를 입력하면 인지대·송달료를 포함한 예상 금액을 <a href="https://sanlaw.co.kr/tools-calculator.html" style="color:#c0392b; text-decoration:underline; font-weight:700;">🧮 수수료 계산기</a>에서 미리 확인할 수 있습니다.</div>
 </div>
+</div>
+</details>
 
-<h2>본 사무소가 도와드리는 일</h2>
+<h2 id="s10">본 사무소가 도와드리는 일</h2>
+
 <div class="hire">
 <p>파혼은 겪은 사람만 아는 무게가 있습니다. 본 사무소에서는 의뢰인의 고충은 덜어드리고, 함께 절차를 진행하여 원하는 결과에 도달할 수 있도록 성심을 다하겠습니다.</p>
 <p style="margin-top:12px"><b>· 청구하시는 분의 경우</b><br>① 날짜와 영수증을 토대로 한 <b>귀책사유 정리와 배상 범위 산정</b>, ② 당일 발송이 가능한 <b>청구 내용증명 작성</b>, ③ <b>조정신청서 작성</b>과 전자소송 제출 지원, ④ 조정 단계의 <b>협상 전략과 합의서 작성</b>까지 함께합니다.</p>
@@ -666,7 +726,6 @@ td a{color:var(--gold-d); word-break:break-all;}
 </div>
 
 <script>
-
 (function(){
   var terms=document.querySelectorAll('.term');
   terms.forEach(function(t){
@@ -675,15 +734,38 @@ td a{color:var(--gold-d); word-break:break-all;}
   });
   document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
 })();
+
+(function(){
+  document.querySelectorAll('.toc a').forEach(function(a){
+    a.addEventListener('click',function(){
+      var el=document.querySelector(a.getAttribute('href'));
+      if(el&&el.tagName==='DETAILS')el.open=true;
+    });
+  });
+  var btn=document.getElementById('allBtn');
+  if(!btn)return;
+  function toggleAll(){
+    var opening=btn.textContent.indexOf('펼치기')>-1;
+    document.querySelectorAll('details.sec').forEach(function(d){d.open=opening;});
+    document.querySelectorAll('.formbox').forEach(function(fb){
+      fb.classList.toggle('open',opening);
+      var body=fb.querySelector('.fold-body');
+      if(body)body.style.display=opening?'block':'none';
+    });
+    btn.textContent=opening?'전체 접기':'전체 펼치기';
+  }
+  btn.addEventListener('click',toggleAll);
+  btn.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleAll();}});
+})();
+(function(){
+})();
 function toggleFold(b){var fb=b.parentElement;var body=b.nextElementSibling;var open=fb.classList.toggle('open');if(body){body.style.display=open?'block':'none';}}
 function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
 function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
 function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('작성례가 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
 function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('작성례가 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
 function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
-function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['﻿'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('작성례를 내려받았습니다');}
-
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('작성례를 내려받았습니다');}
 </script>
-
 </body>
 </html>
