@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[보전 B-6] 부당하게 해고당해 당장 생계가 막막합니다 — 임금지급·근로자지위보전 가처분 | 산 법무사 김재섭</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(280px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.case{background:var(--box); border-radius:10px; padding:14px 16px; margin:14px 0; border-left:4px solid #b9a98c;}
+.case .ct{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+.sit-wrap{display:flex; gap:12px; margin:14px 0;}
+.sit{flex:1; background:#f8f5ee; border:1px solid var(--line); border-top:3px solid var(--gold); border-radius:10px; padding:13px 15px; font-size:14.5px; line-height:1.75;}
+.sit .sl{display:block; font-weight:700; color:var(--gold-d); margin-bottom:6px; font-size:14px;}
+@media (max-width:680px){ .sit-wrap{flex-direction:column;} }
+/* 전체 길 흐름도 */
+.flow{background:linear-gradient(180deg,#faf7f0,#f6f1e6); border:1px solid var(--line); border-radius:14px; padding:22px 20px; margin:16px 0;}
+.flow .fl-t{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:18px; text-align:center; letter-spacing:.3px;}
+.flow .node{position:relative; background:#fff; border:1px solid #e3d8c4; border-radius:11px; padding:15px 18px 15px 56px; font-size:14.5px; line-height:1.72; box-shadow:0 2px 6px rgba(122,82,48,.07);}
+.flow .node .num{position:absolute; left:15px; top:14px; width:30px; height:30px; line-height:30px; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; border-radius:50%; font-weight:800; font-size:15px; font-family:'Nanum Myeongjo',serif; box-shadow:0 2px 5px rgba(122,82,48,.3);}
+.flow .node b{color:#241a10;}
+.flow .down{display:flex; justify-content:center; align-items:center; padding:7px 0;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+/* 작성례 박스 */
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+details.sec{border:1px solid var(--line); border-radius:11px; margin:18px 0; background:#fff; overflow:hidden;}
+details.sec>summary{cursor:pointer; list-style:none; padding:14px 17px 14px 15px; background:var(--box); border-left:4px solid var(--gold); font-family:'Nanum Myeongjo',serif; font-size:18px; font-weight:700; color:var(--gold-d); line-height:1.55;}
+details.sec>summary::-webkit-details-marker{display:none;}
+details.sec>summary .sub{display:block; font-family:'Pretendard',sans-serif; font-size:13.5px; font-weight:400; color:var(--muted); margin-top:3px;}
+details.sec>summary::after{content:"펼치기 ▾"; float:right; font-family:'Pretendard',sans-serif; font-size:12.5px; font-weight:700; color:var(--gold); background:#fff; border:1px solid var(--line); border-radius:20px; padding:2px 10px; margin-left:8px;}
+details.sec[open]>summary::after{content:"접기 ▴";}
+details.sec>summary:hover{background:#f2ede3;}
+.secbody{padding:4px 17px 16px;}
+.secbody>h3:first-of-type{margin-top:14px;}
+.toc{background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 17px; margin:8px 0 22px;}
+.toc .tct{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:9px;}
+.toc ol{margin:0; padding-left:20px;}
+.toc li{margin:5px 0; font-size:14.5px;}
+.toc a{text-decoration:none; border-bottom:1px dotted var(--gold);}
+.allbtn{display:inline-block; margin-top:11px; font-size:13.5px; font-weight:700; color:var(--gold-d); background:var(--box); border:1px solid var(--line); border-radius:8px; padding:7px 14px; cursor:pointer;}
+.allbtn:hover{background:#f2ede3;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:15px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .tag{margin-bottom:0;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;}
+.tag.cred{background:#5a9a72;}
+.tag.debt{background:#d9694a;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:18px;margin:12px 0;font-family:'D2Coding','Courier New',monospace;font-size:13px;line-height:1.6;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:16px;letter-spacing:2px;margin-bottom:12px;color:#241a10;}
+.howto{font-size:14px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0 4px;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:13px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:7px 13px;cursor:pointer;transition:.15s;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.75;}
+.lawbox .ll{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold-d);border-radius:5px;padding:2px 9px;margin-right:7px;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.hire p{margin:7px 0; font-size:15px; line-height:1.8;}
+.cta{display:block;text-align:center;background:var(--gold-d);color:#fff;font-weight:700;font-size:17px;text-decoration:none;padding:15px;border-radius:11px;margin:18px 0;font-family:'Nanum Myeongjo',serif;letter-spacing:1px;}
+.cta:hover{background:#5e3f24;}
+@media print{
+  .backbar{display:none !important;}
+  body{background:#fff; max-width:100%;}
+  .tldr,.case,.warn,.tip,.cost,.steps li,.tnote,.sit,.flow,.flow li,.lawbox,.hire{background:#fff !important; border-color:#ccc !important;}
+  .tnote{display:none;}
+  .term{border:none; color:inherit; font-weight:inherit;}
+  .term>.bub{display:inline !important; position:static; width:auto; background:none; color:inherit; box-shadow:none; padding:0; font-size:inherit; line-height:inherit;}
+  .term>.bub::before{content:" ("; }
+  .term>.bub::after{content:")"; border:none; position:static;}
+  .fold-body{display:block !important;}.fold-btn .chev{display:none;}.form-tools{display:none;}
+  details.sec:not([open])>*{display:block !important;}
+  details.sec>summary::after{display:none;} .allbtn,.toc{display:none !important;}
+  .cta{background:#fff !important; color:#241a10 !important; border:1px solid #ccc;}
+}
+.cl{color:var(--gold-d);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--gold-d);}
+.cl:hover{background:#fbf5e8;}
+.tip .cl,.tip .cl b{color:var(--tip-ink);}
+.tip .cl{border-bottom-color:var(--tip-ink);}
+.warn .cl,.warn .cl b{color:var(--warn-ink);}
+.warn .cl{border-bottom-color:var(--warn-ink);}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+
+<h1>[보전 B-6] 부당하게 해고당해 당장 생계가 막막합니다 — 임금지급·근로자지위보전 가처분</h1>
+
+<div class="tnote">어려운 법률용어에는 <b>점선 밑줄</b>이 그어져 있습니다. <b>PC는 마우스를 올리면</b>, <b>휴대폰은 손가락으로 톡 터치하면</b> 쉬운 설명이 뜹니다. (인쇄하면 괄호로 함께 나옵니다.)</div>
+
+<div class="hire">
+<div class="ht">이 매뉴얼을 끝까지 읽으시는 분께</div>
+<p>이 매뉴얼은 <b>의뢰인이 직접 법원에 신청할 수 있도록 모든 서류 양식·비용·요건을 구체적으로 담았습니다.</b> 하지만 소송은 살아있는 생물과 같아 상대방의 격렬한 저항이 뒤따릅니다. 혼자 진행하시다가 막히는 부분이 생기거나 방어막이 필요할 때, 언제든 이 매뉴얼을 들고 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</p>
+</div>
+
+<div class="tldr">
+<div class="tt">⭐ 30초 결론부터</div>
+<ul>
+<li><b>임금지급가처분은 해고의 정당성을 다투는 재판이 끝날 때까지, 회사가 매달 임금을 계속 지급하도록 명하는 절차입니다.</b> 해고무효 소송은 몇 년이 걸릴 수 있는데 그동안 수입이 끊기면 소송 자체를 버틸 수 없으므로, <b>판결 전에 미리 생계를 잇게</b> 해 주는 <span class="term">임시의 지위를 정하기 위한 가처분<span class="bub">민사집행법 §300②. 다툼 있는 권리관계에서 '현저한 손해나 급박한 위험'을 피하기 위해 잠정적으로 법률관계를 정하는 가처분. 원칙적으로 심문기일을 열어 쌍방을 심리합니다.</span></span>입니다(민사집행법 §300②). 함께 <b>근로자 지위를 임시로 인정</b>해 달라는 신청(근로자지위보전)을 하기도 합니다.</li>
+<li><b>가장 먼저 할 일은 법원이 아니라 노동위원회입니다 — 기한이 3개월로 매우 짧습니다.</b> 부당해고 구제신청은 <b>해고가 있었던 날부터 3개월 이내</b>에 지방노동위원회에 해야 합니다(근로기준법 §28②). <b>비용이 들지 않고 절차도 빠르며</b>, 구제명령이 나오면 복직과 해고기간 임금 상당액을 받을 수 있습니다. 이 기한을 놓치면 그 길이 막히므로 <b>무엇보다 먼저</b> 확인하십시오.</li>
+<li><b>가처분의 문턱은 높습니다 — '돈으로 나중에 갚으면 되는 손해'는 원칙적으로 안 됩니다.</b> 대법원은 임시지위 가처분의 보전 필요성을 <b>당사자 쌍방의 이해득실, 본안의 승패 예상 등을 고려해 법원 재량으로 판단</b>하며, <b>금전적 손해배상으로 전보될 수 있는 손해라면 보전의 필요성이 인정되지 않는다</b>고 하였습니다(대법원 2021마6668). 그래서 이 가처분은 <b>"당장 생계가 무너진다"는 점을 구체적으로 소명</b>해야 인용됩니다.</li>
+<li><b>이겨서 받는 돈에서 '중간에 번 돈'이 빠질 수 있지만, 전부는 아닙니다.</b> 해고기간 중 다른 곳에서 번 돈(중간수입)은 공제될 수 있으나, <b>평균임금의 70%인 휴업수당 한도까지는 공제하지 못하고, 그 초과분에서만</b> 공제합니다(대법원 90다카25277, 2021다279903). 즉 <b>다른 일을 했다고 해서 임금을 전부 못 받는 것이 아닙니다.</b></li>
+</ul>
+</div>
+
+<div class="toc">
+<div class="tct">이 카드에 담긴 것 — 필요한 곳만 펼쳐 보십시오</div>
+<ol>
+<li><a href="#s1">지금 어떤 상황인가요?</a></li>
+<li><a href="#s2">생계를 지키며 다투기까지 — 전체 길 한눈에 보기</a></li>
+<li><a href="#s3">핵심 세 가지</a></li>
+<li><a href="#s4">관련 법령 — 쉬운 풀이</a></li>
+<li><a href="#s5">판례로 보기 — 양쪽 모두 알아야 할 것</a></li>
+<li><a href="#s6">신청인(근로자) — 노동위원회부터 가처분·본안까지 상세 절차</a></li>
+<li><a href="#s7">상대방(회사) — 가처분을 당하였다면 방어 절차</a></li>
+<li><a href="#s8">서류 작성례 — 빈칸만 채우면 됩니다</a></li>
+<li><a href="#s9">고충은 덜어드리고, 결과로 보답하겠습니다</a></li>
+<li><a href="#s10">준비할 서류와 발급처 — 어디서 떼나</a></li>
+</ol>
+<span class="allbtn" id="allBtn" role="button" tabindex="0">전체 펼치기</span>
+</div>
+
+<h2 id="s1">지금 어떤 상황인가요?</h2>
+<div class="sit-wrap">
+<div class="sit"><span class="sl">상황 ① · 해고당한 근로자 (채권자·신청인)</span><b>정당한 이유 없이 해고되었거나, 서면으로 해고 통지도 받지 못한 채 나가라는 말을 들은</b> 경우. 소송이 끝날 때까지 <b>몇 달~몇 년을 무수입으로 버틸 수 없는</b> 상황. → 노동위원회 구제신청(3개월 내)을 먼저 하고, 함께 임금지급가처분으로 생계를 잇습니다. <b>아래 작성례 ①·②·③</b>이 근로자의 서류입니다.</div>
+<div class="sit"><span class="sl">상황 ② · 임금지급가처분을 당한 회사 (채무자·상대방)</span><b>정당한 징계사유가 있어 적법하게 해고했는데 임금지급가처분이 들어온</b> 경우. 절차와 사유를 갖췄고 근로자에게 급박한 생계 곤란이 없다면 다툴 수 있습니다. → 이의신청으로 다투고, 본안에서 해고의 정당성을 밝힙니다. <b>아래 작성례 ④·⑤</b>가 회사의 서류입니다.</div>
+</div>
+
+<h2 id="s2">생계를 지키며 다투기까지 — 전체 길 한눈에 보기</h2>
+<div class="flow">
+<div class="fl-t">근로자가 가야 할 4단계 (증거 → 노동위원회 → 가처분 → 본안)</div>
+<div class="node"><span class="num">1</span><b>증거부터 확보하십시오</b> — <b>해고통지서(서면)</b>, 근로계약서, 급여명세서·통장 입금내역, 4대보험 상실신고 자료, 카카오톡·문자 등 해고를 알린 기록을 모읍니다. 회사가 <b>서면으로 해고사유와 시기를 통지하지 않았다면 그 자체로 해고가 무효</b>가 될 수 있으므로(근로기준법 §27), 통지 방식도 반드시 확인하십시오.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">2</span><b>지방노동위원회 부당해고 구제신청 (해고일부터 3개월 내·무료)</b> — 상시 <b>5명 이상</b> 사업장이라면 노동위원회에 구제신청을 할 수 있습니다(근로기준법 §28). <b>비용이 들지 않고 법원보다 빠르며</b>, 구제명령이 나면 원직복직과 해고기간 임금 상당액 지급을 명합니다. <b>이 3개월 기한이 가장 급합니다.</b></div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">3</span><b>임금지급·근로자지위보전 가처분</b> — 그래도 생계가 막막하면 법원에 가처분을 냅니다. <b>심문기일</b>이 열려 회사의 반론을 듣고(민집 §304), <span class="term">담보제공명령<span class="bub">잘못된 가처분으로 상대가 입을 손해에 대비해 법원이 신청인에게 일정액을 맡기라고 명하는 것. 사안에 따라 담보 없이 발령되기도 합니다.</span></span>을 거쳐 결정이 납니다. 통상 <b>본안 판결 선고 시까지 매월 일정액</b>을 지급하라는 형태로 나옵니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">4</span><b>본안 — 해고무효확인 및 임금청구의 소</b> — 해고가 무효임을 확정받고 <b>해고기간 전체의 임금</b>을 청구합니다(작성례 ③). 회사가 임금지급 결정을 이행하지 않으면 그 결정문으로 <b>회사 예금·거래처 채권을 압류</b>해 받아낼 수 있습니다.</div>
+</div>
+<p style="font-size:13.5px;color:var(--muted)">※ 노동위원회 구제신청과 법원 소송은 <b>동시에 진행할 수 있습니다.</b> 노동위 절차가 빠르고 무료이므로 먼저 활용하되, 생계가 급하면 가처분을 병행하는 것이 실무적인 선택입니다.</p>
+
+<h2 id="s3">핵심 세 가지</h2>
+<ol class="steps">
+<li><b>3개월 — 이 숫자만은 기억하십시오.</b> 부당해고 구제신청은 <b>해고가 있었던 날부터 3개월</b>이 지나면 할 수 없습니다(근로기준법 §28②). 무료이고 빠른 이 길이 막히면 법원 소송만 남아 시간과 비용이 크게 늘어납니다. 해고 통보를 받은 <b>그날 날짜를 적어 두고</b> 곧바로 준비하십시오.</li>
+<li><b>"돈으로 나중에 받으면 된다"는 손해로는 인용되지 않습니다.</b> 대법원은 금전배상으로 전보될 수 있는 손해라면 임시지위 가처분의 보전 필요성이 인정되지 않는다고 하였습니다(2021마6668). 따라서 신청서에는 <b>가족 구성·부양 상황, 월 고정지출(월세·대출·교육비·치료비), 예금 잔액, 다른 소득이 없다는 사정</b>을 <b>숫자와 자료로</b> 적어야 합니다. 이것이 이 가처분의 승패를 가릅니다.</li>
+<li><b>다른 일을 하며 버텨도 임금 전부를 잃지 않습니다.</b> 해고기간 중 번 돈(중간수입)은 공제될 수 있지만, <b>평균임금의 70%(휴업수당) 한도까지는 공제할 수 없고 그 초과분에서만</b> 공제합니다(90다카25277, 2021다279903). 예컨대 원래 월급 100만원, 휴업수당 70만원인데 다른 곳에서 80만원을 벌었다면 <b>공제는 최대 30만원</b>이고 회사는 70만원을 지급해야 합니다. 생계를 위해 다른 일을 하는 것을 지나치게 망설이지 마십시오.</li>
+</ol>
+
+<details class="sec" id="s4"><summary>관련 법령 — 쉬운 풀이<span class="sub">근로기준법·민사집행법·민법 조문을 한눈에</span></summary>
+<div class="secbody">
+<div class="lawbox"><span class="ll">근기 §23①</span><b>부당해고 등의 금지</b> — 사용자는 근로자에게 <b>정당한 이유 없이</b> 해고, 휴직, 정직, 전직, 감봉, 그 밖의 징벌을 하지 못합니다. '정당한 이유'가 없으면 해고는 무효입니다.</div>
+<div class="lawbox"><span class="ll">근기 §27</span><b>해고사유 등의 서면통지</b> — 사용자는 해고하려면 <b>해고사유와 해고시기를 서면으로 통지</b>해야 하고, <b>서면으로 통지하여야 효력이 있습니다.</b> 구두·문자로만 해고했다면 그 자체로 무효를 다툴 수 있는 강력한 사유입니다.</div>
+<div class="lawbox"><span class="ll">근기 §28</span><b>부당해고 구제신청</b> — 부당해고를 당한 근로자는 <b>노동위원회에 구제를 신청</b>할 수 있고, 그 신청은 <b>부당해고가 있었던 날부터 3개월 이내</b>에 하여야 합니다. 비용이 들지 않는 가장 빠른 길입니다.</div>
+<div class="lawbox"><span class="ll">근기 §46①</span><b>휴업수당</b> — 사용자의 귀책사유로 휴업하는 경우 <b>평균임금의 100분의 70 이상</b>의 수당을 지급해야 합니다. 해고기간 임금에서 중간수입을 공제할 때 <b>이 70%가 '깎을 수 없는 바닥'</b>이 됩니다.</div>
+<div class="lawbox"><span class="ll">근기 §49</span><b>임금채권의 시효</b> — 임금채권은 <b>3년간</b> 행사하지 않으면 시효로 소멸합니다. 매달 임금은 각 지급일부터 따로 진행하므로, 오래 방치하면 <b>앞쪽 달치부터 차례로 사라집니다.</b></div>
+<div class="lawbox"><span class="ll">민법 §538①②</span><b>채권자 귀책사유와 이익의 상환</b> — 채권자(사용자)의 책임 있는 사유로 일을 못 하게 된 경우 근로자는 <b>임금을 청구할 수 있고</b>(①), 다만 근로 제공을 면함으로써 얻은 이익(중간수입)은 <b>상환</b>해야 합니다(②). 중간수입 공제의 법적 근거입니다.</div>
+<div class="lawbox"><span class="ll">민집 §300②·§304</span><b>임시지위 가처분과 심리</b> — 다툼 있는 권리관계에 현저한 손해·급박한 위험을 피하기 위한 가처분이며, <b>원칙적으로 변론기일 또는 심문기일을 열어</b> 쌍방을 심리합니다.</div>
+</div></details>
+
+<details class="sec" id="s5"><summary>판례로 보기 — 양쪽 모두 알아야 할 것<span class="sub">대법원 확인 판례</span></summary>
+<div class="secbody">
+<div class="case">
+<span class="ct">○ (문턱) 금전배상으로 전보될 수 있는 손해면 보전의 필요성이 인정되지 않는다 (대법원 2022. 2. 8.자 2021마6668 결정)</span>
+임시의 지위를 정하기 위한 가처분은 다툼 있는 권리관계가 본안소송으로 확정되기까지 <b>현재의 현저한 손해를 피하거나 급박한 위험을 막기 위하여</b> 허용되는 <b>응급적·잠정적 처분</b>입니다. 따라서 이러한 가처분이 필요한지는 <b>인용 여부에 따른 당사자 쌍방의 이해득실관계, 본안소송의 승패 예상, 그 밖의 여러 사정을 고려하여 법원의 재량으로 합목적적으로</b> 결정합니다. 그리고 <b>채권자가 입은 손해가 금전적 손해배상의 방법으로 전보될 수 있는 경우에는 보전의 필요성이 인정되지 않습니다.</b> → 임금지급가처분에서 <b>"지금 당장 생계가 무너진다"는 급박성을 소명하는 것이 결정적</b>인 이유입니다.
+</div>
+<div class="case">
+<span class="ct">○ 중간수입은 '휴업수당 70%'를 넘는 부분에서만 공제한다 (대법원 1991. 6. 28. 선고 90다카25277 판결, 대법원 2022. 8. 19. 선고 2021다279903 판결)</span>
+사용자의 귀책사유로 해고된 근로자가 해고기간에 다른 직장에서 얻은 수입(중간수입)은 민법 §538②의 <b>'채무를 면함으로써 얻은 이익'</b>에 해당하여 공제될 수 있습니다. 그러나 근로기준법의 휴업수당 규정은 <b>근로자의 최저생활을 보장하려는 취지</b>이고, 여기서 '휴업'에는 근로자가 일할 의사가 있는데도 취업이 거부된 경우가 포함되므로, <b>근로자가 지급받을 임금액 중 휴업수당(평균임금의 70%) 한도에서는 중간수입을 공제할 수 없고, 그 휴업수당을 초과하는 금액에서만 공제</b>해야 합니다. 또한 공제하려면 <b>중간수입이 발생한 기간과 임금 지급 대상기간이 시기적으로 대응</b>해야 하고, 다른 기간에 얻은 이익을 공제해서는 안 됩니다. 2021다279903 판결은 이를 재확인하면서, <b>사용자가 소송에서 원천징수세액·사회보험료를 미리 공제하겠다는 항변은 할 수 없다</b>고도 하였습니다.
+</div>
+</div></details>
+
+<details class="sec" id="s6"><summary>신청인(근로자) — 노동위원회부터 가처분·본안까지 상세 절차<span class="sub">구제신청·관할·인지대·송달료·담보·소명 포인트</span></summary>
+<div class="secbody">
+<h3>1) 가장 먼저 — 노동위원회 구제신청(무료)</h3>
+<p>상시 <b>5명 이상</b> 근로자를 사용하는 사업장이라면, <b>해고가 있었던 날부터 3개월 이내</b>에 사업장 관할 <b>지방노동위원회</b>에 부당해고 구제신청을 할 수 있습니다(근로기준법 §28). <b>비용이 들지 않고</b> 통상 법원보다 빠르며, 구제명령이 나오면 <b>원직복직과 해고기간 임금 상당액</b> 지급을 명합니다. 결과에 불복하면 중앙노동위원회 재심 → 행정소송으로 이어집니다.</p>
+<h3>2) 어디에 내나 — 관할</h3>
+<p>가처분은 <b>본안의 관할법원</b>에 냅니다(민집 §303). 임금·해고무효 사건의 본안은 통상 <b>회사(사용자)의 주소지 또는 근무지 관할 지방법원</b>이므로 그 법원에 신청합니다.</p>
+<h3>3) 인지대·송달료</h3>
+<p>임시지위 가처분이므로 인지액은 <b>본안 인지액의 2분의 1(상한 50만원)</b>입니다. <span class="term">전자소송<span class="bub">인터넷으로 서류를 내고 진행하는 방식. 인지액이 10% 깎이고 편리합니다.</span></span>이면 통상 10% 줄어듭니다. 송달료는 <b>당사자 수 × 8회분</b>입니다. 비용 부담이 어려우면 <b>소송구조</b>(민사소송법 §128)를 함께 신청할 수 있습니다.</p>
+<h3>4) 담보(공탁)</h3>
+<p>담보제공명령이 내려질 수 있으나(민집 §301·§280), 생계형 임금지급가처분은 사안에 따라 <b>담보를 낮게 정하거나 담보 없이</b> 발령되기도 합니다. 어려운 사정은 신청서에 함께 적어 밝히십시오.</p>
+<h3>5) 심리 — 무엇을 소명해야 하나</h3>
+<p>심문기일에서 두 가지를 다툽니다. ① <b>해고가 무효일 가능성</b> — 서면통지 여부(근기 §27), 징계사유·절차의 정당성, 취업규칙 준수 여부. ② <b>급박한 생계 곤란</b> — 가족 부양 상황, 월 고정지출, 예금 잔액, 다른 소득 유무. 대법원이 <b>금전배상으로 전보 가능하면 필요성이 없다</b>고 본 만큼(2021마6668), <b>②를 숫자와 자료로 보여주는 것</b>이 관건입니다.</p>
+<h3>6) 결정 후 — 회사가 안 주면</h3>
+<p>임금지급 결정은 <b>금전의 지급을 명하는 것</b>이므로, 회사가 이행하지 않으면 그 결정을 집행권원으로 삼아 <b>회사 예금·거래처 채권 등을 압류·추심</b>할 수 있습니다. 이때는 <a class="cl" href="A-1_예금채권가압류.html"><b>예금채권 관련 절차(A-1)</b></a>의 방식을 참고하십시오.</p>
+
+<h3>7) 놓치면 안 되는 기한 — 데드라인</h3>
+<table>
+<tr><th>구분</th><th>① 기산일</th><th>② 계산근거</th><th>③ 말일처리</th><th>④ 최종 기한</th></tr>
+<tr><td><b>부당해고 구제신청</b>(노동위원회)</td><td>부당해고가 <b>있었던 날</b>(해고의 효력이 발생한 날)</td><td>근로기준법 §28②</td><td>말일이 공휴일이면 다음 날 만료(민법 §161)</td><td>해고일부터 <b>3개월</b> — <b>가장 짧고 가장 치명적인 기한</b></td></tr>
+<tr><td>임금채권의 소멸시효</td><td>각 임금의 <b>지급일</b>(권리를 행사할 수 있었던 날)</td><td>근로기준법 §49, 민법 §166①</td><td>민법 §161</td><td>각 지급일부터 <b>3년</b>. 매달치가 <b>따로</b> 진행되므로 오래 방치하면 앞쪽 달부터 소멸</td></tr>
+<tr><td>퇴직금 청구권</td><td>퇴직한 날</td><td>근로자퇴직급여 보장법 §10</td><td>민법 §161</td><td>퇴직일부터 <b>3년</b></td></tr>
+<tr><td>가처분 후 본안 미제기 시 취소</td><td>가처분 결정·집행일</td><td>민집 §301·§288①3호</td><td>민법 §161</td><td><b>3년</b> 안에 본안 미제기 시 회사가 취소를 구할 수 있음</td></tr>
+</table>
+<div class="tip"><span class="pt">💡 시효는 저절로 사라지는 것이 아닙니다</span>소멸시효가 지났더라도 권리가 자동으로 없어지는 것이 아니라, <b>상대가 "시효가 지났다"고 주장(원용)해야</b> 효력이 생깁니다. 회사가 임금 일부를 지급하거나 채무를 인정하면 시효이익을 포기한 것으로 보아 다시 청구가 가능해질 수 있습니다. 다만 다툼이 커지므로 <b>기한 안에 조치하는 것</b>이 안전합니다.</div>
+</div></details>
+
+<details class="sec" id="s7"><summary>상대방(회사) — 가처분을 당하였다면 방어 절차<span class="sub">해고의 정당성·절차 준수·급박성 부인, 이의·제소명령</span></summary>
+<div class="secbody">
+<div class="warn"><span class="wt">⚠ 결정이 나면 지급해야 합니다</span>임금지급가처분 결정은 <b>금전 지급을 명하는 집행권원</b>이 되어, 이행하지 않으면 회사 예금·매출채권이 압류될 수 있습니다. 다툴 것이 있으면 <b>아래 정식 절차</b>로 다투고, 필요하면 <b>집행정지</b>를 함께 신청하십시오.</div>
+<ol class="steps">
+<li><b>해고의 정당성 소명 (본류)</b> — <b>①정당한 이유</b>(근기 §23①): 사회통념상 고용관계를 계속할 수 없을 정도의 사유가 있었는지, <b>②절차</b>: 취업규칙·단체협약상 징계절차(징계위 통보·소명기회)를 지켰는지, <b>③서면통지</b>(근기 §27): 해고사유와 시기를 서면으로 통지했는지를 자료로 밝힙니다. <b>서면통지를 빠뜨렸다면 방어가 매우 어려워지므로</b> 이 점을 먼저 확인하십시오.</li>
+<li><b>보전 필요성(급박성) 부인</b> — 근로자에게 <b>다른 소득·재산이 있어 당장 생계가 곤란하지 않다</b>거나, 해고기간 임금은 본안에서 <b>금전으로 회복될 수 있는 손해</b>임을 들어 다툽니다. 대법원이 "금전배상으로 전보 가능하면 보전 필요성이 없다"고 본 지점입니다(2021마6668).</li>
+<li><b>가처분 이의신청</b> — 위 내용을 담아 이의신청을 합니다(민집 §301·§283, 작성례 ④).</li>
+<li><b>제소명령 신청·사정변경 취소</b> — 근로자가 가처분만 받고 본안을 내지 않으면 제소명령을 신청하고(§287), 본안 패소 확정·3년 미제기 시 취소를 구합니다(§288).</li>
+<li><b>중간수입 공제 주장 (본안)</b> — 근로자가 해고기간에 다른 직장에서 수입을 얻었다면 공제를 주장할 수 있습니다(민법 §538②). 다만 <b>휴업수당(평균임금 70%) 한도에서는 공제할 수 없고 초과분에서만</b> 가능하며, <b>기간이 시기적으로 대응</b>해야 합니다(90다카25277). 또한 <b>원천징수세액·사회보험료를 미리 공제하겠다는 항변은 허용되지 않습니다</b>(2021다279903).</li>
+</ol>
+</div></details>
+
+<details class="sec" id="s8"><summary>서류 작성례 — 빈칸만 채우면 됩니다<span class="sub">구제신청서 · 가처분신청서 · 본안 소장 · 회사 대응서면</span></summary>
+<div class="secbody">
+<p style="font-size:14px;color:var(--muted)">아래 작성례는 <b>근로자(신청인)용</b>과 <b>회사(채무자)용</b>으로 나뉩니다. 각 <b>제목줄을 클릭하면(▾)</b> 내용이 펼쳐집니다. 빈칸 <b>○○○</b>를 자기 사건 내용으로 채우고, <b>복사·인쇄·다운로드</b> 버튼으로 활용하십시오. 모든 양식은 중앙노동위원회·대법원 전자민원센터의 공식 양식 구조를 따릅니다. <b>외국인 근로자</b>도 국내에서 근로를 제공했다면 근로기준법의 보호를 받습니다. 이 경우 주민등록번호란에 <b>외국인등록번호</b>를, 주소란에 국내 체류지를 적고 <b>외국인등록증·여권 사본</b>을 붙이십시오.</p>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ① · 근로자(가장 먼저)</span>부당해고 구제신청서 (지방노동위원회)<span class="chev">▾</span></button><div class="fold-body">
+<div class="howto" style="margin-bottom:10px"><b>해고일부터 3개월 안에</b> 사업장 관할 지방노동위원회에 냅니다. <b>비용이 들지 않습니다.</b> 온라인(노동위원회 전자민원) 또는 방문·우편으로 제출할 수 있습니다.</div>
+<div class="form" id="f1"><span class="ft">부당해고 구제신청서</span>신청인  ○○○   (☎: ○○○-○○○○-○○○○)
+주민등록번호(외국인등록번호)  ○○○○○○-○○○○○○○
+주소  ○○○
+
+피신청인  ○○주식회사
+대표자    ○○○
+주소      ○○○ (사업장 소재지)
+
+         신 청 취 지
+1. 피신청인이 20○○. ○○. ○○. 신청인에게 행한 해고는
+   부당해고임을 인정한다.
+2. 피신청인은 신청인을 원직에 복직시키고, 해고기간 동안
+   정상적으로 근무하였더라면 받을 수 있었던 임금 상당액을
+   지급하라.
+라는 판정을 구합니다.
+
+         신 청 이 유
+1. 근로관계
+   신청인은 20○○. ○○. ○○. 피신청인 회사에 입사하여
+   ○○○ 업무를 담당해 온 근로자이고, 월 급여는 ○○○원
+   입니다(입증자료 1 근로계약서, 2 급여명세서).
+2. 해고의 경위
+   피신청인은 20○○. ○○. ○○. 신청인에게 ○○○를 이유로
+   해고를 통보하였습니다.
+3. 부당해고인 이유
+   가. 정당한 이유의 부존재
+       피신청인이 든 사유는 사실과 다르거나, 사회통념상
+       고용관계를 계속할 수 없을 정도의 중대한 사유가
+       아닙니다.
+   나. 절차 위반
+       피신청인은 취업규칙상 징계절차(징계위원회 통보 및
+       소명 기회 부여)를 거치지 아니하였습니다.
+   다. 서면통지 위반
+       피신청인은 해고사유와 해고시기를 서면으로 통지하지
+       아니하였으므로, 근로기준법 제27조에 따라 그 해고는
+       효력이 없습니다.
+4. 따라서 신청취지와 같은 판정을 구합니다.
+
+         입 증 자 료
+1. 근로계약서                 1부
+1. 급여명세서·통장 입금내역     1부
+1. 해고 통보 관련 자료(문자·카카오톡 등)  1부
+1. 4대보험 자격상실 확인자료    1부
+
+              20○○. ○○. ○○.
+                신청인  ○○○ (인 또는 서명)
+
+○○지방노동위원회   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1')">📋 복사</button><button type="button" onclick="printForm('f1')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1','부당해고_구제신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>가장 먼저·가장 급한 서면</b>입니다. 신청이유 3번에서 <b>가·나·다 중 해당하는 것</b>을 씁니다 — 특히 <b>다(서면통지 위반)</b>는 회사가 문자·구두로만 해고했다면 그 자체로 강력한 사유입니다. 자세한 사실관계는 이후 <b>이유서</b>로 보충할 수 있으니, <b>3개월 기한 안에 접수하는 것이 우선</b>입니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ② · 근로자</span>임금지급·근로자지위보전 가처분신청서<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f2"><span class="ft">임금지급가처분신청서</span>채권자  ○○○   (☎: ○○○-○○○○-○○○○)
+주민등록번호(외국인등록번호)  ○○○○○○-○○○○○○○
+주소  ○○○
+
+채무자  ○○주식회사
+대표자  ○○○
+주소    ○○○
+
+피보전권리의 요지   해고무효에 따른 임금청구권 및
+                    근로자 지위
+
+         신 청 취 지
+1. 채권자가 채무자에 대하여 근로계약상의 권리를 가지는
+   지위에 있음을 임시로 정한다.
+2. 채무자는 채권자에게 20○○. ○○. ○○.부터 채권자와
+   채무자 사이의 해고무효확인 청구사건의 본안판결 선고시
+   까지 매월 ○○일에 금 ○○○원씩을 지급하라.
+라는 결정을 구합니다.
+
+         신 청 이 유
+1. 근로관계
+   채권자는 20○○. ○○. ○○. 채무자 회사에 입사하여
+   ○○○ 업무를 담당하였고, 최근 3개월 평균 월 급여는
+   ○○○원입니다(소갑 제1호증 근로계약서, 제2호증
+   급여명세서).
+2. 해고와 그 무효
+   채무자는 20○○. ○○. ○○. ○○○를 이유로 채권자를
+   해고하였습니다. 그러나 위 해고는 ○○○(예: 해고사유와
+   시기를 서면으로 통지하지 아니하여 근로기준법 제27조를
+   위반하였고 / 징계절차를 거치지 아니하였으며 / 정당한
+   이유가 없어) 무효입니다(소갑 제3호증).
+3. 보전의 필요성 — 급박한 생계 곤란
+   가. 채권자는 배우자와 미성년 자녀 ○명을 부양하고 있고,
+       위 급여가 유일한 수입원이었습니다.
+   나. 채권자의 월 고정지출은 주거비 ○○○원, 대출 원리금
+       ○○○원, 자녀 교육비 ○○○원, 의료비 ○○○원 등
+       합계 약 ○○○원에 이릅니다(소갑 제4호증).
+   다. 현재 채권자의 예금 잔액은 ○○○원에 불과하고 달리
+       소득이 없어(소갑 제5호증), 본안판결 확정까지
+       기다릴 경우 생계 자체가 유지될 수 없는 급박한
+       상태입니다.
+   라. 채권자는 20○○. ○○. ○○. ○○지방노동위원회에
+       부당해고 구제신청을 하였습니다(소갑 제6호증).
+4. 담보제공
+   채권자는 위와 같은 사정으로 담보 제공이 곤란하오니,
+   담보를 면제하거나 최소한으로 정하여 주시기 바랍니다.
+
+         소 명 방 법
+1. 소갑 제1호증   근로계약서
+1. 소갑 제2호증   급여명세서·통장 입금내역
+1. 소갑 제3호증   해고 통보 관련 자료
+1. 소갑 제4호증   월 고정지출 자료(임대차계약서·대출내역 등)
+1. 소갑 제5호증   예금 잔액 증명·거래내역
+1. 소갑 제6호증   부당해고 구제신청 접수증
+
+         첨 부 서 류
+1. 위 소명방법 사본        각 1통
+1. 법인 등기사항전부증명서   1통
+1. 송달료납부서            1통
+
+              20○○. ○○. ○○.
+                위 채권자  ○○○ (인 또는 서명)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f2')">📋 복사</button><button type="button" onclick="printForm('f2')">🖨 인쇄</button><button type="button" onclick="downloadForm('f2','임금지급가처분신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>핵심 서면</b>입니다. 승패는 <b>신청이유 3번(보전의 필요성)</b>에서 갈립니다 — 대법원은 <b>금전배상으로 전보 가능한 손해면 필요성이 없다</b>고 보므로(2021마6668), 가·나·다를 <b>반드시 구체적인 숫자와 자료</b>로 채우십시오. "생활이 어렵다"가 아니라 <b>"월 고정지출 ○○○원, 예금 잔액 ○○○원, 다른 소득 없음"</b>이어야 합니다. 신청취지 2번의 금액은 통상 <b>생계 유지에 필요한 범위</b>로 정해 청구합니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ③ · 근로자(본안)</span>소장 — 해고무효확인 및 임금청구의 소<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f3"><span class="ft">소        장</span>원고  ○○○   (☎: ○○○-○○○○-○○○○)
+주소  ○○○
+피고  ○○주식회사
+대표자 ○○○
+주소  ○○○
+
+해고무효확인 및 임금 청구의 소
+소송목적의 값   금 ○○○원
+
+         청 구 취 지
+1. 피고가 20○○. ○○. ○○. 원고에 대하여 한 해고는
+   무효임을 확인한다.
+2. 피고는 원고에게 20○○. ○○. ○○.부터 원고를 복직시킬
+   때까지 매월 ○○일에 금 ○○○원의 비율로 계산한 돈을
+   지급하라.
+3. 소송비용은 피고가 부담한다.
+4. 제2항은 가집행할 수 있다.
+라는 판결을 구합니다.
+
+         청 구 원 인
+1. 원고는 20○○. ○○. ○○. 피고 회사에 입사하여 근무해 온
+   근로자이고, 월 급여는 ○○○원입니다(갑 제1, 2호증).
+2. 피고는 20○○. ○○. ○○. ○○○를 이유로 원고를
+   해고하였습니다.
+3. 그러나 위 해고는 ①해고사유와 시기를 서면으로 통지하지
+   아니하였고(근로기준법 제27조), ②취업규칙상 징계절차를
+   거치지 아니하였으며, ③사회통념상 고용관계를 계속할 수
+   없을 정도의 정당한 이유도 없으므로 무효입니다.
+4. 해고가 무효인 이상 원고는 계속 근로자의 지위에 있으므로,
+   피고는 원고가 근로를 제공하지 못한 기간 동안의 임금을
+   지급할 의무가 있습니다(민법 제538조 제1항).
+
+         입 증 방 법
+1. 갑 제1호증   근로계약서
+1. 갑 제2호증   급여명세서·통장 입금내역
+1. 갑 제3호증   취업규칙(징계절차 부분)
+1. 갑 제4호증   해고 통보 관련 자료
+
+         첨 부 서 류
+1. 위 입증방법 사본    각 1통
+1. 법인 등기사항전부증명서 1통
+1. 소장 부본          1통
+1. 송달료납부서·인지   1통
+
+              20○○. ○○. ○○.
+                위 원고  ○○○ (인 또는 서명)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f3')">📋 복사</button><button type="button" onclick="printForm('f3')">🖨 인쇄</button><button type="button" onclick="downloadForm('f3','해고무효확인_임금청구_소장.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>가처분의 본안</b>입니다. 해고가 무효면 <b>일하지 못한 기간의 임금 전부</b>를 청구할 수 있습니다(민법 §538①). 회사가 <b>중간수입 공제</b>를 주장할 수 있으나, <b>평균임금 70%(휴업수당) 한도까지는 공제하지 못합니다</b>(90다카25277). 임금채권은 <b>각 지급일부터 3년</b>의 시효가 진행하므로(근기 §49) 지체 없이 제기하십시오.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ④ · 회사</span>가처분 이의신청서<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f4"><span class="ft">가처분결정에 대한 이의신청서</span>사건   20○○카합○○○○호   임금지급가처분
+채권자  ○○○
+채무자  ○○주식회사
+대표자  ○○○
+
+위 사건에 관하여 채무자는 다음과 같이 이의신청을 합니다.
+
+         신 청 취 지
+1. 위 사건에 관하여 20○○. ○○. ○○. 이 법원이 한 가처분결정을
+   취소한다.
+2. 채권자의 가처분신청을 기각한다.
+라는 결정을 구합니다.
+
+         신 청 이 유
+1. 해고의 정당성
+   가. 채권자는 20○○. ○○. ○○. ○○○(구체적 비위사실)를
+       하였고, 이는 사회통념상 고용관계를 계속할 수 없을
+       정도의 중대한 사유에 해당합니다(을 제1호증).
+   나. 채무자는 취업규칙 제○조에 따라 징계위원회를 개최하고
+       채권자에게 출석통지 및 소명 기회를 부여하는 등
+       적법한 절차를 거쳤습니다(을 제2호증 징계위원회
+       회의록, 을 제3호증 출석통지서).
+   다. 채무자는 20○○. ○○. ○○. 채권자에게 해고사유와
+       해고시기를 기재한 해고통지서를 서면으로 교부하였
+       습니다(을 제4호증).
+2. 보전 필요성의 부존재
+   채권자는 현재 ○○○(예: 다른 사업장에 취업하여 소득이
+   있음 / 상당한 재산을 보유함)하여 급박한 생계 곤란이
+   있다고 보기 어렵고, 해고기간의 임금은 본안에서 금전으로
+   충분히 회복될 수 있는 손해에 불과합니다.
+3. 따라서 이 사건 가처분결정은 부당하므로 취소되어야 합니다.
+
+         소 명 방 법
+1. 을 제1호증   비위사실 관련 자료
+1. 을 제2호증   징계위원회 회의록
+1. 을 제3호증   징계위원회 출석통지서
+1. 을 제4호증   해고통지서(서면)
+
+         첨 부 서 류
+1. 위 소명방법 사본    각 1통
+1. 이의신청서 부본     1통
+
+              20○○. ○○. ○○.
+                위 채무자  ○○주식회사
+                대표자     ○○○ (인)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f4')">📋 복사</button><button type="button" onclick="printForm('f4')">🖨 인쇄</button><button type="button" onclick="downloadForm('f4','가처분_이의신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>회사(채무자)</b>의 핵심 방어입니다. 축은 둘 — ①<b>해고의 정당성</b>(사유·절차·<b>서면통지</b>), ②<b>급박성 부인</b>(금전으로 회복 가능·근로자에게 다른 소득 있음). 특히 <b>1의 다(서면통지)</b>가 빠져 있으면 근로기준법 §27 위반으로 방어가 매우 어려워지므로, 해고통지서 원본과 교부 사실을 먼저 확인하십시오.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ⑤ · 회사(본안)</span>답변서 — 해고무효확인·임금청구에 대한<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f5"><span class="ft">답 변 서</span>사건   20○○가합○○○○호   해고무효확인 등
+원고   ○○○
+피고   ○○주식회사
+
+위 사건에 관하여 피고는 다음과 같이 답변합니다.
+
+         청구취지에 대한 답변
+1. 원고의 청구를 모두 기각한다.
+2. 소송비용은 원고가 부담한다.
+라는 판결을 구합니다.
+
+         청구원인에 대한 답변
+1. 해고의 정당성
+   원고는 ○○○의 비위행위를 하였고, 이는 취업규칙 제○조
+   제○호의 징계해고 사유에 해당하며, 사회통념상 고용관계를
+   계속할 수 없을 정도의 중대한 사유입니다(을 제1호증).
+2. 절차의 적법성
+   피고는 징계위원회를 개최하여 원고에게 출석통지와 소명
+   기회를 부여하였고, 해고사유와 시기를 서면으로 통지
+   하였습니다(을 제2 내지 4호증).
+3. 예비적 주장 — 중간수입의 공제
+   설령 해고가 무효라 하더라도, 원고는 해고기간 중
+   20○○. ○○.부터 ○○○에 취업하여 월 ○○○원의 수입을
+   얻었으므로(을 제5호증), 이는 민법 제538조 제2항의
+   '채무를 면함으로써 얻은 이익'으로서 공제되어야 합니다.
+   (다만 근로기준법 제46조 제1항의 휴업수당 한도를 초과하는
+    범위에서, 그리고 임금 지급 대상기간과 시기적으로
+    대응하는 범위에서 공제됩니다.)
+4. 따라서 원고의 청구는 이유 없거나 위 범위에서 감축되어야
+   합니다.
+
+         입 증 방 법
+1. 을 제1호증   비위사실 관련 자료
+1. 을 제2호증   징계위원회 회의록
+1. 을 제3호증   출석통지서
+1. 을 제4호증   해고통지서
+1. 을 제5호증   원고의 중간수입 관련 자료
+
+         첨 부 서 류
+1. 위 입증방법 사본    각 1통
+1. 답변서 부본        1통
+
+              20○○. ○○. ○○.
+                위 피고  ○○주식회사
+                대표자   ○○○ (인)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f5')">📋 복사</button><button type="button" onclick="printForm('f5')">🖨 인쇄</button><button type="button" onclick="downloadForm('f5','해고무효확인_답변서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>본안 소장을 받은 회사</b>의 대응입니다. 소장 부본을 받은 날부터 <b>30일 안에</b> 냅니다(민사소송법 §256①). 3번은 <b>예비적 주장</b>(해고가 무효로 인정될 경우에 대비)입니다. 다만 중간수입 공제는 <b>휴업수당 70% 한도에서는 불가</b>하고 <b>기간이 대응</b>해야 하며(90다카25277), <b>원천징수세액·사회보험료를 미리 공제하겠다는 항변은 허용되지 않습니다</b>(2021다279903) — 이 점을 잘못 주장하면 오히려 신뢰를 잃습니다.</div>
+</div></div>
+</div></details>
+
+<h2 id="s9">고충은 덜어드리고, 결과로 보답하겠습니다</h2>
+<div class="hire">
+<p>본 사무소에서는 의뢰인들의 고충은 덜어드리고, 함께 소송을 진행하여 원하는 결과에 도달할 수 있도록 성심을 다하겠습니다.</p>
+<p style="margin-top:12px"><b>· 채권자(해고당한 근로자)의 경우</b><br>① <b>부당해고 구제신청서</b>(3개월 기한) 작성, ② <b>임금지급·근로자지위보전 가처분신청서</b> 작성, ③ <b>본안 해고무효확인·임금청구 소장</b> 작성, ④ 소송구조·담보 면제 신청 안내까지 <b>본인소송의 전 과정을 함께</b> 준비해 드립니다.</p>
+<p style="margin-top:10px"><b>· 채무자(회사)의 경우</b><br>① <b>이의신청서(정당성·절차·서면통지 소명)</b>, ② 본안 <b>답변서(중간수입 공제 포함)</b>, ③ 징계절차 정비 방향을 함께 검토해 드립니다.</p>
+</div>
+<div class="warn"><span class="wt">⚠ 서명·합의는 신중하게</span>해고 과정에서 회사가 내미는 <b>사직서·권고사직 동의서·합의서에 서명하면, '스스로 그만둔 것'으로 처리되어 부당해고를 다투기가 매우 어려워집니다.</b> 위로금을 받는 대신 <b>일체의 이의를 제기하지 않는다</b>는 문구가 들어 있는 경우도 많습니다. 서명 전에 반드시 내용을 확인하고, 판단이 서지 않으면 <b>서명을 미루고 상담</b>하십시오. 또한 <b>실업급여 수급 자격</b>도 이직 사유에 따라 달라지므로 함께 확인하시기 바랍니다.</div>
+
+<a href="https://sanlaw.co.kr/tools-calculator.html" class="cta">🧮 내 사건 비용 미리 계산하기</a>
+<div style="text-align:center; background:#f6ecd8; border:1px solid var(--gold); border-radius:11px; padding:14px; margin:18px 0; font-size:15px; color:var(--gold-d); font-weight:700;">📞 상담은 홈 화면의 상담 창구를 이용하시면 됩니다.</div>
+
+<details class="sec" id="s10"><summary>준비할 서류와 발급처 — 어디서 떼나<span class="sub">발급처별 딥링크와 찾아가기 경로를 함께 담았습니다</span></summary>
+<div class="secbody">
+<p style="font-size:13.5px;color:var(--muted)">아래 '바로가기'를 클릭하면 해당 사이트로 이동합니다. 첫 화면으로 연결되면 옆의 <b>찾아가기 경로</b>를 따라 메뉴를 클릭하면 됩니다.</p>
+<table>
+<tr><th>무엇을 (어디서)</th><th>서류</th><th>바로가기 · 찾아가기 경로</th></tr>
+<tr><td>구제신청<br>(노동위원회)</td><td>부당해고 구제신청 — <b>해고일부터 3개월 내·무료</b></td><td><a href="https://www.nlrc.go.kr">노동위원회</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 민원신청 → 구제신청(부당해고 등) / 또는 사업장 관할 지방노동위원회 방문</span></td></tr>
+<tr><td>임금·근속 확인<br>(고용보험·건강보험)</td><td>고용보험 피보험자격 이력내역서, 건강보험 자격득실확인서(입·퇴사일 확인)</td><td><a href="https://www.ei.go.kr">고용보험</a> / <a href="https://www.nhis.or.kr">국민건강보험</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 고용보험 → 개인서비스 → 조회 → 피보험자격 이력내역서 / 건강보험 → 자격득실확인서 발급</span></td></tr>
+<tr><td>임금 소명<br>(본인·거래은행)</td><td>근로계약서, 급여명세서, 급여 입금 통장 거래내역</td><td><span style="font-size:12.5px;color:var(--muted)">본인 보관 자료 / 거래은행 앱·인터넷뱅킹 '거래내역 조회'에서 출력</span></td></tr>
+<tr><td>생계 곤란 소명<br>(본인·금융기관)</td><td>임대차계약서, 대출 상환내역, 예금 잔액증명서, 의료비 영수증 등</td><td><span style="font-size:12.5px;color:var(--muted)">거래은행에서 잔액증명서 발급 / 월 고정지출을 항목별로 정리해 첨부</span></td></tr>
+<tr><td>회사 확인<br>(인터넷등기소)</td><td>법인 등기사항전부증명서(대표자·본점 확인)</td><td><a href="https://www.iros.go.kr">인터넷등기소</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 등기열람/발급 → 법인 → 열람/발급하기 → 상호로 검색</span></td></tr>
+<tr><td>상담·조력<br>(고용노동부·법률구조공단)</td><td>임금체불 진정, 무료 법률상담</td><td><a href="https://www.moel.go.kr">고용노동부</a> / <a href="https://www.klac.or.kr">대한법률구조공단</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 고용노동부 민원마당 → 임금체불 진정 / 공단 → 법률상담 예약</span></td></tr>
+<tr><td>소송 제출<br>(전자소송)</td><td>가처분신청서·소장 — 공식 양식</td><td><a href="https://ecfs.scourt.go.kr">전자소송</a> / <a href="https://ecfs.scourt.go.kr/psp/index.on?m=PSP720M24">양식모음</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 전자소송 → 서류제출 → 민사신청 → 가처분</span></td></tr>
+</table>
+
+<div class="tip"><span class="pt">💡 이어지는 카드</span> <b>회사가 결정을 이행하지 않으면</b> <a class="cl" href="A-1_예금채권가압류.html"><b>예금채권 가압류(A-1)</b></a>의 방식으로 회사 통장을 묶는 절차를 참고하십시오. <b>회사 임원의 직무를 정지</b>시키려면 <a class="cl" href="B-5_직무집행정지가처분.html"><b>직무집행정지가처분(B-5)</b></a>을 보십시오. 반대로 <b>가처분을 당한 회사</b>는 <a class="cl" href="C-2_가처분방어.html"><b>가처분을 당했을 때의 방어(C-2)</b></a>를 보십시오.</div>
+
+</div></details>
+<div class="src">
+근거 — 근로기준법 제23조 제1항(부당해고 등의 금지)·제27조(해고사유 등의 서면통지)·제28조(부당해고 등의 구제신청, 3개월)·제46조 제1항(휴업수당)·제49조(임금채권의 시효 3년) · 근로자퇴직급여 보장법 제10조(퇴직급여 청구권의 시효 3년) · 민사집행법 제300조 제2항(임시의 지위를 정하기 위한 가처분)·제301조(가압류 절차의 준용)·제303조(관할)·제304조(임시지위 가처분의 심리)·제280조(담보제공)·제283조(이의)·제287조(제소명령)·제288조(사정변경 취소) · 민법 제161조(기간 말일)·제166조 제1항(소멸시효의 기산점)·제538조(채권자귀책사유로 인한 이행불능과 이익의 상환) · 민사소송법 제128조(소송구조)·제256조(답변서) · 대법원 2022. 2. 8.자 2021마6668 결정(임시의 지위를 정하기 위한 가처분의 보전 필요성 판단기준, 금전적 손해배상으로 전보될 수 있는 경우 보전의 필요성 부정) · 대법원 1991. 6. 28. 선고 90다카25277 판결(중간수입은 휴업수당 한도에서는 공제할 수 없고 초과 금액에서만 공제, 기간의 시기적 대응 필요) · 대법원 2022. 8. 19. 선고 2021다279903 판결(중간수입 공제 범위는 휴업수당을 초과하는 금액을 한도로 함, 원천징수세액·사회보험료의 원천공제 항변 불가) · 법제처 찾기쉬운 생활법령정보 · 국가법령정보센터 · 대법원 전자민원센터 · 노동위원회. 본 자료는 일반적인 법률정보로, 개별 사건의 법률자문이 아닙니다.
+</div>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+})();
+
+(function(){
+  document.querySelectorAll('.toc a').forEach(function(a){
+    a.addEventListener('click',function(){
+      var el=document.querySelector(a.getAttribute('href'));
+      if(el&&el.tagName==='DETAILS')el.open=true;
+    });
+  });
+  var btn=document.getElementById('allBtn');
+  if(!btn)return;
+  function toggleAll(){
+    var opening=btn.textContent.indexOf('펼치기')>-1;
+    document.querySelectorAll('details.sec').forEach(function(d){d.open=opening;});
+    document.querySelectorAll('.formbox').forEach(function(fb){
+      fb.classList.toggle('open',opening);
+      var body=fb.querySelector('.fold-body');
+      if(body)body.style.display=opening?'block':'none';
+    });
+    btn.textContent=opening?'전체 접기':'전체 펼치기';
+  }
+  btn.addEventListener('click',toggleAll);
+  btn.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleAll();}});
+})();
+(function(){
+})();
+function toggleFold(b){var fb=b.parentElement;var body=b.nextElementSibling;var open=fb.classList.toggle('open');if(body){body.style.display=open?'block':'none';}}
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('작성례가 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('작성례가 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('작성례를 내려받았습니다');}
+</script>
+</body>
+</html>

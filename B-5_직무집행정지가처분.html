@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[보전 B-5] 회사 임원이 회사를 망치고 있어요 — 직무집행정지·직무대행자선임 가처분 | 산 법무사 김재섭</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(280px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.case{background:var(--box); border-radius:10px; padding:14px 16px; margin:14px 0; border-left:4px solid #b9a98c;}
+.case .ct{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+.sit-wrap{display:flex; gap:12px; margin:14px 0;}
+.sit{flex:1; background:#f8f5ee; border:1px solid var(--line); border-top:3px solid var(--gold); border-radius:10px; padding:13px 15px; font-size:14.5px; line-height:1.75;}
+.sit .sl{display:block; font-weight:700; color:var(--gold-d); margin-bottom:6px; font-size:14px;}
+@media (max-width:680px){ .sit-wrap{flex-direction:column;} }
+/* 전체 길 흐름도 */
+.flow{background:linear-gradient(180deg,#faf7f0,#f6f1e6); border:1px solid var(--line); border-radius:14px; padding:22px 20px; margin:16px 0;}
+.flow .fl-t{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:18px; text-align:center; letter-spacing:.3px;}
+.flow .node{position:relative; background:#fff; border:1px solid #e3d8c4; border-radius:11px; padding:15px 18px 15px 56px; font-size:14.5px; line-height:1.72; box-shadow:0 2px 6px rgba(122,82,48,.07);}
+.flow .node .num{position:absolute; left:15px; top:14px; width:30px; height:30px; line-height:30px; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; border-radius:50%; font-weight:800; font-size:15px; font-family:'Nanum Myeongjo',serif; box-shadow:0 2px 5px rgba(122,82,48,.3);}
+.flow .node b{color:#241a10;}
+.flow .down{display:flex; justify-content:center; align-items:center; padding:7px 0;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+/* 작성례 박스 */
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+details.sec{border:1px solid var(--line); border-radius:11px; margin:18px 0; background:#fff; overflow:hidden;}
+details.sec>summary{cursor:pointer; list-style:none; padding:14px 17px 14px 15px; background:var(--box); border-left:4px solid var(--gold); font-family:'Nanum Myeongjo',serif; font-size:18px; font-weight:700; color:var(--gold-d); line-height:1.55;}
+details.sec>summary::-webkit-details-marker{display:none;}
+details.sec>summary .sub{display:block; font-family:'Pretendard',sans-serif; font-size:13.5px; font-weight:400; color:var(--muted); margin-top:3px;}
+details.sec>summary::after{content:"펼치기 ▾"; float:right; font-family:'Pretendard',sans-serif; font-size:12.5px; font-weight:700; color:var(--gold); background:#fff; border:1px solid var(--line); border-radius:20px; padding:2px 10px; margin-left:8px;}
+details.sec[open]>summary::after{content:"접기 ▴";}
+details.sec>summary:hover{background:#f2ede3;}
+.secbody{padding:4px 17px 16px;}
+.secbody>h3:first-of-type{margin-top:14px;}
+.toc{background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 17px; margin:8px 0 22px;}
+.toc .tct{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:9px;}
+.toc ol{margin:0; padding-left:20px;}
+.toc li{margin:5px 0; font-size:14.5px;}
+.toc a{text-decoration:none; border-bottom:1px dotted var(--gold);}
+.allbtn{display:inline-block; margin-top:11px; font-size:13.5px; font-weight:700; color:var(--gold-d); background:var(--box); border:1px solid var(--line); border-radius:8px; padding:7px 14px; cursor:pointer;}
+.allbtn:hover{background:#f2ede3;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:15px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .tag{margin-bottom:0;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;}
+.tag.cred{background:#5a9a72;}
+.tag.debt{background:#d9694a;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:18px;margin:12px 0;font-family:'D2Coding','Courier New',monospace;font-size:13px;line-height:1.6;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:16px;letter-spacing:2px;margin-bottom:12px;color:#241a10;}
+.howto{font-size:14px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0 4px;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:13px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:7px 13px;cursor:pointer;transition:.15s;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.75;}
+.lawbox .ll{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold-d);border-radius:5px;padding:2px 9px;margin-right:7px;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.hire p{margin:7px 0; font-size:15px; line-height:1.8;}
+.cta{display:block;text-align:center;background:var(--gold-d);color:#fff;font-weight:700;font-size:17px;text-decoration:none;padding:15px;border-radius:11px;margin:18px 0;font-family:'Nanum Myeongjo',serif;letter-spacing:1px;}
+.cta:hover{background:#5e3f24;}
+@media print{
+  .backbar{display:none !important;}
+  body{background:#fff; max-width:100%;}
+  .tldr,.case,.warn,.tip,.cost,.steps li,.tnote,.sit,.flow,.flow li,.lawbox,.hire{background:#fff !important; border-color:#ccc !important;}
+  .tnote{display:none;}
+  .term{border:none; color:inherit; font-weight:inherit;}
+  .term>.bub{display:inline !important; position:static; width:auto; background:none; color:inherit; box-shadow:none; padding:0; font-size:inherit; line-height:inherit;}
+  .term>.bub::before{content:" ("; }
+  .term>.bub::after{content:")"; border:none; position:static;}
+  .fold-body{display:block !important;}.fold-btn .chev{display:none;}.form-tools{display:none;}
+  details.sec:not([open])>*{display:block !important;}
+  details.sec>summary::after{display:none;} .allbtn,.toc{display:none !important;}
+  .cta{background:#fff !important; color:#241a10 !important; border:1px solid #ccc;}
+}
+.cl{color:var(--gold-d);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--gold-d);}
+.cl:hover{background:#fbf5e8;}
+.tip .cl,.tip .cl b{color:var(--tip-ink);}
+.tip .cl{border-bottom-color:var(--tip-ink);}
+.warn .cl,.warn .cl b{color:var(--warn-ink);}
+.warn .cl{border-bottom-color:var(--warn-ink);}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+
+<h1>[보전 B-5] 회사 임원이 회사를 망치고 있어요 — 직무집행정지·직무대행자선임 가처분</h1>
+
+<div class="tnote">어려운 법률용어에는 <b>점선 밑줄</b>이 그어져 있습니다. <b>PC는 마우스를 올리면</b>, <b>휴대폰은 손가락으로 톡 터치하면</b> 쉬운 설명이 뜹니다. (인쇄하면 괄호로 함께 나옵니다.)</div>
+
+<div class="hire">
+<div class="ht">이 매뉴얼을 끝까지 읽으시는 분께</div>
+<p>이 매뉴얼은 <b>의뢰인이 직접 법원에 신청할 수 있도록 모든 서류 양식·비용·요건을 구체적으로 담았습니다.</b> 하지만 소송은 살아있는 생물과 같아 상대방의 격렬한 저항이 뒤따릅니다. 혼자 진행하시다가 막히는 부분이 생기거나 방어막이 필요할 때, 언제든 이 매뉴얼을 들고 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</p>
+</div>
+
+<div class="tldr">
+<div class="tt">⭐ 30초 결론부터</div>
+<ul>
+<li><b>직무집행정지가처분은 회사 이사·대표이사(또는 종중·법인의 임원)의 자리를 본안 판결이 날 때까지 잠시 멈춰 세우는 절차입니다.</b> 선임 절차에 하자가 있거나 임원이 횡령·배임 등으로 회사를 해치고 있을 때, 그 사람을 <b>일단 경영에서 떼어 놓고</b> 필요하면 법원이 <span class="term">직무대행자<span class="bub">직무가 정지된 임원을 대신해 법원이 선임하는 사람. 대개 변호사가 선임되며, 원칙적으로 회사의 통상업무(상무)만 할 수 있습니다(상법 §408).</span></span>를 대신 앉힙니다(상법 §407①, 민사집행법 §300②).</li>
+<li><b>혼자서는 못 합니다 — '본안이 될 소송'이 있어야 합니다.</b> 이 가처분은 ① <b>이사 선임 주주총회 결의의 취소·무효·부존재확인의 소</b> 또는 ② <b>이사해임의 소</b>(상법 §385②)처럼 <b>그 사람의 임원 지위를 다투는 소송</b>을 본안으로 삼습니다. 다만 <b>급박한 사정이 있으면 본안소송을 내기 전에도 신청할 수 있습니다</b>(상법 §407① 후단, 대법원 95마837).</li>
+<li><b>효력이 매우 강합니다 — 그래서 법원도 신중합니다.</b> 직무가 정지된 임원이 한 행위는 원칙적으로 <b>무효</b>이고, 이 가처분은 <b>본점 소재지에 등기</b>됩니다(상법 §407③). 그만큼 회사에 미치는 충격이 커서, 대법원은 <b>"이사의 직무권한을 잠정적이나마 박탈하는 가처분은 보전의 필요성 인정에 신중을 기해야 한다"</b>고 하였습니다(95마837).</li>
+<li><b>소수주주가 '해임'을 이유로 신청할 때는 절차를 먼저 밟아야 합니다.</b> 발행주식 <b>5% 이상</b> 주주가 해임의 소를 내려면 ①임시총회 소집 요구 → ②불응 시 법원 허가로 소집 → ③총회에서 <b>해임이 부결</b> → ④그로부터 <b>1개월 내</b> 해임 청구의 순서를 거쳐야 하고, 대법원은 특별히 급박한 사정이 없는 한 <b>이런 절차요건을 거친 흔적이 소명되어야</b> 피보전권리와 보전의 필요성이 인정된다고 하였습니다(95마837).</li>
+</ul>
+</div>
+
+<div class="toc">
+<div class="tct">이 카드에 담긴 것 — 필요한 곳만 펼쳐 보십시오</div>
+<ol>
+<li><a href="#s1">지금 어떤 상황인가요?</a></li>
+<li><a href="#s2">임원을 멈춰 세우기까지 — 전체 길 한눈에 보기</a></li>
+<li><a href="#s3">핵심 세 가지</a></li>
+<li><a href="#s4">관련 법령 — 쉬운 풀이</a></li>
+<li><a href="#s5">판례로 보기 — 양쪽 모두 알아야 할 것</a></li>
+<li><a href="#s6">신청인(주주·구성원) — 신청부터 등기까지 상세 절차</a></li>
+<li><a href="#s7">상대방(해당 임원) — 가처분을 당하였다면 방어 절차</a></li>
+<li><a href="#s8">서류 작성례 — 빈칸만 채우면 됩니다</a></li>
+<li><a href="#s9">고충은 덜어드리고, 결과로 보답하겠습니다</a></li>
+<li><a href="#s10">준비할 서류와 발급처 — 어디서 떼나</a></li>
+</ol>
+<span class="allbtn" id="allBtn" role="button" tabindex="0">전체 펼치기</span>
+</div>
+
+<h2 id="s1">지금 어떤 상황인가요?</h2>
+<div class="sit-wrap">
+<div class="sit"><span class="sl">상황 ① · 임원을 멈춰 세워야 하는 분 (채권자·신청인)</span><b>주주총회를 열지도 않고 이사가 선임되었거나, 소집 절차에 중대한 하자가 있는</b> 경우. 또는 <b>대표이사가 회사 돈을 빼돌리거나 회사 재산을 함부로 처분하려는</b> 경우. → 직무집행정지·직무대행자선임 가처분으로 급한 불을 끄고, 본안(결의 취소·무효·부존재확인 또는 해임의 소)에서 지위를 확정합니다. <b>아래 작성례 ①·②·③</b>이 신청인의 서류입니다.</div>
+<div class="sit"><span class="sl">상황 ② · 직무가 정지된 임원 (채무자·상대방)</span>적법하게 선임되어 정상적으로 일하고 있는데 <b>직무집행정지 가처분이 들어와 갑자기 업무에서 배제된</b> 경우. 선임 절차에 하자가 없거나 해임 사유가 없다면 다툴 수 있습니다. → 이의신청·제소명령으로 다투고, 부당하면 손해배상으로 되받습니다. <b>아래 작성례 ④·⑤·⑥</b>이 채무자의 서류입니다.</div>
+</div>
+
+<h2 id="s2">임원을 멈춰 세우기까지 — 전체 길 한눈에 보기</h2>
+<div class="flow">
+<div class="fl-t">신청인이 가야 할 4단계 (사전절차 → 가처분·심문 → 등기 → 본안)</div>
+<div class="node"><span class="num">1</span><b>먼저 '본안이 될 소송'을 정하십시오</b> — ①선임 절차에 하자가 있으면 <b>주주총회결의 취소·무효·부존재확인의 소</b>, ②임원의 부정행위가 문제면 <b>이사해임의 소</b>입니다. 해임의 소로 갈 경우 <b>5% 이상 주주</b>가 임시총회 소집 요구 → 불응 시 법원 허가 소집 → <b>총회 해임 부결</b> → <b>1개월 내</b> 해임청구의 순서를 밟아야 합니다(상법 §385②).</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">2</span><b>직무집행정지·직무대행자선임 가처분 신청 → 심문기일</b> — <span class="term">임시의 지위를 정하기 위한 가처분<span class="bub">민사집행법 §300②. 다툼 있는 권리관계에서 현저한 손해나 급박한 위험을 피하기 위해 잠정적으로 법률관계를 정하는 가처분. 원칙적으로 심문기일을 엽니다.</span></span>이므로 원칙적으로 <b>심문기일이 열려 상대 임원의 반론</b>을 듣습니다(민집 §304). <span class="term">담보제공명령<span class="bub">잘못된 가처분으로 상대가 입을 손해에 대비해 법원이 신청인에게 일정액을 맡기라고 명하는 것. 보증보험증권으로 갈음할 수 있습니다.</span></span>을 이행하면 결정이 납니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">3</span><b>등기 — 법원이 등기소에 촉탁합니다</b> — 결정이 나면 <b>본점 소재지에 직무집행정지·직무대행자선임의 등기</b>가 이루어집니다(상법 §407③, 민집 §306). 등기가 되면 거래 상대방도 이를 알 수 있어, 정지된 임원이 회사를 대표해 계약하는 것을 막는 실질적 효과가 생깁니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">4</span><b>본안 소송으로 지위를 확정</b> — 가처분은 임시조치이므로, <b>결의 취소·무효·부존재확인의 소</b> 또는 <b>이사해임의 소</b>를 제기해 판결로 확정받습니다(작성례 ③). 본안에서 이겨야 그 임원의 지위가 최종적으로 정리되고, 방치하면 상대가 가처분 취소를 구할 수 있습니다.</div>
+</div>
+<p style="font-size:13.5px;color:var(--muted)">※ 이 가처분은 <b>주식회사뿐 아니라 종중·사단법인·재단법인·아파트 입주자대표회의</b> 등 단체의 임원에게도 활용됩니다. 이때 직무대행자의 권한은 민법 §60조의2(법인의 통상사무)로 규율되며, 회사의 '상무'와 거의 같은 의미로 해석됩니다.</p>
+
+<h2 id="s3">핵심 세 가지</h2>
+<ol class="steps">
+<li><b>"본안이 될 소송이 무엇인지"부터 정하십시오 — 여기서 대부분 갈립니다.</b> 선임 절차 하자를 다투는 것인지(결의 취소·무효·부존재확인), 부정행위를 이유로 쫓아내려는 것인지(해임의 소)에 따라 <b>요건도 절차도 완전히 다릅니다.</b> 특히 해임의 소는 <b>5% 이상 지분</b>과 <b>총회 해임 부결</b>이라는 문턱이 있어, 이를 건너뛰면 가처분이 기각되기 쉽습니다(95마837).</li>
+<li><b>법원은 매우 신중합니다 — 소명이 부족하면 기각됩니다.</b> 사람의 자리를 잠정적으로 빼앗는 가처분이라, 대법원은 <b>보전 필요성 인정에 신중해야 한다</b>고 못박았습니다. 막연히 "경영을 잘못한다"가 아니라 <b>횡령·배임·회사재산 처분 시도 등 구체적 사실</b>을 계좌내역·회계자료·이사회 의사록·내부 문서로 소명해야 합니다.</li>
+<li><b>직무대행자가 선임되면 '통상업무'만 할 수 있습니다.</b> 직무대행자는 가처분에 다른 정함이 없는 한 <b>회사의 상무(일상적 업무)에 속하지 않는 행위를 하지 못하고, 하려면 법원 허가</b>를 받아야 합니다(상법 §408①). 대법원은 <b>회사 경영을 통째로 다른 사람에게 일임하는 행위는 상무가 아니다</b>라고 보았습니다(83다카875). 신청 전에 "대행자 체제로 회사가 굴러갈 수 있는지"까지 생각해 두십시오.</li>
+</ol>
+
+<details class="sec" id="s4"><summary>관련 법령 — 쉬운 풀이<span class="sub">상법·민사집행법·민법 조문을 한눈에</span></summary>
+<div class="secbody">
+<div class="lawbox"><span class="ll">상법 §407①</span><b>직무집행정지·직무대행자선임</b> — 이사 선임 결의의 <b>무효나 취소 또는 이사해임의 소가 제기된 경우</b>, 법원은 당사자의 신청에 의하여 가처분으로 이사의 직무집행을 정지하거나 직무대행자를 선임할 수 있습니다. <b>급박한 사정이 있는 때에는 본안소송 제기 전에도</b> 할 수 있습니다.</div>
+<div class="lawbox"><span class="ll">상법 §407②③</span><b>변경·취소와 등기</b> — 법원은 당사자의 신청으로 이 가처분을 변경·취소할 수 있고, 이러한 처분이 있으면 <b>본점 소재지에서 등기</b>하여야 합니다. 등기촉탁은 민사집행법 §306(법인 임원의 직무집행정지 등 가처분의 등기촉탁)에 따릅니다.</div>
+<div class="lawbox"><span class="ll">상법 §408</span><b>직무대행자의 권한</b> — ① 직무대행자는 가처분명령에 다른 정함이 있는 경우 외에는 <b>회사의 상무에 속하지 아니한 행위를 하지 못하고</b>, 하려면 <b>법원의 허가</b>를 받아야 합니다. ② 이를 위반한 행위라도 회사는 <b>선의의 제3자</b>에 대하여 책임을 집니다.</div>
+<div class="lawbox"><span class="ll">상법 §385②</span><b>소수주주의 이사해임 청구</b> — 이사가 직무에 관하여 <b>부정행위 또는 법령·정관 위반의 중대한 사실</b>이 있음에도 <b>주주총회에서 해임을 부결</b>한 때에는, 발행주식 총수의 <b>100분의 5 이상</b>을 가진 주주가 <b>총회 결의일부터 1개월 내</b>에 법원에 해임을 청구할 수 있습니다.</div>
+<div class="lawbox"><span class="ll">민집 §300②·§304</span><b>임시지위 가처분과 심리</b> — 다툼 있는 권리관계에 현저한 손해·급박한 위험을 피하기 위한 가처분이며, <b>원칙적으로 변론기일 또는 심문기일을 열어</b> 쌍방을 심리합니다(급박한 예외 있음).</div>
+<div class="lawbox"><span class="ll">민법 §60조의2</span><b>법인 직무대행자의 권한</b> — 종중·사단법인 등 <b>회사가 아닌 단체</b>의 임원에 대한 직무대행자는 <b>법인의 통상사무</b>에 속하지 않는 행위를 하려면 법원 허가가 필요합니다. 상법 §408의 '상무'와 거의 같은 의미로 해석됩니다.</div>
+</div></details>
+
+<details class="sec" id="s5"><summary>판례로 보기 — 양쪽 모두 알아야 할 것<span class="sub">국가법령정보센터 확인 판례</span></summary>
+<div class="secbody">
+<div class="case">
+<span class="ct">○ 본안 전에도 신청할 수 있으나, 해임 절차요건을 거친 흔적이 소명되어야 한다 (대법원 1997. 1. 10.자 95마837 결정)</span>
+<b>유리한 면</b> — 소수주주의 이사해임의 소를 피보전권리로 하는 직무집행정지 신청은, 본안소송이 제기된 경우뿐 아니라 <b>급박한 경우에는 본안소송 제기 전에도</b> 할 수 있습니다(상법 §407 명문). 임시의 지위를 정하는 가처분과 달리 볼 것이 아니어서, <b>반드시 본안소송을 제기했음을 전제로 하지는 않습니다.</b><br><br>
+<b>불리한 면</b> — 그러나 <b>이사의 직무권한을 잠정적이나마 박탈하는 가처분은 보전의 필요성 인정에 신중을 기해야</b> 합니다. 소수주주가 해임의 소를 제기하려면 ①5% 이상 주주가 회의 목적·소집 이유를 적은 서면을 이사회에 제출해 임시총회 소집을 요구하고 ②불응하면 법원 허가를 얻어 총회를 소집하며 ③그 총회에서 <b>해임이 부결</b>되면 ④1개월 내에 법원에 해임을 청구해야 하는데, 이런 절차를 감안하면 <b>특별히 급박한 사정이 없는 한 해임의 소를 제기할 수 있을 정도의 절차요건을 거친 흔적이 소명되어야</b> 피보전권리가 소명되고 보전의 필요성도 인정됩니다. 이 사건에서는 그런 흔적이 전혀 없고 지목한 횡령 사실도 소명되지 않아 <b>신청이 기각</b>되었습니다.
+</div>
+<div class="case">
+<span class="ct">○ 직무대행자는 '상무'만 — 경영을 통째로 남에게 맡기는 행위는 상무가 아니다 (대법원 1984. 2. 14. 선고 83다카875, 876, 877 판결)</span>
+직무대행자가 회사 <b>업무 전부를 다른 사람에게 위임하여 경영을 일임하는 행위는 회사의 상무라고 할 수 없으므로</b>, 가처분결정에 특별히 정한 바가 있거나 <b>법원의 허가를 얻지 않고는 할 수 없습니다.</b> 실무상 '상무'란 회사에서 일상적으로 행해지는 사무, 영업을 계속하면서 통상 행하는 범위의 사무, 또는 회사 경영에 중요한 영향을 주지 않는 통상 업무를 뜻하며, 어떤 행위가 상무인지는 그 회사의 기구·업무의 종류와 성질 등 제반 사정을 고려해 판단합니다. → <b>직무대행자 체제는 '현상 유지'가 원칙</b>이어서, 중요한 의사결정은 법원 허가를 받아야 한다는 점을 알고 신청해야 합니다.
+</div>
+</div></details>
+
+<details class="sec" id="s6"><summary>신청인(주주·구성원) — 신청부터 등기까지 상세 절차<span class="sub">사전절차·관할·인지대·송달료·담보·심문기일·등기촉탁</span></summary>
+<div class="secbody">
+<h3>1) 신청할 수 있는 사람과 상대방</h3>
+<p>신청인은 <b>주주(또는 단체의 구성원)</b>이고, 상대방(채무자)은 <b>직무를 정지시키려는 그 임원</b>입니다. 다만 이 가처분의 효력은 회사에도 미치므로, 실무상 <b>회사를 함께 상대방으로 삼는</b> 예도 많습니다. 해임을 이유로 할 때는 <b>발행주식 총수의 5% 이상</b> 지분이 필요합니다(상법 §385②).</p>
+<h3>2) 어디에 내나 — 관할</h3>
+<p><b>본안의 관할법원</b>에 냅니다(민집 §303). 회사 관련 소송의 본안은 통상 <b>회사 본점 소재지 관할 지방법원</b>이므로, 그 법원에 신청하면 됩니다.</p>
+<h3>3) 인지대·송달료</h3>
+<p>임시지위 가처분이므로 인지액은 <b>본안 인지액의 2분의 1(상한 50만원)</b>입니다(계쟁물 가처분의 1만원 정액과 다름). <span class="term">전자소송<span class="bub">인터넷으로 서류를 내고 진행하는 방식. 인지액이 10% 깎이고 편리합니다.</span></span>이면 통상 10% 줄어듭니다. 송달료는 <b>당사자 수 × 8회분</b>입니다.</p>
+<h3>4) 담보(공탁)</h3>
+<p>임원의 지위를 잠정 박탈하는 만큼 <b>담보액이 높게 정해질 수 있습니다</b>(민집 §301·§280). 보증보험증권으로 갈음이 가능한 경우가 많으나, 사안에 따라 현금공탁을 요구받기도 합니다.</p>
+<h3>5) 심리 — 심문기일에서 승부가 납니다</h3>
+<p>임시지위 가처분은 원칙적으로 <b>심문기일을 열어 상대 임원의 반론을 듣고</b> 판단합니다(민집 §304). 따라서 <b>첫 서면에서 하자·부정행위를 최대한 구체적으로 소명</b>해야 합니다 — 주주명부, 총회 소집통지서, 의사록, 등기사항증명서, 계좌거래내역, 회계자료, 내부 문서 등.</p>
+<h3>6) 결정 후 — 등기와 직무대행자</h3>
+<p>결정이 나면 법원이 등기소에 촉탁하여 <b>본점 소재지에 직무집행정지·직무대행자선임이 등기</b>됩니다(상법 §407③, 민집 §306). 직무대행자가 선임되면 <b>상무(통상업무)</b> 범위에서 회사를 운영하고, 그 범위를 넘는 행위는 <b>법원의 허가</b>를 받아야 합니다(작성례 ⑦).</p>
+
+<h3>7) 놓치면 안 되는 기한 — 데드라인</h3>
+<table>
+<tr><th>구분</th><th>① 기산일</th><th>② 계산근거</th><th>③ 말일처리</th><th>④ 최종 기한</th></tr>
+<tr><td>소수주주의 이사해임 청구</td><td>주주총회에서 <b>해임이 부결된 결의가 있은 날</b></td><td>상법 §385②</td><td>말일이 공휴일이면 다음 날 만료(민법 §161)</td><td>결의일부터 <b>1개월</b> 내에 법원에 해임 청구 — <b>가장 짧고 가장 자주 놓치는 기한</b></td></tr>
+<tr><td>주주총회결의 취소의 소</td><td>결의가 있은 날</td><td>상법 §376①</td><td>민법 §161</td><td>결의일부터 <b>2개월</b> 내 제소(무효·부존재확인의 소는 기간 제한 없음)</td></tr>
+<tr><td>가처분 후 본안 미제기 시 취소</td><td>가처분 결정·집행일</td><td>민집 §301·§288①3호</td><td>민법 §161</td><td><b>3년</b> 안에 본안 미제기 시 채무자가 취소를 구할 수 있음</td></tr>
+<tr><td>제소명령을 받은 경우</td><td>제소명령 송달일</td><td>민집 §301·§287</td><td>민법 §161</td><td>법원이 정한 기간(<b>통상 2주 이상</b>) 안에 본안 미제기 시 가처분 취소</td></tr>
+</table>
+<div class="warn"><span class="wt">⚠ 해임 부결 후 1개월 — 이 기한을 넘기면 해임의 소 자체가 막힙니다</span>주주총회에서 해임이 부결되면 <b>그날부터 1개월 안에</b> 법원에 해임을 청구해야 합니다(상법 §385②). 이 기간을 넘기면 그 결의를 근거로 한 해임의 소를 낼 수 없고, 이를 피보전권리로 한 직무집행정지 가처분도 어려워집니다. <b>총회 직후 곧바로 준비</b>하십시오.</div>
+</div></details>
+
+<details class="sec" id="s7"><summary>상대방(해당 임원) — 가처분을 당하였다면 방어 절차<span class="sub">절차요건 미비·소명 부족 반박, 이의·제소명령·취소</span></summary>
+<div class="secbody">
+<div class="warn"><span class="wt">⚠ 정지된 상태에서 업무를 계속하지 마십시오</span>직무집행이 정지된 임원이 회사를 대표해 한 행위는 <b>원칙적으로 무효</b>이고, 이는 등기까지 되어 거래 상대방도 알게 됩니다. 계속 업무를 강행하면 회사와 거래처에 손해가 생겨 <b>배상 책임</b>으로 번질 수 있습니다. 다툴 것이 있으면 <b>아래 정식 절차</b>로 다투십시오.</div>
+<ol class="steps">
+<li><b>절차요건 미비 반박 (가장 강력한 방어)</b> — 해임을 이유로 한 신청이라면, 신청인이 <b>5% 지분 요건, 임시총회 소집 요구, 총회에서의 해임 부결, 1개월 내 청구</b>라는 절차를 실제로 거쳤는지 따집니다. 대법원은 <b>이런 절차요건을 거친 흔적이 소명되어야</b> 피보전권리·보전필요성이 인정된다고 하였습니다(95마837).</li>
+<li><b>피보전권리 부존재 반박</b> — 선임 결의에 하자가 없다(적법한 소집·정족수 충족), 또는 주장하는 부정행위가 사실이 아니거나 <b>구체적으로 소명되지 않았다</b>는 점을 자료로 반박합니다. 95마837에서도 지목된 횡령 사실이 소명되지 않아 신청이 기각되었습니다.</li>
+<li><b>보전 필요성 부존재 반박</b> — 회사 운영에 현재 지장이 없고, 정기 주주총회 등 <b>정상적인 절차로 해결할 수 있어</b> 굳이 직무를 정지시킬 급박한 필요가 없다고 다툽니다. 법원이 "신중을 기해야 한다"고 본 지점이므로 유효한 방어입니다.</li>
+<li><b>가처분 이의신청·제소명령·사정변경 취소</b> — 위 내용을 담아 이의신청을 하고(민집 §301·§283, 작성례 ④), 신청인이 본안을 안 내면 제소명령을 신청합니다(§287, 작성례 ⑤). 본안 패소 확정·3년 미제기 시에는 취소를 구합니다(§288). 상법 §407②에 따른 <b>가처분의 변경·취소 신청</b>도 가능합니다.</li>
+<li><b>부당가처분 손해배상 역공</b> — 신청인이 본안에서 패소하면, 부당한 직무정지로 입은 손해(보수 상당액·명예 훼손 등)를 손해배상으로 청구할 수 있습니다(민법 §750). 본안의 <span class="term">반소<span class="bub">피고가 같은 소송 절차 안에서 원고를 상대로 거꾸로 제기하는 소. 손해배상·지위확인 등을 함께 다툴 수 있습니다.</span></span>로 함께 낼 수 있습니다.</li>
+</ol>
+</div></details>
+
+<details class="sec" id="s8"><summary>서류 작성례 — 빈칸만 채우면 됩니다<span class="sub">가처분신청서 · 사전절차 · 본안 소장 · 채무자 대응서면 · 법원허가신청</span></summary>
+<div class="secbody">
+<p style="font-size:14px;color:var(--muted)">아래 작성례는 <b>신청인(주주·구성원)용</b>과 <b>채무자(해당 임원)용</b>으로 나뉩니다. 각 <b>제목줄을 클릭하면(▾)</b> 내용이 펼쳐집니다. 빈칸 <b>○○○</b>를 자기 사건 내용으로 채우고, <b>복사·인쇄·다운로드</b> 버튼으로 활용하십시오. 모든 양식은 대법원 전자민원센터·법원 공식 양식을 따릅니다. <b>외국인이 당사자인 경우</b>, 주민등록번호란에 외국인등록번호를, 주소란에 국내 체류지를 적고 여권·외국인등록사실증명을 붙입니다.</p>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ① · 신청인(사전절차)</span>임시주주총회 소집청구서 (해임을 이유로 할 때)<span class="chev">▾</span></button><div class="fold-body">
+<div class="howto" style="margin-bottom:10px"><b>해임을 이유로 가처분을 하려면 이 절차부터</b>입니다. 5% 이상 주주가 이사회에 임시총회 소집을 요구하고, 이사회가 응하지 않으면 법원 허가를 받아 소집합니다. <b>이 서면이 "절차요건을 거친 흔적"의 첫 증거</b>가 됩니다(95마837).</div>
+<div class="form" id="f1"><span class="ft">임시주주총회 소집청구서</span>수신   ○○주식회사 이사회 귀중
+청구인 ○○○ (보유주식 ○○○주, 발행주식총수의 ○○%)
+주소   ○○○
+
+1. 청구 근거
+   상법 제366조 제1항(소수주주의 임시총회 소집청구)
+
+2. 회의의 목적사항
+   가. 이사 ○○○ 해임의 건
+
+3. 소집의 이유
+   이사 ○○○는 20○○. ○○. ○○.경 ○○○(예: 회사 자금
+   ○○○원을 개인 용도로 인출)하는 등 그 직무에 관하여
+   부정행위 및 법령·정관에 위반한 중대한 사실이 있습니다.
+   이에 위 이사의 해임을 목적으로 임시주주총회의 소집을
+   청구합니다.
+
+4. 첨부
+   가. 주주명부 사본(또는 주식 보유 소명자료)   1부
+   나. 부정행위 소명자료                        1부
+
+              20○○. ○○. ○○.
+                청구인  ○○○ (인 또는 서명)</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1')">📋 복사</button><button type="button" onclick="printForm('f1')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1','임시주주총회_소집청구서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>내용증명으로 보내 발송 사실을 남기십시오.</b> 이사회가 지체 없이 소집 절차를 밟지 않으면 <b>법원의 허가를 얻어</b> 직접 소집할 수 있습니다(상법 §366②). 이후 총회에서 <b>해임이 부결</b>되면 <b>그날부터 1개월 내</b>에 해임의 소를 제기해야 합니다(상법 §385②).</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ② · 신청인</span>직무집행정지 및 직무대행자선임 가처분신청서<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f2"><span class="ft">직무집행정지등 가처분신청서</span>채권자  ○○○   (☎: ○○○-○○○○-○○○○)
+주민등록번호(외국인등록번호)  ○○○○○○-○○○○○○○
+주소  ○○○
+       (○○주식회사 발행주식 총수 ○○○주 중 ○○○주 보유)
+
+채무자  ○○○ (○○주식회사 대표이사 / 이사)
+주소  ○○○
+
+피보전권리의 요지   이사해임청구권
+                    (또는 주주총회결의 부존재확인청구권)
+
+         신 청 취 지
+1. 채무자는 ○○주식회사의 대표이사 및 이사로서의 직무를
+   집행하여서는 아니 된다.
+2. 위 직무집행정지 기간 중 ○○○을 ○○주식회사의 대표이사
+   및 이사의 직무대행자로 선임한다.
+라는 결정을 구합니다.
+
+         신 청 이 유
+1. 당사자의 지위
+   채권자는 ○○주식회사의 발행주식 총수 ○○○주 중 ○○○주
+   (○○%)를 보유한 주주이고, 채무자는 위 회사의 대표이사로
+   등기되어 있습니다(소갑 제1호증 등기사항전부증명서,
+   소갑 제2호증 주주명부).
+2. 피보전권리
+   가. (해임 사유가 있는 경우)
+       채무자는 20○○. ○○. ○○.경 ○○○(예: 회사 자금
+       ○○○원을 개인 계좌로 이체)하는 등 그 직무에 관하여
+       부정행위 및 법령 위반의 중대한 사실이 있습니다
+       (소갑 제3호증 계좌거래내역, 소갑 제4호증 회계자료).
+       채권자는 20○○. ○○. ○○. 임시주주총회 소집을
+       청구하였고(소갑 제5호증), 20○○. ○○. ○○. 개최된
+       임시주주총회에서 채무자의 해임이 부결되었으므로
+       (소갑 제6호증 의사록), 상법 제385조 제2항에 따라
+       해임을 청구할 수 있는 지위에 있습니다.
+   나. (선임 절차에 하자가 있는 경우)
+       채무자를 이사로 선임한 20○○. ○○. ○○.자 주주총회는
+       ○○○(예: 소집통지 없이 개최됨)하여 그 결의가
+       부존재하므로, 채무자는 적법한 이사가 아닙니다.
+3. 보전의 필요성
+   채무자가 계속 직무를 수행할 경우 ○○○(예: 회사의 주요
+   자산인 별지 기재 부동산을 임의로 처분하려는 정황)이 있어,
+   본안판결 확정을 기다릴 경우 회사와 주주들에게 회복하기
+   어려운 손해가 발생할 급박한 위험이 있습니다
+   (소갑 제7호증).
+4. 담보제공
+   담보제공은 보증보험증권으로 갈음할 수 있도록 허가하여
+   주시기 바랍니다.
+
+         소 명 방 법
+1. 소갑 제1호증   법인 등기사항전부증명서
+1. 소갑 제2호증   주주명부
+1. 소갑 제3호증   계좌거래내역
+1. 소갑 제4호증   회계자료(전표·결산서 등)
+1. 소갑 제5호증   임시주주총회 소집청구서 및 내용증명
+1. 소갑 제6호증   주주총회 의사록(해임 부결)
+1. 소갑 제7호증   ○○○ (보전 필요성 소명자료)
+
+         첨 부 서 류
+1. 위 소명방법 사본        각 1통
+1. 법인 등기사항전부증명서   1통
+1. 송달료납부서            1통
+
+              20○○. ○○. ○○.
+                위 채권자  ○○○ (인 또는 서명)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f2')">📋 복사</button><button type="button" onclick="printForm('f2')">🖨 인쇄</button><button type="button" onclick="downloadForm('f2','직무집행정지등_가처분신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>핵심 서면</b>입니다. 신청이유 2번에서 <b>가와 나 중 자기 사안에 맞는 하나</b>만 씁니다 — 부정행위로 쫓아내려면 '가'(해임), 선임 절차가 잘못됐으면 '나'(결의 하자). <b>'가'로 갈 때는 소갑 제5·6호증(소집청구서·해임 부결 의사록)이 결정적</b>입니다. 대법원이 요구하는 "절차요건을 거친 흔적"이 바로 이것입니다(95마837). 3번 보전 필요성은 <b>지금 멈추지 않으면 무슨 일이 벌어지는지</b>를 구체적으로 씁니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ③ · 신청인(본안)</span>소장 — 이사해임 청구의 소<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f3"><span class="ft">소        장</span>원고  ○○○   (☎: ○○○-○○○○-○○○○)
+주소  ○○○
+피고  1. ○○주식회사
+         대표자 ○○○
+      2. ○○○ (해임을 구하는 이사)
+주소  ○○○
+
+이사해임 청구의 소
+
+         청 구 취 지
+1. 피고 ○○주식회사의 이사 피고 ○○○를 해임한다.
+2. 소송비용은 피고들이 부담한다.
+라는 판결을 구합니다.
+
+         청 구 원 인
+1. 원고는 피고 회사의 발행주식 총수 ○○○주 중 ○○○주
+   (○○%)를 보유한 주주입니다(갑 제1호증 주주명부).
+2. 피고 ○○○는 피고 회사의 이사로서 20○○. ○○. ○○.경
+   ○○○하는 등 그 직무에 관하여 부정행위 및 법령·정관에
+   위반한 중대한 사실이 있습니다(갑 제2, 3호증).
+3. 원고는 20○○. ○○. ○○. 임시주주총회 소집을 청구하였고,
+   20○○. ○○. ○○. 개최된 임시주주총회에서 피고 ○○○의
+   해임 안건이 부결되었습니다(갑 제4호증 의사록).
+4. 이에 원고는 위 결의일부터 1개월 내인 오늘 상법 제385조
+   제2항에 따라 피고 ○○○의 해임을 구합니다.
+
+         입 증 방 법
+1. 갑 제1호증   주주명부
+1. 갑 제2호증   계좌거래내역
+1. 갑 제3호증   회계자료
+1. 갑 제4호증   주주총회 의사록(해임 부결)
+
+         첨 부 서 류
+1. 위 입증방법 사본    각 1통
+1. 법인 등기사항전부증명서 1통
+1. 소장 부본          2통
+1. 송달료납부서·인지   1통
+
+              20○○. ○○. ○○.
+                위 원고  ○○○ (인 또는 서명)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f3')">📋 복사</button><button type="button" onclick="printForm('f3')">🖨 인쇄</button><button type="button" onclick="downloadForm('f3','이사해임청구_소장.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>가처분의 본안</b>입니다. <b>해임 부결 결의일부터 1개월</b>이라는 기한이 있어 가장 촉박합니다(상법 §385②). 실무상 <b>회사와 해당 이사를 함께 피고</b>로 삼습니다. 선임 절차 하자를 다투는 사안이라면 이 소장 대신 <b>주주총회결의 취소·무효·부존재확인의 소</b>를 제기합니다(취소의 소는 결의일부터 <b>2개월</b> 내).</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ④ · 채무자</span>가처분 이의신청서 (절차요건·소명 부족 반박)<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f4"><span class="ft">가처분결정에 대한 이의신청서</span>사건   20○○카합○○○○호   직무집행정지등 가처분
+채권자  ○○○
+채무자  ○○○
+
+위 사건에 관하여 채무자는 다음과 같이 이의신청을 합니다.
+
+         신 청 취 지
+1. 위 사건에 관하여 20○○. ○○. ○○. 이 법원이 한 가처분결정을
+   취소한다.
+2. 채권자의 가처분신청을 기각한다.
+라는 결정을 구합니다.
+
+         신 청 이 유
+1. 절차요건의 흠결
+   채권자는 상법 제385조 제2항에 따른 이사해임의 소를
+   피보전권리로 주장하나, ○○○(예: 임시주주총회 소집청구를
+   한 사실이 없음 / 총회에서 해임이 부결된 사실이 없음 /
+   부결 결의일부터 1개월이 이미 도과함)하여, 해임의 소를
+   제기할 수 있을 정도의 절차요건을 갖추지 못하였습니다.
+   대법원은 특별히 급박한 사정이 없는 한 이러한 절차요건을
+   거친 흔적이 소명되어야 피보전권리와 보전의 필요성이
+   인정된다고 판시하였습니다(대법원 95마837 결정).
+2. 부정행위의 부존재
+   채권자가 주장하는 ○○○는 사실이 아니거나, 적법한
+   이사회 결의에 따른 정당한 업무집행이었습니다
+   (을 제1, 2호증).
+3. 보전 필요성의 부존재
+   회사는 현재 정상적으로 운영되고 있고, 정기주주총회 등
+   통상의 절차로 해결이 가능하므로 직무를 잠정 박탈할
+   급박한 필요가 없습니다.
+4. 따라서 이 사건 가처분결정은 부당하므로 취소되어야 합니다.
+
+         소 명 방 법
+1. 을 제1호증   이사회 의사록
+1. 을 제2호증   ○○○ (정당한 업무집행 소명자료)
+
+         첨 부 서 류
+1. 위 소명방법 사본    각 1통
+1. 이의신청서 부본     1통
+
+              20○○. ○○. ○○.
+                위 채무자  ○○○ (인 또는 서명)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f4')">📋 복사</button><button type="button" onclick="printForm('f4')">🖨 인쇄</button><button type="button" onclick="downloadForm('f4','가처분_이의신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>직무가 정지된 임원(채무자)</b>의 핵심 방어입니다. 가장 강력한 축은 <b>1번(절차요건 흠결)</b> — 5% 지분, 소집청구, 해임 부결, 1개월 기한 중 <b>하나라도 빠졌으면</b> 그 자체로 다툴 수 있습니다. 여기에 2번(사실 부인)·3번(급박성 부인)을 더해 심문기일에서 소명합니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ⑤ · 채무자</span>제소명령 신청서<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f5"><span class="ft">제소명령신청서</span>사건   20○○카합○○○○호   직무집행정지등 가처분
+채권자  ○○○
+채무자  ○○○
+
+위 사건에 관하여 채무자는 다음과 같이 신청합니다.
+
+         신 청 취 지
+채권자에게 상당한 기간 이내에 본안의 소를 제기하고 이를
+증명하는 서류를 제출하도록 명하여 주시기 바랍니다.
+라는 결정을 구합니다.
+
+         신 청 이 유
+채권자는 20○○. ○○. ○○. 이 사건 가처분결정을 받고도 상당한
+기간이 지나도록 본안소송을 제기하지 아니한 채 채무자의 직무
+집행만 장기간 정지시키고 있습니다. 이에 민사집행법 제287조
+(제301조에 의한 준용)에 따라 제소명령을 신청합니다.
+
+         첨 부 서 류
+1. 신청서 부본    1통
+
+              20○○. ○○. ○○.
+                위 채무자  ○○○ (인 또는 서명)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f5')">📋 복사</button><button type="button" onclick="printForm('f5')">🖨 인쇄</button><button type="button" onclick="downloadForm('f5','제소명령신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>가처분만 받아 놓고 본안을 안 내는 경우</b>에 쓰는 압박 수단입니다. 직무정지가 길어질수록 임원의 손해가 크므로, 제소명령으로 본안 제기를 강제하고 미제기 시 취소를 노립니다(민집 §287·§301).</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ⑥ · 채무자(본안)</span>답변서 — 이사해임 청구에 대한<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f6"><span class="ft">답 변 서</span>사건   20○○가합○○○○호   이사해임
+원고   ○○○
+피고   ○○○
+
+위 사건에 관하여 피고는 다음과 같이 답변합니다.
+
+         청구취지에 대한 답변
+1. 원고의 청구를 기각한다.
+2. 소송비용은 원고가 부담한다.
+라는 판결을 구합니다.
+
+         청구원인에 대한 답변
+1. 제소기간 도과
+   원고가 주장하는 해임 부결 결의는 20○○. ○○. ○○.자인데,
+   이 사건 소는 그로부터 1개월이 지난 20○○. ○○. ○○.에
+   제기되었으므로 상법 제385조 제2항의 제소기간을
+   도과하였습니다.
+2. 원고적격의 흠결
+   원고의 보유주식은 발행주식 총수의 ○○%에 불과하여
+   상법 제385조 제2항이 요구하는 100분의 5에 미치지
+   못합니다(을 제1호증 주주명부).
+3. 해임사유의 부존재
+   원고가 주장하는 ○○○는 사실이 아니거나, 적법한 이사회
+   결의를 거친 정당한 업무집행으로서 부정행위나 법령·정관
+   위반의 중대한 사실에 해당하지 아니합니다(을 제2호증).
+4. 따라서 원고의 청구는 이유 없습니다.
+
+         입 증 방 법
+1. 을 제1호증   주주명부
+1. 을 제2호증   이사회 의사록 등
+
+         첨 부 서 류
+1. 위 입증방법 사본    각 1통
+1. 답변서 부본        1통
+
+              20○○. ○○. ○○.
+                위 피고  ○○○ (인 또는 서명)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f6')">📋 복사</button><button type="button" onclick="printForm('f6')">🖨 인쇄</button><button type="button" onclick="downloadForm('f6','이사해임_답변서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>본안(이사해임) 소장을 받은 피고</b>의 첫 대응입니다. 소장 부본을 받은 날부터 <b>30일 안에</b> 냅니다(민사소송법 §256①). 방어의 축은 셋 — ①<b>1개월 제소기간 도과</b> ②<b>5% 지분 요건 미달</b> ③해임사유 부존재. ①②는 <b>본안 판단에 들어가기 전에 끝낼 수 있는</b> 강한 항변이므로 먼저 검토하십시오.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag">작성례 ⑦ · 직무대행자</span>상무 외 행위에 대한 법원 허가신청서<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f7"><span class="ft">직무대행자의 상무외행위 허가신청서</span>사건   20○○카합○○○○호   직무집행정지등 가처분
+신청인 ○○○ (○○주식회사 대표이사 직무대행자)
+주소   ○○○
+
+         신 청 취 지
+신청인이 ○○주식회사를 위하여 아래 행위를 하는 것을
+허가한다.
+라는 결정을 구합니다.
+
+         신청하는 행위의 내용
+○○○ (예: 별지 기재 부동산의 매각 / 임시주주총회의 소집 /
+        ○○○원 상당의 차입)
+
+         신 청 이 유
+1. 신청인은 20○○. ○○. ○○. 이 법원의 가처분결정에 따라
+   ○○주식회사의 대표이사 직무대행자로 선임되었습니다.
+2. 그런데 위 행위는 상법 제408조 제1항의 '회사의 상무'에
+   속한다고 보기 어려우나, ○○○(예: 만기 도래 채무의 변제를
+   위하여 불가피함)의 사정으로 이를 하지 아니하면 회사에
+   회복하기 어려운 손해가 발생합니다.
+3. 이에 법원의 허가를 신청합니다.
+
+         소 명 방 법
+1. 소갑 제1호증   ○○○ (필요성 소명자료)
+
+         첨 부 서 류
+1. 가처분결정문 사본  1통
+1. 신청서 부본       1통
+
+              20○○. ○○. ○○.
+                위 신청인  ○○○ (인 또는 서명)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f7')">📋 복사</button><button type="button" onclick="printForm('f7')">🖨 인쇄</button><button type="button" onclick="downloadForm('f7','상무외행위_허가신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>직무대행자</b>가 통상업무를 넘는 일을 해야 할 때 내는 서면입니다. 대법원은 <b>회사 경영을 통째로 남에게 일임하는 행위는 상무가 아니다</b>라고 보았습니다(83다카875). 부동산 처분, 대규모 차입, 임시주주총회 소집 등은 <b>상무를 벗어날 가능성이 높으므로</b> 미리 허가를 받는 것이 안전합니다. 허가 없이 한 행위라도 회사는 <b>선의의 제3자</b>에게는 책임을 집니다(상법 §408②).</div>
+</div></div>
+</div></details>
+
+<h2 id="s9">고충은 덜어드리고, 결과로 보답하겠습니다</h2>
+<div class="hire">
+<p>본 사무소에서는 의뢰인들의 고충은 덜어드리고, 함께 소송을 진행하여 원하는 결과에 도달할 수 있도록 성심을 다하겠습니다.</p>
+<p style="margin-top:12px"><b>· 채권자(주주·구성원)의 경우</b><br>① <b>임시총회 소집청구서</b> 등 사전절차 서면, ② <b>직무집행정지·직무대행자선임 가처분신청서</b> 작성, ③ <b>본안(이사해임·결의 취소·무효·부존재확인) 소장</b> 작성, ④ 등기·담보제공 안내까지 <b>본인소송의 전 과정을 함께</b> 준비해 드립니다.</p>
+<p style="margin-top:10px"><b>· 채무자(해당 임원)의 경우</b><br>① <b>이의신청서(절차요건 흠결 반박)·제소명령 신청서</b>, ② 본안 <b>답변서(제소기간·지분요건 항변)</b>, ③ <b>부당가처분 손해배상(반소)</b> 전략을 함께 수립해 드립니다.</p>
+</div>
+<div class="warn"><span class="wt">⚠ 자력구제 금지</span>임원이 회사를 해친다고 판단되더라도, <b>사무실 출입을 물리력으로 막거나 법인 인감·서류를 임의로 가져가는 행위는 불법</b>이며 업무방해·절도 등이 문제될 수 있습니다. 반드시 <b>법원의 가처분</b>을 통해야 합니다. 반대로 <b>직무가 정지된 임원</b>이 이를 무시하고 회사를 대표해 계약하는 것도 무효이며, 손해가 생기면 배상 책임을 집니다.</div>
+
+<a href="https://sanlaw.co.kr/tools-calculator.html" class="cta">🧮 내 사건 비용 미리 계산하기</a>
+<div style="text-align:center; background:#f6ecd8; border:1px solid var(--gold); border-radius:11px; padding:14px; margin:18px 0; font-size:15px; color:var(--gold-d); font-weight:700;">📞 상담은 홈 화면의 상담 창구를 이용하시면 됩니다.</div>
+
+<details class="sec" id="s10"><summary>준비할 서류와 발급처 — 어디서 떼나<span class="sub">발급처별 딥링크와 찾아가기 경로를 함께 담았습니다</span></summary>
+<div class="secbody">
+<p style="font-size:13.5px;color:var(--muted)">아래 '바로가기'를 클릭하면 해당 사이트로 이동합니다. 첫 화면으로 연결되면 옆의 <b>찾아가기 경로</b>를 따라 메뉴를 클릭하면 됩니다.</p>
+<table>
+<tr><th>무엇을 (어디서)</th><th>서류</th><th>바로가기 · 찾아가기 경로</th></tr>
+<tr><td>회사·임원 확인<br>(인터넷등기소)</td><td>법인 등기사항전부증명서(임원 등재·본점 확인)</td><td><a href="https://www.iros.go.kr">인터넷등기소</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 등기열람/발급 → 법인 → 열람/발급하기 → 상호·법인등록번호로 검색</span></td></tr>
+<tr><td>주주 자격 소명<br>(회사·본인 보관)</td><td>주주명부, 주식 취득 관련 자료</td><td><span style="font-size:12.5px;color:var(--muted)">회사에 주주명부 열람·등사를 청구(상법 §396②) / 본인 보관 계약서·거래내역</span></td></tr>
+<tr><td>부정행위 소명<br>(거래은행·회사)</td><td>계좌거래내역, 회계자료, 이사회·주주총회 의사록</td><td><span style="font-size:12.5px;color:var(--muted)">거래은행 앱·인터넷뱅킹 '거래내역 조회' / 회사에 회계장부 열람·등사 청구(상법 §466)</span></td></tr>
+<tr><td>사전절차 발송<br>(우체국)</td><td>임시주주총회 소집청구서 — 내용증명 발송</td><td><a href="https://service.epost.go.kr">인터넷우체국</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 우편 → 증명서비스 → 내용증명 발송·보관 조회</span></td></tr>
+<tr><td>담보 제공<br>(서울보증보험)</td><td>공탁보증보험증권(현금공탁 대체용)</td><td><a href="https://www.sgic.co.kr">서울보증보험</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 법원공탁보증 메뉴 / 또는 지점·법원 내 출장소 방문(담보액이 클 수 있음)</span></td></tr>
+<tr><td>신청·소송 제출<br>(전자소송)</td><td>가처분신청서·소장·허가신청서 — 공식 양식</td><td><a href="https://ecfs.scourt.go.kr">전자소송</a> / <a href="https://ecfs.scourt.go.kr/psp/index.on?m=PSP720M24">양식모음</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 전자소송 → 서류제출 → 민사신청 → 가처분</span></td></tr>
+</table>
+
+<div class="tip"><span class="pt">💡 이어지는 카드</span> <b>부당해고를 다투며 임금을 받으려면</b> <a class="cl" href="B-6_임금지급가처분.html"><b>임금지급가처분(B-6)</b></a>, <b>허위글·비방을 막으려면</b> <a class="cl" href="B-4_인격권침해금지가처분.html"><b>인격권침해금지가처분(B-4)</b></a>을 보십시오. <b>회사 재산이 빠져나가는 것을 막으려면</b> <a class="cl" href="B-1_부동산처분금지가처분.html"><b>처분금지가처분(B-1)</b></a>도 함께 검토하십시오. 반대로 <b>가처분을 당하신 분</b>은 <a class="cl" href="C-2_가처분방어.html"><b>가처분을 당했을 때의 방어(C-2)</b></a>를 보십시오.</div>
+
+</div></details>
+<div class="src">
+근거 — 상법 제366조(소수주주의 임시총회 소집청구)·제376조(결의취소의 소)·제380조(결의무효·부존재확인의 소)·제385조 제2항(소수주주의 이사해임 청구)·제396조(주주명부 열람)·제407조(직무집행정지, 직무대행자선임)·제408조(직무대행자의 권한)·제466조(회계장부 열람) · 민사집행법 제300조 제2항(임시의 지위를 정하기 위한 가처분)·제301조(가압류 절차의 준용)·제303조(관할)·제304조(임시지위 가처분의 심리)·제306조(법인 임원의 직무집행정지 등 가처분의 등기촉탁)·제280조(담보제공)·제283조(이의)·제287조(제소명령)·제288조(사정변경 취소) · 민법 제60조의2(직무대행자의 권한)·제161조(기간 말일)·제750조(불법행위 손해배상) · 민사소송법 제256조(답변서) · 대법원 1997. 1. 10.자 95마837 결정(해임의 소를 피보전권리로 하는 직무집행정지신청은 본안 제기를 전제로 하지 않으나, 특별히 급박한 사정이 없는 한 해임의 소를 제기할 수 있을 정도의 절차요건을 거친 흔적이 소명되어야 피보전권리·보전필요성이 인정됨) · 대법원 1984. 2. 14. 선고 83다카875, 876, 877 판결(회사 경영을 일임하는 행위는 상무가 아니므로 법원 허가가 필요함) · 법제처 찾기쉬운 생활법령정보 · 국가법령정보센터 · 대법원 전자민원센터. 본 자료는 일반적인 법률정보로, 개별 사건의 법률자문이 아닙니다.
+</div>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+})();
+
+(function(){
+  document.querySelectorAll('.toc a').forEach(function(a){
+    a.addEventListener('click',function(){
+      var el=document.querySelector(a.getAttribute('href'));
+      if(el&&el.tagName==='DETAILS')el.open=true;
+    });
+  });
+  var btn=document.getElementById('allBtn');
+  if(!btn)return;
+  function toggleAll(){
+    var opening=btn.textContent.indexOf('펼치기')>-1;
+    document.querySelectorAll('details.sec').forEach(function(d){d.open=opening;});
+    document.querySelectorAll('.formbox').forEach(function(fb){
+      fb.classList.toggle('open',opening);
+      var body=fb.querySelector('.fold-body');
+      if(body)body.style.display=opening?'block':'none';
+    });
+    btn.textContent=opening?'전체 접기':'전체 펼치기';
+  }
+  btn.addEventListener('click',toggleAll);
+  btn.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleAll();}});
+})();
+(function(){
+})();
+function toggleFold(b){var fb=b.parentElement;var body=b.nextElementSibling;var open=fb.classList.toggle('open');if(body){body.style.display=open?'block':'none';}}
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('작성례가 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('작성례가 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('작성례를 내려받았습니다');}
+</script>
+</body>
+</html>
