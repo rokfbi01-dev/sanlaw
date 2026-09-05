@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[보전 A-9] 골프·콘도·스포츠 회원권을 가압류할 수 있나요 — 회원권 가압류 | 산 법무사 김재섭</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(280px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.case{background:var(--box); border-radius:10px; padding:14px 16px; margin:14px 0; border-left:4px solid #b9a98c;}
+.case .ct{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+.sit-wrap{display:flex; gap:12px; margin:14px 0;}
+.sit{flex:1; background:#f8f5ee; border:1px solid var(--line); border-top:3px solid var(--gold); border-radius:10px; padding:13px 15px; font-size:14.5px; line-height:1.75;}
+.sit .sl{display:block; font-weight:700; color:var(--gold-d); margin-bottom:6px; font-size:14px;}
+@media (max-width:680px){ .sit-wrap{flex-direction:column;} }
+/* 전체 길 흐름도 (A-1 추가 — 기존 톤 재활용) */
+.flow{background:linear-gradient(180deg,#faf7f0,#f6f1e6); border:1px solid var(--line); border-radius:14px; padding:22px 20px; margin:16px 0;}
+.flow .fl-t{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:18px; text-align:center; letter-spacing:.3px;}
+.flow .node{position:relative; background:#fff; border:1px solid #e3d8c4; border-radius:11px; padding:15px 18px 15px 56px; font-size:14.5px; line-height:1.72; box-shadow:0 2px 6px rgba(122,82,48,.07);}
+.flow .node .num{position:absolute; left:15px; top:14px; width:30px; height:30px; line-height:30px; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; border-radius:50%; font-weight:800; font-size:15px; font-family:'Nanum Myeongjo',serif; box-shadow:0 2px 5px rgba(122,82,48,.3);}
+.flow .node b{color:#241a10;}
+.flow .down{display:flex; justify-content:center; align-items:center; padding:7px 0;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+/* 작성례 박스 */
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+details.sec{border:1px solid var(--line); border-radius:11px; margin:18px 0; background:#fff; overflow:hidden;}
+details.sec>summary{cursor:pointer; list-style:none; padding:14px 17px 14px 15px; background:var(--box); border-left:4px solid var(--gold); font-family:'Nanum Myeongjo',serif; font-size:18px; font-weight:700; color:var(--gold-d); line-height:1.55;}
+details.sec>summary::-webkit-details-marker{display:none;}
+details.sec>summary .sub{display:block; font-family:'Pretendard',sans-serif; font-size:13.5px; font-weight:400; color:var(--muted); margin-top:3px;}
+details.sec>summary::after{content:"펼치기 ▾"; float:right; font-family:'Pretendard',sans-serif; font-size:12.5px; font-weight:700; color:var(--gold); background:#fff; border:1px solid var(--line); border-radius:20px; padding:2px 10px; margin-left:8px;}
+details.sec[open]>summary::after{content:"접기 ▴";}
+details.sec>summary:hover{background:#f2ede3;}
+.secbody{padding:4px 17px 16px;}
+.secbody>h3:first-of-type{margin-top:14px;}
+.toc{background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 17px; margin:8px 0 22px;}
+.toc .tct{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:9px;}
+.toc ol{margin:0; padding-left:20px;}
+.toc li{margin:5px 0; font-size:14.5px;}
+.toc a{text-decoration:none; border-bottom:1px dotted var(--gold);}
+.allbtn{display:inline-block; margin-top:11px; font-size:13.5px; font-weight:700; color:var(--gold-d); background:var(--box); border:1px solid var(--line); border-radius:8px; padding:7px 14px; cursor:pointer;}
+.allbtn:hover{background:#f2ede3;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:15px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .tag{margin-bottom:0;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;}
+.tag.cred{background:#5a9a72;}
+.tag.debt{background:#d9694a;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:18px;margin:12px 0;font-family:'D2Coding','Courier New',monospace;font-size:13px;line-height:1.6;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:16px;letter-spacing:2px;margin-bottom:12px;color:#241a10;}
+.howto{font-size:14px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0 4px;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:13px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:7px 13px;cursor:pointer;transition:.15s;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.75;}
+.lawbox .ll{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold-d);border-radius:5px;padding:2px 9px;margin-right:7px;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.hire p{margin:7px 0; font-size:15px; line-height:1.8;}
+.cta{display:block;text-align:center;background:var(--gold-d);color:#fff;font-weight:700;font-size:17px;text-decoration:none;padding:15px;border-radius:11px;margin:18px 0;font-family:'Nanum Myeongjo',serif;letter-spacing:1px;}
+.cta:hover{background:#5e3f24;}
+@media print{
+  .backbar{display:none !important;}
+  body{background:#fff; max-width:100%;}
+  .tldr,.case,.warn,.tip,.cost,.steps li,.tnote,.sit,.flow,.flow li,.lawbox,.hire{background:#fff !important; border-color:#ccc !important;}
+  .tnote{display:none;}
+  .term{border:none; color:inherit; font-weight:inherit;}
+  .term>.bub{display:inline !important; position:static; width:auto; background:none; color:inherit; box-shadow:none; padding:0; font-size:inherit; line-height:inherit;}
+  .term>.bub::before{content:" ("; }
+  .term>.bub::after{content:")"; border:none; position:static;}
+  .fold-body{display:block !important;}.fold-btn .chev{display:none;}.form-tools{display:none;}
+  details.sec:not([open])>*{display:block !important;}
+  details.sec>summary::after{display:none;} .allbtn,.toc{display:none !important;}
+  .cta{background:#fff !important; color:#241a10 !important; border:1px solid #ccc;}
+}
+.cl{color:var(--gold-d);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--gold-d);}
+.cl:hover{background:#fbf5e8;}
+.tip .cl,.tip .cl b{color:var(--tip-ink);}
+.tip .cl{border-bottom-color:var(--tip-ink);}
+.warn .cl,.warn .cl b{color:var(--warn-ink);}
+.warn .cl{border-bottom-color:var(--warn-ink);}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+
+
+<h1>[보전 A-9] 골프·콘도·스포츠 회원권을 가압류할 수 있나요 — 회원권 가압류</h1>
+
+<div class="tnote">어려운 법률용어에는 <b>점선 밑줄</b>이 그어져 있습니다. <b>PC는 마우스를 올리면</b>, <b>휴대폰은 손가락으로 톡 터치하면</b> 쉬운 설명이 뜹니다. (인쇄하면 괄호로 함께 나옵니다.)</div>
+
+<div class="hire">
+<div class="ht">이 매뉴얼을 끝까지 읽으시는 분께</div>
+<p>이 매뉴얼은 <b>의뢰인이 직접 법원에 신청할 수 있도록 모든 서류 양식·비용·요건을 구체적으로 담았습니다.</b> 하지만 소송은 살아있는 생물과 같아 상대방의 격렬한 저항이 뒤따릅니다. 혼자 진행하시다가 막히는 부분이 생기거나 방어막이 필요할 때, 언제든 이 매뉴얼을 들고 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</p>
+</div>
+
+<div class="tldr">
+<div class="tt">⭐ 30초 결론부터</div>
+<ul>
+<li><b>회원권은 가압류할 수 있고, 실무에서 효과가 매우 좋은 편입니다.</b> 골프·콘도·스포츠 회원권은 <b>민사집행법 §251의 '그 밖의 재산권'</b>에 해당하여, 금전채권 압류에 관한 규정(민집 §223~§227)을 준용하는 방법으로 가압류합니다(민집 §291·§251). <b>제3채무자는 골프장·콘도·스포츠클럽을 운영하는 회사</b>입니다.</li>
+<li><b>다른 재산과 견주어 세 가지 장점이 뚜렷합니다.</b> ① <b>시세가 공개</b>되어 있어(회원권 거래소 시세표) 얼마를 회수할 수 있을지 <b>신청 전에 가늠할 수 있습니다.</b> ② <b>등록면허세가 없습니다</b>(부동산은 청구금액의 0.2%). ③ 채무자에게 회원권은 <b>사회적 지위와 직결된 재산</b>인 경우가 많아 <b>압박 효과가 큽니다.</b> 자산가·사업가를 상대로 하는 사건에서 특히 유용합니다.</li>
+<li><b>우리나라 골프장의 대부분은 「예탁금회원제」입니다.</b> 입회할 때 <span class="term">예탁금<span class="bub">회원으로 가입할 때 골프장 운영회사에 맡기는 돈. 일정 기간이 지나 탈회하면 돌려받을 수 있어, 회원권 값의 실질을 이룹니다. '입회금·회원자격보증금'이라고도 합니다.</span></span>을 맡기고 탈회할 때 돌려받는 방식입니다. 대법원은 이러한 <b>예탁금제 골프회원권을 「회원가입계약상의 지위 내지 채권적 법률관계의 총체」</b>로 보고, <b>① 회원권 자체</b>에 대하여도, <b>② 탈회 시 행사할 예탁금 반환청구권</b>에 대하여도 <b>모두 보전처분을 할 수 있다</b>고 합니다(대법원 2008다10884). <b>둘 중 어느 것을 잡을지</b>가 이 카드의 첫 갈림길입니다.</li>
+<li><b>「누가 먼저 송달되었는가」가 승패를 가릅니다.</b> 회원권은 부동산처럼 등기부가 없어 <b>공시 방법이 없습니다.</b> 그래서 이미 다른 사람이 <b>회원권 처분금지가처분</b>을 받아 운영회사에 먼저 송달해 두었다면, 뒤늦은 가압류는 <b>그 사람에게 대항할 수 없습니다</b>(대법원 2008다10884). <b>하루라도 빨리 결정을 받아 운영회사에 송달시키는 것</b>이 유일한 방법입니다.</li>
+<li><b>골프장이 넘어가도 회원권은 살아 있습니다.</b> 골프장이 경매·공매로 남에게 넘어가면 회원권이 휴지가 되는지 걱정하실 수 있으나, <b>체육시설의 설치·이용에 관한 법률 §27</b>에 따라 <b>인수인이 회원에 대한 권리·의무를 승계</b>합니다. 대법원은 <b>담보신탁 공매</b>로 넘어간 경우에도 마찬가지라고 하였습니다(대법원 2016다220143 전원합의체). 다만 <b>콘도·스포츠 회원권은 이 조항의 적용 범위가 다를 수 있으므로</b> 개별 확인이 필요합니다.</li>
+<li><b>그래도 확인할 것이 셋 있습니다.</b> ① <b>회칙상 양도제한</b> — 운영회사의 승인을 요구하는 회칙이 많아 현금화 단계에서 걸림돌이 됩니다. ② <b>연회비 체납·자격정지</b> — 채무자가 연회비를 오래 밀렸다면 회원자격 자체가 흔들릴 수 있습니다. ③ <b>운영회사의 재무 상태</b> — 회사가 부실하면 예탁금 반환이 사실상 어렵습니다.</li>
+</ul>
+</div>
+
+<div class="toc">
+<div class="tct">이 카드에 담긴 것 — 필요한 곳만 펼쳐 보십시오</div>
+<ol>
+<li><a href="#s1">지금 어떤 상황인가요?</a></li>
+<li><a href="#s2">전체 길 한눈에 보기 — 신청부터 회수까지</a></li>
+<li><a href="#s3">핵심 세 가지 — 회원권 자체인가, 예탁금인가</a></li>
+<li><a href="#s4">관련 법령 — 쉬운 풀이</a></li>
+<li><a href="#s5">판례로 보기 — 신청 전에 꼭 읽어야 할 두 가지</a></li>
+<li><a href="#s6">채권자 — 신청부터 회수·담보회수까지 상세 절차</a></li>
+<li><a href="#s7">채무자 — 억울하게 당하였다면 방어 절차</a></li>
+<li><a href="#s8">서류 작성례 — 빈칸만 채우면 됩니다</a></li>
+<li><a href="#s9">고충은 덜어드리고, 결과로 보답하겠습니다</a></li>
+<li><a href="#s10">준비할 서류와 발급처 — 어디서 떼나</a></li>
+</ol>
+<span class="allbtn" id="allBtn" role="button" tabindex="0">전체 펼치기</span>
+</div>
+
+<h2 id="s1">지금 어떤 상황인가요?</h2>
+<div class="sit-wrap">
+<div class="sit"><span class="sl">상황 ① · 채무자의 골프회원권을 묶으려는 분 (가장 흔합니다)</span>빌려준 돈·공사대금·물품대금을 받지 못하였는데, <b>채무자가 골프를 즐기고 회원권을 보유</b>하고 있는 경우. → <b>운영회사를 제3채무자로</b> 하여 회원권을 가압류합니다. 회원권은 <b>시세가 공개</b>되어 있어 실익을 미리 계산할 수 있고, 채무자에게는 <b>사회생활과 직결된 재산</b>이어서 압박 효과가 큽니다. <b>아래 작성례 ①·①-1</b>이 출발점입니다.</div>
+<div class="sit"><span class="sl">상황 ② · 채무자의 콘도·스포츠(헬스·피트니스) 회원권을 묶으려는 분</span>채무자가 <b>휴양콘도미니엄 회원권</b>이나 <b>스포츠센터 회원권</b>을 보유하고 있는 경우. → 집행 방법은 골프회원권과 같습니다(민집 §251). 다만 <b>콘도는 「공유제」와 「회원제」가 있어</b> 성질이 다를 수 있고, 스포츠회원권은 <b>양도 자체가 금지</b>된 것도 많으므로 <b>회칙과 계약서를 먼저 확인</b>하십시오. 골프회원권보다 <b>시세가 낮고 거래도 활발하지 않은 편</b>입니다.</div>
+</div>
+
+<h2 id="s2">전체 길 한눈에 보기 — 신청부터 회수까지</h2>
+<div class="flow">
+<div class="fl-t">회원권은 <b>운영회사에 결정문이 송달되는 순간</b> 묶입니다</div>
+<div class="node"><span class="num">0</span><b>먼저 회원권의 종류와 시세를 확인합니다</b> — 채무자가 어느 골프장·콘도의 회원인지, <b>예탁금회원제인지 주주회원제인지</b>, 현재 <b>시세</b>가 얼마인지를 확인합니다. 회원권 시세는 <b>회원권 거래소</b>에서 공개되어 있어 누구나 조회할 수 있습니다. 운영회사는 <b>법인등기사항증명서</b>로 상호·본점·대표자를 확인합니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">1</span><b>「회원권 자체」와 「예탁금 반환청구권」 중에서 고릅니다</b> — 대법원은 둘 다 보전처분의 대상이 된다고 합니다(2008다10884). <b>회원권 자체</b>를 잡으면 시세대로 현금화할 수 있어 회수액이 크고 압박 효과도 크지만 <b>회칙상 양도제한</b>에 걸릴 수 있습니다. <b>예탁금 반환청구권</b>은 <b>탈회를 전제로 한 장래의 채권</b>이어서 확실하지만 금액이 작을 수 있습니다. <b>실무에서는 회원권 자체를 잡는 것이 일반적</b>입니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">2</span><b>회원권가압류 신청</b> — <b>본안의 관할법원</b> 또는 <b>채무자의 보통재판적</b>이 있는 곳의 지방법원에 신청합니다(민집 §278·§251·§224). 신청서에는 <b>가압류할 권리를 명백하게 적으면 되고, 그 권리가 존재한다는 것까지 증명할 필요는 없습니다</b>(법원실무제요 민사집행Ⅳ). 인지 10,000원 + 송달료(작성례 ①·①-1).</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">3</span><b>담보제공명령 이행</b> — 법원이 <span class="term">담보제공명령<span class="bub">잘못된 가압류로 채무자가 입을 수 있는 손해에 대비하여, 법원이 채권자에게 일정 금액을 미리 맡기라고 명하는 것. 현금공탁 또는 보증보험증권으로 제공합니다(민집 §280).</span></span>을 내립니다. 회원권은 <b>채권가압류에 준하여</b> 담보를 정하는 것이 실무입니다. 기간 안에 이행하지 아니하면 <b>신청이 각하</b>됩니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">4</span><b>결정 → 운영회사에 송달되는 때 효력 발생</b> — 법원이 결정문을 <b>제3채무자인 운영회사에 송달</b>하면 그때 집행의 효력이 생깁니다. 운영회사는 이때부터 <b>회원권의 양도를 승인하거나, 예탁금을 반환하거나, 명의개서를 하여서는 아니 됩니다.</b> <b>집행기간 2주</b>가 적용됩니다(민집 §292②). <b>송달 시각의 선후가 다른 권리자와의 우열을 가릅니다.</b></div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">5</span><b>본안소송 — 대여금·물품대금 청구의 소</b> — 가압류는 임시 조치일 뿐입니다. 본안에서 승소하여 <span class="term">집행권원<span class="bub">강제집행을 해도 좋다고 국가가 인정해 준 문서. 확정판결문, 지급명령 확정본, 공정증서, 조정조서·화해조서 등이 이에 해당합니다.</span></span>을 얻어야 합니다. <b>집행 후 3년간 본안의 소를 제기하지 아니하면</b> 채무자가 가압류취소를 신청할 수 있습니다(민집 §288①3호).</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">6</span><b>본압류로 이전 — 그리고 「특별현금화」</b> — 회원권도 주식처럼 <span class="term">추심명령<span class="bub">압류한 채권을 채권자가 직접 제3채무자에게서 받아낼 수 있게 하는 법원의 명령. 예금이나 임금은 이 방법으로 회수합니다.</span></span>으로 곧바로 받아낼 수 없습니다. 법원의 <b><span class="term">양도명령·매각명령<span class="bub">압류한 재산권을 법원이 정한 값으로 채권자에게 넘기거나(양도명령), 집행관 등에게 팔게 하는(매각명령) 특별한 현금화 방법(민집 §241).</span></span></b>을 받아야 합니다(민집 §241·§251, 작성례 ④). <b>회원권은 거래 시세가 있어 주식보다 현금화가 수월한 편</b>입니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">7</span><b>담보 취소·회수 — 여기서 끝내지 마십시오</b> — 본안 승소가 확정되거나 가압류를 취하하였다면, <b>담보취소를 신청하여 공탁금을 돌려받아야</b> 합니다(민소 §125, 작성례 ⑥). 신청하지 아니하면 공탁금은 법원에 그대로 남아 있습니다. <b>가장 많이 놓치는 대목입니다.</b></div>
+</div>
+
+<h2 id="s3">핵심 세 가지 — 회원권 자체인가, 예탁금인가</h2>
+<p style="font-size:13.5px;color:var(--muted)">먼저 아래 표에서 <b>무엇을 잡을지</b>를 정하십시오. 그에 따라 신청취지 문구가 달라집니다.</p>
+<table>
+<tr><th style="width:20%">잡는 대상</th><th style="width:22%">장점</th><th style="width:22%">단점</th><th>신청취지에서 쓸 문구</th></tr>
+<tr style="background:#fdf6ee"><td><b>회원권 자체</b><br><span style="font-size:12.5px">(실무에서 일반적)</span></td><td>시세대로 현금화할 수 있어 <b>회수액이 큽니다.</b> 채무자에 대한 <b>압박 효과</b>도 가장 큽니다.</td><td><b>회칙상 양도제한</b>(운영회사 승인)에 걸릴 수 있고, 현금화에 <b>특별현금화명령</b>이 필요합니다.</td><td>"채무자가 제3채무자에 대하여 가지는 별지 목록 기재 <b>회원권을 가압류한다</b>"<br>"제3채무자는 위 회원권에 대한 <b>양도를 승인하거나 예탁금의 반환, 명의개서 등을 하여서는 아니 된다</b>"<br>→ <b>작성례 ①</b></td></tr>
+<tr><td><b>예탁금<br>반환청구권</b></td><td>금전채권이므로 <b>권리관계가 단순</b>합니다. 채무자가 이미 <b>탈회를 준비 중</b>이라면 이쪽이 확실합니다.</td><td>탈회를 전제로 한 <b>장래의 채권</b>이고, <b>예탁금 액수가 시세보다 훨씬 낮은</b> 경우가 많습니다.</td><td>"채무자가 제3채무자에 대하여 가지는 <b>예탁금 반환청구권을 가압류한다</b>"<br>"제3채무자는 채무자에게 <b>위 예탁금을 지급하여서는 아니 된다</b>"<br>→ <b>작성례 ②</b></td></tr>
+<tr><td><b>둘 다</b><br><span style="font-size:12.5px">(병행)</span></td><td colspan="2">회원권 자체를 잡으면서 <b>예탁금 반환청구권도 함께</b> 특정하여 두는 방식. 채무자가 탈회로 빠져나가는 것을 막을 수 있습니다.</td><td>별지 목록에 <b>두 가지를 모두 기재</b>합니다. 다만 청구금액을 넘는 <b>초과 가압류</b>가 되지 않도록 주의하십시오.</td></tr>
+</table>
+<p style="font-size:13.5px;color:var(--muted);margin-top:12px"><b>회원권의 종류에 따라서도 달라집니다.</b></p>
+<table>
+<tr><th style="width:22%">회원권의 종류</th><th style="width:30%">법적 성질</th><th>집행 방법</th></tr>
+<tr style="background:#fdf6ee"><td><b>예탁금회원제</b><br><span style="font-size:12.5px">(우리나라 골프장의 대부분)</span></td><td>운영회사에 대한 <b>회원가입계약상의 지위</b> 내지 채권적 법률관계의 총체(대법원 2008다10884)</td><td><b>민집 §251</b> 그 밖의 재산권. 제3채무자는 <b>운영회사</b>. → <b>이 카드의 기본형</b></td></tr>
+<tr><td><b>주주회원제</b></td><td>운영회사의 <b>주식 + 회원 자격</b>이 결합</td><td>주식 부분은 <b>주식 가압류</b>로 처리하여야 합니다. → <a class="cl" href="A-8_주식지분가압류.html"><b>A-8 카드</b></a> 참조</td></tr>
+<tr><td><b>사단법인제</b></td><td>사단법인의 <b>사원권</b></td><td>민집 §251. 다만 <b>정관상 양도·상속이 금지</b>된 경우가 많아 현금화가 어렵습니다.</td></tr>
+<tr><td><b>콘도회원권</b><br><span style="font-size:12.5px">(휴양콘도미니엄)</span></td><td><b>공유제</b>(공유지분 소유)와 <b>회원제</b>(이용권)로 나뉩니다</td><td><b>공유제</b>는 <b>부동산 공유지분 가압류</b>(→ <a class="cl" href="A-2_부동산가압류.html"><b>A-2</b></a>), <b>회원제</b>는 민집 §251. <b>등기부를 먼저 확인</b>하십시오.</td></tr>
+<tr><td><b>스포츠회원권</b><br><span style="font-size:12.5px">(헬스·피트니스 등)</span></td><td>이용계약상의 지위</td><td>민집 §251. 다만 <b>계약상 양도가 금지</b>된 것이 많아 실익이 적을 수 있습니다.</td></tr>
+</table>
+
+<ol class="steps">
+<li><b>「몇 년도 회원권인지, 회원번호가 몇 번인지」까지 몰라도 됩니다.</b> 신청서에는 <b>가압류할 권리를 명백하게 적으면 되고, 그 권리의 존재를 증명할 필요까지는 없습니다</b>(법원실무제요 민사집행Ⅳ). 별지에 <b>"채무자가 제3채무자 운영의 ○○컨트리클럽에 대하여 가지는 회원권"</b>이라고 적으면 운영회사가 회원명부를 보고 특정할 수 있습니다. 회원번호를 알면 적어 두는 편이 물론 더 확실합니다.</li>
+<li><b>회원권은 공시 방법이 없어 「송달의 선후」가 전부입니다.</b> 부동산은 등기부를 보면 누가 먼저인지 알 수 있으나, 회원권은 <b>운영회사에 결정문이 도달한 시각</b> 외에 판단 기준이 없습니다. 그래서 이미 다른 사람이 <b>처분금지가처분</b>을 먼저 걸어 두었다면, 뒤늦은 가압류는 그 사람에게 <b>대항할 수 없습니다</b>(대법원 2008다10884). 채무자가 회원권을 이미 팔았거나 담보로 넘겼을 가능성이 있다면 <b>서두르는 것 외에 방법이 없습니다.</b></li>
+<li><b>연회비와 회칙을 함께 살펴보십시오.</b> 회원권은 <b>연회비 납부 의무</b>가 따르는 계약상 지위입니다. 채무자가 연회비를 오래 체납하였다면 <b>회원자격이 정지되거나 제명</b>될 수 있고, 그러면 가압류의 실익도 사라집니다. 또한 운영회사의 회칙에 <b>양도에 이사회·운영위원회의 승인을 요구</b>하는 규정이 있으면 현금화 단계에서 협의가 필요합니다. 가능하다면 <b>진술최고</b>(민집 §237)로 <b>회원자격의 유효 여부와 연회비 체납 상황</b>을 확인해 두십시오.</li>
+</ol>
+
+<div class="tip"><span class="pt">💡 골프장이 경매로 넘어가면 회원권은 어떻게 되나요</span>
+운영회사가 부도가 나 골프장이 <b>경매·공매</b>로 남에게 넘어가는 경우가 있습니다. 이때 회원권이 휴지가 되는 것은 아닙니다. <b>체육시설의 설치·이용에 관한 법률 §27</b>은 체육필수시설을 인수한 자가 <b>기존 체육시설업자와 회원 사이의 약정을 포함하여 그 권리·의무를 승계</b>하도록 정하고 있습니다. 대법원은 <b>담보신탁에 따른 공매</b>로 넘어간 경우에도 같은 조항이 적용된다고 하였고(2016다220143 전원합의체), 그 뒤로도 이 법리를 재확인하고 있습니다(대법원 2024. 2. 29. 선고 2023다280778 판결).<br>
+따라서 <b>골프회원권</b>을 가압류해 둔 채권자는 운영회사가 바뀌어도 원칙적으로 보호받습니다. 다만 <b>콘도·스포츠 회원권</b>은 체육시설법의 적용 여부가 시설의 종류에 따라 다를 수 있으므로, <b>해당 시설이 체육시설법의 적용을 받는지</b>를 개별적으로 확인하여야 합니다.
+</div>
+
+<details class="sec" id="s4"><summary>관련 법령 — 쉬운 풀이<span class="sub">그 밖의 재산권 §251 · 특별현금화 §241 · 체육시설법 §27 · 집행기간 2주</span></summary>
+<div class="secbody">
+<div class="lawbox"><span class="ll">민사집행법 §251 · §291</span><b>그 밖의 재산권에 대한 집행 — 회원권 가압류의 뿌리 조문</b> — ① 앞의 여러 조문에 규정된 재산권 외에 <b>부동산을 목적으로 하지 아니한 재산권</b>에 대한 강제집행은 <b>채권집행에 관한 규정</b>(§223~§227 등)을 준용합니다. <b>골프회원권·콘도회원권·스포츠회원권</b>은 물론 특허권·저작권·유한회사 사원지분·전세권 등이 모두 이 조문으로 집행되며, 가압류에는 <b>§291</b>이 이를 준용합니다. 신청서에는 <b>가압류할 권리를 명백하게 적으면 되고, 그 존재를 증명할 필요까지는 없습니다</b>(법원실무제요 민사집행Ⅳ).</div>
+<div class="lawbox"><span class="ll">민사집행법 §223~§227 (준용)</span><b>제3채무자에게 송달되는 때 효력이 생깁니다</b> — 채권가압류와 마찬가지로, <b>제3채무자인 운영회사에 결정문이 송달된 때</b> 집행의 효력이 생깁니다(§227③ 준용). 그때부터 운영회사는 <b>채무자의 청구에 따른 명의개서·양도 승인·예탁금 반환을 하여서는 아니 됩니다.</b> 회원권에는 등기부와 같은 <b>공시 방법이 없으므로</b>, 이 <b>송달 시각</b>이 다른 권리자와의 우열을 가리는 유일한 기준이 됩니다.</div>
+<div class="lawbox"><span class="ll">민사집행법 §237 (준용)</span><b>진술최고 — 회원자격이 살아 있는지 확인하는 방법</b> — 제3채무자에게 <b>가압류된 권리가 실제로 존재하는지, 다른 압류·가처분이 있는지</b>를 서면으로 밝히도록 법원이 명하는 절차입니다. 회원권에서는 <b>회원자격이 유효한지, 연회비 체납으로 정지 상태는 아닌지, 이미 양도되지는 아니하였는지</b>를 확인하는 데 매우 유용하므로, <b>신청서에 함께 신청하여 두는 것이 좋습니다.</b></div>
+<div class="lawbox"><span class="ll">민사집행법 §241</span><b>특별한 현금화 방법 — 회원권은 추심으로 받지 못합니다</b> — 압류된 채권이 <b>그 밖의 이유로 추심이 곤란한 때</b>에는 법원이 채권자의 신청에 따라 <b>양도명령·매각명령·관리명령</b> 등 상당한 방법으로 현금화를 명할 수 있습니다. 회원권은 <b>「추심」이라는 개념이 맞지 않는 재산권</b>이므로 이 특별현금화로만 돈으로 바꿀 수 있습니다. 다만 <b>회원권 거래 시세가 공개</b>되어 있어 비상장주식보다 <b>가액 산정이 수월</b>합니다.</div>
+<div class="lawbox"><span class="ll">체육시설의 설치·이용에 관한 법률 §27</span><b>골프장이 넘어가도 회원권은 승계됩니다</b> — <b>①</b> 체육시설업자가 사업을 양도하거나 법인이 합병한 때에는 양수인·합병법인이 <b>회원에 대한 권리·의무를 승계</b>합니다. <b>②</b> <b>민사집행법에 따른 경매</b>, 채무자 회생 및 파산에 관한 법률에 따른 환가, 국세징수법·관세법·지방세징수법에 따른 압류재산의 매각, <b>그 밖에 이에 준하는 절차</b>로 체육필수시설을 인수한 자에게도 같습니다. 대법원은 <b>담보신탁에 따른 공매</b>도 제2항 제4호의 "그 밖에 이에 준하는 절차"에 해당한다고 보았습니다(2016다220143 전원합의체).</div>
+<div class="lawbox"><span class="ll">민사집행법 §276·§277·§278</span><b>가압류의 목적·필요성·관할</b> — <b>§276</b> 가압류는 <b>금전채권</b>이나 금전으로 환산할 수 있는 채권을 보전하기 위한 것입니다. <b>§277</b> 가압류를 하지 아니하면 판결을 집행할 수 없거나 집행이 매우 곤란할 염려가 있어야 합니다(<span class="term">보전의 필요성<span class="bub">지금 묶어 두지 아니하면 나중에 이겨도 받을 것이 없어질 위험. 채무자가 재산을 처분·은닉하려는 정황 등으로 소명합니다.</span></span>). <b>§278</b> 관할은 <b>가압류할 물건이 있는 곳을 관할하는 지방법원</b> 또는 <b>본안의 관할법원</b>이며, 그 밖의 재산권에서는 §251·§224가 준용되어 <b>채무자의 보통재판적</b>(주소지)이 기준이 됩니다.</div>
+<div class="lawbox"><span class="ll">민사집행법 §292②</span><b>집행기간 2주</b> — 가압류에 대한 재판의 집행은 <b>채권자에게 재판을 고지한 날부터 2주를 넘긴 때에는 하지 못합니다.</b> 회원권은 법원이 운영회사에 결정문을 송달함으로써 집행되므로 통상 자동으로 지켜지나, <b>운영회사의 본점 주소를 잘못 적어 송달불능</b>이 되면 이 기간이 흘러갑니다. <b>법인등기사항증명서상 본점 주소</b>를 정확히 적으십시오.</div>
+<div class="lawbox"><span class="ll">민사집행법 §288①3호</span><b>3년 미제소 취소</b> — 가압류가 <b>집행된 뒤 3년간 본안의 소를 제기하지 아니한 때</b>에는 채무자나 이해관계인이 가압류취소를 신청할 수 있습니다. 회원권 가압류는 압박 효과를 노리고 걸어 둔 채 방치하기 쉬우므로 특히 주의하십시오.</div>
+</div></details>
+
+<details class="sec" id="s5"><summary>판례로 보기 — 신청 전에 꼭 읽어야 할 두 가지<span class="sub">먼저 송달된 가처분에는 밀린다 · 골프장이 넘어가도 회원권은 살아 있다</span></summary>
+<div class="secbody">
+<div class="case">
+<span class="ct">○ 먼저 송달된 처분금지가처분에는 뒤늦은 가압류가 밀린다 — 대법원 2009. 12. 24. 선고 2008다10884 판결</span>
+어떤 사람이 골프회원권을 사들이고, 양도인을 상대로 <b>명의변경청구권</b>을 지키기 위하여 <b>회원권 처분금지가처분</b>을 받았습니다. 그 결정은 <b>1998. 1. 13. 운영회사에 송달</b>되었습니다. 그런데 그 뒤 양도인의 다른 채권자가 구상금채권을 이유로 같은 회원권에 <b>가압류</b>를 신청하여, 그 결정이 <b>1998. 2. 12. 운영회사에 송달</b>되었습니다. 운영회사는 그 사이인 1998. 2. 15. 양도를 승인하고 2. 18. 명의를 양수인 앞으로 변경하였습니다. 대법원은 먼저, <b>예탁금제 골프회원권은 회원가입계약상의 지위 내지 채권적 법률관계를 총체적으로 가리키는 것으로서, 회원권 자체 또는 탈회 시 행사할 예탁금 반환청구권에 대하여 가압류·가처분을 할 수 있다</b>고 확인하였습니다. 그리고 <b>처분금지가처분결정이 제3채무자에게 먼저 송달되고, 가처분채권자가 회칙에 따른 승인을 얻은 데다 본안소송에서도 승소하여 확정되었다면, 그 송달 이후에 실시된 가압류나 그에 기한 강제집행은 가처분의 처분금지 효력에 반하는 범위에서 가처분채권자에게 대항할 수 없다</b>고 판단하였습니다.
+<div style="margin-top:9px;font-size:13.5px">(→ <b>채권자</b>: 회원권에는 <b>등기부가 없습니다.</b> 겉으로는 채무자가 여전히 회원으로 보여도, <b>이미 팔려 가처분이 걸려 있을 수 있습니다.</b> 이 절차에서는 <b>운영회사에 도달한 시각</b>이 전부이므로, 결정을 받으면 <b>송달이 언제 되었는지 반드시 확인</b>하십시오. 아울러 <b>진술최고</b>(민집 §237)로 선행 보전처분의 존부를 확인해 두는 것이 안전합니다.)</div>
+</div>
+<div class="case">
+<span class="ct">○ 골프장이 담보신탁 공매로 넘어가도 인수인이 회원의 권리·의무를 승계한다 — 대법원 2018. 10. 18. 선고 2016다220143 전원합의체 판결</span>
+체육시설업자가 담보 목적으로 골프장의 <b>체육필수시설을 신탁법에 따라 담보신탁</b>하였다가 채무를 갚지 못하여, 그 시설이 <b>공개경쟁입찰방식의 매각(공매)</b> 절차로 처분된 사안입니다. 이렇게 넘어간 경우에도 <b>회원에 대한 권리·의무가 승계되는지</b>가 다투어졌습니다. 대법원 전원합의체는 <b>체육시설법 §27의 문언과 체계, 입법 연혁과 목적, 담보신탁의 실질적인 기능</b>에 비추어, <b>담보신탁을 근거로 한 공매도 §27② 4호의 「그 밖에 이에 준하는 절차」에 해당</b>하므로, <b>체육필수시설의 인수인은 체육시설업자와 회원 사이에 약정한 사항을 포함하여 그 등록·신고에 따른 권리·의무를 승계한다</b>고 판단하였습니다. 이 법리는 이후에도 재확인되고 있습니다(대법원 2024. 2. 29. 선고 2023다280778 판결).
+<div style="margin-top:9px;font-size:13.5px">(→ <b>채권자</b>: "운영회사가 부실한데 회원권을 잡아 봐야 소용없지 않을까" 하는 걱정을 상당 부분 덜어 주는 판결입니다. <b>골프장이라는 시설이 남아 있는 한, 인수인이 회원권을 떠안습니다.</b> 다만 <b>회사가 아예 폐업하여 시설 자체가 없어지는 경우</b>나, <b>체육시설법의 적용을 받지 않는 콘도·스포츠 시설</b>은 사정이 다르므로, 신청 전에 <b>어떤 시설인지</b>를 확인하십시오.)</div>
+</div>
+</div></details>
+
+<details class="sec" id="s6"><summary>채권자 — 신청부터 회수·담보회수까지 상세 절차<span class="sub">시세 확인 · 대상 선택 · 관할 · 담보 · 송달 · 특별현금화 · 기한표 · 담보취소</span></summary>
+<div class="secbody">
+<ol class="steps">
+<li><b>회원권 시세부터 확인합니다.</b> 골프회원권은 <b>회원권 거래소에서 시세가 공개</b>되어 있어 누구나 조회할 수 있습니다. 청구금액과 견주어 <b>회수 가능액을 미리 계산</b>해 보십시오. 이것이 다른 재산에는 없는 회원권 가압류의 장점입니다. 콘도·스포츠 회원권은 거래가 활발하지 않아 시세 확인이 어려울 수 있습니다.</li>
+<li><b>운영회사를 특정합니다.</b> <b>법인등기사항증명서</b>로 <b>상호·본점 주소·대표자</b>를 확인합니다. 골프장 이름(○○컨트리클럽)과 <b>운영법인의 상호가 다른 경우가 많으므로</b> 반드시 확인하십시오. 제3채무자 표시가 틀리면 송달이 되지 않아 <b>2주 집행기간</b>이 흘러갑니다.</li>
+<li><b>무엇을 잡을지 정합니다.</b> 위 표에서 <b>회원권 자체</b>(작성례 ①)와 <b>예탁금 반환청구권</b>(작성례 ②) 중에서 고릅니다. <b>실무에서는 회원권 자체를 잡는 것이 일반적</b>이며, 채무자가 이미 탈회를 진행 중이라는 정황이 있으면 예탁금 반환청구권을 함께 특정합니다.</li>
+<li><b>신청서와 별지, 진술서를 작성합니다.</b> 회원권가압류 신청서에 <b>별지 목록</b>(작성례 ①-1)과 <b>가압류신청 진술서</b>(작성례 ③)를 붙입니다. 진술서를 빠뜨리거나 허위로 적으면 <b>보정명령 없이 기각</b>될 수 있습니다(재민 2003-4 §3). <b>진술최고 신청</b>도 함께 넣어 두십시오 — 회원자격의 유효 여부를 확인할 유일한 방법입니다.</li>
+<li><b>관할을 확인합니다.</b> <b>본안의 관할법원</b> 또는 <b>채무자의 보통재판적</b>이 있는 곳의 지방법원에 냅니다(민집 §278·§251·§224). <b>골프장 소재지나 운영회사 본점이 아니라 채무자(회원) 개인의 주소지</b>가 기준이라는 점에 주의하십시오.</li>
+<li><b>담보를 제공합니다.</b> 회원권은 <b>채권가압류에 준하여</b> 담보를 정하는 것이 실무입니다. 자동차·건설기계처럼 <b>청구금액의 1/10로 선담보제공</b>이 허용되는 유형이 아니므로 부담이 더 큽니다. 보증보험 심사에 며칠 걸리니 명령을 받는 즉시 착수하십시오. <span style="font-size:13px;color:#9c3a22">[확인필요 — 최종 담보액은 담보제공명령서의 금액을 기준으로 삼으십시오.]</span></li>
+<li><b>송달을 확인합니다.</b> 결정이 운영회사에 <b>언제 송달되었는지</b>가 이 절차의 전부입니다. 송달증명원을 받아 <b>도달 일자</b>를 확보해 두십시오. 선행 가처분이나 다른 가압류가 있었다면 <b>이 날짜로 우열이 갈립니다</b>(대법원 2008다10884).</li>
+<li><b>본안소송을 곧바로 제기하고, 승소 후 특별현금화로 넘어갑니다.</b> 확정판결에 집행문을 부여받아 압류명령을 받은 뒤, <b>양도명령 또는 매각명령</b>을 신청합니다(작성례 ④, 민집 §241·§251). 회원권은 <b>거래 시세가 있어</b> 비상장주식보다 현금화가 수월합니다. 다만 회칙상 <b>운영회사의 승인</b>이 필요한 경우가 많으므로, 미리 회칙을 확인하고 협의 가능성을 살펴보십시오.</li>
+</ol>
+
+<h3>⏰ 기한 정리 — 놓치면 안 되는 날짜들</h3>
+<table>
+<tr><th style="width:20%">무엇을</th><th style="width:14%">기한</th><th>① 기산일 · ③ 계산 방법</th><th style="width:20%">② 근거 · 놓치면</th></tr>
+<tr style="background:#fdeeee"><td><b>담보제공명령 이행</b></td><td style="text-align:center;color:#9c3a22;font-weight:700">법원이 정한 기간<br><span style="font-size:12.5px">(실무상 7일 내외)</span></td>
+<td><b>기산일</b> — 담보제공명령을 <b>송달받은 날</b><br><b>계산</b> — 송달받은 <b>다음 날</b>부터(초일 불산입, 민법 §157). 말일이 <b>토·일·공휴일</b>이면 <b>다음 근무일</b>까지(민법 §161)<br><span style="font-size:12.5px;color:#9c3a22">기간을 넘기면 <b>가압류신청이 각하</b>됩니다.</span></td>
+<td>민집 <b>§280②③·§19③</b></td></tr>
+<tr style="background:#fdeeee"><td><b>다른 권리자와의 우열<br>— 「송달 시각」의 문제</b></td><td style="text-align:center;color:#9c3a22;font-weight:700">기한 아님<br><span style="font-size:12.5px">(선후가 전부)</span></td>
+<td>회원권은 <b>공시 방법이 없으므로</b>, 선행 <b>처분금지가처분</b>이나 다른 가압류와의 우열은 <b>제3채무자(운영회사)에 결정문이 도달한 시각</b>의 선후로 결정됩니다.<br><span style="font-size:12.5px;color:#9c3a22">먼저 송달된 처분금지가처분이 있고 그 채권자가 본안에서 승소하여 확정되면, <b>뒤늦은 가압류는 대항할 수 없습니다</b>(대법원 2008다10884). <b>하루라도 빨리</b> 송달시키는 것이 유일한 방법입니다.</span></td>
+<td>대법원 <b>2008다10884</b><br>민집 <b>§227③</b>(준용)</td></tr>
+<tr style="background:#fdf6ee"><td><b>가압류 집행기간</b></td><td style="text-align:center;font-weight:700"><b>2주</b></td>
+<td><b>기산일</b> — 채권자가 <b>가압류 결정을 고지받은 날</b><br><b>계산</b> — 고지받은 <b>다음 날</b>부터 2주(민법 §157·§161)<br><span style="font-size:12.5px;color:var(--muted)">법원이 운영회사에 송달함으로써 집행되나, <b>운영법인의 상호·본점을 잘못 적어 송달불능</b>이 되면 이 기간이 흘러갑니다. 골프장 이름과 운영법인 상호가 다른 경우가 많으니 등기부로 확인하십시오.</span></td>
+<td>민집 <b>§292②</b></td></tr>
+<tr style="background:#fdf6ee"><td><b>3년 미제소<br>가압류취소</b></td><td style="text-align:center;font-weight:700"><b>3년</b></td>
+<td><b>기산일</b> — <b>가압류가 집행된 날</b>(결정일이 아닙니다). 회원권은 <b>운영회사에 결정문이 송달된 날</b>입니다.<br><b>계산</b> — 집행일 <b>다음 날</b>부터 3년(민법 §157·§161)<br><span style="font-size:12.5px;color:#9c3a22">압박 목적으로 걸어 두고 방치하기 쉬운 유형입니다. <b>본안을 반드시 제기</b>하십시오.</span></td>
+<td>민집 <b>§288①3호·②</b></td></tr>
+<tr style="background:#fdeeee"><td><b>즉시항고</b></td><td style="text-align:center;color:#9c3a22;font-weight:700"><b>1주</b><br><span style="font-size:12.5px">불변기간</span></td>
+<td><b>기산일</b> — <b>결정을 고지받은 날</b><br><b>계산</b> — 고지받은 <b>다음 날</b>부터 1주(민법 §157·§161)<br><span style="font-size:12.5px;color:#9c3a22"><b>늘릴 수 없는 기간</b>입니다.</span></td>
+<td>민집 <b>§15②·§281②</b></td></tr>
+<tr><td><b>담보 취소·회수</b><br><span style="font-size:12.5px;color:var(--muted)">(가장 많이 놓칩니다)</span></td>
+<td style="text-align:center;color:#1c7a4a;font-weight:700">기한 없음<br><span style="font-size:12.5px;font-weight:400">(단, 신청해야 함)</span></td>
+<td>본안 승소 확정·가압류 취하 등으로 담보 사유가 소멸하면 언제든 신청할 수 있습니다. 채무자 동의를 받지 못하면 <b>권리행사최고</b>를 거칩니다 — 법원이 정한 기간 안에 채무자가 권리를 행사하지 아니하면 <b>동의한 것으로 봅니다.</b><br><span style="font-size:12.5px;color:var(--muted)">신청하지 아니하면 공탁금은 계속 법원에 남습니다. <b>공탁금 회수청구권의 소멸시효는 10년</b>입니다.</span></td>
+<td>민집 <b>§19③</b> · 민소 <b>§125</b></td></tr>
+<tr><td><b>본안 채권의<br>소멸시효</b></td><td style="text-align:center;font-weight:700">3년 / 5년 / 10년</td>
+<td><b>기산일</b> — 권리를 <b>행사할 수 있었던 날</b>(민법 §166, 객관적 기준)<br><b>계산</b> — <b>공사대금·물품대금·용역대금은 3년</b>(민법 §163), 상행위로 인한 채권은 5년(상법 §64), 일반 민사채권은 10년(민법 §162①)<br><span style="font-size:12.5px;color:var(--muted)"><b>가압류는 시효를 중단시킵니다</b>(민법 §168 2호). <b>판결이 확정되면 3년짜리 단기시효도 10년으로 늘어납니다</b>(민법 §165).</span></td>
+<td>민법 <b>§162①·§163·§165·§166·§168</b><br>상법 <b>§64</b></td></tr>
+</table>
+
+<h3>담보 취소·회수 — 여기서 끝내지 마십시오</h3>
+<p>가압류를 위하여 공탁한 담보금은 <b>가만히 두면 돌아오지 아니합니다.</b> 반드시 <b>담보취소 결정</b>을 받아 <b>공탁금 회수</b>까지 마쳐야 절차가 끝납니다.</p>
+<ol class="steps">
+<li><b>담보 사유가 소멸하였을 때</b> — 본안소송에서 <b>승소 확정판결</b>을 받았다면 판결문과 확정증명원을 붙여 담보취소를 신청합니다(민소 §125①). 가장 간명한 길입니다.</li>
+<li><b>채무자의 동의를 받았을 때</b> — 채무자가 <b>담보취소 동의서</b>(인감증명서 첨부)를 써 주면 곧바로 취소됩니다(민소 §125②). 합의로 사건을 마무리할 때에는 <b>합의서에 담보취소 동의 조항</b>을 반드시 넣으십시오.</li>
+<li><b>동의를 받지 못할 때 — 권리행사최고</b> — 소송이 완결된 뒤 법원에 <b>권리행사최고</b>를 신청합니다. 법원이 채무자에게 "일정 기간 안에 손해배상을 청구하라"고 최고하고, 그 기간 안에 권리를 행사하지 아니하면 <b>담보취소에 동의한 것으로 봅니다</b>(민소 §125③, 작성례 ⑥).</li>
+<li><b>공탁금 회수와 가압류 해제</b> — 담보취소 결정이 확정되면 <b>확정증명원</b>을 받아 공탁소에 <b>공탁금 회수청구</b>를 합니다. 보증보험증권이었다면 <b>결정문을 보험사에 제출</b>하여 정리합니다. 아울러 가압류를 <b>취하·해제</b>하는 경우에는 <b>운영회사에도 그 사실이 통지</b>되도록 하여 회원 관리가 정상화되게 하십시오.</li>
+</ol>
+
+<div class="warn">
+<span class="wt">⚠ 채권자가 확인해야 할 세 가지</span>
+<b>① 회칙상 양도제한</b> — 운영회사의 회칙에 <b>양도에 이사회·운영위원회의 승인</b>을 요구하는 규정이 있으면, 현금화 단계에서 협의가 필요합니다. 회원권 매매가 활발한 골프장은 대체로 문제가 없으나, <b>회원 자격을 엄격히 관리하는 클럽</b>은 까다로울 수 있습니다.<br>
+<b>② 연회비 체납·자격정지</b> — 회원권은 <b>연회비 납부 의무가 따르는 계약상 지위</b>입니다. 채무자가 오래 체납하였다면 자격이 정지되거나 제명되어 가압류의 실익이 사라질 수 있습니다. <b>진술최고</b>로 확인하십시오.<br>
+<b>③ 이미 팔렸을 가능성</b> — 회원권은 <b>공시 방법이 없어</b> 겉으로는 알 수 없습니다. 선행 가처분이 있으면 뒤늦은 가압류는 밀립니다(대법원 2008다10884). <b>서두르는 것 외에 방법이 없습니다.</b><br>
+<span style="font-size:13px">그럼에도 <b>시세를 미리 알 수 있고 등록면허세가 없다</b>는 점, 그리고 <b>채무자에게 주는 압박이 크다</b>는 점에서 실무상 효용이 높은 유형입니다.</span>
+</div>
+</div></details>
+
+<details class="sec" id="s7"><summary>채무자 — 억울하게 당하였다면 방어 절차<span class="sub">이의신청 · 해방공탁 · 제소명령 · 사정변경 취소 · 제3자이의</span></summary>
+<div class="secbody">
+<ol class="steps">
+<li><b>가압류 자체가 부당하다면 — 가압류이의</b>(민집 §283) 채무를 부담한 사실이 없거나 이미 변제하였거나 보전의 필요성이 없다면 <b>이의신청</b>으로 결정 자체를 다툽니다(작성례 ⑤). 회원권에 특유한 사유로는 <b>① 이미 그 회원권을 타인에게 양도하였다는 점</b>, <b>② 회원권 시세가 청구금액을 크게 웃돌아 초과 가압류라는 점</b>, <b>③ 채무자에게 다른 충분한 재산이 있다는 점</b>을 들 수 있습니다.</li>
+<li><b>초과 가압류를 다투는 것이 회원권에서는 특히 유효합니다.</b> 회원권은 <b>시세가 공개</b>되어 있어 <b>청구금액과 목적물 가액을 견주기 쉽습니다.</b> 예컨대 청구금액이 3,000만원인데 시세 3억원짜리 회원권을 통째로 묶었다면, <b>필요한 한도를 넘는 가압류</b>라고 다툴 여지가 있습니다. <b>회원권 시세표</b>를 소명자료로 붙이십시오.</li>
+<li><b>당장 풀어야 한다면 — 해방공탁</b>(민집 §282·§299) 결정문에 적힌 <span class="term">해방금액<span class="bub">가압류를 풀기 위하여 채무자가 법원에 맡기는 돈. 이 금액을 공탁하면 가압류집행이 취소되고, 공탁금이 가압류의 대상으로 바뀝니다.</span></span>을 공탁하면 가압류집행이 취소되어 회원권이 즉시 풀립니다. <b>회원권을 팔아야 하는 사정</b>이 있다면 가장 빠른 길입니다. → <a class="cl" href="C-3_해방공탁.html"><b>해방공탁(C-3)</b></a></li>
+<li><b>채권자가 본안을 걸지 않는다면 — 제소명령</b>(민집 §287) 법원에 "본안의 소를 제기하라"고 명해 달라고 신청합니다. 채권자가 정해진 기간 안에 소를 제기하지 아니하면 <b>가압류가 취소</b>됩니다. → <a class="cl" href="C-4_제소명령.html"><b>제소명령(C-4)</b></a></li>
+<li><b>3년이 지났다면 — 사정변경 취소</b>(민집 §288) 가압류 집행 후 3년간 본안의 소가 제기되지 아니하였다면 취소를 신청할 수 있습니다. → <a class="cl" href="C-5_사정변경취소.html"><b>사정변경 취소(C-5)</b></a></li>
+<li><b>내 회원권인데 잡혔다면 — 제3자이의의 소</b>(민집 §48) <b>이미 채무자로부터 회원권을 사들인 사람</b>이 제기합니다. 승패는 <b>처분금지가처분이나 명의개서가 가압류 송달보다 앞섰는지</b>로 갈립니다(대법원 2008다10884). <b>매매계약서·대금 지급내역·운영회사의 승인 서류</b>를 갖추어야 합니다.</li>
+<li><b>부당한 가압류로 손해를 보았다면 — 손해배상</b>(민 §750) 채권자가 본안에서 패소하여 확정되면, 부당한 가압류로 입은 손해의 배상을 청구할 수 있습니다. → <a class="cl" href="C-6_부당가압류_손해배상.html"><b>부당가압류 손해배상(C-6)</b></a></li>
+</ol>
+<div class="tip"><span class="pt">💡 채무자가 흔히 묻는 것 — "가압류되면 골프를 못 치나요?"</span>
+<b>아닙니다.</b> 회원권 가압류는 <b>처분(양도·명의개서·예탁금 반환)을 막는 것</b>일 뿐, <b>시설을 이용할 권리 자체를 빼앗는 것이 아닙니다.</b> 채무자는 여전히 회원으로서 <b>라운딩을 하고 회원 요금을 적용받을 수 있습니다.</b> 다만 <b>회원권을 팔 수 없고</b>, 탈회하여 <b>예탁금을 돌려받을 수도 없습니다.</b> 또한 <b>연회비는 계속 내야</b> 하므로, 팔지도 못하면서 비용만 나가는 상태가 이어집니다. 그래서 실무에서는 <b>해방공탁으로 풀거나 서둘러 합의</b>하는 경우가 많습니다.
+</div>
+</div></details>
+
+<details class="sec" id="s8"><summary>서류 작성례 — 빈칸만 채우면 됩니다<span class="sub">회원권 자체 · 예탁금반환청구권 · 진술서 · 특별현금화 · 채무자 대응서면 (복사·인쇄 가능)</span></summary>
+<div class="secbody">
+<p style="font-size:13.5px;color:var(--muted)">아래 작성례의 빈칸(○○○)을 채워 그대로 제출할 수 있습니다. <b>회원권 자체</b>를 잡으려면 <b>①</b>, <b>예탁금 반환청구권</b>을 잡으려면 <b>②</b>를 쓰십시오.</p>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ① · 채권자</span>회원권가압류 신청서 — 회원권 자체 (실무의 기본형)<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f1"><span class="ft">회원권가압류 신청서</span>채권자  ○○○   (☎: ○○○-○○○○-○○○○)
+        주소  ○○○
+채무자  ○○○
+        주소  ○○○
+제3채무자  ○○○ 주식회사
+        본점  ○○○
+        대표이사  ○○○
+        (○○컨트리클럽 운영회사)
+
+가압류할 회원권의 표시
+   별지 목록 기재와 같음
+
+청구채권의 표시
+   금 ○○○원
+   (채권자가 채무자에 대하여 가지는 20○○. ○○. ○○.자
+    ○○○(예: 대여금 / 물품대금 / 공사대금) 채권)
+
+         신 청 취 지
+1. 채권자가 채무자에 대하여 가지는 위 청구채권의 집행을 보전하기
+   위하여, 채무자가 제3채무자에 대하여 가지는 별지 목록 기재
+   회원권을 가압류한다.
+2. 제3채무자는 위 회원권에 대한 양도를 승인하거나, 예탁금의
+   반환, 명의개서, 그 밖의 일체의 절차를 이행하여서는 아니 된다.
+3. 채무자는 위 회원권에 대하여 매매, 양도, 질권설정, 탈회신청,
+   그 밖에 일체의 처분을 하여서는 아니 된다.
+   라는 재판을 구합니다.
+
+         신 청 이 유
+1. 피보전권리의 존재
+   채권자는 20○○. ○○. ○○. 채무자에게 금 ○○○원을
+   ○○○(예: 변제기 20○○. ○○. ○○.로 정하여 대여하였습니다 /
+   물품을 공급하고 그 대금의 지급을 약정하였습니다).
+   그러나 채무자는 변제기가 지나도록 이를 변제하지 아니하고
+   있습니다(소갑 제1호증, 제2호증).
+
+2. 가압류할 회원권
+   채무자는 제3채무자가 운영하는 ○○컨트리클럽의 회원으로서
+   별지 목록 기재 회원권을 보유하고 있습니다. 위 회원권은
+   예탁금회원제 회원권으로서, 회원의 시설 우선이용권과 탈회 시
+   예탁금 반환청구권 등이 복합된 회원가입계약상의 지위이므로,
+   민사집행법 제251조의 그 밖의 재산권으로서 가압류의 대상이
+   됩니다(소갑 제3호증 법인등기사항증명서, 소갑 제4호증
+   회원권 시세자료).
+
+3. 보전의 필요성
+   채무자는 ○○○(예: 별다른 부동산이나 예금을 보유하고 있지
+   아니하고 / 이미 다른 채권자들의 가압류가 잇따르고 있으며 /
+   위 회원권을 처분하려는 정황이 있어), 지금 위 회원권을
+   보전하지 아니하면 장차 본안소송에서 승소하더라도 강제집행을
+   할 수 없거나 매우 곤란하게 될 우려가 큽니다(소갑 제5호증).
+
+4. 진술최고 신청
+   제3채무자가 관리하는 채무자 명의 회원권의 존부와 그 자격의
+   유효 여부, 연회비 체납 여부, 다른 압류·가처분의 존부를
+   확인할 필요가 있으므로, 제3채무자에게 진술을 최고하여 주시기
+   바랍니다(민사집행법 제237조, 제291조).
+
+5. 담보제공
+   담보제공은 보증보험증권(공탁보증보험)으로 갈음할 수 있도록
+   허가하여 주시기 바랍니다.
+
+6. 결론
+   따라서 신청취지와 같은 재판을 구합니다.
+
+         소 명 방 법
+1. 소갑 제1호증   ○○○ (차용증·거래명세서·세금계산서 등)
+1. 소갑 제2호증   ○○○ (계좌이체내역 등)
+1. 소갑 제3호증   법인등기사항증명서(제3채무자 회사)
+1. 소갑 제4호증   회원권 시세자료
+1. 소갑 제5호증   ○○○ (보전 필요성 소명자료)
+
+         첨 부 서 류
+1. 위 소명방법 사본        각 1통
+1. 별지 목록               5통
+1. 가압류신청 진술서        1통
+1. 법인등기사항증명서       1통 (당사자가 법인인 경우)
+1. 송달료납부서             1통
+
+              20○○. ○○. ○○.
+                위 채권자  ○○○ (인)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1')">📋 복사</button><button type="button" onclick="printForm('f1')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1','회원권가압류신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>신청취지 2번이 이 서면의 심장입니다.</b> <b>"양도를 승인하거나, 예탁금의 반환, 명의개서, 그 밖의 일체의 절차를 이행하여서는 아니 된다"</b> — 이 세 가지를 모두 막아야 채무자가 빠져나갈 구멍이 없습니다. 하나라도 빠지면 그 방법으로 회원권이 넘어갈 수 있습니다. <b>신청취지 3번의 「탈회신청」</b>도 반드시 넣으십시오 — 채무자가 탈회하여 예탁금만 받아 가는 것을 막는 문구입니다. <b>제3채무자 표시</b>는 골프장 이름이 아니라 <b>운영법인의 상호</b>여야 합니다(둘이 다른 경우가 많습니다). <b>신청이유 4번(진술최고)</b>은 회원자격이 살아 있는지 확인할 유일한 방법이므로 넣어 두시기를 권합니다. 관할은 <b>본안 관할법원 또는 채무자 주소지</b> 관할 지방법원(민집 §278·§251·§224) — <b>골프장 소재지가 아닙니다.</b> 인지 <b>10,000원</b> + 송달료(제3채무자 몫 포함).</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ①-1 · 채권자</span>별지 — 가압류할 회원권의 표시<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f2"><span class="ft">별        지</span>      가압류할 회원권의 표시
+
+채무자가 제3채무자 ○○○ 주식회사에 대하여 가지는 다음
+회원권 중 청구금액 금 ○○○원에 이를 때까지의 부분
+
+1. 클 럽 명    ○○컨트리클럽
+               (제3채무자가 ○○○에서 운영하는 골프장)
+1. 회원권의 종류  예탁금회원제 정회원권
+                  (개인회원권 / 법인회원권 중 해당하는 것)
+1. 회 원 번 호   제 ○○○호
+                  (알지 못하는 경우 "채무자 명의의 회원권
+                   전부"로 기재)
+1. 입회일자      20○○. ○○. ○○.
+1. 예 탁 금     금 ○○○원
+
+   위 회원권에 기한 시설 우선이용권, 탈회 시 예탁금 반환청구권,
+   그 밖에 회원가입계약상의 일체의 권리를 포함한다.
+
+                                              끝.</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f2')">📋 복사</button><button type="button" onclick="printForm('f2')">🖨 인쇄</button><button type="button" onclick="downloadForm('f2','별지_회원권의표시.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>회원번호를 몰라도 신청할 수 있습니다.</b> <b>"채무자 명의의 회원권 전부"</b>로 적으면 운영회사가 회원명부를 보고 특정할 수 있습니다. 법령상으로도 <b>가압류할 권리를 명백하게 적으면 되고, 그 권리가 존재한다는 것까지 증명할 필요는 없습니다</b>(법원실무제요 민사집행Ⅳ). 다만 <b>클럽명과 운영회사</b>는 정확히 적어야 합니다. 마지막 줄의 <b>"시설 우선이용권, 예탁금 반환청구권, 그 밖에 회원가입계약상의 일체의 권리를 포함한다"</b>는 문구를 넣으면, 회원권을 구성하는 개별 권리들이 빠져나가지 않도록 <b>포괄적으로 묶을 수 있습니다.</b> 별지는 <b>5통</b> 정도 준비하십시오(법원·제3채무자 송달용).</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ② · 채권자</span>예탁금반환청구권 가압류 신청서 — 대안 유형<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f3"><span class="ft">채권가압류 신청서</span>채권자  ○○○   (☎: ○○○-○○○○-○○○○)
+        주소  ○○○
+채무자  ○○○
+        주소  ○○○
+제3채무자  ○○○ 주식회사
+        본점  ○○○
+        대표이사  ○○○
+
+가압류할 채권의 표시
+   별지 목록 기재와 같음
+
+청구채권의 표시
+   금 ○○○원 (20○○. ○○. ○○.자 ○○○ 채권)
+
+         신 청 취 지
+1. 채권자가 채무자에 대하여 가지는 위 청구채권의 집행을 보전하기
+   위하여, 채무자가 제3채무자에 대하여 가지는 별지 목록 기재
+   채권을 가압류한다.
+2. 제3채무자는 채무자에게 위 채권에 관한 지급을 하여서는
+   아니 된다.
+3. 채무자는 위 채권의 추심, 양도, 그 밖의 일체의 처분을
+   하여서는 아니 된다.
+   라는 재판을 구합니다.
+
+         신 청 이 유
+1. 피보전권리의 존재
+   채권자는 20○○. ○○. ○○. 채무자에게 금 ○○○원을 ○○○
+   하였으나, 채무자는 이를 변제하지 아니하고 있습니다
+   (소갑 제1호증, 제2호증).
+
+2. 가압류할 채권
+   채무자는 제3채무자가 운영하는 ○○컨트리클럽의 회원으로서,
+   회원 자격을 상실하거나 탈회하는 경우 제3채무자로부터
+   입회 시 예탁한 금 ○○○원의 반환을 청구할 권리를 가지고
+   있습니다(소갑 제3호증).
+
+3. 보전의 필요성
+   채무자는 ○○○(예: 별다른 재산이 없고 / 위 회원권을
+   처분하거나 탈회하여 예탁금을 수령한 뒤 이를 은닉하려는
+   정황이 있어), 지금 이를 보전하지 아니하면 장차 강제집행이
+   매우 곤란해질 우려가 큽니다(소갑 제4호증).
+
+4. 담보제공
+   담보제공은 보증보험증권(공탁보증보험)으로 갈음할 수 있도록
+   허가하여 주시기 바랍니다.
+
+         첨 부 서 류
+1. 소명방법 사본      각 1통
+1. 별지 목록          5통
+1. 가압류신청 진술서   1통
+1. 송달료납부서        1통
+
+              20○○. ○○. ○○.
+                위 채권자  ○○○ (인)
+
+○○지방법원   귀중
+
+
+         [별지]  가압류할 채권의 표시
+
+금 ○○○원
+
+채무자가 제3채무자가 운영하는 ○○컨트리클럽의 회원
+(회원번호 제○○○호)으로서, 탈회 또는 회원자격 상실 시
+제3채무자로부터 반환받을 예탁금(회원자격보증금) 반환청구권
+중 위 청구금액에 이를 때까지의 금액
+
+                                              끝.</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f3')">📋 복사</button><button type="button" onclick="printForm('f3')">🖨 인쇄</button><button type="button" onclick="downloadForm('f3','예탁금반환청구권_가압류신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>회원권 자체가 아니라 「돈」만 잡는 방식</b>입니다. 대법원은 예탁금제 골프회원권에 대하여 <b>회원권 자체 또는 탈회 시 행사할 예탁금 반환청구권 어느 쪽에도 보전처분을 할 수 있다</b>고 합니다(2008다10884). 이 방식의 <b>장점</b>은 금전채권이어서 <b>권리관계가 단순</b>하고, 본안 승소 후 <b>추심명령</b>으로 곧바로 받아낼 수 있다는 점입니다. <b>단점</b>은 <b>예탁금 액수가 회원권 시세보다 훨씬 낮은</b> 경우가 많고, <b>탈회를 전제로 한 장래의 채권</b>이라 실제로 돈이 나오기까지 오래 걸린다는 점입니다. 채무자가 이미 <b>탈회를 진행 중</b>이라면 이쪽이 확실하고, 그렇지 않다면 <b>작성례 ①(회원권 자체)</b>이 낫습니다. 둘을 <b>병행</b>할 수도 있으나 초과 가압류가 되지 않도록 청구금액 범위를 지키십시오.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ③ · 채권자</span>가압류신청 진술서 (반드시 함께 제출)<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f4"><span class="ft">가압류신청 진술서</span>채권자는 가압류 신청과 관련하여 다음 사실을 진술하며, 만일
+진술한 내용이 사실과 다를 경우에는 이 사건 신청이 기각되거나
+가압류가 취소될 것임은 물론 형사처벌을 받을 것임을 잘 알고
+있습니다.
+
+              20○○. ○○. ○○.
+                채권자  ○○○ (인)
+
+         다        음
+
+1. 피보전권리(청구채권)와 관련하여
+가. 채무자가 신청서에 기재한 청구채권을 인정하고 있습니까?
+   □ 예    □ 아니오
+   (아니오인 경우 다투는 이유: ○○○)
+나. 채무자의 다른 재산에 대하여 강제집행을 시도한 사실이
+   있습니까?   □ 예 (결과: ○○○)   □ 아니오
+다. 청구채권과 관련하여 채무자로부터 일부라도 변제받은 사실이
+   있습니까?   □ 예 (금 ○○○원)   □ 아니오
+
+2. 보전의 필요성과 관련하여
+가. 채무자의 다른 재산(부동산·예금·급여 등)을 알고 있습니까?
+   □ 예 (내용: ○○○)   □ 아니오 (조사한 내용: ○○○)
+나. 이 사건 회원권의 시세를 알고 있습니까?
+   □ 예 (금 ○○○원, 근거: ○○○)   □ 아니오
+다. 이 사건 회원권에 다른 압류·가처분·질권이 설정되어 있음을
+   알고 있습니까?   □ 예 (내용: ○○○)   □ 아니오
+라. 채무자가 회원권을 처분하거나 탈회하려는 정황이 있습니까?
+   □ 예 (구체적 사실: ○○○)   □ 아니오
+
+3. 본안소송과 관련하여
+가. 본안소송을 제기하였습니까?
+   □ 예 (○○지방법원 20○○가단○○○○호)   □ 아니오
+나. 아니오인 경우, 언제 제기할 예정입니까?  (○○○)
+
+4. 중복가압류와 관련하여
+가. 동일한 청구채권으로 다른 재산에 가압류를 신청한 사실이
+   있습니까?   □ 예 (내용: ○○○)   □ 아니오
+나. 이 사건 신청 외에 추가로 신청할 예정입니까?
+   □ 예 (내용: ○○○)   □ 아니오</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f4')">📋 복사</button><button type="button" onclick="printForm('f4')">🖨 인쇄</button><button type="button" onclick="downloadForm('f4','가압류신청진술서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>이것을 빠뜨리면 보정명령 없이 곧바로 기각될 수 있습니다</b>(재민 2003-4 §3, 전산양식 A4705). 회원권에서는 <b>2. 나(시세)</b>가 특히 중요합니다 — 법원이 <b>초과 가압류인지</b>를 판단하는 자료가 되기 때문입니다. 시세를 알면서 숨기고 고액 회원권을 통째로 묶으려 하면 <b>일부만 인용</b>되거나 기각될 수 있습니다. <b>회원권 거래소 시세표</b>를 함께 붙이면 신뢰도가 높아집니다. 위 항목은 실무에서 묻는 사항을 정리한 것이므로, 제출 전에 <b>법원 홈페이지의 최신 공식 양식</b>을 내려받아 대조하시기 바랍니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ④ · 채권자</span>특별현금화명령(양도명령·매각명령) 신청서 — 본안 승소 후<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f5"><span class="ft">특별현금화명령 신청서</span>사건   ○○지방법원 20○○타채○○○○호   회원권압류명령
+채권자  ○○○   (☎: ○○○-○○○○-○○○○)
+        주소  ○○○
+채무자  ○○○
+        주소  ○○○
+제3채무자  ○○○ 주식회사
+        본점  ○○○
+
+         신 청 취 지
+위 사건에 관하여 압류된 별지 목록 기재 회원권에 대하여
+○○○(택일)
+   □ 법원이 정한 가액으로 이를 채권자에게 양도한다.
+     (양도명령)
+   □ 집행관으로 하여금 이를 매각하게 한다. (매각명령)
+라는 재판을 구합니다.
+
+         신 청 이 유
+1. 채권자는 채무자에 대한 ○○지방법원 20○○가단○○○○호
+   ○○○ 사건의 집행력 있는 판결 정본에 기초하여, 위 사건으로
+   별지 목록 기재 회원권에 대한 압류명령을 받았고 그 명령은
+   20○○. ○○. ○○. 제3채무자에게 송달되었습니다.
+
+2. 위 회원권은 그 성질상 추심명령에 의한 현금화가 적합하지
+   아니합니다. 다만 위 회원권은 회원권 거래시장에서 금
+   ○○○원 내외로 거래되고 있어 그 가액을 산정할 수 있습니다
+   (첨부 회원권 시세자료).
+
+3. 이에 민사집행법 제241조, 제251조에 따라 신청취지와 같은
+   특별한 현금화 방법을 명하여 주시기 바랍니다.
+
+         첨 부 서 류
+1. 압류명령 정본 사본        1통
+1. 송달증명원                1통
+1. 회원권 시세자료            1통
+1. 법인등기사항증명서(제3채무자)  1통
+1. 별지 목록                 3통
+
+              20○○. ○○. ○○.
+                위 채권자  ○○○ (인)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f5')">📋 복사</button><button type="button" onclick="printForm('f5')">🖨 인쇄</button><button type="button" onclick="downloadForm('f5','특별현금화명령신청서_회원권.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>회원권은 「추심명령」으로 받아낼 수 없습니다.</b> 예금처럼 은행에서 찾아오는 것이 아니라, <b>양도명령 또는 매각명령</b>이라는 특별현금화 절차를 거쳐야 합니다(민집 §241·§251). <b>양도명령</b>은 법원이 정한 가액으로 회원권을 채권자에게 넘기는 것이고(채권자가 직접 회원이 되는 셈입니다), <b>매각명령</b>은 집행관 등이 팔게 하는 것입니다. 회원권은 <b>거래 시세가 공개</b>되어 있어 비상장주식과 달리 <b>가액 산정이 수월</b>합니다 — <b>회원권 시세자료를 반드시 붙이십시오.</b> 다만 운영회사 회칙에 <b>양도 승인</b>이 필요하다고 되어 있으면 현금화 단계에서 협의가 필요하므로, 미리 회칙을 확인하고 <b>진술최고</b> 결과도 참고하십시오.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ⑤ · 채무자</span>가압류결정에 대한 이의신청서<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f6"><span class="ft">가압류결정에 대한 이의신청서</span>신청인(채무자)  ○○○   (☎: ○○○-○○○○-○○○○)
+                주소  ○○○
+피신청인(채권자)  ○○○
+                주소  ○○○
+
+         신 청 취 지
+1. ○○지방법원 20○○카단○○○○호 회원권가압류 신청사건에
+   관하여 위 법원이 20○○. ○○. ○○. 한 가압류결정을
+   취소한다.
+2. 피신청인의 가압류신청을 기각한다.
+3. 소송비용은 피신청인이 부담한다.
+   라는 재판을 구합니다.
+
+         신 청 이 유
+1. 피보전권리의 부존재
+   피신청인은 신청인에 대하여 ○○○ 채권이 있다고 주장하나,
+   ○○○(예: 위 돈은 이미 전액 변제되었고 / 애초에 빌린 사실이
+   없으며 / 투자금이지 대여금이 아님). 따라서 피보전권리가
+   존재하지 아니합니다(을 제1호증).
+
+2. 초과 가압류 — 청구금액에 비하여 목적물의 가액이 과다합니다
+   피신청인의 청구금액은 금 ○○○원에 불과한데, 이 사건
+   회원권의 시세는 금 ○○○원에 이릅니다. 이는 청구채권의
+   집행을 보전하는 데 필요한 한도를 현저히 넘는 것이므로,
+   가압류의 범위는 위 청구금액 상당으로 제한되어야 합니다
+   (을 제2호증 회원권 시세자료).
+
+3. 가압류 대상의 부존재 — 이미 양도한 회원권입니다
+   이 사건 회원권은 신청인이 20○○. ○○. ○○. 소외 ○○○에게
+   양도하고 제3채무자의 승인을 받아 명의개서까지 마쳤으므로,
+   이 사건 가압류결정이 제3채무자에게 송달될 당시 이미
+   신청인의 재산이 아니었습니다(을 제3호증, 제4호증).
+
+4. 보전의 필요성 흠결
+   신청인에게는 ○○○ 등 다른 충분한 재산이 있으므로,
+   굳이 위 회원권을 가압류할 필요성이 없습니다(을 제5호증).
+
+5. 결론
+   따라서 이 사건 가압류결정은 취소되어야 합니다.
+
+         소 명 방 법
+1. 을 제1호증   ○○○ (변제 영수증·계좌내역 등)
+1. 을 제2호증   회원권 시세자료
+1. 을 제3호증   회원권 양도계약서
+1. 을 제4호증   제3채무자의 명의개서 확인서
+1. 을 제5호증   ○○○ (다른 재산 자료)
+
+         첨 부 서 류
+1. 위 소명방법 사본   각 1통
+1. 신청서 부본        1통
+
+              20○○. ○○. ○○.
+                위 신청인(채무자)  ○○○ (인)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f6')">📋 복사</button><button type="button" onclick="printForm('f6')">🖨 인쇄</button><button type="button" onclick="downloadForm('f6','회원권가압류_이의신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>신청이유 1~4번 중 해당하는 것만</b> 골라 적으십시오. <b>2번(초과 가압류)</b>은 회원권 방어에서 특히 유효합니다 — 회원권은 <b>시세가 공개</b>되어 있어 청구금액과 목적물 가액을 견주기 쉽기 때문입니다. 청구금액 3,000만원에 시세 3억원짜리 회원권을 통째로 묶었다면 다툴 여지가 큽니다. <b>회원권 거래소 시세표</b>를 반드시 붙이십시오. <b>3번</b>은 이미 양도한 경우인데, <b>명의개서까지 마쳤는지</b>와 <b>가압류 송달과의 선후</b>가 관건입니다(대법원 2008다10884). 인지액 <b>10,000원</b> + 송달료. 관할은 <b>가압류를 발령한 법원</b>입니다. <b>이의신청만으로는 집행이 멈추지 않으므로</b>, 회원권을 팔아야 할 사정이 있다면 <a class="cl" href="C-3_해방공탁.html"><b>해방공탁(C-3)</b></a>을 병행하십시오. 나머지 방어수단은 <a class="cl" href="C-1_가압류이의_방어.html"><b>C-1 카드</b></a>에 정리되어 있습니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ⑥ · 채권자</span>담보취소 신청서 (공탁금을 돌려받는 마지막 절차)<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f7"><span class="ft">담보취소 신청서</span>신청인(채권자)  ○○○   (☎: ○○○-○○○○-○○○○)
+                주소  ○○○
+피신청인(채무자)  ○○○
+                주소  ○○○
+
+         신 청 취 지
+1. 신청인이 ○○지방법원 20○○카단○○○○호 회원권가압류
+   신청사건의 담보로 ○○지방법원 20○○년 금 제○○○호로
+   공탁한 금 ○○○원(또는 ○○○보증보험 주식회사 발행
+   증권번호 ○○○호 공탁보증보험증권)에 대한 담보를 취소한다.
+   라는 재판을 구합니다.
+
+         신 청 이 유
+1. 신청인은 위 사건의 담보제공명령에 따라 20○○. ○○. ○○.
+   위와 같이 담보를 제공하고 가압류 결정을 받았습니다.
+
+2. (담보사유 소멸의 경우)
+   신청인은 본안소송인 ○○지방법원 20○○가단○○○○호
+   ○○○ 사건에서 20○○. ○○. ○○. 전부 승소판결을 받았고
+   그 판결은 20○○. ○○. ○○. 확정되었습니다(첨부 판결정본 및
+   확정증명원). 따라서 담보의 사유가 소멸하였습니다
+   (민사소송법 제125조 제1항).
+
+3. (동의 또는 권리행사최고의 경우 — 택일)
+   □ 피신청인이 담보취소에 동의하였으므로 별첨 동의서 및
+     인감증명서를 제출합니다(민사소송법 제125조 제2항).
+   □ 소송이 완결되었음에도 피신청인이 동의하지 아니하므로,
+     피신청인에게 일정한 기간 내에 그 권리를 행사하도록 최고하여
+     주시고, 그 기간 내에 권리를 행사하지 아니하는 때에는
+     담보취소에 동의한 것으로 보아 담보취소 결정을 하여 주시기
+     바랍니다(민사소송법 제125조 제3항).
+
+         첨 부 서 류
+1. 공탁서 사본 또는 보증보험증권 사본   1통
+1. 본안 판결정본 및 확정증명원          각 1통
+1. 담보취소 동의서 및 인감증명서        각 1통 (동의를 받은 경우)
+1. 신청서 부본                          1통
+
+              20○○. ○○. ○○.
+                위 신청인(채권자)  ○○○ (인)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f7')">📋 복사</button><button type="button" onclick="printForm('f7')">🖨 인쇄</button><button type="button" onclick="downloadForm('f7','담보취소신청서_회원권.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>가장 많이 잊히는 서면입니다.</b> 공탁금은 신청하지 아니하면 <b>법원에 그대로 남습니다.</b> 세 갈래 중 해당하는 것을 고르십시오 — ① <b>본안 승소 확정</b>(가장 간명, 민소 §125①), ② <b>채무자의 동의</b>(인감증명서 첨부, 같은 조 ②), ③ <b>권리행사최고</b>(동의를 못 받을 때, 같은 조 ③). 담보취소 결정이 <b>확정</b>되면 <b>확정증명원</b>을 받아 공탁소에 <b>공탁금 회수청구</b>를 하여야 실제로 돈이 들어옵니다. 합의로 사건을 끝낼 때에는 <b>합의서에 "담보취소에 동의한다"는 조항</b>을 반드시 넣으십시오. 아울러 가압류를 <b>취하</b>하는 경우 <b>운영회사에도 그 사실이 통지</b>되도록 하여, 채무자의 회원 자격이 정상적으로 관리되게 하십시오.</div>
+</div></div>
+
+<div class="cost">
+<span class="ct">비용 — 회원권 가압류도 등록면허세가 없습니다</span>
+<b>① 인지액</b>: 회원권가압류 신청 <b>10,000원</b>(정액).<br>
+<b>② 송달료</b>: <b>당사자 수 × 회차 × 1회분 단가</b>로 계산하여 별도 예납합니다. 회원권은 <b>제3채무자(운영회사)</b>가 있으므로 <b>당사자 수에 제3채무자를 포함</b>하여 계산합니다. <span style="font-size:13px">(예: 채권자·채무자·제3채무자 3명 × 3회 × 5,640원 = 50,760원 — 단가·회차는 법원에 따라 다르므로 접수 시 산출표로 확인하십시오.)</span><br>
+<b>③ 등록면허세</b>: <b>없습니다.</b> 회원권은 등기·등록의 대상이 아니므로 부동산(청구금액의 0.2%)이나 자동차(15,000원)와 달리 등록면허세·지방교육세가 발생하지 않습니다. <span style="font-size:13px;color:var(--muted)">다만 <b>공유제 콘도회원권</b>처럼 부동산 공유지분이 등기되어 있는 유형은 <b>부동산 가압류</b>로 처리되어 등록면허세가 발생합니다.</span><br>
+<b>④ 담보</b>: 법원이 정한 금액의 <b>현금공탁 또는 보증보험증권</b>. 회원권은 <b>채권가압류에 준하여</b> 정해지는 것이 실무이며, 자동차처럼 <b>1/10 선담보제공이 허용되는 유형이 아닙니다.</b> <span style="font-size:13px;color:#9c3a22">[확인필요 — 최종 담보액은 담보제공명령서의 금액을 기준으로 삼으십시오.]</span><br>
+<b>⑤ 본안 승소 후 현금화 단계</b>: 특별현금화명령 신청 비용과, 매각명령의 경우 <b>집행관 수수료</b>가 듭니다. 회원권은 <b>시세가 공개</b>되어 있어 비상장주식과 달리 <b>별도 감정이 필요 없는 경우가 많아</b> 비용 부담이 덜합니다. 집행비용은 최종적으로 채무자가 부담합니다(민집 §53①).
+<div style="margin-top:11px; padding-top:10px; border-top:1px dashed #cfe6d6; color:#c0392b; font-weight:600; line-height:1.8;">※ 정확한 인지액·송달료·담보 예상액은 사건 정보를 넣으면 <a href="https://sanlaw.co.kr/tools-calculator.html" style="color:#c0392b; text-decoration:underline; font-weight:700;">🧮 수수료 계산기</a>에서 미리 확인할 수 있습니다.</div>
+</div>
+
+<div class="warn"><span class="wt">⚠ 자력구제 금지 — 골프장에 찾아가 소란을 피우면 안 됩니다</span>
+가압류를 걸었다고 하여 채권자가 <b>회원이 되는 것은 아닙니다.</b> 채권자가 <b>골프장에 찾아가 채무자의 출입을 막거나</b>, 클럽하우스에서 <b>채무 사실을 큰 소리로 알리는</b> 행위는 <b>업무방해죄(형법 §314)·명예훼손죄(형법 §307)</b>가 될 수 있습니다. 회원권의 상태를 알고 싶다면 <b>진술최고</b>(민집 §237)나 본안 승소 후 <b>재산조회</b> 등 법이 정한 방법을 쓰십시오. 한편 채무자가 가압류를 피하려고 <b>회원권을 허위로 양도하거나 급히 탈회하여 예탁금을 빼돌리면</b> <span class="term">강제집행면탈죄<span class="bub">강제집행을 피할 목적으로 재산을 숨기거나 처분하여 채권자를 해치는 범죄(형법 §327). 3년 이하의 징역 또는 1천만원 이하의 벌금.</span></span>가 문제될 수 있습니다.</div>
+</div></details>
+
+<h2 id="s9">고충은 덜어드리고, 결과로 보답하겠습니다</h2>
+<div class="hire">
+<p>본 사무소에서는 의뢰인들의 고충은 덜어드리고, 함께 소송을 진행하여 원하는 결과에 도달할 수 있도록 성심을 다하겠습니다.</p>
+<p style="margin-top:12px"><b>· 채권자(돈 받을 분)의 경우</b><br>① <b>회원권 유형 판정과 시세 확인</b>(예탁금회원제·주주회원제·공유제 콘도에 따라 집행 방법이 달라집니다), ② <b>회원권가압류 신청서·별지·진술서</b> 작성, ③ <b>진술최고 신청</b>으로 회원자격의 유효 여부와 연회비 체납 확인, ④ <b>본안 소장</b>과 <b>압류·특별현금화명령 신청서</b> 작성, ⑤ <b>담보취소·공탁금 회수</b>까지 <b>본인소송의 전 과정을 함께</b> 준비해 드립니다. 아울러 <b>운영회사의 상호가 골프장 이름과 다른 경우</b>가 많아 제3채무자 표시를 잘못하면 송달이 되지 않으므로, 그 확인부터 함께 살펴 드리겠습니다.</p>
+<p style="margin-top:10px"><b>· 가압류를 당하신 분(채무자)·제3자의 경우</b><br><b>가압류이의신청서</b>(특히 시세에 비추어 초과 가압류라는 다툼, 이미 양도하였다는 다툼), <b>해방공탁 서류</b>, <b>제3자이의의 소 소장</b>(회원권을 사들인 양수인) 작성과 소명자료 정리를 함께 준비해 드립니다.</p>
+</div>
+
+<a href="https://sanlaw.co.kr/tools-calculator.html" class="cta">🧮 내 사건 비용 미리 계산하기</a>
+<div style="text-align:center; background:#f6ecd8; border:1px solid var(--gold); border-radius:11px; padding:14px; margin:18px 0; font-size:15px; color:var(--gold-d); font-weight:700;">📞 상담은 홈 화면의 상담 창구를 이용하시면 됩니다.</div>
+
+<details class="sec" id="s10"><summary>준비할 서류와 발급처 — 어디서 떼나<span class="sub">발급처별 딥링크와 찾아가기 경로를 함께 담았습니다</span></summary>
+<div class="secbody">
+<p style="font-size:13.5px;color:var(--muted)">아래 '바로가기'를 클릭하면 해당 사이트로 이동합니다. 만약 첫 화면으로 연결되면, 옆의 <b>찾아가기 경로</b>를 따라 메뉴를 클릭하면 됩니다.</p>
+<table>
+<tr><th>무엇을 (어디서)</th><th>서류</th><th>바로가기 · 찾아가기 경로</th></tr>
+<tr style="background:#fdf6ee"><td><b>가장 먼저 — 운영회사 확인</b><br>(인터넷등기소)</td><td><b>법인등기사항증명서</b><br>상호·본점·대표자 확인</td><td><a href="https://www.iros.go.kr">인터넷등기소</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 등기열람/발급 → 법인 → 열람하기·발급하기. <b>골프장 이름과 운영법인의 상호가 다른 경우가 많으므로</b> 반드시 확인하십시오. 제3채무자 표시가 틀리면 송달되지 않습니다.</span></td></tr>
+<tr style="background:#fdf6ee"><td><b>회원권 시세 확인</b><br>(회원권 거래소)</td><td>시세표<br><span style="font-size:12.5px">(실익 판단·초과 가압류 방지·특별현금화 자료)</span></td><td><span style="font-size:12.5px;color:var(--muted)">골프회원권 시세는 <b>회원권 거래소 홈페이지</b>에서 클럽별로 공개되어 있습니다. 인터넷 검색창에 <b>"○○컨트리클럽 회원권 시세"</b>로 검색하여 화면을 출력해 두십시오. <b>여러 거래소의 시세를 함께</b> 붙이면 신뢰도가 높아집니다.</span></td></tr>
+<tr><td>회원권 관련 자료<br>(운영회사·본인 보관)</td><td>회칙, 입회계약서, 회원증 사본<br><span style="font-size:12.5px">(양도제한 규정 확인용)</span></td><td><span style="font-size:12.5px;color:var(--muted)">회칙은 운영회사 홈페이지에 공개된 경우가 많습니다. 확보가 어렵다면 <b>진술최고</b>(민집 §237)로 회원자격과 회칙 내용을 확인하십시오.</span></td></tr>
+<tr><td>채권 소명자료<br>(본인 보관)</td><td>차용증·거래명세서·세금계산서·계좌이체내역·내용증명 등</td><td><span style="font-size:12.5px;color:var(--muted)">본인이 보관 중인 자료 / 이체내역은 거래 은행 인터넷뱅킹에서 출력</span></td></tr>
+<tr><td>채무자 인적사항 확인<br>(정부24)</td><td>주민등록표 초본(주소 확인용)</td><td><a href="https://www.gov.kr">정부24</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 검색창에 '주민등록표 초본' 검색 → 발급 <b>(제3자 발급은 법원 보정명령서 등 소명자료 필요)</b>. 관할이 <b>채무자 주소지</b> 기준이므로 반드시 확인하십시오.</span></td></tr>
+<tr><td>당사자가 <b>외국인</b>인 경우<br>(하이코리아·정부24)</td><td>외국인등록사실증명 / 국내거소신고 사실증명<br><span style="font-size:12.5px">(여권 사본·번역문 첨부)</span></td><td><a href="https://www.hikorea.go.kr">하이코리아</a> · <a href="https://www.gov.kr">정부24</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 하이코리아 → 전자민원 → 민원신청 / 정부24 검색창에 '외국인등록사실증명' 검색. <b>외국 서류는 번역문과 아포스티유(또는 영사확인)</b>가 필요할 수 있습니다. 외국인 명의 회원권도 같은 방법으로 가압류할 수 있습니다.</span></td></tr>
+<tr><td><b>공유제 콘도</b>인 경우<br>(인터넷등기소)</td><td>부동산등기사항증명서<br><span style="font-size:12.5px">(공유지분 확인)</span></td><td><a href="https://www.iros.go.kr">인터넷등기소</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 등기열람/발급 → 부동산. <b>등기부에 채무자의 공유지분이 있으면</b> 회원권이 아니라 <a class="cl" href="A-2_부동산가압류.html"><b>부동산 가압류(A-2)</b></a>로 진행하여야 합니다.</span></td></tr>
+<tr><td>담보 제공<br>(서울보증보험)</td><td>공탁보증보험증권</td><td><a href="https://www.sgic.co.kr">서울보증보험</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 법원공탁보증 메뉴 / 또는 가까운 지점·법원 내 출장소 방문. <b>심사에 며칠 걸립니다</b></span></td></tr>
+<tr><td>현금공탁·공탁금 회수<br>(전자공탁)</td><td>금전 공탁서, 공탁금 회수청구서</td><td><a href="https://ekt.scourt.go.kr">전자공탁</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 공탁신청 → 금전공탁 / 회수는 담보취소 결정 확정 후</span></td></tr>
+<tr><td>신청서 제출<br>(전자소송)</td><td>회원권가압류 신청서·별지·가압류신청 진술서(A4705) 등</td><td><a href="https://ecfs.scourt.go.kr">전자소송</a> / <a href="https://www.scourt.go.kr/nm/min_9/min_9_2/index.html">양식모음</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 전자소송 → 서류제출 → 민사신청 → 가압류/가처분</span></td></tr>
+<tr><td>본안 판결·확정 확인<br>(전자소송)</td><td>판결정본, 확정증명원, 송달증명원, 집행문</td><td><a href="https://ecfs.scourt.go.kr">전자소송</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 나의전자소송 → 사건확인 → 판결문·확정증명·집행문 발급</span></td></tr>
+</table>
+
+<div class="tip"><span class="pt">💡 이어지는 카드</span> <b>가압류를 걸었는데 상대가 반격해 온다면</b> — 해방공탁으로 풀어오면 <a class="cl" href="C-3_해방공탁.html"><b>C-3</b></a>, 제소명령이 오면 <a class="cl" href="C-4_제소명령.html"><b>C-4</b></a>, 사정변경·3년 미제소 취소를 구해오면 <a class="cl" href="C-5_사정변경취소.html"><b>C-5</b></a>, 부당가압류라며 손해배상을 청구해오면 <a class="cl" href="C-6_부당가압류_손해배상.html"><b>C-6</b></a>을 보십시오. 전체 유형은 <a class="cl" href="보전처분_전체유형표.html"><b>보전처분 전체 유형표</b></a>에 있습니다. 같은 채권자 입장에서 <a class="cl" href="A-1_예금채권가압류.html"><b>예금(통장) 가압류(A-1)</b></a>·<a class="cl" href="A-2_부동산가압류.html"><b>부동산 가압류(A-2)</b></a>·<a class="cl" href="A-3_급여가압류.html"><b>급여(월급) 가압류(A-3)</b></a>·<a class="cl" href="A-4_전세보증금가압류.html"><b>전세보증금 가압류(A-4)</b></a>·<a class="cl" href="A-5_지명채권가압류.html"><b>지명채권 가압류(A-5)</b></a>·<a class="cl" href="A-6_유체동산가압류.html"><b>유체동산 가압류(A-6)</b></a>·<a class="cl" href="A-7_자동차가압류.html"><b>자동차 가압류(A-7)</b></a>·<a class="cl" href="A-8_주식지분가압류.html"><b>주식·지분 가압류(A-8)</b></a>를 함께 검토하십시오. <b>주주회원제 회원권</b>이라면 주식 부분은 <a class="cl" href="A-8_주식지분가압류.html"><b>A-8</b></a>, <b>공유제 콘도</b>라면 <a class="cl" href="A-2_부동산가압류.html"><b>A-2</b></a>로 진행하여야 합니다. 반대로 <b>가압류를 당하신 분</b>은 <a class="cl" href="C-1_가압류이의_방어.html"><b>가압류를 당했을 때의 방어(C-1)</b></a>, <b>가처분을 당하신 분</b>은 <a class="cl" href="C-2_가처분방어.html"><b>가처분을 당했을 때의 방어(C-2)</b></a>를 보십시오.</div>
+</div></details>
+
+<div class="src">
+근거 — 민사집행법 제15조 제2항(즉시항고)·제19조 제3항·제48조(제3자이의의 소)·제53조(집행비용의 부담)·제223조부터 제227조까지(채권의 압류·가압류, 제251조에 의하여 준용)·제224조(집행법원)·제237조(제3채무자에 대한 진술최고)·제241조(특별한 현금화 방법)·제251조(그 밖의 재산권에 대한 집행)·제276조(가압류의 목적)·제277조(보전의 필요)·제278조(가압류법원)·제280조(가압류명령·담보제공)·제281조 제2항·제282조·제299조(해방공탁·집행취소)·제283조(이의신청)·제287조(제소명령)·제288조(사정변경 등에 따른 가압류취소)·제291조(가압류집행에 대한 본집행의 준용)·제292조 제2항(집행기간 2주) · 체육시설의 설치·이용에 관한 법률 제27조(체육시설업 등의 승계) · 관광진흥법 제3조(휴양콘도미니엄업) · 민사소송법 제125조(담보의 취소) · 보전처분 신청사건의 사무처리요령(재민 2003-4) 제3조(가압류신청 진술서) · 법원행정처, 법원실무제요 민사집행Ⅳ(그 밖의 재산권에 대한 가압류 — 가압류할 권리를 명백하게 적으면 되고 그 존재를 증명할 필요는 없음) · 형법 제307조(명예훼손)·제314조(업무방해)·제327조(강제집행면탈) · 민법 제157조·제161조(기간 계산)·제162조·제163조·제165조·제166조·제168조(소멸시효)·제750조(불법행위 손해배상) · 상법 제64조 · 대법원 2009. 12. 24. 선고 2008다10884 판결(예탁금제 골프회원권은 회원가입계약상의 지위로서 회원권 자체 또는 예탁금 반환청구권에 보전처분이 가능하고, 먼저 송달된 처분금지가처분에 후행 가압류가 대항할 수 없음) · 대법원 2018. 10. 18. 선고 2016다220143 전원합의체 판결(담보신탁 공매로 체육필수시설을 인수한 자도 회원에 대한 권리·의무를 승계함) · 대법원 2024. 2. 29. 선고 2023다280778 판결(위 법리 재확인) · 국가법령정보센터 법령용어 · 법제처 찾기쉬운 생활법령정보 · 대한법률구조공단 · 대법원 전자민원센터. 본 자료는 일반적인 법률정보로, 개별 사건의 법률자문이 아닙니다. 담보액과 회원권 시세는 법원·시점에 따라 다르므로 접수 전 확인이 필요합니다.
+</div>
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+})();
+
+(function(){
+  document.querySelectorAll('.toc a').forEach(function(a){
+    a.addEventListener('click',function(){
+      var el=document.querySelector(a.getAttribute('href'));
+      if(el&&el.tagName==='DETAILS')el.open=true;
+    });
+  });
+  var btn=document.getElementById('allBtn');
+  if(!btn)return;
+  function toggleAll(){
+    var opening=btn.textContent.indexOf('펼치기')>-1;
+    document.querySelectorAll('details.sec').forEach(function(d){d.open=opening;});
+    document.querySelectorAll('.formbox').forEach(function(fb){
+      fb.classList.toggle('open',opening);
+      var body=fb.querySelector('.fold-body');
+      if(body)body.style.display=opening?'block':'none';
+    });
+    btn.textContent=opening?'전체 접기':'전체 펼치기';
+  }
+  btn.addEventListener('click',toggleAll);
+  btn.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleAll();}});
+})();
+(function(){
+})();
+function toggleFold(b){var fb=b.parentElement;var body=b.nextElementSibling;var open=fb.classList.toggle('open');if(body){body.style.display=open?'block':'none';}}
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('작성례가 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('작성례가 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('작성례를 내려받았습니다');}
+</script>
+</body>
+</html>

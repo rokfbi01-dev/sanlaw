@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[보전 A-10] 가압류 담보, 얼마를 걸고 언제 돌려받나요 — 담보제공·보증보험·담보취소 | 산 법무사 김재섭</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(280px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.case{background:var(--box); border-radius:10px; padding:14px 16px; margin:14px 0; border-left:4px solid #b9a98c;}
+.case .ct{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+.sit-wrap{display:flex; gap:12px; margin:14px 0;}
+.sit{flex:1; background:#f8f5ee; border:1px solid var(--line); border-top:3px solid var(--gold); border-radius:10px; padding:13px 15px; font-size:14.5px; line-height:1.75;}
+.sit .sl{display:block; font-weight:700; color:var(--gold-d); margin-bottom:6px; font-size:14px;}
+@media (max-width:680px){ .sit-wrap{flex-direction:column;} }
+/* 전체 길 흐름도 (A-1 추가 — 기존 톤 재활용) */
+.flow{background:linear-gradient(180deg,#faf7f0,#f6f1e6); border:1px solid var(--line); border-radius:14px; padding:22px 20px; margin:16px 0;}
+.flow .fl-t{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:18px; text-align:center; letter-spacing:.3px;}
+.flow .node{position:relative; background:#fff; border:1px solid #e3d8c4; border-radius:11px; padding:15px 18px 15px 56px; font-size:14.5px; line-height:1.72; box-shadow:0 2px 6px rgba(122,82,48,.07);}
+.flow .node .num{position:absolute; left:15px; top:14px; width:30px; height:30px; line-height:30px; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; border-radius:50%; font-weight:800; font-size:15px; font-family:'Nanum Myeongjo',serif; box-shadow:0 2px 5px rgba(122,82,48,.3);}
+.flow .node b{color:#241a10;}
+.flow .down{display:flex; justify-content:center; align-items:center; padding:7px 0;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+/* 작성례 박스 */
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+details.sec{border:1px solid var(--line); border-radius:11px; margin:18px 0; background:#fff; overflow:hidden;}
+details.sec>summary{cursor:pointer; list-style:none; padding:14px 17px 14px 15px; background:var(--box); border-left:4px solid var(--gold); font-family:'Nanum Myeongjo',serif; font-size:18px; font-weight:700; color:var(--gold-d); line-height:1.55;}
+details.sec>summary::-webkit-details-marker{display:none;}
+details.sec>summary .sub{display:block; font-family:'Pretendard',sans-serif; font-size:13.5px; font-weight:400; color:var(--muted); margin-top:3px;}
+details.sec>summary::after{content:"펼치기 ▾"; float:right; font-family:'Pretendard',sans-serif; font-size:12.5px; font-weight:700; color:var(--gold); background:#fff; border:1px solid var(--line); border-radius:20px; padding:2px 10px; margin-left:8px;}
+details.sec[open]>summary::after{content:"접기 ▴";}
+details.sec>summary:hover{background:#f2ede3;}
+.secbody{padding:4px 17px 16px;}
+.secbody>h3:first-of-type{margin-top:14px;}
+.toc{background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 17px; margin:8px 0 22px;}
+.toc .tct{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:9px;}
+.toc ol{margin:0; padding-left:20px;}
+.toc li{margin:5px 0; font-size:14.5px;}
+.toc a{text-decoration:none; border-bottom:1px dotted var(--gold);}
+.allbtn{display:inline-block; margin-top:11px; font-size:13.5px; font-weight:700; color:var(--gold-d); background:var(--box); border:1px solid var(--line); border-radius:8px; padding:7px 14px; cursor:pointer;}
+.allbtn:hover{background:#f2ede3;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:15px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .tag{margin-bottom:0;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;}
+.tag.cred{background:#5a9a72;}
+.tag.debt{background:#d9694a;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:18px;margin:12px 0;font-family:'D2Coding','Courier New',monospace;font-size:13px;line-height:1.6;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:16px;letter-spacing:2px;margin-bottom:12px;color:#241a10;}
+.howto{font-size:14px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0 4px;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:13px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:7px 13px;cursor:pointer;transition:.15s;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.75;}
+.lawbox .ll{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold-d);border-radius:5px;padding:2px 9px;margin-right:7px;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.hire p{margin:7px 0; font-size:15px; line-height:1.8;}
+.cta{display:block;text-align:center;background:var(--gold-d);color:#fff;font-weight:700;font-size:17px;text-decoration:none;padding:15px;border-radius:11px;margin:18px 0;font-family:'Nanum Myeongjo',serif;letter-spacing:1px;}
+.cta:hover{background:#5e3f24;}
+@media print{
+  .backbar{display:none !important;}
+  body{background:#fff; max-width:100%;}
+  .tldr,.case,.warn,.tip,.cost,.steps li,.tnote,.sit,.flow,.flow li,.lawbox,.hire{background:#fff !important; border-color:#ccc !important;}
+  .tnote{display:none;}
+  .term{border:none; color:inherit; font-weight:inherit;}
+  .term>.bub{display:inline !important; position:static; width:auto; background:none; color:inherit; box-shadow:none; padding:0; font-size:inherit; line-height:inherit;}
+  .term>.bub::before{content:" ("; }
+  .term>.bub::after{content:")"; border:none; position:static;}
+  .fold-body{display:block !important;}.fold-btn .chev{display:none;}.form-tools{display:none;}
+  details.sec:not([open])>*{display:block !important;}
+  details.sec>summary::after{display:none;} .allbtn,.toc{display:none !important;}
+  .cta{background:#fff !important; color:#241a10 !important; border:1px solid #ccc;}
+}
+.cl{color:var(--gold-d);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--gold-d);}
+.cl:hover{background:#fbf5e8;}
+.tip .cl,.tip .cl b{color:var(--tip-ink);}
+.tip .cl{border-bottom-color:var(--tip-ink);}
+.warn .cl,.warn .cl b{color:var(--warn-ink);}
+.warn .cl{border-bottom-color:var(--warn-ink);}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+
+
+<h1>[보전 A-10] 가압류 담보, 얼마를 걸고 언제 돌려받나요 — 담보제공·보증보험·담보취소</h1>
+
+<div class="tnote">어려운 법률용어에는 <b>점선 밑줄</b>이 그어져 있습니다. <b>PC는 마우스를 올리면</b>, <b>휴대폰은 손가락으로 톡 터치하면</b> 쉬운 설명이 뜹니다. (인쇄하면 괄호로 함께 나옵니다.)</div>
+
+<div class="hire">
+<div class="ht">이 매뉴얼을 끝까지 읽으시는 분께</div>
+<p>이 매뉴얼은 <b>의뢰인이 직접 법원에 신청할 수 있도록 모든 서류 양식·비용·요건을 구체적으로 담았습니다.</b> 하지만 소송은 살아있는 생물과 같아 상대방의 격렬한 저항이 뒤따릅니다. 혼자 진행하시다가 막히는 부분이 생기거나 방어막이 필요할 때, 언제든 이 매뉴얼을 들고 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</p>
+</div>
+
+<div class="tldr">
+<div class="tt">⭐ 30초 결론부터</div>
+<ul>
+<li><b>가압류를 하려면 대체로 담보를 걸어야 합니다.</b> 가압류는 <b>상대방의 말을 들어보지 아니한 채</b> 소명만으로 재산을 묶는 제도입니다. 만약 나중에 본안에서 채권자가 지면 채무자는 억울하게 재산을 묶인 셈이 되므로, 그 손해를 미리 담보해 두는 것입니다(민집 §280②③·§19③, 민소 §122~§126). <b>담보를 정한 기간 안에 제공하지 아니하면 신청이 각하</b>됩니다.</li>
+<li><b>실제로 물어주게 되는 돈입니다 — 형식이 아닙니다.</b> 대법원은 <b>보전처분 집행 후 채권자가 본안에서 패소하여 확정되면, 채무자가 입은 손해에 대하여 채권자의 고의·과실이 사실상 추정된다</b>고 합니다(2005다31033). 담보금은 그때 채무자가 <b>질권자와 같은 지위</b>에서 우선하여 가져갈 수 있는 돈입니다(민소 §123). <b>승산이 없는 가압류는 걸지 마십시오.</b></li>
+<li><b>내는 방법은 두 가지입니다 — 현금공탁과 보증보험.</b> ① <b>현금(또는 유가증권)을 공탁</b>하고 공탁서 사본을 내거나, ② 보험회사와 <span class="term">지급보증위탁계약<span class="bub">보험회사가 "채권자가 물어줄 일이 생기면 대신 물어주겠다"고 약속하는 계약. 그 증서를 법원에 내면 현금공탁을 갈음할 수 있습니다. 흔히 '공탁보증보험증권'이라고 부릅니다.</span></span>을 체결하고 <b>보증서(공탁보증보험증권) 원본</b>을 냅니다(민소 §122, 민소규 §22②, 재민 2003-5 §4①). <b>보증보험을 쓰면 실제 지출은 보험료뿐</b>이므로 부담이 크게 줄어듭니다. 다만 <b>법원의 허가</b>가 필요합니다.</li>
+<li><b>담보액은 「무엇을 가압류하느냐」에 따라 크게 다릅니다.</b> 평균적인 기준으로 <b>부동산은 청구금액의 1/10</b>, <b>채권·그 밖의 재산권은 2/5</b>, <b>유체동산은 4/5</b>입니다(법원실무제요 민사집행Ⅳ). 게다가 유형에 따라 <b>일정 부분은 반드시 현금공탁</b>이어야 합니다. <b>같은 1,000만원을 받으려 해도 부동산이면 100만원, 유체동산이면 800만원</b>이 필요할 수 있다는 뜻입니다. 아래 표에서 확인하십시오.</li>
+<li><b>「선담보제공」으로 절차를 앞당길 수 있습니다.</b> <b>부동산·자동차·건설기계·소형선박·금전채권</b>에 대한 가압류는 <b>법원의 담보제공명령을 기다리지 않고</b> 미리 담보를 제공하겠다고 신청할 수 있습니다(민집규 §204). 결정이 빨라져 <b>2주 집행기간</b>을 놓칠 위험도 줍니다. 다만 <b>급여채권·영업자예금채권은 제외</b>되고, 주식·회원권 등 <b>그 밖의 재산권</b>도 대상이 아닙니다.</li>
+<li><b>끝나면 반드시 「담보취소」를 신청하십시오 — 가장 많이 놓치는 절차입니다.</b> 사건이 끝나도 <b>가만히 두면 공탁금은 법원에 그대로 남습니다.</b> ① 본안 승소 확정, ② 채무자의 동의, ③ 권리행사최고 — 이 세 가지 중 하나로 <b>담보취소 결정</b>을 받고, 그 결정이 확정되면 <b>공탁금 회수청구</b>까지 마쳐야 돈이 돌아옵니다(민소 §125). 보증보험이었다면 <b>보험료 일부를 환급</b>받을 수도 있습니다(재민 2003-5 §6⑥).</li>
+</ul>
+</div>
+
+<div class="toc">
+<div class="tct">이 카드에 담긴 것 — 필요한 곳만 펼쳐 보십시오</div>
+<ol>
+<li><a href="#s1">지금 어떤 상황인가요?</a></li>
+<li><a href="#s2">전체 길 한눈에 보기 — 담보를 걸고 되찾기까지</a></li>
+<li><a href="#s3">핵심 세 가지 — 얼마를, 어떻게, 언제 돌려받나</a></li>
+<li><a href="#s4">관련 법령 — 쉬운 풀이</a></li>
+<li><a href="#s5">판례로 보기 — 담보가 실제로 나가는 순간</a></li>
+<li><a href="#s6">채권자 — 담보를 걸고 <b>돌려받기</b>까지 상세 절차</a></li>
+<li><a href="#s7">채무자 — 담보에서 손해를 배상받는 방법</a></li>
+<li><a href="#s8">서류 작성례 — 빈칸만 채우면 됩니다</a></li>
+<li><a href="#s9">고충은 덜어드리고, 결과로 보답하겠습니다</a></li>
+<li><a href="#s10">준비할 서류와 발급처 — 어디서 떼나</a></li>
+</ol>
+<span class="allbtn" id="allBtn" role="button" tabindex="0">전체 펼치기</span>
+</div>
+
+<h2 id="s1">지금 어떤 상황인가요?</h2>
+<div class="sit-wrap">
+<div class="sit"><span class="sl">상황 ① · 가압류를 하려는데 목돈이 부담스러운 분 (채권자)</span><b>떼인 돈을 받으려 가압류를 하려는데, 법원이 담보를 걸라고 하여 막막한</b> 경우. → <b>공탁보증보험증권</b>으로 갈음하면 실제 지출은 <b>보험료뿐</b>입니다. 또한 <b>무엇을 가압류하느냐</b>에 따라 담보액이 크게 달라지므로, 담보가 적게 드는 재산을 먼저 검토하는 것도 방법입니다. <b>아래 담보액 표와 작성례 ①·②</b>를 보십시오.</div>
+<div class="sit"><span class="sl">상황 ② · 사건은 끝났는데 맡긴 담보를 못 돌려받은 분 (채권자)</span><b>본안소송이 끝났거나 합의로 마무리하였거나 가압류를 취하하였는데, 법원에 맡긴 공탁금이 그대로 남아 있는</b> 경우. → <b>담보는 저절로 풀리지 않습니다.</b> <b>담보취소 결정</b>을 받고 <b>공탁금 회수청구</b>까지 마쳐야 돈이 돌아옵니다(민소 §125). 몇 해가 지난 사건이라도 <b>지금 신청할 수 있습니다</b> — 다만 담보취소 결정이 확정된 뒤 <b>10년</b>이 지나면 회수청구권 자체가 소멸합니다. <b>아래 s6과 작성례 ③~⑤</b>를 보십시오.</div>
+<div class="sit"><span class="sl">상황 ③ · 부당한 가압류로 손해를 본 분 (채무자)</span><b>억울하게 가압류를 당하여 영업에 지장을 입었고, 채권자가 본안소송에서 졌거나 가압류가 취소된</b> 경우. → 채권자가 걸어 둔 <b>담보공탁금에서 손해를 배상받을 수 있습니다.</b> 채무자는 그 공탁금에 대하여 <b>질권자와 동일한 권리</b>를 가집니다(민소 §123). <b>채권자가 담보취소를 신청하기 전에</b> 움직여야 하므로 서두르십시오. <b>아래 s7과 작성례 ⑥</b>을 보십시오.</div>
+</div>
+
+<h2 id="s2">전체 길 한눈에 보기 — 담보를 걸고 되찾기까지</h2>
+<div class="flow">
+<div class="fl-t">담보는 <b>걸 때보다 되찾을 때</b> 더 많이 놓칩니다</div>
+<div class="node"><span class="num">1</span><b>가압류를 신청합니다</b> — 신청서를 내면서 <b>"담보제공은 공탁보증보험증권으로 갈음할 수 있도록 허가하여 주시기 바랍니다"</b>라는 문구를 신청이유에 넣어 둡니다(작성례 ①). 이 한 줄이 <b>목돈 마련의 부담을 크게 줄입니다.</b> 부동산·자동차·금전채권 등이라면 아예 <b>선담보제공</b>을 신청할 수도 있습니다(작성례 ②).</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">2</span><b>법원이 담보제공명령을 내립니다</b> — 결정문에는 <b>담보 금액</b>, <b>제공 기간</b>(실무상 7일 내외), <b>현금공탁을 명하는 부분</b>이 적혀 있습니다. 보증보험으로 갈음하는 것을 허가하는 경우에는 그 취지도 함께 적힙니다. <b>이 기간을 넘기면 신청이 각하</b>되므로, 받는 즉시 착수하십시오.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">3</span><b>담보를 제공합니다 — 두 갈래</b> — <b>㉮ 현금공탁</b>: 전자공탁 또는 법원 공탁계에서 <b>금전 공탁</b>을 하고 <b>공탁서 사본</b>을 법원에 제출합니다. <b>㉯ 보증보험</b>: 법원의 <b>허가결정 등본</b>을 지참하여 보험회사에서 <b>공탁보증보험증권</b>을 발급받아 <b>원본</b>을 제출합니다. 보험 심사에 <b>며칠</b> 걸리므로 서두르십시오.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">4</span><b>가압류 결정 → 집행</b> — 담보가 확인되면 법원이 가압류 결정을 내리고 집행이 진행됩니다. <b>집행기간 2주</b>(민집 §292②)가 있으므로, 담보 제공이 늦어져 이 기간을 넘기는 일이 없도록 하십시오.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">5</span><b>본안소송이 끝납니다</b> — <b>이겼다면</b> 담보의 사유가 소멸하므로 곧바로 담보취소를 신청할 수 있습니다. <b>졌다면</b> 채무자가 그 담보에서 손해배상을 받아 갈 수 있으므로, 남은 부분만 돌려받게 됩니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">6</span><b>담보취소를 신청합니다 — 세 갈래</b> — <b>㉮ 담보사유 소멸</b>(본안 승소 확정, 민소 §125①) <b>㉯ 채무자의 동의</b>(동의서 + 인감증명서, 같은 조 ②) <b>㉰ 권리행사최고</b>(소송 완결 후, 같은 조 ③ — 법원이 채무자에게 "일정 기간 안에 권리를 행사하라"고 최고하고, 그 기간이 지나면 <b>동의한 것으로 봅니다</b>). 작성례 ③~⑤.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">7</span><b>공탁금을 회수하거나 증권을 정리합니다</b> — 담보취소 결정이 <b>확정</b>되면 <b>확정증명원</b>을 받아 공탁소에 <b>공탁금 회수청구</b>를 합니다. 보증보험증권이었다면 법원에서 <b>증권 원본을 반환</b>받아 보험회사에 제출합니다. 사유에 따라 <b>보험료를 전부 또는 일부 환급</b>받을 수 있습니다(재민 2003-5 §6⑥).</div>
+</div>
+
+<h2 id="s3">핵심 세 가지 — 얼마를, 어떻게, 언제 돌려받나</h2>
+<p style="font-size:13.5px;color:var(--muted)">아래는 <b>법원행정처 법원실무제요 민사집행Ⅳ</b>에 소개된 <b>평균적인 예시</b>입니다. <b>담보액 기준은 법원마다 다르고 법원이 이에 구속되지도 않으므로</b>, 반드시 <b>담보제공명령서에 적힌 금액</b>을 기준으로 삼으십시오. 아래 표는 <b>미리 가늠해 보기 위한 참고</b>입니다.</p>
+<table>
+<tr><th style="width:26%">무엇을 가압류하는가</th><th style="width:18%">담보액<br><span style="font-size:12px;font-weight:400">(청구금액 대비)</span></th><th style="width:22%">그중 현금공탁</th><th>해당 카드</th></tr>
+<tr style="background:#eef6ef"><td><b>부동산</b></td><td style="text-align:center;color:#1c7a4a;font-weight:700"><b>1/10</b><br><span style="font-size:12.5px;font-weight:400">(가장 가볍습니다)</span></td><td>소명 정도에 따라 일정 부분</td><td><a class="cl" href="A-2_부동산가압류.html"><b>A-2 부동산</b></a>·<a class="cl" href="A-4_전세보증금가압류.html"><b>A-4 전세보증금</b></a></td></tr>
+<tr><td><b>자동차·건설기계·소형선박</b></td><td style="text-align:center;color:#1c7a4a;font-weight:700"><b>1/10</b><br><span style="font-size:12.5px;font-weight:400">(선담보제공 시)</span></td><td>보증보험으로 갈음 가능</td><td><a class="cl" href="A-7_자동차가압류.html"><b>A-7 자동차</b></a></td></tr>
+<tr style="background:#fdf6ee"><td><b>금전채권</b><br><span style="font-size:12.5px">(예금·물품대금 등)</span></td><td style="text-align:center;font-weight:700"><b>2/5</b></td><td>담보액의 <b>1/2</b><br><span style="font-size:12.5px">(= 청구금액의 <b>1/5</b>)</span></td><td><a class="cl" href="A-1_예금채권가압류.html"><b>A-1 예금</b></a>·<a class="cl" href="A-5_지명채권가압류.html"><b>A-5 지명채권</b></a></td></tr>
+<tr style="background:#fdf6ee"><td><b>급여채권·영업자 예금채권</b></td><td style="text-align:center;font-weight:700"><b>2/5</b><br><span style="font-size:12.5px;font-weight:400;color:#9c3a22">선담보제공 제외</span></td><td>담보액의 <b>1/2</b><br><span style="font-size:12.5px">(= 청구금액의 <b>1/5</b>)</span></td><td><a class="cl" href="A-3_급여가압류.html"><b>A-3 급여</b></a></td></tr>
+<tr><td><b>그 밖의 재산권</b><br><span style="font-size:12.5px">(주식·회원권 등)</span></td><td style="text-align:center;font-weight:700"><b>2/5</b></td><td>청구금액의 <b>1/5</b> 범위</td><td><a class="cl" href="A-8_주식지분가압류.html"><b>A-8 주식</b></a>·<a class="cl" href="A-9_회원권가압류.html"><b>A-9 회원권</b></a></td></tr>
+<tr style="background:#fdeeee"><td><b>유체동산</b><br><span style="font-size:12.5px">(가전·집기·재고)</span></td><td style="text-align:center;color:#9c3a22;font-weight:700"><b>4/5</b><br><span style="font-size:12.5px;font-weight:400">(가장 무겁습니다)</span></td><td>담보액의 <b>1/2</b><br><span style="font-size:12.5px">(= 청구금액의 <b>2/5</b>)</span></td><td><a class="cl" href="A-6_유체동산가압류.html"><b>A-6 유체동산</b></a></td></tr>
+<tr><td><b>부동산소유권이전등기청구권</b><br>등기·등록하는 권리</td><td style="text-align:center;font-weight:700">—</td><td>청구금액의 <b>1/10</b> 범위</td><td><span style="font-size:12.5px;color:var(--muted)">가처분 유형 — B 시리즈</span></td></tr>
+<tr style="background:#eef6ef"><td><b>임금채권이 피보전권리인 경우</b><br><span style="font-size:12.5px">(체불임금을 받으려는 근로자)</span></td><td colspan="3" style="color:#1c7a4a"><b>청구채권과 이유에 대한 소명이 있으면 무담보 또는 소액</b>으로 명하는 것이 실무입니다. 체불임금 사건에서는 담보 부담을 크게 덜 수 있습니다.</td></tr>
+</table>
+
+<div class="tip"><span class="pt">💡 실제로 얼마가 드는지 — 계산해 보겠습니다</span>
+<b>예: 떼인 돈 1,000만원을 받으려고 채무자의 예금계좌를 가압류하는 경우</b><br>
+① 담보액 = 1,000만원 × <b>2/5</b> = <b>400만원</b><br>
+② 그중 현금공탁 = 400만원 × 1/2 = <b>200만원</b>(청구금액의 1/5)<br>
+③ 나머지 200만원 = <b>공탁보증보험증권</b>으로 갈음<br>
+④ 따라서 실제로 준비할 현금 = <b>현금공탁 200만원 + 보험료</b><br>
+<span style="font-size:13px;color:#9c3a22">※ 보험료는 <b>보증금액 × 보험요율 × 기간</b>으로 정해지며, 요율은 보험회사와 신용도에 따라 다릅니다. [확인필요 — 정확한 보험료는 서울보증보험에 문의하십시오.]</span><br>
+<b>같은 1,000만원이라도 부동산을 잡으면</b> 담보액이 <b>100만원</b>(1/10)에 그칩니다. <b>유체동산을 잡으면 800만원</b>(4/5)이 필요하고 그중 <b>400만원은 현금</b>이어야 합니다. <b>어떤 재산을 잡을지 정할 때 담보 부담도 함께 계산</b>하십시오.
+</div>
+
+<ol class="steps">
+<li><b>담보는 「돌려받는 돈」이지만, 지면 「나가는 돈」입니다.</b> 본안에서 이기면 담보취소를 거쳐 전액 돌아옵니다. 그러나 <b>지면 채무자가 그 담보에서 손해배상을 받아 갑니다.</b> 대법원은 <b>본안 패소가 확정되면 채권자의 고의·과실이 사실상 추정된다</b>고 하므로(2005다31033), 채무자가 손해만 증명하면 배상을 받을 수 있는 구조입니다. <b>승산을 냉정하게 따져 보고 신청하십시오.</b> 이것이 담보 제도의 본래 취지입니다.</li>
+<li><b>보증보험을 쓰되, 「허가」를 먼저 받아야 합니다.</b> 공탁보증보험증권으로 담보를 제공하려면 <b>법원의 허가</b>가 필요합니다(재민 2003-5 §3①, 전산양식 A3140). 가장 간편한 방법은 <b>가압류 신청서의 신청이유에 허가 신청 문구를 함께 적어 두는 것</b>입니다(작성례 ①). 허가결정 등본을 지참하여 보험회사를 방문하면 증권을 발급받을 수 있습니다. <b>보험 심사에 며칠 걸리므로</b> 담보제공명령을 받고 나서 시작하면 기간을 넘길 수 있습니다.</li>
+<li><b>사건이 끝나면 반드시 담보취소를 신청하십시오.</b> 실무에서 가장 많이 놓치는 절차입니다. 본안에서 이겨도, 합의로 끝내도, 가압류를 취하하여도 <b>담보는 저절로 풀리지 않습니다.</b> 특히 <b>합의로 사건을 마무리할 때에는 합의서에 "채무자는 담보취소에 동의한다"는 조항을 반드시 넣으십시오.</b> 이 한 줄이 없으면 나중에 연락이 끊겨 <b>권리행사최고</b> 절차를 거쳐야 하고, 그러면 몇 달이 더 걸립니다.</li>
+</ol>
+
+<details class="sec" id="s4"><summary>관련 법령 — 쉬운 풀이<span class="sub">담보제공 §280 · 제공 방법 §122 · 질권자와 동일한 권리 §123 · 담보취소 §125 · 선담보제공 §204</span></summary>
+<div class="secbody">
+<div class="lawbox"><span class="ll">민사집행법 §280②③ · §19③</span><b>왜 담보를 거는가</b> — <b>§280②</b> 법원은 가압류로 생길 수 있는 <b>채무자의 손해에 대하여 담보를 제공하게 하고</b> 가압류를 명할 수 있습니다. <b>§280③</b> 청구채권이나 가압류의 이유를 소명하지 아니한 때에도 <b>담보를 제공하게 하고</b> 가압류를 명할 수 있습니다. <b>§19③</b> 민사집행절차의 담보에 관하여는 <b>민사소송법 §122·§123·§125·§126</b>을 준용합니다. 가압류는 <b>채무자의 말을 들어보지 아니하고</b> 소명만으로 재산을 묶는 제도이므로, 그 위험을 담보로 메우는 것입니다.</div>
+<div class="lawbox"><span class="ll">민사소송법 §122 · 민사소송규칙 §22②</span><b>담보를 내는 두 가지 방법</b> — 담보의 제공은 ① <b>금전 또는 유가증권을 공탁</b>한 뒤 <b>공탁서 사본</b>을 법원에 제출하거나, ② 금융기관·보험회사와 <b>지급보증위탁계약</b>을 체결한 뒤 그 <b>보증서(공탁보증보험증권) 원본</b>을 법원에 제출하는 방법으로 합니다(재민 2003-5 §4①). ②의 방법을 쓰려면 <b>법원의 허가</b>가 필요합니다(재민 2003-5 §3①, 전산양식 A3140).</div>
+<div class="lawbox"><span class="ll">민사소송법 §123</span><b>채무자는 담보물에 대하여 「질권자와 동일한 권리」를 가집니다</b> — 담보권리자(채무자)는 그 담보물에 대하여 <b>질권자와 같은 지위</b>에 섭니다. 즉 부당한 가압류로 손해를 입었다면, 채권자의 다른 채권자들보다 <b>우선하여</b> 그 공탁금에서 배상을 받을 수 있습니다. 채권자가 파산하여도 채무자는 <b>별제권</b>을 행사하는 셈이 되어 파산절차와 관계없이 담보권을 실행할 수 있습니다. <b>담보금은 채무자를 위한 안전장치</b>라는 점이 여기에서 분명해집니다.</div>
+<div class="lawbox"><span class="ll">민사소송법 §125</span><b>담보취소 — 돌려받는 세 가지 길</b> — <b>①</b> 담보제공자가 <b>담보하여야 할 사유가 소멸</b>되었음을 증명하면서 취소신청을 하면 법원은 담보취소결정을 하여야 합니다(본안 승소 확정이 대표적입니다). <b>②</b> 담보제공자가 <b>담보권리자의 동의</b>를 받았음을 증명한 때에도 같습니다. <b>③</b> <b>소송이 완결된 뒤</b> 담보제공자가 신청하면, 법원은 담보권리자에게 <b>일정한 기간 이내에 그 권리를 행사하도록 최고</b>하고, 담보권리자가 그 기간 이내에 권리를 행사하지 아니하는 때에는 <b>담보취소에 동의한 것으로 봅니다.</b></div>
+<div class="lawbox"><span class="ll">민사소송법 §126</span><b>담보물의 변경</b> — 법원은 담보제공자의 신청에 따라 결정으로 <b>공탁한 담보물을 바꾸도록</b> 명할 수 있습니다. 현금공탁을 하였다가 자금이 묶여 곤란해진 경우, <b>공탁금을 보증보험증권으로 바꾸어</b> 현금을 회수하는 데 쓰입니다(작성례 ⑤).</div>
+<div class="lawbox"><span class="ll">민사집행규칙 §204</span><b>선담보제공 — 담보제공명령을 기다리지 않는 방법</b> — <b>부동산·자동차·건설기계·소형선박 또는 금전채권</b>에 대한 가압류를 신청하려는 사람은 <b>법원의 담보제공명령이 없더라도</b> 미리 담보를 제공하겠다고 신청할 수 있습니다. 다만 <b>급여채권과 영업자의 예금채권은 제외</b>되고, 주식·회원권 등 <b>그 밖의 재산권</b>도 대상이 아닙니다. 선담보제공을 하면 <b>결정이 빨라져</b> 채무자가 재산을 빼돌릴 틈이 줄고, <b>2주 집행기간</b>을 놓칠 위험도 낮아집니다.</div>
+<div class="lawbox"><span class="ll">재민 2003-5 §6⑥</span><b>보험료를 돌려받을 수 있는 경우</b> — 「지급보증위탁계약체결문서의 제출에 의한 담보제공과 관련한 사무처리요령」에 따라, <b>법원이 보증서 제출을 불허가하고 현금공탁을 명한 경우</b> 등 일정한 사유가 있으면 법원에서 <b>보증보험증서 원본을 반환</b>받아 보험료를 <b>전부 또는 일부 환급</b>받을 수 있습니다. 이때 가압류 신청계 공무원으로부터 증서 원본 아래에 <b>소정의 기재</b>를 받아야 합니다(전산양식 A3145).</div>
+<div class="lawbox"><span class="ll">민사집행법 §280②③ · §287③</span><b>담보가 나오는 다른 장면들</b> — 담보는 가압류를 <b>거는 쪽</b>만 내는 것이 아닙니다. <b>가압류 취소</b>를 구하는 채무자에게 법원이 담보를 명할 수도 있고(§288③ 등), <b>강제집행정지</b>를 구할 때에도 담보가 필요합니다. 이 카드는 <b>가압류를 거는 채권자의 담보</b>를 중심으로 설명합니다.</div>
+</div></details>
+
+<details class="sec" id="s5"><summary>판례로 보기 — 담보가 실제로 나가는 순간<span class="sub">본안에서 지면 고의·과실이 추정된다 · 다만 뒤집힐 수도 있다</span></summary>
+<div class="secbody">
+<div class="case">
+<span class="ct">○ 본안에서 패소 확정되면 채권자의 고의·과실이 사실상 추정된다 — 대법원 2007. 4. 26. 선고 2005다31033 판결</span>
+대법원은 <b>가압류나 가처분 등 보전처분은 그 피보전권리가 실재하는지의 확정을 본안소송에 맡기고, 단지 소명에 의하여 채권자의 책임 아래 하는 것</b>이라는 점을 출발점으로 삼습니다. 그러므로 <b>보전처분을 집행한 뒤 집행채권자가 본안소송에서 패소하여 확정되면, 그 집행으로 채무자가 입은 손해에 대하여 집행채권자에게 고의 또는 과실이 있다고 사실상 추정된다</b>고 하였습니다. 다만 <b>특별한 사정이 있는 경우에는 이 추정이 번복될 수 있다</b>고 하여, 무조건 책임을 지우지는 않습니다.
+<div style="margin-top:9px;font-size:13.5px">(→ <b>채권자</b>: 담보금은 <b>형식적인 예치금이 아닙니다.</b> 본안에서 지면 채무자는 <b>손해를 증명하기만 하면</b> 그 담보에서 배상을 받아 갈 수 있는 구조입니다. 승산이 희박한데도 압박 목적으로만 가압류를 거는 것은 <b>스스로 위험을 사는 일</b>입니다.<br>
+→ <b>채무자</b>: 부당한 가압류로 손해를 입었다면 <b>고의·과실을 따로 증명할 필요가 없습니다.</b> 영업 손실·신용 훼손·대출 거절 등 <b>손해의 내용과 액수</b>를 증명하는 데 집중하십시오.)</div>
+</div>
+<div class="case">
+<span class="ct">○ 청구금액을 부풀렸다가 일부 패소하여도, 믿을 만한 이유가 있었다면 책임을 면할 수 있다 — 대법원 2011. 7. 14. 선고 2011다13241 판결</span>
+채권자가 가압류결정을 받아 집행한 뒤 <b>본안소송에서 피보전권리의 일부가 인정되지 아니하여 그만큼 패소</b>한 사안입니다. 대법원은 먼저 <b>채권자로서는 실제 채권액보다 많은 가액을 주장하여 가압류결정을 받음으로써 그 차액만큼 부당한 가압류 집행을 한 것이라고 볼 수 있고, 그 범위에서는 채권자의 고의·과실도 추정된다</b>고 하였습니다. 다만 <b>채권자가 가압류 신청 당시 그 주장하는 채권이 있다고 믿을 만한 상당한 이유가 있었다고 인정되는 경우에는 그 추정이 번복되어 손해배상책임이 인정되지 않는다</b>고 판단하였습니다.
+<div style="margin-top:9px;font-size:13.5px">(→ <b>채권자</b>: <b>청구금액을 무리하게 부풀리지 마십시오.</b> 담보액이 커져 부담이 늘 뿐 아니라, 나중에 그 <b>차액만큼 부당가압류로 책임을 질 수 있습니다.</b> 반대로 계약서·거래명세서 등 <b>근거를 갖추어 산정한 금액</b>이라면, 일부 패소하더라도 책임을 면할 여지가 있습니다. <b>신청 단계의 자료 정리가 곧 방어막</b>이 되는 셈입니다.<br>
+→ <b>채무자</b>: 채권자가 <b>근거 없이 금액을 부풀렸다는 점</b>을 밝히면 그 차액에 대한 배상을 구할 수 있습니다. 자세한 절차는 <a class="cl" href="C-6_부당가압류_손해배상.html"><b>부당가압류 손해배상(C-6)</b></a> 카드에서 다룹니다.)</div>
+</div>
+</div></details>
+
+<details class="sec" id="s6"><summary>채권자 — 담보를 걸고 <b>돌려받기</b>까지 상세 절차<span class="sub">허가 신청 · 선담보제공 · 공탁 · 보증보험 · <b>담보취소 · 공탁금 회수</b> · 기한표</span></summary>
+<div class="secbody">
+<ol class="steps">
+<li><b>신청서에 「보증보험 허가 신청」 문구를 미리 넣습니다.</b> 가압류 신청서의 신청이유 끝부분에 <b>"담보제공은 보증보험증권(공탁보증보험)으로 갈음할 수 있도록 허가하여 주시기 바랍니다"</b>라고 적어 두면, 별도 신청서 없이 함께 판단받을 수 있습니다(작성례 ①). 이것을 빠뜨리면 <b>현금공탁을 명받고 나서야</b> 부랴부랴 허가를 다시 구해야 합니다.</li>
+<li><b>해당한다면 선담보제공을 신청합니다.</b> <b>부동산·자동차·건설기계·소형선박·금전채권</b> 가압류라면 <b>담보제공명령을 기다리지 않고</b> 미리 담보를 제공하겠다고 신청할 수 있습니다(민집규 §204, 작성례 ②). 결정이 빨라져 채무자가 대비할 틈이 줄어듭니다. <b>급여채권·영업자예금채권은 제외</b>이고, 주식·회원권도 대상이 아닙니다.</li>
+<li><b>담보제공명령을 받으면 즉시 착수합니다.</b> 명령서에는 <b>금액·기간·현금공탁 부분</b>이 적혀 있습니다. 기간은 실무상 <b>7일 내외</b>로 짧습니다. <b>보증보험 심사에만 며칠 걸리므로</b> 하루도 늦추지 마십시오. 기간을 넘기면 <b>신청이 각하</b>되고, 처음부터 다시 해야 합니다.</li>
+<li><b>㉮ 현금공탁으로 하는 경우</b> — <b>전자공탁</b> 또는 법원 공탁계에서 <b>금전 공탁</b>을 합니다. 공탁서에 <b>피공탁자를 채무자</b>로, <b>공탁원인사실을 "○○지방법원 20○○카단○○○○호 가압류 담보"</b>로 적습니다. 공탁을 마치면 <b>공탁서 사본</b>을 법원에 제출합니다.</li>
+<li><b>㉯ 보증보험으로 하는 경우</b> — 법원에서 <b>허가결정 등본</b>을 받아 지참하고 <b>서울보증보험</b> 지점(법원 내 출장소가 있는 경우가 많습니다)을 방문하여 <b>공탁보증보험증권</b>을 발급받습니다. 그 <b>원본</b>을 법원에 제출합니다. <b>사본이 아니라 원본</b>이어야 합니다.</li>
+<li><b>사건이 끝나면 담보취소를 신청합니다 — 세 갈래 중 택일.</b> <b>㉮ 본안 승소 확정</b>(가장 간명, 판결정본 + 확정증명원, 작성례 ③) <b>㉯ 채무자의 동의</b>(동의서 + 인감증명서, 작성례 ④) <b>㉰ 권리행사최고</b>(동의를 못 받을 때, 작성례 ③의 두 번째 항목). ㉰는 법원이 채무자에게 최고한 뒤 <b>기간이 지나야</b> 결정이 나므로 시간이 더 걸립니다.</li>
+<li><b>담보취소 결정이 확정되면 회수합니다.</b> 결정에 대하여 <b>즉시항고 기간</b>이 지나면 확정되고, <b>확정증명원</b>을 발급받아 공탁소에 <b>공탁금 회수청구</b>를 합니다. 보증보험이었다면 법원에서 <b>증권 원본을 반환</b>받아 보험회사에 제출합니다.</li>
+<li><b>보험료 환급 가능성도 확인하십시오.</b> 법원이 보증서 제출을 <b>불허가하고 현금공탁을 명한 경우</b> 등에는 보험료를 전부 또는 일부 돌려받을 수 있습니다(재민 2003-5 §6⑥). 이때 <b>가압류 신청계 공무원의 기재</b>를 받아야 하므로(전산양식 A3145), 그냥 증권을 들고 보험회사에 가면 처리되지 않습니다.</li>
+</ol>
+
+<h3>⏰ 기한 정리 — 놓치면 안 되는 날짜들</h3>
+<table>
+<tr><th style="width:20%">무엇을</th><th style="width:14%">기한</th><th>① 기산일 · ③ 계산 방법</th><th style="width:20%">② 근거 · 놓치면</th></tr>
+<tr style="background:#fdeeee"><td><b>담보제공명령 이행</b><br><span style="font-size:12.5px;color:#9c3a22">(이 카드에서 가장 중요합니다)</span></td><td style="text-align:center;color:#9c3a22;font-weight:700">법원이 정한 기간<br><span style="font-size:12.5px">(실무상 7일 내외)</span></td>
+<td><b>기산일</b> — 담보제공명령을 <b>송달받은 날</b><br><b>계산</b> — 송달받은 <b>다음 날</b>부터(초일 불산입, 민법 §157). 말일이 <b>토·일·공휴일</b>이면 <b>다음 근무일</b>까지(민법 §161)<br><span style="font-size:12.5px;color:#9c3a22">기간을 넘기면 <b>가압류신청이 각하</b>됩니다. <b>보증보험 심사에만 며칠</b> 걸리므로, 명령을 받은 당일 착수하십시오. 유체동산처럼 담보액이 큰 유형은 목돈 마련에 시간이 더 필요합니다.</span></td>
+<td>민집 <b>§280②③·§19③</b><br>민소 <b>§122</b></td></tr>
+<tr style="background:#fdf6ee"><td><b>가압류 집행기간</b></td><td style="text-align:center;font-weight:700"><b>2주</b></td>
+<td><b>기산일</b> — 채권자가 <b>가압류 결정을 고지받은 날</b><br><b>계산</b> — 고지받은 <b>다음 날</b>부터 2주(민법 §157·§161)<br><span style="font-size:12.5px;color:var(--muted)"><b>담보 제공이 늦어지면 결정 자체가 늦어져</b> 이 기간이 압박이 됩니다. <b>선담보제공</b>을 활용하면 이 위험이 줄어듭니다.</span></td>
+<td>민집 <b>§292②</b></td></tr>
+<tr><td><b>권리행사최고<br>기간</b><br><span style="font-size:12.5px;color:var(--muted)">(채무자가 지킬 날)</span></td><td style="text-align:center;font-weight:700">법원이 정한 기간</td>
+<td>담보취소 신청이 들어오면 법원이 <b>채무자에게 "일정 기간 안에 권리를 행사하라"고 최고</b>합니다.<br><span style="font-size:12.5px;color:#9c3a22"><b>채무자가 그 기간 안에 권리를 행사하지 아니하면 담보취소에 동의한 것으로 봅니다</b>(민소 §125③). 채무자로서는 이 최고서를 받고 <b>가만히 있으면 배상받을 기회를 잃습니다.</b></span></td>
+<td>민소 <b>§125③</b></td></tr>
+<tr><td><b>담보취소 결정에 대한<br>즉시항고</b></td><td style="text-align:center;color:#9c3a22;font-weight:700"><b>1주</b><br><span style="font-size:12.5px">불변기간</span></td>
+<td><b>기산일</b> — <b>결정을 고지받은 날</b><br><b>계산</b> — 고지받은 <b>다음 날</b>부터 1주(민법 §157·§161)<br><span style="font-size:12.5px;color:var(--muted)">이 기간이 지나야 담보취소 결정이 <b>확정</b>되고, 확정증명원을 받아 공탁금을 회수할 수 있습니다.</span></td>
+<td>민소 <b>§125④</b><br>민집 <b>§15②</b></td></tr>
+<tr style="background:#eef6ef"><td><b>담보취소 신청</b></td><td style="text-align:center;color:#1c7a4a;font-weight:700">기한 없음<br><span style="font-size:12.5px;font-weight:400">(단, 신청해야 함)</span></td>
+<td>담보 사유가 소멸하면 언제든 신청할 수 있습니다. <b>그러나 신청하지 아니하면 공탁금은 영원히 법원에 남습니다.</b><br><span style="font-size:12.5px;color:var(--muted)">사건이 끝나는 즉시 챙기는 습관을 들이십시오. 합의로 끝낼 때에는 <b>합의서에 담보취소 동의 조항</b>을 넣는 것이 가장 확실합니다.</span></td>
+<td>민소 <b>§125</b></td></tr>
+<tr style="background:#fdeeee"><td><b>공탁금 회수청구권의<br>소멸시효</b></td><td style="text-align:center;color:#9c3a22;font-weight:700"><b>10년</b></td>
+<td><b>기산일</b> — 담보취소 결정이 <b>확정된 때</b>(회수청구권을 행사할 수 있게 된 때, 민법 §166①)<br><b>계산</b> — 그 <b>다음 날</b>부터 10년(민법 §157·§161·§162①)<br><span style="font-size:12.5px;color:#9c3a22">담보취소 결정까지 받아 놓고 <b>회수청구를 하지 않은 채 10년이 지나면</b> 공탁금은 국고로 귀속됩니다. <b>결정과 회수는 별개의 절차</b>임을 기억하십시오.</span></td>
+<td>민법 <b>§162①·§166①</b></td></tr>
+</table>
+</div></details>
+
+<details class="sec" id="s7"><summary>채무자 — 담보에서 손해를 배상받는 방법<span class="sub">질권자와 동일한 권리 · 권리행사최고에 대응하기 · 손해의 증명</span></summary>
+<div class="secbody">
+<p>부당한 가압류로 손해를 입었다면, 채권자가 걸어 둔 <b>담보공탁금이 배상의 재원</b>이 됩니다. 채무자는 그 공탁금에 대하여 <b>질권자와 동일한 권리</b>를 가지므로(민소 §123), 채권자의 다른 채권자들보다 <b>우선하여</b> 가져갈 수 있습니다. 다만 <b>가만히 있으면 채권자가 담보취소를 받아 전액 회수해 갑니다.</b></p>
+<ol class="steps">
+<li><b>「권리행사최고서」를 받았다면 절대 무시하지 마십시오.</b> 채권자가 담보취소를 신청하면 법원은 채무자에게 <b>"일정 기간 안에 권리를 행사하라"</b>고 최고합니다. <b>그 기간 안에 권리를 행사하지 아니하면 담보취소에 동의한 것으로 보아</b>(민소 §125③) 공탁금이 채권자에게 돌아갑니다. 이 최고서가 <b>사실상 마지막 기회</b>입니다.</li>
+<li><b>「권리를 행사한다」는 것은 손해배상청구 소송을 제기하는 것입니다.</b> 최고 기간 안에 <b>부당가압류로 인한 손해배상청구의 소</b>를 제기하고, 그 사실을 법원에 <b>신고</b>하여야 합니다(작성례 ⑥). 단순히 "배상을 원한다"는 의사표시만으로는 부족하다는 것이 실무의 태도이므로, <b>실제로 소를 제기</b>하십시오.</li>
+<li><b>고의·과실은 증명하지 않아도 됩니다.</b> 채권자가 <b>본안소송에서 패소하여 확정</b>되었다면 <b>고의·과실이 사실상 추정</b>됩니다(대법원 2005다31033). 채무자가 집중할 것은 <b>손해의 내용과 액수</b>입니다 — 예금이 묶여 대출이 거절된 사실, 거래처가 끊긴 사실, 영업 손실, 신용 훼손 등을 <b>구체적 자료</b>로 정리하십시오.</li>
+<li><b>담보금액을 넘는 손해도 청구할 수 있습니다.</b> 담보는 <b>우선변제를 받을 수 있는 한도</b>일 뿐, 손해배상책임의 상한이 아닙니다. 담보액을 넘는 부분은 <b>채권자의 다른 재산</b>에 대하여 일반 채권자로서 집행하면 됩니다. 자세한 절차와 손해액 산정 방법은 <a class="cl" href="C-6_부당가압류_손해배상.html"><b>부당가압류 손해배상(C-6)</b></a> 카드에서 다룹니다.</li>
+<li><b>가압류 자체를 푸는 것과는 별개입니다.</b> 담보에서 배상을 받는 것은 <b>사후 정산</b>이고, 지금 당장 묶인 재산을 푸는 것은 <b>이의신청·해방공탁·제소명령·사정변경 취소</b>입니다. 두 갈래를 함께 검토하십시오. → <a class="cl" href="C-1_가압류이의_방어.html"><b>가압류 방어(C-1)</b></a>·<a class="cl" href="C-3_해방공탁.html"><b>해방공탁(C-3)</b></a>·<a class="cl" href="C-4_제소명령.html"><b>제소명령(C-4)</b></a>·<a class="cl" href="C-5_사정변경취소.html"><b>사정변경 취소(C-5)</b></a></li>
+</ol>
+<div class="warn"><span class="wt">⚠ 채무자가 가장 많이 놓치는 순간</span>
+법원에서 온 <b>「담보취소신청 및 권리행사최고」</b> 서류를 <b>"내가 낼 돈이 있다는 것도 아니고, 별일 아니겠지"</b>라고 생각하여 넘기는 경우가 매우 많습니다. 그러나 이 서류는 <b>"지금 손해배상을 청구하지 않으면 담보금을 돌려주겠다"</b>는 통지입니다. 부당한 가압류로 실제 손해를 입었다면, <b>정해진 기간 안에 손해배상청구의 소를 제기하고 그 사실을 법원에 신고</b>하여야 합니다. 기간이 지나면 <b>동의한 것으로 간주</b>되어(민소 §125③) 되돌릴 수 없습니다.</div>
+</div></details>
+
+<details class="sec" id="s8"><summary>서류 작성례 — 빈칸만 채우면 됩니다<span class="sub">보증보험 허가 · 선담보제공 · 담보취소 · 동의서 · 담보물 변경 · 채무자 권리행사 (복사·인쇄 가능)</span></summary>
+<div class="secbody">
+<p style="font-size:13.5px;color:var(--muted)">아래 작성례의 빈칸(○○○)을 채워 그대로 제출할 수 있습니다. <b>①은 가압류 신청서 안에 넣는 문구</b>이고, ②~⑤는 채권자용, ⑥은 채무자용입니다.</p>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ① · 채권자</span>공탁보증보험증권 제출 허가신청 — 신청서에 넣는 문구 + 별도 신청서<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f1"><span class="ft">[가압류 신청서의 신청이유 끝에 넣는 문구]</span>○. 담보제공
+
+   채권자는 이 사건 가압류를 위한 담보제공에 관하여, 현금공탁에
+   갈음하여 ○○○보증보험 주식회사와 지급보증위탁계약을
+   체결하고 그 문서를 제출하는 방법으로 담보를 제공할 수 있도록
+   허가하여 주시기 바랍니다
+   (민사소송규칙 제22조 제2항).
+
+
+────────────────────────────────
+
+[별도의 신청서로 내는 경우]
+
+
+         담보제공방법 변경(허가) 신청서
+
+
+사건   ○○지방법원 20○○카단○○○○호   ○○○가압류
+채권자  ○○○   (☎: ○○○-○○○○-○○○○)
+        주소  ○○○
+채무자  ○○○
+        주소  ○○○
+
+         신 청 취 지
+위 사건에 관하여 채권자가 제공할 담보는, 금 ○○○원을
+보증금액으로 하여 ○○○보증보험 주식회사와 체결한
+지급보증위탁계약 문서를 제출하는 방법으로 할 수 있도록
+허가한다.
+라는 재판을 구합니다.
+
+         신 청 이 유
+1. 채권자는 위 사건으로 가압류를 신청하였고, 귀원으로부터
+   20○○. ○○. ○○. 금 ○○○원의 담보제공명령을
+   받았습니다.
+
+2. 그러나 채권자는 ○○○(예: 채무자로부터 채권을 변제받지
+   못하여 자금 사정이 어려워) 위 금액을 현금으로 공탁하기가
+   곤란합니다.
+
+3. 이에 민사소송규칙 제22조 제2항에 따라 지급보증위탁계약
+   문서의 제출로 담보제공을 갈음할 수 있도록 허가하여 주시기
+   바랍니다.
+
+         첨 부 서 류
+1. 담보제공명령 사본   1통
+
+              20○○. ○○. ○○.
+                위 채권자  ○○○ (인)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1')">📋 복사</button><button type="button" onclick="printForm('f1')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1','보증보험증권_제출허가신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>가장 실용적인 방법은 위쪽 문구를 가압류 신청서 안에 미리 넣는 것</b>입니다. 그러면 법원이 가압류를 심리하면서 함께 판단하여, 담보제공명령에 <b>"보증보험증권으로 갈음할 수 있다"</b>는 취지가 함께 적혀 나옵니다. 이것을 빠뜨리면 현금공탁을 명받은 뒤에 아래쪽 <b>별도 신청서</b>를 다시 내야 하고, 그만큼 시간이 흘러갑니다(재민 2003-5 §3①, 전산양식 A3140). 허가를 받으면 <b>허가결정 등본</b>을 지참하여 보험회사를 방문합니다. 제출은 반드시 <b>증권 원본</b>이어야 하며 사본은 인정되지 않습니다. 다만 <b>법원이 사안에 따라 현금공탁을 명할 수 있고</b>, 특히 <b>유체동산·급여채권·영업자 예금채권</b> 가압류에서는 현금 비중을 높게 정하는 것이 실무입니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ② · 채권자</span>선담보제공 허가신청서 — 담보제공명령을 기다리지 않는 방법<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f2"><span class="ft">선담보제공 허가신청서</span>사건   ○○지방법원 20○○카단○○○○호   ○○○가압류
+채권자  ○○○   (☎: ○○○-○○○○-○○○○)
+        주소  ○○○
+채무자  ○○○
+        주소  ○○○
+
+         신 청 취 지
+위 사건에 관하여, 채권자가 청구금액 금 ○○○원의 10분의 1에
+해당하는 금 ○○○원을 보증금액으로 하여 ○○○보증보험
+주식회사와 체결한 지급보증위탁계약 문서를 제출하는 방법으로
+담보를 제공하는 것을 허가한다.
+라는 재판을 구합니다.
+
+         신 청 이 유
+1. 채권자는 채무자에 대한 금 ○○○원의 ○○○ 채권을
+   보전하기 위하여 이 사건 ○○○가압류를 신청하였습니다.
+
+2. 이 사건 가압류의 목적물은 ○○○(예: 부동산 / 자동차 /
+   금전채권)으로서, 민사집행규칙 제204조에 따라 담보제공명령
+   이전에 미리 담보를 제공할 수 있는 경우에 해당합니다.
+
+3. 채권자는 신속한 보전을 위하여 미리 담보를 제공하고자 하오니,
+   별첨 지급보증위탁계약 문서의 제출로써 담보제공을 갈음할 수
+   있도록 허가하여 주시기 바랍니다.
+
+         첨 부 서 류
+1. 공탁보증보험증권 원본   1통
+
+              20○○. ○○. ○○.
+                위 채권자  ○○○ (인)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f2')">📋 복사</button><button type="button" onclick="printForm('f2')">🖨 인쇄</button><button type="button" onclick="downloadForm('f2','선담보제공_허가신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>대상이 정해져 있으니 먼저 확인하십시오.</b> 선담보제공은 <b>부동산·자동차·건설기계·소형선박·금전채권</b> 가압류에만 허용되고, <b>급여채권과 영업자의 예금채권은 제외</b>됩니다(민집규 §204). 주식·회원권 등 <b>그 밖의 재산권</b>도 대상이 아니므로, 이 신청서를 쓸 수 없습니다. <b>보증금액은 청구금액의 10분의 1</b>로 하는 것이 실무입니다. 장점은 <b>담보제공명령을 기다리지 않아 결정이 빨라진다</b>는 점 — 채무자가 재산을 처분할 틈이 줄고, <b>2주 집행기간</b>을 놓칠 위험도 낮아집니다. 다만 법원이 <b>담보액이 부족하다고 보아 추가 담보를 명할 수 있으므로</b>, 선담보제공을 하였다고 하여 그것으로 끝이라고 단정하지는 마십시오.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ③ · 채권자</span>담보취소 신청서 — 세 갈래 통합 (가장 많이 놓치는 서면)<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f3"><span class="ft">담보취소 신청서</span>신청인(채권자)  ○○○   (☎: ○○○-○○○○-○○○○)
+                주소  ○○○
+피신청인(채무자)  ○○○
+                주소  ○○○
+
+         신 청 취 지
+1. 신청인이 ○○지방법원 20○○카단○○○○호 ○○○가압류
+   신청사건의 담보로 ○○지방법원 20○○년 금 제○○○호로
+   공탁한 금 ○○○원(또는 ○○○보증보험 주식회사 발행
+   증권번호 제○○○호 공탁보증보험증권)에 대한 담보를
+   취소한다.
+   라는 재판을 구합니다.
+
+         신 청 이 유
+1. 신청인은 위 사건의 담보제공명령에 따라 20○○. ○○. ○○.
+   위와 같이 담보를 제공하고 가압류 결정을 받았습니다.
+
+2. 담보취소 사유  ※ 해당하는 것 하나를 골라 적으십시오
+
+   □ ㉮ 담보하여야 할 사유의 소멸 (민사소송법 제125조 제1항)
+     신청인은 본안소송인 ○○지방법원 20○○가단○○○○호
+     ○○○ 사건에서 20○○. ○○. ○○. 전부 승소판결을
+     받았고, 그 판결은 20○○. ○○. ○○. 확정되었습니다.
+     따라서 담보하여야 할 사유가 소멸하였습니다.
+
+   □ ㉯ 담보권리자의 동의 (민사소송법 제125조 제2항)
+     피신청인이 담보취소에 동의하였으므로, 별첨 담보취소
+     동의서 및 인감증명서를 제출합니다.
+
+   □ ㉰ 권리행사최고 (민사소송법 제125조 제3항)
+     이 사건 소송은 20○○. ○○. ○○. 완결되었음에도
+     피신청인이 담보취소에 동의하지 아니하고 있습니다.
+     이에 피신청인에게 일정한 기간 이내에 그 권리를 행사하도록
+     최고하여 주시고, 그 기간 이내에 권리를 행사하지 아니하는
+     때에는 담보취소에 동의한 것으로 보아 담보취소 결정을
+     하여 주시기 바랍니다.
+
+3. 결론
+   따라서 신청취지와 같은 결정을 구합니다.
+
+         첨 부 서 류
+1. 공탁서 사본 또는 보증보험증권 사본        1통
+1. 본안 판결정본 및 확정증명원 (㉮의 경우)    각 1통
+1. 담보취소 동의서 및 인감증명서 (㉯의 경우)  각 1통
+1. 소송완결 증명서류 (㉰의 경우)              1통
+1. 신청서 부본                                1통
+
+              20○○. ○○. ○○.
+                위 신청인(채권자)  ○○○ (인)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f3')">📋 복사</button><button type="button" onclick="printForm('f3')">🖨 인쇄</button><button type="button" onclick="downloadForm('f3','담보취소신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>세 갈래 중 반드시 하나를 골라 적으십시오.</b> <b>㉮ 본안 승소 확정</b>이 가장 간명합니다 — 판결정본과 확정증명원만 붙이면 됩니다. <b>㉯ 채무자 동의</b>는 가장 빠르지만 <b>인감증명서</b>가 필요하여 협조를 받아야 합니다. <b>㉰ 권리행사최고</b>는 동의를 받지 못할 때 쓰는 마지막 방법인데, 법원이 채무자에게 최고한 뒤 <b>그 기간이 지나야</b> 결정이 나므로 <b>몇 달이 더 걸립니다.</b><br>
+<b>그래서 실무의 요령은 이것입니다</b> — <b>합의로 사건을 끝낼 때 합의서에 "채무자는 이 사건 가압류의 담보취소에 동의하고, 이에 필요한 서류를 교부한다"는 조항을 반드시 넣고 인감증명서를 함께 받아 두는 것</b>입니다. 이 한 줄이 몇 달을 아껴 줍니다. 담보취소 결정이 나면 <b>즉시항고 기간(1주)</b>이 지나야 확정되고, <b>확정증명원</b>을 받아야 비로소 공탁금을 회수할 수 있습니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ④ · 채무자가 써 주는 서면</span>담보취소 동의서 및 즉시항고권 포기서<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f4"><span class="ft">담보취소 동의서</span>사건   ○○지방법원 20○○카단○○○○호   ○○○가압류
+
+채권자(담보제공자)  ○○○
+채무자(담보권리자)  ○○○
+
+위 사건에 관하여 채권자가 담보로 공탁한
+○○지방법원 20○○년 금 제○○○호 금 ○○○원
+(또는 ○○○보증보험 주식회사 발행 증권번호 제○○○호
+공탁보증보험증권)에 대하여,
+
+채무자는 위 담보의 취소에 동의하고,
+그 담보취소결정에 대한 즉시항고권을 포기합니다.
+
+              20○○. ○○. ○○.
+
+                채무자  ○○○ (인감도장)
+                주소   ○○○
+                (인감증명서 첨부)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f4')">📋 복사</button><button type="button" onclick="printForm('f4')">🖨 인쇄</button><button type="button" onclick="downloadForm('f4','담보취소동의서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>「즉시항고권 포기」 문구가 반드시 들어가야 합니다.</b> 동의서만 있고 항고권 포기가 없으면, 담보취소 결정이 난 뒤에도 <b>즉시항고 기간 1주</b>가 지나야 확정되어 그만큼 회수가 늦어집니다. 이 문구가 있으면 <b>결정과 동시에 확정</b>되어 곧바로 회수할 수 있습니다.<br>
+<b>반드시 인감도장을 날인하고 인감증명서를 첨부</b>하십시오 — 막도장이나 서명만으로는 인정되지 않는 것이 실무입니다.<br>
+<b>채무자에게 드리는 말씀</b>: 이 동의서에 도장을 찍으면 <b>더 이상 그 담보금에서 손해배상을 받을 수 없습니다.</b> 부당한 가압류로 실제 손해를 입었다면 <b>서명하기 전에</b> 그 부분을 정산하거나, 합의금에 반영하십시오. 통상은 <b>채무를 모두 변제하고 사건을 마무리하면서</b> 서로 주고받는 서류이므로 문제되지 않으나, 다툼이 남아 있다면 신중히 판단하셔야 합니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ⑤ · 채권자</span>담보물 변경 신청서 — 현금공탁을 보증보험으로 바꾸기<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f5"><span class="ft">담보물 변경 신청서</span>사건   ○○지방법원 20○○카단○○○○호   ○○○가압류
+신청인(채권자)  ○○○   (☎: ○○○-○○○○-○○○○)
+                주소  ○○○
+피신청인(채무자)  ○○○
+                주소  ○○○
+
+         신 청 취 지
+위 사건에 관하여 신청인이 담보로 공탁한 ○○지방법원
+20○○년 금 제○○○호 금 ○○○원을, 같은 금액을 보증금액으로
+하여 ○○○보증보험 주식회사와 체결한 지급보증위탁계약
+문서로 변경하는 것을 허가한다.
+라는 재판을 구합니다.
+
+         신 청 이 유
+1. 신청인은 위 사건의 담보로 20○○. ○○. ○○. 금 ○○○원을
+   현금 공탁하였습니다.
+
+2. 그러나 신청인은 ○○○(예: 사업자금 부족 / 본안소송이
+   장기화되어 자금이 묶여 있는 사정)으로 위 공탁금을 계속
+   묶어 두기 어려운 형편입니다.
+
+3. 이에 민사소송법 제126조에 따라 위 담보물을 같은 금액의
+   지급보증위탁계약 문서로 변경하여 주시기 바랍니다.
+   담보의 가치에는 변동이 없으므로 채무자에게 불이익이
+   없습니다.
+
+         첨 부 서 류
+1. 공탁서 사본             1통
+1. 공탁보증보험증권 원본    1통
+1. 신청서 부본             1통
+
+              20○○. ○○. ○○.
+                위 신청인(채권자)  ○○○ (인)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f5')">📋 복사</button><button type="button" onclick="printForm('f5')">🖨 인쇄</button><button type="button" onclick="downloadForm('f5','담보물변경신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>본안소송이 길어져 현금이 묶여 답답할 때 쓰는 서면</b>입니다(민소 §126). 현금공탁을 <b>같은 금액의 보증보험증권으로 바꾸면</b> 공탁금을 회수하여 자금으로 쓸 수 있습니다. <b>담보의 가치가 떨어지지 않는다</b>는 점을 신청이유에 분명히 적는 것이 요령입니다 — 법원은 채무자의 담보가 약해지는지를 봅니다. 다만 법원이 <b>현금공탁을 명한 취지</b>(예: 유체동산·급여채권 가압류에서 신중을 기하도록 한 경우)가 뚜렷하다면 변경이 허가되지 않을 수 있습니다. 변경이 허가되면 <b>새 증권을 먼저 제출</b>하고 <b>그 뒤에 공탁금을 회수</b>하는 순서가 됩니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ⑥ · 채무자</span>권리행사 신고서 — 담보금을 지키는 마지막 기회<span class="chev">&#9662;</span></button><div class="fold-body">
+<div class="form" id="f6"><span class="ft">권리행사 신고서</span>사건   ○○지방법원 20○○카담○○○○호   담보취소
+신청인(채권자)  ○○○
+피신청인(채무자)  ○○○   (☎: ○○○-○○○○-○○○○)
+                주소  ○○○
+
+         신 고 취 지
+피신청인은 위 사건의 권리행사최고에 따라, 아래와 같이
+담보권리자로서의 권리를 행사하였음을 신고합니다.
+
+         신 고 이 유
+1. 피신청인은 20○○. ○○. ○○. 귀원으로부터 권리행사최고서를
+   송달받았습니다.
+
+2. 신청인은 피신청인에 대하여 ○○○ 채권이 있다며 ○○지방법원
+   20○○카단○○○○호로 피신청인의 ○○○에 대하여 가압류
+   결정을 받아 집행하였으나, 본안소송인 ○○지방법원
+   20○○가단○○○○호 사건에서 20○○. ○○. ○○. 패소하여
+   그 판결이 20○○. ○○. ○○. 확정되었습니다.
+
+3. 피신청인은 위 부당한 가압류집행으로 인하여
+   ○○○(예: 예금계좌가 동결되어 거래처에 대금을 지급하지 못해
+   거래가 중단되었고 / 사업자금 대출이 거절되었으며 / 신용도가
+   하락하여) 금 ○○○원 상당의 손해를 입었습니다.
+
+4. 이에 피신청인은 20○○. ○○. ○○. 신청인을 상대로
+   ○○지방법원 20○○가단○○○○호로 손해배상청구의 소를
+   제기하였으므로, 이를 신고합니다.
+
+         첨 부 서 류
+1. 소장 접수증명원(또는 소장 사본 및 접수증)   1통
+1. 본안 판결정본 및 확정증명원 사본           각 1통
+1. 손해 소명자료                              ○통
+
+              20○○. ○○. ○○.
+                위 피신청인(채무자)  ○○○ (인)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f6')">📋 복사</button><button type="button" onclick="printForm('f6')">🖨 인쇄</button><button type="button" onclick="downloadForm('f6','권리행사신고서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>법원에서 「권리행사최고서」를 받으셨다면 이 서면을 쓰셔야 합니다.</b> 최고 기간 안에 권리를 행사하지 아니하면 <b>담보취소에 동의한 것으로 보아</b>(민소 §125③) 공탁금이 채권자에게 돌아갑니다.<br>
+<b>가장 중요한 것은 신고이유 4번</b>입니다 — <b>실제로 손해배상청구의 소를 제기하고</b> 그 접수증명원을 붙여야 합니다. "배상을 원한다"는 의사표시만으로는 권리행사로 인정되지 않는 것이 실무의 태도입니다. <b>최고 기간이 짧을 수 있으므로</b> 최고서를 받는 즉시 소장 준비에 착수하십시오.<br>
+<b>고의·과실은 증명하지 않아도 됩니다</b> — 채권자가 본안에서 패소하여 확정되었다면 <b>사실상 추정</b>됩니다(대법원 2005다31033). 집중할 것은 <b>손해의 내용과 액수</b>입니다. 손해액 산정과 소장 작성은 <a class="cl" href="C-6_부당가압류_손해배상.html"><b>부당가압류 손해배상(C-6)</b></a> 카드에서 자세히 다룹니다.</div>
+</div></div>
+
+<div class="cost">
+<span class="ct">비용 — 담보 자체가 가장 큰 비용입니다</span>
+<b>① 담보금</b>: 가압류 절차에서 <b>가장 큰 지출</b>입니다. 위 표의 기준으로 미리 가늠하되, <b>담보제공명령서의 금액</b>이 최종 기준입니다.<br>
+<b>② 현금공탁 부분</b>: 실제로 <b>현금이 묶입니다.</b> 다만 사건이 끝나고 담보취소를 거치면 <b>전액 돌아옵니다</b>(본안에서 진 경우는 제외).<br>
+<b>③ 보증보험료</b>: 보증금액과 보험기간, 신용도에 따라 정해집니다. <b>보험료는 돌아오지 않는 순수 비용</b>이지만, 현금공탁 대비 부담이 훨씬 가볍습니다. <span style="font-size:13px;color:#9c3a22">[확인필요 — 정확한 요율과 보험료는 서울보증보험에 문의하십시오. 사유에 따라 <b>전부 또는 일부 환급</b>이 가능합니다(재민 2003-5 §6⑥, 전산양식 A3145).]</span><br>
+<b>④ 담보취소·회수 단계</b>: 담보취소 신청에는 인지·송달료가 듭니다. 공탁금 회수청구 자체에는 별도 수수료가 들지 않습니다.<br>
+<b>⑤ 재산 유형별 부담 비교</b>: 같은 청구금액 1,000만원이라도 <b>부동산 100만원(1/10) / 채권 400만원(2/5) / 유체동산 800만원(4/5)</b>으로 크게 갈립니다. <b>어떤 재산을 잡을지 정할 때 담보 부담을 함께 계산</b>하십시오.
+<div style="margin-top:11px; padding-top:10px; border-top:1px dashed #cfe6d6; color:#c0392b; font-weight:600; line-height:1.8;">※ 정확한 인지액·송달료·담보 예상액은 사건 정보를 넣으면 <a href="https://sanlaw.co.kr/tools-calculator.html" style="color:#c0392b; text-decoration:underline; font-weight:700;">🧮 수수료 계산기</a>에서 미리 확인할 수 있습니다.</div>
+</div>
+
+<div class="warn"><span class="wt">⚠ 담보를 걸었다고 하여 마음대로 해도 되는 것은 아닙니다</span>
+담보는 <b>"잘못되면 물어주겠다"는 약속</b>이지, <b>"잘못해도 된다"는 면허가 아닙니다.</b> 승산이 없는 줄 알면서 <b>압박 목적으로만</b> 가압류를 걸면, 본안 패소 시 <b>담보금을 넘는 손해</b>까지 배상하여야 할 수 있습니다(담보액은 우선변제 한도일 뿐 책임의 상한이 아닙니다). 또한 채권자가 <b>담보를 걸었으니 이제 내 재산이나 마찬가지</b>라고 여겨 채무자의 물건을 직접 가져가거나 사업장에 찾아가 소란을 피우면, <b>주거침입죄(형법 §319①)·업무방해죄(형법 §314)</b>가 문제될 수 있습니다. 집행은 <b>반드시 법원과 집행관을 통하여</b> 하십시오.</div>
+</div></details>
+
+<h2 id="s9">고충은 덜어드리고, 결과로 보답하겠습니다</h2>
+<div class="hire">
+<p>본 사무소에서는 의뢰인들의 고충은 덜어드리고, 함께 소송을 진행하여 원하는 결과에 도달할 수 있도록 성심을 다하겠습니다.</p>
+<p style="margin-top:12px"><b>· 채권자(돈 받을 분)의 경우</b><br>① <b>어떤 재산을 잡는 것이 담보 부담이 가장 가벼운지</b>부터 함께 계산해 드립니다(같은 금액이라도 부동산과 유체동산은 여덟 배 차이가 납니다), ② <b>공탁보증보험증권 제출 허가신청·선담보제공 허가신청서</b> 작성, ③ 현금공탁·보증보험 절차 안내와 <b>기간 관리</b>(담보제공명령 기간을 넘겨 각하되는 일이 없도록), ④ <b>담보취소 신청서·권리행사최고</b> 작성, ⑤ <b>공탁금 회수·보험료 환급</b>까지 <b>본인소송의 전 과정을 함께</b> 준비해 드립니다. 특히 <b>사건이 끝난 뒤 담보를 되찾는 일</b>은 많은 분이 놓치는 대목이라, 끝까지 챙겨 드리겠습니다.</p>
+<p style="margin-top:10px"><b>· 가압류를 당하신 분(채무자)의 경우</b><br>법원에서 <b>권리행사최고서</b>를 받으셨다면 시간이 많지 않습니다. <b>권리행사 신고서</b>와 <b>부당가압류 손해배상 소장</b> 작성, 손해액 산정을 위한 자료 정리를 함께 준비해 드립니다. 아울러 <b>담보취소 동의서에 도장을 찍기 전에</b> 정산할 것이 남아 있는지도 함께 살펴 드리겠습니다.</p>
+</div>
+
+<a href="https://sanlaw.co.kr/tools-calculator.html" class="cta">🧮 내 사건 담보·비용 미리 계산하기</a>
+<div style="text-align:center; background:#f6ecd8; border:1px solid var(--gold); border-radius:11px; padding:14px; margin:18px 0; font-size:15px; color:var(--gold-d); font-weight:700;">📞 상담은 홈 화면의 상담 창구를 이용하시면 됩니다.</div>
+
+<details class="sec" id="s10"><summary>준비할 서류와 발급처 — 어디서 떼나<span class="sub">공탁·보증보험·담보취소·회수 단계별 딥링크와 찾아가기 경로</span></summary>
+<div class="secbody">
+<p style="font-size:13.5px;color:var(--muted)">아래 '바로가기'를 클릭하면 해당 사이트로 이동합니다. 만약 첫 화면으로 연결되면, 옆의 <b>찾아가기 경로</b>를 따라 메뉴를 클릭하면 됩니다.</p>
+<table>
+<tr><th>단계 (어디서)</th><th>서류</th><th>바로가기 · 찾아가기 경로</th></tr>
+<tr style="background:#fdf6ee"><td><b>① 보증보험으로 담보 제공</b><br>(서울보증보험)</td><td><b>공탁보증보험증권 원본</b><br><span style="font-size:12.5px">(법원 허가결정 등본 지참)</span></td><td><a href="https://www.sgic.co.kr">서울보증보험</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 법원공탁보증 메뉴 / 또는 가까운 지점·<b>법원 내 출장소</b> 방문. <b>심사에 며칠 걸리므로</b> 담보제공명령을 받는 즉시 착수하십시오. 제출은 반드시 <b>원본</b>입니다.</span></td></tr>
+<tr style="background:#fdf6ee"><td><b>② 현금으로 담보 제공</b><br>(전자공탁)</td><td><b>금전 공탁서</b><br><span style="font-size:12.5px">(제출은 공탁서 사본)</span></td><td><a href="https://ekt.scourt.go.kr">전자공탁</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 공탁신청 → 금전공탁. <b>피공탁자는 채무자</b>, <b>공탁원인사실은 "○○지방법원 20○○카단○○○○호 가압류 담보"</b>로 적습니다. 법원 공탁계 방문도 가능합니다.</span></td></tr>
+<tr><td>③ 신청서·허가신청 제출<br>(전자소송)</td><td>담보제공방법 변경(허가) 신청서, 선담보제공 허가신청서, 담보취소 신청서</td><td><a href="https://ecfs.scourt.go.kr">전자소송</a> / <a href="https://www.scourt.go.kr/nm/min_9/min_9_2/index.html">양식모음</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 전자소송 → 서류제출 → 민사신청. 전산양식 <b>A3140</b>(보증서 제출 허가), <b>A3145</b>(보험료 반환용 기재)를 참고하십시오.</span></td></tr>
+<tr style="background:#eef6ef"><td><b>④ 담보취소 후 공탁금 회수</b><br>(전자공탁)</td><td><b>공탁금 회수청구서</b><br><span style="font-size:12.5px">(담보취소 결정 + 확정증명원 첨부)</span></td><td><a href="https://ekt.scourt.go.kr">전자공탁</a><br><span style="font-size:12.5px;color:#1c7a4a;font-weight:600">경로: 공탁금 지급·회수 → 회수청구. <b>담보취소 결정만으로는 돈이 나오지 않습니다.</b> 반드시 <b>확정증명원</b>까지 받아 이 절차를 밟으십시오. <b>회수청구권의 소멸시효는 10년</b>입니다.</span></td></tr>
+<tr><td>⑤ 본안 판결·확정 확인<br>(전자소송)</td><td>판결정본, 확정증명원, 송달증명원</td><td><a href="https://ecfs.scourt.go.kr">전자소송</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 나의전자소송 → 사건확인 → 판결문·확정증명 발급. <b>담보취소 ㉮(사유 소멸)</b>에 필요한 서류입니다.</span></td></tr>
+<tr><td>채무자의 동의를 받는 경우<br>(정부24·주민센터)</td><td>채무자의 <b>인감증명서</b><br><span style="font-size:12.5px">(담보취소 동의서에 첨부)</span></td><td><a href="https://www.gov.kr">정부24</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 인감증명서는 원칙적으로 <b>본인이 주민센터에서 발급</b>합니다. 채무자에게 <b>인감도장 날인 + 인감증명서</b>를 함께 요청하십시오. 본인서명사실확인서로 갈음할 수 있는지는 담당 법원에 확인하십시오.</span></td></tr>
+<tr><td>당사자가 <b>외국인</b>인 경우<br>(하이코리아·정부24)</td><td>외국인등록사실증명 / 국내거소신고 사실증명, <b>서명인증서</b><br><span style="font-size:12.5px">(인감제도가 없는 국가의 경우)</span></td><td><a href="https://www.hikorea.go.kr">하이코리아</a> · <a href="https://www.gov.kr">정부24</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 하이코리아 → 전자민원 → 민원신청. <b>외국인이 담보취소 동의서를 작성하는 경우</b> 인감증명서 대신 <b>본국 관공서나 공증인의 서명인증(아포스티유 또는 영사확인)</b>과 <b>번역문</b>이 필요할 수 있으므로, 미리 담당 법원에 확인하십시오.</span></td></tr>
+<tr><td>당사자가 <b>법인</b>인 경우<br>(인터넷등기소)</td><td>법인등기사항증명서, 법인인감증명서</td><td><a href="https://www.iros.go.kr">인터넷등기소</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 등기열람/발급 → 법인. 법인인감증명서는 <b>인터넷등기소 또는 등기소 방문</b>으로 발급받습니다.</span></td></tr>
+</table>
+
+<div class="tip"><span class="pt">💡 이어지는 카드</span> 이 카드는 <b>A 시리즈 전체에 공통되는 담보 문제</b>를 다룹니다. 실제로 어떤 재산을 잡을지는 <a class="cl" href="A-1_예금채권가압류.html"><b>예금(통장) 가압류(A-1)</b></a>·<a class="cl" href="A-2_부동산가압류.html"><b>부동산 가압류(A-2)</b></a>·<a class="cl" href="A-3_급여가압류.html"><b>급여(월급) 가압류(A-3)</b></a>·<a class="cl" href="A-4_전세보증금가압류.html"><b>전세보증금 가압류(A-4)</b></a>·<a class="cl" href="A-5_지명채권가압류.html"><b>지명채권 가압류(A-5)</b></a>·<a class="cl" href="A-6_유체동산가압류.html"><b>유체동산 가압류(A-6)</b></a>·<a class="cl" href="A-7_자동차가압류.html"><b>자동차 가압류(A-7)</b></a>·<a class="cl" href="A-8_주식지분가압류.html"><b>주식·지분 가압류(A-8)</b></a>·<a class="cl" href="A-9_회원권가압류.html"><b>회원권 가압류(A-9)</b></a>에서 각각 확인하십시오. <b>담보 부담이 가장 가벼운 것은 부동산(1/10)</b>, <b>가장 무거운 것은 유체동산(4/5)</b>입니다. 반대로 <b>가압류를 당하신 분</b>은 <a class="cl" href="C-1_가압류이의_방어.html"><b>가압류 방어(C-1)</b></a>·<a class="cl" href="C-3_해방공탁.html"><b>해방공탁(C-3)</b></a>·<a class="cl" href="C-4_제소명령.html"><b>제소명령(C-4)</b></a>·<a class="cl" href="C-5_사정변경취소.html"><b>사정변경 취소(C-5)</b></a>를, <b>담보에서 손해를 배상받으려는 분</b>은 <a class="cl" href="C-6_부당가압류_손해배상.html"><b>부당가압류 손해배상(C-6)</b></a>을 보십시오. 전체 유형은 <a class="cl" href="보전처분_전체유형표.html"><b>보전처분 전체 유형표</b></a>에 있습니다.</div>
+</div></details>
+
+<div class="src">
+근거 — 민사집행법 제15조 제2항(즉시항고)·제19조 제3항(담보에 관한 민사소송법 준용)·제280조 제2항·제3항(담보제공을 조건으로 하는 가압류)·제288조(사정변경 등에 따른 가압류취소)·제292조 제2항(집행기간 2주) · 민사집행규칙 제204조(선담보제공 — 부동산·자동차·건설기계·소형선박·금전채권, 급여채권 및 영업자 예금채권 제외) · 민사소송법 제122조(담보제공방식)·제123조(담보물에 대한 피고의 권리 — 질권자와 동일한 권리)·제125조(담보의 취소 — 사유 소멸·동의·권리행사최고)·제126조(담보물의 변경) · 민사소송규칙 제22조 제2항(지급보증위탁계약체결문서의 제출) · 지급보증위탁계약체결문서의 제출에 의한 담보제공과 관련한 사무처리요령(재민 2003-5) 제3조 제1항(허가, 전산양식 A3140)·제4조 제1항(제공 방법)·제6조 제6항(보증보험료의 반환, 전산양식 A3145) · 법원행정처, 법원실무제요 민사집행Ⅳ(담보액 산정 기준의 평균적 예시 — 부동산 1/10, 채권 및 그 밖의 재산권 2/5, 유체동산 4/5, 현금공탁 비율, 임금채권이 피보전권리인 경우 무담보 또는 소액) · 형법 제314조(업무방해)·제319조 제1항(주거침입) · 민법 제157조·제161조(기간 계산)·제162조 제1항·제166조 제1항(소멸시효)·제750조(불법행위 손해배상) · 대법원 2007. 4. 26. 선고 2005다31033 판결(보전처분 집행 후 본안 패소가 확정되면 채권자의 고의·과실이 사실상 추정되나 특별한 사정이 있으면 번복될 수 있음) · 대법원 2011. 7. 14. 선고 2011다13241 판결(피보전권리의 일부만 인정되어 패소한 경우에도 그 차액 범위에서 고의·과실이 추정되나, 채권이 있다고 믿을 만한 상당한 이유가 있었다면 추정이 번복됨) · 국가법령정보센터 법령용어 · 법제처 찾기쉬운 생활법령정보 · 대한법률구조공단 · 대법원 전자민원센터. <b>담보액 산정 기준은 법원마다 다르고 법원이 이에 구속되지 아니하므로, 위 비율은 미리 가늠하기 위한 참고일 뿐이며 반드시 담보제공명령서에 적힌 금액을 기준으로 삼으셔야 합니다.</b> 본 자료는 일반적인 법률정보로, 개별 사건의 법률자문이 아닙니다.
+</div>
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+})();
+
+(function(){
+  document.querySelectorAll('.toc a').forEach(function(a){
+    a.addEventListener('click',function(){
+      var el=document.querySelector(a.getAttribute('href'));
+      if(el&&el.tagName==='DETAILS')el.open=true;
+    });
+  });
+  var btn=document.getElementById('allBtn');
+  if(!btn)return;
+  function toggleAll(){
+    var opening=btn.textContent.indexOf('펼치기')>-1;
+    document.querySelectorAll('details.sec').forEach(function(d){d.open=opening;});
+    document.querySelectorAll('.formbox').forEach(function(fb){
+      fb.classList.toggle('open',opening);
+      var body=fb.querySelector('.fold-body');
+      if(body)body.style.display=opening?'block':'none';
+    });
+    btn.textContent=opening?'전체 접기':'전체 펼치기';
+  }
+  btn.addEventListener('click',toggleAll);
+  btn.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleAll();}});
+})();
+(function(){
+})();
+function toggleFold(b){var fb=b.parentElement;var body=b.nextElementSibling;var open=fb.classList.toggle('open');if(body){body.style.display=open?'block':'none';}}
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('작성례가 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('작성례가 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('작성례를 내려받았습니다');}
+</script>
+</body>
+</html>
