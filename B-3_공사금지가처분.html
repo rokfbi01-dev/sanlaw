@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[보전 B-3] 옆 건물 공사로 내 집이 위험해요, 멈추게 하고 싶어요 — 공사금지가처분 | 산 법무사 김재섭</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(280px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.case{background:var(--box); border-radius:10px; padding:14px 16px; margin:14px 0; border-left:4px solid #b9a98c;}
+.case .ct{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+.sit-wrap{display:flex; gap:12px; margin:14px 0;}
+.sit{flex:1; background:#f8f5ee; border:1px solid var(--line); border-top:3px solid var(--gold); border-radius:10px; padding:13px 15px; font-size:14.5px; line-height:1.75;}
+.sit .sl{display:block; font-weight:700; color:var(--gold-d); margin-bottom:6px; font-size:14px;}
+@media (max-width:680px){ .sit-wrap{flex-direction:column;} }
+/* 전체 길 흐름도 */
+.flow{background:linear-gradient(180deg,#faf7f0,#f6f1e6); border:1px solid var(--line); border-radius:14px; padding:22px 20px; margin:16px 0;}
+.flow .fl-t{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:18px; text-align:center; letter-spacing:.3px;}
+.flow .node{position:relative; background:#fff; border:1px solid #e3d8c4; border-radius:11px; padding:15px 18px 15px 56px; font-size:14.5px; line-height:1.72; box-shadow:0 2px 6px rgba(122,82,48,.07);}
+.flow .node .num{position:absolute; left:15px; top:14px; width:30px; height:30px; line-height:30px; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; border-radius:50%; font-weight:800; font-size:15px; font-family:'Nanum Myeongjo',serif; box-shadow:0 2px 5px rgba(122,82,48,.3);}
+.flow .node b{color:#241a10;}
+.flow .down{display:flex; justify-content:center; align-items:center; padding:7px 0;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+/* 작성례 박스 */
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+details.sec{border:1px solid var(--line); border-radius:11px; margin:18px 0; background:#fff; overflow:hidden;}
+details.sec>summary{cursor:pointer; list-style:none; padding:14px 17px 14px 15px; background:var(--box); border-left:4px solid var(--gold); font-family:'Nanum Myeongjo',serif; font-size:18px; font-weight:700; color:var(--gold-d); line-height:1.55;}
+details.sec>summary::-webkit-details-marker{display:none;}
+details.sec>summary .sub{display:block; font-family:'Pretendard',sans-serif; font-size:13.5px; font-weight:400; color:var(--muted); margin-top:3px;}
+details.sec>summary::after{content:"펼치기 ▾"; float:right; font-family:'Pretendard',sans-serif; font-size:12.5px; font-weight:700; color:var(--gold); background:#fff; border:1px solid var(--line); border-radius:20px; padding:2px 10px; margin-left:8px;}
+details.sec[open]>summary::after{content:"접기 ▴";}
+details.sec>summary:hover{background:#f2ede3;}
+.secbody{padding:4px 17px 16px;}
+.secbody>h3:first-of-type{margin-top:14px;}
+.toc{background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 17px; margin:8px 0 22px;}
+.toc .tct{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:9px;}
+.toc ol{margin:0; padding-left:20px;}
+.toc li{margin:5px 0; font-size:14.5px;}
+.toc a{text-decoration:none; border-bottom:1px dotted var(--gold);}
+.allbtn{display:inline-block; margin-top:11px; font-size:13.5px; font-weight:700; color:var(--gold-d); background:var(--box); border:1px solid var(--line); border-radius:8px; padding:7px 14px; cursor:pointer;}
+.allbtn:hover{background:#f2ede3;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:15px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .tag{margin-bottom:0;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;}
+.tag.cred{background:#5a9a72;}
+.tag.debt{background:#d9694a;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:18px;margin:12px 0;font-family:'D2Coding','Courier New',monospace;font-size:13px;line-height:1.6;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:16px;letter-spacing:2px;margin-bottom:12px;color:#241a10;}
+.howto{font-size:14px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0 4px;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:13px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:7px 13px;cursor:pointer;transition:.15s;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.75;}
+.lawbox .ll{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold-d);border-radius:5px;padding:2px 9px;margin-right:7px;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.hire p{margin:7px 0; font-size:15px; line-height:1.8;}
+.cta{display:block;text-align:center;background:var(--gold-d);color:#fff;font-weight:700;font-size:17px;text-decoration:none;padding:15px;border-radius:11px;margin:18px 0;font-family:'Nanum Myeongjo',serif;letter-spacing:1px;}
+.cta:hover{background:#5e3f24;}
+@media print{
+  .backbar{display:none !important;}
+  body{background:#fff; max-width:100%;}
+  .tldr,.case,.warn,.tip,.cost,.steps li,.tnote,.sit,.flow,.flow li,.lawbox,.hire{background:#fff !important; border-color:#ccc !important;}
+  .tnote{display:none;}
+  .term{border:none; color:inherit; font-weight:inherit;}
+  .term>.bub{display:inline !important; position:static; width:auto; background:none; color:inherit; box-shadow:none; padding:0; font-size:inherit; line-height:inherit;}
+  .term>.bub::before{content:" ("; }
+  .term>.bub::after{content:")"; border:none; position:static;}
+  .fold-body{display:block !important;}.fold-btn .chev{display:none;}.form-tools{display:none;}
+  details.sec:not([open])>*{display:block !important;}
+  details.sec>summary::after{display:none;} .allbtn,.toc{display:none !important;}
+  .cta{background:#fff !important; color:#241a10 !important; border:1px solid #ccc;}
+}
+.cl{color:var(--gold-d);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--gold-d);}
+.cl:hover{background:#fbf5e8;}
+.tip .cl,.tip .cl b{color:var(--tip-ink);}
+.tip .cl{border-bottom-color:var(--tip-ink);}
+.warn .cl,.warn .cl b{color:var(--warn-ink);}
+.warn .cl{border-bottom-color:var(--warn-ink);}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+
+
+<h1>[보전 B-3] 옆 건물 공사로 내 집이 위험해요, 멈추게 하고 싶어요 — 공사금지가처분</h1>
+
+<div class="tnote">어려운 법률용어에는 <b>점선 밑줄</b>이 그어져 있습니다. <b>PC는 마우스를 올리면</b>, <b>휴대폰은 손가락으로 톡 터치하면</b> 쉬운 설명이 뜹니다. (인쇄하면 괄호로 함께 나옵니다.)</div>
+
+<div class="hire">
+<div class="ht">이 매뉴얼을 끝까지 읽으시는 분께</div>
+<p>이 매뉴얼은 <b>의뢰인이 직접 법원에 신청할 수 있도록 모든 서류 양식·비용·요건을 구체적으로 담았습니다.</b> 하지만 소송은 살아있는 생물과 같아 상대방의 격렬한 저항이 뒤따릅니다. 혼자 진행하시다가 막히는 부분이 생기거나 방어막이 필요할 때, 언제든 이 매뉴얼을 들고 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</p>
+</div>
+
+<div class="tldr">
+<div class="tt">⭐ 30초 결론부터</div>
+<ul>
+<li><b>공사금지가처분은 옆·위 공사로 내 건물이 갈라지거나 무너질 위험, 또는 참기 어려운 일조·소음·분진 피해가 생길 때, 본안 판결 전에 공사를 멈추게 하는 긴급 조치입니다.</b> 붕괴·침하처럼 <b>한번 벌어지면 돈으로 되돌리기 어려운 피해</b>를 막기 위한 것으로, <span class="term">임시의 지위를 정하기 위한 가처분<span class="bub">민사집행법 §300②. 다툼 있는 권리관계에서 '현저한 손해나 급박한 위험'을 피하기 위해 잠정적으로 법률관계를 정하는 가처분. 공사금지·직무집행정지·임금지급 등이 여기에 속합니다.</span></span>에 해당합니다(민사집행법 §300②).</li>
+<li><b>B-1·B-2와 성질이 다릅니다 — 밀행성이 없고, 심문기일에서 쌍방이 다툽니다.</b> 처분금지·점유이전금지(계쟁물 가처분)와 달리, 공사금지가처분은 원칙적으로 <b><span class="term">심문기일<span class="bub">채무자(공사 측)가 출석해 의견을 낼 수 있는 기일. 임시지위 가처분은 원칙적으로 변론기일 또는 심문기일을 열어 쌍방을 심리합니다(민집 §304).</span></span></b>을 열어 상대의 의견을 듣고 판단합니다(민집 §304). 그만큼 <b>피해 소명이 탄탄해야</b> 합니다.</li>
+<li><b>인용의 잣대는 '수인한도(참을 한도)'입니다.</b> 공사로 인한 피해가 <b>사회통념상 참을 한도를 넘는지</b>가 핵심입니다. 붕괴·침하 위험, 수인한도를 넘는 일조 침해라면 <span class="term">소유권<span class="bub">내 부동산을 온전히 쓰고 지킬 권리. 방해가 있거나 예상되면 그 예방·제거를 청구할 수 있습니다(민법 §214).</span></span>·인격권에 기한 <b>방해예방청구권</b>(민법 §214·§217)으로 공사금지를 구할 수 있습니다(대법원 98다56997).</li>
+<li><b>다만 '조망이 나빠진다·경관이 답답하다'는 것만으로는 어렵습니다.</b> 순수한 조망권·환경권만으로는 직접 공사중지를 구하기 어렵고(대법원 96다56153), <b>구체적 침해와 수인한도 초과를 소명</b>해야 합니다. 이미 상당히 진행된 적법 허가 공사일수록 문턱이 높다는 점도 알아 두십시오.</li>
+</ul>
+</div>
+
+<div class="toc">
+<div class="tct">이 카드에 담긴 것 — 필요한 곳만 펼쳐 보십시오</div>
+<ol>
+<li><a href="#s1">지금 어떤 상황인가요?</a></li>
+<li><a href="#s2">공사를 멈추기까지 — 전체 길 한눈에 보기</a></li>
+<li><a href="#s3">핵심 세 가지</a></li>
+<li><a href="#s4">관련 법령 — 쉬운 풀이</a></li>
+<li><a href="#s5">판례로 보기 — 양쪽 모두 알아야 할 것</a></li>
+<li><a href="#s6">신청인(채권자) — 신청부터 간접강제까지 상세 절차</a></li>
+<li><a href="#s7">상대방(채무자) — 가처분을 당하였다면 방어 절차</a></li>
+<li><a href="#s8">서류 작성례 — 빈칸만 채우면 됩니다</a></li>
+<li><a href="#s9">고충은 덜어드리고, 결과로 보답하겠습니다</a></li>
+<li><a href="#s10">준비할 서류와 발급처 — 어디서 떼나</a></li>
+</ol>
+<span class="allbtn" id="allBtn" role="button" tabindex="0">전체 펼치기</span>
+</div>
+
+<h2 id="s1">지금 어떤 상황인가요?</h2>
+<div class="sit-wrap">
+<div class="sit"><span class="sl">상황 ① · 공사 피해를 입는 분 (채권자·신청인)</span>옆·아래에서 <b>신축·굴착·철거 공사가 진행되어 내 건물에 균열·기울어짐·붕괴 위험</b>이 생기거나, <b>참기 어려운 일조·소음·분진 피해</b>를 입는 경우. → 공사금지(중지)가처분으로 급한 위험을 막고, 본안(공사금지·손해배상)으로 마무리합니다. <b>아래 작성례 ①·②·②-1</b>이 신청인의 서류입니다.</div>
+<div class="sit"><span class="sl">상황 ② · 공사금지가처분을 당한 분 (채무자·상대방)</span><b>적법한 허가를 받아 공사 중인데 공사금지가처분을 당해</b> 공사가 멈춘 경우. 피해가 수인한도 안에 있거나 안전조치를 다했다면 다툴 수 있습니다. → 이의·취소로 다투고, 부당하면 공사중단 손해를 되받습니다. <b>아래 작성례 ③·④·⑤</b>가 채무자의 서류입니다.</div>
+</div>
+
+<h2 id="s2">공사를 멈추기까지 — 전체 길 한눈에 보기</h2>
+<div class="flow">
+<div class="fl-t">신청인이 가야 할 4단계 (신청·심문 → 결정 → 본안 → 간접강제)</div>
+<div class="node"><span class="num">1</span><b>공사금지가처분 신청 → 심문기일</b> — 급박한 위험을 소명해 신청합니다. 임시지위 가처분이므로 원칙적으로 <b>심문기일이 열려 공사 측의 반론을 듣습니다</b>(민집 §304). 붕괴·침하처럼 매우 급하면 심문 없이 결정하거나 우선 임시조치를 구할 수도 있습니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">2</span><b>담보제공 → 공사금지(중지) 결정</b> — <span class="term">담보제공명령<span class="bub">잘못된 가처분으로 공사 측이 입을 손해에 대비해 법원이 신청인에게 일정액을 맡기라고 명하는 것. 공사중단 손해가 크면 담보액도 높아질 수 있습니다.</span></span>을 이행하면 법원이 "공사를 하여서는 아니 된다"는 <b>부작위(공사금지) 결정</b>을 내립니다. 이 결정은 등기·집행관 집행 없이 <b>결정 자체로 효력</b>이 생깁니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">3</span><b>본안 소송 제기</b> — 가처분은 임시조치이므로 <b>공사금지청구(방해예방)·손해배상 청구의 소</b>를 제기해 권리를 확정받습니다(작성례 ②). 가처분만 걸고 방치하면 상대가 취소를 구할 수 있습니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">4</span><b>공사를 강행하면 → 간접강제</b> — 채무자가 결정을 무시하고 공사를 계속하면, <b><span class="term">간접강제<span class="bub">부작위(하지 말라) 명령을 어길 때, "위반 1일당 얼마씩 배상하라"는 식으로 금전 부담을 지워 이행을 강제하는 방법(민집 §261).</span></span>을 신청</b>해 "공사를 계속하면 1일당 ○○원을 지급하라"는 명령을 받습니다(작성례 ②-1). 이것이 공사금지 결정을 실효성 있게 만드는 수단입니다.</div>
+</div>
+<p style="font-size:13.5px;color:var(--muted)">※ 처분금지(B-1, 등기)·점유이전금지(B-2, 집행관)와 달리, 공사금지가처분은 <b>"하지 말라"는 부작위 명령</b>이라 위반 시 <b>간접강제</b>로 실현합니다.</p>
+
+<h2 id="s3">핵심 세 가지</h2>
+<ol class="steps">
+<li><b>'참을 한도(수인한도)를 넘는 피해'를 구체적으로 소명해야 합니다.</b> 단순히 불편하다는 정도로는 부족합니다. 붕괴·침하 위험(균열 사진·안전진단), 수인한도를 넘는 일조 침해(일조분석), 기준을 초과하는 소음·분진 등 <b>객관적 자료</b>로 "사회통념상 참을 한도를 넘었다"는 점을 보여야 인용됩니다(대법원 98다56997).</li>
+<li><b>속도가 생명입니다 — 공사가 끝나면 되돌릴 수 없습니다.</b> 골조가 올라가고 공정이 진행될수록 공사금지의 실익과 인용 가능성이 모두 줄어듭니다. 위험 징후(균열·기울어짐)가 보이면 <b>지체 없이</b> 신청하고, 균열 진행 사진·계측 자료를 초기부터 모아 두십시오.</li>
+<li><b>조망·경관만으로는 어렵고, 인용되면 담보가 클 수 있습니다.</b> 순수한 조망권·환경권만으로는 직접 공사중지를 받기 어렵습니다(대법원 96다56153). 또 공사를 멈추면 상대(건축주)의 손해도 크기 때문에, 법원이 <b>높은 담보</b>를 요구하거나 공사 전면중지 대신 <b>일부 공법 변경·안전조치</b>를 명하는 선에서 조정하기도 합니다.</li>
+</ol>
+
+<details class="sec" id="s4"><summary>관련 법령 — 쉬운 풀이<span class="sub">공사금지가처분의 근거·심리·집행 조문을 한눈에</span></summary>
+<div class="secbody">
+<div class="lawbox"><span class="ll">민집 §300②</span><b>임시의 지위를 정하기 위한 가처분</b> — 다툼 있는 권리관계에 관하여 <b>현저한 손해를 피하거나 급박한 위험을 막기 위해</b> 필요할 때 하는 가처분. 공사금지가처분의 뿌리 조문입니다.</div>
+<div class="lawbox"><span class="ll">민집 §304</span><b>심리 방법</b> — 임시지위 가처분은 <b>원칙적으로 변론기일 또는 채무자가 참석할 수 있는 심문기일을 열어야</b> 합니다. 다만 그 기일을 열면 목적을 달성할 수 없는 사정(급박)이 있으면 예외입니다. B-1·B-2의 '밀행성'과 다른 지점입니다.</div>
+<div class="lawbox"><span class="ll">민법 §214·§217</span><b>방해예방청구권·생활방해</b> — 소유자는 소유권 방해가 있거나 그 염려가 있으면 예방·손해배상 담보를 청구할 수 있고(§214), 매연·소음·진동 등으로 이웃의 사용을 방해하지 않을 의무가 있습니다(§217). 공사금지의 실체법상 근거입니다.</div>
+<div class="lawbox"><span class="ll">민집 §301·§280</span><b>준용·담보</b> — 이의(§283)·제소명령(§287)·사정변경 취소(§288) 등 가압류 규정이 준용되며, 담보제공(§280)을 조건으로 결정합니다.</div>
+<div class="lawbox"><span class="ll">민집 §261</span><b>간접강제</b> — "공사를 하지 말라"는 부작위 명령을 어기면, 위반에 대비해 <b>배상금을 미리 명하는 방법(간접강제)</b>으로 이행을 강제합니다.</div>
+</div></details>
+
+<details class="sec" id="s5"><summary>판례로 보기 — 양쪽 모두 알아야 할 것<span class="sub">대법원 확인 판례</span></summary>
+<div class="secbody">
+<div class="case">
+<span class="ct">○ 수인한도를 넘는 일조방해 — 공사금지가처분으로 막을 수 있다 (대법원 2000. 5. 16. 선고 98다56997)</span>
+일조의 확보는 생활이익으로서 법의 보호 대상이며, 소유권에서 파생되는 권리 또는 일반적 인격권의 한 내용으로 볼 수 있습니다. 건물 신축으로 인한 <b>일조방해가 사회통념상 수인한도를 넘고, 손해배상 등 사후적 방법으로는 회복이 어렵다면</b>, 이를 보전하기 위한 임시조치로 <b>공사(침해행위)의 금지를 구하는 가처분</b>이 가능합니다. → 핵심은 '수인한도 초과 + 사후회복 곤란'입니다.
+</div>
+<div class="case">
+<span class="ct">○ (불리한 점) 환경권만으로는 직접 공사중지를 구할 수 없다 (대법원 1997. 7. 22. 선고 96다56153)</span>
+환경권은 그 권리의 주체·대상·내용·행사방법이 법률로 구체적으로 정립되어야 인정되는 것이어서, <b>사법상의 권리로서 환경권을 인정하는 명문 규정이 없는 이상 환경권에 기하여 직접 방해배제(공사금지)를 청구할 수는 없습니다.</b> → "경관·조망·쾌적함이 나빠진다"는 환경적 이익만으로는 부족하고, 소유권·인격권에 기한 <b>구체적 침해와 수인한도 초과</b>를 소명해야 한다는 뜻입니다(불리한 지점).
+</div>
+</div></details>
+
+<details class="sec" id="s6"><summary>신청인(채권자) — 신청부터 간접강제까지 상세 절차<span class="sub">관할·인지대·송달료·담보·심문기일·간접강제</span></summary>
+<div class="secbody">
+<h3>1) 어디에 내나 — 관할</h3>
+<p><b>다툼의 대상(공사 현장·내 부동산)이 있는 곳을 관할하는 지방법원</b> 또는 본안의 관할법원에 냅니다(민집 §303).</p>
+<h3>2) 얼마짜리로 보나 — 인지대·송달료</h3>
+<p>공사금지가처분은 <b>임시의 지위를 정하기 위한 가처분</b>이므로, 신청서 인지액은 <b>본안 소송 인지액의 2분의 1(상한 50만원)</b>입니다(계쟁물 가처분의 1만원 정액과 다릅니다). <span class="term">전자소송<span class="bub">인터넷으로 서류를 내고 진행하는 방식. 인지액이 10% 깎이고 편리합니다.</span></span>이면 통상 10% 줄어듭니다. 송달료는 <b>당사자 1명당 8회분(당사자 수 × 8회분)</b>으로, 적극적 행위를 금지하는 가처분은 계쟁물 가처분(3회분)보다 많습니다.</p>
+<h3>3) 담보(공탁)</h3>
+<p>법원은 담보제공명령을 내립니다(민집 §301·§280). <b>공사를 멈추면 상대(건축주)의 손해가 크기 때문에 담보액이 높게 정해질 수 있습니다.</b> 보증보험증권으로 갈음이 가능한 경우도 있으나, 사안에 따라 현금공탁을 요구받기도 합니다.</p>
+<h3>4) 심리 — 밀행성이 없고 심문기일이 열립니다</h3>
+<p>임시지위 가처분은 원칙적으로 <b>심문기일을 열어 공사 측의 반론을 듣고 판단</b>합니다(민집 §304). 따라서 상대가 신청 사실을 알게 되므로, <b>첫 서면에서 피해와 위험을 최대한 탄탄하게 소명</b>하는 것이 중요합니다(균열 사진·안전진단서·일조분석·소음측정 등).</p>
+<h3>5) 결정 후 — 위반하면 간접강제</h3>
+<p>공사금지 결정은 <b>결정 자체로 효력</b>이 있고 별도 집행행위가 필요 없습니다. 채무자가 이를 무시하고 공사를 강행하면, <b>간접강제(민집 §261)</b>를 신청해 "위반 1일당 ○○원" 식의 배상 명령을 받아 압박합니다(작성례 ②-1). 급박하면 가처분 신청과 함께 간접강제를 미리 구할 수도 있습니다.</p>
+
+<h3>6) 놓치면 안 되는 기한 — 데드라인</h3>
+<table>
+<tr><th>구분</th><th>① 기산일</th><th>② 계산근거</th><th>③ 말일처리</th><th>④ 최종 기한</th></tr>
+<tr><td>공사로 인한 손해배상청구권(불법행위)</td><td>손해 및 가해자를 <b>안 날</b> / 불법행위가 <b>있은 날</b></td><td>민법 §766①②(안 날 3년 / 있은 날 10년의 이중구조)</td><td>말일이 공휴일이면 다음 날 만료(민법 §161)</td><td>안 날부터 <b>3년</b> 또는 있은 날부터 <b>10년</b> 중 <b>먼저 도래</b>하는 때</td></tr>
+<tr><td>가처분 후 본안 미제기 시 취소</td><td>가처분 결정·집행일</td><td>민집 §301·§288①3호</td><td>민법 §161</td><td>3년 안에 본안을 제기하지 않으면 채무자가 취소를 구할 수 있음</td></tr>
+<tr><td>제소명령을 받은 경우</td><td>제소명령 송달일</td><td>민집 §301·§287</td><td>민법 §161</td><td>법원이 정한 기간(<b>통상 2주 이상</b>) 안에 본안 미제기 시 가처분 취소</td></tr>
+</table>
+<p style="font-size:13.5px;color:var(--muted)">※ <b>공사금지(방해예방)청구권 자체</b>는 소유권에 기한 물권적 청구권이어서 소멸시효에 걸리지 않습니다. 위 표의 시효는 <b>손해배상(금전)</b> 부분에 적용됩니다.</p>
+</div></details>
+
+<details class="sec" id="s7"><summary>상대방(채무자) — 가처분을 당하였다면 방어 절차<span class="sub">이의·제소명령·사정변경 취소·부당가처분 손해배상</span></summary>
+<div class="secbody">
+<div class="warn"><span class="wt">⚠ 결정을 무시하고 공사를 강행하지 마십시오</span>공사금지 결정을 받고도 공사를 강행하면 <b>간접강제 배상금</b>이 쌓이고, 본안에서 패소 시 <b>손해배상 책임</b>이 커집니다. 다툴 것이 있으면 <b>아래의 정식 절차</b>로 다투고, 필요하면 <b>집행정지</b>를 함께 신청하십시오.</div>
+<ol class="steps">
+<li><b>가처분 이의신청</b> — 피해가 수인한도 안에 있다, 적법 허가·안전조치를 다했다, 회복 불가능한 손해가 아니다 등을 들어 다툽니다(민집 §301·§283, 작성례 ③). 임시지위 가처분은 심문기일에서 이 점을 적극 소명합니다.</li>
+<li><b>제소명령 신청</b> — 신청인이 가처분만 걸고 본안을 제기하지 않으면, 기간 내 본안을 제기하도록 신청합니다(민집 §301·§287, 작성례 ④).</li>
+<li><b>사정변경 등에 의한 취소</b> — 안전조치 완료로 위험이 해소되었거나, 신청인이 본안에서 패소 확정됐거나, 3년간 본안 미제기 시 취소를 구합니다(민집 §301·§288).</li>
+<li><b>부당가처분 손해배상 역공</b> — 신청인이 본안에서 패소하면, 부당한 공사중단으로 입은 손해(지연 손해·추가 비용 등)를 손해배상으로 청구할 수 있습니다(민법 §750). 본안의 <span class="term">반소<span class="bub">피고가 같은 소송 절차 안에서 원고를 상대로 거꾸로 제기하는 소. 공사중단 손해배상 등을 함께 다툴 수 있습니다.</span></span>로 함께 제기할 수 있습니다.</li>
+</ol>
+</div></details>
+
+<details class="sec" id="s8"><summary>서류 작성례 — 빈칸만 채우면 됩니다<span class="sub">신청서 · 별지 · 진술서 · 본안 소장 · 간접강제 · 채무자 대응서면 (복사·인쇄 가능)</span></summary>
+<div class="secbody">
+<p style="font-size:14px;color:var(--muted)">아래 작성례는 <b>신청인(공사 피해자)용</b>과 <b>채무자(공사 측)용</b>으로 나뉩니다. 각 <b>제목줄을 클릭하면(▾)</b> 내용이 펼쳐집니다. 빈칸 <b>○○○</b>를 자기 사건 내용으로 채우고, <b>복사·인쇄·다운로드</b> 버튼으로 활용하시면 됩니다. 신청서에는 <b>①-1 별지와 ①-2 진술서가 함께</b> 붙습니다. 모든 양식은 대법원 전자민원센터·법원 공식 양식을 따릅니다. <b>외국인이 당사자인 경우</b>, 주민등록번호란에 외국인등록번호를, 주소란에 국내 체류지를 적고 여권·외국인등록사실증명을 붙입니다.</p>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ① · 신청인</span>공사금지가처분신청서<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f1"><span class="ft">공사금지가처분신청서</span>채권자  ○○○   (☎: ○○○-○○○○-○○○○)
+주민등록번호(외국인등록번호)  ○○○○○○-○○○○○○○
+주소  ○○○
+
+채무자  ○○○ (건축주 / 시공사)
+주소  ○○○
+
+피보전권리의 요지   소유권(인격권)에 기한 공사금지(방해예방)청구권
+목적물(공사 현장)의 표시   별지 목록 기재와 같음
+
+         신 청 취 지
+1. 채무자는 별지 목록 기재 토지 및 건물에서 시행하는
+   별지 기재 공사를 하여서는 아니 된다.
+2. 채무자가 제1항의 명령을 위반하는 경우, 채무자는 채권자에게
+   위반일 1일당 금 ○○○원의 비율에 의한 돈을 지급하라.
+   (※ 간접강제를 함께 구하는 경우)
+라는 결정을 구합니다.
+
+         신 청 이 유
+1. 피보전권리
+   채권자는 별지 목록 기재 건물(○○시 ○○구 ○○동 ○○○)의
+   소유자로서 거주하고 있습니다(소갑 제1호증 등기사항증명서).
+2. 침해 사실과 수인한도의 초과
+   채무자는 인접 토지에서 20○○. ○○.경부터 ○○○ 공사(예:
+   지하 ○층 굴착을 수반한 신축)를 진행하고 있는데, 그로 인하여
+   채권자 건물에 ○○○(예: 벽체 균열·기울어짐·지반 침하) 등의
+   현상이 발생하여 붕괴의 위험이 있고(소갑 제2호증 균열 사진,
+   소갑 제3호증 안전진단서), 이는 사회통념상 채권자가 참을
+   수 있는 한도를 명백히 초과합니다.
+3. 보전의 필요성
+   공사가 이대로 진행되면 채권자 건물이 손상·붕괴되어 손해배상
+   등 사후적 방법으로는 회복이 불가능하거나 현저히 곤란하므로,
+   본안 판결 전에 공사를 금지할 급박한 필요가 있습니다.
+4. 담보제공
+   담보제공은 보증보험증권으로 갈음할 수 있도록 허가하여
+   주시기 바랍니다.
+
+         소 명 방 법
+1. 소갑 제1호증   부동산 등기사항전부증명서
+1. 소갑 제2호증   균열·기울어짐 사진(촬영일자 포함)
+1. 소갑 제3호증   안전진단서(또는 계측자료)
+1. 소갑 제4호증   ○○○ (일조분석·소음측정 등 해당 시)
+
+         첨 부 서 류
+1. 위 소명방법 사본        각 1통
+1. 가처분신청 진술서        1통
+1. 별지 목적물·공사 목록    3통
+1. 부동산 등기사항전부증명서 1통
+1. 송달료납부서            1통
+
+              20○○. ○○. ○○.
+                위 채권자  ○○○ (인 또는 서명)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1')">📋 복사</button><button type="button" onclick="printForm('f1')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1','공사금지가처분신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>공사 피해자(채권자)</b>가 내는 핵심 서면입니다. 승패는 <b>신청이유 2·3번</b>에 달려 있습니다 — ①어떤 침해가(균열·침하·일조 등) ②왜 참을 한도를 넘는지 ③왜 사후 손배로는 회복이 안 되는지를 <b>사진·안전진단서 등 객관 자료</b>와 함께 구체적으로 씁니다. 신청취지 2번은 <b>간접강제를 함께 구할 때</b> 넣습니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ①-1 · 신청인(필수 별지)</span>별지 — 목적물 및 공사의 표시<span class="chev">▾</span></button><div class="fold-body">
+<div class="howto" style="margin-bottom:10px"><b>이게 왜 중요한가요?</b> 무엇을(어느 현장의 어떤 공사를) 금지하는지 <b>결정문에 특정</b>되어야 집행·간접강제가 가능합니다. 공사 현장의 지번과 금지할 공사 내용을 명확히 적습니다.</div>
+<div class="form" id="f1a"><span class="ft">별        지</span>      목적물 및 공사의 표시
+
+1. 목적물(공사 현장)
+   ○○시 ○○구 ○○동 ○○○  대 ○○○㎡
+   [도로명주소] ○○시 ○○구 ○○로 ○○
+   위 지상에서 시행 중인 신축공사 현장
+
+2. 금지를 구하는 공사의 내용
+   위 현장에서 시행하는 ○○○ 공사
+   (예: 지하 굴착공사 / 흙막이 공사 / 골조공사 등
+    금지 대상을 구체적으로 특정)
+
+                                                    끝.</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1a')">📋 복사</button><button type="button" onclick="printForm('f1a')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1a','별지_목적물및공사표시.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>채워 넣는 방법.</b> 공사 현장의 지번·도로명을 등기사항증명서·건축허가 표지 등에서 확인해 적고, 전면 중지인지 특정 공정(굴착·흙막이 등)만인지 <b>금지 범위를 분명히</b> 합니다. 범위가 막연하면 인용·집행이 어렵습니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ①-2 · 신청인(필수 첨부)</span>가처분신청 진술서<span class="chev">▾</span></button><div class="fold-body">
+<div class="howto" style="margin-bottom:10px"><b>이게 왜 필요한가요?</b> 법원은 가처분 남용을 막으려고 이 진술서를 받습니다. 아래 항목에 <b>사실대로</b> 적습니다(양식은 전자소송의 같은 취지 항목을 따릅니다).</div>
+<div class="form" id="f1b"><span class="ft">가처분신청 진술서</span>채권자는 가처분 신청과 관련하여 다음 사실을 사실대로 진술하며,
+허위 진술 시 신청이 기각되거나 손해배상 책임을 질 수 있음을
+잘 알고 있습니다.
+
+1. 피보전권리(공사금지청구권)와 관련하여
+  가. 침해의 종류  □ 붕괴·침하 위험  □ 일조  □ 소음·분진  □ 기타(○○○)
+  나. 채무자(공사 측)의 주장 요지  ○○○
+2. 수인한도·급박성과 관련하여
+  가. 피해가 참을 한도를 넘는다는 근거  ○○○
+  나. 공사 진행 정도(공정률)  약 ○○%
+3. 행정 조치와 관련하여
+  가. 관할 구청·안전 관련 민원·시정요청 여부  □ 있음(○○○)  □ 없음
+4. 본안소송과 관련하여
+  가. 본안소송 제기 여부  □ 제기함(사건번호 ○○○)  □ 예정
+
+              20○○. ○○. ○○.
+                위 채권자  ○○○ (인 또는 서명)</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1b')">📋 복사</button><button type="button" onclick="printForm('f1b')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1b','가처분신청_진술서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>진술서는 신청서와 한 세트</b>입니다. 특히 <b>공정률</b>과 <b>행정 민원 경위</b>는 급박성·수인한도 판단에 영향을 주므로 사실대로 적습니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ② · 신청인(본안)</span>소장 — 공사금지 및 손해배상청구의 소<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f2"><span class="ft">소        장</span>원고  ○○○   (☎: ○○○-○○○○-○○○○)
+주소  ○○○
+피고  ○○○
+주소  ○○○
+
+공사금지 및 손해배상청구의 소
+소송목적의 값   금 ○○○원
+
+         청 구 취 지
+1. 피고는 별지 목록 기재 현장에서 별지 기재 공사를 하여서는
+   아니 된다.
+2. 피고는 원고에게 금 ○○○원 및 이에 대하여 이 사건 소장
+   부본 송달 다음 날부터 다 갚는 날까지 연 12%의 비율로
+   계산한 돈을 지급하라.
+3. 소송비용은 피고가 부담한다.
+라는 판결을 구합니다.
+
+         청 구 원 인
+1. 원고는 별지 목록 기재 건물의 소유자입니다(갑 제1호증).
+2. 피고는 인접지에서 ○○○ 공사를 시행하여 원고 건물에
+   ○○○(균열·침하·일조침해 등)의 피해를 입혔고, 그 정도는
+   사회통념상 수인한도를 초과합니다(갑 제2, 3호증).
+3. 따라서 원고는 소유권(인격권)에 기한 방해예방으로서 공사의
+   금지를 구하고(민법 제214조), 이미 발생한 손해의 배상을
+   구합니다(민법 제217조, 제750조).
+
+         입 증 방 법
+1. 갑 제1호증   부동산 등기사항전부증명서
+1. 갑 제2호증   균열·피해 사진
+1. 갑 제3호증   안전진단서(또는 감정·계측 자료)
+
+         첨 부 서 류
+1. 위 입증방법 사본    각 1통
+1. 별지 목록          1통
+1. 소장 부본          1통
+1. 송달료납부서·인지   1통
+
+              20○○. ○○. ○○.
+                위 원고  ○○○ (인 또는 서명)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f2')">📋 복사</button><button type="button" onclick="printForm('f2')">🖨 인쇄</button><button type="button" onclick="downloadForm('f2','공사금지_손해배상_소장.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>가처분 다음에 제기하는 본안</b>입니다. 공사금지(방해예방)와 손해배상을 <b>함께</b> 청구할 수 있습니다. 감정(구조안전·일조)이 승패를 가르는 경우가 많으므로, 소송 중 <b>감정신청</b>을 적극 활용합니다. 손해액 산정이 어려우면 우선 일부청구로 시작할 수도 있습니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ②-1 · 신청인</span>간접강제 신청서 (결정 위반 시)<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f2a"><span class="ft">간접강제신청서</span>사건   20○○카합○○○○호   공사금지가처분
+채권자  ○○○
+채무자  ○○○
+
+위 사건의 가처분결정에 관하여 채권자는 다음과 같이
+간접강제를 신청합니다.
+
+         신 청 취 지
+채무자는 이 법원 20○○카합○○○○호 공사금지가처분결정을
+위반하여 별지 기재 공사를 계속하는 경우, 채권자에게 그 위반
+1일당 금 ○○○원의 비율에 의한 돈을 지급하라.
+라는 결정을 구합니다.
+
+         신 청 이 유
+1. 이 법원은 20○○. ○○. ○○. 채무자에게 별지 기재 공사를
+   하여서는 아니 된다는 가처분결정을 하였고, 그 결정은
+   채무자에게 고지되었습니다.
+2. 그럼에도 채무자는 20○○. ○○. ○○. 이후에도 위 결정을
+   무시하고 공사를 계속하고 있습니다(소갑 제1호증 현장 사진).
+3. 이에 민사집행법 제261조에 따라 위반행위를 억제하기 위한
+   간접강제를 신청합니다.
+
+         소 명 방 법
+1. 소갑 제1호증   위반 사실 현장 사진(일자 포함)
+
+         첨 부 서 류
+1. 가처분결정문 사본  1통
+1. 신청서 부본       1통
+
+              20○○. ○○. ○○.
+                위 채권자  ○○○ (인 또는 서명)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f2a')">📋 복사</button><button type="button" onclick="printForm('f2a')">🖨 인쇄</button><button type="button" onclick="downloadForm('f2a','간접강제신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>채무자가 공사금지 결정을 무시하고 공사를 강행할 때</b> 씁니다. "위반 1일당 얼마"의 배상금을 명하게 하여 이행을 압박합니다(민집 §261). 위반 사실을 <b>날짜가 찍힌 현장 사진</b>으로 소명하는 것이 핵심입니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ③ · 채무자</span>가처분 이의신청서<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f3"><span class="ft">가처분결정에 대한 이의신청서</span>사건   20○○카합○○○○호   공사금지가처분
+채권자  ○○○
+채무자  ○○○
+
+위 사건에 관하여 채무자는 다음과 같이 이의신청을 합니다.
+
+         신 청 취 지
+1. 위 사건에 관하여 20○○. ○○. ○○. 이 법원이 한 가처분결정을
+   취소한다.
+2. 채권자의 가처분신청을 기각한다.
+라는 결정을 구합니다.
+
+         신 청 이 유
+1. 수인한도 이내
+   이 사건 공사는 적법한 건축허가에 따라 시행되고 있고, 채무자는
+   ○○○(예: 흙막이 보강·계측관리 등) 안전조치를 모두 이행하여
+   채권자에게 발생하는 영향은 사회통념상 수인한도 이내입니다
+   (을 제1호증 건축허가서, 을 제2호증 안전관리계획·계측자료).
+2. 회복 불가능한 손해가 아님
+   채권자가 주장하는 피해는 사후 손해배상으로 충분히 회복될 수
+   있는 것으로, 공사 전면중지를 명할 급박한 필요가 없습니다.
+3. 따라서 이 사건 가처분결정은 부당하므로 취소되어야 합니다.
+
+         소 명 방 법
+1. 을 제1호증   건축허가서
+1. 을 제2호증   안전관리계획서·계측자료
+
+         첨 부 서 류
+1. 위 소명방법 사본    각 1통
+1. 이의신청서 부본     1통
+
+              20○○. ○○. ○○.
+                위 채무자  ○○○ (인 또는 서명)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f3')">📋 복사</button><button type="button" onclick="printForm('f3')">🖨 인쇄</button><button type="button" onclick="downloadForm('f3','가처분_이의신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>공사금지를 당한 채무자(공사 측)</b>의 핵심 방어입니다. ①피해가 <b>수인한도 이내</b>다(허가·안전조치 자료) ②<b>사후 손배로 회복 가능</b>해 전면중지가 불필요하다는 두 축으로 다툽니다. 심문기일에서 이 소명이 결정을 좌우합니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ④ · 채무자</span>제소명령 신청서<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f4"><span class="ft">제소명령신청서</span>사건   20○○카합○○○○호   공사금지가처분
+채권자  ○○○
+채무자  ○○○
+
+위 사건에 관하여 채무자는 다음과 같이 신청합니다.
+
+         신 청 취 지
+채권자에게 상당한 기간 이내에 본안의 소를 제기하고 이를
+증명하는 서류를 제출하도록 명하여 주시기 바랍니다.
+라는 결정을 구합니다.
+
+         신 청 이 유
+채권자는 20○○. ○○. ○○. 이 사건 가처분결정을 받고도 상당한
+기간이 지나도록 본안소송을 제기하지 아니한 채 채무자의 공사를
+장기간 중단시키고 있습니다. 이에 민사집행법 제287조(제301조에
+의한 준용)에 따라 제소명령을 신청합니다.
+
+         첨 부 서 류
+1. 신청서 부본    1통
+
+              20○○. ○○. ○○.
+                위 채무자  ○○○ (인 또는 서명)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f4')">📋 복사</button><button type="button" onclick="printForm('f4')">🖨 인쇄</button><button type="button" onclick="downloadForm('f4','제소명령신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>채권자가 가처분만 걸고 본안을 안 낼 때</b> 쓰는 압박 수단입니다. 공사중단이 길어질수록 채무자 손해가 크므로, 제소명령으로 본안 제기를 강제하고 미제기 시 취소를 노립니다(민집 §287·§301).</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ⑤ · 채무자(본안)</span>답변서 — 공사금지·손해배상청구에 대한<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f5"><span class="ft">답 변 서</span>사건   20○○가합○○○○호   공사금지 등
+원고   ○○○
+피고   ○○○
+
+위 사건에 관하여 피고는 다음과 같이 답변합니다.
+
+         청구취지에 대한 답변
+1. 원고의 청구를 모두 기각한다.
+2. 소송비용은 원고가 부담한다.
+라는 판결을 구합니다.
+
+         청구원인에 대한 답변
+1. 피고의 공사는 적법한 건축허가에 따른 것이며(을 제1호증),
+   관계 법령상 이격거리·안전기준을 준수하였습니다.
+2. 원고가 주장하는 균열·침해는 ○○○(예: 노후로 인한 기존
+   손상 / 기준 이내의 영향)으로서, 피고의 공사와 인과관계가
+   없거나 사회통념상 수인한도 이내입니다(을 제2호증 감정 결과).
+3. 따라서 공사금지 및 손해배상 청구는 모두 이유 없습니다.
+
+         입 증 방 법
+1. 을 제1호증   건축허가서
+1. 을 제2호증   ○○○ (감정·계측·전문가 의견 등)
+
+         첨 부 서 류
+1. 위 입증방법 사본    각 1통
+1. 답변서 부본        1통
+
+              20○○. ○○. ○○.
+                위 피고  ○○○ (인 또는 서명)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f5')">📋 복사</button><button type="button" onclick="printForm('f5')">🖨 인쇄</button><button type="button" onclick="downloadForm('f5','공사금지_답변서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>본안(공사금지·손해배상) 소장을 받은 피고</b>의 첫 대응입니다. 소장 부본을 받은 날부터 <b>30일 안에</b> 냅니다(민사소송법 §256①). ①적법 허가·기준 준수 ②<b>인과관계 부존재 또는 수인한도 이내</b>를 감정 등으로 다툽니다. 구조·일조 감정이 결정적이므로 감정 대응을 준비합니다.</div>
+</div></div>
+</div></details>
+
+<h2 id="s9">고충은 덜어드리고, 결과로 보답하겠습니다</h2>
+<div class="hire">
+<p>본 사무소에서는 의뢰인들의 고충은 덜어드리고, 함께 소송을 진행하여 원하는 결과에 도달할 수 있도록 성심을 다하겠습니다.</p>
+<p style="margin-top:12px"><b>· 채권자(공사 피해자)의 경우</b><br>① <b>공사금지가처분신청서·진술서·별지</b> 작성, ② <b>본안 공사금지·손해배상 소장</b> 작성, ③ <b>간접강제 신청</b>과 감정신청 안내, ④ 담보제공 안내까지 <b>본인소송의 전 과정을 함께</b> 준비해 드립니다.</p>
+<p style="margin-top:10px"><b>· 채무자(공사 측)의 경우</b><br>① <b>이의신청서·제소명령 신청서</b>, ② 본안 <b>답변서(수인한도·인과관계 반박)</b>, ③ <b>부당가처분 손해배상(반소)</b> 전략을 함께 수립해 드립니다.</p>
+</div>
+<div class="warn"><span class="wt">⚠ 자력구제 금지</span>위험하다는 이유로 <b>공사 현장에 무단 진입하거나 실력으로 공사를 막는 행위는 업무방해 등으로 불법</b>이 될 수 있습니다. 반드시 법원의 가처분 절차를 통해야 합니다. 급박한 붕괴 위험이 있으면 <b>관할 구청·소방(안전조치)</b>에도 함께 신고하십시오.</div>
+
+<a href="https://sanlaw.co.kr/tools-calculator.html" class="cta">🧮 내 사건 비용 미리 계산하기</a>
+<div style="text-align:center; background:#f6ecd8; border:1px solid var(--gold); border-radius:11px; padding:14px; margin:18px 0; font-size:15px; color:var(--gold-d); font-weight:700;">📞 상담은 홈 화면의 상담 창구를 이용하시면 됩니다.</div>
+
+<details class="sec" id="s10"><summary>준비할 서류와 발급처 — 어디서 떼나<span class="sub">발급처별 딥링크와 찾아가기 경로를 함께 담았습니다</span></summary>
+<div class="secbody">
+<p style="font-size:13.5px;color:var(--muted)">아래 '바로가기'를 클릭하면 해당 사이트로 이동합니다. 첫 화면으로 연결되면 옆의 <b>찾아가기 경로</b>를 따라 메뉴를 클릭하면 됩니다.</p>
+<table>
+<tr><th>무엇을 (어디서)</th><th>서류</th><th>바로가기 · 찾아가기 경로</th></tr>
+<tr><td>내 부동산 확인<br>(인터넷등기소)</td><td>부동산 등기사항전부증명서(소유 확인용)</td><td><a href="https://www.iros.go.kr">인터넷등기소</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 등기열람/발급 → 부동산 → 열람/발급하기</span></td></tr>
+<tr><td>공사 정보 확인<br>(세움터)</td><td>건축허가·착공 정보(공사 주체·규모 확인)</td><td><a href="https://www.eais.go.kr">세움터(건축행정시스템)</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 건축물대장·허가정보 열람 / 또는 관할 구청 건축과 정보공개청구</span></td></tr>
+<tr><td>피해 소명<br>(본인·전문기관)</td><td>균열·기울어짐 사진(일자 포함), 안전진단서·구조안전 검토, 일조분석·소음측정 결과</td><td><span style="font-size:12.5px;color:var(--muted)">본인 촬영 자료 / 건축사·구조기술사·안전진단 전문기관 의뢰</span></td></tr>
+<tr><td>담보 제공<br>(서울보증보험)</td><td>공탁보증보험증권(현금공탁 대체용)</td><td><a href="https://www.sgic.co.kr">서울보증보험</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 법원공탁보증 메뉴 / 또는 지점·법원 내 출장소 방문(담보액이 클 수 있음)</span></td></tr>
+<tr><td>안전 신고<br>(관할 구청·안전신문고)</td><td>공사장 안전 관련 민원·시정요청(병행)</td><td><a href="https://www.safetyreport.go.kr">안전신문고</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 신고하기 → 공사장/생활안전 / 또는 관할 구청 건축과</span></td></tr>
+<tr><td>신청·소송 제출<br>(전자소송)</td><td>공사금지가처분신청서·소장·간접강제 신청서 — 공식 양식</td><td><a href="https://ecfs.scourt.go.kr">전자소송</a> / <a href="https://ecfs.scourt.go.kr/psp/index.on?m=PSP720M24">양식모음</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 전자소송 → 서류제출 → 민사신청 → 가처분</span></td></tr>
+</table>
+
+<div class="tip"><span class="pt">💡 이어지는 카드</span> <b>내가 하려는 공사를 남이 막을 때</b>는 반대로 <a class="cl" href="B-3b_공사방해금지가처분.html"><b>공사방해금지가처분</b></a>을 신청합니다. <b>부동산을 팔지 못하게</b> 하려면 <a class="cl" href="B-1_부동산처분금지가처분.html"><b>처분금지가처분(B-1)</b></a>, <b>세입자 점유를 고정</b>하려면 <a class="cl" href="B-2_점유이전금지가처분.html"><b>점유이전금지가처분(B-2)</b></a>을 보십시오. 반대로 <b>가처분을 당하신 분</b>은 <a class="cl" href="C-2_가처분방어.html"><b>가처분을 당했을 때의 방어(C-2)</b></a>를 보십시오. 전체 유형은 <a class="cl" href="보전처분_전체유형표.html"><b>보전처분 전체 유형표</b></a>에 있습니다. <span style="color:var(--muted);font-size:13px">(※ 링크 파일명은 해당 카드 배포 후 최종 확정합니다.)</span></div>
+
+</div></details>
+<div class="src">
+근거 — 민사집행법 제300조 제2항(임시의 지위를 정하기 위한 가처분)·제301조(가압류 절차의 준용)·제303조(관할)·제304조(임시지위 가처분의 심리)·제280조(담보제공)·제283조(이의)·제287조(제소명령)·제288조(사정변경 취소)·제261조(간접강제) · 민법 제161조(기간 말일)·제214조(방해예방청구권)·제217조(생활방해)·제750조(불법행위 손해배상)·제766조(손해배상청구권의 소멸시효) · 민사소송법 제256조(답변서) · 대법원 2000. 5. 16. 선고 98다56997 판결(수인한도를 넘는 일조방해에 대한 공사금지) · 대법원 1997. 7. 22. 선고 96다56153 판결(환경권에 기한 직접 방해배제청구의 불가) · 법제처 찾기쉬운 생활법령정보 · 국가법령정보센터 · 대법원 전자민원센터. 본 자료는 일반적인 법률정보로, 개별 사건의 법률자문이 아닙니다.
+</div>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+})();
+
+(function(){
+  document.querySelectorAll('.toc a').forEach(function(a){
+    a.addEventListener('click',function(){
+      var el=document.querySelector(a.getAttribute('href'));
+      if(el&&el.tagName==='DETAILS')el.open=true;
+    });
+  });
+  var btn=document.getElementById('allBtn');
+  if(!btn)return;
+  function toggleAll(){
+    var opening=btn.textContent.indexOf('펼치기')>-1;
+    document.querySelectorAll('details.sec').forEach(function(d){d.open=opening;});
+    document.querySelectorAll('.formbox').forEach(function(fb){
+      fb.classList.toggle('open',opening);
+      var body=fb.querySelector('.fold-body');
+      if(body)body.style.display=opening?'block':'none';
+    });
+    btn.textContent=opening?'전체 접기':'전체 펼치기';
+  }
+  btn.addEventListener('click',toggleAll);
+  btn.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleAll();}});
+})();
+(function(){
+})();
+function toggleFold(b){var fb=b.parentElement;var body=b.nextElementSibling;var open=fb.classList.toggle('open');if(body){body.style.display=open?'block':'none';}}
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('작성례가 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('작성례가 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('작성례를 내려받았습니다');}
+</script>
+</body>
+</html>

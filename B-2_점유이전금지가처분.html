@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[보전 B-2] 명도소송 중 세입자가 점유를 몰래 넘길까 걱정돼요 — 부동산 점유이전금지가처분 | 산 법무사 김재섭</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(280px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.case{background:var(--box); border-radius:10px; padding:14px 16px; margin:14px 0; border-left:4px solid #b9a98c;}
+.case .ct{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+.sit-wrap{display:flex; gap:12px; margin:14px 0;}
+.sit{flex:1; background:#f8f5ee; border:1px solid var(--line); border-top:3px solid var(--gold); border-radius:10px; padding:13px 15px; font-size:14.5px; line-height:1.75;}
+.sit .sl{display:block; font-weight:700; color:var(--gold-d); margin-bottom:6px; font-size:14px;}
+@media (max-width:680px){ .sit-wrap{flex-direction:column;} }
+/* 전체 길 흐름도 */
+.flow{background:linear-gradient(180deg,#faf7f0,#f6f1e6); border:1px solid var(--line); border-radius:14px; padding:22px 20px; margin:16px 0;}
+.flow .fl-t{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:18px; text-align:center; letter-spacing:.3px;}
+.flow .node{position:relative; background:#fff; border:1px solid #e3d8c4; border-radius:11px; padding:15px 18px 15px 56px; font-size:14.5px; line-height:1.72; box-shadow:0 2px 6px rgba(122,82,48,.07);}
+.flow .node .num{position:absolute; left:15px; top:14px; width:30px; height:30px; line-height:30px; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; border-radius:50%; font-weight:800; font-size:15px; font-family:'Nanum Myeongjo',serif; box-shadow:0 2px 5px rgba(122,82,48,.3);}
+.flow .node b{color:#241a10;}
+.flow .down{display:flex; justify-content:center; align-items:center; padding:7px 0;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+/* 작성례 박스 */
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+details.sec{border:1px solid var(--line); border-radius:11px; margin:18px 0; background:#fff; overflow:hidden;}
+details.sec>summary{cursor:pointer; list-style:none; padding:14px 17px 14px 15px; background:var(--box); border-left:4px solid var(--gold); font-family:'Nanum Myeongjo',serif; font-size:18px; font-weight:700; color:var(--gold-d); line-height:1.55;}
+details.sec>summary::-webkit-details-marker{display:none;}
+details.sec>summary .sub{display:block; font-family:'Pretendard',sans-serif; font-size:13.5px; font-weight:400; color:var(--muted); margin-top:3px;}
+details.sec>summary::after{content:"펼치기 ▾"; float:right; font-family:'Pretendard',sans-serif; font-size:12.5px; font-weight:700; color:var(--gold); background:#fff; border:1px solid var(--line); border-radius:20px; padding:2px 10px; margin-left:8px;}
+details.sec[open]>summary::after{content:"접기 ▴";}
+details.sec>summary:hover{background:#f2ede3;}
+.secbody{padding:4px 17px 16px;}
+.secbody>h3:first-of-type{margin-top:14px;}
+.toc{background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 17px; margin:8px 0 22px;}
+.toc .tct{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:9px;}
+.toc ol{margin:0; padding-left:20px;}
+.toc li{margin:5px 0; font-size:14.5px;}
+.toc a{text-decoration:none; border-bottom:1px dotted var(--gold);}
+.allbtn{display:inline-block; margin-top:11px; font-size:13.5px; font-weight:700; color:var(--gold-d); background:var(--box); border:1px solid var(--line); border-radius:8px; padding:7px 14px; cursor:pointer;}
+.allbtn:hover{background:#f2ede3;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:15px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .tag{margin-bottom:0;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;}
+.tag.cred{background:#5a9a72;}
+.tag.debt{background:#d9694a;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:18px;margin:12px 0;font-family:'D2Coding','Courier New',monospace;font-size:13px;line-height:1.6;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:16px;letter-spacing:2px;margin-bottom:12px;color:#241a10;}
+.howto{font-size:14px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0 4px;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:13px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:7px 13px;cursor:pointer;transition:.15s;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.75;}
+.lawbox .ll{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold-d);border-radius:5px;padding:2px 9px;margin-right:7px;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.hire p{margin:7px 0; font-size:15px; line-height:1.8;}
+.cta{display:block;text-align:center;background:var(--gold-d);color:#fff;font-weight:700;font-size:17px;text-decoration:none;padding:15px;border-radius:11px;margin:18px 0;font-family:'Nanum Myeongjo',serif;letter-spacing:1px;}
+.cta:hover{background:#5e3f24;}
+@media print{
+  .backbar{display:none !important;}
+  body{background:#fff; max-width:100%;}
+  .tldr,.case,.warn,.tip,.cost,.steps li,.tnote,.sit,.flow,.flow li,.lawbox,.hire{background:#fff !important; border-color:#ccc !important;}
+  .tnote{display:none;}
+  .term{border:none; color:inherit; font-weight:inherit;}
+  .term>.bub{display:inline !important; position:static; width:auto; background:none; color:inherit; box-shadow:none; padding:0; font-size:inherit; line-height:inherit;}
+  .term>.bub::before{content:" ("; }
+  .term>.bub::after{content:")"; border:none; position:static;}
+  .fold-body{display:block !important;}.fold-btn .chev{display:none;}.form-tools{display:none;}
+  details.sec:not([open])>*{display:block !important;}
+  details.sec>summary::after{display:none;} .allbtn,.toc{display:none !important;}
+  .cta{background:#fff !important; color:#241a10 !important; border:1px solid #ccc;}
+}
+.cl{color:var(--gold-d);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--gold-d);}
+.cl:hover{background:#fbf5e8;}
+.tip .cl,.tip .cl b{color:var(--tip-ink);}
+.tip .cl{border-bottom-color:var(--tip-ink);}
+.warn .cl,.warn .cl b{color:var(--warn-ink);}
+.warn .cl{border-bottom-color:var(--warn-ink);}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+
+
+<h1>[보전 B-2] 명도소송 중 세입자가 점유를 몰래 넘길까 걱정돼요 — 부동산 점유이전금지가처분</h1>
+
+<div class="tnote">어려운 법률용어에는 <b>점선 밑줄</b>이 그어져 있습니다. <b>PC는 마우스를 올리면</b>, <b>휴대폰은 손가락으로 톡 터치하면</b> 쉬운 설명이 뜹니다. (인쇄하면 괄호로 함께 나옵니다.)</div>
+
+<div class="hire">
+<div class="ht">이 매뉴얼을 끝까지 읽으시는 분께</div>
+<p>이 매뉴얼은 <b>의뢰인이 직접 법원에 신청할 수 있도록 모든 서류 양식·비용·요건을 구체적으로 담았습니다.</b> 하지만 소송은 살아있는 생물과 같아 상대방의 격렬한 저항이 뒤따릅니다. 혼자 진행하시다가 막히는 부분이 생기거나 방어막이 필요할 때, 언제든 이 매뉴얼을 들고 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</p>
+</div>
+
+<div class="tldr">
+<div class="tt">⭐ 30초 결론부터</div>
+<ul>
+<li><b>점유이전금지가처분은 명도(인도) 소송을 걸기 전에, 지금 그 집을 쓰는 사람(점유자)이 도중에 다른 사람에게 점유를 넘기지 못하도록 묶어 두는 절차입니다.</b> 세입자를 상대로 명도소송에서 이겨도, 그 사이 점유가 낯선 제3자에게 넘어가면 <b>그 사람에게는 판결의 효력이 미치지 않아 처음부터 다시 소송</b>해야 하므로, 소송 전에 먼저 점유를 항정(고정)시켜 둡니다(<span class="term">민사집행법 §300①<span class="bub">'다툼의 대상에 관한 가처분'의 근거. 지금 막아두지 않으면 나중에 권리를 실행하지 못하거나 매우 곤란해질 우려가 있을 때 그 대상의 현상을 묶는 제도.</span></span>).</li>
+<li><b>B-1(처분금지)과 다릅니다 — 지키려는 것이 '등기(소유권)'가 아니라 '점유(실제 사용)'입니다.</b> ① <span class="term">피보전권리<span class="bub">가처분으로 지켜내려는 권리 자체. 여기서는 임대차 종료·소유권 등에 기한 '건물을 넘겨받을(인도받을) 권리'입니다.</span></span>(그 집을 넘겨받을 권리가 있다) ② <span class="term">보전의 필요성<span class="bub">지금 막지 않으면 나중에 인도집행이 곤란해질 위험. 점유자가 제3자에게 점유를 넘길 우려가 있다는 사정.</span></span>(점유가 넘어가면 집행이 곤란하다)을 <span class="term">소명<span class="bub">'증명'보다 낮은 단계. 법관이 "대체로 그럴 것 같다"고 믿을 정도의 자료.</span></span>하면 됩니다.</li>
+<li><b>집행 방식도 다릅니다 — 등기가 아니라 집행관이 현장에 나갑니다.</b> B-1은 법원이 등기소에 촉탁하지만, 점유이전금지가처분은 <b><span class="term">집행관<span class="bub">법원 소속으로 강제집행·송달 등을 실제로 실행하는 공무원. 현장에 나가 집행합니다.</span></span>이 현장에서 점유를 확인하고 공시서(고시문)를 붙이는</b> 방식으로 집행합니다. 그리고 <b>결정을 받은 뒤 2주 안에 집행</b>하지 않으면 효력이 없어집니다(민집 §301·§292②) — 시간을 끌면 안 됩니다.</li>
+<li><b>효력 — 점유가 넘어가도, 넘겨받은 제3자는 나를 이기지 못합니다(당사자항정효).</b> 가처분 집행 뒤 점유가 제3자에게 넘어가도, 채무자는 <b>나에 대한 관계에서 여전히 점유자</b>로 취급됩니다. 다만 그 제3자를 직접 내보내려면 본안 승소 후 <b><span class="term">승계집행문<span class="bub">판결의 효력을 '뒤에 점유를 넘겨받은 사람'에게도 미치게 하기 위해 법원에서 추가로 받는 집행문(민집 §31).</span></span></b>을 받아 배제합니다(대법원 98다59118).</li>
+</ul>
+</div>
+
+<div class="toc">
+<div class="tct">이 카드에 담긴 것 — 필요한 곳만 펼쳐 보십시오</div>
+<ol>
+<li><a href="#s1">지금 어떤 상황인가요?</a></li>
+<li><a href="#s2">집을 되찾기까지 — 전체 길 한눈에 보기</a></li>
+<li><a href="#s3">핵심 세 가지</a></li>
+<li><a href="#s4">관련 법령 — 쉬운 풀이</a></li>
+<li><a href="#s5">판례로 보기 — 양쪽 모두 알아야 할 것</a></li>
+<li><a href="#s6">신청인(채권자) — 신청부터 인도집행까지 상세 절차</a></li>
+<li><a href="#s7">상대방(채무자) — 가처분을 당하였다면 방어 절차</a></li>
+<li><a href="#s8">서류 작성례 — 빈칸만 채우면 됩니다</a></li>
+<li><a href="#s9">고충은 덜어드리고, 결과로 보답하겠습니다</a></li>
+<li><a href="#s10">준비할 서류와 발급처 — 어디서 떼나</a></li>
+</ol>
+<span class="allbtn" id="allBtn" role="button" tabindex="0">전체 펼치기</span>
+</div>
+
+<h2 id="s1">지금 어떤 상황인가요?</h2>
+<div class="sit-wrap">
+<div class="sit"><span class="sl">상황 ① · 집을 되찾아야 하는 분 (채권자·신청인)</span>임대차가 끝났는데(또는 무단 점유당해) <b>세입자·점유자가 나가지 않고, 명도소송을 하는 사이 점유를 다른 사람에게 넘겨 버릴까 불안한</b> 경우. → 먼저 점유이전금지가처분으로 점유를 고정하고, 본안(건물인도청구)에서 이겨 인도집행으로 되찾습니다. <b>아래 작성례 ①·②</b>가 신청인의 서류입니다.</div>
+<div class="sit"><span class="sl">상황 ② · 점유이전금지가처분을 당한 분 (채무자·상대방)</span>집행관이 다녀가 <b>고시문이 붙고, 점유를 남에게 넘길 수 없게 된</b> 경우. 임대차가 유효하거나 보증금을 돌려받지 못한 상태라면 다툴 수 있습니다. → 이의신청·제소명령으로 다투고, 본안에서는 <b>보증금 반환과의 동시이행</b>을 주장합니다. <b>아래 작성례 ③·④·⑤</b>가 채무자의 서류입니다.</div>
+</div>
+
+<h2 id="s2">집을 되찾기까지 — 전체 길 한눈에 보기</h2>
+<div class="flow">
+<div class="fl-t">신청인이 가야 할 4단계 (가처분 → 본안 → 인도집행 → 승계집행문)</div>
+<div class="node"><span class="num">1</span><b>점유이전금지가처분 신청 → 집행관 집행</b> — 상대가 알지 못하게(<span class="term">밀행성<span class="bub">가처분은 상대에게 미리 알리지 않고 비공개로 심리·결정하는 성질. 미리 알면 점유를 넘겨 버리므로 기습적으로 묶습니다.</span></span>) 신속히 결정을 받고, <b><span class="term">담보제공명령<span class="bub">잘못된 가처분으로 상대가 입을 손해에 대비해 법원이 신청인에게 일정 금액을 맡기라고 명하는 것. 보증보험증권으로 갈음할 수 있습니다(민집 §301·§280).</span></span></b>을 이행합니다. 그러면 <b>집행관이 현장에 나가 점유를 확인하고, 채무자에게 사용은 허용하되 점유이전을 금지하는 고시문을 부착</b>합니다. <b>결정 고지·송달 후 2주 안에</b> 집행해야 합니다(민집 §292②).</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">2</span><b>본안 소송 제기</b> — 가처분은 임시조치일 뿐이므로, <b>건물(부동산) 인도청구의 소</b>를 제기하여 '넘겨받을 권리'를 판결로 확정받습니다(작성례 ②). 가처분만 걸고 방치하면 상대가 취소를 구할 수 있습니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">3</span><b>본안 승소 확정 → 인도(명도) 집행</b> — 승소 확정 판결로 <b>집행관에게 부동산 인도 강제집행</b>을 신청합니다. 점유가 고정되어 있어, 처음 상대했던 그 점유자를 대상으로 곧바로 집행할 수 있습니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">4</span><b>점유가 제3자에게 넘어갔다면 → 승계집행문</b> — 가처분 뒤 점유가 다른 사람에게 이전됐어도, <b>본안 판결에 승계집행문을 부여받아 그 제3자의 점유를 배제</b>할 수 있습니다(민집 §31, 대법원 98다59118). 이것이 미리 가처분을 해 둔 결정적 효과입니다.</div>
+</div>
+<p style="font-size:13.5px;color:var(--muted)">※ 처분금지가처분(B-1)이 '등기(소유권)'를 지킨다면, 점유이전금지가처분(B-2)은 '점유(실제 사용)'를 지켜 <b>명도소송의 판결이 헛되지 않게</b> 만드는 절차입니다.</p>
+
+<h2 id="s3">핵심 세 가지</h2>
+<ol class="steps">
+<li><b>명도소송 전에는 반드시 이 가처분부터 하십시오.</b> 점유이전금지가처분 없이 명도소송만 하다가, <b>변론이 끝나기 전에 점유자가 바뀌면</b> 기존 점유자를 상대로 이긴 판결은 새 점유자에게 효력이 없어 <b>처음부터 다시 소송</b>해야 합니다. 이 가처분이 그 위험을 막아 줍니다(당사자항정효).</li>
+<li><b>결정을 받으면 2주 안에 집행관 집행까지 마쳐야 합니다.</b> 부동산 처분금지가처분(등기)과 달리, 점유이전금지가처분은 <b>집행관이 현장에 나가 집행</b>해야 효력이 생깁니다. 그런데 <b>고지·송달 후 2주가 지나면 집행할 수 없어</b>(민집 §292②) 처음부터 다시 신청해야 합니다. 결정만 받고 미루면 안 됩니다.</li>
+<li><b>다만 '침탈'로 넘어간 점유는 승계집행문으로 잡지 못합니다.</b> 제3자가 채무자로부터 점유를 넘겨받은 것이 아니라 <b>채무자를 통하지 않고 힘으로 빼앗아(침탈) 점유</b>한 경우에는, 가처분 사실을 알았더라도 원칙적으로 '채무자의 승계인'이 아니어서 승계집행문 대상이 되지 않습니다(대법원 2012다111630). 이때는 그 제3자를 상대로 별도의 조치가 필요합니다.</li>
+</ol>
+
+<details class="sec" id="s4"><summary>관련 법령 — 쉬운 풀이<span class="sub">점유이전금지가처분의 근거·집행·효력 조문을 한눈에</span></summary>
+<div class="secbody">
+<div class="lawbox"><span class="ll">민집 §300①</span><b>다툼의 대상에 관한 가처분</b> — 다툼의 대상(여기서는 그 부동산의 점유)의 현상이 바뀌면 권리 실행이 매우 곤란해질 염려가 있을 때 합니다. 점유이전금지가처분의 뿌리 조문입니다.</div>
+<div class="lawbox"><span class="ll">민집 §301·§303</span><b>가압류 절차의 준용·관할</b> — 담보제공(§280)·이의(§283)·제소명령(§287)·사정변경 취소(§288) 등이 준용되며, <b>본안의 관할법원 또는 다툼의 대상(부동산)이 있는 곳을 관할하는 지방법원</b>에 신청합니다.</div>
+<div class="lawbox"><span class="ll">민집 §305·§291</span><b>집행 방법</b> — 부동산 점유이전금지가처분은 <b>집행관이 채무자의 점유를 풀어 집행관이 보관하되 채무자에게 사용을 허용하고, 점유이전을 금지한다는 취지를 공시</b>하는 방식으로 집행합니다(등기가 아닙니다).</div>
+<div class="lawbox"><span class="ll">민집 §292②</span><b>2주 집행기간</b> — 보전처분은 <b>채권자에게 재판을 고지하거나 송달한 날부터 2주 안에</b> 집행해야 합니다(가처분에 준용). 이 기간을 넘기면 집행할 수 없습니다.</div>
+<div class="lawbox"><span class="ll">민집 §31</span><b>승계집행문</b> — 본안 판결의 효력을 가처분 뒤에 점유를 넘겨받은 승계인에게 미치게 하려면, 법원에서 승계집행문을 부여받아 집행합니다.</div>
+</div></details>
+
+<details class="sec" id="s5"><summary>판례로 보기 — 양쪽 모두 알아야 할 것<span class="sub">대법원 확인 판례</span></summary>
+<div class="secbody">
+<div class="case">
+<span class="ct">○ 당사자항정효 — 점유가 넘어가도 채무자는 여전히 점유자, 제3자는 승계집행문으로 배제 (대법원 1999. 3. 23. 선고 98다59118)</span>
+점유이전금지가처분은 목적물의 점유이전을 금지하는 것이어서, 그럼에도 점유가 이전되면 <b>가처분채무자는 채권자에 대한 관계에서 여전히 점유자의 지위</b>에 있는 것으로 봅니다(당사자항정효). 다만 가처분 자체의 효력만으로 그 제3자를 직접 퇴거시킬 수는 없고, <b>채권자는 본안판결의 집행단계에서 승계집행문을 부여받아 그 제3자의 점유를 배제</b>할 수 있습니다. → 미리 가처분을 해 두면, 점유가 넘어가도 소송을 다시 하지 않고 제3자를 내보낼 수 있다는 뜻입니다.
+</div>
+<div class="case">
+<span class="ct">○ (한계) 채무자를 통하지 않은 '침탈' 점유는 승계인이 아니다 (대법원 2015. 1. 29. 선고 2012다111630)</span>
+가처분 집행 후 제3자가 <b>채무자를 통하지 않고 점유를 침탈하는 방법으로</b> 점유를 취득했다면, 설령 가처분 집행 사실을 알았더라도, 채무자와 통모하여 침탈을 가장한 것 같은 특별한 사정이 없는 한 <b>민사집행법 제31조의 '채무자의 승계인'이 아닙니다.</b> → 이런 제3자는 승계집행문으로 배제할 수 없어, 별도의 인도청구 등 다른 조치가 필요합니다(불리한 지점).
+</div>
+</div></details>
+
+<details class="sec" id="s6"><summary>신청인(채권자) — 신청부터 인도집행까지 상세 절차<span class="sub">관할·인지대·송달료·담보·집행관 집행·2주 집행기간</span></summary>
+<div class="secbody">
+<h3>1) 어디에 내나 — 관할</h3>
+<p><b>다툼의 대상인 부동산 소재지 지방법원</b> 또는 본안의 관할법원에 냅니다(민집 §303).</p>
+<h3>2) 얼마짜리로 보나 — 인지대·송달료</h3>
+<p>점유이전금지가처분은 <b>계쟁물 가처분</b>이므로 신청서에 붙이는 <b>인지액은 10,000원 정액</b>입니다. <span class="term">전자소송<span class="bub">인터넷으로 서류를 내고 진행하는 방식. 인지액이 10% 깎이고 편리합니다.</span></span>이면 통상 10% 줄어듭니다. 이와 별도로 <b>송달료</b>(당사자 1명당 3회분 = 당사자 수 × 3회분)를 예납합니다.</p>
+<h3>3) 담보(공탁)</h3>
+<p>법원은 잘못된 가처분에 대비해 <span class="term">담보제공명령<span class="bub">신청인이 일정 금액을 맡기거나(현금공탁) 보증보험증권으로 갈음하도록 하는 명령. 이를 이행해야 집행할 수 있습니다.</span></span>을 내립니다(민집 §301·§280). 대개 <b>보증보험증권(공탁보증보험)</b>으로 갈음할 수 있습니다.</p>
+<h3>4) 집행 — 등기가 아니라 집행관이 현장에</h3>
+<p>결정을 받으면 <b>집행관사무소에 집행을 위임(신청)</b>합니다. 집행관이 현장에 나가 점유를 확인하고, <b>채무자에게 사용은 허용하되 점유이전을 금지한다는 취지의 고시문을 붙입니다.</b> B-1(처분금지가처분)과 달리 <b>등록면허세·등기수입증지는 없고</b>, 대신 <b>집행관 수수료·집행비용(출장·노무비 등)</b>이 듭니다. 정확한 비용은 집행 신청 시 집행관사무소에서 예납·정산합니다.</p>
+<div class="warn"><span class="wt">⚠ 결정 후 2주 — 가장 자주 놓치는 함정</span>가처분 결정을 받았다고 끝이 아닙니다. <b>결정을 고지·송달받은 날부터 2주 안에 집행관 집행까지 마쳐야</b> 하며(민집 §292②), 이 기간이 지나면 집행할 수 없어 처음부터 다시 신청해야 합니다. 결정을 받으면 <b>지체 없이 집행관사무소에 집행을 위임</b>하십시오.</div>
+
+<h3>5) 놓치면 안 되는 기한 — 데드라인</h3>
+<table>
+<tr><th>구분</th><th>① 기산일</th><th>② 계산근거</th><th>③ 말일처리</th><th>④ 최종 기한</th></tr>
+<tr><td>가처분 집행기간(2주)</td><td>가처분 결정을 고지·송달받은 날</td><td>민집 §301·§292②</td><td>말일이 공휴일이면 다음 날 만료(민법 §161)</td><td>고지·송달일부터 <b>2주</b> 안에 집행관 집행을 마쳐야 함(넘기면 재신청).</td></tr>
+<tr><td>집행 후 본안 미제기 시 취소</td><td>가처분이 집행된 날</td><td>민집 §301·§288①3호</td><td>민법 §161</td><td>집행일부터 <b>3년</b> 안에 본안을 제기하지 않으면 채무자가 취소를 구할 수 있음.</td></tr>
+<tr><td>제소명령을 받은 경우</td><td>제소명령 송달일</td><td>민집 §301·§287</td><td>민법 §161</td><td>법원이 정한 기간(<b>통상 2주 이상</b>) 안에 본안을 제기하지 않으면 가처분이 취소됨.</td></tr>
+</table>
+<p style="font-size:13.5px;color:var(--muted)">※ 인도청구권 자체의 시효 — 임대차 종료로 인한 건물인도청구권은 원칙적으로 10년(민법 §162①)이나, <b>소유권에 기한 인도청구</b>는 소멸시효에 걸리지 않습니다.</p>
+</div></details>
+
+<details class="sec" id="s7"><summary>상대방(채무자) — 가처분을 당하였다면 방어 절차<span class="sub">이의·제소명령·사정변경 취소·본안에서의 동시이행</span></summary>
+<div class="secbody">
+<div class="warn"><span class="wt">⚠ 고시문을 함부로 떼거나 몰래 넘기지 마십시오</span>집행관이 붙인 고시문을 손상하거나, 점유를 몰래 제3자에게 넘기는 행위는 <b><span class="term">공무상표시무효죄<span class="bub">공무원이 직무상 붙인 봉인·표시의 효용을 해치는 범죄(형법 §140). 5년 이하 징역 또는 700만원 이하 벌금.</span></span></b> 등이 문제될 수 있습니다. 다툴 것이 있으면 <b>아래의 정식 절차</b>로 다투십시오.</div>
+<ol class="steps">
+<li><b>가처분 이의신청</b> — 임대차가 아직 유효하거나(계약기간 중), 신청인에게 인도청구권이 없는 등의 사유로 가처분이 부당하다면 이의신청으로 다툽니다(민집 §301·§283, 작성례 ③).</li>
+<li><b>제소명령 신청</b> — 신청인이 가처분만 걸고 본안을 제기하지 않으면, 법원에 "기간 안에 본안을 제기하라"고 신청합니다(민집 §301·§287, 작성례 ④). 기간 내 소를 내지 않으면 취소를 구할 수 있습니다.</li>
+<li><b>사정변경 등에 의한 취소</b> — 인도청구권이 소멸했거나, 신청인이 본안에서 패소 확정됐거나, 집행 후 3년간 본안을 제기하지 않은 경우 취소를 구합니다(민집 §301·§288).</li>
+<li><b>본안에서 동시이행 항변</b> — 보증금을 돌려받지 못했다면, 본안(건물인도) 소송에서 <b>"보증금 반환과 동시에 인도하겠다"</b>는 동시이행 항변을 합니다(민법 §536, 작성례 ⑤). 임대인의 보증금반환의무와 임차인의 인도의무는 동시이행 관계입니다.</li>
+<li><b>부당가처분 손해배상 역공</b> — 신청인이 본안에서 패소하면, 부당한 가처분으로 입은 손해를 손해배상으로 청구할 수 있습니다(민법 §750). 본안의 <span class="term">반소<span class="bub">피고가 같은 소송 절차 안에서 원고를 상대로 거꾸로 제기하는 소. 보증금반환·손해배상 등을 함께 다툴 수 있습니다.</span></span>로 함께 제기할 수 있습니다.</li>
+</ol>
+</div></details>
+
+<details class="sec" id="s8"><summary>서류 작성례 — 빈칸만 채우면 됩니다<span class="sub">신청서 · 별지 · 진술서 · 본안 소장 · 채무자 대응서면 (복사·인쇄 가능)</span></summary>
+<div class="secbody">
+<p style="font-size:14px;color:var(--muted)">아래 작성례는 <b>신청인(집을 되찾을 분)용</b>과 <b>채무자(점유 중인 분)용</b>으로 나뉩니다. 각 <b>제목줄을 클릭하면(▾)</b> 내용이 펼쳐집니다. 빈칸 <b>○○○</b>를 자기 사건 내용으로 채우고, <b>복사·인쇄·다운로드</b> 버튼으로 활용하시면 됩니다. 신청서에는 <b>①-1 별지(부동산의 표시)와 ①-2 진술서가 반드시 함께</b> 붙어야 합니다. 모든 양식은 대법원 전자민원센터·법원 공식 양식을 따릅니다. <b>외국인이 당사자인 경우</b>, 주민등록번호란에 외국인등록번호(또는 국내거소신고번호)를, 주소란에 국내 체류지를 적고 여권·외국인등록사실증명을 소명자료로 붙입니다.</p>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ① · 신청인</span>부동산 점유이전금지가처분신청서<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f1"><span class="ft">부동산점유이전금지가처분신청서</span>채권자  ○○○   (☎: ○○○-○○○○-○○○○)
+주민등록번호(외국인등록번호)  ○○○○○○-○○○○○○○
+주소  ○○○
+
+채무자  ○○○
+주민등록번호(아는 경우)  ○○○○○○-○○○○○○○
+주소  ○○○
+
+목적물의 가액   금 ○○○원
+피보전권리의 요지   임대차 종료(또는 소유권)에 기한
+                    건물인도청구권
+
+         목적물의 표시
+별지 목록 기재와 같음
+
+         신 청 취 지
+1. 채무자는 별지 목록 기재 부동산에 대한 점유를 풀고 이를
+   집행관에게 인도하여야 한다.
+2. 집행관은 현상을 변경하지 아니하는 것을 조건으로 하여
+   채무자에게 그 사용을 허가할 수 있다.
+3. 채무자는 그 점유를 타인에게 이전하거나 점유명의를
+   변경하여서는 아니 된다.
+4. 집행관은 위 취지를 적당한 방법으로 공시하여야 한다.
+라는 결정을 구합니다.
+
+         신 청 이 유
+1. 피보전권리
+   채권자는 별지 목록 기재 부동산의 소유자(또는 임대인)로서,
+   채무자와 20○○. ○○. ○○. 임대차계약을 체결하였으나
+   20○○. ○○. ○○. 임대차기간이 만료되었으므로(소갑 제1호증
+   임대차계약서), 채무자에 대하여 건물인도청구권을 가지고
+   있습니다.
+2. 보전의 필요성
+   그런데 채무자는 인도를 거부하면서 최근 ○○○(예: 제3자를
+   들이거나 점유명의를 바꾸려는 등)의 정황이 있어, 지금
+   점유를 고정해 두지 아니하면 채권자가 장차 본안소송에서
+   승소하더라도 인도집행이 불가능하거나 현저히 곤란해질
+   우려가 있습니다.
+3. 담보제공
+   담보제공은 보증보험증권(공탁보증보험)으로 갈음할 수 있도록
+   허가하여 주시기 바랍니다.
+
+         소 명 방 법
+1. 소갑 제1호증   임대차계약서
+1. 소갑 제2호증   내용증명(계약 종료·인도 최고)
+1. 소갑 제3호증   부동산 등기사항전부증명서
+1. 소갑 제4호증   ○○○ (점유·보전 필요성 소명자료)
+
+         첨 부 서 류
+1. 위 소명방법 사본        각 1통
+1. 가처분신청 진술서        1통
+1. 별지 목적물 목록         3통
+1. 부동산 등기사항전부증명서 1통
+1. 건물 도면(일부만 점유한 경우) 1통
+1. 송달료납부서            1통
+
+              20○○. ○○. ○○.
+                위 채권자  ○○○ (인 또는 서명)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1')">📋 복사</button><button type="button" onclick="printForm('f1')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1','점유이전금지가처분신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>집을 되찾아야 하는 신청인(채권자)</b>이 내는 핵심 서면입니다. 신청취지 <b>1~4번은 점유이전금지가처분의 정형 문구</b>이니 그대로 두고, <b>신청이유 1·2번</b>만 자기 사건에 맞게 채웁니다 — ①인도받을 권리(임대차 종료·소유권으로 소명) ②점유가 넘어갈 우려. <b>등록면허세가 없는 대신</b>(등기가 아니므로), 결정 후 <b>집행관 집행 위임</b>이 반드시 뒤따릅니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ①-1 · 신청인(필수 별지)</span>별지 — 목적물(부동산)의 표시<span class="chev">▾</span></button><div class="fold-body">
+<div class="howto" style="margin-bottom:10px"><b>이게 왜 중요한가요?</b> 집행관은 결정문에 적힌 <b>「목적물의 표시」만 보고</b> 어느 공간에 집행할지 정합니다. <b>등기사항전부증명서 표제부</b>의 소재지·구조·면적을 그대로 옮기고, <b>건물 일부(예: ○○호, 1층 점포)만</b> 점유 중이라면 그 부분을 특정하여 <b>도면을 함께</b> 붙입니다.</div>
+<div class="form" id="f1a"><span class="ft">별        지</span>      목적물의 표시
+
+[건물 전부인 경우 — 예시]
+○○시 ○○구 ○○동 ○○○
+[도로명주소] ○○시 ○○구 ○○로 ○○
+철근콘크리트조 슬래브지붕 ○층 건물
+1층 ○○○.○○㎡
+2층 ○○○.○○㎡
+
+[건물 일부만 점유하는 경우 — 예시]
+위 건물 중
+제○층 ○○○호  ○○.○○㎡
+(별지 도면 표시 ㄱ, ㄴ, ㄷ, ㄹ, ㄱ의 각 점을 순차로
+ 연결한 선내 부분)
+
+                                                    끝.</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1a')">📋 복사</button><button type="button" onclick="printForm('f1a')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1a','별지_목적물표시.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>채워 넣는 방법.</b> 건물 전부를 되찾을 때는 위쪽 예시, 상가 한 칸·한 호실 등 <b>일부만</b> 되찾을 때는 아래쪽 예시를 쓰고 <b>도면</b>을 첨부합니다. 등기사항전부증명서 표제부 내용을 그대로 옮기되, 실제 점유 범위와 일치시켜야 집행이 매끄럽습니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ①-2 · 신청인(필수 첨부)</span>가처분신청 진술서<span class="chev">▾</span></button><div class="fold-body">
+<div class="howto" style="margin-bottom:10px"><b>이게 왜 필요한가요?</b> 법원은 가처분 남용을 막으려고 이 진술서를 받습니다. 제출하지 않으면 보정명령으로 지연됩니다. 아래 항목에 <b>사실대로</b> 적습니다(양식은 전자소송의 같은 취지 항목을 따릅니다).</div>
+<div class="form" id="f1b"><span class="ft">가처분신청 진술서</span>채권자는 가처분 신청과 관련하여 다음 사실을 사실대로 진술하며,
+허위 진술 시 가처분 신청이 기각되거나 손해배상 책임을 질 수
+있음을 잘 알고 있습니다.
+
+1. 피보전권리(인도청구권)와 관련하여
+  가. 임대차 종료·점유권원 소멸의 사유와 시점  ○○○
+  나. 채무자가 다투는 내용  ○○○
+2. 점유 현황과 관련하여
+  가. 현재 실제 점유자  □ 채무자 본인  □ 그 밖(○○○)
+  나. 제3자에게 점유를 넘기려는 정황  ○○○
+3. 본안소송과 관련하여
+  가. 본안소송 제기 여부  □ 제기함(사건번호 ○○○)  □ 예정
+4. 중복·유사 신청과 관련하여
+  가. 같은 목적물에 다른 보전처분을 한 사실  □ 없음  □ 있음(○○○)
+
+              20○○. ○○. ○○.
+                위 채권자  ○○○ (인 또는 서명)</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1b')">📋 복사</button><button type="button" onclick="printForm('f1b')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1b','가처분신청_진술서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>진술서는 신청서와 한 세트</b>입니다. 특히 <b>현재 실제 점유자가 누구인지</b>를 정확히 적어야 하며, 집행 전 이미 점유자가 바뀌었다면 그 사람을 채무자로 특정해야 집행이 가능합니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ② · 신청인(본안)</span>소장 — 건물인도청구의 소<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f2"><span class="ft">소        장</span>원고  ○○○   (☎: ○○○-○○○○-○○○○)
+주소  ○○○
+피고  ○○○
+주소  ○○○
+
+건물인도청구의 소
+소송목적의 값   금 ○○○원
+
+         청 구 취 지
+1. 피고는 원고에게 별지 목록 기재 부동산을 인도하라.
+2. 피고는 원고에게 20○○. ○○. ○○.부터 위 부동산 인도
+   완료일까지 월 ○○○원의 비율로 계산한 돈을 지급하라.
+3. 소송비용은 피고가 부담한다.
+4. 제1항은 가집행할 수 있다.
+라는 판결을 구합니다.
+
+         청 구 원 인
+1. 원고는 별지 목록 기재 부동산의 소유자(임대인)이고, 피고와
+   20○○. ○○. ○○. 임대차계약을 체결하였습니다(갑 제1호증).
+2. 위 임대차는 20○○. ○○. ○○. 기간만료(또는 해지)로
+   종료되었으므로, 피고는 원고에게 위 부동산을 인도할
+   의무가 있습니다.
+3. 그럼에도 피고는 정당한 권원 없이 이를 계속 점유하고
+   있으므로, 인도와 함께 종료일 이후의 차임 상당 부당이득
+   (또는 손해금)의 지급을 구합니다.
+
+         입 증 방 법
+1. 갑 제1호증   임대차계약서
+1. 갑 제2호증   내용증명(계약 종료·인도 최고)
+1. 갑 제3호증   부동산 등기사항전부증명서
+
+         첨 부 서 류
+1. 위 입증방법 사본    각 1통
+1. 별지 부동산 목록    1통
+1. 소장 부본          1통
+1. 송달료납부서·인지   1통
+
+              20○○. ○○. ○○.
+                위 원고  ○○○ (인 또는 서명)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f2')">📋 복사</button><button type="button" onclick="printForm('f2')">🖨 인쇄</button><button type="button" onclick="downloadForm('f2','건물인도청구_소장.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>가처분 다음에 반드시 제기하는 본안</b>입니다. 청구취지 2번(종료일 이후 차임 상당 돈)은 명도가 늦어진 기간의 손해를 함께 받기 위한 것입니다. <b>이 소송에서 이겨 확정되어야</b> 인도 강제집행을 할 수 있고, 그 사이 점유가 넘어갔다면 승계집행문으로 제3자까지 배제할 수 있습니다(대법원 98다59118).</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ③ · 채무자</span>가처분 이의신청서<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f3"><span class="ft">가처분결정에 대한 이의신청서</span>사건   20○○카단(또는 카합)○○○○호   부동산점유이전금지가처분
+채권자  ○○○
+채무자  ○○○
+
+위 사건에 관하여 채무자는 다음과 같이 이의신청을 합니다.
+
+         신 청 취 지
+1. 위 사건에 관하여 20○○. ○○. ○○. 이 법원이 한 가처분결정을
+   취소한다.
+2. 채권자의 가처분신청을 기각한다.
+라는 결정을 구합니다.
+
+         신 청 이 유
+1. 피보전권리의 부존재
+   채무자는 ○○○(예: 임대차기간이 아직 남아 있음 / 계약이
+   갱신됨)에 따라 위 부동산을 점유할 정당한 권원이 있으므로,
+   채권자에게는 보전할 인도청구권이 존재하지 아니합니다
+   (을 제1호증).
+2. 보전 필요성의 부존재
+   채무자는 점유를 제3자에게 이전할 의사가 없고 그러한 정황도
+   없으므로, 보전의 필요성이 인정되지 아니합니다.
+3. 따라서 이 사건 가처분결정은 부당하므로 취소되어야 합니다.
+
+         소 명 방 법
+1. 을 제1호증   ○○○ (임대차계약서·갱신자료 등)
+
+         첨 부 서 류
+1. 위 소명방법 사본    각 1통
+1. 이의신청서 부본     1통
+
+              20○○. ○○. ○○.
+                위 채무자  ○○○ (인 또는 서명)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f3')">📋 복사</button><button type="button" onclick="printForm('f3')">🖨 인쇄</button><button type="button" onclick="downloadForm('f3','가처분_이의신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>가처분을 당한 채무자</b>의 첫 대응입니다. <b>①점유할 권원이 있다(임대차 유효 등) ②점유이전 우려가 없다</b>는 사유를 골라 소명자료와 함께 냅니다. 이의만으로 집행이 자동 정지되지는 않으니, 급하면 집행정지 신청을 함께 검토합니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ④ · 채무자</span>제소명령 신청서<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f4"><span class="ft">제소명령신청서</span>사건   20○○카단(또는 카합)○○○○호   부동산점유이전금지가처분
+채권자  ○○○
+채무자  ○○○
+
+위 사건에 관하여 채무자는 다음과 같이 신청합니다.
+
+         신 청 취 지
+채권자에게 상당한 기간 이내에 본안의 소를 제기하고 이를
+증명하는 서류를 제출하도록 명하여 주시기 바랍니다.
+라는 결정을 구합니다.
+
+         신 청 이 유
+채권자는 20○○. ○○. ○○. 이 사건 가처분결정을 받고도 상당한
+기간이 지나도록 본안소송을 제기하지 아니한 채 채무자의 점유만
+장기간 제약하고 있습니다. 이에 민사집행법 제287조(제301조에
+의한 준용)에 따라 제소명령을 신청합니다.
+
+         첨 부 서 류
+1. 신청서 부본    1통
+
+              20○○. ○○. ○○.
+                위 채무자  ○○○ (인 또는 서명)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f4')">📋 복사</button><button type="button" onclick="printForm('f4')">🖨 인쇄</button><button type="button" onclick="downloadForm('f4','제소명령신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>채권자가 가처분만 걸고 본안을 안 낼 때</b> 쓰는 압박 수단입니다. 법원이 제소명령을 내리면 채권자는 정해진 기간(통상 2주 이상) 안에 본안을 제기해야 하며, 어기면 채무자가 가처분 취소를 구할 수 있습니다(민집 §287·§301).</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ⑤ · 채무자(본안)</span>답변서 — 건물인도청구에 대한(동시이행)<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f5"><span class="ft">답 변 서</span>사건   20○○가단(또는 가합)○○○○호   건물인도
+원고   ○○○
+피고   ○○○
+
+위 사건에 관하여 피고는 다음과 같이 답변합니다.
+
+         청구취지에 대한 답변
+1. 원고의 청구를 기각한다.
+   (예비적: 피고는 원고로부터 임대차보증금 ○○○원을 지급받음과
+    동시에 별지 목록 기재 부동산을 인도한다.)
+2. 소송비용은 원고가 부담한다.
+라는 판결을 구합니다.
+
+         청구원인에 대한 답변
+1. (권원을 다투는 경우)
+   피고는 ○○○(예: 계약 갱신 / 기간 미도래)에 따라 위 부동산을
+   점유할 정당한 권원이 있으므로, 원고의 인도청구는 이유가
+   없습니다.
+2. (동시이행을 주장하는 경우)
+   설령 임대차가 종료되었더라도, 원고는 피고에게 임대차보증금
+   ○○○원을 아직 반환하지 아니하였습니다. 임대인의 보증금
+   반환의무와 임차인의 목적물 인도의무는 동시이행 관계에
+   있으므로(민법 제536조), 피고는 보증금을 지급받음과 동시에
+   인도할 의무가 있을 뿐입니다.
+3. 따라서 원고의 청구는 이유 없거나, 동시이행의 범위에서만
+   인용되어야 합니다.
+
+         입 증 방 법
+1. 을 제1호증   ○○○ (보증금 지급·미반환 자료, 갱신자료 등)
+
+         첨 부 서 류
+1. 위 입증방법 사본    각 1통
+1. 답변서 부본        1통
+
+              20○○. ○○. ○○.
+                위 피고  ○○○ (인 또는 서명)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f5')">📋 복사</button><button type="button" onclick="printForm('f5')">🖨 인쇄</button><button type="button" onclick="downloadForm('f5','건물인도_답변서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>본안(건물인도) 소장을 받은 피고</b>의 첫 대응입니다. 소장 부본을 받은 날부터 <b>30일 안에</b> 냅니다(민사소송법 §256①). 점유권원이 있으면 ①로, 보증금을 못 받았으면 ②(동시이행)로 다툽니다 — 보증금 반환과 인도는 동시이행 관계이므로, 이 항변을 하면 "보증금을 받음과 동시에 인도하라"는 판결이 됩니다. 무대응 시 무변론 패소할 수 있으니 기한을 지켜야 합니다.</div>
+</div></div>
+</div></details>
+
+<h2 id="s9">고충은 덜어드리고, 결과로 보답하겠습니다</h2>
+<div class="hire">
+<p>본 사무소에서는 의뢰인들의 고충은 덜어드리고, 함께 소송을 진행하여 원하는 결과에 도달할 수 있도록 성심을 다하겠습니다.</p>
+<p style="margin-top:12px"><b>· 채권자(집을 되찾을 분)의 경우</b><br>① <b>점유이전금지가처분신청서·진술서·별지 목적물목록(도면 포함)</b> 작성, ② <b>본안 건물인도청구 소장</b> 작성, ③ <b>집행관 집행 위임·인도 강제집행·승계집행문</b> 안내, ④ 담보제공 안내까지 <b>본인소송의 전 과정을 함께</b> 준비해 드립니다.</p>
+<p style="margin-top:10px"><b>· 채무자(점유 중인 분)의 경우</b><br>① <b>이의신청서·제소명령 신청서</b>, ② 본안 <b>답변서(보증금 동시이행 항변)</b>, ③ <b>부당가처분 손해배상(반소)</b> 전략을 함께 수립해 드립니다.</p>
+</div>
+<div class="warn"><span class="wt">⚠ 자력구제 금지</span>세입자가 나가지 않는다는 이유로 <b>문을 잠그거나 짐을 밖으로 들어내는 행위(단전·단수 포함)는 불법</b>이며 형사처벌·손해배상 대상입니다. 반드시 법원의 가처분·인도집행 절차를 통해야 합니다. 반대로 점유 중인 채무자도, 집행관이 붙인 <b>고시문을 손상하거나 몰래 점유를 넘기면</b> <b><span class="term">공무상표시무효죄<span class="bub">공무원이 직무상 붙인 봉인·표시의 효용을 해치는 범죄(형법 §140). 5년 이하 징역 또는 700만원 이하 벌금.</span></span></b>가 문제될 수 있습니다.</div>
+
+<a href="https://sanlaw.co.kr/tools-calculator.html" class="cta">🧮 내 사건 비용 미리 계산하기</a>
+<div style="text-align:center; background:#f6ecd8; border:1px solid var(--gold); border-radius:11px; padding:14px; margin:18px 0; font-size:15px; color:var(--gold-d); font-weight:700;">📞 상담은 홈 화면의 상담 창구를 이용하시면 됩니다.</div>
+
+<details class="sec" id="s10"><summary>준비할 서류와 발급처 — 어디서 떼나<span class="sub">발급처별 딥링크와 찾아가기 경로를 함께 담았습니다</span></summary>
+<div class="secbody">
+<p style="font-size:13.5px;color:var(--muted)">아래 '바로가기'를 클릭하면 해당 사이트로 이동합니다. 만약 첫 화면으로 연결되면, 옆의 <b>찾아가기 경로</b>를 따라 메뉴를 클릭하면 됩니다.</p>
+<table>
+<tr><th>무엇을 (어디서)</th><th>서류</th><th>바로가기 · 찾아가기 경로</th></tr>
+<tr><td>당사자 확인<br>(정부24)</td><td>채무자 주소보정용 자료, 신청인 신분 소명(외국인은 외국인등록사실증명)</td><td><a href="https://www.gov.kr">정부24</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 검색창에 '주민등록표 초본' 또는 '외국인등록사실증명' 검색 → 발급</span></td></tr>
+<tr><td>목적물 확인<br>(인터넷등기소)</td><td>부동산 등기사항전부증명서(별지 작성·소유 확인용)</td><td><a href="https://www.iros.go.kr">인터넷등기소</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 등기열람/발급 → 부동산 → 열람/발급하기 → 소재지번·도로명으로 검색</span></td></tr>
+<tr><td>피보전권리 소명<br>(본인 보관)</td><td>임대차계약서, 계약 종료·인도 최고 내용증명(본인 보관·우체국)</td><td><span style="font-size:12.5px;color:var(--muted)">본인 보관 자료 / 우체국 내용증명은 인터넷우체국에서 발송·보관 조회</span></td></tr>
+<tr><td>담보 제공<br>(서울보증보험)</td><td>공탁보증보험증권(현금공탁 대체용)</td><td><a href="https://www.sgic.co.kr">서울보증보험</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 법원공탁보증 메뉴 / 또는 가까운 지점·법원 내 출장소 방문</span></td></tr>
+<tr><td>가처분 집행<br>(집행관사무소)</td><td>집행 위임(신청) — 결정 후 2주 이내</td><td><span style="font-size:12.5px;color:var(--muted)">관할 법원 내 집행관사무소 방문·위임(집행 수수료 예납). ※ 등록면허세 없음</span></td></tr>
+<tr><td>신청·소송 제출<br>(전자소송)</td><td>점유이전금지가처분신청서·소장 — 공식 양식</td><td><a href="https://ecfs.scourt.go.kr">전자소송</a> / <a href="https://ecfs.scourt.go.kr/psp/index.on?m=PSP720M24">양식모음</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 전자소송 → 서류제출 → 민사신청 → 부동산점유이전금지가처분</span></td></tr>
+</table>
+
+<div class="tip"><span class="pt">💡 이어지는 카드</span> <b>부동산 자체(소유권)를 지키려면</b> — <a class="cl" href="B-1_부동산처분금지가처분.html"><b>처분금지가처분(B-1)</b></a>, <b>공사를 멈추게</b> 하려면 <a class="cl" href="B-3_공사금지가처분.html"><b>공사금지가처분(B-3)</b></a>을 보십시오. <b>못 받은 보증금(돈)을 지키려면</b> <a class="cl" href="A-4_전세보증금가압류.html"><b>전세보증금 가압류(A-4)</b></a>도 함께 검토하십시오. 반대로 <b>가처분을 당하신 분</b>은 <a class="cl" href="C-2_가처분방어.html"><b>가처분을 당했을 때의 방어(C-2)</b></a>를 보십시오. 전체 유형은 <a class="cl" href="보전처분_전체유형표.html"><b>보전처분 전체 유형표</b></a>에 있습니다. <span style="color:var(--muted);font-size:13px">(※ 링크 파일명은 해당 카드 배포 후 최종 확정합니다.)</span></div>
+
+</div></details>
+<div class="src">
+근거 — 민사집행법 제300조(가처분의 목적)·제301조(가압류 절차의 준용)·제303조(관할)·제305조·제291조(가처분의 방법·집행)·제292조 제2항(집행기간 2주)·제31조(승계집행문)·제280조(담보제공)·제283조(이의)·제287조(제소명령)·제288조(사정변경 취소) · 민법 제161조(기간 말일)·제162조(소멸시효)·제536조(동시이행)·제750조(불법행위 손해배상) · 민사소송법 제256조(답변서) · 형법 제140조(공무상표시무효) · 대법원 1999. 3. 23. 선고 98다59118 판결(점유이전금지가처분의 당사자항정효·승계집행문에 의한 제3자 점유 배제) · 대법원 2015. 1. 29. 선고 2012다111630 판결(채무자를 통하지 않은 침탈 점유는 승계인이 아님) · 법제처 찾기쉬운 생활법령정보 · 국가법령정보센터 · 대법원 전자민원센터. 본 자료는 일반적인 법률정보로, 개별 사건의 법률자문이 아닙니다.
+</div>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+})();
+
+(function(){
+  document.querySelectorAll('.toc a').forEach(function(a){
+    a.addEventListener('click',function(){
+      var el=document.querySelector(a.getAttribute('href'));
+      if(el&&el.tagName==='DETAILS')el.open=true;
+    });
+  });
+  var btn=document.getElementById('allBtn');
+  if(!btn)return;
+  function toggleAll(){
+    var opening=btn.textContent.indexOf('펼치기')>-1;
+    document.querySelectorAll('details.sec').forEach(function(d){d.open=opening;});
+    document.querySelectorAll('.formbox').forEach(function(fb){
+      fb.classList.toggle('open',opening);
+      var body=fb.querySelector('.fold-body');
+      if(body)body.style.display=opening?'block':'none';
+    });
+    btn.textContent=opening?'전체 접기':'전체 펼치기';
+  }
+  btn.addEventListener('click',toggleAll);
+  btn.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleAll();}});
+})();
+(function(){
+})();
+function toggleFold(b){var fb=b.parentElement;var body=b.nextElementSibling;var open=fb.classList.toggle('open');if(body){body.style.display=open?'block':'none';}}
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('작성례가 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('작성례가 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('작성례를 내려받았습니다');}
+</script>
+</body>
+</html>
