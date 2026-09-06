@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[집행 D-1] 판결문을 받았는데도 돈을 주지 아니합니다 — 예금·급여를 압류하여 직접 받아내기 | 산 법무사 김재섭</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(280px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.case{background:var(--box); border-radius:10px; padding:14px 16px; margin:14px 0; border-left:4px solid #b9a98c;}
+.case .ct{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+.sit-wrap{display:flex; gap:12px; margin:14px 0;}
+.sit{flex:1; background:#f8f5ee; border:1px solid var(--line); border-top:3px solid var(--gold); border-radius:10px; padding:13px 15px; font-size:14.5px; line-height:1.75;}
+.sit .sl{display:block; font-weight:700; color:var(--gold-d); margin-bottom:6px; font-size:14px;}
+@media (max-width:680px){ .sit-wrap{flex-direction:column;} }
+/* 전체 길 흐름도 (A-1 추가 — 기존 톤 재활용) */
+.flow{background:linear-gradient(180deg,#faf7f0,#f6f1e6); border:1px solid var(--line); border-radius:14px; padding:22px 20px; margin:16px 0;}
+.flow .fl-t{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:18px; text-align:center; letter-spacing:.3px;}
+.flow .node{position:relative; background:#fff; border:1px solid #e3d8c4; border-radius:11px; padding:15px 18px 15px 56px; font-size:14.5px; line-height:1.72; box-shadow:0 2px 6px rgba(122,82,48,.07);}
+.flow .node .num{position:absolute; left:15px; top:14px; width:30px; height:30px; line-height:30px; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; border-radius:50%; font-weight:800; font-size:15px; font-family:'Nanum Myeongjo',serif; box-shadow:0 2px 5px rgba(122,82,48,.3);}
+.flow .node b{color:#241a10;}
+.flow .down{display:flex; justify-content:center; align-items:center; padding:7px 0;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+/* 작성례 박스 */
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+details.sec{border:1px solid var(--line); border-radius:11px; margin:18px 0; background:#fff; overflow:hidden;}
+details.sec>summary{cursor:pointer; list-style:none; padding:14px 17px 14px 15px; background:var(--box); border-left:4px solid var(--gold); font-family:'Nanum Myeongjo',serif; font-size:18px; font-weight:700; color:var(--gold-d); line-height:1.55;}
+details.sec>summary::-webkit-details-marker{display:none;}
+details.sec>summary .sub{display:block; font-family:'Pretendard',sans-serif; font-size:13.5px; font-weight:400; color:var(--muted); margin-top:3px;}
+details.sec>summary::after{content:"펼치기 ▾"; float:right; font-family:'Pretendard',sans-serif; font-size:12.5px; font-weight:700; color:var(--gold); background:#fff; border:1px solid var(--line); border-radius:20px; padding:2px 10px; margin-left:8px;}
+details.sec[open]>summary::after{content:"접기 ▴";}
+details.sec>summary:hover{background:#f2ede3;}
+.secbody{padding:4px 17px 16px;}
+.secbody>h3:first-of-type{margin-top:14px;}
+.toc{background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 17px; margin:8px 0 22px;}
+.toc .tct{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:9px;}
+.toc ol{margin:0; padding-left:20px;}
+.toc li{margin:5px 0; font-size:14.5px;}
+.toc a{text-decoration:none; border-bottom:1px dotted var(--gold);}
+.allbtn{display:inline-block; margin-top:11px; font-size:13.5px; font-weight:700; color:var(--gold-d); background:var(--box); border:1px solid var(--line); border-radius:8px; padding:7px 14px; cursor:pointer;}
+.allbtn:hover{background:#f2ede3;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:15px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .tag{margin-bottom:0;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;}
+.tag.cred{background:#5a9a72;}
+.tag.debt{background:#d9694a;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:18px;margin:12px 0;font-family:'D2Coding','Courier New',monospace;font-size:13px;line-height:1.6;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:16px;letter-spacing:2px;margin-bottom:12px;color:#241a10;}
+.howto{font-size:14px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0 4px;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:13px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:7px 13px;cursor:pointer;transition:.15s;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.75;}
+.lawbox .ll{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold-d);border-radius:5px;padding:2px 9px;margin-right:7px;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.hire p{margin:7px 0; font-size:15px; line-height:1.8;}
+.cta{display:block;text-align:center;background:var(--gold-d);color:#fff;font-weight:700;font-size:17px;text-decoration:none;padding:15px;border-radius:11px;margin:18px 0;font-family:'Nanum Myeongjo',serif;letter-spacing:1px;}
+.cta:hover{background:#5e3f24;}
+@media print{
+  .backbar{display:none !important;}
+  body{background:#fff; max-width:100%;}
+  .tldr,.case,.warn,.tip,.cost,.steps li,.tnote,.sit,.flow,.flow li,.lawbox,.hire{background:#fff !important; border-color:#ccc !important;}
+  .tnote{display:none;}
+  .term{border:none; color:inherit; font-weight:inherit;}
+  .term>.bub{display:inline !important; position:static; width:auto; background:none; color:inherit; box-shadow:none; padding:0; font-size:inherit; line-height:inherit;}
+  .term>.bub::before{content:" ("; }
+  .term>.bub::after{content:")"; border:none; position:static;}
+  .fold-body{display:block !important;}.fold-btn .chev{display:none;}.form-tools{display:none;}
+  details.sec:not([open])>*{display:block !important;}
+  details.sec>summary::after{display:none;} .allbtn,.toc{display:none !important;}
+  .cta{background:#fff !important; color:#241a10 !important; border:1px solid #ccc;}
+}
+.cl{color:var(--gold-d);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--gold-d);}
+.cl:hover{background:#fbf5e8;}
+.tip .cl,.tip .cl b{color:var(--tip-ink);}
+.tip .cl{border-bottom-color:var(--tip-ink);}
+.warn .cl,.warn .cl b{color:var(--warn-ink);}
+.warn .cl{border-bottom-color:var(--warn-ink);}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+
+<h1>[집행 D-1] 판결문을 받았는데도 돈을 주지 아니합니다 — 예금·급여를 압류하여 직접 받아내기(채권압류 및 추심·전부명령)</h1>
+
+<div class="tnote">어려운 법률용어에는 <b>점선 밑줄</b>이 그어져 있습니다. <b>PC는 마우스를 올리면</b>, <b>휴대폰은 손가락으로 톡 터치하면</b> 쉬운 설명이 뜹니다. (인쇄하면 괄호로 함께 나옵니다.)</div>
+
+<div class="hire">
+<div class="ht">이 매뉴얼을 끝까지 읽으시는 분께</div>
+<p>이 매뉴얼은 <b>의뢰인이 직접 법원에 신청할 수 있도록 모든 서류 양식·비용·요건을 구체적으로 담았습니다.</b> 하지만 소송은 살아있는 생물과 같아 상대방의 격렬한 저항이 뒤따릅니다. 혼자 진행하시다가 막히는 부분이 생기거나 방어막이 필요할 때, 언제든 이 매뉴얼을 들고 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</p>
+</div>
+
+<div class="tldr">
+<div class="tt">⭐ 30초 결론부터</div>
+<ul>
+<li><b>판결문은 '받을 권리를 확인해 준 종이'일 뿐, 그 자체로 돈이 들어오지는 않습니다.</b> 실제로 회수하려면 판결문에 <span class="term">집행문<span class="bub">"이 판결로 강제집행을 하여도 좋다"고 법원사무관등이 판결정본 끝에 덧붙여 주는 공증문구. 이것이 붙어야 비로소 집행을 개시할 수 있습니다(민집 §28·§29).</span></span>을 받아 <b>채권압류 및 추심명령</b>을 신청하여야 합니다(<span class="term">민사집행법 §223<span class="bub">금전채권에 대한 강제집행은 집행법원의 압류명령으로 개시한다는 조문. 통장·월급·전세보증금처럼 '채무자가 남에게서 받을 돈'을 잡는 절차의 출발점입니다.</span></span>·§225·§229).</li>
+<li><b>압류명령은 <span class="term">제3채무자<span class="bub">빚진 사람(채무자)이 거꾸로 돈을 받을 곳. 예금이면 그 은행, 월급이면 그 회사, 전세보증금이면 집주인이 제3채무자입니다.</span></span>에게 송달되는 순간 효력이 생깁니다</b>(민집 §227③). 채무자에게 미리 알리지 아니하고 진행되므로, 은행에 결정문이 도착하는 그 시각에 잔액이 동결됩니다.</li>
+<li><b>회수 방법은 두 갈래 — <span class="term">추심명령<span class="bub">채권자가 채무자를 대신하여 제3채무자에게서 직접 돈을 받아낼 '권한'을 얻는 것. 받은 뒤에는 법원에 추심신고를 하여야 하고, 다른 채권자가 끼어들면 나누게 됩니다(민집 §229②·§236).</span></span>과 <span class="term">전부명령<span class="bub">압류한 채권 자체를 채권자 앞으로 통째로 넘겨받는 것. 다른 채권자가 끼어들 수 없어 독점하지만, 그 순간 판결금 채권은 변제된 것으로 처리됩니다(민집 §229③·§231).</span></span>입니다.</b> 안전한 쪽은 추심명령, 독점하고 싶으면 전부명령. 다만 전부명령은 <b>제3채무자가 돈이 없으면 한 푼도 못 받고 채무자에게 다시 청구할 수도 없습니다</b>(아래 판례 ①·②와 선택표).</li>
+<li><b>압류하지 못하는 돈이 있습니다.</b> 예금은 <b>250만원</b>까지, 월급은 원칙적으로 <b>2분의 1</b>까지만 압류할 수 있고 그마저 일정액은 남겨 주어야 합니다(민집 §246, 같은 법 시행령 — <b>2026. 2. 1. 시행 개정</b>). 압류당한 분은 <b>압류금지채권 범위변경 신청</b>으로 되찾을 수 있습니다(민집 §246③, 아래 작성례 ⑥).</li>
+</ul>
+</div>
+
+<div class="toc">
+<div class="tct">이 카드에 담긴 것 — 필요한 곳만 펼쳐 보십시오</div>
+<ol>
+<li><a href="#s1">지금 어떤 상황인가요?</a></li>
+<li><a href="#s2">돈이 들어오기까지 — 전체 길 한눈에 보기</a></li>
+<li><a href="#s3">핵심 세 가지</a></li>
+<li><a href="#s4">관련 법령 — 쉬운 풀이</a></li>
+<li><a href="#s5">판례로 보기 — 양쪽 모두 알아야 할 두 가지</a></li>
+<li><a href="#s6">채권자 — 집행문부터 회수·완결까지 상세 절차</a></li>
+<li><a href="#s7">채무자 — 통장·월급이 압류되었다면 방어 절차</a></li>
+<li><a href="#s8">서류 작성례 — 빈칸만 채우면 됩니다</a></li>
+<li><a href="#s9">고충은 덜어드리고, 결과로 보답하겠습니다</a></li>
+<li><a href="#s10">준비할 서류와 발급처 — 어디서 떼나</a></li>
+</ol>
+<span class="allbtn" id="allBtn" role="button" tabindex="0">전체 펼치기</span>
+</div>
+
+<h2 id="s1">지금 어떤 상황인가요?</h2>
+<div class="sit-wrap">
+<div class="sit"><span class="sl">상황 ① · 판결(지급명령·조정조서)을 받고도 변제받지 못한 분 (채권자·신청인)</span>승소 판결·<span class="term">지급명령<span class="bub">소송 없이 서면심리만으로 "돈을 지급하라"는 명령을 받는 간이절차. 채무자가 2주 안에 이의하지 아니하면 확정되어 판결과 같은 효력을 가집니다.</span></span>·조정조서·<span class="term">공정증서<span class="bub">공증인이 작성한 금전소비대차계약 공정증서 등. "강제집행을 승낙한다"는 문구가 들어 있으면 재판 없이도 곧바로 집행할 수 있습니다(민집 §56 제4호).</span></span>가 있는데도 상대가 갚지 아니하는 경우. → 상대의 <b>통장·월급·전세보증금·매출대금</b>을 압류하여 직접 받아냅니다. <b>아래 작성례 ①·②·③·④·⑤</b>가 채권자의 서류입니다.</div>
+<div class="sit"><span class="sl">상황 ② · 통장이 정지되거나 월급이 깎여 나가는 분 (채무자·압류를 당한 쪽)</span>어느 날 갑자기 <b>카드 결제가 막히고 통장 잔액이 인출되지 않거나</b>, 급여명세서에 압류 공제가 찍힌 경우. → 압류금지 범위를 되찾거나, 이미 갚은 빚이라면 집행 자체를 막습니다. <b>아래 작성례 ⑥·⑦</b>이 채무자의 서류입니다.</div>
+</div>
+
+<h2 id="s2">돈이 들어오기까지 — 전체 길 한눈에 보기</h2>
+<div class="flow">
+<div class="fl-t">채권자가 가야 할 5단계 (집행문 → 압류·추심 신청 → 송달 → 추심 → 신고·완결)</div>
+<div class="node"><span class="num">1</span><b>집행권원 준비 — 집행문·송달증명·확정증명</b> — 판결문만으로는 부족합니다. 판결을 선고한 <b>제1심 법원</b>에서 <span class="term">집행문<span class="bub">"이 정본으로 강제집행을 할 수 있다"는 공증문구. 판결정본 끝에 붙여 줍니다(민집 §29).</span></span>·<span class="term">송달증명원<span class="bub">판결문이 상대방에게 언제 송달되었는지를 증명하는 서류. 송달되지 아니하면 집행을 개시할 수 없습니다(민집 §39①).</span></span>·<span class="term">확정증명원<span class="bub">그 판결이 더 이상 다툴 수 없이 확정되었음을 증명하는 서류. 가집행선고가 붙은 판결은 확정 전에도 집행할 수 있어 생략하기도 합니다.</span></span>을 발급받습니다. <b>다만 확정된 지급명령·이행권고결정은 집행문 없이 그 정본만으로 집행할 수 있습니다</b>(민집 §58①, 소액사건심판법 §5의8).</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">2</span><b>채권압류 및 추심(전부)명령 신청</b> — <b>채무자의 주소지 관할 지방법원</b>에 신청합니다(민집 §224①). 압류할 채권을 <b>별지 목록</b>으로 특정하여야 하며(작성례 ①-1·①-2), 인지 4,000원과 송달료를 냅니다. 심문 없이 서면으로 결정됩니다(민집 §226).</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">3</span><b>제3채무자에게 송달 → 이 순간 압류 효력 발생</b> — 결정문이 은행·회사에 도착하면 그때부터 지급이 금지됩니다(민집 §227③). 함께 <b>진술최고</b>를 신청해 두면 제3채무자가 <b>1주 안에</b> "그 채권이 있는지, 얼마인지, 이미 다른 압류가 걸려 있는지"를 서면으로 답합니다(민집 §237, 작성례 ③). <b>이 답변이 헛압류를 가려내는 결정적 자료입니다.</b></div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">4</span><b>추심(회수)</b> — 추심명령은 <b>채무자에게 송달된 날부터 1주가 지나면</b> 추심할 수 있습니다(민집 §227·§229, 즉시항고 기간 경과). 채권자가 직접 은행·회사에 결정문과 신분증을 제시하고 지급을 청구합니다. 거절하면 <b>추심금 청구의 소</b>를 제기합니다(민집 §238, 작성례 ④). 전부명령을 택하였다면 <b>확정된 뒤</b>에야 효력이 생깁니다(민집 §229).</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">5</span><b>추심신고 → 사건 완결</b> — 돈을 받았으면 <b>지체 없이 법원에 추심신고</b>를 하여야 합니다(민집 §236①, 작성례 ⑤). 신고 전에 다른 채권자의 압류·배당요구가 들어와 있으면 <b>받은 돈을 그대로 공탁</b>하고 사유신고를 하여 배당절차로 넘깁니다(민집 §236②). 신고를 미루면 그사이 끼어든 채권자와 나누게 됩니다.</div>
+</div>
+<div class="warn"><span class="wt">⚠ 여기서 가장 많이 놓치는 것</span>① <b>집행문·송달증명 없이 신청하여 보정명령을 받는 경우</b>가 대단히 많습니다. ② <b>추심신고를 잊는 경우</b> — 돈은 받았는데 신고를 안 하면 사건이 끝나지 않고, 뒤늦게 배당요구가 들어오면 다시 토해내야 할 수 있습니다. ③ <b>가압류를 해 두었던 분</b>은 별건 신규 압류가 아니라 <b>'가압류를 본압류로 이전하는' 형식</b>으로 신청하여야 순위를 지킵니다(민집 §291 — <b>D-7 카드</b> 참조).</div>
+
+<h2 id="s3">핵심 세 가지</h2>
+<ol class="steps">
+<li><b>판결 → 집행문 → 압류. 이 세 단계를 건너뛸 수 없습니다</b><br>집행권원(판결·지급명령·조정조서·공정증서)이 있어도, <b>집행문과 송달증명</b>이 갖추어져야 집행을 개시할 수 있습니다(민집 §39①). 확정된 지급명령·이행권고결정만 예외적으로 집행문이 필요 없습니다(민집 §58①).</li>
+<li><b>무엇을 압류할지 '별지 목록'으로 특정하여야 합니다</b><br>"○○은행에 있는 모든 예금"처럼 두루뭉술하면 각하됩니다. <b>은행명·지점·계좌 종류·압류 순서</b>를 별지에 적어 특정하여야 하고(작성례 ①-1), 급여는 <b>매월 지급되는 급여에서 압류금지액을 뺀 나머지의 2분의 1</b>과 같이 산식으로 표시합니다(작성례 ①-2).</li>
+<li><b>추심이냐 전부냐 — 되돌릴 수 없는 선택입니다</b><br><b>추심명령</b>은 못 받으면 채무자의 다른 재산에 다시 집행할 수 있습니다. <b>전부명령</b>은 확정되는 순간 판결금 채권이 <b>변제된 것으로 간주</b>되어(민집 §231 본문), 제3채무자가 무자력이면 회수도 재집행도 불가능합니다. 다만 <b>압류한 채권이 애초에 존재하지 아니하였다면</b> 전부명령은 무효이고 판결금 채권도 소멸하지 아니합니다(민집 §231 단서, 아래 판례 ①).
+</li>
+</ol>
+
+<details class="sec" id="s4"><summary>관련 법령 — 쉬운 풀이<span class="sub">집행문 · 압류명령 · 추심 · 전부 · 압류금지 · 배당요구</span></summary>
+<div class="secbody">
+<div class="lawbox"><span class="ll">민사집행법 §28·§29 (집행문)</span>판결정본 끝에 "이 정본으로 강제집행을 할 수 있다"는 문구를 붙여 주는 절차. <b>제1심 법원 사무과</b>에서 신청합니다. 이것이 붙어야 비로소 집행기관이 움직입니다.</div>
+<div class="lawbox"><span class="ll">민사집행법 §39① (집행개시의 요건)</span>강제집행은 <b>집행권원이 채무자에게 송달된 뒤</b>에 개시할 수 있습니다. 그래서 송달증명원이 필요합니다.</div>
+<div class="lawbox"><span class="ll">민사집행법 §223·§224·§225 (압류명령의 신청·관할)</span>금전채권 집행은 압류명령으로 시작하고, 관할은 <b>채무자의 보통재판적(주소지) 지방법원</b>입니다. 신청서에 압류할 채권의 종류와 액수를 밝혀야 합니다.</div>
+<div class="lawbox"><span class="ll">민사집행법 §227 (금전채권의 압류)</span>법원은 제3채무자에게 <b>채무자에 대한 지급을 금지</b>하고, 채무자에게 <b>처분·영수를 금지</b>합니다. <b>제3채무자에게 송달된 때 효력이 발생</b>합니다(③). 압류명령 재판에는 즉시항고할 수 있습니다(④).</div>
+<div class="lawbox"><span class="ll">민사집행법 §229 (현금화방법 — 추심·전부)</span>압류채권자는 추심명령이나 전부명령을 신청할 수 있습니다(①). 추심명령을 받으면 <b>대위절차 없이</b> 직접 추심합니다(②). 전부명령은 압류채권이 <b>지급에 갈음하여</b> 채권자에게 이전됩니다(③). <b>전부명령 송달 전에 다른 채권자의 압류·가압류·배당요구가 있으면 전부명령은 효력이 없습니다</b>(⑤).</div>
+<div class="lawbox"><span class="ll">민사집행법 §231 (전부명령의 효과)</span>전부명령이 확정되면 <b>송달된 때에 채무자가 변제한 것으로 봅니다</b>. 다만 <b>이전된 채권이 존재하지 아니한 때에는 그러하지 아니합니다</b>(단서). 이 단서가 채권자를 구제하는 유일한 통로입니다.</div>
+<div class="lawbox"><span class="ll">민사집행법 §236 (추심의 신고)</span>추심한 채권액을 <b>법원에 신고</b>하여야 합니다. 신고 전에 다른 압류·가압류·배당요구가 있었으면 <b>추심한 금액을 바로 공탁</b>하고 사유를 신고하여야 합니다.</div>
+<div class="lawbox"><span class="ll">민사집행법 §237 (제3채무자의 진술의무)</span>채권자의 신청으로 법원이 최고하면, 제3채무자는 <b>송달받은 날부터 1주 안에</b> 채권의 존부·액수·다른 압류의 유무를 서면으로 진술하여야 합니다.</div>
+<div class="lawbox"><span class="ll">민사집행법 §238 (추심의 소제기)</span>추심채권자가 제3채무자를 상대로 소를 제기할 때에는 <b>채무자에게 소를 고지</b>하여야 합니다.</div>
+<div class="lawbox"><span class="ll">민사집행법 §246 · 같은 법 시행령 (압류금지채권) — 2026. 2. 1. 시행 개정</span>급여·연금 등은 원칙적으로 <b>2분의 1</b>까지만 압류할 수 있고(§246① 제4호·제5호), 개인별 잔액 <b>250만원</b> 이하의 예금은 압류하지 못합니다(§246① 제9호, 시행령). <b>생계비계좌</b> 제도도 신설되었습니다(§246의2). 법원은 신청에 따라 <b>압류금지 범위를 늘리거나 줄일 수 있습니다</b>(§246③).</div>
+<div class="lawbox"><span class="ll">민사집행법 §247 (배당요구) · §248 (제3채무자의 공탁)</span>다른 채권자는 추심신고 전까지 배당요구를 할 수 있고, 제3채무자는 압류가 겹치면 <b>채무액을 공탁</b>하여 책임을 벗을 수 있습니다.</div>
+<div class="lawbox"><span class="ll">민사집행법 §44 (청구이의의 소) · §49 (집행의 정지)</span>이미 변제하였는데도 집행당하는 채무자는 <b>청구이의의 소</b>와 <b>강제집행정지 신청</b>으로 막습니다(<b>D-5 카드</b>).</div>
+<div class="tip"><span class="pt">💡 인지액·송달료는 따로 계산합니다</span><b>인지</b>는 신청 종류별 정액(채권압류 및 추심·전부명령 <b>4,000원</b>), <b>송달료</b>는 <b>당사자 수 × 회차 × 1회 단가</b>로 별도 예납합니다. 아래 <b>비용</b> 항목과 🧮 계산기를 함께 보십시오.</div>
+</div>
+</details>
+
+<details class="sec" id="s5"><summary>판례로 보기 — 양쪽 모두 알아야 할 두 가지<span class="sub">실제 사건에서 법원이 어떻게 판단했는지</span></summary>
+<div class="secbody">
+<div class="case">
+<span class="ct">○ 압류 당시 그 채권이 이미 남에게 넘어가 있었다면 압류·추심·전부명령은 모두 무효 — 대법원 2022. 12. 1. 선고 2022다247521 판결(배당이의)</span>
+<p><b>[사실관계]</b> 채무자가 자기가 받을 투자금반환채권을 이미 다른 사람들에게 <b>양도</b>하였고, 제3채무자가 <b>확정일자 있는 증서로 승낙</b>까지 하여 대항요건이 갖추어져 있었습니다. 그 뒤 다른 채권자들이 바로 그 채권에 대하여 <b>채권압류 및 추심명령·전부명령</b>을 받아 제3채무자에게 송달하였습니다. 나중에 그 채권양도가 <span class="term">사해행위<span class="bub">빚이 많은 채무자가 채권자를 해치는 것을 알면서 재산을 남에게 넘기는 행위. 취소소송으로 되돌릴 수 있습니다(민법 §406).</span></span>라는 이유로 취소되어 채권이 채무자에게 돌아왔습니다.</p>
+<p><b>[법원의 판단]</b> 압류·추심명령이 송달될 당시 <b>피압류채권은 이미 존재하지 아니한 것과 같아 압류의 효력이 없고, 그에 기한 추심명령도 무효</b>이며, 전부명령 역시 송달 시점에 채권이 없으면 무효입니다. <b>나중에 채권양도가 취소되어 채권이 되돌아왔다고 하여, 이미 무효가 된 압류명령이 다시 살아나지는 아니한다</b>고 판단하여 원심을 파기하였습니다.</p>
+<p><b>[그래서 어떻게 하여야 하나]</b> 압류는 <b>'그 시점에 실제로 존재하는 채권'</b>을 잡아야 합니다. 그래서 <b>진술최고 신청(작성례 ③)을 반드시 함께</b> 내십시오. 은행·회사가 1주 안에 "그런 채권 없다", "이미 다른 압류가 있다"고 답해 주면, 헛수고와 비용을 아끼고 <b>다른 재산으로 즉시 방향을 바꿀 수 있습니다</b>(재산명시·재산조회는 <b>D-3 카드</b>).</p>
+</div>
+<div class="case">
+<span class="ct">○ 추심명령이 있어도 채무자는 여전히 소송을 제기할 수 있다(25년 만의 판례 변경) — 대법원 2025. 10. 23. 선고 2021다252977 전원합의체 판결</span>
+<p><b>[사실관계]</b> 채무자(회사)가 제3채무자를 상대로 자기 채권의 이행을 구하는 소송을 제기하였는데, 소송 도중 <b>다른 채권자가 그 채권에 압류 및 추심명령을 받았습니다.</b> 상대방은 "추심명령이 있으므로 채무자는 더 이상 소송을 할 자격이 없다"며 <span class="term">당사자적격<span class="bub">특정 사건에서 원고나 피고로서 소송을 수행하고 판결을 받을 수 있는 자격. 이것이 없으면 법원은 본안 판단 없이 소를 각하합니다.</span></span> 상실을 주장하였습니다.</p>
+<p><b>[법원의 판단]</b> 대법원은 전원합의체로 <b>"추심명령이나 체납처분에 의한 압류가 있더라도 채무자가 그 채권에 관하여 이행의 소를 제기할 당사자적격을 상실한다고 볼 수 없다"</b>고 판단하여, 약 25년간 유지되어 온 종전 판례(대법원 2000. 4. 11. 선고 99다23888 판결 등)를 변경하였습니다.</p>
+<p><b>[그래서 어떻게 하여야 하나]</b> <b>채무자 입장</b>에서는, 압류가 걸렸다는 이유만으로 자기 권리를 다투는 소송이 각하되지 아니하므로 <b>제3채무자를 상대로 한 소송을 스스로 이어갈 수 있습니다.</b> <b>채권자 입장</b>에서는, 추심권은 여전히 채권자에게 있으나 <b>채무자가 별도로 진행하는 소송과 겹칠 수 있으므로</b>, 추심의 소를 제기할 때 <b>채무자에게 소송고지(민집 §238)</b>를 빠뜨리지 말고 진행 상황을 확인하여야 합니다.</p>
+</div>
+<div class="tip"><span class="pt">💡 두 판례가 함께 말하는 것</span>압류는 <b>'있는 채권'을 '제때' 잡아야</b> 효력이 있고, 잡은 뒤에도 <b>채무자·다른 채권자와의 관계가 계속 살아 움직입니다.</b> 그래서 진술최고·소송고지·추심신고 같은 <b>작은 절차 하나하나가 결과를 갈라놓습니다.</b></div>
+</div>
+</details>
+<details class="sec" id="s6"><summary>채권자 — 집행문부터 회수·완결까지 상세 절차<span class="sub">집행문 · 관할 · 인지 · 송달료 · 추심/전부 선택 · 진술최고 · 추심신고 · 배당</span></summary>
+<div class="secbody">
+<ol class="steps">
+<li><b>집행권원에 집행문을 받습니다</b> — <b>판결을 선고한 제1심 법원 종합민원실</b>에 <b>집행문부여신청서</b>를 내고, 판결정본에 집행문을 받습니다(민집 §28·§29). 같은 자리에서 <b>송달증명원·확정증명원</b>도 함께 신청하십시오. 전자소송으로 진행한 사건은 <b>전자소송 홈페이지 → 제증명 신청</b>에서 온라인으로 발급받을 수 있습니다.
+<div class="howto">▷ <b>집행문이 필요 없는 경우</b> — 확정된 지급명령(민집 §58①), 소액사건의 이행권고결정(소액사건심판법 §5의8)은 <b>그 정본만으로</b> 집행합니다. 다만 <b>송달증명원은 필요</b>합니다.<br>▷ <b>공정증서</b>는 그 증서를 작성한 <b>공증인사무소</b>에서 집행문을 받습니다.</div></li>
+
+<li><b>어떤 재산을 압류할지 정합니다</b> — 회수 가능성은 <b>대상 선택에서 이미 절반이 결정됩니다.</b>
+<div class="howto">▷ <b>예금</b> — 회수가 가장 빠르지만 잔액이 없으면 헛일. 주거래 은행을 겨냥하고, 여러 은행을 한 신청서에 <b>순위를 매겨</b> 기재합니다.<br>▷ <b>급여</b> — 직장이 확인되면 가장 확실합니다. 퇴직 전까지 매월 자동으로 회수됩니다.<br>▷ <b>임대차보증금</b> — 임대인이 제3채무자. 금액이 크지만 계약 종료 시점까지 기다려야 합니다.<br>▷ <b>매출대금·공사대금</b> — 사업자 채무자에게 효과가 큽니다. 거래처를 제3채무자로 삼습니다.<br>▷ <b>재산을 전혀 모르는 경우</b> — 먼저 <b>재산명시신청 → 재산조회</b>로 재산을 찾아내십시오(D-3 카드).</div></li>
+
+<li><b>관할 법원에 신청합니다</b> — <b>채무자의 주소지(보통재판적) 지방법원</b>이 원칙입니다(민집 §224①). 채무자의 주소를 알 수 없으면 <b>압류할 채권의 소재지</b> 지방법원에 신청할 수 있습니다(같은 조 ②). 전자소송으로 제출하면 <b>서류제출 → 민사집행 → 채권압류 및 추심(전부)명령</b> 순서로 진행합니다.</li>
+
+<li><b>추심명령과 전부명령 중 하나를 고릅니다</b> — 아래 표대로 판단하십시오. <b>확신이 서지 않으면 추심명령</b>이 원칙입니다.
+<table>
+<tr><th>비교</th><th>채권압류 및 <b>추심</b>명령</th><th>채권압류 및 <b>전부</b>명령</th></tr>
+<tr><th>효과</th><td>받아낼 <b>권한</b>만 얻습니다(민집 §229②)</td><td>채권 <b>자체</b>가 채권자에게 넘어옵니다(§229③)</td></tr>
+<tr><th>다른 채권자</th><td>배당요구로 <b>끼어들 수 있음</b> → 나눠 받음</td><td>확정되면 <b>독점</b>. 다만 송달 전에 다른 압류·가압류·배당요구가 있으면 <b>무효</b>(§229⑤)</td></tr>
+<tr><th>못 받았을 때</th><td>채무자의 <b>다른 재산에 다시 집행 가능</b></td><td>판결금이 <b>변제된 것으로 간주</b>되어 재집행 불가(§231 본문)</td></tr>
+<tr><th>효력 발생</th><td>제3채무자 송달 시(즉시항고 기간 경과 후 추심)</td><td><b>확정되어야</b> 효력(§229)</td></tr>
+<tr><th>이럴 때 유리</th><td>제3채무자의 자력이 불확실할 때, 다른 채권자가 있을 때 — <b>일반적인 경우</b></td><td>제3채무자가 <b>은행·대기업·국가</b> 등 확실하고, 다른 압류가 없을 때</td></tr>
+</table></li>
+
+<li><b>압류할 채권을 별지 목록으로 특정합니다</b> — 이 부분이 <b>보정명령의 최대 원인</b>입니다. 예금은 은행·지점·계좌 종류와 <b>압류 순서</b>를, 급여는 <b>압류금지액을 공제한 나머지의 2분의 1</b>이라는 산식을 적습니다(작성례 ①-1·①-2).</li>
+
+<li><b>진술최고를 함께 신청합니다</b> — 별건 서면 한 장(작성례 ③)이면 됩니다. 제3채무자는 <b>송달받은 날부터 1주 안에</b> ① 채권의 존부 ② 액수 ③ 다른 압류·가압류의 유무를 서면으로 진술합니다(민집 §237). <b>헛압류인지 여기서 판가름 납니다.</b></li>
+
+<li><b>비용을 납부합니다</b> — 인지와 송달료는 <b>완전히 별개</b>입니다.
+<div class="cost"><span class="ct">💰 채권압류 및 추심(전부)명령 — 최소 비용</span>
+<b>① 인지</b> — 채권압류 <b>및</b> 추심(또는 전부)명령을 함께 신청하면 <b>4,000원</b>, 압류명령만 신청하면 2,000원, 추심·전부명령만 따로 신청하면 2,000원입니다.<br>
+<b>② 송달료</b> — <b>당사자 수 × 회차 × 1회 단가</b>로 계산하여 별도 예납합니다. 채권압류 사건의 당사자는 <b>채권자·채무자·제3채무자 3인</b>이 기본입니다. 1회 단가는 <b>5,640원</b>(2026. 7. 1. 우편요금 인상 반영)이며, <span style="color:#9c3a22"><b>회차는 법원 예규에 따르므로 [확인필요]</b></span> — 아래 계산기에서 최신 회차로 확인하십시오.<br>
+<b>③ 증명서 수수료</b> — 집행문·송달증명원·확정증명원 각 <span style="color:#9c3a22"><b>[확인필요]</b></span>(통상 각 500원 수준의 인지). 전자소송은 별도 수수료 체계입니다.<br>
+<b>④ 추심금 소송으로 넘어가면</b> — 소가에 따른 인지액과 송달료가 새로 듭니다.<br>
+<b>※ 회수한 돈에서 집행비용을 우선 변제받을 수 있습니다</b>(민집 §53① — 강제집행에 필요한 비용은 채무자가 부담하고, 집행절차에서 먼저 변상받습니다). 영수증을 모두 보관하십시오.</div></li>
+
+<li><b>결정 → 송달 → 추심</b> — 결정문이 제3채무자에게 송달되면 압류의 효력이 생깁니다(민집 §227③). 채무자에게 송달된 뒤 <b>즉시항고 기간 1주</b>가 지나면 추심에 착수합니다. 은행 창구·회사 경리부에 <b>결정문 정본, 송달증명, 신분증, 입금계좌</b>를 제시하고 지급을 청구합니다.</li>
+
+<li><b>거절당하면 추심금 청구의 소</b> — 제3채무자가 "그런 채권이 없다", "이미 다른 데 지급했다"며 거절하면 <b>추심금 청구의 소</b>를 제기합니다(작성례 ④). 이때 <b>채무자에게 소송고지</b>를 하여야 합니다(민집 §238).</li>
+
+<li><b>추심신고로 사건을 완결합니다</b> — 돈을 받았으면 <b>지체 없이</b> 추심신고서를 제출합니다(민집 §236①, 작성례 ⑤). <b>신고 전에</b> 다른 채권자의 압류·가압류·배당요구가 들어와 있으면, 받은 돈을 <b>그대로 공탁</b>하고 사유신고를 하여 배당절차로 넘겨야 합니다(같은 조 ②). 신고를 미루면 그사이 끼어든 채권자와 나누게 되므로 <b>지연은 곧 손실</b>입니다.</li>
+
+<li><b>전액을 회수하지 못하였다면</b> — 추심명령은 다시 집행할 수 있습니다. <b>부동산 강제경매(D-2), 재산명시·재산조회(D-3), 채무불이행자명부 등재(D-4)</b>로 이어가십시오. 압류·추심은 <b>소멸시효를 중단</b>시키는 효력도 있습니다(민법 §168 제2호).</li>
+</ol>
+
+<h3>⏰ 놓치면 되돌릴 수 없는 기한 — 4단 확인표</h3>
+<table>
+<tr><th>무엇</th><th>① 기산일</th><th>② 근거</th><th>③ 말일 처리</th><th>④ 만료</th></tr>
+<tr><th>판결금 채권의<br>소멸시효</th><td>판결이 <b>확정된 날</b>(=권리를 행사할 수 있는 때)</td><td>민법 §165①(판결로 확정된 채권은 <b>10년</b>), §166①</td><td>말일이 토·일·공휴일이면 <b>다음 근무일</b>(민법 §161)</td><td>확정일부터 <b>10년</b> 되는 날</td></tr>
+<tr><th>압류명령에 대한<br>즉시항고</th><td>결정을 <b>고지(송달)받은 날</b></td><td>민집 §227④·§15②(<b>1주</b>)</td><td>초일 불산입, 말일이 공휴일이면 다음 근무일</td><td>송달 다음 날부터 <b>7일째</b></td></tr>
+<tr><th>제3채무자의<br>진술 회신</th><td>최고서를 <b>송달받은 날</b></td><td>민집 §237①(<b>1주</b>)</td><td>같음</td><td>송달 다음 날부터 <b>7일째</b></td></tr>
+<tr><th>다른 채권자의<br>배당요구</th><td>—</td><td>민집 §247①</td><td>—</td><td><b>추심신고를 하는 때</b>까지(그래서 신고를 서둘러야 합니다)</td></tr>
+</table>
+<div class="warn"><span class="wt">⚠ 10년이 지나가고 있다면</span>판결 확정 후 <b>10년</b>이 다가오는데 아직 회수하지 못하였다면, 시효 완성 전에 <b>다시 소를 제기(시효중단을 위한 재판상 청구)</b>하거나 <b>압류·가압류·가처분</b>으로 시효를 중단시켜야 합니다(민법 §168·§170). <b>시효가 지나면 판결문이 있어도 집행할 수 없습니다.</b></div>
+</div></details>
+
+<details class="sec" id="s7"><summary>채무자 — 통장·월급이 압류되었다면 방어 절차<span class="sub">압류금지 범위변경 · 생계비계좌 · 즉시항고 · 청구이의 · 제3자이의</span></summary>
+<div class="secbody">
+<div class="tip"><span class="pt">💡 먼저 확인하십시오 — 무엇 때문에 묶였는지</span>은행에 문의하면 <b>어느 법원의 몇 호 사건</b>인지 알려 줍니다. 그 사건번호로 <b>법원 사건검색</b>에서 채권자와 청구금액을 확인한 뒤 아래 방법을 고르십시오. 아무것도 하지 않으면 그대로 인출되어 갑니다.</div>
+<ol class="steps">
+<li><b>압류금지채권 범위변경 신청 — 가장 많이 쓰이고, 가장 많이 모르는 방법</b><br>법원은 채권자와 채무자의 <b>생활형편 그 밖의 사정</b>을 고려하여 압류명령의 전부 또는 일부를 <b>취소</b>할 수 있습니다(민집 §246③, 작성례 ⑥). 압류금지 범위를 넘겨 압류된 부분, 생계가 곤란한 사정, 부양가족·질병·최저생계 자료를 붙여 신청합니다.
+<div class="howto">▷ <b>예금</b> — 개인별 합산 <b>250만원</b>까지는 압류금지입니다(민집 §246① 제9호, 같은 법 시행령 — 2026. 2. 1. 시행). <b>한 계좌 기준이 아니라 전 금융기관 합산</b>이라는 점에 주의하십시오.<br>▷ <b>급여</b> — 원칙적으로 <b>2분의 1</b>까지만 압류되고(민집 §246① 제4호), 일정액 이하는 아예 압류되지 아니합니다. 고액 급여 구간은 계산식이 별도로 정해져 있으므로 <span style="color:#9c3a22"><b>[확인필요]</b></span> — 계산기로 확인하십시오.<br>▷ <b>여기에 해당한다는 점은 채무자가 증명하여야 합니다</b>(대법원 2024. 2. 8. 선고 2021다206356 판결). 계좌정보통합조회 내역, 급여명세서, 가족관계증명서, 진료비 영수증 등을 붙이십시오.</div></li>
+
+<li><b>생계비계좌를 활용하십시오</b> — <b>2026. 2. 1.</b>부터 <span class="term">생계비계좌<span class="bub">전 금융기관을 통틀어 1인 1계좌만 개설할 수 있는 압류금지 전용 계좌. 월 250만원 한도에서 예금이 압류되지 아니합니다(민집 §246의2).</span></span> 제도가 시행되었습니다. 이 계좌의 예금은 <b>월 250만원 한도에서 압류되지 아니합니다</b>(민집 §246의2). 급여·연금이 들어오는 통장을 미리 생계비계좌로 지정해 두면 생활자금을 지킬 수 있습니다.</li>
+
+<li><b>즉시항고 — 압류명령 자체가 위법할 때</b><br>집행권원이 없거나, 집행문·송달요건을 갖추지 못하였거나, <b>압류금지채권을 압류</b>하였거나, 청구금액을 훨씬 넘겨 과다하게 압류한 경우에는 <b>결정을 송달받은 날부터 1주 안에</b> 즉시항고를 제기합니다(민집 §227④·§15). <b>기간이 매우 짧습니다.</b></li>
+
+<li><b>전부명령은 확정 전에 막아야 합니다</b> — 전부명령은 <b>확정되어야</b> 효력이 생기므로(민집 §229), 즉시항고로 확정을 저지하는 것이 유일한 실효적 방어입니다. 확정되면 그 채권은 채권자에게 넘어가 되돌리기 어렵습니다.</li>
+
+<li><b>이미 갚았거나 채권이 소멸하였다면 — 청구이의의 소</b><br>변제·상계·면제·소멸시효 완성 등 <b>판결 확정 뒤에 생긴 사유</b>로 다투는 절차입니다(민집 §44). 소 제기만으로는 집행이 멈추지 않으므로 <b>강제집행정지 신청</b>을 반드시 함께 내야 합니다(민집 §46). → <b>D-5 카드</b></li>
+
+<li><b>남의 빚인데 내 돈이 묶였다면 — 제3자이의의 소</b><br>계좌 명의는 채무자이지만 실질이 다른 사람의 돈인 경우 등, 집행 대상에 대하여 <b>소유권 그 밖에 목적물의 양도·인도를 막을 권리</b>가 있는 제3자가 제기합니다(민집 §48). → <b>D-6 카드</b></li>
+
+<li><b>빚 전체가 감당되지 않는다면 — 개인회생·개인파산</b><br>여러 건의 압류가 동시에 들어오고 급여가 계속 공제되는 상황이라면, 개인회생 절차의 <b>중지·금지명령</b>으로 진행 중인 강제집행을 멈출 수 있습니다(채무자 회생 및 파산에 관한 법률). 개별 방어보다 근본적인 해결이 될 수 있으므로 반드시 함께 검토하십시오.</li>
+</ol>
+<div class="warn"><span class="wt">⚠ 절대로 하지 말아야 할 것</span>압류를 피하려고 <b>예금을 급히 인출하여 타인 명의 계좌로 옮기거나, 재산을 가족 명의로 넘기는 행위</b>는 <span class="term">강제집행면탈죄<span class="bub">강제집행을 피할 목적으로 재산을 숨기거나 빼돌려 채권자를 해치는 범죄(형법 §327). 3년 이하의 징역 또는 1천만원 이하의 벌금.</span></span>가 될 수 있고, <span class="term">사해행위취소<span class="bub">채권자를 해치는 재산 처분을 취소하고 되돌려 놓는 소송(민법 §406). 넘긴 재산이 그대로 회수될 뿐 아니라 형사 문제까지 겹칩니다.</span></span> 소송으로 되돌아옵니다. <b>정면으로 다투는 것이 언제나 유리합니다.</b></div>
+</div></details>
+<details class="sec" id="s8"><summary>서류 작성례 — 빈칸만 채우면 됩니다<span class="sub">압류·추심 신청서 · 별지 · 전부명령 · 진술최고 · 추심금 소장 · 추심신고 · 채무자 대응서면 (복사·인쇄 가능)</span></summary>
+<div class="secbody">
+<p style="font-size:14px;color:var(--muted)">아래 작성례는 <b>채권자(받을 분)용</b>과 <b>채무자(압류당한 분)용</b>으로 나뉩니다. 각 <b>제목줄을 클릭하면(▾)</b> 내용이 펼쳐집니다. 빈칸 <b>○○○</b>를 자기 사건 내용으로 채우고 <b>복사·인쇄·다운로드</b> 버튼으로 바로 활용하시면 됩니다. 채권자의 신청서에는 <b>①-1 또는 ①-2 별지가 반드시 함께</b> 붙어야 합니다. 모든 양식은 대법원 전자민원센터·법원 공식 양식의 형식을 따릅니다.</p>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ① · 채권자</span>채권압류 및 추심명령 신청서<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f1"><span class="ft">채권압류 및 추심명령 신청서</span>채권자  ○○○   (☎: ○○○-○○○○-○○○○)
+주민등록번호  ○○○○○○-○○○○○○○
+주소  ○○○
+
+채무자  ○○○
+주민등록번호(아는 경우)  ○○○○○○-○○○○○○○
+주소  ○○○
+
+제3채무자  주식회사 ○○은행
+대표이사  ○○○
+주소  ○○○ (본점 소재지)
+송달장소  ○○○ (○○지점)
+
+청구채권의 표시
+  금 ○○○원
+  1. 원금  금 ○○○원
+     (○○지방법원 20○○가단○○○○호 ○○○ 사건의 집행력 있는 판결정본에
+      표시된 채권)
+  2. 지연손해금  금 ○○○원
+     (위 원금에 대한 20○○. ○. ○.부터 완제일까지 연 ○○%의 비율에 의한 금원)
+  3. 집행비용  금 ○○○원
+
+집행권원의 표시
+  ○○지방법원 20○○가단○○○○호 ○○○ 사건의 집행력 있는 판결정본
+  (20○○. ○. ○. 선고, 20○○. ○. ○. 확정)
+
+압류 및 추심할 채권의 표시
+  별지 목록 기재와 같음
+
+                            신 청 취 지
+
+1. 채무자의 제3채무자에 대한 별지 목록 기재 채권을 압류한다.
+2. 제3채무자는 채무자에게 위 채권에 관한 지급을 하여서는 아니 된다.
+3. 채무자는 위 채권의 처분과 영수를 하여서는 아니 된다.
+4. 채권자는 위 압류한 채권을 추심할 수 있다.
+   라는 재판을 구합니다.
+
+                            신 청 이 유
+
+1. 채권자는 채무자에 대하여 위 집행권원의 표시와 같이 ○○지방법원
+   20○○가단○○○○호 ○○○ 사건의 집행력 있는 판결정본을 가지고 있습니다.
+
+2. 위 판결은 20○○. ○. ○. 채무자에게 송달되어 20○○. ○. ○. 확정되었으나,
+   채무자는 여러 차례의 변제 독촉에도 불구하고 현재까지 위 채무를
+   전혀 변제하지 아니하고 있습니다.
+
+3. 이에 채권자는 위 집행권원에 기하여 채무자가 제3채무자에 대하여 가지는
+   별지 목록 기재 채권에 관하여 압류 및 추심명령을 구하고자 이 사건
+   신청에 이른 것입니다.
+
+                            첨 부 서 류
+
+1. 집행력 있는 판결정본                        1통
+2. 송달증명원                                  1통
+3. 확정증명원                                  1통
+4. 채무자의 주민등록표 초본                    1통
+5. 제3채무자의 법인 등기사항전부증명서         1통
+6. 별지 목록                                   ○통
+7. 송달료납부서                                1통
+
+                            20○○.  ○.  ○.
+
+                       위 채권자  ○○○  (서명 또는 날인)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1')">📋 복사</button><button type="button" onclick="printForm('f1')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1','채권압류_및_추심명령_신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>판결을 받고도 받지 못한 채권자가 내는 핵심 서면입니다.</b> ▷ <b>관할</b>은 채무자 주소지 지방법원입니다(민집 §224①). ▷ <b>제3채무자가 은행</b>이면 <b>본점 소재지</b>를 주소로 적고 실제 거래지점을 송달장소로 적습니다. ▷ <b>청구채권 금액</b>은 판결 주문의 원금·이자·비용을 더한 금액이며, 여기에 이 신청의 집행비용을 더할 수 있습니다. ▷ <b>별지 목록을 빠뜨리면 보정명령</b>이 나옵니다. 반드시 함께 제출하십시오.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ①-1 · 채권자(필수 별지)</span>별지 — 압류 및 추심할 채권의 표시 (예금)<span class="chev">▾</span></button><div class="fold-body">
+<div class="howto" style="margin-bottom:10px"><b>이게 왜 중요한가요?</b> 은행은 결정문에 붙은 <b>「별지 목록」만 보고</b> 어느 예금을 얼마나 묶을지 정합니다. 목록이 막연하면 "대상을 특정할 수 없다"며 집행을 하지 못합니다. 그래서 ①누구의 예금인지 ②어느 은행인지 ③얼마까지인지 ④여러 예금이 있으면 <b>어떤 순서로</b> 압류하는지를 정확히 적습니다. <b>압류금지 250만원은 자동으로 제외</b>되므로 목록에 그 취지를 함께 적어 둡니다.</div>
+<div class="form" id="f1a"><span class="ft">별        지</span>      압류 및 추심할 채권의 표시
+
+금 ○○○원   (☜ 신청서의 청구채권 금액과 동일하게 기재)
+
+채무자 ○○○(주민등록번호 ○○○○○○-○○○○○○○)이(가)
+제3채무자 주식회사 ○○은행에 대하여 가지는 다음 예금채권 중
+위 청구금액에 이를 때까지의 금액.
+
+                              다        음
+
+1. 압류 및 추심하지 아니하는 채권
+   가. 「민사집행법」 제246조 제1항 제9호 및 같은 법 시행령이 정하는
+       개인별 잔액 이하의 예금채권
+   나. 「민사집행법」 제246조의2에 따른 생계비계좌의 예금채권
+
+2. 압류 및 추심할 채권
+   위 1항을 제외한 나머지 예금채권 중 다음 순서에 따라
+   청구금액에 이를 때까지의 금액
+
+   ① 압류·가압류가 되지 아니한 예금과 압류·가압류가 된 예금이 있는
+      때에는, 압류·가압류가 되지 아니한 예금부터 압류한다.
+   ② 여러 종류의 예금이 있는 때에는 다음 순서에 따라 압류한다.
+      1) 보통예금  2) 당좌예금  3) 정기예금  4) 정기적금
+      5) 저축예금  6) 자유저축예금  7) 그 밖의 모든 예금
+   ③ 같은 종류의 예금이 여럿인 때에는 예금액이 많은 것부터 압류하고,
+      예금액이 같은 때에는 계좌번호가 빠른 것부터 압류한다.
+
+                                                          - 이  상 -</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1a')">📋 복사</button><button type="button" onclick="printForm('f1a')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1a','별지_예금_압류추심할채권의표시.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>여러 은행을 동시에 압류하려면</b> 은행마다 별지를 따로 작성하고, 신청서의 제3채무자란에도 은행을 모두 적습니다. 다만 <b>제3채무자 수만큼 송달료가 늘어납니다.</b> 진술최고(작성례 ③)를 함께 신청하여 어느 은행에 잔액이 있는지 먼저 확인하는 편이 비용을 아끼는 길입니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ①-2 · 채권자(필수 별지)</span>별지 — 압류 및 추심할 채권의 표시 (급여)<span class="chev">▾</span></button><div class="fold-body">
+<div class="howto" style="margin-bottom:10px"><b>급여압류는 '한 번 걸어 두면 매월 자동'입니다.</b> 다만 <b>2분의 1까지만</b> 압류할 수 있고, 일정액 이하는 압류하지 못합니다(민집 §246① 제4호·제5호, 같은 법 시행령). 그래서 금액을 특정하지 않고 <b>산식</b>으로 적습니다. 퇴직금·명예퇴직금도 함께 적어 두면 퇴직 시 자동으로 이어집니다.</div>
+<div class="form" id="f1b"><span class="ft">별        지</span>      압류 및 추심할 채권의 표시
+
+금 ○○○원   (☜ 신청서의 청구채권 금액과 동일하게 기재)
+
+채무자 ○○○(주민등록번호 ○○○○○○-○○○○○○○)이(가)
+제3채무자 ○○ 주식회사로부터 매월 지급받는 다음 채권 중
+위 청구금액에 이를 때까지의 금액.
+
+                              다        음
+
+1. 매월 지급받는 급여(본봉·각종 수당 및 상여금을 포함한다)에서
+   제세공과금을 뺀 잔액의 2분의 1에 해당하는 금액.
+   다만, 「민사집행법」 제246조 제1항 제4호 및 같은 법 시행령이 정하는
+   압류금지 금액은 이를 제외한다.
+
+2. 위 1항의 금액이 청구금액에 이르지 아니한 상태에서 채무자가
+   퇴직하는 때에는, 퇴직금 및 명예퇴직금(그 명칭을 불문한다)에서
+   제세공과금을 뺀 잔액의 2분의 1에 해당하는 금액.
+   다만, 「민사집행법」 제246조 제1항 제5호에 따른 압류금지 금액은
+   이를 제외한다.
+
+3. 위 각 금액은 청구금액에 이를 때까지 매월 지급기일에 순차로
+   압류 및 추심한다.
+
+                                                          - 이  상 -</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1b')">📋 복사</button><button type="button" onclick="printForm('f1b')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1b','별지_급여_압류추심할채권의표시.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>제3채무자는 '회사'입니다.</b> 법인 등기사항전부증명서로 상호·대표자·본점을 정확히 적으십시오. 상호가 조금이라도 다르면 송달이 되지 아니합니다. <b>공무원·군인·교원</b>이면 소속 기관(국가·지방자치단체·교육청 등)이 제3채무자가 되며, 이때 대표자 표시가 달라지므로 해당 기관에 확인하십시오.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ② · 채권자(선택)</span>채권압류 및 전부명령 신청서 — 독점하고 싶을 때<span class="chev">▾</span></button><div class="fold-body">
+<div class="howto" style="margin-bottom:10px"><b>추심명령 대신 전부명령을 택할 때만</b> 사용합니다. 신청서 전체는 작성례 ①과 같고 <b>신청취지 4항과 제목만</b> 달라집니다. <b>제3채무자의 자력이 확실하고 다른 압류가 없을 때</b>에만 선택하십시오(위 비교표 참조).</div>
+<div class="form" id="f2"><span class="ft">채권압류 및 전부명령 신청서</span>채권자  ○○○   (☎: ○○○-○○○○-○○○○)
+주소  ○○○
+
+채무자  ○○○
+주소  ○○○
+
+제3채무자  ○○ 주식회사
+대표이사  ○○○
+주소  ○○○
+
+청구채권의 표시   금 ○○○원 (작성례 ①과 같음)
+집행권원의 표시   ○○지방법원 20○○가단○○○○호 ○○○ 사건의
+                  집행력 있는 판결정본
+압류 및 전부할 채권의 표시   별지 목록 기재와 같음
+
+                            신 청 취 지
+
+1. 채무자의 제3채무자에 대한 별지 목록 기재 채권을 압류한다.
+2. 제3채무자는 채무자에게 위 채권에 관한 지급을 하여서는 아니 된다.
+3. 채무자는 위 채권의 처분과 영수를 하여서는 아니 된다.
+4. 위 압류된 채권은 지급에 갈음하여 채권자에게 전부한다.
+   라는 재판을 구합니다.
+
+                            신 청 이 유
+
+1. 채권자는 채무자에 대하여 위 집행권원에 기한 금 ○○○원의
+   채권을 가지고 있습니다.
+
+2. 채무자는 위 판결이 확정되었음에도 이를 변제하지 아니하고 있습니다.
+
+3. 채무자가 제3채무자에 대하여 가지는 별지 목록 기재 채권은
+   그 존부와 금액이 명확하고 제3채무자의 자력에도 문제가 없으므로,
+   채권자는 위 채권에 관하여 압류 및 전부명령을 구하고자
+   이 사건 신청에 이른 것입니다.
+
+                            첨 부 서 류
+
+1. 집행력 있는 판결정본                        1통
+2. 송달증명원                                  1통
+3. 확정증명원                                  1통
+4. 채무자의 주민등록표 초본                    1통
+5. 제3채무자의 법인 등기사항전부증명서         1통
+6. 별지 목록                                   ○통
+
+                            20○○.  ○.  ○.
+
+                       위 채권자  ○○○  (서명 또는 날인)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f2')">📋 복사</button><button type="button" onclick="printForm('f2')">🖨 인쇄</button><button type="button" onclick="downloadForm('f2','채권압류_및_전부명령_신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><span style="color:#9c3a22"><b>⚠ 되돌릴 수 없습니다.</b></span> 전부명령이 확정되면 판결금 채권은 <b>변제된 것으로 간주</b>되어(민집 §231 본문) 채무자의 다른 재산에 다시 집행할 수 없습니다. 또한 전부명령이 <b>제3채무자에게 송달되기 전에</b> 다른 채권자의 압류·가압류·배당요구가 있으면 <b>전부명령 자체가 무효</b>가 됩니다(민집 §229⑤). <b>진술최고로 다른 압류의 유무를 먼저 확인</b>하십시오.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ③ · 채권자(강력 권장)</span>제3채무자에 대한 진술최고 신청서<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f3"><span class="ft">제3채무자에 대한 진술최고 신청서</span>사건  ○○지방법원 20○○타채○○○○호 채권압류 및 추심명령
+채권자  ○○○
+채무자  ○○○
+제3채무자  주식회사 ○○은행
+
+                            신 청 취 지
+
+제3채무자에 대하여 「민사집행법」 제237조에 따라 아래 사항을
+서면으로 진술하도록 최고하여 주시기 바랍니다.
+
+                            신 청 이 유
+
+1. 채권자는 위 사건에서 채무자의 제3채무자에 대한 채권에 관하여
+   압류 및 추심명령을 신청하였습니다.
+
+2. 그러나 채권자로서는 위 채권이 실제로 존재하는지, 그 금액이
+   얼마인지, 다른 채권자의 압류가 경합하고 있는지를 알 수 없으므로,
+   집행의 실익을 확인하기 위하여 이 사건 신청에 이른 것입니다.
+
+                            최 고 사 항
+
+1. 채권을 인정하는지 여부 및 인정한다면 그 한도
+2. 채권에 대하여 지급할 의사가 있는지 여부 및 그 범위
+3. 채권에 대하여 다른 사람으로부터 청구가 있는지 여부 및 그 내용
+4. 다른 채권자에게 채권을 압류당한 사실이 있는지 여부 및
+   있다면 그 청구의 내용
+
+                            20○○.  ○.  ○.
+
+                       위 채권자  ○○○  (서명 또는 날인)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f3')">📋 복사</button><button type="button" onclick="printForm('f3')">🖨 인쇄</button><button type="button" onclick="downloadForm('f3','제3채무자_진술최고_신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>비용은 거의 들지 않는데 효과는 가장 큽니다.</b> 제3채무자는 최고서를 송달받은 날부터 <b>1주 안에</b> 서면으로 진술하여야 합니다(민집 §237①). 이 회신으로 ① 잔액이 얼마인지 ② 이미 다른 압류가 걸려 있는지 ③ 애초에 채권이 존재하는지를 알 수 있습니다. <b>위 판례 ①의 사례처럼 채권이 이미 남에게 넘어가 있으면 압류 자체가 무효</b>가 되므로, 이 확인을 건너뛰면 시간과 비용만 잃습니다. 압류 신청과 <b>동시에</b> 내는 것이 좋습니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ④ · 채권자(제3채무자가 거절할 때)</span>소장 — 추심금 청구의 소<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f4"><span class="ft">소        장</span>원고  ○○○ (추심채권자)   (☎: ○○○-○○○○-○○○○)
+주소  ○○○
+
+피고  주식회사 ○○ (제3채무자)
+대표이사  ○○○
+주소  ○○○
+
+추심금 청구의 소
+
+소송목적의 값   금 ○○○원
+인지액          금 ○○○원
+송달료          금 ○○○원
+
+                            청 구 취 지
+
+1. 피고는 원고에게 금 ○○○원 및 이에 대하여 이 사건 소장 부본
+   송달일 다음 날부터 다 갚는 날까지 연 12%의 비율에 의한 금원을
+   지급하라.
+2. 소송비용은 피고가 부담한다.
+3. 제1항은 가집행할 수 있다.
+   라는 판결을 구합니다.
+
+                            청 구 원 인
+
+1. 원고는 소외 ○○○(채무자)에 대하여 ○○지방법원 20○○가단○○○○호
+   ○○○ 사건의 집행력 있는 판결정본을 가지고 있습니다.
+
+2. 원고는 위 집행권원에 기하여 20○○. ○. ○. ○○지방법원
+   20○○타채○○○○호로 채무자가 피고에 대하여 가지는
+   별지 목록 기재 채권에 관하여 채권압류 및 추심명령을 받았고,
+   위 명령은 20○○. ○. ○. 피고에게 송달되었습니다.
+
+3. 그럼에도 피고는 원고의 추심청구에 대하여
+   ○○○라는 이유로 그 지급을 거절하고 있습니다.
+
+4. 그러나 채무자가 피고에 대하여 가지는 위 채권은 ○○○를 원인으로
+   현재까지 그대로 존재하고 있으므로, 피고는 추심채권자인 원고에게
+   위 금원을 지급할 의무가 있습니다.
+
+5. 이에 원고는 청구취지와 같은 판결을 구하고자 이 사건 소를
+   제기하기에 이르렀습니다.
+
+                            입 증 방 법
+
+1. 갑 제1호증  채권압류 및 추심명령 결정문
+2. 갑 제2호증  송달증명원
+3. 갑 제3호증  ○○○ (피압류채권의 존재를 증명하는 자료)
+
+                            첨 부 서 류
+
+1. 위 입증방법                                 각 1통
+2. 소장 부본                                     1통
+3. 소송고지신청서(채무자에 대한 소송고지용)      1통
+4. 송달료납부서                                  1통
+
+                            20○○.  ○.  ○.
+
+                       위 원고  ○○○  (서명 또는 날인)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f4')">📋 복사</button><button type="button" onclick="printForm('f4')">🖨 인쇄</button><button type="button" onclick="downloadForm('f4','추심금_청구의_소_소장.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>채무자에 대한 소송고지를 반드시 함께 하십시오</b>(민집 §238). 또한 <b>위 판례 ②</b>에 따라 채무자도 같은 채권에 관하여 소송을 제기할 수 있으므로, 중복·모순된 재판을 피하려면 진행 상황을 확인하는 것이 안전합니다. <b>인지액은 소가에 따라 산식으로 정해지며 전자소송은 10% 할인</b>됩니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ⑤ · 채권자(필수·마무리)</span>추심신고서 — 받았으면 반드시 냅니다<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f5"><span class="ft">추 심 신 고 서</span>사건  ○○지방법원 20○○타채○○○○호 채권압류 및 추심명령
+채권자  ○○○
+채무자  ○○○
+제3채무자  주식회사 ○○은행
+
+위 사건에 관하여 채권자는 다음과 같이 추심하였음을
+「민사집행법」 제236조 제1항에 따라 신고합니다.
+
+                              다        음
+
+1. 추심한 날짜   20○○.  ○.  ○.
+2. 추심한 금액   금 ○○○원
+3. 추심 방법     제3채무자로부터 채권자 명의 계좌로 입금
+4. 잔여 채권액   금 ○○○원 (없으면 "없음"으로 기재)
+
+                            20○○.  ○.  ○.
+
+                       위 채권자  ○○○  (서명 또는 날인)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f5')">📋 복사</button><button type="button" onclick="printForm('f5')">🖨 인쇄</button><button type="button" onclick="downloadForm('f5','추심신고서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>가장 많이 빠뜨리는 서면입니다.</b> 돈을 받았으면 지체 없이 신고하여야 사건이 종결됩니다. <b>신고 전에</b> 다른 채권자의 압류·가압류·배당요구가 있었다면, 받은 돈을 <b>그대로 공탁</b>하고 그 사유를 신고하여야 하며(민집 §236②) 이후 배당절차에서 안분하여 받게 됩니다. <b>배당요구는 추심신고 시까지만 가능</b>하므로(민집 §247①), 신고가 늦어질수록 나눌 사람이 늘어납니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ⑥ · 채무자</span>압류금지채권 범위변경 신청서 — 생계비를 되찾는 서면<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f6"><span class="ft">압류금지채권 범위변경 신청서</span>사건  ○○지방법원 20○○타채○○○○호 채권압류 및 추심명령
+신청인(채무자)  ○○○   (☎: ○○○-○○○○-○○○○)
+주민등록번호  ○○○○○○-○○○○○○○
+주소  ○○○
+
+피신청인(채권자)  ○○○
+주소  ○○○
+
+제3채무자  주식회사 ○○은행
+
+                            신 청 취 지
+
+위 사건에 관하여 20○○. ○. ○. 이 법원이 한 채권압류 및 추심명령 중
+별지 목록 기재 채권에 대한 부분을 취소한다.
+라는 재판을 구합니다.
+
+                            신 청 이 유
+
+1. 압류의 경위
+   피신청인은 20○○. ○. ○. 위 사건으로 신청인의 제3채무자에 대한
+   예금채권(또는 급여채권)에 관하여 채권압류 및 추심명령을 받았고,
+   그 결정은 20○○. ○. ○. 제3채무자에게 송달되었습니다.
+
+2. 압류금지채권에 해당한다는 점
+   가. 위 압류된 예금은 신청인이 생계를 유지하는 데 필요한 자금으로서
+       「민사집행법」 제246조 제1항 제9호 및 같은 법 시행령이 정하는
+       압류금지 금액에 해당합니다.
+   나. (급여의 경우) 위 압류된 급여는 「민사집행법」 제246조 제1항
+       제4호가 정한 압류금지 범위를 넘어 압류된 것입니다.
+
+3. 신청인의 생활형편
+   가. 신청인은 월 평균 ○○○원의 소득으로 생활하고 있습니다.
+   나. 신청인은 배우자 및 미성년 자녀 ○명을 부양하고 있으며,
+       월 임차료 ○○○원, 관리비·공과금 ○○○원, 교육비 ○○○원,
+       치료비 ○○○원을 지출하고 있습니다.
+   다. 이 사건 압류로 인하여 신청인과 그 가족은 최소한의 생계조차
+       유지할 수 없는 형편에 놓였습니다.
+
+4. 결론
+   따라서 「민사집행법」 제246조 제3항에 따라 신청취지와 같은
+   재판을 구하고자 이 사건 신청에 이른 것입니다.
+
+                            소 명 방 법
+
+1. 소갑 제1호증  채권압류 및 추심명령 결정문
+2. 소갑 제2호증  예금계좌 거래내역(또는 급여명세서)
+3. 소갑 제3호증  계좌정보통합조회 내역
+4. 소갑 제4호증  주민등록표 등본·가족관계증명서
+5. 소갑 제5호증  임대차계약서, 공과금·치료비 영수증 등
+
+                            20○○.  ○.  ○.
+
+                    위 신청인(채무자)  ○○○  (서명 또는 날인)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f6')">📋 복사</button><button type="button" onclick="printForm('f6')">🖨 인쇄</button><button type="button" onclick="downloadForm('f6','압류금지채권_범위변경_신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>압류금지에 해당한다는 점은 채무자가 증명하여야 합니다</b>(대법원 2024. 2. 8. 선고 2021다206356 판결). 말로만 "생계가 어렵다"고 하면 받아들여지지 않습니다. <b>계좌정보통합조회 내역(전 금융기관 잔액 합계), 급여명세서, 부양가족 자료, 지출 영수증</b>을 반드시 붙이십시오. 추심이 이루어지기 <b>전에</b> 내야 실효가 있으므로, 압류 사실을 안 즉시 신청하십시오.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ⑦ · 채무자</span>즉시항고장 — 압류·전부명령 자체가 위법할 때<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f7"><span class="ft">즉 시 항 고 장</span>사건  ○○지방법원 20○○타채○○○○호 채권압류 및 전부명령
+항고인(채무자)  ○○○   (☎: ○○○-○○○○-○○○○)
+주소  ○○○
+
+상대방(채권자)  ○○○
+주소  ○○○
+
+위 사건에 관하여 이 법원이 20○○. ○. ○. 한 결정은
+20○○. ○. ○. 항고인에게 송달되었는바, 항고인은 이에 불복하여
+즉시항고를 제기합니다.
+
+                            항 고 취 지
+
+1. 원심결정을 취소한다.
+2. 채권자의 이 사건 신청을 기각한다.
+   라는 재판을 구합니다.
+
+                            항 고 이 유
+
+1. (집행요건의 흠) 이 사건 집행권원은 항고인에게 적법하게 송달되지
+   아니하였으므로 강제집행을 개시할 수 없습니다(민사집행법 제39조 제1항).
+
+2. (압류금지채권의 압류) 압류된 채권은 「민사집행법」 제246조 제1항이
+   정한 압류금지채권에 해당하므로 압류의 대상이 될 수 없습니다.
+
+3. (전부명령의 효력) 이 사건 전부명령이 제3채무자에게 송달되기 전인
+   20○○. ○. ○. 이미 소외 ○○○의 압류(또는 가압류·배당요구)가
+   있었으므로, 이 사건 전부명령은 「민사집행법」 제229조 제5항에 따라
+   효력이 없습니다.
+
+4. 따라서 원심결정은 취소되어야 합니다.
+
+                            소 명 방 법
+
+1. 소갑 제1호증  결정문 및 송달봉투
+2. 소갑 제2호증  ○○○
+
+                            20○○.  ○.  ○.
+
+                    위 항고인(채무자)  ○○○  (서명 또는 날인)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f7')">📋 복사</button><button type="button" onclick="printForm('f7')">🖨 인쇄</button><button type="button" onclick="downloadForm('f7','즉시항고장.txt')">⬇ 다운로드</button></div>
+<div class="howto"><span style="color:#9c3a22"><b>⏰ 기간이 1주입니다.</b></span> 결정을 송달받은 날의 다음 날부터 <b>7일</b> 안에 <b>원심법원</b>에 제출하여야 합니다(민집 §227④·§15②). <b>전부명령은 확정되어야 효력이 생기므로</b>(민집 §229), 즉시항고는 확정을 막는 사실상 유일한 수단입니다. 항고이유는 위 1~3항 중 <b>해당하는 것만</b> 남기고 나머지는 지우십시오. 다만 <b>"돈이 없다", "억울하다"</b>는 사정은 즉시항고 사유가 되지 아니합니다 — 그런 경우에는 작성례 ⑥(범위변경)이나 청구이의의 소를 이용하십시오.</div>
+</div></div>
+</div></details>
+<h2 id="s9">고충은 덜어드리고, 결과로 보답하겠습니다</h2>
+<div class="hire">
+<p>본 사무소에서는 의뢰인들의 고충은 덜어드리고, 함께 절차를 진행하여 원하는 결과에 도달할 수 있도록 성심을 다하겠습니다.</p>
+<p style="margin-top:12px"><b>· 채권자(판결을 받고도 받지 못한 분)의 경우</b><br>① <b>집행문·송달증명·확정증명 발급 안내</b>, ② <b>채권압류 및 추심(전부)명령 신청서와 별지 목록</b> 작성, ③ <b>제3채무자 진술최고 신청서</b> 작성, ④ <b>추심금 청구의 소 소장·추심신고서</b> 작성, ⑤ 회수가 되지 아니할 때의 <b>재산명시·재산조회·부동산 강제경매</b>로의 연결까지 <b>본인소송의 전 과정을 함께</b> 준비해 드립니다.</p>
+<p style="margin-top:10px"><b>· 채무자(통장·월급이 압류된 분)의 경우</b><br>① <b>압류금지채권 범위변경 신청서</b>, ② <b>즉시항고장</b>, ③ <b>청구이의의 소·강제집행정지 신청</b> 서류 작성과, ④ 채무 전체가 감당되지 아니하는 경우 <b>개인회생·개인파산</b> 신청까지 함께 검토해 드립니다.</p>
+</div>
+<div class="warn"><span class="wt">⚠ 자력구제 금지 — 직접 받아내려다 형사사건이 됩니다</span>판결을 받았다고 하여 <b>채무자의 집·가게에 들어가 물건을 가져오거나, 문을 열고 들어가거나, 찾아가 위세를 부려 받아내는 행위는 모두 불법</b>입니다. 판결문은 <b>법원을 통하여</b> 집행하라는 권한일 뿐, 스스로 집행할 권한을 주지 아니합니다. 구체적으로 <b><span class="term">주거침입죄<span class="bub">사람의 주거·관리하는 건조물·점유하는 방실에 침입하는 범죄(형법 §319). 3년 이하의 징역 또는 500만원 이하의 벌금. 채권이 있다는 사정은 정당한 이유가 되지 아니합니다.</span></span></b>, <b><span class="term">재물손괴죄<span class="bub">타인의 재물을 손괴·은닉하거나 그 효용을 해하는 범죄(형법 §366). 3년 이하의 징역 또는 700만원 이하의 벌금. 잠긴 문을 부수는 행위가 여기에 해당합니다.</span></span></b>, <b><span class="term">권리행사방해<span class="bub">타인의 점유 또는 권리의 목적이 된 자기의 물건을 취거·은닉·손괴하여 타인의 권리행사를 방해하는 범죄(형법 §323). 5년 이하의 징역 또는 700만원 이하의 벌금.</span></span></b>, <b>공갈·협박·업무방해</b>가 문제될 수 있습니다. 반대로 <b>압류를 당한 채무자</b>가 재산을 빼돌리면 <b><span class="term">강제집행면탈죄<span class="bub">강제집행을 피할 목적으로 재산을 숨기거나 빼돌려 채권자를 해치는 범죄(형법 §327). 3년 이하의 징역 또는 1천만원 이하의 벌금.</span></span></b>가 성립할 수 있습니다. <b>양쪽 모두, 법원 절차 안에서 다투는 것이 가장 빠르고 안전합니다.</b></div>
+
+<div class="cost">
+<span class="ct">💰 비용 정리 — 인지액과 송달료는 다릅니다</span>
+<b>① 채권압류 및 추심(전부)명령</b>: 인지액 <b>4,000원</b> + 송달료(<b>당사자 수 × 회차 × 5,640원</b>) 별도 예납.<br>
+<b>② 압류명령만 / 추심·전부명령만 따로</b>: 각 인지액 <b>2,000원</b> + 송달료.<br>
+<b>③ 집행문·송달증명원·확정증명원</b>: 각 <span style="color:#c0392b"><b>[확인필요]</b></span> — 통상 소액의 인지이나 법원·전자소송별 체계가 다릅니다.<br>
+<b>④ 추심금 청구의 소</b>: 인지액은 <b><span class="term">소가<span class="bub">소송 목적의 값. 청구하는 금액을 말하며, 인지대와 사건 관할을 정하는 기준이 됩니다. 예: 5천만원을 청구하면 소가는 5천만원.</span></span></b>에 따라 산식으로 정해지며 <b>전자소송이면 10% 할인</b>. 송달료 별도.<br>
+<b>⑤ 채무자측(범위변경 신청·즉시항고)</b>: <span style="color:#c0392b"><b>[확인필요]</b></span> — 신청 유형별로 다르므로 계산기에서 확인하십시오.<br>
+<b>⑥ 집행비용은 채무자 부담</b>: 강제집행에 든 비용은 채무자가 부담하고, 집행절차에서 <b>먼저 변상</b>받습니다(민집 §53①). <b>영수증을 모두 보관</b>하십시오.
+<div style="margin-top:11px; padding-top:10px; border-top:1px dashed #cfe6d6; color:#c0392b; font-weight:600; line-height:1.8;">※ 정확한 인지액·송달료(회차 포함)는 사건 정보를 넣으면 <a href="https://sanlaw.co.kr/tools-calculator.html" style="color:#c0392b; text-decoration:underline; font-weight:700;">🧮 수수료 계산기</a>에서 미리 확인할 수 있습니다.</div>
+</div>
+
+<a href="https://sanlaw.co.kr/tools-calculator.html" class="cta">🧮 내 사건 비용 미리 계산하기</a>
+<div style="text-align:center; background:#f6ecd8; border:1px solid var(--gold); border-radius:11px; padding:14px; margin:18px 0; font-size:15px; color:var(--gold-d); font-weight:700;">📞 상담은 홈 화면의 상담 창구를 이용하시면 됩니다.</div>
+
+<details class="sec" id="s10"><summary>준비할 서류와 발급처 — 어디서 떼나<span class="sub">발급처별 딥링크와 찾아가기 경로를 함께 담았습니다</span></summary>
+<div class="secbody">
+<p style="font-size:13.5px;color:var(--muted)">아래 '바로가기'를 클릭하면 해당 사이트로 이동합니다. 만약 첫 화면으로 연결되면, 옆의 <b>찾아가기 경로</b>를 따라 메뉴를 클릭하면 됩니다.</p>
+<table>
+<tr><th>무엇을 (어디서)</th><th>서류</th><th>바로가기 · 찾아가기 경로</th></tr>
+<tr><td>집행문·증명원<br>(판결 법원 / 전자소송)</td><td><b>집행문 부여 신청</b>, 송달증명원, 확정증명원 — 집행의 출발점</td><td><a href="https://ecfs.scourt.go.kr">전자소송</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 전자소송 로그인 → 제증명 → 집행문·송달/확정증명 신청 (종이 사건은 <b>제1심 법원 종합민원실</b> 방문)</span></td></tr>
+<tr><td>사건 확인<br>(대법원)</td><td>압류 사건번호·채권자·청구금액 확인(압류당한 분 필수)</td><td><a href="https://www.scourt.go.kr/portal/aj/AJMyMain.work">나의 사건검색</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 대법원 → 대국민서비스 → 정보 → 사건검색 → 나의 사건검색 → 법원·사건번호·당사자명 입력</span></td></tr>
+<tr><td>채무자 확인<br>(정부24·주민센터)</td><td>채무자의 주민등록표 초본(주소·관할 확인용)</td><td><a href="https://www.gov.kr">정부24</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 검색창에 '주민등록표 초본' 검색 → 발급. <b>타인(채무자) 초본은 판결문 등 집행권원을 지참하고 주민센터를 방문</b>하여 이해관계인으로 신청합니다.</span></td></tr>
+<tr><td>제3채무자 확인<br>(인터넷등기소)</td><td>은행·회사의 법인 등기사항전부증명서(상호·대표자·본점 기재용)</td><td><a href="https://www.iros.go.kr">인터넷등기소</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 등기열람/발급 → 법인 → 열람/발급하기 → 상호로 검색</span></td></tr>
+<tr><td>압류금지 증명<br>(계좌정보통합관리)</td><td>전 금융기관 계좌·잔액 조회 내역 — <b>채무자가 250만원 이내임을 증명</b>할 때</td><td><a href="https://www.payinfo.or.kr">계좌정보통합관리서비스(어카운트인포)</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 내 계좌 한눈에 → 은행 → 본인인증 → 계좌·잔액 조회 후 출력. 접속이 어려우면 <b>거래은행 앱·인터넷뱅킹의 '거래내역 조회'</b> 또는 은행 창구에서 잔액증명서를 발급받아도 됩니다.</span></td></tr>
+<tr><td>신청서 제출<br>(전자소송)</td><td>채권압류 및 추심(전부)명령 신청서, 진술최고 신청서, 추심신고서</td><td><a href="https://ecfs.scourt.go.kr">전자소송</a> / <a href="https://ecfs.scourt.go.kr/psp/index.on?m=PSP720M24">양식모음</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 전자소송 → 서류제출 → 민사집행 → 채권압류 및 추심(전부)명령</span></td></tr>
+<tr><td>양식·상담<br>(법률구조공단)</td><td>법원 공식 양식과 상담사례 확인</td><td><a href="https://www.klac.or.kr">대한법률구조공단</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 법률정보 → 법률서식 / 상담사례 검색</span></td></tr>
+<tr><td><b>외국인이 당사자인 경우</b><br>(정부24·하이코리아)</td><td>외국인등록사실증명(주소·체류지 확인), 국내거소신고사실증명(재외동포), 외국법인은 본국 관청의 증명서 + <b>번역문</b></td><td><a href="https://www.gov.kr">정부24</a> / <a href="https://www.hikorea.go.kr">하이코리아</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 정부24 검색창에 '외국인등록사실증명' 검색 → 발급 / 하이코리아 → 민원신청. <b>외국인등록번호가 주민등록번호를 갈음</b>하며, 외국어 서류에는 번역문을 붙입니다.</span></td></tr>
+</table>
+
+<div class="tip"><span class="pt">💡 이어지는 카드</span> <b>이 압류로 다 받지 못하였다면</b> — 상대의 재산을 모르면 <b>재산명시·재산조회(D-3)</b>, 부동산이 있으면 <b>부동산 강제경매(D-2)</b>, 끝까지 갚지 아니하면 <b>채무불이행자명부 등재(D-4)</b>로 이어가십시오. <b>미리 가압류를 해 두었던 분</b>은 신규 압류가 아니라 <b>가압류를 본압류로 이전하는 신청(D-7)</b>으로 순위를 지켜야 합니다. <b>압류를 당한 쪽</b>이라면 이미 변제한 채무일 때 <b>청구이의의 소(D-5)</b>, 내 재산이 남의 빚으로 잡혔을 때 <b>제3자이의의 소(D-6)</b>를 보십시오. 판결 전 단계에서 재산을 미리 묶는 방법은 <a class="cl" href="A-1_예금채권가압류.html"><b>예금 가압류(A-1)</b></a>·<b>부동산 가압류(A-2)</b>·<b>급여 가압류(A-3)</b>에 있고, 전체 유형은 <a class="cl" href="보전처분_전체유형표.html"><b>보전처분 전체 유형표</b></a>에 정리해 두었습니다. <span style="font-size:13px;color:var(--muted)">(※ D-2~D-7 카드는 순차 게시 예정입니다.)</span></div>
+</div></details>
+<div class="src">
+근거 — 민사집행법 제28조·제29조(집행문)·제39조(집행개시의 요건)·제44조(청구이의의 소)·제46조(집행정지)·제48조(제3자이의의 소)·제53조(집행비용)·제58조(지급명령의 집행)·제223조·제224조(관할)·제225조(압류명령의 신청)·제226조(심문의 생략)·제227조(금전채권의 압류)·제229조(추심명령·전부명령)·제231조(전부명령의 효과)·제232조(추심명령의 효과)·제236조(추심의 신고)·제237조(제3채무자의 진술의무)·제238조(추심의 소제기)·제246조(압류금지채권)·제246조의2(생계비계좌)·제247조(배당요구)·제248조(제3채무자의 공탁)·제291조(가압류의 본압류 이전) · 민사집행법 시행령(압류금지 예금·생계비계좌 250만원 — 2026. 2. 1. 시행) · 소액사건심판법 제5조의8(이행권고결정의 집행) · 민법 제161조(기간의 말일)·제165조(판결 등에 의하여 확정된 채권의 소멸시효)·제166조(소멸시효의 기산점)·제168조·제170조(시효의 중단)·제406조(채권자취소권) · 형법 제319조(주거침입)·제323조(권리행사방해)·제327조(강제집행면탈)·제366조(재물손괴) · 대법원 2022. 12. 1. 선고 2022다247521 판결(압류 당시 채권양도 대항요건이 갖추어졌으면 압류·추심명령은 무효이고, 뒤에 사해행위취소로 채권이 복귀하여도 되살아나지 아니함) · 대법원 2025. 10. 23. 선고 2021다252977 전원합의체 판결(추심명령이 있어도 채무자의 이행소송 당사자적격은 상실되지 아니함 — 대법원 2000. 4. 11. 선고 99다23888 판결 등 변경) · 대법원 2024. 2. 8. 선고 2021다206356 판결(압류금지 예금에 해당한다는 점의 증명책임은 채무자) · 법제처 찾기쉬운 생활법령정보 · 대한법률구조공단 · 대법원 전자민원센터. 본 자료는 일반적인 법률정보로, 개별 사건의 법률자문이 아닙니다.
+</div>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+})();
+
+(function(){
+  document.querySelectorAll('.toc a').forEach(function(a){
+    a.addEventListener('click',function(){
+      var el=document.querySelector(a.getAttribute('href'));
+      if(el&&el.tagName==='DETAILS')el.open=true;
+    });
+  });
+  var btn=document.getElementById('allBtn');
+  if(!btn)return;
+  function toggleAll(){
+    var opening=btn.textContent.indexOf('펼치기')>-1;
+    document.querySelectorAll('details.sec').forEach(function(d){d.open=opening;});
+    document.querySelectorAll('.formbox').forEach(function(fb){
+      fb.classList.toggle('open',opening);
+      var body=fb.querySelector('.fold-body');
+      if(body)body.style.display=opening?'block':'none';
+    });
+    btn.textContent=opening?'전체 접기':'전체 펼치기';
+  }
+  btn.addEventListener('click',toggleAll);
+  btn.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleAll();}});
+})();
+(function(){
+})();
+function toggleFold(b){var fb=b.parentElement;var body=b.nextElementSibling;var open=fb.classList.toggle('open');if(body){body.style.display=open?'block':'none';}}
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('작성례가 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('작성례가 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('작성례를 내려받았습니다');}
+</script>
+</body>
+</html>
