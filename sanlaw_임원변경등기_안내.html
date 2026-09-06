@@ -3,12 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>[등기 안내] 임원 선임·변경 등기 — 중임·취임·사임·퇴임 | 산 법무사 김재섭</title>
-<meta name="description" content="법인 임원변경등기 완전 안내. 임기 계산, 중임등기, 과태료가 개인에게 부과되는 이유, 준비서류, 비용, 후속 신고까지.">
+<title>[등기 안내] 임원변경등기 — 중임·취임·사임·해임, 준비서류와 과태료 | 산 법무사 김재섭</title>
+<meta name="description" content="법인 임원변경등기 완전 안내. 임기 계산법, 중임·신규취임·사임·퇴임별 준비서류와 발급처, 등록면허세, 등기관 보정명령이 잦은 항목까지 한 번에.">
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 <style>
-
 :root{
   --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
   --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
@@ -54,7 +53,6 @@ td a{color:var(--gold-d); word-break:break-all;}
 .tag.free{background:#5a9a72;}
 .hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
 .hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
-.cta{display:block; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; text-decoration:none; font-weight:700; font-size:16px; padding:15px; border-radius:11px; margin:18px 0; box-shadow:0 3px 8px rgba(122,82,48,.25);}
 .src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
 .lawbox{background:#f0ebe1;border-radius:9px;padding:11px 15px;margin:10px 0;font-size:13.5px;line-height:1.7;}
 .lawbox .ll{display:inline-block;font-size:11.5px;font-weight:700;color:#fff;background:var(--gold-d);border-radius:5px;padding:2px 8px;margin-right:6px;}
@@ -122,17 +120,25 @@ td a{color:var(--gold-d); word-break:break-all;}
 .deadline td{border:1px solid var(--line);padding:8px 10px;background:#fff;}
 .bnote{color:#0b4a9c;font-weight:600;background:#eaf2fc;border-left:4px solid #2b7fff;border-radius:8px;padding:9px 13px;margin:8px 0;font-size:13.5px;line-height:1.7;}
 .bnote b{color:#0a3d82;}
-.capital th{background:#f0ebe1;text-align:center;font-size:13px;}
-.capital td{text-align:center;font-size:13.5px;}
-.capital td:first-child{text-align:left;font-weight:700;background:#faf7f0;}
-.capital .hi{background:#fdf6e3;font-weight:700;color:var(--gold-d);}
-.capital .bad{color:#9c3a22;font-weight:700;}
 .grp{border-radius:10px;padding:13px 16px;margin:12px 0;border:1px solid var(--line);border-left-width:5px;}
 .grp .gt{font-weight:800;font-size:15px;margin-bottom:5px;}
 .grp.a{background:#eef6f0;border-left-color:#5a9a72;} .grp.a .gt{color:#2f6a47;}
 .grp.b{background:#fdf9e8;border-left-color:#d4a72c;} .grp.b .gt{color:#8a6d10;}
 .grp.c{background:#fdf2ee;border-left-color:#d9694a;} .grp.c .gt{color:#9c3a22;}
-
+/* ── 보정명령 표 전용 ── */
+.fixt{font-size:13.5px;}
+.fixt th{background:#3a4a5c;color:#fff;text-align:center;}
+.fixt td{background:#fff;vertical-align:top;}
+.fixt td:first-child{width:26px;text-align:center;font-weight:800;color:var(--gold-d);background:#faf7f0;}
+.lv{display:inline-block;font-size:11.5px;font-weight:800;color:#fff;border-radius:5px;padding:2px 9px;white-space:nowrap;}
+.lv.h{background:#9c3a22;} .lv.m{background:#c08a1e;} .lv.l{background:#5a9a72;}
+.quo{font-family:'D2Coding','Courier New',monospace;font-size:12.5px;line-height:1.6;background:#f5f1e8;border-left:3px solid #b9a98c;border-radius:0 6px 6px 0;padding:7px 10px;margin:5px 0;color:#3a3a3a;}
+.quo::before{content:"등기소 보정 문구  ";font-family:'Pretendard',sans-serif;font-weight:800;font-size:11px;color:var(--gold-d);display:block;margin-bottom:2px;}
+.chk{background:#fff;border:1.5px dashed var(--gold);border-radius:12px;padding:15px 18px;margin:16px 0;}
+.chk .ck{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:8px;}
+.chk ul{list-style:none;padding-left:2px;margin:6px 0 0;}
+.chk li{padding-left:26px;position:relative;margin:7px 0;font-size:14.5px;}
+.chk li::before{content:"☐";position:absolute;left:2px;color:var(--gold);font-size:16px;font-weight:700;}
 </style>
 </head>
 <body>
@@ -141,272 +147,549 @@ td a{color:var(--gold-d); word-break:break-all;}
   <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
   <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
 </nav>
-<h1>임원 선임 · 변경 등기</h1>
+
+<h1>임원변경등기<br><span style="font-size:17px;font-weight:400;color:var(--muted)">중임 · 신규취임 · 사임 · 퇴임 · 해임 · 주소변경</span></h1>
 
 <div class="helm">
   <div class="ht2">⚓ 이 안내를 준비한 마음</div>
-  <p>법인 등기에서 <b>과태료가 가장 많이 나오는 항목이 임원 변경</b>입니다. 사람이 바뀐 것도 아닌데 임기가 끝났다는 이유만으로 등기를 해야 하고, 그걸 모르고 계시다가 몇 년 뒤 통지를 받는 경우가 많습니다. 더 뼈아픈 것은 <b>과태료가 회사가 아니라 대표님 개인에게 부과된다</b>는 점입니다. 이 안내는 <b>어떤 경우에 등기를 해야 하는지, 무슨 서류가 필요한지, 이미 늦었다면 어떻게 해야 하는지</b>를 담았습니다. 혼자 진행하시다 막히실 때 언제든 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, <b>제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</b></p>
+  <p>임원변경등기는 <b>법인등기 중 가장 자주 하게 되는 등기이면서, 동시에 과태료가 가장 많이 나오는 등기</b>입니다. 대부분 몰라서가 아니라 <b>임기가 끝난 줄 몰라서</b> 늦습니다. 이 안내에는 임기를 스스로 계산하는 방법부터 서류 발급처, 그리고 <b>등기관이 실제로 어떤 문구로 보정을 명하는지</b>까지 담았습니다. 직접 신청하시다 막히시거든, 이 안내를 들고 사무실로 찾아와 주십시오. <b>혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</b></p>
 </div>
 
 <div class="qhead"><span class="qb">Q</span>
-  <h2>사람이 그대로인데도 등기를 해야 하나요?</h2>
+  <h2>임원 임기가 끝났다는데, 무엇부터 해야 하나요?</h2>
 </div>
 
-<div class="tnote">밑줄 친 <span class="term">용어<span class="bub">밑줄 친 말에 마우스를 올리거나(휴대폰은 살짝 누르면) 쉬운 설명이 나옵니다.</span></span>에 마우스를 올리면 설명이 나옵니다. 파란 <b>발급처 링크</b>를 누르면 신청 화면으로 바로 이동합니다.</div>
+<div class="tnote">밑줄 친 <span class="term">용어<span class="bub">밑줄 친 말에 마우스를 올리거나(휴대폰은 살짝 누르면) 쉬운 설명이 나옵니다.</span></span>에 마우스를 올리면 설명이 나옵니다. 파란 <b>발급처 링크</b>를 누르면 서류를 발급받는 화면으로 바로 이동합니다.</div>
 
 <div class="tldr">
-  <div class="tt">해야 합니다 — 「임기 만료」 자체가 등기 사유입니다</div>
+  <div class="tt">이런 상황입니다 — 세 가지만 확인하면 됩니다</div>
+  <p style="margin:0 0 8px;font-size:14.5px">회사의 <span class="term">임원<span class="bub">등기부에 이름이 올라가는 사람. 주식회사는 사내이사·사외이사·기타비상무이사·대표이사·감사가 여기에 해당합니다.</span></span>에게 변동이 생기면, <b>변동일부터 2주 안에</b> 본점 소재지 관할 등기소에 변경등기를 신청해야 합니다.</p>
   <ul>
-    <li>이사·감사에게는 <b>임기</b>가 있습니다. 임기가 끝나면 같은 분이 계속 하시더라도 <b><span class="term">중임등기<span class="bub">임기가 끝난 임원을 같은 자리에 다시 앉히고 그 사실을 등기부에 반영하는 것. 사람은 그대로여도 반드시 등기해야 합니다.</span></span></b>를 해야 합니다.</li>
-    <li>기한은 <b>2주</b>입니다(상법 §635①1호). 늦으면 <b>500만원 이하 과태료</b>이고, 늦어진 기간이 길수록 금액이 올라갑니다.</li>
-    <li><b style="color:#9c3a22">과태료는 회사가 아니라 개인에게 부과됩니다.</b> 등기를 게을리한 이사·감사 본인이 냅니다.</li>
-    <li><b>대표이사의 집 주소가 바뀌어도 등기 대상</b>입니다. 대표이사는 주소가 등기사항이기 때문입니다.</li>
+    <li><b>① 누가</b> — 이사인지, 대표이사인지, 감사인지. <b>지위에 따라 필요한 서류가 다릅니다.</b></li>
+    <li><b>② 무슨 사유로</b> — 임기가 끝나 다시 하는 <span class="term">중임<span class="bub">임기가 끝난 사람을 같은 자리에 다시 앉히는 것. 사람은 그대로지만 등기는 반드시 새로 해야 합니다.</span></span>인지, 새로 들어오는 <b>취임</b>인지, 그만두는 <b>사임·퇴임·해임</b>인지.</li>
+    <li><b>③ 언제부터 2주인지</b> — 이 날짜를 잘못 세면 과태료가 나옵니다. 아래 ②번에서 계산법을 그대로 알려드립니다.</li>
   </ul>
 </div>
+
+<div class="bnote">※ <b>회사에 생기는 다른 등기도 모두 2주입니다.</b> 회사를 새로 만드시면 <a href="sanlaw_주식회사설립등기_안내.html" class="dl">주식회사 설립등기</a>, 사무실을 옮기시면 <a href="sanlaw_본점이전_지점등기_안내.html" class="dl">본점이전·지점등기</a>, 회사 이름이나 사업 목적을 바꾸시면 <a href="sanlaw_상호목적변경등기_안내.html" class="dl">상호·목적 변경등기</a>, 투자를 받으시면 <a href="sanlaw_증자등기_안내.html" class="dl">증자등기</a>가 필요합니다.</div>
 
 <div class="lawrow"><div class="lrl">관련 법령</div><div class="lrc">
-  <b>상법 §382</b> 이사 선임 · <b>§383②③</b> 이사 임기 3년 · <b>§389</b> 대표이사 선임 · <b>§409</b> 감사 선임 · <b>§410</b> 감사 임기 · <b>§317②·④</b> 변경등기 · <b>§635①1호</b> 과태료 500만원 이하 · <b>공증인법 §66조의2 단서</b> 소규모회사 의사록 인증 면제 · <b>지방세법 §28①6호 바목</b> 등록면허세 40,200원 · <b>상업등기규칙 §176</b> 등기관의 과태료 통지
+  <b>상법 §317④·§183</b> 변경 사유 발생일부터 <b>본점 소재지에서 2주 내</b> 변경등기 · <b>상법 §382②</b> 회사와 이사는 위임 관계 · <b>상법 §383②③</b> 이사 임기 3년(정관으로 최종 결산기 정기주주총회 종결시까지 연장 가능) · <b>상법 §410</b> 감사 임기 · <b>상법 §386①·§389③</b> 원수를 결한 경우 퇴임임원의 권리의무 존속 · <b>상법 §635①1호</b> 등기 게을리한 때 <b>500만원 이하 과태료</b> · <b>지방세법 §28①6호 바목</b> 등록면허세 40,200원 · <b>공증인법 §66조의2①</b> 의사록 공증
 </div></div>
 
-<div class="bnote">※ 이 안내는 <b>이미 설립된 법인</b>의 임원 변경 절차입니다. 회사를 처음 만드시는 경우에는 <a href="sanlaw_주식회사설립등기_안내.html" class="dl">주식회사 설립등기 안내</a>를, 사무실을 옮기셨다면 <a href="sanlaw_본점이전_지점등기_안내.html" class="dl">본점이전·지점등기 안내</a>를 보십시오.</div>
-
-<!-- ══════════ 1 ══════════ -->
-<div class="qhead"><span class="qb">1</span><h2>내 회사는 어느 경우인가</h2></div>
-
-<table>
-  <thead><tr><th style="width:16%">유형</th><th style="width:32%">어떤 상황인가</th><th>결의 방법</th></tr></thead>
-  <tbody>
-    <tr><td><b>중임</b></td><td>임기가 끝났는데 <b>같은 분이 계속</b> 하시는 경우<br><span style="font-size:13px;color:var(--muted)">가장 흔합니다</span></td><td>이사·감사 — 주주총회 보통결의<br>대표이사 — 이사회 결의</td></tr>
-    <tr><td><b>취임</b></td><td>새로운 분이 임원이 되시는 경우</td><td>동일</td></tr>
-    <tr><td><b>사임</b></td><td>임기 중에 스스로 그만두시는 경우</td><td>사임서 제출로 족함<br><span style="font-size:13px;color:var(--muted)">별도 결의 불요</span></td></tr>
-    <tr><td><b>퇴임</b></td><td>임기가 끝나고 <b>더 이상 하지 않으시는</b> 경우</td><td>후임자 선임 결의</td></tr>
-    <tr><td><b>해임</b></td><td>회사가 임원을 그만두게 하는 경우</td><td><b>주주총회 특별결의</b><br><span style="font-size:13px;color:var(--muted)">손해배상 문제가 생길 수 있습니다</span></td></tr>
-    <tr><td><b>주소변경</b></td><td><b>대표이사</b>의 집 주소가 바뀐 경우</td><td>결의 불요<br><span style="font-size:13px;color:var(--muted)">주민등록초본만 있으면 됩니다</span></td></tr>
-  </tbody>
-</table>
-
-<div class="warn">
-  <span class="wt">★ 「중임」을 놓치는 분이 가장 많습니다</span>
-  「사람이 안 바뀌었는데 무슨 등기냐」고 생각하시기 쉽습니다. 그런데 <b>임기 만료 자체가 등기 사유</b>입니다. 임기가 끝나면 등기부상 그 임원은 자리에서 물러난 것이 되고, <b>계속 하시려면 다시 뽑아서 등기</b>해야 합니다.
-  <p style="margin:6px 0 0">설립하고 3년쯤 지나 <b>「대표이사 임기가 만료되었으니 등기하라」</b>는 등기소 통지를 받고서야 아시는 분이 많습니다. 그 사이 과태료가 쌓입니다.</p>
+<div class="newlaw">
+  <span class="nt"><span class="badge">2025. 1. 31. 시행</span>지점 등기부가 없어졌습니다 — 이제 본점 한 곳에만 신청합니다</span>
+  개정 전에는 임원이 바뀌면 <b>본점에서 2주, 지점에서 3주</b> 안에 각각 등기해야 했고, 지점 등기를 빠뜨려 <b>과태료가 두 번 나오는 일</b>이 흔했습니다. 개정 상법(법률 제20436호, 2024. 9. 20. 공포, <b>2025. 1. 31. 시행</b>)으로 <b>지점 등기부가 폐지</b>되어, 지금은 <b>본점 소재지 관할 등기소 한 곳에서 2주 안에</b> 신청하면 끝납니다(상법 §183).
+  <p style="margin:8px 0 0;font-size:14px">※ 인터넷이나 오래된 책자에 아직 「지점 3주」로 적힌 설명이 많습니다. <b>지금은 해당하지 않습니다.</b></p>
 </div>
-
-<!-- ══════════ 2 ══════════ -->
-<div class="qhead"><span class="qb">2</span><h2>임기는 언제 끝나나요</h2></div>
-
-<table>
-  <thead><tr><th style="width:20%">직책</th><th style="width:34%">임기</th><th>근거</th></tr></thead>
-  <tbody>
-    <tr><td><b>이사<br>(사내이사)</b></td><td><b>3년</b>을 초과할 수 없습니다.<br>정관으로 <b>임기 중 최종 결산기에 관한 정기주주총회 종결 시까지</b> 연장할 수 있습니다.</td><td>상법 §383②③</td></tr>
-    <tr><td><b>감사</b></td><td><b>취임 후 3년 내의 최종 결산기에 관한 정기주주총회 종결 시까지</b><br><span style="font-size:13px;color:var(--muted)">정관에 정하지 않아도 자동 적용</span></td><td>상법 §410</td></tr>
-    <tr><td><b>대표이사</b></td><td>이사 자격이 전제되므로 <b>이사 임기와 연동</b>됩니다.</td><td>상법 §389</td></tr>
-  </tbody>
-</table>
-
-<div class="tip">
-  <span class="pt">실제 만료일 계산 — 12월 결산 회사 예시</span>
-  <b>2023년 3월 20일에 취임한 이사</b>가 있다고 하겠습니다.
-  <ul style="margin:6px 0 0">
-    <li>정관에 <b>연장 규정이 없으면</b> → <b>2026년 3월 19일</b>에 임기 만료</li>
-    <li>정관에 <b>「임기 중 최종 결산기에 관한 정기주주총회 종결 시까지」</b>가 있으면 → 2025년 결산에 관한 <b>정기주주총회 종결일</b>(통상 2026년 3월)까지</li>
-  </ul>
-  <p style="margin:6px 0 0"><b>정관에 이 연장 규정을 넣어두시면</b> 임기 만료일이 정기주주총회와 맞물려 관리가 훨씬 편해집니다. 등기하실 때 함께 정리해 드리겠습니다.</p>
-  <p style="margin:6px 0 0;font-size:13.5px;color:var(--muted)">※ 정확한 만료일은 <b>정관</b>과 <b>등기사항전부증명서</b>를 함께 봐야 알 수 있습니다. 두 서류를 들고 오시면 그 자리에서 계산해 드립니다.</p>
-</div>
-
-<!-- ══════════ 3 ══════════ -->
-<div class="qhead"><span class="qb">3</span><h2>★ 과태료는 회사가 아니라 「사람」이 냅니다</h2></div>
-
-<div class="warn">
-  <span class="wt">이 점을 모르시는 분이 많습니다</span>
-  <p style="margin:4px 0 8px">상법 제635조 제1항은 <b>「회사의 이사·감사 등이 등기를 게을리한 때에는 500만원 이하의 과태료에 처한다」</b>고 정합니다. 주어가 <b>「회사」가 아니라 「이사·감사」</b>입니다.</p>
-  <ul style="margin:4px 0 0">
-    <li><b>법인 비용으로 처리되지 않습니다.</b> 대표님 개인 통장에서 나갑니다.</li>
-    <li><b>이미 그만두신 분에게도 부과됩니다.</b> 등기를 게을리한 당시의 책임자가 대상이므로, 사임한 뒤에 통지를 받으실 수 있습니다.</li>
-    <li>등기관이 과태료 대상을 발견하면 <b>관할 법원에 통지</b>하고(상업등기규칙 §176), 법원이 해태 기간을 따져 금액을 정합니다.</li>
-  </ul>
-</div>
-
-<div class="cost">
-  <span class="ct">이미 기한이 지났다면 — 그래도 지금 하십시오</span>
-  늦었다고 등기가 안 되는 것은 아닙니다. <b>과태료는 늦어진 기간에 비례해 늘어나므로, 하루라도 빨리 하시는 것이 유리합니다.</b> 실무상 <b>1개월 정도 늦은 경우 수만원 수준</b>에서 부과되는 사례가 있으나, 금액은 <b>법원의 재량</b>이라 사안마다 다릅니다.
-  <p style="margin:6px 0 0">「몇 년이 지났는데 이제 와서 해도 되나」 하고 미루실수록 손해입니다. <b>지금 정리하시는 것이 가장 저렴합니다.</b></p>
-</div>
-
-<!-- ══════════ 4 ══════════ -->
-<div class="qhead"><span class="qb">4</span><h2>누가 결정하나요</h2></div>
-
-<table>
-  <thead><tr><th style="width:24%">무엇을</th><th style="width:32%">어디서 결정</th><th>결의 요건</th></tr></thead>
-  <tbody>
-    <tr><td><b>이사·감사 선임</b></td><td><b>주주총회</b></td><td><span class="term">보통결의<span class="bub">출석한 주주 의결권의 과반수, 그리고 발행주식총수의 4분의 1 이상의 찬성으로 성립하는 결의.</span></span> — 출석 주주 의결권 과반수 + 발행주식총수 1/4 이상</td></tr>
-    <tr><td><b>대표이사 선임</b></td><td><b>이사회</b><br><span style="font-size:13px;color:var(--muted)">이사가 1~2명이면 주주총회</span></td><td>이사 과반수 출석 + 출석 이사 과반수</td></tr>
-    <tr><td><b>임원 해임</b></td><td><b>주주총회</b></td><td style="color:#9c3a22"><b>특별결의</b> — 출석 주주 의결권 2/3 이상 + 발행주식총수 1/3 이상</td></tr>
-    <tr><td><b>사임</b></td><td>본인의 의사표시</td><td>결의 불요 — 사임서 제출</td></tr>
-  </tbody>
-</table>
-
-<div class="tip">
-  <span class="pt">이사가 1~2명인 회사는 이사회가 없습니다</span>
-  자본금 10억원 미만이면 이사를 1~2명만 두어도 됩니다(상법 §383① 단서). 이 경우 <b>이사회가 성립하지 않으므로</b>, 이사회 결의가 필요한 사항은 <b>주주총회</b>가 대신하거나 <b>각 이사</b>가 결정합니다. 이사회의사록 대신 <b>「이사 결정서」</b>를 작성하시면 됩니다.
-</div>
-
-<div class="cost">
-  <span class="ct">★ 자본금 10억원 미만이면 의사록 공증이 면제됩니다</span>
-  주주총회 의사록은 원칙적으로 <b>공증인의 인증</b>을 받아야 하는데(공증인법 §66조의2, 공증료 3만원 수준), <b>자본금 10억원 미만 회사는 면제</b>됩니다(같은 조 단서).
-  <p style="margin:6px 0 0">나아가 <b>주주 전원이 동의</b>하시면 주주총회를 열지 않고 <b>「주주 전원의 서면결의서」</b>로 갈음할 수 있어, <b>모이실 필요도 공증받으실 필요도 없습니다.</b> 소규모 가족법인이라면 이 방법이 가장 간편합니다.</p>
-</div>
-
-<!-- ══════════ 5 ══════════ -->
-<div class="qhead"><span class="qb">5</span><h2>등기신청서 첨부서류와 그 발급처</h2></div>
-<div class="tnote" style="margin-top:0"><span class="term">첨부서류<span class="bub">등기를 신청할 때 신청서와 함께 등기소에 내는 서류. 하나라도 빠지면 「보정하라」는 연락을 받게 됩니다.</span></span>는 유형에 따라 달라집니다. 아래에서 해당하는 것만 준비하시면 됩니다.</div>
-
-<div class="who"><span class="doclabel give">제출</span><br><span class="wl">◆ 중임 · 취임할 때</span>
-  <table style="margin:6px 0 0">
-    <thead><tr><th>서류</th><th style="width:26%">어디서</th><th style="width:30%">주의</th></tr></thead>
-    <tbody>
-      <tr><td>임원변경등기신청서</td><td>인터넷등기소 양식</td><td>—</td></tr>
-      <tr><td><b>주주총회 의사록</b> 또는 <b>주주 전원의 서면결의서</b></td><td>회사 작성</td><td>자본금 10억원 이상이면 <b>공증</b></td></tr>
-      <tr><td><b>이사회 의사록</b> 또는 <b>이사 결정서</b></td><td>회사 작성</td><td>대표이사 선임 시</td></tr>
-      <tr><td><b>취임승낙서</b></td><td>본인 작성</td><td style="color:#9c3a22"><b>인감도장 날인</b></td></tr>
-      <tr><td><b>인감증명서</b></td><td><b>주민센터 방문</b></td><td style="color:#9c3a22"><b>3개월 이내</b></td></tr>
-      <tr><td><b>주민등록등(초)본</b></td><td><a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000015" target="_blank" rel="noopener" class="dl">정부24</a> · 주민센터</td><td>대표이사는 <b>주소가 등기</b>됩니다</td></tr>
-      <tr><td>정관 또는 종전 선임 의사록</td><td>회사 보관</td><td>임기 확인용</td></tr>
-      <tr><td>주주명부</td><td>회사 작성</td><td>정족수 확인용</td></tr>
-    </tbody>
-  </table>
-</div>
-
-<div class="who"><span class="wl">◆ 사임 · 퇴임할 때</span>
-  <ul>
-    <li><b>사임서</b> — 본인 작성, <b>인감도장 날인</b></li>
-    <li><b>인감증명서</b> — 3개월 이내</li>
-    <li><b>후임자 선임 서류</b> — 후임을 뽑으시는 경우 위 「중임·취임」 서류 일체</li>
-  </ul>
-  <p style="margin:6px 0 0;font-size:14px">※ 사임으로 <b>법률이나 정관이 정한 임원 수가 모자라게 되면</b>, 후임자가 취임할 때까지 사임한 분에게 임원의 권리·의무가 남습니다(상법 §386①·§415). 정관에 「감사는 1명으로 한다」처럼 인원을 못박아 두면 이 문제가 생기니, <b>정관 정리를 함께 검토</b>해 보십시오.</p>
-</div>
-
-<div class="warn">
-  <span class="wt">★ 인감증명서는 반드시 주민센터에 직접 가셔야 합니다</span>
-  2024년 9월 30일부터 정부24에서 인감증명서를 인터넷으로 발급받을 수 있게 되었지만, <b>일반용 중 법원·금융기관 제출용은 제외</b>입니다. <b>등기소는 법원 소속이라 인터넷 발급본을 받아주지 않습니다.</b>
-  <p style="margin:6px 0 0;font-size:13.5px">※ 인감도장·인감증명서 대신 <b>공증인의 인증</b>을 받아 제출하는 방법도 있습니다(등기예규 제1538호 §2①2호). 해외에 계신 임원에게 쓰는 방법입니다.</p>
-</div>
-
-<!-- ══════════ 6 ══════════ -->
-<div class="qhead"><span class="qb">6</span><h2>절차와 비용</h2></div>
 
 <div class="flow">
   <div class="ft2">이 순서로 진행됩니다</div>
   <ol>
-    <li><b>등기사항전부증명서·정관 확인</b> — 임기 만료일을 계산합니다</li>
+    <li><b>등기사항전부증명서 발급</b> — 현재 등기부에 누가, 언제 취임한 것으로 되어 있는지 먼저 확인합니다</li>
     <div class="arw">▼</div>
-    <li><b>결의</b> — 주주총회(또는 주주 전원 서면결의서) · 이사회(또는 이사 결정서)</li>
+    <li><b>정관 확인</b> — 이사 수, 임기, 대표이사를 어디서 뽑는지가 정관에 적혀 있습니다</li>
     <div class="arw">▼</div>
-    <li><b>서류 준비</b> — 취임승낙서 · 인감증명서 · 주민등록초본</li>
+    <li><b>주주총회(또는 이사회) 개최</b> — 이사·감사는 주주총회, 대표이사는 원칙적으로 이사회에서 선임합니다</li>
     <div class="arw">▼</div>
-    <li><b>등록면허세 납부</b> — <a href="https://www.wetax.go.kr" target="_blank" rel="noopener" class="dl">위택스</a></li>
+    <li><b>의사록 작성 → <span class="term">공증<span class="bub">공증인이 회의 절차와 내용이 사실과 맞는지 확인하고 그 사실을 적어주는 것. 임원변경 의사록은 원칙적으로 공증을 받아야 합니다.</span></span></b> — 이 단계를 빠뜨려 보정을 받는 경우가 가장 많습니다</li>
     <div class="arw">▼</div>
-    <li><b>등기 신청</b> — 본점 관할 등기소 <span style="color:var(--muted)">(결의일부터 2주 이내)</span></li>
+    <li><b>취임승낙서·사임서에 인감 날인 + 인감증명서 준비</b></li>
     <div class="arw">▼</div>
-    <li><b>등기 완료</b> — 접수 후 2~5일</li>
+    <li><b>등록면허세 납부 → 등기신청</b> — 접수 후 <b>1~3일</b>이면 완료됩니다</li>
+    <div class="arw">▼</div>
+    <li><b>대표이사가 바뀌었다면 인감신고</b> → 법인 인감카드 재발급 → 은행·세무서 대표자 변경</li>
   </ol>
 </div>
 
+<!-- ══════════ 1. 유형 확정 ══════════ -->
+<div class="qhead"><span class="qb">1</span><h2>내 회사는 어느 경우인가 — 먼저 유형부터 고르십시오</h2></div>
+<div class="concept">등기는 <b>「무슨 일이 있었는가」</b>에 따라 이름과 서류가 달라집니다. 아래에서 내 상황을 먼저 찾으신 뒤, 그 줄에 적힌 서류만 준비하시면 됩니다.</div>
+
 <table>
-  <thead><tr><th>항목</th><th style="width:26%">금액</th><th>납부처</th></tr></thead>
+  <thead><tr><th style="width:88px">유형</th><th>어떤 상황인가</th><th>결정 기관</th><th>핵심 서류</th></tr></thead>
   <tbody>
-    <tr><td><b>등록면허세</b> (그 밖의 등기)</td><td>40,200원</td><td><a href="https://www.wetax.go.kr" target="_blank" rel="noopener" class="dl">위택스</a></td></tr>
-    <tr><td><b>지방교육세</b> (20%)</td><td>8,040원</td><td>위택스</td></tr>
-    <tr><td><b>등기신청수수료</b></td><td>방문 6,000원 / 전자 2,000원</td><td><a href="https://www.iros.go.kr" target="_blank" rel="noopener" class="dl">인터넷등기소</a></td></tr>
-    <tr style="background:#fdf6e3"><td><b>합　계</b></td><td><b>약 48,240원 + 수수료</b></td><td>—</td></tr>
+    <tr><td><b>중임</b></td><td>임기가 끝난 사람을 <b>같은 자리에 다시</b> 앉히는 경우. 사람은 그대로입니다.</td><td>주주총회<br><span style="font-size:12.5px;color:var(--muted)">(대표이사는 이사회)</span></td><td>의사록 · <b>중임승낙서</b></td></tr>
+    <tr><td><b>신규취임</b></td><td>새로운 사람이 임원으로 들어오는 경우</td><td>주주총회<br><span style="font-size:12.5px;color:var(--muted)">(대표이사는 이사회)</span></td><td>의사록 · <b>취임승낙서 + 인감증명서 + 주민등록등본</b></td></tr>
+    <tr><td><b>사임</b></td><td>본인이 스스로 그만두겠다고 밝힌 경우</td><td>본인 의사표시</td><td><b>사임서</b>(인감 날인) + 인감증명서</td></tr>
+    <tr><td><b>퇴임</b></td><td>임기가 끝났는데 다시 하지 않는 경우, 사망한 경우</td><td>—</td><td>등기부상 임기만료 확인<br>(사망 시 <b>가족관계증명서</b> 등)</td></tr>
+    <tr><td><b>해임</b></td><td>회사가 임기 중에 그만두게 하는 경우</td><td>주주총회<br><b>특별결의</b></td><td>의사록<br><span style="font-size:12.5px;color:#9c3a22">정당한 이유 없으면 손해배상 위험</span></td></tr>
+    <tr><td><b>주소변경</b></td><td><b>대표이사</b>가 이사한 경우</td><td>—</td><td><b>주민등록초본</b><br>(주소 변동사항 전부 포함)</td></tr>
+    <tr><td><b>개명·<br>주민번호정정</b></td><td>이름을 바꾸었거나 등기부의 주민등록번호가 잘못된 경우</td><td>—</td><td>기본증명서 · 주민등록초본<br><span style="color:#2f6a47;font-weight:700">번호 정정은 신청수수료 면제</span></td></tr>
   </tbody>
 </table>
-<p style="font-size:13px;color:var(--muted);margin-top:-6px">※ 임원변경은 과밀억제권역 중과 대상이 아닙니다. 자본금 10억원 이상이면 의사록 공증료(3만원 수준)가 추가됩니다.</p>
+
+<div class="warn">
+  <span class="wt">★ 「사람이 그대로인데 왜 등기를 또 하나요」 — 가장 많이 하시는 오해입니다</span>
+  회사와 임원의 관계는 <b>위임 계약</b>입니다(상법 §382②). 임기 3년이 지나면 그 계약은 <b>그날로 끝납니다.</b> 같은 분이 계속 대표를 하시더라도 <b>「다시 뽑아 다시 등기」</b>를 해야 하며, 이것을 <b>중임등기</b>라고 합니다. 사람이 바뀌지 않았다는 이유로 그냥 두시면 <b>과태료 대상</b>입니다.
+</div>
 
 <div class="tip">
-  <span class="pt">여러 건을 한 번에 하시면 절약됩니다</span>
-  임원 변경과 함께 <b>상호·목적 변경</b>이나 <b>본점 이전</b>이 있으시다면 <b>같은 신청서로 처리</b>하는 편이 좋습니다. 등록면허세와 수수료를 각각 내지 않아도 되는 경우가 있어 비용이 줄어듭니다. <b>미뤄두신 등기가 있는지 상담 때 함께 점검해 드리겠습니다.</b>
+  <span class="pt">대표이사가 이사를 그만두면 대표이사 자리도 함께 없어집니다</span>
+  대표이사는 <b>「이사 중에서」</b> 뽑는 자리입니다(상법 §389①). 그래서 <b>이사 임기가 끝나면 대표이사 지위도 함께 끝납니다.</b> 대표이사 임기만 따로 남아 있는 것이 아닙니다. 등기부에서 <b>「사내이사 ○○○」 줄의 취임일</b>을 기준으로 계산하셔야 합니다.
 </div>
+
+<!-- ══════════ 2. 임기 계산 ══════════ -->
+<div class="qhead"><span class="qb">2</span><h2>임기는 언제 끝나고, 2주는 언제부터 세나요</h2></div>
+
+<div class="who"><span class="wl">◆ 임기부터 확인하십시오</span>
+  <table style="margin:6px 0 0">
+    <thead><tr><th style="width:110px">지위</th><th>임기</th><th>근거</th></tr></thead>
+    <tbody>
+      <tr><td><b>이사<br>(사내이사)</b></td><td><b>3년</b>을 넘길 수 없습니다. 다만 <b>정관에 「임기 중의 최종 결산기에 관한 정기주주총회 종결시까지 연장한다」는 규정이 있으면</b> 그 총회가 끝나는 날까지입니다.</td><td>상법 §383②③</td></tr>
+      <tr><td><b>대표이사</b></td><td>따로 정해진 임기가 없습니다. <b>이사로서의 임기가 끝나면 함께 끝납니다.</b></td><td>상법 §389①</td></tr>
+      <tr><td><b>감사</b></td><td><b>취임 후 3년 내의 최종 결산기</b>에 관한 정기주주총회가 끝나는 때까지</td><td>상법 §410</td></tr>
+    </tbody>
+  </table>
+  <p style="margin:8px 0 0;font-size:14px"><b>회사 정관을 꼭 펴 보십시오.</b> 대부분의 회사 정관에 위 연장 규정이 들어 있어, 실제 임기만료일은 <b>「3년 되는 날」이 아니라 「그해 정기주주총회가 끝나는 날」</b>인 경우가 많습니다.</p>
+</div>
+
+<h3>계산 예시 — 12월 결산 법인, 2023. 3. 20. 취임한 사내이사</h3>
+<div class="concept">정관에 <b>임기 연장 규정이 있는</b> 경우입니다. 3년이 되는 날은 2026. 3. 19.이지만, 임기 중의 최종 결산기(2025. 12. 31.)에 관한 정기주주총회가 <b>2026. 3. 25.</b>에 열린다면 <b>그 총회가 끝나는 날까지</b> 임기가 이어집니다.</div>
+
+<table class="deadline">
+  <thead><tr><th>① 기산일</th><th>② 계산 근거 조문</th><th>③ 말일 처리</th><th>④ 최종 만료일</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><b>2026. 3. 26.</b><br><span style="font-size:12.5px;color:var(--muted)">임기만료일(3. 25.) <b>다음 날</b>부터</span></td>
+      <td>상법 §317④·§183<br>(변경 사유 발생일부터 2주)<br>민법 §157 <b>초일불산입</b></td>
+      <td>민법 §161 — 말일이 <b>토요일·공휴일</b>이면 <b>그다음 날</b>로 만료</td>
+      <td style="color:#9c3a22"><b>2026. 4. 8.(수)</b><br><span style="font-size:12.5px">이날까지 접수해야 과태료가 없습니다</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="bnote">※ <b>사유별 기산일이 다릅니다.</b> 중임·퇴임은 <b>임기만료일 다음 날</b>, 신규취임은 <b>취임승낙일(주주총회 결의일과 다를 수 있음) 다음 날</b>, 사임은 <b>사임서가 회사에 도달한 날 다음 날</b>, 대표이사 주소변경은 <b>주민등록초본상 전입일 다음 날</b>이 기산일입니다.</div>
+
+<div class="warn">
+  <span class="wt">★ 임기가 이미 지났더라도, 지금 대표 자리가 비어 있는 것은 아닙니다</span>
+  법률이나 정관에서 정한 <b>이사의 최소 인원을 채우지 못하게 되는 경우</b>, 임기가 끝났거나 사임한 이사는 <b>새 이사가 취임할 때까지 계속 이사의 권리와 의무를 가집니다</b>(상법 §386①, 대표이사는 §389③에서 준용). 이를 <span class="term">퇴임이사<span class="bub">임기가 끝났지만 후임자가 없어 자리를 지키고 있는 이사. 계약이나 은행 업무는 그대로 볼 수 있지만, 등기 의무와 과태료는 그대로 남습니다.</span></span>라고 합니다. <b>계약이 무효가 되는 것은 아니니 안심하셔도 됩니다.</b> 다만 <b>등기 의무와 과태료는 그대로 남습니다.</b>
+</div>
+
+<!-- ══════════ 3. 첨부서류 ══════════ -->
+<div class="qhead"><span class="qb">3</span><h2>등기소에 내는 서류와 그 발급처</h2></div>
+<div class="tnote" style="margin-top:0"><span class="term">첨부서류<span class="bub">등기를 신청할 때 신청서와 함께 등기소에 내는 증명서·의사록 등을 말합니다. 하나라도 빠지면 「보정하라」는 연락을 받게 됩니다.</span></span>는 유형마다 다릅니다. 위 ①번에서 고른 유형의 줄만 준비하시면 됩니다.</div>
+
+<div class="who"><span class="doclabel give">제출</span><br><span class="wl">◆ 의뢰인께서 직접 준비하실 것 — 모든 유형 공통</span>
+  <table style="margin:6px 0 0">
+    <thead><tr><th>준비물</th><th>어디서 발급받나</th><th>통수</th><th>주의</th></tr></thead>
+    <tbody>
+      <tr><td><b>법인 등기사항전부증명서</b></td><td><a href="https://www.iros.go.kr" target="_blank" rel="noopener" class="dl">인터넷등기소</a></td><td>1통</td><td>현재 등기 내용 확인용</td></tr>
+      <tr><td><b>정관</b> 사본</td><td>회사 보관본</td><td>1통</td><td style="color:#9c3a22"><b>임기·이사 수 확인에 필요</b></td></tr>
+      <tr><td><b>법인 인감도장</b></td><td>회사 보관</td><td>—</td><td>신청서 날인용</td></tr>
+      <tr><td><b>법인 인감증명서</b></td><td>등기소 · 무인발급기</td><td>1통</td><td>위임하실 때 필요</td></tr>
+      <tr><td><b>등록면허세 영수필확인서</b></td><td><a href="https://www.wetax.go.kr" target="_blank" rel="noopener" class="dl">위택스</a> · 시·군·구청</td><td>1통</td><td style="color:#9c3a22"><b>등기신청 전에 먼저 납부</b></td></tr>
+    </tbody>
+  </table>
+  <div class="ddl">발급처 ▸ <a href="https://www.iros.go.kr" target="_blank" rel="noopener" class="dl">인터넷등기소(등기사항증명서)</a> · <a href="https://www.wetax.go.kr" target="_blank" rel="noopener" class="dl">위택스(등록면허세 신고·납부)</a></div>
+</div>
+
+<div class="who" style="border-left-color:#5a8db0"><span class="wl">◆ 유형별로 더 필요한 서류</span>
+  <table style="margin:6px 0 0">
+    <thead><tr><th style="width:80px">유형</th><th>추가 서류</th><th>발급처·주의</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>중임</b></td>
+        <td>주주총회 의사록(<b>공증</b>) · <b>중임승낙서</b><br>대표이사 중임이면 이사회 의사록도</td>
+        <td><b>등기소에 인감을 신고한 분이 중임</b>하는 경우에는 그 신고된 인감을 찍은 중임승낙서로 <b>인감증명서를 갈음할 수 있습니다</b>(상업등기규칙 §104① 단서)</td>
+      </tr>
+      <tr>
+        <td><b>신규<br>취임</b></td>
+        <td>주주총회 의사록(<b>공증</b>) · <b>취임승낙서</b> · <b>인감증명서</b> · <b>주민등록등(초)본</b></td>
+        <td><b>인감증명서는 주민센터 방문</b> · <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000015" target="_blank" rel="noopener" class="dl">정부24 주민등록 등·초본</a><br><span style="color:#9c3a22"><b>모두 발급일부터 3개월 이내</b></span></td>
+      </tr>
+      <tr>
+        <td><b>사임</b></td>
+        <td><b>사임서</b>(인감 날인) · <b>인감증명서</b></td>
+        <td>등기소에 신고한 인감을 찍은 사임서라면 인감증명서를 갈음할 수 있습니다(같은 조 단서). <b>사임 날짜를 반드시 적으십시오.</b></td>
+      </tr>
+      <tr>
+        <td><b>퇴임</b></td>
+        <td>임기만료는 별도 서류가 없습니다<br>사망 시 <b>가족관계증명서</b> 또는 <b>기본증명서</b></td>
+        <td><a href="https://efamily.scourt.go.kr" target="_blank" rel="noopener" class="dl">대법원 전자가족관계등록시스템</a></td>
+      </tr>
+      <tr>
+        <td><b>해임</b></td>
+        <td>주주총회 의사록(<b>공증</b>) — <b>특별결의</b></td>
+        <td>출석 주주 의결권의 2/3 이상 <b>&</b> 발행주식총수의 1/3 이상(상법 §434·§385①)</td>
+      </tr>
+      <tr>
+        <td><b>주소<br>변경</b></td>
+        <td><b>주민등록초본</b></td>
+        <td style="color:#9c3a22"><b>「주소 변동사항 전부 포함」으로 발급</b> — 이것을 빠뜨려 보정받는 일이 매우 잦습니다</td>
+      </tr>
+      <tr>
+        <td><b>개명</b></td>
+        <td><b>기본증명서(상세)</b> · 주민등록초본</td>
+        <td><a href="https://efamily.scourt.go.kr" target="_blank" rel="noopener" class="dl">전자가족관계등록시스템</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="warn">
+  <span class="wt">★ 인감증명서는 반드시 주민센터에 직접 가셔야 합니다</span>
+  2024년 9월 30일부터 정부24에서 인감증명서를 인터넷으로 발급받을 수 있게 되었지만, <b>일반용 중 법원·금융기관 제출용은 제외</b>입니다. <b>등기소는 법원 소속이라 인터넷 발급본을 받아주지 않습니다.</b> 헛걸음하지 않으시도록 꼭 기억해 주십시오.
+</div>
+
+<h3>외국 국적이거나 해외에 계신 임원이 있는 경우</h3>
+<div class="who" style="border-left-color:#d9694a"><span class="wl">◆ 외국인 임원 — 취임승낙서·사임서를 이렇게 만듭니다</span>
+  <ul>
+    <li><b>① 본국에 인감제도가 있는 경우(일본·대만 등)</b> — 본국 관청에 신고한 인감을 찍고 <b>그 인감증명서</b>를 첨부합니다(상업등기규칙 §104②).</li>
+    <li><b>② 본국에 인감제도가 없는 경우(미국·유럽 등)</b> — 본인이 서명하였다는 <b>본국 관청의 증명서면</b>(서명인증서·공증) 을 첨부합니다(같은 항).</li>
+    <li><b>③ 국내에 외국인등록 또는 국내거소신고를 하신 경우</b> — <b>우리나라 주민센터에 인감을 신고</b>하실 수 있습니다(인감증명법 §3③④). 이때는 국내 인감증명서를 그대로 쓰시면 되어 가장 간편합니다.</li>
+    <li><b>④ 주소·생년월일 증명</b> — 외국인등록사실증명 또는 국내거소신고 사실증명(<a href="https://www.gov.kr" target="_blank" rel="noopener" class="dl">정부24</a>에서 「외국인등록사실증명」 검색), 국내 등록이 없으면 <b>본국의 주소증명서면</b>을 씁니다.</li>
+    <li><b>⑤ 번역문</b> — 외국어로 된 서면에는 <b>번역문을 함께</b> 냅니다.</li>
+    <li><b>⑥ 재외국민</b>(대한민국 국적으로 해외 거주) — 인감제도가 있는 나라의 관공서에 신고한 인감과 그 인감증명서로 갈음할 수 있다는 등기선례가 있습니다(상업등기선례 제1-147호). <span style="color:#9c3a22">다만 사안에 따라 판단이 달라질 수 있어 <b>사전 확인이 필요합니다.</b></span></li>
+  </ul>
+  <p style="margin:8px 0 0;font-size:14px;color:#9c3a22"><b>아포스티유 또는 영사확인을 어디까지 받아야 하는지는 서류의 종류와 발급국에 따라 달라집니다.</b> 서류를 해외에서 만들어 보내신 뒤 다시 만들게 되면 <b>왕복에만 한 달이 넘게 걸립니다.</b> 이 경우만큼은 서류를 만들기 <b>전에</b> 저희 사무소나 관할 등기소에 먼저 확인하시기를 권해 드립니다.</p>
+</div>
+
+<div class="who" style="border-left-color:#5a8db0"><span class="wl">◆ 저희 사무소에서 작성해 드리는 서류</span>
+  <ul>
+    <li><b>주주총회 의사록</b> · <b>이사회 의사록</b> · <b>주주 전원의 서면결의서</b> · <b>취임승낙서</b> · <b>중임승낙서</b> · <b>사임서</b> · <b>인감신고서</b> · <b>임원변경등기신청서</b> · <b>위임장</b></li>
+    <li>여기에 더해, 다음 임기 만료일을 계산해 적은 <b>[임기 관리표]</b>를 함께 드립니다.</li>
+  </ul>
+  <div class="ddl">양식 확인 ▸ <a href="https://www.iros.go.kr" target="_blank" rel="noopener" class="dl">인터넷등기소 → 자료센터 → 등기신청양식</a> <b>(주식회사 임원변경등기신청서)</b></div>
+</div>
+
+<!-- ══════════ 4. 반환 ══════════ -->
+<div class="qhead"><span class="qb">4</span><h2>등기가 끝나면 '되돌려받는' 것</h2></div>
+<div class="who" style="border-left-color:#5a9a72"><span class="doclabel back">반환</span><br><span class="wl">◆ 등기 완료 후 받으시는 것</span>
+  <ul>
+    <li><b>정관 원본</b> — 사본을 함께 내시면 원본은 돌려받습니다.</li>
+    <li><b>공증받은 의사록 원본</b> — 사본 제출 시 반환됩니다. <b>회사에 반드시 보관하셔야 하는 서류</b>입니다(상법 §396).</li>
+    <li><b>법인 인감카드</b> — 대표이사가 바뀌면 <b>인감신고 후 새로 발급</b>받습니다. 재발급 수수료 5,000원.</li>
+    <li><b>새 등기사항전부증명서</b> — 은행·세무서·거래처에 제출할 때 씁니다.</li>
+    <li><b>돌려받지 못하는 서류</b> — <b>인감증명서·주민등록등본·취임승낙서·사임서</b>와 <b>위임장</b>은 반환되지 않습니다. 그래서 통수를 넉넉히 준비하시라고 말씀드립니다.</li>
+  </ul>
+</div>
+
+<!-- ══════════ 5. 보정명령 ══════════ -->
+<div class="qhead"><span class="qb">5</span><h2>⚠ 등기관이 보정을 명하는 지점 — 빈도순으로 정리했습니다</h2></div>
+<div class="concept"><b><span class="term">보정<span class="bub">신청서나 첨부서류에 흠이 있을 때 등기관이 「고쳐서 다시 내라」고 하는 것. 정해진 기간 안에 고치지 못하면 신청이 각하됩니다.</span></span>명령</b>을 받으면 등기가 그만큼 늦어지고, <b>그사이 2주 기간이 지나가 과태료로 이어지는</b> 경우가 있습니다. 아래는 실제 창구에서 자주 나오는 순서대로 정리한 것입니다. 서류를 다 준비하신 뒤 <b>이 표와 하나씩 맞춰 보십시오.</b></div>
+
+<h3>빈도 [상] — 가장 많이 걸리는 다섯 가지</h3>
+<table class="fixt">
+  <thead><tr><th style="width:26px">#</th><th style="width:150px">항목</th><th>내용과 예방법</th><th style="width:52px">빈도</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><b>의사록 공증 누락</b></td>
+      <td>
+        <b>「자본금 10억 미만이면 공증이 면제된다」는 말은 설립등기에만 해당합니다.</b> 공증 면제는 <b>발기설립</b>의 경우에만 인정되고(공증인법 §66조의2①1호), <b>임원변경 의사록은 자본금과 관계없이 원칙적으로 공증 대상</b>입니다.
+        <div class="quo">첨부된 주주총회의사록에 공증인의 인증이 없으므로 이를 보정하시기 바랍니다.</div>
+        <b>예방</b> — 공증인 사무소에서 의사록 인증을 받으십시오(비용은 대체로 3만~11만원대). 다만 자본금 10억원 미만 회사는 주주 전원이 서면으로 동의하면 <b>주주총회를 열지 않고 「주주 전원의 서면결의서」로 갈음</b>할 수 있고(상법 §363④⑤⑥), 이 서면결의서는 「의사록」이 아니어서 공증 대상이 아니라는 것이 <b>대체로 통용되는 실무</b>입니다. 다만 등기소에 따라 판단이 다를 수 있어, <b>제출 전 관할 등기소에 한 번 확인</b>하시기를 권합니다.
+      </td>
+      <td><span class="lv h">상</span></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><b>취임승낙서에<br>막도장 날인</b></td>
+      <td>
+        취임승낙서·사임서에는 <b>주민센터에 신고한 인감도장</b>을 찍고 <b>인감증명서</b>를 붙여야 합니다(상업등기규칙 §154②→§104①). 서명이나 막도장은 받아주지 않습니다.
+        <div class="quo">취임승낙서에 「인감증명법」에 따라 신고한 인감을 날인하고 그 인감증명을 첨부하시기 바랍니다.</div>
+        <b>예방</b> — 인감도장이 없는 분은 먼저 <b>주민센터에서 인감을 신고</b>하셔야 합니다. 해외에 계시면 <b>공증인의 인증서면</b>으로 갈음할 수 있습니다.
+      </td>
+      <td><span class="lv h">상</span></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><b>3개월 지난<br>증명서</b></td>
+      <td>
+        인감증명서·주민등록등(초)본 등은 <b>발급일부터 3개월 이내</b>의 것이어야 합니다.
+        <div class="quo">첨부된 인감증명서는 발행일부터 3개월이 경과하였으므로 새로 발급받아 제출하시기 바랍니다.</div>
+        <b>예방</b> — 서류를 미리 모아두었다가 뒤늦게 신청하시면 이 함정에 걸립니다. <b>등기신청 직전에 발급</b>받으십시오.
+      </td>
+      <td><span class="lv h">상</span></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><b>주소가 등기부와<br>맞지 않음</b></td>
+      <td>
+        등기부에 적힌 대표이사 주소와 새로 낸 서류의 주소가 다르면, 그 사이의 <b>이사 내역 전부</b>를 증명해야 합니다.
+        <div class="quo">등기기록상 대표이사 ○○○의 주소와 첨부서면의 주소가 부합하지 아니하므로, 주소 변동사항이 모두 표시된 주민등록초본을 첨부하시기 바랍니다.</div>
+        <b>예방</b> — 주민등록초본을 발급받으실 때 <b>「주소 변동사항 포함」과 「과거 주소 전부」를 반드시 선택</b>하십시오. 이 한 칸을 놓쳐 다시 가시는 분이 대단히 많습니다.
+      </td>
+      <td><span class="lv h">상</span></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><b>이사 수가 모자란<br>상태의 퇴임등기</b></td>
+      <td>
+        후임자 없이 퇴임등기만 신청하면 회사에 이사가 없어집니다. 이 경우 등기관은 퇴임등기를 해 주지 않습니다(상법 §386①·§389③).
+        <div class="quo">이사(감사)의 퇴임으로 법률 또는 정관에서 정한 원수를 결하게 되므로, 후임자의 취임등기와 동시에 신청하시기 바랍니다.</div>
+        <b>예방</b> — <b>후임자를 먼저 정한 뒤</b> 퇴임과 취임을 <b>한 건으로 함께</b> 신청하십시오.
+      </td>
+      <td><span class="lv h">상</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>빈도 [중] — 회사 사정에 따라 자주 걸립니다</h3>
+<table class="fixt">
+  <thead><tr><th style="width:26px">#</th><th style="width:150px">항목</th><th>내용과 예방법</th><th style="width:52px">빈도</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>6</td>
+      <td><b>대표이사를<br>잘못된 기관에서 선임</b></td>
+      <td>
+        대표이사는 <b>원칙적으로 이사회</b>에서 뽑습니다. 다만 <b>정관에 「주주총회에서 선임한다」고 정한 경우</b>에는 주주총회에서 뽑습니다(상법 §389①). 정관과 다른 기관에서 뽑으면 보정 대상입니다.
+        <div class="quo">정관상 대표이사는 주주총회에서 선임하도록 되어 있으므로, 주주총회 의사록을 첨부하시기 바랍니다.</div>
+        <b>예방</b> — 회의를 열기 <b>전에</b> 정관부터 확인하십시오. 이사가 1~2명인 소규모 회사는 <b>이사회 자체가 없어</b> 주주총회에서 정합니다(상법 §383④⑤⑥).
+      </td>
+      <td><span class="lv m">중</span></td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td><b>인감신고서 누락</b></td>
+      <td>
+        대표이사가 바뀌면 <b>새 대표이사가 등기소에 인감을 새로 신고</b>해야 합니다(상업등기법 §25, 상업등기규칙 §35).
+        <div class="quo">대표이사 변경에 따른 인감신고서가 첨부되지 아니하였습니다.</div>
+        <b>예방</b> — 인감신고서에는 <b>개인 인감도장 날인 + 개인 인감증명서</b>가 함께 들어갑니다. 인감카드도 새로 발급받으십시오.
+      </td>
+      <td><span class="lv m">중</span></td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td><b>임기 계산 오류</b></td>
+      <td>
+        임기만료일을 잘못 적으면 등기 원인 날짜가 틀리게 됩니다.
+        <div class="quo">등기원인일자(임기만료일)가 정관 및 등기기록상 취임일과 부합하지 아니합니다.</div>
+        <b>예방</b> — <b>등기부의 취임일 + 정관의 임기 규정</b> 두 가지를 반드시 함께 보고 계산하십시오. 위 ②번 예시를 그대로 따라 하시면 됩니다.
+      </td>
+      <td><span class="lv m">중</span></td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td><b>사임 날짜 누락</b></td>
+      <td>
+        사임서에 날짜가 없으면 언제 사임한 것인지 알 수 없어 등기할 수 없습니다.
+        <div class="quo">사임서에 사임일자의 기재가 없으므로 보정하시기 바랍니다.</div>
+        <b>예방</b> — 사임서에는 <b>사임하는 날짜</b>를 반드시 적고, 그 서면이 <b>회사에 도달한 날</b>부터 2주를 세십시오.
+      </td>
+      <td><span class="lv m">중</span></td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td><b>등록면허세<br>납부 오류</b></td>
+      <td>
+        세액을 잘못 내거나, 본점 소재지가 아닌 곳에 납부하면 보정 대상입니다.
+        <div class="quo">등록면허세 영수필확인서가 첨부되지 아니하였거나 과세관청이 부합하지 아니합니다.</div>
+        <b>예방</b> — <b>본점 소재지 관할 시·군·구</b>에 납부하십시오. 금액은 아래 ⑥번을 보시면 됩니다.
+      </td>
+      <td><span class="lv m">중</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>빈도 [하] — 해당되는 회사만 확인하시면 됩니다</h3>
+<table class="fixt">
+  <thead><tr><th style="width:26px">#</th><th style="width:150px">항목</th><th>내용과 예방법</th><th style="width:52px">빈도</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>11</td>
+      <td><b>외국인 임원 서류</b></td>
+      <td>본국 관청의 인감증명 또는 서명증명, <b>번역문</b>, 경우에 따라 <b>아포스티유·영사확인</b>이 문제됩니다. 위 ③번 항목을 보시고, <b>서류를 만들기 전에</b> 확인하십시오.</td>
+      <td><span class="lv l">하</span></td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td><b>감사를 없애려는데<br>정관이 그대로</b></td>
+      <td>자본금 10억원 미만 회사는 감사를 두지 않을 수 있습니다(상법 §409④). 다만 <b>정관에 「감사를 둔다」고 적혀 있으면</b> 먼저 <b>정관을 고쳐야</b> 감사 퇴임등기가 됩니다. 정관 변경은 주주총회 <b>특별결의</b> 사항입니다.</td>
+      <td><span class="lv l">하</span></td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td><b>미성년자 임원</b></td>
+      <td>법정대리인의 <b>동의서</b>가 추가로 필요하고, 실무상 그 동의서에도 <b>법정대리인의 인감 날인과 인감증명서</b>를 요구합니다.</td>
+      <td><span class="lv l">하</span></td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td><b>주주총회 소집절차</b></td>
+      <td>주주총회는 <b>2주 전에 소집통지</b>를 해야 합니다(상법 §363①). 자본금 10억원 미만 회사는 <b>주주 전원이 동의하면 소집절차를 생략</b>할 수 있습니다(같은 조 ④항). 통지를 생략하셨다면 <b>전원 동의를 서면으로 남겨</b> 두십시오.</td>
+      <td><span class="lv l">하</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="chk">
+  <div class="ck">📋 접수 직전 최종 점검표</div>
+  <ul>
+    <li>등기부의 <b>취임일</b>과 정관의 <b>임기 규정</b>을 함께 보고 임기만료일을 계산했다</li>
+    <li>의사록에 <b>공증</b>을 받았다 (또는 주주 전원 서면결의서를 만들었다)</li>
+    <li>취임승낙서·사임서에 <b>인감도장</b>을 찍었다 (막도장 아님)</li>
+    <li>인감증명서·주민등록등초본이 <b>발급 3개월 이내</b>다</li>
+    <li>주민등록초본을 <b>「주소 변동사항 전부 포함」</b>으로 발급받았다</li>
+    <li>퇴임만 신청하는 것이 아니라 <b>후임 취임과 함께</b> 신청한다</li>
+    <li>대표이사가 바뀐 경우 <b>인감신고서</b>를 넣었다</li>
+    <li><b>등록면허세</b>를 본점 소재지 시·군·구에 납부했다</li>
+  </ul>
+</div>
+
+<!-- ══════════ 6. 세금 ══════════ -->
+<div class="qhead"><span class="qb">6</span><h2>세금과 수수료는 얼마인가요?</h2></div>
+
+<table>
+  <thead><tr><th>항목</th><th>금액</th><th>근거</th><th>납부처</th></tr></thead>
+  <tbody>
+    <tr><td><b><span class="term">등록면허세<span class="bub">등기·등록을 할 때 내는 지방세. 자본금이 늘지 않는 변경등기는 「그 밖의 등기」로 정액입니다.</span></span></b></td><td><b>40,200원</b></td><td>지방세법 §28①6호 바목</td><td><a href="https://www.wetax.go.kr" target="_blank" rel="noopener" class="dl">위택스</a></td></tr>
+    <tr><td><b><span class="term">지방교육세<span class="bub">등록면허세를 낼 때 그 20%를 함께 내는 세금.</span></span></b> (등록면허세의 20%)</td><td><b>8,040원</b></td><td>지방세법 §151①2호</td><td><a href="https://www.wetax.go.kr" target="_blank" rel="noopener" class="dl">위택스</a></td></tr>
+    <tr><td><b>등기신청수수료</b> (방문신청)</td><td><b>7,000원</b></td><td>수수료규칙 §5조의3②</td><td><a href="https://www.iros.go.kr" target="_blank" rel="noopener" class="dl">인터넷등기소</a></td></tr>
+    <tr style="background:#fdf6e3"><td><b>합　계</b></td><td style="color:#9c3a22"><b>55,240원</b></td><td colspan="2">—</td></tr>
+  </tbody>
+</table>
+
+<div class="cost">
+  <span class="ct">신청 방법에 따라 수수료가 달라집니다</span>
+  <table style="margin:6px 0 0">
+    <thead><tr><th>신청 방법</th><th>등기신청수수료</th><th>비고</th></tr></thead>
+    <tbody>
+      <tr><td><b>방문신청</b> (등기소 창구)</td><td><b>7,000원</b></td><td>등기관에게 직접 확인 가능</td></tr>
+      <tr><td><b>전자표준양식(e-Form)</b></td><td><b>5,000원</b></td><td>양식만 인터넷 작성, 서류는 방문 제출</td></tr>
+      <tr><td><b>전자신청</b></td><td><b>2,000원</b></td><td>공동인증서 등 사전 준비 필요</td></tr>
+    </tbody>
+  </table>
+  <p style="margin:8px 0 0;font-size:14px">※ 등기신청수수료는 <b>「등기의 목적마다」</b> 계산합니다. 임원변경과 함께 상호변경이나 목적변경을 같이 신청하시면 <b>목적 수만큼</b> 늘어납니다(등기사항증명서 등 수수료규칙 §5조의3②, 2025. 8. 1. 시행).</p>
+</div>
+
+<div class="bnote">※ <b>대도시 3배 중과는 임원변경에 적용되지 않습니다.</b> 등록면허세를 3배로 무겁게 매기는 것은 <b>법인 설립·지점 설치·본점 전입·설립 후 5년 내 증자</b> 등의 경우이고(지방세법 §28②), <b>임원변경은 서울에 본점이 있어도 40,200원 그대로</b>입니다.<br>
+※ <b>그 밖의 실비</b> — 의사록 공증료 3만~11만원대, 인감증명서·주민등록등본 5백~1천원, 등기사항전부증명서 통당 1천원대, 법인 인감카드 재발급 5,000원.</div>
 
 <a class="calc" href="https://sanlaw.co.kr/tools-calculator.html" target="_blank" rel="noopener">
   <div class="cah">🧮 등록면허세·수수료·보수 미리 계산해 보기</div>
-  <div class="cas">등기 유형을 입력하면 등록면허세·지방교육세·등기신청수수료를 포함한 예상 금액을 산출합니다. (클릭 시 계산기로 이동)</div>
+  <div class="cas">등기의 종류와 신청 방법을 입력하시면 등록면허세·지방교육세·등기신청수수료를 포함한 예상 금액을 산출합니다. (클릭 시 계산기로 이동)</div>
 </a>
 
-<!-- ══════════ 7 ══════════ -->
-<div class="qhead"><span class="qb">7</span><h2>등기가 끝나면</h2></div>
+<!-- ══════════ 7. 늦었을 때 ══════════ -->
+<div class="qhead"><span class="qb">7</span><h2>이미 늦었습니다 — 어떻게 되나요?</h2></div>
+
+<div class="warn">
+  <span class="wt">★ 과태료는 회사가 아니라 「사람」에게 나옵니다</span>
+  등기를 게을리하면 <b>500만원 이하의 과태료</b>가 부과됩니다(상법 §635①1호). 이 과태료는 <b>법인이 아니라 등기를 할 의무가 있던 대표이사 개인</b>에게 부과되며, <b>이미 그 자리를 떠난 뒤에도</b> 그때 의무가 있던 사람에게 부과됩니다. 등기관이 해태 사실을 알게 되면 관할 법원에 통지하고, 법원이 지연 기간을 고려하여 금액을 정합니다.
+  <p style="margin:8px 0 0"><b>다만 늦었다고 등기를 못 하는 것은 아닙니다.</b> 늦더라도 지금 하시는 편이 낫습니다. <b>내버려 둘수록 금액이 커집니다.</b></p>
+</div>
 
 <table class="deadline">
-  <thead><tr><th>할 일</th><th>어디에</th><th>언제</th></tr></thead>
+  <thead><tr><th>단계</th><th>무슨 일이 일어나나</th><th>대응</th></tr></thead>
   <tbody>
-    <tr><td><b>사업자등록 정정신고</b><br><span style="font-size:13px;color:var(--muted)">대표자가 바뀐 경우</span></td><td><a href="https://www.hometax.go.kr" target="_blank" rel="noopener" class="dl">홈택스</a> · 세무서</td><td>지체 없이</td></tr>
-    <tr><td><b>4대보험 대표자 변경신고</b></td><td>4대사회보험 정보연계센터</td><td>14일 이내</td></tr>
-    <tr><td><b>법인 인감 재신고</b><br><span style="font-size:13px;color:var(--muted)">대표자가 바뀐 경우</span></td><td>등기소</td><td>등기와 동시</td></tr>
-    <tr><td><b>은행 거래 명의 변경</b></td><td>거래 은행</td><td>지체 없이</td></tr>
-    <tr><td><b>인허가 변경신고</b></td><td>해당 관청</td><td>업종별<br><span style="font-size:13px;color:var(--muted)">건설업은 <b>30일 이내</b></span></td></tr>
+    <tr><td>등기 접수</td><td>등기관이 등기기간 도과를 확인하면 관할 법원에 통지</td><td>등기 자체는 정상적으로 처리됩니다</td></tr>
+    <tr><td>과태료 재판</td><td>법원이 <b>대표자 자택 주소</b>로 과태료 결정을 송달</td><td>주소가 옛 주소면 받지 못할 수 있습니다</td></tr>
+    <tr><td><b style="color:#9c3a22">고지받은 날 + 1주</b></td><td>과태료 결정에 <b>이의신청</b> 가능</td><td style="color:#9c3a22"><b>이 기간을 넘기면 확정됩니다</b></td></tr>
+    <tr><td><b style="color:#9c3a22">최후 등기 후 5년</b></td><td>법원행정처장의 공고 후 <b>2개월</b> 내 신고하지 않으면 <b>해산한 것으로 간주</b>(상법 §520조의2)</td><td style="color:#9c3a22"><b>회사가 사실상 문을 닫게 됩니다</b></td></tr>
   </tbody>
 </table>
 
-<div class="bnote">※ <b>대표이사가 바뀌면 법인 인감도 새로 신고</b>하셔야 합니다. 종전 대표이사 명의로 신고된 인감은 효력을 잃습니다. 새 대표이사의 개인 인감증명서(3개월 이내)를 준비하십시오.</div>
+<div class="tip">
+  <span class="pt">5년을 넘기면 회사가 없어질 수 있습니다</span>
+  임원변경등기를 계속 미루면 등기부에 <b>아무런 변동 기록이 없는 상태</b>가 이어집니다. 최후 등기 후 <b>5년</b>이 지난 회사는 법원행정처장의 공고 대상이 되고, 공고 후 <b>2개월 안에 「아직 영업을 하고 있다」는 신고를 하지 않으면 해산한 것으로 봅니다</b>(상법 §520조의2). 해산 간주 후 <b>3년 안에는 주주총회 특별결의로 회사를 계속</b>할 수 있지만, 그 3년마저 지나면 <b>청산이 끝난 것으로 봅니다.</b> 임원변경등기를 제때 하시는 것이 회사를 지키는 가장 싼 방법입니다.
+</div>
+
+<!-- ══════════ 초기 질의서 ══════════ -->
+<div class="qhead"><span class="qb">✓</span><h2>초기 질의서 — 이것만 채워 보내주시면 됩니다</h2></div>
+<div class="howto">아래 양식을 복사하거나 내려받아 채우신 뒤, <b>등기사항전부증명서·정관과 함께 사진으로 찍어 보내주시면</b> 임기만료일부터 계산해서 연락드리겠습니다. 모르시는 항목은 비워두셔도 됩니다.</div>
+
+<div class="formbox open">
+  <button class="fold-btn" onclick="toggleFold(this)">📋 임원변경등기 초기 질의서 <span class="chev">▾</span></button>
+  <div class="fold-body">
+    <div class="form" id="fm-intake"><span class="ft">임원변경등기 초기 질의서</span>
+ 1. 회사 상호        주식회사 ○○○○○○○○
+
+ 2. 본점 주소        ○○○○○○○○○○○○○○
+
+ 3. 법인등록번호     ○○○○○○ - ○○○○○○○
+
+ 4. 자본금           ○○○○○○○○ 원   (10억 미만 여부: □ 미만  □ 이상)
+
+ 5. 결산기           매년 ○○월 ○○일   (대개 12월 31일)
+
+ 6. 어떤 일이 있었습니까  (해당란에 모두 표시)
+     □ 임기가 끝났다 (중임)        대상자: ○○○
+     □ 새로 임원이 들어온다         대상자: ○○○
+     □ 임원이 그만둔다 (사임)       대상자: ○○○   사임일: 20○○. ○○. ○○.
+     □ 임기가 끝났는데 다시 안 한다 (퇴임)  대상자: ○○○
+     □ 임원을 그만두게 한다 (해임)  대상자: ○○○
+     □ 대표이사가 이사했다          전입일: 20○○. ○○. ○○.
+     □ 이름을 바꾸었다              전: ○○○ → 후: ○○○
+
+ 7. 현재 등기부상 임원  (등기사항전부증명서를 보고 그대로 적어주십시오)
+     사내이사   ○○○   취임일 20○○. ○○. ○○.
+     사내이사   ○○○   취임일 20○○. ○○. ○○.
+     대표이사   ○○○   취임일 20○○. ○○. ○○.
+     감　　사   ○○○   취임일 20○○. ○○. ○○.
+
+ 8. 정관에 이런 문구가 있습니까
+     □ "이사의 임기는 3년으로 한다"
+     □ "다만 임기 중의 최종 결산기에 관한 정기주주총회 종결시까지 연장한다"
+     □ "대표이사는 주주총회에서 선임한다"
+     □ "감사를 둔다"
+     □ 정관을 찾지 못했다
+
+ 9. 주주 구성        주주 수: ○명   (전원의 서면 동의를 받을 수 있습니까?  □ 예  □ 아니오)
+
+10. 외국 국적이거나 해외에 계신 임원이 있습니까
+     □ 없다
+     □ 있다  →  성명: ○○○   국적: ○○○○   거주국: ○○○○
+                국내 외국인등록·거소신고:  □ 했다   □ 안 했다
+
+11. 연락처          성명 ○○○   전화 ○○○-○○○○-○○○○
+</div>
+    <div class="form-tools">
+      <button onclick="copyForm('fm-intake')">📋 복사</button>
+      <button onclick="printForm('fm-intake')">🖨 인쇄</button>
+      <button onclick="downloadForm('fm-intake','임원변경등기_초기질의서.txt')">⬇ 내려받기</button>
+    </div>
+  </div>
+</div>
 
 <!-- ══════════ FAQ ══════════ -->
 <div class="qhead"><span class="qb">?</span><h2>자주 묻는 질문</h2></div>
 <div class="faq">
-  <details><summary>사람이 그대로인데 왜 등기를 하나요?</summary>
-    <div class="fa"><b>임기 만료 자체가 등기 사유</b>이기 때문입니다. 이사 임기는 3년을 넘을 수 없어서(상법 §383②), 계속 하시더라도 다시 뽑아 등기하셔야 합니다. 이것을 <b>중임등기</b>라고 합니다. 실무에서 과태료가 가장 많이 나오는 항목입니다.</div></details>
 
-  <details><summary>과태료는 회사가 내나요, 제가 내나요?</summary>
-    <div class="fa"><b>개인이 냅니다.</b> 상법 §635①은 「회사의 이사·감사 등이 등기를 게을리한 때」 과태료에 처한다고 정하고 있어, 주어가 회사가 아니라 임원 개인입니다. 법인 경비로 처리되지 않고, <b>이미 사임하신 분에게도 부과</b>될 수 있습니다.</div></details>
+  <details><summary>임기가 끝난 줄 몰랐습니다. 그동안 맺은 계약은 무효인가요?</summary>
+    <div class="fa"><b>아닙니다. 안심하셔도 됩니다.</b> 이사의 최소 인원을 채우지 못하게 되는 경우, 임기가 끝난 이사는 <b>새 이사가 취임할 때까지 이사의 권리와 의무를 그대로 가집니다</b>(상법 §386①, 대표이사는 §389③ 준용). 계약도, 은행 업무도 유효합니다. <b>다만 등기 의무와 과태료는 남아 있으므로</b> 지금이라도 등기하시는 것이 좋습니다.</div></details>
 
-  <details><summary>임기가 언제 끝나는지 모르겠습니다</summary>
-    <div class="fa"><b>정관과 등기사항전부증명서를 함께 봐야</b> 알 수 있습니다. 등기부에 취임일이 적혀 있고, 정관에 임기 규정이 있습니다. 두 서류를 들고 오시면 그 자리에서 계산해 드립니다. 저희가 등기를 처리해 드리면 <b>다음 만료일을 문서로 알려드리고, 두 달 전에 먼저 연락</b>드립니다.</div></details>
+  <details><summary>중임과 재선임은 무엇이 다른가요?</summary>
+    <div class="fa">실무에서는 <b>임기가 끝나는 것과 동시에 곧바로 다시 뽑는 경우를 「중임」</b>, <b>임기가 끝나 자리가 비어 있다가 나중에 다시 뽑는 경우를 「퇴임 후 재취임」</b>으로 나누어 등기합니다. 후자는 <b>퇴임등기와 취임등기 두 건</b>이 되어 서류도 비용도 늘어납니다. <b>임기만료일에 맞추어 주주총회를 여시는 편이 간단하고 저렴합니다.</b></div></details>
 
-  <details><summary>몇 년째 안 했는데 이제라도 할 수 있나요?</summary>
-    <div class="fa"><b>가능합니다. 그리고 하루라도 빨리 하시는 것이 유리합니다.</b> 과태료는 늦어진 기간에 비례해 늘어나므로, 미루실수록 금액이 커집니다. 늦었다고 등기가 거부되지는 않습니다.</div></details>
+  <details><summary>주주총회를 실제로 열지 않고 의사록만 만들어도 되나요?</summary>
+    <div class="fa"><b>권해 드리지 않습니다.</b> 실제로 없었던 결의를 있었던 것처럼 꾸민 서면으로 등기하면, <b>공정증서원본불실기재</b> 등의 문제가 생길 수 있습니다. 다만 <b>자본금 10억원 미만 회사</b>는 주주 전원이 동의하면 <b>소집절차 없이 총회를 열 수 있고, 서면결의로 총회 결의를 갈음할 수도 있습니다</b>(상법 §363④⑤⑥). <b>실제로 주주 전원의 서명을 받으신다면 이것은 적법한 방법</b>입니다. 굳이 위험한 길을 가실 이유가 없습니다.</div></details>
 
-  <details><summary>주주총회를 꼭 열어야 하나요?</summary>
-    <div class="fa"><b>주주 전원이 동의하시면 열지 않으셔도 됩니다.</b> 「주주 전원의 서면결의서」로 갈음할 수 있고, 이 경우 <b>자본금 10억원 미만이면 공증도 필요 없습니다.</b> 가족법인이라면 이 방법이 가장 간편합니다.</div></details>
+  <details><summary>이사가 이사(이사 갔다는 뜻)했는데 등기해야 하나요?</summary>
+    <div class="fa"><b>대표이사만 하시면 됩니다.</b> 등기부에는 <b>이사·감사는 성명과 주민등록번호만</b> 올라가고, <b>회사를 대표하는 이사는 주소까지</b> 올라갑니다(상법 §317②8호·9호). 그래서 <b>대표이사가 이사하면 주소변경등기</b>가 필요하고, 일반 이사나 감사는 필요 없습니다. 기간은 마찬가지로 <b>전입일부터 2주</b>입니다.</div></details>
 
-  <details><summary>이사가 저 혼자인데 이사회를 어떻게 여나요?</summary>
-    <div class="fa">이사가 1~2명이면 <b>이사회가 성립하지 않습니다.</b> 이사회 결의가 필요한 사항은 주주총회가 대신하거나 각 이사가 결정하며, 서류는 <b>「이사 결정서」</b>로 작성합니다.</div></details>
+  <details><summary>감사를 없애도 되나요?</summary>
+    <div class="fa"><b>자본금 10억원 미만 회사는 감사를 두지 않아도 됩니다</b>(상법 §409④). 다만 <b>정관에 「감사를 둔다」고 적혀 있으면 정관부터 고쳐야</b> 합니다. 정관 변경은 주주총회 <b>특별결의</b> 사항이므로, 감사 퇴임등기와 함께 진행하시면 됩니다. 정관 변경만으로는 등록면허세가 별도로 들지 않으나, <b>등기할 사항이 늘면 신청수수료가 목적 수만큼 늘어납니다.</b></div></details>
 
-  <details><summary>대표이사가 이사만 뒀는데 감사도 필요한가요?</summary>
-    <div class="fa"><b>자본금 10억원 미만이면 감사를 두지 않아도 됩니다</b>(상법 §409④). 다만 정관에 「감사를 둔다」고 적혀 있으면 정관을 먼저 고치셔야 합니다. 반대로 감사가 사임하시는데 정관에 인원이 못박혀 있으면 <b>후임이 올 때까지 책임이 남습니다</b>(상법 §415·§386①).</div></details>
+  <details><summary>과태료는 회사가 내나요, 대표가 내나요?</summary>
+    <div class="fa"><b>대표이사 개인이 냅니다.</b> 상법 §635①은 「회사의 이사·감사 등이 등기를 게을리한 때」 과태료를 부과하도록 정하고 있어, 법인이 아니라 <b>사람에게</b> 부과됩니다. 그래서 <b>이미 사임하신 전 대표님께 과태료 통지가 가는 일</b>도 생깁니다. 회사 경비로 처리할 수 있는 성격의 돈이 아니라는 점을 유의하십시오.</div></details>
 
-  <details><summary>제 집 주소가 바뀌었는데 등기해야 하나요?</summary>
-    <div class="fa"><b>대표이사라면 해야 합니다.</b> 대표이사는 성명·주민등록번호와 함께 <b>주소가 등기사항</b>입니다. 주민등록초본상 전입일부터 <b>2주 이내</b>에 등기하셔야 하고, 늦으면 과태료 대상입니다. 사내이사·감사는 주소가 등기되지 않아 해당 없습니다.</div></details>
+  <details><summary>여러 해 밀렸습니다. 한꺼번에 하면 과태료가 여러 건 나오나요?</summary>
+    <div class="fa"><b>등기할 사항마다 별개로 봅니다.</b> 예를 들어 2020년 중임과 2023년 중임을 모두 빠뜨리셨다면 <b>각각 등기해야 하고</b>, 해태 사실도 각각 통지됩니다. 다만 최종적인 과태료 액수는 <b>법원이 지연 기간과 사정을 고려해 정합니다.</b> 밀린 것이 많을수록 <b>미루실수록 불리해집니다.</b> 서류를 들고 오시면 어느 해부터 정리해야 하는지 먼저 짚어 드리겠습니다.</div></details>
 
-  <details><summary>임원을 해임하고 싶은데요</summary>
-    <div class="fa"><b>주주총회 특별결의</b>가 필요합니다(출석 주주 의결권 2/3 + 발행주식총수 1/3 이상). 다만 <b>정당한 이유 없이 임기 만료 전에 해임하면 손해배상 문제</b>가 생길 수 있습니다(상법 §385①). 사안에 따라 다르니 상담을 받아보시길 권합니다.</div></details>
+  <details><summary>등기는 며칠이나 걸리나요?</summary>
+    <div class="fa">서류가 갖춰지면 <b>접수 후 1~3일</b>입니다. 여기에 의사록 공증에 하루, 인감증명서 발급에 반나절 정도를 더 보시면 됩니다. 다만 <b>보정명령을 받으면 그만큼 늦어지고, 그사이 2주 기간이 지나가</b> 과태료로 이어질 수 있으니 <b>기한이 임박했다면 위 ⑤번 점검표를 꼭 먼저 확인</b>하십시오.</div></details>
 
-  <details><summary>등기는 며칠 걸리나요?</summary>
-    <div class="fa">서류가 갖춰지면 <b>접수 후 2~5일</b>입니다. 자본금 10억원 이상이라 의사록 공증이 필요하시면 그 시간이 더 듭니다.</div></details>
+  <details><summary>외국 국적 임원이 있는데 서류를 해외에서 받아야 합니다. 얼마나 걸릴까요?</summary>
+    <div class="fa">본국 관청의 인감증명 또는 서명증명을 받아 <b>국제우편으로 왕복하는 데만 2~4주</b>가 걸리는 것이 보통이고, 아포스티유나 영사확인이 추가되면 더 걸립니다. <b>2주 등기기간을 지키기 어려운 경우가 많습니다.</b> 이런 사안은 <b>서류를 만들기 전에</b> 어떤 형식으로 받아야 하는지 먼저 확정하는 것이 가장 중요합니다. 국내에 <b>외국인등록이나 거소신고가 되어 있는 분</b>이라면 우리나라 주민센터에서 인감을 신고하실 수 있어 훨씬 간편합니다.</div></details>
 
-  <details><summary>미뤄둔 다른 등기도 있는데 함께 할 수 있나요?</summary>
-    <div class="fa"><b>가능하고, 권해드립니다.</b> 상호·목적 변경이나 본점 이전이 함께 있으시면 <b>한 번에 처리</b>하는 편이 비용과 시간 모두 절약됩니다. 상담 때 등기부를 보고 <b>빠진 등기가 없는지 점검</b>해 드리겠습니다.</div></details>
-
-  <details><summary>사업을 접으려는데 등기를 계속해야 하나요?</summary>
-    <div class="fa"><b>법인이 살아 있는 한 해야 합니다.</b> 사업자등록만 폐업하셔도 등기부는 남아 있어 중임등기 의무가 계속되고, 안 하면 과태료가 쌓입니다. 정리하실 계획이면 <a href="sanlaw_해산청산등기_안내.html" class="dl">법인 해산·청산 등기</a>를 보십시오.</div></details>
-
-  <details><summary>다음 만료일을 챙겨주시나요?</summary>
-    <div class="fa"><b>등기가 끝나면 다음 임기 만료일을 문서로 알려드리고, 만료 두 달 전에 저희가 먼저 연락</b>드립니다. 실무에서 가장 흔한 과태료가 중임등기 해태이므로, 이 부분은 저희가 챙기겠습니다.</div></details>
 </div>
 
 <!-- ══════════ CTA ══════════ -->
 <div class="hire">
-  <div class="ft" style="font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:18px;color:var(--gold-d);margin-bottom:8px">등기부와 정관, 두 장만 들고 오십시오</div>
-  <p style="margin:0 0 8px;font-size:14.5px;line-height:1.85">임기가 언제 끝나는지, 지금 해야 할 등기가 무엇인지 <b>그 자리에서 계산해 드립니다.</b> 이미 몇 년이 지나셨더라도 괜찮습니다. <b>지금 정리하시는 것이 가장 저렴합니다.</b></p>
-  <p style="margin:0;font-size:14.5px;line-height:1.85">등기부를 보다 보면 미뤄두신 다른 등기가 함께 발견되는 경우가 많습니다. <b>한 번에 정리하면 비용도 줄어듭니다.</b></p>
+  <div class="ft" style="font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:18px;color:var(--gold-d);margin-bottom:8px">여기까지가 혼자서도 하실 수 있는 전부입니다</div>
+  <p style="margin:0 0 8px;font-size:14.5px;line-height:1.85">임원변경등기는 서류가 많지 않아 직접 하시는 분도 많습니다. 다만 제 경험으로는 <b>서류를 만드는 일보다 「언제까지인지」와 「무엇이 빠졌는지」를 아는 일</b>이 어렵습니다. 보정명령 한 번에 2주가 지나가고, 그 순간부터 과태료 계산이 시작됩니다.</p>
+  <p style="margin:0;font-size:14.5px;line-height:1.85">등기사항전부증명서와 정관만 들고 오시면 <b>임기만료일부터 같이 계산해 드리겠습니다.</b> 이미 여러 해 밀리셨더라도 괜찮습니다. <b>어느 해부터 어떻게 정리할지 순서를 잡아 드리는 것</b>이 저희가 하는 일입니다.</p>
 </div>
 <a class="ctabtn" href="https://sanlaw.co.kr" target="_blank" rel="noopener">임원변경등기 상담 신청하기 →</a>
 
 <div class="src">
-근거 — 상법 §382·§383·§385①·§386①·§389·§409·§410·§415·§317②④·§635①1호 / 공증인법 §66조의2 및 단서 / 상업등기규칙 §176 / 등기예규 제1538호 / 인감증명법(2024. 9. 30. 시행) / 지방세법 §28①6호 바목·§151①2호 / 등기사항증명서 등 수수료규칙 / 건설산업기본법 §9조의2②. 발급처 링크는 각 기관 공식 사이트로 연결됩니다.
+근거 — 상법 §183·§317·§363·§382·§383·§385·§386·§389·§396·§409·§410·§434·§520조의2·§635 / 상법 일부개정법률(법률 제20436호, 2024. 9. 20. 공포, 2025. 1. 31. 시행, 지점 등기부 폐지) / 상업등기법 §25 / 상업등기규칙 §35·§104·§154 / 상업등기선례 제1-147호 / 공증인법 §66조의2 / 인감증명법 §3 / 민법 §157·§161 / 지방세법 §28·§151 / 등기사항증명서 등 수수료규칙 §5조의3·§5조의5(2025. 8. 1. 시행). 발급처 링크는 각 기관 공식 사이트로 연결됩니다.<br><br>
+※ 이 안내는 일반적인 절차를 정리한 것으로, 개별 회사의 정관과 등기부 내용에 따라 필요한 서류와 절차가 달라질 수 있습니다. 외국 국적·재외 임원이 포함된 사안, 아포스티유·영사확인의 범위, 주주 전원 서면결의서의 공증 요부는 관할 등기소의 판단이 갈릴 수 있으므로 <b>서류 작성 전 확인</b>을 권해 드립니다.
 </div>
 
-
 <script>
-
 (function(){
   var terms=document.querySelectorAll('.term');
   terms.forEach(function(t){
@@ -424,7 +707,6 @@ function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.
 function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('양식이 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
 function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
 function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('양식을 내려받았습니다');}
-
 </script>
 </body>
 </html>
