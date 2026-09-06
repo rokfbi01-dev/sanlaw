@@ -133,6 +133,17 @@ td a{color:var(--gold-d); word-break:break-all;}
 .grp.b{background:#fdf9e8;border-left-color:#d4a72c;} .grp.b .gt{color:#8a6d10;}
 .grp.c{background:#fdf2ee;border-left-color:#d9694a;} .grp.c .gt{color:#9c3a22;}
 
+
+/* ── FAQ 접이식(.fa) 구조 대응 — 클릭 시 펼침 ── */
+.faq .fa{padding:0;margin:9px 0;border:1px solid var(--line);border-radius:10px;background:#fff;overflow:hidden;}
+.faq .fa::before{content:none;}
+.faq .fa .fold-btn{border-bottom:none;cursor:pointer;background:#faf7f0;}
+.faq .fa .fold-btn .chev{margin-left:0;transition:transform .2s;}
+.faq .fa.open .fold-btn{border-bottom:1px solid var(--line);}
+.faq .fa.open .fold-btn .chev{transform:rotate(90deg);}
+.faq .fa .fold-body{display:none;padding:13px 15px 15px 38px;font-size:14.5px;line-height:1.75;color:#3a3a3a;position:relative;}
+.faq .fa.open .fold-body{display:block;}
+.faq .fa .fold-body::before{content:"A";position:absolute;left:15px;top:13px;color:#5a9a72;font-family:'Nanum Myeongjo',serif;font-weight:800;}
 </style>
 </head>
 <body>
@@ -331,8 +342,8 @@ td a{color:var(--gold-d); word-break:break-all;}
 <h2>8. 저희가 해 드리는 일</h2>
 <table>
 <tr><th style="width:50%">해 드릴 수 있는 일</th><th>연결해 드리는 일</th></tr>
-<tr><td>업종 제한 여부 확인<br>지분·임원 구성 설계 상담<br><b>외국인투자 신고서 작성</b>과 접수 안내<br>영문을 병기한 해외 서류 양식 작성·발송<br>정관·발기인 결정서·조사보고서 작성<br>등기소 사전 확인(인증 방법·번역)<br><b>설립등기 신청 대리</b><br><b>외국인투자기업 등록 서류 작성</b>과 기한 관리<br>임기 만료일 관리와 사전 연락</td>
-<td>사업자등록 · 조세감면 · 국제조세 — <b>세무사</b><br>사증(D-8) — 담당 기관·전문가<br>4대보험 — <b>공인노무사</b><br>분쟁·소송 — <b>변호사</b><br>업종별 인허가 — <b>행정사</b><br>번역공증 — 번역공증사무소</td></tr>
+<tr><td>업종 제한 여부 확인<br>지분·임원 구성 설계 상담<br><b>외국인투자 신고서 작성</b>과 접수 안내<br>영문을 병기한 해외 서류 양식 작성·발송<br>정관·발기인 결정서·조사보고서 작성<br>등기소 사전 확인(인증 방법·번역)<br><b>설립등기 신청 대리</b><br><b>외국인투자기업 등록 서류 작성</b>과 기한 관리<br>임기 만료일 관리와 사전 연락<br><b>업종별 인허가 신청</b> — 행정사 자격으로 직접</td>
+<td>사업자등록 · 조세감면 · 국제조세 — <b>세무사</b><br>사증(D-8) — 담당 기관·전문가<br>4대보험 — <b>공인노무사</b><br>분쟁·소송 — <b>변호사</b><br>번역공증 — 번역공증사무소</td></tr>
 </table>
 <div class="tnote">저희 사무소는 법무사와 행정사를 함께 하고 있어, 설립등기와 업종별 인허가를 한 곳에서 상담하실 수 있습니다. 다만 사업자등록과 세무는 세무사법에 따라 세무사가 해야 하는 일이므로 협력 세무사를 연결해 드립니다.</div>
 
