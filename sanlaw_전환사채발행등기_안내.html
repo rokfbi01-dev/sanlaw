@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[등기 안내] 전환사채(CB) 발행등기 — 등기가 두 번, 기한 계산법과 준비서류 | 산 법무사 김재섭</title>
+<meta name="description" content="전환사채 발행등기 완전 안내. 발행등기와 전환등기 두 단계, 특이한 기한 계산법, 제3자 배정의 무효 위험, 준비서류와 발급처, 세금, 보정명령이 잦은 항목까지.">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+ul{margin:8px 0 12px; padding-left:20px;} li{margin:6px 0;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(300px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.who{background:var(--box); border-radius:10px; padding:14px 16px; margin:12px 0; border-left:4px solid #b9a98c;}
+.who .wl{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:14.5px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:16px;margin:10px 0;font-family:'D2Coding','Courier New',monospace;font-size:12.5px;line-height:1.65;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:15px;letter-spacing:2px;margin-bottom:10px;color:#241a10;}
+.howto{font-size:13.5px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:12.5px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:6px 12px;cursor:pointer;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.concept{background:var(--box);border-radius:9px;padding:11px 15px;margin:8px 0 14px;font-size:14.5px;color:#5a4a36;border-left:3px solid #b9a98c;}
+.concept b{color:var(--gold-d);}
+.flow{background:linear-gradient(180deg,#fcf9f2,#f7f1e5);border:1.5px solid var(--gold);border-radius:14px;padding:18px 18px 14px;margin:14px 0 20px;}
+.flow .ft2{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:12px;}
+.flow ol{counter-reset:fl;list-style:none;margin:0;padding:0;}
+.flow li{position:relative;padding:8px 10px 8px 44px;margin:7px 0;background:#fff;border:1px solid var(--line);border-radius:10px;font-size:14.5px;line-height:1.6;}
+.flow li::before{counter-increment:fl;content:counter(fl);position:absolute;left:10px;top:8px;width:26px;height:26px;line-height:26px;text-align:center;background:var(--gold);color:#fff;border-radius:50%;font-weight:800;font-size:14px;}
+.flow li b{color:var(--gold-d);}
+.flow .arw{text-align:center;color:var(--gold);font-size:13px;margin:-2px 0;}
+.newlaw{background:#eef6f0;border:1px solid #cfe6d6;border-left:4px solid #5a9a72;border-radius:8px;padding:13px 16px;margin:14px 0;}
+.newlaw .nt{font-weight:700;color:#2f6a47;display:block;margin-bottom:4px;}
+.newlaw .badge{display:inline-block;font-size:11px;font-weight:800;color:#fff;background:#5a9a72;border-radius:5px;padding:2px 8px;margin-right:6px;vertical-align:middle;}
+.faq{margin:14px 0;}
+.faq details{border:1px solid var(--line);border-radius:10px;margin:9px 0;background:#fff;overflow:hidden;}
+.faq summary{list-style:none;cursor:pointer;padding:13px 44px 13px 38px;font-weight:700;font-size:15px;color:#241a10;background:#faf7f0;position:relative;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::before{content:"Q";position:absolute;left:15px;color:var(--gold-d);font-family:'Nanum Myeongjo',serif;font-weight:800;}
+.faq summary::after{content:"▾";position:absolute;right:16px;top:13px;color:var(--gold-d);transition:.2s;}
+.faq details[open] summary::after{transform:rotate(180deg);}
+.faq .fa{padding:13px 15px 15px 38px;font-size:14.5px;line-height:1.75;color:#3a3a3a;position:relative;border-top:1px solid var(--line);}
+.faq .fa::before{content:"A";position:absolute;left:15px;top:13px;color:#5a9a72;font-family:'Nanum Myeongjo',serif;font-weight:800;}
+.helm{background:linear-gradient(135deg,#2c3e50,#3a4a5c);color:#f4f0e8;border-radius:14px;padding:20px 22px;margin:0 0 24px;box-shadow:0 4px 14px rgba(44,62,80,.18);}
+.helm .ht2{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:17px;color:#f0d98c;margin-bottom:9px;}
+.helm p{margin:0;font-size:14.5px;line-height:1.9;color:#eae4d8;}
+.helm b{color:#f4e2a6;}
+.qhead{display:flex;gap:12px;align-items:flex-start;margin:8px 0 8px;}
+.qhead .qb{flex:none;width:34px;height:34px;border-radius:50%;background:var(--gold);color:#fff;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(176,141,87,.4);}
+.qhead h2{margin:0;border:0;padding:0;font-size:20px;line-height:1.45;}
+.lawrow{display:flex;flex-wrap:wrap;background:var(--box);border-radius:10px;overflow:hidden;margin:12px 0;border:1px solid var(--line);}
+.lawrow .lrl{flex:none;background:var(--gold);color:#fff;font-weight:700;font-size:13.5px;padding:11px 15px;display:flex;align-items:center;}
+.lawrow .lrc{flex:1;min-width:210px;padding:11px 15px;font-size:14px;line-height:1.75;}
+@media(max-width:520px){.lawrow .lrl{width:100%;}}
+.calc{display:block;background:linear-gradient(135deg,#fff7e8,#fdeecb);border:1.5px solid var(--gold);border-radius:14px;padding:16px 18px;margin:18px 0;text-decoration:none;color:var(--ink);transition:.15s;}
+.calc:hover{box-shadow:0 4px 14px rgba(176,141,87,.25);transform:translateY(-1px);}
+.calc .cah{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:4px;}
+.calc .cas{font-size:13.5px;color:var(--muted);}
+.ctabtn{display:block;text-align:center;background:var(--gold);color:#fff;font-weight:800;font-size:17px;padding:16px;border-radius:12px;text-decoration:none;margin:22px 0 6px;box-shadow:0 3px 10px rgba(176,141,87,.35);}
+.ctabtn:hover{background:var(--gold-d);}
+.doclabel{display:inline-block;font-size:12px;font-weight:800;color:#fff;border-radius:6px;padding:3px 11px;margin-bottom:6px;}
+.doclabel.give{background:#b0885a;}
+.doclabel.back{background:#5a9a72;}
+.dl{color:var(--gold-d);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--gold);}
+.dl:hover{background:#fbf5e8;}
+.ddl{display:flex;gap:2px 10px;flex-wrap:wrap;margin:8px 0 2px;padding:9px 12px;background:#fbf7ee;border-radius:8px;font-size:13px;}
+.ddl b{color:var(--gold-d);}
+.deadline{width:100%;border-collapse:collapse;margin:10px 0;font-size:13.5px;}
+.deadline th{background:#3a4a5c;color:#fff;padding:8px;font-weight:700;}
+.deadline td{border:1px solid var(--line);padding:8px 10px;background:#fff;}
+.bnote{color:#0b4a9c;font-weight:600;background:#eaf2fc;border-left:4px solid #2b7fff;border-radius:8px;padding:9px 13px;margin:8px 0;font-size:13.5px;line-height:1.7;}
+.bnote b{color:#0a3d82;}
+.fixt{font-size:13.5px;}
+.fixt th{background:#3a4a5c;color:#fff;text-align:center;}
+.fixt td{background:#fff;vertical-align:top;}
+.fixt td:first-child{width:26px;text-align:center;font-weight:800;color:var(--gold-d);background:#faf7f0;}
+.lv{display:inline-block;font-size:11.5px;font-weight:800;color:#fff;border-radius:5px;padding:2px 9px;white-space:nowrap;}
+.lv.h{background:#9c3a22;} .lv.m{background:#c08a1e;} .lv.l{background:#5a9a72;}
+.quo{font-family:'D2Coding','Courier New',monospace;font-size:12.5px;line-height:1.6;background:#f5f1e8;border-left:3px solid #b9a98c;border-radius:0 6px 6px 0;padding:7px 10px;margin:5px 0;color:#3a3a3a;}
+.quo::before{content:"등기소 보정 문구  ";font-family:'Pretendard',sans-serif;font-weight:800;font-size:11px;color:var(--gold-d);display:block;margin-bottom:2px;}
+.chk{background:#fff;border:1.5px dashed var(--gold);border-radius:12px;padding:15px 18px;margin:16px 0;}
+.chk .ck{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:8px;}
+.chk ul{list-style:none;padding-left:2px;margin:6px 0 0;}
+.chk li{padding-left:26px;position:relative;margin:7px 0;font-size:14.5px;}
+.chk li::before{content:"☐";position:absolute;left:2px;color:var(--gold);font-size:16px;font-weight:700;}
+/* ── 2단계 등기 대비 ── */
+.two{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0;}
+.two>div{flex:1;min-width:270px;border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;background:#fff;}
+.two>div.a{border-color:#b0885a;background:#fdfaf4;}
+.two>div.b{border-color:#5a8db0;background:#f6fafc;}
+.two .st{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:16px;margin-bottom:6px;}
+.two>div.a .st{color:var(--gold-d);}
+.two>div.b .st{color:var(--tip-ink);}
+.two .sub{font-size:13px;color:var(--muted);margin-bottom:8px;}
+.two ul{margin:6px 0 0;padding-left:18px;font-size:14px;}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+
+<h1>전환사채(CB) 발행등기<br><span style="font-size:17px;font-weight:400;color:var(--muted)">빌린 돈이 주식으로 바뀌는 투자 — 등기는 두 번입니다</span></h1>
+
+<div class="helm">
+  <div class="ht2">⚓ 이 안내를 준비한 마음</div>
+  <p>전환사채는 <b>투자자에게 좋은 조건, 회사에는 부담이 적은 조건</b>이어서 초기 기업 투자에 널리 쓰입니다. 그런데 이 등기에는 다른 법인등기에 없는 함정이 둘 있습니다. 하나는 <b>등기를 두 번 해야 하는데 두 번 다 기한 세는 법이 특이하다</b>는 것이고, 다른 하나는 <b>주주가 아닌 사람에게 발행할 때 절차를 어기면 발행 자체가 무효가 될 수 있다</b>는 것입니다. 투자금을 받고 나서 되돌리는 일은 대단히 괴롭습니다. <b>계약서에 도장을 찍기 전에</b> 이 안내를 한 번 읽어 주십시오. 막히시거든 사무실로 찾아와 주십시오. <b>혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</b></p>
+</div>
+
+<div class="qhead"><span class="qb">Q</span>
+  <h2>투자자가 전환사채로 투자하겠다는데, 무엇을 해야 하나요?</h2>
+</div>
+
+<div class="tnote">밑줄 친 <span class="term">용어<span class="bub">밑줄 친 말에 마우스를 올리거나(휴대폰은 살짝 누르면) 쉬운 설명이 나옵니다.</span></span>에 마우스를 올리면 설명이 나옵니다. 파란 <b>발급처 링크</b>를 누르면 조회·발급 화면으로 바로 이동합니다.</div>
+
+<div class="concept">
+  <b>전환사채</b>란 <b>「지금은 빚, 나중에 주식」</b>인 채권입니다. 투자자는 회사에 돈을 빌려주고, 정해진 기간 안에 <b>「주식으로 바꿔 주십시오」</b>라고 청구할 수 있습니다. 회사가 잘되면 주식으로 바꿔 이익을 보고, 잘 안 되면 빚으로 두고 원금과 이자를 받습니다. 영어 머리글자를 따서 <b>CB</b>라고 부릅니다.
+</div>
+
+<div class="tldr">
+  <div class="tt">이런 상황입니다 — 세 가지만 알아두시면 됩니다</div>
+  <ul>
+    <li><b>① 등기를 두 번 합니다.</b> 돈이 들어왔을 때 <b>발행등기</b>, 나중에 투자자가 주식으로 바꿀 때 <b>전환등기</b>. 두 번 다 <b>2주</b>입니다.</li>
+    <li><b>② 기한 세는 법이 특이합니다.</b> 발행등기는 <b>돈이 다 들어온 날</b>부터, 전환등기는 <b>전환을 청구한 날이 속한 달의 말일</b>부터 셉니다. 결의한 날이 아닙니다.</li>
+    <li><b>③ 누가 인수하느냐가 가장 중요합니다.</b> <b>기존 주주가 아닌 사람</b>에게 발행하시려면 정관이나 <b>주주총회 특별결의</b>가 있어야 하고, <b>경영상 목적</b>도 있어야 합니다. 이것을 어기면 <b>발행이 무효가 될 수 있습니다.</b></li>
+  </ul>
+</div>
+
+<div class="bnote">※ <b>회사에 생기는 다른 등기도 모두 2주입니다.</b> 투자를 주식으로 받으시면 <a href="sanlaw_증자등기_안내.html" class="dl">증자등기</a>, 임원이 바뀌면 <a href="sanlaw_임원변경등기_안내.html" class="dl">임원변경등기</a>, 사무실을 옮기시면 <a href="sanlaw_본점이전_지점등기_안내.html" class="dl">본점이전·지점등기</a>, 회사 이름이나 사업 목적을 바꾸시면 <a href="sanlaw_상호목적변경등기_안내.html" class="dl">상호·목적 변경등기</a>가 필요합니다.</div>
+
+<div class="lawrow"><div class="lrl">관련 법령</div><div class="lrc">
+  <b>상법 §469①</b> 사채는 이사회 결의로 발행 · <b>상법 §513②</b> 전환사채 발행사항은 정관에 없으면 <b>이사회</b>가 결정 · <b>상법 §513③</b> 주주 외의 자에게 발행하려면 정관에 규정이 없으면 <b>주주총회 특별결의</b>, <b>§418② 단서 준용</b>(경영상 목적) · <b>상법 §514조의2①</b> <b>납입이 완료된 날부터 2주</b> 내 본점 소재지에서 발행등기 · <b>상법 §516②·§351</b> 전환으로 인한 변경등기는 <b>전환청구일이 속한 달의 말일부터 2주</b> · <b>상법 §516①·§424·§424조의2</b> 위법발행 유지청구·불공정가액 책임 · <b>상법 §635①1호</b> 500만원 이하 과태료 · <b>지방세법 §28①6호</b> 등록면허세
+</div></div>
+
+<!-- ══════════ 1. 두 번의 등기 ══════════ -->
+<div class="qhead"><span class="qb">1</span><h2>등기가 두 번입니다 — 이 그림부터 잡으십시오</h2></div>
+
+<div class="two">
+  <div class="a">
+    <div class="st">첫 번째 · 전환사채 발행등기</div>
+    <div class="sub">투자금이 들어왔을 때</div>
+    <ul>
+      <li>등기부에 <b>「전환사채」란</b>이 새로 생깁니다</li>
+      <li><b>자본금은 늘지 않습니다</b> — 아직 빚이기 때문입니다</li>
+      <li>기한 = <b>납입이 완료된 날부터 2주</b></li>
+      <li>등록면허세 <b>40,200원</b>(정액)</li>
+    </ul>
+  </div>
+  <div class="b">
+    <div class="st">두 번째 · 전환등기</div>
+    <div class="sub">투자자가 주식으로 바꿔달라고 할 때</div>
+    <ul>
+      <li><b>신주가 발행되어 자본금이 늘어납니다</b></li>
+      <li>전환사채는 그만큼 <b>줄거나 없어집니다</b></li>
+      <li>기한 = <b>전환청구일이 속한 달의 말일부터 2주</b></li>
+      <li>등록면허세 <b>늘어난 자본금의 0.4%</b>(최저 112,500원)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="warn">
+  <span class="wt">★ 두 번째 등기를 잊으시는 분이 많습니다</span>
+  첫 번째 등기는 투자금이 들어온 직후라 대개 챙기십니다. 문제는 <b>두 번째</b>입니다. 전환청구는 <b>투자자가 아무 때나 일방적으로</b> 할 수 있고, <b>회사의 동의가 필요 없습니다.</b> 전환을 청구한 그 순간 투자자는 <b>이미 주주가 되고</b>(상법 §516②·§350), 회사는 그때부터 2주 안에 등기해야 합니다. <b>「연락이 오면 그때 하지」</b> 하고 계시다가 기한을 넘기는 일이 잦습니다. <b>전환청구서를 받으시면 그날 바로 알려 주십시오.</b>
+</div>
+
+<!-- ══════════ 2. 누구에게 ══════════ -->
+<div class="qhead"><span class="qb">2</span><h2>★ 누가 인수하는가 — 여기서 회사의 운명이 갈립니다</h2></div>
+
+<table>
+  <thead><tr><th style="width:120px">누구에게</th><th>필요한 절차</th><th>위험</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><b>기존 주주에게<br>지분대로</b></td>
+      <td><b>이사회 결의</b>만으로 가능합니다<br><span style="font-size:12.5px">(정관에 주주총회에서 정하도록 되어 있으면 주주총회)</span></td>
+      <td style="color:#2f6a47">낮습니다. 지분이 희석되지 않기 때문입니다.</td>
+    </tr>
+    <tr>
+      <td><b>주주가 아닌<br>사람에게</b><br><span style="font-size:12.5px;color:var(--muted)">(제3자 배정)</span></td>
+      <td style="color:#9c3a22"><b>① 정관에 근거가 있거나</b>, 없으면 <b>주주총회 특별결의</b>(상법 §513③)<br><b>② 「경영상 목적」이 있어야</b> 합니다(§418② 단서 준용)</td>
+      <td style="color:#9c3a22"><b>절차를 어기면 발행이 무효로 될 수 있습니다.</b> 소송으로 다투어지는 사례가 많은 영역입니다.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="warn">
+  <span class="wt">★ 「경영상 목적」이 무슨 뜻인지 — 이 대목이 가장 어렵습니다</span>
+  법은 주주가 아닌 사람에게 전환사채를 발행하려면 <b>신기술 도입, 재무구조 개선처럼 회사의 경영상 목적을 달성하기 위하여 필요한 경우</b>여야 한다고 정하고 있습니다(상법 §513③에서 §418② 단서 준용).
+  <p style="margin:8px 0 0"><b>반대로 말하면</b>, 자금이 꼭 필요하지도 않은데 <b>특정인의 지분을 늘리려고</b> 또는 <b>경영권 다툼에서 우위를 잡으려고</b> 발행하시면, 나중에 <b>기존 주주가 무효를 다툴 수 있습니다.</b> 투자 유치 자체는 대개 경영상 목적으로 인정되지만, <b>발행 가격이 지나치게 낮거나</b> 인수인이 <b>대표이사의 가족·지인</b>인 경우에는 다툼의 소지가 커집니다.</p>
+  <p style="margin:8px 0 0"><b>저희가 「됩니다」라고 쉽게 말씀드리지 않는 부분입니다.</b> 이사회 회의록에 <b>왜 이 자금이 필요한지, 왜 이 조건인지</b>를 기록으로 남겨 두시는 것이 최선의 대비입니다.</p>
+</div>
+
+<div class="tip">
+  <span class="pt">주주에게 배정하실 때는 「2주 전 통지」가 있습니다</span>
+  주주에게 전환사채 인수권을 주시는 경우, 각 주주에게 <b>인수할 수 있는 금액·전환의 조건·전환으로 발행할 주식의 내용·전환청구 기간</b>과 <b>「언제까지 청약하지 않으면 권리를 잃는다」</b>는 뜻을 통지해야 하고(상법 §513조의3), 그 통지는 <b>청약기일의 2주 전</b>에 하여야 합니다(§419② 준용). <b>일정을 짜실 때 이 2주를 먼저 빼 두십시오.</b>
+</div>
+
+<!-- ══════════ 3. 기한 ══════════ -->
+<div class="qhead"><span class="qb">3</span><h2>기한 — 두 번 다 세는 법이 다릅니다</h2></div>
+
+<h3>① 발행등기 — 예시: 2026. 6. 10.(수) 투자금 납입이 완료된 경우</h3>
+<table class="deadline">
+  <thead><tr><th>① 기산일</th><th>② 계산 근거 조문</th><th>③ 말일 처리</th><th>④ 최종 만료일</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><b>2026. 6. 11.</b><br><span style="font-size:12.5px;color:var(--muted)"><b>납입 완료일</b>의 다음 날부터<br>(이사회 결의일 아님)</span></td>
+      <td>상법 §514조의2①<br>(§476 납입이 완료된 날부터 2주)<br>민법 §157 <b>초일불산입</b></td>
+      <td>민법 §161 — 말일이 <b>토요일·공휴일</b>이면 <b>그다음 날</b>로 만료</td>
+      <td style="color:#9c3a22"><b>2026. 6. 24.(수)</b></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>② 전환등기 — 예시: 2026. 9. 3.(목) 투자자가 전환을 청구한 경우</h3>
+<table class="deadline">
+  <thead><tr><th>① 기산일</th><th>② 계산 근거 조문</th><th>③ 말일 처리</th><th>④ 최종 만료일</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><b>2026. 10. 1.</b><br><span style="font-size:12.5px;color:var(--muted)">전환청구일이 속한 달의<br><b>말일(9. 30.)</b>의 다음 날부터</span></td>
+      <td>상법 §516②·§351<br>상업등기선례 제1-212호<br>상업등기선례 제201908-1호</td>
+      <td>민법 §161 — 말일이 <b>토요일·공휴일</b>이면 <b>그다음 날</b>로 만료</td>
+      <td style="color:#9c3a22"><b>2026. 10. 14.(수)</b></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="bnote">※ <b>왜 「그 달의 말일」부터 세는가</b> — 전환청구는 투자자마다 아무 날에나 할 수 있어, 청구가 있을 때마다 등기하면 사무가 번잡해집니다. 그래서 <b>한 달 치를 모아 처리하도록</b> 기산점을 월말로 정해 둔 것입니다. <b>같은 달에 여러 건의 전환청구가 있으면 한꺼번에 등기</b>하실 수 있습니다.<br>
+※ <b>등기는 청구한 날부터 바로 하실 수 있습니다.</b> 월말까지 기다리실 필요가 없습니다. 월말은 <b>늦어도 언제까지인지</b>를 정하는 기준일 뿐입니다.</div>
+
+<div class="tip">
+  <span class="pt">기한은 넉넉히 잡으시는 편이 안전합니다</span>
+  위 계산은 <b>말일의 다음 날부터 2주</b>로 잡은 것입니다. 다만 실무에서 <b>말일 당일부터 세는 방식</b>으로 보는 견해도 있어, <b>하루 이틀 여유를 두고 접수</b>하시기를 권해 드립니다. 위 예시라면 <b>10월 13일까지</b> 마치시면 어느 계산으로도 안전합니다.
+</div>
+
+<!-- ══════════ 4. 절차 ══════════ -->
+<div class="qhead"><span class="qb">4</span><h2>이 순서로 진행됩니다</h2></div>
+
+<div class="flow">
+  <div class="ft2">전환사채 발행 — 첫 번째 등기까지</div>
+  <ol>
+    <li><b>정관 확인</b> — 전환사채 발행을 이사회가 정하는지, 주주총회가 정하는지</li>
+    <div class="arw">▼</div>
+    <li><b>인수자 확정</b> — 주주인지 제3자인지. <b>제3자라면 주주총회 특별결의 준비</b></li>
+    <div class="arw">▼</div>
+    <li><b>이사회(또는 주주총회) 결의</b> — 총액·전환조건·전환으로 발행할 주식·전환청구 기간 확정 → <b><span class="term">공증<span class="bub">공증인이 회의 절차와 내용이 사실과 맞는지 확인하고 그 사실을 적어주는 것.</span></span></b></li>
+    <div class="arw">▼</div>
+    <li><b>사채청약서 작성 → 투자자 청약 → 배정</b></li>
+    <div class="arw">▼</div>
+    <li><b>납입</b> — 회사 계좌로 투자금 입금. <b>이날부터 2주가 시작됩니다</b></li>
+    <div class="arw">▼</div>
+    <li><b>납입증명 발급</b>(은행) <b>→ 등록면허세 납부 → 발행등기 신청</b></li>
+    <div class="arw">▼</div>
+    <li><b>채권 발행 · 사채원부 작성·비치</b>(상법 §488)</li>
+  </ol>
+</div>
+
+<div class="flow" style="background:linear-gradient(180deg,#f7fafc,#eef4f8);border-color:#5a8db0">
+  <div class="ft2" style="color:var(--tip-ink)">나중에 · 두 번째 등기</div>
+  <ol>
+    <li><b>투자자가 전환청구서 제출</b> — 이 순간 투자자는 <b>주주가 됩니다</b></li>
+    <div class="arw" style="color:#5a8db0">▼</div>
+    <li><b>발행할 주식 수 계산</b> — 전환가액으로 나눕니다. <b>단수 처리 방법을 미리 정해 두십시오</b></li>
+    <div class="arw" style="color:#5a8db0">▼</div>
+    <li><b>등록면허세 납부 → 전환등기 신청</b> — 자본금 증가 + 전환사채 감소를 함께</li>
+    <div class="arw" style="color:#5a8db0">▼</div>
+    <li><b>주주명부 기재 · 주식 발행 · 법인세 신고 시 자본 변동 반영</b></li>
+  </ol>
+</div>
+
+<!-- ══════════ 5. 첨부서류 ══════════ -->
+<div class="qhead"><span class="qb">5</span><h2>등기소에 내는 서류와 그 발급처</h2></div>
+
+<div class="who"><span class="doclabel give">제출</span><br><span class="wl">◆ 첫 번째 — 전환사채 발행등기</span>
+  <table style="margin:6px 0 0">
+    <thead><tr><th>준비물</th><th>어디서</th><th>주의</th></tr></thead>
+    <tbody>
+      <tr><td><b>이사회 의사록</b> (공증)<br><span style="font-size:12.5px;color:var(--muted)">정관상 주주총회 사항이면 <b>주주총회 의사록</b></span></td><td>공증인 사무소</td><td style="color:#9c3a22"><b>총액·전환조건·발행할 주식의 내용·전환청구 기간을 모두 기재</b></td></tr>
+      <tr><td><b>주주총회 의사록</b> (공증)</td><td>공증인 사무소</td><td style="color:#9c3a22"><b>제3자에게 발행하는 경우 — 특별결의</b></td></tr>
+      <tr><td><b>사채청약서</b></td><td>사무소 작성</td><td>인수자가 기명날인 또는 서명</td></tr>
+      <tr><td><b>사채의 인수를 증명하는 서면</b></td><td>사무소 작성</td><td>사채인수계약서 또는 인수증</td></tr>
+      <tr><td><b>사채금액 납입증명서</b></td><td>은행</td><td style="color:#9c3a22"><b>납입금보관증명서 또는 잔고증명서</b></td></tr>
+      <tr><td><b>정관</b> 사본</td><td>회사 보관본</td><td>발행 권한이 어디에 있는지 확인용</td></tr>
+      <tr><td><b>법인 인감도장</b>·<b>인감증명서</b></td><td>회사 보관 · 등기소</td><td>신청·위임용</td></tr>
+      <tr><td><b>등록면허세 영수필확인서</b></td><td><a href="https://www.wetax.go.kr" target="_blank" rel="noopener" class="dl">위택스</a></td><td>본점 소재지 시·군·구</td></tr>
+    </tbody>
+  </table>
+  <div class="ddl">발급처 ▸ <a href="https://www.iros.go.kr" target="_blank" rel="noopener" class="dl">인터넷등기소(등기사항증명서·수수료)</a> · <a href="https://www.wetax.go.kr" target="_blank" rel="noopener" class="dl">위택스(등록면허세)</a></div>
+</div>
+
+<div class="who" style="border-left-color:#5a8db0"><span class="doclabel give">제출</span><br><span class="wl">◆ 두 번째 — 전환등기</span>
+  <ul>
+    <li><b>전환청구서</b> — 투자자가 제출한 것. <b>청구일이 찍혀 있어야</b> 기한 계산이 됩니다</li>
+    <li><b>사채권 또는 그에 갈음하는 서면</b> — 채권을 발행하셨다면 회수합니다</li>
+    <li><b>정관</b> 사본 · <b>법인 인감증명서</b> · <b>등록면허세 영수필확인서</b> · <b>위임장</b></li>
+  </ul>
+  <p style="margin:6px 0 0;font-size:14px">※ 전환은 <b>이미 정해진 조건대로 이루어지는 것</b>이라, 이 단계에서는 <b>새로 주주총회나 이사회를 열지 않습니다.</b> 그래서 서류가 첫 번째보다 훨씬 간단합니다.</p>
+</div>
+
+<div class="who" style="border-left-color:#d9694a"><span class="wl">◆ 외국 국적이거나 해외에 계신 분이 인수하는 경우</span>
+  <ul>
+    <li><b>사채청약서·인수계약서의 서명</b> — 본국 관청의 <b>서명증명</b> 또는 공증인의 인증을 받아 두시는 편이 안전합니다. 인감제도가 있는 나라는 본국 인감증명으로 갈음할 수 있습니다.</li>
+    <li><b>주소·생년월일 증명</b> — 국내 외국인등록·거소신고가 되어 있으면 <a href="https://www.gov.kr" target="_blank" rel="noopener" class="dl">정부24</a>의 외국인등록사실증명, 없으면 <b>본국의 주소증명서면</b>을 씁니다.</li>
+    <li><b>번역문</b> — 외국어 서면에는 번역문을 함께 냅니다.</li>
+    <li><b style="color:#9c3a22">외환·외국인투자 신고</b> — 외국인이 국내 회사의 사채를 인수하고 뒤에 주식으로 전환하는 거래는 <b>외국인투자 또는 자본거래 신고 대상이 될 수 있습니다.</b> 해당 여부는 금액·지분율·거래 형태에 따라 달라지므로 <b>돈을 보내기 전에 반드시 확인</b>하셔야 합니다. 자세한 것은 <a href="sanlaw_외국인_법인설립_안내.html" class="dl">외국인투자 법인설립 안내</a>를 함께 보십시오.</li>
+  </ul>
+  <p style="margin:8px 0 0;font-size:14px;color:#9c3a22"><b>이 경우만큼은 송금 전에 상의해 주십시오.</b> 신고를 빠뜨린 채 돈이 들어오면 되돌리기가 대단히 번거롭습니다.</p>
+</div>
+
+<div class="who" style="border-left-color:#5a8db0"><span class="wl">◆ 저희 사무소에서 작성해 드리는 서류</span>
+  <ul>
+    <li><b>이사회 의사록</b> · <b>주주총회 의사록</b>(또는 주주 전원의 서면결의서) · <b>주주에 대한 인수권 통지서</b> · <b>사채청약서</b> · <b>사채인수계약서</b> · <b>사채원부</b> · <b>전환사채발행등기신청서</b> · <b>전환등기신청서</b> · <b>위임장</b></li>
+    <li>여기에 더해, <b>전환청구가 들어올 때를 대비한 [전환 대응 안내]</b>와 다음 등기 기한을 계산해 적은 <b>[기한 관리표]</b>를 함께 드립니다.</li>
+  </ul>
+  <div class="ddl">양식 확인 ▸ <a href="https://www.iros.go.kr" target="_blank" rel="noopener" class="dl">인터넷등기소 → 자료센터 → 등기신청양식</a> <b>(주식회사 전환사채발행등기신청서)</b></div>
+</div>
+
+<!-- ══════════ 6. 반환 ══════════ -->
+<div class="qhead"><span class="qb">6</span><h2>등기가 끝나면 '되돌려받는' 것</h2></div>
+<div class="who" style="border-left-color:#5a9a72"><span class="doclabel back">반환</span><br><span class="wl">◆ 등기 완료 후 받으시는 것</span>
+  <ul>
+    <li><b>공증받은 의사록 원본</b> — 사본 제출 시 반환됩니다. <b>회사에 반드시 보관</b>하셔야 합니다(상법 §396).</li>
+    <li><b>정관 원본</b> — 사본 제출 시 반환됩니다.</li>
+    <li><b>사채금액 납입증명서</b> — 등기소에 <b>원본을 제출</b>하므로 돌려받지 못합니다. <b>발급받으실 때 회사 보관용으로 한 통 더</b> 받아 두십시오.</li>
+    <li><b>새 등기사항전부증명서</b> — 「전환사채」란이 새로 생긴 것을 확인하실 수 있습니다.</li>
+    <li><b>회사가 계속 보관하셔야 하는 것</b> — <b>사채원부</b>(상법 §488)와 <b>사채청약서·인수계약서</b>. 전환청구가 들어왔을 때 조건을 확인하는 근거가 됩니다.</li>
+  </ul>
+</div>
+
+<!-- ══════════ 7. 보정 ══════════ -->
+<div class="qhead"><span class="qb">7</span><h2>⚠ 등기관이 보정을 명하는 지점 — 빈도순으로 정리했습니다</h2></div>
+<div class="concept">전환사채는 신청 건수 자체가 많지 않아 <b>등기관도 서류를 꼼꼼히 봅니다.</b> 특히 <b>의사록에 적어야 할 항목이 하나라도 빠지면</b> 바로 보정이 나옵니다.</div>
+
+<h3>빈도 [상]</h3>
+<table class="fixt">
+  <thead><tr><th style="width:26px">#</th><th style="width:150px">항목</th><th>내용과 예방법</th><th style="width:52px">빈도</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><b>의사록에 발행사항<br>누락</b></td>
+      <td>
+        전환사채는 <b>등기할 사항이 정해져 있어</b>(상법 §514조의2②) 의사록에 그 근거가 다 있어야 합니다. <b>전환의 조건</b>(전환가액), <b>전환으로 발행할 주식의 내용</b>(보통주인지 종류주인지), <b>전환을 청구할 수 있는 기간</b> 중 하나라도 빠지면 걸립니다.
+        <div class="quo">전환의 조건 및 전환을 청구할 수 있는 기간에 관한 기재가 없으므로 보정하시기 바랍니다.</div>
+        <b>예방</b> — 의사록에 <b>총액 / 각 사채의 금액 / 납입금액 / 전환가액 / 발행할 주식의 종류와 내용 / 전환청구 기간</b> 여섯 가지를 반드시 넣으십시오.
+      </td>
+      <td><span class="lv h">상</span></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><b>제3자 배정인데<br>주주총회 결의 없음</b></td>
+      <td>
+        주주가 아닌 사람에게 발행하면서 이사회 의사록만 낸 경우입니다. <b>정관에 근거가 없으면 주주총회 특별결의</b>가 필요합니다(상법 §513③).
+        <div class="quo">주주 외의 자에 대하여 전환사채를 발행하는 경우이므로, 정관의 규정 또는 상법 제434조의 결의가 있음을 증명하는 서면을 첨부하시기 바랍니다.</div>
+        <b>예방</b> — <b>인수자가 주주명부에 있는지</b>부터 확인하십시오. 없으면 주주총회를 여셔야 합니다. <b>등기가 통과되어도 발행 자체를 다투는 소송은 별개</b>라는 점도 유념하십시오.
+      </td>
+      <td><span class="lv h">상</span></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><b>납입증명서 부적합</b></td>
+      <td>
+        통장 사본만 내거나, 납입일이 확인되지 않는 서류를 낸 경우입니다.
+        <div class="quo">사채금액의 납입이 완료되었음을 증명하는 서면이 첨부되지 아니하였습니다.</div>
+        <b>예방</b> — 은행에서 <b>납입금보관증명서 또는 잔고증명서</b>를 받으십시오. <b>납입 완료일이 명시</b>되어야 기한 계산의 근거가 됩니다.
+      </td>
+      <td><span class="lv h">상</span></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><b>의사록 공증 누락</b></td>
+      <td>
+        <b>「자본금 10억원 미만이면 공증 면제」는 발기설립에만</b> 해당합니다(공증인법 §66조의2①1호).
+        <div class="quo">첨부된 의사록에 공증인의 인증이 없으므로 이를 보정하시기 바랍니다.</div>
+        <b>예방</b> — 공증인 사무소에서 인증을 받으십시오. 자본금 10억원 미만 회사는 <b>주주 전원의 서면결의서</b>로 갈음하는 방법이 실무상 쓰이지만, <b>이사회 결의는 서면결의로 갈음할 수 없는 경우</b>가 있으므로 미리 확인하셔야 합니다.
+      </td>
+      <td><span class="lv h">상</span></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><b>기한 도과</b></td>
+      <td>
+        발행등기를 <b>이사회 결의일부터</b> 세어 늦은 경우, 전환등기를 <b>전환청구일부터</b> 2주로 잘못 세어 늦은 경우입니다. 등기는 되지만 <b>과태료가 통지</b>됩니다.
+        <div class="quo">등기기간이 경과하였으므로 과태료 부과 대상임을 통지합니다.</div>
+        <b>예방</b> — 발행등기는 <b>납입 완료일</b>, 전환등기는 <b>청구일이 속한 달의 말일</b>이 기준입니다. 위 ③번 표를 그대로 따라 계산하십시오.
+      </td>
+      <td><span class="lv h">상</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>빈도 [중]</h3>
+<table class="fixt">
+  <thead><tr><th style="width:26px">#</th><th style="width:150px">항목</th><th>내용과 예방법</th><th style="width:52px">빈도</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>6</td>
+      <td><b>전환가액과 액면가<br>불일치</b></td>
+      <td>
+        전환가액이 <b>1주의 액면금액보다 낮게</b> 정해진 경우입니다. 주식은 액면미달로 발행할 수 없는 것이 원칙입니다.
+        <div class="quo">전환의 조건이 1주의 금액에 미달하므로 보정하시기 바랍니다.</div>
+        <b>예방</b> — <b>전환가액 ≥ 액면금액</b>이 되도록 정하십시오. 액면가 100원인 회사가 많으니 대개 문제되지 않지만, <b>액면가 5,000원 회사</b>는 확인이 필요합니다.
+      </td>
+      <td><span class="lv m">중</span></td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td><b>발행예정주식총수<br>초과</b></td>
+      <td>
+        전환으로 발행될 주식까지 합하면 <b>정관의 발행예정주식총수를 넘는</b> 경우입니다. 그 주식 수만큼은 <b>전환기간 동안 남겨 두어야</b> 합니다.
+        <div class="quo">전환으로 인하여 발행할 주식의 수가 정관상 발행예정주식총수를 초과합니다.</div>
+        <b>예방</b> — <b>발행예정주식총수 − 이미 발행한 주식 수 ≥ 전환으로 발행될 주식 수</b>인지 미리 계산하십시오. 모자라면 <b>정관변경(주주총회 특별결의)</b>을 먼저 하셔야 합니다.
+      </td>
+      <td><span class="lv m">중</span></td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td><b>등록면허세 계산<br>오류 (전환등기)</b></td>
+      <td>
+        전환등기는 <b>자본금이 늘어나는 등기</b>여서 정액이 아니라 <b>증가액의 0.4%</b>입니다. 40,200원만 내고 오시는 경우가 있습니다.
+        <div class="quo">등록면허세가 부족하므로 보정하시기 바랍니다.</div>
+        <b>예방</b> — 아래 ⑧번 표를 보십시오. <b>설립 후 5년이 지나지 않은 대도시 법인</b>은 여기에 3배까지 붙습니다.
+      </td>
+      <td><span class="lv m">중</span></td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td><b>단수 처리 미정</b></td>
+      <td>
+        전환가액으로 나누었을 때 <b>주식 수에 소수점이 생기는</b> 경우입니다. 처리 방법이 정해져 있지 않으면 등기할 주식 수를 확정할 수 없습니다.
+        <div class="quo">전환으로 발행할 주식의 수가 첨부서면의 기재로부터 확정되지 아니합니다.</div>
+        <b>예방</b> — <b>발행 조건에 「1주 미만의 단수는 절사한다」</b>는 문구를 미리 넣어 두십시오.
+      </td>
+      <td><span class="lv m">중</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>빈도 [하]</h3>
+<table class="fixt">
+  <thead><tr><th style="width:26px">#</th><th style="width:150px">항목</th><th>내용과 예방법</th><th style="width:52px">빈도</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>10</td>
+      <td><b>주주 배정인데<br>통지 누락</b></td>
+      <td>주주에게 인수권을 주면서 <b>청약기일 2주 전 통지</b>를 하지 않은 경우입니다(상법 §513조의3, §419② 준용). 등기 단계보다 <b>나중에 주주가 다툴 때</b> 문제됩니다.</td>
+      <td><span class="lv l">하</span></td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td><b>외국인 인수자<br>서류</b></td>
+      <td>서명증명·주소증명·번역문, 그리고 <b>외환·외국인투자 신고 여부</b>가 문제됩니다. <b>송금 전에</b> 확인하셔야 합니다.</td>
+      <td><span class="lv l">하</span></td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td><b>전환 후 전환사채<br>정리 누락</b></td>
+      <td>전환으로 사채가 없어졌는데 <b>자본금 증가만 등기</b>하고 전환사채란을 그대로 둔 경우입니다. <b>전환사채의 변경 또는 말소등기</b>도 함께 하셔야 합니다.</td>
+      <td><span class="lv l">하</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="chk">
+  <div class="ck">📋 접수 직전 최종 점검표</div>
+  <ul>
+    <li>인수자가 <b>주주명부에 있는 사람인지</b> 확인했다 (없으면 주주총회 특별결의)</li>
+    <li>의사록에 <b>총액·각 사채 금액·납입금액·전환가액·발행할 주식의 내용·전환청구 기간</b>이 모두 있다</li>
+    <li>의사록에 <b>공증</b>을 받았다</li>
+    <li>발행 조건에 <b>단수 처리 문구</b>를 넣었다</li>
+    <li><b>발행예정주식총수</b>에 전환될 주식 수만큼 여유가 있다</li>
+    <li>은행에서 <b>납입증명서</b>를 받았고, <b>납입 완료일</b>이 찍혀 있다</li>
+    <li>기한을 <b>납입 완료일</b> 기준으로 계산했다 (결의일 아님)</li>
+    <li>전환등기라면 기한을 <b>청구일이 속한 달의 말일</b> 기준으로 계산했다</li>
+  </ul>
+</div>
+
+<!-- ══════════ 8. 세금 ══════════ -->
+<div class="qhead"><span class="qb">8</span><h2>세금과 수수료는 얼마인가요?</h2></div>
+
+<h3>첫 번째 — 전환사채 발행등기</h3>
+<table>
+  <thead><tr><th>항목</th><th>금액</th><th>근거</th><th>납부처</th></tr></thead>
+  <tbody>
+    <tr><td><b><span class="term">등록면허세<span class="bub">등기·등록을 할 때 내는 지방세. 자본금이 늘지 않는 등기는 「그 밖의 등기」로 정액입니다.</span></span></b></td><td><b>40,200원</b></td><td>지방세법 §28①6호 바목</td><td><a href="https://www.wetax.go.kr" target="_blank" rel="noopener" class="dl">위택스</a></td></tr>
+    <tr><td><b>지방교육세</b> (등록면허세의 20%)</td><td><b>8,040원</b></td><td>지방세법 §151①2호</td><td><a href="https://www.wetax.go.kr" target="_blank" rel="noopener" class="dl">위택스</a></td></tr>
+    <tr><td><b>등기신청수수료</b> (방문신청)</td><td><b>7,000원</b></td><td>수수료규칙 §5조의3②</td><td><a href="https://www.iros.go.kr" target="_blank" rel="noopener" class="dl">인터넷등기소</a></td></tr>
+    <tr style="background:#fdf6e3"><td><b>합　계</b></td><td style="color:#9c3a22"><b>55,240원</b></td><td colspan="2">—</td></tr>
+  </tbody>
+</table>
+<p style="font-size:13px;color:var(--muted);margin-top:-6px">※ 전환사채 발행은 <b>자본금이 늘지 않으므로</b> 사채 금액이 아무리 커도 등록면허세는 정액입니다. 다만 지방자치단체의 과세 실무가 다를 수 있으니 <b>납부 전 위택스 또는 관할 시·군·구에 확인</b>하시기 바랍니다.</p>
+
+<h3>두 번째 — 전환등기 (자본금이 늘어납니다)</h3>
+<table>
+  <thead><tr><th>구분</th><th>등록면허세</th><th>지방교육세</th><th>비고</th></tr></thead>
+  <tbody>
+    <tr><td><b>일반</b></td><td>증가 자본금의 <b>0.4%</b><br><span style="font-size:12.5px;color:var(--muted)">최저 112,500원</span></td><td>등록면허세의 20%</td><td>지방세법 §28①6호 가목</td></tr>
+    <tr><td style="color:#9c3a22"><b>대도시 법인이<br>설립 후 5년 이내</b></td><td style="color:#9c3a22"><b>위 금액의 3배</b></td><td>등록면허세의 20%</td><td style="color:#9c3a22">지방세법 §28②</td></tr>
+  </tbody>
+</table>
+
+<div class="cost">
+  <span class="ct">전환등기 세액 예시 — 자본금이 5,000만원 늘어나는 경우</span>
+  <table style="margin:6px 0 0">
+    <thead><tr><th>구분</th><th>등록면허세</th><th>지방교육세</th><th>수수료</th><th>합계</th></tr></thead>
+    <tbody>
+      <tr><td>일반</td><td>200,000원</td><td>40,000원</td><td>7,000원</td><td><b>247,000원</b></td></tr>
+      <tr><td style="color:#9c3a22">대도시·설립 5년 이내</td><td style="color:#9c3a22">600,000원</td><td>120,000원</td><td>7,000원</td><td style="color:#9c3a22"><b>727,000원</b></td></tr>
+    </tbody>
+  </table>
+  <p style="margin:8px 0 0;font-size:14px">※ <b>설립하신 지 5년이 지났다면 중과되지 않습니다.</b> 전환청구 시점이 5년 경계에 걸쳐 있다면 세액 차이가 크므로 미리 확인하십시오.<br>
+  ※ <b>신청 방법에 따른 수수료</b> — 방문 7,000원 / 전자표준양식 5,000원 / 전자신청 2,000원 (등기의 목적마다).</p>
+</div>
+
+<a class="calc" href="https://sanlaw.co.kr/tools-calculator.html" target="_blank" rel="noopener">
+  <div class="cah">🧮 등록면허세·수수료·보수 미리 계산해 보기</div>
+  <div class="cas">사채 금액과 전환가액, 설립일을 입력하시면 발행등기와 전환등기 두 단계의 예상 금액을 함께 산출합니다. (클릭 시 계산기로 이동)</div>
+</a>
+
+<!-- ══════════ 초기 질의서 ══════════ -->
+<div class="qhead"><span class="qb">✓</span><h2>초기 질의서 — 이것만 채워 보내주시면 됩니다</h2></div>
+<div class="howto">아래 양식을 복사하거나 내려받아 채우신 뒤, <b>등기사항전부증명서·정관·투자계약서(초안)와 함께 보내주시면</b> 제3자 배정 여부와 절차부터 짚어 드리겠습니다. 모르시는 항목은 비워두셔도 됩니다.</div>
+
+<div class="formbox open">
+  <button class="fold-btn" onclick="toggleFold(this)">📋 전환사채 발행등기 초기 질의서 <span class="chev">▾</span></button>
+  <div class="fold-body">
+    <div class="form" id="fm-intake"><span class="ft">전환사채 발행등기 초기 질의서</span>
+ 1. 회사 상호        주식회사 ○○○○○○○○
+
+ 2. 법인등록번호     ○○○○○○ - ○○○○○○○
+
+ 3. 본점 주소        ○○○○○○○○○○○○○○○○
+
+ 4. 설립일           20○○. ○○. ○○.
+                     ※ 설립 후 5년이 지났는지가 세금을 가릅니다
+
+ 5. 현재 자본금      ○○○○○○○○ 원
+    1주의 금액       ○○○ 원   (액면가)
+    발행주식총수     ○○○○○○ 주
+    발행예정주식총수 ○○○○○○ 주   (정관에 적혀 있습니다)
+
+ 6. 누가 인수하십니까
+     □ 기존 주주  →  주주명부상 지분율: ○○%
+     □ 주주가 아닌 사람(법인)  →  이름: ○○○○○○
+        └ 이 경우 주주총회 특별결의가 필요할 수 있습니다
+     □ 외국인 또는 해외 거주자  →  국적: ○○○○  거주국: ○○○○
+
+ 7. 발행 조건 (정해진 것만 적어주십시오)
+     사채 총액          ○○○○○○○○ 원
+     1좌(각 사채)의 금액 ○○○○○○○ 원
+     이자율             연 ○○ %      (무이자면 0)
+     만기               20○○. ○○. ○○.
+     전환가액           1주당 ○○○○ 원
+     전환청구 가능 기간  20○○. ○○. ○○. ~ 20○○. ○○. ○○.
+     전환으로 발행할 주식 □ 보통주   □ 종류주(우선주 등)
+
+ 8. 자금을 받으시는 이유는 무엇입니까
+     □ 운영자금   □ 시설투자   □ 연구개발   □ 재무구조 개선
+     □ 기타 ( ○○○○○○○○ )
+     ※ 주주가 아닌 분에게 발행하실 때 「경영상 목적」의 근거가 됩니다
+
+ 9. 납입 예정일     20○○. ○○. ○○.
+                    ※ 이 날부터 2주가 시작됩니다
+
+10. 정관에 이런 문구가 있습니까
+     □ "전환사채는 이사회의 결의로 발행한다"
+     □ "주주 외의 자에게 전환사채를 발행할 수 있다"
+     □ 정관을 찾지 못했다
+
+11. 이사 수         ○명   (이사회가 있습니까?  □ 있다  □ 없다  □ 모르겠다)
+
+12. 연락처          성명 ○○○   전화 ○○○-○○○○-○○○○
+</div>
+    <div class="form-tools">
+      <button onclick="copyForm('fm-intake')">📋 복사</button>
+      <button onclick="printForm('fm-intake')">🖨 인쇄</button>
+      <button onclick="downloadForm('fm-intake','전환사채발행등기_초기질의서.txt')">⬇ 내려받기</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ FAQ ══════════ -->
+<div class="qhead"><span class="qb">?</span><h2>자주 묻는 질문</h2></div>
+<div class="faq">
+
+  <details><summary>전환사채와 증자는 무엇이 다른가요?</summary>
+    <div class="fa"><b>돈이 들어오는 시점에 주주가 되는지가 다릅니다.</b> <a href="sanlaw_증자등기_안내.html" class="dl">증자</a>는 투자자가 <b>바로 주주</b>가 되어 자본금이 곧장 늘어납니다. 전환사채는 <b>일단 빚</b>이라 자본금이 늘지 않고, 투자자가 원할 때 주식으로 바뀝니다. 회사로서는 <b>지분 희석을 미룰 수 있다</b>는 장점이 있고, 투자자로서는 <b>회사가 잘 안 되면 원금을 돌려받을 수 있다</b>는 장점이 있습니다. 대신 <b>등기를 두 번</b> 해야 합니다.</div></details>
+
+  <details><summary>전환사채를 발행하면 자본금이 늘어나나요?</summary>
+    <div class="fa"><b>발행 단계에서는 늘지 않습니다.</b> 회계상으로도 <b>부채</b>이고, 등기부에도 자본금이 아니라 <b>「전환사채」란</b>에 기록됩니다. 자본금은 <b>투자자가 전환을 청구했을 때 비로소</b> 늘어납니다. 그래서 등록면허세도 발행 때는 40,200원 정액, 전환 때는 <b>늘어난 자본금의 0.4%</b>로 크게 달라집니다.</div></details>
+
+  <details><summary>투자자가 전환을 청구하면 회사가 거절할 수 있나요?</summary>
+    <div class="fa"><b>거절할 수 없습니다.</b> 전환권은 투자자가 <b>일방적으로 행사</b>하는 권리이고, <b>청구한 그 순간 효력이 생겨</b> 투자자는 곧바로 주주가 됩니다(상법 §516②·§350). 회사의 승낙이나 이사회 결의가 필요하지 않습니다. 그래서 <b>발행 조건을 정할 때가 사실상 마지막 협상 기회</b>입니다. 전환가액, 전환 가능 기간, 조기상환 조건을 그때 신중히 정하셔야 합니다.</div></details>
+
+  <details><summary>전환가액을 나중에 낮출 수 있나요?</summary>
+    <div class="fa"><b>발행 조건에 미리 정해 두셨다면</b> 가능합니다. 회사 주가나 후속 투자 가격이 떨어졌을 때 전환가액을 내리는 조항을 <b>리픽싱</b>이라고 부르며, 투자계약에서 흔히 요구됩니다. <b>다만 회사에는 불리합니다.</b> 같은 돈으로 투자자가 더 많은 주식을 가져가므로 <b>기존 주주의 지분이 그만큼 더 희석</b>됩니다. 조건을 넣으실지, 하한선을 둘지는 <b>도장 찍기 전에</b> 반드시 검토하셔야 합니다.</div></details>
+
+  <details><summary>대표이사의 지인에게 전환사채를 발행해도 되나요?</summary>
+    <div class="fa"><b>가능하지만 위험이 큽니다.</b> 주주가 아닌 사람에게 발행하려면 정관 근거나 주주총회 특별결의가 있어야 하고, 그에 더해 <b>「경영상 목적」</b>이 인정되어야 합니다(상법 §513③, §418② 단서 준용). <b>자금이 꼭 필요하지 않은데 특정인의 지분을 늘리려는 것</b>으로 보이면 기존 주주가 무효를 다툴 수 있습니다. 특히 <b>전환가액이 시세보다 현저히 낮은 경우</b> 다툼이 커집니다. <b>저희가 「됩니다」라고 가볍게 말씀드리지 않는 사안</b>입니다. 사정을 자세히 말씀해 주시면 위험을 짚어 드리겠습니다.</div></details>
+
+  <details><summary>전환청구가 여러 번 나뉘어 들어오면 등기도 그때마다 하나요?</summary>
+    <div class="fa"><b>같은 달에 들어온 것은 모아서 한 번에</b> 하실 수 있습니다. 기한을 <b>「청구일이 속한 달의 말일부터 2주」</b>로 정해 둔 것이 바로 그 때문입니다. 다만 <b>달이 바뀌면 별개</b>이므로, 9월에 한 건·10월에 한 건이면 등기도 두 번입니다. 그때마다 <b>등록면허세와 수수료가 각각</b> 듭니다.</div></details>
+
+  <details><summary>등기를 늦게 하면 어떻게 되나요?</summary>
+    <div class="fa"><b>500만원 이하의 과태료</b> 대상입니다(상법 §635①1호). 과태료는 <b>회사가 아니라 등기 의무가 있던 대표이사 개인</b>에게 부과됩니다. 다만 <b>늦었다고 등기를 못 하는 것은 아니고</b>, 전환의 효력 자체가 없어지는 것도 아닙니다. <b>미룰수록 금액이 커지므로</b> 지금이라도 하시는 편이 낫습니다.</div></details>
+
+  <details><summary>신주인수권부사채(BW)와는 다른가요?</summary>
+    <div class="fa"><b>다릅니다.</b> 전환사채는 <b>채권이 주식으로 바뀌면서</b> 사채가 없어집니다. 신주인수권부사채는 <b>사채는 그대로 두고</b> 따로 돈을 내어 신주를 인수하는 권리가 붙어 있습니다. 등기 근거 조문도 다릅니다(신주인수권부사채는 상법 §516조의8). <b>투자계약서에 어느 쪽으로 적혀 있는지 먼저 확인</b>하십시오. 이름이 비슷해 혼동하시는 분이 많습니다.</div></details>
+
+  <details><summary>등기는 며칠이나 걸리나요?</summary>
+    <div class="fa">서류가 갖춰지면 <b>접수 후 1~3일</b>입니다. 다만 전환사채는 <b>서류 준비가 오래 걸립니다.</b> 주주총회가 필요하면 소집통지 2주, 주주에게 인수권을 주시면 청약기일 전 통지 2주가 각각 붙습니다. <b>납입일을 정하기 전에 역산해서 일정을 짜셔야</b> 합니다.</div></details>
+
+</div>
+
+<!-- ══════════ CTA ══════════ -->
+<div class="hire">
+  <div class="ft" style="font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:18px;color:var(--gold-d);margin-bottom:8px">여기까지가 혼자서도 하실 수 있는 전부입니다</div>
+  <p style="margin:0 0 8px;font-size:14.5px;line-height:1.85">전환사채는 법인등기 가운데 <b>서류를 가장 정확하게 맞추어야 하는 등기</b>에 속합니다. 의사록에 적을 항목이 정해져 있고, 하나만 빠져도 보정이 나옵니다. 그런데 제가 더 걱정하는 것은 등기가 아닙니다. <b>발행 조건을 잘못 정하시면 등기가 끝난 뒤에도 회사가 오래 시달립니다.</b></p>
+  <p style="margin:0;font-size:14.5px;line-height:1.85">투자계약서 초안을 받으셨다면 <b>도장을 찍기 전에</b> 한 번 보여 주십시오. 전환가액·리픽싱·조기상환 조항이 회사에 어떤 부담이 되는지, 제3자 배정 절차가 갖추어졌는지 먼저 짚어 드리겠습니다. <b>등기는 그다음 일입니다.</b></p>
+</div>
+<a class="ctabtn" href="https://sanlaw.co.kr" target="_blank" rel="noopener">전환사채 발행등기 상담 신청하기 →</a>
+
+<div class="src">
+근거 — 상법 §350·§351·§396·§418·§419·§424·§424조의2·§434·§469·§476·§488·§513·§513조의2·§513조의3·§514·§514조의2·§516·§516조의8·§635 / 상업등기법 / 상업등기규칙 / 상업등기선례 제1-212호 · 제201908-1호(2019. 8. 23. 사법등기심의관－3157 질의회답) / 공증인법 §66조의2 / 민법 §157·§161 / 지방세법 §28①6호·§28②·§151①2호 / 등기사항증명서 등 수수료규칙 §5조의3·§5조의5(2025. 8. 1. 시행). 발급처 링크는 각 기관 공식 사이트로 연결됩니다.<br><br>
+※ 이 안내는 일반적인 절차를 정리한 것으로, 개별 회사의 정관과 투자 조건에 따라 절차가 달라질 수 있습니다. <b>제3자 배정의 「경영상 목적」 인정 여부, 전환사채 발행등기의 등록면허세 과세 실무, 외국인 인수 시 외국인투자·외환거래 신고 대상 여부, 전환등기 기한의 기산 방식</b>은 사안과 기관에 따라 판단이 갈릴 수 있으므로, <b>발행 조건을 확정하기 전에 확인</b>하시기를 권해 드립니다. 상장회사는 자본시장법상 별도의 규제를 받으므로 이 안내가 그대로 적용되지 않습니다.
+</div>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+    t.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();t.classList.toggle('on');}if(e.key==='Escape'){t.classList.remove('on');t.blur();}});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){terms.forEach(function(x){x.classList.remove('on');});}});
+})();
+function toggleFold(b){var fb=b.parentElement;fb.classList.toggle('open');}
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('양식이 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('양식이 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('양식을 내려받았습니다');}
+</script>
+</body>
+</html>
