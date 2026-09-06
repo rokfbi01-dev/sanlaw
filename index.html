@@ -528,8 +528,8 @@ var CIVIL_MOTION=[
 var CIVIL_EXEC=[
  {n:1,t:"채권 압류로 받아내기",d:"추심·전부명령·본압류 이전",items:[
    {t:"판결은 받았는데 안 줘요 — 통장 압류해 받아내기(추심)",u:"D-1_채권압류추심전부명령.html"},
-   {t:"추심명령과 전부명령, 뭐가 다른가요",u:"D-1_채권압류추심전부명령.html"},
-   {t:"상대 월급을 압류하면 얼마까지 되나요 (압류금지 범위)",u:"D-1_채권압류추심전부명령.html"},
+   {t:"추심명령과 전부명령, 뭐가 다른가요",r:false},
+   {t:"상대 월급을 압류하면 얼마까지 되나요 (압류금지 범위)",r:false},
    {t:"본안에서 이겼어요 — 가압류를 진짜 압류로 바꾸기",r:false}]},
  {n:2,t:"부동산 경매",d:"강제경매·임의경매·매수신청·인도명령",items:[
    {t:"상대 부동산을 경매에 넘기고 싶어요 (강제경매)",r:false},
@@ -548,7 +548,7 @@ var CIVIL_EXEC=[
  {n:5,t:"집행을 당했을 때 방어",d:"청구이의·제3자이의·집행정지",items:[
    {t:"이미 갚았는데 또 집행당해요 (청구이의의 소)",r:false},
    {t:"내 물건인데 남의 빚으로 압류됐어요 (제3자이의의 소)",r:false},
-   {t:"압류된 통장이 생계비예요 (압류금지채권 범위변경)",u:"D-1_채권압류추심전부명령.html"},
+   {t:"압류된 통장이 생계비예요 (압류금지채권 범위변경)",r:false},
    {t:"일단 집행을 멈추고 싶어요 (강제집행정지)",r:false}]},
  {n:6,t:"배당·정산·마무리",d:"배당요구·배당이의·담보 회수",items:[
    {t:"경매에 배당을 요구하려면 (배당요구 종기)",r:false},
@@ -843,7 +843,7 @@ function show(v){[vBiz,vCat,vItem].forEach(function(x){x.classList.add('pa-hidde
   var sec=document.getElementById('practice');if(sec)sec.scrollIntoView({behavior:'smooth',block:'start'});}
 var agreed=false;
 var bizGrid=document.getElementById('bizGrid');
-function paTally(cats){var pub=0,rdy=0;cats.forEach(function(sc){(sc.items||[]).forEach(function(i){if(i.u)pub++;else rdy++;});});return{pub:pub,rdy:rdy};}
+function paTally(cats){var seen={},pub=0,rdy=0;cats.forEach(function(sc){(sc.items||[]).forEach(function(i){if(i.u){if(!seen[i.u]){seen[i.u]=1;pub++;}}else rdy++;});});return{pub:pub,rdy:rdy};}
 function paBadge(t){
   if(t.pub>0&&t.rdy>0)return '<span class="pa-b r">게시 '+t.pub+' · 준비 '+t.rdy+'</span>';
   if(t.pub>0)return '<span class="pa-b r">게시 '+t.pub+'</span>';
