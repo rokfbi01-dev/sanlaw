@@ -3,12 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>[등기 안내] 상호·목적·정관 변경 등기 — 사업목적 추가 | 산 법무사 김재섭</title>
-<meta name="description" content="법인 상호변경·사업목적 추가 등기 완전 안내. 주주총회 특별결의, 동일상호 확인, 인허가 검토, 준비서류, 비용, 상호변경 후속 정리까지.">
+<title>[등기 안내] 상호변경·목적변경 등기 — 동일상호 조회, 목적 문구 쓰는 법, 준비서류 | 산 법무사 김재섭</title>
+<meta name="description" content="법인 상호변경등기와 목적변경등기 완전 안내. 동일상호로 각하되지 않는 법, 등기관이 받아주는 목적 문구 쓰는 법, 준비서류와 발급처, 세금, 보정명령이 잦은 항목까지.">
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 <style>
-
 :root{
   --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
   --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
@@ -50,15 +49,8 @@ table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
 th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
 th{background:#f0ebe1; font-weight:700; color:#241a10;}
 td a{color:var(--gold-d); word-break:break-all;}
-.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;margin-left:3px;}
-.tag.free{background:#5a9a72;}
 .hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
-.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
-.cta{display:block; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; text-decoration:none; font-weight:700; font-size:16px; padding:15px; border-radius:11px; margin:18px 0; box-shadow:0 3px 8px rgba(122,82,48,.25);}
 .src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
-.lawbox{background:#f0ebe1;border-radius:9px;padding:11px 15px;margin:10px 0;font-size:13.5px;line-height:1.7;}
-.lawbox .ll{display:inline-block;font-size:11.5px;font-weight:700;color:#fff;background:var(--gold-d);border-radius:5px;padding:2px 8px;margin-right:6px;}
-.lawbox a{color:var(--gold-d);font-weight:600;}
 .formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
 .fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:14.5px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
 .fold-btn:hover{background:#ebe4d6;}
@@ -122,17 +114,30 @@ td a{color:var(--gold-d); word-break:break-all;}
 .deadline td{border:1px solid var(--line);padding:8px 10px;background:#fff;}
 .bnote{color:#0b4a9c;font-weight:600;background:#eaf2fc;border-left:4px solid #2b7fff;border-radius:8px;padding:9px 13px;margin:8px 0;font-size:13.5px;line-height:1.7;}
 .bnote b{color:#0a3d82;}
-.capital th{background:#f0ebe1;text-align:center;font-size:13px;}
-.capital td{text-align:center;font-size:13.5px;}
-.capital td:first-child{text-align:left;font-weight:700;background:#faf7f0;}
-.capital .hi{background:#fdf6e3;font-weight:700;color:var(--gold-d);}
-.capital .bad{color:#9c3a22;font-weight:700;}
-.grp{border-radius:10px;padding:13px 16px;margin:12px 0;border:1px solid var(--line);border-left-width:5px;}
-.grp .gt{font-weight:800;font-size:15px;margin-bottom:5px;}
-.grp.a{background:#eef6f0;border-left-color:#5a9a72;} .grp.a .gt{color:#2f6a47;}
-.grp.b{background:#fdf9e8;border-left-color:#d4a72c;} .grp.b .gt{color:#8a6d10;}
-.grp.c{background:#fdf2ee;border-left-color:#d9694a;} .grp.c .gt{color:#9c3a22;}
-
+.fixt{font-size:13.5px;}
+.fixt th{background:#3a4a5c;color:#fff;text-align:center;}
+.fixt td{background:#fff;vertical-align:top;}
+.fixt td:first-child{width:26px;text-align:center;font-weight:800;color:var(--gold-d);background:#faf7f0;}
+.lv{display:inline-block;font-size:11.5px;font-weight:800;color:#fff;border-radius:5px;padding:2px 9px;white-space:nowrap;}
+.lv.h{background:#9c3a22;} .lv.m{background:#c08a1e;} .lv.l{background:#5a9a72;}
+.quo{font-family:'D2Coding','Courier New',monospace;font-size:12.5px;line-height:1.6;background:#f5f1e8;border-left:3px solid #b9a98c;border-radius:0 6px 6px 0;padding:7px 10px;margin:5px 0;color:#3a3a3a;}
+.quo::before{content:"등기소 보정 문구  ";font-family:'Pretendard',sans-serif;font-weight:800;font-size:11px;color:var(--gold-d);display:block;margin-bottom:2px;}
+.quo.rj{background:#fbeee9;border-left-color:#d9694a;}
+.quo.rj::before{content:"각하 사유  ";color:#9c3a22;}
+.chk{background:#fff;border:1.5px dashed var(--gold);border-radius:12px;padding:15px 18px;margin:16px 0;}
+.chk .ck{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:8px;}
+.chk ul{list-style:none;padding-left:2px;margin:6px 0 0;}
+.chk li{padding-left:26px;position:relative;margin:7px 0;font-size:14.5px;}
+.chk li::before{content:"☐";position:absolute;left:2px;color:var(--gold);font-size:16px;font-weight:700;}
+/* ── 좋은 예 / 나쁜 예 ── */
+.gb{width:100%;border-collapse:collapse;margin:12px 0;font-size:13.5px;}
+.gb th{text-align:center;padding:9px;}
+.gb th.no{background:#f7e9e4;color:#9c3a22;}
+.gb th.ok{background:#e3efe7;color:#2f6a47;}
+.gb td{border:1px solid var(--line);padding:9px 11px;background:#fff;}
+.gb td.no{background:#fdf7f5;color:#7a4a38;}
+.gb td.ok{background:#f4faf6;color:#2f6a47;font-weight:700;}
+.gb td.why{font-size:13px;color:var(--muted);background:#faf8f4;}
 </style>
 </head>
 <body>
@@ -141,268 +146,541 @@ td a{color:var(--gold-d); word-break:break-all;}
   <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
   <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
 </nav>
-<h1>상호 · 목적 · 정관 변경 등기</h1>
+
+<h1>상호변경등기 · 목적변경등기<br><span style="font-size:17px;font-weight:400;color:var(--muted)">회사 이름을 바꿉니다 · 사업 종목을 넣습니다</span></h1>
 
 <div class="helm">
   <div class="ht2">⚓ 이 안내를 준비한 마음</div>
-  <p>회사 이름을 바꾸거나 새 사업을 시작하시려면 <b>정관을 고치고 등기를 해야 합니다.</b> 절차 자체는 어렵지 않은데, <b>상호가 겹치는지, 목적 문구가 인허가에 맞는지</b>를 먼저 확인하지 않으면 헛걸음을 하시게 됩니다. 특히 <b>상호 변경은 등기가 끝이 아니라 시작</b>입니다. 통장·카드·인감·거래처까지 줄줄이 바꾸셔야 합니다. 이 안내는 그 전부를 순서대로 담았습니다. 혼자 진행하시다 막히실 때 언제든 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, <b>제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</b></p>
+  <p>상호·목적 변경은 서류가 단출합니다. 그런데 <b>이 등기만 유독 「보정」이 아니라 「각하」가 나오는 일이 있습니다.</b> 이미 같은 이름이 등기되어 있거나, 목적 문구가 등기관 눈에 막연해 보이면 그렇습니다. 그래서 이 안내는 <b>서류 이야기보다 「이름을 어떻게 고르고, 목적을 어떻게 쓰느냐」에 자리를 더 많이 내주었습니다.</b> 바꾸실 이름을 정하시기 <b>전에</b> 한 번 읽어보시면 헛걸음을 줄이실 수 있습니다. 막히시거든 이 안내를 들고 사무실로 찾아와 주십시오. <b>혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</b></p>
 </div>
 
 <div class="qhead"><span class="qb">Q</span>
-  <h2>회사 이름을 바꾸거나, 사업을 하나 더 하려면?</h2>
+  <h2>회사 이름을 바꾸려는데, 무엇부터 확인해야 하나요?</h2>
 </div>
 
-<div class="tnote">밑줄 친 <span class="term">용어<span class="bub">밑줄 친 말에 마우스를 올리거나(휴대폰은 살짝 누르면) 쉬운 설명이 나옵니다.</span></span>에 마우스를 올리면 설명이 나옵니다. 파란 <b>발급처 링크</b>를 누르면 신청 화면으로 바로 이동합니다.</div>
+<div class="tnote">밑줄 친 <span class="term">용어<span class="bub">밑줄 친 말에 마우스를 올리거나(휴대폰은 살짝 누르면) 쉬운 설명이 나옵니다.</span></span>에 마우스를 올리면 설명이 나옵니다. 파란 <b>발급처 링크</b>를 누르면 조회·발급 화면으로 바로 이동합니다.</div>
 
 <div class="tldr">
-  <div class="tt">정관을 고치고, 2주 안에 등기하셔야 합니다</div>
+  <div class="tt">이런 상황입니다 — 세 가지만 확인하면 됩니다</div>
+  <p style="margin:0 0 8px;font-size:14.5px"><b><span class="term">상호<span class="bub">회사의 이름. 등기부 맨 위에 적힌 「주식회사 ○○」이 상호입니다.</span></span></b>와 <b><span class="term">목적<span class="bub">회사가 하려는 사업의 종류. 등기부의 「목적」란에 한 줄씩 적혀 있습니다.</span></span></b>은 둘 다 <b>정관에 적는 사항</b>이라, 바꾸시려면 <b>주주총회 특별결의</b>가 필요하고 <b>2주 안에</b> 등기해야 합니다.</p>
   <ul>
-    <li>상호·목적·공고방법 등은 <b><span class="term">정관<span class="bub">회사의 헌법에 해당하는 문서. 회사 이름·목적·주소·주식 수 등 기본 사항이 적혀 있습니다.</span></span> 기재사항</b>이자 <b>등기사항</b>입니다. 바꾸시려면 <b>정관변경 → 등기</b> 두 단계를 거칩니다.</li>
-    <li>정관변경은 <b><span class="term">주주총회 특별결의<span class="bub">출석한 주주 의결권의 3분의 2 이상, 그리고 발행주식총수의 3분의 1 이상의 찬성이 필요한 결의. 회사의 중요한 사항을 정할 때 씁니다.</span></span></b>입니다(상법 §433·§434).</li>
-    <li>결의일부터 <b>2주 이내</b>에 등기해야 하고, 늦으면 <b>500만원 이하 과태료</b>입니다.</li>
-    <li><b style="color:#9c3a22">상호를 바꾸시면 등기 뒤에 할 일이 많습니다</b> — 사업자등록·통장·카드·법인인감·거래처. 미리 계획하십시오.</li>
+    <li><b>① 그 이름을 쓸 수 있나</b> — 같은 시·군에 <b>같은 영업으로 같은 이름</b>이 이미 등기되어 있으면 <b>등기가 거절됩니다.</b> 보정이 아니라 <b>각하</b>입니다.</li>
+    <li><b>② 목적 문구가 구체적인가</b> — <b>「무역업」·「기타 부대사업 일체」</b>처럼 막연하면 등기관이 고쳐 오라고 합니다.</li>
+    <li><b>③ 상표권과 부딪히지 않나</b> — 상호등기가 되어도 <b>남의 등록상표를 침해</b>할 수 있습니다. 등기소는 이것까지 봐주지 않습니다.</li>
   </ul>
 </div>
+
+<div class="bnote">※ <b>회사에 생기는 다른 등기도 모두 2주입니다.</b> 임기가 끝나거나 임원이 바뀌면 <a href="sanlaw_임원변경등기_안내.html" class="dl">임원변경등기</a>, 사무실을 옮기시면 <a href="sanlaw_본점이전_지점등기_안내.html" class="dl">본점이전·지점등기</a>, 투자를 받으시면 <a href="sanlaw_증자등기_안내.html" class="dl">증자등기</a>가 필요합니다. 회사를 새로 만드시는 경우는 <a href="sanlaw_주식회사설립등기_안내.html" class="dl">주식회사 설립등기</a>를 보십시오.</div>
 
 <div class="lawrow"><div class="lrl">관련 법령</div><div class="lrc">
-  <b>상법 §289①</b> 정관 절대적 기재사항 · <b>§317②</b> 등기사항 · <b>§363①</b> 소집통지 2주(자본금 10억 미만 10일) · <b>§363④</b> 주주 전원 동의 시 소집절차 생략 · <b>§433·§434</b> 정관변경 특별결의 · <b>§635①1호</b> 과태료 500만원 이하 · <b>공증인법 §66조의2 단서</b> 소규모회사 의사록 인증 면제 · <b>지방세법 §28①6호 바목</b> 등록면허세 40,200원
+  <b>상법 §19</b> 상호에 회사 종류(주식회사 등)를 표시 · <b>상법 §22</b> 타인이 등기한 상호의 등기 제한 · <b>상법 §22조의2</b> <b>상호 가등기</b> · <b>상법 §23</b> 오인시킬 상호의 사용 금지 · <b>상법 §289①1호·2호</b> 정관 기재사항(목적·상호) · <b>상법 §433·§434</b> 정관변경은 <b>주주총회 특별결의</b> · <b>상법 §317④·§183</b> 변경 후 <b>본점 소재지에서 2주 내</b> 등기 · <b>상업등기법 §29</b> 등기할 수 없는 상호 · <b>상업등기법 §26 13호·14호</b> 해당 시 <b>각하</b> · <b>상법 §635①1호</b> 500만원 이하 과태료 · <b>지방세법 §28①6호 바목</b> 등록면허세 40,200원
 </div></div>
 
-<div class="bnote">※ 이 안내는 <b>이미 설립된 법인</b>의 변경 절차입니다. 회사를 처음 만드시는 경우에는 <a href="sanlaw_주식회사설립등기_안내.html" class="dl">주식회사 설립등기 안내</a>를, 사무실을 옮기셨다면 <a href="sanlaw_본점이전_지점등기_안내.html" class="dl">본점이전·지점등기 안내</a>를, 임원이 바뀌셨다면 <a href="sanlaw_임원변경등기_안내.html" class="dl">임원 선임·변경 등기 안내</a>를 보십시오.</div>
-
-<!-- ══════════ 1 ══════════ -->
-<div class="qhead"><span class="qb">1</span><h2>어떤 것이 정관변경 대상인가</h2></div>
-
-<table>
-  <thead><tr><th style="width:24%">항목</th><th style="width:22%">정관변경</th><th>비고</th></tr></thead>
-  <tbody>
-    <tr><td><b>상호</b> (회사 이름)</td><td style="color:#9c3a22"><b>필요</b></td><td>같은 시·군에 동일 상호가 있으면 쓸 수 없습니다</td></tr>
-    <tr><td><b>목적</b> (사업 내용)</td><td style="color:#9c3a22"><b>필요</b></td><td>추가·삭제·수정 모두 해당</td></tr>
-    <tr><td><b>공고방법</b></td><td style="color:#9c3a22"><b>필요</b></td><td>신문 ↔ 홈페이지 변경 등</td></tr>
-    <tr><td><b>발행할 주식의 총수</b></td><td style="color:#9c3a22"><b>필요</b></td><td>증자를 앞두고 한도를 늘릴 때</td></tr>
-    <tr><td><b>1주의 금액</b></td><td style="color:#9c3a22"><b>필요</b></td><td>액면분할·병합</td></tr>
-    <tr><td><b>본점 소재지</b></td><td>정관 기재 방식에 따라</td><td>「서울특별시」까지만 적혀 있으면 그 안에서는 불필요<br>→ <a href="sanlaw_본점이전_지점등기_안내.html" class="dl">본점이전 안내</a> 참조</td></tr>
-    <tr><td><b>임원</b></td><td style="color:#2f6a47"><b>불필요</b></td><td>임원은 정관 기재사항이 아닙니다<br>→ <a href="sanlaw_임원변경등기_안내.html" class="dl">임원변경 안내</a> 참조</td></tr>
-  </tbody>
-</table>
-
-<div class="tip">
-  <span class="pt">정관에 이미 있는지 먼저 확인하십시오</span>
-  <b>사업을 추가하시려는데 정관과 등기부에 그 목적이 이미 들어 있다면 등기가 필요 없습니다.</b> 설립하실 때 목적을 넉넉히 넣어두셨다면 그대로 사업자등록만 고치시면 됩니다.
-  <p style="margin:6px 0 0"><b>먼저 <a href="https://www.iros.go.kr" target="_blank" rel="noopener" class="dl">등기사항전부증명서</a>와 정관을 확인</b>하십시오. 저희가 확인해 드릴 수도 있습니다.</p>
-</div>
-
-<!-- ══════════ 2 ══════════ -->
-<div class="qhead"><span class="qb">2</span><h2>상호를 바꾸실 때 — 먼저 확인할 것</h2></div>
+<!-- ══════════ 1. 상호 고르기 ══════════ -->
+<div class="qhead"><span class="qb">1</span><h2>이 이름을 쓸 수 있는가 — 가장 먼저 볼 것</h2></div>
 
 <div class="warn">
-  <span class="wt">★ 같은 상호가 있으면 등기가 되지 않습니다</span>
-  같은 <b>시·군</b>에서 <b>동일한 상호로 동종 영업</b>을 등기할 수 없습니다. 새 이름을 정하시기 전에 <a href="https://www.iros.go.kr" target="_blank" rel="noopener" class="dl">인터넷등기소 상호검색</a>으로 확인하셔야 합니다.
-  <p style="margin:6px 0 0"><b>간판·명함·홈페이지를 먼저 만드셨다가 등기가 막히면</b> 그 비용이 전부 헛돈이 됩니다. <b>반드시 등기 가능 여부를 먼저 확인</b>하십시오. 저희가 확인해 드립니다.</p>
+  <span class="wt">★ 이것만은 「보정」이 아니라 「각하」입니다</span>
+  <b>같은 특별시·광역시·특별자치시·시·군 안에서 같은 영업을 위하여 다른 사람이 이미 등기한 상호와 「동일한 상호」는 등기할 수 없습니다</b>(상업등기법 §29). 그리고 여기에 해당하면 등기관은 <b>보정을 명하지 않고 신청을 각하</b>합니다(상업등기법 §26 13호).
+  <div class="quo rj">사건이 상업등기법 제29조에 따라 등기할 수 없는 상호의 등기를 목적으로 하는 경우에 해당하므로 이 신청을 각하합니다.</div>
+  각하되면 <b>납부한 등록면허세와 수수료를 돌려받는 절차를 따로 밟아야 하고</b>, 주주총회부터 다시 해야 하는 경우도 생깁니다. <b>이름을 정하시기 전에 반드시 조회하십시오.</b>
 </div>
 
-<div class="who">
-  <span class="wl">◆ 상호를 정하실 때 유의할 점</span>
-  <ul>
-    <li><b>「주식회사」는 반드시 들어가야 합니다.</b> 앞이든 뒤든 위치는 자유입니다.</li>
-    <li><b>회사의 종류를 오인시키는 문자는 쓸 수 없습니다.</b> 주식회사가 「○○조합」·「○○은행」 같은 이름을 쓰는 것은 제한됩니다.</li>
-    <li><b>상표와는 별개입니다.</b> 상호 등기가 되었다고 상표권이 생기는 것은 아니고, 반대로 남의 상표와 같은 상호를 쓰면 분쟁이 될 수 있습니다. 브랜드로 쓰실 이름이라면 <b>상표 검색을 함께</b> 해보시는 것이 안전합니다.</li>
-    <li><b>기존 상호로 상표를 등록해 두셨다면</b> 상호 변경 후 상표 관련 정리도 필요할 수 있습니다.</li>
-  </ul>
+<div class="newlaw">
+  <span class="nt"><span class="badge">알아두세요</span>「비슷한 이름」은 이제 막히지 않습니다</span>
+  예전에는 <b>「확연히 구별되지 않는 상호」</b>까지 막았지만, 지금은 <b>「동일한 상호」만</b> 제한합니다. 그래서 <b>한두 글자만 달라도 등기 자체는 가능한 경우가 많습니다.</b>
+  <p style="margin:8px 0 0"><b>다만 등기가 된다는 것과 「써도 안전하다」는 것은 다릅니다.</b> 부정한 목적으로 남의 회사로 오인하게 할 상호를 쓰면 <b>사용 폐지와 손해배상 청구를 당할 수 있고</b>(상법 §23), <b>상표권 침해</b>는 별개로 문제됩니다. 등기소는 이 두 가지를 심사하지 않습니다.</p>
 </div>
 
-<!-- ══════════ 3 ══════════ -->
-<div class="qhead"><span class="qb">3</span><h2>목적을 바꾸실 때 — 인허가를 먼저 보십시오</h2></div>
-
-<div class="concept"><b>목적을 등기부에 올렸다고 해서 그 사업을 바로 할 수 있는 것이 아닙니다.</b> 업종에 따라 별도의 등록·허가·신고가 필요하고, 없이 하시면 형사처벌 대상이 되는 경우도 있습니다.</div>
-
+<h3>조회는 두 곳에서 하십시오</h3>
 <table>
-  <thead><tr><th style="width:32%">하시려는 사업</th><th style="width:32%">필요한 것</th><th>어디에</th></tr></thead>
+  <thead><tr><th style="width:150px">무엇을</th><th>어디서</th><th>왜</th></tr></thead>
   <tbody>
-    <tr><td>일반 도소매 · 서비스업</td><td style="color:#2f6a47">사업자등록만</td><td>세무서</td></tr>
-    <tr><td><b>온라인 판매</b></td><td>통신판매업 신고</td><td>시·군·구청</td></tr>
-    <tr><td><b>건설공사</b></td><td>건설업 등록<br><span style="font-size:13px;color:var(--muted)">자본금·기술인력 요건</span></td><td>시·군·구청<br>→ <a href="sanlaw_조경건설업_법인설립_안내.html" class="dl">조경 건설업 안내</a></td></tr>
-    <tr><td><b>자기 브랜드 화장품 유통</b></td><td>화장품책임판매업 등록</td><td>지방식약청</td></tr>
-    <tr><td><b>수출입</b></td><td>무역업 고유번호</td><td>한국무역협회</td></tr>
+    <tr>
+      <td><b>같은 이름의 회사가<br>이미 있는가</b></td>
+      <td><a href="https://www.iros.go.kr" target="_blank" rel="noopener" class="dl">인터넷등기소</a> → <b>법인상호 찾기</b></td>
+      <td>동일상호이면 <b>각하</b>됩니다. <b>본점이 있는 시·군</b> 기준으로 보십시오.</td>
+    </tr>
+    <tr>
+      <td><b>그 이름이 남의<br>상표로 등록되어 있는가</b></td>
+      <td><a href="https://www.kipris.or.kr" target="_blank" rel="noopener" class="dl">특허정보넷 키프리스</a></td>
+      <td>등기는 되어도 <b>상표권 침해로 사용을 못 하게 될 수</b> 있습니다. 간판·포장·홈페이지를 다 바꿔야 하는 손해가 납니다.</td>
+    </tr>
   </tbody>
 </table>
 
 <div class="tip">
-  <span class="pt">목적 문구는 「구체적이고 명확하게」</span>
-  「서비스업」처럼 지나치게 광범위한 표현은 등기가 반려될 수 있습니다. <b>「온라인 광고대행업」·「소프트웨어 개발 및 공급업」</b>처럼 구체적으로 쓰셔야 합니다(상법 §289①1호).
-  <p style="margin:6px 0 0"><b>인허가를 받으실 계획이라면 그 업법이 쓰는 표현을 그대로</b> 넣으시는 것이 안전합니다. 관청에서 「목적에 이 사업이 없다」며 되돌려보내는 경우가 있습니다.</p>
+  <span class="pt">상호를 미리 찜해 두는 방법이 있습니다 — 상호 가등기</span>
+  마음에 드는 이름을 정하셨는데 주주총회·정관 정비에 시간이 걸리는 경우, <b>본점 소재지 관할 등기소에 「상호 가등기」를 신청해 그 이름을 먼저 확보</b>하실 수 있습니다(상법 §22조의2). 회사가 <b>상호나 목적, 또는 둘 다를 변경하려는 때</b>에도 쓸 수 있는 제도입니다. <b>남이 먼저 같은 이름을 등기해 버리는 사고</b>를 막아 줍니다.
 </div>
 
-<div class="cost">
-  <span class="ct">★ 목적은 몇 개를 넣어도 비용이 같습니다</span>
-  이번에 등기하시는 김에 <b>앞으로 하실 가능성이 있는 사업을 넉넉히 넣어두십시오.</b> 목적을 1개 넣든 10개 넣든 <b>등록면허세는 동일</b>합니다. 반대로 나중에 하나 더 추가하시려면 <b>48,240원에 수수료와 시간이 다시</b> 듭니다.
-</div>
-
-<!-- ══════════ 4 ══════════ -->
-<div class="qhead"><span class="qb">4</span><h2>주주총회 — 꼭 모여야 하나요</h2></div>
-
-<div class="concept">정관변경은 <b>주주총회 특별결의</b> 사항입니다. 다만 <b>소규모 회사라면 모이지 않고도 처리</b>할 수 있는 길이 있습니다.</div>
-
-<table>
-  <thead><tr><th style="width:26%">항목</th><th style="width:34%">원칙</th><th>자본금 10억원 미만</th></tr></thead>
+<h3>상호를 쓸 때 지켜야 하는 형식</h3>
+<table class="gb">
+  <thead><tr><th class="no" style="width:33%">이렇게 쓰면 막힙니다</th><th class="ok" style="width:33%">이렇게 쓰십시오</th><th style="width:34%">이유</th></tr></thead>
   <tbody>
-    <tr><td><b>소집통지</b></td><td>회의일 <b>2주 전</b> 서면 통지<br><span style="font-size:13px;color:var(--muted)">상법 §363①</span></td><td style="color:#2f6a47"><b>10일 전</b>이면 됩니다</td></tr>
-    <tr><td><b>주주 전원 동의 시</b></td><td colspan="2" style="color:#2f6a47"><b>소집절차 없이 총회를 열 수 있고, 서면결의로 총회를 갈음할 수도 있습니다</b>(상법 §363④·⑤)</td></tr>
-    <tr><td><b>결의 요건</b></td><td colspan="2">출석 주주 의결권의 <b>2/3 이상</b> + 발행주식총수의 <b>1/3 이상</b> (상법 §434)</td></tr>
-    <tr><td><b>의사록 공증</b></td><td>필요<br><span style="font-size:13px;color:var(--muted)">공증료 3만원 수준</span></td><td style="color:#2f6a47"><b>면제</b><br>(공증인법 §66조의2 단서)</td></tr>
+    <tr>
+      <td class="no">SANLAW Co., Ltd.</td>
+      <td class="ok">주식회사 산로<br><span style="font-weight:400;font-size:13px">(SANLAW)를 괄호 안에 병기</span></td>
+      <td class="why">등기는 <b>한글(과 아라비아숫자)</b>로 합니다. 로마자·한자는 <b>괄호 안 병기</b>만 가능합니다(상업등기규칙 §2, 관련 등기예규).</td>
+    </tr>
+    <tr>
+      <td class="no">산로</td>
+      <td class="ok">주식회사 산로<br>또는 산로 주식회사</td>
+      <td class="why">상호에는 <b>회사의 종류</b>를 반드시 표시해야 합니다(상법 §19). 앞에 붙이든 뒤에 붙이든 됩니다.</td>
+    </tr>
+    <tr>
+      <td class="no">주식회사 산로은행</td>
+      <td class="ok">—</td>
+      <td class="why"><b>은행·보험·증권·신탁</b> 등은 개별 법률이 <b>그 문자의 사용 자체를 금지</b>합니다. 해당하면 <b>각하</b>됩니다(상업등기법 §26 14호).</td>
+    </tr>
   </tbody>
 </table>
 
-<div class="cost">
-  <span class="ct">가족법인·1인회사라면 가장 간단한 방법</span>
-  주주가 대표님 한 분이거나 가족뿐이라면, <b>「주주 전원의 서면결의서」</b> 한 장으로 끝납니다. <b>모이실 필요도, 공증받으실 필요도 없습니다.</b> 저희가 서식을 만들어 드리면 서명·날인만 하시면 됩니다.
+<!-- ══════════ 2. 목적 쓰기 ══════════ -->
+<div class="qhead"><span class="qb">2</span><h2>목적은 어떻게 써야 등기관이 받아주나</h2></div>
+
+<div class="concept">등기관은 <b>제출된 서류만</b> 보고 판단합니다. 그래서 목적 문구가 <b>막연하면 「무슨 사업인지 알 수 없다」</b>는 이유로 고쳐 오라고 합니다. 목적에는 세 가지가 요구됩니다.</div>
+
+<table>
+  <thead><tr><th style="width:110px">요건</th><th>뜻</th><th>걸리는 예</th></tr></thead>
+  <tbody>
+    <tr><td><b>영리성</b></td><td>돈을 벌기 위한 사업이어야 합니다. 회사는 영리를 목적으로 하는 단체입니다.</td><td>봉사활동, 학술 연구 그 자체</td></tr>
+    <tr><td><b>적법성</b></td><td>강행법규나 <b>선량한 풍속 그 밖의 사회질서</b>에 반해서는 안 됩니다.</td><td>법이 금지한 영업</td></tr>
+    <tr><td><b>명확성·<br>구체성</b></td><td>사회 일반인이 <b>어떤 영업인지 쉽게 알아볼 수 있어야</b> 합니다.</td><td>「무역업」, 「각종 사업」, 「기타 부대사업 일체」(단독)</td></tr>
+  </tbody>
+</table>
+
+<div class="bnote">※ 등기관은 통계청이 고시하는 <b>「한국표준산업분류」의 소분류 이하</b>를 참고해 구체성을 판단할 수 있습니다(「동일상호의 판단기준에 관한 등기예규」). <b>표준산업분류에서 쓰는 표현을 그대로 가져다 쓰시는 것이 가장 안전합니다.</b></div>
+
+<table class="gb">
+  <thead><tr><th class="no" style="width:33%">이렇게 쓰면 보정됩니다</th><th class="ok" style="width:33%">이렇게 쓰십시오</th><th style="width:34%">이유</th></tr></thead>
+  <tbody>
+    <tr>
+      <td class="no">무역업</td>
+      <td class="ok">화장품 도매 및 소매업<br>화장품 수출입업</td>
+      <td class="why">무엇을 사고파는지가 드러나야 합니다.</td>
+    </tr>
+    <tr>
+      <td class="no">기타 이에 부대하는<br>사업 일체 <span style="font-size:12.5px">(이 줄만 있는 경우)</span></td>
+      <td class="ok">위 각 호에 부대하는 사업 일체<br><span style="font-weight:400;font-size:13px">— 앞에 구체적 목적이 있을 때만</span></td>
+      <td class="why">부대사업 조항은 <b>구체적인 목적에 딸리는 것</b>이라 혼자서는 목적이 될 수 없습니다.</td>
+    </tr>
+    <tr>
+      <td class="no">서비스업</td>
+      <td class="ok">경영컨설팅업<br>소프트웨어 개발 및 공급업</td>
+      <td class="why">「서비스」만으로는 업종이 특정되지 않습니다.</td>
+    </tr>
+    <tr>
+      <td class="no">부동산업</td>
+      <td class="ok">부동산 임대업<br>부동산 개발 및 공급업</td>
+      <td class="why">같은 부동산업이라도 임대·중개·개발은 전혀 다른 영업입니다.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="warn">
+  <span class="wt">★ 목적에 넣었다고 그 영업을 할 수 있게 되는 것은 아닙니다</span>
+  등기부의 목적란은 <b>「이 회사가 하려는 사업」을 적어 두는 곳</b>일 뿐입니다. <b>인허가가 필요한 업종은 목적에 넣은 뒤 따로 인허가를 받아야</b> 영업할 수 있습니다. 반대로, <b>인허가를 신청할 때 등기부 목적에 그 업종이 없으면 반려</b>되는 경우가 많으므로 <b>순서는 「목적 추가 → 인허가」</b>가 됩니다.
+  <p style="margin:8px 0 0"><b>목적은 몇 개를 넣어도 등기 비용이 같습니다.</b> 나중에 하나 추가하시면 그때 다시 48,240원과 시간이 듭니다. <b>가까운 장래에 하실 사업까지 이번에 넉넉히 넣으시는 편이 이득입니다.</b></p>
 </div>
 
-<!-- ══════════ 5 ══════════ -->
-<div class="qhead"><span class="qb">5</span><h2>등기신청서 첨부서류와 그 발급처</h2></div>
-<div class="tnote" style="margin-top:0"><span class="term">첨부서류<span class="bub">등기를 신청할 때 신청서와 함께 등기소에 내는 서류. 하나라도 빠지면 「보정하라」는 연락을 받게 됩니다.</span></span>는 임원 변경보다 단순합니다. 핵심은 <b>「정관을 적법하게 고쳤다」는 증명</b>입니다.</div>
+<!-- ══════════ 3. 기한 ══════════ -->
+<div class="qhead"><span class="qb">3</span><h2>2주는 언제부터 세나요</h2></div>
+<div class="concept">상호와 목적은 <b>정관에 적는 사항</b>이므로, <b>주주총회에서 정관변경을 결의한 날</b>에 효력이 생깁니다. 그날이 기준입니다.</div>
 
-<div class="who"><span class="doclabel give">제출</span><br><span class="wl">◆ 준비하실 서류</span>
-  <table style="margin:6px 0 0">
-    <thead><tr><th>서류</th><th style="width:26%">누가</th><th style="width:30%">주의</th></tr></thead>
-    <tbody>
-      <tr><td>변경등기신청서</td><td>사무소 작성</td><td>—</td></tr>
-      <tr><td><b>주주총회 의사록</b><br>또는 <b>주주 전원의 서면결의서</b></td><td>회사 작성<br><span style="font-size:13px;color:var(--muted)">사무소가 서식 제공</span></td><td style="color:#9c3a22">자본금 10억원 이상이면 <b>공증</b></td></tr>
-      <tr><td><b>변경된 정관</b></td><td>회사 보관</td><td>변경 내용이 반영된 것</td></tr>
-      <tr><td><b>주주명부</b></td><td>회사 작성</td><td>정족수 확인용</td></tr>
-      <tr><td><b>위임장</b></td><td>대표이사</td><td>법인 인감 날인 + 법인 인감증명서</td></tr>
-      <tr><td>등록면허세 영수필확인서</td><td><a href="https://www.wetax.go.kr" target="_blank" rel="noopener" class="dl">위택스</a></td><td>—</td></tr>
-      <tr><td>등기신청수수료 영수증</td><td><a href="https://www.iros.go.kr" target="_blank" rel="noopener" class="dl">인터넷등기소</a></td><td>—</td></tr>
-    </tbody>
-  </table>
-  <p style="margin:8px 0 0;font-size:14px">※ 임원 변경과 달리 <b>개인 인감증명서는 필요하지 않습니다.</b> 취임하는 사람이 없기 때문입니다.</p>
-</div>
+<h3>계산 예시 — 2026. 5. 11.(월) 주주총회에서 상호변경을 결의한 경우</h3>
+<table class="deadline">
+  <thead><tr><th>① 기산일</th><th>② 계산 근거 조문</th><th>③ 말일 처리</th><th>④ 최종 만료일</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><b>2026. 5. 12.</b><br><span style="font-size:12.5px;color:var(--muted)">결의일 <b>다음 날</b>부터</span></td>
+      <td>상법 §317④·§183<br>(변경 사유 발생일부터 2주)<br>민법 §157 <b>초일불산입</b></td>
+      <td>민법 §161 — 말일이 <b>토요일·공휴일</b>이면 <b>그다음 날</b>로 만료</td>
+      <td style="color:#9c3a22"><b>2026. 5. 25.(월)</b><br><span style="font-size:12.5px">이날까지 접수해야 과태료가 없습니다</span></td>
+    </tr>
+  </tbody>
+</table>
 
-<!-- ══════════ 6 ══════════ -->
-<div class="qhead"><span class="qb">6</span><h2>절차와 비용</h2></div>
+<div class="bnote">※ <b>정관에 「이 변경은 20○○년 ○월 ○일부터 시행한다」는 부칙을 두신 경우</b>에는 그 시행일이 기준이 됩니다. 상호를 언제부터 쓸지 정해 두셨다면 <b>의사록에 그 날짜를 명시</b>하십시오.</div>
+
+<!-- ══════════ 4. 절차 ══════════ -->
+<div class="qhead"><span class="qb">4</span><h2>이 순서로 진행됩니다</h2></div>
 
 <div class="flow">
-  <div class="ft2">이 순서로 진행됩니다</div>
+  <div class="ft2">상호·목적 변경 — 진행 순서</div>
   <ol>
-    <li><b>확인</b> — 등기부·정관에 이미 있는지 / 상호가 겹치지 않는지 / 인허가가 필요한지</li>
+    <li><b>새 상호 조회</b> — 인터넷등기소(동일상호) + 키프리스(상표) <b>두 곳 모두</b></li>
     <div class="arw">▼</div>
-    <li><b>주주총회 특별결의</b> — 또는 주주 전원의 서면결의서</li>
+    <li><b>목적 문구 정리</b> — 표준산업분류를 참고해 구체적으로. 앞으로 하실 사업까지 함께</li>
     <div class="arw">▼</div>
-    <li><b>정관 정리</b> — 변경 내용을 반영합니다</li>
+    <li><b>주주총회 특별결의</b> — 출석 의결권 <b>2/3 이상</b>이면서 발행주식총수 <b>1/3 이상</b>(상법 §434)</li>
     <div class="arw">▼</div>
-    <li><b>등록면허세 납부</b> — <a href="https://www.wetax.go.kr" target="_blank" rel="noopener" class="dl">위택스</a></li>
+    <li><b>의사록 <span class="term">공증<span class="bub">공증인이 회의 절차와 내용이 사실과 맞는지 확인하고 그 사실을 적어주는 것.</span></span></b> — 자본금 10억원 미만이어도 <b>설립이 아닌 이상 공증 대상</b>입니다</li>
     <div class="arw">▼</div>
-    <li><b>변경등기 신청</b> — 본점 관할 등기소 <span style="color:var(--muted)">(결의일부터 2주 이내)</span></li>
+    <li><b>등록면허세 납부 → 등기신청</b> — 접수 후 <b>1~3일</b></li>
     <div class="arw">▼</div>
-    <li><b>등기 완료</b> — 접수 후 2~5일</li>
+    <li><b>상호를 바꾸셨다면 법인 인감 새로 제작 → 인감 변경신고</b> → 인감카드 재발급</li>
     <div class="arw">▼</div>
-    <li><b>후속 정리</b> — 사업자등록·통장·인감·거래처 <span style="color:var(--muted)">(↓ 7번)</span></li>
+    <li><b>사업자등록 정정신고</b>(세무서) → 통장·카드·인허가·거래처·간판·홈페이지</li>
   </ol>
 </div>
 
-<table>
-  <thead><tr><th>항목</th><th style="width:26%">금액</th><th>납부처</th></tr></thead>
+<!-- ══════════ 5. 첨부서류 ══════════ -->
+<div class="qhead"><span class="qb">5</span><h2>등기소에 내는 서류와 그 발급처</h2></div>
+
+<div class="who"><span class="doclabel give">제출</span><br><span class="wl">◆ 준비하실 것</span>
+  <table style="margin:6px 0 0">
+    <thead><tr><th>준비물</th><th>어디서</th><th>주의</th></tr></thead>
+    <tbody>
+      <tr><td><b>주주총회 의사록</b> (공증)</td><td>공증인 사무소</td><td style="color:#9c3a22"><b>특별결의 정족수를 의사록에 명시</b></td></tr>
+      <tr><td><b>변경된 정관</b></td><td>사무소 작성</td><td>조문 번호까지 정리</td></tr>
+      <tr><td><b>법인 등기사항전부증명서</b></td><td><a href="https://www.iros.go.kr" target="_blank" rel="noopener" class="dl">인터넷등기소</a></td><td>현재 상호·목적 확인용</td></tr>
+      <tr><td><b>법인 인감도장</b>·<b>법인 인감증명서</b></td><td>회사 보관 · 등기소</td><td>신청서 날인·위임용</td></tr>
+      <tr><td><b>등록면허세 영수필확인서</b></td><td><a href="https://www.wetax.go.kr" target="_blank" rel="noopener" class="dl">위택스</a></td><td>본점 소재지 시·군·구</td></tr>
+      <tr><td><b>등기신청수수료 영수필확인서</b></td><td><a href="https://www.iros.go.kr" target="_blank" rel="noopener" class="dl">인터넷등기소</a></td><td style="color:#9c3a22"><b>등기 목적 수만큼</b></td></tr>
+      <tr><td><b>새 법인 인감 + 인감 변경신고서</b></td><td>도장집 · 등기소</td><td style="color:#9c3a22"><b>상호를 바꾸는 경우</b><br>1cm 초과 ~ 2.4cm 이내</td></tr>
+      <tr><td><b>위임장</b></td><td>사무소 작성</td><td>대리 신청 시</td></tr>
+    </tbody>
+  </table>
+  <div class="ddl">발급처 ▸ <a href="https://www.iros.go.kr" target="_blank" rel="noopener" class="dl">인터넷등기소(상호조회·등기사항증명서·수수료)</a> · <a href="https://www.wetax.go.kr" target="_blank" rel="noopener" class="dl">위택스(등록면허세)</a> · <a href="https://www.kipris.or.kr" target="_blank" rel="noopener" class="dl">키프리스(상표 조회)</a></div>
+  <p style="margin:8px 0 0;font-size:14px"><b>※ 목적만 바꾸시는 경우에는</b> 인감을 새로 만들지 않으셔도 됩니다. 인감에 새겨진 것은 <b>상호</b>이기 때문입니다.</p>
+</div>
+
+<div class="who" style="border-left-color:#5a8db0"><span class="wl">◆ 저희 사무소에서 작성해 드리는 서류</span>
+  <ul>
+    <li><b>주주총회 의사록</b>(또는 주주 전원의 서면결의서) · <b>변경 정관</b> · <b>상호변경등기신청서</b> · <b>목적변경등기신청서</b> · <b>인감 변경신고서</b> · <b>위임장</b></li>
+    <li>여기에 더해, <b>표준산업분류에 맞춘 목적 문구안</b>과 등기 후 하실 <b>[변경 처리 목록]</b>을 정리해 드립니다.</li>
+  </ul>
+  <div class="ddl">양식 확인 ▸ <a href="https://www.iros.go.kr" target="_blank" rel="noopener" class="dl">인터넷등기소 → 자료센터 → 등기신청양식</a> <b>(주식회사 변경등기신청서)</b></div>
+</div>
+
+<!-- ══════════ 6. 반환 ══════════ -->
+<div class="qhead"><span class="qb">6</span><h2>등기가 끝나면 '되돌려받는' 것</h2></div>
+<div class="who" style="border-left-color:#5a9a72"><span class="doclabel back">반환</span><br><span class="wl">◆ 등기 완료 후 받으시는 것</span>
+  <ul>
+    <li><b>공증받은 의사록 원본</b> — 사본을 함께 내시면 원본은 돌려받습니다. <b>회사에 보관하셔야 하는 서류</b>입니다(상법 §396).</li>
+    <li><b>정관 원본</b> — 사본 제출 시 반환됩니다.</li>
+    <li><b>새 등기사항전부증명서</b> — 바뀐 상호·목적이 반영된 것. 사업자등록 정정에 씁니다.</li>
+    <li><b>법인 인감카드</b> — 상호를 바꾸셨다면 <b>인감 변경신고 후 재발급</b>. 수수료 5,000원.</li>
+    <li><b>돌려받지 못하는 서류</b> — <b>인감증명서</b>와 <b>위임장</b>(그 신청 전용)은 반환되지 않습니다.</li>
+  </ul>
+</div>
+
+<!-- ══════════ 7. 보정 ══════════ -->
+<div class="qhead"><span class="qb">7</span><h2>⚠ 등기관이 보정을 명하는 지점 — 빈도순으로 정리했습니다</h2></div>
+<div class="concept">이 등기는 <b>서류가 모자라서</b>보다 <b>「이름」과 「문구」 때문에</b> 걸리는 일이 훨씬 많습니다. 1번과 2번은 <b>보정이 아니라 각하</b>여서 특히 조심하셔야 합니다.</div>
+
+<h3>빈도 [상]</h3>
+<table class="fixt">
+  <thead><tr><th style="width:26px">#</th><th style="width:150px">항목</th><th>내용과 예방법</th><th style="width:52px">빈도</th></tr></thead>
   <tbody>
-    <tr><td><b>등록면허세</b> (그 밖의 등기)</td><td>40,200원</td><td><a href="https://www.wetax.go.kr" target="_blank" rel="noopener" class="dl">위택스</a></td></tr>
-    <tr><td><b>지방교육세</b> (20%)</td><td>8,040원</td><td>위택스</td></tr>
-    <tr><td><b>등기신청수수료</b></td><td>방문 6,000원 / 전자 2,000원</td><td><a href="https://www.iros.go.kr" target="_blank" rel="noopener" class="dl">인터넷등기소</a></td></tr>
-    <tr style="background:#fdf6e3"><td><b>합　계</b></td><td><b>약 48,240원 + 수수료</b></td><td>—</td></tr>
+    <tr>
+      <td>1</td>
+      <td><b>동일상호<br><span style="color:#9c3a22">(각하)</span></b></td>
+      <td>
+        같은 시·군에서 <b>같은 영업</b>으로 <b>같은 이름</b>이 이미 등기된 경우입니다.
+        <div class="quo rj">사건이 상업등기법 제29조에 따라 등기할 수 없는 상호의 등기를 목적으로 하는 경우에 해당합니다.</div>
+        <b>예방</b> — <a href="https://www.iros.go.kr" target="_blank" rel="noopener" class="dl">인터넷등기소 법인상호 찾기</a>로 <b>본점이 있는 시·군</b>을 기준으로 조회하십시오. <b>주주총회를 열기 전에</b> 하셔야 합니다.
+      </td>
+      <td><span class="lv h">상</span></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><b>법령상 사용 금지<br>문자<span style="color:#9c3a22">(각하)</span></b></td>
+      <td>
+        은행·보험·증권·신탁 등은 개별 법률이 <b>그 문자를 상호에 쓰는 것 자체를 금지</b>합니다.
+        <div class="quo rj">사건이 법령의 규정에 따라 사용이 금지된 상호의 등기를 목적으로 하는 경우에 해당합니다.</div>
+        <b>예방</b> — 금융·의료·법률 관련 표현을 상호에 넣으실 생각이라면 <b>미리 확인</b>하십시오. 「○○금융」, 「○○투자자문」 같은 표현도 걸릴 수 있습니다.
+      </td>
+      <td><span class="lv h">상</span></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><b>목적이 막연함</b></td>
+      <td>
+        「무역업」, 「각종 서비스업」, 「기타 부대사업 일체」 같은 표현입니다.
+        <div class="quo">목적의 기재가 구체적이지 아니하여 그 사업 내용을 알 수 없으므로 보정하시기 바랍니다.</div>
+        <b>예방</b> — <b>한국표준산업분류의 소분류 이하 표현을 그대로</b> 쓰십시오. 「부대사업 일체」는 <b>구체적 목적 뒤에 덧붙이는 형태</b>로만 넣습니다.
+      </td>
+      <td><span class="lv h">상</span></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><b>의사록 공증 누락</b></td>
+      <td>
+        <b>「자본금 10억원 미만이면 공증이 면제된다」는 말은 발기설립에만 해당</b>합니다(공증인법 §66조의2①1호). 상호·목적 변경 의사록은 <b>자본금과 관계없이 원칙적으로 공증 대상</b>입니다.
+        <div class="quo">첨부된 주주총회의사록에 공증인의 인증이 없으므로 이를 보정하시기 바랍니다.</div>
+        <b>예방</b> — 공증인 사무소에서 인증을 받으십시오. 자본금 10억원 미만 회사는 <b>주주 전원의 서면결의서</b>로 갈음하는 방법이 실무상 널리 쓰이지만, <b>등기소에 따라 판단이 다를 수 있어 미리 확인</b>하시는 편이 안전합니다.
+      </td>
+      <td><span class="lv h">상</span></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><b>신청서와 의사록의<br>문구 불일치</b></td>
+      <td>
+        의사록에는 「화장품 도매업」인데 신청서에는 「화장품 도소매업」으로 적는 식입니다. <b>한 글자만 달라도 걸립니다.</b>
+        <div class="quo">신청서에 기재된 목적이 첨부서면의 기재와 부합하지 아니합니다.</div>
+        <b>예방</b> — 의사록의 목적 문구를 <b>복사해 붙이듯 그대로</b> 옮겨 적으십시오. 띄어쓰기와 쉼표까지 맞추시는 것이 안전합니다.
+      </td>
+      <td><span class="lv h">상</span></td>
+    </tr>
   </tbody>
 </table>
-<p style="font-size:13px;color:var(--muted);margin-top:-6px">※ 상호와 목적을 함께 바꾸셔도 「그 밖의 등기」로 묶여 같은 금액입니다. 자본금 10억원 이상이면 의사록 공증료(3만원 수준)가 추가됩니다.</p>
 
-<div class="tip">
-  <span class="pt">한 번에 하시면 절약됩니다</span>
-  상호·목적 변경과 함께 <b>임원 변경</b>이나 <b>본점 이전</b>이 있으시다면 <b>같은 주주총회에서 결의하고 한 번에 등기</b>하시는 편이 좋습니다. 어차피 총회를 여셔야 하고, 등기도 함께 처리하면 비용이 줄어듭니다.
-  <p style="margin:6px 0 0"><b>이 기회에 정관도 정리해 두십시오.</b> 본점 조항을 「서울특별시」까지만 적는 방식으로 바꾸거나, 임원 임기 규정을 정기주주총회에 맞추는 식으로요. 다음에 등기하실 때 훨씬 간단해집니다.</p>
+<h3>빈도 [중]</h3>
+<table class="fixt">
+  <thead><tr><th style="width:26px">#</th><th style="width:150px">항목</th><th>내용과 예방법</th><th style="width:52px">빈도</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>6</td>
+      <td><b>특별결의 정족수<br>미달·미기재</b></td>
+      <td>
+        정관변경은 <b>출석 주주 의결권의 2/3 이상이면서 발행주식총수의 1/3 이상</b>이어야 합니다(상법 §434).
+        <div class="quo">주주총회의 결의가 상법 제434조의 결의요건을 충족하였음을 알 수 없습니다.</div>
+        <b>예방</b> — 의사록에 <b>발행주식총수·출석주식수·찬성주식수를 숫자로</b> 적으십시오. 「전원 찬성」만으로는 부족합니다.
+      </td>
+      <td><span class="lv m">중</span></td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td><b>상호를 로마자로만<br>표기</b></td>
+      <td>
+        등기는 <b>한글</b>로 합니다. 로마자·한자는 <b>괄호 안 병기</b>만 가능합니다.
+        <div class="quo">상호는 한글로 기재하여야 하며, 로마자 등은 병기의 방법으로만 기록할 수 있습니다.</div>
+        <b>예방</b> — <b>「주식회사 산로(SANLAW)」</b> 형태로 정하십시오. 발음을 어떻게 한글로 옮길지 미리 정해 두셔야 합니다.
+      </td>
+      <td><span class="lv m">중</span></td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td><b>회사 종류 표시 누락</b></td>
+      <td>
+        상호에는 <b>주식회사</b> 등 회사의 종류를 반드시 넣어야 합니다(상법 §19).
+        <div class="quo">상호에 회사의 종류를 표시하는 문자가 기재되지 아니하였습니다.</div>
+        <b>예방</b> — 앞에 붙이든(주식회사 산로) 뒤에 붙이든(산로 주식회사) 상관없습니다. 다만 <b>등기부에 적히는 그대로</b> 의사록에도 쓰십시오.
+      </td>
+      <td><span class="lv m">중</span></td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td><b>정관 조문 정리<br>누락</b></td>
+      <td>
+        목적을 여러 개 추가하면서 <b>정관의 호 번호가 어긋나거나</b>, 삭제한 목적이 정관에 남아 있는 경우입니다.
+        <div class="quo">변경된 정관의 기재와 신청서의 목적이 부합하지 아니합니다.</div>
+        <b>예방</b> — <b>목적 조항 전체를 다시 써서</b> 「제○조(목적)를 다음과 같이 한다」 형식으로 통째로 바꾸시면 어긋날 일이 없습니다.
+      </td>
+      <td><span class="lv m">중</span></td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td><b>등기신청수수료<br>부족</b></td>
+      <td>
+        상호변경과 목적변경을 함께 신청하면서 <b>7,000원 한 건만</b> 낸 경우입니다.
+        <div class="quo">등기신청수수료가 부족하므로 보정하시기 바랍니다.</div>
+        <b>예방</b> — 수수료는 <b>「등기의 목적마다」</b> 계산합니다. 상호변경·목적변경은 각각 별개의 목적입니다.
+      </td>
+      <td><span class="lv m">중</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>빈도 [하]</h3>
+<table class="fixt">
+  <thead><tr><th style="width:26px">#</th><th style="width:150px">항목</th><th>내용과 예방법</th><th style="width:52px">빈도</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>11</td>
+      <td><b>영리성 없는 목적</b></td>
+      <td>「봉사활동」, 「학술 연구」 등은 그 자체로 영리사업이 아니어서 회사의 목적이 될 수 없습니다. 관련 사업을 하실 계획이면 <b>「○○ 연구용역업」</b>처럼 영리성이 드러나게 쓰십시오.</td>
+      <td><span class="lv l">하</span></td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td><b>인감 변경신고<br>누락</b></td>
+      <td>상호를 바꾸면 법인 인감에 새겨진 이름도 달라지므로 <b>새 인감을 만들어 등기소에 변경신고</b>해야 합니다. 이를 빠뜨리면 <b>법인 인감증명서를 발급받지 못해</b> 다음 절차가 막힙니다.</td>
+      <td><span class="lv l">하</span></td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td><b>본점이전과 동시<br>신청 시 순서</b></td>
+      <td>본점을 옮기면서 상호도 바꾸시는 경우, <b>새 관할 등기소에 같은 상호가 있으면</b> 본점이전이 막힙니다. 이때는 <b>상호변경등기를 본점이전등기와 동시에</b> 신청하는 방법이 마련되어 있습니다(상업등기규칙, 2024. 11. 29. 개정). <b>순서가 꼬이기 쉬우니 미리 상의해 주십시오.</b></td>
+      <td><span class="lv l">하</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="chk">
+  <div class="ck">📋 접수 직전 최종 점검표</div>
+  <ul>
+    <li>인터넷등기소에서 <b>본점 소재 시·군 기준 동일상호</b>를 조회했다</li>
+    <li>키프리스에서 <b>상표 등록 여부</b>를 확인했다</li>
+    <li>상호에 <b>「주식회사」</b>가 들어가고, <b>한글로</b> 적었다</li>
+    <li>목적 문구가 <b>표준산업분류 소분류 수준</b>으로 구체적이다</li>
+    <li>주주총회 의사록에 <b>발행주식총수·출석·찬성 주식수를 숫자로</b> 적었다</li>
+    <li>의사록에 <b>공증</b>을 받았다 (또는 주주 전원 서면결의서를 만들었다)</li>
+    <li>신청서의 상호·목적 문구가 <b>의사록과 글자 하나까지 같다</b></li>
+    <li>등기신청수수료를 <b>목적 수만큼</b> 납부했다</li>
+    <li>상호를 바꾼다면 <b>새 법인 인감</b>과 <b>인감 변경신고서</b>를 준비했다</li>
+  </ul>
 </div>
+
+<!-- ══════════ 8. 세금 ══════════ -->
+<div class="qhead"><span class="qb">8</span><h2>세금과 수수료는 얼마인가요?</h2></div>
+
+<table>
+  <thead><tr><th>항목</th><th>금액</th><th>근거</th><th>납부처</th></tr></thead>
+  <tbody>
+    <tr><td><b><span class="term">등록면허세<span class="bub">등기·등록을 할 때 내는 지방세. 자본금이 늘지 않는 변경등기는 「그 밖의 등기」로 정액입니다.</span></span></b></td><td><b>40,200원</b></td><td>지방세법 §28①6호 바목</td><td><a href="https://www.wetax.go.kr" target="_blank" rel="noopener" class="dl">위택스</a></td></tr>
+    <tr><td><b>지방교육세</b> (등록면허세의 20%)</td><td><b>8,040원</b></td><td>지방세법 §151①2호</td><td><a href="https://www.wetax.go.kr" target="_blank" rel="noopener" class="dl">위택스</a></td></tr>
+    <tr><td><b>등기신청수수료</b> (방문신청)</td><td><b>7,000원</b><br><span style="font-size:12.5px;color:var(--muted)">등기 목적마다</span></td><td>수수료규칙 §5조의3②</td><td><a href="https://www.iros.go.kr" target="_blank" rel="noopener" class="dl">인터넷등기소</a></td></tr>
+    <tr style="background:#fdf6e3"><td><b>합　계</b> (한 가지만 변경 시)</td><td style="color:#9c3a22"><b>55,240원</b></td><td colspan="2">—</td></tr>
+  </tbody>
+</table>
+
+<div class="cost">
+  <span class="ct">신청 방법에 따라 수수료가 달라집니다</span>
+  <table style="margin:6px 0 0">
+    <thead><tr><th>신청 방법</th><th>등기신청수수료</th><th>비고</th></tr></thead>
+    <tbody>
+      <tr><td><b>방문신청</b></td><td><b>7,000원</b></td><td>등기관에게 직접 확인 가능</td></tr>
+      <tr><td><b>전자표준양식(e-Form)</b></td><td><b>5,000원</b></td><td>양식만 인터넷 작성, 서류는 방문 제출</td></tr>
+      <tr><td><b>전자신청</b></td><td><b>2,000원</b></td><td>공동인증서 등 사전 준비 필요</td></tr>
+    </tbody>
+  </table>
+  <p style="margin:8px 0 0;font-size:14px">※ <b>상호변경과 목적변경을 함께</b> 하시면 등기의 목적이 둘이므로 수수료도 두 건입니다. 다만 <b>주주총회와 서류 준비는 한 번</b>으로 끝나므로 <b>함께 하시는 편이 전체적으로 이득</b>입니다.<br>
+  ※ <b>그 밖의 실비</b> — 의사록 공증료 3만~11만원대, 법인 인감도장 2~5만원, 인감카드 재발급 5,000원, 등기사항전부증명서 통당 1천원대.</p>
+</div>
+
+<div class="bnote">※ <b>대도시 3배 중과는 상호·목적 변경에 적용되지 않습니다.</b> 등록면허세를 3배로 매기는 것은 <b>법인 설립·지점 설치·본점 전입·설립 후 5년 내 증자</b> 등의 경우이고(지방세법 §28②), <b>상호·목적 변경은 서울에 본점이 있어도 40,200원 그대로</b>입니다.</div>
 
 <a class="calc" href="https://sanlaw.co.kr/tools-calculator.html" target="_blank" rel="noopener">
   <div class="cah">🧮 등록면허세·수수료·보수 미리 계산해 보기</div>
-  <div class="cas">등기 유형을 입력하면 등록면허세·지방교육세·등기신청수수료를 포함한 예상 금액을 산출합니다. (클릭 시 계산기로 이동)</div>
+  <div class="cas">변경하실 항목 수와 신청 방법을 입력하시면 등록면허세·지방교육세·등기신청수수료를 포함한 예상 금액을 산출합니다. (클릭 시 계산기로 이동)</div>
 </a>
 
-<!-- ══════════ 7 ══════════ -->
-<div class="qhead"><span class="qb">7</span><h2>★ 상호 변경은 등기가 끝이 아닙니다</h2></div>
-
-<div class="warn">
-  <span class="wt">등기 뒤에 할 일이 더 많습니다</span>
-  회사 이름이 바뀌면 <b>그 이름으로 되어 있던 모든 것</b>을 바꾸셔야 합니다. 하나라도 빠뜨리면 대금을 못 받거나 세금계산서가 반려되는 일이 생깁니다.
-</div>
+<!-- ══════════ 9. 등기 후 ══════════ -->
+<div class="qhead"><span class="qb">9</span><h2>등기가 끝난 뒤 — 기한 있는 것만 모았습니다</h2></div>
 
 <table class="deadline">
-  <thead><tr><th>할 일</th><th>어디에</th><th>언제</th></tr></thead>
+  <thead><tr><th>시점</th><th>할 일</th><th>놓치면</th></tr></thead>
   <tbody>
-    <tr><td><b>사업자등록 정정신고</b></td><td><a href="https://www.hometax.go.kr" target="_blank" rel="noopener" class="dl">홈택스</a> · 세무서</td><td><b>지체 없이</b></td></tr>
-    <tr><td><b>법인 인감 재제작 · 재신고</b></td><td>도장집 → 등기소</td><td>상호 변경 시 필수</td></tr>
-    <tr><td><b>법인 통장 명의 변경</b></td><td>거래 은행</td><td>지체 없이</td></tr>
-    <tr><td><b>법인카드 재발급</b></td><td>카드사</td><td>—</td></tr>
-    <tr><td><b>4대보험 사업장 명칭 변경</b></td><td>4대사회보험 정보연계센터</td><td>14일 이내</td></tr>
-    <tr><td><b>인허가 변경신고</b></td><td>해당 관청</td><td>업종별<br><span style="font-size:13px;color:var(--muted)">건설업은 <b>30일 이내</b></span></td></tr>
-    <tr><td><b>거래처 통보 · 계약서 명의</b></td><td>—</td><td>지체 없이</td></tr>
-    <tr><td>세금계산서 · 명함 · 간판 · 홈페이지 · 도메인</td><td>—</td><td>순차적으로</td></tr>
+    <tr><td>등기 직후</td><td>새 <b>등기사항전부증명서</b> 발급 · <b>인감 변경신고</b>(상호변경 시)</td><td>법인 인감증명서 발급 불가</td></tr>
+    <tr><td><b style="color:#9c3a22">지체 없이</b></td><td><b>사업자등록 정정신고</b> (<a href="https://www.hometax.go.kr" target="_blank" rel="noopener" class="dl">홈택스</a>·세무서)</td><td style="color:#9c3a22">옛 상호로 발행한 <b>세금계산서 문제</b></td></tr>
+    <tr><td>지체 없이</td><td>법인 통장·카드 명의 변경 (은행)</td><td>대금 입금 거절</td></tr>
+    <tr><td>지체 없이</td><td>4대보험 사업장 명칭 변경</td><td>고지서 미수령</td></tr>
+    <tr><td><b style="color:#9c3a22">업종에 따라</b></td><td><b>인허가 명의 변경</b> (통신판매업·건설업·화장품책임판매업 등)</td><td style="color:#9c3a22"><b>행정처분·과태료</b></td></tr>
+    <tr><td>계약 관계</td><td>거래처 통보 · 계약서 상호 정정 · 간판·홈페이지·명함</td><td>대금 청구·수령 분쟁</td></tr>
   </tbody>
 </table>
 
-<div class="bnote">※ <b>법인 인감을 새로 만드셔야 합니다.</b> 도장에 새겨진 이름이 바뀌었으니 종전 인감은 쓸 수 없습니다. 규격은 <b>가로·세로 1cm를 넘고 2.4cm 안에 들어가야</b> 합니다(상업등기규칙 §35④). <b>등기 신청과 동시에 인감 재신고</b>를 하시면 한 번에 끝납니다.</div>
+<div class="tip">
+  <span class="pt">상호가 바뀌어도 회사는 그대로입니다</span>
+  이름만 바뀌었을 뿐 <b>법인등록번호도, 사업자등록번호도, 회사의 권리·의무도 그대로</b>입니다. 기존 계약은 <b>다시 맺지 않으셔도 유효</b>합니다. 다만 거래처가 옛 상호로 세금계산서를 발행하거나 옛 이름으로 입금하는 혼선이 잦으므로, <b>새 등기사항전부증명서를 붙여 통보문을 돌리시는 것</b>을 권해 드립니다.
+</div>
 
-<div class="bnote">※ <b>목적만 바꾸시는 경우</b>에는 위 목록 중 <b>사업자등록 업종 정정</b>과 <b>인허가</b>만 챙기시면 됩니다. 인감·통장·카드는 그대로 쓰실 수 있습니다.</div>
+<!-- ══════════ 초기 질의서 ══════════ -->
+<div class="qhead"><span class="qb">✓</span><h2>초기 질의서 — 이것만 채워 보내주시면 됩니다</h2></div>
+<div class="howto">아래 양식을 복사하거나 내려받아 채우신 뒤, <b>등기사항전부증명서·정관과 함께 사진으로 찍어 보내주시면</b> 동일상호 조회와 목적 문구 정리부터 해 드리겠습니다.</div>
+
+<div class="formbox open">
+  <button class="fold-btn" onclick="toggleFold(this)">📋 상호·목적 변경등기 초기 질의서 <span class="chev">▾</span></button>
+  <div class="fold-body">
+    <div class="form" id="fm-intake"><span class="ft">상호 · 목적 변경등기 초기 질의서</span>
+ 1. 현재 상호        주식회사 ○○○○○○○○
+
+ 2. 법인등록번호     ○○○○○○ - ○○○○○○○
+
+ 3. 본점 주소        ○○○○○○○○○○○○○○○○
+                     (동일상호 조회는 이 시·군 기준으로 합니다)
+
+ 4. 자본금           ○○○○○○○○ 원
+
+ 5. 무엇을 바꾸십니까  (해당란에 모두 표시)
+     □ 상호를 바꾼다
+     □ 목적을 추가한다
+     □ 목적을 삭제한다
+     □ 목적 문구를 고친다
+
+ 6. 상호를 바꾸는 경우
+     희망 상호 (1지망)  주식회사 ○○○○○○○○
+               (2지망)  주식회사 ○○○○○○○○
+     로마자·한자 병기를 원하십니까?  □ 예 ( ○○○○○○ )   □ 아니오
+     변경 예정일        20○○. ○○. ○○.
+
+ 7. 목적을 바꾸는 경우
+     추가할 사업        ○○○○○○○○○○○○○○
+                        ○○○○○○○○○○○○○○
+                        ○○○○○○○○○○○○○○
+     삭제할 사업        ○○○○○○○○○○○○○○
+     ※ 정확한 문구를 모르셔도 됩니다. "무엇을 하려는지"만 적어주시면
+        표준산업분류에 맞추어 문구를 만들어 드립니다.
+
+ 8. 추가하려는 사업에 인허가가 필요합니까
+     □ 모르겠다   □ 필요 없다
+     □ 필요하다 → 어떤 인허가:  ○○○○○○○○
+
+ 9. 주주 구성        주주 수: ○명
+                     발행주식총수: ○○○○주
+                     (주주 전원의 서면 동의를 받을 수 있습니까?  □ 예  □ 아니오)
+
+10. 갖고 계신 인허가  (등기 후 명의 변경이 필요합니다)
+     □ 없다
+     □ 통신판매업  □ 건설업  □ 화장품책임판매업  □ 기타( ○○○○○○ )
+
+11. 연락처          성명 ○○○   전화 ○○○-○○○○-○○○○
+</div>
+    <div class="form-tools">
+      <button onclick="copyForm('fm-intake')">📋 복사</button>
+      <button onclick="printForm('fm-intake')">🖨 인쇄</button>
+      <button onclick="downloadForm('fm-intake','상호목적변경등기_초기질의서.txt')">⬇ 내려받기</button>
+    </div>
+  </div>
+</div>
 
 <!-- ══════════ FAQ ══════════ -->
 <div class="qhead"><span class="qb">?</span><h2>자주 묻는 질문</h2></div>
 <div class="faq">
-  <details><summary>사업을 하나 더 하려는데 꼭 등기해야 하나요?</summary>
-    <div class="fa"><b>먼저 등기부와 정관을 확인해 보십시오.</b> 그 목적이 이미 들어 있다면 등기가 필요 없고, 사업자등록에 업종만 추가하시면 됩니다. 설립하실 때 목적을 넉넉히 넣어두셨다면 그대로 쓰실 수 있습니다.</div></details>
+
+  <details><summary>같은 이름의 회사가 옆 동네에 있습니다. 등기가 되나요?</summary>
+    <div class="fa"><b>됩니다.</b> 제한은 <b>같은 특별시·광역시·특별자치시·시 또는 군 안에서, 같은 영업으로, 같은 상호</b>일 때만 적용됩니다(상업등기법 §29). 시·군이 다르면 같은 이름이라도 등기할 수 있습니다. <b>다만 등기가 된다는 것과 안전하다는 것은 다릅니다.</b> 상대방이 널리 알려진 회사라면 상법 §23이나 상표권 문제가 따로 생길 수 있습니다.</div></details>
+
+  <details><summary>한 글자만 바꾸면 되나요?</summary>
+    <div class="fa"><b>등기는 대체로 됩니다.</b> 지금은 「확연히 구별되지 않는 상호」까지 막던 규제가 없어져 <b>「동일한 상호」만</b> 제한합니다. <b>다만 권해 드리지는 않습니다.</b> 굳이 남과 비슷한 이름을 고르시면 나중에 거래처 혼선, 상호 사용 폐지 청구, 상표권 분쟁으로 이어질 수 있습니다. <b>등기는 통과해도 사업이 곤란해집니다.</b></div></details>
+
+  <details><summary>영어 이름으로 등기하고 싶습니다.</summary>
+    <div class="fa"><b>등기부에는 한글로 적힙니다.</b> 로마자나 한자는 <b>괄호 안에 병기</b>하는 방법으로만 기록할 수 있습니다. 예를 들어 <b>「주식회사 산로(SANLAW)」</b> 형태가 됩니다. 그러니 <b>영문 이름을 한글로 어떻게 옮길지</b>도 함께 정하셔야 합니다. 간판이나 홈페이지에 영문만 쓰시는 것은 자유입니다.</div></details>
 
   <details><summary>목적을 몇 개까지 넣을 수 있나요?</summary>
-    <div class="fa"><b>개수 제한이 없고, 몇 개를 넣어도 등록면허세가 같습니다.</b> 반대로 나중에 하나 추가하면 48,240원에 수수료가 다시 듭니다. <b>이번에 넉넉히 넣어두시는 편이 이득</b>입니다.</div></details>
+    <div class="fa"><b>개수 제한은 없고, 몇 개를 넣어도 비용은 같습니다.</b> 반대로 나중에 하나 추가하시면 그때 <b>48,240원과 주주총회, 공증</b>이 다시 듭니다. 그래서 <b>가까운 장래에 하실 사업까지 이번에 넉넉히 넣으시는 편</b>을 권해 드립니다. 다만 <b>너무 무관한 업종을 잔뜩 넣으면</b> 은행 계좌 개설이나 일부 인허가 심사에서 설명을 요구받는 경우가 있습니다.</div></details>
 
-  <details><summary>원하는 상호가 이미 있으면 어떻게 하나요?</summary>
-    <div class="fa">같은 <b>시·군</b>에서 <b>동일 상호로 동종 영업</b>은 등기할 수 없습니다. 이 경우 <b>이름을 조금 바꾸거나</b>, 목적이 전혀 다르면 가능한 경우도 있습니다. <b>간판이나 명함을 만드시기 전에 반드시 확인</b>하십시오. 저희가 확인해 드립니다.</div></details>
+  <details><summary>목적을 추가하면 그 사업을 바로 할 수 있나요?</summary>
+    <div class="fa"><b>아닙니다.</b> 등기부의 목적란은 회사가 <b>하려는 사업을 적어 두는 곳</b>일 뿐이고, <b>인허가가 필요한 업종은 따로 허가·등록·신고를 받아야</b> 합니다. 다만 <b>인허가를 신청할 때 등기부 목적에 그 업종이 없으면 반려</b>되는 경우가 많으므로, <b>「목적 추가 → 인허가」 순서</b>로 진행하시게 됩니다.</div></details>
 
-  <details><summary>주주총회를 꼭 열어야 하나요?</summary>
-    <div class="fa"><b>주주 전원이 동의하시면 열지 않으셔도 됩니다.</b> 「주주 전원의 서면결의서」로 갈음할 수 있고, <b>자본금 10억원 미만이면 공증도 면제</b>됩니다(공증인법 §66조의2 단서). 가족법인이라면 서류 한 장으로 끝납니다.</div></details>
+  <details><summary>사업자등록증의 업태·종목도 같이 바뀌나요?</summary>
+    <div class="fa"><b>따로 신고하셔야 합니다.</b> 등기부의 목적과 사업자등록증의 업태·종목은 <b>서로 다른 제도</b>이고, 세무서가 등기부를 보고 자동으로 고쳐 주지 않습니다. 상호를 바꾸셨다면 <b>사업자등록 정정신고</b>를, 실제로 새 사업을 시작하신다면 <b>업태·종목 추가</b>를 함께 신청하십시오.</div></details>
 
-  <details><summary>정관을 잃어버렸는데요</summary>
-    <div class="fa"><b>회사가 보관하는 것이 원칙</b>이라 관공서에서 재발급받을 수는 없습니다. 다만 설립 당시 등기소에 제출한 정관을 <b>열람·복사</b>할 수 있는 경우가 있고, 실무상 <b>새로 작성해 주주총회 결의로 확정</b>하는 방법도 씁니다. 상황을 보고 안내해 드리겠습니다.</div></details>
+  <details><summary>상호를 바꾸면 계약서를 다시 써야 하나요?</summary>
+    <div class="fa"><b>다시 쓰지 않으셔도 됩니다.</b> 이름만 바뀌었을 뿐 <b>회사는 같은 법인</b>이고, 법인등록번호와 사업자등록번호도 그대로입니다. 기존 계약의 권리·의무는 그대로 이어집니다. 다만 실무에서 혼선을 줄이시려면 <b>새 등기사항전부증명서를 첨부한 상호변경 통보문</b>을 거래처에 돌리시고, 중요한 계약은 <b>변경 각서</b>를 한 장 받아 두시는 것이 깔끔합니다.</div></details>
 
-  <details><summary>상호를 바꾸면 사업자등록번호도 바뀌나요?</summary>
-    <div class="fa"><b>바뀌지 않습니다.</b> 상호만 정정되고 사업자등록번호와 법인등록번호는 그대로입니다. 다만 <b>사업자등록증은 새로 발급</b>받으셔야 하고, 거래처에도 알리셔야 세금계산서 발행에 문제가 없습니다.</div></details>
+  <details><summary>등기는 며칠이나 걸리나요?</summary>
+    <div class="fa">서류가 갖춰지면 <b>접수 후 1~3일</b>입니다. 여기에 주주총회와 의사록 공증에 하루 이틀이 더 듭니다. <b>다만 동일상호에 걸리면 각하되어 처음부터 다시</b> 해야 하므로, <b>조회에 드는 30분이 가장 값진 시간</b>입니다.</div></details>
 
-  <details><summary>인감도 새로 만들어야 하나요?</summary>
-    <div class="fa"><b>상호가 바뀌면 새로 만드셔야 합니다.</b> 도장에 새겨진 이름이 달라졌기 때문입니다. <b>등기 신청과 동시에 인감 재신고</b>를 하시면 한 번에 처리됩니다. 목적만 바꾸시는 경우에는 그대로 쓰셔도 됩니다.</div></details>
-
-  <details><summary>2주가 지났는데 어떻게 하나요?</summary>
-    <div class="fa"><b>지금이라도 하셔야 합니다.</b> 늦었다고 등기가 안 되는 것은 아니고, 다만 <b>과태료가 늦어진 기간에 비례해 늘어납니다.</b> 그리고 과태료는 <b>회사가 아니라 대표님 개인에게</b> 부과됩니다(상법 §635①).</div></details>
-
-  <details><summary>인허가가 필요한 사업인지 어떻게 아나요?</summary>
-    <div class="fa">건설업·화장품·식품·의료기기·여행업 등은 <b>별도의 등록·허가</b>가 필요하고, 없이 하시면 형사처벌 대상인 경우도 있습니다. <b>하시려는 사업 내용을 말씀해 주시면 필요한 인허가를 함께 정리</b>해 드리겠습니다.</div></details>
-
-  <details><summary>다른 등기도 함께 할 수 있나요?</summary>
-    <div class="fa"><b>가능하고, 권해드립니다.</b> 임원 변경이나 본점 이전이 있으시면 <b>같은 주주총회에서 결의하고 한 번에 등기</b>하시는 편이 비용과 시간 모두 절약됩니다. 상담 때 등기부를 보고 <b>빠진 등기가 없는지 점검</b>해 드리겠습니다.</div></details>
-
-  <details><summary>등기는 며칠 걸리나요?</summary>
-    <div class="fa">서류가 갖춰지면 <b>접수 후 2~5일</b>입니다. 자본금 10억원 이상이라 의사록 공증이 필요하시면 그 시간이 더 듭니다.</div></details>
-
-  <details><summary>지점이 있는데 지점도 따로 등기해야 하나요?</summary>
-    <div class="fa"><b>아닙니다.</b> 2025년 1월 31일부터 <b>지점 등기부가 폐지</b>되어, 본점 관할 등기소 한 곳에서 처리하면 됩니다. 예전처럼 지점 등기소에 따로 가지 않으셔도 됩니다. → <a href="sanlaw_본점이전_지점등기_안내.html" class="dl">본점이전·지점등기 안내</a></div></details>
 </div>
 
 <!-- ══════════ CTA ══════════ -->
 <div class="hire">
-  <div class="ft" style="font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:18px;color:var(--gold-d);margin-bottom:8px">이름을 정하시기 전에, 사업을 시작하시기 전에</div>
-  <p style="margin:0 0 8px;font-size:14.5px;line-height:1.85"><b>상호가 겹치지 않는지, 목적 문구가 인허가에 맞는지</b> 먼저 확인하십시오. 간판과 명함을 만드신 뒤에 등기가 막히면 그 비용이 전부 헛돈이 됩니다.</p>
-  <p style="margin:0;font-size:14.5px;line-height:1.85">등기사항전부증명서와 정관을 들고 오시면 <b>지금 무엇이 필요한지 그 자리에서 정리</b>해 드립니다. 미뤄두신 다른 등기가 함께 발견되는 경우가 많은데, <b>한 번에 처리하면 비용도 줄어듭니다.</b></p>
+  <div class="ft" style="font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:18px;color:var(--gold-d);margin-bottom:8px">여기까지가 혼자서도 하실 수 있는 전부입니다</div>
+  <p style="margin:0 0 8px;font-size:14.5px;line-height:1.85">상호·목적 변경은 서류가 적어 직접 하시는 분이 많습니다. 다만 제 경험으로는 <b>「이 이름을 써도 되는가」와 「이 문구가 통과되는가」</b>에서 갈립니다. 둘 다 <b>주주총회를 열기 전에 확인했어야 하는 것</b>이고, 각하가 나면 결의부터 다시 해야 합니다.</p>
+  <p style="margin:0;font-size:14.5px;line-height:1.85">이름 후보와 하시려는 사업만 알려주십시오. <b>동일상호 조회와 상표 조회를 먼저 해 드리고, 목적 문구는 표준산업분류에 맞추어 정리해 드리겠습니다.</b> 그 단계까지만 함께 해도 헛걸음은 거의 없어집니다.</p>
 </div>
-<a class="ctabtn" href="https://sanlaw.co.kr" target="_blank" rel="noopener">상호·목적변경등기 상담 신청하기 →</a>
+<a class="ctabtn" href="https://sanlaw.co.kr" target="_blank" rel="noopener">상호·목적 변경등기 상담 신청하기 →</a>
 
 <div class="src">
-근거 — 상법 §22·§289①·§317②·§363①④⑤·§433·§434·§635①1호 / 상업등기법 §29 / 상업등기규칙 §35④ / 공증인법 §66조의2 및 단서 / 지방세법 §28①6호 바목·§151①2호 / 등기사항증명서 등 수수료규칙 / 건설산업기본법 §9조의2② / 2025. 1. 31. 시행 개정 상업등기법(지점 등기부 폐지). 발급처 링크는 각 기관 공식 사이트로 연결됩니다.
+근거 — 상법 §19·§20·§22·§22조의2·§23·§289·§317·§363·§383·§396·§433·§434·§635 / 상업등기법 §26(13호·14호)·§29 / 상업등기규칙 §2·§35(2024. 11. 29. 개정 포함) / 「동일상호의 판단기준에 관한 등기예규」(예규 제1547호) / 「상업등기의 상호 및 외국인의 성명 등기에 관한 예규」 / 공증인법 §66조의2 / 민법 §157·§161 / 지방세법 §28①6호 바목·§28②·§151①2호 / 등기사항증명서 등 수수료규칙 §5조의3·§5조의5(2025. 8. 1. 시행) / 통계청 「한국표준산업분류」 / 부가가치세법 §8. 발급처 링크는 각 기관 공식 사이트로 연결됩니다.<br><br>
+※ 이 안내는 일반적인 절차를 정리한 것으로, 개별 회사의 정관과 사업 내용에 따라 절차가 달라질 수 있습니다. <b>동일상호 해당 여부, 목적 문구의 구체성 판단, 법령상 사용이 금지된 문자에 해당하는지, 주주 전원 서면결의서의 공증 요부</b>는 등기관의 판단이 갈릴 수 있고 예규는 개정될 수 있으므로, <b>주주총회를 열기 전에 확인</b>하시기를 권해 드립니다. 상표권 침해 여부는 등기소의 심사 대상이 아니며, 별도의 검토가 필요합니다.
 </div>
 
-
 <script>
-
 (function(){
   var terms=document.querySelectorAll('.term');
   terms.forEach(function(t){
@@ -420,7 +698,6 @@ function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.
 function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('양식이 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
 function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
 function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('양식을 내려받았습니다');}
-
 </script>
 </body>
 </html>
