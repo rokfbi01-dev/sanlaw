@@ -683,6 +683,7 @@
     <h2 class="stitle">상속 — 소유권이전 <small>보수표 Ⅰ-1 · 등기수수료 상속(20,000/17,000·전자불가)</small></h2>
 
     <div class="card blue"><h2>① 상속 정보</h2><div class="body">
+      <div class="note" style="border-left:3px solid var(--seal);background:#fdf6e8;">▸ <b>이미 법정상속분대로 상속등기를 마치셨습니까?</b> 그 뒤 <b>가정법원의 상속재산분할심판(또는 조정)</b>이 확정되어 지분이 달라졌다면, 이 화면이 아니라 <b>「상속 지분 바로잡기」</b> 화면을 쓰셔야 합니다. 등기를 새로 하는 것이 아니라 <b>이미 된 등기를 고치는</b> 절차라 비용이 전혀 다릅니다.<br>▸ <button type="button" class="btn" style="margin-top:6px;padding:6px 12px;font-size:13px;" onclick="openScenario('상속 지분 바로잡기(심판·조정분할 경정)')">상속 지분 바로잡기 화면으로 이동 ›</button><br>▸ <span class="hint">아직 <b>상속등기를 하지 않으셨다면</b> 이 화면에서 그대로 진행하십시오. 심판으로 정해진 지분대로 <b>한 번에</b> 등기하면 되고, 등기를 두 번 하지 않아 비용이 적게 듭니다.</span></div>
       <div class="line"><span class="lbl">상속재산 과세표준(원)</span><input type="number" class="amt" id="s_price" placeholder="0" oninput="calcInherit()"><span class="hint">시가표준액 합산</span></div>
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('s_cntEstate',-1,calcInherit)">−</button><input type="number" id="s_cntEstate" value="1" min="1" oninput="calcInherit()"><button onclick="step('s_cntEstate',1,calcInherit)">+</button></div><span class="hint">등기수수료(매 부동산 20,000/17,000)·우편 곱</span></div>
       <div class="note" style="border-left:3px solid var(--gold);">▸ <b>보수기준 §9⑥</b> <span class="tag A">A</span> — <b>여러 부동산을 한 장의 신청서로</b> 상속등기하시는 경우, 각 부동산의 <b>과세표준을 모두 더한 금액</b>으로 기본보수를 <b>한 번만</b> 산정합니다<span class="law" title="법무사 보수기준 제9조제6항 — 1건의 신청서로 수개의 부동산에 관한 소유권 보존·이전 등기를 하는 경우에는 각 부동산의 과세표준액을 합산하며, 쌍방대리의 경우에는 1건으로 하여 기본보수를 산정한다.">§9⑥</span>. 위 「상속재산 과세표준」란에 <b>합산액</b>을 넣으십시오.<br>▸ 부동산이 여러 개면 기본보수와 별도로 <b>1개 초과분마다 20,000원</b>이 붙습니다<span class="law" title="법무사 보수기준 제10조제1항 — 대상 부동산이 1개를 초과하는 경우에는 초과하는 1개마다 20,000원을 가산한다.">§10①</span>. 아래 「부동산 개수」에 실제 개수를 넣으시면 자동 계산됩니다.<br>▸ <span class="hint">상속등기는 상속인이 <b>혼자 신청</b>하는 등기라 「쌍방대리」 문제가 생기지 않습니다.</span></div>
@@ -777,6 +778,117 @@
         <option value="alien-in">외국인 — 외국인등록(국내 거주)</option>
         <option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select></div>
       <div class="line"><span class="lbl">상속인(등기권리자) — 법인격</span><select id="pty_s__buyer" onchange="renderDocsInherit()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">종교단체를 고르면 <b>취득세 감면 안내</b>가 함께 나옵니다</span></div><div id="s_partyDocsBox"></div><div class="docs" id="s_docsBox"></div>
+    </div></div>
+  </div>
+
+  <!-- ===== 상속 지분 바로잡기 — 심판·조정분할에 의한 소유권경정등기 ===== -->
+  <div class="scene" id="scene-상속경정">
+    <button class="back" onclick="goMenu()">‹ 메인메뉴</button>
+    <h2 class="stitle">상속 지분 바로잡기 <small>법원 심판·조정으로 정해진 대로 등기를 고치는 절차</small></h2>
+
+    <div class="card"><h2>① 사건 정보</h2><div class="body">
+      <div class="note" style="border-left:3px solid var(--gold);">▸ <b>이 화면은 이런 경우에 쓰십니다.</b> 먼저 <b>법정상속분대로</b> 상속등기를 마쳤는데, 그 뒤 <b>가정법원의 상속재산분할심판(또는 조정)</b>이 확정되어 <b>실제 지분이 달라진</b> 경우입니다.<br>▸ 이때는 등기를 새로 하는 것이 아니라 <b>이미 된 등기를 고칩니다</b>. 이를 <b>「소유권경정등기」</b>라고 합니다. 등기원인은 <b>「심판분할」</b>(조정이면 「조정분할」), 날짜는 <b>심판이 확정된 날</b>(조정은 조정조서에 적힌 날)입니다 <span class="law" title="등기예규 제1675호 「상속등기와 그 경정등기에 관한 업무처리지침」 3.가 — 법정상속분에 따라 여러 명의 공동상속인을 등기명의인으로 하는 상속등기를 마친 후 상속재산 협의분할·조정분할·심판분할이 있어 이를 원인으로 경정등기를 신청할 때에는 등기원인을 각각 '협의분할','조정분할','심판분할'로, 그 연월일을 각각 협의가 성립한 날, 조정조서 기재일, 심판의 확정일로 한다.">등기예규 §1675호 3.가</span><br>▸ <span class="hint">아직 <b>법정상속등기를 하지 않으셨다면</b> 이 화면이 아니라 <b>「상속」</b> 화면에서 곧바로 심판분할 상속등기로 하시면 됩니다. 등기를 두 번 하지 않아 비용이 적게 듭니다.</span></div>
+
+      <div class="line"><span class="lbl">분할 방법</span><div class="radios" onchange="calcInheritFix();renderDocsInheritFix()">
+        <label><input type="radio" name="ic_type" value="judge" checked> 심판분할 <span class="hint">(법원이 결정)</span></label>
+        <label><input type="radio" name="ic_type" value="mediate"> 조정분할 <span class="hint">(조정으로 합의)</span></label></div></div>
+
+      <div class="line"><span class="lbl">피상속인<br>사망일</span><input type="date" id="ic_deathDate" oninput="calcInheritFix()" style="width:100%;"><span class="hint">돌아가신 날짜입니다. 가족관계증명서·기본증명서에 적혀 있습니다.</span></div>
+      <div class="line"><span class="lbl">심판 확정일<br>(조정조서일)</span><input type="date" id="ic_judgeDate" oninput="calcInheritFix()" style="width:100%;"><span class="hint">심판서에 붙는 <b>확정증명원</b>에 적힌 날짜입니다. 등기원인 날짜가 됩니다.</span></div>
+      <div class="line"><span class="lbl">경정등기<br>신청 예정일</span><input type="date" id="ic_fixDate" oninput="calcInheritFix()" style="width:100%;"><span class="hint">등기소에 낼 예정인 날짜입니다. <b>세금이 붙는지 갈리는 기준</b>이라 꼭 넣어 주십시오.</span></div>
+      <div class="line"><span class="lbl">외국 거주<br>상속인</span><label class="checks"><input type="checkbox" id="ic_abroad" onchange="calcInheritFix()"> 외국에 주소를 둔 상속인이 있습니다</label><span class="hint">있으면 아래 기한이 6개월 → <b>9개월</b>로 늘어납니다</span></div>
+
+      <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('ic_cntEstate',-1,calcInheritFix)">−</button><input type="number" id="ic_cntEstate" value="1" min="1" oninput="calcInheritFix()"><button onclick="step('ic_cntEstate',1,calcInheritFix)">+</button></div><span class="hint">등기수수료·우편 개수 곱 · 보수 1개 초과분 가산<span class="law" title="법무사 보수기준 제10조제1항 — 대상 부동산이 1개를 초과하는 경우에는 초과하는 1개마다 20,000원을 가산한다.">§10①</span></span></div>
+
+      <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcInheritFix()">
+        <label><input type="radio" name="ic_ptype" value="house" checked> 주택</label>
+        <label><input type="radio" name="ic_ptype" value="etc"> 주택외·준주택</label>
+        <label><input type="radio" name="ic_ptype" value="farm"> 농지</label></div></div>
+      <div class="line"><span class="lbl">전용면적</span><label class="checks"><input type="checkbox" id="ic_over85" onchange="calcInheritFix()"> 전용 <b>85㎡ 초과</b>입니다</label><span class="hint">85㎡ 이하 주택은 <b>농어촌특별세가 면제</b>됩니다<span class="law" title="농어촌특별세법 제4조제11호 — 「주택법」에 따른 국민주택규모(전용 85㎡) 이하 주택에 관한 취득세·등록면허세는 농어촌특별세를 비과세한다.">농특세법 §4 11호</span></span></div>
+      <div class="line"><span class="lbl">비영리사업자</span><label class="checks"><input type="checkbox" id="ic_nonprofit" onchange="calcInheritFix()"> 종교·자선 등 비영리사업자입니다</label><span class="hint">세율이 3.5% → <b>2.8%</b><span class="law" title="지방세법 제11조제1항제2호 단서 — 비영리사업자의 무상취득은 1천분의 28.">지방세법 §11①2호</span></span></div>
+    </div></div>
+
+    <div class="card"><h2>② 지분 — 얼마나 늘어나는지</h2><div class="body">
+      <div class="note">▸ <b>등기사항전부증명서 갑구</b>에 적힌 지분을 그대로 옮겨 적으십시오. 「3분의 1」이면 아래에 <b>1</b>과 <b>3</b>을 넣으시면 됩니다.<br>▸ 세금은 <b>늘어난 지분에만</b> 붙습니다. 전체 값에 붙는 것이 아닙니다.</div>
+      <div class="line"><span class="lbl">부동산 전체<br>가액(원)</span><input type="number" class="amt" id="ic_price" placeholder="0" oninput="calcInheritFix()"><span class="hint">부동산 <b>한 채 전체</b>의 값입니다. 세금이 붙는 경우에는 <b>시가인정액</b>(매매사례가·감정가 등), 그 밖에는 시가표준액을 넣으십시오<span class="law" title="지방세법 제10조의2제1항 — 무상취득의 경우 과세표준은 취득 당시의 시가인정액으로 한다.">지방세법 §10의2</span></span></div>
+      <div class="line"><span class="lbl">당초 지분<br>(법정상속분)</span><span></span><input type="number" id="ic_sbD" value="1" min="1" style="width:60px;" oninput="calcInheritFix()"><span>분의</span><input type="number" id="ic_sbN" value="0" min="0" style="width:60px;margin-left:4px;" oninput="calcInheritFix()"><span class="hint" style="margin-left:8px;">지금 등기부에 적혀 있는 지분</span></div>
+      <div class="line"><span class="lbl">심판 후 지분</span><span></span><input type="number" id="ic_saD" value="1" min="1" style="width:60px;" oninput="calcInheritFix()"><span>분의</span><input type="number" id="ic_saN" value="1" min="0" style="width:60px;margin-left:4px;" oninput="calcInheritFix()"><span class="hint" style="margin-left:8px;">심판서에 정해진 지분 (전부면 1분의 1)</span></div>
+      <div class="note" id="ic_shareInfo" style="background:#fdf6e8;"></div>
+    </div></div>
+
+    <div class="card"><h2>③ 추가 세금이 붙는지 판정 <span class="tag A">A</span></h2><div class="body">
+      <div class="note alert"><span class="head">여기가 이 화면에서 가장 중요합니다</span>법정상속등기를 이미 마친 뒤 지분이 늘어나면, 늘어난 몫을 <b>「증여받은 것」으로 보아 취득세를 다시 매기는</b> 규정이 있습니다<span class="law" title="지방세법 제7조제13항 — 상속개시 후 상속재산에 대하여 등기 등에 의하여 각 상속인의 상속분이 확정되어 등기 등이 된 후, 그 상속재산에 대하여 공동상속인이 협의하여 재분할한 결과 특정 상속인이 당초 상속분을 초과하여 취득하게 되는 재산가액은 그 재분할에 의하여 상속분이 감소한 상속인으로부터 증여받아 취득한 것으로 본다.">지방세법 §7⑬</span>.<br>▸ 법원 심판으로 정해진 경우에도 <b>과세된 사례가 있습니다</b>(조세심판원 조심2022지1238). 「법원이 정했으니 세금이 없다」고 단정하시면 안 됩니다.<br>▸ 다만 아래 <b>네 갈래 중 하나</b>에 해당하면 추가 취득세 없이 <b>등록면허세만</b> 냅니다.</div>
+
+      <div class="line"><span class="lbl">① 기한 내<br>등기</span><span class="hint" id="ic_ex1Info">사망일과 신청 예정일을 넣으시면 자동으로 판정합니다.<span class="law" title="지방세법 제7조제13항 제1호 — 제20조제1항에 따른 신고·납부기한 내에 재분할에 의한 취득과 등기등을 모두 마친 경우. 신고·납부기한은 상속개시일이 속하는 달의 말일부터 6개월(외국에 주소를 둔 상속인이 있는 경우 9개월).">§7⑬1호</span></span></div>
+
+      <div class="line"><span class="lbl">② 상속회복<br>청구의 소</span><label class="checks"><input type="checkbox" id="ic_ex2" onchange="calcInheritFix()"> <b>상속회복청구의 소</b>의 확정판결로 상속인·상속재산이 바뀌었습니다</label><span class="hint">상속재산분할심판은 <b>이것과 다릅니다</b>. 상속권 자체를 다툰 소송일 때만 해당합니다<span class="law" title="지방세법 제7조제13항 제2호 — 상속회복청구의 소에 의한 법원의 확정판결에 의하여 상속인 및 상속재산에 변동이 있는 경우.">§7⑬2호</span> <span class="tag chk">확인필요</span></span></div>
+
+      <div class="line"><span class="lbl">③ 채권자<br>대위등기</span><label class="checks"><input type="checkbox" id="ic_ex3" onchange="calcInheritFix()"> <b>채권자가 대신</b> 법정상속등기를 해 둔 것을 협의분할로 되돌립니다</label><span class="hint">상속인이 원해서 한 등기가 아닌 경우입니다<span class="law" title="지방세법 제7조제13항 제3호 — 「민법」 제404조에 따른 채권자대위권의 행사에 의하여 공동상속인들의 법정상속분대로 등기등이 된 상속재산을 상속인 사이의 협의분할에 의하여 재분할하는 경우.">§7⑬3호</span></span></div>
+
+      <div class="line"><span class="lbl">④ 당초 등기를<br>누가 했나</span><div class="radios" onchange="calcInheritFix()">
+        <label><input type="radio" name="ic_orig" value="all" checked> 상속인 전원이 신청</label>
+        <label><input type="radio" name="ic_orig" value="one"> 상속인 1인이 일방적으로 신청</label></div></div>
+      <div class="note" id="ic_ex4Note" style="display:none;">▸ 상속인 한 사람이 <b>다른 상속인의 뜻과 무관하게</b> 법정상속등기를 해 버린 경우라면, 「각 상속인의 상속분이 확정되어 등기된 경우」로 보지 않아 <b>증여로 보지 않는다</b>는 대법원 판단이 있습니다(대법원 2002. 7. 12. 선고 2001두441). <span class="tag chk">확인필요</span><br>▸ <span class="hint">다만 <b>분쟁 중에 일방적으로 이루어졌다는 사정</b>이 증명되어야 합니다. 단순히 편의상 한 사람이 대표로 신청한 경우는 해당하지 않습니다. 과세관청과 다툼이 생길 수 있는 부분이니 <b>상담 때 경위를 말씀해 주십시오.</b></span></div>
+
+      <div class="note" id="ic_verdict" style="font-size:14.5px;"></div>
+      <div class="note"><span class="hint">※ 위 판정은 <b>안내</b>이며, 실제 과세 여부는 <b>관할 시·군·구청</b>이 사실관계를 확인해 최종 결정합니다. 국가법령정보센터에 실린 법령해석도 「최종 결정은 과세권자의 몫」이라고 밝히고 있습니다.</span></div>
+    </div></div>
+
+    <div class="card blue"><h2>④ 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
+      <div class="note" id="ic_taxNote"></div>
+      <table class="t">
+        <tr id="ic_acqRow"><td>취득세 <span id="ic_acqRate" class="hint"></span><span class="law" title="지방세법 제11조제1항제2호 — 상속 외의 무상취득은 1천분의 35(3.5%). 다만 비영리사업자의 취득은 1천분의 28(2.8%).">지방세법 §11①2호</span></td><td><input class="cell" id="ic_acqTax" type="number" oninput="calcInheritFix(true)"></td></tr>
+        <tr id="ic_eduRow"><td>지방교육세<span class="law" title="지방세법 제151조제1항제1호 — 취득물건에 대하여 제11조의 표준세율에서 1천분의 20을 뺀 세율을 적용하여 산출한 금액의 100분의 20.">지방세법 §151①1호</span></td><td><input class="cell" id="ic_eduTax" type="number" oninput="calcInheritFix(true)"></td></tr>
+        <tr id="ic_ruralRow"><td>농어촌특별세<span class="law" title="농어촌특별세법 제5조제1항제6호 — 취득세 표준세율을 100분의 2로 적용하여 산출한 금액의 100분의 10. 같은 법 제4조제11호 — 전용 85㎡ 이하 주택은 비과세.">농특세법 §5①6호</span></td><td><input class="cell" id="ic_ruralTax" type="number" oninput="calcInheritFix(true)"></td></tr>
+        <tr id="ic_regTaxRow" style="display:none;background:#fdf6e8;"><td>등록면허세 <span class="hint" id="ic_regTaxNote"></span><span class="law" title="지방세법 제28조제1항제1호 마목 — 부동산 등기 중 「그 밖의 등기」는 건당 6,000원. 소유권경정등기가 여기에 해당합니다.">지방세법 §28①1호마목</span></td><td class="auto" id="ic_regTaxCell">0 원</td></tr>
+        <tr id="ic_regEduRow" style="display:none;background:#fdf6e8;"><td>지방교육세 <span class="hint">(등록면허세×20%)</span><span class="law" title="지방세법 제151조제1항제2호 — 등록면허세액의 100분의 20.">지방세법 §151①2호</span></td><td class="auto" id="ic_regEduCell">0 원</td></tr>
+        <tr><td>국민주택채권 매입액 <span class="hint">(늘어난 지분분만)</span><span class="law" title="「상속등기에 관한 업무처리지침」 — 상속등기 후 상속재산 협의분할 등으로 인한 소유권경정등기를 신청하는 경우 국민주택채권을 매입한다. 다만 그 전의 상속등기를 신청할 때에 국민주택채권을 매입하였다면 그 경정등기로 증가하는 지분만큼의 금액만 매입하면 된다.">상속등기 업무처리지침</span></td><td><input class="cell" id="ic_bondBuy" type="number" value="0" oninput="calcInheritFix(true)"></td></tr>
+        <tr><td>채권 할인손실 <span class="hint" id="ic_bondNote"></span></td><td class="auto" id="ic_bondLossCell">0 원</td></tr>
+        <tr><td>등기신청수수료 <select id="ic_regMethod" class="mini" onchange="calcInheritFix()"><option value="e" selected>e-Form 3,000</option><option value="p">수기 4,000</option><option value="o">전자 1,000</option></select> <span class="hint" id="ic_regNote"></span><span class="law" title="「등기사항증명서 등 수수료규칙」 제5조의2 — 변경·경정·말소 등 그 밖의 등기는 방문서면 4,000원, e-Form 3,000원, 전자신청 1,000원. 소유권경정등기는 「경정」에 해당합니다. [시행 2025.8.1. 대법원규칙 제3222호]">수수료규칙 §5의2 ④</span></td><td class="auto" id="ic_regFeeCell">0 원</td></tr>
+        <tr><td>대장·등본 우편 등 <span class="hint">(개수 곱)</span></td><td><input class="cell" id="ic_postFee" type="number" value="6000" oninput="calcInheritFix(true)"></td></tr>
+        <tr class="subtot"><td>공과금계</td><td id="ic_publicSum">0 원</td></tr>
+      </table>
+      <div class="note"><span class="hint">▸ <b>인지세는 붙지 않습니다.</b> 인지세는 매매계약서 같은 문서에 붙는데, 이 등기는 원인이 <b>법원의 심판서</b>라 해당 문서가 없습니다.</span></div>
+    </div></div>
+
+    <div class="card pink"><h2>⑤ 수수료 (법무사 보수, VAT 별도) <span class="tag A">A</span></h2><div class="body">
+      <div class="line"><span class="lbl">보수 조정</span><select id="ic_adjust" onchange="calcInheritFix()">
+        <option value="0.7">70%</option><option value="0.8">80%</option><option value="0.9">90%</option>
+        <option value="1" selected>100% (기본)</option>
+        <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
+        <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
+        <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
+      <div class="line"><span class="lbl">당사자 다수 가산</span><span>등기권리자</span><input type="number" id="ic_pnOwn" value="1" min="1" style="width:52px;margin:0 4px;" oninput="calcInheritFix()"><span>인</span><span style="margin-left:6px;">등기의무자</span><input type="number" id="ic_pnObl" value="0" min="0" style="width:52px;margin:0 4px;" oninput="calcInheritFix()"><span>인</span><select id="ic_pnAdd" onchange="calcInheritFix()" style="margin-left:8px;"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint" id="ic_pnInfo" style="margin-left:8px;"></span></div>
+      <div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="ic_frAdd" onchange="calcInheritFix()"><option value="0" selected>해당 없음</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">상속인 중 외국인·재외국민이 있거나 서류를 외국에서 받아야 하는 경우<span class="law" title="법무사 보수기준 제10조제6항 — 외국인 또는 재외국민이 포함되어 있거나 등기원인과 관련되는 서류를 외국으로부터 받아야 하는 등기의 경우에는 당해 기본보수의 100% 상당액까지 가산할 수 있다.">§10⑥</span></span></div>
+      <div class="line"><span class="lbl">여러 등기소 관할</span><select id="ic_moAdd" onchange="calcInheritFix()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50% (상한)</option></select><span class="hint">부동산이 <b>여러 등기소</b>에 걸쳐 있는 경우<span class="law" title="법무사 보수기준 제10조제4항 — 등기원인 및 등기목적이 동일한 것으로서 여러 개의 등기소의 관할에 걸쳐 있는 여러 개의 부동산에 관한 권리의 등기를 신청하는 경우에는 당해 기본보수의 50% 상당액까지 가산할 수 있다.">§10④</span></span></div>
+      <table class="t">
+        <tr><td>기본보수 <span class="hint" id="ic_feeBaseNote"></span><span class="law" title="법무사 보수기준 제9조제5항제2호 및 보수표 Ⅰ-3(2) — 권리의 변경·경정 또는 회복 등기의 기본보수는 120,000원입니다.">보수표 Ⅰ-3(2)</span></td><td class="auto" id="ic_feeBaseCell">0 원</td></tr>
+        <tr id="ic_feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="ic_feeForeignNote"></span></td><td class="auto" id="ic_feeForeignCell">0 원</td></tr>
+        <tr id="ic_feePartyRow" style="display:none;"><td>당사자 다수 가산 <span class="hint" id="ic_feePartyNote"></span></td><td class="auto" id="ic_feePartyCell">0 원</td></tr>
+        <tr id="ic_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="ic_feeMultiNote"></span></td><td class="auto" id="ic_feeMultiCell">0 원</td></tr>
+        <tr id="ic_feeCntRow" style="display:none;"><td>부동산 개수 가산 <span class="hint" id="ic_feeCntNote"></span><span class="law" title="법무사 보수기준 제10조제1항 — 대상 부동산이 1개를 초과하는 경우 초과하는 1개마다 20,000원을 가산합니다.">보수기준 §10①</span></td><td class="auto" id="ic_feeCntCell">0 원</td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ic_f_tax" checked onchange="calcInheritFix()"> <span id="ic_taxAgentLabel">취득세 신고대행</span> (50,000)</label></td><td class="auto" id="ic_taxAgentCell">50,000 원</td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ic_f_bond" checked onchange="calcInheritFix()"> 채권 매입대행 (40,000)</label></td><td class="auto" id="ic_bondAgentCell">40,000 원</td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ic_f_trip" checked onchange="calcInheritFix()"> 교통비 및 일당</label></td><td><input class="cell" id="ic_tripFee" type="number" value="160000" oninput="calcInheritFix(true)"></td></tr>
+        <tr class="subtot"><td>수수료계 (보수)</td><td id="ic_feeSum">0 원</td></tr>
+      </table>
+      <div class="note"><span class="hint">▸ <b>등기원인증서 작성료가 없습니다.</b> 등기원인이 <b>법원의 심판서</b>여서 법무사가 따로 작성할 서류가 없기 때문입니다. 협의분할이라면 협의분할계약서 작성료(50,000원)가 붙습니다.</span></div>
+    </div></div>
+
+    <div class="total"><div class="row"><span>법무사 보수 소계</span><span id="ic_t_fee">0 원</span></div>
+      <div class="row sub"><span>부가가치세 (10%)</span><span id="ic_t_vat">0 원</span></div>
+      <div class="row"><span>공과금계</span><span id="ic_t_public">0 원</span></div>
+      <div class="row grand"><span>총 합계</span><span id="ic_t_grand">0 원</span></div></div>
+    <div class="actions"><button class="btn" onclick="calcInheritFix()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+
+    <div class="card green"><h2>⑥ 준비서류</h2><div class="body">
+      <div class="line" style="border:none;padding-top:0;"><span class="lbl">심판서 주문<br>형식</span><div class="radios" onchange="renderDocsInheritFix()">
+        <label><input type="radio" name="ic_order" value="exec" checked> 「…등기절차를 <b>이행하라</b>」가 있음</label>
+        <label><input type="radio" name="ic_order" value="form"> 「…<b>소유로 분할한다</b>」만 있음</label></div></div>
+      <div class="note">▸ 심판서 <b>주문</b>(맨 앞 「주문」이라고 적힌 부분)을 펴 보시고 고르십시오. <b>준비서류가 달라집니다.</b></div>
+      <div class="line"><span class="lbl">이해관계인</span><label class="checks"><input type="checkbox" id="ic_third" onchange="renderDocsInheritFix()"> 지분이 <b>줄어드는</b> 상속인 몫에 <b>가압류·근저당 등</b>이 붙어 있습니다</label></div>
+      <div class="line"><span class="lbl">외국인·재외국민</span><label class="checks"><input type="checkbox" id="ic_frDoc" onchange="renderDocsInheritFix()"> 상속인 중 외국인 또는 재외국민이 있습니다</label></div>
+      <div class="docs" id="ic_docsBox"></div>
     </div></div>
   </div>
 
@@ -4592,6 +4704,7 @@ const SCENARIO={
  "증여":{cat:'re',full:'gift'},
  "부담부증여":{cat:'re',full:'burden'},
  "상속":{cat:'re',full:'inherit'},
+ "상속 지분 바로잡기(심판·조정분할 경정)":{cat:'re',full:'inheritFix',ref:'보수표 Ⅰ-3(2)'},
  "유증(유언에 의한 소유권이전)":{cat:'re',full:'bequest'},
  "소유권보존":{cat:'re',full:'preserve'},
  "근저당권설정":{cat:'re',full:'mortgage'},
@@ -4926,6 +5039,7 @@ function _doOpenScenario(name){
   document.getElementById('hsub').textContent=name;
   if(SCENARIO[name].full===true){document.getElementById('scene-매매').classList.add('active');calcSale();}
   else if(SCENARIO[name].full==='inherit'){document.getElementById('scene-상속').classList.add('active');calcInherit();}
+  else if(SCENARIO[name].full==='inheritFix'){document.getElementById('scene-상속경정').classList.add('active');calcInheritFix();}
   else if(SCENARIO[name].full==='bequest'){document.getElementById('scene-유증').classList.add('active');calcBequest();}
   else if(SCENARIO[name].full==='guardian'){document.getElementById('scene-후견').classList.add('active');calcGuardian();}
   else if(SCENARIO[name].full==='litcost'){document.getElementById('scene-소송비용확정').classList.add('active');calcLitCost();}
@@ -5757,6 +5871,242 @@ const GUARD_AGENT=[
  ['gda5','그 밖에 수임사건 관련 대행 (1건)','Ⅸ-13']
 ];
 
+
+/* ===================== 상속 지분 바로잡기 — 심판·조정분할에 의한 소유권경정등기 =====================
+   [29회차 신설]
+   법정상속분대로 상속등기를 마친 뒤 가정법원의 상속재산분할심판(또는 조정)이 확정되어
+   지분이 달라진 경우, 「소유권경정등기」로 바로잡는다.
+
+   · 등기원인 : '심판분할'(조정은 '조정분할'), 연월일은 심판 확정일(조정조서 기재일)
+       → 등기예규 제1675호 「상속등기와 그 경정등기에 관한 업무처리지침」 3.가 [A]
+   · 등기신청수수료 : 「그 밖의 등기」 4,000 / 3,000 / 1,000 (수수료규칙 §5의2 ④ — '경정' 명시) [A]
+   · 취득세 : 원칙 과세. 지방세법 §7⑬은 늘어난 지분을 증여취득으로 의제한다.
+       ※ 법원 심판이라고 당연히 면제되지 않는다 — 조세심판원 조심2022지1238(2023.2.1.)은
+         분할심판에 의한 조정조서 사안에서 §7⑬2호의 '상속회복청구의 소'가 아니라는 이유로 과세 유지.
+       예외 4갈래 → §7⑬1호(신고·납부기한 내), 2호(상속회복청구 확정판결), 3호(채권자대위),
+                    대법원 2002.7.12. 선고 2001두441(당초 등기가 상속인 1인의 일방적 등기인 경우)
+   · 등록면허세 : 위 예외로 취득이 아닌 때에만 「그 밖의 등기」 6,000원/건 + 지방교육세 20%
+       (지방세법 §28①1호마목 · §151①2호) [A]
+   · 국민주택채권 : 종전 상속등기 때 매입했다면 「증가하는 지분만큼」만 매입
+       → 「상속등기에 관한 업무처리지침」 [A]
+   · 인지세 : 없음(원인이 법원 심판서라 과세문서가 없다)
+   · 보수 : 보수표 Ⅰ-3(2) 「권리의 변경·경정 또는 회복」 120,000원 (§9⑤2호) [A]
+       등기원인증서 작성료는 붙이지 않는다(원인증서가 법원 심판서이므로).
+*/
+
+/* 지방세법 §20① 신고·납부기한 — 상속개시일이 속하는 달의 말일부터 6개월,
+   외국에 주소를 둔 상속인이 있으면 9개월 */
+function icDeadline(deathStr, abroad){
+  if(!deathStr) return null;
+  const d=new Date(deathStr+'T00:00:00');
+  if(isNaN(d.getTime())) return null;
+  const eom=new Date(d.getFullYear(), d.getMonth()+1, 0);      /* 사망일이 속한 달의 말일 */
+  const t=new Date(eom.getFullYear(), eom.getMonth()+(abroad?9:6), eom.getDate());
+  if(t.getDate()!==eom.getDate()) t.setDate(0);                /* 달 넘침 보정 */
+  return t;
+}
+function icFmt(d){
+  if(!d) return '';
+  return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+}
+function icShareRatio(dId,nId){
+  const D=Math.max(1,numOf(document.getElementById(dId).value)||1);
+  const N=Math.max(0,numOf(document.getElementById(nId).value)||0);
+  return N/D;
+}
+
+function calcInheritFix(fromEdit){
+  const cntE=Math.max(1,val('ic_cntEstate'));
+  const price=val('ic_price');
+  const isJudge=radio('ic_type')==='judge';
+
+  /* ── 지분 ── */
+  const sb=icShareRatio('ic_sbD','ic_sbN'), sa=icShareRatio('ic_saD','ic_saN');
+  const inc=Math.max(0, sa-sb);
+  const base=Math.round(price*inc);
+  const si=document.getElementById('ic_shareInfo');
+  if(si){
+    si.innerHTML = (inc>0)
+      ? '늘어나는 지분은 <b>'+(inc*100).toFixed(4).replace(/\.?0+$/,'')+'%</b>입니다. 세금이 붙는다면 그 대상 금액은 <b>'+won(base)+'</b>입니다. <span class="hint">(부동산 전체 '+won(price)+' × 늘어난 지분)</span>'
+      : '<b>늘어나는 지분이 없습니다.</b> 지분이 그대로이거나 줄어드는 경우에는 추가 취득세가 생기지 않고 <b>등록면허세만</b> 냅니다. <span class="hint">지분이 줄어드는 분은 이미 낸 취득세를 돌려받지 못하는 점에 유의하십시오.</span>';
+  }
+
+  /* ── 추가 취득세 판정 ── */
+  const abroad=chk('ic_abroad');
+  const dl=icDeadline(document.getElementById('ic_deathDate').value, abroad);
+  const fixStr=document.getElementById('ic_fixDate').value;
+  const fix=fixStr?new Date(fixStr+'T00:00:00'):null;
+  let ex1=false, ex1msg='';
+  if(!dl){ ex1msg='<b>사망일</b>을 넣으시면 기한을 계산해 드립니다.'; }
+  else if(!fix||isNaN(fix.getTime())){ ex1msg='기한은 <b>'+icFmt(dl)+'</b>까지입니다('+(abroad?'9':'6')+'개월). <b>신청 예정일</b>을 넣으시면 판정해 드립니다.'; }
+  else {
+    ex1 = fix.getTime()<=dl.getTime();
+    ex1msg = '기한 <b>'+icFmt(dl)+'</b>('+(abroad?'9':'6')+'개월) · 신청 예정 '+icFmt(fix)+' → '
+      + (ex1?'<b style="color:#1d7a46;">기한 안 ✔ 추가 취득세 없음</b>':'<b style="color:var(--seal);">기한 지남 ✘</b>');
+  }
+  const e1=document.getElementById('ic_ex1Info');
+  if(e1) e1.innerHTML = ex1msg + '<span class="law" title="지방세법 제7조제13항 제1호 — 제20조제1항에 따른 신고·납부기한 내에 재분할에 의한 취득과 등기등을 모두 마친 경우. 신고·납부기한은 상속개시일이 속하는 달의 말일부터 6개월(외국에 주소를 둔 상속인이 있는 경우 9개월).">§7⑬1호</span>';
+
+  const ex2=chk('ic_ex2'), ex3=chk('ic_ex3'), ex4=(radio('ic_orig')==='one');
+  const n4=document.getElementById('ic_ex4Note'); if(n4) n4.style.display=ex4?'block':'none';
+  const exempt = ex1||ex2||ex3||ex4||(inc<=0);
+  const taxable = !exempt;
+
+  const vd=document.getElementById('ic_verdict');
+  if(vd){
+    const why=[]; if(ex1)why.push('신고·납부기한 안에 신청'); if(ex2)why.push('상속회복청구의 소 확정판결');
+    if(ex3)why.push('채권자대위 등기의 협의분할'); if(ex4)why.push('당초 등기가 상속인 1인의 일방적 등기');
+    if(inc<=0)why.push('늘어나는 지분 없음');
+    vd.style.background = taxable?'#fdeaea':'#eef7ef';
+    vd.innerHTML = taxable
+      ? '<b style="color:var(--seal);font-size:15px;">▶ 추가 취득세가 붙습니다</b><br>늘어난 지분 <b>'+won(base)+'</b>을(를) <b>증여받은 것으로 보아</b> 취득세를 다시 냅니다. 네 갈래 예외 중 어디에도 해당하지 않기 때문입니다.<br><span class="hint">가장 흔한 절세 지점은 <b>①번 기한</b>입니다. 기한이 아직 남아 있다면 <b>서두르면 세금을 아낄 수 있습니다.</b> 위 「신청 예정일」을 앞당겨 넣어 보십시오.</span>'
+      : '<b style="color:#1d7a46;font-size:15px;">▶ 추가 취득세 없이 등록면허세만 냅니다</b><br>사유 — '+why.join(' · ')+'<br><span class="hint">등록면허세는 부동산 1개마다 6,000원, 지방교육세 1,200원입니다.</span>';
+  }
+
+  /* ── 공과금 ── */
+  const showTax=(el,on)=>{const e=document.getElementById(el);if(e)e.style.display=on?'table-row':'none';};
+  showTax('ic_acqRow',taxable); showTax('ic_eduRow',taxable); showTax('ic_ruralRow',taxable);
+  showTax('ic_regTaxRow',!taxable); showTax('ic_regEduRow',!taxable);
+
+  let acq=0, edu=0, rural=0, regTax=0, regEdu=0;
+  if(taxable){
+    const rate=chk('ic_nonprofit')?0.028:0.035;
+    if(!fromEdit){
+      acq=base*rate;
+      edu=base*(rate-0.02)*0.2;                                   /* §151①1호 */
+      rural=(radio('ic_ptype')==='house'&&!chk('ic_over85'))?0:base*0.002;   /* 85㎡ 이하 주택 비과세 */
+      document.getElementById('ic_acqTax').value=taxLocal(Math.round(acq));
+      document.getElementById('ic_eduTax').value=taxLocal(Math.round(edu));
+      document.getElementById('ic_ruralTax').value=taxLocal(Math.round(rural));
+      const ar=document.getElementById('ic_acqRate');
+      if(ar)ar.textContent='('+(rate*100).toFixed(1)+'% 무상취득'+(chk('ic_nonprofit')?' · 비영리사업자':'')+')';
+    }
+    acq=val('ic_acqTax'); edu=val('ic_eduTax'); rural=val('ic_ruralTax');
+  }else{
+    document.getElementById('ic_acqTax').value=0;
+    document.getElementById('ic_eduTax').value=0;
+    document.getElementById('ic_ruralTax').value=0;
+    regTax=6000*cntE; regEdu=Math.round(regTax*0.2);
+    document.getElementById('ic_regTaxCell').textContent=won(regTax);
+    document.getElementById('ic_regEduCell').textContent=won(regEdu);
+    const rn=document.getElementById('ic_regTaxNote'); if(rn)rn.textContent='(6,000 × '+cntE+'개)';
+  }
+
+  const tn=document.getElementById('ic_taxNote');
+  if(tn) tn.innerHTML = taxable
+    ? '늘어난 지분을 <b>증여로 보아</b> 취득세 <b>3.5%</b>(비영리사업자 2.8%)를 냅니다. 지방교육세 0.3%, 농어촌특별세 0.2%가 함께 붙되 <b>전용 85㎡ 이하 주택은 농특세가 면제</b>됩니다. 과세표준은 <b>늘어난 지분에 해당하는 금액</b>입니다.'
+    : '추가 취득세가 없으므로 <b>등록면허세</b>만 냅니다. 소유권경정등기는 「그 밖의 등기」여서 <b>부동산 1개마다 6,000원</b>이고, 지방교육세가 그 20%인 1,200원 붙습니다.';
+
+  const bondLoss=Math.round(val('ic_bondBuy')*val('bondRate')/100);
+  document.getElementById('ic_bondLossCell').textContent=won(bondLoss);
+  const bn=document.getElementById('ic_bondNote'); if(bn)bn.textContent='(할인율 '+val('bondRate')+'%)';
+
+  const m=document.getElementById('ic_regMethod').value;const idx=m==='p'?0:(m==='o'?2:1);
+  const unit=REG_RE.기타[idx];const regFee=unit*cntE;
+  document.getElementById('ic_regFeeCell').textContent=won(regFee);
+  document.getElementById('ic_regNote').textContent='「그 밖의 등기」 건당 '+unit.toLocaleString();
+  const post=val('ic_postFee')*cntE;
+  const publicSum=acq+edu+rural+regTax+regEdu+bondLoss+regFee+post+pubCustomSum('scene-상속경정');
+  document.getElementById('ic_publicSum').textContent=won(publicSum);
+
+  /* ── 보수 ── 보수표 Ⅰ-3(2) 권리의 변경·경정 또는 회복 120,000원 */
+  const adj=parseFloat(document.getElementById('ic_adjust').value)||1;
+  const feeRaw=FLAT['Ⅰ-3(2)'];
+  const feeBase=Math.round(feeRaw*adj);
+  document.getElementById('ic_feeBaseCell').textContent=won(feeBase);
+  document.getElementById('ic_feeBaseNote').textContent='(소유권경정 120,000'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
+
+  const _fr=frAddRate('ic_frAdd'), feeForeign=Math.round(feeRaw*_fr);
+  {const r=document.getElementById('ic_feeForeignRow');
+   if(r){r.style.display=feeForeign>0?'table-row':'none';
+     document.getElementById('ic_feeForeignCell').textContent=won(feeForeign);
+     document.getElementById('ic_feeForeignNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+(_fr*100)+'% · §10⑥)';}}
+  const _mo=frAddRate('ic_moAdd'), feeMulti=Math.round(feeRaw*_mo);
+  {const r=document.getElementById('ic_feeMultiRow');
+   if(r){r.style.display=feeMulti>0?'table-row':'none';
+     document.getElementById('ic_feeMultiCell').textContent=won(feeMulti);
+     document.getElementById('ic_feeMultiNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+(_mo*100)+'% · §10④)';}}
+  const feeParty=partyAdd('ic_',feeRaw);
+  const feeCnt=(cntE-1)*20000;
+  {const r=document.getElementById('ic_feeCntRow');
+   if(r){r.style.display=feeCnt>0?'table-row':'none';
+     document.getElementById('ic_feeCntCell').textContent=won(feeCnt);
+     document.getElementById('ic_feeCntNote').textContent='(1개 초과 '+(cntE-1)+'개 × 20,000)';}}
+
+  const lb=document.getElementById('ic_taxAgentLabel');
+  if(lb) lb.textContent = taxable?'취득세 신고대행':'등록면허세 신고대행';
+  const taxAgent=chk('ic_f_tax')?50000:0;
+  const bondAgent=chk('ic_f_bond')?40000:0;
+  document.getElementById('ic_taxAgentCell').textContent=won(taxAgent);
+  document.getElementById('ic_bondAgentCell').textContent=won(bondAgent);
+  const trip=chk('ic_f_trip')?val('ic_tripFee'):0;
+
+  const fee=feeBase+feeForeign+feeMulti+feeParty+feeCnt+taxAgent+bondAgent+trip;
+  document.getElementById('ic_feeSum').textContent=won(fee);
+  const vat=Math.round(fee*0.1);
+  document.getElementById('ic_t_fee').textContent=won(fee);
+  document.getElementById('ic_t_vat').textContent=won(vat);
+  document.getElementById('ic_t_public').textContent=won(publicSum);
+  document.getElementById('ic_t_grand').textContent=won(fee+vat+publicSum);
+
+  if(!fromEdit) renderDocsInheritFix();
+}
+
+/* 준비서류 — 심판 주문의 형식에 따라 신청 구조가 갈린다.
+   · 이행을 명하는 주문 : 가사소송법 §41(집행권원) + 부동산등기법 §23④ → 등기권리자 단독신청
+   · 형성 주문만       : 단독신청 근거가 약해 등기소가 감축자 서류를 요구할 수 있다 → 사전 확인 안내 */
+function renderDocsInheritFix(){
+  const box=document.getElementById('ic_docsBox'); if(!box)return;
+  const isJudge=radio('ic_type')==='judge';
+  const word=isJudge?'심판':'조정';
+  const paper=isJudge?'상속재산분할심판서 정본':'조정조서 정본';
+  const exec=radio('ic_order')==='exec';
+  const third=chk('ic_third');
+  const fr=chk('ic_frDoc');
+
+  let h='';
+  h+='<div class="dl"><b style="color:var(--seal);">■ 반드시 필요한 서류</b><br>'
+    +'· <b>'+paper+'</b> — 사건을 맡았던 <b>가정법원</b>에서 발급받습니다<br>'
+    +'· <b>확정증명원</b> — 같은 법원에서 함께 신청하십시오. <b>등기원인 날짜</b>가 이 서류의 확정일입니다<br>'
+    +'· <b>가족관계증명서(상세)·기본증명서(상세)·제적등본</b> 등 상속을 증명하는 서류<br>'
+    +'· <b>주민등록표 초본</b>(지분을 받는 상속인 · 주소이력 포함)<br>'
+    +'· <b>토지대장등본·건축물대장등본</b><br>'
+    +'· <b>등기신청 위임장</b><br>'
+    +'· <b>등기사항전부증명서</b> — 지금 등기부에 적힌 지분 확인용<br>'
+    +'· 세금 영수필확인서 · <b>등기신청수수료 영수필확인서</b>'
+    +'</div>';
+
+  h+= exec
+    ? '<div class="dl" style="background:#eef7ef;border-radius:6px;padding:6px 8px;"><b style="color:#1d7a46;">■ 신청은 지분을 받는 분 혼자 하실 수 있습니다</b><br>'
+      +'· '+word+'서 주문에 <b>「등기절차를 이행하라」</b>가 있으면 그 '+word+'은 <b>집행권원</b>이 됩니다<span class="law" title="가사소송법 제41조 — 금전의 지급, 물건의 인도, 등기, 그 밖의 의무의 이행을 명하는 심판은 집행권원이 된다.">가사소송법 §41</span>. 그래서 <b>승소한 등기권리자가 단독으로</b> 신청합니다<span class="law" title="부동산등기법 제23조제4항 — 판결에 의한 등기는 승소한 등기권리자 또는 등기의무자가 단독으로 신청한다.">부동산등기법 §23④</span><br>'
+      +'· 따라서 <b>지분이 줄어드는 상속인의 인감증명서·등기필정보는 필요하지 않습니다.</b> 그분의 협조를 받지 못해도 등기할 수 있습니다</div>'
+    : '<div class="dl" style="background:#fdf6e8;border-radius:6px;padding:6px 8px;"><b style="color:var(--gold);">■ 등기소에 먼저 확인하시는 편이 좋습니다</b> <span class="tag chk">확인필요</span><br>'
+      +'· 주문이 <b>「…의 소유로 분할한다」</b>처럼 <b>결과만</b> 정하고 이행을 명하지 않은 경우입니다<br>'
+      +'· 이때도 단독신청이 된다는 견해가 유력하지만, 등기소에 따라 <b>지분이 줄어드는 상속인의 인감증명서</b>를 요구할 수 있습니다<span class="law" title="등기예규 제1421호 「경정등기절차에 관한 업무처리지침」 — 소유권에 관한 경정등기에는 그 경정등기로 인하여 소유권이 감축되는 자의 인감증명서를 첨부하여야 한다.">등기예규 §1421호</span><br>'
+      +'· <b>관할 등기소에 미리 전화로 문의</b>하시거나, 상담 때 '+word+'서를 가져오시면 저희가 확인해 드립니다<br>'
+      +'· 요구될 수 있는 서류 — 지분이 줄어드는 상속인의 <b>인감증명서·인감도장·등기필정보(등기권리증)</b></div>';
+
+  if(third){
+    h+='<div class="dl" style="background:#fdeaea;border-radius:6px;padding:6px 8px;"><b style="color:var(--seal);">■ 이것이 없으면 등기가 막힙니다</b><br>'
+      +'· <b>이해관계 있는 제3자의 승낙서</b>(인감증명서 첨부) 또는 <b>이에 대항할 수 있는 재판의 등본</b><br>'
+      +'· 법정상속등기 뒤에 <b>지분이 줄어드는 상속인 몫에</b> 가압류·근저당권 등이 붙은 경우입니다<span class="law" title="「상속등기에 관한 업무처리지침」 — 법정상속분대로 상속등기가 된 뒤 그 상속인 중 1인의 지분에 대한 가압류등기 등 이해관계 있는 제3자가 생긴 경우, 경정등기 신청 시 그가 권리를 상실하거나 지분이 감소하는 때에는 이해관계 있는 제3자인 가압류권자의 승낙서 또는 이에 대항할 수 있는 재판의 등본을 첨부하여야 한다.">상속등기 업무처리지침</span><br>'
+      +'· <span class="hint">상속재산 분할은 상속이 시작된 때로 <b>거슬러 올라가 효력</b>이 생기지만, <b>이미 생긴 제3자의 권리는 해치지 못합니다</b>(민법 §1015 단서). '+word+'만으로 가압류를 지울 수는 없습니다.</span></div>';
+  }
+
+  if(fr){
+    h+='<div class="dl" style="background:#f2f6fb;border-radius:6px;padding:6px 8px;"><b style="color:#2b5a9b;">■ 외국인·재외국민이 있는 경우</b><br>'
+      +'· <b>재외국민</b> — 재외국민등록부등본, 주소를 공증한 서면(또는 재외공관 확인), 인감증명서가 없으면 <b>서명확인서</b> 또는 본인서명사실확인서<br>'
+      +'· <b>외국인</b> — 국적국 관공서의 <b>주소증명서면</b>(아포스티유 또는 영사확인), 성명·생년월일 증명서면, 외국인등록사실증명(국내 등록자)<br>'
+      +'· 번역이 필요한 서류는 <b>번역문</b>과 번역인의 확인을 함께 냅니다<span class="law" title="「재외국민 및 외국인의 부동산등기신청절차에 관한 예규」">등기예규 재외국민·외국인</span><br>'
+      +'· <span class="hint">서류를 외국에서 받아야 하면 <b>기간이 한두 달 더 걸립니다.</b> ①번 기한(세금) 판정에 영향을 주니 <b>먼저 착수</b>하십시오.</span></div>';
+  }
+
+  h+='<div class="dl" style="border-top:1px dashed var(--line);margin-top:6px;padding-top:6px;">'
+    +'<b style="color:var(--seal);">※ 모든 증명서는 주민등록번호 뒷자리가 나오게 발급받으십시오.</b><br>'
+    +'<span class="hint">▸ 발급처 — 가족관계증명서·기본증명서: <b>대법원 전자가족관계등록시스템</b> 또는 시·군·구청 / 주민등록초본: <b>정부24</b> 또는 주민센터 / 토지·건축물대장: <b>정부24</b> / '+paper+'·확정증명원: <b>사건을 맡았던 가정법원</b></span></div>';
+
+  box.innerHTML=h;
+}
 
 /* ═══════════ 유증 등기 — 상속 화면을 바탕으로 분기 ═══════════ */
 let bq_curBondType=null;
@@ -10156,15 +10506,24 @@ window.addEventListener('afterprint',unprepPrint);
 function ofVal(id,def){const e=document.getElementById(id);return (e&&e.value.trim())?e.value.trim():(def||'');}
 function numFrom(cell){if(!cell)return 0;const inp=cell.querySelector('input');if(inp)return numOf(inp.value)||0;let txt=cell.textContent.replace(/\([^)]*\)/g,'');return parseFloat(txt.replace(/[^0-9]/g,''))||0;}
 /* td에서 항목명만 추출 (select·hint·tag·input 제외) */
+/* 영수증 적요 이름 뽑기 [29회차 정정]
+   화면에는 근거 조문을 함께 보여 주지만, 의뢰인에게 나가는 영수증 적요에는
+   조문이 들어가면 안 된다. 종전에는 .hint 와 .tag 만 걸러내고 .law 는 그대로
+   남겨 두어 「취득세 지방세법 §11①7호·8호」처럼 찍혔다. .law 를 함께 제외하고,
+   <label> 안쪽에서도 select·option·.law·.tag 를 똑같이 걸러낸다. */
 function cellName(td){
+  const skip=n=>{
+    if(!n||n.nodeType!==1)return false;
+    const t=n.tagName;
+    if(t==='SELECT'||t==='INPUT'||t==='OPTION'||t==='BUTTON')return true;
+    return !!(n.classList&&(n.classList.contains('hint')||n.classList.contains('tag')||n.classList.contains('law')));
+  };
   let s='';
   td.childNodes.forEach(n=>{
     if(n.nodeType===3){s+=n.textContent;return;}
     if(n.nodeType!==1)return;
-    const tag=n.tagName;
-    if(tag==='SELECT'||tag==='INPUT')return;
-    if(n.classList&&(n.classList.contains('hint')||n.classList.contains('tag')))return;
-    if(tag==='LABEL'){n.childNodes.forEach(c=>{if(c.nodeType===3)s+=c.textContent;else if(c.nodeType===1&&c.tagName!=='INPUT'&&!(c.classList&&c.classList.contains('hint')))s+=c.textContent;});return;}
+    if(skip(n))return;
+    if(n.tagName==='LABEL'){n.childNodes.forEach(c=>{if(c.nodeType===3)s+=c.textContent;else if(c.nodeType===1&&!skip(c))s+=c.textContent;});return;}
     s+=n.textContent;
   });
   return s.replace(/\s+/g,' ').trim();
@@ -10206,9 +10565,13 @@ function collectRows(card,stripParen){
       const qi=tr.querySelector('input[type=number]');
       const qty=qi?Math.max(1,numOf(qi.value)||1):1;
       amt=unit?unit*qty:numFrom(tds[tds.length-1]);
-      // 적요는 항목명만 — 단가('○○원')·수량 표기 제거
+      /* 적요는 항목명만 — 단가('○○원')·수량 표기 제거.
+         [29회차 정정] 종전에는 여기서 textContent 를 그대로 써서 cellName() 을
+         건너뛰었다. 그 탓에 대행료 행만 선택상자 문구와 근거 조문이 영수증에
+         그대로 찍혔다(예: 「등기원인증서 작성·검인 문안 일반복잡·특수 +100%
+         보수기준 §25②」). 단가 <b> 만 지운 뒤 cellName() 을 태워 통일한다. */
       const lc=tds[0].cloneNode(true); const bb=lc.querySelector('b'); if(bb)bb.remove();
-      name=mapName(lc.textContent.replace(/\s+/g,' ').trim(),stripParen);
+      name=mapName(cellName(lc),stripParen);
     } else {
       amt=numFrom(tds[tds.length-1]);
     }
