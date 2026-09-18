@@ -24,8 +24,8 @@
    ========================================================================== */
 
 const ENDPOINT = 'https://svc.wooribank.com/svc/Dream?withyou=HBNHB0036&cc=c004893:c004893';
-const CACHE_SEC = 60 * 60 * 3;   // 3시간
-const UA = 'sanlaw-calc/1.0 (+https://sanlaw.co.kr; 법무사 보수계산기 할인율 표시용; 1일 수회 조회)';
+const CACHE_SEC = 60 * 60;       // 1시간
+const UA = 'sanlaw-calc/1.1 (+https://sanlaw.co.kr; bond-rate-display; low-frequency)';
 
 /* 오늘 날짜(KST). Cloudflare는 UTC로 돌아가므로 9시간을 더한다 */
 function kstToday() {
@@ -57,14 +57,23 @@ async function fetchMonth(y, m) {
   const seg = html.slice(s, html.indexOf('</table>', s));
 
   const rows = [];
-  const re = /<tr>\s*<td>(\d{4})\.(\d{2})\.(\d{2})<\/td>\s*<td>([\d,]+)<\/td>\s*<td>([\d.]+)<\/td>\s*<td>([\d.]+)<\/td>\s*<\/tr>/g;
-  let x;
-  while ((x = re.exec(seg)) !== null) {
+  const rowRe = /<tr\b[^>]*>([\s\S]*?)<\/tr>/gi;
+  let rowMatch;
+  while ((rowMatch = rowRe.exec(seg)) !== null) {
+    const cells = [];
+    const cellRe = /<td\b[^>]*>([\s\S]*?)<\/td>/gi;
+    let cellMatch;
+    while ((cellMatch = cellRe.exec(rowMatch[1])) !== null) {
+      cells.push(cellMatch[1].replace(/<[^>]+>/g, '').replace(/&nbsp;/gi, ' ').trim());
+    }
+    if (cells.length < 4) continue;
+    const date = cells[0].match(/^(\d{4})\.(\d{2})\.(\d{2})$/);
+    if (!date) continue;
     rows.push({
-      date: x[1] + '-' + x[2] + '-' + x[3],
-      price: +x[4].replace(/,/g, ''),   // 매도단가
-      yieldRate: +x[5],                 // 수익률
-      rate: +x[6],                      // 할인율 ← 계산기가 쓰는 값
+      date: date[1] + '-' + date[2] + '-' + date[3],
+      price: +cells[1].replace(/,/g, ''),   // 매도단가
+      yieldRate: +cells[2],                 // 수익률
+      rate: +cells[3],                      // 할인율 ← 계산기가 쓰는 값
     });
   }
   return rows;
@@ -74,20 +83,19 @@ async function fetchMonth(y, m) {
 const sane = r => r && isFinite(r.rate) && r.rate > 0 && r.rate < 40
                     && isFinite(r.price) && r.price > 1000 && r.price <= 10000;
 
-/* 어느 행을 쓸지 고른다
-     today    : 오늘 자 고시가 있다 → 그대로 사용
-     upcoming : 오늘 자가 없고 미래 행이 있다 → 다음 영업일 적용 예정분(주말·공휴일)
-     past     : 둘 다 없다 → 마지막 영업일 값 (반드시 화면에 경고 표시) */
+/* 오늘을 넘지 않는 가장 최근 적용값만 고른다.
+   공식 표에는 다음 영업일 예정분이 미리 나타날 수 있으므로 마지막 행을 곧바로 쓰면 안 된다. */
 function pick(rows, today) {
   const ok = rows.filter(sane).sort((a, b) => (a.date < b.date ? -1 : 1));
   if (!ok.length) return null;
   const exact = ok.find(r => r.date === today);
-  if (exact) return Object.assign({}, exact, { status: 'today' });
-  const next = ok.find(r => r.date > today);
-  if (next) return Object.assign({}, next, { status: 'upcoming' });
-  const past = ok.filter(r => r.date < today);
-  if (past.length) return Object.assign({}, past[past.length - 1], { status: 'past' });
-  return null;
+  const applicable = exact || ok.filter(r => r.date < today).pop();
+  if (!applicable) return null;
+  const upcoming = ok.find(r => r.date > today) || null;
+  return {
+    current: Object.assign({}, applicable, { status: exact ? 'today' : 'latest' }),
+    upcoming,
+  };
 }
 
 const reply = (o) => new Response(JSON.stringify(o), {
@@ -100,16 +108,17 @@ const reply = (o) => new Response(JSON.stringify(o), {
 export async function onRequest(context) {
   const url = new URL(context.request.url);
   const debug = url.searchParams.get('debug') === '1';
+  const refresh = url.searchParams.has('refresh');
+  const today = kstToday();
 
   /* 엣지 캐시 — 여기서 끝나면 외부 호출 0회 */
   const cache = caches.default;
-  const key = new Request(url.origin + '/api/bond-rate', context.request);
-  if (!debug) {
+  const key = new Request(url.origin + '/api/bond-rate?date=' + today);
+  if (!debug && !refresh) {
     const hit = await cache.match(key);
     if (hit) return hit;
   }
 
-  const today = kstToday();
   try {
     const cur = ymOf(today, 0);
     let rows = await fetchMonth(cur.y, cur.m);
@@ -120,31 +129,39 @@ export async function onRequest(context) {
       rows = (await fetchMonth(prev.y, prev.m)).concat(rows);
     }
 
-    const p = pick(rows, today);
-    if (!p) {
+    const picked = pick(rows, today);
+    if (!picked) {
       return reply({
         ok: false, reason: '표를 읽지 못했습니다', rowsFound: rows.length,
         rows: debug ? rows.slice(0, 5) : undefined,
       });
     }
 
+    const p = picked.current;
     const out = {
       ok: true,
       rate: p.rate,              // 할인율(%) — 계산기 bondRate 칸에 그대로 들어갑니다
       price: p.price,            // 매도단가(액면 10,000원 기준)
       yieldRate: p.yieldRate,    // 수익률
       baseDate: p.date,          // 고시 기준일
-      status: p.status,          // today / upcoming / past
-      stale: p.status === 'past',
-      source: '주택도시기금(우리은행 채권조회)',
+      status: p.status,          // today / latest
+      stale: p.status !== 'today',
+      source: '우리은행 국민주택채권 조회',
+      sourceUrl: ENDPOINT,
       taxType: '개인',
       fetchedAt: new Date().toISOString(),
       note: '과세구분 「개인」 기준입니다. 법인·비과세는 값이 다릅니다. 최종 금액은 매도 시점 고시에 따릅니다.',
     };
+    if (picked.upcoming) {
+      out.upcoming = {
+        baseDate: picked.upcoming.date,
+        rate: picked.upcoming.rate,
+      };
+    }
     if (debug) out.rows = rows;
 
     const res = reply(out);
-    if (!debug) context.waitUntil(cache.put(key, res.clone()));
+    if (!debug && !refresh) context.waitUntil(cache.put(key, res.clone()));
     return res;
   } catch (e) {
     /* 실패해도 계산기는 종전대로 수동입력으로 동작합니다 */
