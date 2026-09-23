@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[상속 4-4] 유언대용신탁을 해 두신 부모님이 돌아가셨어요 — 집 명의는 어떻게 옮기나요 | 산 법무사 김재섭</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(280px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.case{background:var(--box); border-radius:10px; padding:14px 16px; margin:14px 0; border-left:4px solid #b9a98c;}
+.case .ct{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+.sit-wrap{display:flex; gap:12px; margin:14px 0;}
+.sit{flex:1; background:#f8f5ee; border:1px solid var(--line); border-top:3px solid var(--gold); border-radius:10px; padding:13px 15px; font-size:14.5px; line-height:1.75;}
+.sit .sl{display:block; font-weight:700; color:var(--gold-d); margin-bottom:6px; font-size:14px;}
+@media (max-width:680px){ .sit-wrap{flex-direction:column;} }
+/* 전체 길 흐름도 (A-1 추가 — 기존 톤 재활용) */
+.flow{background:linear-gradient(180deg,#faf7f0,#f6f1e6); border:1px solid var(--line); border-radius:14px; padding:22px 20px; margin:16px 0;}
+.flow .fl-t{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:18px; text-align:center; letter-spacing:.3px;}
+.flow .node{position:relative; background:#fff; border:1px solid #e3d8c4; border-radius:11px; padding:15px 18px 15px 56px; font-size:14.5px; line-height:1.72; box-shadow:0 2px 6px rgba(122,82,48,.07);}
+.flow .node .num{position:absolute; left:15px; top:14px; width:30px; height:30px; line-height:30px; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; border-radius:50%; font-weight:800; font-size:15px; font-family:'Nanum Myeongjo',serif; box-shadow:0 2px 5px rgba(122,82,48,.3);}
+.flow .node b{color:#241a10;}
+.flow .down{display:flex; justify-content:center; align-items:center; padding:7px 0;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+/* 작성례 박스 */
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+details.sec{border:1px solid var(--line); border-radius:11px; margin:18px 0; background:#fff; overflow:hidden;}
+details.sec>summary{cursor:pointer; list-style:none; padding:14px 17px 14px 15px; background:var(--box); border-left:4px solid var(--gold); font-family:'Nanum Myeongjo',serif; font-size:18px; font-weight:700; color:var(--gold-d); line-height:1.55;}
+details.sec>summary::-webkit-details-marker{display:none;}
+details.sec>summary .sub{display:block; font-family:'Pretendard',sans-serif; font-size:13.5px; font-weight:400; color:var(--muted); margin-top:3px;}
+details.sec>summary::after{content:"펼치기 ▾"; float:right; font-family:'Pretendard',sans-serif; font-size:12.5px; font-weight:700; color:var(--gold); background:#fff; border:1px solid var(--line); border-radius:20px; padding:2px 10px; margin-left:8px;}
+details.sec[open]>summary::after{content:"접기 ▴";}
+details.sec>summary:hover{background:#f2ede3;}
+.secbody{padding:4px 17px 16px;}
+.secbody>h3:first-of-type{margin-top:14px;}
+.toc{background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 17px; margin:8px 0 22px;}
+.toc .tct{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:9px;}
+.toc ol{margin:0; padding-left:20px;}
+.toc li{margin:5px 0; font-size:14.5px;}
+.toc a{text-decoration:none; border-bottom:1px dotted var(--gold);}
+.allbtn{display:inline-block; margin-top:11px; font-size:13.5px; font-weight:700; color:var(--gold-d); background:var(--box); border:1px solid var(--line); border-radius:8px; padding:7px 14px; cursor:pointer;}
+.allbtn:hover{background:#f2ede3;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:15px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .tag{margin-bottom:0;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;}
+.tag.cred{background:#5a9a72;}
+.tag.debt{background:#d9694a;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:18px;margin:12px 0;font-family:'D2Coding','Courier New',monospace;font-size:13px;line-height:1.6;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:16px;letter-spacing:2px;margin-bottom:12px;color:#241a10;}
+.howto{font-size:14px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0 4px;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:13px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:7px 13px;cursor:pointer;transition:.15s;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.75;}
+.lawbox .ll{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold-d);border-radius:5px;padding:2px 9px;margin-right:7px;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.hire p{margin:7px 0; font-size:15px; line-height:1.8;}
+.cta{display:block;text-align:center;background:var(--gold-d);color:#fff;font-weight:700;font-size:17px;text-decoration:none;padding:15px;border-radius:11px;margin:18px 0;font-family:'Nanum Myeongjo',serif;letter-spacing:1px;}
+.cta:hover{background:#5e3f24;}
+@media print{
+  .backbar{display:none !important;}
+  body{background:#fff; max-width:100%;}
+  .tldr,.case,.warn,.tip,.cost,.steps li,.tnote,.sit,.flow,.flow li,.lawbox,.hire{background:#fff !important; border-color:#ccc !important;}
+  .tnote{display:none;}
+  .term{border:none; color:inherit; font-weight:inherit;}
+  .term>.bub{display:inline !important; position:static; width:auto; background:none; color:inherit; box-shadow:none; padding:0; font-size:inherit; line-height:inherit;}
+  .term>.bub::before{content:" ("; }
+  .term>.bub::after{content:")"; border:none; position:static;}
+  .fold-body{display:block !important;}.fold-btn .chev{display:none;}.form-tools{display:none;}
+  details.sec:not([open])>*{display:block !important;}
+  details.sec>summary::after{display:none;} .allbtn,.toc{display:none !important;}
+  .cta{background:#fff !important; color:#241a10 !important; border:1px solid #ccc;}
+}
+.cl{color:var(--gold-d);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--gold-d);}
+.cl:hover{background:#fbf5e8;}
+.tip .cl,.tip .cl b{color:var(--tip-ink);}
+.tip .cl{border-bottom-color:var(--tip-ink);}
+.warn .cl,.warn .cl b{color:var(--warn-ink);}
+.warn .cl{border-bottom-color:var(--warn-ink);}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+
+
+<h1>[상속 4-4] 유언대용신탁을 해 두신 부모님이 돌아가셨어요 — 집 명의는 어떻게 옮기나요</h1>
+
+<div class="tnote">어려운 법률용어에는 <b>점선 밑줄</b>이 그어져 있습니다. <b>PC는 마우스를 올리면</b>, <b>휴대폰은 손가락으로 톡 터치하면</b> 쉬운 설명이 뜹니다. (인쇄하면 괄호로 함께 나옵니다.)</div>
+
+<div class="hire">
+<div class="ht">이 매뉴얼을 끝까지 읽으시는 분께</div>
+<p>이 매뉴얼은 의뢰인이 직접 법원에 신청할 수 있도록 모든 서류 양식, 비용, 요건을 구체적으로 담았습니다. 하지만 소송은 살아있는 생물과 같아 상대방의 격렬한 저항이 뒤따릅니다. 혼자 진행하시다가 막히는 부분이 생기거나 방어막이 필요할 때, 언제든 이 매뉴얼을 들고 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</p>
+</div>
+
+<div class="tldr">
+<div class="tt">⭐ 30초 결론부터</div>
+<ul>
+<li><b>일반 상속등기와 다릅니다.</b> 부모님 명의가 아니라 이미 <b>은행(<span class="term">수탁자<span class="bub">재산을 맡아 관리하는 사람. 유언대용신탁을 하면 부동산 명의가 이 사람(대개 은행) 앞으로 넘어갑니다.</span></span>) 명의</b>로 되어 있기 때문에, 상속등기가 아니라 <b>수탁자에게서 넘겨받는 등기</b>를 해야 합니다. 다른 형제의 도장은 원칙적으로 필요 없습니다.</li>
+<li><b>가장 먼저 신탁계약서를 확인하십시오.</b> 돌아가시면 <b>신탁이 끝나고 집을 넘겨받는 구조</b>인지, <b>신탁이 계속되고 은행이 팔아서 돈을 나눠 주는 구조</b>인지에 따라 등기도 세금도 완전히 달라집니다.</li>
+<li><b>넘겨받는 구조라면 등기는 한 번에 두 가지</b>입니다. 소유권을 수탁자에게서 나에게로 옮기는 등기와 <b><span class="term">신탁등기 말소<span class="bub">등기부에 적힌 "이 부동산은 신탁재산"이라는 표시를 지우는 등기. 신탁이 끝나면 이전등기와 함께 합니다.</span></span></b>를 동시에 신청합니다(부동산등기법 §87).</li>
+<li><b>취득세가 나옵니다.</b> 신탁을 걸 때는 비과세였지만, 돌아가신 뒤 자녀가 넘겨받는 것은 비과세 대상이 아닙니다. 대법원은 <b>집을 넘겨받을 권리</b>를 받은 경우 사망 시점에 취득세 납세의무가 생긴다고 보았습니다(2025두33790).</li>
+<li><b>상속세도 따로 있습니다.</b> 세법은 유언대용신탁을 <b>상속</b>으로 보고, 신탁한 재산을 <b>상속재산</b>으로 봅니다(상증세법 §2·§9). 신고기한은 사망한 달의 말일부터 <b>6개월</b>입니다.</li>
+</ul>
+</div>
+
+<div class="toc">
+<div class="tct">이 카드에 담긴 것 — 필요한 곳만 펼쳐 보십시오</div>
+<ol>
+<li><a href="#s1">지금 어떤 상황인가요?</a></li>
+<li><a href="#s2">가장 먼저 — 끝나는 신탁인가, 계속되는 신탁인가</a></li>
+<li><a href="#s3">핵심 세 가지</a></li>
+<li><a href="#s4">전체 길 한눈에 보기</a></li>
+<li><a href="#s5">관련 법령 — 쉬운 풀이</a></li>
+<li><a href="#s6">판례로 보기</a></li>
+<li><a href="#s7">등기소에 내는 서류 — 넘겨받는 구조</a></li>
+<li><a href="#s8">신탁이 계속되는 구조라면</a></li>
+<li><a href="#s9">세금 — 취득세와 상속세</a></li>
+<li><a href="#s10">기한 정리</a></li>
+<li><a href="#s11">서류 작성례 — 받는 쪽·다투는 쪽</a></li>
+<li><a href="#s12">준비할 서류와 발급처</a></li>
+<li><a href="#s13">비용</a></li>
+<li><a href="#s14">흔한 실수</a></li>
+<li><a href="#s15">본 사무소가 도와드리는 일</a></li>
+</ol>
+<span class="allbtn" id="allBtn" role="button" tabindex="0">전체 펼치기</span>
+</div>
+
+<h2 id="s1">지금 어떤 상황인가요?</h2>
+
+<div class="sit-wrap">
+<div class="sit"><span class="sl">상황 ① · 사후수익자로 정해진 자녀</span>어머니가 생전에 은행과 신탁계약을 하셨고, 제가 집을 받도록 정해 두셨습니다. 어머니가 돌아가셨는데 은행에서는 "서류를 갖춰 오라"고만 합니다. 등기부를 떼어 보니 소유자가 <b>은행</b>으로 되어 있습니다. → <b>상속등기가 아니라 수탁자에게서 넘겨받는 등기</b>를 하셔야 합니다.</div>
+<div class="sit"><span class="sl">상황 ② · 사후수익자가 아닌 다른 자녀</span>형제 한 사람이 집을 받도록 되어 있다고 합니다. 저는 유류분을 청구할 생각인데, 그 사이 명의가 넘어가고 <b>팔려 버릴까</b> 걱정입니다. → 이전등기가 되기 전에 <b>은행에 이의를 알리고</b>, 필요하면 <b>처분금지가처분</b>을 검토하십시오. 유류분 자체는 <a href="2-7_유언대용신탁_유류분_포함여부.html">상속 2-7</a>에서 다룹니다.</div>
+</div>
+
+<p>부동산을 신탁에 <b>넣을 때</b>의 등기는 <a href="sanlaw_유언대용신탁_안내.html">유언대용신탁 등기 안내</a>에 있습니다. 이 카드는 <b>돌아가신 뒤 꺼내 올 때</b>의 등기입니다.</p>
+
+<h2 id="s2">가장 먼저 — 끝나는 신탁인가, 계속되는 신탁인가</h2>
+
+<p>신탁계약서의 <b>신탁 종료 조항</b>과 <b>사후수익자의 권리</b> 조항을 펴 보십시오. 둘 중 하나입니다.</p>
+
+<table>
+<tr><th>구분</th><th>① 넘겨받는 구조 (신탁 종료형)</th><th>② 계속되는 구조 (신탁 존속형)</th></tr>
+<tr><td><b>계약서에 흔히 적힌 말</b></td><td>"위탁자 사망 시 신탁은 종료하고, 신탁재산은 ○○○에게 <b>귀속</b>한다"</td><td>"위탁자 사망 후 수탁자는 신탁재산을 <b>처분</b>하여 그 대금을 수익자에게 지급한다" / "수익자에게 임대수익을 지급한다"</td></tr>
+<tr><td><b>자녀가 받는 것</b></td><td>집 그 자체</td><td>집을 판 돈 또는 임대료</td></tr>
+<tr><td><b>등기</b></td><td>수탁자 → 자녀 <b>소유권이전</b> + <b>신탁등기 말소</b>(동시 신청)</td><td>명의는 수탁자 그대로. 수익자가 바뀐 내용을 <b>신탁원부에 반영</b>하는 절차가 있을 수 있음 <b>[확인필요]</b></td></tr>
+<tr><td><b>취득세</b></td><td><b>과세</b> — 사망 시 납세의무 성립(대법원 2025두33790)</td><td>현행 판례상 부동산 취득 아님 — 다만 <b>2026년 지방세제 개편안</b>으로 바뀔 수 있음</td></tr>
+<tr><td><b>상속세</b></td><td colspan="2">두 경우 모두 <b>상속재산</b>으로 과세 대상(상증세법 §9①)</td></tr>
+</table>
+
+<div class="warn"><span class="wt">★ 계약서가 없으면 신탁원부부터</span>
+계약서를 찾을 수 없다면 <b>등기사항증명서를 떼어 갑구의 신탁원부 번호</b>를 확인하고, 등기소에서 <b><span class="term">신탁원부<span class="bub">신탁의 내용(위탁자·수탁자·수익자·신탁 조항)을 적어 둔 장부. 등기부의 일부로 취급되어 누구나 발급받아 볼 수 있습니다.</span></span></b>를 발급받으십시오. 유언대용신탁은 그 뜻이 신탁원부에 기록되고(부동산등기법 §81①), 수익자와 신탁 조항도 들어 있습니다. 은행에 요청해도 사후수익자로 정해진 분이라면 계약 내용을 안내받을 수 있습니다.</div>
+
+<h2 id="s3">핵심 세 가지</h2>
+
+<p><b>첫째, 형제 전원의 도장이 필요 없는 것이 이 제도의 장점입니다.</b> 일반 상속이라면 상속인 전원이 분할협의서에 도장을 찍어야 등기가 되지만, 유언대용신탁은 <b>계약서에 정해진 대로</b> 수탁자와 사후수익자가 등기를 신청합니다. 형제가 연락을 끊거나 도장을 거부해도 진행됩니다.</p>
+
+<p><b>둘째, 그렇다고 다툼이 사라지는 것은 아닙니다.</b> 다른 상속인은 <b>유류분</b>을 청구할 수 있고, 그 청구가 들어오면 넘겨받은 집의 일부를 돌려주거나 돈으로 물어줘야 할 수 있습니다. 등기를 마쳤다고 끝이 아닙니다.</p>
+
+<p><b>셋째, 세금은 두 번 확인하십시오.</b> 지방세(취득세)와 국세(상속세)는 기준과 기한이 다릅니다. 특히 취득세는 <b>수익권의 내용</b>에 따라 과세 여부가 갈리고, <b>제도가 바뀌는 중</b>입니다. 등기 전에 관할 시·군·구와 세무사에게 확인하시는 것이 안전합니다.</p>
+
+<h2 id="s4">전체 길 한눈에 보기</h2>
+
+<div class="flow">
+<div class="fl-t">돌아가신 날부터 등기 완료까지 — 넘겨받는 구조 기준</div>
+
+<div class="node"><span class="num">1</span><b>사망 사실을 은행(수탁자)에 알립니다</b> — 사망신고 후 기본증명서(상세)를 떼어 은행 신탁 담당 부서에 연락합니다. 은행은 계약서에 정해진 <span class="term">사후수익자<span class="bub">위탁자가 사망한 뒤 신탁재산이나 그 이익을 받도록 정해진 사람.</span></span>·<span class="term">귀속권리자<span class="bub">신탁이 끝났을 때 남은 재산을 최종적으로 넘겨받는 사람. 유언대용신탁에서는 대개 사후수익자와 같습니다.</span></span>가 누구인지, 어떤 서류가 필요한지 안내합니다(작성례 ①).</div>
+<div class="down">▼</div>
+
+<div class="node"><span class="num">2</span><b>계약 구조를 확인합니다</b> — 앞의 표대로 <b>넘겨받는 구조</b>인지 <b>계속되는 구조</b>인지 확인합니다. 사후수익자가 먼저 사망했거나 여러 명이라면 <b>예비수익자·지분 비율</b> 조항까지 보십시오.</div>
+<div class="down">▼</div>
+
+<div class="node"><span class="num">3</span><b>다른 상속인의 이의가 있는지 봅니다</b> — 유류분 청구나 처분금지가처분이 들어오면 은행이 이전을 보류할 수 있습니다. 가처분 등기가 되어 있으면 이전등기 후에도 그 효력이 남습니다.</div>
+<div class="down">▼</div>
+
+<div class="node"><span class="num">4</span><b>취득세를 신고·납부합니다</b> — 관할 시·군·구에 신고하고 납부합니다. 영수증이 있어야 등기를 신청할 수 있습니다. 세율과 기한은 <b>상속으로 보느냐</b>에 따라 달라지므로 먼저 확인하십시오.</div>
+<div class="down">▼</div>
+
+<div class="node"><span class="num">5</span><b>은행에서 <span class="term">등기의무자<span class="bub">등기로 권리를 잃는 쪽. 여기서는 명의를 넘겨주는 수탁자(은행)입니다. 반대로 권리를 얻는 쪽은 등기권리자입니다.</span></span> 서류를 받습니다</b> — 은행이 <b>등기필정보, 법인 인감증명서, 법인등기사항증명서, 위임장</b> 등을 준비해 줍니다. 은행은 보통 거래하는 법무사를 통해 진행하려 하지만, <b>사후수익자가 지정한 법무사</b>에게 서류를 넘겨 달라고 요청할 수 있습니다.</div>
+<div class="down">▼</div>
+
+<div class="node"><span class="num">6</span><b>소유권이전과 신탁등기 말소를 동시에 신청합니다</b> — 부동산 관할 등기소에 <b>한 번에</b> 신청합니다(부동산등기법 §87①②). 전자신청도 가능합니다(작성례 ②).</div>
+<div class="down">▼</div>
+
+<div class="node"><span class="num">7</span><b>등기필정보를 받습니다</b> — 등기가 끝나면 <b>새 소유자인 자녀 앞으로</b> <span class="term">등기필정보<span class="bub">예전의 "집문서(등기필증)"에 해당하는 비밀번호 정보. 나중에 팔거나 담보를 잡힐 때 필요하며 재발급되지 않습니다.</span></span>가 나옵니다. 재발급되지 않으므로 잘 보관하십시오. 등기부에서 신탁 표시가 지워졌는지 확인하십시오.</div>
+<div class="down">▼</div>
+
+<div class="node"><span class="num">8</span><b>상속세를 신고합니다</b> — 사망한 달의 말일부터 <b>6개월 안에</b> 관할 세무서에 신고합니다. 신탁재산도 상속재산에 들어갑니다. 세무사의 업무 영역이므로 전문가와 함께 준비하십시오.</div>
+</div>
+
+<details class="sec" id="s5"><summary>관련 법령 — 쉬운 풀이<span class="sub">부동산등기법 §81·§87 · 지방세법 §7·§9·§11·§20 · 상증세법 §2·§9</span></summary>
+<div class="secbody">
+
+<div class="lawbox"><span class="ll">부동산등기법 §87①②</span><b>이전과 말소는 한 번에</b> — 신탁재산에 속한 권리가 이전·변경·소멸되어 신탁재산에 속하지 않게 된 경우, <b>신탁등기의 말소신청은 그 이전등기 등의 신청과 동시에</b> 하여야 합니다. <b>신탁 종료</b>로 권리가 이전되거나 소멸된 경우에도 같습니다. → <i>유언대용신탁이 위탁자 사망으로 끝나는 경우가 바로 ②입니다.</i></div>
+
+<div class="lawbox"><span class="ll">부동산등기법 §87③</span><b>말소는 수탁자가 혼자</b> — 신탁등기의 말소등기는 <b>수탁자가 단독으로</b> 신청할 수 있습니다. → <i>다만 소유권이전등기는 원칙대로 수탁자와 받는 사람이 공동으로 신청하므로, 실제로는 함께 진행됩니다.</i></div>
+
+<div class="lawbox"><span class="ll">부동산등기법 §81①</span><b>유언대용신탁이라는 표시</b> — 신탁등기를 할 때 유언대용신탁(신탁법 §59①)인 경우에는 <b>그 뜻</b>이 신탁원부에 기록됩니다. → <i>등기부만 봐도 유언대용신탁인지 알 수 있는 이유입니다.</i></div>
+
+<div class="lawbox"><span class="ll">지방세법 §9③</span><b>비과세는 여기까지</b> — 신탁으로 인한 취득 중 ① 위탁자 → 수탁자, ② 신탁 종료로 수탁자 → <b>위탁자</b>, ③ 수탁자 변경으로 신수탁자에게 이전하는 경우에는 취득세를 부과하지 않습니다. → <i>돌아가신 뒤 수탁자 → <b>자녀</b>로 가는 것은 여기에 없습니다. 그래서 과세됩니다.</i></div>
+
+<div class="lawbox"><span class="ll">지방세법 §7⑦</span><b>신탁재산의 상속</b> — 상속으로 부동산 등을 취득한 경우에는 상속인 각자가 상속받는 물건을 취득한 것으로 보며, 여기서 상속에는 <b>신탁재산의 상속</b>이 포함됩니다.</div>
+
+<div class="lawbox"><span class="ll">지방세법 §20①</span><b>언제까지 신고하나</b> — 상속으로 인한 경우 <b>상속개시일이 속하는 달의 말일부터 6개월</b>(외국에 주소를 둔 상속인이 있으면 9개월), 상속이 아닌 무상취득은 <b>취득일이 속하는 달의 말일부터 3개월</b> 안에 신고·납부합니다.</div>
+
+<div class="lawbox"><span class="ll">상증세법 §2 1호 라목 · §9①</span><b>국세는 상속으로 봅니다</b> — 상속세 및 증여세법은 <b>유언대용신탁을 '상속'에 포함</b>하고, <b>피상속인이 신탁한 재산은 상속재산으로 본다</b>고 정합니다. → <i>"신탁으로 했으니 상속세가 없다"는 말은 틀립니다.</i></div>
+
+<p style="font-size:14px">법령 원문 — <a href="https://www.law.go.kr">국가법령정보센터</a>에서 부동산등기법·지방세법·상속세 및 증여세법을 검색하십시오.</p>
+
+</div>
+</details>
+
+<details class="sec" id="s6"><summary>판례로 보기<span class="sub">2025두33790 취득세 · 2022다307294 귀속 조항</span></summary>
+<div class="secbody">
+
+<div class="case"><span class="ct">① 무엇을 받았느냐에 따라 취득세가 갈립니다 — 대법원 2025. 9. 25. 선고 2025두33790 판결 (상고기각) [A]</span>
+<b>어떤 사건이었나.</b> 유언대용신탁의 사후수익자가 위탁자 사망 후 <b>부동산 처분대금에 관한 분배권</b>을 수익권으로 취득했는데, 과세관청이 이를 부동산 취득으로 보아 취득세를 부과한 사안입니다.
+<b>법원의 판단.</b> 사후수익자가 취득세를 내야 하는지는 <b>수익권의 성격</b>에 따라 달라진다고 보았습니다. 수익권이 수탁자에게 <b>부동산 소유권이전등기를 청구할 수 있는 권리</b>처럼 신탁재산 원본인 부동산을 취득할 수 있는 내용이라면, 등기 전이라도 <b>위탁자 사망 시 사실상 취득</b>한 것으로 보아 납세의무가 생깁니다. 반면 <b>처분대금 분배권</b>만 받은 경우는 부동산을 취득한 것으로 볼 수 없다고 보았습니다.
+<b>그래서 실무에서는.</b> 계약서의 수익권 조항이 <b>"집을 넘겨준다"</b>인지 <b>"팔아서 돈을 준다"</b>인지가 취득세를 가릅니다. 다만 행정안전부가 이 판결을 계기로 <b>수입수익권만 받는 수익자에게도 과세 근거를 신설</b>하는 개편안을 발표했으므로, 등기·신고 시점의 현행 법령을 반드시 확인하십시오 <b>[확인필요 — 개정 시행 여부]</b>.</div>
+
+<div class="case"><span class="ct">② 사후 귀속 조항이 무효가 되는 경우 — 대법원 2024. 4. 16. 선고 2022다307294 판결 (파기환송) [A]</span>
+<b>어떤 쟁점이었나.</b> 사후 <b>유일한 수익자를 수탁자</b>로 정한 유언대용신탁의 효력이 문제된 사안입니다.
+<b>법원의 판단.</b> 그 부분은 수탁자의 이익향수 금지(신탁법 §36)에 어긋나 <b>무효</b>이고, 생전 부분은 원칙적으로 유효하며, 잔여재산이 누구에게 귀속되는지를 따져야 한다고 보았습니다.
+<b>등기에서 왜 중요한가.</b> 사후 귀속 조항이 무효라면 <b>계약서만으로 넘겨받는 등기를 할 수 없고</b>, 그 재산은 다시 상속 절차로 돌아갈 수 있습니다. 계약서를 받으면 <b>사후수익자·귀속권리자가 누구로 되어 있는지</b>부터 확인하십시오.</div>
+
+<div class="tip"><span class="pt">💡 세율에 관한 다툼</span> 사후수익자가 <b>상속인이 아닌 사람</b>(손주·며느리·지인 등)일 때, 취득세를 상속 세율로 할지 일반 무상취득 세율로 할지, 신고기한을 6개월로 볼지 3개월로 볼지가 조세심판원에서 다투어졌습니다(조심2023지4100). 결론은 사안에 따라 달라질 수 있으므로 <b>[확인필요]</b> — 신고 전 관할 시·군·구에 확인하십시오.</div>
+
+</div>
+</details>
+
+<details class="sec" id="s7"><summary>등기소에 내는 서류 — 넘겨받는 구조<span class="sub">누가 무엇을 준비하나</span></summary>
+<div class="secbody">
+
+<table>
+<tr><th>누가</th><th>서류</th><th>어디서</th></tr>
+<tr><td rowspan="4"><b>수탁자</b><br>(은행 등)<br>— 넘겨주는 쪽</td><td>등기필정보 (신탁등기 때 수탁자 앞으로 나온 것)</td><td>수탁자 보관</td></tr>
+<tr><td>법인 인감증명서 (개인 수탁자라면 본인 인감증명서) <b>[확인필요 — 용도·종류]</b></td><td>등기소(법인) · 주민센터(개인)</td></tr>
+<tr><td>법인등기사항증명서</td><td><a href="http://www.iros.go.kr">인터넷등기소</a></td></tr>
+<tr><td>위임장 (대리인에게 맡길 때)</td><td>수탁자 작성</td></tr>
+<tr><td rowspan="3"><b>사후수익자</b><br>(귀속권리자)<br>— 받는 쪽</td><td>주민등록표 초본 또는 등본</td><td><a href="https://www.gov.kr">정부24</a></td></tr>
+<tr><td>취득세 신고·납부 영수증</td><td>관할 시·군·구 · <a href="https://www.wetax.go.kr">위택스</a></td></tr>
+<tr><td>위임장 (법무사에게 맡길 때)</td><td>본인 작성(작성례 ③)</td></tr>
+<tr><td rowspan="4"><b>공통</b><br>— 등기원인과 부동산</td><td><b>신탁계약서</b> (사후 귀속 조항이 있는 것) — 등기원인을 증명하는 서면</td><td>은행 · 본인 보관</td></tr>
+<tr><td>위탁자 사망 증명 — 기본증명서(상세)</td><td><a href="https://efamily.scourt.go.kr">전자가족관계등록시스템</a></td></tr>
+<tr><td>토지대장 · 건축물대장</td><td><a href="https://www.gov.kr">정부24</a></td></tr>
+<tr><td>등기신청수수료 영수증 · 국민주택채권 매입 확인 <b>[확인필요]</b></td><td>등기소 · 은행</td></tr>
+</table>
+
+<div class="warn"><span class="wt">★ 확인이 필요한 실무 사항</span>
+아래는 <b>등기소와 사안에 따라 처리가 달라질 수 있는 부분</b>이라 단정하지 않고 표시해 둡니다. 신청 전 관할 등기소 또는 담당 법무사와 확인하십시오. ① <b>등기원인의 표시</b>("신탁재산귀속" 등)와 <b>원인일자</b>를 무엇으로 적는지, ② 등기원인증서에 <b>검인</b>이 필요한지, ③ 수탁자 인감증명서의 <b>종류</b>, ④ <b>국민주택채권</b> 매입 대상인지와 그 기준. <b>[확인필요]</b></div>
+
+<div class="tip"><span class="pt">💡 사후수익자가 여럿이거나 미성년자라면</span> 여러 명이면 계약서에 정한 <b>지분 비율</b>대로 공동명의로 등기합니다. 사후수익자가 <b>미성년자</b>라면 부모 등 법정대리인이 신청하는데, 그 대리인이 다른 상속인과 이해가 부딪히면 <b>특별대리인</b>이 필요할 수 있습니다 — <a href="1-2_미성년자_특별대리인.html">상속 1-2</a> 참조. 사후수익자가 <b>외국에 산다면</b> 위임장 공증·아포스티유가 필요합니다 — <a href="4-3_제외국민_외국인_상속등기.html">상속 4-3</a> 참조.</div>
+
+</div>
+</details>
+
+<details class="sec" id="s8"><summary>신탁이 계속되는 구조라면<span class="sub">은행이 팔아서 돈을 주는 경우</span></summary>
+<div class="secbody">
+
+<p>계약서가 "위탁자 사망 후 수탁자가 부동산을 <b>처분하여 대금을 지급</b>한다"로 되어 있다면, 자녀 앞으로 <b>소유권이전등기를 하지 않습니다.</b> 은행이 명의를 가진 채로 팔고, 그 대금에서 보수·비용을 뺀 돈을 사후수익자에게 줍니다.</p>
+
+<table>
+<tr><th>무엇을 하나</th><th>내용</th></tr>
+<tr><td><b>수익자 확인</b></td><td>은행에 사망 사실과 수익자 신분을 증명하고 <b>수익권 행사 절차</b>를 안내받습니다</td></tr>
+<tr><td><b>매각 일정</b></td><td>언제, 어떤 방식으로, 최저 얼마에 팔지 계약서의 처분 조항을 확인하고 은행과 협의합니다</td></tr>
+<tr><td><b>등기</b></td><td>매수인이 정해지면 <b>수탁자 → 매수인</b>으로 이전등기와 신탁등기 말소가 함께 이루어집니다. 수익자 변경을 신탁원부에 반영하는 절차가 필요한지는 계약과 등기소 실무에 따라 다릅니다 <b>[확인필요]</b></td></tr>
+<tr><td><b>취득세</b></td><td>현행 대법원 판례(2025두33790)상 처분대금 분배권만 받은 것은 부동산 취득이 아닙니다. 다만 <b>개편안이 시행되면 달라질 수 있습니다</b> <b>[확인필요]</b></td></tr>
+<tr><td><b>상속세</b></td><td>받는 돈이 상속재산에 포함됩니다</td></tr>
+</table>
+
+<div class="tip"><span class="pt">💡 "팔지 말고 집으로 받고 싶어요"</span> 계약서가 처분형으로 되어 있어도, 사후수익자와 은행이 합의해 <b>원본(집)으로 받는 방식</b>으로 바꿀 수 있는지 계약 조항을 확인해 보십시오. 가능하다면 <a href="#s7">넘겨받는 구조</a>의 등기로 진행됩니다. 이 경우 취득세 판단도 달라지므로 먼저 확인하십시오.</div>
+
+</div>
+</details>
+
+<details class="sec" id="s9"><summary>세금 — 취득세와 상속세<span class="sub">지방세와 국세는 따로 봅니다</span></summary>
+<div class="secbody">
+
+<table>
+<tr><th>세금</th><th>넘겨받는 구조</th><th>계속되는 구조</th><th>근거</th></tr>
+<tr><td><b>취득세</b><br>(지방세)</td><td><b>과세</b> — 사망 시 납세의무 성립<br>세율은 상속으로 보느냐에 따라 다름</td><td>현행 판례상 부동산 취득 아님<br>(개편안 시행 시 변동 가능)</td><td>지방세법 §7⑦ · §9③ · 대법원 2025두33790</td></tr>
+<tr><td><b>상속세</b><br>(국세)</td><td colspan="2"><b>상속재산에 포함</b> — 사망한 달의 말일부터 6개월 안에 신고</td><td>상증세법 §2 1호 라목 · §9①</td></tr>
+</table>
+
+<div class="cost">
+<span class="ct">🧮 취득세 세율 — 법정 세율 (농지 외 부동산)</span>
+<b>상속으로 인한 취득</b> · 1천분의 28 (2.8%)<br>
+<b>상속 외의 무상취득</b> · 1천분의 35 (3.5%)<br>
+여기에 지방교육세·농어촌특별세가 더해질 수 있습니다. 사후수익자가 <b>상속인인지 아닌지</b>, 수익권의 내용이 무엇인지에 따라 어느 세율이 적용되는지 다툼이 있습니다 <b>[확인필요]</b>. 신고 전 <b>관할 시·군·구 세무 부서</b>에 확인하십시오.
+</div>
+
+<div class="warn"><span class="wt">⚠ 세금 신고는 세무사의 영역입니다</span>
+취득세 신고는 등기에 필요한 서류라 등기 절차 안에서 함께 안내해 드리지만, <b>상속세 신고와 세액 계획</b>은 세무사의 업무입니다. 특히 신탁재산이 크거나, 사후수익자가 상속인이 아니거나, 여러 재산이 섞여 있다면 <b>반드시 세무 전문가와 먼저 상의</b>하십시오. 국세상담센터 126, <a href="https://hometax.go.kr">홈택스</a>, <a href="https://www.wetax.go.kr">위택스</a>에서도 안내받으실 수 있습니다.</div>
+
+</div>
+</details>
+
+<details class="sec" id="s10"><summary>기한 정리<span class="sub">세금 기한과 다툼의 기한</span></summary>
+<div class="secbody">
+
+<table>
+<tr><th>구분</th><th>① 기산일</th><th>② 계산근거</th><th>③ 말일 처리</th><th>④ 최종 만료일</th></tr>
+<tr><td><b>취득세<br>(상속으로 볼 때)</b></td><td>상속개시일이 속하는 달의 말일</td><td>지방세법 §20①</td><td>말일이 토요일·공휴일이면 그 다음 날</td><td class="won">그날부터 6개월<br>(외국 주소 상속인 있으면 9개월)</td></tr>
+<tr><td><b>취득세<br>(상속 외 무상취득으로 볼 때)</b></td><td>취득일이 속하는 달의 말일</td><td>지방세법 §20①</td><td>위와 같음</td><td class="won">그날부터 3개월</td></tr>
+<tr><td><b>상속세</b></td><td>상속개시일이 속하는 달의 말일</td><td>상증세법 §67①</td><td>위와 같음</td><td class="won">그날부터 6개월</td></tr>
+<tr><td><b>유류분<br>(다른 상속인)</b></td><td>상속개시와 재산이 넘어간 사실을 안 날 / 상속개시일</td><td>민법 §1117</td><td>민법 §161</td><td class="won">안 날부터 1년<br>또는 사망일부터 10년</td></tr>
+</table>
+
+<div class="tip"><span class="pt">💡 기한을 넘기면</span> 취득세·상속세를 늦게 신고하면 <b>가산세</b>가 붙습니다. 어느 기한이 적용될지 모호할 때는 <b>짧은 쪽(3개월)에 맞춰</b> 준비하시는 것이 안전합니다.</div>
+
+</div>
+</details>
+
+<details class="sec" id="s11"><summary>서류 작성례 — 받는 쪽·다투는 쪽<span class="sub">은행 통지 · 등기신청서 · 위임장 · 세금 확인표 · 이의 통지 (복사·인쇄·다운로드)</span></summary>
+<div class="secbody">
+
+<p>아래 제목을 누르면 각 서면이 펼쳐집니다. <b>○○○</b> 부분에 본인의 정보를 채워 넣으시면 됩니다. 등기신청서의 공식 양식은 <a href="http://www.iros.go.kr">인터넷등기소</a>의 전자신청 또는 등기신청서 양식을 이용하십시오. ①~④는 사후수익자, ⑤는 이의를 가진 다른 상속인이 쓰는 서면입니다.</p>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ① · 사후수익자</span>수탁 은행에 보내는 사망 통지 및 신탁재산 이전 요청서<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f1"><span class="ft">사망 통지 및 신탁재산 이전 요청서</span>                사망 통지 및 신탁재산 이전 요청서
+
+받는 곳   ○○은행 주식회사 신탁부  귀중
+보내는 사람  ○○○ (주소 ○○시 ○○구 ○○로 ○○ / 연락처 ○○○-○○○○-○○○○)
+
+1. 위탁자 망 ○○○(○○○○. ○○. ○○.생)께서 20○○. ○. ○.
+   사망하였음을 알려드립니다(붙임 1 기본증명서).
+
+2. 위 위탁자가 귀 은행과 체결한 유언대용신탁계약
+   (계약번호 ○○○○○○, 신탁원부 제○○○○-○○○○호)에 따라
+   본인은 사후수익자(귀속권리자)로 지정되어 있습니다.
+
+3. 위 계약에 따른 신탁 종료와 신탁재산 귀속 절차를 진행하여
+   주시기 바랍니다. 대상 부동산은 아래와 같습니다.
+   ○○시 ○○구 ○○로 ○○ (          )
+
+4. 다음 사항을 서면으로 안내하여 주시기 바랍니다.
+   가. 본인이 받을 권리의 내용 (부동산 소유권 이전인지,
+       처분대금 지급인지)
+   나. 신탁 종료 및 이전에 필요한 서류와 절차
+   다. 공제될 보수·비용의 항목과 금액
+   라. 다른 상속인 등으로부터 이의나 가처분이 접수되었는지 여부
+
+5. 등기 신청은 본인이 지정하는 법무사를 통하여 진행하고자
+   하오니, 등기의무자 측 서류를 위 법무사에게 교부하여 주시기
+   바랍니다.
+   법무사 ○○○ (사무소 ○○○ / 연락처 ○○○-○○○○-○○○○)
+
+붙임  1. 위탁자 기본증명서(상세)          1부
+      2. 본인 신분증 사본                 1부
+      3. 본인 가족관계증명서(상세)        1부
+
+          20○○.  ○○.  ○○.
+                  위 ○○○  (인 또는 서명)</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1')">📋 복사</button><button type="button" onclick="printForm('f1')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1','수탁은행_사망통지_이전요청서.txt')">⬇ 다운로드</button></div>
+<div class="howto">★ <b>4의 '가'가 가장 중요한 질문입니다.</b> 은행의 답이 "소유권 이전"이면 넘겨받는 구조, "처분대금 지급"이면 계속되는 구조입니다. 이 답에 따라 <b>등기와 취득세</b>가 모두 달라집니다. 4의 '라'는 다른 상속인이 이미 움직였는지 확인하는 질문이니 빠뜨리지 마십시오. 5항은 선택입니다. 은행이 지정하는 법무사를 써도 됩니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ② · 사후수익자</span>등기신청서 — 소유권이전 및 신탁등기말소 (기재 요령)<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f2"><span class="ft">소유권이전 및 신탁등기말소 등기신청서 — 기재 요령</span>※ 아래는 인터넷등기소 등기신청서 양식에 적을 내용의 요령입니다.
+   실제 신청은 인터넷등기소 양식 또는 전자신청으로 하십시오.
+
+[ 부동산의 표시 ]
+  ○○시 ○○구 ○○동 ○○○
+  (집합건물이면 동·호수, 대지권의 표시까지 등기부 그대로)
+
+[ 등기원인과 그 연월일 ]
+  20○○년 ○월 ○일  ○○○○  [확인필요 — 원인 표시와 일자]
+  (예: 신탁계약서의 귀속 조항에 따른 신탁재산귀속, 위탁자 사망일)
+
+[ 등기의 목적 ]
+  소유권이전 및 신탁등기말소
+
+[ 말소할 등기 ]
+  20○○년 ○월 ○일 접수 제○○○○○호 신탁등기
+  (신탁원부 제○○○○-○○○○호)
+
+[ 등기의무자 ]
+  ○○은행 주식회사 (법인등록번호 ○○○○○○-○○○○○○○)
+  본점  ○○시 ○○구 ○○로 ○○
+
+[ 등기권리자 ]
+  ○○○ (○○○○○○-○○○○○○○)
+  주소  ○○시 ○○구 ○○로 ○○
+  (여러 명이면 지분: ○○○ ○분의 ○, ○○○ ○분의 ○)
+
+[ 시가표준액 및 국민주택채권 ]  [확인필요]
+  시가표준액  금 ○○○원
+  국민주택채권 매입금액  금 ○○○원
+
+[ 취득세 ]
+  취득세  금 ○○○원 / 지방교육세  금 ○○○원 / 농어촌특별세  금 ○○○원
+
+[ 등기신청수수료 ]
+  금 ○○○원 (납부번호 ○○-○○-○○○○○○○○-○)
+
+[ 첨부서면 ]
+  1. 신탁계약서 (등기원인을 증명하는 서면)     1통
+  2. 위탁자 기본증명서(상세)                   1통
+  3. 등기필정보 (수탁자)                       1통
+  4. 법인 인감증명서 (수탁자)                  1통
+  5. 법인등기사항증명서 (수탁자)               1통
+  6. 주민등록표 초본 (등기권리자)              1통
+  7. 취득세 영수증                             1통
+  8. 토지대장 · 건축물대장                    각 1통
+  9. 등기신청수수료 영수증                     1통
+ 10. 위임장                                    1통
+
+          20○○.  ○○.  ○○.
+      위 신청인  등기의무자 ○○은행 주식회사 (인)
+                 등기권리자 ○○○ (인)
+      (또는) 위 대리인 법무사 ○○○ (인)
+
+○○지방법원 ○○등기소  귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f2')">📋 복사</button><button type="button" onclick="printForm('f2')">🖨 인쇄</button><button type="button" onclick="downloadForm('f2','소유권이전_신탁말소_등기신청서_기재요령.txt')">⬇ 다운로드</button></div>
+<div class="howto">★ <b>등기의 목적을 "소유권이전 및 신탁등기말소"로 한 건으로 적는 것</b>이 핵심입니다. 부동산등기법 §87이 두 등기를 동시에 신청하도록 정하고 있습니다. <b>[확인필요]</b>로 표시한 원인 표시·일자·채권 부분은 등기소마다 요구가 다를 수 있으니, 신청 전에 관할 등기소에 확인하시거나 법무사에게 맡기십시오. 부동산 표시는 <b>등기사항증명서를 한 글자도 다르지 않게</b> 옮겨야 합니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ③ · 사후수익자</span>위임장 (등기신청 대리)<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f3"><span class="ft">위    임    장</span>                       위  임  장
+
+[ 부동산의 표시 ]
+  ○○시 ○○구 ○○동 ○○○  (          )
+
+[ 등기원인과 그 연월일 ]
+  20○○년 ○월 ○일  ○○○○
+
+[ 등기의 목적 ]
+  소유권이전 및 신탁등기말소
+
+  위 등기신청에 관한 일체의 권한을 아래 대리인에게 위임합니다.
+  (등기신청서 작성 및 제출, 보정, 취하, 등기필정보의 수령,
+   원본 환부 청구 포함)
+
+[ 대리인 ]
+  법무사  ○○○
+  사무소  ○○시 ○○구 ○○로 ○○
+  연락처  ○○○-○○○○-○○○○
+
+[ 위임인 — 등기권리자 ]
+  성    명  ○○○   (인)
+  주민등록번호  ○○○○○○-○○○○○○○
+  주    소  ○○시 ○○구 ○○로 ○○
+
+          20○○.  ○○.  ○○.</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f3')">📋 복사</button><button type="button" onclick="printForm('f3')">🖨 인쇄</button><button type="button" onclick="downloadForm('f3','등기신청_위임장_유언대용신탁.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>등기신청 위임장은 '일체의 권한' 표현을 씁니다.</b> 법무사법 §2①4호에 따라 등기신청은 법무사가 <b>대리</b>할 수 있는 업무이기 때문입니다(소송 사건과 다릅니다). 괄호 안의 항목을 적어 두면 등기필정보 수령이나 원본 환부 때 따로 위임장을 받을 필요가 없습니다. 수탁자(은행) 측 위임장은 은행이 별도로 작성합니다. 위임인이 외국에 계시면 공증이 필요합니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag">작성례 ④ · 사후수익자</span>취득세 신고 전 확인표<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f4"><span class="ft">취득세 신고 전 확인표</span>[ 1. 내가 받은 것은 무엇인가 ]
+  □ 부동산 소유권 그 자체 (넘겨받는 구조)
+  □ 부동산을 판 대금 또는 임대수익 (계속되는 구조)
+  → 계약서 조항 번호: 제○조 제○항
+
+[ 2. 나는 상속인인가 ]
+  □ 위탁자의 상속인이다 (자녀·배우자 등)
+  □ 상속인이 아니다 (손주·며느리·사위·지인 등)
+  → 상속인이 아니라면 세율·기한 적용에 다툼이 있으므로 관할에 확인
+
+[ 3. 적용 세율 확인 ]
+  □ 상속으로 인한 취득  1천분의 28
+  □ 상속 외 무상취득    1천분의 35
+  □ 확인한 곳: ○○시 ○○구청 세무과 (담당자 ○○○, 20○○. ○. ○.)
+
+[ 4. 신고기한 ]
+  사망일          20○○. ○. ○.
+  사망한 달 말일   20○○. ○. ○.
+  6개월 기한      20○○. ○. ○.
+  3개월 기한      20○○. ○. ○.   ← 모호하면 이쪽에 맞춤
+
+[ 5. 과세표준 ]
+  □ 시가표준액       금 ○○○원
+  □ 시가인정액 여부  (감정가·유사매매가 등) 확인
+
+[ 6. 제도 변경 여부 ]
+  □ 신고 시점에 유언대용신탁 수익자 과세 관련 지방세법 개정이
+    시행되었는지 확인 (2026년 지방세제 개편안)
+
+[ 7. 상속세 ]
+  □ 상속세 신고는 별도 (사망한 달 말일부터 6개월, 관할 세무서)
+  □ 세무사 상담 일정: 20○○. ○. ○.</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f4')">📋 복사</button><button type="button" onclick="printForm('f4')">🖨 인쇄</button><button type="button" onclick="downloadForm('f4','취득세_신고전_확인표_유언대용신탁.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>3번에 '확인한 곳과 날짜'를 꼭 적어 두십시오.</b> 이 분야는 해석이 갈리고 제도가 바뀌는 중이라, 나중에 과세관청과 다툼이 생기면 <b>언제 누구에게 어떤 안내를 받았는지</b>가 중요한 자료가 됩니다. 6번은 이 카드를 쓰는 시점(2026년)에 개편안이 발표된 상태라 넣은 항목입니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ⑤ · 다른 상속인</span>수탁 은행에 보내는 이의 통지 (이전 보류 요청)<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f5"><span class="ft">이의 통지 및 이전 보류 요청서</span>                이의 통지 및 이전 보류 요청서
+
+받는 곳   ○○은행 주식회사 신탁부  귀중
+보내는 사람  ○○○ (망 ○○○의 자녀, 공동상속인)
+             주소 ○○시 ○○구 ○○로 ○○
+
+1. 본인은 20○○. ○. ○. 사망한 망 ○○○의 상속인입니다.
+
+2. 망인이 귀 은행과 체결한 유언대용신탁계약에 따라 신탁재산이
+   사후수익자 ○○○에게 이전될 예정인 것으로 알고 있습니다.
+
+3. 위 신탁재산은 유류분 산정의 기초재산에 포함되는 것으로서,
+   본인은 20○○. ○. ○. 사후수익자에게 유류분 반환을 청구하였고
+   (붙임 1), 법원에 유류분반환청구의 소를 제기할 예정입니다.
+
+4. 이에 귀 은행에 다음을 요청합니다.
+   가. 위 신탁재산의 이전 또는 처분 일정을 본인에게 미리
+       알려 주시기 바랍니다.
+   나. 본인이 법원의 보전처분을 받을 때까지 상당한 기간 동안
+       이전 또는 처분을 보류하여 주시기 바랍니다.
+
+5. 이 통지는 귀 은행의 계약상 의무를 다투려는 것이 아니며,
+   분쟁이 확대되는 것을 막기 위한 것임을 양해하여 주시기
+   바랍니다.
+
+붙임  1. 유류분 반환 청구 내용증명 사본     1부
+      2. 가족관계증명서(상세)                1부
+
+          20○○.  ○○.  ○○.
+                  위 ○○○  (인 또는 서명)</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f5')">📋 복사</button><button type="button" onclick="printForm('f5')">🖨 인쇄</button><button type="button" onclick="downloadForm('f5','수탁은행_이의통지_이전보류요청.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>이 통지만으로 은행이 반드시 멈추는 것은 아닙니다.</b> 은행은 계약대로 이행할 의무가 있고, 보류할 법적 의무는 없습니다. 이 서면은 <b>분쟁이 있다는 사실을 알리고 일정을 확인</b>하는 용도입니다. 실제로 이전을 막으려면 법원의 <b>처분금지가처분</b>이 필요합니다. 유류분 청구 자체는 <a href="2-7_유언대용신탁_유류분_포함여부.html">상속 2-7</a>의 내용증명·소장 양식을 쓰십시오.</div>
+</div></div>
+
+</div>
+</details>
+
+<details class="sec" id="s12"><summary>준비할 서류와 발급처<span class="sub">어디서 떼나</span></summary>
+<div class="secbody">
+
+<table>
+<tr><th>무엇에 쓰나</th><th>서류</th><th>어디서</th></tr>
+<tr><td>위탁자 사망 증명</td><td>기본증명서(상세)</td><td><a href="https://efamily.scourt.go.kr">전자가족관계등록시스템</a></td></tr>
+<tr><td>사후수익자 신분</td><td>주민등록표 초본·가족관계증명서(상세)</td><td><a href="https://www.gov.kr">정부24</a></td></tr>
+<tr><td>부동산 현황</td><td>등기사항전부증명서(말소사항 포함)</td><td><a href="http://www.iros.go.kr">인터넷등기소</a></td></tr>
+<tr><td>신탁 조항 확인</td><td>신탁원부</td><td>관할 등기소 (인터넷 열람 가능 여부 <b>[확인필요]</b>)</td></tr>
+<tr><td>대장</td><td>토지대장·건축물대장</td><td><a href="https://www.gov.kr">정부24</a></td></tr>
+<tr><td>시가표준액</td><td>공시가격</td><td><a href="https://www.realtyprice.kr">부동산공시가격 알리미</a></td></tr>
+<tr><td>취득세 신고·납부</td><td>신고서·영수증</td><td><a href="https://www.wetax.go.kr">위택스</a> · 관할 시·군·구</td></tr>
+<tr><td>상속세 신고</td><td>상속세 과세표준신고서</td><td><a href="https://hometax.go.kr">홈택스</a> · 관할 세무서</td></tr>
+<tr><td>은행 상품 안내</td><td>상품설명서·약관</td><td>거래 은행 신탁 부서</td></tr>
+<tr><td>법령 원문</td><td>부동산등기법·지방세법·상증세법</td><td><a href="https://www.law.go.kr">국가법령정보센터</a></td></tr>
+</table>
+
+</div>
+</details>
+
+<details class="sec" id="s13"><summary>비용<span class="sub">세금이 대부분입니다</span></summary>
+<div class="secbody">
+
+<div class="cost">
+<span class="ct">💰 비용 — 개략</span>
+<b>① 취득세·지방교육세·농어촌특별세</b> · 가장 큰 비용입니다. <span class="term">시가표준액<span class="bub">지방자치단체가 세금 계산을 위해 정해 둔 부동산 가격. 공시가격을 기준으로 합니다.</span></span>(또는 시가인정액) × 세율로 계산됩니다.<br>
+<b>② <span class="term">국민주택채권<span class="bub">부동산 등기를 할 때 법에 따라 사야 하는 채권. 대개 사자마자 은행에 되팔고 그 할인 차액만 부담합니다.</span></span></b> · 매입 대상이면 매입 후 즉시 매도해 할인 비용만 부담하는 것이 일반적입니다 <b>[확인필요]</b>.<br>
+<b>③ 등기신청수수료</b> · 소유권이전과 신탁등기말소 각각에 대해 납부합니다. 금액은 <a href="http://www.iros.go.kr">인터넷등기소</a> 수수료 안내에서 확인하십시오.<br>
+<b>④ 은행 보수</b> · 계약서에 정한 집행보수·해지 관련 비용이 신탁재산에서 공제될 수 있습니다. 은행 안내서로 확인하십시오.<br>
+<b>⑤ 상속세</b> · 별도입니다. 세무사 수수료도 별도로 발생합니다.<br>
+<b>⑥ 증명서 발급료</b> · 등기사항증명서 열람 700원·발급 1,000원, 가족관계증명서 통당 1,000원 안팎.
+<div style="margin-top:11px; padding-top:10px; border-top:1px dashed #cfe6d6; color:#c0392b; font-weight:600; line-height:1.8;">※ 등기 비용은 <a href="https://sanlaw.co.kr/tools-calculator.html" style="color:#c0392b; text-decoration:underline; font-weight:700;">🧮 수수료 계산기</a>에서 미리 확인하실 수 있습니다.</div>
+</div>
+
+</div>
+</details>
+
+<details class="sec" id="s14"><summary>흔한 실수<span class="sub">넘겨받는 쪽이 자주 놓치는 것</span></summary>
+<div class="secbody">
+
+<p><b>① 일반 상속등기로 신청하는 것.</b> 등기부의 소유자가 은행이면 상속등기는 할 수 없습니다. <b>수탁자에게서 넘겨받는 등기</b>를 해야 합니다.</p>
+
+<p><b>② 계약 구조를 확인하지 않고 세금부터 내는 것.</b> 계속되는 구조인데 취득세를 먼저 냈다가 돌려받느라 고생하는 경우가 있습니다. 은행에 <b>"무엇을 받는 것인지"</b>부터 서면으로 확인하십시오.</p>
+
+<p><b>③ 신탁등기 말소를 따로 하려는 것.</b> 소유권이전과 <b>동시에</b> 신청해야 합니다(부동산등기법 §87).</p>
+
+<p><b>④ 상속세를 잊는 것.</b> 등기를 마치면 끝난 줄 아시는데, 상속세 신고는 별개이고 기한이 6개월입니다.</p>
+
+<p><b>⑤ 다른 상속인에게 알리지 않는 것.</b> 형제 모르게 등기를 마치면 오히려 유류분 분쟁이 격해집니다. 법적 의무는 아니지만, 신탁 사실과 이유를 미리 알리는 편이 긴 싸움을 줄입니다.</p>
+
+<div class="warn"><span class="wt">⚠ 넘겨받자마자 팔지 마십시오</span>
+유류분 청구 기간(안 날부터 1년)이 지나기 전에 집을 팔면, 나중에 유류분을 <b>돈으로 물어줘야</b> 하는데 그 돈이 이미 없을 수 있습니다. 급하게 팔아야 한다면 <b>유류분 위험을 먼저 계산</b>해 두십시오.</div>
+
+</div>
+</details>
+
+<h2 id="s15">본 사무소가 도와드리는 일</h2>
+
+<div class="hire">
+<p>본 사무소에서는 의뢰인들의 고충은 덜어드리고, 함께 절차를 진행하여 원하는 결과에 도달할 수 있도록 성심을 다하겠습니다.</p>
+<p style="margin-top:12px"><b>· 사후수익자로 넘겨받으시는 분</b><br>① 신탁계약서·신탁원부로 <b>넘겨받는 구조인지 확인</b>하고, ② 은행과 <b>등기의무자 서류를 조율</b>하며, ③ <b>소유권이전 및 신탁등기말소 등기를 신청 대리</b>해 드리고, ④ 취득세 신고에 필요한 사항을 정리해 <b>세무사와 연계</b>해 드립니다.</p>
+<p style="margin-top:10px"><b>· 이전을 다투시는 다른 상속인</b><br>① 등기부·신탁원부로 <b>이전 여부와 일정 확인</b>, ② 은행에 대한 <b>이의 통지 작성</b>, ③ <b>처분금지가처분 신청서와 유류분 소장 작성</b>을 도와드립니다.</p>
+<p style="margin-top:10px; font-size:14px; color:#6b6b6b">※ 등기신청의 대리는 법무사법 제2조 제1항 제4호에 따른 법무사의 업무입니다. 상속세 신고와 세무 계획은 세무사의 업무 영역이므로 협력 세무사와 연계해 안내해 드립니다.</p>
+</div>
+
+<div class="tip"><span class="pt">💡 이어지는 카드</span> <b>부동산을 신탁에 넣을 때의 등기</b>는 <a href="sanlaw_유언대용신탁_안내.html">유언대용신탁 등기 안내</a>, <b>다른 상속인의 유류분</b>은 <a href="2-7_유언대용신탁_유류분_포함여부.html">상속 2-7</a>, <b>일반 상속등기</b>는 <a href="4-1_상속등기_부동산명의이전.html">상속 4-1</a>, <b>외국에 사는 상속인의 등기</b>는 <a href="4-3_제외국민_외국인_상속등기.html">상속 4-3</a>을 보십시오.</div>
+
+<a class="cta" href="index.html#contact">신탁 부동산 명의 이전을 상담받고 싶습니다</a>
+
+<div class="src">
+근거 — 부동산등기법 제81조(신탁등기의 등기사항)·제87조(신탁등기의 말소) · 신탁법 제36조·제59조 · 지방세법 제7조 제7항·제9조 제3항·제11조 제1항·제20조 제1항 · 상속세 및 증여세법 제2조 제1호 라목·제9조 제1항·제67조 제1항 · 민법 제161조·제1117조 · 법무사법 제2조 제1항 제4호 · 대법원 2025. 9. 25. 선고 2025두33790 판결(대법원 판례속보) · 대법원 2024. 4. 16. 선고 2022다307294 판결(대법원 판례속보) · 조세심판원 조심2023지4100(쟁점 소개) · 행정안전부 2026년 지방세제 개편안(보도) · 국가법령정보센터 · 인터넷등기소.<br>
+※ 등기원인의 표시와 일자, 검인 필요 여부, 인감증명서의 종류, 국민주택채권 매입 기준은 관할 등기소와 사안에 따라 달라질 수 있습니다. 취득세 세율과 과세 여부는 수익권의 내용과 사후수익자의 지위에 따라 다투어지며, 지방세법 개정이 추진 중입니다. <b>[확인필요]</b>로 표시한 부분은 신청 전 반드시 확인하십시오.
+</div>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+})();
+
+(function(){
+  document.querySelectorAll('.toc a').forEach(function(a){
+    a.addEventListener('click',function(){
+      var el=document.querySelector(a.getAttribute('href'));
+      if(el&&el.tagName==='DETAILS')el.open=true;
+    });
+  });
+  var btn=document.getElementById('allBtn');
+  if(!btn)return;
+  function toggleAll(){
+    var opening=btn.textContent.indexOf('펼치기')>-1;
+    document.querySelectorAll('details.sec').forEach(function(d){d.open=opening;});
+    document.querySelectorAll('.formbox').forEach(function(fb){
+      fb.classList.toggle('open',opening);
+      var body=fb.querySelector('.fold-body');
+      if(body)body.style.display=opening?'block':'none';
+    });
+    btn.textContent=opening?'전체 접기':'전체 펼치기';
+  }
+  btn.addEventListener('click',toggleAll);
+  btn.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleAll();}});
+})();
+(function(){
+})();
+function toggleFold(b){var fb=b.parentElement;var body=b.nextElementSibling;var open=fb.classList.toggle('open');if(body){body.style.display=open?'block':'none';}}
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('작성례가 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('작성례가 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('작성례를 내려받았습니다');}
+</script>
+</body>
+</html>
