@@ -426,6 +426,7 @@
         <span>%</span>
       </span>
       <a href="https://svc.wooribank.com/svc/Dream?withyou=HBNHB0036&cc=c004893:c004893" target="_blank" rel="noopener" style="color:#241f1a;background:#f3d27a;font-weight:800;text-decoration:none;border:1px solid #f3d27a;border-radius:5px;padding:4px 12px;">🔎 오늘 고시율 조회 (새 창)</a>
+      <button type="button" id="bondPubBtn" onclick="bondPublish()" style="display:none;cursor:pointer;color:#fff;background:#1d7a46;font-weight:800;border:1px solid #1d7a46;border-radius:5px;padding:4px 10px;" title="사무소 전용 — 지금 칸의 할인율을 모든 의뢰인 화면에 적용합니다">📤 의뢰인 화면에 적용</button>
       <span id="bondRateBadge" style="font-weight:800;"></span>
       <span class="hint" style="color:#bcb29c;">(입력 즉시 보고 계신 화면에 바로 반영)</span>
       <span style="width:1px;height:16px;background:#5a534a;"></span>
@@ -591,8 +592,8 @@
       <div class="note" style="border-left:3px solid var(--gold);">▸ <b>보수기준 §9⑥</b> <span class="tag A">A</span> — ① <b>1건의 신청서로 수개의 부동산</b>에 관한 소유권 보존·이전 등기를 하는 경우 <b>각 부동산의 과세표준액을 합산</b>하여 기본보수를 산정합니다(위 과세표준란에 <b>합산액</b>을 입력하십시오). ② <b>쌍방대리</b>(등기의무자·등기권리자 양쪽을 함께 대리)의 경우에도 <b>1건으로 보아</b> 기본보수를 산정합니다 — <b>매도인·매수인에게 각각 기본보수를 청구할 수 없습니다.</b></div>
     </div></div>
 
-    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 직접 입력하셔야 합니다. 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
-      <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에 <b>등기 당일 값</b>을 넣으셔야 정확합니다.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
+    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 사무소가 확인한 당일 값이 화면 위에 자동으로 들어갑니다(기준일 표시 확인). 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
+      <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에는 사무소가 확인한 값이 자동으로 들어갑니다. 옆의 <b>기준일 표시</b>가 <b>등기하시는 날</b>과 같은지 확인해 주세요.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
       <div class="note">부동산 종류에 따라 입력칸이 바뀝니다 — <b>주택</b>=주택공시가격 / <b>주택외</b>=토지공시가격+건물시가표준액(각각 매입률) / <b>농지</b>=토지공시가격. 매입률은 직접 입력.</div>
       <div id="bondBody"></div>
       <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="region" value="metro" checked onchange="calcBondSale()"> 특별시·광역시</label><label><input type="radio" name="region" value="other" onchange="calcBondSale()"> 기타지역</label></div></div>
@@ -683,7 +684,6 @@
     <h2 class="stitle">상속 — 소유권이전 <small>보수표 Ⅰ-1 · 등기수수료 상속(20,000/17,000·전자불가)</small></h2>
 
     <div class="card blue"><h2>① 상속 정보</h2><div class="body">
-      <div class="note" style="border-left:3px solid var(--seal);background:#fdf6e8;">▸ <b>이미 법정상속분대로 상속등기를 마치셨습니까?</b> 그 뒤 <b>가정법원의 상속재산분할심판(또는 조정)</b>이 확정되어 지분이 달라졌다면, 이 화면이 아니라 <b>「상속 지분 바로잡기」</b> 화면을 쓰셔야 합니다. 등기를 새로 하는 것이 아니라 <b>이미 된 등기를 고치는</b> 절차라 비용이 전혀 다릅니다.<br>▸ <button type="button" class="btn" style="margin-top:6px;padding:6px 12px;font-size:13px;" onclick="openScenario('상속 지분 바로잡기(심판·조정분할 경정)')">상속 지분 바로잡기 화면으로 이동 ›</button><br>▸ <span class="hint">아직 <b>상속등기를 하지 않으셨다면</b> 이 화면에서 그대로 진행하십시오. 심판으로 정해진 지분대로 <b>한 번에</b> 등기하면 되고, 등기를 두 번 하지 않아 비용이 적게 듭니다.</span></div>
       <div class="line"><span class="lbl">상속재산 과세표준(원)</span><input type="number" class="amt" id="s_price" placeholder="0" oninput="calcInherit()"><span class="hint">시가표준액 합산</span></div>
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('s_cntEstate',-1,calcInherit)">−</button><input type="number" id="s_cntEstate" value="1" min="1" oninput="calcInherit()"><button onclick="step('s_cntEstate',1,calcInherit)">+</button></div><span class="hint">등기수수료(매 부동산 20,000/17,000)·우편 곱</span></div>
       <div class="note" style="border-left:3px solid var(--gold);">▸ <b>보수기준 §9⑥</b> <span class="tag A">A</span> — <b>여러 부동산을 한 장의 신청서로</b> 상속등기하시는 경우, 각 부동산의 <b>과세표준을 모두 더한 금액</b>으로 기본보수를 <b>한 번만</b> 산정합니다<span class="law" title="법무사 보수기준 제9조제6항 — 1건의 신청서로 수개의 부동산에 관한 소유권 보존·이전 등기를 하는 경우에는 각 부동산의 과세표준액을 합산하며, 쌍방대리의 경우에는 1건으로 하여 기본보수를 산정한다.">§9⑥</span>. 위 「상속재산 과세표준」란에 <b>합산액</b>을 넣으십시오.<br>▸ 부동산이 여러 개면 기본보수와 별도로 <b>1개 초과분마다 20,000원</b>이 붙습니다<span class="law" title="법무사 보수기준 제10조제1항 — 대상 부동산이 1개를 초과하는 경우에는 초과하는 1개마다 20,000원을 가산한다.">§10①</span>. 아래 「부동산 개수」에 실제 개수를 넣으시면 자동 계산됩니다.<br>▸ <span class="hint">상속등기는 상속인이 <b>혼자 신청</b>하는 등기라 「쌍방대리」 문제가 생기지 않습니다.</span></div>
@@ -714,8 +714,8 @@
       <div class="line"><span class="lbl">여러 등기소 가산</span><select id="s_moAdd" onchange="calcInherit()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">같은 원인·같은 목적의 등기를 하는데 <b>부동산들이 서로 다른 등기소에 속해 있으면</b> 기본보수의 <b>50%까지</b> 더 받을 수 있습니다<span class="law" title="법무사 보수기준 제10조제4항 — 등기원인 및 등기목적이 동일한 것으로서 여러 개의 등기소의 관할에 걸쳐 있는 여러 개의 부동산에 관한 권리의 등기를 신청하는 경우에는 당해 기본보수의 50% 상당액까지 가산할 수 있다.">보수기준 §10④</span><span class="tag A">A</span><br>· <b>해당하는 예</b> — 상속받은 <b>서울 아파트</b>와 <b>용인 땅</b>을 함께 이전등기. 등기소가 두 곳이라 <b>신청서도 따로</b> 내야 하고 그만큼 품이 더 듭니다.<br>· <b>해당하지 않는 예</b> — 부동산이 여러 개라도 <b>모두 같은 등기소</b>에 속하는 경우. 이때는 아래 「부동산 개수」 가산(1개 초과 시 개당 20,000원)만 적용됩니다<span class="law" title="법무사 보수기준 제10조제1항 — 대상 부동산이 1개를 초과하는 경우에는 초과하는 1개마다 20,000원을 가산한다.">§10①</span>.</span></div>
     </div></div>
 
-    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 직접 입력하셔야 합니다. 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
-      <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에 <b>등기 당일 값</b>을 넣으셔야 정확합니다.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
+    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 사무소가 확인한 당일 값이 화면 위에 자동으로 들어갑니다(기준일 표시 확인). 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
+      <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에는 사무소가 확인한 값이 자동으로 들어갑니다. 옆의 <b>기준일 표시</b>가 <b>등기하시는 날</b>과 같은지 확인해 주세요.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
       <div class="note">부동산 종류에 따라 입력칸 전환(주택/주택외=토지+건물/농지). 상속도 매입대상이며, 일부 면제·감액 케이스는 직접 조정.</div>
       <div id="s_bondBody"></div>
       <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="s_region" value="metro" checked onchange="calcBondInherit()"> 특별시·광역시</label><label><input type="radio" name="s_region" value="other" onchange="calcBondInherit()"> 기타지역</label></div></div>
@@ -781,117 +781,6 @@
     </div></div>
   </div>
 
-  <!-- ===== 상속 지분 바로잡기 — 심판·조정분할에 의한 소유권경정등기 ===== -->
-  <div class="scene" id="scene-상속경정">
-    <button class="back" onclick="goMenu()">‹ 메인메뉴</button>
-    <h2 class="stitle">상속 지분 바로잡기 <small>법원 심판·조정으로 정해진 대로 등기를 고치는 절차</small></h2>
-
-    <div class="card"><h2>① 사건 정보</h2><div class="body">
-      <div class="note" style="border-left:3px solid var(--gold);">▸ <b>이 화면은 이런 경우에 쓰십니다.</b> 먼저 <b>법정상속분대로</b> 상속등기를 마쳤는데, 그 뒤 <b>가정법원의 상속재산분할심판(또는 조정)</b>이 확정되어 <b>실제 지분이 달라진</b> 경우입니다.<br>▸ 이때는 등기를 새로 하는 것이 아니라 <b>이미 된 등기를 고칩니다</b>. 이를 <b>「소유권경정등기」</b>라고 합니다. 등기원인은 <b>「심판분할」</b>(조정이면 「조정분할」), 날짜는 <b>심판이 확정된 날</b>(조정은 조정조서에 적힌 날)입니다 <span class="law" title="등기예규 제1675호 「상속등기와 그 경정등기에 관한 업무처리지침」 3.가 — 법정상속분에 따라 여러 명의 공동상속인을 등기명의인으로 하는 상속등기를 마친 후 상속재산 협의분할·조정분할·심판분할이 있어 이를 원인으로 경정등기를 신청할 때에는 등기원인을 각각 '협의분할','조정분할','심판분할'로, 그 연월일을 각각 협의가 성립한 날, 조정조서 기재일, 심판의 확정일로 한다.">등기예규 §1675호 3.가</span><br>▸ <span class="hint">아직 <b>법정상속등기를 하지 않으셨다면</b> 이 화면이 아니라 <b>「상속」</b> 화면에서 곧바로 심판분할 상속등기로 하시면 됩니다. 등기를 두 번 하지 않아 비용이 적게 듭니다.</span></div>
-
-      <div class="line"><span class="lbl">분할 방법</span><div class="radios" onchange="calcInheritFix();renderDocsInheritFix()">
-        <label><input type="radio" name="ic_type" value="judge" checked> 심판분할 <span class="hint">(법원이 결정)</span></label>
-        <label><input type="radio" name="ic_type" value="mediate"> 조정분할 <span class="hint">(조정으로 합의)</span></label></div></div>
-
-      <div class="line"><span class="lbl">피상속인<br>사망일</span><input type="date" id="ic_deathDate" oninput="calcInheritFix()" style="width:100%;"><span class="hint">돌아가신 날짜입니다. 가족관계증명서·기본증명서에 적혀 있습니다.</span></div>
-      <div class="line"><span class="lbl">심판 확정일<br>(조정조서일)</span><input type="date" id="ic_judgeDate" oninput="calcInheritFix()" style="width:100%;"><span class="hint">심판서에 붙는 <b>확정증명원</b>에 적힌 날짜입니다. 등기원인 날짜가 됩니다.</span></div>
-      <div class="line"><span class="lbl">경정등기<br>신청 예정일</span><input type="date" id="ic_fixDate" oninput="calcInheritFix()" style="width:100%;"><span class="hint">등기소에 낼 예정인 날짜입니다. <b>세금이 붙는지 갈리는 기준</b>이라 꼭 넣어 주십시오.</span></div>
-      <div class="line"><span class="lbl">외국 거주<br>상속인</span><label class="checks"><input type="checkbox" id="ic_abroad" onchange="calcInheritFix()"> 외국에 주소를 둔 상속인이 있습니다</label><span class="hint">있으면 아래 기한이 6개월 → <b>9개월</b>로 늘어납니다</span></div>
-
-      <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('ic_cntEstate',-1,calcInheritFix)">−</button><input type="number" id="ic_cntEstate" value="1" min="1" oninput="calcInheritFix()"><button onclick="step('ic_cntEstate',1,calcInheritFix)">+</button></div><span class="hint">등기수수료·우편 개수 곱 · 보수 1개 초과분 가산<span class="law" title="법무사 보수기준 제10조제1항 — 대상 부동산이 1개를 초과하는 경우에는 초과하는 1개마다 20,000원을 가산한다.">§10①</span></span></div>
-
-      <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcInheritFix()">
-        <label><input type="radio" name="ic_ptype" value="house" checked> 주택</label>
-        <label><input type="radio" name="ic_ptype" value="etc"> 주택외·준주택</label>
-        <label><input type="radio" name="ic_ptype" value="farm"> 농지</label></div></div>
-      <div class="line"><span class="lbl">전용면적</span><label class="checks"><input type="checkbox" id="ic_over85" onchange="calcInheritFix()"> 전용 <b>85㎡ 초과</b>입니다</label><span class="hint">85㎡ 이하 주택은 <b>농어촌특별세가 면제</b>됩니다<span class="law" title="농어촌특별세법 제4조제11호 — 「주택법」에 따른 국민주택규모(전용 85㎡) 이하 주택에 관한 취득세·등록면허세는 농어촌특별세를 비과세한다.">농특세법 §4 11호</span></span></div>
-      <div class="line"><span class="lbl">비영리사업자</span><label class="checks"><input type="checkbox" id="ic_nonprofit" onchange="calcInheritFix()"> 종교·자선 등 비영리사업자입니다</label><span class="hint">세율이 3.5% → <b>2.8%</b><span class="law" title="지방세법 제11조제1항제2호 단서 — 비영리사업자의 무상취득은 1천분의 28.">지방세법 §11①2호</span></span></div>
-    </div></div>
-
-    <div class="card"><h2>② 지분 — 얼마나 늘어나는지</h2><div class="body">
-      <div class="note">▸ <b>등기사항전부증명서 갑구</b>에 적힌 지분을 그대로 옮겨 적으십시오. 「3분의 1」이면 아래에 <b>1</b>과 <b>3</b>을 넣으시면 됩니다.<br>▸ 세금은 <b>늘어난 지분에만</b> 붙습니다. 전체 값에 붙는 것이 아닙니다.</div>
-      <div class="line"><span class="lbl">부동산 전체<br>가액(원)</span><input type="number" class="amt" id="ic_price" placeholder="0" oninput="calcInheritFix()"><span class="hint">부동산 <b>한 채 전체</b>의 값입니다. 세금이 붙는 경우에는 <b>시가인정액</b>(매매사례가·감정가 등), 그 밖에는 시가표준액을 넣으십시오<span class="law" title="지방세법 제10조의2제1항 — 무상취득의 경우 과세표준은 취득 당시의 시가인정액으로 한다.">지방세법 §10의2</span></span></div>
-      <div class="line"><span class="lbl">당초 지분<br>(법정상속분)</span><span></span><input type="number" id="ic_sbD" value="1" min="1" style="width:60px;" oninput="calcInheritFix()"><span>분의</span><input type="number" id="ic_sbN" value="0" min="0" style="width:60px;margin-left:4px;" oninput="calcInheritFix()"><span class="hint" style="margin-left:8px;">지금 등기부에 적혀 있는 지분</span></div>
-      <div class="line"><span class="lbl">심판 후 지분</span><span></span><input type="number" id="ic_saD" value="1" min="1" style="width:60px;" oninput="calcInheritFix()"><span>분의</span><input type="number" id="ic_saN" value="1" min="0" style="width:60px;margin-left:4px;" oninput="calcInheritFix()"><span class="hint" style="margin-left:8px;">심판서에 정해진 지분 (전부면 1분의 1)</span></div>
-      <div class="note" id="ic_shareInfo" style="background:#fdf6e8;"></div>
-    </div></div>
-
-    <div class="card"><h2>③ 추가 세금이 붙는지 판정 <span class="tag A">A</span></h2><div class="body">
-      <div class="note alert"><span class="head">여기가 이 화면에서 가장 중요합니다</span>법정상속등기를 이미 마친 뒤 지분이 늘어나면, 늘어난 몫을 <b>「증여받은 것」으로 보아 취득세를 다시 매기는</b> 규정이 있습니다<span class="law" title="지방세법 제7조제13항 — 상속개시 후 상속재산에 대하여 등기 등에 의하여 각 상속인의 상속분이 확정되어 등기 등이 된 후, 그 상속재산에 대하여 공동상속인이 협의하여 재분할한 결과 특정 상속인이 당초 상속분을 초과하여 취득하게 되는 재산가액은 그 재분할에 의하여 상속분이 감소한 상속인으로부터 증여받아 취득한 것으로 본다.">지방세법 §7⑬</span>.<br>▸ 법원 심판으로 정해진 경우에도 <b>과세된 사례가 있습니다</b>(조세심판원 조심2022지1238). 「법원이 정했으니 세금이 없다」고 단정하시면 안 됩니다.<br>▸ 다만 아래 <b>네 갈래 중 하나</b>에 해당하면 추가 취득세 없이 <b>등록면허세만</b> 냅니다.</div>
-
-      <div class="line"><span class="lbl">① 기한 내<br>등기</span><span class="hint" id="ic_ex1Info">사망일과 신청 예정일을 넣으시면 자동으로 판정합니다.<span class="law" title="지방세법 제7조제13항 제1호 — 제20조제1항에 따른 신고·납부기한 내에 재분할에 의한 취득과 등기등을 모두 마친 경우. 신고·납부기한은 상속개시일이 속하는 달의 말일부터 6개월(외국에 주소를 둔 상속인이 있는 경우 9개월).">§7⑬1호</span></span></div>
-
-      <div class="line"><span class="lbl">② 상속회복<br>청구의 소</span><label class="checks"><input type="checkbox" id="ic_ex2" onchange="calcInheritFix()"> <b>상속회복청구의 소</b>의 확정판결로 상속인·상속재산이 바뀌었습니다</label><span class="hint">상속재산분할심판은 <b>이것과 다릅니다</b>. 상속권 자체를 다툰 소송일 때만 해당합니다<span class="law" title="지방세법 제7조제13항 제2호 — 상속회복청구의 소에 의한 법원의 확정판결에 의하여 상속인 및 상속재산에 변동이 있는 경우.">§7⑬2호</span> <span class="tag chk">확인필요</span></span></div>
-
-      <div class="line"><span class="lbl">③ 채권자<br>대위등기</span><label class="checks"><input type="checkbox" id="ic_ex3" onchange="calcInheritFix()"> <b>채권자가 대신</b> 법정상속등기를 해 둔 것을 협의분할로 되돌립니다</label><span class="hint">상속인이 원해서 한 등기가 아닌 경우입니다<span class="law" title="지방세법 제7조제13항 제3호 — 「민법」 제404조에 따른 채권자대위권의 행사에 의하여 공동상속인들의 법정상속분대로 등기등이 된 상속재산을 상속인 사이의 협의분할에 의하여 재분할하는 경우.">§7⑬3호</span></span></div>
-
-      <div class="line"><span class="lbl">④ 당초 등기를<br>누가 했나</span><div class="radios" onchange="calcInheritFix()">
-        <label><input type="radio" name="ic_orig" value="all" checked> 상속인 전원이 신청</label>
-        <label><input type="radio" name="ic_orig" value="one"> 상속인 1인이 일방적으로 신청</label></div></div>
-      <div class="note" id="ic_ex4Note" style="display:none;">▸ 상속인 한 사람이 <b>다른 상속인의 뜻과 무관하게</b> 법정상속등기를 해 버린 경우라면, 「각 상속인의 상속분이 확정되어 등기된 경우」로 보지 않아 <b>증여로 보지 않는다</b>는 대법원 판단이 있습니다(대법원 2002. 7. 12. 선고 2001두441). <span class="tag chk">확인필요</span><br>▸ <span class="hint">다만 <b>분쟁 중에 일방적으로 이루어졌다는 사정</b>이 증명되어야 합니다. 단순히 편의상 한 사람이 대표로 신청한 경우는 해당하지 않습니다. 과세관청과 다툼이 생길 수 있는 부분이니 <b>상담 때 경위를 말씀해 주십시오.</b></span></div>
-
-      <div class="note" id="ic_verdict" style="font-size:14.5px;"></div>
-      <div class="note"><span class="hint">※ 위 판정은 <b>안내</b>이며, 실제 과세 여부는 <b>관할 시·군·구청</b>이 사실관계를 확인해 최종 결정합니다. 국가법령정보센터에 실린 법령해석도 「최종 결정은 과세권자의 몫」이라고 밝히고 있습니다.</span></div>
-    </div></div>
-
-    <div class="card blue"><h2>④ 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
-      <div class="note" id="ic_taxNote"></div>
-      <table class="t">
-        <tr id="ic_acqRow"><td>취득세 <span id="ic_acqRate" class="hint"></span><span class="law" title="지방세법 제11조제1항제2호 — 상속 외의 무상취득은 1천분의 35(3.5%). 다만 비영리사업자의 취득은 1천분의 28(2.8%).">지방세법 §11①2호</span></td><td><input class="cell" id="ic_acqTax" type="number" oninput="calcInheritFix(true)"></td></tr>
-        <tr id="ic_eduRow"><td>지방교육세<span class="law" title="지방세법 제151조제1항제1호 — 취득물건에 대하여 제11조의 표준세율에서 1천분의 20을 뺀 세율을 적용하여 산출한 금액의 100분의 20.">지방세법 §151①1호</span></td><td><input class="cell" id="ic_eduTax" type="number" oninput="calcInheritFix(true)"></td></tr>
-        <tr id="ic_ruralRow"><td>농어촌특별세<span class="law" title="농어촌특별세법 제5조제1항제6호 — 취득세 표준세율을 100분의 2로 적용하여 산출한 금액의 100분의 10. 같은 법 제4조제11호 — 전용 85㎡ 이하 주택은 비과세.">농특세법 §5①6호</span></td><td><input class="cell" id="ic_ruralTax" type="number" oninput="calcInheritFix(true)"></td></tr>
-        <tr id="ic_regTaxRow" style="display:none;background:#fdf6e8;"><td>등록면허세 <span class="hint" id="ic_regTaxNote"></span><span class="law" title="지방세법 제28조제1항제1호 마목 — 부동산 등기 중 「그 밖의 등기」는 건당 6,000원. 소유권경정등기가 여기에 해당합니다.">지방세법 §28①1호마목</span></td><td class="auto" id="ic_regTaxCell">0 원</td></tr>
-        <tr id="ic_regEduRow" style="display:none;background:#fdf6e8;"><td>지방교육세 <span class="hint">(등록면허세×20%)</span><span class="law" title="지방세법 제151조제1항제2호 — 등록면허세액의 100분의 20.">지방세법 §151①2호</span></td><td class="auto" id="ic_regEduCell">0 원</td></tr>
-        <tr><td>국민주택채권 매입액 <span class="hint">(늘어난 지분분만)</span><span class="law" title="「상속등기에 관한 업무처리지침」 — 상속등기 후 상속재산 협의분할 등으로 인한 소유권경정등기를 신청하는 경우 국민주택채권을 매입한다. 다만 그 전의 상속등기를 신청할 때에 국민주택채권을 매입하였다면 그 경정등기로 증가하는 지분만큼의 금액만 매입하면 된다.">상속등기 업무처리지침</span></td><td><input class="cell" id="ic_bondBuy" type="number" value="0" oninput="calcInheritFix(true)"></td></tr>
-        <tr><td>채권 할인손실 <span class="hint" id="ic_bondNote"></span></td><td class="auto" id="ic_bondLossCell">0 원</td></tr>
-        <tr><td>등기신청수수료 <select id="ic_regMethod" class="mini" onchange="calcInheritFix()"><option value="e" selected>e-Form 3,000</option><option value="p">수기 4,000</option><option value="o">전자 1,000</option></select> <span class="hint" id="ic_regNote"></span><span class="law" title="「등기사항증명서 등 수수료규칙」 제5조의2 — 변경·경정·말소 등 그 밖의 등기는 방문서면 4,000원, e-Form 3,000원, 전자신청 1,000원. 소유권경정등기는 「경정」에 해당합니다. [시행 2025.8.1. 대법원규칙 제3222호]">수수료규칙 §5의2 ④</span></td><td class="auto" id="ic_regFeeCell">0 원</td></tr>
-        <tr><td>대장·등본 우편 등 <span class="hint">(개수 곱)</span></td><td><input class="cell" id="ic_postFee" type="number" value="6000" oninput="calcInheritFix(true)"></td></tr>
-        <tr class="subtot"><td>공과금계</td><td id="ic_publicSum">0 원</td></tr>
-      </table>
-      <div class="note"><span class="hint">▸ <b>인지세는 붙지 않습니다.</b> 인지세는 매매계약서 같은 문서에 붙는데, 이 등기는 원인이 <b>법원의 심판서</b>라 해당 문서가 없습니다.</span></div>
-    </div></div>
-
-    <div class="card pink"><h2>⑤ 수수료 (법무사 보수, VAT 별도) <span class="tag A">A</span></h2><div class="body">
-      <div class="line"><span class="lbl">보수 조정</span><select id="ic_adjust" onchange="calcInheritFix()">
-        <option value="0.7">70%</option><option value="0.8">80%</option><option value="0.9">90%</option>
-        <option value="1" selected>100% (기본)</option>
-        <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
-        <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
-        <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
-      <div class="line"><span class="lbl">당사자 다수 가산</span><span>등기권리자</span><input type="number" id="ic_pnOwn" value="1" min="1" style="width:52px;margin:0 4px;" oninput="calcInheritFix()"><span>인</span><span style="margin-left:6px;">등기의무자</span><input type="number" id="ic_pnObl" value="0" min="0" style="width:52px;margin:0 4px;" oninput="calcInheritFix()"><span>인</span><select id="ic_pnAdd" onchange="calcInheritFix()" style="margin-left:8px;"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint" id="ic_pnInfo" style="margin-left:8px;"></span></div>
-      <div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="ic_frAdd" onchange="calcInheritFix()"><option value="0" selected>해당 없음</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">상속인 중 외국인·재외국민이 있거나 서류를 외국에서 받아야 하는 경우<span class="law" title="법무사 보수기준 제10조제6항 — 외국인 또는 재외국민이 포함되어 있거나 등기원인과 관련되는 서류를 외국으로부터 받아야 하는 등기의 경우에는 당해 기본보수의 100% 상당액까지 가산할 수 있다.">§10⑥</span></span></div>
-      <div class="line"><span class="lbl">여러 등기소 관할</span><select id="ic_moAdd" onchange="calcInheritFix()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50% (상한)</option></select><span class="hint">부동산이 <b>여러 등기소</b>에 걸쳐 있는 경우<span class="law" title="법무사 보수기준 제10조제4항 — 등기원인 및 등기목적이 동일한 것으로서 여러 개의 등기소의 관할에 걸쳐 있는 여러 개의 부동산에 관한 권리의 등기를 신청하는 경우에는 당해 기본보수의 50% 상당액까지 가산할 수 있다.">§10④</span></span></div>
-      <table class="t">
-        <tr><td>기본보수 <span class="hint" id="ic_feeBaseNote"></span><span class="law" title="법무사 보수기준 제9조제5항제2호 및 보수표 Ⅰ-3(2) — 권리의 변경·경정 또는 회복 등기의 기본보수는 120,000원입니다.">보수표 Ⅰ-3(2)</span></td><td class="auto" id="ic_feeBaseCell">0 원</td></tr>
-        <tr id="ic_feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="ic_feeForeignNote"></span></td><td class="auto" id="ic_feeForeignCell">0 원</td></tr>
-        <tr id="ic_feePartyRow" style="display:none;"><td>당사자 다수 가산 <span class="hint" id="ic_feePartyNote"></span></td><td class="auto" id="ic_feePartyCell">0 원</td></tr>
-        <tr id="ic_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="ic_feeMultiNote"></span></td><td class="auto" id="ic_feeMultiCell">0 원</td></tr>
-        <tr id="ic_feeCntRow" style="display:none;"><td>부동산 개수 가산 <span class="hint" id="ic_feeCntNote"></span><span class="law" title="법무사 보수기준 제10조제1항 — 대상 부동산이 1개를 초과하는 경우 초과하는 1개마다 20,000원을 가산합니다.">보수기준 §10①</span></td><td class="auto" id="ic_feeCntCell">0 원</td></tr>
-        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ic_f_tax" checked onchange="calcInheritFix()"> <span id="ic_taxAgentLabel">취득세 신고대행</span> (50,000)</label></td><td class="auto" id="ic_taxAgentCell">50,000 원</td></tr>
-        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ic_f_bond" checked onchange="calcInheritFix()"> 채권 매입대행 (40,000)</label></td><td class="auto" id="ic_bondAgentCell">40,000 원</td></tr>
-        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ic_f_trip" checked onchange="calcInheritFix()"> 교통비 및 일당</label></td><td><input class="cell" id="ic_tripFee" type="number" value="160000" oninput="calcInheritFix(true)"></td></tr>
-        <tr class="subtot"><td>수수료계 (보수)</td><td id="ic_feeSum">0 원</td></tr>
-      </table>
-      <div class="note"><span class="hint">▸ <b>등기원인증서 작성료가 없습니다.</b> 등기원인이 <b>법원의 심판서</b>여서 법무사가 따로 작성할 서류가 없기 때문입니다. 협의분할이라면 협의분할계약서 작성료(50,000원)가 붙습니다.</span></div>
-    </div></div>
-
-    <div class="total"><div class="row"><span>법무사 보수 소계</span><span id="ic_t_fee">0 원</span></div>
-      <div class="row sub"><span>부가가치세 (10%)</span><span id="ic_t_vat">0 원</span></div>
-      <div class="row"><span>공과금계</span><span id="ic_t_public">0 원</span></div>
-      <div class="row grand"><span>총 합계</span><span id="ic_t_grand">0 원</span></div></div>
-    <div class="actions"><button class="btn" onclick="calcInheritFix()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
-
-    <div class="card green"><h2>⑥ 준비서류</h2><div class="body">
-      <div class="line" style="border:none;padding-top:0;"><span class="lbl">등기와 정산금이<br>묶여 있는지</span><div class="radios" onchange="renderDocsInheritFix()">
-        <label><input type="radio" name="ic_order" value="plain" checked> 따로 적혀 있음 (또는 정산금 자체가 없음)</label>
-        <label><input type="radio" name="ic_order" value="comp"> <b>한 문장에 묶여</b> 있음</label></div></div>
-      <div class="note">▸ 심판서 <b>주문</b>(맨 앞에 「주문」이라고 적힌 부분)만 보시면 됩니다. 정산금이 있는 경우 <b>적힌 모양</b>에 따라 절차가 달라집니다.<br>▸ <b>따로 적혀 있음</b> — 「…부동산을 청구인의 소유로 한다」와 「청구인은 상대방에게 ○○원을 지급하라」가 <b>번호를 나눠</b> 따로 적힌 경우입니다. 이때는 <b>돈과 상관없이 등기를 먼저 하실 수 있습니다.</b><br>▸ <b>한 문장에 묶여 있음</b> — 「○○원을 <b>지급받음과 동시에</b> …등기절차를 이행하라」처럼 <b>돈과 등기가 한 문장</b>에 걸려 있는 경우입니다. 이때만 돈을 먼저 주셔야 합니다.<br>▸ <span class="hint">헷갈리시면 <b>심판서를 그대로 가져오십시오.</b> 저희가 주문을 보고 판단해 드립니다.</span></div>
-      <div class="line"><span class="lbl">이해관계인</span><label class="checks"><input type="checkbox" id="ic_third" onchange="renderDocsInheritFix()"> 지분이 <b>줄어드는</b> 상속인 몫에 <b>가압류·근저당 등</b>이 붙어 있습니다</label></div>
-      <div class="line"><span class="lbl">외국인·재외국민</span><label class="checks"><input type="checkbox" id="ic_frDoc" onchange="renderDocsInheritFix()"> 상속인 중 외국인 또는 재외국민이 있습니다</label></div>
-      <div class="docs" id="ic_docsBox"></div>
-    </div></div>
-  </div>
-
   <!-- ===== 후견 신청 및 등기 (풀기능) ===== -->
   <div class="scene" id="scene-유증">
     <button class="back" onclick="goMenu()">‹ 메인메뉴</button>
@@ -925,8 +814,8 @@
       <div class="line"><span class="lbl">여러 등기소 가산</span><select id="bq_moAdd" onchange="calcBequest()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">같은 원인·같은 목적의 등기를 하는데 <b>부동산들이 서로 다른 등기소에 속해 있으면</b> 기본보수의 <b>50%까지</b> 더 받을 수 있습니다<span class="law" title="법무사 보수기준 제10조제4항 — 등기원인 및 등기목적이 동일한 것으로서 여러 개의 등기소의 관할에 걸쳐 있는 여러 개의 부동산에 관한 권리의 등기를 신청하는 경우에는 당해 기본보수의 50% 상당액까지 가산할 수 있다.">보수기준 §10④</span><span class="tag A">A</span><br>· <b>해당하는 예</b> — 상속받은 <b>서울 아파트</b>와 <b>용인 땅</b>을 함께 이전등기. 등기소가 두 곳이라 <b>신청서도 따로</b> 내야 하고 그만큼 품이 더 듭니다.<br>· <b>해당하지 않는 예</b> — 부동산이 여러 개라도 <b>모두 같은 등기소</b>에 속하는 경우. 이때는 아래 「부동산 개수」 가산(1개 초과 시 개당 20,000원)만 적용됩니다<span class="law" title="법무사 보수기준 제10조제1항 — 대상 부동산이 1개를 초과하는 경우에는 초과하는 1개마다 20,000원을 가산한다.">§10①</span>.</span></div>
     </div></div>
 
-    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 직접 입력하셔야 합니다. 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
-      <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에 <b>등기 당일 값</b>을 넣으셔야 정확합니다.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
+    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 사무소가 확인한 당일 값이 화면 위에 자동으로 들어갑니다(기준일 표시 확인). 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
+      <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에는 사무소가 확인한 값이 자동으로 들어갑니다. 옆의 <b>기준일 표시</b>가 <b>등기하시는 날</b>과 같은지 확인해 주세요.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
       <div class="note">부동산 종류에 따라 입력칸 전환(주택/주택외=토지+건물/농지). 상속도 매입대상이며, 일부 면제·감액 케이스는 직접 조정.</div>
       <div id="bq_bondBody"></div>
       <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="bq_region" value="metro" checked onchange="calcBondBequest()"> 특별시·광역시</label><label><input type="radio" name="bq_region" value="other" onchange="calcBondBequest()"> 기타지역</label></div></div>
@@ -1098,8 +987,8 @@
       <div class="note" style="border-left:3px solid var(--gold);">▸ <b>보수기준 §9⑥</b> <span class="tag A">A</span> — ① <b>1건의 신청서로 수개의 부동산</b>에 관한 소유권 보존·이전 등기를 하는 경우 <b>각 부동산의 과세표준액을 합산</b>하여 기본보수를 산정합니다(위 과세표준란에 <b>합산액</b>을 입력하십시오). ② <b>쌍방대리</b>(등기의무자·등기권리자 양쪽을 함께 대리)의 경우에도 <b>1건으로 보아</b> 기본보수를 산정합니다 — <b>매도인·매수인에게 각각 기본보수를 청구할 수 없습니다.</b></div>
     </div></div>
 
-    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 직접 입력하셔야 합니다. 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
-      <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에 <b>등기 당일 값</b>을 넣으셔야 정확합니다.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
+    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 사무소가 확인한 당일 값이 화면 위에 자동으로 들어갑니다(기준일 표시 확인). 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
+      <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에는 사무소가 확인한 값이 자동으로 들어갑니다. 옆의 <b>기준일 표시</b>가 <b>등기하시는 날</b>과 같은지 확인해 주세요.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
       <div class="note">증여는 <b>시가표준액</b> 기준 매입(주택/주택외=토지+건물 분리). 매입률 직접 입력.</div>
       <div id="gv_bondBody"></div>
       <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="gv_region" value="metro" checked onchange="calcBondGift()"> 특별시·광역시</label><label><input type="radio" name="gv_region" value="other" onchange="calcBondGift()"> 기타지역</label></div></div>
@@ -1377,8 +1266,8 @@
       <div class="note" style="border-left:3px solid var(--gold);">▸ <b>보수기준 §9⑥</b> <span class="tag A">A</span> — ① <b>1건의 신청서로 수개의 부동산</b>에 관한 소유권 보존·이전 등기를 하는 경우 <b>각 부동산의 과세표준액을 합산</b>하여 기본보수를 산정합니다(위 과세표준란에 <b>합산액</b>을 입력하십시오). ② <b>쌍방대리</b>(등기의무자·등기권리자 양쪽을 함께 대리)의 경우에도 <b>1건으로 보아</b> 기본보수를 산정합니다 — <b>매도인·매수인에게 각각 기본보수를 청구할 수 없습니다.</b></div>
     </div></div>
 
-    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 직접 입력하셔야 합니다. 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
-      <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에 <b>등기 당일 값</b>을 넣으셔야 정확합니다.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
+    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 사무소가 확인한 당일 값이 화면 위에 자동으로 들어갑니다(기준일 표시 확인). 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
+      <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에는 사무소가 확인한 값이 자동으로 들어갑니다. 옆의 <b>기준일 표시</b>가 <b>등기하시는 날</b>과 같은지 확인해 주세요.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
       <div class="note" style="border-left:3px solid var(--seal);">▸ <b>공유물분할이 「상속·증여 및 그 밖의 무상으로 취득하는 경우」에 해당하는지 명시적 근거를 확인하지 못했습니다.</b> 두 요율의 차이가 크므로(서울 3억 → 무상 1,260만원 / 유상 780만원) <b>주택도시기금 「셀프 채권매입 도우미」에서 매입용도를 확인</b>한 뒤 선택하십시오.<br>· 대법원 2002두6422(<b>이혼 재산분할</b> 사건 — 재산분할을 실질적 공유물분할로 보아 유상양도가 아니라고 판시)의 취지에 따라 <b>무상 요율</b>을 기본값으로 두었습니다. 다만 <b>순수한 공유물분할 사건의 직접 판례는 아니므로</b> 그대로 원용하기 어려운 면이 있습니다. 다만 <b>본인 지분 초과분</b>은 유상취득이므로 <b>유상 요율</b>이 타당할 여지가 있습니다. <span class="tag chk">확인필요</span></div>
       <div class="line"><span class="lbl">매입 요율</span><div class="radios" onchange="calcBondPartition()">
         <label><input type="radio" name="pt_bondKind" value="free" checked> 무상취득(18/28/42 · 14/25/39)</label>
@@ -1502,8 +1391,8 @@
       <div class="note" style="border-left:3px solid var(--gold);">▸ <b>보수기준 §9⑥</b> <span class="tag A">A</span> — <b>1건의 신청서로 수개의 부동산</b>에 관한 소유권이전 등기를 하는 경우 <b>각 부동산의 과세표준액을 합산</b>하여 기본보수를 산정합니다(위 낙찰가란에 <b>합산액</b>을 입력하십시오).<br>▸ <b>권리분석·상담은 별개 보수</b>입니다 — 낙찰 <b>전</b> 권리분석과 상담은 보수표 <b>Ⅵ-1</b>(메인메뉴의 「부동산경매 상담」), 입찰 대리는 <b>Ⅵ-2</b>(「경매 매수신청대리」)로 각각 산정합니다.</div>
     </div></div>
 
-    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 직접 입력하셔야 합니다. 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
-      <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에 <b>등기 당일 값</b>을 넣으셔야 정확합니다.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
+    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 사무소가 확인한 당일 값이 화면 위에 자동으로 들어갑니다(기준일 표시 확인). 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
+      <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에는 사무소가 확인한 값이 자동으로 들어갑니다. 옆의 <b>기준일 표시</b>가 <b>등기하시는 날</b>과 같은지 확인해 주세요.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
       <div class="note" style="border-left:3px solid var(--seal);">▸ 경매·공매 낙찰은 <b>대가를 지급하고 취득</b>하는 것이므로 <b>유상 소유권이전 요율</b>이 적용됩니다. 무상취득 요율이 아닙니다.</div>
       <div class="line" style="display:none;"><div class="radios"><label><input type="radio" name="nk_bondKind" value="paid" checked> 유상</label></div></div>
       <div class="line"><span class="lbl">시가표준액(원)</span><input type="number" class="amt" id="nk_bondStd" placeholder="0" oninput="calcBondNakchal()"><span class="hint">부동산마다 개별 산정 <span id="nk_bondPct" class="hint"></span></span></div>
@@ -1620,8 +1509,8 @@
       <div class="note" style="border-left:3px solid var(--gold);">▸ <b>보수기준 §9⑥</b> <span class="tag A">A</span> — ① <b>1건의 신청서로 수개의 부동산</b>에 관한 소유권 보존·이전 등기를 하는 경우 <b>각 부동산의 과세표준액을 합산</b>하여 기본보수를 산정합니다(위 과세표준란에 <b>합산액</b>을 입력하십시오). ② <b>쌍방대리</b>(등기의무자·등기권리자 양쪽을 함께 대리)의 경우에도 <b>1건으로 보아</b> 기본보수를 산정합니다 — <b>매도인·매수인에게 각각 기본보수를 청구할 수 없습니다.</b></div>
     </div></div>
 
-    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 직접 입력하셔야 합니다. 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
-      <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에 <b>등기 당일 값</b>을 넣으셔야 정확합니다.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
+    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 사무소가 확인한 당일 값이 화면 위에 자동으로 들어갑니다(기준일 표시 확인). 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
+      <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에는 사무소가 확인한 값이 자동으로 들어갑니다. 옆의 <b>기준일 표시</b>가 <b>등기하시는 날</b>과 같은지 확인해 주세요.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
       <div class="note" style="border-left:3px solid var(--seal);">▸ <b>재산분할이 「상속·증여 및 그 밖의 무상으로 취득하는 경우」에 해당하는지 명시적 근거를 확인하지 못했습니다.</b> 두 요율의 차이가 크므로(서울 3억 → 무상 1,260만원 / 유상 780만원) <b>주택도시기금 「셀프 채권매입 도우미」에서 매입용도를 확인</b>한 뒤 선택하십시오.<br>· 취득세법상 <b>무상취득</b>(§11①2호 3.5% 기준)으로 취급되고 대법원 2002두6422도 <b>재산분할을 실질적 공유물분할</b>로 보아 유상양도가 아니라고 하므로 <b>무상 요율</b>을 기본값으로 두었습니다. <span class="tag chk">확인필요</span></div>
       <div class="line"><span class="lbl">매입 요율</span><div class="radios" onchange="calcBondDivision()">
         <label><input type="radio" name="dv_bondKind" value="free" checked> 무상취득(18/28/42 · 14/25/39)</label>
@@ -1725,8 +1614,8 @@
       <div class="note" style="border-left:3px solid var(--gold);">▸ <b>보수기준 §9⑥</b> <span class="tag A">A</span> — ① <b>1건의 신청서로 수개의 부동산</b>에 관한 소유권 보존·이전 등기를 하는 경우 <b>각 부동산의 과세표준액을 합산</b>하여 기본보수를 산정합니다(위 과세표준란에 <b>합산액</b>을 입력하십시오). ② <b>쌍방대리</b>(등기의무자·등기권리자 양쪽을 함께 대리)의 경우에도 <b>1건으로 보아</b> 기본보수를 산정합니다 — <b>매도인·매수인에게 각각 기본보수를 청구할 수 없습니다.</b></div>
     </div></div>
 
-    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 직접 입력하셔야 합니다. 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
-      <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에 <b>등기 당일 값</b>을 넣으셔야 정확합니다.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
+    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 사무소가 확인한 당일 값이 화면 위에 자동으로 들어갑니다(기준일 표시 확인). 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
+      <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에는 사무소가 확인한 값이 자동으로 들어갑니다. 옆의 <b>기준일 표시</b>가 <b>등기하시는 날</b>과 같은지 확인해 주세요.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
       <div class="note">부담부증여는 채권 매입률을 <b>부담부분(유상)·증여분(무상) 각각</b> 적용 후 합산합니다(협회 방식). 시가표준액과 각 매입률을 입력하세요.</div>
       <div class="line"><span class="lbl">시가표준액(원)</span><input type="number" class="amt" id="bv_bondStd" placeholder="0" oninput="calcBondBurden()"><span class="hint">전체 부동산 시가표준액</span></div>
       <div class="line"><span class="lbl">부담부분 매입률(‰)</span><input type="number" id="bv_pctDebt" placeholder="예: 31" step="0.1" style="width:120px;" oninput="calcBondBurden()"><span class="hint">유상분 비율 × 시가표준액</span></div>
@@ -2252,8 +2141,8 @@
       <div class="line"><span class="lbl">여러 등기소 가산</span><select id="ma_moAdd" onchange="calcMortgageAdd()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">같은 원인·같은 목적의 등기를 하는데 <b>부동산들이 서로 다른 등기소에 속해 있으면</b> 기본보수의 <b>50%까지</b> 더 받을 수 있습니다<span class="law" title="법무사 보수기준 제10조제4항 — 등기원인 및 등기목적이 동일한 것으로서 여러 개의 등기소의 관할에 걸쳐 있는 여러 개의 부동산에 관한 권리의 등기를 신청하는 경우에는 당해 기본보수의 50% 상당액까지 가산할 수 있다.">보수기준 §10④</span><span class="tag A">A</span><br>· <b>해당하는 예</b> — 상속받은 <b>서울 아파트</b>와 <b>용인 땅</b>을 함께 이전등기. 등기소가 두 곳이라 <b>신청서도 따로</b> 내야 하고 그만큼 품이 더 듭니다.<br>· <b>해당하지 않는 예</b> — 부동산이 여러 개라도 <b>모두 같은 등기소</b>에 속하는 경우. 이때는 아래 「부동산 개수」 가산(1개 초과 시 개당 20,000원)만 적용됩니다<span class="law" title="법무사 보수기준 제10조제1항 — 대상 부동산이 1개를 초과하는 경우에는 초과하는 1개마다 20,000원을 가산한다.">§10①</span>.</span></div>
     </div></div>
 
-    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 직접 입력하셔야 합니다. 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
-      <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에 <b>등기 당일 값</b>을 넣으셔야 정확합니다.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
+    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 사무소가 확인한 당일 값이 화면 위에 자동으로 들어갑니다(기준일 표시 확인). 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
+      <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에는 사무소가 확인한 값이 자동으로 들어갑니다. 옆의 <b>기준일 표시</b>가 <b>등기하시는 날</b>과 같은지 확인해 주세요.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
       <div class="note">담보권 추가설정 시 국민주택채권 매입 여부는 사안에 따라 다릅니다(기존 설정분과의 관계). 매입 대상이면 <b>채권최고액 기준</b> 매입률 직접 입력, 비대상이면 0으로 두세요. <span class="hint">[확인필요]</span></div>
       <div class="line"><span class="lbl">매입률(‰)</span><input type="number" id="ma_bondPct" placeholder="예: 10" step="0.1" style="width:120px;" oninput="calcMortgageAdd()"><span class="hint">채권최고액 × 매입률</span></div>
       <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="ma_region" value="metro" checked onchange="calcMortgageAdd()"> 특별시·광역시</label><label><input type="radio" name="ma_region" value="other" onchange="calcMortgageAdd()"> 기타지역</label></div></div>
@@ -2399,8 +2288,8 @@
       <div class="line"><span class="lbl">여러 등기소 가산</span><select id="pr_moAdd" onchange="calcPreserve()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">같은 원인·같은 목적의 등기를 하는데 <b>부동산들이 서로 다른 등기소에 속해 있으면</b> 기본보수의 <b>50%까지</b> 더 받을 수 있습니다<span class="law" title="법무사 보수기준 제10조제4항 — 등기원인 및 등기목적이 동일한 것으로서 여러 개의 등기소의 관할에 걸쳐 있는 여러 개의 부동산에 관한 권리의 등기를 신청하는 경우에는 당해 기본보수의 50% 상당액까지 가산할 수 있다.">보수기준 §10④</span><span class="tag A">A</span><br>· <b>해당하는 예</b> — 상속받은 <b>서울 아파트</b>와 <b>용인 땅</b>을 함께 이전등기. 등기소가 두 곳이라 <b>신청서도 따로</b> 내야 하고 그만큼 품이 더 듭니다.<br>· <b>해당하지 않는 예</b> — 부동산이 여러 개라도 <b>모두 같은 등기소</b>에 속하는 경우. 이때는 아래 「부동산 개수」 가산(1개 초과 시 개당 20,000원)만 적용됩니다<span class="law" title="법무사 보수기준 제10조제1항 — 대상 부동산이 1개를 초과하는 경우에는 초과하는 1개마다 20,000원을 가산한다.">§10①</span>.</span></div>
     </div></div>
 
-    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 직접 입력하셔야 합니다. 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
-      <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에 <b>등기 당일 값</b>을 넣으셔야 정확합니다.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
+    <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 사무소가 확인한 당일 값이 화면 위에 자동으로 들어갑니다(기준일 표시 확인). 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
+      <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에는 사무소가 확인한 값이 자동으로 들어갑니다. 옆의 <b>기준일 표시</b>가 <b>등기하시는 날</b>과 같은지 확인해 주세요.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
       <div class="note">시가표준액 기준 매입(주택/주택외=토지+건물 분리). 매입률 직접 입력. <b>집합건물(아파트·빌라)은 세대(구분건물)마다 과세표준이 다르므로, 국민주택채권은 세대별 시가표준액으로 각각 산정 후 합산</b>하세요. 취득세는 전체 과세표준 합계 기준으로 계산됩니다.</div>
       <div id="pr_bondBody"></div>
       <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="pr_region" value="metro" checked onchange="calcBondPreserve()"> 특별시·광역시</label><label><input type="radio" name="pr_region" value="other" onchange="calcBondPreserve()"> 기타지역</label></div></div>
@@ -3454,20 +3343,35 @@ function pwRun(p){
   if(typeof recalc==='function')recalc();
 }
 /* 보수총액에 곱할 비율 */
+/* §6 은 「등기(부동산, 상업·법인, 동산·채권담보)나 공탁」의 신청서류만 대상이다 [A 보수기준 §6].
+   소장·가압류·가처분·경매신청 등 송무·집행 화면과 후견(Ⅲ)에는 §6 선택지를 보이지 않는다.
+   범용화면(g_)은 보수표 Ⅳ(동산·채권담보)·Ⅴ(공탁)일 때만 허용. 2026-09 감사 신설. */
+const PW_S6_OK=['','gv_','bv_','s_','bq_','pr_','mt_','mtc_','rt_','ga_','st_','ma_','mr_','dv_','pt_','nk_','ea_','rd_','co_','cv_'];
+function pwS6Ok(p){
+  if(PW_S6_OK.indexOf(p)>=0)return true;
+  if(p==='g_'){
+    const h=document.getElementById('hsub'), def=h&&SCENARIO[h.textContent];
+    const code=def?String(def.tier||def.flat||''):'';
+    return /^[ⅣⅤ]/.test(code);
+  }
+  return false;
+}
 function pwRate(p){
   const d=PARTIAL[p];
   if(!d||d.mode==='full')return 1;
-  if(d.mode==='s6')return 0.6;                       // §6 — 60% 고정
+  if(d.mode==='s6')return pwS6Ok(p)?0.6:1;           // §6 — 60% 고정 (등기·공탁 한정)
   return Math.min(0.6,Math.max(0,d.rate||0.6));      // §5① — 60% 범위 내
 }
 function pwRender(p){
   const box=document.getElementById(p+'pwBox');
   if(!box)return;
   const d=pwData(p);
+  const s6ok=pwS6Ok(p);
+  if(!s6ok&&d.mode==='s6')d.mode='full';           /* 범용화면에서 다른 사건으로 옮겨 온 경우 */
   let h='<div class="line"><span class="lbl">수임 범위</span>'
    +'<select onchange="pwSet(\''+p+'\',\'mode\',this.value)">'
    +'<option value="full"'+(d.mode==='full'?' selected':'')+'>전부 수임 (100%)</option>'
-   +'<option value="s6"'+(d.mode==='s6'?' selected':'')+'>서류작성만 · 제출대행만 → 60% (§6)</option>'
+   +(s6ok?'<option value="s6"'+(d.mode==='s6'?' selected':'')+'>서류작성만 · 제출대행만 → 60% (§6)</option>':'')
    +'<option value="s5"'+(d.mode==='s5'?' selected':'')+'>작성 완료 후 중단 → 60% 이내 (§5①)</option>'
    +'</select>';
   if(d.mode==='s5'){
@@ -3488,7 +3392,9 @@ function pwApply(p,fee){
   if(note){
     const d=PARTIAL[p];
     note.innerHTML=(r>=1)
-      ? '보수기준 <b>§6</b>(서류작성·제출대행만 60%) · <b>§5①</b>(작성 후 중단 60% 이내) 해당 시 선택하십시오'
+      ? (pwS6Ok(p)
+          ? '보수기준 <b>§6</b>(서류작성·제출대행만 60%) · <b>§5①</b>(작성 후 중단 60% 이내) 해당 시 선택하십시오'
+          : '보수기준 <b>§5①</b>(서류 작성 후 의뢰인 사정으로 중단 → 60% 이내) 해당 시 선택하십시오. <span class="hint">§6(60% 고정)은 등기·공탁 사건에만 적용됩니다</span>')
       : '<b style="color:var(--seal);">보수총액 '+won(fee)+' × '+Math.round(r*100)+'% = '+won(out)+'</b> '
         +'<span class="hint">'+(d.mode==='s6'?'§6 — 등기·공탁의 신청서류 작성만 또는 제출대행만':'§5① — 서류 작성 완료 후 위임인 사정으로 중단')
         +' · 공과금은 감액 대상이 아닙니다</span>';
@@ -4704,7 +4610,6 @@ const SCENARIO={
  "증여":{cat:'re',full:'gift'},
  "부담부증여":{cat:'re',full:'burden'},
  "상속":{cat:'re',full:'inherit'},
- "상속 지분 바로잡기(심판·조정분할 경정)":{cat:'re',full:'inheritFix',ref:'보수표 Ⅰ-3(2)'},
  "유증(유언에 의한 소유권이전)":{cat:'re',full:'bequest'},
  "소유권보존":{cat:'re',full:'preserve'},
  "근저당권설정":{cat:'re',full:'mortgage'},
@@ -4960,13 +4865,16 @@ function taxLocal(v){return taxTrim(v);}     // 지방세 — 10원 미만 절�
 function taxNational(v){return taxTrim(v);}  // 국세 — 10원 미만 절사
 function tierFee(key,a){const t=TIERS[key];if(!t)return 0;for(const[l,b,o,r]of t){if(a<=l)return b+(a-o)*r;}return 0;}
 document.getElementById('today').textContent=(()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');})();
-/* 할인율은 매일 바뀌므로 「오늘 넣은 값인지」를 늘 보이게 한다.
-   자동 조회는 하지 않는다 — 주택도시기금·은행 어느 쪽도 공개 API가 없고,
-   근거 없는 자동수집은 하지 않는다는 원칙에 따른다(27회차 결정). */
+/* 할인율은 매일 바뀌므로 「언제 확인한 값인지」를 늘 보이게 한다.
+   외부 기관·은행 화면을 자동 수집하지 않는다(27회차 결정 유지 — 2026-09 재확인):
+   · 은행 조회화면은 로봇 수집 차단(robots)·조회 폼 방식이고,
+   · 공공데이터포털·KRX 채권시세 API는 전 영업일 「가격」(할인율 아님)이며 공공누리 4유형(상업적 이용·변경 금지)이다.
+   → 대신 사무소가 하루 한 번 넣은 값을 사무소 서버(/api/bond-rate)에 두고 의뢰인 화면이 자동으로 읽는다(아래 bondFetchShared). */
 function todayKey(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
 function saveBondRate(){try{
   localStorage.setItem('sanlaw_bondRate',document.getElementById('bondRate').value);
   localStorage.setItem('sanlaw_bondRateDay',todayKey());
+  localStorage.setItem('sanlaw_bondRateSrc','manual');
 }catch(e){}
   paintBondRateBadge();}
 /* 사무소 정보는 이 기기에 저장해 둔다 — 매번 다시 넣지 않으셔도 된다. 2026-08 신설 */
@@ -4990,13 +4898,18 @@ function officeReady(){
 }
 function paintBondRateBadge(){
   const el=document.getElementById('bondRateBadge');if(!el)return;
-  let day=null;try{day=localStorage.getItem('sanlaw_bondRateDay');}catch(e){}
-  if(day===todayKey()){el.textContent='✓ 오늘 확인함';el.style.color='#9fd6a8';el.title='오늘 날짜로 할인율을 입력하셨습니다.';}
-  else if(day){
-    const gap=Math.round((new Date(todayKey())-new Date(day))/86400000);
-    el.textContent='⚠ '+day+' 입력분 ('+gap+'일 전) — 다시 확인하십시오';
-    el.style.color='#f3d27a';el.title='할인율은 영업일마다 바뀝니다. 조회 버튼을 눌러 오늘 값을 확인하십시오.';
-  }else{el.textContent='⚠ 오늘 값을 확인하십시오';el.style.color='#f3d27a';}
+  let day=null,src=null;try{day=localStorage.getItem('sanlaw_bondRateDay');src=localStorage.getItem('sanlaw_bondRateSrc');}catch(e){}
+  const t=todayKey(), dow=new Date().getDay();
+  const gap=day?Math.round((new Date(t)-new Date(day))/86400000):null;
+  /* 토·일에는 고시율이 새로 나오지 않으므로 직전 금요일 값이 최신이다 (공휴일은 판별하지 않음) */
+  const lastBiz=day&&((dow===6&&gap===1)||(dow===0&&gap===2));
+  const G='#9fd6a8',Y='#f3d27a';
+  if(src==='office'&&day===t){el.textContent='✓ 오늘('+day+') 고시율 자동 반영';el.style.color=G;el.title='사무소가 오늘 은행 고시율을 확인해 넣은 값입니다.';}
+  else if(src==='office'&&lastBiz){el.textContent='✓ 최근 영업일('+day+') 고시율 자동 반영';el.style.color=G;el.title='주말에는 고시율이 새로 나오지 않습니다. 등기는 평일에 하므로 그날 값으로 다시 확인됩니다.';}
+  else if(src==='office'&&day){el.textContent='⚠ '+day+' 사무소 확인값 ('+gap+'일 전) — 오늘 값은 아직 등록 전입니다';el.style.color=Y;el.title='오늘 값이 등록되면 자동으로 바뀝니다. 급하시면 조회 버튼으로 직접 확인해 넣으셔도 됩니다.';}
+  else if(day===t){el.textContent='✓ 오늘 직접 확인함';el.style.color=G;el.title='오늘 날짜로 할인율을 직접 입력하셨습니다.';}
+  else if(day){el.textContent='⚠ '+day+' 입력분 ('+gap+'일 전) — 다시 확인하십시오';el.style.color=Y;el.title='할인율은 영업일마다 바뀝니다. 조회 버튼을 눌러 오늘 값을 확인하십시오.';}
+  else{el.textContent='⚠ 예시값입니다 — 오늘 값을 확인하십시오';el.style.color=Y;el.title='사무소 확인값을 불러오지 못했습니다. 조회 버튼으로 오늘 값을 확인해 넣어 주세요.';}
 }
 /* 송달료 1회 기준금액 — 회차는 「송달료규칙의 시행에 따른 업무처리요령」(재일 87-4) 별표1,
    단가는 「국내 통상우편요금 및 우편이용에 관한 수수료」(과기부 고시) 연동.
@@ -5010,6 +4923,57 @@ function songUnit(){const e=document.getElementById('songUnit');const v=e?numOf(
 function saveSongUnit(){try{localStorage.setItem('sanlaw_songUnit',document.getElementById('songUnit').value);}catch(e){}}
 (function(){try{var s=localStorage.getItem('sanlaw_bondRate');if(s!==null&&s!==''&&!isNaN(parseFloat(s)))document.getElementById('bondRate').value=s;}catch(e){}})();
 try{paintBondRateBadge();}catch(e){}      /* 할인율 최신 여부 배지 */
+/* ═══ 국민주택채권 할인율 — 사무소 확인값 자동 반영 (2026-09 신설) ═══
+   ① 사무소(관리자 기기)에서 은행 고시율을 확인해 칸에 넣고 「📤 의뢰인 화면에 적용」을 누른다.
+   ② 값은 사무소 사이트 자체 서버(Cloudflare Pages Functions + KV · /api/bond-rate)에만 저장된다.
+      외부 기관 API·자동수집은 쓰지 않는다.
+   ③ 의뢰인이 계산기를 열면 그 값을 읽어 칸에 넣고 기준일을 표시한다.
+   ④ 서버 기능이 없거나 응답이 없으면 종전 방식(직접 입력)으로 그대로 동작한다. */
+const BOND_API='/api/bond-rate';
+let BOND_SHARED=null;
+function bondValidRate(r){r=Number(r);return isFinite(r)&&r>0&&r<50;}
+function bondIsAdmin(){try{return localStorage.getItem('sanlaw_calc_admin')==='1';}catch(e){return false;}}
+function bondApplyShared(j){
+  if(!j||!bondValidRate(j.rate)||!/^\d{4}-\d{2}-\d{2}$/.test(String(j.date||'')))return;
+  BOND_SHARED={rate:Number(j.rate),date:j.date,updatedAt:j.updatedAt||''};
+  let day=null,src=null;try{day=localStorage.getItem('sanlaw_bondRateDay');src=localStorage.getItem('sanlaw_bondRateSrc');}catch(e){}
+  /* 이 기기에서 사무소 값보다 「나중 날짜」에 직접 넣은 값이 있으면 그 값을 존중한다 */
+  if(src!=='office'&&day&&day>BOND_SHARED.date){paintBondRateBadge();return;}
+  const el=document.getElementById('bondRate');
+  const changed=el&&Number(el.value)!==BOND_SHARED.rate;
+  if(el)el.value=BOND_SHARED.rate;
+  try{localStorage.setItem('sanlaw_bondRate',String(BOND_SHARED.rate));localStorage.setItem('sanlaw_bondRateDay',BOND_SHARED.date);localStorage.setItem('sanlaw_bondRateSrc','office');}catch(e){}
+  if(changed){try{recalc();}catch(e){}}
+  paintBondRateBadge();
+}
+function bondFetchShared(){
+  if(typeof fetch!=='function')return;
+  fetch(BOND_API,{cache:'no-store',headers:{'Accept':'application/json'}})
+    .then(function(r){return (r.ok&&/json/.test(r.headers.get('content-type')||''))?r.json():null;})
+    .then(function(j){if(j)bondApplyShared(j);})
+    .catch(function(){});
+}
+function bondPublish(){
+  const v=numOf(document.getElementById('bondRate').value);
+  if(!bondValidRate(v)){alert('할인율을 0보다 크고 50보다 작은 숫자로 넣어 주십시오.');return;}
+  let key=null;try{key=localStorage.getItem('sanlaw_bond_key');}catch(e){}
+  if(!key){key=prompt('할인율 공유 비밀번호를 입력하십시오.\n(Cloudflare에 등록한 BOND_ADMIN_KEY — 이 기기에만 저장됩니다)');if(!key)return;}
+  if(!confirm('할인율 '+v+'% 를 오늘('+todayKey()+') 값으로 모든 의뢰인 화면에 적용합니다.\n은행 고시율과 같은지 확인하셨습니까?'))return;
+  const btn=document.getElementById('bondPubBtn');if(btn){btn.disabled=true;btn.textContent='저장 중…';}
+  fetch(BOND_API,{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+key},body:JSON.stringify({rate:v})})
+    .then(function(r){return r.json().catch(function(){return {};}).then(function(j){return {ok:r.ok,status:r.status,j:j};});})
+    .then(function(x){
+      if(x.ok){try{localStorage.setItem('sanlaw_bond_key',key);}catch(e){}
+        bondApplyShared(x.j);alert('저장했습니다. 지금부터 의뢰인 화면에 '+x.j.rate+'% ('+x.j.date+' 기준)가 자동으로 들어갑니다.');}
+      else if(x.status===401){try{localStorage.removeItem('sanlaw_bond_key');}catch(e){}alert('비밀번호가 맞지 않습니다. 버튼을 다시 눌러 입력해 주십시오.');}
+      else if(x.status===404||x.status===405){alert('공유 기능이 아직 서버에 설치되지 않았습니다.\n(functions/api/bond-rate.js 업로드와 KV 연결이 필요합니다)');}
+      else alert('저장하지 못했습니다: '+((x.j&&x.j.error)||('HTTP '+x.status)));
+    })
+    .catch(function(){alert('서버에 연결하지 못했습니다. 인터넷 연결을 확인해 주십시오.');})
+    .then(function(){if(btn){btn.disabled=false;btn.textContent='📤 의뢰인 화면에 적용';}});
+}
+(function(){try{if(bondIsAdmin()){const b=document.getElementById('bondPubBtn');if(b)b.style.display='inline-block';}}catch(e){}
+  bondFetchShared();})();
 (function(){try{var u=localStorage.getItem('sanlaw_songUnit');
   if(u!==null&&u!==''&&!isNaN(parseFloat(u))&&parseFloat(u)>0){
     if(parseFloat(u)===5500){localStorage.removeItem('sanlaw_songUnit');}  // 2026.7.1. 인상 전 저장값은 폐기하고 신규 기준(5,640) 적용
@@ -5039,7 +5003,6 @@ function _doOpenScenario(name){
   document.getElementById('hsub').textContent=name;
   if(SCENARIO[name].full===true){document.getElementById('scene-매매').classList.add('active');calcSale();}
   else if(SCENARIO[name].full==='inherit'){document.getElementById('scene-상속').classList.add('active');calcInherit();}
-  else if(SCENARIO[name].full==='inheritFix'){document.getElementById('scene-상속경정').classList.add('active');calcInheritFix();}
   else if(SCENARIO[name].full==='bequest'){document.getElementById('scene-유증').classList.add('active');calcBequest();}
   else if(SCENARIO[name].full==='guardian'){document.getElementById('scene-후견').classList.add('active');calcGuardian();}
   else if(SCENARIO[name].full==='litcost'){document.getElementById('scene-소송비용확정').classList.add('active');calcLitCost();}
@@ -5871,248 +5834,6 @@ const GUARD_AGENT=[
  ['gda5','그 밖에 수임사건 관련 대행 (1건)','Ⅸ-13']
 ];
 
-
-/* ===================== 상속 지분 바로잡기 — 심판·조정분할에 의한 소유권경정등기 =====================
-   [29회차 신설]
-   법정상속분대로 상속등기를 마친 뒤 가정법원의 상속재산분할심판(또는 조정)이 확정되어
-   지분이 달라진 경우, 「소유권경정등기」로 바로잡는다.
-
-   · 등기원인 : '심판분할'(조정은 '조정분할'), 연월일은 심판 확정일(조정조서 기재일)
-       → 등기예규 제1675호 「상속등기와 그 경정등기에 관한 업무처리지침」 3.가 [A]
-   · 등기신청수수료 : 「그 밖의 등기」 4,000 / 3,000 / 1,000 (수수료규칙 §5의2 ④ — '경정' 명시) [A]
-   · 취득세 : 원칙 과세. 지방세법 §7⑬은 늘어난 지분을 증여취득으로 의제한다.
-       ※ 법원 심판이라고 당연히 면제되지 않는다 — 조세심판원 조심2022지1238(2023.2.1.)은
-         분할심판에 의한 조정조서 사안에서 §7⑬2호의 '상속회복청구의 소'가 아니라는 이유로 과세 유지.
-       예외 4갈래 → §7⑬1호(신고·납부기한 내), 2호(상속회복청구 확정판결), 3호(채권자대위),
-                    대법원 2002.7.12. 선고 2001두441(당초 등기가 상속인 1인의 일방적 등기인 경우)
-   · 등록면허세 : 위 예외로 취득이 아닌 때에만 「그 밖의 등기」 6,000원/건 + 지방교육세 20%
-       (지방세법 §28①1호마목 · §151①2호) [A]
-   · 국민주택채권 : 종전 상속등기 때 매입했다면 「증가하는 지분만큼」만 매입
-       → 「상속등기에 관한 업무처리지침」 [A]
-   · 인지세 : 없음(원인이 법원 심판서라 과세문서가 없다)
-   · 보수 : 보수표 Ⅰ-3(2) 「권리의 변경·경정 또는 회복」 120,000원 (§9⑤2호) [A]
-       등기원인증서 작성료는 붙이지 않는다(원인증서가 법원 심판서이므로).
-*/
-
-/* 지방세법 §20① 신고·납부기한 — 상속개시일이 속하는 달의 말일부터 6개월,
-   외국에 주소를 둔 상속인이 있으면 9개월 */
-function icDeadline(deathStr, abroad){
-  if(!deathStr) return null;
-  const d=new Date(deathStr+'T00:00:00');
-  if(isNaN(d.getTime())) return null;
-  const eom=new Date(d.getFullYear(), d.getMonth()+1, 0);      /* 사망일이 속한 달의 말일 */
-  const t=new Date(eom.getFullYear(), eom.getMonth()+(abroad?9:6), eom.getDate());
-  if(t.getDate()!==eom.getDate()) t.setDate(0);                /* 달 넘침 보정 */
-  return t;
-}
-function icFmt(d){
-  if(!d) return '';
-  return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
-}
-function icShareRatio(dId,nId){
-  const D=Math.max(1,numOf(document.getElementById(dId).value)||1);
-  const N=Math.max(0,numOf(document.getElementById(nId).value)||0);
-  return N/D;
-}
-
-function calcInheritFix(fromEdit){
-  const cntE=Math.max(1,val('ic_cntEstate'));
-  const price=val('ic_price');
-  const isJudge=radio('ic_type')==='judge';
-
-  /* ── 지분 ── */
-  const sb=icShareRatio('ic_sbD','ic_sbN'), sa=icShareRatio('ic_saD','ic_saN');
-  const inc=Math.max(0, sa-sb);
-  const base=Math.round(price*inc);
-  const si=document.getElementById('ic_shareInfo');
-  if(si){
-    si.innerHTML = (inc>0)
-      ? '늘어나는 지분은 <b>'+(inc*100).toFixed(4).replace(/\.?0+$/,'')+'%</b>입니다. 세금이 붙는다면 그 대상 금액은 <b>'+won(base)+'</b>입니다. <span class="hint">(부동산 전체 '+won(price)+' × 늘어난 지분)</span>'
-      : '<b>늘어나는 지분이 없습니다.</b> 지분이 그대로이거나 줄어드는 경우에는 추가 취득세가 생기지 않고 <b>등록면허세만</b> 냅니다. <span class="hint">지분이 줄어드는 분은 이미 낸 취득세를 돌려받지 못하는 점에 유의하십시오.</span>';
-  }
-
-  /* ── 추가 취득세 판정 ── */
-  const abroad=chk('ic_abroad');
-  const dl=icDeadline(document.getElementById('ic_deathDate').value, abroad);
-  const fixStr=document.getElementById('ic_fixDate').value;
-  const fix=fixStr?new Date(fixStr+'T00:00:00'):null;
-  let ex1=false, ex1msg='';
-  if(!dl){ ex1msg='<b>사망일</b>을 넣으시면 기한을 계산해 드립니다.'; }
-  else if(!fix||isNaN(fix.getTime())){ ex1msg='기한은 <b>'+icFmt(dl)+'</b>까지입니다('+(abroad?'9':'6')+'개월). <b>신청 예정일</b>을 넣으시면 판정해 드립니다.'; }
-  else {
-    ex1 = fix.getTime()<=dl.getTime();
-    ex1msg = '기한 <b>'+icFmt(dl)+'</b>('+(abroad?'9':'6')+'개월) · 신청 예정 '+icFmt(fix)+' → '
-      + (ex1?'<b style="color:#1d7a46;">기한 안 ✔ 추가 취득세 없음</b>':'<b style="color:var(--seal);">기한 지남 ✘</b>');
-  }
-  const e1=document.getElementById('ic_ex1Info');
-  if(e1) e1.innerHTML = ex1msg + '<span class="law" title="지방세법 제7조제13항 제1호 — 제20조제1항에 따른 신고·납부기한 내에 재분할에 의한 취득과 등기등을 모두 마친 경우. 신고·납부기한은 상속개시일이 속하는 달의 말일부터 6개월(외국에 주소를 둔 상속인이 있는 경우 9개월).">§7⑬1호</span>';
-
-  const ex2=chk('ic_ex2'), ex3=chk('ic_ex3'), ex4=(radio('ic_orig')==='one');
-  const n4=document.getElementById('ic_ex4Note'); if(n4) n4.style.display=ex4?'block':'none';
-  const exempt = ex1||ex2||ex3||ex4||(inc<=0);
-  const taxable = !exempt;
-
-  const vd=document.getElementById('ic_verdict');
-  if(vd){
-    const why=[]; if(ex1)why.push('신고·납부기한 안에 신청'); if(ex2)why.push('상속회복청구의 소 확정판결');
-    if(ex3)why.push('채권자대위 등기의 협의분할'); if(ex4)why.push('당초 등기가 상속인 1인의 일방적 등기');
-    if(inc<=0)why.push('늘어나는 지분 없음');
-    vd.style.background = taxable?'#fdeaea':'#eef7ef';
-    vd.innerHTML = taxable
-      ? '<b style="color:var(--seal);font-size:15px;">▶ 추가 취득세가 붙습니다</b><br>늘어난 지분 <b>'+won(base)+'</b>을(를) <b>증여받은 것으로 보아</b> 취득세를 다시 냅니다. 네 갈래 예외 중 어디에도 해당하지 않기 때문입니다.<br><span class="hint">가장 흔한 절세 지점은 <b>①번 기한</b>입니다. 기한이 아직 남아 있다면 <b>서두르면 세금을 아낄 수 있습니다.</b> 위 「신청 예정일」을 앞당겨 넣어 보십시오.</span>'
-      : '<b style="color:#1d7a46;font-size:15px;">▶ 추가 취득세 없이 등록면허세만 냅니다</b><br>사유 — '+why.join(' · ')+'<br><span class="hint">등록면허세는 부동산 1개마다 6,000원, 지방교육세 1,200원입니다.</span>';
-  }
-
-  /* ── 공과금 ── */
-  const showTax=(el,on)=>{const e=document.getElementById(el);if(e)e.style.display=on?'table-row':'none';};
-  showTax('ic_acqRow',taxable); showTax('ic_eduRow',taxable); showTax('ic_ruralRow',taxable);
-  showTax('ic_regTaxRow',!taxable); showTax('ic_regEduRow',!taxable);
-
-  let acq=0, edu=0, rural=0, regTax=0, regEdu=0;
-  if(taxable){
-    const rate=chk('ic_nonprofit')?0.028:0.035;
-    if(!fromEdit){
-      acq=base*rate;
-      edu=base*(rate-0.02)*0.2;                                   /* §151①1호 */
-      rural=(radio('ic_ptype')==='house'&&!chk('ic_over85'))?0:base*0.002;   /* 85㎡ 이하 주택 비과세 */
-      document.getElementById('ic_acqTax').value=taxLocal(Math.round(acq));
-      document.getElementById('ic_eduTax').value=taxLocal(Math.round(edu));
-      document.getElementById('ic_ruralTax').value=taxLocal(Math.round(rural));
-      const ar=document.getElementById('ic_acqRate');
-      if(ar)ar.textContent='('+(rate*100).toFixed(1)+'% 무상취득'+(chk('ic_nonprofit')?' · 비영리사업자':'')+')';
-    }
-    acq=val('ic_acqTax'); edu=val('ic_eduTax'); rural=val('ic_ruralTax');
-  }else{
-    document.getElementById('ic_acqTax').value=0;
-    document.getElementById('ic_eduTax').value=0;
-    document.getElementById('ic_ruralTax').value=0;
-    regTax=6000*cntE; regEdu=Math.round(regTax*0.2);
-    document.getElementById('ic_regTaxCell').textContent=won(regTax);
-    document.getElementById('ic_regEduCell').textContent=won(regEdu);
-    const rn=document.getElementById('ic_regTaxNote'); if(rn)rn.textContent='(6,000 × '+cntE+'개)';
-  }
-
-  const tn=document.getElementById('ic_taxNote');
-  if(tn) tn.innerHTML = taxable
-    ? '늘어난 지분을 <b>증여로 보아</b> 취득세 <b>3.5%</b>(비영리사업자 2.8%)를 냅니다. 지방교육세 0.3%, 농어촌특별세 0.2%가 함께 붙되 <b>전용 85㎡ 이하 주택은 농특세가 면제</b>됩니다. 과세표준은 <b>늘어난 지분에 해당하는 금액</b>입니다.'
-    : '추가 취득세가 없으므로 <b>등록면허세</b>만 냅니다. 소유권경정등기는 「그 밖의 등기」여서 <b>부동산 1개마다 6,000원</b>이고, 지방교육세가 그 20%인 1,200원 붙습니다.';
-
-  const bondLoss=Math.round(val('ic_bondBuy')*val('bondRate')/100);
-  document.getElementById('ic_bondLossCell').textContent=won(bondLoss);
-  const bn=document.getElementById('ic_bondNote'); if(bn)bn.textContent='(할인율 '+val('bondRate')+'%)';
-
-  const m=document.getElementById('ic_regMethod').value;const idx=m==='p'?0:(m==='o'?2:1);
-  const unit=REG_RE.기타[idx];const regFee=unit*cntE;
-  document.getElementById('ic_regFeeCell').textContent=won(regFee);
-  document.getElementById('ic_regNote').textContent='「그 밖의 등기」 건당 '+unit.toLocaleString();
-  const post=val('ic_postFee')*cntE;
-  const publicSum=acq+edu+rural+regTax+regEdu+bondLoss+regFee+post+pubCustomSum('scene-상속경정');
-  document.getElementById('ic_publicSum').textContent=won(publicSum);
-
-  /* ── 보수 ── 보수표 Ⅰ-3(2) 권리의 변경·경정 또는 회복 120,000원 */
-  const adj=parseFloat(document.getElementById('ic_adjust').value)||1;
-  const feeRaw=FLAT['Ⅰ-3(2)'];
-  const feeBase=Math.round(feeRaw*adj);
-  document.getElementById('ic_feeBaseCell').textContent=won(feeBase);
-  document.getElementById('ic_feeBaseNote').textContent='(소유권경정 120,000'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
-
-  const _fr=frAddRate('ic_frAdd'), feeForeign=Math.round(feeRaw*_fr);
-  {const r=document.getElementById('ic_feeForeignRow');
-   if(r){r.style.display=feeForeign>0?'table-row':'none';
-     document.getElementById('ic_feeForeignCell').textContent=won(feeForeign);
-     document.getElementById('ic_feeForeignNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+(_fr*100)+'% · §10⑥)';}}
-  const _mo=frAddRate('ic_moAdd'), feeMulti=Math.round(feeRaw*_mo);
-  {const r=document.getElementById('ic_feeMultiRow');
-   if(r){r.style.display=feeMulti>0?'table-row':'none';
-     document.getElementById('ic_feeMultiCell').textContent=won(feeMulti);
-     document.getElementById('ic_feeMultiNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+(_mo*100)+'% · §10④)';}}
-  const feeParty=partyAdd('ic_',feeRaw);
-  const feeCnt=(cntE-1)*20000;
-  {const r=document.getElementById('ic_feeCntRow');
-   if(r){r.style.display=feeCnt>0?'table-row':'none';
-     document.getElementById('ic_feeCntCell').textContent=won(feeCnt);
-     document.getElementById('ic_feeCntNote').textContent='(1개 초과 '+(cntE-1)+'개 × 20,000)';}}
-
-  const lb=document.getElementById('ic_taxAgentLabel');
-  if(lb) lb.textContent = taxable?'취득세 신고대행':'등록면허세 신고대행';
-  const taxAgent=chk('ic_f_tax')?50000:0;
-  const bondAgent=chk('ic_f_bond')?40000:0;
-  document.getElementById('ic_taxAgentCell').textContent=won(taxAgent);
-  document.getElementById('ic_bondAgentCell').textContent=won(bondAgent);
-  const trip=chk('ic_f_trip')?val('ic_tripFee'):0;
-
-  const fee=feeBase+feeForeign+feeMulti+feeParty+feeCnt+taxAgent+bondAgent+trip;
-  document.getElementById('ic_feeSum').textContent=won(fee);
-  const vat=Math.round(fee*0.1);
-  document.getElementById('ic_t_fee').textContent=won(fee);
-  document.getElementById('ic_t_vat').textContent=won(vat);
-  document.getElementById('ic_t_public').textContent=won(publicSum);
-  document.getElementById('ic_t_grand').textContent=won(fee+vat+publicSum);
-
-  if(!fromEdit) renderDocsInheritFix();
-}
-
-/* 준비서류 — 심판 주문의 형식에 따라 신청 구조가 갈린다.
-   · 이행을 명하는 주문 : 가사소송법 §41(집행권원) + 부동산등기법 §23④ → 등기권리자 단독신청
-   · 형성 주문만       : 단독신청 근거가 약해 등기소가 감축자 서류를 요구할 수 있다 → 사전 확인 안내 */
-function renderDocsInheritFix(){
-  const box=document.getElementById('ic_docsBox'); if(!box)return;
-  const isJudge=radio('ic_type')==='judge';
-  const word=isJudge?'심판':'조정';
-  const paper=isJudge?'상속재산분할심판서 정본':'조정조서 정본';
-  const comp=radio('ic_order')==='comp';
-  const third=chk('ic_third');
-  const fr=chk('ic_frDoc');
-
-  let h='';
-  h+='<div class="dl"><b style="color:var(--seal);">■ 반드시 필요한 서류</b><br>'
-    +'· <b>'+paper+'</b> — 사건을 맡았던 <b>가정법원</b>에서 발급받습니다<br>'
-    +'· <b>확정증명원</b> — 같은 법원에서 함께 신청하십시오. <b>등기원인 날짜</b>가 이 서류의 확정일입니다<br>'
-    +'· <b>가족관계증명서(상세)·기본증명서(상세)·제적등본</b> 등 상속을 증명하는 서류<br>'
-    +'· <b>주민등록표 초본</b>(지분을 받는 상속인 · 주소이력 포함)<br>'
-    +'· <b>토지대장등본·건축물대장등본</b><br>'
-    +'· <b>등기신청 위임장</b><br>'
-    +'· <b>등기사항전부증명서</b> — 지금 등기부에 적힌 지분 확인용<br>'
-    +'· 세금 영수필확인서 · <b>등기신청수수료 영수필확인서</b>'
-    +'</div>';
-
-  h+='<div class="dl" style="background:#eef7ef;border-radius:6px;padding:6px 8px;"><b style="color:#1d7a46;">■ 지분을 받는 분 혼자 신청하실 수 있습니다</b><br>'
-    +'· <b>지분이 줄어드는 상속인의 인감증명서·인감도장·등기필정보(등기권리증)는 필요하지 않습니다.</b> 그분이 협조하지 않아도 등기할 수 있습니다<span class="law" title="단독신청이므로 부동산등기법 제50조제2항의 등기필정보와 부동산등기규칙 제60조의 인감증명은 제공할 필요가 없다.">법 §50② · 규칙 §60</span><br>'
-    +'· 이 등기의 원인은 <b>「'+word+'분할」</b>로서 <b>상속을 원인으로 하는 등기</b>입니다. 상속에 따른 등기는 <b>등기권리자가 단독으로</b> 신청합니다<span class="law" title="부동산등기법 제23조제3항 — 상속, 법인의 합병, 그 밖에 대법원규칙으로 정하는 포괄승계에 따른 등기는 등기권리자가 단독으로 신청한다.">부동산등기법 §23③</span><br>'
-    +'· <span class="hint">상속재산분할'+word+'은 <b>확정되는 순간 그 자체로 소유관계가 바뀌는 재판</b>이라, 상대방이 등기에 동의한다는 의사표시를 따로 할 필요가 없습니다. 대법원도 공유물분할 사건에서 <b>그렇게 확정되면 상대방이 등기신청에 관한 의사표시를 별도로 할 필요가 없다</b>고 밝혔습니다.</span></div>';
-  h+= comp
-    ? '<div class="dl" style="background:#fdf6e8;border-radius:6px;padding:6px 8px;"><b style="color:var(--gold);">■ 돈을 먼저 주셔야 등기가 됩니다</b><br>'
-      +'· 주문이 <b>「○○원을 지급받음과 동시에 …이행하라」</b>처럼 <b>돈과 등기가 한 문장</b>에 걸려 있는 경우입니다<br>'
-      +'· 더 필요한 것 — <b>정산금을 지급했다는 증명</b>(계좌이체 확인서·영수증)과 그것으로 법원에서 받는 <b>집행문</b><br>'
-      +'· <span class="hint">등기절차의 이행을 명하는 재판이라도 <b>상환이행·선이행·조건부이행</b>인 경우에는 <b>집행문을 붙여야</b> 합니다<span class="law" title="민사집행법 제263조제2항 — 반대의무의 이행과 동시에 의사표시를 할 것인 때에는 제30조제2항과 제32조에 따라 집행문을 내어 준 때에 그 의사를 진술한 것으로 본다.">민사집행법 §263②</span>. 돈을 주지 않은 채로는 등기가 되지 않습니다.</span><br>'
-      +'· 발급처 — <b>집행문</b>은 '+word+'을 한 <b>가정법원</b>에 지급 증명서류를 내고 받으십니다<br>'
-      +'· <span class="hint">상대방이 돈을 받지 않겠다고 버티면 <b>변제공탁</b>(법원 공탁소)을 하고 <b>공탁서</b>로 증명하시면 됩니다. 상담 때 함께 도와드립니다.</span></div>'
-    : '<div class="dl" style="background:#eef7ef;border-radius:6px;padding:6px 8px;"><b style="color:#1d7a46;">■ 정산금과 상관없이 등기를 먼저 하실 수 있습니다</b><br>'
-      +'· 주문에 정산금이 <b>번호를 나눠 따로</b> 적혀 있거나 정산금 자체가 없는 경우입니다<br>'
-      +'· 이때 정산금은 <b>등기와 묶이지 않은 별개의 채무</b>여서, <b>집행문 없이</b> 심판서 정본과 확정증명원만으로 등기할 수 있습니다<br>'
-      +'· <span class="hint">다만 정산금을 주실 의무는 그대로 남습니다. 주지 않으시면 상대방이 그 부분만 따로 <b>강제집행</b>할 수 있습니다<span class="law" title="가사소송법 제41조 — 금전의 지급, 물건의 인도, 등기, 그 밖의 의무의 이행을 명하는 심판은 집행권원이 된다.">가사소송법 §41</span>. 등기를 마치신 뒤라도 <b>기한 안에 지급</b>하십시오.</span></div>';
-
-  if(third){
-    h+='<div class="dl" style="background:#fdeaea;border-radius:6px;padding:6px 8px;"><b style="color:var(--seal);">■ 이것이 없으면 등기가 막힙니다</b><br>'
-      +'· <b>이해관계 있는 제3자의 승낙서</b>(인감증명서 첨부) 또는 <b>이에 대항할 수 있는 재판의 등본</b><br>'
-      +'· 법정상속등기 뒤에 <b>지분이 줄어드는 상속인 몫에</b> 가압류·근저당권 등이 붙은 경우입니다<span class="law" title="「상속등기에 관한 업무처리지침」 — 법정상속분대로 상속등기가 된 뒤 그 상속인 중 1인의 지분에 대한 가압류등기 등 이해관계 있는 제3자가 생긴 경우, 경정등기 신청 시 그가 권리를 상실하거나 지분이 감소하는 때에는 이해관계 있는 제3자인 가압류권자의 승낙서 또는 이에 대항할 수 있는 재판의 등본을 첨부하여야 한다.">상속등기 업무처리지침</span><br>'
-      +'· <span class="hint">상속재산 분할은 상속이 시작된 때로 <b>거슬러 올라가 효력</b>이 생기지만, <b>이미 생긴 제3자의 권리는 해치지 못합니다</b>(민법 §1015 단서). '+word+'만으로 가압류를 지울 수는 없습니다.</span></div>';
-  }
-
-  if(fr){
-    h+='<div class="dl" style="background:#f2f6fb;border-radius:6px;padding:6px 8px;"><b style="color:#2b5a9b;">■ 외국인·재외국민이 있는 경우</b><br>'
-      +'· <b>재외국민</b> — 재외국민등록부등본, 주소를 공증한 서면(또는 재외공관 확인), 인감증명서가 없으면 <b>서명확인서</b> 또는 본인서명사실확인서<br>'
-      +'· <b>외국인</b> — 국적국 관공서의 <b>주소증명서면</b>(아포스티유 또는 영사확인), 성명·생년월일 증명서면, 외국인등록사실증명(국내 등록자)<br>'
-      +'· 번역이 필요한 서류는 <b>번역문</b>과 번역인의 확인을 함께 냅니다<span class="law" title="「재외국민 및 외국인의 부동산등기신청절차에 관한 예규」">등기예규 재외국민·외국인</span><br>'
-      +'· <span class="hint">서류를 외국에서 받아야 하면 <b>기간이 한두 달 더 걸립니다.</b> ①번 기한(세금) 판정에 영향을 주니 <b>먼저 착수</b>하십시오.</span></div>';
-  }
-
-  h+='<div class="dl" style="border-top:1px dashed var(--line);margin-top:6px;padding-top:6px;">'
-    +'<b style="color:var(--seal);">※ 모든 증명서는 주민등록번호 뒷자리가 나오게 발급받으십시오.</b><br>'
-    +'<span class="hint">▸ 발급처 — 가족관계증명서·기본증명서: <b>대법원 전자가족관계등록시스템</b> 또는 시·군·구청 / 주민등록초본: <b>정부24</b> 또는 주민센터 / 토지·건축물대장: <b>정부24</b> / '+paper+'·확정증명원: <b>사건을 맡았던 가정법원</b></span></div>';
-
-  box.innerHTML=h;
-}
 
 /* ═══════════ 유증 등기 — 상속 화면을 바탕으로 분기 ═══════════ */
 let bq_curBondType=null;
@@ -10512,24 +10233,15 @@ window.addEventListener('afterprint',unprepPrint);
 function ofVal(id,def){const e=document.getElementById(id);return (e&&e.value.trim())?e.value.trim():(def||'');}
 function numFrom(cell){if(!cell)return 0;const inp=cell.querySelector('input');if(inp)return numOf(inp.value)||0;let txt=cell.textContent.replace(/\([^)]*\)/g,'');return parseFloat(txt.replace(/[^0-9]/g,''))||0;}
 /* td에서 항목명만 추출 (select·hint·tag·input 제외) */
-/* 영수증 적요 이름 뽑기 [29회차 정정]
-   화면에는 근거 조문을 함께 보여 주지만, 의뢰인에게 나가는 영수증 적요에는
-   조문이 들어가면 안 된다. 종전에는 .hint 와 .tag 만 걸러내고 .law 는 그대로
-   남겨 두어 「취득세 지방세법 §11①7호·8호」처럼 찍혔다. .law 를 함께 제외하고,
-   <label> 안쪽에서도 select·option·.law·.tag 를 똑같이 걸러낸다. */
 function cellName(td){
-  const skip=n=>{
-    if(!n||n.nodeType!==1)return false;
-    const t=n.tagName;
-    if(t==='SELECT'||t==='INPUT'||t==='OPTION'||t==='BUTTON')return true;
-    return !!(n.classList&&(n.classList.contains('hint')||n.classList.contains('tag')||n.classList.contains('law')));
-  };
   let s='';
   td.childNodes.forEach(n=>{
     if(n.nodeType===3){s+=n.textContent;return;}
     if(n.nodeType!==1)return;
-    if(skip(n))return;
-    if(n.tagName==='LABEL'){n.childNodes.forEach(c=>{if(c.nodeType===3)s+=c.textContent;else if(c.nodeType===1&&!skip(c))s+=c.textContent;});return;}
+    const tag=n.tagName;
+    if(tag==='SELECT'||tag==='INPUT')return;
+    if(n.classList&&(n.classList.contains('hint')||n.classList.contains('tag')))return;
+    if(tag==='LABEL'){n.childNodes.forEach(c=>{if(c.nodeType===3)s+=c.textContent;else if(c.nodeType===1&&c.tagName!=='INPUT'&&!(c.classList&&c.classList.contains('hint')))s+=c.textContent;});return;}
     s+=n.textContent;
   });
   return s.replace(/\s+/g,' ').trim();
@@ -10571,19 +10283,52 @@ function collectRows(card,stripParen){
       const qi=tr.querySelector('input[type=number]');
       const qty=qi?Math.max(1,numOf(qi.value)||1):1;
       amt=unit?unit*qty:numFrom(tds[tds.length-1]);
-      /* 적요는 항목명만 — 단가('○○원')·수량 표기 제거.
-         [29회차 정정] 종전에는 여기서 textContent 를 그대로 써서 cellName() 을
-         건너뛰었다. 그 탓에 대행료 행만 선택상자 문구와 근거 조문이 영수증에
-         그대로 찍혔다(예: 「등기원인증서 작성·검인 문안 일반복잡·특수 +100%
-         보수기준 §25②」). 단가 <b> 만 지운 뒤 cellName() 을 태워 통일한다. */
+      // 적요는 항목명만 — 단가('○○원')·수량 표기 제거
       const lc=tds[0].cloneNode(true); const bb=lc.querySelector('b'); if(bb)bb.remove();
-      name=mapName(cellName(lc),stripParen);
+      name=mapName(lc.textContent.replace(/\s+/g,' ').trim(),stripParen);
     } else {
       amt=numFrom(tds[tds.length-1]);
     }
     if(amt>0&&name)rows.push([name,amt]);
   });
   return rows;
+}
+/* 영수증(별지 제9호)에 실을 행 — 2026-09 감사 정정
+   ① 범용화면·후견은 보수 카드 제목이 「법무사 보수」라 「수수료」로 찾으면 못 찾아
+      보수액이 통째로 빠졌다 → 두 제목 모두 찾는다.
+   ② 범용화면 공과금은 표(table.t)가 아니라 입력줄(.line)이라 인지·송달료가 빠졌다
+      → 표에서 한 줄도 못 얻으면 입력줄에서 읽는다(0원·합계줄 제외).
+   ③ §6·§5① 감액을 고른 경우 화면 합계만 줄고 영수증 행은 감액 전 금액이었다
+      → 감액분을 음수 한 줄로 붙여 영수증 합계를 화면 합계와 맞춘다. */
+function lineRows(card){
+  const out=[];if(!card||card.style.display==='none')return out;   /* 숨긴 카드 = 이 사건에 공과금 없음 */
+  card.querySelectorAll('.line').forEach(function(ln){
+    if(ln.style&&ln.style.display==='none')return;
+    const lb=ln.querySelector('.lbl'), inp=ln.querySelector('input.cell'), au=ln.querySelector('.auto');
+    if(!lb||(!inp&&!au))return;
+    const name=lb.textContent.replace(/\(원\)/,'').trim();
+    if(/계$/.test(name))return;
+    const v=numOf(inp?inp.value:au.textContent);
+    if(!isNaN(v)&&v!==0)out.push([name,Math.round(v)]);
+  });
+  return out;
+}
+function exportRows(scene){
+  const fc=findCard(scene,'수수료')||findCard(scene,'법무사 보수');
+  const fee=collectRows(fc,true);
+  const pc=findCard(scene,'공과금');
+  let pub=collectRows(pc,false);
+  if(!pub.length)pub=lineRows(pc);
+  const box=scene.querySelector('[id$="pwBox"]');
+  if(box&&fee.length){
+    const p=box.id.replace(/pwBox$/,''), r=pwRate(p);
+    if(r<1){
+      const gross=fee.reduce(function(a,x){return a+x[1];},0), net=Math.round(gross*r);
+      const md=(PARTIAL[p]||{}).mode;
+      if(net!==gross)fee.push([(md==='s6'?'감액\n(§6 60%)':'감액\n(§5① '+Math.round(r*100)+'%)'),net-gross]);
+    }
+  }
+  return {fee:fee,pub:pub};
 }
 function findCard(scene,keyword){let found=null;scene.querySelectorAll('.card').forEach(c=>{const h=c.querySelector('h2');if(h&&h.textContent.indexOf(keyword)>=0&&!found)found=c;});return found;}
 function won0(n){return (n||0).toLocaleString();}
@@ -10772,8 +10517,9 @@ async function _exportExcelCore(){
   if(typeof ExcelJS==='undefined'){alert('엑셀 라이브러리 로딩 중입니다. 잠시 후 다시 눌러주세요.');return;}
   const st=scene.querySelector('.stitle');
   const caseName=st?st.childNodes[0].textContent.trim():'법무사 보수';
-  const feeRows=collectRows(findCard(scene,'수수료'),true);
-  let pubRows=collectRows(findCard(scene,'공과금'),false);
+  const _xr=exportRows(scene);
+  const feeRows=_xr.fee;
+  let pubRows=_xr.pub;
   // 수정5: 채권할인 제목에 실제 할인율(전역 bondRate) 표시
   const brI=document.getElementById('bondRate');
   const br=brI&&brI.value?brI.value:'';
