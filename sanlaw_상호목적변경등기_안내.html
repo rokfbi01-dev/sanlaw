@@ -138,6 +138,7 @@ td a{color:var(--gold-d); word-break:break-all;}
 .gb td.no{background:#fdf7f5;color:#7a4a38;}
 .gb td.ok{background:#f4faf6;color:#2f6a47;font-weight:700;}
 .gb td.why{font-size:13px;color:var(--muted);background:#faf8f4;}
+@media print{.term>.bub{display:inline !important;position:static;background:none;color:#555;box-shadow:none;padding:0;width:auto;font-size:12px;}.term>.bub::before{content:" (";}.term>.bub::after{content:")";border:0;position:static;}.formbox .fold-body{display:block !important;}}
 </style>
 </head>
 <body>
@@ -214,10 +215,22 @@ td a{color:var(--gold-d); word-break:break-all;}
   마음에 드는 이름을 정하셨는데 주주총회·정관 정비에 시간이 걸리는 경우, <b>본점 소재지 관할 등기소에 「상호 가등기」를 신청해 그 이름을 먼저 확보</b>하실 수 있습니다(상법 §22조의2). 회사가 <b>상호나 목적, 또는 둘 다를 변경하려는 때</b>에도 쓸 수 있는 제도입니다. <b>남이 먼저 같은 이름을 등기해 버리는 사고</b>를 막아 줍니다.
 </div>
 
+<div class="tip">
+  <span class="pt">등기관은 「같은 상호」를 이렇게 판단합니다 — 동일상호 판단기준 예규(제1819호)</span>
+  <b>① 상호 자체</b> — <b>회사의 종류를 나타내는 문자</b>와 <b>괄호 안에 병기한 로마자</b>는 빼고 나머지만 비교합니다. 그래서 「주식회사 산로」와 「산로 주식회사」, 「산로(SANLAW)」와 「산로(SANRO)」는 <b>같은 상호</b>로 봅니다.<br>
+  <b>② 영업의 동종성</b> — 목적이 <b>일부만 겹쳐도</b> 원칙적으로 같은 영업으로 봅니다. 한쪽 목적이 다른 쪽 목적을 포함해도 마찬가지입니다. 「위 각 호에 부대하는 사업 일체」 부분은 비교에서 빼고 봅니다.<br>
+  <b>③ 목적만 바꿔도 심사합니다</b> — 상호는 그대로 두고 <b>목적만 추가</b>하더라도, 그 결과 같은 시·군에서 같은 상호를 쓰는 회사와 영업이 겹치게 되면 <b>각하</b>될 수 있습니다(예규 제1819호 §4①). 목적을 넣으실 때도 상호 조회를 다시 하십시오.
+</div>
+
 <h3>상호를 쓸 때 지켜야 하는 형식</h3>
 <table class="gb">
   <thead><tr><th class="no" style="width:33%">이렇게 쓰면 막힙니다</th><th class="ok" style="width:33%">이렇게 쓰십시오</th><th style="width:34%">이유</th></tr></thead>
   <tbody>
+    <tr>
+      <td class="no">주식회사 산로 영업부<br>주식회사 산로 서울지사</td>
+      <td class="ok">주식회사 산로<br><span style="font-weight:400;font-size:13px">「대리점」·「특약점」은 사용 가능</span></td>
+      <td class="why"><b>지점·지사·지부·출장소</b>나 <b>영업부·판매부</b>처럼 영업의 일부를 나타내는 문자, <b>국가·공공기관</b>과 관련 있다고 오인될 문자는 쓸 수 없습니다(예규 제1819호 §3).</td>
+    </tr>
     <tr>
       <td class="no">SANLAW Co., Ltd.</td>
       <td class="ok">주식회사 산로<br><span style="font-weight:400;font-size:13px">(SANLAW)를 괄호 안에 병기</span></td>
@@ -250,7 +263,7 @@ td a{color:var(--gold-d); word-break:break-all;}
   </tbody>
 </table>
 
-<div class="bnote">※ 등기관은 통계청이 고시하는 <b>「한국표준산업분류」의 소분류 이하</b>를 참고해 구체성을 판단할 수 있습니다(「동일상호의 판단기준에 관한 등기예규」). <b>표준산업분류에서 쓰는 표현을 그대로 가져다 쓰시는 것이 가장 안전합니다.</b></div>
+<div class="bnote">※ 등기관은 통계청이 고시하는 <b>「한국표준산업분류」의 소분류 이하</b>를 참고해 구체성을 판단할 수 있습니다(「동일상호의 판단기준에 관한 등기예규」 제1819호 §9④). <b>표준산업분류에서 쓰는 표현을 그대로 가져다 쓰시는 것이 가장 안전합니다.</b></div>
 
 <table class="gb">
   <thead><tr><th class="no" style="width:33%">이렇게 쓰면 보정됩니다</th><th class="ok" style="width:33%">이렇게 쓰십시오</th><th style="width:34%">이유</th></tr></thead>
@@ -296,7 +309,7 @@ td a{color:var(--gold-d); word-break:break-all;}
       <td><b>2026. 5. 12.</b><br><span style="font-size:12.5px;color:var(--muted)">결의일 <b>다음 날</b>부터</span></td>
       <td>상법 §317④·§183<br>(변경 사유 발생일부터 2주)<br>민법 §157 <b>초일불산입</b></td>
       <td>민법 §161 — 말일이 <b>토요일·공휴일</b>이면 <b>그다음 날</b>로 만료</td>
-      <td style="color:#9c3a22"><b>2026. 5. 25.(월)</b><br><span style="font-size:12.5px">이날까지 접수해야 과태료가 없습니다</span></td>
+      <td style="color:#9c3a22"><b>2026. 5. 26.(화)</b><br><span style="font-size:12.5px">2주가 되는 5. 25.(월)은 <b>부처님오신날 대체공휴일</b>이어서 다음 날로 밀립니다</span></td>
     </tr>
   </tbody>
 </table>
@@ -553,6 +566,7 @@ td a{color:var(--gold-d); word-break:break-all;}
 
 <div class="bnote">※ <b>대도시 3배 중과는 상호·목적 변경에 적용되지 않습니다.</b> 등록면허세를 3배로 매기는 것은 <b>법인 설립·지점 설치·본점 전입·설립 후 5년 내 증자</b> 등의 경우이고(지방세법 §28②), <b>상호·목적 변경은 서울에 본점이 있어도 40,200원 그대로</b>입니다.</div>
 
+<div style="color:#c0392b;font-weight:700;font-size:13.5px;margin:14px 0 -8px">※ 정확한 금액은 <a href="https://sanlaw.co.kr/tools-calculator.html" target="_blank" rel="noopener" style="color:#c0392b">수수료 계산기</a>로 확인하십시오.</div>
 <a class="calc" href="https://sanlaw.co.kr/tools-calculator.html" target="_blank" rel="noopener">
   <div class="cah">🧮 등록면허세·수수료·보수 미리 계산해 보기</div>
   <div class="cas">변경하실 항목 수와 신청 방법을 입력하시면 등록면허세·지방교육세·등기신청수수료를 포함한 예상 금액을 산출합니다. (클릭 시 계산기로 이동)</div>
@@ -582,7 +596,7 @@ td a{color:var(--gold-d); word-break:break-all;}
 <div class="qhead"><span class="qb">✓</span><h2>초기 질의서 — 이것만 채워 보내주시면 됩니다</h2></div>
 <div class="howto">아래 양식을 복사하거나 내려받아 채우신 뒤, <b>등기사항전부증명서·정관과 함께 사진으로 찍어 보내주시면</b> 동일상호 조회와 목적 문구 정리부터 해 드리겠습니다.</div>
 
-<div class="formbox open">
+<div class="formbox">
   <button class="fold-btn" onclick="toggleFold(this)">📋 상호·목적 변경등기 초기 질의서 <span class="chev">▾</span></button>
   <div class="fold-body">
     <div class="form" id="fm-intake"><span class="ft">상호 · 목적 변경등기 초기 질의서</span>
@@ -642,7 +656,7 @@ td a{color:var(--gold-d); word-break:break-all;}
 <div class="faq">
 
   <details><summary>같은 이름의 회사가 옆 동네에 있습니다. 등기가 되나요?</summary>
-    <div class="fa"><b>됩니다.</b> 제한은 <b>같은 특별시·광역시·특별자치시·시 또는 군 안에서, 같은 영업으로, 같은 상호</b>일 때만 적용됩니다(상업등기법 §29). 시·군이 다르면 같은 이름이라도 등기할 수 있습니다. <b>다만 등기가 된다는 것과 안전하다는 것은 다릅니다.</b> 상대방이 널리 알려진 회사라면 상법 §23이나 상표권 문제가 따로 생길 수 있습니다.</div></details>
+    <div class="fa"><b>됩니다.</b> 제한은 <b>같은 특별시·광역시·특별자치시·시 또는 군 안에서, 같은 영업으로, 같은 상호</b>일 때만 적용됩니다(상업등기법 §29). 시·군이 다르면 같은 이름이라도 등기할 수 있습니다. <b>다만 등기가 된다는 것과 안전하다는 것은 다릅니다.</b> 반대로 <b>같은 시·군에서 같은 영업</b>으로 남이 등기한 상호를 쓰면 <b>부정한 목적이 있는 것으로 추정</b>되어(상법 §23④) 사용 폐지·손해배상 청구를 당하기 쉽습니다. 시·군이 달라도 상대방이 널리 알려진 회사라면 상법 §23이나 상표권 문제가 따로 생길 수 있습니다.</div></details>
 
   <details><summary>한 글자만 바꾸면 되나요?</summary>
     <div class="fa"><b>등기는 대체로 됩니다.</b> 지금은 「확연히 구별되지 않는 상호」까지 막던 규제가 없어져 <b>「동일한 상호」만</b> 제한합니다. <b>다만 권해 드리지는 않습니다.</b> 굳이 남과 비슷한 이름을 고르시면 나중에 거래처 혼선, 상호 사용 폐지 청구, 상표권 분쟁으로 이어질 수 있습니다. <b>등기는 통과해도 사업이 곤란해집니다.</b></div></details>
@@ -676,7 +690,7 @@ td a{color:var(--gold-d); word-break:break-all;}
 <a class="ctabtn" href="https://sanlaw.co.kr" target="_blank" rel="noopener">상호·목적 변경등기 상담 신청하기 →</a>
 
 <div class="src">
-근거 — 상법 §19·§20·§22·§22조의2·§23·§289·§317·§363·§383·§396·§433·§434·§635 / 상업등기법 §26(13호·14호)·§29 / 상업등기규칙 §2·§35(2024. 11. 29. 개정 포함) / 「동일상호의 판단기준에 관한 등기예규」(예규 제1547호) / 「상업등기의 상호 및 외국인의 성명 등기에 관한 예규」 / 공증인법 §66조의2 · 같은 법 시행령 §37조의3 / 상업등기선례 제201901-2호 / 민법 §157·§161 / 지방세법 §28①6호 바목·§28②·§151①2호 / 등기사항증명서 등 수수료규칙 §5조의3·§5조의5(2025. 8. 1. 시행) / 통계청 「한국표준산업분류」 / 부가가치세법 §8. 발급처 링크는 각 기관 공식 사이트로 연결됩니다.<br><br>
+근거 — 상법 §19·§20·§22·§22조의2·§23·§289·§317·§363·§383·§396·§433·§434·§635 / 상업등기법 §26(13호·14호)·§29 / 상업등기규칙 §2·§35(2024. 11. 29. 개정 포함) / 「동일상호의 판단기준에 관한 등기예규」(예규 제1819호) / 법원행정처 『상업등기실무』(2026) 제1편 상호 총설·제4장 제3절 / 「상업등기의 상호 및 외국인의 성명 등기에 관한 예규」 / 공증인법 §66조의2 · 같은 법 시행령 §37조의3 / 상업등기선례 제201901-2호 / 민법 §157·§161 / 지방세법 §28①6호 바목·§28②·§151①2호 / 등기사항증명서 등 수수료규칙 §5조의3·§5조의5(2025. 8. 1. 시행) / 통계청 「한국표준산업분류」 / 부가가치세법 §8. 발급처 링크는 각 기관 공식 사이트로 연결됩니다.<br><br>
 ※ 이 안내는 일반적인 절차를 정리한 것으로, 개별 회사의 정관과 사업 내용에 따라 절차가 달라질 수 있습니다. <b>동일상호 해당 여부, 목적 문구의 구체성 판단, 법령상 사용이 금지된 문자에 해당하는지, 주주 전원 서면동의 방식의 첨부 요건</b>는 등기관의 판단이 갈릴 수 있고 예규는 개정될 수 있으므로, <b>주주총회를 열기 전에 확인</b>하시기를 권해 드립니다. 상표권 침해 여부는 등기소의 심사 대상이 아니며, 별도의 검토가 필요합니다.
 </div>
 

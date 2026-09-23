@@ -139,6 +139,7 @@ td a{color:var(--gold-d); word-break:break-all;}
 .chk ul{list-style:none;padding-left:2px;margin:6px 0 0;}
 .chk li{padding-left:26px;position:relative;margin:7px 0;font-size:14.5px;}
 .chk li::before{content:"☐";position:absolute;left:2px;color:var(--gold);font-size:16px;font-weight:700;}
+@media print{.term>.bub{display:inline !important;position:static;background:none;color:#555;box-shadow:none;padding:0;width:auto;font-size:12px;}.term>.bub::before{content:" (";}.term>.bub::after{content:")";border:0;position:static;}.formbox .fold-body{display:block !important;}}
 </style>
 </head>
 <body>
@@ -245,7 +246,14 @@ td a{color:var(--gold-d); word-break:break-all;}
 </div>
 
 <h3>계산 예시 — 12월 결산 법인, 2023. 3. 20. 취임한 사내이사</h3>
-<div class="concept">정관에 <b>임기 연장 규정이 있는</b> 경우입니다. 3년이 되는 날은 2026. 3. 19.이지만, 임기 중의 최종 결산기(2025. 12. 31.)에 관한 정기주주총회가 <b>2026. 3. 25.</b>에 열린다면 <b>그 총회가 끝나는 날까지</b> 임기가 이어집니다.</div>
+<div class="concept">정관에 <b>임기 연장 규정이 있는</b> 경우입니다. 임기는 <b>취임한 다음 날부터</b> 세므로(초일 불산입, 상업등기선례 1-157·2-32) 3년이 되는 날은 2026. 3. 20.이지만, 임기 중의 최종 결산기(2025. 12. 31.)에 관한 정기주주총회가 <b>2026. 3. 25.</b>에 열린다면 <b>그 총회가 끝나는 날까지</b> 임기가 이어집니다.</div>
+
+<div class="tip">
+  <span class="pt">임기 계산에서 자주 놓치는 세 가지 (2026년판 실무서)</span>
+  ① 임기는 <b>선임 결의의 효력이 생긴 때와 취임을 승낙한 때 중 늦은 때</b>부터 진행합니다. 회사를 설립할 때의 첫 이사는 <b>회사 성립일</b>부터입니다.<br>
+  ② 정관의 임기 연장 규정은 정기주주총회가 <b>제때 열린다는 전제</b>입니다. 총회를 열지 않고 넘기시면 무한정 연장되는 것이 아니라, <b>총회가 열렸어야 할 시기(기준일부터 3개월 이내)</b>까지만 연장된다고 봅니다(상업등기선례 1-162·2-25).<br>
+  ③ 후임자가 없어 권리의무를 계속 행사하다가 나중에 퇴임등기를 하더라도, 등기부의 퇴임일은 <b>본래의 임기만료일(사임일)</b>입니다(상업등기선례 1-169·1-373).
+</div>
 
 <table class="deadline">
   <thead><tr><th>① 기산일</th><th>② 계산 근거 조문</th><th>③ 말일 처리</th><th>④ 최종 만료일</th></tr></thead>
@@ -557,6 +565,7 @@ td a{color:var(--gold-d); word-break:break-all;}
 <div class="bnote">※ <b>대도시 3배 중과는 임원변경에 적용되지 않습니다.</b> 등록면허세를 3배로 무겁게 매기는 것은 <b>법인 설립·지점 설치·본점 전입·설립 후 5년 내 증자</b> 등의 경우이고(지방세법 §28②), <b>임원변경은 서울에 본점이 있어도 40,200원 그대로</b>입니다.<br>
 ※ <b>그 밖의 실비</b> — 의사록 공증료 3만~11만원대, 인감증명서·주민등록등본 5백~1천원, 등기사항전부증명서 통당 1천원대, 법인 인감카드 재발급 5,000원.</div>
 
+<div style="color:#c0392b;font-weight:700;font-size:13.5px;margin:14px 0 -8px">※ 정확한 금액은 <a href="https://sanlaw.co.kr/tools-calculator.html" target="_blank" rel="noopener" style="color:#c0392b">수수료 계산기</a>로 확인하십시오.</div>
 <a class="calc" href="https://sanlaw.co.kr/tools-calculator.html" target="_blank" rel="noopener">
   <div class="cah">🧮 등록면허세·수수료·보수 미리 계산해 보기</div>
   <div class="cas">등기의 종류와 신청 방법을 입력하시면 등록면허세·지방교육세·등기신청수수료를 포함한 예상 금액을 산출합니다. (클릭 시 계산기로 이동)</div>
@@ -590,7 +599,7 @@ td a{color:var(--gold-d); word-break:break-all;}
 <div class="qhead"><span class="qb">✓</span><h2>초기 질의서 — 이것만 채워 보내주시면 됩니다</h2></div>
 <div class="howto">아래 양식을 복사하거나 내려받아 채우신 뒤, <b>등기사항전부증명서·정관과 함께 사진으로 찍어 보내주시면</b> 임기만료일부터 계산해서 연락드리겠습니다. 모르시는 항목은 비워두셔도 됩니다.</div>
 
-<div class="formbox open">
+<div class="formbox">
   <button class="fold-btn" onclick="toggleFold(this)">📋 임원변경등기 초기 질의서 <span class="chev">▾</span></button>
   <div class="fold-body">
     <div class="form" id="fm-intake"><span class="ft">임원변경등기 초기 질의서</span>
