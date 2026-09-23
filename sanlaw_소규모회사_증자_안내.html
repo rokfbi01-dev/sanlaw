@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[등기 안내] 소규모회사 증자 — 1인 회사도 공증 없이, 유상증자·무상증자 | 산 법무사 김재섭</title>
+<meta name="description" content="자본금 10억원 미만 회사의 유상증자·무상증자 등기 안내. 주주총회 의사록 공증이 꼭 필요한지, 공증 없이 하는 서면동의 방식의 요건, 잔고증명서, 기한 계산, 보정명령이 잦은 항목까지.">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+ul{margin:8px 0 12px; padding-left:20px;} li{margin:6px 0;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(300px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+@media print{.term>.bub{display:inline !important;position:static;background:none;color:#555;box-shadow:none;padding:0;width:auto;font-size:12px;}.term>.bub::before{content:" (";}.term>.bub::after{content:")";border:0;position:static;}}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.who{background:var(--box); border-radius:10px; padding:14px 16px; margin:12px 0; border-left:4px solid #b9a98c;}
+.who .wl{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.cost .calcnote{color:#c0392b; font-weight:700; font-size:13.5px; margin-top:8px;}
+.cost .calcnote a{color:#c0392b;}
+.prec{background:#f3f3f1; border:1px solid #dcdcd6; border-left:4px solid #8a8a82; border-radius:8px; padding:13px 16px; margin:14px 0; font-size:14.5px;}
+.prec .pr{font-weight:700; color:#4a4a44; display:block; margin-bottom:4px;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:14.5px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:16px;margin:10px 0;font-family:'D2Coding','Courier New',monospace;font-size:12.5px;line-height:1.65;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:15px;letter-spacing:2px;margin-bottom:10px;color:#241a10;}
+.howto{font-size:13.5px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:12.5px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:6px 12px;cursor:pointer;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.concept{background:var(--box);border-radius:9px;padding:11px 15px;margin:8px 0 14px;font-size:14.5px;color:#5a4a36;border-left:3px solid #b9a98c;}
+.concept b{color:var(--gold-d);}
+.flow{background:linear-gradient(180deg,#fcf9f2,#f7f1e5);border:1.5px solid var(--gold);border-radius:14px;padding:18px 18px 14px;margin:14px 0 20px;}
+.flow .ft2{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:12px;}
+.flow ol{counter-reset:fl;list-style:none;margin:0;padding:0;}
+.flow li{position:relative;padding:8px 10px 8px 44px;margin:7px 0;background:#fff;border:1px solid var(--line);border-radius:10px;font-size:14.5px;line-height:1.6;}
+.flow li::before{counter-increment:fl;content:counter(fl);position:absolute;left:10px;top:8px;width:26px;height:26px;line-height:26px;text-align:center;background:var(--gold);color:#fff;border-radius:50%;font-weight:800;font-size:14px;}
+.flow li b{color:var(--gold-d);}
+.flow .arw{text-align:center;color:var(--gold);font-size:13px;margin:-2px 0;}
+.faq{margin:14px 0;}
+.faq details{border:1px solid var(--line);border-radius:10px;margin:9px 0;background:#fff;overflow:hidden;}
+.faq summary{list-style:none;cursor:pointer;padding:13px 44px 13px 38px;font-weight:700;font-size:15px;color:#241a10;background:#faf7f0;position:relative;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::before{content:"Q";position:absolute;left:15px;color:var(--gold-d);font-family:'Nanum Myeongjo',serif;font-weight:800;}
+.faq summary::after{content:"▾";position:absolute;right:16px;top:13px;color:var(--gold-d);transition:.2s;}
+.faq details[open] summary::after{transform:rotate(180deg);}
+.faq .fa{padding:13px 15px 15px 38px;font-size:14.5px;line-height:1.75;color:#3a3a3a;position:relative;border-top:1px solid var(--line);}
+.faq .fa::before{content:"A";position:absolute;left:15px;top:13px;color:#5a9a72;font-family:'Nanum Myeongjo',serif;font-weight:800;}
+.helm{background:linear-gradient(135deg,#2f5a45,#3d6b54);color:#f4f0e8;border-radius:14px;padding:20px 22px;margin:0 0 24px;box-shadow:0 4px 14px rgba(47,90,69,.2);}
+.helm .ht2{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:17px;color:#f0d98c;margin-bottom:9px;}
+.helm p{margin:0;font-size:14.5px;line-height:1.9;color:#eae4d8;}
+.helm b{color:#f4e2a6;}
+.qhead{display:flex;gap:12px;align-items:flex-start;margin:8px 0 8px;}
+.qhead .qb{flex:none;width:34px;height:34px;border-radius:50%;background:var(--gold);color:#fff;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(176,141,87,.4);}
+.qhead h2{margin:0;border:0;padding:0;font-size:20px;line-height:1.45;}
+.lawrow{display:flex;flex-wrap:wrap;background:var(--box);border-radius:10px;overflow:hidden;margin:12px 0;border:1px solid var(--line);}
+.lawrow .lrl{flex:none;background:var(--gold);color:#fff;font-weight:700;font-size:13.5px;padding:11px 15px;display:flex;align-items:center;}
+.lawrow .lrc{flex:1;min-width:210px;padding:11px 15px;font-size:14px;line-height:1.75;}
+@media(max-width:520px){.lawrow .lrl{width:100%;}}
+.calc{display:block;background:linear-gradient(135deg,#fff7e8,#fdeecb);border:1.5px solid var(--gold);border-radius:14px;padding:16px 18px;margin:18px 0;text-decoration:none;color:var(--ink);transition:.15s;}
+.calc:hover{box-shadow:0 4px 14px rgba(176,141,87,.25);transform:translateY(-1px);}
+.calc .cah{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:4px;}
+.calc .cas{font-size:13.5px;color:var(--muted);}
+.ctabtn{display:block;text-align:center;background:var(--gold);color:#fff;font-weight:800;font-size:17px;padding:16px;border-radius:12px;text-decoration:none;margin:22px 0 6px;box-shadow:0 3px 10px rgba(176,141,87,.35);}
+.ctabtn:hover{background:var(--gold-d);}
+.doclabel{display:inline-block;font-size:12px;font-weight:800;color:#fff;border-radius:6px;padding:3px 11px;margin-bottom:6px;}
+.doclabel.give{background:#b0885a;}
+.doclabel.back{background:#5a9a72;}
+.dl{color:var(--gold-d);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--gold);}
+.dl:hover{background:#fbf5e8;}
+.ddl{display:flex;gap:2px 10px;flex-wrap:wrap;margin:8px 0 2px;padding:9px 12px;background:#fbf7ee;border-radius:8px;font-size:13px;}
+.ddl b{color:var(--gold-d);}
+.deadline{width:100%;border-collapse:collapse;margin:10px 0;font-size:13.5px;}
+.deadline th{background:#3a4a5c;color:#fff;padding:8px;font-weight:700;}
+.deadline td{border:1px solid var(--line);padding:8px 10px;background:#fff;}
+.bnote{color:#0b4a9c;font-weight:600;background:#eaf2fc;border-left:4px solid #2b7fff;border-radius:8px;padding:9px 13px;margin:8px 0;font-size:13.5px;line-height:1.7;}
+.bnote b{color:#0a3d82;}
+.fixt{font-size:13.5px;}
+.fixt th{background:#3a4a5c;color:#fff;text-align:center;}
+.fixt td{background:#fff;vertical-align:top;}
+.fixt td:first-child{width:26px;text-align:center;font-weight:800;color:var(--gold-d);background:#faf7f0;}
+.lv{display:inline-block;font-size:11.5px;font-weight:800;color:#fff;border-radius:5px;padding:2px 9px;white-space:nowrap;}
+.lv.h{background:#9c3a22;} .lv.m{background:#c08a1e;} .lv.l{background:#5a9a72;}
+.quo{font-family:'D2Coding','Courier New',monospace;font-size:12.5px;line-height:1.6;background:#f5f1e8;border-left:3px solid #b9a98c;border-radius:0 6px 6px 0;padding:7px 10px;margin:5px 0;color:#3a3a3a;}
+.quo::before{content:"이런 취지의 보정이 나옵니다  ";font-family:'Pretendard',sans-serif;font-weight:800;font-size:11px;color:var(--gold-d);display:block;margin-bottom:2px;}
+.chk{background:#fff;border:1.5px dashed var(--gold);border-radius:12px;padding:15px 18px;margin:16px 0;}
+.chk .ck{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:8px;}
+.chk ul{list-style:none;padding-left:2px;margin:6px 0 0;}
+.chk li{padding-left:26px;position:relative;margin:7px 0;font-size:14.5px;}
+.chk li::before{content:"☐";position:absolute;left:2px;color:var(--gold);font-size:16px;font-weight:700;}
+.two{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0;}
+.two>div{flex:1;min-width:270px;border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;background:#fff;}
+.two>div.a{border-color:#b0885a;background:#fdfaf4;}
+.two>div.b{border-color:#5a8db0;background:#f6fafc;}
+.two .st{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:16px;margin-bottom:6px;}
+.two>div.a .st{color:var(--gold-d);}
+.two>div.b .st{color:var(--tip-ink);}
+.two .sub{font-size:13px;color:var(--muted);margin-bottom:8px;}
+.two ul{margin:6px 0 0;padding-left:18px;font-size:14px;}
+.road{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px;}
+.road th{text-align:center;padding:10px;}
+.road th.p{background:#f0ebe1;color:#5a4a36;}
+.road th.q{background:#e3efe7;color:#2f6a47;}
+.road td{border:1px solid var(--line);padding:9px 11px;background:#fff;vertical-align:top;}
+.road td.q{background:#f4faf6;}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+
+<h1>소규모회사 증자등기<br><span style="font-size:17px;font-weight:400;color:var(--muted)">자본금 10억원 미만 · 1인 회사 · 유상증자와 무상증자</span></h1>
+
+<div class="helm">
+  <div class="ht2">⚓ 이 안내를 준비한 마음</div>
+  <p>주주도 한 분, 이사도 한 분인 회사가 자본금을 늘리려 할 때 가장 많이 받는 질문이 <b>「공증을 꼭 받아야 하나요?」</b>입니다. 결론부터 말씀드리면 <b>꼭 그렇지는 않습니다.</b> 다만 공증을 받지 않는 길에는 <b>그 대신 갖추어야 할 요건</b>이 정해져 있고, 그걸 모르고 공증만 빼면 오히려 보정을 받습니다. 이 안내에는 두 길을 나란히 놓고, 어느 쪽이 회사에 맞는지 고르실 수 있게 적었습니다. 막히시거든 이 안내를 들고 사무실로 찾아와 주십시오. <b>혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</b></p>
+</div>
+
+<div class="qhead"><span class="qb">Q</span>
+  <h2>1인 회사가 증자하는데, 주주총회 의사록을 꼭 공증받아야 하나요?</h2>
+</div>
+
+<div class="tnote">밑줄 친 <span class="term">용어<span class="bub">밑줄 친 말에 마우스를 올리거나(휴대폰은 살짝 누르면) 쉬운 설명이 나옵니다. 인쇄하면 괄호 안에 설명이 함께 찍힙니다.</span></span>에 마우스를 올리면 설명이 나옵니다. 파란 <b>발급처 링크</b>를 누르면 발급 화면으로 바로 이동합니다.</div>
+
+<div class="tldr">
+  <div class="tt">30초 결론</div>
+  <ul>
+    <li><b>의사록을 만들어 내신다면 — 공증을 받으셔야 합니다.</b> 증자는 공증이 면제되는 「경미한 사항」에 들어 있지 않습니다.</li>
+    <li><b>자본금 10억원 미만 회사는 — 공증 없이 할 수 있습니다.</b> 주주총회를 열지 않고 <b>주주 전원의 <span class="term">서면동의<span class="bub">주주총회를 열지 않고, 결의할 내용에 주주 전원이 서면으로 동의하는 방법. 자본금 10억원 미만 회사에만 허용됩니다(상법 §363④).</span></span></b>로 결의를 갈음하는 방법입니다.</li>
+    <li><b>대신 세 가지를 꼭 갖추셔야 합니다.</b> ① 주주의 <b>인감 날인</b> ② 주주의 <b>인감증명서</b> ③ 대표이사가 <b>등기소에 낸 인감을 찍은 주주명부</b>. 하나라도 빠지면 보정입니다.</li>
+  </ul>
+</div>
+
+<div class="bnote">※ 이 안내는 <b>자본금 10억원 미만, 이사 1~2명</b>인 회사를 기준으로 합니다. 그보다 큰 회사이거나 이사가 3명 이상이라면 <a href="sanlaw_증자등기_안내.html" class="dl">증자등기 안내</a>를 보십시오. 투자자가 주식 대신 채권으로 들어오는 경우는 <a href="sanlaw_전환사채발행등기_안내.html" class="dl">전환사채 발행등기</a>입니다.</div>
+
+<div class="lawrow"><div class="lrl">관련 법령</div><div class="lrc">
+  <b>상법 §383①④</b> 자본금 10억원 미만 회사는 이사 1~2명 가능, 이 경우 신주발행(§416 본문)·준비금 자본전입(§461① 본문·③항)의 「이사회」를 <b>「주주총회」</b>로 봄 · <b>상법 §363④⑤</b> 주주 전원 동의 시 소집절차 생략·<b>서면결의·서면동의</b> · <b>공증인법 §66조의2①</b> 등기용 의사록 공증과 그 예외 · <b>같은 법 시행령 §37조의3②</b> 공증 면제되는 「경미한 사항」 · <b>상법 §425①·§318③</b> 신주발행 시 <b>잔고증명서</b> 대체 · <b>상법 §423①</b> 유상증자 효력은 <b>납입기일 다음 날</b> · <b>상법 §461③</b> 무상증자 <b>기준일 2주 전 공고</b> · <b>상법 §317④·§183</b> 변경 후 <b>2주 내</b> 등기 · <b>상법 §635①1호</b> 500만원 이하 과태료 · <b>지방세법 §28①6호 가목·②</b> 등록면허세
+</div></div>
+
+<!-- ══════════ 1. 유상 vs 무상 ══════════ -->
+<div class="qhead"><span class="qb">1</span><h2>유상증자와 무상증자 — 무엇이 다른가요</h2></div>
+
+<div class="two">
+  <div class="a">
+    <div class="st">유상증자</div>
+    <div class="sub">새로 돈을 넣어 자본금을 늘립니다</div>
+    <ul>
+      <li>주주(또는 투자자)가 <b>주식 대금을 납입</b>합니다</li>
+      <li>회사 <b>통장에 실제로 돈이 들어옵니다</b></li>
+      <li>효력은 <b>납입기일의 다음 날</b>(상법 §423①)</li>
+      <li>납입 증명으로 <b>잔고증명서</b>를 쓸 수 있습니다</li>
+    </ul>
+  </div>
+  <div class="b">
+    <div class="st">무상증자</div>
+    <div class="sub">이미 쌓아 둔 준비금을 자본금으로 옮깁니다</div>
+    <ul>
+      <li><b>새 돈은 들어오지 않습니다</b> — 장부상 이동입니다</li>
+      <li>재원은 <b>자본준비금·이익준비금</b>만 가능합니다</li>
+      <li>주주에게 <b>지분 비율대로</b> 새 주식이 나갑니다</li>
+      <li>효력은 <b>기준일</b>, 그 <b>2주 전 공고</b>가 원칙</li>
+    </ul>
+  </div>
+</div>
+
+<div class="warn">
+  <span class="wt">★ 무상증자는 「남는 돈」으로 하는 것이 아닙니다</span>
+  재무제표에 이익잉여금이 넉넉하다고 무상증자를 할 수 있는 것은 아닙니다. 자본금으로 옮길 수 있는 것은 <b>법이 적립하도록 정한 준비금</b>, 즉 <b>자본준비금</b>(주식발행초과금 등)과 <b>이익준비금</b>뿐입니다. 회사가 스스로 쌓은 <b>임의준비금이나 미처분이익잉여금은 재원이 되지 않습니다.</b> 이익잉여금을 주식으로 나누어 주고 싶으시면 <b>주식배당</b>이라는 별개 절차가 됩니다. 이익준비금도 <b>자본금의 2분의 1을 넘는 부분</b>은 전입할 수 없고, <b>결산 정기주주총회에서 적립한 것</b>이어야 합니다. 반면 자본준비금(주식발행초과금)은 <b>영업연도 중에 생긴 것</b>도 전입할 수 있습니다. <b>재무상태표를 먼저 보여 주시면</b> 어느 길이 가능한지부터 짚어 드리겠습니다.
+</div>
+
+<!-- ══════════ 2. 누가 결정 ══════════ -->
+<div class="qhead"><span class="qb">2</span><h2>누가 결정하나요 — 이사가 한 명이면 「주주총회」입니다</h2></div>
+
+<div class="concept">큰 회사는 증자를 <b>이사회</b>에서 정합니다. 그런데 이사가 1~2명인 회사에는 이사회가 없습니다. 그래서 법은 이 회사에서 증자는 <b>주주총회가 대신 정하도록</b> 바꾸어 두었습니다(상법 §383④).</div>
+
+<table>
+  <thead><tr><th style="width:120px">구분</th><th>이사 1~2명 회사에서 정하는 곳</th><th>근거</th></tr></thead>
+  <tbody>
+    <tr><td><b>유상증자</b><br>(신주발행)</td><td><b>주주총회</b></td><td>상법 §383④, §416 본문</td></tr>
+    <tr><td><b>무상증자</b><br>(준비금의 자본전입)</td><td><b>주주총회</b> + <b>기준일 2주 전 공고</b></td><td>상법 §383④, §461① 본문·③항</td></tr>
+  </tbody>
+</table>
+
+<div class="warn">
+  <span class="wt">★ 대표이사 혼자 「이사 결정서」로 정하시면 안 됩니다</span>
+  이사가 한 명인 회사에서 흔히 하시는 실수입니다. 대표이사가 혼자 정할 수 있는 일도 있지만, <b>증자는 법이 주주총회 몫으로 정해 두었습니다.</b> 1인 회사라 주주와 대표이사가 같은 분이더라도, 서류는 <b>「대표이사로서」가 아니라 「주주로서」</b> 만드셔야 합니다.
+</div>
+
+<div class="tip">
+  <span class="pt">무상증자는 정관을 먼저 보십시오 — 효력 생기는 날이 달라집니다</span>
+  정관에 <b>「준비금의 자본전입은 주주총회의 결의로 한다」</b>는 규정이 따로 있으면 사정이 달라집니다. 그때는 <b>주주총회 결의가 있은 때</b> 곧바로 신주의 주주가 되어(상법 §461① 단서·④항) <b>기준일 공고가 필요 없습니다.</b> 반대로 그런 규정 없이 단지 이사가 한 명이라서 주주총회가 정하는 경우에는 <b>기준일을 정하고 2주 전에 공고</b>하는 절차가 따라옵니다. 같은 주주총회라도 <b>정관 한 줄에 따라 2주가 갈립니다.</b><br>
+  <span style="font-size:14px">※ 이사가 1~2명이라서 주주총회가 정하는 경우의 효력 시점은 실무서가 따로 설명하지 않아 해석이 갈릴 여지가 있습니다. 상법 §383④가 기준일 공고 조항(§461③)까지 「주주총회」로 바꿔 읽도록 정하고 있으므로, <b>기준일 방식으로 진행하시는 것이 안전</b>합니다.</span>
+</div>
+
+<!-- ══════════ 3. 공증 두 길 ══════════ -->
+<div class="qhead"><span class="qb">3</span><h2>★ 공증을 받을 것인가 — 두 가지 길</h2></div>
+
+<table class="road">
+  <thead><tr><th class="p" style="width:50%">길 ① 주주총회 의사록</th><th class="q">길 ② 주주 전원의 서면동의</th></tr></thead>
+  <tbody>
+    <tr><td>주주총회를 열고 <b>의사록</b>을 작성합니다</td><td class="q">총회를 열지 않고 <b>주주 전원이 서면으로 동의</b>합니다(상법 §363④)</td></tr>
+    <tr><td style="color:#9c3a22"><b>공증 필요</b> — 공증인 사무소 방문</td><td class="q" style="color:#2f6a47"><b>공증 불요</b></td></tr>
+    <tr><td>모든 회사가 쓸 수 있습니다</td><td class="q"><b>자본금 10억원 미만 회사만</b></td></tr>
+    <tr><td>주주가 여러 명이어도 정족수만 채우면 됩니다</td><td class="q"><b>주주 전원</b>이 동의해야 합니다 — 한 명이라도 빠지면 불가</td></tr>
+    <tr><td>공증료가 듭니다</td><td class="q">대신 <b>주주 전원의 인감증명서</b>가 듭니다</td></tr>
+    <tr><td>의사록에 찍는 도장은 <b>인감이 아니어도</b> 됩니다</td><td class="q">서면동의서에는 <b>반드시 신고한 개인 인감</b></td></tr>
+  </tbody>
+</table>
+
+<h3>길 ①에서 공증을 피할 수 없는 이유</h3>
+<div class="concept">등기할 때 내는 총회 의사록은 <b>공증인의 인증</b>을 받아야 하고, 예외는 <b>① 자본금 10억원 미만 회사의 발기설립 ② 지정된 공법인·비영리법인 ③ 「경미한 사항」</b> 세 가지뿐입니다(공증인법 §66조의2①). 그 「경미한 사항」은 <b>지점의 설치·이전·폐지</b>와 <b>명의개서대리인의 선임·변경</b> 두 가지이고, 그마저 <b>정관을 바꿔야 하면 제외</b>됩니다(같은 법 시행령 §37조의3②). <b>증자는 여기에 없습니다.</b></div>
+
+<div class="tip">
+  <span class="pt">길 ①로 가실 때 — 공증은 이렇게 받습니다</span>
+  <b>어느 공증인 사무소에서나</b> 받을 수 있습니다. 본점 관할 지역의 공증인으로 한정되지 않습니다. 공증인은 결의가 사실인지 확인해야 하므로, <b>의결에 필요한 정족수 이상의 주주</b>(1인 회사라면 그 한 분)가 직접 또는 대리인을 통해 공증인 앞에서 의사록 내용을 진술하고 서명·날인을 확인받습니다(공증인법 §66조의2②③). 신분증과 도장, 의사록 원본을 챙겨 가십시오.
+</div>
+
+<h3>길 ②를 택하실 때 갖추셔야 할 것</h3>
+<div class="prec">
+  <span class="pr">📜 상업등기선례 제201901-2호 (2019. 1. 31. 사법등기심의관－451 질의회답)</span>
+  1인 주주 회사는 <b>공증받은 주주총회 의사록</b>을 내거나, 자본금 10억원 미만이면 <b>총주주의 동의를 증명하는 서면</b>으로서 서면결의서·서면동의서에 <b>인감을 날인하고 인감증명서를 첨부</b>하면 됩니다. 여기에 더하여 서면결의 등이 이루어질 당시의 <b>대표자가 등기소에 제출한 인감을 날인한 주주명부</b>도 함께 냅니다. (참조: 법인등기선례 제201809-3호, 상업등기규칙 §128①)<br>
+  2026년판 『상업등기실무』도 이 방식을 소규모 주식회사가 서면결의·서면동의로 결의한 등기 전반의 <b>「현재의 등기실무」</b>로 설명하고 있습니다(2018. 9. 14. 사법등기심의관－3618 질의회답 등).
+</div>
+
+<table>
+  <thead><tr><th style="width:40px">#</th><th>갖추실 것</th><th>어떤 인감인가</th></tr></thead>
+  <tbody>
+    <tr><td style="text-align:center;font-weight:800;color:var(--gold-d)">①</td><td><b>주주 전원의 서면동의서</b><br><span style="font-size:13px;color:var(--muted)">(또는 서면결의에 대한 전원 동의서 + 서면결의서)</span></td><td>각 주주가 <b>주민센터에 신고한 개인 인감</b></td></tr>
+    <tr><td style="text-align:center;font-weight:800;color:var(--gold-d)">②</td><td><b>주주 전원의 인감증명서</b></td><td>주민센터 발급 — <b>3개월 이내</b></td></tr>
+    <tr><td style="text-align:center;font-weight:800;color:var(--gold-d)">③</td><td><b>주주명부</b></td><td>대표이사가 <b>등기소에 신고한 법인 인감</b></td></tr>
+  </tbody>
+</table>
+
+<div class="warn">
+  <span class="wt">★ 1인 회사라면 인감이 두 개 필요합니다 — 여기서 많이 틀립니다</span>
+  주주와 대표이사가 같은 분이시면, 서면동의서에는 <b>그분의 개인 인감</b>을, 주주명부에는 <b>회사의 법인 인감</b>을 찍으셔야 합니다. 둘을 바꿔 찍거나 한 가지로 통일하시면 보정이 나옵니다. <b>서면동의서는 「주주」가, 주주명부는 「회사」가</b> 만드는 서류라고 기억하시면 헷갈리지 않습니다.
+</div>
+
+<div class="tip">
+  <span class="pt">이 선례를 증자에 적용하는 데 대하여</span>
+  위 선례는 <b>임원 해임</b> 사안이지만, 2026년판 실무서는 이 방식을 특정 등기에 한정하지 않고 <b>서면결의·서면동의에 따른 등기 전반</b>의 실무로 설명하므로 증자에도 그대로 적용됩니다.<br>
+  <b style="color:#9c3a22">다만 주의할 점이 하나 있습니다.</b> 경영권 다툼이 있는 등 <b>주주명부가 진짜인지 의심스러운 경우</b>에는 등기관이 이 서류만으로는 총주주의 동의를 확인할 수 없다며 <b>신청을 각하할 수 있습니다.</b> 그때는 실제로 주주총회를 열어 <b>공증받은 의사록</b>을 내거나, 등기관의 처분에 이의신청을 하셔야 합니다(2026년판 실무서, 2018. 9. 14. 사법등기심의관－3618 질의회답). <b>이사가 3명 이상</b>인 회사가 이사회를 주주 서면결의로 대신하는 경우는 공증 요부에 관한 견해가 갈리니 이 안내가 그대로 적용되지 않습니다.
+</div>
+
+<!-- ══════════ 4. 기한 ══════════ -->
+<div class="qhead"><span class="qb">4</span><h2>기한 — 결의한 날이 아니라 「효력이 생긴 날」부터입니다</h2></div>
+
+<h3>유상증자 — 예시: 납입기일이 2026. 6. 10.(수)인 경우</h3>
+<table class="deadline">
+  <thead><tr><th>① 기산일</th><th>② 계산 근거 조문</th><th>③ 말일 처리</th><th>④ 최종 만료일</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><b>2026. 6. 11.(목)</b><br><span style="font-size:12.5px;color:var(--muted)">납입기일의 <b>다음 날</b> — 이날 새 주식의 효력이 생깁니다</span></td>
+      <td>상법 §423①(효력발생)<br>상법 §317④·§183(2주)<br>민법 §157 단서(오전 0시 시작 시 초일 산입)</td>
+      <td>민법 §161 — 말일이 <b>토요일·공휴일</b>이면 <b>그다음 날</b>로 만료</td>
+      <td style="color:#9c3a22"><b>2026. 6. 24.(수)</b></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>무상증자 — 예시: 기준일이 2026. 7. 1.(수)인 경우</h3>
+<table class="deadline">
+  <thead><tr><th>① 기산일</th><th>② 계산 근거 조문</th><th>③ 말일 처리</th><th>④ 최종 만료일</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><b>2026. 7. 1.(수)</b><br><span style="font-size:12.5px;color:var(--muted)"><b>기준일</b> — 이날 주주명부에 있는 주주가 새 주식의 주주가 됩니다</span></td>
+      <td>상법 §461③(기준일)<br>상법 §317④·§183(2주)<br>민법 §157 단서</td>
+      <td>민법 §161 — 말일이 <b>토요일·공휴일</b>이면 <b>그다음 날</b>로 만료</td>
+      <td style="color:#9c3a22"><b>2026. 7. 14.(화)</b></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="bnote">※ <b>납입기일 전에 돈을 다 넣으셨더라도</b> 새 주식의 효력은 <b>납입기일 다음 날</b> 생기므로, 등기도 <b>그날부터</b> 신청할 수 있습니다. 납입기일을 토·일요일이나 공휴일로 정해도 유효하고, 그 경우에도 뒤로 밀리지 않습니다.<br>
+  ※ 위 계산은 효력이 생긴 날을 첫날로 넣은 <b>가장 이른 만료일</b>입니다. 하루 뒤로 보는 계산도 있지만, <b>이 날짜까지 접수하시면 어느 계산으로도 안전합니다.</b><br>
+※ 무상증자에서 <b>기준일 공고</b>는 기준일의 <b>2주 전</b>에 해야 합니다. 위 예시라면 <b>늦어도 6. 16.(화)까지</b> 공고하시기를 권합니다. 주주총회는 그보다 앞서 마치셔야 합니다.</div>
+
+<div class="tip">
+  <span class="pt">1인 주주라면 2주를 줄일 수 있을까요 — 줄일 수 있는 것과 없는 것</span>
+  <b>줄일 수 있는 것</b> — ① 주주배정 유상증자의 <b>청약 최고 2주</b>(상법 §419)는 주주 전원이 동의하면 줄일 수 있고(상업등기선례 제1-207호), ② 제3자배정의 <b>통지·공고 2주</b>(상법 §418④)는 총주주 동의로 줄이거나 생략할 수 있습니다(상업등기선례 제2-54호, 2012. 4. 23. 사법등기심의관－1144 질의회답). 이때 <b>총주주의 동의서</b>를 붙여 신청합니다.<br>
+  <b style="color:#9c3a22">줄일 수 없는 것</b> — <b>신주배정기준일 공고</b>(상법 §418③)는 주식을 사고도 아직 명의개서를 하지 않은 사람을 보호하려는 공고여서, <b>주주 동의로 생략할 수 없다</b>는 것이 법원행정처 실무서의 입장입니다. <b>무상증자의 기준일 공고</b>(상법 §461③)도 같은 취지의 공고이므로 <b>2주를 전제로 일정을 잡으시는 것이 안전</b>합니다.
+</div>
+
+<!-- ══════════ 5. 순서 ══════════ -->
+<div class="qhead"><span class="qb">5</span><h2>이 순서로 진행됩니다</h2></div>
+
+<div class="flow">
+  <div class="ft2">유상증자 — 1인 회사, 서면동의 방식</div>
+  <ol>
+    <li><b>정관 확인</b> — <b>발행예정주식총수</b>에 여유가 있는지, 신주를 주주 아닌 사람에게도 줄 수 있는지</li>
+    <div class="arw">▼</div>
+    <li><b>주주 서면동의서 작성</b> — 발행할 주식의 종류·수, 1주의 발행가액, 납입기일, 배정 방법. <b>개인 인감 날인</b></li>
+    <div class="arw">▼</div>
+    <li><b>주식청약서·주식인수증 작성</b></li>
+    <div class="arw">▼</div>
+    <li><b>회사 명의 계좌에 납입</b> → 은행에서 <b>잔고증명서</b> 발급</li>
+    <div class="arw">▼</div>
+    <li><b>납입기일 다음 날</b> — 효력 발생, <b>이날부터 2주</b></li>
+    <div class="arw">▼</div>
+    <li><b>등록면허세 납부 → 변경등기 신청</b> — 접수 후 1~3일</li>
+  </ol>
+</div>
+
+<div class="flow" style="background:linear-gradient(180deg,#f7fafc,#eef4f8);border-color:#5a8db0">
+  <div class="ft2" style="color:var(--tip-ink)">무상증자 — 1인 회사, 서면동의 방식</div>
+  <ol>
+    <li><b>재무상태표 확인</b> — 자본준비금·이익준비금이 <b>옮길 금액만큼</b> 있는지</li>
+    <div class="arw" style="color:#5a8db0">▼</div>
+    <li><b>정관 확인</b> — 발행예정주식총수, 준비금 전입을 주주총회에서 정한다는 규정이 있는지</li>
+    <div class="arw" style="color:#5a8db0">▼</div>
+    <li><b>주주 서면동의서 작성</b> — 전입할 준비금의 종류·금액, 발행할 주식 수, <b>기준일</b>. <b>개인 인감 날인</b></li>
+    <div class="arw" style="color:#5a8db0">▼</div>
+    <li><b>기준일 2주 전 공고</b> — 정관이 정한 방법(신문 또는 홈페이지)으로</li>
+    <div class="arw" style="color:#5a8db0">▼</div>
+    <li><b>기준일</b> — 효력 발생, <b>이날부터 2주</b> · 주주에게 <b>신주배정 통지</b></li>
+    <div class="arw" style="color:#5a8db0">▼</div>
+    <li><b>등록면허세 납부 → 변경등기 신청</b></li>
+  </ol>
+</div>
+
+<!-- ══════════ 6. 첨부서류 ══════════ -->
+<div class="qhead"><span class="qb">6</span><h2>등기소에 내는 서류와 그 발급처</h2></div>
+
+<div class="who"><span class="doclabel give">제출</span><br><span class="wl">◆ 공통 — 결의를 증명하는 서류 (둘 중 하나)</span>
+  <table style="margin:6px 0 0">
+    <thead><tr><th>방식</th><th>내는 서류</th><th>어디서</th></tr></thead>
+    <tbody>
+      <tr><td><b>의사록</b></td><td>주주총회 의사록 — <b style="color:#9c3a22">공증</b></td><td>공증인 사무소</td></tr>
+      <tr><td><b>서면동의</b></td><td>① 주주 전원의 서면동의서(<b>개인 인감</b>)<br>② 주주 전원의 인감증명서<br>③ 주주명부(<b>법인 인감</b>)</td><td>① 사무소 작성<br>② <b>주민센터 방문</b><br>③ 사무소 작성</td></tr>
+    </tbody>
+  </table>
+  <p style="margin:8px 0 0;font-size:14px;color:#9c3a22"><b>※ 인감증명서는 주민센터에 직접 가셔야 합니다.</b> 정부24 인터넷 발급본은 법원 제출용에서 제외되어 등기소가 받지 않습니다.</p>
+</div>
+
+<div class="who"><span class="doclabel give">제출</span><br><span class="wl">◆ 유상증자에 더 필요한 것</span>
+  <table style="margin:6px 0 0">
+    <thead><tr><th>준비물</th><th>어디서</th><th>주의</th></tr></thead>
+    <tbody>
+      <tr><td><b>잔고증명서</b><br><span style="font-size:12.5px;color:var(--muted)">또는 주금납입금 보관증명서</span></td><td>은행</td><td style="color:#9c3a22"><b>회사 명의 계좌</b>여야 합니다(대표자·인수인 개인 명의 불가). <b>납입기일 현재 잔고</b>가 발행가액 총액 이상이어야 합니다. <b>인터넷으로 발급한 잔고증명서</b>나 <b>인터넷전문은행</b>이 발급한 것도 됩니다(2021. 6. 28. 사법등기심의관－3048 질의회답). <b>증자 후 자본금이 10억원 이상</b>이 되면 잔고증명서로는 안 되고 보관증명서가 필요합니다</td></tr>
+      <tr><td><b>주식청약서</b>·<b>주식인수증</b></td><td>사무소 작성</td><td>인수하는 분이 날인</td></tr>
+      <tr><td><b>총주주의 기간단축·생략 동의서</b></td><td>사무소 작성</td><td>청약 최고 기간(2주)을 줄였거나, 제3자배정 통지·공고를 줄이거나 생략했을 때</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="who" style="border-left-color:#5a8db0"><span class="doclabel give">제출</span><br><span class="wl">◆ 무상증자에 더 필요한 것</span>
+  <table style="margin:6px 0 0">
+    <thead><tr><th>준비물</th><th>어디서</th><th>주의</th></tr></thead>
+    <tbody>
+      <tr><td><b>대차대조표(재무상태표)</b></td><td>회사 · 세무사</td><td style="color:#9c3a22"><b>결산기 정기주주총회에서 승인한 것</b> — 준비금이 있다는 원칙적 근거입니다. <b>감사인 확인서나 세무서 확인본은 인정되지 않습니다</b><br><span style="font-size:12.5px;color:var(--muted)">재원이 <b>주식발행초과금</b>이면 그 주식을 발행할 때의 납입금 보관증명서·잔고증명서로도 증명할 수 있습니다</span></td></tr>
+      <tr><td><b>준비금의 존재를 확인하는 서면</b></td><td>사무소 작성</td><td>전입 전후 준비금 잔액을 숫자로</td></tr>
+          </tbody>
+  </table>
+</div>
+
+<div class="who"><span class="doclabel give">제출</span><br><span class="wl">◆ 두 경우 모두</span>
+  <ul>
+    <li><b>정관</b> — 이사 1~2명이라 <b>상법에 따라 주주총회가 정한 주주배정 증자</b>라면 <b>첨부하지 않아도 됩니다</b>. <b>제3자배정</b>이거나 <b>정관 규정</b>에 따라 주주총회가 정한 경우에는 첨부합니다. 첨부하지 않더라도 발행예정주식총수 확인을 위해 회사에서는 꼭 보십시오.</li>
+    <li><b>법인 인감도장</b> · <b>법인 인감증명서</b>(등기소·무인발급기)</li>
+    <li><b>등록면허세 영수필확인서</b> — <a href="https://www.wetax.go.kr" target="_blank" rel="noopener" class="dl">위택스</a>, 본점 소재지 시·군·구</li>
+    <li><b>등기신청수수료 영수필확인서</b> — <a href="https://www.iros.go.kr" target="_blank" rel="noopener" class="dl">인터넷등기소</a></li>
+    <li><b>위임장</b> — 대리 신청 시</li>
+  </ul>
+  <div class="ddl">발급처 ▸ <a href="https://www.iros.go.kr" target="_blank" rel="noopener" class="dl">인터넷등기소(등기사항증명서·수수료)</a> · <a href="https://www.wetax.go.kr" target="_blank" rel="noopener" class="dl">위택스(등록면허세)</a> · <b>인감증명서는 주민센터 방문</b></div>
+</div>
+
+<div class="who" style="border-left-color:#d9694a"><span class="wl">◆ 외국 국적이거나 해외에 계신 주주가 있는 경우</span>
+  <ul>
+    <li><b>국내에 외국인등록·거소신고가 되어 있다면</b> — 우리나라 주민센터에 인감을 신고하실 수 있어(인감증명법 §3③④) 서면동의 방식을 그대로 쓰실 수 있습니다. 가장 간편합니다.</li>
+    <li><b>국내 등록이 없다면</b> — 인감증명서를 내실 수 없어 서면동의 방식이 막힐 수 있습니다. 이 경우 <b>본국 관청의 서명증명</b>이나 공증·아포스티유로 대체할 수 있는지, 아니면 <b>의사록 + 공증</b>으로 가는 편이 나은지를 <b>서류를 만들기 전에</b> 정하셔야 합니다.</li>
+    <li><b>외국인이 새로 돈을 넣는 유상증자</b>는 <b>외국인투자 신고 대상</b>이 될 수 있습니다. 송금 전에 반드시 확인하십시오 — <a href="sanlaw_외국인_법인설립_안내.html" class="dl">외국인투자 법인설립 안내</a> 참조.</li>
+  </ul>
+</div>
+
+<div class="who" style="border-left-color:#5a8db0"><span class="wl">◆ 저희 사무소에서 작성해 드리는 서류</span>
+  <ul>
+    <li><b>주주 전원의 서면동의서</b>(또는 주주총회 의사록) · <b>주주명부</b> · <b>주식청약서·주식인수증</b> · <b>총주주 동의서</b>(통지·공고 생략) · <b>기준일 공고문</b> · <b>신주배정 통지서</b> · <b>준비금 존재 확인서</b> · <b>변경등기신청서</b> · <b>위임장</b></li>
+    <li>여기에 더해 <b>결의일 → 공고일 → 기준일(납입기일) → 등기 마감일</b>을 날짜로 맞춘 <b>[일정표]</b>를 함께 드립니다.</li>
+  </ul>
+  <div class="ddl">양식 확인 ▸ <a href="https://www.iros.go.kr" target="_blank" rel="noopener" class="dl">인터넷등기소 → 자료센터 → 등기신청양식</a> <b>(주식회사 변경등기신청서)</b></div>
+</div>
+
+<!-- ══════════ 7. 반환 ══════════ -->
+<div class="qhead"><span class="qb">7</span><h2>등기가 끝나면 '되돌려받는' 것</h2></div>
+<div class="who" style="border-left-color:#5a9a72"><span class="doclabel back">반환</span><br><span class="wl">◆ 등기 완료 후 받으시는 것</span>
+  <ul>
+    <li><b>정관 원본</b> · <b>공증받은 의사록 원본</b> — 사본을 함께 내시면 원본은 돌려받습니다. 의사록은 <b>회사에 보관</b>하셔야 합니다(상법 §373·§396).</li>
+    <li><b>새 등기사항전부증명서</b> — 늘어난 자본금과 발행주식 수가 반영된 것. 은행·세무서·거래처 제출용입니다.</li>
+    <li><b>돌려받지 못하는 서류</b> — <b>인감증명서</b>·<b>잔고증명서</b>·<b>서면동의서</b>·<b>위임장</b>은 반환되지 않습니다. <b>회사 보관용으로 사본을 미리</b> 떠 두십시오.</li>
+    <li><b>회사가 계속 보관하셔야 하는 것</b> — <b>증자 후 주주명부</b>. 법인세 신고 때 <b>주식등변동상황명세서</b>의 근거가 됩니다.</li>
+  </ul>
+</div>
+
+<!-- ══════════ 8. 보정 ══════════ -->
+<div class="qhead"><span class="qb">8</span><h2>⚠ 등기관이 보정을 명하는 지점 — 빈도순으로 정리했습니다</h2></div>
+<div class="concept">소규모회사 증자는 <b>「공증을 빼는 대신 무엇을 넣었는가」</b>에서 가장 많이 걸립니다. 아래 문구는 창구에서 실제로 받게 되는 보정의 <b>취지</b>를 옮긴 것입니다.</div>
+
+<h3>빈도 [상]</h3>
+<table class="fixt">
+  <thead><tr><th style="width:26px">#</th><th style="width:150px">항목</th><th>내용과 예방법</th><th style="width:52px">빈도</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><b>의사록인데<br>공증 없음</b></td>
+      <td>
+        「10억 미만이니 공증은 필요 없다」고 듣고 <b>의사록 형식으로 만든 채</b> 공증만 빼신 경우입니다. 공증이 면제되는 것은 <b>서면동의 방식</b>이지 의사록이 아닙니다.
+        <div class="quo">첨부된 주주총회의사록에 공증인의 인증이 없으므로 이를 보정하시기 바랍니다.</div>
+        <b>예방</b> — <b>의사록이면 공증</b>, <b>공증을 빼려면 서면동의서</b>. 둘 중 하나로 분명히 정하십시오.
+      </td>
+      <td><span class="lv h">상</span></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><b>서면동의서 요건<br>누락</b></td>
+      <td>
+        서면동의서에 <b>막도장</b>을 찍었거나, 인감증명서를 빠뜨렸거나, 주주명부를 붙이지 않은 경우입니다.
+        <div class="quo">총주주의 동의가 있음을 증명하는 서면에 각 주주의 인감이 날인되지 아니하였거나 인감증명서가 첨부되지 아니하였습니다.</div>
+        <b>예방</b> — <b>개인 인감 날인 + 인감증명서 + 법인 인감 찍은 주주명부</b>. 세 가지가 한 묶음입니다.
+      </td>
+      <td><span class="lv h">상</span></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><b>발행예정주식총수<br>초과</b></td>
+      <td>
+        새로 발행하는 주식까지 합치면 <b>정관의 「회사가 발행할 주식의 총수」를 넘는</b> 경우입니다. 무상증자로 주식 수를 두 배로 늘릴 때 자주 걸립니다.
+        <div class="quo">신주발행 후의 발행주식총수가 회사가 발행할 주식의 총수를 초과합니다.</div>
+        <b>예방</b> — <b>먼저 정관을 바꿔</b> 발행예정주식총수를 늘리십시오. 정관변경도 주주 서면동의로 함께 처리할 수 있습니다.
+      </td>
+      <td><span class="lv h">상</span></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><b>잔고증명서 부적합</b></td>
+      <td>
+        <b>대표이사 개인 계좌</b>의 잔고증명서를 냈거나, <b>증자 후 자본금이 10억원을 넘는데</b> 잔고증명서를 낸 경우입니다.
+        <div class="quo">주금의 납입을 증명하는 서면이 신주를 발행하는 회사 명의의 것이 아닙니다.</div>
+        <b>예방</b> — 설립 때와 달리 증자 때는 <b>회사 명의 계좌</b>로 받습니다. 발급 기준일은 <b>납입이 끝난 날 이후</b>로 하십시오.
+      </td>
+      <td><span class="lv h">상</span></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><b>무상증자 재원<br>부적격·증명 부실</b></td>
+      <td>
+        <b>이익잉여금</b>이나 임의준비금을 전입하려 했거나, 준비금이 있다는 <b>재무상태표</b>를 붙이지 않은 경우입니다.
+        <div class="quo">자본금에 전입할 준비금의 존재를 증명하는 서면을 첨부하시기 바랍니다.</div>
+        <b>예방</b> — 재원은 <b>자본준비금·이익준비금</b>만 됩니다. <b>정기주주총회 승인을 받은 재무상태표</b>로 금액을 확인하십시오.
+      </td>
+      <td><span class="lv h">상</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>빈도 [중]</h3>
+<table class="fixt">
+  <thead><tr><th style="width:26px">#</th><th style="width:150px">항목</th><th>내용과 예방법</th><th style="width:52px">빈도</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>6</td>
+      <td><b>이사 결정서로<br>증자 결의</b></td>
+      <td>
+        이사 1명 회사에서 대표이사가 <b>혼자 결정서를 써서</b> 증자를 정한 경우입니다. 증자는 <b>주주총회 몫</b>입니다(상법 §383④).
+        <div class="quo">신주발행에 관한 주주총회의 결의를 증명하는 서면을 첨부하시기 바랍니다.</div>
+        <b>예방</b> — 같은 분이더라도 <b>「주주로서」</b> 서면동의서를 작성하십시오.
+      </td>
+      <td><span class="lv m">중</span></td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td><b>등기원인일자 오류</b></td>
+      <td>
+        결의일을 변경일로 적은 경우입니다. 유상증자는 <b>납입기일 다음 날</b>, 무상증자는 <b>기준일</b>이 변경일입니다.
+        <div class="quo">등기원인일자가 첨부서면에 의하여 확인되는 신주의 효력발생일과 부합하지 아니합니다.</div>
+        <b>예방</b> — 위 ④번 표대로 날짜를 잡으십시오. <b>정관에 준비금 전입 규정이 있는</b> 무상증자라면 결의일이 변경일입니다.
+      </td>
+      <td><span class="lv m">중</span></td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td><b>기준일 공고 누락·<br>기간 부족</b></td>
+      <td>
+        신주배정기준일 공고는 <b>등기소에 내는 서류는 아니지만 반드시 하셔야 하는 절차</b>입니다. 공고를 빠뜨리거나 공고일과 기준일 사이가 2주가 안 되면, 등기가 되더라도 <b>나중에 신주의 효력이 다투어질 수 있습니다.</b> 등기소에서 걸리지 않는다고 안전한 것이 아닙니다.
+        <b>예방</b> — 정관의 공고방법(신문·홈페이지)을 확인하고 <b>기준일 2주 전</b>에 공고하십시오. 공고문 사본은 회사에 보관하시고, 등기소가 확인을 요청할 때를 대비해 접수 때 챙겨 가시면 안전합니다.
+      </td>
+      <td><span class="lv m">중</span></td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td><b>등록면허세 계산 오류</b></td>
+      <td>
+        <b>최저세액(112,500원)</b>을 모르고 0.4%만 냈거나, <b>대도시·설립 5년 이내 3배 중과</b>를 빠뜨린 경우입니다. 무상증자라고 세금이 면제되지 않습니다.
+        <div class="quo">등록면허세가 부족하므로 보정하시기 바랍니다.</div>
+        <b>예방</b> — 아래 ⑨번 표를 보십시오.
+      </td>
+      <td><span class="lv m">중</span></td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td><b>인감증명서 3개월<br>경과</b></td>
+      <td>
+        서면동의서를 만들어 두고 한참 뒤에 신청한 경우입니다.
+        <div class="quo">첨부된 인감증명서는 발행일부터 3개월이 경과하였습니다.</div>
+        <b>예방</b> — 인감증명서는 <b>서면동의서에 날인하는 날 즈음에</b> 발급받으십시오.
+      </td>
+      <td><span class="lv m">중</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>빈도 [하]</h3>
+<table class="fixt">
+  <thead><tr><th style="width:26px">#</th><th style="width:150px">항목</th><th>내용과 예방법</th><th style="width:52px">빈도</th></tr></thead>
+  <tbody>
+    <tr><td>11</td><td><b>액면 미달 발행</b></td><td>1주의 발행가액이 <b>액면금액보다 낮으면</b> 법원의 인가 등 별도 절차가 필요합니다. 대부분의 1인 회사는 <b>액면가 그대로</b> 발행하시므로 문제되지 않습니다.</td><td><span class="lv l">하</span></td></tr>
+    <tr><td>12</td><td><b>주주 아닌 사람에게<br>배정</b></td><td>기존 주주가 아닌 분(가족·투자자)이 신주를 받으면 <b>정관에 근거</b>가 있어야 하고, <b>경영상 목적</b>이 필요합니다(상법 §418②). <b>1인 주주가 동의해도 이 요건은 그대로</b>입니다.</td><td><span class="lv l">하</span></td></tr>
+    <tr><td>14</td><td><b>주주명부 진정성<br>의심 (각하)</b></td><td>경영권 다툼 등으로 주주명부가 진짜인지 의심되면, 서면동의 방식의 서류만으로는 등기관이 총주주의 동의를 확인할 수 없어 <b>각하</b>할 수 있습니다. 주주 사이에 다툼이 있다면 처음부터 <b>주주총회 + 공증 의사록</b>으로 가십시오.</td><td><span class="lv l">하</span></td></tr>
+    <tr><td>13</td><td><b>현물출자</b></td><td>돈 대신 <b>부동산·기계·특허</b> 등으로 출자하시면 검사인 조사 등 절차가 크게 늘어납니다. 이 안내의 범위를 벗어나므로 <b>따로 상의</b>해 주십시오.</td><td><span class="lv l">하</span></td></tr>
+  </tbody>
+</table>
+
+<div class="chk">
+  <div class="ck">📋 접수 직전 최종 점검표</div>
+  <ul>
+    <li><b>의사록이면 공증</b>, <b>서면동의면 공증 없이</b> — 둘 중 하나로 정했다</li>
+    <li>서면동의서에 <b>개인 인감</b>, 주주명부에 <b>법인 인감</b>을 찍었다</li>
+    <li>주주 <b>전원의 인감증명서</b>(3개월 이내)를 준비했다</li>
+    <li>증자 후 발행주식 수가 <b>정관의 발행예정주식총수 이내</b>다</li>
+    <li>(유상) 잔고증명서가 <b>회사 명의 계좌</b>이고, 증자 후 자본금이 <b>10억원 미만</b>이다</li>
+    <li>(무상) 재원이 <b>자본준비금·이익준비금</b>이고, <b>승인받은 재무상태표</b>가 있다</li>
+    <li>(무상증자·주주배정 유상증자) <b>기준일 2주 전 공고</b>를 했다 — 주주 동의로도 생략할 수 없습니다</li>
+    <li>등기원인일자를 <b>효력발생일</b>로 적었다 (결의일 아님)</li>
+    <li>등록면허세에 <b>최저세액·중과 여부</b>를 반영했다</li>
+  </ul>
+</div>
+
+<!-- ══════════ 9. 세금 ══════════ -->
+<div class="qhead"><span class="qb">9</span><h2>세금과 수수료는 얼마인가요?</h2></div>
+
+<table>
+  <thead><tr><th>항목</th><th>금액</th><th>근거</th></tr></thead>
+  <tbody>
+    <tr><td><b><span class="term">등록면허세<span class="bub">등기할 때 내는 지방세. 자본금이 늘어나는 등기는 늘어난 금액에 비례해 매깁니다.</span></span></b></td><td>늘어난 자본금의 <b>0.4%</b><br><span style="font-size:12.5px;color:var(--muted)">최저 112,500원</span></td><td>지방세법 §28①6호 가목</td></tr>
+    <tr><td><b>대도시 중과</b></td><td style="color:#9c3a22"><b>위 금액의 3배</b></td><td>지방세법 §28② — <b>과밀억제권역</b>에서 <b>설립 후 5년 이내</b> 증자</td></tr>
+    <tr><td><b>지방교육세</b></td><td>등록면허세의 <b>20%</b></td><td>지방세법 §151①2호</td></tr>
+    <tr><td><b>등기신청수수료</b></td><td>방문 <b>7,000원</b> / 전자표준양식 5,000원 / 전자 2,000원</td><td>수수료규칙 §5조의3②·§5조의5⑥</td></tr>
+  </tbody>
+</table>
+
+<div class="cost">
+  <span class="ct">세액 예시 — 방문신청 기준</span>
+  <table style="margin:6px 0 0">
+    <thead><tr><th>늘어나는 자본금</th><th>일반</th><th>대도시·설립 5년 이내</th></tr></thead>
+    <tbody>
+      <tr><td><b>1,000만원</b><br><span style="font-size:12.5px;color:var(--muted)">(최저세액 적용)</span></td><td>112,500 + 22,500 + 7,000<br>= <b>142,000원</b></td><td style="color:#9c3a22">337,500 + 67,500 + 7,000<br>= <b>412,000원</b></td></tr>
+      <tr><td><b>5,000만원</b></td><td>200,000 + 40,000 + 7,000<br>= <b>247,000원</b></td><td style="color:#9c3a22">600,000 + 120,000 + 7,000<br>= <b>727,000원</b></td></tr>
+      <tr><td><b>1억원</b></td><td>400,000 + 80,000 + 7,000<br>= <b>487,000원</b></td><td style="color:#9c3a22">1,200,000 + 240,000 + 7,000<br>= <b>1,447,000원</b></td></tr>
+    </tbody>
+  </table>
+  <p style="margin:8px 0 0;font-size:14px">※ 늘어나는 자본금이 <b>2,812만 5천원 이하</b>이면 최저세액 때문에 세액이 같습니다.<br>
+  ※ <b>설립하신 지 5년이 지났다면 중과되지 않습니다.</b> 증자 시점이 5년 경계에 걸려 있다면 <b>몇 주 늦추는 것만으로</b> 세액이 3분의 1로 줄 수 있으니 미리 확인하십시오.<br>
+  ※ <b>무상증자도 같은 기준</b>으로 과세됩니다. 돈이 새로 들어오지 않았다고 면제되지 않습니다.<br>
+  ※ <b>그 밖의 실비</b> — 공증료(의사록 방식), 인감증명서 통당 수백 원, 잔고증명서 은행 수수료, 신문 공고료(무상증자·신문공고 회사).</p>
+  <div class="calcnote">※ 정확한 금액은 <a href="https://sanlaw.co.kr/tools-calculator.html" target="_blank" rel="noopener">수수료 계산기</a>로 확인하십시오.</div>
+</div>
+
+<a class="calc" href="https://sanlaw.co.kr/tools-calculator.html" target="_blank" rel="noopener">
+  <div class="cah">🧮 등록면허세·수수료·보수 미리 계산해 보기</div>
+  <div class="cas">늘어날 자본금과 본점 소재지, 설립일을 입력하시면 최저세액·대도시 중과까지 반영한 예상 금액을 산출합니다. (클릭 시 계산기로 이동)</div>
+</a>
+
+<!-- ══════════ 초기 질의서 ══════════ -->
+<div class="qhead"><span class="qb">✓</span><h2>초기 질의서 — 이것만 채워 보내주시면 됩니다</h2></div>
+<div class="howto">아래 양식을 복사하거나 내려받아 채우신 뒤, <b>등기사항전부증명서·정관·최근 재무상태표와 함께 보내주시면</b> 어느 방식이 맞는지와 날짜별 일정부터 잡아 드리겠습니다. 모르시는 항목은 비워두셔도 됩니다.</div>
+
+<div class="formbox">
+  <button class="fold-btn" onclick="toggleFold(this)">📋 소규모회사 증자 초기 질의서 <span class="chev">▾</span></button>
+  <div class="fold-body">
+    <div class="form" id="fm-intake"><span class="ft">소규모회사 증자 초기 질의서</span>
+ 1. 회사 상호        주식회사 ○○○○○○○○
+
+ 2. 본점 주소        ○○○○○○○○○○○○○○○○
+                     ※ 서울·인천·경기 일부는 세금이 3배가 될 수 있습니다
+
+ 3. 설립일           20○○. ○○. ○○.
+                     ※ 설립 후 5년이 지났는지가 세금을 가릅니다
+
+ 4. 현재 자본금      ○○○○○○○○ 원
+    1주의 금액       ○○○ 원
+    발행주식총수     ○○○○○○ 주
+    발행예정주식총수 ○○○○○○ 주   (정관에 적혀 있습니다)
+
+ 5. 주주            □ 1명   □ 2명 이상 ( ○명 )
+    이사            □ 1명   □ 2명   □ 3명 이상
+
+ 6. 어떤 증자입니까
+     □ 유상증자 — 새로 돈을 넣습니다
+        늘릴 금액        ○○○○○○○○ 원
+        누가 넣습니까    □ 기존 주주   □ 주주가 아닌 분 ( ○○○ )
+        납입 예정일      20○○. ○○. ○○.
+     □ 무상증자 — 준비금을 자본금으로 옮깁니다
+        옮길 금액        ○○○○○○○○ 원
+        재원             □ 자본준비금(주식발행초과금)   □ 이익준비금   □ 모르겠다
+     □ 아직 정하지 못했다 — 상담 후 결정
+
+ 7. 공증을 받으시겠습니까
+     □ 공증 없이 서면동의로 하고 싶다
+     □ 의사록을 만들어 공증받겠다
+     □ 모르겠다
+
+ 8. 정관에 이런 문구가 있습니까
+     □ "준비금의 자본전입은 주주총회의 결의로 한다"
+     □ "주주 외의 자에게 신주를 배정할 수 있다"
+     □ 공고방법: □ 신문 ( ○○신문 )   □ 홈페이지
+     □ 정관을 찾지 못했다
+
+ 9. 주주 중 외국 국적·해외 거주자가 있습니까
+     □ 없다
+     □ 있다 → 국내 외국인등록·거소신고: □ 했다  □ 안 했다
+
+10. 등기를 마쳐야 하는 날짜가 있습니까 (입찰·인허가 등)
+     □ 없다   □ 있다 → 20○○. ○○. ○○. 까지
+
+11. 연락처          성명 ○○○   전화 ○○○-○○○○-○○○○
+</div>
+    <div class="form-tools">
+      <button onclick="copyForm('fm-intake')">📋 복사</button>
+      <button onclick="printForm('fm-intake')">🖨 인쇄</button>
+      <button onclick="downloadForm('fm-intake','소규모회사증자_초기질의서.txt')">⬇ 내려받기</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ FAQ ══════════ -->
+<div class="qhead"><span class="qb">?</span><h2>자주 묻는 질문</h2></div>
+<div class="faq">
+
+  <details><summary>1인 회사인데 주주총회를 실제로 열어야 하나요?</summary>
+    <div class="fa"><b>서면동의 방식이면 열지 않으셔도 됩니다.</b> 자본금 10억원 미만 회사는 주주 전원이 서면으로 동의하면 주주총회 결의가 있는 것으로 봅니다(상법 §363④). 의사록 방식을 택하시더라도, 1인 회사는 그 한 분이 결의 내용을 정하고 의사록을 작성하면 결의가 있었던 것으로 보는 것이 판례의 태도입니다. <b>다만 실제로 동의하지 않은 내용을 동의한 것처럼 꾸미는 것은 전혀 다른 문제</b>이니, 서면동의서는 반드시 <b>주주 본인이 확인하고 날인</b>하셔야 합니다.</div></details>
+
+  <details><summary>공증과 서면동의 중 어느 쪽이 나은가요?</summary>
+    <div class="fa"><b>1인 회사라면 대개 서면동의가 간편합니다.</b> 공증인 사무소에 가실 필요가 없고 공증료도 들지 않습니다. 다만 <b>주주 전원의 인감증명서</b>가 필요하므로, 주주가 여러 분이거나 <b>해외에 계신 주주</b>가 있으면 오히려 서면동의가 더 어려울 수 있습니다. 그런 경우에는 <b>정족수만 채우면 되는 의사록 + 공증</b>이 나을 수 있습니다.</div></details>
+
+  <details><summary>주주가 두 명인데 한 명이 반대하면요?</summary>
+    <div class="fa"><b>서면동의 방식은 쓸 수 없습니다.</b> 서면동의는 <b>주주 전원</b>의 동의가 있어야 합니다. 이 경우 주주총회를 소집하여 결의요건을 채우고, 의사록을 작성해 <b>공증</b>을 받으셔야 합니다. 자본금 10억원 미만 회사는 소집통지를 <b>총회일 10일 전</b>에 보낼 수 있습니다.</div></details>
+
+  <details><summary>무상증자를 하면 세금이 나오나요?</summary>
+    <div class="fa"><b>등기할 때 등록면허세는 나옵니다.</b> 늘어난 자본금의 0.4%(최저 112,500원)이고, 대도시에서 설립 후 5년 이내라면 3배입니다. <b>주주에게 소득세가 붙는지</b>는 전입하는 준비금의 종류에 따라 달라지는 <b>별개 문제</b>입니다. 주식발행초과금 전입과 이익준비금 전입의 세무 효과가 다를 수 있으니, <b>협력 세무사와 먼저 확인</b>하신 뒤 진행하시기를 권합니다.</div></details>
+
+  <details><summary>증자를 하면 사업자등록증도 바꿔야 하나요?</summary>
+    <div class="fa"><b>사업자등록증 자체는 바뀌지 않습니다.</b> 자본금은 사업자등록증 기재사항이 아니기 때문입니다. 다만 <b>법인세 신고 때 주식등변동상황명세서</b>에 증자 내역을 반영하셔야 하고, 인허가 업종 중에는 <b>자본금 요건</b>이 있어 변경신고가 필요한 경우가 있습니다. 건설업처럼 자본금 요건을 맞추려고 증자하시는 경우라면 <b>인허가 쪽 기한</b>도 함께 보셔야 합니다.</div></details>
+
+  <details><summary>증자 후 자본금이 10억원을 넘으면 어떻게 되나요?</summary>
+    <div class="fa"><b>이 안내의 특례를 쓸 수 없게 됩니다.</b> 그 순간부터 서면동의 방식이 막히고, 이사 1~2명 체제도 3명 이상으로 바꾸어야 하며, 감사도 두어야 합니다. <b>증자 자체의 납입 증명</b>도 잔고증명서가 아니라 <b>납입금 보관증명서</b>가 필요합니다. 10억원 문턱을 넘는 증자라면 <b>회사 구조부터</b> 함께 짜야 합니다.</div></details>
+
+  <details><summary>등기를 늦게 하면 어떻게 되나요?</summary>
+    <div class="fa"><b>500만원 이하의 과태료</b> 대상입니다(상법 §635①1호). 과태료는 회사가 아니라 <b>등기 의무가 있던 대표이사 개인</b>에게 부과됩니다. 늦었다고 증자가 무효가 되는 것은 아니니, <b>미룰수록 금액이 커진다</b>는 점만 기억하시고 지금이라도 하시는 편이 낫습니다.</div></details>
+
+</div>
+
+<!-- ══════════ CTA ══════════ -->
+<div class="hire">
+  <div style="font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:18px;color:var(--gold-d);margin-bottom:8px">여기까지가 혼자서도 하실 수 있는 전부입니다</div>
+  <p style="margin:0 0 8px;font-size:14.5px;line-height:1.85">소규모회사 증자는 서류가 많지 않습니다. 그런데 제 경험으로는 <b>「공증을 빼도 된다」는 말만 듣고 대신 넣어야 할 것을 빠뜨려</b> 보정을 받으시는 경우가 가장 많습니다. 공증을 빼는 길은 있지만, <b>공짜로 빠지는 것은 아닙니다.</b></p>
+  <p style="margin:0;font-size:14.5px;line-height:1.85">등기사항전부증명서와 정관, 최근 재무상태표만 보내 주십시오. <b>어느 방식이 회사에 맞는지, 날짜를 어떻게 잡아야 2주를 지키는지</b>부터 정리해 드리겠습니다.</p>
+</div>
+<a class="ctabtn" href="https://sanlaw.co.kr" target="_blank" rel="noopener">소규모회사 증자 상담 신청하기 →</a>
+
+<div class="src">
+근거 — 상법 §318·§363·§373·§383·§396·§416·§418·§423·§425·§458·§459·§461·§635 / 공증인법 §66조의2 / 공증인법 시행령 §37조의3(2018. 6. 19. 신설 제2항) / 상업등기규칙 §128 / 상업등기선례 제201901-2호(2019. 1. 31. 사법등기심의관－451) · 제1-207호 / 법인등기선례 제201809-3호 / 2012. 4. 23. 사법등기심의관－1144 질의회답 / 상업등기선례 제1-195호·제2-58호(준비금 증명) · 제1-384호(의사록 날인 인감) / 법원행정처 『상업등기실무』(2026) 제4장 주식회사의 등기 제1절·제11절·제15절 — 2017년판과 대조 / 2018. 9. 14. 사법등기심의관－3618 · 2021. 6. 28. 사법등기심의관－3048 질의회답 / 상업등기선례 제1-171호·제1-172호·제2-54호 / 인감증명법 §3 / 민법 §157·§161 / 지방세법 §28①6호 가목·§28②·§151①2호 / 등기사항증명서 등 수수료규칙 §5조의3·§5조의5(2025. 8. 1. 시행). 발급처 링크는 각 기관 공식 사이트로 연결됩니다.<br><br>
+※ 이 안내는 자본금 10억원 미만·이사 1~2명 회사의 일반적인 절차를 정리한 것입니다. 이 안내는 법원행정처 『상업등기실무』 2026년판을 기준으로 하고 2017년판과 대조하였습니다. <b>이사 1~2명 회사의 무상증자 효력 시점</b>처럼 실무서가 따로 설명하지 않는 부분은 해석이 갈릴 수 있으므로, <b>접수 전 관할 등기소에 확인</b>하시기를 권해 드립니다. 증자에 따른 주주의 세무 효과는 이 안내의 범위가 아니며 세무사의 검토가 필요합니다.
+</div>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+    t.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();t.classList.toggle('on');}if(e.key==='Escape'){t.classList.remove('on');t.blur();}});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){terms.forEach(function(x){x.classList.remove('on');});}});
+})();
+function toggleFold(b){var fb=b.parentElement;fb.classList.toggle('open');}
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('양식이 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('양식이 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('양식을 내려받았습니다');}
+</script>
+</body>
+</html>
