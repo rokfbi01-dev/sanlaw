@@ -10457,7 +10457,7 @@ function buildReceiptSheet(ws,caseName,base,feeRows,pubRows,vat,office,off,meta)
   setc(SUM,4,'계',10,true,'center'); const es=setc(SUM,5,pubSum+vat,10,true,'right'); es.numFmt='#,##0';
   mrg(TOT,1,TOT,3); mrg(TOT,4,TOT,6);
   setc(TOT,1,'총  계',11,true,'center'); const dt=setc(TOT,4,total,12,true,'right'); dt.numFmt='#,##0';
-  if(ACC){ mrg(ACC,1,ACC,6); setc(ACC,1,accTxt,11,true,'center',true); ws.getRow(ACC).height=26; }
+  if(ACC){ mrg(ACC,1,ACC,6); setc(ACC,1,accTxt,10,true,'center',true); ws.getRow(ACC).height=21; }
   mrg(con,1,con,2); setc(con,1,EST?'위와 같이 견적합니다.':'위와 같이 영수합니다.',10,true,'right');
   const _dt=new Date(); const _dstr=_dt.getFullYear()+' 년    '+(_dt.getMonth()+1)+' 월    '+_dt.getDate()+' 일';
   mrg(d,1,d,6); setc(d,1,_dstr,10,false,'center');
@@ -10594,27 +10594,28 @@ function receiptGate(cb){
   var old=document.getElementById('rcGate'); if(old)old.remove();
   var g=document.createElement('div'); g.id='rcGate';
   g.style.cssText='position:fixed;inset:0;z-index:99998;background:rgba(42,33,24,.72);display:flex;align-items:center;justify-content:center;padding:20px;overflow:auto;';
-  var IN='width:100%;padding:10px 12px;font-size:14.5px;border:1.5px solid #cfc2a8;border-radius:8px;box-sizing:border-box;';
-  var LB='display:block;font-size:12.5px;color:#6b5d49;margin:10px 0 4px;font-weight:700;';
-  var KB='flex:1;padding:11px 6px;font-size:15px;font-weight:700;border-radius:8px;cursor:pointer;border:1.5px solid #cfc2a8;';
-  g.innerHTML='<div style="max-width:440px;width:100%;background:#fbf8f1;border:1px solid #e0d6c2;border-radius:14px;padding:24px 22px;box-shadow:0 20px 50px rgba(0,0,0,.45);">'
-   +'<div style="display:flex;gap:8px;margin:0 0 12px;"><button type="button" id="rc_k_est" style="'+KB+'">① 견적서</button><button type="button" id="rc_k_rcpt" style="'+KB+'">② 영수증</button></div>'
-   +'<h3 id="rc_title" style="margin:0 0 6px;font-size:18px;color:#2a2118;">영수증 윗부분에 들어갈 내용</h3>'
-   +'<p id="rc_desc" style="margin:0 0 4px;font-size:13px;color:#6b5d49;line-height:1.6;"></p>'
-   +'<label style="'+LB+'">받는 분(위임인) 성명 — 「○○○ 귀하」</label><input id="rc_name" type="text" placeholder="예) 홍길동" style="'+IN+'">'
-   +'<label style="'+LB+'">과세표준액(원)</label><input id="rc_base" type="text" inputmode="numeric" style="'+IN+'">'
-   +'<label style="'+LB+'">시가표준액(설정액)(원)</label><input id="rc_std" type="text" inputmode="numeric" style="'+IN+'">'
-   +'<label style="'+LB+'">진행번호 (선택)</label><input id="rc_no" type="text" placeholder="예) 2026-123" style="'+IN+'">'
-   +'<div id="rc_accbox" style="display:none;margin-top:12px;padding:10px 12px 12px;background:#fff7e6;border:1px solid #e8cf9c;border-radius:10px;">'
-   +'<div style="font-size:13px;font-weight:700;color:#7a4e12;">입금계좌 (견적서에만 인쇄)</div>'
-   +'<input id="rc_bank" type="text" placeholder="입금 은행   예) ○○은행" style="'+IN+'margin-top:6px;">'
-   +'<input id="rc_acct" type="text" placeholder="계좌번호   예) 000-000000-00-000" style="'+IN+'margin-top:6px;">'
-   +'<input id="rc_holder" type="text" placeholder="예금주   예) 홍길동(○○법무사사무소)" style="'+IN+'margin-top:6px;">'
-   +'<div id="rc_accwarn" style="margin-top:6px;font-size:12px;color:#b3261e;"></div>'
-   +'<div style="margin-top:4px;font-size:12px;color:#8a7c66;">※ 한 번 넣으시면 이 기기에 저장되어 다음 견적서에도 그대로 들어갑니다.</div></div>'
-   +'<button id="rc_ok" style="margin-top:16px;width:100%;padding:12px;background:#1d7a46;color:#fff;border:none;border-radius:8px;font-size:15.5px;font-weight:700;cursor:pointer;">영수증 내려받기</button>'
-   +'<button id="rc_cancel" style="margin-top:8px;width:100%;padding:10px;background:none;color:#8a7c66;border:1px solid #ddd0b8;border-radius:8px;font-size:13.5px;cursor:pointer;">취소</button>'
-   +'<div style="margin-top:10px;font-size:12px;color:#8a7c66;line-height:1.6;">※ 받는 분 성명과 진행번호는 개인정보라 기기에 저장하지 않습니다. 이 창을 닫기 전까지만 기억합니다.</div>'
+  /* 2026-09 창 크기 축소 — 노트북 화면에서도 스크롤 없이 한눈에 보이도록 두 칸씩 배치 */
+  var IN='width:100%;padding:7px 9px;font-size:13.5px;border:1.5px solid #cfc2a8;border-radius:7px;box-sizing:border-box;';
+  var LB='display:block;font-size:11.5px;color:#6b5d49;margin:0 0 3px;font-weight:700;';
+  var KB='flex:1;padding:7px 6px;font-size:14px;font-weight:700;border-radius:7px;cursor:pointer;border:1.5px solid #cfc2a8;';
+  var ROW='display:flex;gap:8px;margin-top:8px;', COL='flex:1;min-width:0;';
+  g.innerHTML='<div style="max-width:380px;width:100%;max-height:calc(100vh - 24px);overflow:auto;box-sizing:border-box;background:#fbf8f1;border:1px solid #e0d6c2;border-radius:12px;padding:14px 16px;box-shadow:0 16px 40px rgba(0,0,0,.45);">'
+   +'<div style="display:flex;gap:6px;margin:0 0 8px;"><button type="button" id="rc_k_est" style="'+KB+'">① 견적서</button><button type="button" id="rc_k_rcpt" style="'+KB+'">② 영수증</button></div>'
+   +'<h3 id="rc_title" style="margin:0 0 2px;font-size:15px;color:#2a2118;">영수증 윗부분에 들어갈 내용</h3>'
+   +'<p id="rc_desc" style="margin:0;font-size:11.5px;color:#6b5d49;line-height:1.5;"></p>'
+   +'<div style="'+ROW+'"><div style="'+COL+'"><label style="'+LB+'">받는 분 성명</label><input id="rc_name" type="text" placeholder="예) 홍길동" style="'+IN+'"></div>'
+   +'<div style="'+COL+'"><label style="'+LB+'">진행번호 (선택)</label><input id="rc_no" type="text" placeholder="예) 2026-123" style="'+IN+'"></div></div>'
+   +'<div style="'+ROW+'"><div style="'+COL+'"><label style="'+LB+'">과세표준액(원)</label><input id="rc_base" type="text" inputmode="numeric" style="'+IN+'"></div>'
+   +'<div style="'+COL+'"><label style="'+LB+'">시가표준액(설정액)</label><input id="rc_std" type="text" inputmode="numeric" style="'+IN+'"></div></div>'
+   +'<div id="rc_accbox" style="display:none;margin-top:10px;padding:8px 10px 9px;background:#fff7e6;border:1px solid #e8cf9c;border-radius:8px;">'
+   +'<div style="font-size:11.5px;font-weight:700;color:#7a4e12;">입금계좌 <span style="font-weight:400;color:#8a7c66;">(견적서에만 인쇄 · 이 기기에 저장)</span></div>'
+   +'<div style="display:flex;gap:6px;margin-top:5px;"><input id="rc_bank" type="text" placeholder="은행" style="'+IN+'flex:1;min-width:0;">'
+   +'<input id="rc_holder" type="text" placeholder="예금주" style="'+IN+'flex:1;min-width:0;"></div>'
+   +'<input id="rc_acct" type="text" placeholder="계좌번호   예) 000-000000-00-000" style="'+IN+'margin-top:5px;">'
+   +'<div id="rc_accwarn" style="margin-top:4px;font-size:11px;color:#b3261e;"></div></div>'
+   +'<div style="display:flex;gap:6px;margin-top:12px;"><button id="rc_cancel" style="flex:0 0 72px;padding:9px 0;background:none;color:#8a7c66;border:1px solid #ddd0b8;border-radius:7px;font-size:13px;cursor:pointer;">취소</button>'
+   +'<button id="rc_ok" style="flex:1;padding:9px;background:#1d7a46;color:#fff;border:none;border-radius:7px;font-size:14.5px;font-weight:700;cursor:pointer;">영수증 내려받기</button></div>'
+   +'<div style="margin-top:7px;font-size:11px;color:#8a7c66;line-height:1.5;">※ 받는 분 성명·진행번호는 저장하지 않습니다(이 창을 닫기 전까지만 기억).</div>'
    +'</div>';
   document.body.appendChild(g);
   var fmt=function(n){return n?Number(n).toLocaleString():'';};
@@ -10635,9 +10636,9 @@ function receiptGate(cb){
     document.getElementById('rc_k_rcpt').style.cssText=KB+(est?off:on);
     document.getElementById('rc_title').textContent=nm+' 윗부분에 들어갈 내용';
     document.getElementById('rc_desc').innerHTML=(est
-      ?'상담 때 드리는 <b>견적서</b>입니다. 영수증과 같은 양식에 제목이 「견적서」로 바뀌고 <b>입금계좌</b>가 들어갑니다. '
-      :'입금을 받은 뒤 드리는 <b>영수증</b>입니다(입금계좌는 들어가지 않습니다). ')
-      +'금액은 화면에 넣으신 값으로 채워 두었습니다. 필요하면 고치십시오. 비워 두면 빈칸으로 나옵니다.';
+      ?'상담 때 드리는 견적서 — 영수증과 같은 양식에 <b>입금계좌</b>가 들어갑니다.'
+      :'입금 뒤 드리는 영수증 — 입금계좌는 들어가지 않습니다.')
+      +' 금액은 화면 값으로 채워 두었습니다.';
     document.getElementById('rc_accbox').style.display=est?'block':'none';
     document.getElementById('rc_ok').textContent=nm+' 내려받기';
     document.getElementById('rc_ok').style.background=est?'#a86b1f':'#1d7a46';
