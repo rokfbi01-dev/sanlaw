@@ -448,9 +448,10 @@
     <p>실제 수수료·공과금은 <b>부동산 가액 · 사건 내용 · 건수 · 추가 대행 항목</b> 등에 따라 달라질 수 있습니다.<br>
       <b>정확한 견적은 상담을 통해 안내</b>드리니, 이 금액은 <b>미리 가늠해 보시는 용도</b>로만 봐 주십시오. <span class="cta">부담 없이 물어보셔도 됩니다</span></p>
     <p class="sub">보수는 「법무사 보수기준」, 공과금(인지·송달료·국민주택채권 등)은 <b>현행 법령</b>을 기준으로 산정하되, <b>최종 금액은 접수 시점·법원·기관 기준</b>에 따릅니다.</p>
+    <p class="sub">※ 표시된 보수는 「법무사 보수기준」에 따른 예상액이며, 실제 보수는 사건의 내용·난이도·업무범위를 확인한 뒤 위임인과 협의하여 정합니다. 이 계산기는 할인이나 최저가를 알리기 위한 것이 아닙니다.</p>
   </div>
   <div style="background:#fffdf9;border:1px solid #e3d6c2;border-left:4px solid #c8862d;border-radius:10px;padding:13px 16px;margin:14px 0;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
-    <div style="font-size:13.5px;color:#6b5d49;line-height:1.55;flex:1 1 230px;">🤝 <b>상속세·양도세·증여세</b> 등 국세 신고는 <b>업무협약 세무사</b>와 함께 도와드립니다. <span style="color:#8a7c66;">(취득세는 등기와 함께 저희 사무소가 대행)</span></div>
+    <div style="font-size:13.5px;color:#6b5d49;line-height:1.55;flex:1 1 230px;">🧾 <b>상속세·양도세·증여세</b> 등 국세 신고는 <b>세무사의 업무</b>입니다. 필요하시면 세무사 정보를 안내해 드립니다. <span style="color:#8a7c66;">(취득세는 등기와 함께 저희 사무소가 대행)</span></div>
     <a href="index.html#tax-partner" target="_blank" rel="noopener" style="flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:2px;background:#c8862d;color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:10px 18px;border-radius:9px;white-space:nowrap;"><span>세무사 안내 보기 →</span><span style="font-size:11.5px;font-weight:600;opacity:.92;white-space:normal;text-align:center;line-height:1.35;">양도소득세·상속세·증여세<br>등 각종 세무상담</span></a>
   </div>
 
@@ -583,8 +584,8 @@
         <label><input type="checkbox" id="selfFarm"> 자경농지 감면</label>
         <label><input type="checkbox" id="corp"> 법인·단체 취득<span class="law" title="지방세법 §13의2①1호 — 법인(국세기본법 §13에 따른 법인으로 보는 단체, 부동산등기법 §49①3호에 따른 법인 아닌 사단·재단 등 개인이 아닌 자를 포함한다)이 주택을 취득하는 경우: 4%에 중과기준세율의 400%를 더한 12%">§13의2①1호</span></label><label><input type="checkbox" id="metroCorp"> 대도시 법인 5년 내 취득<span class="law" title="지방세법 §13② — 대도시(수도권정비계획법 §6 과밀억제권역, 산업단지 제외)에서 법인을 설립·지점 설치하거나 대도시로 전입한 후 5년 이내에 취득하는 모든 부동산은 표준세율의 300%에서 중과기준세율의 200%를 뺀 세율을 적용한다. 다만 대도시 중과 제외 업종에 직접 사용할 목적이면 일반세율.">§13②</span></label>
         <label><input type="checkbox" id="verify"> 확인서면(등기권리증 분실·법§51)</label></div></div>
-      <div id="pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="feeAdjust" onchange="calcSale()">
-        <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
+      <div id="pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="feeAdjust" onchange="calcSale()">
+        <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
@@ -707,8 +708,8 @@
         <label><input type="checkbox" id="s_farmSpecial"> 자경농민 농지 특례(0.3%·§15①2호나목)</label>
         <label><input type="checkbox" id="s_over85"> 85㎡ 초과(농특세)</label>
         <label><input type="checkbox" id="s_verify"> 확인서면(등기권리증 분실·법§51)</label></div></div>
-      <div id="s_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="s_adjust" onchange="calcInherit()">
-        <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
+      <div id="s_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="s_adjust" onchange="calcInherit()">
+        <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
@@ -807,8 +808,8 @@
         <label><input type="checkbox" id="bq_farmSpecial"> 자경농민 농지 특례(0.3%·§15①2호나목)</label>
         <label><input type="checkbox" id="bq_nonprofit" onchange="calcBequest()"> 수증자가 비영리사업자(2.8%·§11①2호 단서)</label><label><input type="checkbox" id="bq_over85"> 85㎡ 초과(농특세)</label>
         <label><input type="checkbox" id="bq_verify"> 확인서면(등기권리증 분실·법§51)</label></div></div>
-      <div id="bq_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="bq_adjust" onchange="calcBequest()">
-        <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
+      <div id="bq_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="bq_adjust" onchange="calcBequest()">
+        <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
@@ -905,8 +906,8 @@
         <input type="number" class="cell" id="gd_estate" placeholder="재산가액(원)" style="width:160px;" oninput="calcGuardian()"></div>
         <span class="hint">미체크 시 비재산사건 → <b>5천만원 의제</b>(보수표 Ⅶ 단서)</span></div>
       <div class="line"><span class="lbl">청구인·후보자(인)</span><div class="stepper"><button onclick="step('gd_cntP',-1,calcGuardian)">−</button><input type="number" id="gd_cntP" value="1" min="1" oninput="calcGuardian()"><button onclick="step('gd_cntP',1,calcGuardian)">+</button></div></div>
-      <div id="gd_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="gd_adjust" onchange="calcGuardian()">
-        <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
+      <div id="gd_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="gd_adjust" onchange="calcGuardian()">
+        <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
@@ -979,8 +980,8 @@
         <label><input type="checkbox" id="gv_nonprofit" onchange="calcGift()"> 비영리사업자 취득(§11①2호 단서 → 2.8%)</label>
         <label><input type="checkbox" id="gv_over85"> 85㎡ 초과(농특세)</label>
         <label><input type="checkbox" id="gv_verify"> 확인서면(등기권리증 분실·법§51)</label></div></div>
-      <div id="gv_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="gv_adjust" onchange="calcGift()">
-        <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
+      <div id="gv_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="gv_adjust" onchange="calcGift()">
+        <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
@@ -1156,8 +1157,8 @@
         <label><input type="checkbox" id="ea_mid13"> 취득물건이 <b>§13②</b>(대도시 법인 취득 등) → 산출세율 ×300%</label>
         <label><input type="checkbox" id="ea_noReg"> 등기신청 없음(취득세 신고만)</label>
         <label><input type="checkbox" id="ea_verify"> 확인서면(등기권리증 분실·법§51)</label></div></div>
-      <div id="ea_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="ea_adjust" onchange="calcEtcAcq()">
-        <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
+      <div id="ea_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="ea_adjust" onchange="calcEtcAcq()">
+        <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
@@ -1258,8 +1259,8 @@
       <div class="line"><span class="lbl">농특세·가산 등</span><div class="checks" onchange="calcPartition()">
         <label><input type="checkbox" id="pt_over85"> 전용 85㎡ 초과(초과분 농특세 과세)</label>
         <label><input type="checkbox" id="pt_verify"> 확인서면(등기권리증 분실·법§51)</label></div></div>
-      <div id="pt_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="pt_adjust" onchange="calcPartition()">
-        <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
+      <div id="pt_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="pt_adjust" onchange="calcPartition()">
+        <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
@@ -1383,8 +1384,8 @@
       <div class="line"><span class="lbl">농어촌특별세</span><div class="checks" onchange="calcNakchal()">
         <label><input type="checkbox" id="nk_over85"> 전용 85㎡ 초과(농특세 과세)</label></div>
         <span class="hint">85㎡ 이하 주택은 비과세(농특세법 §4 11호). 주택외는 면적과 무관하게 과세</span></div>
-      <div id="nk_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="nk_adjust" onchange="calcNakchal()">
-        <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
+      <div id="nk_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="nk_adjust" onchange="calcNakchal()">
+        <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
@@ -1501,8 +1502,8 @@
       <div class="line"><span class="lbl">농특세·가산 등</span><div class="checks" onchange="calcDivision()">
         <label><input type="checkbox" id="dv_over85"> 전용 85㎡ 초과(농특세 과세)</label>
         <label><input type="checkbox" id="dv_verify"> 확인서면(등기권리증 분실·법§51)</label></div></div>
-      <div id="dv_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="dv_adjust" onchange="calcDivision()">
-        <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
+      <div id="dv_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="dv_adjust" onchange="calcDivision()">
+        <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
@@ -1606,8 +1607,8 @@
         <label><input type="checkbox" id="bv_donorOneHouse" onchange="calcBurden()"> └ 증여자가 1세대 1주택(§13의2② 단서 → 무상분 중과 배제)</label>
         <label><input type="checkbox" id="bv_over85"> 85㎡ 초과(농특세)</label>
         <label><input type="checkbox" id="bv_verify"> 확인서면(등기권리증 분실·법§51)</label></div></div>
-      <div id="bv_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="bv_adjust" onchange="calcBurden()">
-        <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
+      <div id="bv_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="bv_adjust" onchange="calcBurden()">
+        <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
@@ -1709,8 +1710,8 @@
       <div class="line"><span class="lbl">감면·가산 등</span><div class="checks" onchange="calcMortgage()">
         <label><input type="checkbox" id="mt_verify"> 확인서면(등기권리증 분실·법§51)</label>
         <label><input type="checkbox" id="mt_same"> 동일인 보증서</label></div></div>
-      <div id="mt_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="mt_adjust" onchange="calcMortgage()">
-        <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
+      <div id="mt_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="mt_adjust" onchange="calcMortgage()">
+        <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
@@ -1785,8 +1786,8 @@
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('ga_cntEstate',-1,calcGadeungi)">−</button><input type="number" id="ga_cntEstate" value="1" min="1" oninput="calcGadeungi()"><button onclick="step('ga_cntEstate',1,calcGadeungi)">+</button></div></div>
       <div class="line"><span class="lbl">감면·가산 등</span><div class="checks" onchange="calcGadeungi()">
         <label><input type="checkbox" id="ga_verify"> 확인서면(등기권리증 분실·법§51)</label></div></div>
-      <div id="ga_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="ga_adjust" onchange="calcGadeungi()">
-        <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
+      <div id="ga_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="ga_adjust" onchange="calcGadeungi()">
+        <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
@@ -1848,7 +1849,7 @@
       <div class="note">부부재산약정등기의 보수는 재산가액이 아니라 <b>약정서 문안의 난이도</b>로 산정합니다. 기본보수 50만원을 기준으로, 전문직·사업가 등 재산관계가 복잡한 경우 난이도를 150~200%로 조정하세요.</div>
       <div class="line"><span class="lbl">신청 건수</span><div class="stepper"><button onclick="step('mr_cnt',-1,calcMarital)">−</button><input type="number" id="mr_cnt" value="1" min="1" oninput="calcMarital()"><button onclick="step('mr_cnt',1,calcMarital)">+</button></div></div>
       <div id="mr_pwBox"></div><div class="line"><span class="lbl">문안 난이도</span><select id="mr_adjust" onchange="calcMarital()">
-        <option value="0.8">80% (DC)</option><option value="0.9">90%</option>
+        <option value="0.8">80% (감액)</option><option value="0.9">90%</option>
         <option value="1" selected>100% (기본·50만원)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
         <option value="1.4">140%</option><option value="1.5">150% (복합자산 권장)</option><option value="1.6">160%</option>
@@ -1900,8 +1901,8 @@
 
     <div class="card blue"><h2>① 적용 요건 <span class="tag A">A</span></h2><div class="body">
       <div class="note"><b>보수기준 §12</b> — 「도시 및 주거환경정비법」 <b>§86①의 이전고시</b>에 따른 재건축·재개발등기를 <b>동일한 신청서로 일괄 신청</b>하는 경우에만 이 화면의 산정방식을 씁니다. 일괄신청이 아니면 매매·보존 등 <b>개별 화면</b>을 쓰십시오.<br>▸ §12의 핵심은 <b>「무엇을 1건으로 보느냐」</b>입니다. 아래 ②~⑥은 각 호가 정한 <b>별건 산정 단위</b> 그대로입니다.</div>
-      <div id="rd_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="rd_adjust" onchange="calcRedev()">
-        <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
+      <div id="rd_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="rd_adjust" onchange="calcRedev()">
+        <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
@@ -2008,8 +2009,8 @@
       <div class="line"><span class="lbl">신탁등기 유형</span><select id="st_trustType" onchange="calcSintak()"><option value="Ⅰ-4(1)" selected>신탁·재신탁·담보권신탁·고유재산 변경 등 (150,000)</option><option value="Ⅰ-4(2)">신탁원부 변경·합유명의인 변경·합병분할 (80,000)</option><option value="Ⅰ-4(3)">유한책임신탁 설정 (220,000)</option><option value="Ⅰ-4(4)">신탁등기 말소 (50,000)</option><option value="Ⅰ-4(5)">그 밖의 신탁 등기 (70,000)</option></select><span class="law" title="법무사보수기준 §11①·보수표 Ⅰ-4 — 신탁등기 유형별 정액 기본보수">보수기준 §11①</span></div>
       <div class="line"><span class="lbl">부동산가액(원)</span><input type="number" class="amt" id="st_base" placeholder="0" oninput="calcSintak()"><span class="hint">참고용(보수는 유형별 정액)</span></div>
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('st_cntEstate',-1,calcSintak)">−</button><input type="number" id="st_cntEstate" value="1" min="1" oninput="calcSintak()"><button onclick="step('st_cntEstate',1,calcSintak)">+</button></div></div>
-      <div id="st_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="st_adjust" onchange="calcSintak()">
-        <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
+      <div id="st_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="st_adjust" onchange="calcSintak()">
+        <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
@@ -2134,8 +2135,8 @@
       <div class="line"><span class="lbl">감면·가산 등</span><div class="checks" onchange="calcMortgageAdd()">
         <label><input type="checkbox" id="ma_verify"> 확인서면(등기권리증 분실·법§51)</label>
         <label><input type="checkbox" id="ma_same"> 동일인 보증서</label></div></div>
-      <div id="ma_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="ma_adjust" onchange="calcMortgageAdd()">
-        <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
+      <div id="ma_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="ma_adjust" onchange="calcMortgageAdd()">
+        <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
@@ -2207,8 +2208,8 @@
     <div class="card blue"><h2>① 말소 정보</h2><div class="body">
       <div class="note">말소등기는 <b>정액 보수(80,000)</b>, 등기수수료 <b>기타등기</b>(e-Form 3,000), 등록면허세 <b>건당 정액(6,000)</b>입니다. 채권매입은 없습니다.</div>
       <div class="line"><span class="lbl">말소 건수(부동산)</span><div class="stepper"><button onclick="step('mtc_cnt',-1,calcMortCancel)">−</button><input type="number" id="mtc_cnt" value="1" min="1" oninput="calcMortCancel()"><button onclick="step('mtc_cnt',1,calcMortCancel)">+</button></div></div>
-      <div id="mtc_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="mtc_adjust" onchange="calcMortCancel()">
-        <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
+      <div id="mtc_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="mtc_adjust" onchange="calcMortCancel()">
+        <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
@@ -2281,8 +2282,8 @@
         <label><input type="checkbox" id="pr_metro"> 대도시 내 취득 중과(취득세)</label>
         <label><input type="checkbox" id="pr_verify"> 확인서면(등기권리증 분실·법§51)</label></div></div>
       <div id="pr_metroWarn" style="display:none;margin:6px 0;padding:8px 10px;background:#fff7e6;border:1px solid var(--gold);border-radius:6px;font-size:12.5px;color:#8a6d1c;">⚠ <b>대도시 취득 중과 [확인필요]</b> — 지방세법 §13②에 따라 대도시(과밀억제권역) 내 법인 설립·전입 후 5년 내 부동산 취득 등은 취득세가 중과될 수 있습니다. 다만 <b>원시취득 보존등기의 중과 해당 여부는 취득 주체·용도에 따라 달라</b> 자동 적용하지 않습니다. 해당 시 <b>취득세를 직접 재산정·입력</b>하세요(표준세율 + 중과기준세율 2배 등).</div>
-      <div id="pr_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="pr_adjust" onchange="calcPreserve()">
-        <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
+      <div id="pr_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="pr_adjust" onchange="calcPreserve()">
+        <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
@@ -2359,8 +2360,8 @@
       <div class="line"><span class="lbl">감면·가산 등</span><div class="checks" onchange="calcRight()">
         <label><input type="checkbox" id="rt_verify"> 확인서면(등기권리증 분실·법§51)</label>
         <label><input type="checkbox" id="rt_same"> 동일인 보증서</label></div></div>
-      <div id="rt_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="rt_adjust" onchange="calcRight()">
-        <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
+      <div id="rt_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="rt_adjust" onchange="calcRight()">
+        <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
@@ -2424,8 +2425,8 @@
         <option value="0.5">50%</option><option value="1">100%</option><option value="1.5">150% (상한)</option></select>
         <span class="hint">보수기준 <b>§14①</b> — 「외국인투자촉진법」에 의한 설립·자본증가, <b>현물출자</b>, 분할·합병·주식이전·조직변경에 의한 설립, 흡수합병·분할합병·주식교환에 의한 자본증가, <b>종류주식·주식매수선택권</b> 규정 포함 → 기본보수의 <b>150%까지</b></span></div>
           <div class="line"><span class="lbl">문서작성 종류 수</span><div class="stepper"><button onclick="step('co_docN',-1,calcCorp)">−</button><input type="number" id="co_docN" value="3" min="1" oninput="calcCorp()"><button onclick="step('co_docN',1,calcCorp)">+</button></div><span class="hint">정관·발기인의사록·창립총회의사록 등 (Ⅸ-5 종류마다 80,000)</span></div>
-      <div id="co_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="co_adjust" onchange="calcCorp()">
-        <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
+      <div id="co_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="co_adjust" onchange="calcCorp()">
+        <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
@@ -2513,8 +2514,8 @@
       <div class="line" id="cv_rowMidExempt" style="display:none;"><span class="lbl">중과 배제</span><label class="checks" style="display:inline-flex;"><input type="checkbox" id="cv_midExempt" onchange="calcCorpChange()"> <b>대도시 중과 제외 업종</b>에 해당</label><span class="hint">§28② 단서 · 시행령 §26① <span class="tag chk">확인필요</span></span></div>
       <div id="cv_midWarn" style="display:none;margin:6px 0;padding:8px 10px;background:#fdeaea;border:1px solid var(--seal-soft);border-radius:6px;font-size:12.5px;color:var(--seal);line-height:1.6;">▸ 이 등기는 지방세법 <b>§28①6호 바목(그 밖의 등기)</b>이므로 <b>§28④에 따라 대도시 중과세율이 적용되지 않습니다</b>. 대도시를 체크해도 <b>40,200원 × 건수</b> 그대로입니다. <span class="tag A">A</span></div>
       <div id="cv_typeGuide" style="display:none;margin:6px 0;padding:9px 11px;background:#f3f8f4;border:1px solid #cfe3d6;border-radius:6px;font-size:12.5px;line-height:1.75;"></div>
-      <div id="cv_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="cv_adjust" onchange="calcCorpChange()">
-        <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
+      <div id="cv_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="cv_adjust" onchange="calcCorpChange()">
+        <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
@@ -2587,8 +2588,8 @@
       <div class="line"><span class="lbl">집행권원/담보권 수</span><div class="stepper"><button onclick="step('am_titleN',-1,calcAuctionFile)">−</button><input type="number" id="am_titleN" value="1" min="1" oninput="calcAuctionFile()"><button onclick="step('am_titleN',1,calcAuctionFile)">+</button></div><span class="hint">인지 5,000×건</span></div>
       <div class="line"><span class="lbl">현황조사 건수</span><div class="stepper"><button onclick="step('am_surveyN',-1,calcAuctionFile)">−</button><input type="number" id="am_surveyN" value="1" min="1" oninput="calcAuctionFile()"><button onclick="step('am_surveyN',1,calcAuctionFile)">+</button></div><span class="hint">klac 현황조사료 63,260×건</span></div>
       <div class="line"><span class="lbl">전자소송 진행</span><label class="checks" style="display:inline-flex;"><input type="checkbox" id="am_e" checked onchange="calcAuctionFile()"> 예(인지 10% 할인·klac 참고)</label></div>
-      <div id="am_s24Box"></div><div id="am_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="am_adjust" onchange="calcAuctionFile()">
-        <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
+      <div id="am_s24Box"></div><div id="am_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="am_adjust" onchange="calcAuctionFile()">
+        <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
@@ -2823,8 +2824,8 @@
       <div class="line"><span class="lbl">당사자 수</span><div class="stepper"><button onclick="step('ac_party',-1,calcAttachClaim)">−</button><input type="number" id="ac_party" value="3" min="1" oninput="calcAttachClaim()"><button onclick="step('ac_party',1,calcAttachClaim)">+</button></div><span class="hint">채권자+채무자+제3채무자 (기본 3)</span></div>
       <div class="line"><span class="lbl">가압류담보금(원)</span><input type="number" class="amt" id="ac_deposit" placeholder="0" oninput="calcAttachClaim(true)"><span class="hint">기본 채권액×40% (직접수정 가능)</span></div>
       <div class="line"><span class="lbl">전자소송 진행</span><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ac_e" checked onchange="calcAttachClaim()"> 예</label><span class="hint">인지 10,000원 → 9,000원(§16②·§9 준용)</span></div>
-      <div id="ac_s24Box"></div><div id="ac_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="ac_adjust" onchange="calcAttachClaim()">
-        <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
+      <div id="ac_s24Box"></div><div id="ac_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="ac_adjust" onchange="calcAttachClaim()">
+        <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
@@ -2880,8 +2881,8 @@
       <div class="line"><span class="lbl">당사자 수</span><div class="stepper"><button onclick="step('at_party',-1,calcAttach)">−</button><input type="number" id="at_party" value="2" min="1" oninput="calcAttach()"><button onclick="step('at_party',1,calcAttach)">+</button></div></div>
       <div class="line"><span class="lbl">전자소송 진행</span><label class="checks" style="display:inline-flex;"><input type="checkbox" id="at_e" checked onchange="calcAttach()"> 예</label><span class="hint">인지 10,000원 → 9,000원(§16②·§9 준용)</span></div>
       <div class="line"><span class="lbl">가압류담보금(원)</span><input type="number" class="amt" id="at_deposit" placeholder="0" oninput="calcAttach(true)"><span class="hint">기본 채권액×10% (직접수정 가능)</span></div>
-      <div id="at_s24Box"></div><div id="at_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="at_adjust" onchange="calcAttach()">
-        <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
+      <div id="at_s24Box"></div><div id="at_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="at_adjust" onchange="calcAttach()">
+        <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
@@ -2945,8 +2946,8 @@
       <div class="line"><span class="lbl">당사자 수</span><div class="stepper"><button onclick="step('inj_party',-1,calcInjunction)">−</button><input type="number" id="inj_party" value="2" min="1" oninput="calcInjunction()"><button onclick="step('inj_party',1,calcInjunction)">+</button></div></div>
       <div class="line"><span class="lbl">담보금(원)</span><input type="number" class="amt" id="inj_deposit" placeholder="0" oninput="calcInjunction(true)"><span class="hint">기본 피보전권리×10% (직접수정 가능)</span></div>
       <div class="line"><span class="lbl">전자소송 진행</span><label class="checks" style="display:inline-flex;"><input type="checkbox" id="inj_e" checked onchange="calcInjunction()"> 예(인지 10% 할인)</label></div>
-      <div id="inj_s24Box"></div><div id="inj_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="inj_adjust" onchange="calcInjunction()">
-        <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
+      <div id="inj_s24Box"></div><div id="inj_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="inj_adjust" onchange="calcInjunction()">
+        <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="2">200%</option></select></div>
@@ -3026,8 +3027,8 @@
         <label><input type="checkbox" id="so_submit" checked> 제출대행(Ⅸ-8 40,000)</label>
         <label><input type="checkbox" id="so_recv"> 송달영수(Ⅸ-10 50,000)</label>
         <label><input type="checkbox" id="so_read"> 기록열람(Ⅸ-9 40,000)</label></div></div>
-      <div id="so_s24Box"></div><div id="so_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="so_adjust" onchange="calcLawsuit()">
-        <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
+      <div id="so_s24Box"></div><div id="so_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="so_adjust" onchange="calcLawsuit()">
+        <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
@@ -3188,11 +3189,11 @@
   <div class="scene" id="scene-generic">
     <button class="back" onclick="goMenu()">‹ 메인메뉴</button>
     <h2 class="stitle" id="g_title">사건</h2>
-    <div class="note" id="g_lawyerNote" style="display:none;"><b>📝 법무사가 도와드립니다</b> — 이 사건의 소장·신청서 등 <b>법원 제출서류 작성·제출대행</b>과 본인소송 절차를 지원합니다. 다만 법정에서의 변론(소송대리)이 필요한 경우에는 변호사와 연계해 안내드립니다.</div>
+    <div class="note" id="g_lawyerNote" style="display:none;"><b>📝 법무사가 도와드립니다</b> — 이 사건의 소장·신청서 등 <b>법원 제출서류 작성·제출대행</b>과 본인소송 절차를 지원합니다. 다만 법정에서의 변론 등 변호사의 소송대리가 필요한 사항은 그 사실을 안내드리며, 변호사의 선택과 선임은 의뢰인이 직접 결정합니다.</div>
     <div class="card blue"><h2 id="g_h1">① 기준 입력</h2><div class="body" id="g_inputs"></div></div>
     <div class="card pink"><h2>② 법무사 보수 (VAT 별도)</h2><div class="body">
-      <div id="g_s24Box"></div><div id="g_pwBox"></div><div class="line"><span class="lbl">보수 조정(DC/가산)</span><select id="g_adjust" onchange="calcGeneric()">
-        <option value="0.6">60% (DC)</option><option value="0.7">70% (DC)</option><option value="0.8">80% (DC)</option>
+      <div id="g_s24Box"></div><div id="g_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="g_adjust" onchange="calcGeneric()">
+        <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100%</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
         <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
@@ -6434,7 +6435,7 @@ renderDocsDivision();
    ⑥ 「외국인 또는 재외국민이 포함되어 있거나 등기원인과 관련되는 서류를 외국으로부터
       받아야 하는 등기」의 경우에는 당해 「기본보수의 100% 상당액까지」 가산할 수 있다. [A]
    ※ §10③(제2조제2항 각 호 사유 → 기본보수 100%까지 가산)과는 별개의 항이므로
-     화면의 「보수 조정(DC/가산)」과 중복 적용되지 않도록 주의할 것
+     화면의 「보수 협의조정(감액·가산)」과 중복 적용되지 않도록 주의할 것
    ===== §14② — 상업·법인등기 =====
    ② 「임원 중 외국인 또는 재외국민이 포함되어 있거나 등기원인과 관련되는 서류를
       외국으로부터 받아야 하는 변경등기」는 기본보수의 100% 상당액까지 가산할 수 있다. [A] */
