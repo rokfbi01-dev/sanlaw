@@ -323,16 +323,6 @@
           <li>유리한 점뿐 아니라 불리한 점도 솔직하게 말씀드립니다.</li>
         </ul>
 
-        <div class="motto">
-          <div class="motto-han" lang="zh-Hant">和而不同</div>
-          <div class="motto-src"><span class="hj" lang="zh-Hant">子曰 君子和而不同</span> (자왈 군자화이부동)<br>공자께서 말씀하셨다. “군자는 남과 화합하되, 무턱대고 같아지지 않는다.” <span style="white-space:nowrap">— 『논어(論語)』 자로(子路)편</span></div>
-          <p class="motto-lead">저희 사무소가 일하는 기준입니다. 의뢰인은 사건 번호가 아니라, 법 앞에서 막막함을 느끼는 한 사람이기 때문입니다.</p>
-          <ul class="motto-list">
-            <li><b>화(和) — 곁에 섭니다.</b> 의뢰인의 사정을 끝까지 듣고, 의뢰인의 입장에서 필요한 서류와 절차를 함께 준비합니다.</li>
-            <li><b>부동(不同) — 휩쓸리지 않습니다.</b> 듣기 좋은 말만 하지 않습니다. 불리한 점은 솔직히 말씀드리고, 사실과 다른 서류나 직무범위를 넘는 일은 맡지 않습니다.</li>
-          </ul>
-        </div>
-
         <div class="career-block">
           <h4 class="career-title">검찰 33년 주요 경력</h4>
           <ul class="career-list">
@@ -346,6 +336,27 @@
           </ul>
         </div>
       </div>
+    </div>
+
+    <div class="motto-row">
+          <div class="motto">
+            <div class="motto-han" lang="zh-Hant">和而不同</div>
+            <div class="motto-src"><span class="hj" lang="zh-Hant">子曰 君子和而不同</span> (자왈 군자화이부동)<br>공자께서는 ‘남과 화합하되, 무턱대고 같아지지 않는다’라고 말씀하셨습니다. <span style="white-space:nowrap">— 『논어(論語)』 자로(子路)편</span></div>
+            <p class="motto-lead">저희 사무소가 일하는 기준입니다. 의뢰인은 사건 번호가 아니라, 법 앞에서 막막함을 느끼는 한 사람이기 때문입니다.</p>
+            <ul class="motto-list">
+              <li><b>화(和) — 곁에 섭니다.</b> 의뢰인의 사정을 끝까지 듣고, 의뢰인의 입장에서 필요한 서류와 절차를 함께 준비합니다.</li>
+              <li><b>부동(不同) — 휩쓸리지 않습니다.</b> 듣기 좋은 말만 하지 않습니다. 불리한 점은 솔직히 말씀드리고, 사실과 다른 서류나 직무범위를 넘는 일은 맡지 않습니다.</li>
+            </ul>
+          </div>
+          <div class="motto">
+            <div class="motto-han" lang="zh-Hant">長毋相忘</div>
+            <div class="motto-src"><span class="hj" lang="zh-Hant">長毋相忘</span> (장무상망)<br>‘오래도록 서로 잊지 말자’ <span style="white-space:nowrap">— 추사 김정희 「세한도(歲寒圖)」의 인장</span></div>
+            <p class="motto-lead">제주 유배 중에도 중국에서 귀한 책을 구해 보내 준 제자 이상적에게, 추사가 「세한도」를 그려 주며 찍은 인장의 글귀입니다. 어려울 때 찾아 주신 인연을 저희도 오래 기억하겠습니다.</p>
+            <ul class="motto-list">
+              <li><b>장(長) — 오래 기억합니다.</b> 일이 끝났다고 인연까지 끝내지 않습니다. 맡겨 주신 일을 기억하고, 뒤에 궁금한 점이 생기면 편히 물어보실 수 있게 하겠습니다.</li>
+              <li><b>무상망(毋相忘) — 놓치지 않게 챙깁니다.</b> 결정이나 등기가 끝난 뒤 이어지는 신고 기한과 후속 절차까지 함께 짚어 드립니다.</li>
+            </ul>
+          </div>
     </div>
   </div>
 </section>
@@ -391,11 +402,14 @@
 #practice .pa-b.s{color:#8d8271;background:#f1ece2;border:1px solid #e7e0d4;}
 #practice .pa-tx h3{padding-right:48px;} /* 업무분야 명칭이 길어져 게시/준비중 배지와 겹치지 않도록 */
 /* 사무소 철학 — 和而不同 */
+.motto-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
+.motto-row .motto{margin-top:0}
+@media (max-width:900px){.motto-row{grid-template-columns:1fr}}
 .motto{margin-top:30px;background:#fbf7ef;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:10px;padding:22px 24px}
 .motto-han{font-family:var(--serif);font-size:34px;font-weight:800;color:var(--gold);letter-spacing:10px;line-height:1.6}
 .motto-src{font-size:14px;color:#6b6152;line-height:1.85;margin:2px 0 14px}
 .motto-src .hj{font-family:var(--serif);font-weight:700;color:#3c3326}
-.about-body .motto p.motto-lead{font-size:16px;margin-bottom:10px;line-height:1.85}
+.motto p.motto-lead{font-family:var(--batang);color:#3c4452;font-size:16px;margin:0 0 10px;line-height:1.85}
 .motto-list{list-style:none;margin:0;padding:0}
 .motto-list li{font-size:15.5px;color:#3c4452;line-height:1.85;margin:8px 0}
 .motto-list b{color:#8a6a2f}
