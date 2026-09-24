@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[상속 3-7] 해외에 사는데 상속포기·한정승인을 할 수 있나요 | 산 법무사 김재섭</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(280px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.case{background:var(--box); border-radius:10px; padding:14px 16px; margin:14px 0; border-left:4px solid #b9a98c;}
+.case .ct{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+.sit-wrap{display:flex; gap:12px; margin:14px 0;}
+.sit{flex:1; background:#f8f5ee; border:1px solid var(--line); border-top:3px solid var(--gold); border-radius:10px; padding:13px 15px; font-size:14.5px; line-height:1.75;}
+.sit .sl{display:block; font-weight:700; color:var(--gold-d); margin-bottom:6px; font-size:14px;}
+@media (max-width:680px){ .sit-wrap{flex-direction:column;} }
+/* 전체 길 흐름도 (A-1 추가 — 기존 톤 재활용) */
+.flow{background:linear-gradient(180deg,#faf7f0,#f6f1e6); border:1px solid var(--line); border-radius:14px; padding:22px 20px; margin:16px 0;}
+.flow .fl-t{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:18px; text-align:center; letter-spacing:.3px;}
+.flow .node{position:relative; background:#fff; border:1px solid #e3d8c4; border-radius:11px; padding:15px 18px 15px 56px; font-size:14.5px; line-height:1.72; box-shadow:0 2px 6px rgba(122,82,48,.07);}
+.flow .node .num{position:absolute; left:15px; top:14px; width:30px; height:30px; line-height:30px; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; border-radius:50%; font-weight:800; font-size:15px; font-family:'Nanum Myeongjo',serif; box-shadow:0 2px 5px rgba(122,82,48,.3);}
+.flow .node b{color:#241a10;}
+.flow .down{display:flex; justify-content:center; align-items:center; padding:7px 0;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+/* 작성례 박스 */
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+details.sec{border:1px solid var(--line); border-radius:11px; margin:18px 0; background:#fff; overflow:hidden;}
+details.sec>summary{cursor:pointer; list-style:none; padding:14px 17px 14px 15px; background:var(--box); border-left:4px solid var(--gold); font-family:'Nanum Myeongjo',serif; font-size:18px; font-weight:700; color:var(--gold-d); line-height:1.55;}
+details.sec>summary::-webkit-details-marker{display:none;}
+details.sec>summary .sub{display:block; font-family:'Pretendard',sans-serif; font-size:13.5px; font-weight:400; color:var(--muted); margin-top:3px;}
+details.sec>summary::after{content:"펼치기 ▾"; float:right; font-family:'Pretendard',sans-serif; font-size:12.5px; font-weight:700; color:var(--gold); background:#fff; border:1px solid var(--line); border-radius:20px; padding:2px 10px; margin-left:8px;}
+details.sec[open]>summary::after{content:"접기 ▴";}
+details.sec>summary:hover{background:#f2ede3;}
+.secbody{padding:4px 17px 16px;}
+.secbody>h3:first-of-type{margin-top:14px;}
+.toc{background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 17px; margin:8px 0 22px;}
+.toc .tct{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:9px;}
+.toc ol{margin:0; padding-left:20px;}
+.toc li{margin:5px 0; font-size:14.5px;}
+.toc a{text-decoration:none; border-bottom:1px dotted var(--gold);}
+.allbtn{display:inline-block; margin-top:11px; font-size:13.5px; font-weight:700; color:var(--gold-d); background:var(--box); border:1px solid var(--line); border-radius:8px; padding:7px 14px; cursor:pointer;}
+.allbtn:hover{background:#f2ede3;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:15px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .tag{margin-bottom:0;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;}
+.tag.cred{background:#5a9a72;}
+.tag.debt{background:#d9694a;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:18px;margin:12px 0;font-family:'D2Coding','Courier New',monospace;font-size:13px;line-height:1.6;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:16px;letter-spacing:2px;margin-bottom:12px;color:#241a10;}
+.howto{font-size:14px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0 4px;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:13px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:7px 13px;cursor:pointer;transition:.15s;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.75;}
+.lawbox .ll{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold-d);border-radius:5px;padding:2px 9px;margin-right:7px;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.hire p{margin:7px 0; font-size:15px; line-height:1.8;}
+.cta{display:block;text-align:center;background:var(--gold-d);color:#fff;font-weight:700;font-size:17px;text-decoration:none;padding:15px;border-radius:11px;margin:18px 0;font-family:'Nanum Myeongjo',serif;letter-spacing:1px;}
+.cta:hover{background:#5e3f24;}
+@media print{
+  .backbar{display:none !important;}
+  body{background:#fff; max-width:100%;}
+  .tldr,.case,.warn,.tip,.cost,.steps li,.tnote,.sit,.flow,.flow li,.lawbox,.hire{background:#fff !important; border-color:#ccc !important;}
+  .tnote{display:none;}
+  .term{border:none; color:inherit; font-weight:inherit;}
+  .term>.bub{display:inline !important; position:static; width:auto; background:none; color:inherit; box-shadow:none; padding:0; font-size:inherit; line-height:inherit;}
+  .term>.bub::before{content:" ("; }
+  .term>.bub::after{content:")"; border:none; position:static;}
+  .fold-body{display:block !important;}.fold-btn .chev{display:none;}.form-tools{display:none;}
+  details.sec:not([open])>*{display:block !important;}
+  details.sec>summary::after{display:none;} .allbtn,.toc{display:none !important;}
+  .cta{background:#fff !important; color:#241a10 !important; border:1px solid #ccc;}
+}
+.cl{color:var(--gold-d);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--gold-d);}
+.cl:hover{background:#fbf5e8;}
+.tip .cl,.tip .cl b{color:var(--tip-ink);}
+.tip .cl{border-bottom-color:var(--tip-ink);}
+.warn .cl,.warn .cl b{color:var(--warn-ink);}
+.warn .cl{border-bottom-color:var(--warn-ink);}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+
+
+<h1>[상속 3-7] 해외에 사는데 상속포기·한정승인을 할 수 있나요</h1>
+
+<div class="tnote">어려운 법률용어에는 <b>점선 밑줄</b>이 그어져 있습니다. <b>PC는 마우스를 올리면</b>, <b>휴대폰은 손가락으로 톡 터치하면</b> 쉬운 설명이 뜹니다. (인쇄하면 괄호로 함께 나옵니다.)</div>
+
+<div class="hire">
+<div class="ht">이 매뉴얼을 끝까지 읽으시는 분께</div>
+<p>이 매뉴얼은 의뢰인이 직접 법원에 신청할 수 있도록 모든 서류 양식, 비용, 요건을 구체적으로 담았습니다. 하지만 소송은 살아있는 생물과 같아 상대방의 격렬한 저항이 뒤따릅니다. 혼자 진행하시다가 막히는 부분이 생기거나 방어막이 필요할 때, 언제든 이 매뉴얼을 들고 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</p>
+</div>
+
+<div class="tldr">
+<div class="tt">⭐ 30초 결론부터</div>
+<ul>
+<li><b>됩니다. 한국에 들어오지 않아도 됩니다.</b> 서류에 서명해 현지에서 <span class="term">공증<span class="bub">공증인이나 영사가 '본인이 직접 서명했다'는 것을 공적으로 확인해 주는 것.</span></span>을 받고, 국내의 누군가가 법원에 내면 됩니다. 비행기표부터 알아보실 일이 아닙니다.</li>
+<li><b>가장 먼저 확인할 것은 날짜입니다.</b> <span class="term">상속개시<span class="bub">상속이 시작되는 것. 돌아가신 때 시작됩니다.</span></span>가 있음을 <b>안 날부터 3개월</b>입니다(민 §1019①). 해외에 계셔서 부고를 늦게 들으셨다면 <b>그 늦게 들은 날</b>이 출발점입니다. 사망일이 아닙니다.</li>
+<li><b>3개월이 모자라면 늘릴 수 있습니다.</b> 잘 알려지지 않았지만 민법 §1019① 단서가 <b>가정법원이 그 기간을 연장할 수 있다</b>고 정하고 있습니다. 공증과 국제우편에 시간이 걸리는 해외 거주자에게 <b>가장 중요한 조항</b>입니다.</li>
+<li><b>서류는 신분에 따라 갈립니다.</b> 한국 국적을 유지한 <b><span class="term">재외국민<span class="bub">외국에 살지만 대한민국 국적을 가진 사람.</span></span></b>이면 <span class="term">인감증명<span class="bub">미리 신고해 둔 도장(인감)이 본인의 것임을 관청이 증명하는 서류.</span></span> 체계를 그대로 쓰고, 국적을 잃고 <b>외국 국적</b>을 취득하셨다면 인감이 없으므로 <b>서명 + 공증</b>으로 갑니다.</li>
+<li><b>공증은 두 갈래입니다.</b> 현지 공증인에게 받고 <b><span class="term">아포스티유<span class="bub">외국에서 만든 공문서를 협약 가입국에서 그대로 쓸 수 있도록, 문서를 만든 나라가 붙여 주는 확인서. 따로 영사 확인을 받지 않아도 됩니다.</span></span></b>를 붙이거나, <b>대한민국 <span class="term">재외공관<span class="bub">외국에 있는 대한민국 대사관·총영사관.</span></span>(영사)</b>에서 직접 받거나. 아포스티유가 오래 걸리는 지역이라면 <b>영사 공증이 훨씬 빠릅니다.</b></li>
+</ul>
+</div>
+
+<div class="toc">
+<div class="tct">이 카드에 담긴 것 — 필요한 곳만 펼쳐 보십시오</div>
+<ol>
+<li><a href="#s1">지금 어떤 상황인가요?</a></li>
+<li><a href="#s2">핵심 세 가지</a></li>
+<li><a href="#s3">전체 길 한눈에 보기</a></li>
+<li><a href="#s4">관련 법령 — 쉬운 풀이</a></li>
+<li><a href="#s5">3개월이 모자랄 때 — 기간 연장 신청</a></li>
+<li><a href="#s6">서류 — 재외국민과 외국 국적자는 다릅니다</a></li>
+<li><a href="#s7">아포스티유냐 영사확인이냐</a></li>
+<li><a href="#s8">기한 정리 — 3개월을 어떻게 세나</a></li>
+<li><a href="#s9">서류 작성례 — 위임장 포함</a></li>
+<li><a href="#s10">준비할 서류와 발급처</a></li>
+<li><a href="#s11">비용 — 무엇에 돈이 드나</a></li>
+<li><a href="#s12">흔한 실수</a></li>
+<li><a href="#s13">본 사무소가 도와드리는 일</a></li>
+</ol>
+<span class="allbtn" id="allBtn" role="button" tabindex="0">전체 펼치기</span>
+</div>
+
+<h2 id="s1">지금 어떤 상황인가요?</h2>
+
+<div class="sit-wrap">
+<div class="sit"><span class="sl">상황 ① · 부고를 늦게 들으신 분</span>오래 연락이 끊겼던 부모님이 돌아가셨다는 소식을 <b>몇 달 뒤에야</b> 들었습니다. 그런데 한국에서 채권자가 연락해 옵니다. "빚이 있다"고 합니다. → <b>3개월은 사망일이 아니라 안 날부터입니다.</b> 아직 늦지 않았을 가능성이 큽니다.</div>
+<div class="sit"><span class="sl">상황 ② · 시간이 촉박한 분</span>사망을 알고는 있었는데 <b>공증받는 데만 몇 주</b>가 걸린다고 합니다. 3개월이 눈앞인데 서류가 나올 기미가 없습니다. → <b>기간 연장 신청</b>이 있고, <b>먼저 접수하고 보완</b>하는 길도 있습니다. 포기하지 마십시오.</div>
+</div>
+
+<p>이 카드는 <b>해외에 계신 상속인이 포기나 한정승인을 하는 방법</b>을 다룹니다. 포기와 한정승인 중 무엇을 고를지는 <a href="3-1_상속받지않기_포기_한정승인.html">상속 3-1</a>, 3개월이 이미 지났다면 <a href="3-2_특별한정승인.html">상속 3-2</a>, 한정승인을 받은 뒤의 일은 <a href="3-6_한정승인_청산절차.html">상속 3-6</a>을 보십시오.</p>
+
+<h2 id="s2">핵심 세 가지</h2>
+
+<p><b>첫째, 출석은 필요 없습니다.</b> <span class="term">상속포기<span class="bub">재산과 빚을 모두 물려받지 않겠다고 가정법원에 신고하는 것. 처음부터 상속인이 아니었던 것으로 됩니다.</span></span>와 한정승인은 <span class="term">라류 가사비송사건<span class="bub">가정법원이 후견적 입장에서 처리하는 사건. 상대방이 없고, 원칙적으로 법정에서 다투는 절차가 아닙니다.</span></span>이라 다투는 상대방이 없습니다. 서면으로 신고하면 법원이 심사해 수리합니다. 한국에 들어오는 것은 <b>선택</b>이지 요건이 아닙니다.</p>
+
+<p><b>둘째, <span class="term">관할<span class="bub">어느 법원에 내야 하는지 정해진 것.</span></span>은 한 곳으로 정해져 있습니다.</b> <b>상속 개시지</b>, 즉 돌아가신 분의 마지막 주소지를 관할하는 가정법원입니다(가사소송법 §44①6호). 내가 사는 곳이나 내 국내 주소와는 무관합니다.</p>
+
+<p><b>셋째, 시간 싸움입니다.</b> 국내 거주자는 서류를 하루면 다 뗍니다. 해외에서는 <b>공증 예약, 아포스티유, 국제우편</b>만으로 몇 주가 지나갑니다. 그래서 이 카드의 절반은 <b>시간을 버는 방법</b>입니다 — 기간 연장, 영사 공증, 선접수 후보완, 국내 대리인.</p>
+
+<h2 id="s3">전체 길 한눈에 보기</h2>
+
+<div class="flow">
+<div class="fl-t">부고를 들은 날부터 <span class="term">심판문<span class="bub">가정법원이 내린 결정서. 신고가 받아들여졌다는 내용이 적혀 있습니다.</span></span>을 받을 때까지 — 이 순서로 갑니다</div>
+
+<div class="node"><span class="num">1</span><b>안 날을 특정합니다</b> — 부고를 들은 날이 언제인지, 그것을 증명할 것이 있는지(문자, 메신저, 통화기록, 이메일) 먼저 확보하십시오. 나중에 채권자가 <b>"사망일부터 3개월이 지났다"</b>고 다툴 때 이 자료가 방어막이 됩니다.</div>
+<div class="down">▼</div>
+
+<div class="node"><span class="num">2</span><b>재산과 빚을 파악합니다</b> — 국내 가족에게 부탁하거나, 국내 <span class="term">대리인<span class="bub">본인을 대신해 서류 발급과 제출을 해 주는 사람. 가족이어도 되고 전문가여도 됩니다.</span></span>을 통해 <b><span class="term">안심상속 원스톱서비스<span class="bub">사망신고 때 한 번 신청하면 돌아가신 분의 금융·토지·자동차·세금 등 재산 내역을 한꺼번에 알려 주는 정부 서비스.</span></span></b>와 <b><span class="term">상속인 금융거래조회<span class="bub">돌아가신 분의 예금·대출·보험 등을 여러 금융회사에 한 번에 조회하는 금융감독원 서비스.</span></span></b>를 신청합니다. 빚이 재산보다 많은지 확인해야 포기와 한정승인 중 무엇을 고를지 정해집니다.</div>
+<div class="down">▼</div>
+
+<div class="node"><span class="num">3</span><b>내 신분을 확인합니다</b> — <b>한국 국적을 유지한 재외국민</b>인지, <b>외국 국적을 취득한 분</b>인지에 따라 준비할 서류가 완전히 달라집니다. 여권과 시민권 서류를 확인하십시오.</div>
+<div class="down">▼</div>
+
+<div class="node"><span class="num">4</span><b>신고서와 위임장에 서명하고 공증을 받습니다</b> — 국내에서 서류 초안을 받아 <b>현지에서 서명</b>합니다. 그리고 <b>대한민국 재외공관(영사)</b>에서 공증을 받거나, 현지 공증인에게 받은 뒤 <b>아포스티유</b>를 붙입니다. <b>어느 쪽이 빠른지 먼저 알아보십시오.</b></div>
+<div class="down">▼</div>
+
+<div class="node"><span class="num">5</span><b>시간이 모자라면 기간 연장을 신청합니다</b> — 민법 §1019① 단서에 따라 <b>가정법원에 승인·포기 기간의 연장</b>을 구할 수 있습니다. 3개월 안에 서류가 갖춰지지 않을 것 같으면 <b>미루지 말고 먼저 신청</b>하십시오.</div>
+<div class="down">▼</div>
+
+<div class="node"><span class="num">6</span><b>국제우편으로 보내고 국내에서 접수합니다</b> — 공증받은 원본을 국내 대리인에게 보내면, 대리인이 <b>상속 개시지 가정법원</b>에 접수합니다. 서류가 조금 덜 갖춰졌더라도 <b>기간 안에 먼저 접수</b>하고 나중에 보완하는 방식이 실무에서 쓰입니다 <b>[확인필요 — 법원별 운용이 다를 수 있습니다]</b>.</div>
+<div class="down">▼</div>
+
+<div class="node"><span class="num">7</span><b><span class="term">보정명령<span class="bub">법원이 서류의 빠진 부분을 정해진 기한 안에 채워 내라고 명하는 것.</span></span>에 대응합니다</b> — 법원이 서류 보완을 요구하면 <b>국내 <span class="term">송달장소<span class="bub">법원 서류를 받을 주소. 국내에 정해 두면 해외에 계셔도 서류를 제때 받습니다.</span></span></b>로 통지가 옵니다. 해외 주소만 적어 두면 통지를 늦게 받아 기한을 놓칩니다. <b>반드시 국내에서 우편을 받을 곳을 지정</b>하십시오.</div>
+<div class="down">▼</div>
+
+<div class="node"><span class="num">8</span><b>심판문을 받습니다</b> — 수리되면 심판문이 나옵니다. <b>한정승인이라면 여기서 끝이 아닙니다.</b> 5일 안에 공고를 내고 청산을 해야 합니다 — <a href="3-6_한정승인_청산절차.html">상속 3-6</a>으로 이어집니다. 포기라면 다음 순위 상속인에게 빚이 넘어가므로 <b>가족에게 알리십시오</b>.</div>
+</div>
+
+<details class="sec" id="s4"><summary>관련 법령 — 쉬운 풀이<span class="sub">민 §1019 · §1030 · §1041 · 가소 §44①6호</span></summary>
+<div class="secbody">
+
+<div class="lawbox"><span class="ll">민 §1019①</span><b>3개월, 그리고 연장</b> — 상속인은 <b>상속개시있음을 안 날로부터 3월내</b>에 <span class="term">단순승인<span class="bub">재산과 빚을 모두 그대로 물려받는 것. 3개월 안에 아무것도 하지 않으면 단순승인으로 봅니다.</span></span>이나 한정승인 또는 포기를 할 수 있습니다. 그러나 그 기간은 <b>이해관계인 또는 검사의 청구에 의하여 가정법원이 이를 연장할 수 있습니다.</b> → <i>뒷문장이 해외 거주자의 생명줄입니다. 잘 알려져 있지 않습니다.</i></div>
+
+<div class="lawbox"><span class="ll">민 §1019③</span><b>3개월이 지난 뒤 빚을 알았다면</b> — 상속채무가 상속재산을 초과하는 사실을 <b>중대한 과실 없이</b> 알지 못하고 단순승인을 한 경우, 그 사실을 <b>안 날부터 3개월 내</b>에 한정승인을 할 수 있습니다(<span class="term">특별한정승인<span class="bub">3개월이 지났더라도 빚이 더 많다는 사실을 중대한 과실 없이 몰랐다면, 그것을 안 날부터 3개월 안에 할 수 있는 한정승인(민법 §1019③).</span></span>). → <i>연락이 끊겼던 가족의 빚을 뒤늦게 안 해외 거주자에게 자주 적용됩니다. 자세한 내용은 <a href="3-2_특별한정승인.html">상속 3-2</a>에 있습니다.</i></div>
+
+<div class="lawbox"><span class="ll">민 §1030①</span><b>한정승인에는 목록을 붙입니다</b> — 한정승인을 할 때에는 <b>상속재산의 목록을 첨부</b>하여 신고하여야 합니다. → <i>해외에서 재산을 파악하기 어려우므로, 이 목록 작성이 가장 시간이 걸리는 대목입니다.</i></div>
+
+<div class="lawbox"><span class="ll">가소 §44①6호</span><b>어느 법원에 내나</b> — <b>상속에 관한 사건은 상속 개시지의 가정법원</b>이 관할합니다. → <i>돌아가신 분의 마지막 주소지 기준입니다. 내가 사는 곳과 무관합니다.</i></div>
+
+<div class="lawbox"><span class="ll">민 §1041</span><b>포기의 방식</b> — 상속을 포기할 때에는 <b>§1019① 기간 내에 가정법원에 신고</b>하여야 합니다. → <i>가족끼리 "나는 안 받겠다"고 말하거나 각서를 쓰는 것은 법적 포기가 아닙니다. 반드시 법원에 신고해야 합니다.</i></div>
+
+</div>
+</details>
+
+<details class="sec" id="s5"><summary>3개월이 모자랄 때 — 기간 연장 신청<span class="sub">가장 덜 알려졌지만 가장 쓸모 있는 조항</span></summary>
+<div class="secbody">
+
+<p>해외 거주자가 3개월을 지키기 어려운 이유는 분명합니다.</p>
+
+<table>
+<tr><th>단계</th><th>걸리는 시간</th></tr>
+<tr><td>재산·채무 파악(안심상속 원스톱, 금융거래조회)</td><td>신청부터 회신까지 <b>수 주</b></td></tr>
+<tr><td>국내 가족관계 서류 발급과 국제 발송</td><td><b>1~2주</b></td></tr>
+<tr><td>현지 공증 예약과 처리</td><td>지역에 따라 <b>수일~수 주</b></td></tr>
+<tr><td>아포스티유 확인</td><td>국가·기관에 따라 <b>수 주 이상</b> 걸리기도 합니다</td></tr>
+<tr><td>국제우편 발송</td><td><b>1~2주</b></td></tr>
+</table>
+
+<p>다 더하면 3개월이 빠듯합니다. 그래서 민법 §1019① 단서가 있습니다.</p>
+
+<div class="warn"><span class="wt">★ 연장 신청은 기간이 지나기 전에 해야 합니다</span>
+이미 3개월이 지난 뒤에 연장을 구하는 것은 의미가 없습니다. <b>기간 안에</b> 가정법원에 신청하셔야 합니다. "서류가 다 모이면 신청하자"가 아니라 <b>"모자랄 것 같으면 지금 신청하자"</b>입니다. 신청서에는 <b>왜 3개월 안에 판단할 수 없는지</b>를 구체적으로 적으십시오 — 거주국, 공증 소요 기간, 재산 조회 회신 대기 상황을 날짜와 함께 밝히면 설득력이 올라갑니다.</div>
+
+<div class="tip"><span class="pt">💡 연장이 안 되더라도 길은 남습니다</span> 연장 신청이 받아들여지지 않았거나 기간을 넘겼더라도 <b>특별한정승인</b>(민 §1019③)이 남아 있을 수 있습니다. 빚이 재산보다 많다는 사실을 중대한 과실 없이 몰랐다면, 그것을 안 날부터 다시 3개월입니다. 해외 거주로 국내 사정을 알 수 없었다는 점이 <b>"중대한 과실이 없었다"</b>는 근거가 되기도 합니다. 다만 인정 여부는 사안마다 다릅니다.</div>
+
+</div>
+</details>
+
+<details class="sec" id="s6"><summary>서류 — 재외국민과 외국 국적자는 다릅니다<span class="sub">인감이 있느냐 없느냐에서 갈립니다</span></summary>
+<div class="secbody">
+
+<p>같은 "해외 거주"라도 <b>한국 국적을 가지고 계신지</b>에 따라 준비물이 달라집니다. 여기서 헷갈려 시간을 버리는 분이 많습니다.</p>
+
+<table>
+<tr><th>구분</th><th>재외국민<br>(한국 국적 유지)</th><th>외국 국적자<br>(국적 상실)</th></tr>
+<tr><td><b>본인 확인</b></td><td>한국 여권, 주민등록번호 유지</td><td>외국 여권·시민권 증서</td></tr>
+<tr><td><b>주소 증명</b></td><td>재외국민등록부등본 · 거주사실증명 · <span class="term">국내거소신고<span class="bub">외국 국적 동포가 한국 안의 거주지를 신고하는 제도(재외동포법). 신고하면 사실증명을 뗄 수 있습니다.</span></span> 사실증명 중 하나 <b>[확인필요 — 법원별로 요구가 다를 수 있습니다]</b></td><td>관공서 발행 또는 공증된 <b>주소 증명 서면</b></td></tr>
+<tr><td><b>신분·가족관계</b></td><td>가족관계증명서(상세)·기본증명서(상세)</td><td><b>제적등본</b> 또는 <b>말소된 가족관계증명서</b><br>(2008년 이후 국적상실자)</td></tr>
+<tr><td><b>서명 또는 날인</b></td><td><b>인감증명서</b> 체계를 그대로 사용. 인감 신고·발급은 <b>위임장(영사 인증)</b>으로 국내 대리인이 대신할 수 있습니다</td><td>인감 제도가 없으므로 <b>서명 후 관공서 인증 또는 공증인의 공증</b></td></tr>
+<tr><td><b>성명이 바뀌었다면</b></td><td>—</td><td><b>동일인 증명서</b>를 작성해 서명하고 본국 관공서 증명 또는 공증, 재외공관 인증</td></tr>
+<tr><td><b>외국어 서류</b></td><td colspan="2">모두 <b>한글 번역문</b>을 붙입니다</td></tr>
+</table>
+
+<div class="tip"><span class="pt">💡 재외국민이라면 인감이 가장 편합니다</span> 한국 국적을 유지하고 계시다면 <b>인감증명 체계를 쓰는 편이 법원 실무에서 매끄럽습니다.</b> 인감을 신고해 두지 않으셨더라도, <b>영사 인증을 받은 위임장</b>으로 국내 가족이 인감 신고와 증명서 발급을 대신할 수 있습니다. 이 방법을 모르고 매번 공증을 받으러 다니는 분이 많습니다.</div>
+
+<div class="warn"><span class="wt">★ 법원마다 요구가 조금씩 다릅니다</span>
+위 표는 실무에서 통용되는 정리이고, <b>관할 가정법원과 담당 재판부에 따라 요구하는 서류가 달라질 수 있습니다.</b> 공증을 받으러 가시기 전에 <b>관할 법원 민원실에 한 번 문의</b>하십시오. 현지에서 다시 공증을 받는 것은 시간과 비용이 몇 배로 듭니다.</div>
+
+</div>
+</details>
+
+<details class="sec" id="s7"><summary>아포스티유냐 영사확인이냐<span class="sub">둘 중 빠른 쪽을 고르는 것이 요령입니다</span></summary>
+<div class="secbody">
+
+<p>해외에서 만든 서류를 한국 법원이 믿게 하려면 <b>인증</b>이 필요합니다. 길은 두 갈래입니다.</p>
+
+<div class="lawbox"><span class="ll">길 ① 아포스티유</span><b>현지 공증인에게 공증받고, 그 나라의 지정 기관에서 아포스티유를 붙입니다.</b> 아포스티유 협약에 가입한 나라에서 쓰는 방식입니다. 발급 기관은 나라마다 다릅니다(외교부, 국무부, 법원 등). <b>처리 기간이 나라와 주(州)에 따라 크게 차이 납니다.</b></div>
+
+<div class="lawbox"><span class="ll">길 ② 재외공관(영사) 공증</span><b>거주 지역의 대한민국 대사관·총영사관에서 직접 공증받습니다.</b> 아포스티유 절차를 거치지 않아도 되므로 <b>한 번에 끝납니다.</b> 공관까지의 거리와 예약 대기가 변수입니다.</div>
+
+<div class="tip"><span class="pt">💡 어느 쪽이 빠른지 먼저 물어보십시오</span> 정답이 정해져 있지 않습니다. 공관이 가까우면 <b>영사 공증</b>이 압도적으로 빠르고, 공관이 멀고 현지 아포스티유가 신속한 지역이라면 <b>아포스티유</b>가 낫습니다. 실제로 아포스티유에 몇 달이 걸려 기간을 놓칠 뻔한 사례가 있습니다. <b>먼저 전화 한 통으로 소요 기간을 확인</b>하시는 것이 이 절차의 전부라 해도 지나치지 않습니다.</div>
+
+<div class="warn"><span class="wt">★ 협약 가입국 목록은 직접 확인하십시오</span>
+인터넷에 떠도는 "아포스티유 협약국 목록"은 <b>낡은 것이 많습니다.</b> 가입국은 계속 늘고 있어, 몇 해 전 자료에서 비협약국으로 적힌 나라가 지금은 가입국인 경우가 있습니다. 반드시 <b><a href="https://www.apostille.go.kr/index.do">외교부 아포스티유 누리집</a></b> 또는 <b><a href="https://www.oka.go.kr/web/content.do?menu_cd=000099">재외동포청 아포스티유 안내</a></b>에서 <b>현재 기준으로</b> 확인하십시오. <b>[확인필요]</b></div>
+
+</div>
+</details>
+
+<details class="sec" id="s8"><summary>기한 정리 — 3개월을 어떻게 세나<span class="sub">사망일이 아니라 '안 날'입니다</span></summary>
+<div class="secbody">
+
+<table>
+<tr><th>구분</th><th>① 기산일</th><th>② 계산근거</th><th>③ 말일 처리</th><th>④ 최종 만료일</th></tr>
+<tr><td><b>원칙<br>3개월</b></td><td><b>상속개시 있음을 안 날</b><br>= 돌아가신 사실과 내가 상속인이 된 사실을 안 날</td><td>민 §1019①</td><td>말일이 토요일·공휴일이면 그 다음 날(민 §161)</td><td class="won">안 날부터<br>3개월이 되는 날</td></tr>
+<tr><td><b>연장</b></td><td>위 기간 <b>안에</b> 신청</td><td>민 §1019① 단서</td><td>—</td><td class="won">가정법원이<br>정하는 날</td></tr>
+<tr><td><b>특별한정승인<br>3개월</b></td><td>빚이 재산보다 많다는 사실을 <b>안 날</b></td><td>민 §1019③</td><td>위와 같음</td><td class="won">안 날부터<br>3개월이 되는 날</td></tr>
+</table>
+
+<div class="tip"><span class="pt">💡 '안 날'을 증명할 것을 남기십시오</span> 해외 거주자에게 이 날짜는 <b>가장 큰 무기이자 가장 큰 약점</b>입니다. 채권자는 "사망일에 알았을 것"이라고 다툽니다. 부고를 받은 <b>메신저 대화, 문자, 이메일, 국제전화 통화 기록</b>을 캡처해 보관하십시오. 나중에 이 한 장이 3개월의 출발점을 바꿉니다.</div>
+
+</div>
+</details>
+
+<details class="sec" id="s9"><summary>서류 작성례 — 위임장 포함<span class="sub">포기 신고서 · 한정승인 신고서 · 위임장 · 기간연장 청구서 · 송달장소 신고</span></summary>
+<div class="secbody">
+
+<p>아래 제목을 누르면 각 서면이 펼쳐집니다. <b>○○○</b> 부분에 본인의 정보를 채워 넣으시면 됩니다. 공식 양식은 <a href="https://www.scourt.go.kr/nm/minwon/doc/DocListAction.work">대법원 전자민원센터 양식모음</a>에서도 내려받을 수 있습니다.</p>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ① · 해외 상속인</span>상속포기 심판청구서 (신고서)<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f1"><span class="ft">상속포기 심판청구서</span>                     상속포기 심판청구서
+
+청 구 인   ○○○   (생년월일 ○○○○. ○○. ○○.)
+           대한민국 국적 / ○○국 국적
+           주민등록번호 ○○○○○○-○○○○○○○ (있는 경우)
+           여권번호 ○○○○○○○○
+           주    소  ○○국 ○○주 ○○시 ○○○ (현 거주지)
+           국내 송달장소  ○○시 ○○구 ○○로 ○○
+           연 락 처  +○○-○○○-○○○-○○○○ / 국내 ○○○-○○○○-○○○○
+
+사건본인   망 ○○○
+(피상속인)  (○○○○. ○○. ○○.생, 20○○. ○. ○. 사망)
+           최후주소  ○○시 ○○구 ○○로 ○○
+           등록기준지 ○○시 ○○구 ○○로 ○○
+
+                       청 구 취 지
+
+  청구인이 피상속인 망 ○○○의 재산상속을 포기하는 신고를
+  수리한다.
+  라는 심판을 구합니다.
+
+                       청 구 원 인
+
+1. 청구인은 피상속인 망 ○○○의 자녀로서 상속인입니다.
+
+2. 피상속인은 20○○. ○. ○. 사망하였습니다.
+
+3. 청구인은 20○○년부터 ○○국에 거주하고 있으며, 피상속인의
+   사망 사실을 20○○. ○. ○. ○○○을 통하여 비로소 알게
+   되었습니다. 따라서 민법 제1019조 제1항의 기간은 위 날짜부터
+   기산됩니다.
+
+4. 청구인은 피상속인의 재산을 조사한 결과 상속채무가 상속재산을
+   초과하는 것으로 확인되어, 상속을 포기하고자 이 청구에
+   이르렀습니다.
+
+                       첨 부 서 류
+
+   1. 피상속인 기본증명서(상세)·가족관계증명서(상세)   각 1통
+   2. 피상속인 말소된 주민등록초본                     1통
+   3. 청구인 가족관계증명서(상세)                      1통
+   4. 청구인 재외국민등록부등본 또는 거주사실증명       1통
+      (외국 국적자는 관공서 발행 또는 공증된 주소증명 및 번역문)
+   5. 청구인 인감증명서 또는 서명 공증서               1통
+   6. 사망 사실을 안 날을 소명하는 자료                1통
+
+          20○○.  ○○.  ○○.
+            위 청구인  ○○○  (인 또는 서명)
+
+○○가정법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1')">📋 복사</button><button type="button" onclick="printForm('f1')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1','상속포기_심판청구서_해외거주.txt')">⬇ 다운로드</button></div>
+<div class="howto">★ <b>3항과 첨부 6번이 이 서면의 핵심입니다.</b> 국내 거주자의 신고서에는 없는 항목인데, 해외 거주자에게는 <b>3개월의 출발점을 정하는 문장</b>입니다. "언제, 누구를 통해, 어떻게 알았는지"를 구체적으로 적고 그 자료를 붙이십시오. <b>국내 송달장소</b>도 빠뜨리지 마십시오 — 보정명령이 해외로 가면 회신할 시간이 없습니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ② · 해외 상속인</span>한정승인 심판청구서 + 상속재산목록<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f2"><span class="ft">한정승인 심판청구서</span>                     한정승인 심판청구서
+
+청 구 인   ○○○   (인적사항은 작성례 ①과 같은 방식으로 기재)
+           주    소  ○○국 ○○주 ○○시 ○○○
+           국내 송달장소  ○○시 ○○구 ○○로 ○○
+
+사건본인   망 ○○○ (20○○. ○. ○. 사망)
+(피상속인)  최후주소  ○○시 ○○구 ○○로 ○○
+
+                       청 구 취 지
+
+  청구인이 피상속인 망 ○○○의 재산상속을 함에 있어 별지
+  상속재산목록을 첨부하여 한 한정승인 신고를 수리한다.
+  라는 심판을 구합니다.
+
+                       청 구 원 인
+
+1. 청구인은 피상속인의 자녀로서 상속인입니다.
+2. 피상속인은 20○○. ○. ○. 사망하였고, 청구인은 ○○국에
+   거주하여 20○○. ○. ○. 사망 사실을 알게 되었습니다.
+3. 상속재산과 상속채무는 별지 목록과 같으며, 채무가 재산을
+   초과할 것으로 보이나 그 전모를 확정하기 어렵습니다.
+4. 이에 상속으로 취득할 재산의 한도에서 채무를 변제하고자
+   민법 제1028조, 제1030조에 따라 이 청구에 이르렀습니다.
+
+          20○○.  ○○.  ○○.
+            위 청구인  ○○○  (인 또는 서명)
+
+○○가정법원   귀중
+
+─────────────────────────────────────────
+
+            별지  상 속 재 산 목 록
+
+[적극재산]
+ 1. ○○시 ○○구 ○○로 ○○ 소재 토지 ○○㎡    금 ○○○원
+ 2. ○○은행 예금(계좌 ○○○-○○-○○○○○○)   금 ○○○원
+ 3. 자동차 ○○가○○○○                        금 ○○○원
+                                  소계   금 ○○○원
+
+[소극재산]
+ 1. ○○은행 대출                              금 ○○○원
+ 2. ○○카드 미결제                            금 ○○○원
+ 3. 지방세 체납                                금 ○○○원
+                                  소계   금 ○○○원
+
+※ 위 목록은 20○○. ○. ○.자 안심상속 원스톱서비스 회신 및
+   상속인 금융거래조회 결과를 토대로 작성한 것으로, 추후 다른
+   재산 또는 채무가 발견될 수 있습니다.
+
+          20○○.  ○○.  ○○.
+            작성자 ○○○  (인 또는 서명)</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f2')">📋 복사</button><button type="button" onclick="printForm('f2')">🖨 인쇄</button><button type="button" onclick="downloadForm('f2','한정승인_심판청구서_해외거주.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>목록 끝의 ※ 문장을 꼭 넣으십시오.</b> 해외에서 재산을 완벽히 파악하기는 어렵습니다. 조회 결과를 근거로 작성했고 추후 발견될 수 있다는 점을 밝혀 두면, 나중에 누락이 드러났을 때 <b>고의로 숨겼다는 의심</b>을 피할 수 있습니다. 목록을 일부러 빠뜨리면 <b>단순승인으로 간주</b>될 위험이 있으니 아는 것은 모두 적으십시오.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag">작성례 ③ · 해외 상속인</span>서류 제출 위임장 (영사 공증용)<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f3"><span class="ft">위    임    장</span>                       위  임  장
+
+위 임 인   성    명  ○○○
+           생년월일  ○○○○. ○○. ○○.
+           국    적  대한민국 / ○○국
+           주민등록번호 ○○○○○○-○○○○○○○ (있는 경우)
+           여권번호  ○○○○○○○○
+           주    소  ○○국 ○○주 ○○시 ○○○
+
+수 임 인   성    명  ○○○
+           주민등록번호 ○○○○○○-○○○○○○○
+           주    소  ○○시 ○○구 ○○로 ○○
+           연 락 처  ○○○-○○○○-○○○○
+           위임인과의 관계  ○○
+
+                       위 임 사 항
+
+  위임인은 수임인에게 피상속인 망 ○○○(○○○○. ○○. ○○.생,
+  20○○. ○. ○. 사망)의 상속에 관하여 다음 사무를 위임합니다.
+
+  1. ○○가정법원에 대한 상속포기(한정승인) 심판청구서 및
+     그 첨부서류의 제출
+  2. 위 사건에 관한 보정서·소명자료의 제출
+  3. 심판문 등 법원 서류의 수령
+  4. 위 사건과 관련한 가족관계등록사항별 증명서, 주민등록표
+     초본, 인감증명서 등 각종 증명서의 발급 신청 및 수령
+  5. 위 각 사무에 부수하는 일체의 행위
+
+  ※ 위임인은 위 사건에 관한 의사결정(포기 또는 한정승인의
+     선택, 상속재산목록의 확정)을 직접 하며, 수임인은 위
+     위임사항의 범위에서만 사무를 처리합니다.
+
+          20○○.  ○○.  ○○.
+
+              위임인   ○○○   (서명)
+
+─────────────────────────────────────────
+  ※ 아래 여백에 대한민국 재외공관(대사관·총영사관)의 공증
+     또는 현지 공증인의 공증 및 아포스티유 확인을 받습니다.
+  ※ 외국어로 작성된 인증문이 붙는 경우 한글 번역문을
+     함께 제출합니다.</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f3')">📋 복사</button><button type="button" onclick="printForm('f3')">🖨 인쇄</button><button type="button" onclick="downloadForm('f3','서류제출_위임장_해외거주.txt')">⬇ 다운로드</button></div>
+<div class="howto">★ <b>위임사항을 구체적으로 적는 것이 요령입니다.</b> "일체의 권한을 위임한다"고만 쓰면 오히려 은행이나 주민센터에서 거절당하는 일이 있습니다. <b>무엇을 하는 위임인지 항목으로 나열</b>하십시오. 4번(증명서 발급)을 빠뜨리면 국내 가족이 서류를 떼지 못해 다시 공증을 받아야 합니다. 맨 아래 ※ 문장은 <b>포기와 한정승인의 선택은 본인이 한다</b>는 점을 밝혀 두는 것으로, 나중에 "가족이 마음대로 했다"는 분쟁을 막습니다. <b>공증은 서명당 받는 것이 보통이므로, 필요한 서류를 한꺼번에 모아 한 번에 받으십시오.</b></div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ④ · 해외 상속인</span>승인·포기 기간 연장 심판청구서<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f4"><span class="ft">상속승인·포기 기간 연장 심판청구서</span>            상속의 승인·포기 기간 연장 심판청구서
+
+청 구 인   ○○○
+           주    소  ○○국 ○○주 ○○시 ○○○
+           국내 송달장소  ○○시 ○○구 ○○로 ○○
+           연 락 처  ○○○-○○○○-○○○○
+
+사건본인   망 ○○○ (20○○. ○. ○. 사망)
+(피상속인)  최후주소  ○○시 ○○구 ○○로 ○○
+
+                       청 구 취 지
+
+  청구인이 피상속인 망 ○○○의 상속에 관하여 승인 또는 포기를
+  할 수 있는 기간을 20○○. ○. ○.까지 연장한다.
+  라는 심판을 구합니다.
+
+                       청 구 원 인
+
+1. 청구인은 피상속인의 자녀로서 상속인이며, 20○○. ○. ○.
+   피상속인의 사망 사실을 알게 되었습니다. 따라서 민법 제1019조
+   제1항의 기간은 20○○. ○. ○. 만료됩니다.
+
+2. 청구인은 20○○년부터 ○○국에 거주하고 있어 피상속인의
+   재산과 채무를 직접 확인할 수 없습니다.
+
+3. 청구인은 20○○. ○. ○. 안심상속 원스톱서비스와 상속인
+   금융거래조회를 신청하였으나, 현재까지 회신을 받지
+   못하였습니다.
+
+4. 또한 상속포기(한정승인) 신고에 필요한 서류는 ○○국 소재
+   대한민국 ○○총영사관의 공증을 받아야 하는데, 공증 예약이
+   20○○. ○. ○.로 지정되어 있고, 이후 국제우편 발송에도
+   상당한 기간이 소요됩니다.
+
+5. 이와 같은 사정으로 청구인은 위 기간 내에 상속의 승인 또는
+   포기 여부를 판단할 수 없으므로, 민법 제1019조 제1항 단서에
+   따라 그 기간의 연장을 구합니다.
+
+                       첨 부 서 류
+
+   1. 피상속인 기본증명서(상세)·가족관계증명서(상세)  각 1통
+   2. 청구인 가족관계증명서(상세)                     1통
+   3. 거주 사실을 증명하는 서면                       1통
+   4. 재산조회 신청 접수증                            1통
+   5. 공증 예약 확인서 등 소명자료                    1통
+
+          20○○.  ○○.  ○○.
+            위 청구인  ○○○  (인 또는 서명)
+
+○○가정법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f4')">📋 복사</button><button type="button" onclick="printForm('f4')">🖨 인쇄</button><button type="button" onclick="downloadForm('f4','승인포기_기간연장_심판청구서.txt')">⬇ 다운로드</button></div>
+<div class="howto">★ <b>3항과 4항에 날짜를 넣는 것이 전부입니다.</b> "해외에 살아서 시간이 부족하다"는 막연한 말로는 부족합니다. <b>언제 무엇을 신청했고 언제로 예약이 잡혀 있는지</b>를 날짜와 함께 적고, 접수증과 예약 확인서를 붙이십시오. <b>반드시 3개월이 지나기 전에 접수</b>하셔야 합니다. 기간이 지난 뒤의 연장 청구는 의미가 없습니다. 연장 폭은 법원이 정하므로 청구취지의 날짜는 <b>넉넉하게</b> 적으십시오.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ⑤ · 해외 상속인</span>국내 송달장소 신고서<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f5"><span class="ft">송달장소 신고서</span>                     송달장소 신고서
+
+사    건   20○○느단○○○○호  상속포기(한정승인)
+청 구 인   ○○○
+
+  위 사건에 관하여 청구인은 다음과 같이 송달장소와 송달영수인을
+  신고합니다.
+
+                       다        음
+
+1. 송달장소
+   ○○시 ○○구 ○○로 ○○ (우편번호 ○○○○○)
+
+2. 송달영수인
+   성    명  ○○○
+   청구인과의 관계  ○○
+   연 락 처  ○○○-○○○○-○○○○
+
+3. 신고 이유
+   청구인은 현재 ○○국에 거주하고 있어 국외송달에 상당한 기간이
+   소요되므로, 신속한 절차 진행을 위하여 위와 같이 국내
+   송달장소를 신고합니다.
+
+          20○○.  ○○.  ○○.
+            위 청구인  ○○○  (인 또는 서명)
+
+○○가정법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f5')">📋 복사</button><button type="button" onclick="printForm('f5')">🖨 인쇄</button><button type="button" onclick="downloadForm('f5','국내_송달장소_신고서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>짧지만 가장 실용적인 서면입니다.</b> 이것을 내지 않으면 법원 서류가 해외 주소로 갑니다. 보정명령을 받는 데 몇 주, 회신하는 데 또 몇 주가 걸려 <b>기한을 놓치는 일이 실제로 벌어집니다.</b> 국내에 서류를 받아 줄 가족이나 지인이 있다면 처음 접수할 때 이 신고서를 함께 내십시오. 주소가 바뀌면 <b>즉시 다시 신고</b>하셔야 합니다.</div>
+</div></div>
+
+</div>
+</details>
+
+<details class="sec" id="s10"><summary>준비할 서류와 발급처<span class="sub">해외에서 어떻게 떼나</span></summary>
+<div class="secbody">
+
+<table>
+<tr><th>무엇에 쓰나</th><th>서류</th><th>어디서</th></tr>
+<tr><td>상속인 확정</td><td>피상속인 기본증명서(상세)·가족관계증명서(상세)·제적등본</td><td><a href="https://efamily.scourt.go.kr/pt/PtFrrpApplrInfoInqW.do?menuFg=03">전자가족관계등록시스템</a> (해외에서도 발급 가능 여부 <b>[확인필요]</b>) · 재외공관</td></tr>
+<tr><td>피상속인 사망·주소</td><td>말소된 주민등록초본</td><td><a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000015&tp_seq=02">정부24</a> (국내 대리인)</td></tr>
+<tr><td>재산·채무 파악</td><td>안심상속 원스톱서비스 결과</td><td><a href="https://www.gov.kr/portal/onestopSvc/safeInheritance">정부24</a> · 주민센터 (대리 신청 가능)</td></tr>
+<tr><td>금융권 채무</td><td>상속인 금융거래조회 결과</td><td><a href="https://fss.or.kr/fss/cvpl/inhCerEc/main.do?menuNo=200010">금융감독원 상속인 금융거래 조회</a></td></tr>
+<tr><td>재외국민 신분·주소</td><td>재외국민등록부등본 · 거주사실증명</td><td>거주지 관할 <b>대한민국 재외공관</b></td></tr>
+<tr><td>국내거소</td><td>국내거소신고 사실증명</td><td>출입국·외국인관서 · 정부24</td></tr>
+<tr><td>공증·인증</td><td>서명 공증, 아포스티유</td><td>재외공관 · 현지 공증인 · <a href="https://www.oka.go.kr/web/content.do?menu_cd=000099">재외동포청 아포스티유 안내</a></td></tr>
+<tr><td>부동산 확인</td><td>등기사항전부증명서(말소사항 포함)</td><td><a href="https://www.iros.go.kr">인터넷등기소</a></td></tr>
+<tr><td>양식</td><td>심판청구서 서식</td><td><a href="https://www.scourt.go.kr/nm/minwon/doc/DocListAction.work">대법원 전자민원센터 양식모음</a></td></tr>
+<tr><td>법령 원문</td><td>민법·가사소송법</td><td><a href="https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EB%AF%BC%EB%B2%95">민법</a> · <a href="https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%80%EC%82%AC%EC%86%8C%EC%86%A1%EB%B2%95">가사소송법</a></td></tr>
+</table>
+
+<div class="tip"><span class="pt">💡 공증은 한 번에 몰아서</span> 공증은 <b>서명 건수마다</b> 비용과 시간이 듭니다. 포기 신고서, 위임장, 필요하면 한정승인 신고서와 상속재산목록까지 <b>미리 다 만들어 한 번에 들고 가십시오.</b> 나중에 한 장이 빠졌다는 것을 알고 다시 예약을 잡으면 몇 주가 그냥 갑니다. <b>공증받기 전에 관할 법원에 필요 서류를 확인</b>하는 것도 같은 이유입니다.</div>
+
+</div>
+</details>
+
+<details class="sec" id="s11"><summary>비용 — 무엇에 돈이 드나<span class="sub">인지·송달료보다 공증과 국제우편이 큽니다</span></summary>
+<div class="secbody">
+
+<div class="cost">
+<span class="ct">💰 비용 — 개략</span>
+<b>① 인지</b> · 상속포기·한정승인 신고는 라류 가사비송사건으로 정해진 인지를 붙입니다. 전자 제출 시 감액될 수 있으며, 정확한 금액은 접수 시 법원이 안내합니다 <b>[확인필요]</b>.<br>
+<b>② 송달료</b> · 상속인 수에 따라 예납합니다.<br>
+<b>③ 공증료</b> · 재외공관 공증 또는 현지 공증인 공증 비용이 <b>서명 건수마다</b> 발생합니다. 현지 공증은 서명당 일정액을 받는 곳이 많습니다.<br>
+<b>④ 아포스티유 수수료</b> · 발급 기관에 따라 다릅니다.<br>
+<b>⑤ 국제우편</b> · 원본을 보내야 하므로 <b>추적 가능한 특송</b>을 권합니다. 분실되면 처음부터 다시입니다.<br>
+<b>⑥ 번역료</b> · 외국어 서류에 붙일 한글 번역문.<br>
+<b>⑦ 한정승인이라면 청산 비용이 추가</b> · 신문공고료와 내용증명 우편료가 별도로 듭니다 — <a href="3-6_한정승인_청산절차.html">상속 3-6</a> 참조.
+<div style="margin-top:11px; padding-top:10px; border-top:1px dashed #cfe6d6; color:#c0392b; font-weight:600; line-height:1.8;">※ 내 사건의 예상 비용은 <a href="https://sanlaw.co.kr/tools-calculator.html" style="color:#c0392b; text-decoration:underline; font-weight:700;">🧮 수수료 계산기</a>에서 미리 확인하실 수 있습니다.</div>
+</div>
+
+</div>
+</details>
+
+<details class="sec" id="s12"><summary>흔한 실수<span class="sub">해외 거주자에게만 생기는 함정들</span></summary>
+<div class="secbody">
+
+<p><b>① 사망일부터 3개월이라고 생각하는 것.</b> 법은 <b>안 날</b>부터라고 정했습니다. 늦게 아셨다면 아직 기간이 남아 있을 수 있습니다. 포기하기 전에 날짜부터 세어 보십시오.</p>
+
+<p><b>② 국내 송달장소를 안 적는 것.</b> 보정명령이 해외로 가면 회신할 시간이 없습니다. 가장 흔하고 가장 아까운 실수입니다.</p>
+
+<p><b>③ 공증을 한 장씩 여러 번 받는 것.</b> 서류를 한꺼번에 준비해 한 번에 받으면 비용과 시간이 크게 줄어듭니다.</p>
+
+<p><b>④ 아포스티유만 고집하는 것.</b> 공관이 가깝다면 <b>영사 공증</b>이 훨씬 빠릅니다. 아포스티유에 몇 달을 쓰다 기간을 놓치는 일이 있습니다.</p>
+
+<p><b>⑤ 가족에게 "나는 안 받겠다"고 말하고 끝내는 것.</b> 각서나 구두 합의는 법적 포기가 아닙니다. <b>반드시 가정법원에 신고</b>해야 합니다(민 §1041).</p>
+
+<p><b>⑥ 나만 포기하고 가족에게 알리지 않는 것.</b> 내가 포기하면 <b>다음 순위 상속인에게 빚이 넘어갑니다.</b> 형제, 조카, 손주까지 연쇄적으로 이어질 수 있습니다 — <a href="3-4_전원포기_손자녀.html">상속 3-4</a>를 함께 보시고 가족에게 알리십시오.</p>
+
+<div class="warn"><span class="wt">⚠ 상속재산에 손대지 마십시오</span>
+포기나 한정승인을 하기 전에 <b>피상속인의 예금을 인출하거나 재산을 처분하면</b> 단순승인을 한 것으로 간주되어 <b>빚을 전부 떠안을 수 있습니다.</b> 해외에 계시면서 국내 가족에게 "일단 통장 정리해 달라"고 부탁하는 경우가 있는데, 매우 위험합니다. <b>장례비 지출도 신중하게</b> 하시고, 반드시 먼저 확인하십시오.</div>
+
+</div>
+</details>
+
+<h2 id="s13">본 사무소가 도와드리는 일</h2>
+
+<div class="hire">
+<p>본 사무소에서는 의뢰인들의 고충은 덜어드리고, 함께 절차를 진행하여 원하는 결과에 도달할 수 있도록 성심을 다하겠습니다.</p>
+<p style="margin-top:12px"><b>· 시간이 남아 있는 분</b><br>① 국내에서 <b>재산·채무 조회를 대신 신청</b>해 드리고, ② 포기와 한정승인 중 어느 쪽이 맞는지 <b>판단 자료를 정리</b>하며, ③ 현지에서 <b>한 번에 공증받으실 수 있도록 서류 일체를 미리 작성</b>해 보내드리고, ④ 관할 법원에 <b>접수와 보정 대응</b>까지 함께합니다.</p>
+<p style="margin-top:10px"><b>· 시간이 촉박한 분</b><br>① <b>기간 연장 심판청구서</b>를 먼저 작성해 접수하고, ② 공증 소요 기간을 감안한 <b>일정표를 짜 드리며</b>, ③ 기간이 이미 지났다면 <b>특별한정승인 가능성</b>을 검토하고, ④ 채권자의 독촉·소송에 대응할 <b>서면을 작성</b>해 드립니다.</p>
+<p style="margin-top:10px; font-size:14px; color:#6b6b6b">※ 본 사무소는 법무사법 제2조 제1항 제1호·제7호에 따라 <b>법원 제출서류의 작성과 그 제출 대행</b>을 수행합니다. 포기와 한정승인의 선택은 의뢰인 본인이 결정하시며, 판단에 필요한 자료를 정리해 드립니다.</p>
+</div>
+
+<div class="tip"><span class="pt">💡 이어지는 카드</span> <b>포기와 한정승인 중 무엇을 고를지</b>는 <a href="3-1_상속받지않기_포기_한정승인.html">상속 3-1</a>, <b>3개월이 지난 뒤라면</b> <a href="3-2_특별한정승인.html">상속 3-2</a>, <b>내가 포기하면 누구에게 빚이 가는지</b>는 <a href="3-4_전원포기_손자녀.html">상속 3-4</a>, <b>한정승인을 받은 뒤의 청산</b>은 <a href="3-6_한정승인_청산절차.html">상속 3-6</a>, <b>해외 상속인의 부동산 명의이전</b>은 <a href="4-3_제외국민_외국인_상속등기.html">상속 4-3</a>을 보십시오.</div>
+
+<a class="cta" href="index.html#contact">해외에서 어떻게 진행할지 상담받고 싶습니다</a>
+
+<div class="src">
+근거 — 민법 제1019조(승인, 포기의 기간)·제1028조(한정승인의 효과)·제1030조(한정승인의 방식)·제1041조(포기의 방식)·제161조(공휴일 등과 기간의 만료점) · 가사소송법 제44조 제1항 제6호(관할) · 국가법령정보센터 · 법제처 찾기쉬운 생활법령정보 · 재외동포청 아포스티유 안내 · 외교부 해외안전여행 · 대법원 전자민원센터 · 대한법률구조공단.<br>
+※ 재외국민·외국 국적자의 첨부서류는 <b>관할 법원과 담당 재판부에 따라 요구가 달라질 수 있습니다.</b> 공증을 받으시기 전에 반드시 관할 법원에 확인하십시오. 아포스티유 협약 가입국은 계속 변동되므로 <b>현재 기준</b>으로 외교부·재외동포청에서 확인하시기 바랍니다. <b>[확인필요]</b>로 표시한 부분은 진행 전 재확인이 필요합니다.
+</div>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+})();
+
+(function(){
+  document.querySelectorAll('.toc a').forEach(function(a){
+    a.addEventListener('click',function(){
+      var el=document.querySelector(a.getAttribute('href'));
+      if(el&&el.tagName==='DETAILS')el.open=true;
+    });
+  });
+  var btn=document.getElementById('allBtn');
+  if(!btn)return;
+  function toggleAll(){
+    var opening=btn.textContent.indexOf('펼치기')>-1;
+    document.querySelectorAll('details.sec').forEach(function(d){d.open=opening;});
+    document.querySelectorAll('.formbox').forEach(function(fb){
+      fb.classList.toggle('open',opening);
+      var body=fb.querySelector('.fold-body');
+      if(body)body.style.display=opening?'block':'none';
+    });
+    btn.textContent=opening?'전체 접기':'전체 펼치기';
+  }
+  btn.addEventListener('click',toggleAll);
+  btn.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleAll();}});
+})();
+(function(){
+  /* 인쇄할 때 접힌 섹션도 함께 나오도록 — 인쇄 전 모두 펼치고, 인쇄 후 원래대로 */
+  var secs=document.querySelectorAll('details.sec');
+  var btn=document.getElementById('allBtn');
+  var saved=null;
+  function sync(){
+    if(!btn||saved)return;
+    var all=secs.length>0;
+    secs.forEach(function(d){if(!d.open)all=false;});
+    btn.textContent=all?'전체 접기':'전체 펼치기';
+  }
+  secs.forEach(function(d){d.addEventListener('toggle',sync);});
+  window.addEventListener('beforeprint',function(){
+    if(saved)return;
+    saved=[];
+    secs.forEach(function(d){saved.push(d.open);d.open=true;});
+  });
+  window.addEventListener('afterprint',function(){
+    if(!saved)return;
+    var s=saved;
+    secs.forEach(function(d,i){d.open=s[i];});
+    saved=null;
+    setTimeout(sync,0);
+  });
+})();
+function toggleFold(b){var fb=b.parentElement;var body=b.nextElementSibling;var open=fb.classList.toggle('open');if(body){body.style.display=open?'block':'none';}}
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('작성례가 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('작성례가 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('작성례를 내려받았습니다');}
+</script>
+</body>
+</html>
