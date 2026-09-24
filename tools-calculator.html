@@ -470,8 +470,11 @@
         <div class="line"><span class="lbl">사무소 주소</span><input type="text" id="of_addr" placeholder="서울 구로구 …" oninput="saveOffice();officeReady()" style="width:100%;"></div>
         <div class="line"><span class="lbl">전화</span><input type="text" id="of_tel" placeholder="02-0000-0000" oninput="saveOffice();officeReady()" style="width:100%;"></div>
         <div class="line"><span class="lbl">취급자</span><input type="text" id="of_agent" placeholder="예) 홍길동" oninput="saveOffice()" style="width:100%;"></div>
+        <div class="line"><span class="lbl">입금 은행</span><input type="text" id="of_bank" placeholder="예) ○○은행" oninput="saveOffice()" style="width:100%;"></div>
+        <div class="line"><span class="lbl">계좌번호</span><input type="text" id="of_acct" placeholder="예) 000-000000-00-000" oninput="saveOffice()" style="width:100%;"></div>
+        <div class="line"><span class="lbl">예금주</span><input type="text" id="of_holder" placeholder="예) 홍길동(○○법무사사무소)" oninput="saveOffice()" style="width:100%;"></div>
         <div class="hint" id="of_warn" style="margin-top:6px;"></div>
-        <div class="hint" style="margin-top:4px;">※ 상호·사업자등록번호·사무소 주소·전화는 엑셀 영수증 하단에 <b>자동으로</b> 들어갑니다.<br>※ 입력하신 내용은 <b>이 기기에 저장</b>되어 다음에 여실 때 그대로 남아 있습니다.<br>※ <b>취급자</b>는 협회 양식상 「취급자인」 칸에 <b>직접 날인</b>하시는 자리라 인쇄되지 않습니다.</div>
+        <div class="hint" style="margin-top:4px;">※ 상호·사업자등록번호·사무소 주소·전화는 엑셀 영수증 하단에 <b>자동으로</b> 들어갑니다.<br>※ 입력하신 내용은 <b>이 기기에 저장</b>되어 다음에 여실 때 그대로 남아 있습니다.<br>※ <b>취급자</b>는 협회 양식상 「취급자인」 칸에 <b>직접 날인</b>하시는 자리라 인쇄되지 않습니다.<br>※ <b>입금 은행·계좌번호·예금주</b>는 <b>견적서</b>에만 인쇄되고, 영수증에는 들어가지 않습니다.</div>
       </div>
     </details>
     <details class="exempt-set" style="margin-top:14px;background:#fffdf8;border:1px solid var(--line);border-radius:10px;padding:4px 14px;">
@@ -4878,7 +4881,7 @@ function saveBondRate(){try{
 }catch(e){}
   paintBondRateBadge();}
 /* 사무소 정보는 이 기기에 저장해 둔다 — 매번 다시 넣지 않으셔도 된다. 2026-08 신설 */
-const OF_IDS=['of_name','of_bizno','of_addr','of_tel','of_agent'];
+const OF_IDS=['of_name','of_bizno','of_addr','of_tel','of_agent','of_bank','of_acct','of_holder'];
 function saveOffice(){ try{ OF_IDS.forEach(function(id){ const e=document.getElementById(id); if(e) localStorage.setItem('sanlaw_'+id, e.value); }); }catch(e){} }
 /* 2026-09 — 관리자 사무소 정보(상호·취급자)가 기본값으로 들어가 있어, 다른 이용자의 영수증에도
    관리자 상호가 인쇄될 수 있었다. 기본값을 없애고, 예전 기본값이 저장돼 있던 이용자 기기는 비운다.
@@ -10342,6 +10345,35 @@ function exportRows(scene){
   }
   return {fee:fee,pub:pub};
 }
+/* ───────── 영수증 적요 간소화 (2026-09) ─────────
+   화면의 항목명에는 근거 조문·요율·설명이 붙어 있어 영수증 적요가 길고 줄이 넘쳤다
+   (예: 「취득세 지방세법 §11①1호」, 「등기원인증서 작성 문안 일반복잡·특수 +100% 보수기준 §25②」).
+   → 영수증에는 「취득세」「교육세」「등기원인증서」「등기신청수수료」처럼 짧게 적는다.
+     채권할인율·감액 근거처럼 알아야 할 것만 비고 칸으로 옮긴다. 화면 표시는 그대로 둔다. */
+function rcptShort(n){
+  let s=String(n==null?'':n).replace(/\n/g,' ');
+  s=s.replace(/\[[^\]]*\]/g,' ').replace(/\([^)]*\)/g,' ');
+  s=s.replace(/(지방세법|수수료규칙|인지법|보수기준|보수표|주택도시기금법|재일\s*\d|예규|근거 미확보).*/,'');
+  s=s.replace(/§\S*/g,' ').replace(/^\s*\d+호\s*/,'').replace(/\s+대행/g,'대행').replace(/\s+/g,' ').trim();
+  const pre=(s.match(/^말소분?\s+/)||[''])[0];
+  const body=s.slice(pre.length);
+  const R=[[/등기원인증서|원인증서/,'등기원인증서'],[/^취득세$/,'취득세'],[/^(지방)?교육세$/,'교육세'],
+    [/농어촌특별세|농특세/,'농특세'],[/^등기신청수수료/,'등기신청수수료'],[/^등록면허세$/,'등록면허세'],
+    [/인지/,'인지대'],[/^송달료/,'송달료'],[/채권.*할인/,'채권할인'],[/^감액/,'감액'],
+    [/^말소등기/,'말소등기'],[/제출대행/,'제출대행'],[/검인대행/,'검인대행'],
+    [/^취득세·등록면허세\s*신고대행/,'신고대행'],[/^심판청구서/,'심판청구서']];
+  for(const [re,to] of R){ if(re.test(body)) return (pre?'말소 ':'')+to; }
+  return s||String(n);
+}
+function rcptRows(rows,br){
+  return rows.map(function(r){
+    const raw=String(r[0]), short=rcptShort(raw);
+    let note='';
+    if(short==='채권할인'&&br) note=br+'%';
+    if(short==='감액'){ const m=raw.match(/\(([^)]*)\)/); if(m) note=m[1]; }
+    return [short,r[1],note];
+  });
+}
 function findCard(scene,keyword){let found=null;scene.querySelectorAll('.card').forEach(c=>{const h=c.querySelector('h2');if(h&&h.textContent.indexOf(keyword)>=0&&!found)found=c;});return found;}
 function won0(n){return (n||0).toLocaleString();}
 function receiptTable(caseName,base,feeRows,pubRows,vat,office){
@@ -10385,7 +10417,12 @@ function buildReceiptSheet(ws,caseName,base,feeRows,pubRows,vat,office,off,meta)
   const FN='맑은 고딕';
   [16,12,8,16,12,11].forEach((w,i)=>{ws.getColumn(off+i+1).width=w;});
   const HDR=6,COL=7,DATA=8,ROWS=Math.max(feeRows.length,pubRows.length,4),VAT=DATA+ROWS,SUM=VAT+1,TOT=SUM+1;
-  const con=TOT+1,d=con+1,biz=d+1,offr=biz+1,nm=offr+1;
+  /* 2026-09 견적서: 제목·끝맺음·안내문만 바꾸고, 총계 바로 아래에 입금계좌 줄을 넣는다(계좌번호가 있을 때만) */
+  const EST=(meta.kind==='est');
+  const _acc=(office&&office.acct)||'';
+  const accTxt=(EST&&_acc)?('입금계좌 :   '+(((office.bank||'')+'   '+_acc).trim())+(office.holder?'   (예금주 '+office.holder+')':'')):'';
+  const ACC=accTxt?TOT+1:0;
+  const con=TOT+1+(ACC?1:0),d=con+1,biz=d+1,offr=biz+1,nm=offr+1;
   const feeSum=feeRows.reduce((a,r)=>a+r[1],0);
   const pubSum=pubRows.reduce((a,r)=>a+r[1],0);
   const total=feeSum+vat+pubSum;
@@ -10399,7 +10436,7 @@ function buildReceiptSheet(ws,caseName,base,feeRows,pubRows,vat,office,off,meta)
   function mrg(r1,c1,r2,c2){ws.mergeCells(r1,off+c1,r2,off+c2);}
   setc(1,1,'진행번호'+(meta.no?'   '+meta.no:''),9,false,'left');
   setc(1,4,'호',9,false,'left');                 // 수정1: 호를 영수증 영자 라인(D열)에
-  mrg(2,1,2,6); setc(2,1,'영    수    증',22,true,'center'); ws.getRow(2).height=46; // 수정8: 줄간격
+  mrg(2,1,2,6); setc(2,1,EST?'견    적    서':'영    수    증',22,true,'center'); ws.getRow(2).height=46; // 수정8: 줄간격
   mrg(3,1,3,6); setc(3,1,(meta.name?meta.name+'   ':'')+'귀하',11,false,'right');  // 수정7: 귀하 우측 끝 · 2026-09 받는 분 성명
   mrg(4,1,4,3); mrg(4,4,4,6);
   setc(4,1,'※ 사건명 :   '+caseName,10,false,'left');
@@ -10410,9 +10447,9 @@ function buildReceiptSheet(ws,caseName,base,feeRows,pubRows,vat,office,off,meta)
   setc(HDR,1,'보 수 액',11,true,'center'); setc(HDR,4,'공 과 금',11,true,'center');
   ['적 요','금 액','비 고','적 요','금 액','비 고'].forEach((h,i)=>setc(COL,i+1,h,10,true,'center'));
   for(let i=0;i<ROWS;i++){const r=DATA+i;
-    if(i<feeRows.length){const fa=setc(r,1,feeRows[i][0],10,false,'right'); fa.alignment={horizontal:'right',vertical:'middle',wrapText:true}; const b=setc(r,2,feeRows[i][1],10,false,'right'); b.numFmt='#,##0'; if(String(feeRows[i][0]).indexOf('\n')>=0)ws.getRow(r).height=30;}
+    if(i<feeRows.length){const fa=setc(r,1,feeRows[i][0],10,false,'right'); fa.alignment={horizontal:'right',vertical:'middle',wrapText:true}; const b=setc(r,2,feeRows[i][1],10,false,'right'); b.numFmt='#,##0'; if(feeRows[i][2])setc(r,3,feeRows[i][2],8,false,'center',true); if(String(feeRows[i][0]).indexOf('\n')>=0)ws.getRow(r).height=30;}
     else {cell(r,1).alignment={horizontal:'right',vertical:'middle'};cell(r,2).alignment={horizontal:'right',vertical:'middle'};}
-    if(i<pubRows.length){const pa=setc(r,4,pubRows[i][0],10,false,'right'); pa.alignment={horizontal:'right',vertical:'middle',wrapText:true}; const e=setc(r,5,pubRows[i][1],10,false,'right'); e.numFmt='#,##0'; if(String(pubRows[i][0]).indexOf('\n')>=0)ws.getRow(r).height=30;}
+    if(i<pubRows.length){const pa=setc(r,4,pubRows[i][0],10,false,'right'); pa.alignment={horizontal:'right',vertical:'middle',wrapText:true}; const e=setc(r,5,pubRows[i][1],10,false,'right'); e.numFmt='#,##0'; if(pubRows[i][2])setc(r,6,pubRows[i][2],8,false,'center',true); if(String(pubRows[i][0]).indexOf('\n')>=0)ws.getRow(r).height=30;}
     else {cell(r,4).alignment={horizontal:'right',vertical:'middle'};cell(r,5).alignment={horizontal:'right',vertical:'middle'};}
   }
   setc(VAT,4,'부가가치세',10,false,'right'); const ev=setc(VAT,5,vat,10,false,'right'); ev.numFmt='#,##0';
@@ -10420,7 +10457,8 @@ function buildReceiptSheet(ws,caseName,base,feeRows,pubRows,vat,office,off,meta)
   setc(SUM,4,'계',10,true,'center'); const es=setc(SUM,5,pubSum+vat,10,true,'right'); es.numFmt='#,##0';
   mrg(TOT,1,TOT,3); mrg(TOT,4,TOT,6);
   setc(TOT,1,'총  계',11,true,'center'); const dt=setc(TOT,4,total,12,true,'right'); dt.numFmt='#,##0';
-  mrg(con,1,con,2); setc(con,1,'위와 같이 영수합니다.',10,true,'right');
+  if(ACC){ mrg(ACC,1,ACC,6); setc(ACC,1,accTxt,11,true,'center',true); ws.getRow(ACC).height=26; }
+  mrg(con,1,con,2); setc(con,1,EST?'위와 같이 견적합니다.':'위와 같이 영수합니다.',10,true,'right');
   const _dt=new Date(); const _dstr=_dt.getFullYear()+' 년    '+(_dt.getMonth()+1)+' 월    '+_dt.getDate()+' 일';
   mrg(d,1,d,6); setc(d,1,_dstr,10,false,'center');
   // 라벨 우측정렬 (A:B 병합) + 값 좌측정렬 (C 이후)
@@ -10458,7 +10496,11 @@ function buildReceiptSheet(ws,caseName,base,feeRows,pubRows,vat,office,off,meta)
     ws.getRow(1).height=16;
     for(let r=1;r<=nm;r++){ add(cell(r,1),'left'); add(cell(r,6),'right'); } // 좌·우변 (아랫변은 nm행에 이미 medium)
   })();
-  const notes=[
+  const notes=EST?[
+   '(주) 1. 이 견적서의 금액은 예상 금액입니다. 과세표준액, 국민주택채권 할인율(영업일마다 바뀝니다), 추가로 필요한 서류 등에 따라 실제 금액이 달라질 수 있습니다.',
+   '2. 「보수액」은 법무사 보수이고, 「공과금」은 세금·수수료 등 실제로 내야 하는 비용입니다.',
+   '3. 입금하신 뒤에는 같은 양식의 영수증을 발급해 드립니다.'
+  ]:[
    '(주) 1. 복사식 또는 컴퓨터 프린터로 2통을 작성하여 1통은 위임인에게 교부한다.',
    '2. 「보수액」은 기본, 누진, 특례(원인증서작성·등록세신고납부·거래신고·검인신청·채권매입대행료 등)으로 세분하여 표시할 수 있다.',
    '3. 「주택채권액」(또는 매입보관)에 따른 대행을 위임받은 경우에는 「매입액」을 매일 즉시, 매도를 위임받은 경우에는 위임인의 「부담액」을 기재한다.',
@@ -10522,7 +10564,7 @@ function officeGate(cb){
    「○○○ 귀하」·과세표준액·시가표준액(설정액)·진행번호가 늘 빈칸으로 나왔다.
    → 과세표준액·시가표준액은 화면에 넣은 값으로 자동으로 채우고, 출력 직전에 한 번 보여 드려 고칠 수 있게 한다.
    → 받는 분 성명·진행번호는 사건마다 다르므로 기기에 저장하지 않는다(이 창을 연 동안만 기억). */
-var RCPT_SESSION={scene:'',name:'',no:''};   /* 같은 화면(같은 사건)을 다시 출력할 때만 채워 둔다 */
+var RCPT_SESSION={scene:'',name:'',no:'',kind:''};   /* 같은 화면(같은 사건)을 다시 출력할 때만 채워 둔다 */
 function _visNum(el){ if(!el||el.offsetParent===null)return 0; return numOf(el.value)||0; }
 function receiptAuto(scene){
   const id=scene.id.replace(/^scene-/,'');
@@ -10542,22 +10584,34 @@ function receiptAuto(scene){
   else scene.querySelectorAll('input[id*="bondStd"]').forEach(function(e){ std+=_visNum(e); });
   return {base:base,std:std};
 }
+/* 2026-09 — 같은 양식으로 「견적서」(입금계좌 포함)와 「영수증」(종전 모양)을 골라 내려받는다.
+   상담 때 견적서를 먼저 드리고, 입금 뒤 같은 화면에서 영수증을 드리는 순서를 따른다.
+   같은 사건 화면에서 견적서를 내려받은 뒤 다시 누르면 영수증이 먼저 골라져 있다. */
 function receiptGate(cb){
   const scene=document.querySelector('.scene.active');
-  if(!scene){ cb({name:'',no:'',base:0,std:0}); return; }
+  if(!scene){ cb({name:'',no:'',base:0,std:0,kind:'rcpt'}); return; }
   const au=receiptAuto(scene);
   var old=document.getElementById('rcGate'); if(old)old.remove();
   var g=document.createElement('div'); g.id='rcGate';
   g.style.cssText='position:fixed;inset:0;z-index:99998;background:rgba(42,33,24,.72);display:flex;align-items:center;justify-content:center;padding:20px;overflow:auto;';
   var IN='width:100%;padding:10px 12px;font-size:14.5px;border:1.5px solid #cfc2a8;border-radius:8px;box-sizing:border-box;';
   var LB='display:block;font-size:12.5px;color:#6b5d49;margin:10px 0 4px;font-weight:700;';
+  var KB='flex:1;padding:11px 6px;font-size:15px;font-weight:700;border-radius:8px;cursor:pointer;border:1.5px solid #cfc2a8;';
   g.innerHTML='<div style="max-width:440px;width:100%;background:#fbf8f1;border:1px solid #e0d6c2;border-radius:14px;padding:24px 22px;box-shadow:0 20px 50px rgba(0,0,0,.45);">'
-   +'<h3 style="margin:0 0 6px;font-size:18px;color:#2a2118;">영수증 윗부분에 들어갈 내용</h3>'
-   +'<p style="margin:0 0 4px;font-size:13px;color:#6b5d49;line-height:1.6;">금액은 화면에 넣으신 값으로 채워 두었습니다. 필요하면 고치십시오. 비워 두면 빈칸으로 나옵니다.</p>'
+   +'<div style="display:flex;gap:8px;margin:0 0 12px;"><button type="button" id="rc_k_est" style="'+KB+'">① 견적서</button><button type="button" id="rc_k_rcpt" style="'+KB+'">② 영수증</button></div>'
+   +'<h3 id="rc_title" style="margin:0 0 6px;font-size:18px;color:#2a2118;">영수증 윗부분에 들어갈 내용</h3>'
+   +'<p id="rc_desc" style="margin:0 0 4px;font-size:13px;color:#6b5d49;line-height:1.6;"></p>'
    +'<label style="'+LB+'">받는 분(위임인) 성명 — 「○○○ 귀하」</label><input id="rc_name" type="text" placeholder="예) 홍길동" style="'+IN+'">'
    +'<label style="'+LB+'">과세표준액(원)</label><input id="rc_base" type="text" inputmode="numeric" style="'+IN+'">'
    +'<label style="'+LB+'">시가표준액(설정액)(원)</label><input id="rc_std" type="text" inputmode="numeric" style="'+IN+'">'
    +'<label style="'+LB+'">진행번호 (선택)</label><input id="rc_no" type="text" placeholder="예) 2026-123" style="'+IN+'">'
+   +'<div id="rc_accbox" style="display:none;margin-top:12px;padding:10px 12px 12px;background:#fff7e6;border:1px solid #e8cf9c;border-radius:10px;">'
+   +'<div style="font-size:13px;font-weight:700;color:#7a4e12;">입금계좌 (견적서에만 인쇄)</div>'
+   +'<input id="rc_bank" type="text" placeholder="입금 은행   예) ○○은행" style="'+IN+'margin-top:6px;">'
+   +'<input id="rc_acct" type="text" placeholder="계좌번호   예) 000-000000-00-000" style="'+IN+'margin-top:6px;">'
+   +'<input id="rc_holder" type="text" placeholder="예금주   예) 홍길동(○○법무사사무소)" style="'+IN+'margin-top:6px;">'
+   +'<div id="rc_accwarn" style="margin-top:6px;font-size:12px;color:#b3261e;"></div>'
+   +'<div style="margin-top:4px;font-size:12px;color:#8a7c66;">※ 한 번 넣으시면 이 기기에 저장되어 다음 견적서에도 그대로 들어갑니다.</div></div>'
    +'<button id="rc_ok" style="margin-top:16px;width:100%;padding:12px;background:#1d7a46;color:#fff;border:none;border-radius:8px;font-size:15.5px;font-weight:700;cursor:pointer;">영수증 내려받기</button>'
    +'<button id="rc_cancel" style="margin-top:8px;width:100%;padding:10px;background:none;color:#8a7c66;border:1px solid #ddd0b8;border-radius:8px;font-size:13.5px;cursor:pointer;">취소</button>'
    +'<div style="margin-top:10px;font-size:12px;color:#8a7c66;line-height:1.6;">※ 받는 분 성명과 진행번호는 개인정보라 기기에 저장하지 않습니다. 이 창을 닫기 전까지만 기억합니다.</div>'
@@ -10569,12 +10623,39 @@ function receiptGate(cb){
   document.getElementById('rc_no').value=same?(RCPT_SESSION.no||''):'';
   document.getElementById('rc_base').value=fmt(au.base);
   document.getElementById('rc_std').value=fmt(au.std);
+  ['bank','acct','holder'].forEach(function(k){ var e=document.getElementById('of_'+k); document.getElementById('rc_'+k).value=e?e.value:''; });
   ['rc_base','rc_std'].forEach(function(k){ var e=document.getElementById(k); e.addEventListener('blur',function(){ var v=numOf(e.value)||0; e.value=fmt(v); }); });
+  var kind=(same&&RCPT_SESSION.kind==='est')?'rcpt':'est';
+  function accWarn(){ var w=document.getElementById('rc_accwarn'); if(!w)return;
+    w.textContent=document.getElementById('rc_acct').value.trim()?'':'계좌번호를 비워 두면 견적서에 입금계좌 줄이 빠집니다.'; }
+  function paint(){
+    var est=(kind==='est'), nm=est?'견적서':'영수증';
+    var on='background:#a86b1f;color:#fff;border-color:#a86b1f;', off='background:#fff;color:#6b5d49;';
+    document.getElementById('rc_k_est').style.cssText=KB+(est?on:off);
+    document.getElementById('rc_k_rcpt').style.cssText=KB+(est?off:on);
+    document.getElementById('rc_title').textContent=nm+' 윗부분에 들어갈 내용';
+    document.getElementById('rc_desc').innerHTML=(est
+      ?'상담 때 드리는 <b>견적서</b>입니다. 영수증과 같은 양식에 제목이 「견적서」로 바뀌고 <b>입금계좌</b>가 들어갑니다. '
+      :'입금을 받은 뒤 드리는 <b>영수증</b>입니다(입금계좌는 들어가지 않습니다). ')
+      +'금액은 화면에 넣으신 값으로 채워 두었습니다. 필요하면 고치십시오. 비워 두면 빈칸으로 나옵니다.';
+    document.getElementById('rc_accbox').style.display=est?'block':'none';
+    document.getElementById('rc_ok').textContent=nm+' 내려받기';
+    document.getElementById('rc_ok').style.background=est?'#a86b1f':'#1d7a46';
+    accWarn();
+  }
+  document.getElementById('rc_k_est').onclick=function(){kind='est';paint();};
+  document.getElementById('rc_k_rcpt').onclick=function(){kind='rcpt';paint();};
+  document.getElementById('rc_acct').addEventListener('input',accWarn);
+  paint();
   function close(){ g.remove(); }
   document.getElementById('rc_ok').onclick=function(){
-    var meta={name:document.getElementById('rc_name').value.trim(),no:document.getElementById('rc_no').value.trim(),
+    if(kind==='est'){
+      ['bank','acct','holder'].forEach(function(k){ var d=document.getElementById('of_'+k); if(d) d.value=document.getElementById('rc_'+k).value.trim(); });
+      if(typeof saveOffice==='function')saveOffice();
+    }
+    var meta={kind:kind,name:document.getElementById('rc_name').value.trim(),no:document.getElementById('rc_no').value.trim(),
       base:numOf(document.getElementById('rc_base').value)||0,std:numOf(document.getElementById('rc_std').value)||0};
-    RCPT_SESSION.scene=scene.id; RCPT_SESSION.name=meta.name; RCPT_SESSION.no=meta.no;
+    RCPT_SESSION.scene=scene.id; RCPT_SESSION.name=meta.name; RCPT_SESSION.no=meta.no; RCPT_SESSION.kind=kind;
     close(); cb(meta);
   };
   document.getElementById('rc_cancel').onclick=close;
@@ -10597,20 +10678,23 @@ async function _exportExcelCore(meta){
   const _xr=exportRows(scene);
   const feeRows=_xr.fee;
   let pubRows=_xr.pub;
-  // 수정5: 채권할인 제목에 실제 할인율(전역 bondRate) 표시
+  // 수정5: 채권할인율(전역 bondRate)은 비고 칸에 · 2026-09 적요 간소화
   const brI=document.getElementById('bondRate');
   const br=brI&&brI.value?brI.value:'';
-  if(br) pubRows=pubRows.map(r=>/채권\s*할인/.test(r[0])?['채권할인\n('+br+'%)',r[1]]:r);
+  const feeRowsS=rcptRows(feeRows,br);
+  pubRows=rcptRows(pubRows,br);
   const base=(meta.base!=null)?meta.base:receiptAuto(scene).base;
   const feeSum=feeRows.reduce((a,r)=>a+r[1],0);
   const vat=Math.round(feeSum*0.1);
     /* of_tel 이 빠져 있어 receiptTable 에서 office.tel 이 undefined 였다 — 2026-08 보완 */
-  const office={name:ofVal('of_name'),bizno:ofVal('of_bizno'),addr:ofVal('of_addr'),tel:ofVal('of_tel'),agent:ofVal('of_agent')};
+  const office={name:ofVal('of_name'),bizno:ofVal('of_bizno'),addr:ofVal('of_addr'),tel:ofVal('of_tel'),agent:ofVal('of_agent'),
+    bank:ofVal('of_bank'),acct:ofVal('of_acct'),holder:ofVal('of_holder')};
+  const EST=(meta.kind==='est');
   const wb=new ExcelJS.Workbook();
-  const ws=wb.addWorksheet('보수영수증',{views:[{showGridLines:false}]});
+  const ws=wb.addWorksheet(EST?'보수견적서':'보수영수증',{views:[{showGridLines:false}]});
   // 수정6: 2부 좌우 배치 (1부 off=0, 분리 G·H 2칸, 2부 off=8)
-  const last1=buildReceiptSheet(ws,caseName,base,feeRows,pubRows,vat,office,0,meta);
-  const last2=buildReceiptSheet(ws,caseName,base,feeRows,pubRows,vat,office,8,meta);
+  const last1=buildReceiptSheet(ws,caseName,base,feeRowsS,pubRows,vat,office,0,meta);
+  const last2=buildReceiptSheet(ws,caseName,base,feeRowsS,pubRows,vat,office,8,meta);
   const last=Math.max(last1,last2);
   ws.getColumn(7).width=3; ws.getColumn(8).width=3;  // 중간 여백 2칸
   for(let r=1;r<=last;r++){ ws.getCell(r,7).border={right:{style:'dashed'}}; } // 정중앙 분리 점선
@@ -10620,7 +10704,7 @@ async function _exportExcelCore(meta){
   const blob=new Blob([buf],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
   const url=URL.createObjectURL(blob);
   const a=document.createElement('a');a.href=url;
-  a.download='법무사보수영수증_'+caseName.replace(/[^가-힣A-Za-z0-9]/g,'')+'.xlsx';
+  a.download=(EST?'법무사보수견적서_':'법무사보수영수증_')+caseName.replace(/[^가-힣A-Za-z0-9]/g,'')+'.xlsx';
   document.body.appendChild(a);a.click();document.body.removeChild(a);
   setTimeout(()=>URL.revokeObjectURL(url),1000);
 }
