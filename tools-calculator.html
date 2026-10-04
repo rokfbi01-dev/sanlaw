@@ -184,6 +184,51 @@
   .reftag{font-size:10px;font-weight:700;padding:1px 5px;border-radius:4px;background:#f5ecd6;color:var(--warn);margin-left:6px;}
   .verifybar{margin-top:14px;font-size:11.5px;color:var(--ok);background:#eef5ec;border:1px solid var(--green-line);border-radius:6px;padding:8px 12px;}
   footer{margin-top:26px;font-size:11px;color:#8a8270;text-align:center;line-height:1.7;}
+  /* ── 2026-10 접기·펼치기 — 계산기가 너무 길게 늘어지지 않도록 ──
+     준비서류·안내 카드는 처음에 접어 두고, 긴 설명(법령 풀이 등)은 앞부분만 보여 준다.
+     입력칸과 계산 결과는 접지 않는다. 인쇄할 때는 모두 펼친다. */
+  .card.fold>h2{cursor:pointer;user-select:none;}
+  .card.fold>h2::after{content:"▾ 펼쳐 보기";margin-left:auto;flex:0 0 auto;font:700 12px/1.6 "Malgun Gothic","맑은 고딕",sans-serif;
+    color:var(--seal);background:#fff;border:1px solid var(--seal-soft);border-radius:12px;padding:1px 10px;}
+  .card.fold.open>h2::after{content:"▴ 접기";}
+  .card.fold>h2:focus-visible{outline:2px solid var(--seal);outline-offset:-2px;}
+  .card.fold:not(.open)>.body>.fbody{display:none;}
+  .card.fold:not(.open)>.body{padding-top:4px;padding-bottom:4px;}
+  .card.fold:not(.open)>.body:empty,.card.fold:not(.open)>.body:has(>.fbody:only-child){display:none;}
+  .nclamp:not(.open){max-height:5.6em;overflow:hidden;-webkit-mask-image:linear-gradient(#000 52%,transparent);mask-image:linear-gradient(#000 52%,transparent);}
+  .nclamp.nclamp-alert:not(.open){max-height:10.5em;}
+  .hclamp:not(.open){display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;}
+  .ntog{display:inline-block;margin:-10px 0 12px 2px;padding:2px 0;font:700 12px "Malgun Gothic","맑은 고딕",sans-serif;
+    color:var(--seal);background:none;border:none;cursor:pointer;text-decoration:underline;text-underline-offset:3px;}
+  .line .ntog{margin:0 0 0 4px;flex:0 0 auto;}
+  /* ── 2026-10 준비서류 3단 구분 — ① 의뢰인 준비 ② 사무소 준비 ③ 등기신청서 첨부서류 ── */
+  .d3sec{border:1px solid var(--line);border-radius:7px;background:#fff;margin:0 0 10px;overflow:hidden;}
+  .d3h{font:800 13px/1.5 "Malgun Gothic","맑은 고딕",sans-serif;padding:6px 10px;}
+  .d3c .d3h{background:#e8f1f7;color:#1f4f72;border-bottom:1px solid #b9d3e3;}
+  .d3o .d3h{background:#e6f3e0;color:#2f6b3d;border-bottom:1px solid var(--green-line);}
+  .d3a .d3h{background:#f5ecd6;color:#6e5114;border-bottom:1px solid #dcc79a;}
+  .d3hs{font-weight:400;font-size:11.5px;}
+  .d3b{padding:8px 10px;}
+  .d3who{font-weight:800;color:var(--ink);margin:8px 0 2px;}
+  .d3b>.d3who:first-child{margin-top:0;}
+  ul.d3l{margin:0 0 4px;padding-left:18px;}
+  ul.d3l li{margin:1px 0;}
+  .d3w{display:inline-block;font-size:11px;line-height:1.5;color:#1f4f72;background:#e8f1f7;border:1px solid #b9d3e3;border-radius:10px;padding:0 7px;margin-left:2px;}
+  .d3w a{color:#1f5f8a;}
+  .d3note{font-size:11.5px;color:var(--ink-soft);background:var(--paper);border-radius:5px;padding:5px 8px;margin:6px 0 0;line-height:1.65;}
+  .d3warn{border-left:3px solid var(--seal);padding:6px 8px;margin:6px 0;background:#fdeaea;border-radius:4px;line-height:1.6;}
+  table.d3t{width:100%;border-collapse:collapse;font-size:12px;line-height:1.55;}
+  table.d3t th,table.d3t td{border:1px solid var(--line);padding:4px 6px;text-align:left;vertical-align:top;}
+  table.d3t th{background:var(--paper-2);}
+  .d3tag{display:inline-block;font-size:11px;font-weight:700;border-radius:9px;padding:0 7px;}
+  .d3tag.c{background:#e8f1f7;color:#1f4f72;border:1px solid #b9d3e3;}
+  .d3tag.o{background:#e6f3e0;color:#2f6b3d;border:1px solid var(--green-line);}
+  .d3law{font-size:11px;color:#6b6252;}
+  .d3src{font-size:11px;color:#8a8270;margin-top:6px;line-height:1.6;}
+  @media (max-width:560px){table.d3t thead{display:none;}table.d3t,table.d3t tbody,table.d3t tr,table.d3t td{display:block;width:100%;}
+    table.d3t tr{border:1px solid var(--line);border-radius:5px;margin-bottom:6px;}table.d3t td{border:none;padding:2px 7px;}}
+  @media print{.card.fold>.body>.fbody{display:block!important;}.card.fold>h2::after,.ntog{display:none!important;}
+    .nclamp,.hclamp{max-height:none!important;-webkit-mask-image:none!important;mask-image:none!important;display:block!important;-webkit-line-clamp:unset!important;}}
   @media print{header .ratebar,.actions,.back,.note,details.ref{display:none;}.print-hide{display:none!important;}select{border:none;-webkit-appearance:none;appearance:none;}.stepper button{display:none;}body{background:#fff;}.card,.total{box-shadow:none;}}
   @media(max-width:560px){.line .lbl{flex-basis:100%;}input.amt{min-width:0;}}
 </style>
@@ -337,6 +382,25 @@
     return '';
   }
 
+  /* 2026-10 신설 — 상담 신청 전송이 막히거나 실패해도 견적서 저장(출력)은 이어서 한다.
+     종전에는 Formspree가 거절하면(월 한도 초과·장애 등) 오류만 띄우고 출력이 멈췄다.
+     잠금 해제(12시간)는 실제로 전송이 된 때에만 저장한다. */
+  function releaseOnly(msg){
+    var b=document.getElementById('lf_btn'); if(b){b.disabled=false;b.textContent='신청하고 견적서 저장하기';}
+    var cb=pending; pending=null; hideGate();
+    if(msg) leadToast(msg);
+    if(cb) cb();
+  }
+  function leadToast(msg){
+    var t=document.getElementById('leadToast'); if(t) t.remove();
+    t=document.createElement('div'); t.id='leadToast';
+    t.style.cssText='position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:100000;max-width:min(92vw,460px);'
+      +'background:#2a2118;color:#fbf8f1;border-radius:10px;padding:12px 16px;font-size:13.5px;line-height:1.6;box-shadow:0 8px 24px rgba(0,0,0,.35);';
+    t.innerHTML=msg+'<br><a href="https://pf.kakao.com/_znJqX/chat" target="_blank" rel="noopener" style="color:#FEE500;font-weight:700;">💬 카카오톡으로 상담 신청하기</a>'
+      +' <button type="button" style="margin-left:8px;background:none;border:1px solid #6b5d49;color:#d9cfb6;border-radius:5px;padding:1px 8px;cursor:pointer;" onclick="this.parentNode.remove()">닫기</button>';
+    document.body.appendChild(t);
+    setTimeout(function(){ if(t.parentNode) t.remove(); }, 15000);
+  }
   window.submitLead=function(ev){
     ev.preventDefault();
     var name=(document.getElementById('lf_name').value||"").trim();
@@ -360,12 +424,15 @@
     try{
       var LAST='sanlaw_lead_last', DAY='sanlaw_lead_day';
       var last=parseInt(localStorage.getItem(LAST)||"0",10);
-      if(last && Date.now()-last < 60000){ showErr("방금 신청하셨습니다. <b>1분 뒤</b>에 다시 시도해 주세요."); return false; }
+      /* 2026-10 — 방금(1분 안) 신청하신 분은 다시 보내지 않고 저장만 이어서 한다.
+         종전에는 여기서 오류를 내고 멈춰 「정보를 넣었는데 출력이 안 된다」는 일이 생겼다. */
+      if(last && Date.now()-last < 60000){ releaseOnly('방금 신청하신 내용이 이미 접수되어 다시 보내지 않았습니다.'); return false; }
       var today=new Date().toISOString().slice(0,10);
       var rec=(localStorage.getItem(DAY)||"").split('|');
       var cnt=(rec[0]===today)?parseInt(rec[1]||"0",10):0;
       if(cnt>=3){
-        showErr('오늘은 신청이 <b>3건</b>까지입니다. 급하시면 <a href="https://pf.kakao.com/_znJqX/chat" target="_blank" rel="noopener" style="color:#a86b1f;font-weight:700;">카카오톡 상담</a>으로 연락 주십시오.');
+        /* 하루 3건을 넘으면 더 보내지는 않되, 견적서 저장은 그대로 이어서 한다(2026-10) */
+        releaseOnly('오늘 이미 3건을 신청하셔서 이번 내용은 보내지 않았습니다. 급하시면 카카오톡 상담을 이용해 주십시오.');
         return false;
       }
     }catch(e){}
@@ -386,9 +453,9 @@
           }catch(e){}
           var cb=pending; pending=null; hideGate(); if(cb)cb();
         }
-        else { btn.disabled=false; btn.textContent="신청하고 견적서 저장하기"; showErr("전송에 실패했습니다. 잠시 후 다시 시도하시거나 상담 문의로 연락 주세요."); }
+        else { releaseOnly('상담 신청이 서버 사정으로 전달되지 않았습니다(응답 '+r.status+'). 견적서는 그대로 저장해 드립니다.'); }
       })
-      .catch(function(){ btn.disabled=false; btn.textContent="신청하고 견적서 저장하기"; showErr("네트워크 오류로 전송하지 못했습니다. 다시 시도해 주세요."); });
+      .catch(function(){ releaseOnly('인터넷 연결 문제로 상담 신청을 보내지 못했습니다. 견적서는 그대로 저장해 드립니다.'); });
     return false;
   };
 })();
@@ -466,6 +533,7 @@
     <details class="office-set" style="margin-top:14px;background:#fffdf8;border:1px solid var(--line);border-radius:10px;padding:4px 14px;">
       <summary style="cursor:pointer;font-weight:700;color:var(--ink);padding:8px 0;">⚙ 사무소 정보 설정 <span class="hint">(영수증·견적서 출력에 사용 · 수정 가능)</span><span id="of_badge" style="display:none;margin-left:6px;padding:2px 8px;border-radius:10px;background:var(--seal);color:#fff;font-size:11.5px;font-weight:700;">미입력</span></summary>
       <div style="padding:8px 0 14px;">
+        <div class="line"><label class="checks" style="display:inline-flex;align-items:center;gap:6px;"><input type="checkbox" id="of_isPro" onchange="setUserType(this.checked?'pro':'client')"> <b>법무사·사무소에서 사용</b></label><span class="hint">체크하면 사무소 정보로 <b>견적서와 영수증</b>을 발행합니다. 체크하지 않으면 <b>견적서</b>만 받습니다.</span></div>
         <div class="line"><span class="lbl">상호(법인명)</span><input type="text" id="of_name" placeholder="예) ○○ 법무사 사무소" oninput="saveOffice();officeReady()" style="width:100%;"></div>
         <div class="line"><span class="lbl">사업자등록번호</span><input type="text" id="of_bizno" placeholder="000-00-00000" oninput="saveOffice();officeReady()" style="width:100%;"></div>
         <div class="line"><span class="lbl">사무소 주소</span><input type="text" id="of_addr" placeholder="서울 구로구 …" oninput="saveOffice();officeReady()" style="width:100%;"></div>
@@ -1765,11 +1833,7 @@
       <div class="line"><span class="lbl">소유자(등기의무자) — 외국 당사자</span><select id="mt_frOb" data-lbl="소유자(등기의무자)" data-role="ob" onchange="renderPartyDocs('mt_',null,null,'','')"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">내주는 쪽이 <b>외국인·재외국민</b>이면 <b>처분위임장·인감</b>이 달라집니다</span></div>
       <div class="line"><span class="lbl">근저당권자(채권자) — 외국 당사자</span><select id="mt_frRi" data-lbl="근저당권자(채권자)" data-role="rn" onchange="renderPartyDocs('mt_',null,null,'','')"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">받는 쪽이 <b>외국인·재외국민</b>이면 <b>주소증명·등록번호</b>가 필요합니다</span></div>
       <div id="mt_partyDocsBox"></div>
-      <div class="docs">
-        <b>소유자(등기의무자)</b> — 등기권리증(등기필정보), 인감증명서 1통, 주민등록초본 1통(주소변동 포함), 인감도장, 신분증<br>
-        <b>근저당권자(채권자)</b> — 주민등록초본 1통, 도장, 신분증 (법인이면 법인등기사항증명서·법인인감증명서·사용인감계)<br>
-        <b>공통</b> — 근저당권설정계약서, 등록면허세 영수필확인서, 채권 매입필증, 등기수수료 영수필확인서, 위임장
-      </div>
+      <div class="docs" id="mt_docsBox"></div>
     </div></div>
   </div>
 
@@ -1832,11 +1896,7 @@
       <div class="line"><span class="lbl">등기의무자(소유자) — 외국 당사자</span><select id="ga_frOb" data-lbl="등기의무자(소유자)" data-role="ob" onchange="renderPartyDocs('ga_',null,null,'','')"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">내주는 쪽이 <b>외국인·재외국민</b>이면 <b>처분위임장·인감</b>이 달라집니다</span></div>
       <div class="line"><span class="lbl">가등기권자(등기권리자) — 외국 당사자</span><select id="ga_frRi" data-lbl="가등기권자(등기권리자)" data-role="rn" onchange="renderPartyDocs('ga_',null,null,'','')"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">받는 쪽이 <b>외국인·재외국민</b>이면 <b>주소증명·등록번호</b>가 필요합니다</span></div>
       <div id="ga_partyDocsBox"></div>
-      <div class="docs">
-        <b>등기의무자(소유자)</b> — 등기권리증(등기필정보), 인감증명서 1통, 주민등록초본 1통, 인감도장, 신분증<br>
-        <b>등기권리자(가등기권자)</b> — 주민등록초본 1통, 도장, 신분증<br>
-        <b>공통</b> — 매매예약서(또는 대물반환예약서), 등록면허세 영수필확인서, 등기수수료 영수필확인서, 위임장
-      </div>
+      <div class="docs" id="ga_docsBox"></div>
     </div></div>
   </div>
 
@@ -1887,10 +1947,7 @@
     <div class="card green"><h2>④ 안내 및 준비서류</h2><div class="body">
       <div class="note"><b>혼인 성립 전</b>에 약정자 <b>쌍방이 공동으로</b> 신청해야 합니다(비송사건절차법 §70). 혼인신고 후 신청은 효력이 없습니다. 관할은 <b>남편이 될 사람의 주소지 관할 지방법원 등기과·등기소</b>(입부혼인 시 처가 될 사람 주소지)입니다. 등기 후 변경은 원칙적으로 불가하며, 정당한 사유가 있으면 법원 허가를 받아 변경할 수 있습니다(민법 §829②).</div>
       <div class="note" style="background:#fff7e6;border-left-color:var(--gold);">기본보수는 재산가액이 아니라 <b>약정서 문안 난이도</b>로 산정합니다. 정액 500,000원을 기준으로, 전문직·사업가 등 재산관계가 복잡한 경우 150~200%로 조정하세요(법무사보수기준 §2②·§3② 협의). 공과금(등록면허세 12,000·지방교육세 2,400·등기신청수수료 2,000)은 건수에 따라 자동 계산됩니다.</div>
-      <div class="docs">
-        <b>약정자 쌍방</b> — 기본증명서, 가족관계증명서, 혼인관계증명서 각 1통, 주민등록초본, 인감증명서, 인감도장, 신분증<br>
-        <b>공통</b> — 부부재산약정서, 재산목록·소명자료, 등록면허세 영수필확인서, 등기신청수수료 영수필확인서, 위임장
-      </div>
+      <div class="docs" id="mr_docsBox"></div>
     </div></div>
   </div>
 
@@ -2054,11 +2111,7 @@
       <div class="line"><span class="lbl">위탁자(소유자) — 외국 당사자</span><select id="st_frOb" data-lbl="위탁자(소유자)" data-role="ob" onchange="renderPartyDocs('st_',null,null,'','')"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">내주는 쪽이 <b>외국인·재외국민</b>이면 <b>처분위임장·인감</b>이 달라집니다</span></div>
       <div class="line"><span class="lbl">수탁자(등기권리자) — 외국 당사자</span><select id="st_frRi" data-lbl="수탁자(등기권리자)" data-role="ri" onchange="renderPartyDocs('st_',null,null,'','')"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">받는 쪽이 <b>외국인·재외국민</b>이면 <b>주소증명·등록번호</b>가 필요합니다</span></div>
       <div id="st_partyDocsBox"></div>
-      <div class="docs">
-        <b>위탁자(소유자)</b> — 등기권리증(등기필정보), 인감증명서 1통, 주민등록초본 1통, 인감도장, 신분증<br>
-        <b>수탁자</b> — 주민등록초본 1통, 도장, 신분증 (신탁업자면 법인등기사항증명서·법인인감증명서)<br>
-        <b>공통</b> — 신탁계약서, 신탁원부 작성용 정보, 등록면허세 영수필확인서, 등기수수료 영수필확인서, 위임장
-      </div>
+      <div class="docs" id="st_docsBox"></div>
     </div></div>
   </div>
 
@@ -2192,11 +2245,7 @@
       <div class="line"><span class="lbl">소유자(등기의무자) — 외국 당사자</span><select id="ma_frOb" data-lbl="소유자(등기의무자)" data-role="ob" onchange="renderPartyDocs('ma_',null,null,'','')"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">내주는 쪽이 <b>외국인·재외국민</b>이면 <b>처분위임장·인감</b>이 달라집니다</span></div>
       <div class="line"><span class="lbl">근저당권자(채권자) — 외국 당사자</span><select id="ma_frRi" data-lbl="근저당권자(채권자)" data-role="rn" onchange="renderPartyDocs('ma_',null,null,'','')"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">받는 쪽이 <b>외국인·재외국민</b>이면 <b>주소증명·등록번호</b>가 필요합니다</span></div>
       <div id="ma_partyDocsBox"></div>
-      <div class="docs">
-        <b>소유자(등기의무자)</b> — 등기권리증(등기필정보), 인감증명서 1통, 주민등록초본 1통, 인감도장, 신분증<br>
-        <b>근저당권자(채권자)</b> — 주민등록초본 1통, 도장, 신분증 (법인이면 법인등기사항증명서·법인인감증명서·사용인감계)<br>
-        <b>공통</b> — 근저당권 추가설정계약서, 등록면허세 영수필확인서, 등기수수료 영수필확인서, 위임장
-      </div>
+      <div class="docs" id="ma_docsBox"></div>
     </div></div>
   </div>
 
@@ -2250,11 +2299,7 @@
       <div class="line"><span class="lbl">근저당권자(등기의무자) — 외국 당사자</span><select id="mtc_frOb" data-lbl="근저당권자(등기의무자)" data-role="ob" onchange="renderPartyDocs('mtc_',null,null,'','')"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">내주는 쪽이 <b>외국인·재외국민</b>이면 <b>처분위임장·인감</b>이 달라집니다</span></div>
       <div class="line"><span class="lbl">소유자(등기권리자) — 외국 당사자</span><select id="mtc_frRi" data-lbl="소유자(등기권리자)" data-role="rn" onchange="renderPartyDocs('mtc_',null,null,'','')"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">받는 쪽이 <b>외국인·재외국민</b>이면 <b>주소증명·등록번호</b>가 필요합니다</span></div>
       <div id="mtc_partyDocsBox"></div>
-      <div class="docs">
-        <b>근저당권자(채권자)</b> — 근저당권 <b>해지증서(말소원인증서)</b>, 등기필정보(등기권리증), 법인이면 법인등기사항증명서·법인인감증명서·위임장<br>
-        <b>소유자(설정자)</b> — 신분증, 도장 (소유자는 등기권리자로서 통상 첨부서류 적음)<br>
-        <b>공통</b> — 등록면허세 영수필확인서, 등기수수료 영수필확인서, 위임장
-      </div>
+      <div class="docs" id="mtc_docsBox"></div>
     </div></div>
   </div>
 
@@ -2436,7 +2481,7 @@
     <div class="card blue"><h2>② 공과금 (VAT 비과세)<span class="tag A">A</span></h2><div class="body">
       <div class="note">상업등기 신청수수료(상업등기규칙 §5의3): 설립 <b>서면 35,000 / e-Form 28,000 / 전자 20,000</b>원. 등록면허세는 자본금 0.4%·최저 112,500원.</div>
       <table class="t">
-        <tr><td>등록면허세 <span id="co_regRate" class="hint"></span><span class="law" title="법인 등기의 등록면허세율 조항입니다. 가목(영리법인 설립)·다목(자본증가)은 납입액의 1천분의 4이며, 산출세액이 112,500원보다 적으면 112,500원을 적용합니다.">지방세법 §28①6호</span></td><td><input class="cell" id="co_regTax" type="number" oninput="calcCorp(true)"></td></tr>
+        <tr><td>등록면허세 <span id="co_regRate" class="hint"></span><span class="law" title="법인 등기의 등록면허세율 조항입니다. 가목(영리법인의 설립과 납입, 자본·출자 증가)은 납입액의 1천분의 4이며, 산출세액이 112,500원보다 적으면 112,500원을 적용합니다.">지방세법 §28①6호</span></td><td><input class="cell" id="co_regTax" type="number" oninput="calcCorp(true)"></td></tr>
         <tr><td>지방교육세 (등록면허세 20%)<span class="law" title="지방교육세를 정한 조항입니다. 2호는 납부해야 할 「등록면허세액의 100분의 20(20%)」을 세액으로 합니다.">지방세법 §151①2호</span></td><td><input class="cell" id="co_eduTax" type="number" oninput="calcCorp(true)"></td></tr>
         <tr><td>등기신청수수료 <select id="co_regMethod" class="mini" onchange="calcCorp()"><option value="e" selected>e-Form 28,000</option><option value="p">서면 35,000</option><option value="o">전자 20,000</option></select><span class="law" title="「등기사항증명서 등 수수료규칙」 §5의3 — 상업·법인 등기신청수수료입니다.">수수료규칙 §5의3</span></td><td class="auto" id="co_regFeeCell">0 원</td></tr>
         <tr><td>법인도장(인감 제작)</td><td><input class="cell" id="co_seal" type="number" value="20000" oninput="calcCorp(true)"></td></tr>
@@ -2470,12 +2515,7 @@
       <div class="line"><span class="lbl">임원 중 외국인</span><select id="co_frOfficer" onchange="renderCorpForeign('co_')"><option value="">해당 없음 (임원 모두 내국인)</option><option value="in">외국인 임원 — 국내 외국인등록·국내거소신고 있음</option><option value="out">외국인 임원 — 해외 거주(국내 등록 없음)</option></select><span class="hint">외국인 임원이 있으면 <b>취임승낙서 공증·아포스티유</b>가 필요합니다</span></div>
       <div class="line"><span class="lbl">주주·발기인 중 외국인</span><select id="co_frShare" onchange="renderCorpForeign('co_')"><option value="">해당 없음 (주주 모두 내국인)</option><option value="ind">외국인 개인 주주·발기인</option><option value="corp">외국법인 주주·발기인</option></select><span class="hint">외국인·외국법인이 출자하면 <b>외국인투자 신고</b>가 따라올 수 있습니다</span></div>
       <div id="co_frBox"></div>
-      <div class="docs">
-        <b>임원(이사·감사)</b> — 인감증명서 1통, 주민등록초본 1통, 인감도장<br>
-        <b>주주(발기인)</b> — 도장, 신분증 사본, <b>잔고증명서 1통</b>(은행 발급)<br>
-        <b>기타</b> — 정관, 본점 임대차계약서(또는 소재지 증명), 사업목적, 임원·주주 명단 및 지분<br>
-        <b>모집설립 시</b> — 정관·의사록 공증(공증인가 합동법률사무소·공증인)
-      </div>
+      <div class="docs" id="co_docsBox"></div>
     </div></div>
   </div>
 
@@ -2489,25 +2529,35 @@
       <div class="line"><span class="lbl">변경 유형</span><select id="cv_type" onchange="cvTypeChange()">
         <option value="자본증자">자본증자 (증자)</option>
         <option value="자본감소(감자)">자본감소 (감자)</option>
-        <option value="전환사채 발행">전환사채 발행</option>
+        <option value="전환사채 발행">전환사채·신주인수권부사채·이익참가부사채 발행</option>
         <option value="주식의 병합·분할·소각">주식의 병합·분할·소각</option>
         <option value="자본증가 없는 합병">자본증가 없는 합병</option>
         <option value="임원 선임·변경">임원 선임·변경</option>
         <option value="무능력자·법정대리인 등기">무능력자·법정대리인 등기 (미성년자 영업등기 등)</option>
-        <option value="상호·목적·정관 변경">상호·목적·정관 변경</option>
+        <option value="상호·목적·정관 변경">상호·목적 변경 (상호의 신설·가등기 포함)</option>
         <option value="본점 관내이전">본점 관내이전</option>
         <option value="본점 관외이전">본점 관외이전</option>
         <option value="지점 설치·이전">지점 설치·이전</option>
         <option value="외국회사 영업소 설치·변경·폐지">외국회사 영업소(분사무소) 설치·변경·폐지</option>
-        <option value="법인 해산·청산">법인 해산·청산</option>
-        <option value="그 밖의 등기">그 밖의 등기 (위에 없는 변경등기)</option></select></div>
+        <option value="법인 해산·청산">해산·청산종결·계속</option>
+        <option value="그 밖의 등기">그 밖의 등기 (공고방법·발행할 주식 총수·존립기간 변경 등)</option></select></div>
       <div class="line" id="cv_capLine" style="display:none;"><span class="lbl" id="cv_capLbl">자본 증가액(원)</span><input type="number" class="amt" id="cv_cap" placeholder="0" oninput="calcCorpChange()"></div>
-      <div class="line"><span class="lbl">변경 건수</span><div class="stepper"><button onclick="step('cv_cnt',-1,calcCorpChange)">−</button><input type="number" id="cv_cnt" value="1" min="1" oninput="calcCorpChange()"><button onclick="step('cv_cnt',1,calcCorpChange)">+</button></div></div>
+      <div class="line" id="cv_rowMulti"><span class="lbl">함께 하는 다른 변경등기</span><div style="flex:1;min-width:0;">
+        <div id="cv_multiList" style="display:flex;flex-wrap:wrap;gap:4px 14px;font-size:13px;"></div>
+        <div class="hint" style="margin-top:4px;line-height:1.6;">같은 신청서로 함께 하는 다른 변경등기를 고르십시오. <b>보수 구분이 다른 등기는 각각의 기본료</b>로 계산하고, 위 「변경 유형」과 <b>같은 구분의 등기</b>(예: 본점이전·지점·상호·목적 변경·해산은 모두 120,000원 구분)를 더하면 1개마다 <b>50,000원</b>을 더합니다 <span class="law" title="법무사 보수기준 제13조제2항~제4항 — 등기 유형별 기본보수. 제14조제3항 — 등기의 목적이 1개를 초과하는 경우(임원변경을 제외한다)에는 초과하는 1개마다 50,000원을 가산한다.">보수기준 §13·§14③</span>. 등록면허세·등기신청수수료는 등기마다 따로 붙습니다.</div>
+      </div></div>
+      <div class="line" id="cv_rowCnt"><span class="lbl">변경 건수</span><div class="stepper"><button onclick="step('cv_cnt',-1,calcCorpChange)">−</button><input type="number" id="cv_cnt" value="1" min="1" oninput="calcCorpChange()"><button onclick="step('cv_cnt',1,calcCorpChange)">+</button></div></div>
       <div class="line"><span class="lbl">의사록 작성</span><div class="stepper"><button onclick="step('cv_docN',-1,calcCorpChange)">−</button><input type="number" id="cv_docN" value="1" min="0" oninput="calcCorpChange()"><button onclick="step('cv_docN',1,calcCorpChange)">+</button></div><span class="hint">Ⅸ-5 종류마다 80,000</span></div>
       <div class="line"><span class="lbl">의사록 공증</span><div class="stepper"><button onclick="step('cv_certN',-1,calcCorpChange)">−</button><input type="number" id="cv_certN" value="0" min="0" oninput="calcCorpChange()"><button onclick="step('cv_certN',1,calcCorpChange)">+</button></div><span class="hint">공증료(공과금 30,000) + 공증대행(Ⅸ-6 50,000)</span></div>
       <div class="line"><span class="lbl">감면·가산 등</span><div class="checks" onchange="calcCorpChange()">
         <label><input type="checkbox" id="cv_metro"> 대도시 중과(등록면허세 ×3)</label>
         <label><input type="checkbox" id="cv_card"> 법인인감카드 발급</label></div></div>
+      <div class="line" id="cv_rowOfficerOne" style="display:none;"><span class="lbl">등록면허세·수수료</span><span class="hint" style="line-height:1.6;">임원이 <b>여러 명</b> 취임·퇴임하거나 주소가 바뀌어도, <b>한 신청서로 하면 1건</b>입니다(등록면허세 40,200원·등기신청수수료 1건). 임원 수는 아래 「임원 수」 칸에 넣으십시오 — 4인을 넘으면 보수만 가산됩니다(§14④). <span class="law" title="상업등기실무(법원행정처, 2026) 제4장 주식회사의 등기 — 수인의 이사등의 취임·퇴임 등기와 이사등의 성명·주민등록번호·주소 등의 변경등기를 하나의 신청서로 일괄신청하는 경우에도 그 등기 모두에 대해 1건의 등록면허세·지방교육세(예규 1790호 9, 상업선례 2-7)와 1건의 등기신청수수료만 납부하면 된다(예규 1861호 3. 다. (1) 단서).">예규 1861호 3.다.(1)</span><span class="tag A">A</span></span></div>
+      <div class="line" id="cv_rowFc" style="display:none;"><span class="lbl">영업소 등기 구분</span><div class="radios" onchange="calcCorpChange()">
+        <label><input type="radio" name="cv_fcKind" value="set" checked> 영업소 설치</label>
+        <label><input type="radio" name="cv_fcKind" value="move"> 다른 등기소 관할로 이전</label>
+        <label><input type="radio" name="cv_fcKind" value="etc"> 그 밖의 변경·폐지</label></div>
+        <span class="hint">설치·관할 밖 이전은 등기신청수수료가 <b>35,000원</b>(설립과 같은 급), 그 밖의 변경은 7,000원입니다 <span class="law" title="상업등기실무(법원행정처, 2026) 제6장 외국회사의 등기 — 외국회사의 영업소 설치등기의 등기신청수수료는 35,000원(전자신청 20,000원, 전자표준양식 28,000원)(수수료규칙 5의3①i). 영업소 변경등기는 매 등기의 목적마다 7,000원. 다른 등기소 관할구역으로의 영업소 이전으로 신관할 등기소에서 하는 영업소 이전등기는 35,000원(수수료규칙 5의3①). 등록면허세는 설치 40,200원(마목, 대도시 내 설치 3배), 이전·변경은 매 목적마다 40,200원(바목), 대도시 지역으로 이전 시 신소재지 등기는 3배.">수수료규칙 §5의3①·상업등기실무(2026) 617~618쪽</span><span class="tag A">A</span></span></div>
       <div class="line" id="cv_row5y" style="display:none;"><span class="lbl">중과 요건</span><label class="checks" style="display:inline-flex;"><input type="checkbox" id="cv_within5y" onchange="calcCorpChange()"> <b>설립·휴면법인 인수·대도시 전입</b> 후 <b>5년 이내</b>의 자본·출자액 증가</label><span class="hint">§28②1호·2호 각 괄호</span></div>
       <div class="line" id="cv_rowTransfer" style="display:none;"><span class="lbl">중과 요건</span><label class="checks" style="display:inline-flex;"><input type="checkbox" id="cv_transferIn" onchange="calcCorpChange()"> 대도시 <b>밖</b>의 본점을 대도시로 <b>전입</b></label><span class="hint">§28②2호 · 대도시 내에서의 관외이전은 해당 없음</span></div>
       <div class="line" id="cv_rowBranch" style="display:none;"><span class="lbl">중과 요건</span><label class="checks" style="display:inline-flex;"><input type="checkbox" id="cv_branchNew" onchange="calcCorpChange()"> 지점·분사무소 <b>설치</b>(이전·폐지 아님)</label><span class="hint">마목 → §28②1호. <b>지점 이전은 바목 → 중과 배제</b></span></div>
@@ -2533,6 +2583,9 @@
         <tr><td>등록면허세 <span id="cv_regRate" class="hint"></span><span class="law" title="법인 변경등기의 등록면허세율입니다. §28②는 대도시에서의 설립·지점 설치·대도시 전입에 100분의 300(3배) 중과를 정하고, §28④는 6호 「바목(그 밖의 등기)」에 중과세율을 적용하지 않도록 하고 있습니다.">지방세법 §28①6호·§28②·§28④</span></td><td><input class="cell" id="cv_regTax" type="number" oninput="calcCorpChange(true)"></td></tr>
         <tr><td>지방교육세 (등록면허세 20%)<span class="law" title="지방교육세를 정한 조항입니다. 2호는 납부해야 할 「등록면허세액의 100분의 20(20%)」을 세액으로 합니다.">지방세법 §151①2호</span></td><td><input class="cell" id="cv_eduTax" type="number" oninput="calcCorpChange(true)"></td></tr>
         <tr><td>등기신청수수료 <select id="cv_regMethod" class="mini" onchange="calcCorpChange()"><option value="e" selected>e-Form</option><option value="p">서면</option><option value="o">전자</option></select> <span class="hint" id="cv_regNote"></span><span class="law" title="「등기사항증명서 등 수수료규칙」 §5의3 — 상업·법인 등기신청수수료입니다.">수수료규칙 §5의3</span></td><td class="auto" id="cv_regFeeCell">0 원</td></tr>
+        <tr id="cv_pubMultiRow1" style="display:none;"><td>등록면허세 (함께 하는 변경등기) <span class="hint" id="cv_regNote2"></span></td><td><input class="cell" id="cv_regTax2" type="number" oninput="calcCorpChange(true)"></td></tr>
+        <tr id="cv_pubMultiRow2" style="display:none;"><td>지방교육세 (함께 하는 변경등기)</td><td><input class="cell" id="cv_eduTax2" type="number" oninput="calcCorpChange(true)"></td></tr>
+        <tr id="cv_pubMultiRow3" style="display:none;"><td>등기신청수수료 (함께 하는 변경등기) <span class="hint" id="cv_regFeeNote2"></span></td><td class="auto" id="cv_regFeeCell2">0 원</td></tr>
         <tr id="cv_certFeeRow" style="display:none;"><td>공증료 <span class="hint">(공증 건당 30,000·실비)</span></td><td class="auto" id="cv_certFeeCell">0 원</td></tr>
         <tr id="cv_cardRow" style="display:none;"><td>법인인감카드</td><td class="auto" id="cv_cardCell">0 원</td></tr>
         <tr><td>등본·인감 우편 등</td><td><input class="cell" id="cv_postFee" type="number" value="15000" oninput="calcCorpChange(true)"></td></tr>
@@ -2543,6 +2596,7 @@
     <div class="card pink"><h2>③ 수수료 (법무사 보수, VAT 별도) <span class="tag A">A</span></h2><div class="body">
       <table class="t">
         <tr><td>기본료 <span class="hint" id="cv_feeBaseNote"></span></td><td class="auto" id="cv_feeBaseCell">0 원</td></tr>
+        <tr id="cv_feeMultiRow" style="display:none;"><td>함께 하는 변경등기 기본료 <span class="hint" id="cv_feeMultiNote"></span></td><td class="auto" id="cv_feeMultiCell">0 원</td></tr>
         <tr id="cv_feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="cv_feeForeignNote"></span></td><td class="auto" id="cv_feeForeignCell">0 원</td></tr><tr id="cv_feePartyRow" style="display:none;"><td>당사자 다수 가산 <span class="hint" id="cv_feePartyNote"></span></td><td class="auto" id="cv_feePartyCell">0 원</td></tr>
         <tr id="cv_feeFarRow" style="display:none;"><td>관외 본점이전 가산 <span class="hint" id="cv_feeFarNote"></span></td><td class="auto" id="cv_feeFarCell">0 원</td></tr>
         <tr id="cv_fee14_1Row" style="display:none;"><td>설립·증자 특례 가산 <span class="hint" id="cv_fee14_1Note"></span></td><td class="auto" id="cv_fee14_1Cell">0 원</td></tr>
@@ -3820,7 +3874,7 @@ const REG_CORP={설립:[35000,28000,20000], 변경:[7000,5000,2000]};
           변경·폐지는 바목이라 중과되지 않으므로 화면의 「설치」 체크로 구분한다.
    [등록면허세 §28①6호]
      가. 상사회사·영리법인 설립·납입 → 납입액 1,000분의 4 (최저 112,500)
-     다. 자본증가·출자증가        → 납입액 1,000분의 4 (최저 112,500)
+     가. (2) 자본증가·출자증가     → 납입액 1,000분의 4 (최저 112,500)  ※ 2026-10 정정: 종전 「다목」 표기 오류 — 다목은 자산재평가적립금 전입 등(1,000분의 1). 상업등기실무(2026) 73쪽 표
      라. 본점·주사무소 이전        → 건당 112,500
      마. 지점·분사무소 「설치」     → 건당 40,200
      바. 그 밖의 등기             → 건당 40,200
@@ -4610,18 +4664,18 @@ auction:
 // kind: tier(누진) / flat(정액)  · regType: 부동산 등기수수료 / regCorp: 상업수수료 · tax: 세금 라벨
 const SCENARIO={
  // 부동산
- "매매":{cat:'re',full:true},
- "증여":{cat:'re',full:'gift'},
- "부담부증여":{cat:'re',full:'burden'},
- "상속":{cat:'re',full:'inherit'},
- "유증(유언에 의한 소유권이전)":{cat:'re',full:'bequest'},
- "소유권보존":{cat:'re',full:'preserve'},
- "근저당권설정":{cat:'re',full:'mortgage'},
- "근저당권말소":{cat:'re',full:'mortgageCancel'},
- "전세권·지상권 설정":{cat:'re',full:'right'},
- "가등기":{cat:'re',full:'gadeungi'},
- "신탁등기":{cat:'re',full:'sintak'},
- "담보권추가설정":{cat:'re',full:'mortgageAdd'},
+ "매매":{cat:'re',full:true,ref:'Ⅰ-1'},
+ "증여":{cat:'re',full:'gift',ref:'Ⅰ-1'},
+ "부담부증여":{cat:'re',full:'burden',ref:'Ⅰ-1'},
+ "상속":{cat:'re',full:'inherit',ref:'Ⅰ-1'},
+ "유증(유언에 의한 소유권이전)":{cat:'re',full:'bequest',ref:'Ⅰ-1'},
+ "소유권보존":{cat:'re',full:'preserve',ref:'Ⅰ-1'},
+ "근저당권설정":{cat:'re',full:'mortgage',ref:'Ⅰ-1'},
+ "근저당권말소":{cat:'re',full:'mortgageCancel',ref:'Ⅰ-3(4) 80,000'},
+ "전세권·지상권 설정":{cat:'re',full:'right',ref:'Ⅰ-1'},
+ "가등기":{cat:'re',full:'gadeungi',ref:'Ⅰ-1'},
+ "신탁등기":{cat:'re',full:'sintak',ref:'Ⅰ-4'},
+ "담보권추가설정":{cat:'re',full:'mortgageAdd',ref:'Ⅰ-2'},
  "부부재산약정등기":{cat:'re',full:'marital',ref:'§28①14호'},
  "이혼 재산분할(소유권이전)":{cat:'re',full:'division',ref:'§15①6호'},
  "공유물분할(소유권이전)":{cat:'re',full:'partition',ref:'§15①4호'},
@@ -4631,30 +4685,30 @@ const SCENARIO={
  "재건축·재개발등기(이전고시)":{cat:'re',full:'redev',ref:'보수기준 §12'},
  "외국인·재외국민 준비서류":{cat:'re',full:'foreign',ref:'등기예규 제1778호'},
  // 법인
- "법인설립":{cat:'corp',full:'corp'},
- "자본증감(증자)":{cat:'corp',full:'corpChange'},
- "전환사채발행":{cat:'corp',full:'corpChange'},
- "임원 선임·변경":{cat:'corp',full:'corpChange'},
- "상호·목적·정관변경":{cat:'corp',full:'corpChange'},
- "본점 관내이전":{cat:'corp',full:'corpChange'},
- "본점 관외이전":{cat:'corp',full:'corpChange'},
- "지점설치·이전":{cat:'corp',full:'corpChange'},
- "법인 해산·청산":{cat:'corp',full:'corpChange'},
+ "법인설립":{cat:'corp',full:'corp',ref:'Ⅱ-1 자본금 기준'},
+ "자본증감(증자)":{cat:'corp',full:'corpChange',ref:'Ⅱ-2 증가액 기준'},
+ "전환사채발행":{cat:'corp',full:'corpChange',ref:'Ⅱ-3 사채총액 기준'},
+ "임원 선임·변경":{cat:'corp',full:'corpChange',ref:'Ⅱ-4(6) 100,000'},
+ "상호·목적 변경":{cat:'corp',full:'corpChange',ref:'Ⅱ-4(4) 120,000'},
+ "본점 관내이전":{cat:'corp',full:'corpChange',ref:'Ⅱ-4(4) 120,000'},
+ "본점 관외이전":{cat:'corp',full:'corpChange',ref:'Ⅱ-4(4) + §14⑤'},
+ "지점설치·이전":{cat:'corp',full:'corpChange',ref:'Ⅱ-4(4) 120,000'},
+ "해산·청산종결·계속":{cat:'corp',full:'corpChange',ref:'Ⅱ-4(4) 120,000'},
  // 민사·비송·기타
- "소장·답변서·준비서면":{cat:'civil',full:'lawsuit'},
- "부동산가압류":{cat:'civil',full:'attach'},
- "채권가압류":{cat:'civil',full:'attachClaim'},
- "유체동산가압류":{cat:'civil',full:'attachGoods'},
- "자동차가압류":{cat:'civil',full:'attachCar'},
- "가처분":{cat:'civil',full:'injunction'},
- "압류·추심명령":{cat:'civil',full:'seizure'},
- "민사 신청사건(기타)":{cat:'civil',full:'misc'},
+ "소장·답변서·준비서면":{cat:'civil',full:'lawsuit',ref:'Ⅶ-1① 첫째 표'},
+ "부동산가압류":{cat:'civil',full:'attach',ref:'Ⅶ-1①'},
+ "채권가압류":{cat:'civil',full:'attachClaim',ref:'Ⅶ-1①'},
+ "유체동산가압류":{cat:'civil',full:'attachGoods',ref:'Ⅶ-1①'},
+ "자동차가압류":{cat:'civil',full:'attachCar',ref:'Ⅶ-1①'},
+ "가처분":{cat:'civil',full:'injunction',ref:'Ⅶ-1①'},
+ "압류·추심명령":{cat:'civil',full:'seizure',ref:'Ⅶ-1①'},
+ "민사 신청사건(기타)":{cat:'civil',full:'misc',ref:'Ⅶ-1② 둘째 표'},
  "재산명시신청":{s242:true,docs:EDOCS.disclose, cat:'civil',kind:'tier',tier:'Ⅶ-1①',baseLabel:'집행채권액(비우면 5천만 의제)',prof:{injiKind:'flat',injiFlat:1000,songCnt:5,songParty:'신청인+상대방',partyDef:2,
    guide:'▸ <b>재산명시신청서에는 1,000원의 인지</b>를 첩부하고 <b>송달료 5회분</b>을 납부합니다(대법원 「나홀로소송」 안내). <span class="tag A">A</span><br>· <b>집행권원</b>(판결정본 등)의 <b>원본과 사본</b>을 함께 제출합니다.<br>· 채무자가 명시기일에 <b>출석하지 아니하거나</b> 재산목록 제출·선서를 거부하면 <b>감치</b>될 수 있고, <b>거짓 목록을 제출하면 형사처벌</b> 대상입니다(민사집행법 §68).<br>· 재산명시절차를 거친 후 <b>재산조회</b>를 신청할 수 있습니다(민사집행법 §74).'}},
  "재산조회신청":{s242:true,docs:EDOCS.search, cat:'civil',kind:'tier',tier:'Ⅶ-1①',baseLabel:'집행채권액(비우면 5천만 의제)',prof:{injiKind:'flat',injiFlat:1000,songCnt:2,songParty:'신청인',partyDef:1,
    guide:'▸ <b>재산조회는 「재산명시절차를 거친 후」</b>에 할 수 있는 것이 원칙입니다(민사집행법 §74). 재산명시를 먼저 신청하셨는지 확인하십시오.<br>· <span style="color:#b03a3a;font-weight:700;">★ 인지·송달료보다 「조회기관별 조회비용」이 훨씬 큽니다.</span> 민사집행규칙 §36①에 따라 <b>조회에 드는 비용을 미리 납부</b>해야 하며, <b>조회할 기관의 수·종류에 따라 합산</b>됩니다(금융기관을 다수 지정하면 수십만원에 이를 수 있음).<br>· 조회기관별 단가는 확인하지 못했으므로 <b>자동계산하지 않습니다.</b> 접수 법원에 확인한 금액을 아래 공과금란 <b>「기타 비용」에 직접 입력</b>하십시오. <span class="tag chk">확인필요</span><br>· 회신 결과는 <b>열람·복사</b> 방식으로 확인하며, 재산조회 결과를 <b>제3자에게 누설하면 처벌</b>될 수 있습니다(민사집행법 §76②).'}},
  "공시최고·소송비용확정":{s242:true,docs:EDOCS.publicNotice, cat:'civil',kind:'tier',tier:'Ⅶ-1②',baseLabel:'대상 가액 — 공시최고는 증권·증서 액면금액, 소송비용확정은 확정 대상 비용액(비우면 5천만 의제)',prof:{injiKind:'flat',injiFlat:1000,songCnt:5,songParty:'신청인+상대방',partyDef:2}},
- "지급명령·조정신청":{cat:'civil',full:'payorder'},
+ "지급명령·조정신청":{cat:'civil',full:'payorder',ref:'Ⅶ-1① 첫째 표'},
  "동산·채권담보권 설정(설정·이전·채권액 증가)":{cat:'re',kind:'tier',tier:'Ⅳ-1',baseLabel:'채권액(채권최고액)',
    unitFee:20000, unitLabel:'담보목적물(동산·채권) 개수', unitLaw:'보수기준 §17① — 1개 초과 시 초과 1개마다 20,000원',
    regType:'일반', unitsLabel:'등기 사건의 개수', regLic:{rate:0.001,min:9000,label:'담보권 설정·이전 — 채권금액의 1천분의 1(최저 9,000원)'},
@@ -4682,8 +4736,8 @@ const SCENARIO={
    unitFee:50000, unitLabel:'부동산 개수', unitFree:3,
    unitLaw:'보수기준 §22②1호 — 일괄매각으로 부동산이 3개를 초과하면 초과 1개마다 50,000원 가산',
    unitIndiv:true,prof:{guide:'▸ <b>일괄매각</b>이면 부동산이 <b>3개를 초과</b>할 때 초과 1개마다 <b>50,000원</b>을 가산합니다(§22②1호).<br>▸ <b>개별매각</b>의 여러 물건을 함께 권리분석하는 경우에는 <b>각 부동산마다 50,000원</b>을 가산합니다(§22②2호). 이때는 아래 개수를 <b>전체 물건 수</b>로 넣고 「개별매각」을 체크하십시오.<br>▸ §22① — 난이도·응찰회수·낙찰여부 등을 감안해 기본보수의 <b>100%까지</b> 협의 가산할 수 있습니다. 위 「보수 조정」에서 반영하십시오.',injiKind:'none',songCnt:0}},
- "경매 매수신청대리":{cat:'civil',full:'auction'},
- "부동산경매(신청)":{cat:'civil',full:'auctionFile'},
+ "경매 매수신청대리":{cat:'civil',full:'auction',ref:'Ⅵ-2 (§21)'},
+ "부동산경매(신청)":{cat:'civil',full:'auctionFile',ref:'Ⅶ-1①'},
  "개인회생(개시신청)":{docs:MDOCS.rehab, cat:'civil',kind:'tier',tier:'Ⅷ',baseLabel:'채무금액',prof:{injiKind:'flat',injiFlat:30000,songCnt:10,songFormula:'rehab',songParty:'채권자 수',partyDef:1,
    guide:'▸ <b>개인회생절차개시 신청서 인지 30,000원</b>(민사소송 등 인지법 <b>§9①3호</b>). <span class="tag A">A</span><br>· <b>송달료 = 10회분 + (채권자수 × 8회분)</b>(「송달료규칙의 시행에 따른 업무처리요령」 <b>별표1</b>) — 위 「당사자 수」에 <b>채권자 수</b>를 입력하십시오. <span class="tag A">A</span><br>· 금지명령·중지명령 신청서는 <b>각 2,000원</b>(「채무자 회생 및 파산에 관한 규칙」 §4 10호) — 별도 가산하십시오.<br>· 공고비용·절차비용은 법원 예납명령에 따릅니다(회생파산규칙 §87).'}},
  "개인파산·면책":{docs:MDOCS.bankrupt, cat:'civil',kind:'tier',tier:'Ⅷ',baseLabel:'채무금액',prof:{injiKind:'flat',injiFlat:2000,songCnt:0,songFormula:'bankrupt',songParty:'채권자 수',partyDef:1,
@@ -4698,7 +4752,7 @@ const SCENARIO={
  "친권자·양육자 지정":{s242:true,docs:FDOCS.custody, cat:'family',kind:'tier',tier:'Ⅶ-1②',noSga:true,lawyer:true,prof:{injiKind:'flat',injiFlat:10000,songCnt:12,songParty:'상대방(마류)',partyDef:1,fam:true}},
  "개명·가족관계등록 정정":{s242:true,docs:FDOCS.rename, cat:'family',kind:'tier',tier:'Ⅶ-1②',noSga:true,prof:{injiKind:'flat',injiFlat:1000,songCnt:0,fam:true,bGrade:true,guide:'[B] 실무: 개명허가·가족관계등록부 정정 신청 인지는 1,000원 수준입니다(가족관계등록 비송). 법원별 차이 가능.'}},
  "실종선고·부재자재산관리인":{s242:true,docs:FDOCS.missing, cat:'family',kind:'tier',tier:'Ⅶ-1①',baseLabel:'관리 대상 재산가액(비우면 5천만 의제)',prof:{injiKind:'flat',injiFlat:5000,songCnt:6,songParty:'청구인(라류)',partyDef:1,fam:true}},
- "후견 신청 및 등기":{cat:'civil',full:'guardian'},
+ "후견 신청 및 등기":{cat:'civil',full:'guardian',ref:'Ⅶ-1① · Ⅲ'},
  "소송비용액확정(변호사보수 산입)":{cat:'civil',full:'litcost',ref:'변호사보수규칙 별표'},
  "문안 不요 서류":{cat:'civil',kind:'flat',flat:'Ⅶ-2'}
 };
@@ -4750,6 +4804,9 @@ function moneyInit(root){
     el.setAttribute('autocomplete','off');
     el.dataset.money='1';
     el.value=fmtComma(el.value);
+    /* 2026-10 — 한글 단위 상자를 처음 클릭할 때 만들면 칸이 옮겨지면서 커서가 빠지고
+       브라우저 오류(appendChild)가 났다. 칸을 바꿀 때 미리 만들어 둔다. */
+    if(document.activeElement!==el && !el.__mh) el.__mh=mhBox(el);
   });
 }
 /* 입력 중 쉼표를 다시 넣고 커서 자리를 보정한다 */
@@ -4802,6 +4859,7 @@ function mhBox(el){
 }
 function moneyHint(el,on){
   if(!el||!el.dataset||el.dataset.money!=='1')return;
+  if(!el.__mh && document.activeElement===el)return;   /* 입력 중인 칸은 옮기지 않는다 */
   const b=el.__mh||(el.__mh=mhBox(el));
   const v=numOf(el.value);
   const txt=(on&&isFinite(v)&&Math.abs(v)>=10000)?koMoney(v):'';
@@ -4815,6 +4873,66 @@ document.addEventListener('input',function(e){
 document.addEventListener('focusin',function(e){moneyHint(e.target,true);},true);
 document.addEventListener('focusout',function(e){moneyHint(e.target,false);},true);
 setInterval(moneyScan,200);
+
+/* ═══════════ 접기·펼치기 (2026-10 신설) ═══════════════════════════
+   의뢰인 화면이 너무 길다는 지적에 따라, 입력칸이 아닌 「읽을거리」를 접는다.
+   ① 준비서류·안내·참고 카드(초록) — 제목을 누르면 펼쳐진다. 처음에는 접혀 있다.
+      단, 카드 안에서 계산에 쓰이는 선택칸(예: 증여의 당사자 관계)은 접지 않고 위에 남긴다.
+   ② 긴 설명 상자(.note)·긴 도움말(.line .hint) — 앞부분만 보이고 「자세히 보기」로 펼친다.
+   ※ 계산 값·영수증 수집(table.t, .line 입력칸)은 손대지 않는다. 숨김은 화면 표시만 바꾼다.
+   ※ 외국인·재외국민 준비서류 화면은 준비서류가 본문이므로 접지 않는다. */
+function foldCards(root){
+  (root||document).querySelectorAll('.scene .card.green').forEach(function(c){
+    if(c.classList.contains('fold')||c.closest('#scene-외국인준비서류'))return;
+    var h=c.querySelector(':scope>h2'), b=c.querySelector(':scope>.body');
+    if(!h||!b||!/준비서류|안내|참고|주의/.test(h.textContent))return;
+    var fb=document.createElement('div'); fb.className='fbody';
+    [].slice.call(b.childNodes).forEach(function(n){
+      if(n.nodeType===1&&n.classList.contains('line')&&/on(?:change|input)="calc[A-Z]/.test(n.outerHTML))return;   /* 계산에 쓰이는 칸은 남긴다 */
+      fb.appendChild(n);
+    });
+    b.appendChild(fb);
+    c.classList.add('fold');
+    h.setAttribute('role','button'); h.tabIndex=0; h.setAttribute('aria-expanded','false');
+    var tg=function(){ var o=c.classList.toggle('open'); h.setAttribute('aria-expanded',o?'true':'false'); foldSync(); };
+    h.addEventListener('click',tg);
+    h.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); tg(); } });
+  });
+}
+function addClamp(el,cls){
+  if(el.__tog)return;
+  el.classList.add.apply(el.classList,cls.split(' '));
+  var t=document.createElement('button'); t.type='button'; t.className='ntog'; t.textContent='▾ 자세히 보기'; t.style.display='none';
+  t.addEventListener('click',function(){ var o=el.classList.toggle('open'); t.textContent=o?'▴ 접기':'▾ 자세히 보기'; });
+  el.parentNode.insertBefore(t,el.nextSibling);
+  el.__tog=t;
+}
+function foldNotes(root){
+  (root||document).querySelectorAll('.scene .note').forEach(function(n){
+    if(n.__tog||n.closest('.card.fold .fbody')||n.closest('#scene-외국인준비서류'))return;
+    var alert=n.classList.contains('alert');
+    if((n.textContent||'').length<(alert?260:150))return;
+    addClamp(n,alert?'nclamp nclamp-alert':'nclamp');
+  });
+  (root||document).querySelectorAll('.scene .line > .hint').forEach(function(n){
+    if(n.__tog||n.closest('.card.fold .fbody'))return;
+    if((n.textContent||'').length<110)return;
+    addClamp(n,'hclamp');
+  });
+}
+/* 「자세히 보기」 단추는 실제로 잘린 글이 있고, 그 상자가 화면에 보일 때만 나타낸다 */
+function foldSync(){
+  var sc=document.querySelector('.scene.active'); if(!sc)return;
+  sc.querySelectorAll('.nclamp,.hclamp').forEach(function(el){
+    var t=el.__tog; if(!t)return;
+    var vis=el.offsetParent!==null;
+    var cut=el.classList.contains('open')||el.scrollHeight>el.clientHeight+3;
+    t.style.display=(vis&&cut)?'':'none';
+  });
+}
+function foldInit(){ try{ foldCards(); foldNotes(); foldSync(); }catch(e){} }
+(function(){ var tm=null; var f=function(){ clearTimeout(tm); tm=setTimeout(foldSync,60); };
+  ['input','change','click'].forEach(function(ev){ document.addEventListener(ev,f,true); }); })();
 
 
 function won(n){n=Math.round(n||0);return n.toLocaleString('ko-KR')+' 원';}
@@ -4883,6 +5001,11 @@ function saveBondRate(){try{
   paintBondRateBadge();}
 /* 사무소 정보는 이 기기에 저장해 둔다 — 매번 다시 넣지 않으셔도 된다. 2026-08 신설 */
 const OF_IDS=['of_name','of_bizno','of_addr','of_tel','of_agent','of_bank','of_acct','of_holder'];
+/* 2026-10 — 「법무사·사무소에서 사용」을 체크하지 않은 의뢰인 견적서 하단에는 이 사무소 정보를 넣는다.
+   (홈페이지 하단·상담 안내에 공개된 정보와 같은 값. 입금계좌는 넣지 않는다) */
+const SAN_OFFICE={name:'산 법무사 김재섭 행정사 사무소',bizno:'259-04-03801',
+  addr:'서울 구로구 경인로 661, 101동 717호(신도림동)',tel:'010-3748-0825',
+  agent:'',bank:'',acct:'',holder:''};
 function saveOffice(){ try{ OF_IDS.forEach(function(id){ const e=document.getElementById(id); if(e) localStorage.setItem('sanlaw_'+id, e.value); }); }catch(e){} }
 /* 2026-09 — 관리자 사무소 정보(상호·취급자)가 기본값으로 들어가 있어, 다른 이용자의 영수증에도
    관리자 상호가 인쇄될 수 있었다. 기본값을 없애고, 예전 기본값이 저장돼 있던 이용자 기기는 비운다.
@@ -4896,6 +5019,19 @@ function loadOffice(){ try{
     if(e&&v!==null&&v!=='') e.value=v;
   });
 }catch(e){} }
+/* 2026-10 — 「법무사·사무소에서 사용」 체크(이 기기에 저장)
+   체크 안 함(기본) → 의뢰인용: 사무소 정보를 묻지 않고 「견적서」만 받는다(영수증·입금계좌·진행번호 없음).
+   체크함 → 법무사용: 사무소 정보를 넣고 견적서·영수증을 함께 쓴다. 관리자 기기는 처음부터 법무사용. */
+function userType(){
+  try{ const v=localStorage.getItem('sanlaw_userType'); if(v==='pro'||v==='client') return v;
+       if(localStorage.getItem('sanlaw_calc_admin')==='1') return 'pro'; }catch(e){}
+  return 'client';
+}
+function setUserType(v){
+  try{ localStorage.setItem('sanlaw_userType',v==='pro'?'pro':'client'); }catch(e){}
+  paintUserType();
+}
+function paintUserType(){ const e=document.getElementById('of_isPro'); if(e) e.checked=(userType()==='pro'); officeReady(); }
 function officeReady(){
   const miss=[];
   if(!ofVal('of_name'))  miss.push('상호(법인명)');
@@ -4903,7 +5039,7 @@ function officeReady(){
   if(!ofVal('of_addr'))  miss.push('사무소 주소');
   if(!ofVal('of_tel'))   miss.push('전화');
   const bg=document.getElementById('of_badge');
-  if(bg){ bg.style.display=miss.length?'inline-block':'none'; bg.textContent=miss.length+'개 미입력'; }
+  if(bg){ bg.style.display=(miss.length&&userType()!=='client')?'inline-block':'none'; bg.textContent=miss.length+'개 미입력'; }
   const w=document.getElementById('of_warn');
   if(w){
     w.innerHTML = miss.length
@@ -5001,7 +5137,7 @@ function buildMenu(){
   const g={re:document.getElementById('grid-re'),corp:document.getElementById('grid-corp'),civil:document.getElementById('grid-civil'),family:document.getElementById('grid-family')};
   for(const[name,def]of Object.entries(SCENARIO)){
     const b=document.createElement('button');b.className='mbtn';
-    const ref=def.ref||(def.full?'Ⅰ-1 풀기능':(def.tier||def.flat||''));
+    const ref=def.ref||(def.full?'':(def.tier||def.flat||''));   /* 2026-10 — 종전에는 전용화면이면 무조건 「Ⅰ-1 풀기능」으로 표시되어 법인·민사 화면에도 부동산 보수표가 찍혔다 */
     b.innerHTML=name+'<span class="ref">'+ref+'</span>';
     b.onclick=()=>openScenario(name);
     g[def.cat].appendChild(b);
@@ -5012,14 +5148,14 @@ function goMenu(){document.querySelectorAll('.scene').forEach(s=>s.classList.rem
    상담 신청은 「엑셀 견적서 저장」을 누르실 때만 받는다(exportExcel 참조).
    ※ 종전에는 화면 진입 자체를 막아, 계산만 해 보려는 분들이 상담폼에
      아무 값이나 넣고 통과하는 일이 잦았다. 2026-08 구조 변경. */
-function openScenario(name){ _doOpenScenario(name); }
+function openScenario(name){ _doOpenScenario(name); foldInit(); }
 function _doOpenScenario(name){
   document.getElementById('menu').style.display='none';
   document.querySelectorAll('.scene').forEach(s=>s.classList.remove('active'));
   document.getElementById('hsub').textContent=name;
   if(SCENARIO[name].full===true){document.getElementById('scene-매매').classList.add('active');calcSale();}
   else if(SCENARIO[name].full==='inherit'){document.getElementById('scene-상속').classList.add('active');calcInherit();}
-  else if(SCENARIO[name].full==='bequest'){document.getElementById('scene-유증').classList.add('active');calcBequest();}
+  else if(SCENARIO[name].full==='bequest'){document.getElementById('scene-유증').classList.add('active');calcBequest();renderDocsBequest();}
   else if(SCENARIO[name].full==='guardian'){document.getElementById('scene-후견').classList.add('active');calcGuardian();}
   else if(SCENARIO[name].full==='litcost'){document.getElementById('scene-소송비용확정').classList.add('active');calcLitCost();}
   else if(SCENARIO[name].full==='gift'){document.getElementById('scene-증여').classList.add('active');calcGift();}
@@ -5052,7 +5188,7 @@ function _doOpenScenario(name){
   else if(SCENARIO[name].full==='right'){document.getElementById('scene-권리설정').classList.add('active');document.querySelector('input[name=rt_type][value="'+((name.indexOf('지상')>=0&&name.indexOf('전세')<0)?'지상권':'전세권')+'"]').checked=true;rtTypeChange();}
   else if(SCENARIO[name].full==='corp'){document.getElementById('scene-법인설립').classList.add('active');calcCorp();}
   else if(SCENARIO[name].full==='corpChange'){document.getElementById('scene-법인변경').classList.add('active');
-    const map={'자본증감(증자)':'자본증자','전환사채발행':'전환사채 발행','임원 선임·변경':'임원 선임·변경','상호·목적·정관변경':'상호·목적·정관 변경','본점 관내이전':'본점 관내이전','본점 관외이전':'본점 관외이전','지점설치·이전':'지점 설치·이전','법인 해산·청산':'법인 해산·청산'};
+    const map={'자본증감(증자)':'자본증자','전환사채발행':'전환사채 발행','임원 선임·변경':'임원 선임·변경','상호·목적 변경':'상호·목적·정관 변경','본점 관내이전':'본점 관내이전','본점 관외이전':'본점 관외이전','지점설치·이전':'지점 설치·이전','해산·청산종결·계속':'법인 해산·청산'};
     document.getElementById('cv_type').value=map[name]||'자본증자';cvTypeChange();}
   else{buildGeneric(name);document.getElementById('scene-generic').classList.add('active');}
   window.scrollTo(0,0);
@@ -5390,7 +5526,7 @@ function religExemptHTML(){
    +'<b>⑥ 감면 신청서류</b> — 지방세 감면신청서, <b>부동산 사용계획서</b>, 정관·규약, 종교단체 소명서류(교단 소속증명·사찰등록증 등), 고유번호증<br>'
    +'　<span class="hint">▸ 취득세 신고기한(취득일부터 60일) 안에 <b>감면신청</b>을 함께 하십시오.</span></div>';
 }
-function renderPartyDocs(prefix,sellerSel,buyerSel,sellerName,buyerName){
+function renderPartyDocs(prefix,sellerSel,buyerSel,sellerName,buyerName,noLists){
   const box=document.getElementById(prefix+'partyDocsBox');
   if(!box)return;
   const se=sellerSel?document.getElementById(sellerSel):null;
@@ -5404,7 +5540,7 @@ function renderPartyDocs(prefix,sellerSel,buyerSel,sellerName,buyerName){
   if(st==='ind'&&bt==='ind'&&!_fov&&!_frv){box.innerHTML='';return;}
   let h='';
   [[st,true,sellerName],[bt,false,buyerName]].forEach(function(x){
-    if(x[0]==='ind'||!x[2])return;
+    if(x[0]==='ind'||!x[2]||noLists)return;
     h+='<div style="margin:8px 0 4px;font-weight:800;color:var(--gold-d);">■ '+x[2]+' — '+PARTY_LABEL[x[0]]+'</div>'
       +'<div style="line-height:1.85;">· '+partyDocs(x[0],x[1]).join('<br>· ')+'</div>';
   });
@@ -5413,6 +5549,110 @@ function renderPartyDocs(prefix,sellerSel,buyerSel,sellerName,buyerName){
   if(_fov)h+=foreignBlock(_fov,_fo.getAttribute('data-lbl')||sellerName||'등기의무자',_fo.getAttribute('data-role')||'ob');
   if(_frv)h+=foreignBlock(_frv,_fr.getAttribute('data-lbl')||buyerName||'등기권리자',_fr.getAttribute('data-role')||'ri');
   box.innerHTML=h;
+}
+
+/* ═══════════ 준비서류 3단 구분 (2026-10 신설) ═══════════════════════════
+   의뢰인이 「내가 떼 올 서류」와 「사무소가 만드는 서류」, 「등기소에 실제로 내는 서류」를
+   한눈에 가를 수 있도록 세 칸으로 나눈다.
+     ① 의뢰인께서 준비하실 서류 — 당사자(매도인·매수인·법인 등)별, 발급처 바로가기
+     ② 사무소에서 준비하는 서류 — 신청서·위임장·확인정보·세금 신고·채권 매입·대장 발급 등
+     ③ 등기신청서에 첨부하는 서류 — 등기소 제출 목록, 누가 준비하는지와 근거 조문
+   근거 [A]
+     · 신청정보 — 부동산등기규칙 §43(등기필정보 §43①7호→법 §50②), §44(취득세·등록면허세·시가표준액·국민주택채권 매입금액)
+     · 첨부정보 — 같은 규칙 §46① 1호(등기원인증명) 2호(제3자 허가) 4호(법인 대표자 자격) 5호(대리권한)
+                 6호(주소·주민등록번호 — 소유권이전은 등기의무자 주소도) 7호(대장) 8호(자격자대리인 확인·자필서명, 2022.7.1. 시행)
+     · 인감증명 — 같은 규칙 §60①(1호 소유권 등기명의인이 등기의무자 · 6호 협의분할 상속인 전원) · 매매는 부동산매도용(인감증명법 시행령 §13③)
+     · 유효기간 — 같은 규칙 §62(인감증명·주민등록표·대장·법인등기사항증명서 발행일부터 3개월)
+     · 검인 — 부동산등기 특별조치법 §3 (거래신고필증·토지거래허가증이 있으면 검인 갈음)
+     · 거래신고필증·매매목록 — 같은 규칙 §124②
+     · 실무교재: 부동산등기실무(2026) 제1편 제3장 제4절 「등기신청에 필요한 정보」 107~142쪽,
+                부동산등기실무Ⅰ(법원행정처, 2015) 268~370쪽 */
+const LK={
+  gov:'<a href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a>',
+  juminCho:'<a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000015" target="_blank" rel="noopener">정부24 주민등록 등·초본</a>',
+  land:'<a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000026" target="_blank" rel="noopener">정부24 토지(임야)대장</a>',
+  bldg:'<a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=15000000098" target="_blank" rel="noopener">정부24 건축물대장</a>',
+  regno:'<a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000038" target="_blank" rel="noopener">정부24 부동산등기용등록번호</a>',
+  family:'<a href="https://efamily.scourt.go.kr/index.jsp" target="_blank" rel="noopener">전자가족관계등록시스템</a>',
+  iros:'<a href="https://www.iros.go.kr" target="_blank" rel="noopener">인터넷등기소</a>',
+  rtms:'<a href="https://rtms.molit.go.kr" target="_blank" rel="noopener">부동산거래관리시스템</a>',
+  wetax:'<a href="https://www.wetax.go.kr" target="_blank" rel="noopener">위택스</a>',
+  bond:'<a href="https://nhuf.molit.go.kr" target="_blank" rel="noopener">주택도시기금</a>',
+  eum:'<a href="https://www.eum.go.kr" target="_blank" rel="noopener">토지이음</a>'
+};
+const D3_SEAL='<span class="hint">주민센터에서 발급합니다(인터넷 발급은 되지 않습니다). <b>본인서명사실확인서</b>로 대신할 수도 있습니다 <span class="law" title="부동산등기실무(2026) 138쪽 — 인감증명서, 본인서명사실확인서 또는 전자본인서명확인서의 발급증">실무교재 138쪽</span></span>';
+/* 서류 한 줄 — 이름, 설명, 발급처 */
+function d3i(name,desc,where){
+  return '<li>'+name+(desc?' — '+desc:'')+(where?' <span class="d3w">발급 ▸ '+where+'</span>':'')+'</li>';
+}
+function d3ledger(f){
+  if(f==='apt') return '집합건축물대장(전유부·표제부), 대지권등록부, 대지권 목적 토지의 토지대장';
+  if(f==='house') return '일반건축물대장, 토지대장';
+  return '토지대장(임야는 임야대장)';
+}
+/* 공통 사무소 준비 목록 — 권리에 관한 공동신청 등기 */
+function d3officeStd(o){
+  o=o||{};
+  const L=[];
+  L.push(d3i('<b>등기신청서</b>','사무소가 작성합니다',''));
+  L.push(d3i('<b>위임장</b>','사무소가 작성하고, 의뢰인께서는 '+(o.oblig?'<b>등기의무자는 인감도장</b>, 등기권리자는 도장(서명 가능)으로 ':'')+'날인만 하시면 됩니다',''));
+  if(o.oblig) L.push(d3i('<b>자격자대리인의 등기의무자 확인 및 자필서명 정보</b>','법무사가 <b>'+o.oblig+' 본인을 직접 만나 신분증 원본으로 확인</b>한 뒤 작성합니다. 그래서 '+o.oblig+'께서는 <b>신분증을 지참하고 한 번은 오셔야</b> 합니다',''));
+  if(o.oblig) L.push(d3i('<b>확인서면</b> <span class="hint">(등기필정보가 없을 때만)</span>','법무사가 '+o.oblig+' 본인을 직접 확인하여 작성 — 신분증 사본과 우무인(오른손 엄지) 날인이 필요합니다 <span class="law" title="부동산등기법 제51조 — 등기필정보가 없을 때에는 등기의무자 등이 등기소에 출석하여 확인을 받거나, 자격자대리인이 등기의무자로부터 위임받았음을 확인한 경우 그 확인한 사실을 증명하는 정보를 첨부정보로 제공한다.">법 §51</span>',''));
+  if(o.cause) L.push(d3i('<b>'+o.cause+'</b>',o.causeDesc||'사무소가 작성해 드립니다(보수표 Ⅸ-1)',''));
+  if(o.acq!==false) L.push(d3i('<b>'+(o.regTax?'등록면허세':'취득세')+' 신고·납부</b>','신고서를 작성해 '+LK.wetax+'·시·군·구청에 신고하고 <b>영수필확인서</b>를 받습니다(보수표 Ⅸ-2). 세금은 의뢰인 부담입니다',''));
+  if(o.bond!==false) L.push(d3i('<b>국민주택채권 매입·즉시매도</b>','은행에서 매입하고 바로 되팔아 할인 차액만 부담하시게 합니다(보수표 Ⅸ-3)',''));
+  L.push(d3i('<b>등기신청수수료 납부</b>',LK.iros+'에서 납부하고 영수필확인서를 출력합니다',''));
+  if(o.ledger) L.push(d3i('<b>'+o.ledger+'</b>','등기부와 대장이 맞는지 확인하는 서류로, 사무소가 발급합니다(발행 3개월 이내)',''));
+  L.push(d3i('<b>등기사항전부증명서 열람</b>','근저당·가압류 등 부담과 등기부상 주소를 확인합니다 <span class="hint">(확인용 — 첨부서류는 아닙니다)</span>',''));
+  (o.more||[]).forEach(function(x){ L.push(x); });
+  return L;
+}
+/* 세 칸을 그린다 */
+function d3(o){
+  let h='<div class="d3">';
+  if(o.lead) h+=o.lead;
+  h+='<div class="d3sec d3c"><div class="d3h">① 의뢰인께서 준비하실 서류</div><div class="d3b">'+(o.clientHTML||'');
+  (o.client||[]).forEach(function(g){
+    if(!g)return;
+    h+='<div class="d3who">■ '+g.who+'</div>';
+    if(g.items&&g.items.length) h+='<ul class="d3l">'+g.items.join('')+'</ul>';
+    if(g.extra) h+=g.extra;
+  });
+  h+='<div class="d3note">※ 주민등록표 등·초본, 인감증명서, 가족관계 증명서는 <b>발행일부터 3개월 이내</b>의 것이어야 합니다 <span class="law" title="부동산등기규칙 제62조 — 등기신청서에 첨부하는 인감증명, 법인등기사항증명서, 주민등록표등본·초본, 가족관계등록사항별증명서 및 건축물대장·토지대장·임야대장 등본은 발행일부터 3개월 이내의 것이어야 한다.">규칙 §62</span>. '
+    +'<b>주민등록번호 뒷자리가 나오게</b> 떼어 주십시오.</div>';
+  h+='</div></div>';
+  /* 2026-10 — 의뢰인이 직접 등기하실 수 있도록 ② 아래에 안내를 붙인다 */
+  const _off=(o.office||[]).join('');
+  const _self=o.selfNote||('<b>직접 신청하시는 경우</b> — 위 서류도 직접 준비하셔야 합니다. 신청서 양식은 '+LK.iros+' → 자료센터 → 등기신청양식에 있습니다.'
+    +(_off.indexOf('자격자대리인의 등기의무자 확인')>=0
+      ?' 「자격자대리인의 등기의무자 확인 및 자필서명 정보」는 법무사가 대리할 때만 내는 서류라 필요 없습니다. 등기필정보가 없으면 <b>등기의무자 본인이 등기소에 나가 확인</b>을 받거나, 신청서 중 해당 부분을 <b>공증</b>받으셔야 합니다 '
+       +'<span class="law" title="부동산등기법 제51조 — 등기필정보가 없을 때에는 등기의무자 또는 그 법정대리인이 등기소에 출석하여 등기관으로부터 등기의무자등임을 확인받아야 한다. 다만 자격자대리인(변호사·법무사)이 위임받았음을 확인한 경우 또는 신청서(위임장) 중 등기의무자등의 작성부분에 관하여 공증을 받은 경우에는 그러하지 아니하다.">법 §51</span>'
+      :''));
+  h+='<div class="d3sec d3o"><div class="d3h">② 사무소에서 준비하는 서류 <span class="d3hs">— 의뢰인께서 따로 떼지 않으셔도 됩니다</span></div><div class="d3b"><ul class="d3l">'+_off+'</ul><div class="d3note">'+_self+'</div></div></div>';
+  h+='<div class="d3sec d3a"><div class="d3h">'+(o.attachTitle||'③ 등기신청서에 첨부하는 서류')+' <span class="d3hs">'+(o.attachSub||'— 등기소에 실제로 내는 목록')+'</span></div><div class="d3b">'
+    +((o.attach||[]).length?'<table class="d3t"><thead><tr><th>첨부서류</th><th>준비</th><th>근거</th></tr></thead><tbody>':'');
+  (o.attach||[]).forEach(function(r){
+    if(!r)return;
+    const tag=/^사무소/.test(r[1])?'o':'c';
+    h+='<tr><td>'+r[0]+'</td><td><span class="d3tag '+tag+'">'+r[1]+'</span></td><td class="d3law">'+r[2]+'</td></tr>';
+  });
+  h+=((o.attach||[]).length?'</tbody></table>':'')
+    +(o.attachNote?'<div class="d3note">'+o.attachNote+'</div>':'')
+    +'<div class="d3src">근거: '+(o.law||'부동산등기규칙 §43·§44·§46①·§60·§62, 부동산등기 특별조치법 §3')+(o.book===false?'':' — 실무교재 『부동산등기실무』(2026) 107~142쪽')+(o.src?' · '+o.src:'')+'</div>'
+    +'</div></div>';
+  if(o.tail) h+=o.tail;
+  h+='</div>';
+  return h;
+}
+/* 당사자 법인격별 ① 목록 — 개인이 아니면 partyDocs()의 서류로 바꾼다 */
+function d3party(type,isOb,indItems){
+  if(!type||type==='ind') return indItems;
+  return partyDocs(type,isOb).map(function(x){ return '<li>'+x+'</li>'; });
+}
+function d3partyAttach(type,whoLbl){
+  if(type==='corp') return ['법인등기사항증명서 <small>(대표자 자격·주소 증명)</small>',whoLbl+'(법인)','규칙 §46①4·6호 · 같은 관할이면 생략(§46⑤)'];
+  if(type==='unic'||type==='relig') return ['정관·규약, 대표자 증명서면, 부동산등기용등록번호증명서'+(whoLbl.indexOf('의무')>=0||/매도|증여자|설정자|공유자|분할의무|주는 쪽|위탁자/.test(whoLbl)?', 사원총회 결의서':''),whoLbl+'(단체)','규칙 §48'];
+  return null;
 }
 
 /* 말소 동시신청 준비서류 — 근저당권·전세권 등 공동신청 말소분 [A]
@@ -5426,11 +5666,11 @@ function saleCancelDocs(){
     '· <b>근저당권 해지증서</b>(말소원인증서) — 해지 연월일·해지할 근저당권의 접수번호가 기재된 것<br>'+
     '· <b>등기필증(등기권리증)</b> 또는 <b>등기필정보통지서</b> — 근저당권설정 당시 근저당권자가 받은 것<br>'+
     '· <b>등기신청 위임장</b> — 근저당권자 날인(법인은 법인인감 날인)<br>'+
-    '· 근저당권자가 법인이면 <b>법인등기사항전부증명서</b>, <b>법인인감증명서</b><br>'+
+    '· 근저당권자가 법인이면 <b>법인등기사항전부증명서</b> · <b>법인인감증명서</b>는 <b>등기필정보가 없을 때만</b> 필요합니다 <span class="law" title="부동산등기규칙 제60조제1항제3호 · 선례 5-124 — 근저당권말소·전세권말소는 등기필정보를 제공하면 등기의무자의 인감증명이 필요 없다 — 부동산등기실무Ⅰ(2015) 346~347쪽">규칙 §60①3호</span><br>'+
     '· <span class="hint">교부처 — 대출을 갚은 <b>거래 은행 영업점</b>. 잔금일에 맞춰 「말소서류를 준비해 달라」고 <b>미리</b> 요청하십시오. 당일 발급이 안 되는 곳이 있습니다.</span><br>'+
     '<b>전세권·지상권·임차권 말소</b> <span class="hint">(전세권자 등 = 등기의무자)</span><br>'+
     '· <b>해지증서</b>(또는 소멸증명서·포기증서), <b>등기필증(등기권리증)</b><br>'+
-    '· <b>인감증명서</b>(용도 제한 없음), <b>인감도장</b>, <b>등기신청 위임장</b><br>'+
+    '· <b>등기신청 위임장</b>, 도장 · <b>인감증명서</b>는 <b>등기필정보가 없을 때만</b> 필요합니다 <span class="law" title="부동산등기규칙 제60조제1항제3호 · 선례 5-124 — 부동산등기실무Ⅰ(2015) 347쪽">규칙 §60①3호</span><br>'+
     '· 등기부상 주소가 다르면 <b>주민등록표 초본</b>(주소이력 전부 포함)<br>'+
     '<b>소유자(매도인 = 등기권리자)</b><br>'+
     '· <b>신분증</b>, 도장 <span class="hint">(말소등기에서는 소유자가 받는 쪽이라 첨부서류가 적습니다)</span><br>'+
@@ -5444,74 +5684,323 @@ function saleCancelDocs(){
     '· <span class="hint">처리에 며칠이 걸리므로 <b>잔금 전에 해제 여부를 반드시 확인</b>하십시오.</span> <span class="tag chk">확인필요</span></div>'+
     '</div>';
 }
+/* 친족관계 소명서류(kinDocs)를 ①칸 목록으로 바꾼다 — 문구는 kinDocs() 그대로 */
+function d3kin(rel){
+  return kinDocs(rel).split('<br>').map(function(x){return x.trim();}).filter(Boolean).map(function(x){
+    return x.indexOf('· ')===0?'<li>'+x.slice(2)+'</li>':'<li style="list-style:none;margin-left:-16px;">'+x+'</li>';
+  });
+}
+const D3_FR=function(id){const e=document.getElementById(id);return e?e.value:'';};
+const D3_LAW_JUDGE='<span class="law" title="부동산등기실무(2026) 101~102쪽 — 승소한 등기권리자가 신청하는 경우에는 등기필정보를 제공할 필요가 없다. 등기원인증서로 판결정본과 확정증명서를 제공한다. 조정조서·화해조서·인낙조서는 확정증명서가 필요 없고, 조정을 갈음하는 결정·화해권고결정은 확정증명서가 필요하다. 송달증명서는 제공할 필요가 없다.">실무교재 101~102쪽</span>';
+function d3giftParties(pf,st,bt,rel,burden){
+  const C=[];
+  C.push({who:'증여자 (주시는 분 · 등기의무자)'+(st!=='ind'?' — '+PARTY_LABEL[st]:''),items:d3party(st,true,[
+    d3i('<b>등기필증(등기권리증)</b> 또는 <b>등기필정보통지서</b>','잃어버리셨으면 사무소가 <b>확인서면</b>으로 대신합니다(신분증 사본 + 확인서면에 <b>우무인</b> 날인)',''),
+    d3i('<b>인감증명서</b> <span style="color:var(--seal);font-weight:700;">※ 부동산매도용 아님</span>',D3_SEAL,'주민센터'),
+    d3i('<b>인감도장</b>, <b>신분증</b>'+(burden?' — 신분증 지참 <b>본인 참석</b> <span class="hint">(불참 시 사전 협의)</span>':''),'',''),
+    d3i('<b>주민등록표 초본</b>(<b>주소 이력 전부</b> 포함)','등기부 주소와 지금 주소가 다르면 이 초본으로 <b>등기관이 주소를 직권으로 고쳐 줍니다</b> <span class="law" title="부동산등기규칙 제122조 · 부동산등기실무(2026) 230~231쪽 — 소유권이전등기에 한한다.">규칙 §122</span>',LK.juminCho),
+    d3i('<b>주민등록표 등본</b>(<b>세대원 전체</b> 포함)','',LK.juminCho)].concat(burden?[
+    d3i('<b>전세계약서</b> 또는 <b>부채증명원(은행)</b>','넘겨줄 채무가 있다는 것과 그 금액을 밝힙니다','거래 은행·임대차 계약서'),
+    d3i('<b>채무액 증명서</b>(금융기관 발급 <b>채무잔액증명서</b> 등)','','거래 은행'),
+    d3i('<b>채권자 동의서</b> <span class="hint">(담보권자(은행 등)가 요구하는 경우)</span>','','거래 은행'),
+    d3i('<b>잔금 전날</b> 보유 주택 수 및 그 지번(주소) 알려 주기','','')]:[]))});
+  const ri=[d3i('<b>주민등록표 등본</b>(<b>세대원 전체</b> 포함), '+(burden?'':'도장, ')+'신분증','',LK.juminCho)];
+  if(burden){
+    ri.push(d3i('<b>소득금액증명원 또는 원천징수영수증</b> <span style="color:var(--seal);font-weight:700;">'+(isLineal(rel)?'[필수 — 상증세법 §47③]':'[채무 인수 입증]')+'</span>','<span class="hint">발급이 어려우면 → 재직증명서, 급여명세서, 급여통장 및 급여내역서</span>','홈택스·세무서'));
+    ri.push(d3i('<b>채무인수승낙서</b>','수증자가 채무를 넘겨받는다는 서면',''));
+    ri.push(d3i('<b>금융기관의 채무 승계 관련 확인서</b> <span class="hint">(대출을 승계할 때)</span>','','거래 은행'));
+    ri.push(d3i('인감증명서 및 인감도장 <span class="hint">(필요할 때)</span>','','주민센터'));
+    ri.push(d3i('<b>잔금 전날</b> 보유 주택 수 및 그 지번(주소) 알려 주기','',''));
+    ri.push(d3i('신분증 지참 <b>본인 참석</b> <span class="hint">(불참 시 사전 협의)</span>','',''));
+  } else {
+    ri.push(d3i('<b>미리 알려 주실 것</b> — <b>보유 주택 수 및 그 지번(주소)</b>','중과세율 판정에 필요합니다',''));
+  }
+  C.push({who:'수증자 (받는 분 · 등기권리자)'+(bt!=='ind'?' — '+PARTY_LABEL[bt]:''),items:d3party(bt,false,ri)});
+  C.push({who:'친족관계 소명서류 <span class="hint">— 「가족관계의 등록 등에 관한 법률」 §15 — 모두 「<b>상세증명서</b>」로 발급. 취득세 신고 때 관계를 확인하는 데 씁니다(등기소 첨부서류는 아닙니다)</span>',
+    items:d3kin(rel),extra:'<div class="d3note">발급 ▸ '+LK.family+' 또는 주민센터</div>'});
+  return C;
+}
+function d3giftAttach(st,bt,led,burden){
+  const A=[];
+  A.push([(burden?'부담부증여계약서':'증여계약서')+' <small>(검인받은 것)</small>','사무소 작성 · 당사자 날인','규칙 §46①1호 · 특조법 §3 검인']);
+  A.push(['등기필정보(등기권리증) <small>— 없으면 확인서면</small>','증여자 · 확인서면은 사무소','법 §50② · §51']);
+  if(st==='ind'){
+    A.push(['증여자 인감증명서','증여자','규칙 §60①1호 · 3개월(§62)']);
+    A.push(['증여자 주민등록표 초본','증여자','규칙 §46①6호 — 소유권이전은 의무자 주소도']);
+  } else {
+    A.push([st==='corp'?'증여자 법인인감증명서':'증여자 대표자 인감증명서','증여자('+PARTY_LABEL[st]+')','규칙 §60①1호·§61']);
+    A.push(d3partyAttach(st,'증여자'));
+  }
+  A.push(bt==='ind'?['수증자 주민등록표 등(초)본','수증자','규칙 §46①6호']:d3partyAttach(bt,'수증자'));
+  A.push([led,'사무소','규칙 §46①7호']);
+  A.push(['위임장','사무소 작성 · 당사자 날인','규칙 §46①5호']);
+  A.push(['자격자대리인의 등기의무자 확인 및 자필서명 정보','사무소','규칙 §46①8호']);
+  A.push(['취득세·지방교육세·농어촌특별세 영수필확인서','사무소 (신고 대행)','규칙 §44']);
+  A.push(['국민주택채권 매입 — 채권발행번호','사무소 (매입 대행)','규칙 §44']);
+  A.push(['등기신청수수료 영수필확인서','사무소','수수료규칙 §5의2']);
+  A.push([burden?'토지거래계약 허가증 · 농지취득자격증명 <small>(해당할 때만)</small>':'농지취득자격증명 <small>(농지일 때만)</small>','의뢰인 신청','규칙 §46①2호']);
+  return A;
+}
+/* ═══ 2026-10 정적 준비서류 → 3단 구분 (근저당권설정·추가설정·말소, 가등기, 신탁, 부부재산약정) ═══
+   근거 [A] 부동산등기규칙 §46①·§60①(1호 소유권 등기명의인이 의무자 / 2호 소유권 가등기 말소 / 3호 소유권 외 권리의
+   명의인이 등기필정보 없이 신청) — 『부동산등기실무Ⅰ』(2015) 344~349쪽, 실무교재(2026) 138~139쪽 */
+const D3_ADDR_FIRST='<span style="color:var(--seal);">등기부 주소와 지금 주소가 다르면 <b>주소변경등기를 먼저</b> 해야 합니다</span> — 직권 변경은 소유권이전등기에만 됩니다 <span class="law" title="부동산등기실무(2026) 231쪽 — 직권에 의한 주소변경등기는 소유권이전등기신청의 경우에 한한다. 저당권설정자의 주소가 변경된 경우에는 저당권설정등기를 신청하기 전에 먼저 주소변경등기를 신청해야 한다.">실무교재 231쪽</span>';
+function d3mortParties(ownerLbl,addNote){
+  return [
+    {who:ownerLbl+' (소유자 · 등기의무자)',items:[
+      d3i('<b>등기권리증(등기필정보)</b>',addNote||'잃어버리셨으면 사무소가 확인서면으로 대신합니다',''),
+      d3i('<b>인감증명서</b> 1통, <b>인감도장</b>, <b>신분증</b>',D3_SEAL,'주민센터'),
+      d3i('<b>주민등록표 초본</b> 1통(주소 변동 포함)',D3_ADDR_FIRST,LK.juminCho),
+      d3i('<b>채무자가 따로 있으면</b>(다른 분의 빚을 담보하는 경우) 채무자의 성명·주소 알려 주기','채무자는 등기부에 반드시 기록됩니다 <span class="law" title="부동산등기실무(2026) 339쪽 — 채무자와 저당권설정자가 같은 경우에도 채무자의 표시를 신청정보로 하고 등기기록에도 채무자를 등기하여야 한다.">실무교재 339쪽</span>','')]},
+    {who:'근저당권자 (채권자 · 등기권리자)',items:[
+      d3i('<b>개인</b> — <b>주민등록표 초본</b> 1통, 도장(서명 가능), 신분증','',LK.juminCho),
+      d3i('<b>법인(은행 등)</b> — <b>법인등기사항증명서</b>, <b>법인인감증명서</b>·<b>사용인감계</b>(위임장에 사용인감을 찍을 때)','은행이 근저당권자이면 은행이 준비해 줍니다','')]}];
+}
+function renderDocsMortgage(){
+  const box=document.getElementById('mt_docsBox'); if(!box)return;
+  const client=d3mortParties('설정자');
+  client.push({who:'해당하는 경우에만',items:[d3i('<b>근저당권설정계약서</b>','은행 대출이면 은행 양식으로 작성합니다. 개인 사이의 돈거래면 사무소가 작성합니다','')]});
+  const office=d3officeStd({oblig:'설정자',regTax:true,
+    cause:'근저당권설정계약서 작성 <span class="hint">(개인 사이 거래일 때)</span>',causeDesc:'채권최고액·채무자·존속기간 등을 넣어 작성합니다(보수표 Ⅸ-1)'});
+  const attach=[
+    ['근저당권설정계약서','의뢰인(은행) 또는 사무소 작성','규칙 §46①1호'],
+    ['등기필정보(등기권리증) <small>— 없으면 확인서면</small>','설정자 · 확인서면은 사무소','법 §50② · §51'],
+    ['설정자 인감증명서','설정자','규칙 §60①1호 · 3개월(§62)'],
+    ['근저당권자 주민등록표 초본 <small>(법인이면 법인등기사항증명서)</small>','근저당권자','규칙 §46①4·6호'],
+    ['위임장','사무소 작성 · 당사자 날인','규칙 §46①5호'],
+    ['자격자대리인의 등기의무자 확인 및 자필서명 정보','사무소','규칙 §46①8호'],
+    ['등록면허세·지방교육세 영수필확인서','사무소 (신고 대행)','규칙 §44'],
+    ['국민주택채권 매입 — 채권발행번호','사무소 (매입 대행)','규칙 §44 · 채권최고액 기준(실무교재 352쪽)'],
+    ['등기신청수수료 영수필확인서','사무소','수수료규칙 §5의2']];
+  box.innerHTML=d3({client:client,office:office,attach:attach,
+    attachNote:'설정자의 주민등록표 초본·대장은 근저당권설정에서는 <b>첨부서류가 아닙니다</b>(주소 확인용). <b>농지</b>에 설정해도 허가서 등은 필요 없습니다 <span class="law" title="부동산등기실무(2026) 338쪽">실무교재 338쪽</span>.',
+    law:'부동산등기법 §50②·§51, 부동산등기규칙 §44·§46①·§60①1호·§62',src:'근저당권 — 실무교재 338~339쪽·352쪽'});
+}
+function renderDocsMortgageAdd(){
+  const box=document.getElementById('ma_docsBox'); if(!box)return;
+  const client=d3mortParties('추가로 담보를 내는 소유자','<b>추가되는 부동산</b>의 것이 필요합니다. 기존 근저당권의 등기필정보는 필요 없습니다 <span class="law" title="부동산등기실무(2026) 346쪽 — 추가저당권설정등기 신청 시 제공하여야 하는 등기필정보는 추가되는 부동산의 소유권에 관한 것이다. 전에 등기한 저당권의 등기필정보를 제공할 필요는 없다.">실무교재 346쪽</span>');
+  client.push({who:'해당하는 경우에만',items:[d3i('<b>근저당권 추가설정계약서</b>','은행 대출이면 은행 양식으로 작성합니다','')]});
+  const office=d3officeStd({oblig:'소유자',regTax:true,
+    cause:'근저당권 추가설정계약서 작성 <span class="hint">(개인 사이 거래일 때)</span>',causeDesc:'',
+    more:[d3i('<b>기존 근저당권의 공동담보목록 번호 또는 부동산 소재지번 확인</b>','신청서에 적어야 하는 사항이라 사무소가 등기부로 확인합니다 <span class="law" title="부동산등기규칙 제134조 · 부동산등기실무(2026) 346쪽">규칙 §134</span>','')]});
+  const attach=[
+    ['근저당권 추가설정계약서','의뢰인(은행) 또는 사무소 작성','규칙 §46①1호'],
+    ['추가되는 부동산의 등기필정보 <small>— 없으면 확인서면</small>','소유자 · 확인서면은 사무소','법 §50② · 실무교재 346쪽'],
+    ['소유자 인감증명서','소유자','규칙 §60①1호 · 3개월(§62)'],
+    ['위임장','사무소 작성 · 당사자 날인','규칙 §46①5호'],
+    ['자격자대리인의 등기의무자 확인 및 자필서명 정보','사무소','규칙 §46①8호'],
+    ['등록면허세·지방교육세 영수필확인서','사무소 (신고 대행)','규칙 §44'],
+    ['국민주택채권 매입 — 채권발행번호 <small>(해당할 때)</small>','사무소 (매입 대행)','규칙 §44'],
+    ['등기신청수수료 영수필확인서','사무소','수수료규칙 §5의2']];
+  box.innerHTML=d3({client:client,office:office,attach:attach,
+    attachNote:'추가하는 부동산과 기존 부동산이 <b>합쳐 5개 이상</b>이면 등기관이 공동담보목록을 만듭니다 — 따로 작성해 낼 필요는 없습니다 <span class="law" title="부동산등기실무(2026) 345~346쪽 — 공동담보목록은 전산정보처리조직에 의하여 자동 생성되므로 당사자가 작성하여 제공할 필요는 없다.">실무교재 345~346쪽</span>.',
+    law:'부동산등기법 §50②·§51·§78, 부동산등기규칙 §44·§46①·§60①1호·§134',src:'추가설정 — 실무교재 345~346쪽'});
+}
+function renderDocsMortCancel(){
+  const box=document.getElementById('mtc_docsBox'); if(!box)return;
+  const client=[
+    {who:'근저당권자 (채권자 · 등기의무자) — 대출을 갚은 은행 등에서 받으실 서류',items:[
+      d3i('근저당권 <b>해지증서(말소원인증서)</b>','해지 연월일과 지울 근저당권의 접수번호가 적힌 것',''),
+      d3i('<b>등기필정보(등기권리증)</b>','근저당권을 설정할 때 근저당권자가 받은 것',''),
+      d3i('<b>등기신청 위임장</b>','근저당권자 날인',''),
+      d3i('법인이면 <b>법인등기사항증명서</b>','대표자 자격 증명',''),
+      d3i('<b>법인인감증명서</b> <span class="hint">— <b>등기필정보가 없을 때만</b></span>','등기필정보를 내면 근저당권자의 인감증명은 필요 없습니다 <span class="law" title="부동산등기규칙 제60조제1항제3호 — 소유권 외의 권리의 등기명의인이 등기의무자로서 법 제51조(등기필정보가 없는 경우)에 따라 등기를 신청하는 경우 인감증명. 근저당권말소는 등기필정보를 제공하면 인감증명이 필요 없다(선례 5-124) — 부동산등기실무Ⅰ(2015) 346~347쪽, 실무교재(2026) 139쪽">규칙 §60①3호</span>','')],
+      extra:'<div class="d3note">교부처 — 대출을 갚은 <b>거래 은행 영업점</b>. 「말소서류를 준비해 달라」고 <b>미리</b> 요청하십시오. 당일 발급이 안 되는 곳이 있습니다.</div>'},
+    {who:'소유자 (설정자 · 등기권리자)',items:[
+      d3i('<b>신분증</b>, 도장','소유자는 등기권리자로서 첨부서류가 적습니다','')]}];
+  const office=[
+    d3i('<b>등기신청서</b>','사무소가 작성합니다',''),
+    d3i('<b>위임장</b>','사무소가 작성하고, 근저당권자와 소유자가 날인합니다',''),
+    d3i('<b>자격자대리인의 등기의무자 확인 및 자필서명 정보</b>','법무사가 등기의무자(근저당권자)를 확인하여 작성합니다',''),
+    d3i('<b>확인서면</b> <span class="hint">(근저당권자에게 등기필정보가 없을 때만)</span>','<span class="law" title="부동산등기법 제51조">법 §51</span>',''),
+    d3i('<b>등록면허세 신고·납부</b>','말소 1건당 6,000원과 지방교육세 — 영수필확인서를 받습니다(보수표 Ⅸ-2)',''),
+    d3i('<b>등기신청수수료 납부</b>',LK.iros+'에서 납부하고 영수필확인서를 출력합니다',''),
+    d3i('<b>등기사항전부증명서 열람</b>','지울 근저당권의 <b>접수일자·접수번호</b>를 확인합니다 <span class="hint">(확인용)</span>','')];
+  const attach=[
+    ['근저당권 해지증서','근저당권자','규칙 §46①1호'],
+    ['근저당권자의 등기필정보 <small>— 없으면 확인서면 + 인감증명</small>','근저당권자 · 확인서면은 사무소','법 §50② · §51 · 규칙 §60①3호'],
+    ['법인등기사항증명서 <small>(근저당권자가 법인일 때)</small>','근저당권자','규칙 §46①4호'],
+    ['위임장','근저당권자·소유자 날인','규칙 §46①5호'],
+    ['자격자대리인의 등기의무자 확인 및 자필서명 정보','사무소','규칙 §46①8호'],
+    ['등록면허세·지방교육세 영수필확인서 <small>(말소 1건당 6,000원)</small>','사무소 (신고 대행)','규칙 §44'],
+    ['등기신청수수료 영수필확인서','사무소','수수료규칙 §5의2']];
+  box.innerHTML=d3({client:client,office:office,attach:attach,
+    attachNote:'근저당권이 다른 사람에게 넘어갔으면(이전 부기등기) <b>지금의 근저당권자</b>가 등기의무자이고, 그 사람이 이전받을 때 받은 등기필정보를 냅니다 <span class="law" title="부동산등기실무(2026) 343쪽">실무교재 343쪽</span>.',
+    law:'부동산등기법 §50②·§51, 부동산등기규칙 §44·§46①·§60①3호',src:'말소 — 실무교재 342~343쪽, 『부동산등기실무Ⅰ』(2015) 346~347쪽'});
+}
+function renderDocsGadeungi(){
+  const box=document.getElementById('ga_docsBox'); if(!box)return;
+  const debt=radio('ga_type')==='debt';
+  const client=[
+    {who:'등기의무자 (소유자)',items:[
+      d3i('<b>등기권리증(등기필정보)</b>','잃어버리셨으면 사무소가 확인서면으로 대신합니다',''),
+      d3i('<b>인감증명서</b> 1통, <b>인감도장</b>, <b>신분증</b>',D3_SEAL,'주민센터'),
+      d3i('<b>주민등록표 초본</b> 1통',D3_ADDR_FIRST,LK.juminCho)]},
+    {who:'등기권리자 (가등기권자)',items:[
+      d3i('<b>주민등록표 초본</b> 1통, 도장, 신분증','',LK.juminCho)]},
+    {who:'해당하는 경우에만',items:[
+      d3i('<b>토지거래계약 허가증</b> <span class="hint">(토지거래허가구역의 토지)</span>','예약도 허가 대상이라 <b>가등기에도 허가증</b>이 필요합니다(담보가등기 포함) <span class="law" title="부동산등기실무(2026) 127쪽 — 예약도 포함되므로 소유권이전이나 지상권설정을 목적으로 하는 가등기신청의 경우에도 토지거래계약허가증을 첨부하여야 한다. 소유권이전청구권보전 가등기이든 담보가등기이든 불문한다.">실무교재 127쪽</span>','시·군·구청')]}];
+  const office=d3officeStd({oblig:'소유자',regTax:true,bond:false,
+    cause:(debt?'대물반환예약서':'매매예약서')+' 작성',causeDesc:'예약서가 없으면 사무소가 작성합니다. 가등기 때는 <b>검인을 받지 않습니다</b>(본등기 때 받습니다) <span class="law" title="부동산등기실무(2026) 118쪽 — 검인은 소유권이전등기를 신청하는 경우에만 받아야 하므로 예약을 원인으로 가등기를 신청할 때에는 검인을 받지 않아도 되나, 가등기에 기한 본등기를 신청할 때 제출하는 등기원인증서에는 검인을 받아야 한다.">실무교재 118쪽</span>'});
+  const attach=[
+    [(debt?'대물반환예약서':'매매예약서')+' <small>(검인 불요)</small>','의뢰인 또는 사무소 작성','규칙 §46①1호 · 실무교재 118쪽'],
+    ['등기필정보(등기권리증) <small>— 없으면 확인서면</small>','소유자 · 확인서면은 사무소','법 §50② · §51'],
+    ['소유자 인감증명서','소유자','규칙 §60①1호 · 3개월(§62)'],
+    ['가등기권자 주민등록표 초본','가등기권자','규칙 §46①6호'],
+    ['토지거래계약 허가증 <small>(허가구역일 때)</small>','의뢰인 신청','규칙 §46①2호 · 실무교재 127쪽'],
+    ['위임장','사무소 작성 · 당사자 날인','규칙 §46①5호'],
+    ['자격자대리인의 등기의무자 확인 및 자필서명 정보','사무소','규칙 §46①8호'],
+    ['등록면허세·지방교육세 영수필확인서','사무소 (신고 대행)','규칙 §44'],
+    ['등기신청수수료 영수필확인서','사무소','수수료규칙 §5의2']];
+  box.innerHTML=d3({client:client,office:office,attach:attach,
+    attachNote:'나중에 <b>가등기를 지울 때</b>에는 가등기권자의 <b>인감증명</b>이 필요합니다 <span class="law" title="부동산등기규칙 제60조제1항제2호 — 소유권에 관한 가등기명의인이 가등기의 말소등기를 신청하는 경우 가등기명의인의 인감증명 — 실무교재(2026) 138~139쪽">규칙 §60①2호</span>.',
+    law:'부동산등기법 §50②·§51, 부동산등기규칙 §44·§46①·§60①1호·§62',src:'가등기 — 실무교재 118쪽·127쪽'});
+}
+function renderDocsSintak(){
+  const box=document.getElementById('st_docsBox'); if(!box)return;
+  const client=[
+    {who:'위탁자 (맡기시는 분 · 소유자 · 등기의무자)',items:[
+      d3i('<b>등기권리증(등기필정보)</b>','잃어버리셨으면 사무소가 확인서면으로 대신합니다',''),
+      d3i('<b>인감증명서</b> 1통, <b>인감도장</b>, <b>신분증</b>',D3_SEAL,'주민센터'),
+      d3i('<b>주민등록표 초본</b> 1통','신탁은 소유권이 수탁자에게 넘어가는 등기라 <b>위탁자 주소 증명도 첨부</b>합니다',LK.juminCho)]},
+    {who:'수탁자 (맡는 분 · 등기권리자)',items:[
+      d3i('<b>주민등록표 초본</b> 1통, 도장, 신분증','',LK.juminCho),
+      d3i('<b>신탁업자(법인)</b>이면 <b>법인등기사항증명서</b>·<b>법인인감증명서</b>','',''),
+      d3i('수탁자가 <b>여러 명</b>이면 공동수탁자가 합유라는 뜻을 신청서에 적습니다','<span class="law" title="부동산등기실무(2026) 362쪽 — 신탁법 제50조②">실무교재 362쪽</span>','')]},
+    {who:'해당하는 경우에만',items:[
+      d3i('<b>공익신탁</b>이면 <b>법무부장관 인가서</b>','<span class="law" title="부동산등기실무(2026) 364쪽 — 공익신탁법 제3조">실무교재 364쪽</span>','')]}];
+  const office=d3officeStd({oblig:'위탁자',regTax:true,bond:false,ledger:'토지대장·건축물대장',
+    cause:'신탁계약서 작성 · 검인',causeDesc:'신탁계약으로 소유권을 넘기므로 계약서에 <b>검인</b>을 받습니다 <span class="law" title="부동산등기실무(2026) 362~363쪽 — 신탁계약에 의하여 소유권을 이전하는 경우에는 등기원인증명정보에 부동산등기 특별조치법 제3조의 검인을 받아야 한다(한국주택금융공사의 주택담보노후연금보증 신탁은 예외).">실무교재 363쪽</span>',
+    more:[d3i('<b>신탁원부 작성을 위한 정보</b>','위탁자·수탁자·수익자, 신탁의 목적, 신탁재산의 관리·처분 방법, 신탁종료 사유 등을 정리해 제출합니다(부동산마다 따로) <span class="law" title="부동산등기규칙 제139조 · 부동산등기실무(2026) 363~364쪽">규칙 §139</span>','')]});
+  const attach=[
+    ['신탁계약서 <small>(검인받은 것)</small>','사무소 작성 · 당사자 날인','규칙 §46①1호 · 특조법 §3 · 실무교재 363쪽'],
+    ['신탁원부 작성을 위한 정보','사무소','규칙 §139'],
+    ['등기필정보(등기권리증) <small>— 없으면 확인서면</small>','위탁자 · 확인서면은 사무소','법 §50② · §51'],
+    ['위탁자 인감증명서','위탁자','규칙 §60①1호 · 3개월(§62)'],
+    ['위탁자·수탁자 주민등록표 초본 <small>(법인이면 법인등기사항증명서)</small>','위탁자 · 수탁자','규칙 §46①4·6호'],
+    ['토지대장·건축물대장','사무소','규칙 §46①7호'],
+    ['위임장','사무소 작성 · 당사자 날인','규칙 §46①5호'],
+    ['자격자대리인의 등기의무자 확인 및 자필서명 정보','사무소','규칙 §46①8호'],
+    ['등록면허세·지방교육세 영수필확인서','사무소 (신고 대행)','규칙 §44'],
+    ['등기신청수수료 영수필확인서','사무소','수수료규칙 §5의2']];
+  box.innerHTML=d3({client:client,office:office,attach:attach,
+    attachNote:'신탁계약서는 대가 있는 소유권이전 증서가 아니므로 <b>인지를 붙이지 않습니다</b> <span class="law" title="부동산등기실무(2026) 363쪽">실무교재 363쪽</span>.',
+    law:'부동산등기법 §50②·§51·§81, 부동산등기규칙 §44·§46①·§60①1호·§139',src:'신탁 — 실무교재 362~364쪽'});
+}
+function renderDocsMarital(){
+  const box=document.getElementById('mr_docsBox'); if(!box)return;
+  const client=[
+    {who:'약정하시는 부부 두 분 모두',items:[
+      d3i('<b>기본증명서</b>, <b>가족관계증명서</b>, <b>혼인관계증명서</b> 각 1통','',LK.family),
+      d3i('<b>주민등록표 초본</b>','',LK.juminCho),
+      d3i('<b>인감증명서</b>, <b>인감도장</b>, <b>신분증</b>',D3_SEAL,'주민센터')]},
+    {who:'재산 관련',items:[
+      d3i('<b>재산목록</b>과 그 <b>소명자료</b>(등기사항증명서·통장 사본 등)','약정서에 붙일 재산을 특정합니다','')]}];
+  const office=[
+    d3i('<b>부부재산약정서 작성</b>','두 분의 뜻을 듣고 사무소가 작성합니다',''),
+    d3i('<b>등기신청서</b>, <b>위임장</b>','',''),
+    d3i('<b>등록면허세 신고·납부</b>','영수필확인서를 받습니다. 세금은 의뢰인 부담입니다',''),
+    d3i('<b>등기신청수수료 납부</b>','',''),];
+  const attach=[
+    ['부부재산약정서','사무소 작성 · 부부 날인','<span class="tag chk">확인필요</span>'],
+    ['재산목록·소명자료','의뢰인',''],
+    ['부부 각자의 기본·가족관계·혼인관계증명서, 주민등록표 초본, 인감증명서','의뢰인','<span class="tag chk">확인필요</span>'],
+    ['위임장','사무소 작성 · 부부 날인',''],
+    ['등록면허세 영수필확인서','사무소 (신고 대행)',''],
+    ['등기신청수수료 영수필확인서','사무소','']];
+  box.innerHTML=d3({client:client,office:office,attach:attach,
+    attachNote:'부부재산약정등기는 약정 내용에 따라 더 필요한 서류가 생길 수 있어 <b>상담 때 다시 확인해 드립니다</b>.',
+    law:'민법 §829',book:false,src:''});
+}
 /* 말소 건수를 바꾸면 금액과 준비서류를 함께 갱신한다 */
 function saleCancelChg(){calcSale();renderDocsSale();}
-function renderDocsSale(){renderPartyDocs('','pty_sale_seller','pty_sale_buyer','매도인(등기의무자)','매수인(등기권리자)');const f=radio('bform');let ledger='';
-  if(f==='apt')ledger='<b>대장</b> — 집합건축물대장(전유부+표제부), 대지권등록부, 대지권 목적 토지대장';
-  else if(f==='house')ledger='<b>대장</b> — 일반건축물대장, 토지대장, 토지이용계획확인원 (필요시 지적도)';
-  else ledger='<b>대장</b> — 토지대장(임야는 임야대장), 토지이용계획확인원, 필요시 지적도·임야도';
-  /* 분양 취득 — 매도인이 시행사(법인)이므로 준비서류가 전혀 다르다 */
-  if(chk('ps_on')){
-    const resale=val('ps_premium')>0;
-    document.getElementById('docsBox').innerHTML=
-      '<div style="border-left:3px solid var(--seal);padding:6px 8px;margin-bottom:8px;background:#fdf6e8;border-radius:4px;line-height:1.6;">'+
-      '▸ <b>분양은 매도인이 개인이 아니라 시행사(법인)</b>입니다. 개인 인감증명서·부동산매도용 인감이 아니라 <b>법인 서류</b>를 받습니다.<br>'+
-      '▸ 시행사의 <b>소유권보존등기가 끝나야</b> 이전등기가 가능합니다. 잔금을 냈는데 등기가 안 되는 것은 대개 이 때문입니다.</div>'+
-      '<b>시행사(사업주체 · 등기의무자)에게서 받을 것</b><br>'+
-      '· <b>등기필정보</b> — 시행사가 소유권보존등기 시 받은 것<br>'+
-      '· <b>법인인감증명서</b>, <b>법인등기사항증명서</b><br>'+
-      '· <b>등기신청 위임장</b> — 법인인감 날인<br>'+
-      '· <b>분양대금 완납증명서</b>(잔금영수증)<br>'+
-      '<span class="hint">교부처 — 시행사 입주지원센터·분양사무소. 입주 안내문에 서류 교부 일정이 안내됩니다.</span><br>'+
-      '<b>수분양자(등기권리자)</b><br>'+
-      '· <b>주민등록표 등본</b>(세대원 전체) — <b>세대 기준 주택 수 판정</b>에 필요<br>'+
-      '· <b>주민등록표 초본</b>(주소이력 포함), 도장, <b>신분증</b><br>'+
-      '· <b>사전 통지</b> — 보유 주택 수 및 그 지번 <span class="hint">(§13의2 중과·생애최초 감면 판정)</span><br>'+
-      '<b>공통</b><br>'+
-      '· <b>분양(공급)계약서</b> 원본, <b>부동산거래계약 신고필증</b> <span class="hint">(공급계약도 신고 대상 — 보통 사업주체가 신고)</span><br>'+
-      '· <span style="color:var(--seal);font-weight:700;">★ 발코니 확장 계약서 · 유상 옵션 계약서</span> — <b>취득세 과세표준 소명자료</b>입니다. 분양계약서만으로는 확장·옵션 금액이 드러나지 않으므로 <b>반드시 함께</b> 챙기십시오<br>'+
-      '· 취득세 영수필확인서, <b>국민주택채권 매입 영수증</b>, 등기신청수수료 영수필확인서<br>'+
-      (resale
-        ?'<b>분양권을 사서 취득한 경우(전매)</b><br>'+
-         '· <b>분양권 매매계약서</b> + <b>부동산거래계약 신고필증</b><br>'+
-         '· 시행사 발급 <b>명의변경 확인서(권리의무 승계 확인)</b><br>'+
-         '· <span style="color:var(--seal);font-weight:700;">프리미엄도 과세표준에 포함</span>되므로 계약서상 금액이 그대로 근거가 됩니다<br>'
-        :'')+
-      '<div style="border-left:3px solid var(--seal);padding:6px 8px;margin:6px 0;background:#fdeaea;border-radius:4px;line-height:1.6;">'+
-      '▸ <b>등기 후 반드시 확인</b> — ① 표제부에 <b>대지권</b>이 기재되었는지(토지 정리가 늦으면 건물만 먼저 이전됩니다), ② 을구에 <b>시행사의 사업 관련 담보권이 남아 있지 않은지</b>.<br>'+
-      '▸ <b>잔금대출</b>이 있으면 <b>근저당권설정등기를 같은 날 동시 접수</b>합니다. 은행 절차와 맞물리므로 대출 실행 전에 협의하십시오.<br>'+
-      '▸ 등기를 <b>시행사 지정 법무사에게만 맡겨야 하는 것은 아닙니다.</b> 누구에게 맡길지는 등기를 하는 사람이 정합니다.</div>'+
-      '<div class="dl" style="border-top:1px dashed var(--line);margin-top:6px;padding-top:6px;">'+
-      '<b style="color:var(--seal);">※ 취득시기 — 잔금지급일과 사용승인일 중 <u>늦은 날</u>. 그날부터 60일 내 취득세 신고·납부.</b><br>'+ledger+'</div>';
-    return;
-  }
+function renderDocsSale(){
+  /* 2026-10 3단 구분 — 법인·단체 당사자는 ①에 그 서류를 바로 넣는다(종전에는 개인 서류가 함께 나와 서로 어긋났다) */
+  renderPartyDocs('','pty_sale_seller','pty_sale_buyer','매도인(등기의무자)','매수인(등기권리자)',true);
+  const f=radio('bform'), led=d3ledger(f);
+  const st=(document.getElementById('pty_sale_seller')||{}).value||'ind';
+  const bt=(document.getElementById('pty_sale_buyer')||{}).value||'ind';
   const frS=document.getElementById('fr_sale_seller')?document.getElementById('fr_sale_seller').value:'';
   const frB=document.getElementById('fr_sale_buyer')?document.getElementById('fr_sale_buyer').value:'';
-  document.getElementById('docsBox').innerHTML=
-    '<b>매도인(등기의무자)</b><br>'+
-    '· <b>등기필증(등기권리증)</b> 또는 <b>등기필정보통지서</b> — 분실 시 <b>확인서면</b>(신분증 사본 + <b>우무인</b> 날인)<br>'+
-    '· <b>인감증명서</b> <span style="color:var(--seal);font-weight:700;">※ 반드시 「부동산매도용」</b></span> — <b>매수인의 성명·주소·주민등록번호</b>가 기재된 것<br>'+
-    '· <b>인감도장</b>, <b>신분증</b><br>'+
-    '· <b>주민등록표 초본</b>(<b>주소이력 전부</b> 포함) — 등기부상 주소와 현재 주소가 다르면 <b>주소변경등기</b> 또는 <b>동일성 소명</b> 필요<br>'+
-    '· <b>주민등록표 등본</b> <span class="hint">(1세대 판정·비과세 검토용)</span><br>'+
-    '<b>매수인(등기권리자)</b><br>'+
-    '· <b>주민등록표 등본</b>(세대원 전체 포함) — <b>세대 기준 주택 수 판정</b>에 필요<br>'+
-    '· <b>주민등록표 초본</b>, 도장, <b>신분증</b><br>'+
-    '· <b>사전 통지</b> — <b>보유 주택 수 및 그 지번(주소)</b> <span class="hint">(§13의2 중과·생애최초 감면 판정)</span><br>'+
-    '<b>공통</b><br>'+
-    '· <b>매매계약서</b> 원본, <b>부동산거래계약 신고필증</b> <span class="hint">(「부동산 거래신고 등에 관한 법률」 §3 — 계약 체결일부터 30일 이내 신고)</span><br>'+
-    '· 신청서, <b>위임장</b>, <b>자격자대리인의 등기의무자 확인 및 자필서명 정보</b><br>'+
-    '· 취득세 영수필확인서, <b>국민주택채권 매입 영수증</b>(채권발행번호 기재), 등기신청수수료 영수필확인서<br>'+
-    '· 부동산등기부등본 <span class="hint">(근저당·가압류 등 부담 확인)</span><br>'+
-    '· <b>토지거래허가구역</b>이면 <b>토지거래계약 허가증</b> <span class="tag chk">확인필요</span><br>'+
-    '· <b>농지</b>이면 <b>농지취득자격증명</b>(관할 시·구·읍·면장)<br>'+
-    foreignBlock(frS,'매도인','ob')+
-    foreignBlock(frB,'매수인','ri')+
-    (frB&&frB!=='kor-in'&&frB!=='kor-out'?'<div style="border-left:3px solid var(--seal);padding:6px 8px;margin:6px 0;background:#fdeaea;border-radius:4px;line-height:1.6;">▸ <b>외국인등의 부동산 취득</b> — 「부동산 거래신고 등에 관한 법률」 <span class="tag chk">확인필요</span><br>· <b>계약(매매)으로 취득</b> → 부동산거래신고를 하면 별도 취득신고는 하지 않습니다(중복 배제).<br>· <span style="color:#b03a3a;font-weight:700;">★ 「토지」를 취득하는 계약 — 군사기지 및 군사시설 보호구역, 문화유산·자연유산 보호구역, 생태·경관보전지역, 야생생물 특별보호구역 등은 「계약 체결 전」에 관할 시장·군수·구청장의 허가</b>를 받아야 하며, <b>허가 없이 체결한 계약은 무효</b>입니다. <b>토지이용계획확인원</b>으로 반드시 확인하십시오.<br>· 종전 「외국인토지법」은 <b>폐지</b>되어 위 법률로 통합되었습니다.</div>':'')+
-    (frS?'<div style="border-left:3px solid var(--seal);padding:6px 8px;margin:6px 0;background:#fdeaea;border-radius:4px;line-height:1.6;">▸ <b>매도인이 소득세법상 「비거주자」</b>이면 양도소득세 신고·납부 방법과 원천징수 여부가 달라질 수 있습니다. <b>세무 전문가의 검토</b>를 받으십시오. <span class="tag chk">확인필요</span> <span class="hint">— 법무사의 직무범위(법무사법 §2)를 벗어나는 세무 판단은 하지 않습니다.</span></div>':'')+
-    saleCancelDocs()+
-    '<div class="dl" style="border-top:1px dashed var(--line);margin-top:6px;padding-top:6px;">'+
-    '<b style="color:var(--seal);">※ 모든 서류에 주민등록번호 뒷자리가 나오게 발급받으십시오.</b><br>'+ledger+'</div>';}
+  const ps=chk('ps_on'), resale=ps&&val('ps_premium')>0;
+  const client=[], attach=[], tail=[];
+  if(ps){
+    client.push({who:'시행사(분양회사 · 등기의무자)에게서 받으실 서류',items:[
+      d3i('<b>등기필정보</b>','시행사가 소유권보존등기 때 받은 것',''),
+      d3i('<b>법인인감증명서</b>, <b>법인등기사항증명서</b>','',''),
+      d3i('<b>등기신청 위임장</b>','시행사 법인인감 날인',''),
+      d3i('<b>분양대금 완납증명서</b>(잔금 영수증)','','')],
+      extra:'<div class="d3note">교부처 — 시행사 입주지원센터·분양사무소. 입주 안내문에 서류 교부 일정이 나와 있습니다. '
+        +'개인 인감증명서·부동산매도용 인감은 받지 않습니다(분양회사는 법인입니다).</div>'});
+  } else {
+    client.push({who:'매도인 (파시는 분 · 등기의무자)'+(st!=='ind'?' — '+PARTY_LABEL[st]:''),items:d3party(st,true,[
+      d3i('<b>등기필증(등기권리증)</b> 또는 <b>등기필정보통지서</b>','잃어버리셨으면 사무소가 <b>확인서면</b>을 만들어 대신합니다(신분증을 가지고 오셔야 합니다)',''),
+      d3i('<b>인감증명서 1통 — 반드시 「부동산매도용」</b>','매수인의 <b>성명·주소·주민등록번호</b>를 적어 발급받습니다. '+D3_SEAL,'주민센터'),
+      d3i('<b>인감도장</b>, <b>신분증</b>','',''),
+      d3i('<b>주민등록표 초본</b> — 주소 변동 이력 <b>전부</b> 포함','등기부 주소와 지금 주소가 다르면 이 초본으로 주소가 바뀐 사실이 확인되어 <b>등기관이 주소를 직권으로 고쳐 줍니다</b>(따로 주소변경등기를 하지 않으셔도 됩니다) <span class="law" title="부동산등기규칙 제122조 — 소유권이전등기를 할 때 주소를 증명하는 정보에 등기의무자의 등기기록상 주소가 신청정보상 주소로 변경된 사실이 명백히 나타나면 등기관이 직권으로 등기명의인표시 변경등기를 한다. 소유권이전등기에 한하며, 근저당권설정 등은 먼저 주소변경등기를 신청해야 한다 — 부동산등기실무(2026) 230~231쪽">규칙 §122</span>',LK.juminCho),
+      d3i('<b>주민등록표 등본</b>','1세대 1주택 등 양도소득세 판단용 <span class="hint">(등기소 제출용은 아닙니다)</span>',LK.juminCho)]),
+      extra:foreignBlock(frS,'매도인','ob')});
+  }
+  client.push({who:(ps?'수분양자':'매수인')+' (사시는 분 · 등기권리자)'+(bt!=='ind'?' — '+PARTY_LABEL[bt]:''),items:d3party(bt,false,[
+      d3i('<b>주민등록표 등본</b>(세대원 전체 포함)','<b>세대 기준 주택 수</b>로 취득세율을 정하는 데 씁니다',LK.juminCho),
+      d3i('<b>주민등록표 초본</b>, 도장, 신분증','',LK.juminCho),
+      d3i('<b>미리 알려 주실 것</b> — 지금 가지고 계신 <b>주택 수와 그 주소</b>','다주택 중과·생애최초 감면 판정에 필요합니다','')]),
+    extra:foreignBlock(frB,ps?'수분양자':'매수인','ri')});
+  const ci=[];
+  if(ps){
+    ci.push(d3i('<b>분양(공급)계약서</b> 원본','',''));
+    ci.push(d3i('<b>부동산거래계약 신고필증</b>','공급계약도 신고 대상입니다 — 보통 사업주체가 신고합니다',LK.rtms));
+    ci.push(d3i('<b style="color:var(--seal);">발코니 확장 계약서 · 유상 옵션 계약서</b>','<b>취득세 과세표준을 소명</b>하는 서류입니다. 분양계약서만으로는 확장·옵션 금액이 드러나지 않으니 꼭 함께 챙겨 주십시오',''));
+    if(resale){
+      ci.push(d3i('<b>분양권 매매계약서</b> + 그 <b>부동산거래계약 신고필증</b>','<span style="color:var(--seal);font-weight:700;">프리미엄도 과세표준에 들어갑니다</span>',LK.rtms));
+      ci.push(d3i('시행사 발급 <b>명의변경 확인서</b>(지위이전 승낙서)','검인은 받지 않아도 되지만 등기원인 증명 서류의 일부로 냅니다 <span class="law" title="부동산등기실무(2026) 274쪽 — 분양권을 취득한 자가 계약당사자의 지위를 제3자에게 이전하는 계약을 체결한 경우 분양자가 지위이전계약을 승낙하는 내용의 별도 서면에 검인을 받을 필요는 없으나, 등기원인증명정보의 일부로서 제공은 하여야 한다(선례).">부동산등기실무(2026) 274쪽</span>',''));
+    }
+  } else {
+    ci.push(d3i('<b>매매계약서</b> 원본','',''));
+    ci.push(d3i('<b>부동산거래계약 신고필증</b>','계약일부터 <b>30일 이내</b> 신고 — 보통 중개사무소가 합니다. <b>직거래</b>면 당사자가 신고하거나 사무소가 대행합니다',LK.rtms));
+  }
+  ci.push(d3i('<b>토지거래계약 허가증</b> <span class="hint">(토지거래허가구역일 때)</span>','계약 <b>전에</b> 시·군·구청 허가를 받아야 합니다 <span class="tag chk">확인필요</span>',''));
+  ci.push(d3i('<b>농지취득자격증명</b> <span class="hint">(농지를 살 때)</span>','농지 소재지 시·구·읍·면사무소에서 사는 분이 신청합니다',LK.gov));
+  client.push({who:'계약 관련 서류 <span class="hint">(매도인·매수인 중 가지고 계신 분)</span>',items:ci});
+
+  const office=d3officeStd({oblig:ps?'':'매도인',ledger:led,
+    more:(ps?[]:[d3i('<b>부동산거래신고 대행</b> <span class="hint">(중개사무소 없이 직거래한 경우)</span>','보수표 Ⅸ-1','')])
+      .concat([d3i('<b>토지이용계획확인원</b>'+(f==='apt'?'':' · 필요하면 지적도·임야도'),'토지거래허가구역·농지·외국인 허가구역 여부를 확인합니다 <span class="hint">(확인용 — 첨부서류는 아닙니다)</span>',LK.eum)])});
+
+  attach.push([ps?'분양(공급)계약서'+(resale?' · 분양권 매매계약서 · 지위이전 승낙서':''):'매매계약서','의뢰인','규칙 §46①1호 — 등기원인 증명']);
+  attach.push(['부동산거래계약 신고필증 <small>(부동산 2개 이상이거나 여러 명 사이 거래면 매매목록 포함)</small>','의뢰인 (중개사무소)','규칙 §124② · 신고필증이 있으면 검인 받은 것으로 봄(부동산거래신고법 §3⑥, 실무교재 118쪽)']);
+  attach.push(['등기필정보(등기권리증) <small>— 없으면 확인서면</small>',ps?'시행사':'매도인 · 확인서면은 사무소','법 §50② · §51']);
+  if(ps){
+    attach.push(['시행사 법인인감증명서','시행사','규칙 §60①1호']);
+    attach.push(['시행사 법인등기사항증명서','시행사','규칙 §46①4·6호']);
+  } else if(st==='ind'){
+    attach.push(['매도인 인감증명서 (부동산매도용)','매도인','규칙 §60①1호 · 3개월(§62)']);
+    attach.push(['매도인 주민등록표 초본','매도인','규칙 §46①6호 — 소유권이전은 의무자 주소도']);
+  } else {
+    attach.push([st==='corp'?'매도인 법인인감증명서':'매도인 대표자 인감증명서','매도인('+PARTY_LABEL[st]+')','규칙 §60①1호·§61']);
+    attach.push(d3partyAttach(st,'매도인'));
+  }
+  attach.push(bt==='ind'?['매수인 주민등록표 등(초)본','매수인','규칙 §46①6호']:d3partyAttach(bt,'매수인'));
+  attach.push([led,'사무소','규칙 §46①7호']);
+  attach.push(['위임장','사무소 작성 · 당사자 날인','규칙 §46①5호']);
+  attach.push(['자격자대리인의 등기의무자 확인 및 자필서명 정보','사무소','규칙 §46①8호']);
+  attach.push(['취득세·지방교육세·농어촌특별세 영수필확인서','사무소 (신고 대행)','규칙 §44']);
+  attach.push(['국민주택채권 매입 — 채권발행번호','사무소 (매입 대행)','규칙 §44']);
+  attach.push(['등기신청수수료 영수필확인서','사무소','수수료규칙 §5의2']);
+  attach.push(['토지거래계약 허가증 · 농지취득자격증명 <small>(해당할 때만)</small>','의뢰인 신청','규칙 §46①2호']);
+
+  if(frB&&frB!=='kor-in'&&frB!=='kor-out') tail.push('<div class="d3warn">▸ <b>외국인등의 부동산 취득</b> — 「부동산 거래신고 등에 관한 법률」 <span class="tag chk">확인필요</span><br>· <b>계약(매매)으로 취득</b> → 부동산거래신고를 하면 별도 취득신고는 하지 않습니다(중복 배제).<br>· <span style="color:#b03a3a;font-weight:700;">★ 「토지」를 취득하는 계약 — 군사기지 및 군사시설 보호구역, 문화유산·자연유산 보호구역, 생태·경관보전지역, 야생생물 특별보호구역 등은 「계약 체결 전」에 관할 시장·군수·구청장의 허가</b>를 받아야 하며, <b>허가 없이 체결한 계약은 무효</b>입니다. <b>토지이용계획확인원</b>('+LK.eum+')으로 반드시 확인하십시오.<br>· 종전 「외국인토지법」은 <b>폐지</b>되어 위 법률로 통합되었습니다.</div>');
+  if(frS) tail.push('<div class="d3warn">▸ <b>매도인이 소득세법상 「비거주자」</b>이면 양도소득세 신고·납부 방법과 원천징수 여부가 달라질 수 있습니다. <b>세무사의 확인</b>을 받으시기 바랍니다. <span class="tag chk">확인필요</span> <span class="hint">— 세금 신고는 세무사의 업무입니다(법무사법 §2의 직무범위 밖).</span></div>');
+  if(ps){
+    tail.push('<div class="d3warn">▸ 시행사의 <b>소유권보존등기가 끝나야</b> 이전등기가 됩니다. 잔금을 냈는데 등기가 안 되는 것은 대개 이 때문입니다.<br>'
+      +'▸ <b>등기 후 반드시 확인</b> — ① 표제부에 <b>대지권</b>이 기재되었는지(토지 정리가 늦으면 건물만 먼저 이전됩니다), ② 을구에 <b>시행사의 사업 관련 담보권이 남아 있지 않은지</b>.<br>'
+      +'▸ <b>잔금대출</b>이 있으면 <b>근저당권설정등기를 같은 날 동시 접수</b>합니다. 은행 절차와 맞물리므로 대출 실행 전에 협의하십시오.<br>'
+      +'▸ 등기를 <b>시행사 지정 법무사에게만 맡겨야 하는 것은 아닙니다.</b> 누구에게 맡길지는 등기를 하는 분이 정합니다.<br>'
+      +'<b style="color:var(--seal);">※ 취득시기 — 잔금지급일과 사용승인일 중 <u>늦은 날</u>. 그날부터 60일 내 취득세 신고·납부.</b></div>');
+  }
+  tail.push(saleCancelDocs());
+  document.getElementById('docsBox').innerHTML=d3({client:client,office:office,attach:attach,tail:tail.join('')});
+}
 
 /* ===== 분양 취득 — 과세표준 합산 도우미 (매매 scene 내장) =====
    분양은 시행사로부터의 유상승계취득이므로 세율 구조는 매매와 같으나,
@@ -5708,40 +6197,54 @@ function inheritAcqRate(){const t=radio('s_ptype'),one=chk('s_oneHouse');
   if(t==='farm')return chk('s_farmSpecial')?0.003:0.023;
   if(t==='house'&&one)return 0.008;
   return 0.028;}
-function renderDocsInherit(){renderPartyDocs('s_',null,'pty_s__buyer','','상속인(등기권리자)');const f=radio('s_bform');let ledger='';
-  if(f==='apt')ledger='<b>대장</b> — 집합건축물대장(전유부+표제부), 대지권등록부, 대지권 목적 토지대장';
-  else if(f==='house')ledger='<b>대장</b> — 일반건축물대장, 토지대장, 토지이용계획확인원 (필요시 지적도)';
-  else ledger='<b>대장</b> — 토지대장(임야는 임야대장), 토지이용계획확인원, 필요시 지적도·임야도';
-  const frDec=document.getElementById('s_frDec')?document.getElementById('s_frDec').value:'';
-  const frHeir=document.getElementById('s_frHeir')?document.getElementById('s_frHeir').value:'';
-  document.getElementById('s_docsBox').innerHTML=
-    '<b>피상속인(망인)</b> <span class="hint">— 상속인의 범위를 확정하기 위해 「출생 시부터 사망 시까지」가 끊김 없이 이어져야 합니다</span><br>'+
-    '· <b>기본증명서(상세)</b> — <b>사망 사실·사망일시</b> 확인<br>'+
-    '· <b>가족관계증명서(상세)</b> — 부모·배우자·자녀 확인<br>'+
-    '· <b>혼인관계증명서(상세)</b> — 혼인·이혼 이력(전혼 자녀 확인)<br>'+
-    '· <b>입양관계증명서(상세)</b> · <b>친양자입양관계증명서(상세)</b> — 양자·친양자 유무<br>'+
-    '· <b>제적등본</b> — <b>2008.1.1. 가족관계등록부 시행 전</b>의 신분관계는 제적부에만 있으므로 필수.<br>'+
-    '&nbsp;&nbsp;<b>「전(前) 제적등본」·「전전(前前) 제적등본」</b>까지 소급하여 <b>출생 시까지 연결</b>(본적 변동·호주 변경·분가마다 별개 제적부)<br>'+
-    '· <b>주민등록표 말소자 초본</b>(주소이력 전부) — <b>등기부상 주소와 최후 주소의 동일성 확인</b><br>'+
-    '&nbsp;&nbsp;<span class="hint">주소가 연결되지 않으면 → <b>제적등본상 본적</b> 또는 <b>부동산등기용등록번호</b>로 동일성 소명</span><br>'+
-    '<b>상속인 전원</b><br>'+
-    '· <b>기본증명서(상세)</b> — 각자<br>'+
-    '· <b>가족관계증명서(상세)</b> — 각자 (피상속인과의 관계 확인)<br>'+
-    '· <b>주민등록표 등본</b> 및 <b>주민등록표 초본</b>(주소이력 포함) — 각자<br>'+
-    '· <b>인감증명서</b> 및 <b>인감도장</b> <span class="hint">(협의분할 시 · 매도용 아님)</span><br>'+
-    '· <b>상속재산 협의분할계약서</b> — <b>상속인 전원</b>이 <b>인감도장</b> 날인 <span style="color:var(--seal);font-weight:700;">(1인이라도 누락 시 무효)</span><br>'+
-    '· <b>미성년 상속인</b>이 있고 친권자도 공동상속인이면 → <b>특별대리인 선임심판</b>(민법 §921 이해상반행위) <span class="tag chk">확인필요</span><br>'+
-    '· <b>상속포기·한정승인</b>이 있으면 → <b>심판문 정본 + 확정증명원</b><br>'+
-    '· <b>대습상속</b>이면 → 피대습자의 <b>기본증명서(상세)</b>(사망) · <b>가족관계증명서(상세)</b> · <b>제적등본</b><br>'+
-    '<b>공통</b><br>'+
-    '· 신청서, <b>위임장</b>, 취득세 영수필확인서, <b>국민주택채권 매입 영수증</b>(발행번호 기재), 등기신청수수료 영수필확인서<br>'+
-    '· 부동산등기부등본<br>'+
-    '· <span class="hint">상속등기는 <b>등기필증(권리증)이 필요 없습니다</b>(단독신청·포괄승계).</span><br>'+
-    foreignBlock(frDec,'피상속인','dec')+
-    foreignBlock(frHeir,'상속인','ri')+
-    (frDec||frHeir?'<div style="border-left:3px solid var(--seal);padding:6px 8px;margin:6px 0;background:#fdeaea;border-radius:4px;line-height:1.6;">▸ <b>외국 당사자가 있는 상속등기의 특례</b><br>· <b>외국인인 상속인</b>은 대한민국 가족관계등록부가 없으므로 <b>본국 관공서 발행 신분·친족관계 증명서</b>(출생증명서·혼인증명서·사망증명서 등) + <b>아포스티유</b>(또는 영사확인) + <b>번역문</b>으로 상속인 범위를 소명합니다.<br>· <b>준거법</b> — 「국제사법」상 상속은 <b>피상속인의 본국법</b>에 따르는 것이 원칙입니다. 피상속인이 외국인이면 <b>본국법의 상속인 범위·상속분</b>을 확인해야 하며, 그 내용을 소명하는 <b>법률의견서·본국 관공서 증명</b>이 요구될 수 있습니다. <span class="tag chk">확인필요</span><br>· <b>외국국적 취득으로 성명이 변경</b>된 상속인 → <b>동일인 증명서</b>(본국 관공서 증명·공증 + 아포스티유)<br>· <b>협의분할</b>에 참여하는 외국 거주 상속인 → <b>협의분할 위임장</b>(공증 + 아포스티유 또는 재외공관 인증)</div>':'')+
-    '<div class="dl" style="border-top:1px dashed var(--line);margin-top:6px;padding-top:6px;">'+
-    '<b style="color:var(--seal);">※ 모든 서류에 주민등록번호 뒷자리가 나오게 발급받으십시오.</b><br>'+ledger+'</div>';}
+function renderDocsInherit(){
+  renderPartyDocs('s_',null,'pty_s__buyer','','상속인(등기권리자)',true);
+  const f=radio('s_bform'), led=d3ledger(f);
+  const bt=(document.getElementById('pty_s__buyer')||{}).value||'ind';
+  const frDec=D3_FR('s_frDec'), frHeir=D3_FR('s_frHeir');
+  const client=[], attach=[], tail=[];
+  client.push({who:'돌아가신 분(피상속인)의 서류 <span class="hint">— 상속인 중 한 분이 떼시면 됩니다. 「출생부터 사망까지」 끊김 없이 이어져야 상속인 전원이 확인됩니다</span>',items:[
+    d3i('<b>기본증명서(상세)</b>','<b>사망 사실·사망일시</b> 확인',LK.family),
+    d3i('<b>가족관계증명서(상세)</b>','부모·배우자·자녀 확인',LK.family),
+    d3i('<b>혼인관계증명서(상세)</b>','혼인·이혼 이력(전혼 자녀 확인)',LK.family),
+    d3i('<b>입양관계증명서(상세)</b> · <b>친양자입양관계증명서(상세)</b>','양자·친양자 유무. <b>부모·형제자매 등 2순위 이하가 상속</b>하면 입양관계증명서가 꼭 필요합니다 <span class="law" title="선례 201006-4 — 2010. 6. 30.부터 자녀의 가족관계증명서 부모란에는 양부모만 기록되므로, 2순위 이하 상속인이 상속등기를 신청할 때에는 피상속인의 입양관계증명서를 추가로 첨부한다 — 부동산등기실무Ⅱ(2015) 259쪽">선례 201006-4</span>',LK.family),
+    d3i('<b>제적등본</b>','<b>2008. 1. 1. 가족관계등록부 시행 전</b>의 신분관계는 제적부에만 있으므로 필수입니다. <b>「전(前) 제적등본」·「전전(前前) 제적등본」</b>까지 거슬러 올라가 <b>출생 시까지 연결</b>합니다(본적 변동·호주 변경·분가마다 제적부가 따로 있습니다)',LK.family),
+    d3i('<b>주민등록표 말소자 초본</b>(주소 이력 전부)','등기부의 주소와 마지막 주소가 같은 사람인지 확인합니다. 이어지지 않으면 <b>제적등본상 본적</b>이나 <b>부동산등기용등록번호</b>로 밝히고, 그래도 안 되면 <b>보증서면</b>(보증인의 인감증명·자격 증명 첨부)을 냅니다 <span class="law" title="부동산등기실무(2026) 292쪽 — 상속으로 인한 소유권이전등기에서 등기명의인(피상속인)의 주소가 제적부와 다른 경우 동일인임을 증명할 수 있는 자료로서 피상속인의 주소를 증명하는 정보(주민등록표등본 등)를 제공하여야 하고, 이를 얻을 수 없으면 동일인 보증정보와 보증인의 인감증명·자격 증명 정보를 제공할 수 있다.">실무교재 292쪽</span>','주민센터')
+  ]});
+  client.push({who:'상속인 전원'+(bt!=='ind'?' — '+PARTY_LABEL[bt]:''),items:d3party(bt,false,[
+    d3i('<b>기본증명서(상세)</b> — 각자','',LK.family),
+    d3i('<b>가족관계증명서(상세)</b> — 각자','피상속인과의 관계 확인',LK.family),
+    d3i('<b>인감증명서</b> 및 <b>인감도장</b> — <b>협의분할할 때 상속인 전원</b>','용도 제한 없음(매도용 아님). '+D3_SEAL+' <span class="law" title="부동산등기규칙 제60조제1항제6호 — 협의분할에 의한 상속등기를 신청하는 경우 상속인 전원의 인감증명">규칙 §60①6호</span>','주민센터'),
+    d3i('<b>주민등록표 등본</b> 및 <b>주민등록표 초본</b>(주소 이력 포함)','<b>상속받아 새로 등기부에 오르는 분</b>의 것은 꼭 필요합니다. 다른 상속인의 것은 등기소에 내지 않습니다 <span class="law" title="부동산등기실무(2026) 292쪽 — 새로 등기명의인이 되는 상속인의 주소를 증명하는 정보를 제공하여야 한다(규칙 제46조제1항제6호).">실무교재 292쪽</span>',LK.juminCho),
+    d3i('<b>신분증</b>, 도장','','')])});
+  client.push({who:'해당하는 경우에만',items:[
+    d3i('<b>미성년 상속인</b>이 있고 친권자도 공동상속인이면 → <b>특별대리인 선임 심판서</b>','가정법원에 선임을 청구합니다(민법 §921 이해상반행위) <span class="tag chk">확인필요</span>',''),
+    d3i('<b>상속포기·한정승인</b>이 있으면 → <b>심판문 정본 + 확정증명원</b>','상속포기 심판서 정본은 등기소에 냅니다 <span class="law" title="부동산등기실무(2026) 293쪽 — 상속인 중 상속을 포기한 자가 있는 경우에는 일반적인 첨부정보 외에 상속포기심판서정본을 제공한다.">실무교재 293쪽</span>','가정법원'),
+    d3i('<b>대습상속</b>이면 → 피대습자의 <b>기본증명서(상세)</b>(사망) · <b>가족관계증명서(상세)</b> · <b>제적등본</b>','',LK.family)],
+    extra:foreignBlock(frDec,'피상속인','dec')+foreignBlock(frHeir,'상속인','ri')});
+
+  const office=d3officeStd({ledger:led,
+    cause:'상속재산 협의분할계약서 <span class="hint">(협의분할할 때)</span>',
+    causeDesc:'사무소가 작성합니다. <b>상속인 전원</b>이 <b>인감도장</b>으로 날인해야 합니다 <span style="color:var(--seal);font-weight:700;">(1인이라도 빠지면 무효)</span>'});
+
+  attach.push(['상속을 증명하는 정보 — 피상속인의 기본·가족관계·혼인관계·입양관계·친양자입양관계증명서(상세), 제적등본 / 상속인 각자의 기본·가족관계증명서(상세)','의뢰인','규칙 §46①1호·§49 · 실무교재 292쪽']);
+  attach.push(['상속재산 협의분할계약서 <small>(협의분할할 때)</small>','사무소 작성 · 상속인 전원 인감 날인','규칙 §46①1호']);
+  attach.push(['상속인 전원의 인감증명서 <small>(협의분할할 때)</small>','상속인 전원','규칙 §60①6호 · 3개월(§62)']);
+  attach.push(['상속포기 심판서 정본 · 특별대리인 선임 심판서 <small>(해당할 때)</small>','의뢰인','실무교재 293쪽 · 민법 §921']);
+  attach.push([bt==='ind'?'상속받는 분의 주민등록표 등(초)본':'상속받는 분의 주소·등록번호 증명','상속받는 분','규칙 §46①6호 — 새로 등기명의인이 되는 분만(실무교재 292쪽)']);
+  attach.push(['피상속인 주민등록표 말소자 초본 <small>(등기부 주소와 이어 줄 때)</small>','의뢰인','실무교재 292쪽']);
+  attach.push([led,'사무소','규칙 §46①7호']);
+  attach.push(['위임장','사무소 작성 · 상속인 날인','규칙 §46①5호']);
+  attach.push(['취득세(상속)·지방교육세·농어촌특별세 영수필확인서','사무소 (신고 대행)','규칙 §44']);
+  attach.push(['국민주택채권 매입 — 채권발행번호','사무소 (매입 대행)','규칙 §44']);
+  attach.push(['등기신청수수료 영수필확인서','사무소','수수료규칙 §5의2']);
+
+  if(frDec||frHeir) tail.push('<div class="d3warn">▸ <b>외국 당사자가 있는 상속등기의 특례</b><br>· <b>외국인인 상속인</b>은 대한민국 가족관계등록부가 없으므로 <b>본국 관공서 발행 신분·친족관계 증명서</b>(출생증명서·혼인증명서·사망증명서 등) + <b>아포스티유</b>(또는 영사확인) + <b>번역문</b>으로 상속인 범위를 소명합니다.<br>· <b>준거법</b> — 「국제사법」상 상속은 <b>피상속인의 본국법</b>에 따르는 것이 원칙입니다. 피상속인이 외국인이면 <b>본국법의 상속인 범위·상속분</b>을 확인해야 하며, 그 내용을 소명하는 <b>법률의견서·본국 관공서 증명</b>이 요구될 수 있습니다. <span class="tag chk">확인필요</span><br>· <b>외국국적 취득으로 성명이 변경</b>된 상속인 → <b>동일인 증명서</b>(본국 관공서 증명·공증 + 아포스티유)<br>· <b>협의분할</b>에 참여하는 외국 거주 상속인 → <b>협의분할 위임장</b>(공증 + 아포스티유 또는 재외공관 인증)</div>');
+  document.getElementById('s_docsBox').innerHTML=d3({client:client,office:office,attach:attach,tail:tail.join(''),
+    attachNote:'<b>등기필정보(등기권리증)와 돌아가신 분의 인감증명은 내지 않습니다</b> — 상속등기는 상속인이 혼자 신청하는 등기입니다 <span class="law" title="부동산등기법 제23조제3항 — 상속, 법인의 합병, 그 밖에 대법원규칙으로 정하는 포괄승계에 따른 등기는 등기권리자가 단독으로 신청한다.">법 §23③</span>',
+    law:'부동산등기법 §23③, 부동산등기규칙 §44·§46①·§49·§60①6호·§62',
+    src:'상속 — 실무교재 292~296쪽, 『부동산등기실무Ⅱ』(법원행정처, 2015) 258~261쪽'});
+}
 function calcInherit(fromEdit){
   renderBondUIInherit();
   const price=val('s_price');
@@ -5961,81 +6464,86 @@ function calcBequest(fromEdit){
    [A] 민법 §1091(유언증서의 검인) · §1070②(구수증서 확인) · §1095(유언집행자 없으면 상속인이 집행자)
    27회차 신설. */
 function renderDocsBequest(){
-  renderPartyDocs('bq_',null,'pty_bq__buyer','','수증자(등기권리자)');
+  renderPartyDocs('bq_',null,'pty_bq__buyer','','수증자(등기권리자)',true);
   const f=radio('bq_bform'), kind=radio('bq_kind'), heir=radio('bq_heir'),
         will=(document.getElementById('bq_willType')||{}).value||'gongjeong',
-        exec=radio('bq_exec');
-  let ledger='';
-  if(f==='apt')ledger='<b>대장</b> — 집합건축물대장(전유부+표제부), 대지권등록부, 대지권 목적 토지대장';
-  else if(f==='house')ledger='<b>대장</b> — 일반건축물대장, 토지대장, 토지이용계획확인원';
-  else ledger='<b>대장</b> — 토지대장(임야는 임야대장), 토지이용계획확인원, 필요시 지적도·임야도';
-
+        exec=radio('bq_exec'), led=d3ledger(f);
+  const bt=(document.getElementById('pty_bq__buyer')||{}).value||'ind';
   const WILL={gongjeong:['공정증서','<b>공정증서 유언 정본(또는 등본)</b> — 공증사무소 발급',
-                '<b style="color:var(--ok);">검인 불요</b> — 공정증서는 검인 절차 없이 바로 등기됩니다'],
+                '<b style="color:var(--ok);">검인 불요</b> — 공정증서는 검인 절차 없이 바로 등기됩니다',''],
               japil:['자필증서','<b>자필증서 유언 원본</b>(전문·연월일·주소·성명 자서 + 날인 — 민법 §1066)',
-                '<b style="color:var(--seal);">법원 검인조서 등본 필수</b> — 유언증서 검인(민법 §1091). 상속인 전원에게 통지됩니다'],
+                '<b style="color:var(--seal);">법원 검인조서 등본 필수</b> — 유언증서 검인(민법 §1091). 상속인 전원에게 통지됩니다','유언검인조서 등본'],
               bimil:['비밀증서','<b>비밀증서 유언 원본</b> + 공증인·법원서기 확정일자(민법 §1069②)',
-                '<b style="color:var(--seal);">법원 검인조서 등본 필수</b>(민법 §1091)'],
+                '<b style="color:var(--seal);">법원 검인조서 등본 필수</b>(민법 §1091)','유언검인조서 등본'],
               nokeum:['녹음','<b>녹음물</b> 및 그 내용을 기재한 서면(민법 §1067)',
-                '<b style="color:var(--seal);">법원 검인조서 등본 필수</b>(민법 §1091)'],
+                '<b style="color:var(--seal);">법원 검인조서 등본 필수</b>(민법 §1091)','유언검인조서 등본'],
               gusu:['구수증서','<b>구수증서 유언</b> 서면(민법 §1070①)',
-                '<b style="color:var(--seal);">법원 확인(검인) 필수</b> — 급박한 사유가 종료한 날부터 <b>7일 이내</b>에 법원에 확인 청구(민법 §1070②)'],
+                '<b style="color:var(--seal);">법원 확인(검인) 필수</b> — 급박한 사유가 종료한 날부터 <b>7일 이내</b>에 법원에 확인 청구(민법 §1070②)','검인신청에 대한 심판서 등본'],
               pangyeol:['판결·조정','<b>확정판결 정본 및 확정증명원</b>(또는 조정조서·화해조서 정본)',
-                '판결로 갈음하는 경우 검인은 별도로 요구되지 않습니다 <span class="tag chk">확인필요</span>']};
+                '판결로 갈음하는 경우 검인은 별도로 요구되지 않습니다 <span class="tag chk">확인필요</span>','']};
   const W=WILL[will]||WILL.gongjeong;
-
-  let h='<div style="border-left:3px solid var(--seal);padding:6px 8px;margin-bottom:8px;background:#fdf6e8;border-radius:4px;line-height:1.7;">'
+  const client=[], attach=[], tail=[];
+  const lead='<div class="d3warn" style="background:#fdf6e8;">'
    +'▸ 유증 이전등기는 <b>상속등기와 달리 공동신청</b>입니다. '
    +'<b>수증자</b>가 등기권리자, <b>'+(exec==='yes'?'유언집행자':'상속인 전원')+'</b>이 등기의무자입니다 '
    +'<span class="law" title="등기예규 제1512호 — 유증을 원인으로 한 소유권이전등기는 포괄유증이나 특정유증을 불문하고 수증자를 등기권리자, 유언집행자 또는 상속인을 등기의무자로 하여 공동으로 신청하여야 한다">등기예규 제1512호</span><br>'
-   +'▸ <b>유증자(피상속인)의 등기필정보가 필요합니다.</b> 상속등기에는 없는 절차이니 미리 확인하십시오. 분실하면 확인서면을 작성합니다.<br>'
+   +'▸ <b>유증자(돌아가신 분)의 등기필정보가 필요합니다.</b> 상속등기에는 없는 절차이니 미리 확인하십시오. 잃어버렸으면 확인서면을 작성합니다.<br>'
    +'▸ 관할이 아닌 등기소에서도 신청할 수 있습니다 <span class="law" title="부동산등기법 제7조의3">법 §7의3</span></div>';
 
-  h+='<b>1. 유언 관련 — '+W[0]+'</b><br>· '+W[1]+'<br>· '+W[2]+'<br>';
+  const wi=[d3i(W[1],W[2],'')];
   if(exec==='no')
-    h+='· <b>유언집행자가 없는 경우</b> — 상속인이 유언집행자가 됩니다(민법 §1095). '
-      +'<b>상속인 전원</b>이 등기의무자로 참여해야 하므로 전원의 인감증명·인감도장이 필요합니다.<br>';
+    wi.push(d3i('<b>유언집행자가 없는 경우</b>','상속인이 유언집행자가 됩니다(민법 §1095). <b>상속인 전원</b>이 등기의무자로 참여하므로 전원의 인감증명·인감도장과 <b>상속인임을 증명하는 서류</b>가 필요합니다',''));
   else
-    h+='· <b>유언집행자 자격 증명</b> — 유언증서에 지정된 경우 그 유언서, 법원이 선임한 경우 <b>선임심판문 정본·확정증명</b><br>'
-      +'· 유언집행자의 <b>인감증명서·인감도장·신분증</b>, 주민등록초본<br>';
-
-  h+='<br><b>2. 유증자(피상속인) 관련</b><br>'
-   +'· <b>기본증명서(상세)</b> — 사망사실 확인<br>'
-   +'· <b>가족관계증명서(상세)</b> · <b>제적등본</b>(2008년 이전 신분관계 확인용)<br>'
-   +'· <b>주민등록말소자 초본</b> — 최후주소가 등기부 주소와 같은지 확인(다르면 <b>등기명의인표시변경</b>이 선행됩니다)<br>'
-   +'· <b style="color:var(--seal);">등기필정보(등기권리증)</b> — <b>유증은 반드시 필요</b>합니다(상속등기와 다름)<br>';
-
-  h+='<br><b>3. 수증자(등기권리자) 관련</b><br>'
-   +'· <b>주민등록등(초)본</b>, 도장, 신분증<br>'
-   +(heir==='yes'?'· <b>가족관계증명서</b> — 상속인 지위 소명(취득세율 2.8% 적용 근거)<br>':'')
-   +(kind==='teukjeong'&&heir==='no'
-      ?'· <span style="color:var(--seal);"><b>상속인 아닌 자의 특정유증</b>이므로 취득세는 <b>무상취득 3.5%</b>입니다(비영리사업자 2.8%).</span><br>':'');
-
-  h+='<br><b>4. 상속인 관련</b><br>';
+    wi.push(d3i('<b>유언집행자 자격 증명</b>','유언증서에 지정된 경우 그 <b>유언증서</b>, 제3자에게 지정을 맡긴 경우 <b>유언증서와 지정서</b>(지정한 분의 인감증명 포함), 법원이 선임한 경우 <b>선임심판문 정본·확정증명</b> <span class="law" title="부동산등기실무(2026) 299쪽 — 유언집행자의 자격을 증명하는 정보">실무교재 299쪽</span>',''),
+             d3i('유언집행자의 <b>인감증명서·인감도장·신분증</b>, <b>주민등록초본</b>',D3_SEAL+' <span class="law" title="부동산등기실무Ⅱ(2015) 296쪽 — 유언집행자의 인감증명, 주소를 증명하는 서면을 제출하여야 하고, 유언자의 상속인이 유언집행자인 경우 상속인임을 증명하는 서면과 그의 인감증명·주소증명서면도 제출한다(선례 5-334).">선례 5-334</span>','주민센터'));
+  if(W[3]&&will!=='gusu')
+    wi.push(d3i('<span class="hint">검인조서에 상속인의 이의(「자필이 아니다」 등)가 적혀 있으면</span> → <b>이의 없다는 상속인들의 진술서</b>(인감증명 첨부) 또는 <b>유언유효확인 승소 확정판결</b>','<span class="law" title="부동산등기실무(2026) 299쪽">실무교재 299쪽</span>',''));
+  client.push({who:'유언 관련 서류 — '+W[0],items:wi});
+  client.push({who:'유증하신 분(돌아가신 분) 관련',items:[
+    d3i('<b>기본증명서(상세)</b>','사망 사실 확인',LK.family),
+    d3i('<b>가족관계증명서(상세)</b> · <b>제적등본</b>','2008년 이전 신분관계 확인용',LK.family),
+    d3i('<b>주민등록 말소자 초본</b>','최후 주소가 등기부 주소와 같은지 확인(다르면 <b>등기명의인표시변경</b>이 먼저 필요합니다)','주민센터'),
+    d3i('<b style="color:var(--seal);">등기필정보(등기권리증)</b>','<b>유증은 반드시 필요</b>합니다(상속등기와 다름). 없으면 사무소가 확인정보를 만듭니다 — 유언집행자가 여럿이면 <b>과반수</b>의 것으로 충분합니다 <span class="law" title="부동산등기실무(2026) 299쪽 — 유증자의 사망을 증명하는 정보와 등기의무자(유증자)의 등기필정보를 제공한다. 등기필정보가 없으면 법 제51조의 확인정보를 제공하고, 유언집행자 과반수의 확인정보로 충분하다.">실무교재 299쪽</span>','')],
+    extra:foreignBlock(D3_FR('bq_frDec'),'유증자','dec')});
+  const ri=[d3i('<b>주민등록표 등(초)본</b>, 도장, 신분증','',LK.juminCho)];
+  if(heir==='yes') ri.push(d3i('<b>가족관계증명서</b>','상속인 지위 소명(취득세율 2.8% 적용 근거)',LK.family));
+  client.push({who:'수증자 (받는 분 · 등기권리자)'+(bt!=='ind'?' — '+PARTY_LABEL[bt]:''),items:d3party(bt,false,ri),
+    extra:(kind==='teukjeong'&&heir==='no'?'<div class="d3note" style="color:var(--seal);"><b>상속인 아닌 분의 특정유증</b>이므로 취득세는 <b>무상취득 3.5%</b>입니다(비영리사업자 2.8%).</div>':'')});
   if(exec==='no')
-    h+='· <b>상속인 전원</b>의 가족관계증명서·기본증명서, <b>인감증명서·인감도장</b>, 주민등록초본<br>'
-      +'　<span class="hint">한 사람이라도 협조하지 않으면 <b>소송(유언효력확인·소유권이전등기청구)</b>으로 가야 합니다.</span><br>';
+    client.push({who:'상속인',items:[d3i('<b>상속인 전원</b>의 가족관계증명서·기본증명서, <b>인감증명서·인감도장</b>, 주민등록초본','<span class="hint">한 사람이라도 협조하지 않으면 <b>소송(유언효력확인·소유권이전등기청구)</b>으로 가야 합니다.</span>',LK.family)],
+      extra:D3_FR('bq_frOb')?'':foreignBlock(D3_FR('bq_frHeir'),'상속인','ob')});
   else
-    h+='· 유언집행자가 있으면 상속인은 등기신청에 참여하지 않습니다.<br>'
-      +'　<span class="hint">다만 <b>유류분</b> 분쟁 소지가 있으면 사전에 정리하는 편이 안전합니다(민법 §1112 이하).</span><br>';
+    client.push({who:'상속인',items:[d3i('유언집행자가 있으면 상속인은 등기신청에 참여하지 않습니다.','<span class="hint">다만 <b>유류분</b> 분쟁 소지가 있으면 미리 정리하는 편이 안전합니다(민법 §1112 이하).</span>','')]});
+  client.push({who:'해당하는 경우에만',items:[d3i('<b>농지</b>이면 농지취득자격증명 <span class="tag chk">확인필요</span>','<span class="hint">(상속은 필요 없으나 상속인 아닌 분의 유증은 필요하다는 견해가 있습니다)</span>',LK.gov)]});
 
+  const office=d3officeStd({oblig:exec==='yes'?'유언집행자':'상속인',ledger:led});
+  attach.push(['유언증서('+W[0]+')'+(W[3]?' + '+W[3]:''),'의뢰인','규칙 §46①1호 · 실무교재 299쪽']);
+  attach.push([exec==='yes'?'유언집행자 자격 증명 — 유언증서·지정서·선임심판서':'상속인임을 증명하는 정보(가족관계등록사항별증명서 등)','의뢰인','실무교재 299쪽']);
+  attach.push(['유증자의 사망을 증명하는 정보 — 기본증명서(상세) 등','의뢰인','실무교재 299쪽']);
+  attach.push(['유증자의 등기필정보(등기권리증) <small>— 없으면 확인정보</small>','의뢰인 · 확인정보는 사무소','법 §50② · §51 · 실무교재 299쪽']);
+  attach.push([(exec==='yes'?'유언집행자':'상속인 전원')+'의 인감증명서 · 주소 증명','의뢰인','선례 5-334 · 부동산등기실무Ⅱ(2015) 296쪽 · 3개월(§62)']);
+  attach.push([bt==='ind'?'수증자의 주민등록표 등(초)본':'수증자의 주소·등록번호 증명','수증자','규칙 §46①6호']);
+  attach.push([led,'사무소','규칙 §46①7호']);
+  attach.push(['위임장','사무소 작성 · 당사자 날인','규칙 §46①5호']);
+  attach.push(['자격자대리인의 등기의무자 확인 및 자필서명 정보','사무소','규칙 §46①8호']);
+  attach.push(['취득세·지방교육세·농어촌특별세 영수필확인서','사무소 (신고 대행)','규칙 §44']);
+  attach.push(['국민주택채권 매입 — 채권발행번호','사무소 (매입 대행)','규칙 §44']);
+  attach.push(['등기신청수수료 영수필확인서','사무소','수수료규칙 §5의2']);
   if(kind==='teukjeong')
-    h+='<br><div class="note alert"><b>특정유증 — 미등기 부동산이면 순서가 다릅니다</b><br>'
-      +'특정유증을 받은 자는 <b>직접 소유권보존등기를 신청할 수 없습니다.</b> '
+    tail.push('<div class="note alert"><b>특정유증 — 미등기 부동산이면 순서가 다릅니다</b><br>'
+      +'특정유증을 받은 분은 <b>직접 소유권보존등기를 신청할 수 없습니다.</b> '
       +'유언집행자가 <b>상속인 명의로 보존등기</b>를 마친 뒤, 유증을 원인으로 한 <b>소유권이전등기</b>를 신청해야 합니다 '
-      +'<span class="law" title="등기예규 제1512호 가. (2)">등기예규 제1512호</span></div>';
+      +'<span class="law" title="등기예규 제1512호 가. (2) · 부동산등기실무(2026) 298쪽">등기예규 제1512호</span></div>');
   else
-    h+='<br><div class="note"><b>포괄유증 — 미등기 부동산이면</b> 포괄적 수증자가 <b>단독으로 소유권보존등기</b>를 신청할 수 있습니다 '
-      +'<span class="law" title="등기예규 제1512호 가. (1)">등기예규 제1512호</span></div>';
-
-  h+='<br><b>5. 그 밖에</b><br>'
-   +'· 취득세 신고·납부 영수필확인서, 국민주택채권 매입<br>'
-   +'· <b>농지</b>이면 농지취득자격증명 <span class="tag chk">확인필요</span> '
-   +'<span class="hint">(상속은 불요이나 상속인 아닌 자의 유증은 필요하다는 견해가 있습니다)</span><br>'
-   +'· 위임장(법무사 위임 시)<br><br>'+ledger;
-
-  document.getElementById('bq_docsBox').innerHTML=h;
+    tail.push('<div class="note"><b>포괄유증 — 미등기 부동산이면</b> 포괄적 수증자가 <b>단독으로 소유권보존등기</b>를 신청할 수 있습니다 '
+      +'<span class="law" title="등기예규 제1512호 가. (1) · 부동산등기실무(2026) 298쪽">등기예규 제1512호</span></div>');
+  document.getElementById('bq_docsBox').innerHTML=d3({lead:lead,client:client,office:office,attach:attach,tail:tail.join(''),
+    attachNote:'유증은 계약이 아니라서 <b>검인을 받지 않습니다</b> <span class="law" title="부동산등기실무Ⅰ(2015) 277쪽 — 유증은 계약이 아닌 상대방 없는 단독행위이므로 검인을 받을 필요가 없다.">실무교재Ⅰ(2015) 277쪽</span>',
+    law:'부동산등기법 §50②·§51, 부동산등기규칙 §44·§46①·§60·§62, 등기예규 제1512호',
+    src:'유증 — 실무교재 298~300쪽, 『부동산등기실무Ⅱ』(2015) 296~297쪽'});
 }
+
+/* 증여 · 부담부증여 공통 — 당사자 칸 */
 function renderBondUIBequest(){
   bsRender('bq_');
   const t=radio('bq_ptype');if(t===bq_curBondType)return;bq_curBondType=t;
@@ -6203,32 +6711,21 @@ function giftAcqRate(value){const t=radio('gv_ptype'),adj3=chk('gv_adj3');
   if(chk('gv_nonprofit'))return 0.028;
   if(t==='house'&&adj3&&value>=3*억&&!giftMidExempt())return 0.12;
   return 0.035;}
-function renderDocsGift(){renderPartyDocs('gv_','pty_gv__seller','pty_gv__buyer','증여자(등기의무자)','수증자(등기권리자)');const f=radio('gv_bform'),rel=radio('gv_relation'),fam=isLineal(rel);let ledger='';
-  if(f==='apt')ledger='<b>대장</b> — 집합건축물대장(전유부+표제부), 대지권등록부, 대지권 목적 토지대장';
-  else if(f==='house')ledger='<b>대장</b> — 일반건축물대장, 토지대장, 토지이용계획확인원 (필요시 지적도)';
-  else ledger='<b>대장</b> — 토지대장(임야는 임야대장), 토지이용계획확인원, 필요시 지적도·임야도';
-  document.getElementById('gv_docsBox').innerHTML=
-    '<b>증여자(등기의무자)</b><br>'+
-    '· <b>등기필증(등기권리증)</b> — 분실 시 <b>확인서면</b>으로 대체(신분증 사본 + 확인서면에 <b>우무인</b> 날인)<br>'+
-    '· <b>인감증명서</b> <span style="color:var(--seal);font-weight:700;">※ 부동산매도용 아님 — 반드시 주민센터(동사무소) 발급본</span><br>'+
-    '· 인감도장, 신분증<br>'+
-    '· <b>주민등록초본</b>(<b>주소이력 전부</b> 포함), <b>주민등록등본</b>(<b>세대원 전체</b> 포함)<br>'+
-    '<div style="border-left:3px solid var(--gold);padding:6px 8px;margin:6px 0;background:#fdfaf0;border-radius:4px;line-height:1.6;">'+
-    '<b>◎ 친족관계 소명서류</b> <span class="hint">(「가족관계의 등록 등에 관한 법률」 §15 — 모두 「<b>상세증명서</b>」로 발급)</span><br>'+
-    kinDocs(rel)+'</div>'+
-    '<b>수증자(등기권리자)</b><br>'+
-    '· <b>주민등록등본</b>(<b>세대원 전체</b> 포함), 도장, 신분증<br>'+
-    '· <b>사전 통지</b> — <b>보유 주택 수 및 그 지번(주소)</b>을 미리 알려 주십시오 <span class="hint">(중과세율 판정)</span><br>'+
-    '<b>공통</b><br>'+
-    '· <b>검인 받은 증여계약서 3부</b>(취득세 신고용 포함)<br>'+
-    '· 신청서, <b>위임장</b>(위임인 = 수증자)<br>'+
-    '· <b>자격자대리인의 등기의무자 확인 및 자필서명 정보</b><br>'+
-    '· 취득세 영수필확인서, <b>국민주택채권 매입 영수증</b>(채권발행번호 기재), 등기신청수수료 영수필확인서<br>'+
-    '· 부동산등기부등본 <span class="hint">(증여인의 부채 유무 확인용)</span><br>'+
-    foreignBlock(document.getElementById('gv_frDonor')?document.getElementById('gv_frDonor').value:'','증여자','ob')+
-    foreignBlock(document.getElementById('gv_frDonee')?document.getElementById('gv_frDonee').value:'','수증자','ri')+
-    '<div class="dl" style="border-top:1px dashed var(--line);margin-top:6px;padding-top:6px;">'+
-    '<b style="color:var(--seal);">※ 모든 서류에 주민등록번호 뒷자리가 나오게 발급받으십시오.</b><br>'+ledger+'</div>';}
+function renderDocsGift(){
+  renderPartyDocs('gv_','pty_gv__seller','pty_gv__buyer','증여자(등기의무자)','수증자(등기권리자)',true);
+  const f=radio('gv_bform'), rel=radio('gv_relation'), led=d3ledger(f);
+  const st=(document.getElementById('pty_gv__seller')||{}).value||'ind', bt=(document.getElementById('pty_gv__buyer')||{}).value||'ind';
+  const client=d3giftParties('gv_',st,bt,rel,false);
+  client[0].extra=foreignBlock(D3_FR('gv_frDonor'),'증여자','ob');
+  client[1].extra=foreignBlock(D3_FR('gv_frDonee'),'수증자','ri');
+  const office=d3officeStd({oblig:'증여자',ledger:led,
+    cause:'증여계약서 작성 · 검인',causeDesc:'사무소가 계약서(<b>3부</b> — 취득세 신고용 포함)를 작성하고 부동산 소재지 시·군·구청에서 <b>검인</b>을 받습니다 <span class="law" title="부동산등기 특별조치법 제3조 — 계약을 원인으로 소유권이전등기를 신청할 때에는 검인을 받은 계약서 원본(판결서 정본 포함)을 제출한다 — 부동산등기실무(2026) 117쪽">특조법 §3</span>',
+    more:[d3i('<b>등기사항전부증명서</b>로 증여인의 부채 유무 확인','',''),
+      d3i('<b>토지이용계획확인원</b>','농지 여부 확인 <span class="hint">(확인용)</span>',LK.eum)]});
+  document.getElementById('gv_docsBox').innerHTML=d3({client:client,office:office,attach:d3giftAttach(st,bt,led,false),
+    attachNote:'증여는 대가가 없어 <b>토지거래허가 대상이 아닙니다</b> <span class="law" title="부동산등기실무(2026) 127쪽 — 증여계약 등은 허가의 대상이 되지 않는다.">실무교재 127쪽</span>.',
+    src:'증여 — 실무교재 117~118쪽(검인)·230~231쪽(주소 직권변경)'});
+}
 function calcGift(fromEdit){
   renderBondUIGift();
   const price=val('gv_price');
@@ -6329,22 +6826,56 @@ function calcBondDivision(){
   document.getElementById('dv_bondBuy').value=buy;
   calcDivision();
 }
-function renderDocsDivision(){renderPartyDocs('dv_','pty_dv__seller','pty_dv__buyer','분할의무자(등기의무자)','분할권리자(등기권리자)');const f=radio('dv_bform'),b=radio('dv_basis'),mg=radio('dv_marriage');let ledger='';
-  if(f==='apt')ledger='<b>대장</b> — 집합건축물대장(전유부+표제부), 대지권등록부, 대지권 목적 토지대장';
-  else if(f==='house')ledger='<b>대장</b> — 일반건축물대장, 토지대장, 토지이용계획확인원 (필요시 지적도)';
-  else ledger='<b>대장</b> — 토지대장(임야는 임야대장), 토지이용계획확인원, 필요시 지적도·임야도';
-  let basis = (b==='judge')
-    ? '<b>분할 근거</b> — 판결정본 + 확정증명원 (또는 조정조서·화해권고결정 정본), 송달증명원<br>'
-    : '<b>분할 근거</b> — 재산분할협의서(당사자 인감 날인), 협의이혼의사확인서 등본, 이혼신고 후 <b>혼인관계증명서</b>(이혼 사실 기재)<br>';
-  let extra = (mg==='defacto')
-    ? '<b>사실혼 입증자료</b> <span style="color:#b03a3a;">[필수]</span> — 사실혼 해소에 따른 재산분할 판결·조정조서, 주민등록등본(동일 세대), 사실혼 기간 소명자료(사진·계좌거래·보험·경조사 등). <b>대법원 2016두36864</b> — 객관적 자료로 증명 시 특례세율 적용.<br>'
-    : '';
-  document.getElementById('dv_docsBox').innerHTML=
-    basis+extra+
-    '<b>등기의무자(재산을 주는 쪽)</b> — 등기권리증(등기필정보), 인감증명서 1통, 주민등록초본 1통(주소변동 포함), 인감도장, 신분증<br>'+
-    '<b>등기권리자(재산을 받는 쪽)</b> — 주민등록초본(또는 등본) 1통, 도장, 신분증<br>'+
-    '<b>공통</b> — 취득세 영수필확인서, 채권 매입필증, 등기수수료 영수필확인서, 위임장<br>'+
-    '<div class="dl">'+ledger+'</div>';}
+function renderDocsDivision(){
+  renderPartyDocs('dv_','pty_dv__seller','pty_dv__buyer','분할의무자(등기의무자)','분할권리자(등기권리자)',true);
+  const f=radio('dv_bform'), b=radio('dv_basis'), mg=radio('dv_marriage'), led=d3ledger(f), judge=(b==='judge');
+  const st=(document.getElementById('pty_dv__seller')||{}).value||'ind', bt=(document.getElementById('pty_dv__buyer')||{}).value||'ind';
+  const client=[], attach=[];
+  if(judge){
+    client.push({who:'분할 근거 — 재판',items:[
+      d3i('<b>판결정본 + 확정증명원</b> (또는 <b>조정조서·화해권고결정 정본</b>)','조정조서는 확정증명원이 필요 없고, 화해권고결정·조정을 갈음하는 결정은 확정증명원이 필요합니다. <b>송달증명원은 등기소에 내지 않습니다</b> '+D3_LAW_JUDGE,'가정법원'),
+      d3i('<b>검인</b> — 재산분할 심판서 정본에도 검인을 받도록 한 선례가 있습니다','관할 시·군·구청에 확인하십시오 <span class="tag chk">확인필요</span> <span class="law" title="선례 4-261 — 민법 제839조의2에 의한 재산분할 재판에 의하여 농지의 소유권이전등기를 신청할 때 심판서 정본에 부동산등기 특별조치법 소정의 검인을 받아야 하나, 농지취득자격증명·토지거래허가서는 필요 없다. 재판은 계약이 아니므로 검인이 필요 없다는 반대 견해가 있다 — 부동산등기실무Ⅰ(2015) 277쪽">선례 4-261</span>','')]});
+  } else {
+    client.push({who:'분할 근거 — 협의',items:[
+      d3i('<b>협의이혼의사확인서 등본</b>','','가정법원'),
+      d3i('이혼신고 후 <b>혼인관계증명서(상세)</b>(이혼 사실 기재)','재산분할 협의는 <b>이혼이 이루어져야</b> 효력이 생기므로 이혼을 증명합니다 <span class="law" title="부동산등기실무(2026) 274쪽 — 재산분할 협의의 효력은 이혼이 이루어진 때 발생하므로 협의이혼에 따른 재산분할 등기를 하려면 이혼하였음을 증명하는 정보(협의이혼신고의 접수 증명 또는 협의이혼사실이 기록된 혼인관계증명서 등)를 제공한다.">실무교재 274쪽</span>',LK.family)]});
+  }
+  if(mg==='defacto') client.push({who:'사실혼 입증자료 <span style="color:#b03a3a;">[필수]</span>',items:[
+      d3i('사실혼 해소에 따른 재산분할 판결·조정조서, 주민등록등본(동일 세대), 사실혼 기간 소명자료(사진·계좌거래·보험·경조사 등)','<b>대법원 2016두36864</b> — 객관적 자료로 증명하면 특례세율 적용','')]});
+  if(judge){
+    client.push({who:'재산을 받는 쪽 (등기권리자)'+(bt!=='ind'?' — '+PARTY_LABEL[bt]:''),items:d3party(bt,false,[
+      d3i('<b>주민등록표 초본</b>(또는 등본) 1통, 도장, 신분증','',LK.juminCho)]),
+      extra:'<div class="d3note">판결로 받는 분이 <b>혼자 신청</b>합니다(부동산등기법 §23④). 그래서 <b>재산을 주는 쪽의 등기필정보·인감증명은 필요 없습니다</b> '+D3_LAW_JUDGE+'.</div>'});
+  } else {
+    client.push({who:'재산을 주는 쪽 (등기의무자)'+(st!=='ind'?' — '+PARTY_LABEL[st]:''),items:d3party(st,true,[
+      d3i('<b>등기권리증(등기필정보)</b>','잃어버리셨으면 사무소가 확인서면으로 대신합니다',''),
+      d3i('<b>인감증명서</b> 1통, <b>인감도장</b>, <b>신분증</b>',D3_SEAL,'주민센터'),
+      d3i('<b>주민등록표 초본</b> 1통(주소 변동 포함)','',LK.juminCho)])});
+    client.push({who:'재산을 받는 쪽 (등기권리자)'+(bt!=='ind'?' — '+PARTY_LABEL[bt]:''),items:d3party(bt,false,[
+      d3i('<b>주민등록표 초본</b>(또는 등본) 1통, 도장, 신분증','',LK.juminCho)])});
+  }
+  const office=d3officeStd({oblig:judge?'':'재산을 주는 분',ledger:led,
+    cause:judge?'':'재산분할협의서 작성 · 검인',causeDesc:'당사자 <b>인감 날인</b>. 부동산 소재지 시·군·구청에서 검인을 받습니다 <span class="law" title="부동산등기 특별조치법 제3조 · 부동산등기실무(2026) 117쪽·274쪽 — 분할 대상이 농지여도 검인을 받되 농지취득자격증명·토지거래계약허가서는 필요 없다.">특조법 §3 · 실무교재 274쪽</span>'});
+  if(judge){
+    attach.push(['판결정본 + 확정증명서 <small>(조정조서·화해조서는 확정증명 불요)</small>','의뢰인','규칙 §46①1호 · 실무교재 102쪽']);
+  } else {
+    attach.push(['재산분할협의서 <small>(검인받은 것)</small>','사무소 작성 · 당사자 인감 날인','규칙 §46①1호 · 특조법 §3']);
+    attach.push(['이혼 증명 — 혼인관계증명서(상세) 또는 협의이혼신고 접수 증명','의뢰인','실무교재 274쪽']);
+    attach.push(['등기필정보(등기권리증) <small>— 없으면 확인서면</small>','주는 쪽 · 확인서면은 사무소','법 §50② · §51']);
+    attach.push(st==='ind'?['주는 쪽 인감증명서','주는 쪽','규칙 §60①1호 · 3개월(§62)']:[st==='corp'?'주는 쪽 법인인감증명서':'주는 쪽 대표자 인감증명서','주는 쪽('+PARTY_LABEL[st]+')','규칙 §60①1호·§61']);
+    attach.push(st==='ind'?['주는 쪽 주민등록표 초본','주는 쪽','규칙 §46①6호 — 소유권이전은 의무자 주소도']:d3partyAttach(st,'주는 쪽'));
+  }
+  attach.push(bt==='ind'?['받는 쪽 주민등록표 등(초)본','받는 쪽','규칙 §46①6호']:d3partyAttach(bt,'받는 쪽'));
+  attach.push([led,'사무소','규칙 §46①7호']);
+  attach.push(['위임장','사무소 작성 · 당사자 날인','규칙 §46①5호']);
+  if(!judge) attach.push(['자격자대리인의 등기의무자 확인 및 자필서명 정보','사무소','규칙 §46①8호']);
+  attach.push(['취득세 영수필확인서','사무소 (신고 대행)','규칙 §44']);
+  attach.push(['국민주택채권 매입 — 채권발행번호','사무소 (매입 대행)','규칙 §44']);
+  attach.push(['등기신청수수료 영수필확인서','사무소','수수료규칙 §5의2']);
+  document.getElementById('dv_docsBox').innerHTML=d3({client:client,office:office,attach:attach,
+    attachNote:'재산분할 대상이 <b>농지</b>여도 <b>농지취득자격증명·토지거래계약허가서는 필요 없습니다</b> <span class="law" title="부동산등기실무(2026) 274쪽">실무교재 274쪽</span>',
+    src:'재산분할 — 실무교재 101~102쪽(판결)·273~274쪽'});
+}
 function calcDivision(fromEdit){
   renderBondUIDivision();
   const price=val('dv_price');
@@ -6962,8 +7493,10 @@ function renderDocsEtcAcq(){
       +'· <b>주주총회(사원총회) 의사록</b> — 합병·분할 승인 결의. <span class="hint">공증을 받아야 하는 경우가 많습니다.</span><br>'
       +'· <b>채권자 보호절차를 거친 증명</b> — 공고문(신문 스크랩·전자공고 출력본), 개별 최고서 발송 증빙<br>'
       +'· <b>승계 재산목록(부동산 목록)</b> — 넘어가는 부동산이 특정되어야 합니다<br><br>'
-      +'<b>■ 소멸(분할)법인이 준비할 것</b><br>'
-      +'· <b>등기필정보(등기필증)</b> · <b>법인인감증명서</b> 1통 + <b>법인인감도장</b> · <b>법인등기사항증명서</b> 1통<br><br>'
+      +'<b>■ 분할 후에도 분할회사가 남아 있는 경우(존속분할)에만 — 분할회사가 준비할 것</b><br>'
+      +'· <b>등기필정보(등기필증)</b> · <b>법인인감증명서</b> 1통 + <b>법인인감도장</b> · <b>법인등기사항증명서</b> 1통<br>'
+      +'<span class="hint">▸ <b>합병</b>이나 분할회사가 <b>없어지는 분할</b>은 받는 법인이 <b>혼자 신청</b>하므로 위 서류가 필요 없습니다'
+      +'<span class="law" title="부동산등기법 제23조제3항 — 상속, 법인의 합병, 그 밖에 대법원규칙으로 정하는 포괄승계에 따른 등기는 등기권리자가 단독으로 신청한다. 부동산등기규칙 제42조제1호 — 법인의 분할로 분할 전 법인이 소멸하는 경우. 분할 전 법인이 존속하면 공동신청 — 부동산등기실무(2026) 74쪽">법 §23③ · 규칙 §42</span>.</span><br><br>'
       +'<b>■ 존속(신설)법인이 준비할 것</b><br>'
       +'· <b>법인등기사항증명서</b> 1통 · <b>법인인감증명서</b> 1통 · <b>법인인감도장</b> · <b>대표자 신분증</b><br>'
       +'· <b>주주명부</b> — 대도시 중과(§13②) 해당 여부 확인용<br><br>'
@@ -6996,13 +7529,40 @@ function renderDocsEtcAcq(){
       +'· <span class="hint">지목변경도 등기가 아니라 <b>토지대장 정리</b>로 처리되며, 취득세만 신고합니다.</span><br>';
   }
 
-  /* ── 모든 원인 공통 ── */
-  h+='<div class="dl" style="border-top:1px dashed var(--line);margin-top:10px;padding-top:8px;">'
-    +'<b>■ 등기를 하시는 경우 공통으로 들어가는 서류</b><br>'
-    +'· <b>등기신청서</b> · <b>위임장</b> · <b>자격자대리인의 등기의무자 확인 및 자필서명 정보</b> <span class="hint">— 사무소에서 만들어 드립니다</span><br>'
-    +'· <b>취득세 영수필확인서</b> · <b>등기신청수수료 영수필확인서</b><br>'
-    +'· <b>토지대장 · 건축물대장</b> 각 1통 <span class="hint">(집합건물이면 전유부 대장)</span><br>'
-    +'· <b>등기사항증명서</b> 1통<br><br>'
+  /* ── 2026-10 3단 구분 — ② 사무소 준비 ③ 첨부서류(환매·합병만 표로, 나머지는 사안별) ── */
+  const _jo=(t==='repurchase');
+  const office=[
+    d3i('<b>등기신청서</b> · <b>위임장</b>','사무소가 작성합니다',''),
+    _jo?d3i('<b>자격자대리인의 등기의무자 확인 및 자필서명 정보</b>','법무사가 지금 소유자(처음 산 분) 본인을 직접 만나 확인한 뒤 작성합니다',''):'',
+    d3i('<b>취득세 신고·납부</b>','신고서를 작성해 '+LK.wetax+'·시·군·구청에 신고하고 영수필확인서를 받습니다. 세금은 의뢰인 부담입니다',''),
+    d3i('<b>등기신청수수료 납부</b>','',''),
+    d3i('<b>토지대장 · 건축물대장</b> 각 1통 <span class="hint">(집합건물이면 전유부 대장)</span>','사무소가 발급합니다',''),
+    d3i('<b>등기사항증명서</b> 1통','',LK.iros)].filter(Boolean);
+  let attach=[], anote='';
+  if(t==='repurchase') attach=[
+    ['환매특약부 매매계약서 · 환매권 행사 증명(내용증명 등) · 환매대금 지급 증빙','의뢰인','규칙 §46①1호'],
+    ['등기필정보(등기필증) <small>— 없으면 확인서면</small>','지금 소유자 · 확인서면은 사무소','법 §50② · §51'],
+    ['지금 소유자의 인감증명서','지금 소유자','규칙 §60①1호 · 3개월(§62)'],
+    ['지금 소유자의 주민등록표 초본','지금 소유자','규칙 §46①6호 — 소유권이전은 의무자 주소도'],
+    ['환매권자의 주민등록표 등(초)본','환매권자','규칙 §46①6호'],
+    ['토지대장 · 건축물대장','사무소','규칙 §46①7호'],
+    ['위임장','사무소 작성 · 당사자 날인','규칙 §46①5호'],
+    ['자격자대리인의 등기의무자 확인 및 자필서명 정보','사무소','규칙 §46①8호'],
+    ['취득세 영수필확인서','사무소 (신고 대행)','규칙 §44'],
+    ['국민주택채권 매입 — 채권발행번호','사무소 (매입 대행)','규칙 §44'],
+    ['등기신청수수료 영수필확인서','사무소','수수료규칙 §5의2']];
+  else if(t==='merger'){ attach=[
+    ['합병(분할) 사실이 기재된 법인등기사항증명서 <small>— 분할이면 승계 부동산을 특정하는 분할계획서 등</small>','의뢰인(법인)','법 §23③ · 규칙 §42 · 실무교재 74쪽'],
+    ['받는 법인의 법인등기사항증명서 <small>(주소·등록번호 증명)</small>','의뢰인(법인)','규칙 §46①4·6호'],
+    ['<small>분할회사가 남아 있는 분할이면</small> 분할회사의 등기필정보 · 법인인감증명서','분할회사','실무교재 74쪽 · 규칙 §60①1호'],
+    ['토지대장 · 건축물대장','사무소','규칙 §46①7호'],
+    ['위임장','사무소 작성 · 법인 날인','규칙 §46①5호'],
+    ['취득세 영수필확인서','사무소 (신고 대행)','규칙 §44'],
+    ['국민주택채권 매입 — 채권발행번호','사무소 (매입 대행)','규칙 §44'],
+    ['등기신청수수료 영수필확인서','사무소','수수료규칙 §5의2']];
+    anote='합병(분할회사가 없어지는 분할 포함)으로 인한 이전은 <b>받는 법인이 혼자 신청</b>합니다 — 없어지는 법인의 등기필정보·인감증명은 내지 않습니다 <span class="law" title="부동산등기법 제23조제3항 · 부동산등기규칙 제42조 · 부동산등기실무(2026) 74쪽">법 §23③</span>.'; }
+  else anote='이 취득원인은 <b>등기를 할지, 어떤 등기를 할지</b>가 사안마다 달라 첨부서류를 미리 정할 수 없습니다. 위 ①의 서류를 보내 주시면 확인해 드립니다.';
+  const tailWhere='<div class="dl" style="border-top:1px dashed var(--line);margin-top:10px;padding-top:8px;">'
     +'<b>■ 서류는 어디서 떼나요</b><br>'
     +'· <b>주민등록등(초)본 · 인감증명서 · 본인서명사실확인서</b> → 가까운 <a href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a> 또는 주민센터<br>'
     +'· <b>토지대장 · 건축물대장 · 지적도</b> → <a href="https://www.eum.go.kr" target="_blank" rel="noopener">부동산종합증명(일사편리)</a> 또는 <a href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a><br>'
@@ -7012,11 +7572,11 @@ function renderDocsEtcAcq(){
     +'· <b>공시가격(시가표준액) 조회</b> → <a href="https://www.realtyprice.kr" target="_blank" rel="noopener">부동산공시가격 알리미</a><br>'
     +'· <b>건축 인허가 서류</b> → <a href="https://www.eais.go.kr" target="_blank" rel="noopener">세움터</a> 또는 시·군·구청 건축과<br>'
     +'<br><span style="color:var(--seal);font-weight:700;">※ 국민주택채권은 취득원인별 매입용도가 달라 자동계산하지 않습니다. '
-    +'<a href="https://nhuf.molit.go.kr" target="_blank" rel="noopener">주택도시기금 「셀프 채권매입 도우미」</a>로 확인한 금액을 위 ② 공과금란에 직접 넣으십시오.</span><br>'
+    +'<a href="https://nhuf.molit.go.kr" target="_blank" rel="noopener">주택도시기금 「셀프 채권매입 도우미」</a>로 확인한 금액을 계산기의 공과금(채권) 칸에 직접 넣으십시오.</span><br>'
     +'<span class="hint">▸ 모든 서류는 <b>주민등록번호 뒷자리가 나오게</b> 발급받으십시오.<br>'
     +'▸ 위 목록은 일반적인 경우입니다. <b>사안에 따라 서류가 더 필요할 수 있습니다.</b></span></div>';
-
-  db.innerHTML=h;
+  db.innerHTML=d3({clientHTML:h,office:office,attach:attach,attachNote:anote,tail:tailWhere,
+    law:'부동산등기법 §23③·§50②·§51, 부동산등기규칙 §42·§44·§46①·§60·§62',src:''});
 }
 
 (function(){const tb=document.getElementById('ea_extraAgent');if(!tb)return;EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const tr=document.createElement('tr');
@@ -7235,49 +7795,100 @@ function calcNakchal(fromEdit){
   document.getElementById('nk_t_grand').textContent=won(fee+vat+publicSum);
   renderDocsNakchal();
 }
-function renderDocsNakchal(){renderPartyDocs('nk_',null,'pty_nk__buyer','','매수인(등기권리자)');
-  const f=radio('nk_bform'), onbid=(radio('nk_basis')==='onbid');let ledger='';
-  if(f==='apt')ledger='<b>대장</b> — 집합건축물대장(전유부+표제부), 대지권등록부, 대지권 목적 토지대장';
-  else if(f==='house')ledger='<b>대장</b> — 일반건축물대장, 토지대장, 토지이용계획확인원 (필요시 지적도)';
-  else ledger='<b>대장</b> — 토지대장(임야는 임야대장), 토지이용계획확인원, 필요시 지적도·임야도';
-  document.getElementById('nk_docsBox').innerHTML=
-    '<div style="border-left:3px solid var(--seal);padding:6px 8px;margin-bottom:8px;background:#fdeaea;border-radius:4px;line-height:1.6;">'+
+function renderDocsNakchal(){
+  renderPartyDocs('nk_',null,'pty_nk__buyer','','매수인(등기권리자)',true);
+  const f=radio('nk_bform'), onbid=(radio('nk_basis')==='onbid'), led=d3ledger(f);
+  const bt=(document.getElementById('pty_nk__buyer')||{}).value||'ind';
+  const lead='<div class="d3warn">'+
     '▸ <b>전 소유자(채무자)의 서류는 일절 필요 없습니다.</b> 등기의무자 협력이 불요한 촉탁등기이므로 인감증명서·등기필정보를 받을 필요가 없습니다.<br>'+
-    '▸ 다만 <b>매수인이 비용과 서류를 갖추어 촉탁을 신청</b>하지 않으면 등기가 진행되지 않습니다(민사집행법 §144③).</div>'+
-    (onbid
-      ?'<b>공매(온비드) — 한국자산관리공사·세무서장 등이 촉탁</b><br>· <b>매각결정통지서</b>, <b>매수대금 납부확인서(영수증)</b><br>· 등기촉탁 신청서 — 처분청(세무서·지자체·캠코) 양식<br>· <b>인도명령 제도가 없습니다</b> — 점유자가 불응하면 명도소송<br>'
-      :'<b>법원 경매 — 집행법원이 촉탁</b><br>· <b>부동산소유권이전등기 촉탁신청서</b>(경매계 제출)<br>· <b>매각대금 완납증명원</b> — 경매계 발급(수입인지 필요)<br>· <b>부동산 목록</b> — 법원마다 요구 부수 상이(보통 3~5부)<br>· 인도명령 신청은 <b>완납일부터 6개월 이내</b>(민사집행법 §136①)<br>')+
-    '· <b>매수인</b> — 주민등록초본(주소이력 포함), 신분증, 도장<br>'+
-    '· <b>세금·비용</b> — 취득세 영수필확인서, 말소분 등록면허세 영수필확인서, 국민주택채권 매입영수증, 등기신청수수료 영수증, 우표(등기필정보 송부용)<br>'+
-    '· '+ledger+'<br>'+
-    '· <b>등기사항전부증명서(말소사항 포함)</b> — 말소할 권리 건수 확인용. <b>인수되는 권리는 말소 대상에서 제외</b>됩니다';
+    '▸ 다만 <b>매수인이 비용과 서류를 갖추어 촉탁을 신청</b>하지 않으면 등기가 진행되지 않습니다 <span class="law" title="민사집행법 제144조 · 부동산등기실무(2026) 406쪽 — 현실적으로 등기를 촉탁하기 위해서는 매수인이 취득세 등을 납부하고 등기촉탁에 필요한 정보를 집행법원에 제공하여야 한다.">민사집행법 §144③</span>.</div>';
+  const client=[];
+  client.push({who:'매수인 (낙찰받은 분 · 등기권리자)'+(bt!=='ind'?' — '+PARTY_LABEL[bt]:''),items:d3party(bt,false,[
+    d3i('<b>주민등록표 초본</b>(주소 이력 포함), 신분증, 도장','',LK.juminCho)])});
+  if(onbid) client.push({who:'공매(온비드) — 처분청에서 받은 서류',items:[
+    d3i('<b>매각결정통지서</b>, <b>매수대금 납부확인서(영수증)</b>','','한국자산관리공사·세무서·지방자치단체'),
+    d3i('<span class="hint"><b>인도명령 제도가 없습니다</b> — 점유자가 응하지 않으면 명도소송을 해야 합니다</span>','','')]});
+  else client.push({who:'법원 경매 — 알아 두실 것',items:[
+    d3i('<span class="hint">인도명령 신청은 <b>대금 완납일부터 6개월 이내</b>(민사집행법 §136①)</span>','','')]});
+  const office=[];
+  if(onbid) office.push(d3i('<b>등기촉탁 신청서</b>','처분청(세무서·지방자치단체·한국자산관리공사) 양식으로 작성합니다',''));
+  else {
+    office.push(d3i('<b>부동산소유권이전등기 촉탁신청서</b>','경매계에 냅니다',''));
+    office.push(d3i('<b>매각대금 완납증명원</b>','경매계 발급(수입인지 필요)',''));
+    office.push(d3i('<b>부동산 목록</b>','법원마다 요구 부수가 다릅니다(보통 3~5부)',''));
+  }
+  office.push(d3i('<b>취득세 신고·납부</b>','신고서를 작성해 '+LK.wetax+'·시·군·구청에 신고하고 <b>영수필확인서</b>를 받습니다(보수표 Ⅸ-2). 세금은 의뢰인 부담입니다',''));
+  office.push(d3i('<b>말소할 등기의 등록면허세 신고·납부</b>','지워지는 근저당·가압류 등 건수만큼 냅니다',''));
+  office.push(d3i('<b>국민주택채권 매입·즉시매도</b>','은행에서 매입하고 바로 되팔아 할인 차액만 부담하시게 합니다(보수표 Ⅸ-3)',''));
+  office.push(d3i('<b>등기신청수수료 납부</b>','',''));
+  office.push(d3i('<b>'+led+'</b>','사무소가 발급합니다(발행 3개월 이내)',''));
+  office.push(d3i('<b>등기사항전부증명서(말소사항 포함)</b>','말소할 권리 건수 확인용. <b>인수되는 권리는 말소 대상에서 제외</b>됩니다',''));
+  office.push(d3i('<b>우표</b>','등기필정보 송부용',''));
+  const attach=[];
+  if(onbid){
+    attach.push(['등기촉탁 신청서','사무소 작성','처분청 양식']);
+    attach.push(['매각결정통지서 · 매수대금 납부확인서','의뢰인','처분청 발급']);
+  } else {
+    attach.push(['부동산소유권이전등기 촉탁신청서','사무소 작성','민사집행법 §144']);
+    attach.push(['매각대금 완납증명원','사무소 (경매계 발급)','민사집행법 §144 · 실무교재 406쪽']);
+    attach.push(['부동산 목록','사무소','법원 요구 부수']);
+  }
+  attach.push([bt==='ind'?'매수인 주민등록표 초본':'매수인 주소·등록번호 증명','매수인','실무교재 407쪽 — 등기권리자 주소·주민등록번호 증명']);
+  attach.push([led,'사무소','규칙 §46①7호']);
+  attach.push(['취득세 · 말소분 등록면허세 영수필확인서','사무소 (신고 대행)','실무교재 407쪽']);
+  attach.push(['국민주택채권 매입영수증','사무소 (매입 대행)','규칙 §44']);
+  attach.push(['등기신청수수료 영수증 · 우표(등기필정보 송부용)','사무소','수수료규칙']);
+  document.getElementById('nk_docsBox').innerHTML=d3({lead:lead,client:client,office:office,attach:attach,
+    selfNote:'<b>직접 하시는 경우</b> — 위 서류도 직접 준비해 '+(onbid?'처분청(세무서·지방자치단체·한국자산관리공사)':'경매계(집행법원)')+'에 내시면 됩니다. 촉탁신청서 양식은 '+(onbid?'처분청':'경매계')+'에 문의하십시오.',
+    attachTitle:'③ '+(onbid?'처분청':'법원(경매계)')+'에 내는 서류',attachSub:'— '+(onbid?'처분청':'법원')+'이 등기소에 등기를 촉탁합니다',
+    attachNote:'경매·공매로 인한 이전등기는 <b>검인을 받지 않습니다</b> <span class="law" title="부동산등기실무(2026) 117쪽">실무교재 117쪽</span>. 법원은 <b>매각허가결정 정본</b>을 붙여 촉탁합니다(실무교재 407쪽).',
+    law:'민사집행법 §144, 부동산등기규칙 §44·§46①',src:'매각 — 실무교재 406~407쪽'});
 }
 
-function renderDocsPartition(){renderPartyDocs('pt_','pty_pt__seller','pty_pt__buyer','공유자(등기의무자)','취득자(등기권리자)');
-  const f=radio('pt_bform'), judge=(radio('pt_basis')==='judge');let ledger='';
-  if(f==='apt')ledger='<b>대장</b> — 집합건축물대장(전유부+표제부), 대지권등록부, 대지권 목적 토지대장';
-  else if(f==='house')ledger='<b>대장</b> — 일반건축물대장, 토지대장, 토지이용계획확인원 (필요시 지적도)';
-  else ledger='<b>대장</b> — 토지대장(임야는 임야대장), 토지이용계획확인원, 필요시 지적도·임야도';
-  document.getElementById('pt_docsBox').innerHTML=
-    '<div style="border-left:3px solid var(--seal);padding:6px 8px;margin-bottom:8px;background:#fdeaea;border-radius:4px;line-height:1.6;">'+
-    '▸ <b>공유자 전원</b>이 등기의무자 겸 등기권리자가 됩니다(각자 자기 지분을 이전하고 다른 지분을 취득). '+
-    '<b>전원의 등기필증·인감증명서</b>가 필요합니다. 1인이라도 누락되면 신청할 수 없습니다.</div>'+
-    (judge
-      ?'<b>판결·조정에 의한 분할</b><br>· <b>판결정본 + 확정증명원</b>(조정성립 시 <b>조정조서 정본</b>)<br>· <b>검인 불요</b>(등기원인증서가 재판서)<br>· 단독신청 가능 — 승소한 등기권리자가 단독으로 신청<br>'
-      :'<b>협의분할</b><br>· <b>공유물분할계약서(검인)</b> — 분할 방법·각자 취득 부분을 특정<br>· 공유자 <b>전원 참여</b> 필요(공동신청)<br>')+
-    '<b>등기의무자(지분을 넘겨주는 공유자)</b><br>'+
-    '· <b>등기필증(등기권리증)</b> — 분실 시 <b>확인서면</b>(신분증 사본 + 우무인 날인)<br>'+
-    '· <b>인감증명서</b> <span style="color:var(--seal);font-weight:700;">※ 부동산매도용 아님 — 주민센터 발급본</span>, 인감도장<br>'+
-    '· <b>주민등록초본</b>(주소이력 전부) — 등기부상 주소와 불일치 시 필수<br>'+
-    '<b>등기권리자(지분을 받는 공유자)</b><br>'+
-    '· <b>주민등록등본</b>, 도장, 신분증<br>'+
-    '· <b>사전 통지</b> — 보유 주택 수 및 그 지번(주소) <span class="hint">(초과분 유상승계 세율 판정)</span><br>'+
-    '<b>공통</b><br>'+
-    '· 신청서, <b>위임장</b>, <b>자격자대리인의 등기의무자 확인 및 자필서명 정보</b><br>'+
-    '· 취득세 영수필확인서, <b>국민주택채권 매입 영수증</b>(발행번호 기재), 등기신청수수료 영수필확인서<br>'+
-    '· <b>부동산등기부등본(전 필지·전 공유자 지분 확인용)</b> — <b>본인 지분 초과 여부 산정의 기초</b><br>'+
-    '<div class="dl" style="border-top:1px dashed var(--line);margin-top:6px;padding-top:6px;">'+
-    '<b style="color:var(--seal);">※ 모든 서류에 주민등록번호 뒷자리가 나오게 발급받으십시오.</b><br>'+ledger+'</div>';
+function renderDocsPartition(){
+  renderPartyDocs('pt_','pty_pt__seller','pty_pt__buyer','공유자(등기의무자)','취득자(등기권리자)',true);
+  const f=radio('pt_bform'), judge=(radio('pt_basis')==='judge'), led=d3ledger(f);
+  const st=(document.getElementById('pty_pt__seller')||{}).value||'ind', bt=(document.getElementById('pty_pt__buyer')||{}).value||'ind';
+  const lead='<div class="d3warn">'+(judge
+    ?'▸ <b>판결로 분할</b>하면 <b>원고·피고에 관계없이</b> 판결로 지분을 받는 공유자가 <b>혼자 신청</b>할 수 있습니다 <span class="law" title="선례 3-556·4-221 — 공유물분할판결의 당사자는 원·피고에 관계없이 판결정본을 첨부하여 등기권리자 단독으로 신청할 수 있다. 강제조정이 확정된 경우도 같다(선례 7-234) — 부동산등기실무Ⅱ(2015) 345쪽">선례 3-556</span>.'
+    :'▸ <b>공유자 전원</b>이 등기의무자 겸 등기권리자가 됩니다(각자 자기 지분을 넘기고 다른 지분을 받습니다). '+
+    '<b>전원의 등기필증·인감증명서</b>가 필요합니다. 1인이라도 빠지면 신청할 수 없습니다.')+'</div>';
+  const client=[];
+  if(judge) client.push({who:'판결·조정에 의한 분할',items:[
+    d3i('<b>판결정본 + 확정증명원</b>(조정성립 시 <b>조정조서 정본</b>)','<b>송달증명원은 내지 않습니다</b> '+D3_LAW_JUDGE,'법원'),
+    d3i('<b>검인</b> — 재판서에는 검인이 필요 없다는 견해가 있으나','재산분할 심판서에 검인을 요구한 선례(4-261)도 있으니 관할 시·군·구청에 확인하십시오 <span class="tag chk">확인필요</span>','')]});
+  if(!judge) client.push({who:'지분을 넘겨주는 공유자 (등기의무자)'+(st!=='ind'?' — '+PARTY_LABEL[st]:''),items:d3party(st,true,[
+    d3i('<b>등기필증(등기권리증)</b>','잃어버리셨으면 <b>확인서면</b>(신분증 사본 + 우무인 날인)',''),
+    d3i('<b>인감증명서</b> <span style="color:var(--seal);font-weight:700;">※ 부동산매도용 아님</span>, 인감도장',D3_SEAL,'주민센터'),
+    d3i('<b>주민등록표 초본</b>(주소 이력 전부)','등기부 주소와 다르면 이 초본으로 등기관이 주소를 직권으로 고칩니다 <span class="law" title="부동산등기규칙 제122조 · 부동산등기실무(2026) 230~231쪽">규칙 §122</span>',LK.juminCho)])});
+  client.push({who:'지분을 받는 공유자 (등기권리자)'+(bt!=='ind'?' — '+PARTY_LABEL[bt]:''),items:d3party(bt,false,[
+    d3i('<b>주민등록표 등본</b>, 도장, 신분증','',LK.juminCho),
+    d3i('<b>미리 알려 주실 것</b> — 보유 주택 수 및 그 지번(주소)','<span class="hint">(초과분 유상승계 세율 판정)</span>','')])});
+  client.push({who:'해당하는 경우에만',items:[
+    d3i('<b>토지거래계약 허가증</b> <span class="hint">(토지거래허가구역 — 지분 이전에 <b>대가</b>가 있을 때)</span>','<span class="law" title="부동산등기실무Ⅱ(2015) 346쪽 — 공유물분할로 인한 소유권이전등기는 공유지분 이전에 대한 대가관계가 있는지에 따라 토지거래허가 요부가 결정된다(선례 4-431).">선례 4-431</span>',''),
+    d3i('학교법인·재단법인·공익법인의 기본재산이면 <b>주무관청 허가서</b>','<span class="law" title="부동산등기실무Ⅱ(2015) 346쪽 — 예규 886호·1255호">실무교재Ⅱ 346쪽</span>','')]});
+  const office=d3officeStd({oblig:judge?'':'공유자',ledger:led,
+    cause:judge?'':'공유물분할계약서(검인) 작성',causeDesc:'분할 방법·각자 취득 부분을 특정해 사무소가 작성하고, 부동산 소재지 시·군·구청에서 <b>검인</b>을 받습니다 <span class="law" title="부동산등기 특별조치법 제3조, 선례 3-72 — 부동산등기실무Ⅱ(2015) 346쪽">특조법 §3</span>',
+    more:[d3i('<b>부동산등기부등본(전 필지·전 공유자 지분 확인용)</b>','<b>본인 지분 초과 여부 산정의 기초</b>','')]});
+  const attach=[];
+  if(judge) attach.push(['판결정본 + 확정증명서 <small>(조정조서는 확정증명 불요)</small>','의뢰인','규칙 §46①1호 · 실무교재 102쪽']);
+  else {
+    attach.push(['공유물분할계약서 <small>(검인받은 것)</small>','사무소 작성 · 공유자 전원 날인','규칙 §46①1호 · 특조법 §3']);
+    attach.push(['공유자 전원의 등기필정보 <small>— 없으면 확인서면</small>','공유자 · 확인서면은 사무소','법 §50② · §51']);
+    attach.push(st==='ind'?['공유자 인감증명서','공유자','규칙 §60①1호 · 3개월(§62)']:[st==='corp'?'법인인감증명서':'대표자 인감증명서','공유자('+PARTY_LABEL[st]+')','규칙 §60①1호·§61']);
+    attach.push(st==='ind'?['넘겨주는 공유자 주민등록표 초본','공유자','규칙 §46①6호 — 소유권이전은 의무자 주소도']:d3partyAttach(st,'공유자'));
+  }
+  attach.push(bt==='ind'?['받는 공유자 주민등록표 등(초)본','받는 공유자','규칙 §46①6호']:d3partyAttach(bt,'받는 공유자'));
+  attach.push([led,'사무소','규칙 §46①7호']);
+  attach.push(['위임장','사무소 작성 · 당사자 날인','규칙 §46①5호']);
+  if(!judge) attach.push(['자격자대리인의 등기의무자 확인 및 자필서명 정보','사무소','규칙 §46①8호']);
+  attach.push(['취득세 영수필확인서','사무소 (신고 대행)','규칙 §44']);
+  attach.push(['국민주택채권 매입 — 채권발행번호 <small>(종전 지분을 넘는 부분)</small>','사무소 (매입 대행)','규칙 §44 · 선례 4-937·5-891']);
+  attach.push(['등기신청수수료 영수필확인서','사무소','수수료규칙 §5의2']);
+  attach.push(['토지거래계약 허가증 · 주무관청 허가서 <small>(해당할 때만)</small>','의뢰인 신청','규칙 §46①2호']);
+  document.getElementById('pt_docsBox').innerHTML=d3({lead:lead,client:client,office:office,attach:attach,
+    attachNote:'<b>농지</b>여도 공유물분할에는 <b>농지취득자격증명이 필요 없습니다</b>. 국민주택채권은 <b>지분 비율대로 나누면 면제</b>, 종전 지분을 넘는 부분만 매입합니다 <span class="law" title="부동산등기실무Ⅱ(2015) 345~347쪽 — 농지법 제8조제1항제3호, 선례 6-562·4-937·5-891">실무교재Ⅱ(2015) 345~347쪽</span>',
+    src:'공유물분할 — 『부동산등기실무Ⅱ』(2015) 344~347쪽'});
 }
 (function(){const tb=document.getElementById('pt_extraAgent');if(!tb)return;EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const tr=document.createElement('tr');
   tr.innerHTML='<td><label class="checks" style="display:inline-flex;align-items:flex-start;"><input type="checkbox" id="pta_'+id+'" onchange="calcPartition()" style="margin-top:2px;"> <span style="font-size:12.5px;">'+name+' <b style="color:var(--seal);">'+FLAT[code].toLocaleString()+'</b></span></label> <input type="number" id="ptaq_'+id+'" value="1" min="1" style="width:52px;" oninput="calcPartition()"></td><td class="auto">-</td>';
@@ -7301,45 +7912,23 @@ function calcBondBurden(){
   document.getElementById('bv_bondNote').textContent='부담부분+증여분 각 요율 합산';
   calcBurden();
 }
-function renderDocsBurden(){renderPartyDocs('bv_','pty_bv__seller','pty_bv__buyer','증여자(등기의무자)','수증자(등기권리자)');const f=radio('bv_bform'),rel=radio('bv_relation'),fam=isLineal(rel);let ledger='';
-  if(f==='apt')ledger='<b>대장</b> — 집합건축물대장(전유부+표제부), 대지권등록부, 대지권 목적 토지대장';
-  else if(f==='house')ledger='<b>대장</b> — 일반건축물대장, 토지대장, 토지이용계획확인원 (필요시 지적도)';
-  else ledger='<b>대장</b> — 토지대장(임야는 임야대장), 토지이용계획확인원, 필요시 지적도·임야도';
-  document.getElementById('bv_docsBox').innerHTML=
-    (fam?'<div style="border-left:3px solid var(--seal);padding:6px 8px;margin-bottom:8px;background:#fdeaea;border-radius:4px;line-height:1.6;">'+
+function renderDocsBurden(){
+  renderPartyDocs('bv_','pty_bv__seller','pty_bv__buyer','증여자(등기의무자)','수증자(등기권리자)',true);
+  const f=radio('bv_bform'), rel=radio('bv_relation'), fam=isLineal(rel), led=d3ledger(f);
+  const st=(document.getElementById('pty_bv__seller')||{}).value||'ind', bt=(document.getElementById('pty_bv__buyer')||{}).value||'ind';
+  const lead=fam?'<div class="d3warn">'+
       '▸ <b>배우자·직계존비속 간 부담부증여</b>는 <b>「상속세 및 증여세법」 §47③</b>에 따라 <b>채무 인수를 하지 않은 것으로 추정</b>됩니다. '+
       '<b>객관적으로 인정되는 경우</b>에만 채무액이 공제되므로, <b>수증자의 채무 변제능력(소득) 증빙이 사실상 필수</b>입니다. '+
-      '실무상 <b>중위소득 40% 이상(월 70만원 정도)</b>의 소득 증빙을 요구합니다. <span class="tag A">A</span></div>':'')+
-    '<b>증여자(소유자·등기의무자)</b><br>'+
-    '· <b>등기권리증(등기필증)</b> — 없으면 <b>확인서면</b>으로 대체<br>'+
-    '· <b>인감증명서</b> <span style="color:var(--seal);font-weight:700;">※ 부동산매도용 아님 — 주민센터 발급본</span>, 인감도장<br>'+
-    '· <b>주민등록초본</b>(<b>과거 주소 모두</b> 나온 것), <b>주민등록등본</b>(세대원 전체 포함)<br>'+
-    '· <b>전세계약서</b> 또는 <b>부채증명원(은행)</b> — 인수 채무의 존재·금액 입증<br>'+
-    '· <b>채무액 증명서</b>(금융기관 발급 <b>채무잔액증명서</b> 등)<br>'+
-    '· <b>채권자 동의서</b> — 담보권자(은행 등)가 요구하는 경우<br>'+
-    '· <b>잔금 전날</b> 보유 주택 수 및 그 지번(주소) 통지<br>'+
-    '· 신분증 지참 <b>본인 참석</b> <span class="hint">(불참 시 사전 협의)</span><br>'+
-    '<b>수증자(증여받는 분)</b><br>'+
-    '· <b>주민등록등본</b>(세대원 전체 포함), 신분증<br>'+
-    '· <b>소득금액증명원 또는 원천징수영수증</b> <span style="color:var(--seal);font-weight:700;">'+(fam?'[필수 — 상증세법 §47③]':'[채무 인수 입증]')+'</span><br>'+
-    '&nbsp;&nbsp;<span class="hint">발급이 어려우면 → 재직증명서, 급여명세서, 급여통장 및 급여내역서</span><br>'+
-    '· <b>채무인수승낙서</b> <span class="hint">(수증자가 채무를 인수한다는 서면)</span><br>'+
-    '· <b>금융기관의 채무 승계 관련 확인서</b> <span class="hint">(대출 승계 시)</span><br>'+
-    '· 인감증명서 및 인감도장 <span class="hint">(필요시)</span><br>'+
-    '· <b>잔금 전날</b> 보유 주택 수 및 그 지번(주소) 통지<br>'+
-    '· 신분증 지참 <b>본인 참석</b> <span class="hint">(불참 시 사전 협의)</span><br>'+
-    '<div style="border-left:3px solid var(--gold);padding:6px 8px;margin:6px 0;background:#fdfaf0;border-radius:4px;line-height:1.6;">'+
-    '<b>◎ 친족관계 소명서류</b> <span class="hint">(「가족관계의 등록 등에 관한 법률」 §15 — 모두 「<b>상세증명서</b>」로 발급)</span><br>'+
-    kinDocs(rel)+'</div>'+
-    '<b>공통</b><br>'+
-    '· <b>부담부증여계약서(검인)</b> — <b>부담부증여임을 명시</b>하고 <b>채무승계 조건</b>을 포함할 것<br>'+
-    '· 신청서, <b>위임장</b>(위임인 = 수증자), <b>자격자대리인의 등기의무자 확인 및 자필서명 정보</b><br>'+
-    '· 취득세 영수필확인서, <b>국민주택채권 매입 영수증</b>(채권발행번호 기재), 등기신청수수료 영수필확인서<br>'+
-    '· 부동산등기부등본<br>'+
-    foreignBlock(document.getElementById('bv_frDonor')?document.getElementById('bv_frDonor').value:'','증여자','ob')+
-    foreignBlock(document.getElementById('bv_frDonee')?document.getElementById('bv_frDonee').value:'','수증자','ri')+
-    '<div class="dl" style="border-top:1px dashed var(--line);margin-top:6px;padding-top:6px;">'+
-    '<b style="color:var(--seal);">※ 모든 서류에 주민등록번호 뒷자리가 나오게 발급받으십시오.</b><br>'+ledger+'</div>';}
+      '실무상 <b>중위소득 40% 이상(월 70만원 정도)</b>의 소득 증빙을 요구합니다. <span class="tag A">A</span></div>':'';
+  const client=d3giftParties('bv_',st,bt,rel,true);
+  client[0].extra=foreignBlock(D3_FR('bv_frDonor'),'증여자','ob');
+  client[1].extra='<div class="d3note">채무 관련 서류(부채증명원·소득 증빙·채무인수승낙서 등)는 <b>세금 신고</b>(취득세의 유상 부분·양도소득세·증여세)에 쓰는 서류입니다.</div>'+foreignBlock(D3_FR('bv_frDonee'),'수증자','ri');
+  const office=d3officeStd({oblig:'증여자',ledger:led,
+    cause:'부담부증여계약서(검인) 작성',causeDesc:'<b>부담부증여임을 명시</b>하고 <b>채무승계 조건</b>을 넣어 사무소가 작성하고, 부동산 소재지 시·군·구청에서 <b>검인</b>을 받습니다 <span class="law" title="부동산등기 특별조치법 제3조 — 부동산등기실무(2026) 117쪽">특조법 §3</span>',
+    more:[d3i('<b>토지이용계획확인원</b>','토지거래허가구역·농지 여부 확인 <span class="hint">(확인용)</span>',LK.eum)]});
+  document.getElementById('bv_docsBox').innerHTML=d3({lead:lead,client:client,office:office,attach:d3giftAttach(st,bt,led,true),
+    src:'부담부증여 — 실무교재 117~118쪽(검인)·230~231쪽(주소 직권변경)'});
+}
 function calcBurden(fromEdit){
   const total=val('bv_total'),debt=Math.min(val('bv_debt'),total),gift=Math.max(0,total-debt);
   document.getElementById('bv_giftPart').textContent=won(gift);
@@ -7427,6 +8016,7 @@ renderDocsBurden();
 
 /* ===================== 근저당권설정 (풀기능) ===================== */
 function calcMortgage(mode){
+  renderDocsMortgage();
   // mode: undefined/false=채권최고액변경·초기(전체자동) / 'pct'=매입률 직접편집(매입금만 재산정) / true=공과금셀 직접편집(자동안함)
   const max=val('mt_max');
   if(mode===undefined||mode===false){
@@ -7501,6 +8091,7 @@ function calcMortgage(mode){
 
 /* ===================== 가등기 (풀기능) ===================== */
 function calcGadeungi(fromEdit){
+  renderDocsGadeungi();
   const base=val('ga_base');
   if(!fromEdit){
     /* §28①1호라목3) 가등기: 부동산가액 또는 채권금액의 1,000분의 2 · §28① 본문 단서 최저 6,000원 [A] */
@@ -7557,6 +8148,7 @@ function calcGadeungi(fromEdit){
 
 /* ===================== 부부재산약정등기 (신설) ===================== */
 function calcMarital(fromEdit){
+  renderDocsMarital();
   const cnt=Math.max(1,val('mr_cnt'));
   if(!fromEdit){
     /* 등록면허세 — 지방세법 §28①14호 「제1호부터 제7호까지의 등기 외의 등기: 건당 1만2천원」 [A]
@@ -7596,6 +8188,7 @@ function calcMarital(fromEdit){
 
 /* ===================== 신탁등기 (풀기능) ===================== */
 function calcSintak(fromEdit){
+  renderDocsSintak();
   const base=val('st_base');
   const cntE=Math.max(1,val('st_cntEstate'));
   if(!fromEdit){
@@ -7649,6 +8242,7 @@ function calcSintak(fromEdit){
 
 /* ===================== 담보권 추가설정 (풀기능) ===================== */
 function calcMortgageAdd(fromEdit){
+  renderDocsMortgageAdd();
   const max=val('ma_max');
   if(!fromEdit){
     /* §28①1호다목2) 저당권 설정 0.2% · §28① 본문 단서 최저 6,000원 [A] */
@@ -7713,6 +8307,7 @@ function calcMortgageAdd(fromEdit){
 
 /* ===================== 근저당권말소 (풀기능) ===================== */
 function calcMortCancel(fromEdit){
+  renderDocsMortCancel();
   const cnt=Math.max(1,val('mtc_cnt'));
   if(!fromEdit){
     document.getElementById('mtc_regTax').value=taxLocal(6000*cnt);
@@ -7784,15 +8379,39 @@ function calcBondPreserve(){
   document.getElementById('pr_bondBuy').value=buy;
   calcPreserve(true);
 }
-function renderDocsPreserve(){renderPartyDocs('pr_',null,'pty_pr__buyer','','소유자(등기권리자)');const f=radio('pr_bform');let ledger='';
-  if(f==='apt')ledger='<b>대장</b> — 집합건축물대장(전유부+표제부, 사용승인), 대지권등록부, 대지권 목적 토지대장';
-  else if(f==='house')ledger='<b>대장</b> — 일반건축물대장(사용승인), 토지대장, 토지이용계획확인원';
-  else ledger='<b>대장</b> — 토지대장(임야는 임야대장), 토지이용계획확인원';
-  document.getElementById('pr_docsBox').innerHTML=
-    '<b>소유자(신청인)</b> — 주민등록초본 1통, 인감증명서 1통, 인감도장, 신분증<br>'+
-    '<b>건물 신축(원시취득)</b> — 사용승인서(준공), 건축물대장, 소유권 증명서류(건축허가서·도급계약서 등)<br>'+
-    '<b>공통</b> — 취득세 영수필확인서, 채권 매입필증, 등기수수료 영수필확인서, 위임장<br>'+
-    '<div class="dl">'+ledger+'</div>';}
+function renderDocsPreserve(){
+  renderPartyDocs('pr_',null,'pty_pr__buyer','','소유자(등기권리자)',true);
+  const f=radio('pr_bform');
+  const bt=(document.getElementById('pty_pr__buyer')||{}).value||'ind';
+  const led=f==='apt'?'집합건축물대장(전유부+표제부, 사용승인), 대지권등록부, 대지권 목적 토지대장'
+          :f==='house'?'일반건축물대장(사용승인), 토지대장':'토지대장(임야는 임야대장)';
+  const client=[];
+  client.push({who:'소유자 (신청인)'+(bt!=='ind'?' — '+PARTY_LABEL[bt]:''),items:d3party(bt,false,[
+    d3i('<b>주민등록표 초본</b> 1통','',LK.juminCho),
+    d3i('<b>도장</b>, <b>신분증</b>','',''),
+    d3i('<span class="hint"><b>인감증명서·인감도장은 필요 없습니다</b> — 소유권보존은 소유자가 혼자 신청하는 등기라 넘겨주는 사람(등기의무자)이 없습니다(규칙 §60① 해당 없음).</span>','','')])});
+  if(f!=='land') client.push({who:'건물 신축(원시취득)',items:[
+    d3i('<b>사용승인서(준공)</b>','',''),
+    d3i('<b>도급계약서</b>·공사비 세금계산서 등, <b>건축허가서</b>','취득세 신고(공사비 = 과세표준) 확인용입니다. 대장에 최초 소유자로 올라 있으면 소유권 증명은 대장으로 합니다 <span class="law" title="부동산등기실무(2026) 259~260쪽 — 법 제65조 각 호에 해당하는 자임을 증명하는 정보(건축물대장정보, 판결정본, 재결서등본, 시장 등의 확인서 등)를 첨부한다.">실무교재 259~260쪽</span>','')]});
+  client.push({who:'해당하는 경우에만',items:[
+    d3i('대장상 <b>최초 소유자가 돌아가셨으면</b> → 상속을 증명하는 서류(가족관계·제적 증명서 등)','<span class="law" title="부동산등기실무(2026) 256쪽 — 법 제65조제1호: 포괄승계인이 신청하는 경우 승계를 증명하는 정보 추가">실무교재 256쪽</span>',LK.family),
+    d3i('<b>판결</b>로 소유권을 확인받았으면 → 판결정본 + 확정증명서','법 §65 2호',''),
+    d3i('<b>수용</b>으로 취득했으면 → 재결서등본 + 보상금 지급 증명(또는 공탁서)','법 §65 3호','')]});
+  const office=d3officeStd({ledger:led,
+    more:[d3i('<b>토지이용계획확인원</b>','용도지역 등 확인 <span class="hint">(확인용 — 첨부서류는 아닙니다)</span>',LK.eum),
+      d3i('<b>건물 소재도</b> <span class="hint">(대지 위에 건물이 여럿이고 건축물대장이 없을 때만)</span>','건축물대장을 내면 필요 없습니다 <span class="law" title="부동산등기규칙 제121조 · 부동산등기실무(2026) 260쪽">규칙 §121</span>','')]});
+  const attach=[
+    ['소유권을 증명하는 정보 — '+(f==='land'?'토지대장(최초 소유자 등록)':'건축물대장(최초 소유자 등록)')+' / 판결·재결서 등','사무소 발급 · 판결 등은 의뢰인','부동산등기법 §65 · 규칙 §121'],
+    [bt==='ind'?'소유자 주민등록표 초본':'소유자 주소·등록번호 증명','소유자','규칙 §46①6호'],
+    [led,'사무소','규칙 §121'],
+    ['위임장','사무소 작성 · 소유자 날인','규칙 §46①5호'],
+    ['취득세 영수필확인서','사무소 (신고 대행)','규칙 §44'],
+    ['국민주택채권 매입 — 채권발행번호','사무소 (매입 대행)','규칙 §44'],
+    ['등기신청수수료 영수필확인서','사무소','수수료규칙 §5의2']];
+  document.getElementById('pr_docsBox').innerHTML=d3({client:client,office:office,attach:attach,
+    attachNote:'<b>등기필정보·인감증명은 내지 않습니다</b> — 등기원인과 그 연월일도 적지 않습니다 <span class="law" title="부동산등기실무(2026) 256쪽 — 법 제65조 몇 호에 따라 신청한다는 뜻을 제공하고, 등기원인과 그 연월일은 등기사항이 아니므로 제공할 필요가 없다.">실무교재 256쪽</span>',
+    law:'부동산등기법 §65, 부동산등기규칙 §44·§46①·§121·§62',src:'소유권보존 — 실무교재 256~260쪽'});
+}
 function calcPreserve(fromEdit){
   renderBondUIPreserve();
   const mw=document.getElementById('pr_metroWarn');if(mw)mw.style.display=chk('pr_metro')?'block':'none';
@@ -7877,12 +8496,39 @@ function rtTypeChange(){
   renderDocsRight();
   calcRight();
 }
-function renderDocsRight(){renderPartyDocs('rt_','pty_rt__seller','pty_rt__buyer','설정자(등기의무자)','권리자(등기권리자)');
+function renderDocsRight(){
+  renderPartyDocs('rt_','pty_rt__seller','pty_rt__buyer','설정자(등기의무자)','권리자(등기권리자)',true);
   const t=radio('rt_type');
-  document.getElementById('rt_docsBox').innerHTML=
-    '<b>설정자(소유자)</b> — 등기권리증(등기필정보), 인감증명서 1통, 주민등록초본 1통(주소변동 포함), 인감도장, 신분증<br>'+
-    '<b>'+t+'자(권리자)</b> — 주민등록초본 1통, 도장, 신분증 (법인이면 법인등기사항증명서·법인인감증명서)<br>'+
-    '<b>공통</b> — '+t+'설정계약서, 등록면허세 영수필확인서, 채권 매입필증, 등기수수료 영수필확인서, 위임장';
+  const st=(document.getElementById('pty_rt__seller')||{}).value||'ind', bt=(document.getElementById('pty_rt__buyer')||{}).value||'ind';
+  const part=t==='지상권'
+    ?'<b>토지 일부</b>에만 설정하면 그 부분을 표시한 <b>지적도</b> <span class="law" title="부동산등기규칙 제126조 · 부동산등기실무(2026) 322쪽 — 지적도는 목적 부분을 특정할 수 있을 정도면 되고 측량성과에 따라 정밀하게 작성될 필요는 없다.">규칙 §126</span>'
+    :'<b>건물·토지 일부</b>에만 설정하면 그 범위를 표시한 <b>건물도면·지적도</b> <span class="law" title="부동산등기법 제72조, 부동산등기규칙 제128조 · 부동산등기실무(2026) 328쪽">규칙 §128</span>';
+  const client=[];
+  client.push({who:'설정자 (소유자 · 등기의무자)'+(st!=='ind'?' — '+PARTY_LABEL[st]:''),items:d3party(st,true,[
+    d3i('<b>등기권리증(등기필정보)</b>','잃어버리셨으면 사무소가 확인서면으로 대신합니다',''),
+    d3i('<b>인감증명서</b> 1통, <b>인감도장</b>, <b>신분증</b>',D3_SEAL,'주민센터'),
+    d3i('<b>주민등록표 초본</b> 1통(주소 변동 포함)','<span style="color:var(--seal);">등기부 주소와 지금 주소가 다르면 <b>주소변경등기를 먼저</b> 해야 합니다</span> — 직권 변경은 소유권이전등기에만 됩니다 <span class="law" title="부동산등기실무(2026) 231쪽 — 직권에 의한 주소변경등기는 소유권이전등기신청의 경우에 한한다. 저당권설정자의 주소가 변경된 경우에는 저당권설정등기를 신청하기 전에 먼저 주소변경등기를 신청해야 한다.">실무교재 231쪽</span>',LK.juminCho)])});
+  client.push({who:t+'자 (권리자 · 등기권리자)'+(bt!=='ind'?' — '+PARTY_LABEL[bt]:''),items:d3party(bt,false,[
+    d3i('<b>주민등록표 초본</b> 1통, 도장, 신분증','',LK.juminCho)])});
+  client.push({who:'해당하는 경우에만',items:[d3i(part,'',''),
+    d3i('<b>'+t+'설정계약서</b>','계약서를 이미 쓰셨으면 원본을 주십시오. 없으면 사무소가 작성합니다','')]});
+  const office=d3officeStd({oblig:'설정자',regTax:true,bond:false,
+    cause:t+'설정계약서 작성',causeDesc:'계약서가 없으면 사무소가 작성합니다(보수표 Ⅸ-1)'});
+  const attach=[
+    [t+'설정계약서','의뢰인 또는 사무소 작성','규칙 §46①1호'],
+    ['등기필정보(등기권리증) <small>— 없으면 확인서면</small>','설정자 · 확인서면은 사무소','법 §50② · §51'],
+    st==='ind'?['설정자 인감증명서','설정자','규칙 §60①1호 · 3개월(§62)']:[st==='corp'?'설정자 법인인감증명서':'설정자 대표자 인감증명서','설정자('+PARTY_LABEL[st]+')','규칙 §60①1호·§61'],
+    st==='ind'?null:d3partyAttach(st,'설정자'),
+    bt==='ind'?[t+'자 주민등록표 초본',t+'자','규칙 §46①6호']:d3partyAttach(bt,t+'자'),
+    [(t==='지상권'?'지적도':'건물도면·지적도')+' <small>(일부에만 설정할 때)</small>','의뢰인 · 사무소',t==='지상권'?'규칙 §126':'규칙 §128'],
+    ['위임장','사무소 작성 · 당사자 날인','규칙 §46①5호'],
+    ['자격자대리인의 등기의무자 확인 및 자필서명 정보','사무소','규칙 §46①8호'],
+    ['등록면허세·지방교육세 영수필확인서','사무소 (신고 대행)','규칙 §44'],
+    ['등기신청수수료 영수필확인서','사무소','수수료규칙 §5의2']];
+  document.getElementById('rt_docsBox').innerHTML=d3({client:client,office:office,attach:attach,
+    attachNote:t+'설정은 <b>국민주택채권 매입 대상이 아닙니다</b>(계산기도 0원으로 계산합니다).',
+    law:'부동산등기법 §50②·§51·§72, 부동산등기규칙 §44·§46①·§60·§62·§126·§128',
+    src:t+' — 실무교재 321~322쪽(지상권)·328~329쪽(전세권)'});
 }
 function calcRight(fromEdit){
   const price=val('rt_price');
@@ -7948,6 +8594,7 @@ renderDocsRight();
 
 /* ===================== 법인설립 (풀기능) ===================== */
 function calcCorp(fromEdit){
+  renderDocsCorpSetup();
   const cap=val('co_cap');
   if(!fromEdit){
     /* 등록면허세 — 지방세법 §28①6호 [A]
@@ -8085,6 +8732,34 @@ const CV_GUIDE={
   +'<span class="law" title="지방세법 제28조제1항제6호 마목(지점 또는 분사무소의 설치) 40,200원, 같은 조 제2항제1호(대도시에서의 지점·분사무소 설치 등기 100분의 300). 변경·폐지는 같은 항 제6호 바목이므로 같은 조 제4항에 따라 중과세율이 적용되지 아니한다.">지방세법 §28①6호·②1호·④</span>'
   +'<span class="tag A">A</span>. 대도시를 체크하시면 아래에 <b>「설치인지」 확인란</b>이 나옵니다.<br>'
   +'▸ <span class="hint">2025년 1월 31일부터 외국회사 등기제도가 정비되어 등기할 사항이 구체화되었습니다(상법 §614~§616의2).</span>',
+ '임원 선임·변경':
+   '<b>▸ 이사·감사·사원·지배인·청산인 등의 취임·중임·사임·퇴임·해임과 주소·성명 변경</b>이 여기에 해당합니다. 정액 <b>100,000원</b>입니다'
+  +'<span class="law" title="법무사 보수기준 제13조제4항 제6호 — 임원(이사·감사·사원·지배인·청산인 등)의 선임·변경 → 100,000원">보수기준 §13④6호</span>'
+  +'<span class="tag A">A</span>.<br>'
+  +'<b>▸ 여러 명이 바뀌어도 신청서 하나면 1건입니다.</b> 등록면허세 40,200원·등기신청수수료도 1건분만 냅니다'
+  +'<span class="law" title="상업등기실무(법원행정처, 2026) — 수인의 이사등의 취임·퇴임 등기와 성명·주민등록번호·주소 변경등기를 하나의 신청서로 일괄신청하는 경우에도 1건의 등록면허세·지방교육세(예규 1790호 9, 상업선례 2-7)와 1건의 등기신청수수료만 납부한다(예규 1861호 3.다.(1) 단서).">예규 1861호 3.다.(1)</span>'
+  +'<span class="tag A">A</span>. 그래서 이 유형에서는 「변경 건수」 칸이 사라집니다.<br>'
+  +'<b>▸ 보수는 임원이 4인을 넘을 때만 늘어납니다</b> — 넘는 1인마다 20,000원'
+  +'<span class="law" title="법무사 보수기준 제14조제4항 — 임원의 선임 또는 변경등기에 있어서 임원이 4인을 초과하는 경우에는 초과하는 1인마다 20,000원을 가산한다.">§14④</span>. '
+  +'「등기 목적 수」 가산(§14③)은 임원변경에는 붙지 않습니다(같은 항 괄호).',
+ '상호·목적·정관 변경':
+   '<b>▸ 상호(회사 이름)·목적(사업 내용)을 바꾸는 등기</b>입니다. 상호의 신설·가등기도 같습니다. 정액 <b>120,000원</b>입니다'
+  +'<span class="law" title="법무사 보수기준 제13조제4항 제4호 — 회사(법인)의 해산·청산종결·계속에 관한 등기, 상호의 신설 또는 가등기, 본점(주사무소)의 이전, 지점(분사무소)의 설치·이전, 상호·목적의 변경 → 120,000원">보수기준 §13④4호</span>'
+  +'<span class="tag A">A</span>.<br>'
+  +'<b>▸ 정관의 다른 사항</b> — 공고방법, 발행할 주식의 총수, 1주의 금액, 존립기간 등을 바꾸는 등기는 보수표에 따로 적혀 있지 않아 '
+  +'<b>「그 밖의 등기」(60,000원)</b>를 고르셔야 합니다'
+  +'<span class="law" title="법무사 보수기준 제13조제4항 제8호 — 그 밖의 등기 → 60,000원">§13④8호</span>.<br>'
+  +'<b>▸ 세금·수수료는 바꾸는 항목마다</b> 따로 냅니다. 상호와 목적을 함께 바꾸면 2건(등록면허세 40,200원×2·수수료 7,000원×2)입니다'
+  +'<span class="law" title="상업등기실무(법원행정처, 2026) 330쪽 — 상호, 목적, 공고방법, 존립기간 또는 해산사유를 변경하는 등기를 신청할 때에는 각 등기의 목적마다 각각 등록면허세 40,200원과 지방교육세 8,040원, 등기신청수수료 7,000원을 납부하며, 동시에 일괄신청하는 경우에도 각 신청항목별로 산정하여 합산한다.">상업등기실무(2026) 330쪽</span>'
+  +'<span class="tag A">A</span>. 위 「변경 건수」에 항목 수를 넣으십시오.',
+ '법인 해산·청산':
+   '<b>▸ 회사의 해산·청산종결·계속 등기</b>입니다. 정액 <b>120,000원</b>입니다'
+  +'<span class="law" title="법무사 보수기준 제13조제4항 제4호 — 회사(법인)의 해산·청산종결·계속에 관한 등기 … → 120,000원">보수기준 §13④4호</span>'
+  +'<span class="tag A">A</span>.<br>'
+  +'<b>▸ 청산인을 등기하는 것은 따로입니다.</b> 보수표가 청산인을 「임원」 칸에 넣어 두었으므로 청산인 선임(취임)등기는 '
+  +'<b>「임원 선임·변경」(100,000원)</b>에 해당합니다'
+  +'<span class="law" title="법무사 보수기준 제13조제4항 제6호 — 임원(이사·감사·사원·지배인·청산인 등)의 선임·변경 → 100,000원">§13④6호</span>. '
+  +'<span class="hint">해산과 청산인 선임을 한 신청서로 하실 때의 보수 산정은 상담 때 확인해 드립니다.</span>',
  '그 밖의 등기':
    '<b>▸ 위 목록에 없는 변경등기</b>를 계산하실 때 쓰십시오. 정액 <b>60,000원</b>입니다'
   +'<span class="law" title="법무사 보수기준 제13조제4항 제8호 — 그 밖의 등기 → 60,000원">보수기준 §13④8호</span>'
@@ -8105,9 +8780,46 @@ const CV_GUIDE={
   +'<span class="law" title="지방세법 제28조제2항제2호 — 대도시 밖에 있는 법인의 본점·주사무소를 대도시로 전입함에 따른 등기에 100분의 300의 중과세율을 적용한다.">지방세법 §28②2호</span>'
   +'<span class="tag A">A</span>.'
 };
+/* 2026-10 — 함께 하는 다른 변경등기 (법무사님 지시: 여러 건이면 각 건의 기본료)
+   [A] 보수기준 §13②~④는 등기 유형별 기본보수, §14③은 「등기의 목적이 1개를 초과(임원변경 제외) → 초과 1개마다 50,000원」
+   → 보수 구분(§13② 자본증감 / §13③ 사채 / §13④ 각 호)이 다른 등기는 각자의 기본보수,
+     같은 구분 안에서 등기 목적이 늘면 §14③ 50,000원. 임원변경(§13④6호)은 늘 따로 기본보수.
+   등록면허세는 등기 목적마다(상업등기실무 2026 330쪽), 등기신청수수료도 목적마다(수수료규칙 §5의3). 대도시 중과는 「변경 유형」에만 자동 반영. */
+const CVM_KEYS=Object.keys(CORP_CHG);
+function cvGroupOf(def){ return def.feeMode==='tier'?def.tier:def.flat; }
+function cvRawOf(def,amt){ return def.feeMode==='tier'?tierFee(def.tier,amt):FLAT[def.flat]; }
+function cvMultiBuild(){
+  const box=document.getElementById('cv_multiList'); if(!box)return;
+  const main=document.getElementById('cv_type').value, sel=document.getElementById('cv_type');
+  const prev={};
+  CVM_KEYS.forEach(function(k,i){ const c=document.getElementById('cvm_'+i), a=document.getElementById('cvm_amt_'+i);
+    prev[i]={on:!!(c&&c.checked), amt:a?a.value:''}; });
+  let h='';
+  CVM_KEYS.forEach(function(k,i){
+    if(k===main) return;
+    const def=CORP_CHG[k], opt=[].slice.call(sel.options).find(function(o){return o.value===k;});
+    const nm=opt?opt.textContent.replace(/\s*\(.*$/,''):k;
+    h+='<label style="display:inline-flex;align-items:center;gap:4px;"><input type="checkbox" id="cvm_'+i+'" onchange="cvMultiChg()"'+(prev[i].on?' checked':'')+'> '+nm
+      +(def.feeMode==='tier'?' <input type="number" class="amt" id="cvm_amt_'+i+'" placeholder="'+(def.capLabel||'금액(원)')+'" value="'+(prev[i].amt||'')+'" oninput="calcCorpChange()" style="width:150px;display:'+(prev[i].on?'inline-block':'none')+';">':'')
+      +'</label>';
+  });
+  box.innerHTML=h;
+}
+function cvMultiChg(){
+  CVM_KEYS.forEach(function(k,i){ const c=document.getElementById('cvm_'+i), a=document.getElementById('cvm_amt_'+i);
+    if(c&&a) a.style.display=c.checked?'inline-block':'none'; });
+  renderDocsCorpChange(); calcCorpChange();
+}
+function cvMultiSel(){
+  const main=document.getElementById('cv_type').value, out=[];
+  CVM_KEYS.forEach(function(k,i){ if(k===main)return; const c=document.getElementById('cvm_'+i);
+    if(c&&c.checked){ const a=document.getElementById('cvm_amt_'+i); out.push({t:k,def:CORP_CHG[k],amt:a?(numOf(a.value)||0):0}); } });
+  return out;
+}
 function cvTypeChange(){
   const t=document.getElementById('cv_type').value;
   const def=CORP_CHG[t];
+  cvMultiBuild();
   document.getElementById('cv_capLine').style.display=def.cap?'flex':'none';
   if(def.cap)document.getElementById('cv_capLbl').textContent=def.capLabel;
   const g=document.getElementById('cv_typeGuide');
@@ -8522,7 +9234,7 @@ const CORP_DOCS={
   +'<b>■ ③ 청산종결등기를 하실 때</b><br>'
   +'· <b>결산보고서</b>와 이를 <b>승인한 주주총회의사록</b>'
   +'<span class="law" title="상법 제540조제1항 — 청산사무가 종결한 때에는 청산인은 지체없이 결산보고서를 작성하고 이를 주주총회에 제출하여 승인을 얻어야 한다.">상법 §540①</span><span class="tag A">A</span><br>'
-  +'· <b>채권신고 공고문</b> 및 <b>최고 발송 증명</b><br><br>'
+  +'· <span class="hint"><b>채권신고 공고문·최고 발송 증명</b>은 청산종결등기에 <b>첨부하지 않습니다</b>(상업선례 1-280, 상업등기실무(2026) 552쪽). 다만 공고와 최고는 위 ②에서 반드시 하셔야 합니다.</span><br><br>'
   +'<div class="note" style="margin:6px 0;"><b>▸ 세무 정리도 함께 하셔야 합니다.</b> '
   +'해산·청산 과정에서 <b>사업자등록 폐업신고</b>와 <b>법인세 신고</b>가 따로 필요합니다. '
   +'<span class="hint">세무 부분은 세무사·회계사와 상의하십시오.</span></div>'
@@ -8548,20 +9260,201 @@ const CORP_DOCS={
   +CD_COMMON+CD_OFFICE+CD_WHERE
 };
 
+/* ═══ 2026-10 법인등기 준비서류 3단 구분 ═══════════════════════════════
+   ① 의뢰인(회사·임원·주주) 준비 ② 사무소 준비 ③ 등기신청서 첨부서면
+   ③의 근거는 『상업등기실무』(법원행정처, 2026) 본문에 적힌 상업등기법·상업등기규칙·선례만 옮겼다.
+   쪽수는 같은 책. OCR이 깨져 호수를 읽을 수 없는 조문은 호수 없이 조문만 적었다. */
+const CD_OFFICE_L=[
+  d3i('<b>등기신청서</b>','사무소가 작성합니다. 회사가 등기소에 낸(낼) <b>법인인감</b>을 찍습니다',''),
+  d3i('<b>등기신청 위임장</b>','사무소가 작성하고 회사는 <b>법인인감</b>만 찍으시면 됩니다',''),
+  d3i('<b>의사록·정관 등 문안 작성</b> 및 필요하면 <b>공증(인증) 대행</b>','',''),
+  d3i('<b>등록면허세 신고·납부</b>','신고서를 작성해 '+LK.wetax+'·시·군·구청에 신고하고 <b>영수필확인서</b>를 받습니다. 세금은 회사 부담입니다',''),
+  d3i('<b>등기신청수수료 납부</b>',LK.iros+'에서 납부하고 영수필확인서를 출력합니다',''),
+  d3i('<b>법인등기사항증명서 열람</b>','지금 등기된 임원·임기·본점 등을 확인합니다 <span class="hint">(확인용)</span>','')];
+const CD_ATT_COMMON=[
+  ['위임장 <small>— 등기소에 제출한 법인인감 날인</small>','사무소 작성 · 회사 날인','상업등기규칙 §52① · 37쪽'],
+  ['등록면허세 영수필확인서','사무소 (신고 대행)','지방세법 §28①6호 · 75쪽'],
+  ['등기신청수수료 영수필확인서','사무소','수수료규칙 §5의3 · 78쪽']];
+const CORP_ATTACH={
+ '자본증자':{p:'399~405쪽',r:[
+  ['이사회의사록 <small>(공증인 인증) — 정관상 주주총회가 정하면 정관 + 주주총회의사록</small>','회사','규칙 §128② · 공증인법 §66의2① · 403쪽'],
+  ['주식의 인수를 증명하는 서면 — 주식인수증 등','회사','규칙 §133 · 400쪽'],
+  ['주식의 청약을 증명하는 서면 — 주식청약서·신주인수권증서','회사','규칙 §133 · 400~401쪽'],
+  ['주금납입금 보관증명서 <small>— 증자 후 자본금이 10억원 미만이면 잔고증명서로 갈음</small>','은행','규칙 §133 · 상법 §425①→§318③ · 402쪽'],
+  ['제3자 배정 통지·공고 증명 <small>(주주 아닌 분에게 배정할 때)</small>','회사','상법 §418④ · 401쪽'],
+  ['검사인 조사보고서·감정서 <small>(현물출자일 때)</small>','회사','규칙 §133 · 예규 979호 · 403쪽'],
+  ['상계를 증명하는 서면 <small>(주금을 상계할 때)</small>','회사','규칙 §133 · 예규 1450호 · 402쪽'],
+  ['정관 <small>(제3자 배정·종류주식·주주총회 결정 등 정관 근거가 필요할 때)</small>','회사','규칙 §128① · 404쪽'],
+  ['총주주의 동의서 <small>(청약 최고 2주를 지키지 못한 때 등)</small>','주주 전원','규칙 §128① · 404쪽']]},
+ '자본감소(감자)':{p:'431~432쪽',r:[
+  ['주주총회의사록 <small>(공증) — 특별결의, 결손 보전 감자는 보통결의</small>','회사','규칙 §128② · 431쪽'],
+  ['채권자보호절차를 마쳤음을 증명하는 서면 — 공고(신문 또는 전자공고 출력물+대표이사 확인서)·최고 증명·이의 없음 확인서(이의가 있으면 변제·담보 증명)','회사','규칙 §142 · 431쪽'],
+  ['<small>결손 보전 감자이면 위 서면 대신</small> 결손 보전을 위한 감자임을 증명하는 서면','회사','규칙 §142 단서 · 432쪽'],
+  ['주권제출공고 증명 <small>(주식병합·강제소각일 때)</small>','회사','규칙 §142 · 432쪽']]},
+ '전환사채 발행':{p:'445~446쪽',r:[
+  ['이사회의사록 <small>(공증) — 정관상 주주총회가 정하면 정관 + 주주총회의사록</small>','회사','규칙 §128② · 445~446쪽'],
+  ['사채의 인수를 증명하는 서면 — 사채인수증·인수계약서','회사','규칙 §144① · 446쪽'],
+  ['사채의 청약을 증명하는 서면','회사','규칙 §144① · 446쪽'],
+  ['사채 납입을 증명하는 서면 <small>(금융기관·회사·수탁회사 발급 모두 가능)</small>','은행 또는 회사','규칙 §144① · 446쪽']]},
+ '주식의 병합·분할·소각':{p:'418·432·439쪽',r:[
+  ['주주총회의사록 <small>(공증) — 주식분할</small>','회사','규칙 §128② · 418쪽'],
+  ['주권제출공고 증명 <small>— 주식분할·병합(공고한 신문 원본)</small>','회사','규칙 §139 · 418쪽'],
+  ['자기주식이었음을 증명하는 서면 + 소각을 정한 이사회의사록 <small>— 자기주식 소각(공고·채권자보호절차 불요)</small>','회사','규칙 §141② · §128② · 438~439쪽']]},
+ '자본증가 없는 합병':{p:'492~497쪽',r:[
+  ['합병계약서','회사','규칙 §148 · 494쪽'],
+  ['존속회사의 합병승인 주주총회의사록 <small>(소규모합병은 이사회의사록)</small> · 보고총회의사록 <small>(공고로 갈음하면 공고 증명)</small>','회사','규칙 §128②·§148 · 494쪽'],
+  ['소멸회사의 주주총회의사록 <small>(간이합병은 이사회의사록)</small>','소멸회사','규칙 §148 · 494~495쪽'],
+  ['채권자보호절차를 마쳤음을 증명하는 서면','회사','규칙 §148 · 상법 §527의5① · 495쪽'],
+  ['공정거래법상 합병신고를 증명하는 서면 <small>(대규모회사)</small>','회사','규칙 §52① · 496쪽'],
+  ['<small>소멸회사 해산등기는 같은 때 신청하며 따로 첨부서면이 없습니다</small>','—','규칙 §53③ · 497쪽']]},
+ '임원 선임·변경':{p:'375~381쪽',r:[
+  ['주주총회의사록 <small>(공증) — 이사·감사 선임·해임</small>','회사','규칙 §128② · 공증인법 §66의2① · 375쪽'],
+  ['이사회의사록 <small>(공증) — 대표이사 선정</small>','회사','규칙 §128② · 376쪽'],
+  ['정관 <small>(정관상 주주총회가 대표이사를 뽑는 경우 등)</small>','회사','규칙 §128① · 376~377쪽'],
+  ['취임승낙서 + 인감증명서(3개월) <small>또는 공증 — 대표이사는 대표이사 취임승낙도 따로</small>','새 임원','규칙 §130 · §154②→§104① · 376쪽'],
+  ['새 임원의 주민등록표 등·초본 <small>(대표이사는 주소도 등기)</small>','새 임원','규칙 §52① · 상법 §317② · 371쪽'],
+  ['퇴임을 증명하는 서면 — 사임서(인감증명 또는 공증)·임기만료 증명(정관 등)·해임 의사록·사망 증명','회사 · 물러나는 임원','규칙 §130 · 377~379쪽'],
+  ['인감신고서 <small>(대표이사가 바뀔 때)</small>','새 대표이사','규칙 §35 · 381쪽']]},
+ '무능력자·법정대리인 등기':{p:'152~160쪽',r:[
+  ['법정대리인의 허락을 증명하는 서면 <small>(미성년자 영업 — 신청서에 법정대리인이 기명날인하면 불요)</small>','법정대리인','규칙 §84① · 153쪽'],
+  ['법정대리인임을 증명하는 서면 — 가족관계등록사항별 증명서·심판서 등 <small>(법정대리인 등기)</small>','법정대리인','규칙 §85 · 158쪽'],
+  ['후견감독인 동의 또는 가정법원 허가 증명 <small>(후견인일 때)</small>','법정대리인','규칙 §84①·§85① · 153·158쪽'],
+  ['본인·법정대리인의 주민등록번호·주소 증명','의뢰인','규칙 §52① · 153·158쪽'],
+  ['인감신고서','신청인','153쪽']]},
+ '상호·목적·정관 변경':{p:'329쪽',r:[
+  ['주주총회의사록 <small>(공증) — 정관변경 특별결의</small>','회사','규칙 §128② · 329쪽'],
+  ['<small>바뀐 정관은 첨부하지 않습니다</small>','—','상업선례 1-102 · 329쪽'],
+  ['관청 인가서 <small>(인가가 효력요건인 업종일 때만)</small>','회사','규칙 §52① · 45~46쪽']]},
+ '본점 관내이전':{p:'330~337쪽',r:[
+  ['이사회의사록 <small>(공증) — 소규모 회사로 이사가 1~2명이면 이사 결정서</small>','회사','규칙 §128② · 335쪽 · 상업선례 2-24'],
+  ['주주총회의사록 <small>(정관을 바꿔야 하는 이전이거나 정관상 주주총회 권한일 때 — 바뀐 정관은 불요)</small>','회사','규칙 §128② · 334쪽'],
+  ['정관 <small>(정관으로 주주총회 결의에 의하도록 정한 때)</small>','회사','규칙 §128① · 335쪽']]},
+ '본점 관외이전':{p:'330~337쪽',r:[
+  ['이사회의사록 <small>(공증) — 소규모 회사로 이사가 1~2명이면 이사 결정서</small>','회사','규칙 §128② · 335쪽 · 상업선례 2-24'],
+  ['주주총회의사록 <small>(공증) — 정관의 본점 소재지 변경(바뀐 정관은 불요)</small>','회사','규칙 §128② · 334쪽'],
+  ['<small>신청은 종전·새 본점 관할 등기소 중 한 곳에 1건. 법인인감은 다시 내지 않습니다</small>','—','332~337쪽']]},
+ '지점 설치·이전':{p:'340~342쪽',r:[
+  ['이사회의사록 <small>— 공증인 인증이 원칙적으로 면제됩니다</small>','회사','규칙 §128② · 공증인법 시행령 §37의3② · 341쪽'],
+  ['<small>금융회사</small> 정관 + 대표이사 결정서 / <small>이사 1~2명인 소규모 회사</small> 이사 결정서','회사','341쪽'],
+  ['주주총회의사록 + 정관 <small>(정관상 주주총회 권한일 때 — 공증 불요. 정관을 바꿔야 하면 공증받은 의사록)</small>','회사','341~342쪽']]},
+ '외국회사 영업소 설치·변경·폐지':{p:'615~618쪽',r:[
+  ['본점의 존재를 인정할 수 있는 서면 — 본국 등기사항증명서·관청 증명서 등 <small>(인증)</small>','본국 회사','규칙 §163① · 616쪽'],
+  ['대한민국에서의 대표자 자격을 증명하는 서면 — 주주총회의사록·이사회결의서 등 <small>(인증)</small>','본국 회사','규칙 §163① · 616쪽'],
+  ['정관 또는 회사의 성질을 알 수 있는 서면 <small>(인증)</small>','본국 회사','규칙 §163① · 616쪽'],
+  ['대한민국에서의 공고방법을 정한 것을 증명하는 서면 <small>(인증)</small>','본국 회사','규칙 §163① · 616쪽'],
+  ['위 서면의 번역문','사무소 (번역)','규칙 §52⑤ · 45쪽'],
+  ['허가서·인가서 <small>(외국은행 등 허가 업종)</small>','회사','규칙 §52① · 616쪽'],
+  ['<small>변경 등기</small> 변경 사실 증명 <small>(외국에서 생긴 변경은 인증)</small>','본국 회사','규칙 §164 · 617~618쪽'],
+  ['대표자 인감신고서','국내 대표자','617쪽']]},
+ '법인 해산·청산':{p:'470~472·545~552쪽',r:[
+  ['<b>해산</b> — 주주총회의사록 <small>(공증)</small> · 해산사유 발생 증명 <small>(존립기간 만료면 정관)</small>','회사','규칙 §128② · 471쪽'],
+  ['<b>청산인</b> — 법정청산인: 정관 / 주주총회 선임: 의사록 + 취임승낙서 / 법원 선임: 재판 등본','회사 · 청산인','규칙 §154① · 546~547쪽'],
+  ['대표청산인 인감신고서','대표청산인','546쪽'],
+  ['인가서 <small>(은행·보험 등 인가 업종)</small>','회사','471쪽'],
+  ['<b>청산종결</b> — 결산보고서를 승인한 주주총회의사록 <small>(결산보고서 포함)</small>','회사','규칙 §154① · 552쪽'],
+  ['<small>채권신고 공고·최고를 증명하는 서면은 청산종결등기에 첨부하지 않습니다</small>','—','상업선례 1-280 · 552쪽']]},
+ '그 밖의 등기':{p:'164·329·386·388쪽',r:[
+  ['주주총회의사록 <small>(공증) — 공고방법·발행할 주식의 총수·주식양도 제한 변경</small>','회사','규칙 §128② · 329·386·388쪽'],
+  ['이사회의사록 — 지배인 선임 <small>(지배인 취임승낙서는 불요)</small>','회사','규칙 §86① · 상업선례 2-9 · 164쪽'],
+  ['지배인 주민등록표 등·초본','지배인','규칙 §52① · 164쪽']]}
+};
+function d3corp(o){
+  let h='<div class="d3">';
+  h+='<div class="d3sec d3c"><div class="d3h">① 의뢰인(회사·임원·주주)께서 준비하실 서류</div><div class="d3b">'+o.client+'</div></div>';
+  h+='<div class="d3sec d3o"><div class="d3h">② 사무소에서 준비하는 서류 <span class="d3hs">— 의뢰인께서 따로 준비하지 않으셔도 됩니다</span></div><div class="d3b"><ul class="d3l">'+o.office.join('')+'</ul>'
+    +'<div class="d3note"><b>직접 신청하시는 경우</b> — 위 서류도 직접 준비하셔야 합니다. 법인등기 신청서 양식은 '+LK.iros+' → 자료센터 → 등기신청양식 → 법인등기에 있습니다.</div></div></div>';
+  h+='<div class="d3sec d3a"><div class="d3h">③ 등기신청서에 첨부하는 서류 <span class="d3hs">— 등기소에 실제로 내는 목록</span></div><div class="d3b">'
+    +'<table class="d3t"><thead><tr><th>첨부서류</th><th>준비</th><th>근거</th></tr></thead><tbody>';
+  o.attach.forEach(function(r){
+    const tag=/^사무소/.test(r[1])?'o':(r[1]==='—'?'':'c');
+    h+='<tr><td>'+r[0]+'</td><td>'+(tag?'<span class="d3tag '+tag+'">'+r[1]+'</span>':'')+'</td><td class="d3law">'+r[2]+'</td></tr>';
+  });
+  h+='</tbody></table>'
+    +'<div class="d3note">의사록은 <b>원본</b>을 냅니다(사본 불가). 공증인의 인증이 필요한 의사록도 회사 규모·결의 방식에 따라 면제될 수 있어 미리 확인해 드립니다 <span class="law" title="상업등기규칙 제128조제2항, 공증인법 제66조의2 — 상업등기실무(2026) 293~298쪽">규칙 §128②</span>.</div>'
+    +'<div class="d3src">근거: 상업등기법·상업등기규칙 — 실무교재 『상업등기실무』(2026) 290~298쪽(첨부정보 통칙)'+(o.src?' · '+o.src:'')+'</div>'
+    +'</div></div></div>';
+  return h;
+}
+function renderDocsCorpSetup(){
+  const box=document.getElementById('co_docsBox'); if(!box)return;
+  const cap=val('co_cap'), big=cap>=1000000000, np=chk('co_nonprofit');
+  if(np){
+    box.innerHTML='<div class="d3warn">▸ <b>사단법인·재단법인 등 비영리법인</b>의 설립은 <b>주무관청의 허가</b>를 먼저 받아야 하고 서류가 회사 설립과 다릅니다. 상담 때 허가서·정관·임원 서류를 함께 정리해 드립니다.</div>';
+    return;
+  }
+  const client=
+     '<div class="d3who">■ 발기인(주주)</div><ul class="d3l">'
+    +d3i('<b>도장</b>, <b>신분증 사본</b>','','')
+    +(big
+      ?d3i('<b>주금납입금 보관증명서</b> 1통','자본금 <b>10억원 이상</b>이면 은행의 보관증명서가 필요합니다 <span class="law" title="상업등기실무(2026) 324쪽">실무교재 324쪽</span>','거래 은행')
+      :d3i('<b>잔고증명서</b> 1통','자본금 <b>10억원 미만</b> 발기설립은 은행 잔고증명서로 됩니다. <b>발기인(대표) 명의</b> 계좌가 원칙입니다 <span class="law" title="상법 제318조제3항 · 상업등기실무(2026) 325쪽">상법 §318③</span>','거래 은행'))
+    +'</ul><div class="d3who">■ 임원(이사·감사)</div><ul class="d3l">'
+    +d3i('<b>인감증명서</b> 1통, <b>인감도장</b>','취임승낙서에 찍습니다(발행 3개월 이내). 공증받은 취임승낙서로 대신할 수도 있습니다 <span class="law" title="상업등기규칙 제154조제2항→제104조제1항 · 상업등기실무(2026) 323쪽">규칙 §104①</span>','주민센터')
+    +d3i('<b>주민등록표 초본</b> 1통','주민등록번호(대표이사는 주소까지)가 등기됩니다',LK.juminCho)
+    +'</ul><div class="d3who">■ 회사 정보</div><ul class="d3l">'
+    +d3i('<b>정관</b>에 넣을 내용 — 상호·<b>사업목적</b>·본점·공고방법·주식','사무소가 정관으로 정리해 드립니다','')
+    +d3i('<b>본점 임대차계약서</b>(또는 소재지 증명)','','')
+    +d3i('<b>임원·주주 명단 및 지분</b>','','')
+    +d3i('<b>법인인감 도장</b>','등기소에 신고할 회사 도장입니다','')
+    +'</ul>';
+  const office=[
+    d3i('<b>같은 상호 조사</b>','같은 관할에 같은 업종·같은 상호가 있는지 '+LK.iros+'로 확인합니다',''),
+    d3i('<b>정관 작성</b>'+(big?' · <b>공증</b>':''),big?'자본금 10억원 이상이면 정관 공증이 필요합니다':'자본금 10억원 미만 발기설립은 정관 공증이 필요 없습니다 <span class="law" title="상법 제292조 · 상업등기실무(2026) 320쪽">상법 §292</span>',''),
+    d3i('<b>주식인수증·주식발행사항동의서·조사보고서·발기인회의사록·이사회의사록·취임승낙서</b> 작성','임원·발기인께서는 날인만 하시면 됩니다',''),
+    d3i('<b>인감신고서</b> 작성','',''),
+    d3i('<b>등록면허세 신고·납부</b>','자본금의 0.4%(최저 112,500원, 대도시 3배)',''),
+    d3i('<b>등기신청수수료 납부</b>','',''),
+    d3i('<b>등기신청서</b> · <b>위임장</b>','','')];
+  const attach=[
+    ['정관 <small>'+(big?'(공증)':'(10억원 미만 발기설립은 공증 불요)')+'</small>','사무소 작성','규칙 §129 · 상법 §292 · 320쪽'],
+    ['주식의 인수를 증명하는 서면 — 주식인수증','사무소 작성 · 발기인 날인','규칙 §129 · 320쪽'],
+    ['주식발행사항동의서 <small>(정관에 정함이 없을 때)</small>','사무소 작성 · 발기인 날인','규칙 §129 · 상법 §291 · 321쪽'],
+    ['설립경과 조사보고서 <small>(이사·감사)</small>','사무소 작성 · 임원 날인','규칙 §129 · 321쪽'],
+    ['발기인회의사록 <small>— 이사·감사 선임'+(big?' (공증)':' (10억원 미만 발기설립은 공증 면제)')+'</small>','사무소 작성 · 발기인 날인','규칙 §129 · 322쪽'],
+    ['이사회의사록 <small>— 대표이사 선정·본점 소재 장소 등'+(big?' (공증)':' (공증 면제)')+'. 이사가 1~2명이면 이사 결정서</small>','사무소 작성 · 이사 날인','규칙 §128② · 325~326쪽'],
+    ['취임승낙서 + 인감증명서 <small>(또는 공증)</small>','임원','규칙 §129 · §154②→§104① · 323쪽'],
+    ['이사·감사의 주민등록표 초본','임원','규칙 §52① · 325쪽'],
+    [big?'주금납입금 보관증명서':'잔고증명서 <small>(10억원 미만 발기설립)</small>','은행','규칙 §129 · 상법 §318③ · 324~325쪽'],
+    ['검사인·공증인 조사보고서 또는 감정서 <small>(현물출자 등 변태설립사항이 있을 때)</small>','회사','규칙 §129 · 321쪽'],
+    ['인감신고서','사무소 작성 · 대표이사','규칙 §35 · 381쪽'],
+    ['위임장','사무소 작성 · 회사 날인','규칙 §52①'],
+    ['등록면허세 영수필확인서','사무소 (신고 대행)','지방세법 §28①6호'],
+    ['등기신청수수료 영수필확인서 <small>(설립 35,000원)</small>','사무소','수수료규칙 §5의3']];
+  box.innerHTML=d3corp({client:client,office:office,attach:attach,
+    src:'설립 — 320~326쪽. <b>모집설립</b>이면 주식청약서·창립총회의사록(공증, 소규모도 필요)이 더해지고 자본금과 관계없이 납입금 보관증명서가 필요합니다(321~326쪽)'});
+}
 function renderDocsCorpChange(){
   const t=document.getElementById('cv_type').value;
-  const body=CORP_DOCS[t]||(cdMeet('주총·이사회')+CD_COMMON+CD_OFFICE+CD_WHERE);
+  let body=CORP_DOCS[t]||(cdMeet('주총·이사회')+CD_COMMON+CD_OFFICE+CD_WHERE);
+  /* 2026-10 — 사무소 서류(CD_OFFICE)는 ②칸으로, 발급처(CD_WHERE)는 맨 아래로 옮긴다 */
+  body=body.split(CD_OFFICE).join('').split(CD_WHERE).join('');
+  const A=(CORP_ATTACH[t]||CORP_ATTACH['그 밖의 등기']);
+  const _ms=(typeof cvMultiSel==='function')?cvMultiSel():[];
   document.getElementById('cv_docsBox').innerHTML=
-    '<b>['+t+' 준비서류]</b><br>'+CD_HEAD+body;
+    '<b>['+t+' 준비서류]</b><br>'+CD_HEAD
+    +(_ms.length?'<div class="d3note" style="margin:0 0 8px;">함께 하는 변경등기(<b>'+_ms.map(function(x){return x.t;}).join(', ')+'</b>)의 서류는 위 「변경 유형」에서 그 등기를 골라 확인하실 수 있습니다. 같은 서류(위임장·의사록 등)는 한 번만 내면 됩니다.</div>':'')
+    +d3corp({client:body,office:CD_OFFICE_L,attach:A.r.concat(CD_ATT_COMMON),src:t+' — '+A.p})
+    +CD_WHERE;
 }
 function calcCorpChange(fromEdit){
   const def=CORP_CHG[document.getElementById('cv_type').value];
-  const cnt=Math.max(1,val('cv_cnt'));
+  const _cvT=document.getElementById('cv_type').value;
+  /* 2026-10 — 임원 선임·변경은 여러 명을 한 신청서로 하면 등록면허세·수수료 모두 1건 [A]
+     (상업등기실무 2026 — 예규 1790호 9, 상업선례 2-7, 예규 1861호 3.다.(1) 단서) */
+  const _offOne=(_cvT==='임원 선임·변경');
+  const cnt=_offOne?1:Math.max(1,val('cv_cnt'));
+  /* 2026-10 — 외국회사 영업소: 설치·관할 밖 이전은 수수료 35,000원(설립급), 그 밖의 변경·폐지 7,000원 [A]
+     (수수료규칙 §5의3① · 상업등기실무 2026 617~618쪽) */
+  const _isFc=(_cvT==='외국회사 영업소 설치·변경·폐지');
+  const _fcK=_isFc?(radio('cv_fcKind')||'set'):'';
+  { const _rc=document.getElementById('cv_rowCnt'); if(_rc)_rc.style.display=_offOne?'none':'flex';
+    const _r1=document.getElementById('cv_rowOfficerOne'); if(_r1)_r1.style.display=_offOne?'flex':'none';
+    const _rf=document.getElementById('cv_rowFc'); if(_rf)_rf.style.display=_isFc?'flex':'none'; }
   const metro=chk('cv_metro');
   if(!fromEdit){
     let reg=0,note='';
     /* 기본세율 — 지방세법 §28①6호 */
-    if(def.reg==='cap'){reg=Math.max(val('cv_cap')*0.004,112500);note='(다목 자본 0.4%·최저 112,500)';}
+    if(def.reg==='cap'){reg=Math.max(val('cv_cap')*0.004,112500);note='(가목 자본증가 0.4%·최저 112,500)';}
     else if(def.reg==='112500'){reg=112500;note='(라목 본점이전 112,500)';}
     else{reg=40200*cnt;note='(정액 40,200 × '+cnt+'건)';}
     /* 대도시 중과 §28② — 대상 여부는 CORP_CHG.mid 로 판정. 바목(그 밖의 등기)은 §28④에 따라 배제 [A] */
@@ -8569,13 +9462,15 @@ function calcCorpChange(fromEdit){
     if(metro&&!chk('cv_midExempt')){
       if(def.mid==='cap5y'&&chk('cv_within5y')){midApply=true;midWhy='5년 내 증자 §28②1호';}
       else if(def.mid==='transfer'&&chk('cv_transferIn')){midApply=true;midWhy='대도시 전입 §28②2호';}
-      else if(def.mid==='branch'&&chk('cv_branchNew')){midApply=true;midWhy='지점 설치 §28②1호';}
+      else if(def.mid==='branch'&&(_isFc?_fcK==='set':chk('cv_branchNew'))){midApply=true;midWhy=(_isFc?'영업소 설치':'지점 설치')+' §28②1호';}
+      else if(_isFc&&_fcK==='move'&&chk('cv_transferIn')){midApply=true;midWhy='대도시로 영업소 이전 §28②';}
     }
     if(midApply){reg*=3;note=note.slice(0,-1)+' ×3 중과 — '+midWhy+')';}
     const _t5=document.getElementById('cv_row5y'),_tt=document.getElementById('cv_rowTransfer'),_tb=document.getElementById('cv_rowBranch'),_te=document.getElementById('cv_rowMidExempt'),_mw=document.getElementById('cv_midWarn');
     if(_t5)_t5.style.display=(metro&&def.mid==='cap5y')?'flex':'none';
     if(_tt)_tt.style.display=(metro&&def.mid==='transfer')?'flex':'none';
-    if(_tb)_tb.style.display=(metro&&def.mid==='branch')?'flex':'none';
+    if(_tb)_tb.style.display=(metro&&def.mid==='branch'&&!_isFc)?'flex':'none';
+    if(_tt&&_isFc)_tt.style.display=(metro&&_fcK==='move')?'flex':'none';
     if(_te)_te.style.display=(metro&&def.mid)?'flex':'none';
     if(_mw)_mw.style.display=(metro&&def.mid===false)?'block':'none';
     document.getElementById('cv_regTax').value=taxLocal(Math.round(reg));
@@ -8583,11 +9478,12 @@ function calcCorpChange(fromEdit){
     document.getElementById('cv_regRate').textContent=note;
   }
   // 등기신청수수료 (변경/설립)
-  const rt=(def.regFee==='설립')?REG_CORP.설립:REG_CORP.변경;
+  const _feeSet=(def.regFee==='설립')||(_isFc&&(_fcK==='set'||_fcK==='move'));
+  const rt=_feeSet?REG_CORP.설립:REG_CORP.변경;
   const m=document.getElementById('cv_regMethod').value;const idx=m==='p'?0:(m==='o'?2:1);
   const regFee=rt[idx]*cnt;
   document.getElementById('cv_regFeeCell').textContent=won(regFee);
-  document.getElementById('cv_regNote').textContent=(def.regFee==='설립'?'설립급':'변경')+' '+rt[idx].toLocaleString();
+  document.getElementById('cv_regNote').textContent=(_feeSet?'설립급':'변경')+' '+rt[idx].toLocaleString()+(_offOne?' · 임원 여러 명도 1건':'');
   // 공증료(공과금 30,000/건)
   const certN=Math.max(0,val('cv_certN'));
   const certFeeRow=document.getElementById('cv_certFeeRow');
@@ -8596,7 +9492,23 @@ function calcCorpChange(fromEdit){
   // 법인인감카드(공과금)
   const cardRow=document.getElementById('cv_cardRow');let cardFee=0;
   if(chk('cv_card')){cardRow.style.display='table-row';cardFee=20000;document.getElementById('cv_cardCell').textContent=won(cardFee);}else cardRow.style.display='none';
-  const publicSum=val('cv_regTax')+val('cv_eduTax')+regFee+certFee+cardFee+val('cv_postFee')+pubCustomSum('scene-법인변경');
+  /* 2026-10 함께 하는 다른 변경등기 — 등록면허세·지방교육세·수수료(목적마다) */
+  const _mSel=cvMultiSel(); let regFee2=0;
+  { const r1=document.getElementById('cv_pubMultiRow1'),r2=document.getElementById('cv_pubMultiRow2'),r3=document.getElementById('cv_pubMultiRow3');
+    const on=_mSel.length>0; [r1,r2,r3].forEach(function(r){ if(r) r.style.display=on?'table-row':'none'; });
+    if(on){
+      if(!fromEdit){ let reg2=0;
+        _mSel.forEach(function(x){ const d=x.def; reg2+= d.reg==='cap'?Math.max(x.amt*0.004,112500):(d.reg==='112500'?112500:40200); });
+        document.getElementById('cv_regTax2').value=taxLocal(Math.round(reg2));
+        document.getElementById('cv_eduTax2').value=taxLocal(Math.round(reg2*0.2));
+        document.getElementById('cv_regNote2').textContent='('+_mSel.length+'건 — 대도시 중과 대상이면 직접 고치십시오)'; }
+      _mSel.forEach(function(x){ regFee2+=(x.def.regFee==='설립'?REG_CORP.설립:REG_CORP.변경)[idx]; });
+      document.getElementById('cv_regFeeCell2').textContent=won(regFee2);
+      document.getElementById('cv_regFeeNote2').textContent='('+_mSel.length+'건)';
+    } else { document.getElementById('cv_regTax2').value=''; document.getElementById('cv_eduTax2').value=''; }
+  }
+  const publicSum=val('cv_regTax')+val('cv_eduTax')+regFee+certFee+cardFee+val('cv_postFee')+pubCustomSum('scene-법인변경')
+    +(_mSel.length?val('cv_regTax2')+val('cv_eduTax2')+regFee2:0);
   document.getElementById('cv_publicSum').textContent=won(publicSum);
   // 보수
   const adj=parseFloat(document.getElementById('cv_adjust').value)||1;
@@ -8654,7 +9566,16 @@ function calcCorpChange(fromEdit){
   const _r14=_is14_1?frAddRate('cv_fr14_1'):0, fee14_1=Math.round(feeRaw*_r14);
   const _r5=document.getElementById('cv_fee14_1Row');
   if(_r5){_r5.style.display=fee14_1>0?'table-row':'none';document.getElementById('cv_fee14_1Cell').textContent=won(fee14_1);document.getElementById('cv_fee14_1Note').textContent='(표상 기본보수 '+won(feeRaw)+' × '+Math.round(_r14*100)+'% · §14①)';}
-  let fee=feeBase+feeForeign+feeFar+feePurpose+feeOfficer+feeParty+fee14_1;
+  /* 2026-10 함께 하는 다른 변경등기 — 보수 구분이 다르면 각자 기본보수, 같은 구분이면 §14③ 50,000 */
+  let feeMulti=0; const _mParts=[];
+  { const seen={}; seen[cvGroupOf(def)]=true;
+    _mSel.forEach(function(x){ const g=cvGroupOf(x.def);
+      if(!seen[g]){ seen[g]=true; const v=Math.round(cvRawOf(x.def,x.amt)*adj); feeMulti+=v; _mParts.push(x.t+' '+v.toLocaleString()); }
+      else { feeMulti+=50000; _mParts.push(x.t+' 50,000(§14③)'); } });
+    const r=document.getElementById('cv_feeMultiRow');
+    if(r){ r.style.display=feeMulti>0?'table-row':'none'; document.getElementById('cv_feeMultiCell').textContent=won(feeMulti);
+      document.getElementById('cv_feeMultiNote').textContent='('+_mParts.join(' · ')+')'; } }
+  let fee=feeBase+feeMulti+feeForeign+feeFar+feePurpose+feeOfficer+feeParty+fee14_1;
   // 문서작성료
   const docN=Math.max(0,val('cv_docN'));
   const docFee=Math.round(FLAT['Ⅸ-5']*docN*adj);
@@ -10115,8 +11036,8 @@ function verifyData(){
 }
 
 document.querySelectorAll('.bondRefMount').forEach(el=>el.innerHTML=bondRefTable()); // 채권 참고표 = BOND_RATE 자동출력
-buildMenu();verifyData();goMenu();
-try{ loadOffice(); officeReady(); }catch(e){}
+buildMenu();verifyData();goMenu();foldInit();
+try{ loadOffice(); paintUserType(); }catch(e){}
 
 /* ===================== 소송비용액확정 — 변호사보수 산입 =====================
    근거: 변호사보수의 소송비용 산입에 관한 규칙 [별표] (대법원규칙 제2936호, 시행 2020.12.28.) [A] */
@@ -10517,6 +11438,8 @@ function buildReceiptSheet(ws,caseName,base,feeRows,pubRows,vat,office,off,meta)
    알 수 없었다. 그래서 영수증이 빈칸으로 인쇄되는 일이 생겼다.
    → 출력하기 직전에 한 번 짚어 드리고, 그 자리에서 채워 넣을 수 있게 한다. 2026-08 신설 */
 function officeGate(cb){
+  /* 2026-10 — 「법무사·사무소에서 사용」을 체크한 경우에만 사무소 정보를 묻는다 */
+  if(userType()!=='pro'){ cb(); return; }
   var miss=(typeof officeReady==='function')?officeReady():[];
   if(!miss.length){ cb(); return; }
   var old=document.getElementById('ofGate'); if(old)old.remove();
@@ -10561,6 +11484,7 @@ function officeGate(cb){
   setTimeout(function(){var i=document.getElementById(ofVal('of_name')?'ofg_bizno':'ofg_name'); if(i)i.focus();},100);
 }
 
+
 /* ───────── 영수증 윗부분 기재사항 (2026-09 신설) ─────────
    「○○○ 귀하」·과세표준액·시가표준액(설정액)·진행번호가 늘 빈칸으로 나왔다.
    → 과세표준액·시가표준액은 화면에 넣은 값으로 자동으로 채우고, 출력 직전에 한 번 보여 드려 고칠 수 있게 한다.
@@ -10601,11 +11525,12 @@ function receiptGate(cb){
   var KB='flex:1;padding:7px 6px;font-size:14px;font-weight:700;border-radius:7px;cursor:pointer;border:1.5px solid #cfc2a8;';
   var ROW='display:flex;gap:8px;margin-top:8px;', COL='flex:1;min-width:0;';
   g.innerHTML='<div style="max-width:380px;width:100%;max-height:calc(100vh - 24px);overflow:auto;box-sizing:border-box;background:#fbf8f1;border:1px solid #e0d6c2;border-radius:12px;padding:14px 16px;box-shadow:0 16px 40px rgba(0,0,0,.45);">'
-   +'<div style="display:flex;gap:6px;margin:0 0 8px;"><button type="button" id="rc_k_est" style="'+KB+'">① 견적서</button><button type="button" id="rc_k_rcpt" style="'+KB+'">② 영수증</button></div>'
+   +'<label style="display:flex;align-items:center;gap:6px;margin:0 0 8px;padding:6px 9px;background:#fff;border:1px solid #e0d6c2;border-radius:7px;font-size:12.5px;color:#4a3f31;cursor:pointer;"><input type="checkbox" id="rc_pro"> <b>법무사·사무소에서 사용</b><span style="color:#8a7c66;font-size:11.5px;">— 체크하면 영수증도 발행</span></label>'
+   +'<div id="rc_kinds" style="display:flex;gap:6px;margin:0 0 8px;"><button type="button" id="rc_k_est" style="'+KB+'">① 견적서</button><button type="button" id="rc_k_rcpt" style="'+KB+'">② 영수증</button></div>'
    +'<h3 id="rc_title" style="margin:0 0 2px;font-size:15px;color:#2a2118;">영수증 윗부분에 들어갈 내용</h3>'
    +'<p id="rc_desc" style="margin:0;font-size:11.5px;color:#6b5d49;line-height:1.5;"></p>'
    +'<div style="'+ROW+'"><div style="'+COL+'"><label style="'+LB+'">받는 분 성명</label><input id="rc_name" type="text" placeholder="예) 홍길동" style="'+IN+'"></div>'
-   +'<div style="'+COL+'"><label style="'+LB+'">진행번호 (선택)</label><input id="rc_no" type="text" placeholder="예) 2026-123" style="'+IN+'"></div></div>'
+   +'<div id="rc_nocol" style="'+COL+'"><label style="'+LB+'">진행번호 (선택)</label><input id="rc_no" type="text" placeholder="예) 2026-123" style="'+IN+'"></div></div>'
    +'<div style="'+ROW+'"><div style="'+COL+'"><label style="'+LB+'">과세표준액(원)</label><input id="rc_base" type="text" inputmode="numeric" style="'+IN+'"></div>'
    +'<div style="'+COL+'"><label style="'+LB+'">시가표준액(설정액)</label><input id="rc_std" type="text" inputmode="numeric" style="'+IN+'"></div></div>'
    +'<div id="rc_accbox" style="display:none;margin-top:10px;padding:8px 10px 9px;background:#fff7e6;border:1px solid #e8cf9c;border-radius:8px;">'
@@ -10616,7 +11541,8 @@ function receiptGate(cb){
    +'<div id="rc_accwarn" style="margin-top:4px;font-size:11px;color:#b3261e;"></div></div>'
    +'<div style="display:flex;gap:6px;margin-top:12px;"><button id="rc_cancel" style="flex:0 0 72px;padding:9px 0;background:none;color:#8a7c66;border:1px solid #ddd0b8;border-radius:7px;font-size:13px;cursor:pointer;">취소</button>'
    +'<button id="rc_ok" style="flex:1;padding:9px;background:#1d7a46;color:#fff;border:none;border-radius:7px;font-size:14.5px;font-weight:700;cursor:pointer;">영수증 내려받기</button></div>'
-   +'<div style="margin-top:7px;font-size:11px;color:#8a7c66;line-height:1.5;">※ 받는 분 성명·진행번호는 저장하지 않습니다(이 창을 닫기 전까지만 기억).</div>'
+   +'<div id="rc_keepnote" style="margin-top:7px;font-size:11px;color:#8a7c66;line-height:1.5;">※ 받는 분 성명·진행번호는 저장하지 않습니다(이 창을 닫기 전까지만 기억).</div>'
+
    +'</div>';
   document.body.appendChild(g);
   var fmt=function(n){return n?Number(n).toLocaleString():'';};
@@ -10628,6 +11554,7 @@ function receiptGate(cb){
   ['bank','acct','holder'].forEach(function(k){ var e=document.getElementById('of_'+k); document.getElementById('rc_'+k).value=e?e.value:''; });
   ['rc_base','rc_std'].forEach(function(k){ var e=document.getElementById(k); e.addEventListener('blur',function(){ var v=numOf(e.value)||0; e.value=fmt(v); }); });
   var kind=(same&&RCPT_SESSION.kind==='est')?'rcpt':'est';
+  var cli=(userType()==='client'); if(cli) kind='est';
   function accWarn(){ var w=document.getElementById('rc_accwarn'); if(!w)return;
     w.textContent=document.getElementById('rc_acct').value.trim()?'':'계좌번호를 비워 두면 견적서에 입금계좌 줄이 빠집니다.'; }
   function paint(){
@@ -10636,11 +11563,13 @@ function receiptGate(cb){
     document.getElementById('rc_k_est').style.cssText=KB+(est?on:off);
     document.getElementById('rc_k_rcpt').style.cssText=KB+(est?off:on);
     document.getElementById('rc_title').textContent=nm+' 윗부분에 들어갈 내용';
-    document.getElementById('rc_desc').innerHTML=(est
+    document.getElementById('rc_desc').innerHTML=(cli
+      ?'계산기로 뽑는 <b>참고용 견적서</b>입니다. 실제 보수는 상담 때 사건 내용을 보고 정해집니다. 아래쪽에는 <b>산 법무사 김재섭 행정사 사무소</b> 정보가 들어갑니다.'
+      :est
       ?'상담 때 드리는 견적서 — 영수증과 같은 양식에 <b>입금계좌</b>가 들어갑니다.'
       :'입금 뒤 드리는 영수증 — 입금계좌는 들어가지 않습니다.')
       +' 금액은 화면 값으로 채워 두었습니다.';
-    document.getElementById('rc_accbox').style.display=est?'block':'none';
+    document.getElementById('rc_accbox').style.display=(est&&!cli)?'block':'none';
     document.getElementById('rc_ok').textContent=nm+' 내려받기';
     document.getElementById('rc_ok').style.background=est?'#a86b1f':'#1d7a46';
     accWarn();
@@ -10649,9 +11578,19 @@ function receiptGate(cb){
   document.getElementById('rc_k_rcpt').onclick=function(){kind='rcpt';paint();};
   document.getElementById('rc_acct').addEventListener('input',accWarn);
   paint();
+  if(cli){
+    document.getElementById('rc_kinds').style.display='none';
+    document.getElementById('rc_nocol').style.display='none';
+    var _nl=document.getElementById('rc_name').previousElementSibling; if(_nl) _nl.textContent='성명 (선택)';
+    document.getElementById('rc_keepnote').textContent='※ 성명은 저장하지 않습니다(이 창을 닫기 전까지만 기억).';
+  }
+  (function(){ var pc=document.getElementById('rc_pro'); if(!pc)return; pc.checked=!cli;
+    pc.onchange=function(){ var on=pc.checked; g.remove(); setUserType(on?'pro':'client');
+      if(on) officeGate(function(){ receiptGate(cb); }); else receiptGate(cb); };
+  })();
   function close(){ g.remove(); }
   document.getElementById('rc_ok').onclick=function(){
-    if(kind==='est'){
+    if(kind==='est'&&!cli){
       ['bank','acct','holder'].forEach(function(k){ var d=document.getElementById('of_'+k); if(d) d.value=document.getElementById('rc_'+k).value.trim(); });
       if(typeof saveOffice==='function')saveOffice();
     }
@@ -10664,13 +11603,48 @@ function receiptGate(cb){
   setTimeout(function(){var i=document.getElementById('rc_name'); if(i)i.focus();},100);
 }
 
+/* 2026-10 신설 — 카카오톡·네이버 앱 등 「앱 안의 브라우저」에서는 파일 내려받기가 막히는 일이 잦다.
+   저장 직전에 한 번 알려 드리고, 바깥 브라우저로 여는 길을 드린다. 그래도 받기를 누르면 그대로 진행한다. */
+function inAppBrowser(){
+  var u=navigator.userAgent||'';
+  if(/KAKAOTALK/i.test(u)) return 'kakao';
+  if(/NAVER\(inapp|DaumApps|Instagram|FBAN|FBAV|FB_IAB|Line\/|everytimeApp|KAKAOSTORY|BAND\//i.test(u)) return 'app';
+  return '';
+}
+function inAppGate(cb){
+  var k=inAppBrowser(); if(!k){ cb(); return; }
+  var old=document.getElementById('iaGate'); if(old) old.remove();
+  var g=document.createElement('div'); g.id='iaGate';
+  g.style.cssText='position:fixed;inset:0;z-index:99998;background:rgba(42,33,24,.72);display:flex;align-items:center;justify-content:center;padding:20px;';
+  var android=/Android/i.test(navigator.userAgent||'');
+  var ext = k==='kakao' ? 'kakaotalk://web/openExternal?url='+encodeURIComponent(location.href)
+          : (android ? 'intent://'+location.host+location.pathname+location.search+'#Intent;scheme=https;package=com.android.chrome;end' : '');
+  g.innerHTML='<div style="max-width:380px;width:100%;background:#fbf8f1;border:1px solid #e0d6c2;border-radius:12px;padding:18px 18px 14px;box-shadow:0 16px 40px rgba(0,0,0,.45);">'
+   +'<h3 style="margin:0 0 6px;font-size:16px;color:#2a2118;">앱 안에서는 파일 저장이 안 될 수 있습니다</h3>'
+   +'<p style="margin:0 0 12px;font-size:13px;color:#6b5d49;line-height:1.65;">지금 화면은 <b>'+(k==='kakao'?'카카오톡':'앱')+' 안의 브라우저</b>입니다. 이곳에서는 엑셀 파일이 <b>저장되지 않거나 열리지 않는</b> 경우가 많습니다.<br>'
+   +(ext?'아래 단추로 <b>휴대폰 기본 브라우저(크롬·사파리 등)</b>에서 다시 열어 주십시오.':'오른쪽 위·아래의 <b>⋯ 메뉴 → 「다른 브라우저로 열기」(Safari로 열기)</b>를 눌러 주십시오.')
+   +'<br><span style="color:#8a7c66;">※ 새 브라우저에서는 금액을 다시 넣으셔야 합니다.</span></p>'
+   +(ext?'<a href="'+ext+'" style="display:block;text-align:center;padding:11px;background:#a86b1f;color:#fff;border-radius:8px;font-size:15px;font-weight:700;text-decoration:none;">기본 브라우저로 열기</a>':'')
+   +'<button type="button" id="ia_go" style="margin-top:8px;width:100%;padding:10px;background:none;color:#6b5d49;border:1px solid #ddd0b8;border-radius:8px;font-size:13.5px;cursor:pointer;">그래도 여기서 저장해 보기</button>'
+   +'<button type="button" id="ia_x" style="margin-top:6px;width:100%;padding:8px;background:none;color:#8a7c66;border:none;font-size:12.5px;cursor:pointer;">닫기</button></div>';
+  document.body.appendChild(g);
+  document.getElementById('ia_go').onclick=function(){ g.remove(); cb(); };
+  document.getElementById('ia_x').onclick=function(){ g.remove(); };
+}
 /* 엑셀 견적서 저장 — 여기서만 상담 신청을 받는다(12시간 동안 다시 묻지 않음) */
 function exportExcel(){
-  var go=function(){ officeGate(function(){ receiptGate(function(meta){ _exportExcelCore(meta); }); }); };
+  var go=function(){ officeGate(function(){ receiptGate(function(meta){ inAppGate(function(){ _exportExcelCore(meta); }); }); }); };
   if(window.requireUnlock){ window.requireUnlock(go); }
   else { go(); }
 }
 async function _exportExcelCore(meta){
+  try{ return await _exportExcelBody(meta); }
+  catch(e){
+    /* 2026-10 — 종전에는 오류가 나도 아무 표시 없이 멈췄다 */
+    alert('견적서(영수증)를 만드는 중 문제가 생겼습니다.\n화면을 새로 고친 뒤 다시 시도해 주시고, 계속되면 카카오톡으로 알려 주십시오.\n('+(e&&e.message?e.message:e)+')');
+  }
+}
+async function _exportExcelBody(meta){
   meta=meta||{};
   const scene=document.querySelector('.scene.active');
   if(!scene){alert('사건을 먼저 선택해 주세요.');return;}
@@ -10689,7 +11663,8 @@ async function _exportExcelCore(meta){
   const feeSum=feeRows.reduce((a,r)=>a+r[1],0);
   const vat=Math.round(feeSum*0.1);
     /* of_tel 이 빠져 있어 receiptTable 에서 office.tel 이 undefined 였다 — 2026-08 보완 */
-  const office={name:ofVal('of_name'),bizno:ofVal('of_bizno'),addr:ofVal('of_addr'),tel:ofVal('of_tel'),agent:ofVal('of_agent'),
+  const office=(typeof userType==='function'&&userType()!=='pro')?Object.assign({},SAN_OFFICE)
+    :{name:ofVal('of_name'),bizno:ofVal('of_bizno'),addr:ofVal('of_addr'),tel:ofVal('of_tel'),agent:ofVal('of_agent'),
     bank:ofVal('of_bank'),acct:ofVal('of_acct'),holder:ofVal('of_holder')};
   const EST=(meta.kind==='est');
   const wb=new ExcelJS.Workbook();
