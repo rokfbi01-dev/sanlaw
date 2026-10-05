@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[가족관계등록 2-1] 증조할아버지 때부터 본관이 잘못 적혀 내려왔어요 — 본(本) 정정허가 | 산 법무사 김재섭</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(280px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.case{background:var(--box); border-radius:10px; padding:14px 16px; margin:14px 0; border-left:4px solid #b9a98c;}
+.case .ct{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+.sit-wrap{display:flex; gap:12px; margin:14px 0;}
+.sit{flex:1; background:#f8f5ee; border:1px solid var(--line); border-top:3px solid var(--gold); border-radius:10px; padding:13px 15px; font-size:14.5px; line-height:1.75;}
+.sit .sl{display:block; font-weight:700; color:var(--gold-d); margin-bottom:6px; font-size:14px;}
+@media (max-width:680px){ .sit-wrap{flex-direction:column;} }
+/* 전체 길 흐름도 (A-1 추가 — 기존 톤 재활용) */
+.flow{background:linear-gradient(180deg,#faf7f0,#f6f1e6); border:1px solid var(--line); border-radius:14px; padding:22px 20px; margin:16px 0;}
+.flow .fl-t{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:18px; text-align:center; letter-spacing:.3px;}
+.flow .node{position:relative; background:#fff; border:1px solid #e3d8c4; border-radius:11px; padding:15px 18px 15px 56px; font-size:14.5px; line-height:1.72; box-shadow:0 2px 6px rgba(122,82,48,.07);}
+.flow .node .num{position:absolute; left:15px; top:14px; width:30px; height:30px; line-height:30px; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; border-radius:50%; font-weight:800; font-size:15px; font-family:'Nanum Myeongjo',serif; box-shadow:0 2px 5px rgba(122,82,48,.3);}
+.flow .node b{color:#241a10;}
+.flow .down{display:flex; justify-content:center; align-items:center; padding:7px 0;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+/* 작성례 박스 */
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+details.sec{border:1px solid var(--line); border-radius:11px; margin:18px 0; background:#fff; overflow:hidden;}
+details.sec>summary{cursor:pointer; list-style:none; padding:14px 17px 14px 15px; background:var(--box); border-left:4px solid var(--gold); font-family:'Nanum Myeongjo',serif; font-size:18px; font-weight:700; color:var(--gold-d); line-height:1.55;}
+details.sec>summary::-webkit-details-marker{display:none;}
+details.sec>summary .sub{display:block; font-family:'Pretendard',sans-serif; font-size:13.5px; font-weight:400; color:var(--muted); margin-top:3px;}
+details.sec>summary::after{content:"펼치기 ▾"; float:right; font-family:'Pretendard',sans-serif; font-size:12.5px; font-weight:700; color:var(--gold); background:#fff; border:1px solid var(--line); border-radius:20px; padding:2px 10px; margin-left:8px;}
+details.sec[open]>summary::after{content:"접기 ▴";}
+details.sec>summary:hover{background:#f2ede3;}
+.secbody{padding:4px 17px 16px;}
+.secbody>h3:first-of-type{margin-top:14px;}
+.toc{background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 17px; margin:8px 0 22px;}
+.toc .tct{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:9px;}
+.toc ol{margin:0; padding-left:20px;}
+.toc li{margin:5px 0; font-size:14.5px;}
+.toc a{text-decoration:none; border-bottom:1px dotted var(--gold);}
+.allbtn{display:inline-block; margin-top:11px; font-size:13.5px; font-weight:700; color:var(--gold-d); background:var(--box); border:1px solid var(--line); border-radius:8px; padding:7px 14px; cursor:pointer;}
+.allbtn:hover{background:#f2ede3;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:15px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .tag{margin-bottom:0;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;}
+.tag.cred{background:#5a9a72;}
+.tag.debt{background:#d9694a;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:18px;margin:12px 0;font-family:'D2Coding','Courier New',monospace;font-size:13px;line-height:1.6;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:16px;letter-spacing:2px;margin-bottom:12px;color:#241a10;}
+.howto{font-size:14px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0 4px;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:13px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:7px 13px;cursor:pointer;transition:.15s;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.75;}
+.lawbox .ll{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold-d);border-radius:5px;padding:2px 9px;margin-right:7px;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.hire p{margin:7px 0; font-size:15px; line-height:1.8;}
+.cta{display:block;text-align:center;background:var(--gold-d);color:#fff;font-weight:700;font-size:17px;text-decoration:none;padding:15px;border-radius:11px;margin:18px 0;font-family:'Nanum Myeongjo',serif;letter-spacing:1px;}
+.cta:hover{background:#5e3f24;}
+@media print{
+  .backbar{display:none !important;}
+  body{background:#fff; max-width:100%;}
+  .tldr,.case,.warn,.tip,.cost,.steps li,.tnote,.sit,.flow,.flow li,.lawbox,.hire{background:#fff !important; border-color:#ccc !important;}
+  .tnote{display:none;}
+  .term{border:none; color:inherit; font-weight:inherit;}
+  .term>.bub{display:inline !important; position:static; width:auto; background:none; color:inherit; box-shadow:none; padding:0; font-size:inherit; line-height:inherit;}
+  .term>.bub::before{content:" ("; }
+  .term>.bub::after{content:")"; border:none; position:static;}
+  .fold-body{display:block !important;}.fold-btn .chev{display:none;}.form-tools{display:none;}
+  details.sec:not([open])>*{display:block !important;}
+  details.sec>summary::after{display:none;} .allbtn,.toc{display:none !important;}
+  .cta{background:#fff !important; color:#241a10 !important; border:1px solid #ccc;}
+}
+.cl{color:var(--gold-d);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--gold-d);}
+.cl:hover{background:#fbf5e8;}
+.tip .cl,.tip .cl b{color:var(--tip-ink);}
+.tip .cl{border-bottom-color:var(--tip-ink);}
+.warn .cl,.warn .cl b{color:var(--warn-ink);}
+.warn .cl{border-bottom-color:var(--warn-ink);}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+
+
+<h1>[가족관계등록 2-1] 증조할아버지 때부터 본관이 잘못 적혀 내려왔어요 — 본(本) 정정허가</h1>
+
+<div class="tnote">어려운 법률용어에는 <b>점선 밑줄</b>이 그어져 있습니다. <b>PC는 마우스를 올리면</b>, <b>휴대폰은 손가락으로 톡 터치하면</b> 쉬운 설명이 뜹니다. (인쇄하면 괄호로 함께 나옵니다.)</div>
+
+<div class="hire">
+<div class="ht">이 매뉴얼을 끝까지 읽으시는 분께</div>
+<p>집안 어른들은 대대로 김해 김씨라고 하셨는데, 증명서에는 다른 본관이 찍혀 나옵니다. 처음에는 어른들 기억이 틀린 것이겠거니 하다가, 옛 호적을 떼어 보고서야 <b>어느 해 한 번 잘못 옮겨 적힌 기록이 90년 가까이 이어져 왔다</b>는 사실을 알게 되는 분들이 있습니다. 이 매뉴얼은 <b>의뢰인이 직접 옛 호적을 추적하고, 가정법원에 정정허가를 신청하고, 시·구청에 정정신청까지 마칠 수 있도록</b> 서류 양식·비용·요건을 구체적으로 담았습니다. 오래된 기록은 한 장만 빠져도 연결이 끊어집니다. 혼자 진행하시다가 막히는 부분이 생기면 언제든 이 매뉴얼을 들고 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</p>
+</div>
+
+<div class="tldr">
+<div class="tt">⭐ 30초 결론부터</div>
+<ul>
+<li><b>본관을 '바꾸는' 사건이 아니라 '바로잡는' 사건입니다.</b> 마음에 드는 본관으로 새로 고르는 <span class="term">성·본 변경<span class="bub">민법 제781조 제6항의 절차. 자녀의 복리를 위해 성과 본 자체를 바꾸는 것으로, 법원이 "아이에게 정말 좋은가"를 엄격히 따집니다. 원래 본관을 되찾는 이 사건과는 전혀 다른 길입니다.</span></span>과 달리, 이 사건은 <b>원래부터 있던 본관을 옛 기록으로 증명해 잘못 적힌 기록을 고치는 <span class="term">등록부 정정<span class="bub">가족관계등록부에 잘못 적히거나 빠진 내용을 바로잡는 절차. 근거는 가족관계등록법 제104조이고, 가정법원의 허가를 받아 시·구·읍·면에 정정신청을 합니다.</span></span></b>입니다(가족관계등록법 §104).</li>
+<li><b>승부는 신청서가 아니라 "처음 틀린 호적"을 찾는 데서 납니다.</b> 지금 증명서에서 출발해 아버지 → 할아버지 → 증조할아버지 → 고조할아버지 순으로 <span class="term">제적등본<span class="bub">2007년까지 쓰던 옛 호적(제적부)을 그대로 복사해 주는 증명서. 집안의 옛 기록은 모두 여기에 남아 있습니다.</span></span>을 거슬러 올라가, <b>"여기까지는 김해, 여기서부터 경주"</b>로 바뀌는 바로 그 지점의 앞뒤 호적을 나란히 확보하면 사건의 절반이 끝납니다.</li>
+<li><b>증거에도 힘의 순서가 있습니다.</b> ① 잘못 적히기 <b>전의 공적 호적</b> → ② 같은 조상에서 갈라진 <b>형제·사촌 집안의 호적</b> → ③ 족보와 <span class="term">종중<span class="bub">같은 조상의 후손들이 모여 만든 문중 단체(대종회·종친회 등). 족보를 펴내고 후손 여부를 확인해 줄 수 있습니다.</span></span>의 확인서. <b>족보만 들고 가면 보정명령이 거의 반드시 옵니다.</b> 족보는 사적인 기록이라 공적 호적을 보강하는 자료로 써야 힘을 씁니다.</li>
+<li><b>누구 이름으로 신청할지가 중요합니다 — 살아 계신 가장 윗대부터.</b> 아버지의 본이 정정되면 자녀의 본은 <span class="term">등록관서<span class="bub">가족관계등록 사무를 처리하는 시청·구청·읍사무소·면사무소.</span></span>가 <b>법원 허가 없이 직권으로</b> 고칠 수 있습니다(규칙 §60②4호). 그러나 <b>거꾸로, 자녀만 고쳐서는 아버지 기록이 따라오지 않고</b>, 형제·사촌 집안은 각자 따로 허가를 받아야 합니다(실무교재 기준). 그래서 <b>아버지가 살아 계시면 아버지와 함께 신청</b>하는 것이 기본입니다.</li>
+<li><b>허가결정은 끝이 아닙니다.</b> 결정문(<span class="term">재판서 등본<span class="bub">법원이 내린 결정문의 공식 사본. 이것을 받은 날이 1개월 기한의 출발점입니다.</span></span>)을 받은 날부터 <b>1개월 안에</b> 시·구·읍·면에 등록부정정신청을 해야 실제로 고쳐집니다(§106). 늦으면 <b>5만원 이하 <span class="term">과태료<span class="bub">형벌이 아닌 행정상의 금전 제재. 전과는 남지 않지만 납부해야 합니다.</span></span></b>(§122). 전자가족관계등록시스템으로 인터넷 신청도 됩니다.</li>
+</ul>
+</div>
+
+<div class="toc">
+<div class="tct">이 카드에 담긴 것 — 필요한 곳만 펼쳐 보십시오</div>
+<ol>
+<li><a href="#s1">지금 어떤 상황인가요?</a></li>
+<li><a href="#s2">바로잡기까지 — 전체 길 한눈에 보기</a></li>
+<li><a href="#s3">먼저 알아두면 헷갈리지 않는 다섯 가지</a></li>
+<li><a href="#s4">가상사례로 따라가기 — 1937년 분가 때 '김해'가 '경주'로</a></li>
+<li><a href="#s5">관련 법령 — 쉬운 풀이</a></li>
+<li><a href="#s6">판례로 보기 — 법원은 무엇을 보고 고쳐 주나</a></li>
+<li><a href="#s7">⏰ 기한 정리 — 놓치면 안 되는 날짜들</a></li>
+<li><a href="#s8">신청하는 분 — 처음부터 끝까지 상세 절차</a></li>
+<li><a href="#s9">보정명령·기각결정을 받았을 때 — 대응 절차</a></li>
+<li><a href="#s10">서류 작성례 — 빈칸만 채우면 됩니다</a></li>
+<li><a href="#s11">고충은 덜어드리고, 끝까지 곁에서 돕겠습니다</a></li>
+<li><a href="#s12">준비할 서류와 발급처 — 어디서 떼나</a></li>
+</ol>
+<span class="allbtn" id="allBtn" role="button" tabindex="0">전체 펼치기</span>
+</div>
+
+<h2 id="s1">지금 어떤 상황인가요?</h2>
+<div class="sit-wrap">
+<div class="sit"><span class="sl">상황 ① · 이제 막 알게 된 분 (처음 신청하시는 분)</span>증명서의 본관이 집안에서 알던 본관과 다르고, 옛 호적을 떼어 보니 <b>윗대 어느 시점에는 원래 본관으로 적혀 있었던</b> 경우. → <b>흐름도 0~4단계</b>로 기록을 모아 <b>작성례 ①·②·③</b>(신청서·가계도·진술서)을 준비하고, 종중에는 <b>작성례 ④</b>로 확인서를 요청합니다.</div>
+<div class="sit"><span class="sl">상황 ② · 이미 신청했는데 법원에서 서류가 온 분</span>"자료를 더 내라"는 <span class="term">보정명령<span class="bub">법원이 신청서의 부족한 점을 고치거나 자료를 더 내라고 명령하는 것. 기한 안에 응하지 아니하면 신청이 각하될 수 있습니다. 실패의 신호가 아니라 '이것만 더 보여 달라'는 요청입니다.</span></span>을 받았거나, 신청이 기각된 경우. → <b>아래 9번 대응 절차</b>를 보시고 <b>작성례 ⑤(보정서)·⑥(항고장)</b>을 쓰십시오. 허가를 받았다면 <b>작성례 ⑦(정정신청서)</b>로 마무리합니다.</div>
+</div>
+<p>이 사건에는 다툴 상대방이 없습니다. 대신 <b>"왜 그 본관이 진짜라고 믿어야 하느냐"는 법원의 질문</b>이 상대방 역할을 합니다. 처음부터 그 질문에 답하는 순서로 서류를 엮으면, 보정명령 없이 한 번에 끝나는 경우가 많아집니다.</p>
+
+<h2 id="s2">바로잡기까지 — 전체 길 한눈에 보기</h2>
+<div class="flow">
+<div class="fl-t">지금 증명서에서 옛 호적까지 — 이 길을 그대로 따라가면 됩니다</div>
+<div class="node"><span class="num">0</span><b>내 증명서부터 확인합니다</b> — <b>기본증명서(상세)</b>를 떼어 <b>①본란(지금 적힌 본관)</b>과 <b>②<span class="term">등록기준지<span class="bub">가족관계등록 사무를 처리하는 기준이 되는 장소(옛 '본적'). 사는 곳(주소)과 다를 수 있고, 관할 법원이 이것으로 정해집니다. 기본증명서 맨 위에 나옵니다.</span></span></b>를 확인합니다. 아버지·자녀의 증명서도 함께 떼어, <b>가족 중 누구누구의 본이 잘못 적혀 있는지</b> 명단을 만듭니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">1</span><b>제적등본을 한 세대씩 거슬러 올라갑니다</b> — 부 → 조부 → 증조부 → 고조부. 제적등본마다 <b>"분가", "<span class="term">전적<span class="bub">본적(옛 등록기준지)을 다른 곳으로 옮기는 것. 옮기기 전 호적과 옮긴 뒤 호적이 각각 따로 남습니다.</span></span>", "<span class="term">호주승계<span class="bub">옛 호적 제도에서 호주가 사망 등으로 바뀌어 아들 등이 호주 자리를 이어받는 것. 이때도 새 호적이 만들어졌습니다.</span></span>", "입적"</b> 같은 기록이 있으면 <b>그 전 호적과 그 뒤 호적을 모두</b> 떼어야 합니다. 한 장 떼고 멈추는 것이 가장 흔한 실수입니다. 인터넷으로 안 나오는 옛 <span class="term">이미지 제적<span class="bub">손으로 쓴 옛 호적을 사진처럼 스캔해 둔 제적부. 2024. 12. 2.부터 일부는 인터넷 발급이 되지만, 발급 범위에 들지 않는 것은 시·구·읍·면 창구에서 떼야 합니다.</span></span>은 창구에서 뗍니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">2</span><b>"처음 틀린 지점"을 특정합니다</b> — 같은 사람이 <b>이 호적에서는 김해, 다음 호적에서는 경주</b>로 나오는 바로 그 경계를 찾고, <b>그 사이에 본을 바꿀 만한 재판·신고 기록이 없는지</b> 확인합니다. 이 경계의 <b>앞 호적과 뒤 호적 두 장</b>이 이 사건의 핵심 증거입니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">3</span><b>옆 가지 기록과 족보로 보강합니다</b> — 증조부의 형제처럼 <b>같은 아버지에서 갈라진 <span class="term">방계혈족<span class="bub">형제·자매, 큰아버지·작은아버지, 사촌처럼 같은 조상에서 옆으로 갈라진 친족. 직계(부모·자녀처럼 위아래로 이어진 관계)와 구별됩니다.</span></span></b> 집안의 제적등본이 여전히 원래 본관이라면 매우 강한 자료입니다. 여기에 <b>족보 해당 면</b>과 <b>종중 본관사실확인서</b>를 더하고, 이 모두를 한 장의 <b>가계도</b>로 정리합니다(작성례 ②·④).</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">4</span><b>등록관서에 '직권정정'이 되는지 먼저 물어봅니다</b> — 지금의 등록부가 <b>바로 앞의 옛 호적과 다르게 옮겨 적힌 것</b>이 서류로 명백하면, 시·구·읍·면이 법원 허가 없이 <span class="term">간이직권정정<span class="bub">등록관서(시·구·읍·면)가 신청인의 법원 재판 없이 스스로 고치고 법원에 보고만 하는 절차. 가족관계등록규칙 제60조 제2항에 정한 명백한 경우에만 됩니다.</span></span>을 할 수 있습니다(규칙 §60②1호). 다만 <b>현재 등록부와 최종 제적부가 똑같이 '경주'</b>이고 오류가 그보다 앞선 1937년에 있는 경우는 대상이 되기 어려운 것이 보통입니다. 담당자가 "법원 허가를 받아 오라"고 하면 5단계로 갑니다.</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">5</span><b>등록기준지 관할 가정법원에 정정허가를 신청합니다</b> — 주소지가 아니라 <b>사건본인의 등록기준지</b>를 관할하는 가정법원입니다(§104). 법원 창구 또는 <a href="https://ecfs.scourt.go.kr" target="_blank">대법원 전자소송</a>으로 냅니다. 인지 1,000원과 송달료를 냅니다(작성례 ①).</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">6</span><b>보정명령에 답하고 결정을 받습니다</b> — 대부분 <b>서면으로만</b> 심리하고, 자료가 부족하면 보정명령이 옵니다(작성례 ⑤). 결정은 <b>허가·기각·<span class="term">각하<span class="bub">신청의 형식이나 요건이 갖춰지지 않아 내용을 보지 않고 돌려보내는 결정. 내용을 본 뒤 받아들이지 않는 "기각"과 다릅니다.</span></span></b> 중 하나이고, 기각되면 <span class="term">보통항고<span class="bub">기간 제한이 없는 항고. 결정에 불복할 이익이 있는 한 언제든 낼 수 있습니다(실무교재 기준). 기간이 정해진 '즉시항고'와 다릅니다.</span></span>로 다툴 수 있습니다(작성례 ⑥).</div>
+<span class="down"><svg width="24" height="30" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="19" stroke="#a47148" stroke-width="2.5" stroke-linecap="round"/><path d="M5 17 L12 27 L19 17" fill="none" stroke="#a47148" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="node"><span class="num">7</span><b>1개월 안에 등록부정정신청 → 자녀는 직권정정 요청 → 증명서로 확인</b> — 허가결정 등본을 붙여 시·구·읍·면(또는 인터넷)에 정정신청을 합니다(작성례 ⑦). 아버지의 본이 정정되었다면, 그 증명서를 들고 <b>자녀(손자녀)의 본도 직권정정해 달라고</b> 요청합니다(규칙 §60②4호). 마지막으로 가족 모두의 기본증명서를 다시 떼어 <b>본 : 김해</b>로 바뀌었는지 확인합니다.</div>
+</div>
+
+<h2 id="s3">먼저 알아두면 헷갈리지 않는 다섯 가지</h2>
+<ol class="steps">
+<li><b>'본관'과 '본적'은 전혀 다른 것입니다.</b> <b>본관(본)</b>은 김해 김씨의 '김해', 전주 이씨의 '전주'처럼 <b>시조가 난 곳</b>입니다. <b>본적(지금의 등록기준지)</b>은 등록 사무를 처리하는 <b>행정상의 장소</b>일 뿐입니다. "옛 본적이 경북이었으니 본관도 경북 쪽 아니냐"는 식으로 따지면 안 됩니다. 이 사건에서 보는 것은 증명서의 <b>'본'란</b> 하나입니다.</li>
+<li><b>"고쳐 달라"가 아니라 "원래 이랬다"를 보여 주는 사건입니다.</b> 법원이 확인하는 것은 네 가지입니다 — ① 오류 이전 호적에 정말 원래 본관이 적혀 있었는가, ② 언제부터 왜 달라졌는가, ③ 그 사이에 <b>본을 적법하게 바꾼 재판·신고가 있었는가</b>, ④ 원래 본관을 뒷받침하는 다른 객관적 자료가 있는가. 신청이유도 이 네 칸을 채우는 순서로 쓰면 됩니다.</li>
+<li><b>윗대부터 고쳐야 아래가 따라옵니다.</b> 아버지의 본이 정정되었음이 증명서로 명백하면, 자녀의 본은 등록관서가 <b>법원 허가 없이</b> 고칠 수 있습니다(규칙 §60②4호). 반대로 <b>자녀(신청인)만 허가를 받으면 아버지의 본은 따로 허가를 받아야</b> 하고, <b>형제·사촌 등 옆 가지</b>도 간이직권정정이 안 되어 각자 허가가 필요합니다(가족관계등록실무 교재, 구선례 인용). 그래서 <b>살아 계신 가장 윗대 분을 사건본인에 꼭 넣으십시오.</b> 등록기준지가 서로 달라도 관련된 정정이라면 <b>그중 한 법원에 한꺼번에</b> 신청할 수 있다는 선례가 있습니다(교재).</li>
+<li><b>돌아가신 선대의 옛 호적(제적부)은 따로 고쳐지지 않습니다.</b> 가족관계등록부 정정허가결정만으로는 제적부가 정정되지 않고, 제적부 정정은 필요한 최소한으로만 합니다(가족관계등록예규 제297호, 교재). 살아 있는 가족의 증명서가 바로잡히면 대개 목적은 이룹니다. 다만 법원이 <b>제적부 정정도 함께 신청하라고 보정을 요구하는 경우</b>가 있으니, 그때는 신청취지에 제적부 정정을 추가합니다(작성례 ① 안내 참조).</li>
+<li><b>족보만으로는 부족하고, 공적 기록만으로도 불안합니다.</b> 족보는 문중이 펴낸 사적 기록이라 법원이 그것만 보고 결정하지 않습니다. 반대로 옛 호적은 이름 한자나 생년월일이 족보와 조금씩 다른 일이 많습니다. <b>다른 부분이 있으면 숨기지 말고 신청이유에서 먼저 설명</b>하십시오. 미리 설명한 차이는 넘어가지만, 법원이 먼저 찾아낸 차이는 보정명령이 됩니다.</li>
+</ol>
+
+<h2 id="s4">가상사례로 따라가기 — 1937년 분가 때 '김해'가 '경주'로</h2>
+<p style="font-size:13.5px;color:var(--muted)">※ 이해를 돕기 위해 인명·생년월일·본관·1937년의 날짜를 가상으로 정한 사례입니다. 실제 신청서는 반드시 본인 집안 제적등본의 실제 기록에 맞추어 써야 합니다.</p>
+<div class="case">
+<span class="ct">사례 — 신청인 김민수(1984년생), 지금 증명서의 본은 '경주'</span>
+집안에서는 대대로 김해 김씨라고 알고 있었습니다. 제적등본을 거슬러 올라가 보니, 증조부 <b>김영수</b>(1901년생)는 원래 아버지 <b>김도현</b>(고조부, 1874년생)의 호적에 <b>본 '김해'</b>로 함께 올라 있었습니다. 그런데 <b>1937. 6. 21. <span class="term">분가<span class="bub">옛 호적 제도에서 결혼한 아들 등이 부모의 호적에서 나와 따로 자기 호적을 만드는 것. 이때 기록을 새 호적에 옮겨 적다가 오기가 생기기도 했습니다.</span></span></b>하여 새로 만들어진 호적에는 <b>본 '경주'</b>로 적혀 있었고, 본을 바꾼다는 재판이나 신고 기록은 어디에도 없었습니다. 그 뒤 조부 김성호(1928년생) → 부 김재원(1957년생) → 신청인까지 모든 기록이 그 호적을 바탕으로 만들어져 '경주'가 이어졌습니다. 한편 증조부의 형 <b>김영철</b>은 분가하지 않고 고조부의 호적을 이어받았는데, 그 제적부에는 <b>끝까지 '김해'</b>로 남아 있었습니다.
+</div>
+<table>
+<tr><th>사람</th><th>기록</th><th>본</th><th>이 사건에서의 의미</th></tr>
+<tr><td>고조부 김도현</td><td>고조부가 <span class="term">호주<span class="bub">옛 호적 제도에서 한 집안(호적)의 대표자. 2008년 호주제가 폐지되어 지금은 없습니다.</span></span>인 제적부</td><td><b>김해</b></td><td>출발점 — 원래 본관</td></tr>
+<tr><td>증조부 김영수</td><td>1937년 <b>분가 전</b> (고조부 호적에 함께 등재)</td><td><b>김해</b></td><td>★ 핵심 ① — 오류 직전 기록</td></tr>
+<tr><td>증조부 김영수</td><td>1937. 6. 21. <b>분가 후</b> 새 호적</td><td>경주</td><td>★ 핵심 ② — 오류가 생긴 기록</td></tr>
+<tr><td>증조부의 형 김영철</td><td>고조부 호적을 이어받은 제적부</td><td><b>김해</b></td><td>보강 — 같은 아버지, 다른 결과</td></tr>
+<tr><td>조부 김성호 → 부 김재원 → 신청인</td><td>1937년 호적을 기초로 한 후속 호적·등록부</td><td>경주</td><td>오류가 그대로 승계됨</td></tr>
+</table>
+<div class="tip"><span class="pt">💡 이 사례에서 신청서를 어떻게 짜야 할까</span>
+① 아버지 김재원이 살아 계시므로 <b>김재원과 김민수 두 사람을 <span class="term">사건본인<span class="bub">정정 대상이 되는 등록부의 주인. 신청서를 내는 사람(신청인)과 같을 수도, 다를 수도 있습니다. 본인 기록을 고치면 "신청인 겸 사건본인"이 됩니다.</span></span></b>으로 함께 신청합니다. ② 김민수의 자녀는 아버지(김민수)의 정정이 끝난 뒤 <b>등록관서에 간이직권정정을 요청</b>합니다(규칙 §60②4호). ③ 현재 등록부와 최종 제적부가 모두 '경주'로 일치하므로 등록관서 간이직권정정(1호)은 기대하기 어렵고, 처음부터 <b>법원 허가</b>로 가는 것이 현실적입니다. ④ 김영철의 사촌 집안 후손은 이미 '김해'이므로 손댈 것이 없습니다.</div>
+
+<details class="sec" id="s5"><summary>관련 법령 — 쉬운 풀이<span class="sub">정정허가 · 정정신청 기한 · 직권정정 · 증명서 발급 · 성·본 변경과의 차이</span></summary>
+<div class="secbody">
+<div class="lawbox"><span class="ll">가족관계등록법 §9②2호</span><b>본(本)은 등록부의 정식 기록사항입니다</b> — 등록부에는 등록기준지와 함께 <b>성명·본·성별·출생연월일·주민등록번호</b>를 기록합니다. 그래서 본이 사실과 다르게 적혀 있으면 등록부의 '착오'로서 정정 대상이 됩니다.</div>
+<div class="lawbox"><span class="ll">가족관계등록법 §104①</span><b>법원 허가에 의한 정정</b> — 등록부의 기록이 법률상 허가될 수 없는 것이거나 그 기재에 <b>착오나 누락</b>이 있다고 인정한 때에는, <span class="term">이해관계인<span class="bub">그 기록이 바로잡히는지에 따라 신분상·재산상 영향을 받는 사람. 본인은 물론 부모·자녀 등 가족도 해당할 수 있습니다.</span></span>은 <b>사건본인의 등록기준지를 관할하는 가정법원의 허가</b>를 받아 정정을 신청할 수 있습니다. 쉽게 말해 <b>"법원 허락을 받아 오면 시·구청이 고쳐 준다"</b>는 구조입니다.</div>
+<div class="lawbox"><span class="ll">가족관계등록법 §106 · §122</span><b>허가 후 1개월, 놓치면 과태료</b> — 허가의 재판이 있었을 때에는 <b>재판서의 등본을 받은 날부터 1개월 이내</b>에 그 등본을 첨부하여 등록부의 정정을 신청하여야 합니다. 정당한 사유 없이 이 기간을 넘기면 <b>5만원 이하의 과태료</b>가 부과됩니다.</div>
+<div class="lawbox"><span class="ll">가족관계등록법 §18② · 규칙 §60②</span><b>등록관서가 스스로 고치는 경우</b> — 기록의 착오가 시·읍·면 장의 잘못으로 생긴 때 등에는 <span class="term">감독법원<span class="bub">시·구·읍·면의 가족관계등록 사무를 감독하는 관할 가정법원(지원).</span></span>의 허가를 받아 직권으로 정정할 수 있고(§18②), 특히 규칙 §60②에 정한 명백한 경우에는 <b>법원 허가 없이</b> 먼저 고치고 보고합니다. 이 사건과 관련된 것은 두 가지 — <b>1호</b> 등록부의 오기·누락이 <b>법 시행 전의 호적(제적)이나 그 등본에 의하여 명백한 때</b>, <b>4호</b> <b>부 또는 모의 본이 정정되거나 변경되었음이 증명서에 의하여 명백한데도 자녀의 본란이 정정되지 아니한 때</b>입니다.</div>
+<div class="lawbox"><span class="ll">가족관계등록법 §14①</span><b>누가 증명서를 뗄 수 있나</b> — 본인·배우자·<b>직계혈족</b>은 증명서를 청구할 수 있습니다. 형제·사촌 집안처럼 직계가 아닌 사람의 기록은 원칙적으로 뗄 수 없지만, <b>소송·비송 절차에서 필요한 경우</b>(같은 항 2호)에는 청구할 수 있습니다. 실무에서는 <b>법원의 보정명령서·사실조회서</b>를 <span class="term">소명자료<span class="bub">법원이 "대체로 그렇겠다"고 믿을 수 있도록 내는 증거 서류. 이런 비송사건에서는 완전한 증명보다 한 단계 낮은 소명으로 충분합니다.</span></span>로 붙입니다(예규 제641호 별지 소명자료 예시, 교재).</div>
+<div class="lawbox"><span class="ll">민법 §781①·⑥</span><b>'변경'은 다른 길입니다</b> — 자녀는 원칙적으로 아버지의 성과 본을 따르고(①), <b>자녀의 복리를 위해</b> 필요하면 법원 허가로 성과 본을 <b>변경</b>할 수 있습니다(⑥). 이 변경은 원래 본관을 되찾는 절차가 아니라 <b>새로 바꾸는 절차</b>라서 판단 기준이 전혀 다릅니다. 본관 정정 사건을 성·본 변경으로 신청하면 엉뚱한 심사를 받게 됩니다.</div>
+</div></details>
+
+<details class="sec" id="s6"><summary>판례로 보기 — 법원은 무엇을 보고 고쳐 주나<span class="sub">공적 기록의 추정력은 뒤집힐 수 있고, 인우보증서·생활기록부도 증거가 됩니다</span></summary>
+<div class="secbody">
+<div class="case">
+<span class="ct">○ "만 2세에 입학, 만 15세에 출산"이 되는 기록은 고쳐야 한다 — 대법원 2023. 7. 14.자 2023스17 결정</span>
+등록부에 적힌 출생연월일대로라면 신청인이 <b>만 2세에 초등학교에 입학하고 만 15세에 첫 아이를 낳은</b> 것이 되는 사안이었습니다. 신청인은 초등학교 생활기록부와 가족·친구의 <span class="term">인우보증서<span class="bub">그 사실을 직접 아는 이웃·친척·친구가 "이것이 사실이다"라고 확인해 주는 문서. 공적 기록이 부족할 때 보충 자료로 씁니다.</span></span>를 냈는데, <span class="term">원심<span class="bub">대법원에 오기 바로 전 단계의 법원 결정. 이 사건에서는 가정법원 항고심입니다.</span></span>은 <b>"생활기록부나 인우보증서는 객관적 자료가 아니고 달리 인정할 자료가 부족하다"</b>며 기각했습니다. 대법원은 등록부 기재가 진실이라는 <b><span class="term">추정<span class="bub">반대 증거가 나오기 전까지는 사실로 보아 주는 것. 반대 증거가 충분하면 뒤집힙니다.</span></span>은 반대 증거나 특별한 사정이 있으면 번복</b>되고, 진실에 부합하지 않음이 분명한 기재는 정정되어야 한다며, <b>제출된 자료들의 내용이 대부분 서로 일치하므로</b> 이를 토대로 정정해야 한다고 원심을 <span class="term">파기<span class="bub">윗 법원이 아랫 법원의 결정을 깨뜨려 없애는 것. 보통 다시 판단하라고 돌려보냅니다(환송).</span></span>했습니다.<br>
+<b>본관 사건에서의 의미</b> — 족보·종중확인서·인우보증서는 하나하나로는 약해도, <b>옛 호적과 서로 맞아떨어지면</b> 충분한 증거가 될 수 있습니다. 반대로 말하면, 자료끼리 어긋나는 부분이 있으면 그 이유를 먼저 설명해야 합니다.
+</div>
+<div class="case">
+<span class="ct">○ 따로 다툴 소송 절차가 없는 사항은 정정허가로 고친다 — 대법원 2012. 4. 13.자 2011스160 결정</span>
+실제로는 2007. 12. 18. 태어난 아이를 2010. 7. 31.생으로 신고했다가 실제 날짜로 정정을 신청한 사안입니다. 원심은 정정하면 아이가 엄마의 전 배우자의 자녀로 추정되어 <b>친족·상속법상 중대한 영향</b>이 생긴다며, 친생자관계 소송부터 거치라고 기각했습니다. 대법원은 <b>가사소송법 등이 출생 일시를 확정하는 직접적인 쟁송방법을 따로 정하고 있지 않으므로</b>, 특별한 사정이 없는 한 출생연월일은 §104의 정정 대상이라고 보고 원심을 파기했습니다(사망일시에 관한 대법원 1993. 5. 22.자 93스14 등 전원합의체 결정의 법리를 따른 것).<br>
+<b>본관 사건에서의 의미</b> — 본관이 잘못 '옮겨 적힌' 것을 바로잡는 문제도, 친자관계 자체를 다투는 것이 아니라면 <b>판결이 아니라 가정법원의 정정허가</b>로 해결하는 사안이라는 점을 신청이유에 짚어 두면 좋습니다. 다만 <b>아버지가 누구인지가 달라져서 본이 달라지는 경우</b>(예: 친생자관계 자체가 문제인 경우)는 이 길이 아니라 친자관계 소송이 먼저입니다.
+</div>
+<div class="warn"><span class="wt">⚠ 성·본 '변경'은 판단 기준이 완전히 다릅니다 — 대법원 2022. 3. 31.자 2021스3 결정</span>
+이혼 후 어머니가 자녀들(5세·7세)의 성과 본을 바꾸려 한 사안에서, 대법원은 성·본 변경은 <b>오로지 자녀의 복리</b>를 기준으로 판단하고, 한쪽 부모의 바람이나 다른 부모의 동의만으로는 부족하다며 <b>변경을 허가하지 않은 원심을 유지</b>했습니다. 원래 본관을 되찾으려는 분이 이 '변경' 절차로 신청하면 이 엄격한 기준을 적용받습니다. <b>반드시 '정정'으로 신청</b>하십시오.</div>
+<div class="tip"><span class="pt">💡 실무교재가 정리한 본 정정의 선례 — 신청 범위를 정할 때 꼭 보십시오</span>
+① 성본은 법률이 정한 경우가 아니면 원칙적으로 변경할 수 없고, <b>등록부의 성본이 사실과 다른 경우에 한하여</b> 정정절차로 고칠 수 있습니다. ② 부 또는 모의 본을 정정한 경우 그 <b>자녀(<span class="term">직계비속<span class="bub">자녀·손자녀처럼 나로부터 아래로 곧게 이어지는 후손.</span></span>)의 본</b>은 규칙 §60②4호에 따라 <b>간이직권정정</b>이 가능합니다. ③ 그러나 <b>형제자매와 방계혈족의 본</b>은 간이직권정정으로 고칠 수 없고 <b>각각 정정허가</b>를 받아야 합니다. ④ 사건본인(자녀)의 본이 법원 허가로 정정되었더라도 <b>그 아버지의 본은 간이직권정정 대상이 아니어서 별도 허가</b>가 필요합니다. <span style="font-size:12.5px;color:var(--muted)">[『2026 가족관계등록실무』 제6편 제5장 제5절, 구선례 인용 — 선례 번호는 원문 대조 필요]</span></div>
+</div></details>
+
+<details class="sec" id="s7"><summary>⏰ 기한 정리 — 놓치면 안 되는 날짜들<span class="sub">정정허가 신청 자체에는 기한이 없습니다. 기한은 '허가 이후'에 있습니다</span></summary>
+<div class="secbody">
+<table>
+<tr><th>구분</th><th>① 언제부터 (기산일)</th><th>② 근거</th><th>③ 말일이 휴일이면</th><th>④ 최종 만료일</th></tr>
+<tr><td><b>정정허가 신청</b></td><td>—</td><td>가족관계등록법 §104 (기간 규정 없음)</td><td>—</td><td><b>기한 없음.</b> 90년이 지났어도 신청할 수 있습니다. 다만 집안 어른들의 기억과 옛 서류는 해마다 사라지니 서두르는 편이 유리합니다.</td></tr>
+<tr><td><b>등록부정정신청</b> (시·구·읍·면)</td><td>재판서 등본을 <b>받은 날의 다음 날</b>(초일 불산입)</td><td>§106 / 민법 §157·§160</td><td>민법 §161 — 다음 날로 연장</td><td>예) 2026. 11. 2.(월) 등본 수령 → 기산일 11. 3. → <b>2026. 12. 2.(수)</b> 만료. 넘기면 5만원 이하 과태료(§122)</td></tr>
+<tr><td><b>보정명령</b></td><td>보정명령을 <b>송달받은 날의 다음 날</b></td><td>법원이 정한 기간(보정명령서에 기재)</td><td>민법 §161</td><td>보정명령서에 적힌 날까지. 자료를 다 못 모았으면 <b>기한 전에 "기간 연장 신청"과 함께 일부라도 제출</b>하십시오. 그냥 넘기면 각하될 수 있습니다.</td></tr>
+<tr><td><b>기각결정에 대한 항고</b></td><td>—</td><td>보통항고 (실무교재 기준)</td><td>—</td><td>기간 제한이 없습니다(불복할 이익이 있는 동안). 그래도 자료를 보강해 <b>가능한 한 빨리</b> 내는 것이 좋습니다.</td></tr>
+</table>
+<div class="tip"><span class="pt">💡 이 사건에는 소멸시효가 없습니다 — 대신 '기록'이 사라집니다</span>
+돈을 받는 권리와 달리, 등록부 정정에는 시효가 없습니다. 정작 사라지는 것은 <b>집안 어른들의 증언</b>과 <b>오래된 족보·이미지 제적</b>입니다. 증언해 줄 어른이 살아 계실 때 <b>인우보증서</b>를 받아 두고, 족보는 해당 면을 <b>지금 복사해 두십시오.</b></div>
+</div></details>
+
+<details class="sec" id="s8"><summary>신청하는 분 — 처음부터 끝까지 상세 절차<span class="sub">관할 · 신청인 · 인지 · 송달료 · 전자소송 · 심리 · 결정 · 정정신청</span></summary>
+<div class="secbody">
+<ol class="steps">
+<li><b>관할 법원 찾기</b> — <b>사건본인의 등록기준지</b>를 관할하는 <b>가정법원</b>(가정법원이 없는 지역은 그 지역 지방법원·지원)입니다(§104①). 기본증명서 맨 위의 등록기준지를 보고, 법원 홈페이지의 관할 안내에서 찾습니다. 아버지와 아들의 등록기준지가 달라도 <b>서로 관련된 정정이면 그중 한 법원에 일괄</b>해서 신청할 수 있다는 선례가 있습니다(교재).</li>
+<li><b>누가 신청하나</b> — 본인이 직접 <b>신청인 겸 사건본인</b>이 되는 것이 기본입니다. 아버지가 고령이시면 아버지도 함께 신청인이 되거나, 아들이 <b>이해관계인</b>으로서 아버지의 정정을 함께 구할 수 있습니다. 미성년 자녀는 부모가 <span class="term">법정대리인<span class="bub">미성년자를 대신해 법률행위를 하는 사람. 보통 부모(친권자)입니다.</span></span>으로 신청합니다(다만 자녀는 아버지 정정 후 간이직권정정이 더 간편합니다).</li>
+<li><b>서류 엮기</b> — 법원 양식의 순서대로 ① 신청서(작성례 ①) ② 휴대전화 문자 종국결과 수신 신청서(작성례 ①-1) ③ 가계도(작성례 ②) ④ 현재 증명서 ⑤ 직계 계보를 잇는 제적등본 ⑥ <b>오류 전 호적</b> ⑦ <b>오류 후 호적</b> ⑧ 방계 친족 제적등본 ⑨ 족보 해당 면 ⑩ 종중확인서 ⑪ 진술서·인우보증서 순으로 묶습니다. 즉 <b>현재 → 직계 계보 → 오류 전 → 오류 후 → 보강</b>입니다.</li>
+<li><b>인지·송달료 납부</b> — <b>인지 1,000원</b>을 붙이고, <b>송달료</b>를 법원 안의 은행(또는 전자소송 결제)으로 예납합니다. 전자민원센터 안내 기준 <b>송달료 6회분</b>이며, 1회분 단가는 법원 공지에 따릅니다(아래 비용 박스). 남은 송달료는 사건이 끝나면 돌려받습니다.</li>
+<li><b>제출</b> — 법원 민원실 접수 또는 <a href="https://ecfs.scourt.go.kr" target="_blank">대법원 전자소송</a>(공동인증서 등 로그인 → 서류제출 → 가사(가족관계등록비송) 신청 메뉴)으로 냅니다. 제적등본처럼 분량이 많은 자료는 PDF로 스캔해 첨부합니다. <span style="font-size:12.5px;color:var(--muted)">[전자소송 메뉴 명칭은 개편될 수 있어 화면에서 '등록부정정' 검색 권장]</span></li>
+<li><b>심리</b> — 대부분 <b>서면 심리</b>로 끝나고 법원에 나갈 일은 드뭅니다. 필요하면 법원이 시·구청에 <b>사실조회</b>를 하거나 보정명령을 보냅니다. 처음부터 자료가 서로 맞물려 있으면 보정 없이 결정되는 경우도 있습니다.</li>
+<li><b>결정 고지</b> — 결정은 <b>허가 / 기각 / 각하</b> 중 하나이고, 고지됨으로써 효력이 생깁니다(교재). 허가결정 등본을 받으면 <b>그날이 1개월 기한의 출발점</b>입니다.</li>
+<li><b>등록부정정신청</b> — 등록기준지·주소지 또는 현재지의 <b>시(구)·읍·면 사무소</b>에 정정신청서(작성례 ⑦)와 허가결정 등본, 신분증을 냅니다. <a href="https://efamily.scourt.go.kr/ar/ArFrrCrctCAAFMgr.do" target="_blank">전자가족관계등록시스템 '등록부정정신청'</a>으로 인터넷 신청도 됩니다. 해외에 사시면 재외공관·재외국민 가족관계등록사무소로도 신청할 수 있습니다(생활법령). <b>정정이 끝나기 전에는 등록기준지를 옮기지 마십시오</b> — 처리가 꼬일 수 있습니다.</li>
+<li><b>자녀 직권정정 요청과 최종 확인</b> — 아버지의 본이 정정된 증명서를 들고 자녀 등록부의 <b>간이직권정정</b>을 요청합니다(규칙 §60②4호). 마지막으로 가족 전원의 <b>기본증명서(상세)</b>를 떼어 본란이 바뀌었는지 확인합니다.</li>
+</ol>
+</div></details>
+
+<details class="sec" id="s9"><summary>보정명령·기각결정을 받았을 때 — 대응 절차<span class="sub">보정서 · 자료 확보 요청 · 항고 · 재신청</span></summary>
+<div class="secbody">
+<ol class="steps">
+<li><b>보정명령은 실패가 아닙니다.</b> 법원이 "원래 본관을 확인할 추가 제적등본", "종중 확인서", "족보상 인물과 신청인이 같은 계통이라는 자료", "본이 달라진 경위 설명"을 요구하는 것은 흔한 일입니다. <b>무엇을 내라는 것인지 한 줄씩 대응표를 만들어</b> 보정서(작성례 ⑤)에 항목별로 답하십시오.</li>
+<li><b>떼지 못하는 기록이 있으면 법원 서류를 활용합니다.</b> 형제·사촌 집안의 제적부는 직계가 아니어서 창구에서 거절될 수 있습니다. 이때는 ① 그 집안 후손에게 발급을 부탁하거나, ② <b>받은 보정명령서를 소명자료로 붙여</b> 등록관서에 청구하거나(§14①2호, 예규 제641호 별지), ③ 법원에 <span class="term">사실조회<span class="bub">법원이 관공서 등에 "이 사실을 확인해 달라"고 공식 요청하는 것. 당사자가 직접 떼기 어려운 기록을 법원을 통해 받아 볼 수 있습니다.</span></span>나 <span class="term">문서송부촉탁<span class="bub">법원이 문서를 가진 기관에 "그 문서를 법원으로 보내 달라"고 요청하는 절차. 당사자가 직접 받기 어려운 기록을 얻는 방법입니다.</span></span>을 신청하는 방법이 있습니다.</li>
+<li><b>기각되면 항고합니다.</b> 기각결정에 불복하는 항고는 <b>보통항고</b>로서 기간 제한이 없다고 실무교재는 정리합니다. 항고장(작성례 ⑥)은 <b>결정을 한 법원(원심법원)</b>에 냅니다. 원심이 지적한 부족한 점을 <b>새 자료로 메워서</b> 내는 것이 핵심입니다. 같은 자료로 같은 주장만 되풀이하면 결과가 달라지기 어렵습니다.</li>
+<li><b>항고 대신 재신청도 길입니다.</b> 기각 이유가 "자료 부족"이었다면, 빠진 옛 호적이나 방계 기록을 찾아낸 뒤 <b>새 자료로 다시 신청</b>하는 편이 빠를 때도 있습니다. 어느 쪽이 나은지는 기각 이유를 보고 정합니다.</li>
+<li><b>본관 정정과 종중 회원 자격은 별개입니다.</b> 등록부가 바로잡혀도, 종중이 신청인 집안을 회원(종원)으로 받아들이는 문제는 종중 내부 규약과 민사 문제로 따로 다투어질 수 있습니다. 반대로 종중이 확인서를 거부하더라도 <b>옛 호적과 방계 기록만으로 정정을 시도</b>할 수 있습니다.</li>
+</ol>
+</div></details>
+
+<details class="sec" id="s10"><summary>서류 작성례 — 빈칸만 채우면 됩니다<span class="sub">신청서 · 가계도 · 진술서 · 종중 확인 요청 · 보정서 · 항고장 · 정정신청서 (복사·인쇄 가능)</span></summary>
+<div class="secbody">
+<p style="font-size:14px;color:var(--muted)">각 <b>제목줄을 클릭하면(▾)</b> 내용이 펼쳐집니다. 빈칸 <b>○○○</b>를 본인 집안 기록대로 채우고 <b>복사·인쇄·다운로드</b> 버튼으로 활용하십시오. 법원 제출 서면은 <b>서울가정법원 게시 「등록부정정허가 신청서」 양식</b>, 시·구청 제출 서면은 <b>「등록부정정신청서」(양식 제30호)</b>의 항목 구조를 그대로 따랐습니다. 아래 예시의 이름·본관·날짜는 위 가상사례입니다. <b>①~④는 처음 신청할 때</b>, <b>⑤·⑥은 법원에서 서류가 왔을 때</b>, <b>⑦은 허가 후</b>에 씁니다.</p>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ① · 신청인</span>등록부정정허가 신청서 (아버지·아들 공동 신청)<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f1"><span class="ft">등록부정정허가 신청서</span>신청인 겸 사건본인 1
+  등록기준지  ○○도 ○○군 ○○면 ○○리 ○○
+  주      소  ○○시 ○○구 ○○로 ○○
+  성      명  김재원 (한자: 金在元)
+  주민등록번호  ○○○○○○-○○○○○○○
+  전화  ○○○-○○○○-○○○○
+
+신청인 겸 사건본인 2 (사건본인 1의 아들)
+  등록기준지  위와 같은 곳
+  주      소  ○○시 ○○구 ○○로 ○○
+  성      명  김민수 (한자: 金民秀)
+  주민등록번호  ○○○○○○-○○○○○○○
+  전화  ○○○-○○○○-○○○○
+
+         신 청 취 지
+사건본인 김재원, 김민수의 각 가족관계등록부 중 본(本)란에
+기록된 「경주(慶州)」를 「김해(金海)」로 정정하는 것을 허가한다.
+라는 결정을 구합니다.
+
+         신 청 이 유
+1. 사건본인들의 관계
+   사건본인 김재원은 망 김성호의 아들이고 망 김영수의 손자이며,
+   사건본인 김민수는 김재원의 아들로서 김영수의 증손자입니다.
+   현재 사건본인들의 가족관계등록부에는 본이 「경주」로 기록되어
+   있습니다(소명자료 1, 2).
+
+2. 1937년 이전의 호적 — 본 「김해」
+   증조부 김영수는 당초 그 아버지인 고조부 김도현의 호적에
+   등재되어 있었고, 위 호적에는 김도현과 김영수의 본이 모두
+   「김해」로 기재되어 있습니다(소명자료 5).
+
+3. 1937. 6. 21. 분가 후의 호적 — 본 「경주」
+   김영수는 1937. 6. 21. 분가하여 새 호적이 편제되었는데, 위
+   호적에는 본이 종전의 「김해」가 아닌 「경주」로 기재되어
+   있습니다(소명자료 6). 그러나 그 사이에 본을 변경하는 재판이나
+   신고가 있었다는 기록은 어디에도 없습니다. 따라서 위 본의 기재는
+   분가에 따른 신호적 편제 또는 종전 호적의 이기 과정에서 생긴
+   착오로 보입니다.
+
+4. 방계 친족의 호적
+   김영수의 형 김영철 역시 김도현의 아들로서, 분가하지 아니하고
+   김도현의 호적을 이어받았으며, 그 제적부에는 본이 끝까지
+   「김해」로 기재되어 있습니다(소명자료 7). 같은 아버지의 아들
+   가운데 1937년 분가한 김영수 계통에서만 본이 달라진 것입니다.
+
+5. 족보 및 종중의 확인
+   ○○○○년 ○○○○에서 발행한 김해 김씨 ○○○파 족보에는 김도현
+   → 김영수 → 김성호 → 김재원 → 김민수로 이어지는 계보와 김영수의
+   형 김영철이 함께 수록되어 있고(소명자료 8), 김해 김씨 ○○○파
+   종친회도 사건본인들이 위 계통의 후손임을 확인하였습니다(소명자료 9).
+
+6. 오류가 승계된 경위
+   위 1937년 호적을 기초로 그 뒤의 김성호의 호적, 김재원의 호적 및
+   사건본인들의 가족관계등록부가 차례로 작성되면서 「경주」라는
+   기재가 그대로 옮겨졌을 뿐, 사건본인들이나 그 선대가 본을
+   변경한 사실은 없습니다. 현재의 등록부는 최종 제적부와 일치하여
+   등록관서의 간이직권정정 대상이 되지 아니하므로 이 신청에
+   이르렀습니다.
+
+7. 결론
+   사건본인들은 새로운 본을 선택하려는 것이 아니라, 1937년 호적
+   편제 과정에서 생긴 착오를 바로잡아 가족관계등록부를 진실한
+   신분관계와 일치시키려는 것입니다. 이에 「가족관계의 등록 등에
+   관한 법률」 제104조에 따라 신청취지와 같은 결정을 구합니다.
+
+         첨 부 서 류
+1. 정정과 관련된 등록사항별 증명서(상세)
+   (사건본인들의 기본증명서·가족관계증명서)        각 1통
+2. 주민등록등본                                    각 1통
+3. 기타 소명자료
+   소명자료 1  가계도
+   소명자료 2  망 김성호 제적등본
+   소명자료 3  망 김영수 제적등본(1937년 이후)
+   소명자료 4  망 김도현 제적등본
+   소명자료 5  1937년 이전 김영수가 등재된 제적등본
+   소명자료 6  1937. 6. 21. 분가 후 김영수의 제적등본
+   소명자료 7  김영철이 호주인 제적등본
+   소명자료 8  족보 해당 부분 사본(표지·발행면 포함)
+   소명자료 9  종친회 본관사실확인서
+   소명자료 10 신청인 진술서
+   소명자료 11 인우보증서(해당 시)
+
+              20○○. ○○. ○○.
+          신청인 겸 사건본인  김재원  (서명 또는 날인)
+          신청인 겸 사건본인  김민수  (서명 또는 날인)
+
+○○가정법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1')">📋 복사</button><button type="button" onclick="printForm('f1')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1','등록부정정허가_신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>성패는 신청이유 2·3번</b>에 있습니다 — "<b>오류 전 호적</b>에는 김해, <b>오류 후 호적</b>에는 경주, 그 사이에 <b>바꿀 원인이 없다</b>." 이 세 가지를 소명자료 번호와 함께 적으십시오. <b>아버지가 돌아가셨다면</b> 사건본인 1을 지우고 본인만 신청합니다. <b>법원이 제적부 정정도 함께 신청하라고 보정을 요구하면</b> 신청취지에 "2. 망 김영수, 망 김성호가 기재된 각 제적부 중 본란의 「경주」를 「김해」로 정정하는 것을 허가한다."를 추가합니다(제적부 정정은 제적이 있는 곳 관할 법원이 맡으므로 관할을 함께 확인). 족보와 호적의 <b>이름 한자·생년월일이 다르면</b> 신청이유 5번에 그 차이와 이유를 먼저 적어 두십시오. 인지 1,000원은 <b>사건본인 1명 기준</b>입니다(아래 비용 박스).</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ①-1 · 신청인(함께 제출)</span>휴대전화 문자메시지를 통한 종국결과 수신 신청서<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f1a"><span class="ft">휴대전화 문자메시지를 통한 종국결과 수신 신청서</span>사    건  20○○호○ ○○○○ 등록부정정
+신 청 인  ○○○
+
+▣ 휴대전화 번호  ○○○-○○○○-○○○○
+
+위 사건에 관한 종국결과에 관한 정보 등을 예납의무자가 납부한
+송달료 잔액 범위 안에서 휴대전화 문자메시지를 통하여 미리
+통지받기를 신청합니다.
+
+              20○○. ○○. ○○.
+                신청인  ○○○ (날인 또는 서명)
+
+○○가정법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1a')">📋 복사</button><button type="button" onclick="printForm('f1a')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1a','종국결과_문자수신_신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto">서울가정법원 「등록부정정허가 신청서」 양식에 <b>한 세트로 붙어 있는 서면</b>입니다. 내 두면 결정이 나는 즉시 문자로 알려 주어 <b>1개월 기한 관리</b>가 쉬워집니다. 사건번호는 접수 후에 정해지므로 처음 낼 때는 비워 둬도 됩니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ② · 신청인(소명자료 1)</span>가계도 — 법원이 한눈에 보도록<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f2"><span class="ft">가  계  도</span>고조부  김도현 (金道鉉)  1874. 3. 18.생          본: 김해
+   │                                    〔소명자료 4·5〕
+   ├── 김영철 (金永哲)  ○○○○. ○. ○.생      본: 김해
+   │      (분가하지 않고 고조부 호적 승계)     〔소명자료 7〕
+   │
+   └── 증조부  김영수 (金永秀)  1901. 9. 7.생
+          1937. 6. 21. 이전 호적             본: 김해  〔소명자료 5〕
+          1937. 6. 21. 분가 후 호적          본: 경주  〔소명자료 6〕
+               │   ★ 이 지점에서 본이 달라짐(변경 원인 기록 없음)
+               │
+          조부  김성호 (金聖浩)  1928. 11. 2.생    본: 경주  〔소명자료 2〕
+               │
+          부    김재원 (金在元)  1957. 2. 14.생    본: 경주  ← 사건본인 1
+               │
+          신청인 김민수 (金民秀)  1984. 8. 3.생    본: 경주  ← 사건본인 2
+               │
+          (김민수의 자녀 ○○○ — 정정 후 간이직권정정 요청 예정)
+
+※ 족보 기재: 김해 김씨 ○○○파 족보(○○○○년 발행) ○○면~○○면
+   김도현 → 김영수 → 김성호 → 김재원 → 김민수, 김영철 형제 등재
+                                                   〔소명자료 8〕</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f2')">📋 복사</button><button type="button" onclick="printForm('f2')">🖨 인쇄</button><button type="button" onclick="downloadForm('f2','가계도.txt')">⬇ 다운로드</button></div>
+<div class="howto">이 한 장을 <b>소명자료 맨 앞</b>에 두면, 판사가 수십 장의 제적등본을 일일이 대조하지 않고도 사건 구조를 이해합니다. 사람마다 <b>어느 소명자료에서 확인되는지 번호</b>를 꼭 붙이십시오. 족보에는 형광펜을 긋기보다 이 가계도와 <b>면수</b>로 연결하는 편이 깔끔합니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ③ · 신청인(소명자료 10)</span>진술서 — 본관이 달라진 사실을 알게 된 경위<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f3"><span class="ft">진  술  서</span>성    명  김민수 (○○○○○○-○○○○○○○)
+주    소  ○○시 ○○구 ○○로 ○○
+사건본인과의 관계  본인
+
+1. 저희 집안은 집안 어른들로부터 대대로 김해 김씨라고 들어
+   왔습니다. 저의 할아버지 김성호께서는 생전에 "증조부께서
+   분가하실 때 호적에 본이 잘못 올라갔다"는 말씀을 하셨습니다.
+   (※ 직접 들은 말이 있는 경우에만, 누가·언제 한 말인지 적습니다)
+
+2. 저는 20○○. ○. 무렵 ○○○(예: 상속 서류 준비) 때문에
+   기본증명서를 발급받았다가, 본이 「경주」로 기재된 사실을
+   알게 되었습니다.
+
+3. 그 뒤 아버지·할아버지·증조부·고조부의 제적등본을 차례로
+   발급받아 확인한 결과, 증조부 김영수의 1937. 6. 21. 분가 전
+   호적에는 본이 「김해」로, 분가 후 호적에는 「경주」로 기재되어
+   있음을 확인하였습니다.
+
+4. 저희 집안의 어느 누구도 본을 바꾸는 재판이나 신고를 한 사실이
+   없으며, 저희 가족은 제사·족보·종친회 활동에서 모두 김해 김씨로
+   생활하여 왔습니다. (※ 종친회 행사 참석, 묘비·제사 축문 등 근거가
+   있으면 구체적으로 적습니다)
+
+5. 위 내용은 모두 사실임을 진술합니다.
+
+              20○○. ○○. ○○.
+                진술인  김민수 (서명 또는 날인)</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f3')">📋 복사</button><button type="button" onclick="printForm('f3')">🖨 인쇄</button><button type="button" onclick="downloadForm('f3','진술서.txt')">⬇ 다운로드</button></div>
+<div class="howto">진술서는 <b>서류로 증명되지 않는 '경위'를 메우는 자료</b>입니다. 기억나는 것만, <b>사실 그대로</b> 적으십시오. 들은 말은 "누구에게서, 언제" 들었는지 구분해서 씁니다. 집안 어른이 살아 계시면 <b>그분 명의의 진술서나 인우보증서</b>(신분증 사본 첨부)를 따로 받는 것이 더 힘이 있습니다. 묘비 사진, 제사 축문, 종친회 회원증처럼 <b>'김해'로 살아온 흔적</b>이 있으면 함께 붙입니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ④ · 신청인 → 종중</span>본관사실확인서 발급 요청서 (+ 확인서에 들어가면 좋은 내용)<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f4"><span class="ft">본관사실확인서 발급 요청서</span>수    신  김해 김씨 ○○○파 종친회(대종회) 회장 귀하
+요 청 인  김민수 (☎ ○○○-○○○○-○○○○)
+주    소  ○○시 ○○구 ○○로 ○○
+
+1. 요청인은 귀 종중 ○○○파의 후손으로서, 가족관계등록부에
+   본이 「경주」로 잘못 기재되어 있어 ○○가정법원에 등록부
+   정정허가를 신청하고자 합니다.
+
+2. 이에 법원 제출용으로 아래 사항을 확인하는 본관사실확인서를
+   발급하여 주시기 바랍니다.
+
+   가. 족보명·발행연도: 김해 김씨 ○○○파 족보(○○○○년 발행)
+   나. 수록 면: ○○면 ~ ○○면
+   다. 확인할 계보: 김도현 → 김영수 → 김성호 → 김재원 → 김민수
+       (김영수의 형 김영철 포함)
+   라. 확인 내용: 위 사람들이 귀 종중 ○○○파의 직계 후손으로
+       족보에 등재되어 있다는 사실
+
+3. 첨부: 요청인의 가족관계증명서 사본, 제적등본 사본(필요 시)
+
+              20○○. ○○. ○○.
+                요청인  김민수 (서명 또는 날인)
+
+────────────────────────────────
+〔참고〕 확인서에 들어가면 좋은 내용
+· 종중의 정식 명칭·소재지·대표자 성명과 직인
+· 족보명, 발행연도, 해당 파 이름, 수록 면수
+· 확인 대상자의 이름과 세대 관계(고조부~신청인)
+· "위 사람들이 본 종중 ○○○파 후손으로 족보에 등재되어 있음을
+  확인한다"는 문장
+· 발급일자, 담당자 연락처
+· 첨부: 대표자 자격 서류(종중 규약·대표자 선임 회의록 사본 등)</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f4')">📋 복사</button><button type="button" onclick="printForm('f4')">🖨 인쇄</button><button type="button" onclick="downloadForm('f4','본관사실확인서_발급요청서.txt')">⬇ 다운로드</button></div>
+<div class="howto">확인서는 <b>종중이 자기 기록에 따라 사실대로 써 주는 문서</b>입니다. 요청인이 문안을 대신 만들어 도장만 받는 것은 피하고, <b>무엇이 들어가야 법원에서 쓰이는지</b>를 이 요청서로 알려 드리는 방식이 좋습니다. 대표자 자격을 보여 주는 서류가 함께 있으면 법원이 "누가 써 준 것이냐"를 다시 묻지 않습니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ⑤ · 법원 보정명령에 대한 답</span>보정서<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f5"><span class="ft">보  정  서</span>사    건  20○○호○ ○○○○ 등록부정정
+신 청 인  김재원, 김민수
+사건본인  김재원, 김민수
+
+위 사건에 관하여 20○○. ○○. ○○.자 보정명령에 따라 다음과
+같이 보정합니다.
+
+         보 정 사 항
+
+1. 보정명령 제1항(사건본인들의 본래 본이 「김해」임을 소명할 자료)
+   가. 1937년 이전 김영수가 등재된 제적등본을 이미 소명자료 5로
+       제출하였고, 이에 더하여 고조부 김도현의 부(○○○)가 호주인
+       제적등본을 추가로 제출합니다(소명자료 12).
+   나. 위 자료에도 본이 「김해」로 기재되어 있습니다.
+
+2. 보정명령 제2항(족보상 인물과 사건본인들이 동일 계통임을 소명할 자료)
+   가. 족보의 이름 한자 「○」와 제적부의 「○」가 다른 것은
+       ○○○(예: 족보는 항렬자를 쓰고 호적은 호명을 쓴 차이)
+       때문입니다.
+   나. 생년월일·배우자 성명·자녀 이름이 일치하는 점을 대조표로
+       정리하여 제출합니다(소명자료 13).
+
+3. 보정명령 제3항(종중의 확인)
+   김해 김씨 ○○○파 종친회의 본관사실확인서와 대표자 자격
+   서류를 제출합니다(소명자료 9-1, 9-2).
+
+         첨 부 서 류
+1. 소명자료 12  ○○○ 제적등본          1통
+1. 소명자료 13  족보·제적부 대조표       1통
+1. 소명자료 9-1 본관사실확인서           1통
+1. 소명자료 9-2 종친회 대표자 자격 서류   1통
+
+              20○○. ○○. ○○.
+          신청인  김재원  (서명 또는 날인)
+          신청인  김민수  (서명 또는 날인)
+
+○○가정법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f5')">📋 복사</button><button type="button" onclick="printForm('f5')">🖨 인쇄</button><button type="button" onclick="downloadForm('f5','보정서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>보정명령의 번호와 순서 그대로</b> 답하십시오. 낼 수 없는 자료가 있으면 숨기지 말고 "<b>○○ 때문에 발급이 거절되어, 대신 ○○를 제출한다</b>"고 적고, 필요하면 <b>사실조회 신청</b>을 함께 합니다. 기한 안에 다 못 모았으면 <b>일부라도 내면서 기간 연장</b>을 요청합니다. 형제·사촌 집안의 제적등본은 이 보정명령서를 붙여 등록관서에 청구할 수 있습니다(예규 제641호 별지 소명자료 예시).</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag debt">작성례 ⑥ · 기각결정에 대한 불복</span>항고장<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f6"><span class="ft">항  고  장</span>항 고 인  김재원 (○○○○○○-○○○○○○○)
+           주소 ○○시 ○○구 ○○로 ○○
+항 고 인  김민수 (○○○○○○-○○○○○○○)
+           주소 ○○시 ○○구 ○○로 ○○
+사건본인  김재원, 김민수
+
+○○가정법원 20○○호○ ○○○○ 등록부정정 사건에 관하여 위 법원이
+20○○. ○○. ○○. 한 기각결정에 대하여 항고합니다.
+(항고인들은 20○○. ○○. ○○. 위 결정을 고지받았습니다.)
+
+         원 결 정 의 표 시
+신청인들의 신청을 기각한다.
+
+         항 고 취 지
+1. 원결정을 취소한다.
+2. 사건본인 김재원, 김민수의 각 가족관계등록부 중 본(本)란에
+   기록된 「경주(慶州)」를 「김해(金海)」로 정정하는 것을 허가한다.
+라는 결정을 구합니다.
+
+         항 고 이 유
+1. 원결정은 "○○○(예: 족보 외에 본래 본을 확인할 객관적 자료가
+   부족하다)"는 이유로 신청을 기각하였습니다.
+
+2. 그러나 항고인들은 원심에서 제출한 1937년 이전 호적(소명자료 5)
+   외에, 원결정 후 아래 자료를 새로 확보하였습니다.
+   가. ○○○(예: 고조부의 아버지가 호주인 제적등본 — 본 「김해」)
+   나. ○○○(예: 김영철의 후손 김○○의 가족관계등록부 — 본 「김해」)
+
+3. 가족관계등록부 기재의 진실 추정은 반대 증거나 특별한 사정이
+   있으면 번복되고, 진실에 부합하지 않음이 분명한 기재는
+   정정되어야 합니다(대법원 2023. 7. 14.자 2023스17 결정 참조).
+   오류 전후의 공적 호적, 방계 친족의 호적, 족보와 종중 확인이
+   모두 「김해」로 일치하는 이상, 1937년 호적의 「경주」 기재는
+   착오임이 분명합니다.
+
+4. 따라서 원결정을 취소하고 항고취지와 같은 결정을 하여 주시기
+   바랍니다.
+
+         첨 부 서 류
+1. 새로 제출하는 소명자료       각 1통
+1. 원결정 등본                 1통
+
+              20○○. ○○. ○○.
+          항고인  김재원  (서명 또는 날인)
+          항고인  김민수  (서명 또는 날인)
+
+○○가정법원   귀중  (원결정을 한 법원에 제출)</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f6')">📋 복사</button><button type="button" onclick="printForm('f6')">🖨 인쇄</button><button type="button" onclick="downloadForm('f6','항고장.txt')">⬇ 다운로드</button></div>
+<div class="howto">항고장은 <b>결정을 한 그 법원(원심법원)</b>에 냅니다. 핵심은 항고이유 1번(원심이 무엇이 부족하다고 했나)과 2번(그것을 무엇으로 메웠나)입니다. <b>같은 자료로 같은 말만 반복하면</b> 결과가 바뀌기 어렵습니다. 항고장에 붙이는 인지액과 송달료는 접수 시 법원 안내를 따르십시오 <span style="font-size:12.5px;color:#9c3a22">[항고 인지액 확인필요]</span>.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="tag cred">작성례 ⑦ · 허가 후 1개월 안에</span>등록부정정신청서 (시·구·읍·면 제출 — 양식 제30호)<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f7"><span class="ft">등록부정정신청서</span>(20○○년 ○○월 ○○일)
+
+① 사건본인   성명 : 별지와 같음
+
+② 정정 사항  별지 첨부 허가결정 주문과 같음
+             (본 「경주(慶州)」 → 「김해(金海)」)
+
+③ 허가 또는 재판확정일자  20○○년 ○○월 ○○일
+   법원명  ○○가정법원
+
+④ 기타 사항  ○○○(예: 해당 없음)
+
+⑤ 신청인  성명  김민수 (서명 또는 날인)
+          주민등록번호  ○○○○○○-○○○○○○○
+          자격  ①본인  ②법정대리인  ③소 제기자  ④기타(자격: ○○○)
+          주소  ○○시 ○○구 ○○로 ○○
+          전화  ○○○-○○○○-○○○○   이메일  ○○○
+
+⑥ 제출인(신청인 아닌 사람이 낼 때만)  성명 ○○○  주민등록번호 ○○○○○○-○○○○○○○
+
+〈별지〉
+사건본인 1  성명 김재원(金在元)  주민등록번호 ○○○○○○-○○○○○○○
+            등록기준지 ○○도 ○○군 ○○면 ○○리 ○○
+            주소 ○○시 ○○구 ○○로 ○○
+            정정 사항  본 「경주(慶州)」를 「김해(金海)」로 정정
+사건본인 2  성명 김민수(金民秀)  주민등록번호 ○○○○○○-○○○○○○○
+            등록기준지 ○○도 ○○군 ○○면 ○○리 ○○
+            주소 ○○시 ○○구 ○○로 ○○
+            정정 사항  본 「경주(慶州)」를 「김해(金海)」로 정정
+
+첨부서류
+1. 등록부정정허가결정 등본  1부
+2. 신분확인 — 신청인 출석 시 신분증명서 / 제출인 출석 시 제출인
+   신분증명서 / 우편 제출 시 신청인 신분증명서 사본</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f7')">📋 복사</button><button type="button" onclick="printForm('f7')">🖨 인쇄</button><button type="button" onclick="downloadForm('f7','등록부정정신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto">시·구·읍·면 창구에 비치된 <b>양식 제30호</b>의 칸 순서 그대로입니다. 사건본인이 여러 명이면 ①란에 "별지와 같음"이라고 쓰고 별지에 사람마다 정정 사항을 적습니다. 신청인이 <b>외국인</b>이면 주민등록번호 대신 <b>외국인등록번호(국내거소신고번호 또는 출생연월일)</b>를 씁니다. 창구에 가지 않고 <a href="https://efamily.scourt.go.kr/ar/ArFrrCrctCAAFMgr.do" target="_blank">전자가족관계등록시스템</a>으로도 신청할 수 있습니다. <b>자녀의 본</b>은 이 신청이 처리된 뒤 아버지의 정정된 증명서를 제시하며 간이직권정정을 요청하십시오.</div>
+</div></div>
+
+<div class="cost">
+<span class="ct">💰 비용 — 인지는 1,000원, 대부분은 송달료입니다</span>
+<b>① 정정허가 신청 <span class="term">인지<span class="bub">법원에 신청서를 낼 때 붙이는 수수료. 이 사건은 정해진 금액(정액)입니다.</span></span></b>: <b>1,000원</b>. 실무교재는 사건본인 1명이 여러 사항을 함께 고쳐도 1건으로 보므로, <b>사건본인이 두 명이면 2,000원으로 안내받는 것이 보통</b>입니다 <span style="font-size:12.5px">[접수 법원 확인]</span>.<br>
+<b>② <span class="term">송달료<span class="bub">법원이 결정문 등을 우편으로 보내는 비용. 접수할 때 미리 내고(예납), 남으면 돌려받습니다.</span></span></b>: 전자민원센터 안내 기준 <b>6회분</b>. 1회분 5,500원(2025. 6. 1. 법원행정처 공지 기준)이면 <b>신청인 1명 33,000원</b>입니다. 단가는 우편요금에 따라 바뀌므로 <b>접수 시 법원 안내 금액</b>을 따르십시오.<br>
+<b>③ 증명서·제적등본</b>: <b>인터넷 발급은 무료</b>. 시·구청 창구는 증명서·제적등본 <b>통당 1,000원</b>, 제적초본 500원, 무인발급기는 500원·300원입니다(가족관계등록규칙 §28, 교재).<br>
+<b>④ 종중 확인서·족보 복사</b>: 종중마다 다릅니다(무료인 곳도 있음).<br>
+<b>⑤ 최솟값</b>: 사건본인 1명, 증명서를 모두 인터넷으로 뗀 경우 <b>인지 1,000원 + 송달료 33,000원 = 34,000원</b>.
+<div style="margin-top:11px; padding-top:10px; border-top:1px dashed #cfe6d6; color:#c0392b; font-weight:600; line-height:1.8;">※ 사건 정보를 입력하면 인지대·송달료를 포함한 예상 금액을 <a href="https://sanlaw.co.kr/tools-calculator.html" style="color:#c0392b; text-decoration:underline; font-weight:700;">🧮 수수료 계산기</a>에서 미리 확인할 수 있습니다.</div>
+</div>
+
+</div></details>
+
+<h2 id="s11">고충은 덜어드리고, 끝까지 곁에서 돕겠습니다</h2>
+<div class="hire">
+<p>오래된 호적은 손글씨 한자로 쓰여 있고, 분가·전적·호주승계가 얽혀 있어 한 장만 놓쳐도 계보가 끊어집니다. 본 사무소에서는 사실관계와 자료를 꼼꼼히 살펴 필요한 서류를 갖추어 드리고, 절차를 마치실 때까지 성심껏 돕겠습니다.</p>
+<p style="margin-top:12px"><b>· 처음 신청하시는 분</b><br>① 제적등본 <b>역추적 순서표와 판독</b>(옛 한자 호적 읽기), ② <b>오류 시점 연표·가계도</b> 작성, ③ <b>등록부정정허가 신청서·진술서</b> 작성과 소명자료 편철, ④ 사건본인 범위(아버지·자녀·형제 집안) 정리와 전자소송 제출 지원까지 필요한 서류를 <b>본인 신청을 마치실 때까지</b> 갖추어 드립니다.</p>
+<p style="margin-top:10px"><b>· 보정명령·기각결정을 받으신 분</b><br>① 보정명령 <b>항목별 대응표와 보정서</b>, ② 방계 친족 기록 확보를 위한 <b>사실조회 신청서</b>, ③ 새 자료를 갖춘 <b>항고장</b> 작성을 도와드립니다.</p>
+<p style="margin-top:10px"><b>· 허가를 받으신 분</b><br>① 1개월 안의 <b>등록부정정신청서</b>, ② 자녀 본의 <b>간이직권정정 요청</b> 준비, ③ 상속등기 등 다른 절차에 바로잡힌 증명서를 쓰는 방법까지 안내해 드립니다.</p>
+</div>
+<div class="warn"><span class="wt">⚠ 서류를 꾸미면 형사처벌됩니다</span>원하는 본관으로 맞추려고 <b>족보 면을 오려 붙이거나, 확인서를 대신 만들어 도장만 받거나, 사실과 다른 진술서를 내는 일</b>은 절대 하지 마십시오. 법원 양식에도 적혀 있듯, 허위 신고로 가족관계등록부에 부실의 사실을 기록하게 하면 <b>형법에 따라 5년 이하의 징역 또는 1천만원 이하의 벌금</b>에 처해질 수 있습니다. 자료가 부족하면 부족한 대로 설명하는 것이 결국 가장 빠른 길입니다.</div>
+
+<a href="https://sanlaw.co.kr/tools-calculator.html" class="cta">🧮 내 사건 비용 미리 계산하기</a>
+<div style="text-align:center; background:#f6ecd8; border:1px solid var(--gold); border-radius:11px; padding:14px; margin:18px 0; font-size:15px; color:var(--gold-d); font-weight:700;">📞 상담은 홈 화면의 상담 창구를 이용하시면 됩니다.</div>
+
+<details class="sec" id="s12"><summary>준비할 서류와 발급처 — 어디서 떼나<span class="sub">발급 화면으로 바로 가는 링크와 찾아가기 경로</span></summary>
+<div class="secbody">
+<p style="font-size:13.5px;color:var(--muted)">아래 '바로가기'를 클릭하면 발급·조회 화면으로 이동합니다. 로그인(공동인증서·간편인증) 화면이 먼저 뜰 수 있습니다. 만약 첫 화면으로 연결되면, 옆의 <b>찾아가기 경로</b>를 따라 메뉴를 클릭하면 됩니다.</p>
+<table>
+<tr><th>무엇을</th><th>서류</th><th>어디서 · 찾아가기 경로</th></tr>
+<tr><td><b>지금 본관·등록기준지</b></td><td>기본증명서(상세)</td><td><a href="https://efamily.scourt.go.kr/pt/PtFrrpApplrInfoInqW.do?menuFg=03" target="_blank">전자가족관계등록시스템 — 기본증명서</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 증명서 발급 → 기본증명서 → <b>상세</b> 선택. 인터넷 발급 무료</span></td></tr>
+<tr><td><b>가족 관계</b></td><td>가족관계증명서(상세)</td><td><a href="https://efamily.scourt.go.kr/pt/PtFrrpApplrInfoInqW.do?menuFg=02" target="_blank">전자가족관계등록시스템 — 가족관계증명서</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 증명서 발급 → 가족관계증명서 → 상세</span></td></tr>
+<tr><td><b>옛 호적(타자·전산)</b></td><td>제적등본 (부·조부·증조부·고조부)</td><td><a href="https://efamily.scourt.go.kr/pt/PtJjkpApplrInfoInqW.do?menuFg=10" target="_blank">전자가족관계등록시스템 — 제적등본</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 증명서 발급 → 제적등본. <b>호주 이름·본적</b>을 알아야 찾기 쉬우니, 아래 세대의 제적등본에서 윗대 호주와 본적을 확인하며 올라갑니다</span></td></tr>
+<tr><td><b>옛 호적(손글씨)</b></td><td>이미지 제적등본</td><td><a href="https://efamily.scourt.go.kr/pt/PtImgJjkpApplrInfoInqW.do?menuFg=13" target="_blank">전자가족관계등록시스템 — 이미지제적등본</a><br><span style="font-size:12.5px;color:var(--muted)">2024. 12. 2.부터 일부 인터넷 발급. <b>발급 범위에 없는 옛 제적은 시·구·읍·면 창구</b>(통당 1,000원)에서 뗍니다</span></td></tr>
+<tr><td><b>형제·사촌 집안 호적</b></td><td>방계 친족 제적등본</td><td>그 집안 후손에게 발급 부탁 / <b>법원 보정명령서·사실조회서를 소명자료로</b> 시·구·읍·면 창구에 청구<br><span style="font-size:12.5px;color:var(--muted)">근거: 가족관계등록법 §14①2호, 가족관계등록예규 제641호 별지 소명자료 예시(교재)</span></td></tr>
+<tr><td><b>주소</b></td><td>주민등록등본</td><td><a href="https://www.gov.kr" target="_blank">정부24</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 검색창에 '주민등록표 등본' 검색 → 발급하기</span></td></tr>
+<tr><td><b>족보</b></td><td>족보 표지·발행면·해당 파 시작면·계보면 사본</td><td>문중(종친회·대종회) 사무실, 국립중앙도서관 등 소장 도서관<br><span style="font-size:12.5px;color:var(--muted)">전체를 복사할 필요 없이 <b>표지 → 발행처·연도 → 파의 시작 → 고조부~신청인 연결 면</b>이면 됩니다</span></td></tr>
+<tr><td><b>종중 확인</b></td><td>본관사실확인서 + 대표자 자격 서류</td><td>해당 본관 대종회·종친회 사무국 (작성례 ④로 요청)</td></tr>
+<tr><td><b>법원 양식</b></td><td>등록부정정허가 신청서</td><td><a href="https://help.scourt.go.kr/nm/min_17/min_17_6/index.html" target="_blank">대법원 전자민원센터 — 가족관계등록비송</a> / <a href="https://ecfs.scourt.go.kr/psp/index.on?m=PSP720M24" target="_blank">전자소송 양식모음</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 전자민원센터 → 가족관계등록 → 가족관계등록비송 → 등록부정정</span></td></tr>
+<tr><td><b>신청 제출</b></td><td>정정허가 신청서 일체</td><td><a href="https://ecfs.scourt.go.kr" target="_blank">대법원 전자소송</a> 또는 등록기준지 관할 가정법원 민원실</td></tr>
+<tr><td><b>허가 후 정정신청</b></td><td>등록부정정신청서(양식 제30호)</td><td><a href="https://efamily.scourt.go.kr/ar/ArFrrCrctCAAFMgr.do" target="_blank">전자가족관계등록시스템 — 등록부정정신청(인터넷 신고)</a><br><span style="font-size:12.5px;color:var(--muted)">또는 등록기준지·주소지 시(구)·읍·면 사무소. 처리 결과는 같은 사이트 '처리내역확인'에서 조회</span></td></tr>
+<tr><td><b>해외에 사는 가족</b></td><td>증명서 발급·정정신청</td><td>재외국민은 전자가족관계등록시스템(인증서) 또는 <b>재외공관·재외국민 가족관계등록사무소</b><br><span style="font-size:12.5px;color:var(--muted)">외국 국적을 취득해 등록부가 폐쇄된 가족이나 외국 공문서가 섞인 경우(번역문 첨부 필요)는 정정 범위가 달라질 수 있어 개별 검토가 필요합니다</span></td></tr>
+</table>
+<div class="tip"><span class="pt">💡 이어지는 카드</span> 이름을 바꾸고 싶으시면 개명허가, 자녀의 성·본을 새로 바꾸려는 경우는 성·본 변경허가(민법 §781⑥) 절차로 가야 합니다. 같은 '가족관계등록' 분야의 <b>개명·성본 변경, 출생연월일 정정</b> 카드는 준비 중입니다. 바로잡힌 증명서로 <a class="cl" href="4-1_상속등기_부동산명의이전.html"><b>상속등기(4-1)</b></a>를 진행하실 분은 해당 카드를 보십시오.</div>
+</div></details>
+
+<div class="src">
+근거 — 「가족관계의 등록 등에 관한 법률」 제9조 제2항 제2호(본의 기록)·제14조 제1항(증명서 교부)·제18조(직권정정)·제104조(위법한 가족관계 등록기록의 정정)·제106조(정정신청의 의무)·제122조(과태료) · 「가족관계의 등록 등에 관한 규칙」 제28조(수수료)·제60조 제2항(간이직권정정사항) · 가족관계등록예규 제297호(제적부 정정)·제641호(증명서 교부 소명자료) · 민법 제157조·제160조·제161조(기간 계산)·제781조 제1항·제6항(자의 성과 본) · 대법원 2023. 7. 14.자 2023스17 결정(등록부 기재 추정력의 번복과 정정) · 대법원 2012. 4. 13.자 2011스160 결정(출생연월일의 정정 대상성) · 대법원 1993. 5. 22.자 93스14, 93스15, 93스16 전원합의체 결정(직접 쟁송방법이 없는 사항의 호적정정) · 대법원 2022. 3. 31.자 2021스3 결정(자의 성·본 변경 허가 기준) · 『2026 가족관계등록실무』(2025. 12. 31. 기준) 제2편 제2장·제5편·제6편 제5장 · 서울가정법원 게시 「등록부정정허가 신청서」·「등록부정정신청서(양식 제30호)」 · 법제처 찾기쉬운 생활법령정보 · 대법원 전자민원센터 · 법원행정처 1회 송달료 기준금액 공지(2025. 6. 1.).<br>
+※ 가상사례의 인명·본관·날짜는 설명을 위한 것입니다. 실무교재가 인용한 구선례 번호, 사건본인이 여러 명인 경우의 인지액, 항고장 인지액은 접수 법원에서 확인하시기 바랍니다. 본 자료는 일반적인 법률정보로, 개별 사건의 법률자문이 아니며 결과를 보장하지 않습니다.
+</div>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+})();
+
+(function(){
+  document.querySelectorAll('.toc a').forEach(function(a){
+    a.addEventListener('click',function(){
+      var el=document.querySelector(a.getAttribute('href'));
+      if(el&&el.tagName==='DETAILS')el.open=true;
+    });
+  });
+  var btn=document.getElementById('allBtn');
+  if(!btn)return;
+  function toggleAll(){
+    var opening=btn.textContent.indexOf('펼치기')>-1;
+    document.querySelectorAll('details.sec').forEach(function(d){d.open=opening;});
+    document.querySelectorAll('.formbox').forEach(function(fb){
+      fb.classList.toggle('open',opening);
+      var body=fb.querySelector('.fold-body');
+      if(body)body.style.display=opening?'block':'none';
+    });
+    btn.textContent=opening?'전체 접기':'전체 펼치기';
+  }
+  btn.addEventListener('click',toggleAll);
+  btn.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleAll();}});
+})();
+(function(){
+  /* 인쇄할 때 접힌 섹션도 함께 나오도록 — 인쇄 전 모두 펼치고, 인쇄 후 원래대로 */
+  var secs=document.querySelectorAll('details.sec');
+  var btn=document.getElementById('allBtn');
+  var saved=null;
+  function sync(){
+    if(!btn||saved)return;
+    var all=secs.length>0;
+    secs.forEach(function(d){if(!d.open)all=false;});
+    btn.textContent=all?'전체 접기':'전체 펼치기';
+  }
+  secs.forEach(function(d){d.addEventListener('toggle',sync);});
+  window.addEventListener('beforeprint',function(){
+    if(saved)return;
+    saved=[];
+    secs.forEach(function(d){saved.push(d.open);d.open=true;});
+  });
+  window.addEventListener('afterprint',function(){
+    if(!saved)return;
+    var s=saved;
+    secs.forEach(function(d,i){d.open=s[i];});
+    saved=null;
+    setTimeout(sync,0);
+  });
+})();
+function toggleFold(b){var fb=b.parentElement;var body=b.nextElementSibling;var open=fb.classList.toggle('open');if(body){body.style.display=open?'block':'none';}}
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('작성례가 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('작성례가 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('작성례를 내려받았습니다');}
+</script>
+</body>
+</html>
