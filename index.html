@@ -475,7 +475,7 @@ var BIZ=[
  {han:"法",t:"비영리법인 설립",d:"사단·재단법인 설립 허가",open:false,key:"bupin"},
  {han:"出",t:"출입국·체류",d:"비자·체류자격 변경·기간연장 신청",open:false,key:"chul"},
  {han:"刑",t:"형사 관련 서류 작성",d:"고소장·고발장·진정서·탄원서 작성 지원",open:false,key:"hyeongsa"},
- {han:"族",t:"가족관계등록",d:"개명·창성창본·등록부 정정 허가",open:false,key:"jok"},
+ {han:"族",t:"가족관계등록 신청서 작성·신청지원",d:"개명·창성창본·등록부(본관 등) 정정 허가",open:true,key:"jok"},
  {han:"供",t:"공탁",d:"변제·집행·혼합·해방·재판상 보증공탁",open:false,key:"gongtak"}
 ];
 document.addEventListener('DOMContentLoaded',function(){var bc=document.getElementById('bizCount');if(bc)bc.textContent=BIZ.length;});
@@ -657,7 +657,8 @@ var BOHO=[
 ];
 var JOK=[
  {n:1,t:"이름·성본",d:"개명·창성창본 허가",items:[]},
- {n:2,t:"등록부 정정",d:"출생연월일·가족관계 정정",items:[]},
+ {n:2,t:"등록부 정정",d:"본관·출생연월일·가족관계 정정",items:[
+   {t:"증조할아버지 때부터 본관이 잘못 적혀 내려왔어요",u:"족2-1_본관_바로잡기.html"}]},
  {n:3,t:"신고",d:"출생·혼인·이혼·사망 신고",items:[]}
 ];
 var HUGYEON=[
