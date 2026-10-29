@@ -1981,23 +1981,31 @@
     </div></div>
 
     <div class="card pink"><h2>③ §12 2호 — 신축 건물·조성 토지 소유권보존등기 <span class="tag A">A</span></h2><div class="body">
-      <div class="note">새로 축조된 <b>건물(구분건물이면 각 구분건물)</b>이나 조성된 <b>대지(공유토지이면 각 공유자)</b>별로 <b>각각 1건</b>으로 보아 기본보수를 산정합니다(소유권보존 <b>§9① 보수표 Ⅰ-1</b> — 과세표준액 기준).<br>▸ <b>과세표준액이 건별로 다르면</b> 아래는 개산치입니다. 정확히 하려면 건별로 나누어 계산하십시오. <span class="tag chk">확인필요</span></div>
-      <div class="line"><span class="lbl">신축 구분건물 수</span><div class="stepper"><button onclick="step('rd_newBldg',-1,calcRedev)">−</button><input type="number" id="rd_newBldg" value="0" min="0" oninput="calcRedev()"><button onclick="step('rd_newBldg',1,calcRedev)">+</button></div></div>
-      <div class="line"><span class="lbl">건물 1건당 과세표준액(원)</span><input type="number" class="amt" id="rd_newBldgStd" placeholder="0" oninput="calcRedev()"></div>
-      <div class="line"><span class="lbl">조성 대지 공유자 수</span><div class="stepper"><button onclick="step('rd_newLandOwn',-1,calcRedev)">−</button><input type="number" id="rd_newLandOwn" value="0" min="0" oninput="calcRedev()"><button onclick="step('rd_newLandOwn',1,calcRedev)">+</button></div><span class="hint">공유토지는 <b>공유자마다 1건</b></span></div>
-      <div class="line"><span class="lbl">대지 1건당 과세표준액(원)</span><input type="number" class="amt" id="rd_newLandStd" placeholder="0" oninput="calcRedev()"></div>
+      <div class="note">새로 축조된 <b>건물(구분건물이면 각 구분건물)</b>이나 조성된 <b>대지(공유토지이면 각 공유자)</b>별로 <b>각각 1건</b>으로 보아 기본보수를 산정합니다(소유권보존 <b>§9① 보수표 Ⅰ-1</b> — 과세표준액 기준).<br>▸ 평형(타입)마다 과세표준액이 다르면 <b>「＋ 건물 타입 추가」</b>로 줄을 늘려 타입별 과세표준액과 세대수를 넣으십시오. <b>건마다 Ⅰ-1을 따로 계산해 더합니다.</b> 대지도 공유자마다 과세표준액이 다르면 같은 방법으로 넣습니다.</div>
+      <div class="line"><span class="lbl">신축 구분건물 수(타입 1)</span><div class="stepper"><button onclick="step('rd_newBldg',-1,calcRedev)">−</button><input type="number" id="rd_newBldg" value="0" min="0" oninput="calcRedev()"><button onclick="step('rd_newBldg',1,calcRedev)">+</button></div></div>
+      <div class="line"><span class="lbl">타입 1 — 1건당 과세표준액(원)</span><input type="number" class="amt" id="rd_newBldgStd" placeholder="0" oninput="calcRedev()"></div>
+      <div id="rd_x_b"></div><div class="line"><span class="lbl"></span><button type="button" onclick="rdAddRow('b')" style="border:1px solid #cbbf9f;background:#fff;border-radius:4px;padding:4px 12px;cursor:pointer;font-weight:700;">＋ 건물 타입 추가</button></div>
+      <div class="line"><span class="lbl">조성 대지 공유자 수(묶음 1)</span><div class="stepper"><button onclick="step('rd_newLandOwn',-1,calcRedev)">−</button><input type="number" id="rd_newLandOwn" value="0" min="0" oninput="calcRedev()"><button onclick="step('rd_newLandOwn',1,calcRedev)">+</button></div><span class="hint">공유토지는 <b>공유자마다 1건</b></span></div>
+      <div class="line"><span class="lbl">묶음 1 — 1인당 과세표준액(원)</span><input type="number" class="amt" id="rd_newLandStd" placeholder="0" oninput="calcRedev()"></div>
+      <div id="rd_x_l"></div><div class="line"><span class="lbl"></span><button type="button" onclick="rdAddRow('l')" style="border:1px solid #cbbf9f;background:#fff;border-radius:4px;padding:4px 12px;cursor:pointer;font-weight:700;">＋ 대지 공유자 묶음 추가</button></div>
       <table class="t">
         <tr><td>2호 신축 건물 보존 <span class="hint" id="rd_n2bNote"></span></td><td class="auto" id="rd_n2bCell">0 원</td></tr>
         <tr><td>2호 조성 대지 보존 <span class="hint" id="rd_n2lNote"></span></td><td class="auto" id="rd_n2lCell">0 원</td></tr>
       </table>
     </div></div>
 
-    <div class="card pink"><h2>④ §12 3호 — 담보권 등에 관한 권리 <span class="tag chk">확인필요</span></h2><div class="body">
-      <div class="note" style="border-left:3px solid var(--seal);">분양받은 건물(구분건물)·대지(공유지분)에 <b>존속하게 되는</b> 지상권·전세권·임차권·저당권·가등기·환매특약·권리소멸약정·처분제한 등의 등기입니다.<br>▸ <b>각 등기사항별로 별건</b>으로 보되, <b>「과세표준액에 따른 가산규정을 적용하지 아니하고」 해당 각 등기종류에 따른 기본보수만</b>을 적용합니다.<br>▸ <b style="color:var(--seal);">「과세표준액에 따른 가산규정」의 범위를 조문만으로 확정할 수 없어(보수표 Ⅰ-1의 「+초과액의 x/10,000」 부분인지, §10의 가산보수인지) 자동계산하지 않습니다.</b> 등기종류별 기본보수를 확인하신 뒤 <b>1건당 금액을 직접 입력</b>하십시오. <span class="tag chk">확인필요</span><br>▸ <b>단서</b> — 구분소유자의 <b>대지소유권 공유지분</b>을 목적으로 하는 담보권 등의 등기사항이 <b>전유부분과 동일</b>하면 대지(공유지분)는 <b>별건으로 보지 않습니다</b>(건수에서 빼십시오).</div>
-      <div class="line"><span class="lbl">등기사항 수(별건)</span><div class="stepper"><button onclick="step('rd_secN',-1,calcRedev)">−</button><input type="number" id="rd_secN" value="0" min="0" oninput="calcRedev()"><button onclick="step('rd_secN',1,calcRedev)">+</button></div><span class="hint">전유부분과 동일한 대지 공유지분분은 <b>제외</b></span></div>
-      <div class="line"><span class="lbl">1건당 기본보수(원)</span><input type="number" class="amt" id="rd_secFee" value="0" min="0" oninput="calcRedev()"><span class="hint">등기종류별 기본보수 — 직접 입력</span></div>
+    <div class="card pink"><h2>④ §12 3호 — 담보권 등에 관한 권리 <span class="tag B">B</span></h2><div class="body">
+      <div class="note" style="border-left:3px solid var(--seal);">분양받은 건물(구분건물)·대지(공유지분)에 <b>존속하게 되는</b> 지상권·전세권·임차권·저당권·가등기·환매특약·권리소멸약정·처분제한 등의 등기입니다.<br>▸ <b>각 등기사항별로 별건</b>으로 보되, <b>「과세표준액에 따른 가산규정을 적용하지 아니하고」 해당 각 등기종류에 따른 기본보수만</b>을 적용합니다.<br>▸ <b>이 계산기의 산정 방식</b> <span class="tag B">B</span> <span class="law" title="2026. 10. 25. 마스터님 확정 — 보수기준 §12 3호 「과세표준액에 따른 가산규정을 적용하지 아니하고 해당 각 등기종류에 따른 기본보수만을 적용」의 해석: 보수표 Ⅰ-1 대상은 과세표준액이 속한 구간의 기준액만 적용하고 「+ 초과액의 ○/10,000」 부분은 적용하지 않는다. 환매특약은 환매권(Ⅰ-1)에 맞추어 최저 기준액 210,000원, 권리소멸약정은 §9⑤2호 120,000원(33회차 확정), 처분제한 등은 맞는 항목이 없어 직접 입력.">해석 근거</span><br>
+      · <b>저당권·근저당권·지상권·전세권·임차권 설정, 가등기</b>(보수표 Ⅰ-1 대상) → 과세표준액(채권최고액 등)이 속한 <b>구간의 기준액만</b> 적용하고 「+ 초과액의 ○/10,000」은 붙이지 않습니다. 예) 3억 원 → 260,000원, 4억 원 → 440,000원<br>
+      · <b>환매특약</b> → 210,000원 · <b>권리소멸약정</b> → 120,000원(§9⑤2호)<br>
+      · <b>처분제한(가압류·가처분 등)</b> → 보수표에 맞는 항목이 없어 <b>직접 입력</b>합니다<br>▸ <b>단서</b> — 구분소유자의 <b>대지소유권 공유지분</b>을 목적으로 하는 담보권 등의 등기사항이 <b>전유부분과 동일</b>하면 대지(공유지분)는 <b>별건으로 보지 않습니다</b>(건수에서 빼십시오).</div>
+      <div id="rd_x_s"><div class="line rd-x"><span class="lbl">등기사항 1</span><select class="rd-xt" onchange="calcRedev()" style="max-width:100%;"><option value="t1">저당권·근저당권·지상권·전세권·임차권 설정, 가등기 (Ⅰ-1 구간 기준액)</option><option value="hm">환매특약 (210,000)</option><option value="sm">권리소멸약정 (§9⑤2호 120,000)</option></select> <input type="number" class="amt rd-xa" placeholder="과세표준(채권최고액 등)" oninput="calcRedev()" style="width:170px;"> × <input type="number" class="rd-xn nocomma" value="0" min="0" style="width:60px;" oninput="calcRedev()"> 건 <button type="button" onclick="this.parentNode.remove();calcRedev()" style="border:1px solid #cbbf9f;background:#fff;border-radius:4px;padding:4px 12px;cursor:pointer;font-weight:700;">삭제</button></div></div>
+      <div class="line"><span class="lbl"></span><button type="button" onclick="rdAddRow('s')" style="border:1px solid #cbbf9f;background:#fff;border-radius:4px;padding:4px 12px;cursor:pointer;font-weight:700;">＋ 등기사항 추가</button><span class="hint">전유부분과 동일한 대지 공유지분분은 <b>건수에서 빼십시오</b></span></div>
+      <div class="line"><span class="lbl">처분제한 등 — 등기사항 수</span><div class="stepper"><button onclick="step('rd_secN',-1,calcRedev)">−</button><input type="number" id="rd_secN" value="0" min="0" oninput="calcRedev()"><button onclick="step('rd_secN',1,calcRedev)">+</button></div><span class="hint">가압류·가처분 등 보수표에 맞는 항목이 없는 등기</span></div>
+      <div class="line"><span class="lbl">처분제한 등 — 1건당 보수(원)</span><input type="number" class="amt" id="rd_secFee" value="0" min="0" oninput="calcRedev()"><span class="hint">직접 입력</span></div>
       <table class="t">
-        <tr><td>3호 담보권 등 <span class="hint" id="rd_n3Note"></span></td><td class="auto" id="rd_n3Cell">0 원</td></tr>
+        <tr><td>3호 담보권 등(자동) <span class="hint" id="rd_n3aNote"></span></td><td class="auto" id="rd_n3aCell">0 원</td></tr>
+        <tr><td>3호 처분제한 등(직접 입력) <span class="hint" id="rd_n3Note"></span></td><td class="auto" id="rd_n3Cell">0 원</td></tr>
       </table>
     </div></div>
 
@@ -2007,8 +2015,10 @@
       <div class="line"><span class="lbl">등기명의인 표시변경·경정</span><div class="stepper"><button onclick="step('rd_c2',-1,calcRedev)">−</button><input type="number" id="rd_c2" value="0" min="0" oninput="calcRedev()"><button onclick="step('rd_c2',1,calcRedev)">+</button></div><span class="hint">§9⑤3호 <b>40,000원</b>/건</span></div>
       <div class="line"><span class="lbl">상속 소유권이전 건수</span><div class="stepper"><button onclick="step('rd_c3',-1,calcRedev)">−</button><input type="number" id="rd_c3" value="0" min="0" oninput="calcRedev()"><button onclick="step('rd_c3',1,calcRedev)">+</button></div><span class="hint">§9① 보수표 Ⅰ-1</span></div>
       <div class="line"><span class="lbl">상속이전 1건당 과세표준액(원)</span><input type="number" class="amt" id="rd_c3Std" placeholder="0" oninput="calcRedev()"></div>
+      <div id="rd_x_c3"></div><div class="line"><span class="lbl"></span><button type="button" onclick="rdAddRow('c3')" style="border:1px solid #cbbf9f;background:#fff;border-radius:4px;padding:4px 12px;cursor:pointer;font-weight:700;">＋ 상속이전 과세표준 줄 추가</button></div>
       <div class="line"><span class="lbl">소유권보존 대위등기 건수</span><div class="stepper"><button onclick="step('rd_c4',-1,calcRedev)">−</button><input type="number" id="rd_c4" value="0" min="0" oninput="calcRedev()"><button onclick="step('rd_c4',1,calcRedev)">+</button></div><span class="hint">§9① 보수표 Ⅰ-1</span></div>
       <div class="line"><span class="lbl">보존 대위 1건당 과세표준액(원)</span><input type="number" class="amt" id="rd_c4Std" placeholder="0" oninput="calcRedev()"></div>
+      <div id="rd_x_c4"></div><div class="line"><span class="lbl"></span><button type="button" onclick="rdAddRow('c4')" style="border:1px solid #cbbf9f;background:#fff;border-radius:4px;padding:4px 12px;cursor:pointer;font-weight:700;">＋ 보존 대위 과세표준 줄 추가</button></div>
       <table class="t">
         <tr><td>4호 표시변경·경정 <span class="hint" id="rd_n4aNote"></span></td><td class="auto" id="rd_n4aCell">0 원</td></tr>
         <tr><td>4호 상속이전·보존대위 <span class="hint" id="rd_n4bNote"></span></td><td class="auto" id="rd_n4bCell">0 원</td></tr>
@@ -2041,7 +2051,7 @@
       <table class="t">
         <tr><td>§12 1호 말소 (공유자 가산 포함) <span class="hint" id="rd_s1Note"></span></td><td class="auto" id="rd_s1Cell">0 원</td></tr>
         <tr><td>§12 2호 소유권보존</td><td class="auto" id="rd_s2Cell">0 원</td></tr>
-        <tr><td>§12 3호 담보권 등 <span class="tag chk">확인필요</span></td><td class="auto" id="rd_s3Cell">0 원</td></tr>
+        <tr><td>§12 3호 담보권 등 <span class="tag B">B</span></td><td class="auto" id="rd_s3Cell">0 원</td></tr>
         <tr><td>§12 4호 표시변경·상속이전·보존대위</td><td class="auto" id="rd_s4Cell">0 원</td></tr>
         <tr><td>§12 5호 조사·분석 (공유자 가산 포함)</td><td class="auto" id="rd_s5Cell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="rd_f_tax" checked onchange="calcRedev()"> 취득세·등록면허세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
@@ -7061,7 +7071,9 @@ function renderDocsMortCancel(){
       d3i('<b>법인인감증명서</b> <span class="hint">— <b>등기필정보가 없을 때만</b></span>','등기필정보를 내면 근저당권자의 인감증명은 필요 없습니다 <span class="law" title="부동산등기규칙 제60조제1항제3호 — 소유권 외의 권리의 등기명의인이 등기의무자로서 법 제51조(등기필정보가 없는 경우)에 따라 등기를 신청하는 경우 인감증명. 근저당권말소는 등기필정보를 제공하면 인감증명이 필요 없다(선례 5-124) — 부동산등기실무Ⅰ(2015) 346~347쪽, 실무교재(2026) 139쪽">규칙 §60①3호</span>','')],
       extra:'<div class="d3note">교부처 — 대출을 갚은 <b>거래 은행 영업점</b>. 「말소서류를 준비해 달라」고 <b>미리</b> 요청하십시오. 당일 발급이 안 되는 곳이 있습니다.</div>'},
     {who:'소유자 (설정자 · 등기권리자)',items:[
-      d3i('<b>신분증</b>, 도장','소유자는 등기권리자로서 첨부서류가 적습니다','')]}];
+      d3i('<b>신분증</b>, 도장','소유자는 등기권리자로서 첨부서류가 적습니다','')]},
+    {who:'해당하는 경우에만',items:[
+      d3i('<b>등기상 이해관계 있는 제3자의 승낙서</b>와 그 <b>인감증명서</b> 또는 이에 대항할 수 있는 <b>재판의 정본</b>','지울 근저당권을 목적으로 한 권리(근저당권부 질권 등)가 있을 때 <span class="law" title="부동산등기법 제57조 ① 등기의 말소를 신청하는 경우에 그 말소에 대하여 등기상 이해관계 있는 제3자가 있을 때에는 제3자의 승낙이 있어야 한다. / 부동산등기규칙 제46조 ① 3. 등기상 이해관계 있는 제3자의 승낙이 필요한 경우에는 이를 증명하는 정보 또는 이에 대항할 수 있는 재판이 있음을 증명하는 정보">법 §57① · 규칙 §46①3호</span>','')]}];
   const office=[
     d3i('<b>등기신청서</b>','사무소가 작성합니다',''),
     d3i('<b>위임장</b>','사무소가 작성하고, 근저당권자와 소유자가 날인합니다',''),
@@ -7074,6 +7086,7 @@ function renderDocsMortCancel(){
     ['근저당권 해지증서','근저당권자','규칙 §46①1호'],
     ['근저당권자의 등기필정보 <small>— 없으면 확인서면 + 인감증명</small>','근저당권자 · 확인서면은 사무소','법 §50② · §51 · 규칙 §60①3호'],
     ['법인등기사항증명서 <small>(근저당권자가 법인일 때)</small>','근저당권자','규칙 §46①4호'],
+    ['등기상 이해관계 있는 제3자의 승낙서 · 인감증명서 또는 이에 대항할 수 있는 재판의 정본 <small>(그런 사람이 있을 때만)</small>','이해관계인','법 §57① · 규칙 §46①3호'],
     ['위임장','근저당권자·소유자 날인','규칙 §46①5호'],
     ['자격자대리인의 등기의무자 확인 및 자필서명 정보','사무소','규칙 §46①8호'],
     ['등록면허세·지방교육세 영수필확인서 <small>(말소 1건당 6,000원)</small>','사무소 (신고 대행)','규칙 §44'],
@@ -7116,7 +7129,8 @@ function renderDocsSintak(){
     {who:'위탁자 (맡기시는 분 · 소유자 · 등기의무자)',items:[
       d3i('<b>등기권리증(등기필정보)</b>','잃어버리셨으면 사무소가 확인서면으로 대신합니다',''),
       d3i('<b>인감증명서</b> 1통, <b>인감도장</b>, <b>신분증</b>',D3_SEAL,'주민센터'),
-      d3i('<b>주민등록표 초본</b> 1통','신탁은 소유권이 수탁자에게 넘어가는 등기라 <b>위탁자 주소 증명도 첨부</b>합니다',LK.juminCho)]},
+      d3i('<b>주민등록표 초본</b> 1통','신탁은 소유권이 수탁자에게 넘어가는 등기라 <b>위탁자 주소 증명도 첨부</b>합니다',LK.juminCho),
+      d3i('<b>지방세 납세증명서</b> 1통','신탁하는 부동산에 대한 것 — 증명서에 적힌 <b>유효기간 안</b>의 것이어야 합니다 <span class="law" title="지방세징수법 제5조 ① 4. 「신탁법」에 따른 신탁을 원인으로 부동산의 소유권을 수탁자에게 이전하기 위하여 등기관서의 장에게 등기를 신청할 때 — 이전하는 부동산의 소유자에게 부과되었거나 납세의무가 성립된 해당 부동산에 대한 취득세·재산세·지방교육세·지역자원시설세의 납세증명서 (인터넷등기소 등기신청양식 06-1 「신탁에 의한 소유권이전등기신청」)">지방세징수법 §5①4호</span>',LK.gov)]},
     {who:'수탁자 (맡는 분 · 등기권리자)',items:[
       d3i('<b>주민등록표 초본</b> 1통, 도장, 신분증','',LK.juminCho),
       d3i('<b>신탁업자(법인)</b>이면 <b>법인등기사항증명서</b>·<b>법인인감증명서</b>','',''),
@@ -7131,6 +7145,7 @@ function renderDocsSintak(){
     ['신탁원부 작성을 위한 정보','사무소','규칙 §139'],
     ['등기필정보(등기권리증) <small>— 없으면 확인서면</small>','위탁자 · 확인서면은 사무소','법 §50② · §51'],
     ['위탁자 인감증명서','위탁자','규칙 §60①1호 · 3개월(§62)'],
+    ['위탁자의 지방세 납세증명서 <small>(신탁 부동산에 대한 것, 유효기간 안)</small>','위탁자','지방세징수법 §5①4호'],
     ['위탁자·수탁자 주민등록표 초본 <small>(법인이면 법인등기사항증명서)</small>','위탁자 · 수탁자','규칙 §46①4·6호'],
     ['토지대장·건축물대장','사무소','규칙 §46①7호'],
     ['위임장','사무소 작성 · 당사자 날인','규칙 §46①5호'],
@@ -7484,11 +7499,11 @@ function renderDocsInherit(){
     extra:foreignBlock(frDec,'피상속인','dec')+foreignBlock(frHeir,'상속인','ri')});
 
   const office=d3officeStd({ledger:led,
-    cause:'상속재산 협의분할계약서 <span class="hint">(협의분할할 때)</span>',
+    cause:'상속재산분할협의서 <span class="hint">(협의분할할 때)</span>',
     causeDesc:'사무소가 작성합니다. <b>상속인 전원</b>이 <b>인감도장</b>으로 날인해야 합니다 <span style="color:var(--seal);font-weight:700;">(1인이라도 빠지면 무효)</span>'});
 
   attach.push(['상속을 증명하는 정보 — 피상속인의 기본·가족관계·혼인관계·입양관계·친양자입양관계증명서(상세), 제적등본 / 상속인 각자의 기본·가족관계증명서(상세)','의뢰인','규칙 §46①1호·§49 · 실무교재 292쪽']);
-  attach.push(['상속재산 협의분할계약서 <small>(협의분할할 때)</small>','사무소 작성 · 상속인 전원 인감 날인','규칙 §46①1호']);
+  attach.push(['상속재산분할협의서 <small>(협의분할할 때)</small>','사무소 작성 · 상속인 전원 인감 날인','규칙 §46①1호']);
   attach.push(['상속인 전원의 인감증명서 <small>(협의분할할 때)</small>','상속인 전원','규칙 §60①6호 · 3개월(§62)']);
   attach.push(['상속포기 수리 심판서 정본(확정증명 불요) · 특별대리인 선임 심판서와 특별대리인 인감증명서 <small>(해당할 때)</small>','의뢰인','상속등기 209·459~460쪽 · 민법 §921']);
   attach.push(['특별수익자의 상속분 없음 확인서와 인감증명서 · 기여분 협의서(심판서) · 상속결격 판결등본 · 상속권 상실 판결정본과 확정증명 <small>(해당할 때)</small>','의뢰인','상속등기 211~213·229쪽 · 예규 제1864호']);
@@ -7779,8 +7794,8 @@ function renderDocsBequest(){
 
   const office=d3officeStd({oblig:exec==='yes'?'유언집행자':'상속인',ledger:led});
   attach.push(['유언증서('+W[0]+')'+(W[3]?' + '+W[3]:''),'의뢰인','규칙 §46①1호 · 실무교재 299쪽']);
-  attach.push([exec==='yes'?'유언집행자 자격 증명 — 유언증서·지정서·선임심판서':'상속인임을 증명하는 정보(가족관계등록사항별증명서 등)','의뢰인','실무교재 299쪽']);
-  attach.push(['유증자의 사망을 증명하는 정보 — 기본증명서(상세) 등','의뢰인','실무교재 299쪽']);
+  attach.push([exec==='yes'?'유언집행자 자격 증명 — 유언증서·지정서·선임심판서':'유증자의 가족관계증명서(상세)·제적등본 <small>(상속인 확인)</small>','의뢰인','실무교재 299쪽']);
+  attach.push(['유증자의 기본증명서(상세) <small>(사망 사실 확인)</small>','의뢰인','실무교재 299쪽']);
   attach.push(['유증자의 등기필정보(등기권리증) <small>— 없으면 확인정보</small>','의뢰인 · 확인정보는 사무소','법 §50② · §51 · 실무교재 299쪽']);
   attach.push([(exec==='yes'?'유언집행자':'신청에 참여하는 상속인(과반수)')+'의 인감증명서 · 주소 증명','의뢰인','선례 5-334·9-245 · 부동산등기실무Ⅱ(2015) 296쪽 · 3개월(§62)']);
   attach.push([bt==='ind'?'수증자의 주민등록표 등(초)본':'수증자의 주소·등록번호 증명','수증자','규칙 §46①6호']);
@@ -9658,7 +9673,7 @@ function renderDocsPreserve(){
     more:[d3i('<b>토지이용계획확인원</b>','용도지역 등 확인 <span class="hint">(확인용 — 첨부서류는 아닙니다)</span>',LK.eum),
       d3i('<b>건물 소재도</b> <span class="hint">(대지 위에 건물이 여럿이고 건축물대장이 없을 때만)</span>','건축물대장을 내면 필요 없습니다 <span class="law" title="부동산등기규칙 제121조 · 부동산등기실무(2026) 260쪽">규칙 §121</span>','')]});
   const attach=[
-    ['소유권을 증명하는 정보 — '+(f==='land'?'토지대장(최초 소유자 등록)':'건축물대장(최초 소유자 등록)')+' / 판결·재결서 등','사무소 발급 · 판결 등은 의뢰인','부동산등기법 §65 · 규칙 §121'],
+    [(f==='land'?'토지대장등본(최초 소유자로 등록된 것)':'건축물대장등본(최초 소유자로 등록된 것)')+' 또는 판결정본·수용재결서 등','사무소 발급 · 판결 등은 의뢰인','부동산등기법 §65 · 규칙 §121'],
     [bt==='ind'?'소유자 주민등록표 초본':'소유자 주소·등록번호 증명','소유자','규칙 §46①6호'],
     [led,'사무소','규칙 §121'],
     ['위임장','사무소 작성 · 소유자 날인','규칙 §46①5호'],
@@ -10872,13 +10887,41 @@ function calcCorpChange(fromEdit){
      2호 소유권보존 — 신축 건물(각 구분건물)·조성 대지(공유는 각 공유자)별 각 1건 (§9① Ⅰ-1)
      3호 담보권 등  — 각 등기사항별 별건, 과세표준액에 따른 가산규정 미적용, 각 등기종류
                       기본보수만. 대지 공유지분 목적 권리의 등기사항이 전유부분과 동일하면
-                      대지는 별건 아님. → 「과세표준액에 따른 가산규정」의 범위가 조문만으로는
-                      확정되지 않아 자동계산하지 않고 직접입력으로 둔다 [확인필요]
+                      대지는 별건 아님.
+                      [B — 2026.10.25. 마스터님 확정, 38회차] Ⅰ-1 대상(저당·근저당·지상·전세·임차권
+                      설정, 가등기)은 과세표준 구간의 기준액만(tierBase — 「+초과액 ○/10,000」 제외),
+                      환매특약 = Ⅰ-1 최저 기준액(210,000), 권리소멸약정 = §9⑤2호(120,000),
+                      처분제한 등 = 직접입력.
+     (38회차) 2호·4호는 타입별 여러 줄(rd_x_b·l·c3·c4) — 건마다 Ⅰ-1을 따로 계산해 합산
      4호 표시변경·명의인표시변경·상속이전·보존대위 — 각 부동산별 · 각 등기사항별 별건
      5호 권리 조사·분석 — 건물·토지별 각 1건 50,000 + 공유자별 10,000
                           (대지권 미등기 구분건물로서 구분건물 소유자 = 토지 지분 소유자면
                            합하여 1개 부동산)
    ※ 공과금(취득세·등록면허세·채권)은 사업유형·조합원 여부·감면특례에 좌우되므로 자동계산 없음. */
+/* 38회차: 보수표 구간 기준액(「+초과액」 제외) · 타입별 여러 줄 입력 */
+function tierBase(key,a){const t=TIERS[key];if(!t)return 0;for(const[l,b]of t){if(a<=l)return b;}return 0;}
+const RD_XL={b:['건물 타입','1건당 과세표준액','건'],l:['대지 공유자 묶음','1인당 과세표준액','인'],c3:['상속이전','1건당 과세표준액','건'],c4:['보존 대위','1건당 과세표준액','건']};
+const RD_XBTN='style="border:1px solid #cbbf9f;background:#fff;border-radius:4px;padding:4px 12px;cursor:pointer;font-weight:700;"';
+function rdAddRow(k){
+  const box=document.getElementById('rd_x_'+k);if(!box)return;
+  const d=document.createElement('div');d.className='line rd-x';
+  const del=' <button type="button" onclick="this.parentNode.remove();calcRedev()" '+RD_XBTN+'>삭제</button>';
+  if(k==='s'){
+    const first=box.querySelector('.rd-xt');
+    d.innerHTML='<span class="lbl">등기사항 '+(box.children.length+1)+'</span>'+(first?first.outerHTML.replace(/ selected=""/g,''):'')
+      +' <input type="number" class="amt rd-xa" placeholder="과세표준(채권최고액 등)" oninput="calcRedev()" style="width:170px;"> × <input type="number" class="rd-xn nocomma" value="1" min="0" style="width:60px;" oninput="calcRedev()"> 건'+del;
+  }else{
+    const L=RD_XL[k]||RD_XL.b;
+    d.innerHTML='<span class="lbl">'+L[0]+' '+(box.children.length+2)+'</span><input type="number" class="amt rd-xa" placeholder="'+L[1]+'(원)" oninput="calcRedev()" style="width:170px;"> × <input type="number" class="rd-xn nocomma" value="1" min="0" style="width:60px;" oninput="calcRedev()"> '+L[2]+del;
+  }
+  box.appendChild(d);
+  if(typeof moneyInit==='function')moneyInit(d);
+  calcRedev();
+}
+function rdRows(k){return [].slice.call(document.querySelectorAll('#rd_x_'+k+' .rd-x')).map(function(r){
+  const a=numOf(r.querySelector('.rd-xa').value), n=parseInt(String(r.querySelector('.rd-xn').value).replace(/,/g,''),10), t=r.querySelector('.rd-xt');
+  return {a:isNaN(a)?0:Math.max(0,a), n:isNaN(n)?0:Math.max(0,n), t:t?t.value:''};});}
+function rdFee3(r){return r.t==='hm'?tierBase('Ⅰ-1',0):r.t==='sm'?FLAT['Ⅰ-3(2)']:tierBase('Ⅰ-1',r.a);}
 function calcRedev(fromEdit){
   const adj=parseFloat(document.getElementById('rd_adjust').value)||1;
   const R=n=>Math.round(n*adj);
@@ -10891,25 +10934,33 @@ function calcRedev(fromEdit){
   document.getElementById('rd_n1oCell').textContent=won(n1o);
   document.getElementById('rd_n1oNote').textContent='(초과 '+Math.max(0,val('rd_oldOver10'))+'인 × 10,000'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   // ── 2호
-  const n2bN=Math.max(0,val('rd_newBldg')), n2lN=Math.max(0,val('rd_newLandOwn'));
-  const n2b=R(tierFee('Ⅰ-1',val('rd_newBldgStd'))*n2bN);
-  const n2l=R(tierFee('Ⅰ-1',val('rd_newLandStd'))*n2lN);
+  /* 2호 — 타입 1(기존 칸) + 추가 줄, 건마다 Ⅰ-1 */
+  const xs=(k,n0,a0)=>{let s=tierFee('Ⅰ-1',a0)*n0,n=n0;rdRows(k).forEach(r=>{s+=tierFee('Ⅰ-1',r.a)*r.n;n+=r.n;});return {s:s,n:n,rows:rdRows(k).length+1};};
+  const B2=xs('b',Math.max(0,val('rd_newBldg')),val('rd_newBldgStd')), L2=xs('l',Math.max(0,val('rd_newLandOwn')),val('rd_newLandStd'));
+  const n2bN=B2.n, n2lN=L2.n;
+  const n2b=R(B2.s);
+  const n2l=R(L2.s);
   document.getElementById('rd_n2bCell').textContent=won(n2b);
-  document.getElementById('rd_n2bNote').textContent='(Ⅰ-1 '+won(tierFee('Ⅰ-1',val('rd_newBldgStd')))+' × '+n2bN+'건)';
+  document.getElementById('rd_n2bNote').textContent=B2.rows>1?'(Ⅰ-1 타입 '+B2.rows+'개 건별 합산 · '+n2bN+'건)':'(Ⅰ-1 '+won(tierFee('Ⅰ-1',val('rd_newBldgStd')))+' × '+n2bN+'건)';
   document.getElementById('rd_n2lCell').textContent=won(n2l);
-  document.getElementById('rd_n2lNote').textContent='(Ⅰ-1 '+won(tierFee('Ⅰ-1',val('rd_newLandStd')))+' × 공유자 '+n2lN+'인)';
-  // ── 3호 [확인필요] 직접입력
+  document.getElementById('rd_n2lNote').textContent=L2.rows>1?'(Ⅰ-1 묶음 '+L2.rows+'개 합산 · 공유자 '+n2lN+'인)':'(Ⅰ-1 '+won(tierFee('Ⅰ-1',val('rd_newLandStd')))+' × 공유자 '+n2lN+'인)';
+  // ── 3호 [B 마스터님 확정] 등기종류별 기본보수(구간 기준액) + 처분제한 등 직접입력
+  const S3=rdRows('s'); let n3aS=0,n3aN=0; S3.forEach(r=>{n3aS+=rdFee3(r)*r.n;n3aN+=r.n;});
+  const n3a=R(n3aS);
+  document.getElementById('rd_n3aCell').textContent=won(n3a);
+  document.getElementById('rd_n3aNote').textContent='('+n3aN+'건 · 과세표준 가산 미적용'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   const n3N=Math.max(0,val('rd_secN')), n3=R(Math.max(0,val('rd_secFee'))*n3N);
   document.getElementById('rd_n3Cell').textContent=won(n3);
-  document.getElementById('rd_n3Note').textContent='(직접입력 '+won(val('rd_secFee'))+' × '+n3N+'건 · 과세표준 가산 미적용)';
+  document.getElementById('rd_n3Note').textContent='(직접입력 '+won(val('rd_secFee'))+' × '+n3N+'건)';
   // ── 4호
   const n4aN=Math.max(0,val('rd_c1'))+Math.max(0,val('rd_c2'));
   const n4a=R(FLAT['Ⅰ-3(3)']*n4aN);
-  const n4b=R(tierFee('Ⅰ-1',val('rd_c3Std'))*Math.max(0,val('rd_c3'))+tierFee('Ⅰ-1',val('rd_c4Std'))*Math.max(0,val('rd_c4')));
+  const C3=xs('c3',Math.max(0,val('rd_c3')),val('rd_c3Std')), C4=xs('c4',Math.max(0,val('rd_c4')),val('rd_c4Std'));
+  const n4b=R(C3.s+C4.s);
   document.getElementById('rd_n4aCell').textContent=won(n4a);
   document.getElementById('rd_n4aNote').textContent='(§9⑤3호 40,000 × '+n4aN+'건)';
   document.getElementById('rd_n4bCell').textContent=won(n4b);
-  document.getElementById('rd_n4bNote').textContent='(Ⅰ-1 · 상속 '+Math.max(0,val('rd_c3'))+'건 + 보존대위 '+Math.max(0,val('rd_c4'))+'건)';
+  document.getElementById('rd_n4bNote').textContent='(Ⅰ-1 건별 · 상속 '+C3.n+'건 + 보존대위 '+C4.n+'건)';
   // ── 5호
   const n5N=Math.max(0,val('rd_invN')), n5=R(50000*n5N);
   const n5oN=Math.max(0,val('rd_invOwn')), n5o=R(10000*n5oN);
@@ -10924,10 +10975,10 @@ function calcRedev(fromEdit){
   document.getElementById('rd_s1Cell').textContent=won(n1+n1o);
   document.getElementById('rd_s1Note').textContent=(adj!==1?'(§10③ ×'+(adj*100)+'% 적용)':'');
   document.getElementById('rd_s2Cell').textContent=won(n2b+n2l);
-  document.getElementById('rd_s3Cell').textContent=won(n3);
+  document.getElementById('rd_s3Cell').textContent=won(n3a+n3);
   document.getElementById('rd_s4Cell').textContent=won(n4a+n4b);
   document.getElementById('rd_s5Cell').textContent=won(n5+n5o);
-  let fee=n1+n1o+n2b+n2l+n3+n4a+n4b+n5+n5o;
+  let fee=n1+n1o+n2b+n2l+n3a+n3+n4a+n4b+n5+n5o;
   if(chk('rd_f_tax'))fee+=50000;
   if(chk('rd_f_trip'))fee+=val('rd_tripFee');
   EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const c=document.getElementById('rda_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('rdaq_'+id).value)||1);fee+=FLAT[code]*q;}});
@@ -12497,11 +12548,13 @@ function buildReceiptSheet(ws,caseName,base,feeRows,pubRows,vat,office,off,meta)
   setc(1,4,'호',9,false,'left');                 // 수정1: 호를 영수증 영자 라인(D열)에
   mrg(2,1,2,6); setc(2,1,EST?'견    적    서':'영    수    증',22,true,'center'); ws.getRow(2).height=46; // 수정8: 줄간격
   mrg(3,1,3,6); setc(3,1,(meta.name?meta.name+'   ':'')+'귀하',11,false,'right');  // 수정7: 귀하 우측 끝 · 2026-09 받는 분 성명
-  mrg(4,1,4,3); mrg(4,4,4,6);
-  setc(4,1,'※ 사건명 :   '+caseName,10,false,'left');
+  /* 38회차: 사건명이 길면(유형별 화면의 「유형 · 원인」 등) 4~5행을 합쳐 두 줄로 — 옆 칸(과세표준액)에 가려지지 않게 */
+  const _cnLong=String(caseName).length>16;
+  mrg(4,1,_cnLong?5:4,3); mrg(4,4,4,6);
+  setc(4,1,'※ 사건명 :   '+caseName,_cnLong?9:10,false,'left',_cnLong);
   setc(4,4,'※ 과세표준액 :   '+(base?Number(base).toLocaleString():''),10,false,'left');
-  mrg(5,1,5,3); mrg(5,4,5,6);
-  setc(5,1,'',10,false,'left'); setc(5,4,'※ 시가표준액(설정액) :   '+(meta.std?Number(meta.std).toLocaleString():''),10,false,'left');
+  if(!_cnLong){mrg(5,1,5,3);} mrg(5,4,5,6);
+  if(!_cnLong)setc(5,1,'',10,false,'left'); setc(5,4,'※ 시가표준액(설정액) :   '+(meta.std?Number(meta.std).toLocaleString():''),10,false,'left');
   mrg(HDR,1,HDR,3); mrg(HDR,4,HDR,6);
   setc(HDR,1,'보 수 액',11,true,'center'); setc(HDR,4,'공 과 금',11,true,'center');
   ['적 요','금 액','비 고','적 요','금 액','비 고'].forEach((h,i)=>setc(COL,i+1,h,10,true,'center'));
@@ -12787,7 +12840,9 @@ async function _exportExcelBody(meta){
   if(!scene){alert('사건을 먼저 선택해 주세요.');return;}
   if(typeof ExcelJS==='undefined'){alert('엑셀 라이브러리 로딩 중입니다. 잠시 후 다시 눌러주세요.');return;}
   const st=scene.querySelector('.stitle');
-  const caseName=st?st.childNodes[0].textContent.trim():'법무사 보수';
+  let caseName=st?st.childNodes[0].textContent.trim():'법무사 보수';
+  /* 38회차: 「등기유형으로 찾기」는 화면 제목 대신 고른 등기 유형·원인을 사건명으로 쓴다(영수증 대조에서 발견) */
+  if(scene.id==='scene-유형별'&&typeof tyCur==='function'){try{const c=tyCur();if(c&&c.name)caseName=(TYS.cat==='corp'&&TYS.cls?TYS.cls+' ':'')+c.name+(TYS.cause&&TYS.cause!==TY_ETCX?' · 원인 '+TYS.cause:'')+(c.optLab?' · '+c.optLab:'');}catch(e){}}
   const _xr=exportRows(scene);
   const feeRows=_xr.fee;
   let pubRows=_xr.pub;

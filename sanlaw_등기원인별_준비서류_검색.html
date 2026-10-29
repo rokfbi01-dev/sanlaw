@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>등기 원인별 준비서류 찾기 — 매매·증여·상속·근저당·전세권 등 | 산 법무사 김재섭</title>
+<meta name="description" content="부동산등기기록례집의 등기원인별로 넘겨주는 분과 받는 분이 준비할 서류, 등기소에 내는 첨부서류, 취득세 신고 서류를 한 번에 찾아볼 수 있습니다.">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+html,body{background:var(--paper);}
+body{font-family:'Pretendard','Malgun Gothic',sans-serif; color:var(--ink); line-height:1.8; margin:0; font-size:16px; word-break:keep-all;}
+.wrap{max-width:900px; margin:0 auto; padding:26px 16px 80px;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.6; color:#241a10; margin:6px 0 8px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:19px; font-weight:700; color:var(--gold-d); margin:30px 0 10px; padding-left:11px; border-left:4px solid var(--gold);}
+.lead{color:var(--muted); font-size:15px; margin:10px 0 18px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:12px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:2px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:12px 16px; margin:14px 0; font-size:15px;}
+.step{background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 18px; margin:16px 0; box-shadow:0 1px 0 rgba(0,0,0,.02);}
+.step .sh{font-weight:800; color:#241a10; margin-bottom:8px; font-size:16.5px;}
+.step .sh .no{display:inline-flex; align-items:center; justify-content:center; width:26px; height:26px; border-radius:50%; background:var(--gold); color:#fff; font-size:14px; margin-right:8px; vertical-align:1px;}
+.srow{display:flex; gap:8px; flex-wrap:wrap;}
+input[type=search],select{font:inherit; font-size:16px; padding:11px 12px; border:1.5px solid #d8cdb8; border-radius:10px; background:#fff; color:var(--ink); min-width:0;}
+input[type=search]{flex:1 1 320px;}
+select{flex:1 1 220px; max-width:100%;}
+input[type=search]:focus,select:focus,button:focus,a:focus{outline:3px solid #e9c98f; outline-offset:1px;}
+.chips{display:flex; flex-wrap:wrap; gap:7px; margin-top:10px;}
+.chip{font:inherit; font-size:14px; background:#f6ecd8; color:var(--gold-d); border:1px solid #e3cfa8; border-radius:999px; padding:5px 13px; cursor:pointer;}
+.chip:hover{background:#efdfbf;}
+.count{font-size:13.5px; color:var(--muted); margin:10px 2px 4px;}
+.results{list-style:none; margin:0; padding:0; max-height:420px; overflow:auto; border:1px solid var(--line); border-radius:10px; background:#fff;}
+.results li{border-bottom:1px solid #f1ebdf;}
+.results li:last-child{border-bottom:0;}
+.results button{all:unset; display:block; width:100%; box-sizing:border-box; padding:10px 14px; cursor:pointer; line-height:1.5;}
+.results button:hover,.results button:focus{background:#fbf5ea;}
+.results .rc{font-weight:700; color:#241a10;}
+.results .rt{font-size:13px; color:var(--muted);}
+.results .sel{background:#f6ecd8;}
+.results .sub{font-size:12.5px; color:var(--tip-ink); padding:6px 14px; background:#f3f7fa;}
+.picked{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:14px 18px; margin:18px 0 6px;}
+.picked .pc{font-family:'Nanum Myeongjo',serif; font-weight:800; font-size:19px; color:var(--gold-d);}
+.picked .pt{font-size:13.5px; color:var(--muted);}
+.pick2{display:grid; grid-template-columns:1fr 1.5fr; gap:10px 14px; margin:4px 0 12px;} .pick2 label{display:block; font-size:14px; font-weight:700; color:#3a2c1c; margin-bottom:4px;} .pick2 select{width:100%;}
+@media(max-width:640px){.pick2{grid-template-columns:1fr;}}
+.lab{display:block; font-size:14px; font-weight:700; color:#3a2c1c; margin:6px 0 4px;}
+#cause{width:100%;}
+.count .go{margin-left:10px; border:1px solid var(--gold); background:#fffaf0; color:var(--gold-d); border-radius:999px; padding:3px 12px; font-weight:700; cursor:pointer; font-size:13.5px;}
+.gw{font-size:14px; color:#4a3b2a; line-height:1.65; margin:2px 0 6px;} .gw small{color:var(--muted);}
+.gnote{font-size:13.5px; color:var(--muted); margin:8px 0;} .glab{font-size:13.5px; font-weight:700; color:var(--ink,#2b2b2b); margin:4px 0 0;} .glist{font-size:14px; line-height:1.7; padding-left:20px;} .glist small{color:var(--muted);}
+.picked .pnote{font-size:14px; color:#4a3b2a; margin:8px 0 0; line-height:1.6;}
+.who{display:grid; grid-template-columns:1fr; gap:12px; margin-top:4px;}
+.party label{display:block; font-size:14.5px; font-weight:700; color:#3a2c1c; margin-bottom:4px;}
+.half{display:grid; grid-template-columns:1fr 1fr; gap:10px; align-items:start;} .half select,.half input{width:100%; box-sizing:border-box; height:50px;}
+.ps{position:relative;} .psug{display:flex; flex-wrap:wrap; gap:6px; margin-top:6px;} .psug:empty{display:none;}
+.psug button{font:inherit; font-size:14px; padding:5px 10px; border:1px solid #d8cdb8; border-radius:999px; background:#fffaf0; color:var(--ink); cursor:pointer; text-align:left;}
+.psug button:hover,.psug button:focus{border-color:var(--gold); background:#fff3dc;} .psug .pnone{font-size:13.5px; color:var(--muted);}
+@media(max-width:640px){.half{grid-template-columns:1fr;}}
+.chosen:not(:empty){margin:10px 0 4px; padding:10px 14px; border:1.5px solid #d9c08a; border-radius:10px; background:#fffaf0;}
+.chosen-h{font-weight:700; color:#7a5a1e; font-size:14.5px;}
+.ckl{display:flex; gap:8px; align-items:flex-start; cursor:pointer;} .ckl input{width:18px; height:18px; margin:5px 0 0; flex:none; accent-color:var(--gold);}
+/* 「해당하는 경우에만 필요한 서류 ○개 보기」 글씨만 청색 (마스터님 지시), 안의 서류는 다른 준비서류와 같은 색 */
+details.more.cond > summary,details.more.gam > summary{color:#1747c7;}
+.cg .grp .ckl{font-weight:700;} .gck{margin:4px 0; font-size:14.5px; color:#5a4325;} .cknote{font-size:13.5px; color:var(--muted); margin:6px 0;}
+.who label{font-size:14px; font-weight:700; color:#3a2d1e; display:block; margin-bottom:4px;}
+.who select{width:100%;}
+.sec{background:#fff; border:1px solid var(--line); border-radius:12px; margin:14px 0; overflow:hidden;}
+.sec>.hd{background:#f6efe2; padding:10px 16px; font-weight:800; color:#3a2a17; display:flex; justify-content:space-between; gap:10px; align-items:baseline; flex-wrap:wrap;}
+.sec>.hd small{font-weight:500; color:var(--muted); font-size:13px;}
+.sec>.bd{padding:10px 16px 14px;}
+.sec.c1>.hd{border-left:5px solid #b07a46;} .sec.c2>.hd{border-left:5px solid #5a8db0;} .sec.c3>.hd{border-left:5px solid #5a9a72;}
+.sec.c4>.hd{border-left:5px solid #c9a24a;} .sec.c5>.hd{border-left:5px solid #8a8a8a;}
+ol.docs{margin:6px 0; padding-left:24px;}
+ol.docs li{margin:6px 0; padding-left:2px;}
+ol.docs li .cond{color:#6a5a45; font-size:14.5px;}
+.issue{display:inline-block; font-size:12.5px; margin-left:6px; color:var(--tip-ink); white-space:normal;}
+.issue a{color:var(--tip-ink); font-weight:700;}
+.grp{font-weight:700; color:var(--gold-d); margin:12px 0 2px; font-size:15px;}
+.note{background:var(--box); border-radius:8px; padding:8px 12px; margin:8px 0; font-size:14.5px; color:#4a3c2c;}
+.none{color:#5b5b5b; background:#f6f6f2; border-radius:8px; padding:10px 12px; font-size:15px;}
+.gu{display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-top:10px;}
+.gu select{flex:1 1 260px;}
+.btn{display:inline-block; font:inherit; font-size:15px; font-weight:700; text-decoration:none; background:var(--gold-d); color:#fff; border:0; border-radius:10px; padding:10px 16px; cursor:pointer;}
+.btn.sm{font-size:14px; padding:8px 13px;}
+.btn.ghost{background:#fff; color:var(--gold-d); border:1.5px solid var(--gold);}
+.btn[aria-disabled=true]{opacity:.45; pointer-events:none;}
+.gusum{font-size:13.5px; color:var(--muted); margin-top:6px;}
+details.more{margin:12px 0;}
+details.more summary{cursor:pointer; font-weight:700; color:var(--gold-d);}
+.tools{display:flex; gap:8px; flex-wrap:wrap; margin:12px 0;}
+.cta{display:block; text-align:center; background:var(--gold-d); color:#fff; font-weight:700; font-size:17px; text-decoration:none; padding:15px; border-radius:11px; margin:18px 0; font-family:'Nanum Myeongjo',serif;}
+.cta:hover{background:#5e3f24;}
+.hire{background:var(--ok-bg); border:1px solid #cfe5d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.src{font-size:12.5px; color:var(--muted); border-top:1px solid var(--line); margin-top:30px; padding-top:12px;}
+.loading{color:var(--muted); padding:20px 0;}
+.sit{background:#fffaf0; border-color:#e7d3ad;}
+.sits{display:grid; grid-template-columns:1fr 1fr; gap:6px 14px;}
+.sitk{display:flex; gap:8px; align-items:flex-start; font-size:15px; line-height:1.5; cursor:pointer; padding:4px 2px;}
+.sitk input{width:18px; height:18px; margin-top:2px; flex:0 0 auto; accent-color:#7a5230;}
+.sitnote{font-size:13px; color:var(--muted); margin:8px 0 0;}
+@media(max-width:640px){.sits{grid-template-columns:1fr;}}
+#detail{scroll-margin-top:84px;}
+.subbar{background:#16202e;padding:13px 0;position:sticky;top:0;z-index:100;font-family:'Pretendard','Malgun Gothic','맑은 고딕',sans-serif}
+.subbar .sb-in{max-width:1180px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.subbar a.sb-logo{color:#fff;text-decoration:none;font-weight:800;font-size:15.5px;white-space:nowrap;letter-spacing:-.3px}
+.subbar a.sb-logo .mk{color:#b08d57}
+.subbar .slinks{display:flex;align-items:center;gap:18px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.subbar .slinks::-webkit-scrollbar{display:none}
+.subbar .slinks a{color:rgba(255,255,255,.85);font-size:14px;font-weight:500;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:.3s}
+.subbar .slinks a:hover{color:#c9a878}
+.subbar .slinks a.nav-cta{background:#b08d57;color:#fff;padding:8px 15px;border-radius:2px;font-weight:600}
+.subbar .slinks a.nav-cta:hover{background:#c9a878}
+@media(max-width:640px){
+  .subbar{padding:10px 0}.subbar .sb-in{flex-direction:column;align-items:stretch;gap:8px;padding:0 12px}.subbar a.sb-logo{text-align:center;font-size:14px}.subbar .slinks{gap:14px}
+  h1{font-size:22px} .who{grid-template-columns:1fr;} .wrap{padding:20px 14px 60px;}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important; scroll-behavior:auto!important;}}
+@media print{
+  .subbar,.step,.tools,.cta,.gu,.chips,.hire,#topWarn{display:none!important;}
+  body{font-size:12.5px;} .sec{break-inside:avoid; border-color:#bbb;} .issue{display:none;}
+  .picked{border-color:#999; background:#fff;}
+  details.more{display:none!important;} .chosen:not(:empty){border-color:#bbb; background:#fff;}
+  .chosen{-webkit-print-color-adjust:exact; print-color-adjust:exact;}
+}
+</style>
+</head>
+<body>
+<header class="subbar">
+  <div class="sb-in">
+    <a href="index.html" class="sb-logo">산 <span class="mk">법무사</span> 김재섭 행정사 사무소</a>
+    <nav class="slinks" aria-label="주요 메뉴">
+      <a href="index.html#about">사무소 소개</a>
+      <a href="index.html#practice">업무 분야</a>
+      <a href="tools-calculator.html">수수료 계산기</a>
+      <a href="index.html#gov-links">유용한 링크</a>
+      <a href="column.html">법률 칼럼</a>
+      <a href="index.html#contact" class="nav-cta">상담 문의</a>
+      <a href="index.html#why">선택 이유</a>
+      <a href="index.html#process">상담 절차</a>
+      <a href="index.html#location">찾아오시는 길</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+<h1>등기 원인별 준비서류 찾기</h1>
+<p class="lead">어떤 등기를 하시는지, 넘겨주는 분과 받는 분이 누구인지, 어떤 부동산인지 고르시면 <b>각자 준비할 서류</b>, <b>등기소에 내는 첨부서류</b>, <b>취득세·등록면허세 신고 서류</b>를 한 번에 보여 드립니다.</p>
+
+<div class="warn" id="topWarn"><span class="wt">⚠ 꼭 확인하세요</span><span class="warntext"></span></div>
+
+<section class="step" aria-labelledby="s1">
+  <div class="sh" id="s1"><span class="no">1</span>어떤 등기를 하시나요?</div>
+  <label class="lab" for="q">등기원인이나 서류 이름으로 찾기</label>
+  <div class="srow">
+    <input type="search" id="q" placeholder="예: 매매, 상속, 근저당권 말소, 이혼 재산분할, 농지취득자격증명" aria-label="등기원인·내용 검색" autocomplete="off">
+  </div>
+  <label class="lab" for="cause">또는 등기원인 목록(가나다순)에서 고르기</label>
+  <div class="srow">
+    <select id="cause"><option value="">등기원인을 고르세요 (가나다순)</option></select>
+  </div>
+  <div class="chips" id="chips" aria-label="자주 찾는 등기"></div>
+  <div class="count" id="count" aria-live="polite"></div>
+  <ul class="results" id="results" role="listbox" aria-label="검색 결과"></ul>
+</section>
+
+<section class="step" aria-labelledby="s2">
+  <div class="sh" id="s2"><span class="no">2</span>누가 등기하시나요?</div>
+  <div class="who">
+    <div class="party"><label for="pO">넘겨주는 분 · 권리를 잃는 분 (등기의무자)</label>
+      <div class="half"><select id="pO"></select><div class="ps"><input type="search" id="qO" placeholder="이름으로 찾기 (예: 교회, 회사)" aria-label="등기의무자 종류를 이름으로 찾기" autocomplete="off"><div class="psug" id="sO"></div></div></div></div>
+    <div class="party"><label for="pR">받는 분 · 권리를 얻는 분 (등기권리자)</label>
+      <div class="half"><select id="pR"></select><div class="ps"><input type="search" id="qR" placeholder="이름으로 찾기 (예: 교회, 회사)" aria-label="등기권리자 종류를 이름으로 찾기" autocomplete="off"><div class="psug" id="sR"></div></div></div></div>
+  </div>
+  <p style="font-size:13.5px;color:var(--muted);margin:8px 0 0;">개인이시면 「성년 내국인 자연인」을 그대로 두시면 됩니다. 회사·조합·종중·외국인 등이면 왼쪽 목록에서 고르시거나, 오른쪽 칸에 이름을 넣어 찾으세요.</p>
+</section>
+
+<section class="step" aria-labelledby="s3">
+  <div class="sh" id="s3"><span class="no">3</span>어떤 부동산인가요? <small style="font-weight:500;color:var(--muted);font-size:13.5px;">(해당하는 것을 모두 고르세요)</small></div>
+  <div class="sits" id="props" role="group" aria-labelledby="s3"></div>
+  <p class="sitnote">고르신 부동산에 따라 필요한 서류(농지취득자격증명, 주택 취득 명세서 등)가 목록에 함께 나옵니다. 고르지 않으면 부동산 종류에 따라 달라지는 서류는 「해당하는 경우에만 필요한 서류」 안에 접어 둡니다.</p>
+</section>
+
+<div id="detail"><p class="loading">자료를 불러오는 중입니다…</p></div>
+
+<div class="warn" id="botWarn"><span class="wt">⚠ 꼭 확인하세요</span><span class="warntext"></span></div>
+
+<a href="tools-calculator.html" class="cta">🧮 내 등기 비용 미리 계산하기</a>
+<h2>고충은 덜어드리고, 끝까지 곁에서 돕겠습니다</h2>
+<div class="hire">본 사무소에서는 사실관계와 자료를 꼼꼼히 살펴 필요한 서류를 갖추어 드리고, 등기 절차를 마치실 때까지 성심껏 돕겠습니다. 상담은 홈 화면의 <a href="index.html#contact">상담 창구</a>를 이용하시면 됩니다.</div>
+
+<div class="src" id="src">이 자료는 법원행정처 「부동산등기기록례집」의 등기원인별로, 일반적인 경우에 필요한 서류를 정리한 것입니다. 실무교재, 인터넷등기소 등기신청양식, 부동산등기법·규칙, 등기예규·선례, 지방세법과 대조하였으나 자주 쓰이지 않는 특수한 서류는 모두 담지 못했을 수 있습니다. 인감증명서·주민등록표등본·초본·가족관계등록부 증명서·대장 등본 등은 발행일부터 3개월 이내의 것을 내야 합니다. <span id="ver"></span></div>
+</main>
+
+
+<script>
+(function(){
+'use strict';
+var D=null, rowsIdx=[], cur=-1, CK={}, P={};
+/* 부동산 종류 (여러 개 고를 수 있음) */
+var PROPS=[
+ {k:'apt', l:'아파트·연립·다세대주택', d:'집합건물인 주택'},
+ {k:'house', l:'단독주택·다가구주택', d:'일반건물인 주택'},
+ {k:'jip', l:'오피스텔·상가 등 집합건물', d:'주택이 아닌 것'},
+ {k:'bldg', l:'상가·사무실·공장 등 건물', d:'주택이 아닌 일반건물'},
+ {k:'land', l:'토지', d:'대지·잡종지·공장용지 등'},
+ {k:'nongji', l:'농지', d:'논·밭·과수원'},
+ {k:'imya', l:'임야', d:'산'}
+];
+function anyP(ks){ for(var i=0;i<ks.length;i++) if(P[ks[i]]) return true; return false; }
+function noP(){ return !anyP(PROPS.map(function(x){return x.k;})); }
+var $=function(id){return document.getElementById(id);};
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function norm(s){return String(s||'').replace(/\s+/g,'').toLowerCase();}
+var CHIPS=['매매','증여','상속','상속재산분할','유증','이혼 재산분할','소유권보존','근저당권 설정','근저당권 말소','전세권 설정','전세권 말소','임차권등기명령','주소 변경','신탁','가등기','공유물분할'];
+function tag(id){ return D.T[id]||{}; }
+/* 2번 당사자 칸 오른쪽 검색: 흔히 쓰는 말 → 목록의 이름 */
+var PSYN={'개인':['성년 내국인 자연인','미성년자','피성년후견인','피한정후견인','재외국민','외국인 개인'],'자연인':['성년 내국인 자연인','미성년자','피성년후견인','피한정후견인'],
+ '사람':['성년 내국인 자연인'],'본인':['성년 내국인 자연인'],'성인':['성년 내국인 자연인'],'어른':['성년 내국인 자연인'],
+ '아이':['미성년자'],'자녀':['미성년자'],'학생':['미성년자'],'미성년':['미성년자'],'후견':['피성년후견인','피한정후견인'],'치매':['피성년후견인','피한정후견인'],
+ '교포':['재외국민'],'영주권':['재외국민'],'해외':['재외국민','외국인 개인'],'시민권':['외국인 개인'],'외국':['외국인 개인','외국의 법령에 따라 설립된 법인','외국의 법령에 따라 설립된 단체','외국정부'],
+ '돌아가신':['사망한 당사자의 상속인 (포괄승계인)'],'사망':['사망한 당사자의 상속인 (포괄승계인)'],'상속':['사망한 당사자의 상속인 (포괄승계인)'],
+ '회사':['주식회사','유한회사','합명회사','합자회사','유한책임회사','농업회사법인','어업회사법인'],'(주)':['주식회사'],'㈜':['주식회사'],'합병':['합병 후 존속·신설법인 (포괄승계인)'],
+ '국가':['대한민국(국가)'],'나라':['대한민국(국가)'],'정부':['대한민국(국가)','외국정부'],'대사관':['외국정부'],'국제':['국제기관'],
+ '시청':['지방자치단체'],'구청':['지방자치단체'],'군청':['지방자치단체'],'도청':['지방자치단체'],'지자체':['지방자치단체'],
+ '절':['사찰(법인 아닌 사단의 실체를 갖춘 경우)','전통사찰'],'종친회':['종중','문중'],'아파트':['아파트단지 입주자대표회의(법인 아닌 사단의 실체를 갖춘 경우)'],
+ '마을':['동·리 등 자연부락(법인 아닌 사단의 실체를 갖춘 경우)','어촌계(법인 아닌 사단의 실체를 갖춘 경우)'],
+ '재건축':['정비사업조합'],'재개발':['정비사업조합'],'농협':['지역농업협동조합','지역축산업협동조합','품목별·업종별 협동조합','농업협동조합중앙회'],'축협':['지역축산업협동조합'],
+ '수협':['지구별 수산업협동조합','업종별 수산업협동조합','수산물가공 수산업협동조합','수산업협동조합중앙회'],'병원':['의료법인'],'학교':['학교법인'],'복지':['사회복지법인'],'금고':['새마을금고','새마을금고중앙회'],
+ '재단':['민법상 재단법인','공익법인인 재단법인','법인 아닌 재단'],'사단':['민법상 사단법인','공익법인인 사단법인']};
+function partyFind(q){
+  q=norm(q); if(!q) return [];
+  var hit={}, out=[];
+  function add(i){ if(i>=0 && !hit[i]){ hit[i]=1; out.push(i); } }
+  D.subjects.forEach(function(s,i){ if(norm(s.n).indexOf(q)>=0 || norm(s.g).indexOf(q)>=0) add(i); });
+  Object.keys(PSYN).forEach(function(k){ var nk=norm(k);
+    if(q.indexOf(nk)>=0 || (q.length>=2 && nk.indexOf(q)===0)) PSYN[k].forEach(function(n){ add(D.subjects.findIndex(function(s){return s.n===n;})); }); });
+  return out;
+}
+function partySearch(selId, qId, sId){
+  var inp=$(qId), box=$(sId), sel=$(selId), last=[];
+  function pick(i){ sel.value=String(i); sel.dispatchEvent(new Event('change')); inp.value='';
+    box.innerHTML='<span class="pnone">✔ 「'+esc(D.subjects[i].n)+'」을(를) 골랐습니다.</span>'; }
+  function draw(){
+    last=partyFind(inp.value); box.innerHTML='';
+    if(!norm(inp.value)) return;
+    if(!last.length){ box.innerHTML='<span class="pnone">찾는 종류가 없습니다. 왼쪽 목록에서 골라 주세요.</span>'; return; }
+    last.slice(0,12).forEach(function(i){ var b=document.createElement('button'); b.type='button'; b.textContent=D.subjects[i].n;
+      b.title=D.subjects[i].g; b.addEventListener('click',function(){ pick(i); }); box.appendChild(b); });
+    if(last.length>12){ var m=document.createElement('span'); m.className='pnone'; m.textContent='외 '+(last.length-12)+'개 — 조금 더 자세히 적어 주세요'; box.appendChild(m); }
+  }
+  inp.addEventListener('input',draw);
+  inp.addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault(); if(last.length) pick(last[0]); } });
+}
+function isHead(s){ return s.charAt(0)==='['||s.charAt(0)==='■'; }
+function headLabel(s){ return s.charAt(0)==='['?s.slice(1,-1):s.replace(/^■\s*/,''); }
+
+function start(data){
+  D=data;
+  document.querySelectorAll('.warntext').forEach(function(e){e.textContent=D.warn;});
+  $('ver').textContent='(기준일 '+D.v.replace(/-/g,'. ')+'.)';
+  /* 등기원인 목록 (가나다순) — 고르면 바로 준비서류 */
+  fillCause();
+  $('detail').addEventListener('change', onCheck);
+  $('cause').addEventListener('change',function(){ var v=$('cause').value; if(v!=='') show(+v,true); });
+  ['pO','pR'].forEach(function(id){
+    var sel=$(id), groups={};
+    D.subjects.forEach(function(s,i){
+      if(!groups[s.g]){groups[s.g]=document.createElement('optgroup'); groups[s.g].label=s.g; sel.appendChild(groups[s.g]);}
+      var o=document.createElement('option'); o.value=i; o.textContent=s.n; groups[s.g].appendChild(o);
+    });
+    sel.value=String(D.subjects.findIndex(function(s){return s.n==='성년 내국인 자연인';}));
+    sel.addEventListener('change',function(){ if(cur>=0) show(cur,false); else needRow(); saveHash(); });
+  });
+  if($('qO')) partySearch('pO','qO','sO');
+  if($('qR')) partySearch('pR','qR','sR');
+  PROPS.forEach(function(x){
+    var lb=document.createElement('label'); lb.className='sitk';
+    lb.innerHTML='<input type="checkbox" data-p="'+x.k+'"> <span><b>'+esc(x.l)+'</b> <small style="color:var(--muted)">('+esc(x.d)+')</small></span>';
+    lb.querySelector('input').addEventListener('change',function(e){ P[x.k]=e.target.checked; if(cur>=0){ var y=window.scrollY; show(cur,false); window.scrollTo(0,y); } else needRow(); saveHash(); });
+    $('props').appendChild(lb);
+  });
+  rowsIdx=D.rows.map(function(r){ return {c:norm(r.c), n:norm((r.n||'')+'|'+(r.a||'')), t:norm(r.t), d:norm(r.d), k:norm(r.k),
+    q:norm(r.q.map(function(i){return D.L[i];}).join('|'))}; });
+  CHIPS.forEach(function(c){var b=document.createElement('button'); b.className='chip'; b.type='button'; b.textContent=c;
+    /* 자주 찾는 등기를 누르면 가장 잘 맞는 등기의 서류를 바로 보여 준다 */
+    b.addEventListener('click',function(){$('q').value=c; var first=search(); if(first>=0) show(first,true); }); $('chips').appendChild(b);});
+  /* 검색어를 치고 Enter를 누르면 가장 잘 맞는 등기를 바로 열고, 찾은 등기가 하나뿐이면 곧바로 서류를 보여 준다 */
+  $('q').addEventListener('input',function(){ var f=search(); if(f>=0 && countHits()===1) show(f,false); });
+  $('q').addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault(); var f=search(); if(f>=0) show(f,true); } });
+  readHash();
+}
+function search(){
+  var q=norm($('q').value), res=[], res2=[];
+  D.rows.forEach(function(r,i){
+    var x=rowsIdx[i], s=0;
+    if(!q){ return; }
+    else{
+      if(x.n.indexOf(q)>=0) s+=9; if(x.c.indexOf(q)>=0) s+=6; if(x.t.indexOf(q)>=0) s+=4; if(x.d.indexOf(q)>=0) s+=2; if(x.k===q) s+=8;
+      if(!s && x.q.indexOf(q)>=0) { res2.push(i); return; }
+    }
+    if(s) res.push([s,i]);
+  });
+  res.sort(function(a,b){return b[0]-a[0]||a[1]-b[1];});
+  var ul=$('results'); ul.innerHTML=''; var shown=0;
+  function add(i){
+    var r=D.rows[i], li=document.createElement('li'), b=document.createElement('button');
+    b.type='button'; b.setAttribute('role','option');
+    b.innerHTML='<span class="rc">'+esc(r.n||r.c)+'</span><br><span class="rt">'+(r.n?'기록례 원인: '+esc(r.c)+' · ':'')+esc(r.t||'')+(r.d?' · '+esc(r.d):'')+' · 기록례 '+esc(r.k)+'</span>';
+    if(i===cur) li.className='sel';
+    b.addEventListener('click',function(){ CK={}; show(i,true); });
+    li.appendChild(b); ul.appendChild(li); shown++;
+  }
+  res.slice(0,80).forEach(function(a){add(a[1]);});
+  if(res2.length){
+    var h=document.createElement('li'); h.className='sub'; h.textContent='첨부서류 이름에 "'+$('q').value.trim()+'"이(가) 들어 있는 등기'; ul.appendChild(h);
+    res2.slice(0,40).forEach(add);
+  }
+  $('count').textContent=q?('찾은 등기 '+(res.length+res2.length)+'건'+((res.length>80||res2.length>40)?' — 검색어를 더 구체적으로 적으면 줄어듭니다':'')):'검색어를 넣거나 아래 자주 찾는 등기를 누르세요.';
+  ul.style.display=shown?'':'none';
+  HITS=res.length+res2.length;
+  return res.length?res[0][1]:(res2.length?res2[0]:-1);
+}
+var HITS=0; function countHits(){ return HITS; }
+/* 등기를 아직 고르지 않았는데 당사자·부동산을 바꾼 경우 */
+function needRow(){
+  $('detail').innerHTML='<div class="tip">먼저 위 <b>1. 어떤 등기를 하시나요?</b>에서 등기원인을 검색하거나 목록에서 고르시거나, 자주 찾는 등기 단추를 누르세요. 이곳에 준비서류가 나타납니다.</div>';
+}
+function rowLabel(r){
+  var t=(r.t||'').replace(/^제\d+절\s*/,'');
+  return (r.n||r.c)+(r.n||!t||(r.c.indexOf(t)>=0)?'':' — '+t);
+}
+/* 등기원인 목록 채우기: 같은 이름이 여럿이면 등기 종류를 덧붙여 구별, 가나다순 */
+function fillCause(){
+  var cs=$('cause'), cnt={}, items=[];
+  D.rows.forEach(function(r){ var k=r.n||r.c; cnt[k]=(cnt[k]||0)+1; });
+  D.rows.forEach(function(r,i){
+    var k=r.n||r.c, t=(r.t||'').replace(/^제\d+(편|장|절)\s*/,'').replace(/\.$/,''), lab;
+    if(t.length>34) t=t.slice(0,33)+'…';
+    if(r.n) lab=r.n;
+    else if(/^[\(\[]/.test(k)) lab=t+' '+k;                                   /* 원인이 조문 표시뿐이면 등기 종류를 앞에 */
+    else if(/^제\d|\]$|^(할 수 없는|말소하는|의하여|등기를 이기)/.test(k)) lab=t; /* 원문이 잘린 조각이면 등기 종류로 */
+    else if(/경우\)?$/.test(k) && t && k.indexOf(t)<0) lab=t+' — '+k;           /* '…한 경우'는 등기 종류 — 경우 */
+    else lab=k+(cnt[k]>1 && t && k.indexOf(t)<0 ? ' — '+t : '');
+    items.push([lab,i]);
+  });
+  /* 기록례 번호·원인·서류가 모두 같은 행(원문에 같은 사례가 두 번 실린 경우)은 목록에 한 번만 */
+  var sig={}; items=items.filter(function(x){ var r=D.rows[x[1]], k=JSON.stringify([x[0],r.k,r.o,r.r,r.oc,r.rc,r.q,r.x,r.f]); if(sig[k]) return false; sig[k]=1; return true; });
+  var c2={}; items.forEach(function(x){ c2[x[0]]=(c2[x[0]]||0)+1; });
+  items.forEach(function(x){ if(c2[x[0]]>1) x[0]+=' (기록례 '+D.rows[x[1]].k+')'; });
+  /* 기록례 번호까지 같으면 사례 순번을 붙인다 */
+  var c3={}, n3={}; items.forEach(function(x){ c3[x[0]]=(c3[x[0]]||0)+1; });
+  items.forEach(function(x){ if(c3[x[0]]>1){ n3[x[0]]=(n3[x[0]]||0)+1; x[0]+=' — 사례 '+n3[x[0]]; } });
+  items.sort(function(a,b){ return a[0].localeCompare(b[0],'ko'); });
+  items.forEach(function(x){ var o=document.createElement('option'); o.value=x[1]; o.textContent=x[0]; cs.appendChild(o); });
+}
+function linkHtml(id){
+  var l=D.LL[id]; if(!l) return '';
+  var out=[], m, re=/([^\s\/][^\/]*?)\s*(https?:\/\/[^\s]+)/g, s=l[0]||'';
+  while((m=re.exec(s))){ out.push('<a href="'+esc(m[2])+'" target="_blank" rel="noopener">'+esc(m[1].replace(/^[\s·,]+|[\s·,]+$/g,'')||'바로가기')+'</a>'); }
+  var v=l[1]&&l[1]!=='None'?'방문: '+esc(l[1]):'';
+  if(!out.length&&!v) return '';
+  return '<span class="issue">발급 ▸ '+out.join(' · ')+(out.length&&v?' / ':'')+v+'</span>';
+}
+function itemHtml(id, ck){
+  var s=D.L[id];
+  if(s.charAt(0)==='※') return '<div class="note">'+esc(s)+'</div>';
+  var m=s.match(/^(.*?)(\s\((?:[^()]|\([^()]*\))*\))?$/), name=m?m[1]:s, cond=m&&m[2]?m[2]:'';
+  var body='<b>'+esc(name)+'</b>'+(cond?'<span class="cond">'+esc(cond)+'</span>':'');
+  if(ck) return '<li><label class="ckl"><input type="checkbox" class="ck" data-id="'+id+'"'+(SEL[id]?' checked':'')+'><span>'+body+'</span></label>'+linkHtml(id)+'</li>';
+  return '<li>'+body+linkHtml(id)+'</li>';
+}
+function listHtml(ids, ck){
+  var h='', open=false;
+  ids.forEach(function(id){
+    var s=D.L[id];
+    if(s.charAt(0)==='※'){ if(open){h+='</ol>';open=false;} h+=itemHtml(id); return; }
+    if(!open){h+='<ol class="docs">';open=true;}
+    h+=itemHtml(id, ck);
+  });
+  if(open) h+='</ol>'; return h;
+}
+/* 고른 사람·체크한 경우에 맞는 서류만 남긴다 */
+function subjOK(t, side){
+  if(!t.s) return true;
+  var o=D.subjects[+$('pO').value].c, r=D.subjects[+$('pR').value].c;
+  if(t.d==='o') return t.s.indexOf(o)>=0;
+  if(t.d==='r') return t.s.indexOf(r)>=0;
+  if(side==='o') return t.s.indexOf(o)>=0;
+  if(side==='r') return t.s.indexOf(r)>=0;
+  return t.s.indexOf(o)>=0||t.s.indexOf(r)>=0;
+}
+function on(code){ return !!CK[code]; }
+var Z={};
+/* 체크 상자 없이: 고른 등기·당사자에 늘 필요한 서류는 본 목록에,
+   특별한 사정이 있을 때만 필요한 서류는 '경우'별 제목을 붙여 접어 둔다 */
+function sitLabel(k){ var d=D.SITU.find(function(y){return y.k===k;}); return d?d.l:'그 밖의 경우'; }
+function sitOrder(key){ if(key.indexOf('k:')===0){ for(var i=0;i<D.SITU.length;i++) if('k:'+D.SITU[i].k===key) return i; } return key==='etc'?999:500; }
+/* "(협의분할한 경우)"처럼 조건이 바로 고른 등기원인이면 그 등기에는 늘 필요한 서류로 본다 */
+var KW=['협의분할','심판분할','조정분할','증여','매매','유증','재산분할','공유물분할','신탁','경매','수용','판결'];
+function causeHit(id){
+  var r=D.rows[cur]; if(!r) return false;
+  var m=D.L[id].match(/\(([^()]*)/); if(!m) return false;
+  var cl=m[1].split(',')[0].trim(), rc=r.c+' '+(r.n||'');
+  if(!/(한|인|하는|받은|된|로 하는) 경우$/.test(cl) || /외|아닌|제외|없는|위탁자에게/.test(cl)) return false;
+  for(var i=0;i<KW.length;i++){ if(cl.indexOf(KW[i])===0 && rc.indexOf(KW[i])>=0) return true; }
+  return false;
+}
+function sift(ids, side){
+  /* 반환: {main:[{h:제목|null, ids:[]}], cond:[{h:경우, ids:[]}]} */
+  var main=[{h:null,ids:[]}], cl=[], cm={}, grp=null, grpOn=true, grpKey=null, grpLab='', seen={};
+  function cpush(key,lab,id){ if(!cm[key]){ cm[key]={k:key,h:lab,ids:[]}; cl.push(cm[key]); } cm[key].ids.push(id); }
+  ids.forEach(function(id){
+    var s=D.L[id], t=tag(id);
+    if(!isHead(s)){ if(seen[id] || !propOK(t)) return; }
+    if(isHead(s)){
+      if(t.b){ grp=null; grpOn=true; if(main[main.length-1].ids.length||main[main.length-1].h) main.push({h:null,ids:[]}); return; }
+      grp=id;
+      if(t.s){ grpOn=subjOK(t,side); grpKey=null; }
+      else if(t.k){ grpOn=on(t.k); grpKey='k:'+t.k; grpLab=sitLabel(t.k); }
+      else { grpOn=false; grpKey='g:'+id; grpLab=headLabel(s); }
+      if(grpOn) main.push({h:headLabel(s),ids:[]});
+      return;
+    }
+    if(grp!==null){
+      if(grpOn){ main[main.length-1].ids.push(id); seen[id]=1; }
+      else if(grpKey) cpush(grpKey,grpLab,id);
+      return;
+    }
+    if(t.s){ if(subjOK(t,side)){ main[main.length-1].ids.push(id); seen[id]=1; } return; }
+    if(t.p==='NJ' && !njMain()){ cpush('nj','집합건물이라도 토지거래허가구역 안에 있거나 외국인이 취득하는 경우',id); return; }
+    if(Z[id]){ main[main.length-1].ids.push(id); seen[id]=1; return; }
+    if(t.k){ if(on(t.k)){ main[main.length-1].ids.push(id); seen[id]=1; } else cpush('k:'+t.k,sitLabel(t.k),id); return; }
+    if(t.c && causeHit(id)){ main[main.length-1].ids.push(id); seen[id]=1; return; }
+    if(t.c){ cpush('etc','그 밖에 해당하는 경우 (서류마다 적힌 설명을 확인하세요)',id); return; }
+    main[main.length-1].ids.push(id); seen[id]=1;
+  });
+  var cs={};
+  cl.forEach(function(g){ g.ids=g.ids.filter(function(id){ if(seen[id]||cs[id]) return false; cs[id]=1; return true; }); });
+  cl=cl.filter(function(g){return g.ids.length;});
+  cl.sort(function(a,b){ return sitOrder(a.k)-sitOrder(b.k); });
+  return {main:main.filter(function(g){return g.ids.length;}), cond:cl};
+}
+function siftHtml(ids, side, emptyText){
+  var r=sift(ids, side), h='', n=0, ch='';
+  r.main.forEach(function(g){ if(g.h) h+='<div class="grp">'+esc(g.h)+'</div>'; h+=listHtml(g.ids); });
+  if(!h) h='<div class="none">'+esc(emptyText||'따로 준비하실 서류가 없습니다')+'</div>';
+  r.cond.forEach(function(g){ n+=g.ids.length; ch+='<div class="cg" data-k="'+esc(g.k)+'"><div class="grp"><label class="ckl"><input type="checkbox" class="ckg"><span>'+esc(g.h)+'</span></label></div>'+listHtml(g.ids,true)+'</div>'; });
+  h+='<div class="chosen"></div>';
+  if(n) h+='<details class="more cond"><summary>해당하는 경우에만 필요한 서류 '+n+'개 보기</summary><p class="cknote">해당하는 경우나 서류에 체크하시면 위 목록 아래 「체크하신 서류」에 더해지고, 인쇄할 때 함께 나옵니다.</p>'+ch+'</details>';
+  return h;
+}
+/* 늘 해당하는 것으로 보는 경우: 법무사에게 맡김·거래신고, 판결로 하는 등기의 재판서 */
+function defaults(r){
+  CK={}; D.SITU.forEach(function(x){ CK[x.k]= !!x.on || (x.k==='judg' && !!r.dj); });
+  /* 고른 부동산 종류에 따라 */
+  if(P.nongji) CK.nongji=true;
+  if(P.apt||P.house) CK.house=true;
+}
+/* 건축물대장만 적힌 줄: 토지·농지·임야만 골랐으면 필요 없음 */
+function propOK(t){
+  if(!t.p || noP()) return true;
+  if(t.p==='B') return anyP(['apt','house','jip','bldg']);
+  if(t.p==='DL') return anyP(['land','nongji','house','bldg','apt','jip']);
+  if(t.p==='DI') return anyP(['imya']);
+  if(t.p==='DB') return anyP(['house','bldg']);
+  if(t.p==='DJ') return anyP(['apt','jip']);
+  return true;
+}
+/* 토지이용계획확인서: 집합건물이 아닌 부동산이면 늘, 집합건물만 골랐으면 토지거래허가구역 등 해당하는 경우에만 */
+function njMain(){ return noP() || anyP(['house','bldg','land','nongji','imya']); }
+/* ---- 취득세 감면 (지방세특례제한법): 고른 등기원인·받는 분·부동산에 맞는 것만 ---- */
+var ACQ={U:'유상',M:'무상',S:'상속',W:'원시'};
+var PMAP={apt:['주택'],house:['주택'],jip:['건물'],bldg:['건물'],land:['토지'],nongji:['농지'],imya:['임야']};
+var REAL=['주택','농지','임야','토지','건물'];   /* 시설·기계 등 '기타'만 대상인 감면은 전체 목록에서만 */
+function kwMatch(inst, name){
+  var a=inst.split(/[·,\s및등()]+/).filter(function(x){return x.length>=2;});
+  for(var i=0;i<a.length;i++){ if(name.indexOf(a[i])>=0) return true; }
+  return false;
+}
+/* 해당하는 경우 서류·감면 체크 상태 (같은 등기를 보는 동안 유지) */
+var SEL={}, GSEL={}, SELROW=-1;
+function updateChosen(){
+  var det=$('detail'); if(!det) return;
+  det.querySelectorAll('input.ck').forEach(function(cb){ cb.checked=!!SEL[+cb.getAttribute('data-id')]; });
+  det.querySelectorAll('input.ckm').forEach(function(cb){ cb.checked=!!GSEL[+cb.getAttribute('data-g')]; });
+  det.querySelectorAll('.cg').forEach(function(cg){ var a=cg.querySelectorAll('input.ck'), all=a.length>0; a.forEach(function(x){ if(!x.checked) all=false; }); var g=cg.querySelector('input.ckg'); if(g) g.checked=all; });
+  det.querySelectorAll('.sec').forEach(function(sec){
+    var box=sec.querySelector('.chosen'); if(!box) return;
+    var seen={}, groups=[], gm={}, h='';
+    sec.querySelectorAll('input.ck').forEach(function(cb){
+      var id=+cb.getAttribute('data-id'); if(!SEL[id] || seen[id]) return; seen[id]=1;
+      var cg=cb.closest('.cg'), lab=cg?cg.querySelector('.grp').textContent.trim():'';
+      if(!gm[lab]){ gm[lab]={h:lab,ids:[]}; groups.push(gm[lab]); } gm[lab].ids.push(id);
+    });
+    groups.forEach(function(g){ h+=(g.h?'<div class="grp">'+esc(g.h)+'</div>':'')+listHtml(g.ids); });
+    var gseen={};
+    sec.querySelectorAll('input.ckm').forEach(function(cb){
+      var gi=+cb.getAttribute('data-g'), e=D.G[gi]; if(!GSEL[gi] || !e || gseen[gi]) return; gseen[gi]=1;
+      h+='<div class="grp">취득세 감면 신청: '+esc(e.n)+' <small>(지방세특례제한법 '+esc(e.a)+')</small></div><ol class="docs">'+e.d.map(function(x){return '<li><b>'+esc(x)+'</b></li>';}).join('')+'</ol>';
+    });
+    box.innerHTML=h?'<div class="chosen-h">✔ 해당한다고 체크하신 서류 (인쇄에 함께 나옵니다)</div>'+h:'';
+  });
+}
+function onCheck(ev){
+  var t=ev.target; if(!t || !t.classList) return;
+  if(t.classList.contains('ck')) SEL[+t.getAttribute('data-id')]=t.checked;
+  else if(t.classList.contains('ckg')){
+    /* 같은 '경우'(예: 토지거래허가구역 안의 토지)는 ①~⑤ 모든 칸에서 함께 체크 */
+    var cg=t.closest('.cg'), k=cg.getAttribute('data-k'), gs=(/^(k:|g:|nj$)/.test(k))?$('detail').querySelectorAll('.cg[data-k="'+k+'"]'):[cg];
+    Array.prototype.forEach.call(gs,function(g){ g.querySelectorAll('input.ck').forEach(function(x){ SEL[+x.getAttribute('data-id')]=t.checked; }); });
+  }
+  else if(t.classList.contains('ckm')) GSEL[+t.getAttribute('data-g')]=t.checked;
+  else return;
+  updateChosen();
+}
+var NATC=['adult','minor','sgw','hgw','overseas','foreigner','heir'];
+var GKEY=['제36조의3①','제36조의5①','제33조②','제33조의3④','제75조의5④','제36조의4①','제6조①','제6조②','제6조④','제8조②','제8조③','제9조①','제73조①','제73조③','제92조①','제92조⑤','제29조①','제16조①'];
+function gamFor(r){
+  if(!D.G||!D.G.length||!r.g) return [];
+  var subj=D.subjects[+$('pR').value], sc=subj.c, sn=subj.n, codes=[sc];
+  if(['heir','sgw','hgw'].indexOf(sc)>=0) codes.push('adult');
+  if(sc==='merged') codes.push('company');
+  var want=[]; PROPS.forEach(function(x){ if(P[x.k]) want=want.concat(PMAP[x.k]); });
+  return D.G.filter(function(e){
+    if(e.k.indexOf('전부')<0 && r.g!=='A' && e.k.indexOf(ACQ[r.g])<0) return false;
+    if(r.pc==='ship'){ if(e.p.indexOf('선박')<0) return false; }
+    else{
+      var re=e.p.filter(function(x){return REAL.indexOf(x)>=0;});
+      if(!re.length) return false;
+      if(want.length && !re.some(function(x){return want.indexOf(x)>=0;})) return false;
+    }
+    if(e.s.indexOf('전부')>=0) return true;
+    if(e.s.some(function(c){return codes.indexOf(c)>=0;})) return true;
+    return e.s.some(function(c){ return c.indexOf('inst:')===0 && kwMatch(c.slice(5), sn); });
+  });
+}
+function gamHtml(r){
+  if(!r.g || !D.G || !D.G.length) return '';
+  var list=gamFor(r), h='';
+  h+='<details class="more gam"><summary>취득세 감면을 받을 수 있는 경우 '+list.length+'가지 보기</summary>';
+  h+='<p class="gnote">고르신 등기·받는 분·부동산에 해당할 수 있는 지방세특례제한법상 감면입니다. 요건을 갖추었는지는 취득일 현재를 기준으로 시·군·구청이 판단하며, 감면을 받으려면 취득세 신고 때 감면 신청서와 아래 서류를 함께 냅니다. 감면받은 뒤 정해진 기간 안에 팔거나 다른 용도로 쓰면 추징될 수 있습니다. 취득세가 전액 면제되는 경우라도 산출세액이 200만원을 넘으면 85%만 감면되고 15%는 내야 할 수 있습니다(최소납부세제, 지방자치단체 조례로 달리 정할 수 있음).</p>';
+  if(!list.length) h+='<div class="none">고르신 조건에 맞는 감면 사유가 없습니다. 받는 분이나 부동산 종류를 바꿔 보시거나 아래 전체 목록을 확인하세요.</div>';
+  // 개인·가정이 흔히 받는 감면을 먼저, 사업·특정 용도 감면은 따로 접어 둔다
+  var sc=D.subjects[+$('pR').value].c, nat=NATC.indexOf(sc)>=0;
+  var main=[], rest=[];
+  list.forEach(function(e){
+    var key = nat ? GKEY.indexOf(e.a)>=0 : e.s.indexOf('전부')<0;
+    (key?main:rest).push(e);
+  });
+  if(nat) main.sort(function(a,b){ return GKEY.indexOf(a.a)-GKEY.indexOf(b.a); });
+  function one(e){
+    var gi=D.G.indexOf(e);
+    var t='<div class="grp">'+esc(e.n)+'</div><label class="ckl gck"><input type="checkbox" class="ckm" data-g="'+gi+'"'+(GSEL[gi]?' checked':'')+'><span>이 감면을 신청하려고 합니다 (아래 서류를 「체크하신 서류」와 인쇄에 넣기)</span></label><div class="gw"><b>감면:</b> '+esc(e.r)+'<br><b>대상:</b> '+esc(e.w)+'<br><small>'+(e.e&&e.e!=='없음'?'적용기한 '+esc(e.e.replace(/-/g,'. '))+'.까지 · ':'')+'근거 지방세특례제한법 '+esc(e.a)+'</small></div>';
+    t+='<div class="glab">감면 신청 때 준비할 서류</div><ol class="docs">'+e.d.map(function(x){return '<li><b>'+esc(x)+'</b></li>';}).join('')+'</ol>';
+    if(e.c) t+='<div class="note">※ 추징: '+esc(e.c)+'</div>';
+    return t;
+  }
+  main.forEach(function(e){ h+=one(e); });
+  if(rest.length) h+='<details class="more"><summary>'+(main.length?'그 밖에 ':'')+'사업·시설 등 특정 용도로 취득하는 경우의 감면 '+rest.length+'가지 보기</summary>'+rest.map(one).join('')+'</details>';
+  h+='</details>';
+  h+='<details class="more"><summary>지방세특례제한법 취득세 감면 전체 목록 ('+D.G.length+'가지) 보기</summary><ul class="glist">'+D.G.map(function(e){return '<li>'+esc(e.n)+' <small>— '+esc(e.r)+' ('+esc(e.a)+')</small></li>';}).join('')+'</ul></details>';
+  return h;
+}
+function sec(cls,title,sub,body){ return '<section class="sec '+cls+'"><div class="hd"><span>'+title+'</span>'+(sub?'<small>'+sub+'</small>':'')+'</div><div class="bd">'+body+'</div></section>'; }
+function guHtml(){
+  if(!D.gu||!D.gu.length) return '';
+  var o='<option value="">우리 구청(시청)의 취득세 안내 페이지 고르기</option>';
+  D.gu.forEach(function(g,i){ o+='<option value="'+i+'">'+esc(g.a+' '+g.b+(g.t&&g.t!=='—'?' — '+g.t:''))+'</option>'; });
+  return '<div class="gu"><select id="guSel" aria-label="구청 취득세 안내 고르기">'+o+'</select><a id="guGo" class="btn sm ghost" aria-disabled="true" target="_blank" rel="noopener" href="#">안내 페이지 열기</a></div><div class="gusum" id="guSum"></div>';
+}
+// 등기 종류에 따라 등기의무자·등기권리자가 누구인지 쉬운 말로 (등기의무자 = 등기로 권리를 잃거나 불리해지는 분)
+// 반환: [의무자 짧은 이름, 의무자 설명, 권리자 짧은 이름, 권리자 설명]
+function roleOf(r){
+  var x=(r.t||'')+' '+(r.c||'')+' '+(r.n||''), d=r.d||'';
+  if(/부부재산약정/.test(d+x)) return ['약정자 한쪽','약정자 한쪽 (혼인할 두 분 중 한 분)','다른 약정자','다른 약정자 (약정서처럼 함께 내는 서류는 이쪽에 한 번만 적었습니다)'];
+  if(/회복/.test(x)) return ['회복으로 불리해지는 분(등기의무자)','회복으로 불리해지는 분 (등기의무자)','권리를 되찾는 분(등기권리자)','회복으로 권리를 되찾는 분 (등기권리자)'];
+  if(/말소/.test(x) && !/표시/.test(x)) return ['지워지는 등기의 명의인(등기의무자)','지워지는 등기의 명의인 (근저당권자·전세권자·가등기권리자 등, 등기의무자)','말소를 원하는 분(등기권리자)','말소로 이익을 얻는 분 (소유자 등, 등기권리자)'];
+  if(/(근저당권|저당권|전세권|지상권|지역권|임차권|질권|채권담보권)\s?(추가)?\s?설정/.test(x)) return ['부동산 소유자(등기의무자)','부동산 소유자 (권리를 설정해 주는 분, 등기의무자)','권리를 얻는 분(등기권리자)','권리를 얻는 분 (근저당권자·전세권자·지상권자 등, 등기권리자)'];
+  if(/가등기/.test(x) && !/본등기/.test(x)) return ['가등기를 해 주는 분(등기의무자)','가등기를 해 주는 소유자 등 (등기의무자)','가등기를 받는 분(등기권리자)','가등기를 받는 분 (등기권리자)'];
+  if(/(변경|경정)/.test(x) && !/표시/.test(x)) return ['변경으로 불리해지는 분(등기의무자)','변경으로 불리해지는 분 (등기의무자)','변경으로 이익을 얻는 분(등기권리자)','변경으로 이익을 얻는 분 (등기권리자)'];
+  return ['넘겨주는 분(등기의무자)','넘겨주는 분 · 권리를 잃는 분 (등기의무자)','받는 분(등기권리자)','받는 분 · 권리를 얻는 분 (등기권리자)'];
+}
+function josa(s){ var m=s.replace(/[^가-힣]/g,''); if(!m) return '이'; var c=m.charCodeAt(m.length-1)-0xAC00; return (c%28)?'이':'가'; }
+function partySec(r, cls, title, common, per, sel, side){
+  var b=D.B[per[sel]];
+  var allNone=per.every(function(x){ var bb=D.B[x]; return bb.length===1 && /^해당 없음/.test(D.L[bb[0]]); });
+  if(allNone) return sec(cls,title,'',' <div class="none">'+esc(D.L[D.B[per[0]][0]])+'</div>');
+  var ids=b.slice(); if(common>=0) ids=ids.concat(D.B[common]);
+  if(b.length===1 && /^해당 없음/.test(D.L[b[0]])) return sec(cls,title,esc(D.subjects[sel].n),'<div class="none">'+esc(D.L[b[0]])+'</div>');
+  return sec(cls,title,esc(D.subjects[sel].n),siftHtml(ids, side));
+}
+function show(i, scroll){
+  if(i!==SELROW){ SEL={}; GSEL={}; SELROW=i; }
+  cur=i; var r=D.rows[i], o=+$('pO').value, g=+$('pR').value;
+  Z={}; (r.z||[]).forEach(function(x){Z[x]=1;});
+  defaults(r);
+  var h='<div class="picked"><div class="pc">'+esc(r.n||r.c)+'</div><div class="pt">'+(r.n?'기록례 원인: '+esc(r.c)+' · ':'')+esc(r.t||'')+(r.d?' · '+esc(r.d):'')+' · 부동산등기기록례집 기록례 '+esc(r.k)+'</div>'
+    +'<p class="pnote">고르신 등기·당사자·부동산에 필요한 서류만 보여 드립니다'+(noP()?' (부동산 종류는 아직 고르지 않으셨습니다)':' (부동산: '+esc(PROPS.filter(function(x){return P[x.k];}).map(function(x){return x.l;}).join(', '))+')')+'. 토지거래허가구역·등기필증 분실처럼 특별한 사정이 있을 때만 필요한 서류는 각 목록 아래 「해당하는 경우에만 필요한 서류」를 펼쳐 확인하세요.</p></div>';
+  h+='<div class="tools"><button class="btn sm ghost" type="button" id="printBtn">🖨 이 목록 인쇄하기</button><button class="btn sm ghost" type="button" id="copyBtn">🔗 이 화면 주소 복사</button></div>';
+  var RO=roleOf(r);
+  try{ document.querySelector('label[for=pO]').textContent=RO[1]; document.querySelector('label[for=pR]').textContent=RO[3]; }catch(e){}
+  h+=partySec(r,'c1','① '+RO[0]+josa(RO[0])+' 준비할 서류',r.oc,r.o,o,'o');
+  h+=partySec(r,'c2','② '+RO[2]+josa(RO[2])+' 준비할 서류',r.rc,r.r,g,'r');
+  h+=sec('c4','③ 취득세·등록면허세 신고 서류','등기 신청 전에 시·군·구청에 신고합니다', siftHtml(r.x,'','신고할 세금 서류가 없습니다')+gamHtml(r)+'<div class="note gu-note">※ 취득세·등록면허세 신고 서류는 시·군·구청마다 조금씩 다를 수 있으니, 신고하기 전에 해당 구청(세무과)에 꼭 확인하시기 바랍니다.</div>'+guHtml());
+  h+=sec('c3','④ 등기소에 내는 첨부서류','위 서류 가운데 등기신청서에 붙이는 것', siftHtml(r.q,'','해당 없음'));
+  var fDoc=r.f.filter(function(id){ var t=tag(id); return !t.m && !t.cl; }), fChk=r.f.filter(function(id){ return tag(id).m; });
+  var fb=fDoc.length?siftHtml(fDoc,'','해당 없음'):'<div class="none">해당 없음</div>';
+  if(fChk.length) fb+='<details class="more"><summary>법무사가 함께 확인하는 사항 '+fChk.length+'개 보기</summary>'+listHtml(fChk)+'</details>';
+  h+=sec('c5','⑤ 법무사 사무소가 준비하는 서류','법무사에게 맡기시면 사무소가 작성·발급합니다', fb);
+  $('detail').innerHTML=h;
+  updateChosen();
+  $('printBtn').addEventListener('click',function(){ try{ window.print(); }catch(e){} });
+  $('copyBtn').addEventListener('click',function(){ saveHash(); var u=location.href;
+    try{ if(navigator.clipboard) navigator.clipboard.writeText(u).then(function(){$('copyBtn').textContent='✔ 주소를 복사했습니다';},function(){$('copyBtn').textContent='주소창의 주소를 복사해 주세요';}); }catch(e){} });
+  var gs=$('guSel'); if(gs) gs.addEventListener('change',function(){ var gg=D.gu[+gs.value], a=$('guGo');
+    if(gs.value===''){a.setAttribute('aria-disabled','true'); a.href='#'; $('guSum').textContent=''; return;}
+    a.href=gg.u; a.removeAttribute('aria-disabled'); $('guSum').textContent=(gg.m&&gg.m!=='None'?gg.m:'')+(gg.c&&gg.c!=='None'?' · '+gg.c:''); });
+  saveHash();
+  $('cause').value=String(i);
+  if(scroll){ $('results').style.display='none'; }
+  /* 검색 칸 아래에 '고른 등기 서류로 내려가기' 단추 */
+  var cnt=$('count'), old=cnt.querySelector('.go'); if(old) old.remove();
+  var go=document.createElement('button'); go.type='button'; go.className='go'; go.textContent='↓ 「'+(r.n||r.c)+'」 준비서류 보기';
+  go.addEventListener('click',function(){ $('detail').scrollIntoView({behavior:'smooth',block:'start'}); }); cnt.appendChild(go);
+  var oldb=cnt.querySelector('.back'); if(oldb) oldb.remove();
+  if(HITS>1 && $('results').style.display==='none'){ var bk=document.createElement('button'); bk.type='button'; bk.className='go back'; bk.textContent='검색 결과 '+HITS+'건 다시 보기';
+    bk.addEventListener('click',function(){ $('results').style.display=''; bk.remove(); }); cnt.appendChild(bk); }
+  if(scroll) $('detail').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function saveHash(){
+  var p=[]; if(cur>=0) p.push('row='+cur); p.push('o='+$('pO').value,'r='+$('pR').value);
+  var pp=PROPS.filter(function(x){return P[x.k];}).map(function(x){return x.k;}); if(pp.length) p.push('pp='+pp.join(','));
+  var q=$('q').value.trim(); if(q) p.push('q='+encodeURIComponent(q));
+  /* 미리보기 창·메일 첨부처럼 주소를 바꿀 수 없는 곳에서도 화면은 그대로 동작하도록 */
+  try{ history.replaceState(null,'','#'+p.join('&')); }catch(e){}
+}
+function readHash(){
+  var h={};
+  try{
+    location.hash.replace(/^#/,'').split('&').forEach(function(kv){ var a=kv.split('='); if(a[0]) h[a[0]]=decodeURIComponent(a[1]||''); });
+    var sp=new URLSearchParams(location.search); if(sp.get('q')&&!h.q) h.q=sp.get('q');
+  }catch(e){ h={}; }
+  if(h.o&&D.subjects[+h.o]) $('pO').value=h.o; if(h.r&&D.subjects[+h.r]) $('pR').value=h.r;
+  if(h.q) $('q').value=h.q;
+  /* 주소에 적힌 부동산 종류는 미리 정한 이름만 받아들인다 (주소 조작 대비) */
+  if(h.pp){ h.pp.split(',').forEach(function(k){ if(!PROPS.some(function(x){return x.k===k;})) return; var cb=document.querySelector('#props input[data-p="'+k+'"]'); if(cb){ cb.checked=true; P[k]=true; } }); }
+  search();
+  if(h.row && D.rows[+h.row]) show(+h.row,false);
+  else $('detail').innerHTML='<div class="tip">① 위에서 등기를 고르시면 이곳에 준비서류가 나타납니다.</div>';
+}
+/* 인쇄: 본목록과 「체크하신 서류」만 나오고, 접힌 목록(해당하는 경우·감면 전체)은 나오지 않음 — 화면 CSS @media print 참고 */
+window.__REGDOCS_START=start;
+})();
+
+</script>
+<script>fetch('regdocs-data.json?v=20261029').then(function(r){if(!r.ok)throw r.status;return r.json();}).then(__REGDOCS_START).catch(function(){document.getElementById('detail').innerHTML=(location.protocol==='file:')?'<div class="warn"><span class="wt">이 파일은 홈페이지에 올리는 용도입니다</span>컴퓨터에서 바로 여실 때는 「sanlaw_등기원인별_준비서류_검색_로컬.html」 파일을 열어 주세요.</div>':'<div class="warn"><span class="wt">자료를 불러오지 못했습니다</span>잠시 뒤 다시 열어 주세요. 계속 열리지 않으면 상담 창구로 알려 주시기 바랍니다.</div>';});</script>
+</body>
+</html>
