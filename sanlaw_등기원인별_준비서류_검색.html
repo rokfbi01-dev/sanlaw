@@ -580,7 +580,11 @@ function guHtml(){
 // 반환: [의무자 짧은 이름, 의무자 설명, 권리자 짧은 이름, 권리자 설명]
 function roleOf(r){
   var x=(r.t||'')+' '+(r.c||'')+' '+(r.n||''), d=r.d||'';
+  if(r.h) return ['돌아가신 분(피상속인)','돌아가신 분 (피상속인 — 돌아가신 분의 국적에 따라 고르세요)','상속받는 분(상속인)','상속받는 분 (상속인)'];
   if(/부부재산약정/.test(d+x)) return ['약정자 한쪽','약정자 한쪽 (혼인할 두 분 중 한 분)','다른 약정자','다른 약정자 (약정서처럼 함께 내는 서류는 이쪽에 한 번만 적었습니다)'];
+  // 의무자 칸이 모두 '해당 없음'인 등기(표시변경·멸실·직권·촉탁처럼 혼자 신청하는 등기)는 '넘겨주는 분' 대신 신청하는 분으로 (2026-11-03)
+  if(r.o && r.o.length && r.o.every(function(b){ var f=D.B[b]; return f && f.length && /^해당 없음/.test(D.L[f[0]]); }))
+    return ['등기의무자','등기의무자 (이 등기는 혼자 신청하므로 없습니다)','신청하는 분','신청하는 분 (등기명의인·소유자 등)'];
   if(/회복/.test(x)) return ['회복으로 불리해지는 분(등기의무자)','회복으로 불리해지는 분 (등기의무자)','권리를 되찾는 분(등기권리자)','회복으로 권리를 되찾는 분 (등기권리자)'];
   if(/말소/.test(x) && !/표시/.test(x)) return ['지워지는 등기의 명의인(등기의무자)','지워지는 등기의 명의인 (근저당권자·전세권자·가등기권리자 등, 등기의무자)','말소를 원하는 분(등기권리자)','말소로 이익을 얻는 분 (소유자 등, 등기권리자)'];
   if(/(근저당권|저당권|전세권|지상권|지역권|임차권|질권|채권담보권)\s?(추가)?\s?설정/.test(x)) return ['부동산 소유자(등기의무자)','부동산 소유자 (권리를 설정해 주는 분, 등기의무자)','권리를 얻는 분(등기권리자)','권리를 얻는 분 (근저당권자·전세권자·지상권자 등, 등기권리자)'];
@@ -607,7 +611,7 @@ function show(i, scroll){
   h+='<div class="tools"><button class="btn sm ghost" type="button" id="printBtn">🖨 이 목록 인쇄하기</button><button class="btn sm ghost" type="button" id="copyBtn">🔗 이 화면 주소 복사</button></div>';
   var RO=roleOf(r);
   try{ document.querySelector('label[for=pO]').textContent=RO[1]; document.querySelector('label[for=pR]').textContent=RO[3]; }catch(e){}
-  h+=partySec(r,'c1','① '+RO[0]+josa(RO[0])+' 준비할 서류',r.oc,r.o,o,'o');
+  h+=partySec(r,'c1',r.h?'① 돌아가신 분(피상속인) 기준으로 갖출 서류 — 상속인이 발급받아 준비합니다':'① '+RO[0]+josa(RO[0])+' 준비할 서류',r.oc,r.o,o,'o');
   h+=partySec(r,'c2','② '+RO[2]+josa(RO[2])+' 준비할 서류',r.rc,r.r,g,'r');
   h+=sec('c4','③ 취득세·등록면허세 신고 서류','등기 신청 전에 시·군·구청에 신고합니다', siftHtml(r.x,'','신고할 세금 서류가 없습니다')+gamHtml(r)+'<div class="note gu-note">※ 취득세·등록면허세 신고 서류는 시·군·구청마다 조금씩 다를 수 있으니, 신고하기 전에 해당 구청(세무과)에 꼭 확인하시기 바랍니다.</div>'+guHtml());
   h+=sec('c3','④ 등기소에 내는 첨부서류','위 서류 가운데 등기신청서에 붙이는 것', siftHtml(r.q,'','해당 없음'));
