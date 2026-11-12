@@ -223,6 +223,95 @@
   "areaServed": "South Korea"
 }
 </script>
+<style id="ux-20261112">
+/* ===== 2026-11-12 상단 메뉴 알약 · 포털 검색창 · 정부24 민원 바로가기 칩 ===== */
+:root{--pill-bg:#f6ecd8;--pill-bd:#e3cfa8;--pill-tx:#7a5230;--pill-hv:#a47148}
+/* --- 상단 메뉴: 알약 모양 (PC) --- */
+@media (min-width:901px){
+  #hd .menu{flex-wrap:wrap;justify-content:flex-end;gap:8px 7px;max-width:640px}
+  #hd .menu a{font-size:14px;font-weight:600;color:var(--pill-tx)!important;background:var(--pill-bg);border:1px solid var(--pill-bd);border-radius:999px;padding:7px 15px;line-height:1.25;transition:background .2s,color .2s,transform .2s;box-shadow:0 2px 6px rgba(0,0,0,.08)}
+  #hd .menu a::after{display:none}
+  #hd .menu a:hover,#hd .menu a:focus-visible{background:var(--pill-hv);border-color:var(--pill-hv);color:#fff!important;transform:translateY(-1px)}
+  #hd .menu a.nav-cta{background:var(--gold);border-color:var(--gold);color:#fff!important}
+  #hd .menu a.nav-cta:hover{background:var(--ink);border-color:var(--ink)}
+}
+/* --- 769~900px: 햄버거 펼침 메뉴도 알약 --- */
+@media (min-width:769px) and (max-width:900px){
+  #hd .menu{gap:10px;align-items:stretch}
+  #hd .menu a{font-size:16px!important;font-weight:600;text-align:center;color:var(--pill-tx)!important;background:var(--pill-bg);border:1px solid var(--pill-bd);border-radius:999px;padding:10px 18px}
+  #hd .menu a::after{display:none}
+  #hd .menu a.nav-cta{background:var(--gold);border-color:var(--gold);color:#fff!important}
+}
+/* --- 휴대폰(768px 이하): 가로로 밀어 보는 알약 줄 --- */
+@media (max-width:768px){
+  #hd .menu{padding:8px 10px!important;gap:6px!important;align-items:center!important}
+  #hd .menu a{font-size:12.5px!important;font-weight:600!important;padding:6px 12px!important;border:1px solid var(--pill-bd)!important;border-radius:999px!important;background:var(--pill-bg)!important;color:var(--pill-tx)!important}
+  #hd .menu a:active{background:var(--pill-hv)!important;border-color:var(--pill-hv)!important;color:#fff!important}
+  #hd .menu a.nav-cta{margin:0!important;background:var(--gold)!important;border-color:var(--gold)!important;color:#fff!important;padding:6px 13px!important}
+}
+/* 휴대폰: 스크롤해도 남색 헤더 위 사무소 이름이 보이도록 */
+@media (max-width:768px){#hd.scrolled .logo .name-text{color:#fff}}
+@media (prefers-reduced-motion:reduce){#hd .menu a,.g24-chips a{transition:none!important;transform:none!important}}
+
+/* --- 포털 검색창 (로고와 '검찰 33년' 사이) --- */
+.psearch{display:flex;flex-wrap:wrap;gap:12px;align-items:center;max-width:900px;margin:0 0 30px}
+.ps{position:relative;display:flex;align-items:center;flex:1 1 320px;min-width:0;height:48px;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.18)}
+.ps input{flex:1 1 0;width:0;min-width:0;height:100%;border:0;outline:0;background:transparent;font:500 15.5px var(--sans);color:#202124;padding:0 12px}
+.ps input::placeholder{color:#8a8f96}
+.ps button{border:0;cursor:pointer;font-family:var(--sans)}
+.ps-sr{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.ps-naver{border:2px solid #03c75a;border-radius:8px}
+.ps-naver .ps-lab{padding-left:14px;font-weight:800;font-size:16px;color:#03c75a;white-space:nowrap;letter-spacing:-.3px}
+.ps-naver button{align-self:stretch;width:50px;background:#03c75a;color:#fff;display:grid;place-items:center;border-radius:0 5px 5px 0}
+.ps-naver button:hover{background:#02b351}
+.ps-naver:focus-within{box-shadow:0 0 0 3px rgba(3,199,90,.35),0 6px 18px rgba(0,0,0,.18)}
+.ps-google{border:1px solid #dfe1e5;border-radius:999px;padding-left:16px}
+.ps-google .ps-ico{flex:0 0 auto;color:#9aa0a6}
+.ps-google .ps-lab{font-weight:700;font-size:15px;color:#5f6368;white-space:nowrap;padding-left:8px}
+.ps-google button{height:36px;margin-right:6px;padding:0 18px;border-radius:999px;background:#f1f3f4;color:#3c4043;font-weight:600;font-size:14px}
+.ps-google button:hover{background:#e8eaed}
+.ps-google:focus-within{box-shadow:0 0 0 3px rgba(66,133,244,.3),0 6px 18px rgba(0,0,0,.18)}
+.ps-note{flex-basis:100%;font-size:12.5px;color:rgba(255,255,255,.62);margin-top:-4px}
+/* PC: 고정 헤더(로고·메뉴) 아래에서 검색창이 시작되도록 히어로 상단 정렬 */
+@media (min-width:769px){
+  section.hero{align-items:flex-start}
+  section.hero .hero-inner{padding-top:158px;padding-bottom:60px}
+}
+@media (max-width:768px){
+  .psearch{gap:8px;margin:12px 0 14px}
+  .ps{flex-basis:100%;height:42px}
+  .ps input{font-size:15px}
+  .ps-naver button{width:44px}
+  .ps-google button{height:32px;padding:0 14px}
+  .ps-note{display:none}
+}
+
+/* --- 정부24 자주 찾는 민원 바로가기 (알약 칩) --- */
+.g24{margin-top:16px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:6px;padding:20px 22px}
+.g24-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-bottom:14px}
+.g24-t{font-family:var(--serif);font-size:17px;font-weight:800;color:var(--ink)}
+.g24-s{font-size:13px;color:var(--muted)}
+.g24-row{display:flex;gap:12px;align-items:flex-start;padding:9px 0;border-top:1px dashed var(--line)}
+.g24-row:first-of-type{border-top:0}
+.g24-lab{flex:0 0 74px;font-size:13px;font-weight:700;color:var(--pill-tx);padding-top:9px}
+.g24-chips{display:flex;flex-wrap:wrap;gap:8px}
+.g24-chips a{display:inline-flex;align-items:center;gap:6px;background:var(--pill-bg);border:1px solid var(--pill-bd);color:var(--pill-tx);border-radius:999px;padding:8px 17px;font-size:14.5px;font-weight:600;line-height:1.3;text-decoration:none;transition:background .2s,color .2s,transform .2s}
+.g24-chips a::after{content:'↗';font-size:12px;opacity:.55}
+.g24-chips a:hover,.g24-chips a:focus-visible{background:var(--pill-hv);border-color:var(--pill-hv);color:#fff;transform:translateY(-1px)}
+.g24-chips a.ext{background:#fff;border-style:dashed}
+.g24-chips a .org{font-size:11.5px;font-weight:700;color:#8d8271;background:#f1ece2;border-radius:999px;padding:1px 7px}
+.g24-chips a:hover .org{background:rgba(255,255,255,.25);color:#fff}
+@media (max-width:768px){
+  .g24{padding:14px 12px}
+  .g24-t{font-size:15px}
+  .g24-s{font-size:12px}
+  .g24-row{flex-direction:column;gap:6px}
+  .g24-lab{flex:none;padding-top:0}
+  .g24-chips{gap:6px}
+  .g24-chips a{font-size:13px;padding:7px 13px}
+}
+@media print{.psearch{display:none}.g24-chips a{border:1px solid #999;background:#fff;color:#000}}
+</style>
 </head>
 <body>
 
@@ -250,6 +339,22 @@
 <section class="hero">
   <div class="scale-mark">⚖</div>
   <div class="wrap hero-inner">
+    <div class="psearch fu in" role="search" aria-label="포털 사이트 검색">
+      <form class="ps ps-naver" action="https://search.naver.com/search.naver" method="get" target="_blank" rel="noopener">
+        <span class="ps-lab" aria-hidden="true">네이버</span>
+        <label class="ps-sr" for="psNaver">네이버에서 검색할 단어</label>
+        <input id="psNaver" type="search" name="query" placeholder="네이버 검색" autocomplete="off" enterkeyhint="search" required>
+        <button type="submit" aria-label="네이버에서 검색"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg></button>
+      </form>
+      <form class="ps ps-google" action="https://www.google.com/search" method="get" target="_blank" rel="noopener">
+        <svg class="ps-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
+        <span class="ps-lab" aria-hidden="true">구글</span>
+        <label class="ps-sr" for="psGoogle">구글에서 검색할 단어</label>
+        <input id="psGoogle" type="search" name="q" placeholder="구글 검색" autocomplete="off" enterkeyhint="search" required>
+        <button type="submit" aria-label="구글에서 검색">검색</button>
+      </form>
+      <span class="ps-note">검색 결과는 새 창으로 열립니다.</span>
+    </div>
     <span class="eyebrow fu in">검찰 33년 · 법무사 · 행정사</span>
     <h1 class="fu in d1">33년 검찰 실무의 눈으로,<br><span class="em">쟁점부터 서류 한 장까지</span><br>상세히 살핍니다.</h1>
     <p class="lead fu in d2">민사·가사·상속·등기·행정심판·법인(상업법인, 비영리법인) 설립.<br>법무사·행정사 두 자격으로 정확한 서류를 준비해<br>의뢰인의 권리 보호를 위해 최선을 다하겠습니다.</p>
@@ -1229,6 +1334,33 @@ try{restoreFromCard();}catch(e){}
           <span class="gc-desc">경찰청. 범죄·수사경력 회보서 온라인 발급(인허가·제출용).</span>
           <span class="gc-go">바로가기</span>
         </a>
+      </div>
+      <div class="g24" id="gov24-quick">
+        <div class="g24-head"><span class="g24-t">🏢 정부24 · 자주 찾는 민원 바로가기</span><span class="g24-s">누르면 그 민원의 신청 화면이 새 창으로 바로 열립니다. 발급은 본인 인증(간편인증·공동인증서 등) 후 진행됩니다.</span></div>
+        <div class="g24-row"><span class="g24-lab">주민등록</span><div class="g24-chips">
+          <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000015" target="_blank" rel="noopener" title="정부24 — 주민등록표 등본(초본) 발급">주민등록표 등본·초본</a>
+          <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000014" target="_blank" rel="noopener" title="정부24 — 주민등록표 열람">주민등록표 열람</a>
+          <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000016" target="_blank" rel="noopener" title="정부24 — 전입신고">전입신고</a>
+        </div></div>
+        <div class="g24-row"><span class="g24-lab">토지·건물</span><div class="g24-chips">
+          <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000026" target="_blank" rel="noopener" title="정부24 — 토지(임야)대장 등본 발급(열람)">토지(임야)대장</a>
+          <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000027" target="_blank" rel="noopener" title="정부24 — 지적도(임야도) 등본 발급(열람)">지적도(임야도)</a>
+          <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=15000000013" target="_blank" rel="noopener" title="정부24 — 토지이용계획확인신청">토지이용계획확인서</a>
+          <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=15000000098" target="_blank" rel="noopener" title="정부24 — 건축물대장 등본(초본) 발급(열람)">건축물대장 등·초본</a>
+          <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=15000000012" target="_blank" rel="noopener" title="정부24 — 개별공시지가 확인">개별공시지가 확인서</a>
+          <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=15000000011" target="_blank" rel="noopener" title="정부24 — 개별공시지가 이의신청">개별공시지가 이의신청</a>
+          <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13800000014" target="_blank" rel="noopener" title="정부24 — 농지대장 등본발급">농지대장</a>
+          <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000038" target="_blank" rel="noopener" title="정부24 — 부동산등기용 등록증명서 발급신청">부동산등기용 등록번호 증명서</a>
+        </div></div>
+        <div class="g24-row"><span class="g24-lab">세금·병역</span><div class="g24-chips">
+          <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000084" target="_blank" rel="noopener" title="정부24 — 지방세 세목별 과세증명서 발급">지방세 세목별 과세증명서</a>
+          <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000066" target="_blank" rel="noopener" title="정부24 — 취득세(등록면허세) 비과세(감면)확인">취득세(등록면허세) 비과세·감면 확인</a>
+          <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13000000016" target="_blank" rel="noopener" title="정부24 — 병적증명서 발급">병적증명서</a>
+        </div></div>
+        <div class="g24-row"><span class="g24-lab">다른 기관</span><div class="g24-chips">
+          <a class="ext" href="https://efamily.scourt.go.kr/pt/PtFrrpApplrInfoInqW.do?menuFg=02" target="_blank" rel="noopener" title="대법원 전자가족관계등록시스템 — 가족관계증명서 발급">가족관계증명서 <span class="org">대법원</span></a>
+          <a class="ext" href="https://rtms.molit.go.kr" target="_blank" rel="noopener" title="국토교통부 부동산거래관리시스템 — 부동산 거래신고·임대차 신고">부동산 거래신고 <span class="org">국토교통부</span></a>
+        </div></div>
       </div>
     </div>
 
