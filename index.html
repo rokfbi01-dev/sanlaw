@@ -226,35 +226,56 @@
 <style id="ux-20261112">
 /* ===== 2026-11-12 상단 메뉴 알약 · 포털 검색창 · 정부24 민원 바로가기 칩 ===== */
 :root{--pill-bg:#f6ecd8;--pill-bd:#e3cfa8;--pill-tx:#7a5230;--pill-hv:#a47148}
-/* --- 상단 메뉴: 알약 모양 (PC) --- */
-@media (min-width:901px){
-  #hd .menu{flex-wrap:wrap;justify-content:flex-end;gap:8px 7px;max-width:640px}
-  #hd .menu a{font-size:14px;font-weight:600;color:var(--pill-tx)!important;background:var(--pill-bg);border:1px solid var(--pill-bd);border-radius:999px;padding:7px 15px;line-height:1.25;transition:background .2s,color .2s,transform .2s;box-shadow:0 2px 6px rgba(0,0,0,.08)}
-  #hd .menu a::after{display:none}
-  #hd .menu a:hover,#hd .menu a:focus-visible{background:var(--pill-hv);border-color:var(--pill-hv);color:#fff!important;transform:translateY(-1px)}
-  #hd .menu a.nav-cta{background:var(--gold);border-color:var(--gold);color:#fff!important}
-  #hd .menu a.nav-cta:hover{background:var(--ink);border-color:var(--ink)}
-}
-/* --- 769~900px: 햄버거 펼침 메뉴도 알약 --- */
-@media (min-width:769px) and (max-width:900px){
-  #hd .menu{gap:10px;align-items:stretch}
-  #hd .menu a{font-size:16px!important;font-weight:600;text-align:center;color:var(--pill-tx)!important;background:var(--pill-bg);border:1px solid var(--pill-bd);border-radius:999px;padding:10px 18px}
-  #hd .menu a::after{display:none}
-  #hd .menu a.nav-cta{background:var(--gold);border-color:var(--gold);color:#fff!important}
-}
-/* --- 휴대폰(768px 이하): 가로로 밀어 보는 알약 줄 --- */
+/* --- 상단 고정 바로가기 알약(소개·업무·계산기·링크·칼럼·상담·오시는 길) --- */
+#hd .qbar{display:flex;flex-wrap:wrap;justify-content:flex-end;align-items:center;gap:8px;margin-left:auto}
+#hd .qbar a,#hd .qbar .q-all{display:inline-flex;align-items:center;justify-content:center;font:700 15.5px/1.2 var(--sans);letter-spacing:-.2px;color:var(--pill-tx);background:var(--pill-bg);border:1.5px solid var(--pill-bd);border-radius:999px;padding:9px 19px;text-decoration:none;white-space:nowrap;cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,.12);transition:background .2s,color .2s,transform .2s}
+#hd .qbar a:hover,#hd .qbar a:focus-visible,#hd .qbar .q-all:hover,#hd .qbar .q-all:focus-visible{background:var(--pill-hv);border-color:var(--pill-hv);color:#fff;transform:translateY(-1px)}
+#hd .qbar a.q-cta{background:var(--gold);border-color:var(--gold);color:#fff}
+#hd .qbar a.q-cta:hover{background:var(--ink);border-color:var(--ink)}
+#hd .qbar .q-all{background:transparent;color:#fff;border-color:rgba(255,255,255,.55);box-shadow:none;padding:9px 16px}
+/* 바로가기 알약: 항목마다 다른 색 */
+#hd .qbar a{color:#fff;border-color:rgba(255,255,255,.4)}
+#hd .qbar a.q-c1{background:#3d5a80}
+#hd .qbar a.q-c2{background:#8a5a22}
+#hd .qbar a.q-c3{background:#2f7d5b}
+#hd .qbar a.q-c4{background:#2b7bbd}
+#hd .qbar a.q-c5{background:#6b4f9a}
+#hd .qbar a.q-cta{background:#c8862d;border-color:rgba(255,255,255,.4)}
+#hd .qbar a.q-c7{background:#b5523b}
+#hd .qbar a:hover,#hd .qbar a:focus-visible{background:var(--ink);border-color:var(--gold);color:#fff;filter:none}
+#hd.scrolled .qbar .q-all{color:var(--ink);border-color:rgba(22,32,46,.35)}
+/* --- 전체 메뉴(9개)는 숨겨 두었다가 '☰ 전체'로 여는 옆 패널 — 모든 화면 공통 --- */
+#hd .burger{display:none!important}
+#hd .menu{position:fixed!important;top:0!important;right:0!important;bottom:0!important;left:auto!important;width:min(320px,82vw)!important;max-width:none!important;height:100vh!important;min-height:0!important;margin:0!important;padding:64px 26px 28px!important;display:flex!important;flex-direction:column!important;flex-wrap:nowrap!important;justify-content:center!important;align-items:stretch!important;gap:10px!important;background:var(--ink)!important;border:0!important;box-shadow:-12px 0 32px rgba(0,0,0,.35)!important;overflow-y:auto!important;overflow-x:hidden!important;transform:none!important;transition:opacity .25s ease,visibility .25s!important;z-index:1200!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important}
+#hd .menu.open{visibility:visible!important;opacity:1!important;pointer-events:auto!important}
+#hd .menu .menu-close{display:block!important}
+#hd .menu a{display:flex!important;justify-content:center!important;align-items:center!important;font-size:16px!important;font-weight:600!important;color:var(--pill-tx)!important;background:var(--pill-bg)!important;border:1px solid var(--pill-bd)!important;border-radius:999px!important;padding:10px 18px!important;margin:0!important;white-space:nowrap!important;text-decoration:none!important}
+#hd .menu a::after{display:none!important}
+#hd .menu a:hover,#hd .menu a:focus-visible{background:var(--pill-hv)!important;border-color:var(--pill-hv)!important;color:#fff!important}
+#hd .menu a.nav-cta{background:var(--gold)!important;border-color:var(--gold)!important;color:#fff!important}
+/* 바로가기로 옮겨 간 자리: 고정 머리말에 제목이 가리지 않게 */
+#about,#practice,#gov-links,#column,#contact,#location{scroll-margin-top:118px}
+section.about,section.contact{position:relative}
+.anchor-alias{position:absolute;top:0;left:0;width:0;height:0;overflow:hidden}
+#why,#process{scroll-margin-top:118px}
+@media (max-width:1000px){#hd .qbar a,#hd .qbar .q-all{font-size:14px;padding:8px 14px}}
+/* 휴대폰: 로고 아래 두 줄 알약 */
 @media (max-width:768px){
-  #hd .menu{padding:8px 10px!important;gap:6px!important;align-items:center!important}
-  #hd .menu a{font-size:12.5px!important;font-weight:600!important;padding:6px 12px!important;border:1px solid var(--pill-bd)!important;border-radius:999px!important;background:var(--pill-bg)!important;color:var(--pill-tx)!important}
-  #hd .menu a:active{background:var(--pill-hv)!important;border-color:var(--pill-hv)!important;color:#fff!important}
-  #hd .menu a.nav-cta{margin:0!important;background:var(--gold)!important;border-color:var(--gold)!important;color:#fff!important;padding:6px 13px!important}
+  #hd .qbar{width:100%;justify-content:center;gap:6px;padding:8px 10px 10px;margin:0;border-top:1px solid rgba(255,255,255,.12)}
+  #hd .qbar a,#hd .qbar .q-all{font-size:13px;padding:6px 12px;box-shadow:none}
+  #hd.scrolled .qbar .q-all{color:#fff;border-color:rgba(255,255,255,.55)}
+  #about,#practice,#gov-links,#column,#contact,#location{scroll-margin-top:180px}
 }
 /* 휴대폰: 스크롤해도 남색 헤더 위 사무소 이름이 보이도록 */
 @media (max-width:768px){#hd.scrolled .logo .name-text{color:#fff}}
-@media (prefers-reduced-motion:reduce){#hd .menu a,.g24-chips a{transition:none!important;transform:none!important}}
+@media (prefers-reduced-motion:reduce){#hd .menu,#hd .menu a,#hd .qbar a,#hd .qbar .q-all{transition:none!important;transform:none!important}}
 
 /* --- 포털 검색창 (로고와 '검찰 33년' 사이) --- */
-.psearch{display:flex;flex-wrap:wrap;gap:12px;align-items:center;max-width:900px;margin:0 0 30px}
+.psearch{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start;width:100%;margin:0 0 30px}
+.ps-col{flex:1 1 320px;min-width:0;display:flex;flex-direction:column;align-items:center;gap:8px}
+.ps-col .ps{flex:none;width:100%}
+.ps-mail{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.32);border-radius:999px;padding:5px 13px;text-decoration:none;transition:background .2s}
+.ps-mail:hover,.ps-mail:focus-visible{background:rgba(255,255,255,.24)}
 .ps{position:relative;display:flex;align-items:center;flex:1 1 320px;min-width:0;height:48px;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.18)}
 .ps input{flex:1 1 0;width:0;min-width:0;height:100%;border:0;outline:0;background:transparent;font:500 15.5px var(--sans);color:#202124;padding:0 12px}
 .ps input::placeholder{color:#8a8f96}
@@ -271,46 +292,271 @@
 .ps-google button{height:36px;margin-right:6px;padding:0 18px;border-radius:999px;background:#f1f3f4;color:#3c4043;font-weight:600;font-size:14px}
 .ps-google button:hover{background:#e8eaed}
 .ps-google:focus-within{box-shadow:0 0 0 3px rgba(66,133,244,.3),0 6px 18px rgba(0,0,0,.18)}
-.ps-note{flex-basis:100%;font-size:12.5px;color:rgba(255,255,255,.62);margin-top:-4px}
+.ps-note{font-size:12.5px;color:rgba(255,255,255,.62);padding:5px 0 0 2px}
 /* PC: 고정 헤더(로고·메뉴) 아래에서 검색창이 시작되도록 히어로 상단 정렬 */
 @media (min-width:769px){
   section.hero{align-items:flex-start}
-  section.hero .hero-inner{padding-top:158px;padding-bottom:60px}
+  section.hero .hero-inner{padding-top:150px;padding-bottom:34px}
+}
+/* PC 첫 화면: 문장·바로가기 카드를 줄여 한 화면에 들어오게 */
+@media (min-width:769px){
+  .psearch{margin-bottom:16px}
+  .ps{height:44px}
+  section.hero .eyebrow{margin-bottom:10px;font-size:12px}
+  section.hero h1{font-size:clamp(30px,3.2vw,44px);line-height:1.28;margin-bottom:12px}
+  section.hero p.lead{font-size:16px;line-height:1.7;margin-bottom:0}
+  .hero-nav{margin-top:20px;gap:10px}
+  .hnav-card{padding:11px 14px;gap:2px}
+  .hnav-card .hnav-ico{font-size:17px;margin-bottom:1px}
+  .hnav-card .hnav-t{font-size:14.5px}
+  .hnav-card .hnav-s{font-size:11px}
+}
+/* 화면 높이가 낮은 노트북(세로 720px 이하) */
+@media (min-width:769px) and (max-height:720px){
+  .psearch{margin-bottom:10px;gap:12px}
+  .ps-col{gap:6px}
+  section.hero h1{font-size:clamp(28px,2.8vw,38px);margin-bottom:8px}
+  section.hero p.lead{font-size:15px;line-height:1.6}
+  .hero-nav{margin-top:14px}
 }
 @media (max-width:768px){
   .psearch{gap:8px;margin:12px 0 14px}
-  .ps{flex-basis:100%;height:42px}
+  .ps-col{flex-basis:100%;gap:6px}
+  .ps{height:42px}
+  .ps-mail{font-size:12px;padding:4px 11px}
   .ps input{font-size:15px}
   .ps-naver button{width:44px}
   .ps-google button{height:32px;padding:0 14px}
   .ps-note{display:none}
 }
 
-/* --- 정부24 자주 찾는 민원 바로가기 (알약 칩) --- */
-.g24{margin-top:16px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:6px;padding:20px 22px}
-.g24-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-bottom:14px}
-.g24-t{font-family:var(--serif);font-size:17px;font-weight:800;color:var(--ink)}
-.g24-s{font-size:13px;color:var(--muted)}
-.g24-row{display:flex;gap:12px;align-items:flex-start;padding:9px 0;border-top:1px dashed var(--line)}
-.g24-row:first-of-type{border-top:0}
-.g24-lab{flex:0 0 74px;font-size:13px;font-weight:700;color:var(--pill-tx);padding-top:9px}
-.g24-chips{display:flex;flex-wrap:wrap;gap:8px}
-.g24-chips a{display:inline-flex;align-items:center;gap:6px;background:var(--pill-bg);border:1px solid var(--pill-bd);color:var(--pill-tx);border-radius:999px;padding:8px 17px;font-size:14.5px;font-weight:600;line-height:1.3;text-decoration:none;transition:background .2s,color .2s,transform .2s}
-.g24-chips a::after{content:'↗';font-size:12px;opacity:.55}
-.g24-chips a:hover,.g24-chips a:focus-visible{background:var(--pill-hv);border-color:var(--pill-hv);color:#fff;transform:translateY(-1px)}
-.g24-chips a.ext{background:#fff;border-style:dashed}
-.g24-chips a .org{font-size:11.5px;font-weight:700;color:#8d8271;background:#f1ece2;border-radius:999px;padding:1px 7px}
-.g24-chips a:hover .org{background:rgba(255,255,255,.25);color:#fff}
+/* --- 히어로 문장 가운데 정렬 --- */
+section.hero .eyebrow{display:flex;justify-content:center}
+section.hero .eyebrow::after{content:'';width:40px;height:1px;background:var(--gold)}
+section.hero h1,section.hero p.lead{text-align:center;margin-left:auto;margin-right:auto}
+/* --- 유용한 링크: 큰 카드 → 알약 (설명은 마우스를 올리면 말풍선으로) --- */
+#gov-links .gov-grid{display:flex!important;flex-wrap:wrap!important;gap:8px!important;margin-top:10px!important;grid-template-columns:none!important}
+#gov-links .gov-card,#gov-links .g24card .g24-main{display:inline-flex!important;flex-direction:row!important;align-items:center!important;gap:6px!important;padding:8px 16px!important;background:var(--pill-bg)!important;border:1px solid var(--pill-bd)!important;border-radius:999px!important;box-shadow:none!important;transform:none!important;text-decoration:none;transition:background .2s,border-color .2s}
+#gov-links .gov-card .gc-ico,#gov-links .gov-card .gc-desc,#gov-links .gov-card .gc-go{display:none!important}
+#gov-links .gov-card .gc-name{font-family:var(--sans)!important;font-size:14.5px!important;font-weight:600!important;color:var(--pill-tx)!important;line-height:1.3!important;white-space:nowrap}
+#gov-links a.gov-card::after,#gov-links .g24-main::after{content:'↗';font-size:11px;opacity:.55;color:var(--pill-tx)}
+#gov-links a.gov-card:hover,#gov-links a.gov-card:focus-visible,#gov-links .g24-main:hover,#gov-links .g24-main:focus-visible{background:var(--pill-hv)!important;border-color:var(--pill-hv)!important}
+#gov-links a.gov-card:hover .gc-name,#gov-links a.gov-card:focus-visible .gc-name,#gov-links .g24-main:hover .gc-name,#gov-links .g24-main:focus-visible .gc-name,#gov-links a.gov-card:hover::after,#gov-links .g24-main:hover::after{color:#fff!important}
+/* 정부24: 알약 + '자주 찾는 민원' 펼침 버튼 */
+#gov-links .gov-card.g24card{display:contents!important}
+#gov-links .g24-more{padding:0}
+#gov-links .g24-more summary{list-style:none;cursor:pointer;white-space:nowrap;display:inline-flex;align-items:center;gap:6px;background:#fff;border:1.5px solid var(--pill-hv);color:var(--pill-tx);border-radius:999px;padding:7px 15px;font-size:14px;font-weight:700;line-height:1.3;user-select:none}
+#gov-links .g24-more summary::-webkit-details-marker{display:none}
+#gov-links .g24-more summary::after{content:'▾';font-size:12px}
+#gov-links .g24-more[open]{flex-basis:100%;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+#gov-links .g24-more[open] summary{background:var(--pill-hv);color:#fff}
+#gov-links .g24-more[open] summary::after{content:'▴'}
+#gov-links .g24-more summary:focus-visible{outline:2px solid var(--pill-hv);outline-offset:2px}
+.g24-body{margin-top:12px;display:flex;flex-direction:column;gap:9px}
+.g24-grp{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.g24-lab{flex:0 0 70px;font-size:12.5px;font-weight:700;color:var(--muted)}
+.g24-grp a{display:inline-flex;align-items:center;gap:5px;background:var(--pill-bg);border:1px solid var(--pill-bd);color:var(--pill-tx);border-radius:999px;padding:5px 12px;font-size:13px;font-weight:600;line-height:1.3;text-decoration:none;transition:background .2s,color .2s}
+.g24-grp a::after{content:'↗';font-size:10.5px;opacity:.55}
+.g24-grp a:hover,.g24-grp a:focus-visible{background:var(--pill-hv);border-color:var(--pill-hv);color:#fff}
+.g24-tip{font-size:12px;color:var(--muted);margin:2px 0 0}
+/* 카테고리마다 사각형으로 묶기 */
+#gov-links .gov-group{margin-top:16px!important;background:#d6eaf8;border:1px solid #a9cdea;border-radius:6px;padding:16px 20px 18px;box-shadow:0 4px 14px rgba(22,32,46,.05)}
+#gov-links .gov-group:first-of-type{margin-top:20px!important}
+#gov-links .gov-group-title{margin-bottom:12px!important;padding-bottom:10px!important;border-bottom:1px solid #b5d4ee}
 @media (max-width:768px){
-  .g24{padding:14px 12px}
-  .g24-t{font-size:15px}
-  .g24-s{font-size:12px}
-  .g24-row{flex-direction:column;gap:6px}
-  .g24-lab{flex:none;padding-top:0}
-  .g24-chips{gap:6px}
-  .g24-chips a{font-size:13px;padding:7px 13px}
+  #gov-links .gov-grid{gap:6px!important}
+  #gov-links .gov-group{padding:12px 12px 14px}
+  #gov-links .gov-card,#gov-links .g24card .g24-main{padding:6px 12px!important}
+  #gov-links .gov-card .gc-name{font-size:13px!important}
+  #gov-links .g24-more summary{font-size:12.5px;padding:5px 12px}
+  .g24-lab{flex-basis:100%}
+  .g24-grp a{font-size:12.5px;padding:5px 10px}
 }
-@media print{.psearch{display:none}.g24-chips a{border:1px solid #999;background:#fff;color:#000}}
+@media (prefers-reduced-motion:reduce){#gov-links .gov-card,.g24-grp a{transition:none!important}}
+/* --- 소개: 사진은 작게, 이름·소개 글은 사진 오른쪽 (한 화면에) --- */
+section.block.about{padding-top:48px}
+section.about .sec-head{margin-bottom:26px}
+section.about .sec-head h2{font-size:clamp(24px,2.4vw,30px)}
+section.about .about-grid{grid-template-columns:minmax(0,240px) minmax(0,1fr);gap:44px;align-items:center;max-width:1000px;margin-left:auto;margin-right:auto}
+section.about .portrait{width:100%;max-width:240px}
+section.about .about-body h3{font-size:26px;margin-bottom:6px}
+section.about .about-body .role{font-size:14px;margin-bottom:16px}
+section.about .about-body p{font-size:15px;line-height:1.7;margin-bottom:8px}
+section.about .credos{margin-top:16px;padding-top:14px}
+section.about .credos li{font-size:15px;margin-bottom:8px}
+@media (max-width:900px){
+  section.about .about-grid{grid-template-columns:minmax(0,200px) minmax(0,1fr);gap:28px}
+  section.about .about-body h3{font-size:22px}
+  section.about .about-body p{font-size:14.5px}
+}
+@media (max-width:600px){
+  section.about .about-grid{grid-template-columns:104px minmax(0,1fr);gap:8px 16px;align-items:center}
+  section.about .about-body{display:contents}
+  section.about .portrait{grid-column:1;grid-row:1 / span 2;max-width:104px}
+  section.about .about-body h3{grid-column:2;grid-row:1;align-self:end;font-size:19px;margin:0}
+  section.about .about-body .role{grid-column:2;grid-row:2;align-self:start;font-size:11.5px;letter-spacing:.5px;margin:0}
+  section.about .about-body p,section.about .credos{grid-column:1 / -1}
+  section.about .about-body p{font-size:14px;margin:6px 0 0}
+  section.about .credos li{font-size:13.5px}
+}
+/* --- 소개: 和而不同 | (작은 달걀) 경력 | 長毋相忘 --- */
+.motto-row.trio{grid-template-columns:minmax(0,1fr) minmax(0,.8fr) minmax(0,1fr);gap:24px;align-items:stretch;margin-top:44px}
+.motto-row.trio .motto,.motto-row.trio .career-block{margin:0;border-radius:50% 50% 46% 46% / 20% 20% 16% 16%;box-shadow:0 10px 26px rgba(22,32,46,.10)}
+.motto-row.trio .motto{padding:46px 36px 44px;background:linear-gradient(180deg,#f6ecd8 0%,#f1e3c6 100%);border:1.5px solid #dcc394;text-align:center}
+.motto-row.trio .motto-han{font-size:30px;letter-spacing:8px;margin-bottom:6px;color:#9a7136}
+.motto-row.trio .motto-src{font-size:13px;line-height:1.75;color:#6b5a40}
+.motto-row.trio .motto-src .hj{color:#4a3a22}
+.motto-row.trio .motto p.motto-lead{font-size:15px;line-height:1.8;color:#3f3424}
+.motto-row.trio .motto-list{text-align:left}
+.motto-row.trio .motto-list li{font-size:14.5px;line-height:1.8;color:#3f3424}
+.motto-row.trio .motto-list b{color:#8a5a22}
+/* 가운데 경력: 같은 달걀 모양, 크기만 작게 */
+.motto-row.trio .career-block{align-self:center;aspect-ratio:3/4;display:flex;flex-direction:column;justify-content:center;padding:34px 24px 30px;border:1.5px solid var(--gold);background:linear-gradient(180deg,#34465f 0%,#22324a 100%);color:#fff}
+.motto-row.trio .career-block .career-title{text-align:center;font-size:17px;color:#fff;padding-bottom:10px;margin-bottom:16px;border-bottom:1px solid rgba(201,168,120,.45)}
+.motto-row.trio .career-block .career-title::before{color:var(--gold-soft)}
+.motto-row.trio .career-list{align-self:center;word-break:keep-all}
+.motto-row.trio .career-list::before{background:rgba(201,168,120,.45)}
+.motto-row.trio .career-list li{font-size:13.5px;line-height:1.5;padding-bottom:9px;color:rgba(255,255,255,.82)}
+.motto-row.trio .career-list li b{color:#fff}
+.motto-row.trio .career-list li::before{top:7px;background:var(--gold-soft);border-color:#2b3c55}
+.motto-row.trio .career-list li:last-child{color:#fff}
+.motto-row.trio .career-list li:last-child::before{background:#fff;border-color:var(--gold)}
+@media (max-width:599px){
+  .motto-row.trio{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .motto-row.trio .career-block{grid-column:1/-1;order:-1;justify-self:center;width:min(340px,100%);aspect-ratio:auto;padding:36px 28px 32px}
+}
+@media (max-width:599px){
+  .motto-row.trio{grid-template-columns:1fr;gap:16px}
+  .motto-row.trio .career-block{order:0;width:min(300px,100%)}
+  .motto-row.trio .motto,.motto-row.trio .career-block{border-radius:40% 40% 34% 34% / 9% 9% 7% 7%}
+  .motto-row.trio .career-block{border-radius:50% 50% 44% 44% / 16% 16% 12% 12%;padding:32px 20px 28px}
+  .motto-row.trio .motto{padding:34px 22px 30px}
+  .motto-row.trio .motto-han{font-size:26px;letter-spacing:6px}
+}
+/* ===== PC·태블릿: 섹션마다 한 화면(머리말 아래 높이)에 같은 비율로 (769px 이상) ===== */
+@media (min-width:769px){
+  section.block,section.location,section.gov-links-sec{min-height:calc(100vh - 118px);display:flex;flex-direction:column;justify-content:center;box-sizing:border-box}
+  section.block > .wrap,section.location > .wrap,section.gov-links-sec > .wrap{width:100%}
+  section.block,section.location{padding:40px 0 44px}
+  section.block.about{padding-top:40px}
+  .sec-head{margin-bottom:22px}
+  .sec-head h2{font-size:clamp(24px,2.3vw,30px)}
+  .sec-head p{font-size:14.5px;margin-top:6px}
+  .gov-links-sec{padding:40px 0 36px}
+  #gov-links .gov-group{padding:10px 18px 12px;margin-top:12px!important}
+  #gov-links .gov-card,#gov-links .g24card .g24-main{padding:6px 14px!important}
+  #gov-links .gov-card .gc-name{font-size:14px!important}
+  #gov-links .gov-grid{gap:6px!important;margin-top:6px!important}
+  .gov-links-sec .gov-note{margin-top:12px}
+  #gov-links .gov-group-title{margin-bottom:8px!important;padding-bottom:7px!important}
+  /* 소개: 달걀 세 개 */
+  .motto-row.trio{margin-top:26px}
+  .motto-row.trio .motto{padding:32px 30px 28px}
+  .motto-row.trio .motto-han{font-size:26px;margin-bottom:2px}
+  .motto-row.trio .motto-src{font-size:12px;line-height:1.6;margin-bottom:8px}
+  .motto-row.trio .motto p.motto-lead{font-size:14px;line-height:1.65;margin-bottom:6px}
+  .motto-row.trio .motto-list li{font-size:13.5px;line-height:1.65;margin:5px 0}
+  /* 업무 분야 */
+  section#practice .pa-notice{font-size:13.5px;line-height:1.6;padding:10px 14px}
+  section#practice .pa-agree{margin-top:8px;font-size:15px}
+  section#practice .pa-hint{margin-top:4px;font-size:13px}
+  section#practice .pa-head{margin:12px 0 6px}
+  section#practice .pa-grid{gap:9px;margin-top:8px}
+  section#practice .pa-g5{grid-template-columns:repeat(4,minmax(0,1fr))}
+  section#practice .pa-gbox .pa-gt{display:flex!important;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:0!important}
+  section#practice .pa-gbox .pa-gbody{display:none;margin-top:6px}
+  section#practice .pa-gbox.open .pa-gbody{display:block}
+  section#practice .pa-more{margin-left:auto;background:#fff;border:1px solid #e7e0d4;border-radius:999px;padding:2px 11px;font:700 12px/1.5 var(--sans);color:#7a5230;cursor:pointer}
+  section#practice .pa-more:focus-visible{outline:2px solid #a47148;outline-offset:2px}
+  section#practice{padding-top:20px;padding-bottom:20px}
+  section#practice .sec-head{margin-bottom:12px}
+  section#practice .sec-head p{font-size:13.5px}
+  section#practice .pa-notice{font-size:13px;line-height:1.55;padding:9px 14px}
+  section#practice .pa-gcta{margin-top:10px;padding:8px 12px}
+  section#practice .pa-card{min-height:58px;padding:9px 12px;gap:10px}
+  section#practice .pa-han{width:32px;height:32px;line-height:32px;font-size:15px;border-radius:8px}
+  section#practice .pa-tx h3{font-size:15px}
+  section#practice .pa-tx p{font-size:12px;-webkit-line-clamp:1;margin-top:1px}
+  section#practice .pa-tx h3{font-size:14.5px;line-height:1.3;padding-right:40px}
+  section#practice .pa-b{font-size:10.5px;top:7px;right:8px;padding:0 6px}
+  section#practice .pa-notice{margin-top:-6px}
+  section#practice .pa-guide{margin-top:14px;gap:12px}
+  section#practice .pa-gbox{font-size:13px;line-height:1.65;padding:12px 16px}
+  section#practice .pa-gbox .pa-gt{font-size:15.5px;margin-bottom:4px}
+  section#practice .pa-gcta{margin-top:12px;padding:10px 14px}
+  section#practice .pa-gcta a{padding:8px 18px;font-size:14.5px}
+  /* 세무 안내: 두 칸 */
+  section#tax-partner .tax-partner{max-width:1040px}
+  section#tax-partner{padding-top:16px;padding-bottom:16px}
+  section#tax-partner .tp-photo{width:96px;height:122px}
+  section#tax-partner .tp-head h2{font-size:1.08rem}
+  section#tax-partner .tp-head .tags{margin-top:6px}
+  section#tax-partner .tp-body > .tp-note{line-height:1.45}
+  section#tax-partner .tp-body{padding-top:14px;padding-bottom:14px}
+  section#tax-partner .tp-head{padding:14px 24px}
+  section#tax-partner .tp-head p{margin-top:4px;font-size:.88rem}
+  section#tax-partner .tp-head .tags{margin-top:8px}
+  section#tax-partner .tp-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:30px;align-items:start;padding:18px 24px 18px}
+  section#tax-partner .tp-body > .tp-top{grid-column:1;grid-row:1 / span 4}
+  section#tax-partner .tp-body > .tp-actions{grid-column:1 / -1;grid-row:5;margin-top:12px;padding-top:12px;flex-wrap:nowrap}
+  section#tax-partner .tp-body > .tp-actions .tp-btn{flex:1 1 0;min-width:0;font-size:.88rem}
+  section#tax-partner .tp-body > .tp-label,.tp-body > .tp-list{grid-column:2}
+  section#tax-partner .tp-body > .tp-label{margin:4px 0 6px}
+  section#tax-partner .tp-body > .tp-list li{padding:3px 0 3px 18px;font-size:.9rem}
+  section#tax-partner .tp-body > .tp-note{grid-column:1 / -1;grid-row:6;margin-top:6px;padding:7px 12px;font-size:.76rem}
+  section#tax-partner .tp-btn{padding:10px 8px}
+  /* 상담 문의: 이름·연락처·이메일 한 줄 */
+  section.contact .contact-inner{grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:36px;align-items:center}
+  section.contact .contact-inner > .fu{order:0}
+  section.contact .contact-inner > .form{order:0}
+  .contact .form{padding:14px}
+  .contact .form > div{padding:16px 20px!important}
+  #consultForm{display:flex;flex-wrap:wrap;column-gap:8px}
+  #consultForm > *{flex:0 0 100%}
+  #consultForm > input[type=text],#consultForm > input[type=tel],#consultForm > input[type=email]{flex:1 1 0;width:auto!important;min-width:0}
+  #consultForm textarea{min-height:0!important;height:72px}
+  .contact .form > div > h2{font-size:18px!important}
+  .contact .form > div > a{padding:9px!important;margin-bottom:8px!important}
+  .contact h2{font-size:clamp(26px,2.6vw,34px)}
+  /* 오시는 길 */
+  .loc-grid{margin-top:16px;gap:36px}
+  .loc-photo{max-height:400px}
+  .loc-info h3{font-size:21px;margin-bottom:10px}
+  .loc-info .addr-main{font-size:16.5px;margin-bottom:2px}
+  .loc-info .addr-sub{font-size:13.5px;margin-bottom:12px}
+  .loc-info .way{padding-top:12px;margin-top:6px}
+  .loc-info .way-item{margin-bottom:9px;font-size:14px;gap:12px}
+  .loc-info .way-item .badge{width:38px;height:38px}
+  .map-btns{margin-top:12px;gap:8px}
+  .map-btn{padding:8px 14px;font-size:13.5px}
+  section.block.contact{padding:30px 0 32px}
+}
+@media (min-width:1100px){section#practice .pa-g5{grid-template-columns:repeat(5,minmax(0,1fr))}}
+/* 소개와 화이부동은 화면 폭과 관계없이 각각 한 화면 */
+@media (max-width:768px){
+  section#about,section#philosophy{min-height:calc(100vh - 190px);min-height:calc(100svh - 190px);display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;padding-top:20px;padding-bottom:20px}
+  section#about > .wrap,section#philosophy > .wrap{width:100%}
+  section#about .sec-head{margin-bottom:16px}
+}
+@media (max-width:599px){section#about{padding-top:10px;padding-bottom:10px}section#about .sec-head{margin-bottom:10px}section#about .sec-head h2{font-size:22px}}
+/* 화이부동 화면: 좁은 창에서도 한 화면에 (같은 비율로 축소) */
+@media (min-width:600px) and (max-width:1099px){section#philosophy > .wrap{zoom:.8}}
+@media (min-width:600px) and (max-width:820px){section#philosophy > .wrap{zoom:.7}}
+@media (min-width:821px) and (max-width:1099px) and (max-height:780px){section#philosophy > .wrap{zoom:.74}}
+@media (min-width:600px) and (max-width:820px) and (max-height:780px){section#philosophy > .wrap{zoom:.64}}
+@media (min-width:600px) and (max-width:700px){section#philosophy > .wrap{zoom:.6}}
+/* 오시는 길: 사진 왼쪽 위, 오른쪽에 제목·상호·교통 안내 (폭 600px 이상) */
+@media (min-width:600px){
+  section.location > .wrap{display:grid;grid-template-columns:minmax(0,clamp(190px,28vw,320px)) minmax(0,1fr);column-gap:clamp(20px,3.4vw,48px);align-items:start;max-width:1080px}
+  section.location .loc-grid{display:contents}
+  section.location .loc-photo{grid-column:1;grid-row:1 / span 2;width:100%!important;height:auto!important;max-height:none!important;aspect-ratio:3/4!important;margin:0!important}
+  section.location .sec-head{grid-column:2;grid-row:1;text-align:left;margin:0 0 12px;max-width:none}
+  section.location .loc-info{grid-column:2;grid-row:2}
+}
+@media (min-width:901px) and (max-height:780px){section.block > .wrap,section.location > .wrap,section.gov-links-sec > .wrap{zoom:.86}}
+@media (min-width:901px) and (max-height:680px){section.block > .wrap,section.location > .wrap,section.gov-links-sec > .wrap{zoom:.76}}
+@media (min-width:769px) and (max-height:900px){section#practice .pa-tx p{display:none}section#practice .pa-card{min-height:52px}}
+@media print{.psearch{display:none}}
 </style>
 </head>
 <body>
@@ -319,6 +565,10 @@
 <header id="hd">
   <div class="wrap nav">
     <a href="index.html" class="logo" aria-label="산 법무사·행정사 사무소 — 홈"><img class="logo-img" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAQDAwMDAgQDAwMEBAQFBgoGBgUFBgwICQcKDgwPDg4MDQ0PERYTDxAVEQ0NExoTFRcYGRkZDxIbHRsYHRYYGRj/2wBDAQQEBAYFBgsGBgsYEA0QGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBj/wAARCADwAPADASIAAhEBAxEB/8QAHQAAAQQDAQEAAAAAAAAAAAAACAECAwcABgkEBf/EAEAQAAEDAgQFAwMCBAMGBgMAAAECAxEABAUGEiEHCBMxQSJRYTJxgRSRFSNCoVKxwRYXM1NiohhDVHKC4SQ0RP/EABgBAQEBAQEAAAAAAAAAAAAAAAABAgME/8QAHhEBAQEAAgMBAQEAAAAAAAAAAAERAjESIUFRImH/2gAMAwEAAhEDEQA/AC/mnA0zxWTXoeM6lBpsgCmBwq3CTFBLMK7U8HaoA4T2SaeFk/0mglk09Kt684cTq06hPtUp1hM6TFBLIJp815g5v2p/UJ3jahqYGnA71ElYPY0usz2mglrB3qIuaTBBFOSokTpNBNMCKSfmo9ZmlCwTEifaaYHAgKp5M7VETHfb71gcEb9vemGnkx5rJ+ajJk7RWavirhTiaWdqZJ9jTS5G0VGcOVsJFYk7VGp2P6VH7U1LgO42+9MaTikJg1EXd9ht7isKwT80wOURNJNRKcg+PyYrNe0xt70EijtFNETvSTIpNW/ag84NJNN3nasnegf32ihw5heMvEDhdxMw3DcrXeEu4be4aLn9NeWetTS9RSTrCgSNpANEbO4oMOcZt5HG3CC4CGDgraWTEAw4vVB87x9qsWNbt+aLjla3v6p3MeGXyII/TXGGNBsT59MGR96x/mn46PYiLtOZcKaZH/8AC3hDPS/c+v8A7qpwkhO5pmue1XGpJ+LnvOajjhfkBrHcIw1I/wDR4UyCfyvUf716181/Gg2XQTc5fQ9Efq0YfC/vp1af7VRwUdXenJdPntRrwn4uuz5sONlq2pF1iGAYpPZVzhaWyn5ltQn80y35q+NrFwXnMXwW5QZ/kO4Y2Ej7FEH+9UuVgGQaULCht3rWHjPxdDvNXxtcuUvoxrBrdI7sN4U2pCvuTv8A3qe/5s+N18hCbTEMAwopMk2uFoWV/fqFUfiqOKlAiKfrBGyoNMPGT4ut7mx45u2AtmsRy4w9Im8RhLZcPxCiU/2p+Hc1vG+0bcRiGKYDi+oylVxhaGi38DplII+4qjiVDff709LyhE7imRPGLttOafjna3RfexzBsQaJP/4tzhjaUD7FvSrb71M9zYccXb4XTV/lphgCP0KcKCmz8lRVrn7GqS1T5rJNDxn4ui+5seOd60lu2vctYTpEFyzwwLUr8uqWB+BUyObPjaLH9K5c5cU7H/7gw1IdP4nT/wBtUeVHtMVgXqOxINMPGfi62ObDjjaoW25iGA3moyHLnDEakfA0QI+4NPa5suNTV2l9V7gVy2PqtncOQEK/KSFD8GqUK1FMKINM1fNMh4xeN1zZ8arm5Q9ZvZesEJO9umx6qV/cqVq/Y0t7zY8bb2zSza3OX8LdBBVcW9gHFK+IcKgB+Ko8L8g1KCT5kDzRnIvFjmz4yos/0923lu4c/wDVpsS2v8pCtJ/amWvNfxis0rF21lrFgpUpW/ZllTY9h01AEfevicK+D+L5/uEYi8CzhTTgDyFnorebO3UZcUNCtJ7ia+XxjyfgeRc/tYVlzErnELN62TcF99CEQSfpQEEgpjyPM+1MwyNpZ5rOM7N0l5x7ALpAMlh6wASoe2pJBqd/mw4wvPodt05ftEiJt02AcQr8k6h+DVHFSvBpwdGnckGieM/F6v8ANpxfurNxli2y3hrpTCHrayLhB9yHVK/YVtPCrmQ4tZo4r4RlfMVjlvE8PugrruW1sbS4QEpkrQdRSpXnSRvvEUMQc8g7VYXBBxwcxOVlIClAXHrjwgggk/G9TIX1HQ9YDboRqn2PvSeaQklYCu6dprFdtqwjyatprNc96ZSTG1FSavT+aDnnNuHF8aMvW7iFJZawQFpR7KKnlFRH7CjCO4ig15znEL46ZfZbELbwJC3D7y4qP7CkOM2h2MnemwQfepFETTAoexrTtIwr2isB9qQpBE1gIFFSApmD3rEbu6RUZKTvWSmR0wsjyVVoehSFJMKEH5pmnee1P1rcAJJUof1EyaclBceASN/ajJgS4UwEzShshJCu/sDVqcKOFGK8Q8VcS00UWTCdby1LS0SmY9BWNJP/AE96urHOWLLicsOM4DcOLxUJUUN3yUtKcIE+haCU/dKu/g1cTQg64RpEz5mlDihMCZG2/avXjGHXOEYvcYfepQm4YWW3AhQUJBgwR3HzXhJAAjuN6inKPqkVKlaFiYCSO/zXnMgb+axPYEUE537b1GDBMinJJUrQhJ1TA+aVJUZCwJ8EVYlOTESTAFW1wY4X3md8ZF3ctus2jLqUNrBSkl3ZQC0q7tlM7jzWv8MuG+JcQMwfpLZDqbZpSVPvtgLDSSdytPfSRIkdqu3jTmG54Q2mD5fyKLW0U+x/PTdIF2ktD6W9K9wgjyDO+xFMZtbZxZz5gvCDLisEyzaWov7pCwm0Rc9NVsop0of6SklLiR2UmRIjvQaX92/iOKP4jcC3Q8+rWtNqylhoHzobT6UCd4SAJJr1Y1j+NZixFd9jeJP3jhBShDiypDCJkNtgk6UidhP5r5YcCdidqUk9JEmQJrI3phMKIIp6SCRUMYSYIHnxVkcBbhDHMXlrqt9Rt502ykzGy9p/BA281Wx3HferJ4Bi2VzJ5bYu+npdWpLXUG3V0yj8yNvmqnKeq6GmdZJ7nemH705Uz6tj5ph2NcmXkmkrB5ps70DiqKDbnJbZb424StDKEvLwZrqOj6nBqVpB+07fejHmgz5zGOnx8wW5DgPXwFsFEbp0uKEn70la49h4Uo00r9VOJg71EpSYnaa07JAZHeliKjQ4kGD+9OUoRsdquBF77gbVKlcJA7VGj1ClIPYVWUyELeVoSspnzW0ZDyhiWcM2JwnD0LX0gly5dQUDpoKwkEayAokmAJ3r5eV8AxHMOPtYbh1u88sqBc6SNZSkmJ0+R71dXE9nB+FWRbbJGE22FYjid2sl95xlN4xbAphwp6idSFrnZA/4e5mYrUn1m34KLK+A4blnA28Mw60YZ6YHWZYJLbboEEkKJ/mGNz7dtq+22odVIUVBM76TB/HzQjcu3FXEMMze3k7MWJvXFpdpDeHP3V2SlBHa1OskQr+hUyCI7EUW5APuk+x7j70rAN+Z3KjmB8TWsVKgbbEGyWFItm2ErCdiQEHeNpJAJM7VR0ECPNE5zb2q2rjAL5xtIDzamm1hIBUUklUmd4lPgUMigAoGajfG+j1rBYSVfXMR8U2Agbeaa4NtR7UwuJkJ1b+1JF1KAlSSNwPcdxXpU5cXuKoceWXX33AFqbbkx2JCU94G8DvXlCoMx7AGvuZLat7riRg1tdpBbXcpABUU+qZEKG6TI2I7GKshaODgxkm0yJwxQ0W2nbm/KLh19paXUqgaVBp0AEtqgK0qAKSSDVMc12DYkzm/DsefHUs7tjp2yv1HV+g+oaCJbABAjcHc0UDJWuxa6x1OKSFqUQASqB6jHn3PmvhZ1ysznnh5e5buWi5sX2VIQlbjTiUmFIB/YgHcVO3PXPDWFFQ01DoESVDfsK+liuF3eD4/d4ViLC7e6t3ClTbiCgxOxg7ivAsJAJA3qNQ2TO5n5rEiZPt4rIlNKlWgTG9FSzHarA4FW6bzmayihxwo6d0LhJ91I3iq9KwsDxNWDwKafd5mcom3SpSmbkuqCe+gJOo/aDWvrPLp0VdVLq1Hyomo9QiaV5UvuQdgSKj8CuLLy0gpJ9VZQL5AoM+cJtbnHTCrtSvScDaQkR7OLmjLG5AFBhzeXLrvHPD7ZbbiGWMJaS2paCkLJUsqKSfqE7SParGuPYe3JmoYkbTNelxNQjTPeK1HWmj0pg96eB6Z71ikpB370qTp7kx7g9qppuszEVMySp9KdJMnsBJP4qIgFMpPetw4X5SvM48SMMw62ICQ+FOqUSlIA30lQ+iYgK7A1Z2zbkE5y98PmsCydc5lvQ2/d3Wk2xZKHG0pAJK21jfUZ0qSqIKaoPjnmO7x7i/fi4uy7b2hLduwl0uNW4PqUlBIB3O5nzMbRRw4fZ2+GZfZsWW0oQyjRpSAJ+/ufc+e9c98+Ou3nEzHL18jqXF266oBWoD1QAD7AACq5T3Xgy7eixztgt4tBUGbxtwDSF7hQI2OxE+DXSG1cfdsmX7hQLjqAskCAZE9vArmnZuBOL4e85CUtOoJJ+DXR/BHn7jKmFPPyFqtG1QfYp2/tFPiclM81uX7rE8iYXmC1lTWGO9N1tLJJ/mdiVjt2gA/vQfqXMGNjXQDjFZKvOCeNoShC3HWw2glam+me8mNl9tge1c/nEiSgHsSJ+1G+PTColMd/P2pqQCjTPzE96XUVAII2BmPmpdCdWpKfHYUaIgp0+rYivTYYgvCsZs8XbY66rR9D/R1aeoEkEp1eJG0+Kg0jYnYfNPS2UvlBESJiiV0VyXmfD87ZJs8zYRdC4tLhIAghSmlAQWllO3UT2PvsfNbA0opWFJUUqBkKHcR5oPuWPObmDcQH8m3jwbtsTRqsglswt8HdtSh2lMlJI7iJ3ovVqbWohtQW2TIUOx/+6Od7ChzTZPbwziEzmO3Y6RxVCrhxSHFKQ4sn1GD9Kj3KRtvQ+xJg/mjv445cZzPwhLD3Vcu7J5T9k2ggFxZTBEnxAn8UCzrakuLbXEgkGPcVI6cUCtu29JE04p8UgO8K7CorAmFD96srgI+5bczuVHWlKQVuOMkp8hTZBH2NVykCZ7irO5eSEcz+VFFIIDrg38S0oTWmeXToG5pC1AVHTUTpAJ3iaUEk1xZeUmDSTIppM0oO1BhO4igq5vXC7zF2iElUNYHbEgyQCpSzt7dqNUGFAmgm5unkJ5mBbJAlOB2ilHzuVx/arGuPaiuoVA+9RFEK9VYrdUisJURW29Ys6oHtWeKQBXfTIrAFavp7+Jotp4AkAH8VeHK1008XrhDinAr9KtCUo7L1DcK+IH7xVHwUqEoj81e3KqUo4s4hdwSpFmUQCROsad9oI8wfiKsY5X+aMNIQskL3Qe4mJH+lc687qUeIWKuQQly5cUkEyQnUY38/euiKG5dLZPcaT/lXP7iklDfFrGEtIcQym4WltLitSgkEgSYEnbvFVjh209alKSQg6VjdKvY+9H3wWzKzmrgrhmLAJS8kdK6bQkpS24Nth7GJ223oBAQNz2owOVZ99vhTiWGrT/IVd/qW1GZOwSoDxHbtVnRzizeK0N8H8ZdQ6pt3o6EKSSN1EJ07e81z5eQlLjiSIKVEH710ZzPcOWvDzHrphX81Fi4lr4URH+tc6EsqZU60+SpaFkLVMyZ3NJCXDRbuurQhlpbi1qCEJQnUVKPZIHknwKK/gVwZwu3y2jNGYbKzur26aCNK4fSjeS0/buJ/lutn99VazwF4NuYk+3nfNFqP4YUTZW7iZDpkjUNwUrHdKh2ImisLpdSn1SQkAkmVKIESo+Vbbk96dLoZeYnhHhVtgas4Zfw7D7AMqQ3dNsAMIeCjAWlHbVMSEx7xQvi3QhIU0SkeU10mzTZKxfh3jWC6Wlm5t1BKHUpUkqAkbK2me3zXOW+triwxS4sbxpTVwytTbjau6SDBBqLKZa3r1le2141cuW62HUuh1twtqQUmQQobp+47V0Qybj7eZOGWC482hQQ+yEQtzqLlOx1q2lXmYE7GudhaBSR3kbj3oseVnMF/ivD/FMCvnV3DeGOIVauKglttUgtK8kCJST2kidhRnl0vu8sxiWC3mGG2RdtXTKkBpaQTMGCJ7KB3HzXOvMtgjCcz4hhrb630276muqtstqXBiSk7pO24rowl9wQfqWRp1TG0R+496CHj9hTeF8Yr0JtRbLdAW6kJKdaiJ1x4nvReN+Kun1U1U9xSat9qVJB70bOZMqIq1OXdLZ5mMADukn1lsK/xhCiI+e9VOTpWCNj4q1+XRkXXM5l3U8hosFx8agTrITGkexOrY/FGOXQ/SIdWfE02fTIpyzK1/emT4rlUeOaWmzSzUGKMCgi5uWdHNI4sqku4DYrj2ELTH9qNzYmDQR83KVjmXD6lglWCWjaUxuEjUZ+ZJNWdrx7UZEGsSklyJrFAqcBAgTVk8LOHC854oXL9CWMObBX1n0kpdj+kad/ffxBrpJretj4NcFrvOrb2MYs5+kwxLZ6bhb1lavCdBg7/wCLsPmrxxLl14X41hIsrKwxCwvFIAQ/bv8AVHUAj6VgQknvvW+YO5hjeCW1hhFzb3DNg2i3UWXA8oAdkqUDMf5V9hgzdJUs6kz2Paqmud+cMuXWU8432AXTboNs6ptLjiCjqAGNQB7j5q0OVrR/vbu3Vr0patyCAspkkQnb+oT4/PivFzH2gt+MtwUtutAoEJcBB3JMifBnaNqj5bVM/wC/izafcU2CFEQop1K0mAfcT4oz3xGt6kuKAjUTQH8bkBvjhjjCULQGH1NaXHeqoHuZXAnv7fFHk2Sb6SPJ2oHeYlFujmDxsWiioEtre3mHS2nUKJwvtVYMtKTqBHxRdcqGIFzh3iOFF06kXHULRJMiNlAePI2/NCIR09Suwjei/wCVrB3LLh5fYu4VAXbqUoSdtkiSY/8AkK18OfxuXHbNByxwpuGbe4dZu7s6EIZJQtaY9RCoKSkbakmCQaFLhnl7/azija2NyhlVuTrfLiVaN9k/SCRKiB7Cd6vTmwfVaYNlxLd10v1odDjKVEF0JKYKh2ge439/FanyqM2d1xAxV+4t0qWw2kMugkLaV3lJHwCCDsQaRn5aJ+4atsGyPcMWjYtbbDrFSWUrbW+GilJIBDY1KE9ynfzWocHs5PZzyRdXt02EXdlc/p3pu+uuCJTqkBUd4J7gR3FfT4n3LzPBnMD1qtxgN2qy482lRLaSIH07iTtPbfeqG5WsyKGfcWwV5pUXtkFJcBEJUg6tKvgjz4I+amLKKtSmywvqtpcbcQW1tqiFAjbv23jeudXEBgM8S8ZbAiLlUiIgnc10MxNMZWxN3UhPSt1uy4Bo9In1T4MR3rnJjt87iWP3mJPthK33C4QBA3PiovG+3yEuKQr09qvPlYxh+z4xXOHp2tLuzc/UK6SllCQJ1ensnVpknYTNUcopJ1aYrauGb7lrxYwF5l11lxN2gh1qdSRO+w7gjYj2JpPa3p0ISB1AhUATEk7Cg05mcUt8T5gbtFu4tbdnbM2rgcQUlLqQdQg+NxRW8QswJytlJ3FLa3bceuElFrbR1ACpMj0AgqR4kHaZodMI4FZvzum6x7GWxh7jtwrXa3AUHWwRqSdLh1aCD6SSTA3p/rM9B9WgTt2qMJAmQY+KIPNPLVfYTgzuIYPiRulMCXrZ5pTSztJCO6VHvG+9alwz4OYtnPNjYxJh21wu2fHUUZHWj1QlafpVAn32o1qLIfCO8zlkHFMwuvvWiLZpT7Nx0C6wppI3Wop3TpVKVCDHem8vDT6uaPLZRITburU8UiQUhJH7SRvRBcZcz4dkXhM/lzDOo5cXnpt0PK2CVkh13UiPWPKFRMzvVCcur67fmmy8WydLqXmXBHdKmyP8wKJeqPtRJUuffem0p+pavck00+a5VXjH01gNJPil8VBkEqEUE3N2tx7mgcQUkN2+CWdsDpgEjUs7+fro2ZMiPFBNzavhfMihYBB/g9v1J7FW+4/EVZ2RofDPINzxAzi1hDBSltIU45rUUhxKRKkhXgx5q/eLrFnwt5fLCyyzbWtpfvvt4eu7t0qaeIgqWpC0kRsAFbeoGm8tGX2LPJ1/jrrLiC+QlDpBSpc/UkHtp2G43NM5obcO5Esr9SCEsuBpLhSYLilE6Ae0wJ94FdbMFS8Fs6YvgnFOxsOqh6yv3Ok6VtBSmgRuR7DYTFGuAEqIkED8g1ztyZiVth3EDA769fLFs3eILrwSVdNM7qgbkCuhTDpdsmHCACtpKtjIIIkEH5EGnxA482uHv/qsu4wLhgtdNdv0iuHNR9SSB5T3B32qs+AV25ZcwmDuIul2ynFaOolYQd9iJOwkSN6tvmucDlhl+3cuCEMJcUm3JEdRUeoeZgR7dqpDhE31uOeXbZT3SDj+lSpiQe6Z8SNqHwfwWUvFQTG9BNzFNtt8fcVShRIWltaiqNiUCQI8UbTmgXDhUQhKSTKjAAHk0C3HTFrDGuNOK3eG3C7pgkAPlSFJXAiUFGxTtsTv70XhMVlcwtlbaTOoQDXRPhxgv8A4LZYwlwpDhsW31JSQQCtAV38ntXPGzQLjF7Vs7AuiftNdIctEJyHl8zOmwaAn4SBV30c50HHm5eddzxl22cSEs2FkUoXoI1Fw6lbnY+O3bzXv5R8FWjDMx5jeQoNu3CbZhcbKKU7gH33/AMqtniPw0wziG8zcXail5tOhBS901A9tpBT7TNaPiGJ4Ty7cIL7BrG4fdvbi5NxbkjpvOO7JVoO6UaSIB3HmjPzHzuZbPFvYYQ3lLD3mnbx5vqKWFn+QlQ+tCkKjUR6SlU7E7dq0blasP1HEm+v9Kipq2VoWkTp2ghXsDPf3qmcbx3EMyZiu8bxe4S/iN651HXA2lAUo+dKQAPwNzRHcnYbVZ5qZWgF1m4S42VIBgKEEpV3nYAp7RB8VQSWJWTeK5exPB37g27V1aLZU5AUmCnsoHuk+fNc4MwWV9hOYLvD761dt3GllAQ8nSoQY7V0jOlJhUEf1JIkEfIqpuIvBDCM846cZt7dFpdugdXpuBOojaRq23EGpDfYKmkamJiRVzcuGTnsYzw5mV+zW9htooshXTKgVgSQk+FD/ACqLitwZs+HFhhVzb4ldPLvlLS4y+2NKdMfS4n0mJ7fNEXwVyvbZX4LYYhhuF303rgnUUqVtA9tgJ9yaZhutsxPAbLGRbnFGGbtDB1NoebDqRB2gdxHt2r6brj38tKxpCEhIAJhI+J3iqU458WFZOXh2BYB03sSdSX7tLu6AiYQAQQpC+5PxFaXkrmcRZX6LLOmD3qMPKhD9i8Hg376kL9Wnz6VTUX2J9u40L2PcQR4I9jWm5/zZhfDfKd/mRy0aQ+rShDTLRQq5WTtun0dQb6SqJg1qmK8w/DC2whd7Z4wt+5j0WTVu4l4KnaQtISUkbyDQzcRuJmIcQMxP3ryXbe0UU9JgqgkJ+kuJB0qUJ2Pii4+VmrMV3m3Ot9mO9UtT14vqqLmnWdoGrSAkmABIFbny6uJ/8U+W2VpJS+HWpHdKtBUD9vTv8GqsLzh2CoFWjy2oYe5osvouE6iEPOMmYhxKJB/aaF6H3JlUjzSDvSuf8VY8yabXKo8fmlHasiRTZ07VA7+qgj5sw2eZUNoTpUcGtFrVM6iSofjYCjcSR9XtQSc1LDjfM51vSoP4TZqQAdwPUIPtuDV49rBCcNbA4bwewO1KAgrZD5QBATq37fbf81UfNVfAYfgWGNKRoMvODQQormO/YgCP3q6sn6k5Aw1T4W0AykoDqdKtAEAkeKG3mfxpF7n3D8FDDjKrW36h6iIKgo99QJChtt7V2vaRRcLStHTTJCxAG8mujOAXi8QyZhGIvFrqXFo0sFpWpJGkCR7HbceDXPBu6eexmwU+srDa0IASNMJB7CPPzXRbDk2rWFWLdolKbYWrQZCRACSkHt+anw5KQ5p8u4liGE4NmKzOqztkqRdtqckpWSAlSE/I2MewqguGrLyeOGVwhJbK71CCtz0pAUY9ROwFHpe21pieFOYbiVszc2rghTTyAsH8GtBzZgvDjh/Yrz67grNlcWLCghNuoAPCIH8tZKTvG/zQ+Yn4xcQ7LIfDO9uFNLuMTu7ctYc0ArStRhJWpUQAmZ3O5EUCq7q4uXlOvlTilmVOkABR/Ffbzjm6/wA55lvMXvLpxbbqtSGQC00n/wBrU6UCSdhWspcKfSonbePFG5Hot3Rb4pbXCgstodTq0J1GJEwPP2rpTZYhhNzgGGXuF3Vr/DX7Vp22LaoQpBQIU2DuUn+xBB7VzSbclzSdp7Vt2AcQ8+5Xwc4RgmYnf4XuU2V02m4QxJlRa1CW5JM6SAT4otmjdz7xIy9w9y3eXWJuFeJqZmysxCXH9WwKAr6k+6hMUDucM345nLM7+M4/eqfuHAG0NhR6bLafpQhPYADz3O5PevkYvi2K49eNXGK4jdXhaBDCbh5TgZB3UEaidIJ3gbV85xDifeiYep1tB0p1T7gTVucvnERrJHEpFjiTrqcKxci3dCGy4Wnjsh1IG8zCSOxB37VTupaQIQP2qVp5RcC0qKFpMhSSQUn3B8Grpjp26pC1BRU22pY2SVQfbYd6+LmXHLXLWV7nHL1rqJtW9aUFQQHfgFUCfagTwnitxCwLAHMGw3Mdwq0WdXSu4fS2fdvV6mz76SJ81NnTivmLPVvaM4gj9EywgJVaW9w4u2cV5WG1klBJ3iTE7VGbPrasSzdivGLjth+D4i2WrMvpaabU6pCUtlQJQqJCVdxqA7mjXswC6ww6nShCUtKSYEADT48wO4oD+BRQvmJwRlawlDiFpB8aolP9xR2FcrhQg+Zq1OqCbj29d3PG3F3XlOKS050Gg6kJWQlIHqgCVH381Va3S60NaChXYjvRDc2eE3LPEXDMwoYbbs7uwaYS8lY1OOtyFa09wQNO57gD2odFkg99qa1x9w2dx5j3pCRrkxFYfUSB38UhSoxqgH796jSZHqFWzy123X5mcDUXEIVaoeeSFT6/RGkfO8/g1UzJGhJiCO9W3y4KWOaPLqm0ylSXguBMJLZE0Y5dDzJ1LUr3M1gpVCFKHgGk8VyqPLuKaoHxSqMAUkz3qKxHzQX8zFuXOa/9PMl3DrIJ86RBH/3RniCQn3NBzzDYxZYVzt2uJYparuLGxwiwDjTQGtwQsmJ2J32/FWdkXVm7NuX+G2RLb+KXKUPMWQRaWzSg246ttAMp17Ekx6TuZMUDmYMw4lmfMFzjuMPNuXty4XXVIb0DUTOw8D4r73ErPWI57zUm7uHmhYsNJaZt7bqBtUEnWsLJJd3gqEAxsBWkLUoH/SuixM4Oo0UpdKF90rQYIPuD4NHBwU4iIztwzw43duEX1m2bJ4G4S4tzopT/ADFJEKSFAjcjcg70DzSVKdQEJGpaghIJgSTRzcIeHthkDKK8TvLAtX99btrfcdX1FFtIKvpSPSkkzHc7VpOTaM058y5k+yLt3d21zddFVwLT9SlCw2BJWUn1H4AG/ig74scTLviDmpTlhfunAw0ENtjqNtvj6pU0v6SDsPtNfN4o3T2N8U8Rvbq1U2tDnpXqUtSgOx1KAIA7BPiK1B3UrU4DqA3JqHF51hQXAmKQT2V47UoLhIgT4Ap1yHGnC0Y1AkSOx+1SukYAlSCCNwKcgoLQSUnUDXnBUD33qUHz5qKxaZMeK9bCv5OlZmPevKtaQiTv4rEKMbGro9CwArcbUyEhe25+KbqJTFNCtLh9qrL0b96QDUSYn81GHSlcGSKe28pxz0oCSkdx5olbZwxxNrBON2V8Vurr9LbM3qOo6ewBMEH4MxXQi5gXjmmCnUYIMiPEVzSZxEWGI2eJrb6qbO4buFNDu4EKkpHyYiujGXMTZx7JmGZgtWlNsXtsi5SySFKaSUzpOnaQO8VWLPeqw5ocMYuOEGF4w42065bX3STqbBWlK07nV3iQNvc0GSwUPrQdwlREe1E5zO5/tbh3Dcj2LbT6LcC9cvDpUCVfSGlJM6Y7hXnbxQyPKC7ouBU6t1T70biNspUrdxSAO5SPV+Kl366lOpHUAjYRtTHmVMqbfcYdQ059CyI1DyRPenkpLspJUD/Ue5qKQL0Odtj3q3OWm9ct+afLug+h1t9hwRMpU0r/AFAqoTuoVcHLCphvmlwNu4KoeZfS3p/5gQSmfiaM8uh5z4pCYpTs6tJ96yuVZebuKTvSJI0UgO5NQIAQsfegh5slh3miUlsg9PArMKjwo6zv+Io3/IVQNc2CWUc0F6GNYWcKsusSdirQY0+wiPzNWVqKTVE1DuHASnanKWAe23tTC8srnTA7VtpvHC7AWc28X8Cy6pIKXnwta1JJS0lO5UR7ACj/AA4FOKCkhTY9ACh3SBG/4FA/y9ZyyvkTiXiWNZovE2oucPXY2zrjSlpQVqSSslIOmAnv80ZWF4/gGO2zL2BY7Y4gh5sONm3eSsqB+AZB+DvWmeT5mKcNsm49cvXGJ29yy7cqJcDSkrTJ7kFQncR52oM+LmSmeHfFDEcr2eJJvWwlL/8Awi2poL3SlQPcxBkbb0eDRZU+o3L7duwykrccdUEgfv5rn1xFzXiOduKmP5jxNSFOvXJZaS2ZQhlv0NpSfI0jv8mhGsNuaklKu4p6/UgHvpH7CvKSdcRUqXCj6Tv81G4wzHap2EdwqN68wWQqCNv8qmbc0zRSLTGpJ8dqZq0pgGKmcCnPWgAgdxPamBsEyZ+NqqajSHAAoKKjUySh0gHY+TSMPpL5SgjWjuPapHE/zCsACe4FEMB0rWhQmOxqRKNQCuxpNAjVB+alscPxHGscsMJwi3cfv7y5QxasogFx0kQkE7A/fb3qwWHwY4WXXEvNP61x1dvheF3TLjxktquEzKuguCkuIgHQe4NEvxg4nWfD3LlzguFi2Zxm8aC22EJVblQVt12lNgpQ6CNSm1ABQmKr3F+K2YuFWVbDAsR4aNYVe37Tmu9tkm3W4UGC4psgo1SU+tB/G9D5mnN2ZM5ZyuMyZnvxd4ncJSlxxDaWkrCQEg6UgCYAk9zRmoMUxK8xXFnL7Er1V3cumXbhYALivKiBXhfSU7iJ/saalWok/wBq9DLbl281Y27DlxcvKDbLLSStx1Z7JSkbkn2pViIv3DwQm6dLnSSEISo7Np8JHxSKO8it3xLg7nHCOHIznijSLG2CErcsnyEXDQUYBKDupJ/xJke8VorJKmhqEGoqUesg1b/K8w3cc1eCdQE9Jh9xsBUesNkg/I77VUTaYOxkfFW/yu2zr/Ndg920tKUWVldPuJP9YLeiB8+qjPLod6lS+o+5rFdqyQSSKX81xZeQD0UgjTFOpogUC7EgHtQL81qFI5mb5xQH83DbRYgztogfnajoABcSn3NAjzXrcHNTjaVkFDVpZW7Y9khhKv8ANRqxrj2pZXqO/mo1ApIUO3mnL2Hemnett4elcEEbAdj5rfuB7LyOOWH3mHt3IuESsKtgdW31GB327/FV8gIBlySAPHvRY8t+SzgmRl51xBhlf6hwv2wWP5iEomVJWN0JPYjuYrcY5PrcyGdWsByw3le1u0ofxZCntKW0OhbA7EqJ1NSZA2kwfFB6XdI7bnwK23iXj9xmXilil+9fC+QF9Nl4KKgUDtE/cj8VqQSG1dRUH3monSIK1f0kmpWSq41JZZcdUgwoISSR96tPhHwivuJmMFxy0etcHYaLy7pXoD5BH8tCiI1GZ+wovsKyDkTCbW2tBlawujbgIRdOI0PuIHYOqRGtXf1d6Na53qQUKIUkg+QfFNKTMGrK45ZJw3I3GXEMJwJ24dwp0C6tjcOBxxIXupKiB4MgTvAqulAJTqPjeaLpinAwz1nHNCR9RJ2Aq+eEHL8rO1kxjmcm7m0w15JULTUu2fbRspq5QYh1txMgR2Mz2r4nBDhunNGYbHN2Mv2dtl5hTqT+tUlAcWEwFAL9KkyY+/2o1La2ZssMtMJaCWrS3TpZCFSlsd9KfGkz42FE34obmB4Y5Fw/hdb4nhLIsr/CjKLwtoQq6bUAEsuaQApcyUqIk7g0JYUpQSuIUR9J9qKPmnx5f8PsctJtloUhyXHlakhSB6kjY6XNzttKYM96F91QblZG/iO5PtVxJUrbSry6bs2WlPXDyghtpAJUonwAO5ovuXnhSjKmXHsxYmi5tcQu0lpds+iUutzICkLEpPnUmD28VTWTsv4ZkHI6eKOaTeM47b34GHYelCSSQNSdaD621DcnaIiYmjEwrFl4/l21x1RbDt02h1aWyVIBUkKgFQB8+R3BpU1SvNW42xkzAcMQD17p111LhcMoZSBKNPYgqI377UJq0hQAIBgbfFGXzO4Y1ccDbTHEsIVe2d70eqVQoMrHqAHkagD8UGC3QhMJC3CBOhtBWr9hvSEY00+9eNWloy5cXDy9DTLSSpbivZKRuT8Ci+4M8E7HKeCtYxmyyYusbfd6gStIWGkDdvQfqZcBkODvsB71U/DXL+D5Gw9viBn9vDf5zobwlp9xSulcJAcbhxkksuqE/V6YBneif4e46vMvDuyx5QbAeUttOhwOylKjCtcCVTMkiT5p0rTOZdm+f5d0NWCG1W1riDbqkEjWy0oEKDZO+iSJSPg0GgbSlG1dCs74GjNnDXF8vrEvvMqcZUEBSuoj1J0z5MaTHg1z+u7O9w5C28RsLq1caWWylbRnVMR96ia8uwIgHUR2Amrf5YWn082GBFKVAGzuku/+0tHv+QK9uROE97lhhWbOITeHYTeWr6LiytsTuugUaBrQ6hwSlQXOnSfIjzXr5d8b/ifOQziKZaTidpeAtqSAQI1gbdjtSxLfQ1p3kdqUGaaRCiB2rK5VXnCtppJ3mlRGkzSEQagxG7qd/NAnzWuF3mZxF4pgqsbSfkhvTP7JFHYgfzBQJc1q0q5oMVtwR6LOzV9pZBj/ADqxePalCmVGsSkgwTSlUKrJ1fFbdG3cM8qrzhxHtMJNut5hILr6QkkaB7kdhMb0WXFp2xyXwGsMPwdoBDaG2xa9Qo6oSJXq0kKifbzFaDyoZb6OX8dzTdMLbedfFk0oyA4jSFEx5gxVwZ9yBbcRMt/whzFE4c8je2ulpKktqPfVG5SRsR+a05cgCPKWHVOrJlRKiT3k+TW28OMh3eec0m1vQ7Z4S2gOOXendwExDU7KUO8Vc+C8rbuGZhOJ50xRFxhFsUqSmwuAgXJndC9QlKY8jvPitJ4ucQ8PbdZyXkBVg1lVph1st2iFFr+YYU2nWApC0gbrn1Ez81cTfwR2ScycKsEUxkHK2M2zWKYeylu6w8uqWsnaXAo+lSiYKgk7TFWIEFD+lexB3oB+CtndX3H3LttZ3TlsUO+t8QQhHnVOxB2EH3o+C4m4W466qFFMFSU9j7x/pUxQN8a8du8Q45Yi7CWHbLVZgoAkhKj9XvIPneK+Hw3yJc8ROIdnl5tSWbQJVcXlwoSltpJEiO5JJAA+a+xxGynm57j7j2D3eGOXON3l2q6S3YILqVtq+lxAH9OkA/G81YZGGcv/AAyfcs7pm+zJjrOhLwQH2UAQFtvskpdYPqJQY+pM9quJpOPGbcPy/ltrgzgGGW9vZW6WiW2hswoKOpDjShqbeJg94IVNXzwuwm4wbhNgmG3TuvQwlYgkhuYJTv8AfxQOYRc3GNZ/w84jdXF3dXNwjqPOrLjio2SJVuT27966D4alprBLRtlhLADKCppIgIVpAUI8bjtT4Bk5qrW8/wBucMuDrFqGCG7cJMaidRWD2MyBA3G9aDwhyQnNeb049iJs2sLwdXXcav0r/T3C0gnpurR6mBAkOERIHtRlZmy9lnNWCfp802jQtrIl9F6tWg2Z2BcCh2EQCDI+KD3i3m3D7nH2MGym/dW1rZNuMXLmgMuOlR3QVNnS6zG6Z39RkVZ+p7alxJz85n64axO3srqxZtGFstMXLwecEq3JcAGqYG5E9qOnILrY4Z4OhLnV0WrSFq/6whOqfma53KQNC0gAgojT70afLjmfCcV4K4Vl65zBaXeOt61rSp8B1Xq/4S0qIPUSAO0giCDUrWLVxvCsIzJl5eCY3Zi7sVrS50yYhQ7H9iR+aqbO+TuFfCPKrec7TB27bEQ70rNbN2pp3UCCoDbSpJG2kit3zfxBypkiwfXiuN2r141uMNtHkKu1Cd9KFGCoDfSoiaCviRnrE8/58vcZu7tTlh1T+gt0oLTbbcQFFqSEuKAGoinRJr4+YcddzDmu9xq4Zt2l3Tq3Ft2zCWG4KpEoTtq91eaMLlyxtjFOXrDGW2loVZPPWzylEepwL1eO3pUmJ+aCkKCW1akhU+farl5e+J+D5FxjFcCzbf3Frgt+lLtm8hnqIauBsoORulJTEKgwRHmhmjDPqb6S0hxJ2J/1+DWu4hhOR8FvDmbE7GytV2qFufz3gG1KiSUNrOkumIEbk1q+ZONWRsAy2vFsOxqzxWUjo/p1i4SFzBS6hJCkwN94mhVzzxQzNnl9bWIYk65hwfLyLXsypQkJWGz9JAMVDH2uKXE2+z9jv6dh3pYJaqULe0Q10d5/8xEncfBivt8qy0Dmdt0uAlZw90tq9v8AF+4qmGjKpH7TV0cqrPU5mbd4qWFs4e+43pMSYCSFe4hR2+1Ez0OgSBB71nilJBJj3pK4jyg1nmazzWA0CpnqCKBHmuDSeabFShWonD7Lqf8ASrojb9o/ejuSYUKBHmsZUnmkxRZSoF3D7Jzfz/JAkfG3+dWLO1KKHq7nttWKUn9OtR2+KeltQ3G9JoUHJrcrejx4MYNd4Ny75abfdaeTcpdvWy0oK0ocUIBjz6fxW5v3NpZ2K7q+u27ZhsArcXJ0g9jAk/2oAsn57zHkR145fxC4t2nla3GkOqSkq/xR2mvo5o4oZxzg/bO4pjTqTbKK2TbfyFpJEbqRBP2PzVZsqy+MXHR3GHXcAym7aLw1KHLd65DIc6wVsShZ3H3AFD+44FgDcn3O5qVcxEADvtUSkT2irpi4+V1bP+/0YfdMIeTc2i+mlYkBaRqBj3EGKMloOJfXpJVJmuf/AA1zoeHvEmzzSbJd4GUlBQ2oJUAdpSTtInzRI5u5kso3GS7lOSEvLxRxotJaxJRtXWyU7PoUjUkqSr/yyfV7030me288Ss7YPkXBncYasrdeYGUhDF9sgMBXdC3BuSR2Tv70DmZcZfzJnXEcx3inXLq+d6jjj6+ov2AKj3AGwqXGrnGMUzE7fY84tV+oAuA+kEx9WkbAn4r5qmtzV0w/DsQewzG7fE2mg6phYUETBMGfSfB22NHllDidk7NOAWN03mGyZvrgBS7S5JZdCiNwQqBqBmYJB7jvQDghB32/E1OHLz9CqzF25+kUdSmCZTPv8VNawRXG7jszi9uvKmUXbpnC0KUm7eSekq6WNoUO+gHcD33PihxStLTCWvCd4p7Wtm5Q+hzUtBBSTvBpq0ysqEEmZnzV0wutBT1CFafivMtpl13rdIT/AIo3r1oRptlN9wTNRtKLZWlSApKxG/j5+9TVwri3dALrqlnvK1FVYFl8AN9ztKfNexnCbRzBE36MaZbuE6kuWLzRLhUPpKCNlJI94IINeV11S30t9FDSUJ0p0emT/iPzTQiHIllA6iwYjSZn2+acsrQ8Gn2y0YEhUfvUzbzvpUHFa2/pIMEfINeZ1KlOEkEye5pok0tiUglOr6vkVDCdWpKQlIEff5qQMkxpO9L0Vj6hAnsaJS25G5q6+VRpTvNDYOIMJZsLkr3jZSNP57jaqWNq4lGw7mZ9t6unlVS4eZ6y0AemwuiskxA6cCPczUtZvQ5EkkGPenA01Pc/Jp0b1yR5zuJpNqTsYml70CpUlCwpQlIO4oZOMvL1xC4gcZL/ADXhF/hT2HXbbaWA4+oOtJSkJCFJ0wIjaDFEypIiKY22tBMLO/tVgCy/5PeLttLuG4hlW/QBMG/Uwv7QtH+tKvk64uGxTcW2L5QuHj9VsrEFNFP/AMiiDRp6FhWrUawpKjJJmmtaCez5PuMt00pd3dZRw1Y2S2vE1PFfzKGyAPuacnk64yuL0qucqMj/AJisRKk/9qCf7Ua+hUbE1kOAfUavkeQJ1cn/ABqQ+lmcrutkwX2cUEJHuUqSDS3HJ5xrtTNm9lLEEf8ARihbV+ykR/ejZAdIjWaVKFp31fsankeQJTyfcZv0geU9ldLx72wxAlSd/wDFo0n3701vk/4zuNqWhWXAtJjpqxIIKvkEp7fNG2Q5/jVP3pxSvQFazq+TV1fKghZ5SONql9JxjAmT/jdxVEfuJpq+Ufjs3dpb/hmX32iYNw1iqClI9zIB/tRxguLTC1EjxvSguAaUrUB96mnkCF/lJ43Nr02lple+Hu1iyUn9lJFMPKJx2TafqG8Oywt3zZpxdPV/BKQn+9HCkLH9RB+DSgOhWoLUDV8jyA2xylcdbu26/wDAcFsFAlJZxDFW2lmPKQnUCk+DNNZ5SuOLjpbusJwSwATqDtxirZbUf8IKZM+dwBR0KU4sytaifcmlDjxb0KcUpPsanlTyAo7yl8dEL0s4Tg76f+c1ijZQP9f7Uy75TOPFqx1G8DwXE4/osMUbWv8AZemjuC3QmAtQHwaYFuoMocUk/Bq+VPIDSOUzjt0Op/BMAC9Oro/xlAc+0ERP5qG35T+Ol4hxxWC4TYrQso6F9elta/lJSlSSN+80doU5qnWSr3msU48ogrdUSPmptPICVvyq8dV3fQey5htoN/57+JNhsx8iTv42pbrla46WyghGVbe7B7Ltb1pxP+e35o7C48oQp1ZH3pwdfSmEuqA+9XyTyAVdcsPH3D3UBeQTdpUJ6ljfMPJT8KAXIP4qZXK5x56HVOVLQbSGXMQYQv8AYq70dodukToecE+yopCu5mS4on3Jp5VfIDFtyxcdru2cdOVrG2U2Y6D+INIWv5RvBH5qw+X7g5xT4fcdjmDNuWBhuGKsnbZx5xxLmoqAI6ZSSAdu/tIooyp9e6nVEj5pSt9QAW4pSfZRmpaySNzHvNOmmTB3p01Ef//Z" alt="산 로고"><span class="name-text"><span class="nm">산 <span class="mk">법무사</span> 김재섭 행정사 사무소</span><span class="sub">대표 김재섭 · 등록 12742 · 신고 3160000202611</span></span></a>
+    <nav class="qbar" aria-label="바로가기">
+      <a href="#about" class="q-c1">소개</a><a href="#practice" class="q-c2">업무</a><a href="tools-calculator.html" class="q-c3">계산기</a><a href="#gov-links" class="q-c4">링크</a><a href="#column" class="q-c5">칼럼</a><a href="#contact" class="q-cta">상담</a><a href="#location" class="q-c7">오시는 길</a>
+      <button type="button" class="q-all" id="qAll" aria-controls="menu" aria-expanded="false">☰ 전체</button>
+    </nav>
     <nav class="menu" id="menu">
       <button class="menu-close" id="menuClose" aria-label="메뉴 닫기" type="button">✕</button>
       <a href="#about">사무소 소개</a>
@@ -327,8 +577,6 @@
       <a href="#gov-links">유용한 링크</a>
       <a href="#column">법률 칼럼</a>
       <a href="#contact" class="nav-cta">상담 문의</a>
-      <a href="#why">선택 이유</a>
-      <a href="#process">상담 절차</a>
       <a href="#location">찾아오시는 길</a>
     </nav>
     <div class="burger" id="burger"><span></span><span></span><span></span></div>
@@ -340,12 +588,16 @@
   <div class="scale-mark">⚖</div>
   <div class="wrap hero-inner">
     <div class="psearch fu in" role="search" aria-label="포털 사이트 검색">
+      <div class="ps-col">
       <form class="ps ps-naver" action="https://search.naver.com/search.naver" method="get" target="_blank" rel="noopener">
         <span class="ps-lab" aria-hidden="true">네이버</span>
         <label class="ps-sr" for="psNaver">네이버에서 검색할 단어</label>
         <input id="psNaver" type="search" name="query" placeholder="네이버 검색" autocomplete="off" enterkeyhint="search" required>
         <button type="submit" aria-label="네이버에서 검색"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg></button>
       </form>
+      <a class="ps-mail" href="https://mail.naver.com/" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>네이버 메일 바로가기</a>
+      </div>
+      <div class="ps-col">
       <form class="ps ps-google" action="https://www.google.com/search" method="get" target="_blank" rel="noopener">
         <svg class="ps-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
         <span class="ps-lab" aria-hidden="true">구글</span>
@@ -353,7 +605,8 @@
         <input id="psGoogle" type="search" name="q" placeholder="구글 검색" autocomplete="off" enterkeyhint="search" required>
         <button type="submit" aria-label="구글에서 검색">검색</button>
       </form>
-      <span class="ps-note">검색 결과는 새 창으로 열립니다.</span>
+      <a class="ps-mail" href="https://mail.google.com/" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>Gmail 바로가기</a>
+      </div>
     </div>
     <span class="eyebrow fu in">검찰 33년 · 법무사 · 행정사</span>
     <h1 class="fu in d1">33년 검찰 실무의 눈으로,<br><span class="em">쟁점부터 서류 한 장까지</span><br>상세히 살핍니다.</h1>
@@ -421,6 +674,7 @@
 </script>
 
 <section class="block about" id="about">
+  <span id="why" class="anchor-alias" aria-hidden="true"></span>
   <div class="wrap">
     <div class="sec-head fu">
       <div class="sec-tag">ABOUT</div>
@@ -438,23 +692,14 @@
           <li>모든 사건은 대표가 직접 상담하고 직접 검토합니다.</li>
           <li>유리한 점뿐 아니라 불리한 점도 솔직하게 말씀드립니다.</li>
         </ul>
-
-        <div class="career-block">
-          <h4 class="career-title">검찰 33년 주요 경력</h4>
-          <ul class="career-list">
-            <li>서울지방검찰청 <b>등 수사관</b></li>
-            <li>대검찰청 <b>감찰부</b></li>
-            <li>서울남부지방검찰청 <b>수사과</b></li>
-            <li>부산지방검찰청 <b>조직범죄수사과장</b></li>
-            <li>춘천지방검찰청 강릉지청 <b>사무과장</b></li>
-            <li>울산지방검찰청 <b>공안지원수사과장</b></li>
-            <li>서울북부지방검찰청 <b>사건과장</b> 으로 정년퇴임</li>
-          </ul>
-        </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="motto-row">
+<section class="block about philo" id="philosophy">
+  <div class="wrap">
+    <div class="motto-row trio">
           <div class="motto">
             <div class="motto-han" lang="zh-Hant">和而不同</div>
             <div class="motto-src"><span class="hj" lang="zh-Hant">子曰 君子和而不同</span> (자왈 군자화이부동)<br>공자께서는 ‘남과 화합하되, 무턱대고 같아지지 않는다’라고 말씀하셨습니다. <span style="white-space:nowrap">— 『논어(論語)』 자로(子路)편</span></div>
@@ -464,6 +709,18 @@
               <li><b>부동(不同) — 휩쓸리지 않습니다.</b> 듣기 좋은 말만 하지 않습니다. 불리한 점은 솔직히 말씀드리고, 사실과 다른 서류나 직무범위를 넘는 일은 맡지 않습니다.</li>
             </ul>
           </div>
+      <div class="career-block">
+        <h4 class="career-title">검찰 33년 주요 경력</h4>
+        <ul class="career-list">
+          <li>서울지방검찰청 <b>등 수사관</b></li>
+          <li>대검찰청 <b>감찰부</b></li>
+          <li>서울남부지방검찰청 <b>수사과</b></li>
+          <li>부산지방검찰청 <b>조직범죄수사과장</b></li>
+          <li>춘천지방검찰청 강릉지청 <b>사무과장</b></li>
+          <li>울산지방검찰청 <b>공안지원수사과장</b></li>
+          <li>서울북부지방검찰청 <b>사건과장</b> 으로 정년퇴임</li>
+        </ul>
+      </div>
           <div class="motto">
             <div class="motto-han" lang="zh-Hant">長毋相忘</div>
             <div class="motto-src"><span class="hj" lang="zh-Hant">長毋相忘</span> (장무상망)<br>‘오래도록 서로 잊지 말자’ <span style="white-space:nowrap">— 추사 김정희 「세한도(歲寒圖)」의 인장</span></div>
@@ -984,6 +1241,221 @@ try{restoreFromCard();}catch(e){}
   </div>
 </section>
 
+<section class="gov-links-sec" id="gov-links">
+  <div class="wrap">
+    <div class="sec-head fu">
+      <div class="sec-tag">USEFUL LINKS</div>
+      <h2>업무에 필요한 공식 사이트</h2>
+      <p>등기·소송·공탁·세무·인허가 등 자주 쓰이는 공공기관 사이트입니다.</p>
+    </div>
+
+    <div class="gov-group fu">
+      <h3 class="gov-group-title">법원 · 소송</h3>
+      <div class="gov-grid">
+        <a class="gov-card" href="https://ecfs.scourt.go.kr" target="_blank" rel="noopener" title="대법원. 민사·가사·행정 등 사건 서류의 전자 제출과 진행 조회.">
+          <span class="gc-ico">📁</span>
+          <span class="gc-name">전자소송포털</span>
+          <span class="gc-desc">대법원. 민사·가사·행정 등 사건 서류의 전자 제출과 진행 조회.</span>
+          <span class="gc-go">바로가기</span>
+        </a>
+        <a class="gov-card" href="https://www.iros.go.kr" target="_blank" rel="noopener" title="대법원. 부동산·법인 등기사항증명서 발급·열람, 등기 신청.">
+          <span class="gc-ico">📑</span>
+          <span class="gc-name">인터넷등기소</span>
+          <span class="gc-desc">대법원. 부동산·법인 등기사항증명서 발급·열람, 등기 신청.</span>
+          <span class="gc-go">바로가기</span>
+        </a>
+        <a class="gov-card" href="https://ekt.scourt.go.kr" target="_blank" rel="noopener" title="대법원. 변제·담보·집행 공탁의 전자 신청과 지급.">
+          <span class="gc-ico">💰</span>
+          <span class="gc-name">전자공탁</span>
+          <span class="gc-desc">대법원. 변제·담보·집행 공탁의 전자 신청과 지급.</span>
+          <span class="gc-go">바로가기</span>
+        </a>
+        <a class="gov-card" href="https://egdrs.scourt.go.kr" target="_blank" rel="noopener" title="대법원. 후견 등기사항(부존재)증명서 인터넷 발급·진위확인.">
+          <span class="gc-ico">👥</span>
+          <span class="gc-name">전자후견등기</span>
+          <span class="gc-desc">대법원. 후견 등기사항(부존재)증명서 인터넷 발급·진위확인.</span>
+          <span class="gc-go">바로가기</span>
+        </a>
+        <a class="gov-card" href="https://portal.scourt.go.kr/pgp/index.on" target="_blank" rel="noopener" title="대법원. 판례·법령·규칙·예규 통합 검색. 2025.1.31. 종합법률정보 이관·통합. 선고일 기준 3년분 판결문 제공.">
+          <span class="gc-ico">⚖️</span>
+          <span class="gc-name">사법정보공개포털</span>
+          <span class="gc-desc">대법원. 판례·법령·규칙·예규 통합 검색. 2025.1.31. 종합법률정보 이관·통합. 선고일 기준 3년분 판결문 제공.</span>
+          <span class="gc-go">바로가기</span>
+        </a>
+        <a class="gov-card" href="https://www.scourt.go.kr" target="_blank" rel="noopener" title="법원 종합 포털. 나의 사건검색·관할 정보·양식.">
+          <span class="gc-ico">🏛</span>
+          <span class="gc-name">대한민국 법원</span>
+          <span class="gc-desc">법원 종합 포털. 나의 사건검색·관할 정보·양식.</span>
+          <span class="gc-go">바로가기</span>
+        </a>
+        <a class="gov-card" href="https://slb.scourt.go.kr" target="_blank" rel="noopener" title="개인·법인 회생, 파산, 상속재산파산 사건 안내·양식.">
+          <span class="gc-ico">🔄</span>
+          <span class="gc-name">서울회생법원</span>
+          <span class="gc-desc">개인·법인 회생, 파산, 상속재산파산 사건 안내·양식.</span>
+          <span class="gc-go">바로가기</span>
+        </a>
+        <a class="gov-card" href="https://efamily.scourt.go.kr" target="_blank" rel="noopener" title="대법원. 가족관계·제적 증명서 발급, 가족관계등록 예규·문서양식.">
+          <span class="gc-ico">👪</span>
+          <span class="gc-name">전자가족관계등록시스템</span>
+          <span class="gc-desc">대법원. 가족관계·제적 증명서 발급, 가족관계등록 예규·문서양식.</span>
+          <span class="gc-go">바로가기</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="gov-group fu d1">
+      <h3 class="gov-group-title">법령 · 인허가</h3>
+      <div class="gov-grid">
+        <a class="gov-card" href="https://www.easylaw.go.kr" target="_blank" rel="noopener" title="법제처. 상속·후견·회생 등 생활 법령을 알기 쉽게 해설.">
+          <span class="gc-ico">📘</span>
+          <span class="gc-name">찾기쉬운 생활법령정보</span>
+          <span class="gc-desc">법제처. 상속·후견·회생 등 생활 법령을 알기 쉽게 해설.</span>
+          <span class="gc-go">바로가기</span>
+        </a>
+        <a class="gov-card" href="https://www.law.go.kr" target="_blank" rel="noopener" title="법제처. 법률·시행령·시행규칙 원문, 판례·예규.">
+          <span class="gc-ico">📜</span>
+          <span class="gc-name">국가법령정보센터</span>
+          <span class="gc-desc">법제처. 법률·시행령·시행규칙 원문, 판례·예규.</span>
+          <span class="gc-go">바로가기</span>
+        </a>
+        <a class="gov-card" href="https://www.elis.go.kr" target="_blank" rel="noopener" title="행정안전부. 전국 지자체의 조례·규칙·예규. 지역별 인허가 근거.">
+          <span class="gc-ico">🏘</span>
+          <span class="gc-name">자치법규정보시스템</span>
+          <span class="gc-desc">행정안전부. 전국 지자체의 조례·규칙·예규. 지역별 인허가 근거.</span>
+          <span class="gc-go">바로가기</span>
+        </a>
+        <a class="gov-card" href="https://www.simpan.go.kr" target="_blank" rel="noopener" title="국민권익위. 행정처분 불복을 위한 행정심판 전자 제출·조회.">
+          <span class="gc-ico">📝</span>
+          <span class="gc-name">온라인행정심판</span>
+          <span class="gc-desc">국민권익위. 행정처분 불복을 위한 행정심판 전자 제출·조회.</span>
+          <span class="gc-go">바로가기</span>
+        </a>
+        <a class="gov-card" href="https://crims.police.go.kr" target="_blank" rel="noopener" title="경찰청. 범죄·수사경력 회보서 온라인 발급(인허가·제출용).">
+          <span class="gc-ico">🛡</span>
+          <span class="gc-name">범죄경력회보 발급시스템</span>
+          <span class="gc-desc">경찰청. 범죄·수사경력 회보서 온라인 발급(인허가·제출용).</span>
+          <span class="gc-go">바로가기</span>
+        </a>
+        <div class="gov-card g24card" id="gov24-quick">
+          <a class="g24-main" href="https://www.gov.kr" target="_blank" rel="noopener" title="행정안전부. 중앙·지자체 민원 1만3천여 종의 신청·발급 통합.">
+            <span class="gc-ico">🏢</span>
+            <span class="gc-name">정부24</span>
+            <span class="gc-desc">행정안전부. 중앙·지자체 민원 1만3천여 종의 신청·발급 통합.</span>
+            <span class="gc-go">바로가기</span>
+          </a>
+          <details class="g24-more">
+            <summary>정부24 자주 찾는 민원 14</summary>
+            <div class="g24-body">
+              <div class="g24-grp"><span class="g24-lab">주민등록</span>
+                <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000015" target="_blank" rel="noopener" title="정부24 — 주민등록표 등본(초본) 발급">주민등록표 등본·초본</a>
+                <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000014" target="_blank" rel="noopener" title="정부24 — 주민등록표 열람">주민등록표 열람</a>
+                <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000016" target="_blank" rel="noopener" title="정부24 — 전입신고">전입신고</a>
+              </div>
+              <div class="g24-grp"><span class="g24-lab">토지·건물</span>
+                <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000026" target="_blank" rel="noopener" title="정부24 — 토지(임야)대장 등본 발급(열람)">토지(임야)대장</a>
+                <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000027" target="_blank" rel="noopener" title="정부24 — 지적도(임야도) 등본 발급(열람)">지적도(임야도)</a>
+                <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=15000000013" target="_blank" rel="noopener" title="정부24 — 토지이용계획확인신청">토지이용계획확인서</a>
+                <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=15000000098" target="_blank" rel="noopener" title="정부24 — 건축물대장 등본(초본) 발급(열람)">건축물대장 등·초본</a>
+                <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=15000000012" target="_blank" rel="noopener" title="정부24 — 개별공시지가 확인">개별공시지가 확인서</a>
+                <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=15000000011" target="_blank" rel="noopener" title="정부24 — 개별공시지가 이의신청">개별공시지가 이의신청</a>
+                <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13800000014" target="_blank" rel="noopener" title="정부24 — 농지대장 등본발급">농지대장</a>
+                <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000038" target="_blank" rel="noopener" title="정부24 — 부동산등기용 등록증명서 발급신청">부동산등기용 등록번호 증명서</a>
+              </div>
+              <div class="g24-grp"><span class="g24-lab">세금·병역</span>
+                <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000084" target="_blank" rel="noopener" title="정부24 — 지방세 세목별 과세증명서 발급">지방세 세목별 과세증명서</a>
+                <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000066" target="_blank" rel="noopener" title="정부24 — 취득세(등록면허세) 비과세(감면)확인">취득세(등록면허세) 비과세·감면 확인</a>
+                <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13000000016" target="_blank" rel="noopener" title="정부24 — 병적증명서 발급">병적증명서</a>
+              </div>
+              <p class="g24-tip">누르면 그 민원의 신청 화면이 새 창으로 열립니다. 발급은 본인 인증(간편인증·공동인증서 등) 후 진행됩니다.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+      <script>document.querySelectorAll('.g24card details').forEach(function(d){d.addEventListener('toggle',function(){d.closest('.g24card').classList.toggle('open',d.open);});});</script>
+    </div>
+
+    <div class="gov-group fu d2">
+      <h3 class="gov-group-title">세무 · 부동산 · 출입국</h3>
+      <div class="gov-grid">
+        <a class="gov-card" href="https://www.hometax.go.kr" target="_blank" rel="noopener" title="국세청. 취득·양도·상속·증여세 신고와 기준시가 조회.">
+          <span class="gc-ico">🧾</span>
+          <span class="gc-name">국세청 홈택스</span>
+          <span class="gc-desc">국세청. 취득·양도·상속·증여세 신고와 기준시가 조회.</span>
+          <span class="gc-go">바로가기</span>
+        </a>
+        <a class="gov-card" href="https://www.realtyprice.kr" target="_blank" rel="noopener" title="국토교통부. 공동주택·개별주택·표준지 공시가격 조회.">
+          <span class="gc-ico">🏠</span>
+          <span class="gc-name">부동산공시가격 알리미</span>
+          <span class="gc-desc">국토교통부. 공동주택·개별주택·표준지 공시가격 조회.</span>
+          <span class="gc-go">바로가기</span>
+        </a>
+        <a class="gov-card" href="https://nhuf.molit.go.kr/FP/FP07/FP0705/FP070509.jsp" target="_blank" rel="noopener" title="주택도시기금. 등기 시 채권 매입금액·고객부담금 계산.">
+          <span class="gc-ico">📜</span>
+          <span class="gc-name">국민주택채권 매입</span>
+          <span class="gc-desc">주택도시기금. 등기 시 채권 매입금액·고객부담금 계산.</span>
+          <span class="gc-go">바로가기</span>
+        </a>
+        <a class="gov-card" href="https://www.wetax.go.kr" target="_blank" rel="noopener" title="행정안전부. 취득세 등 지방세 신고·납부·조회.">
+          <span class="gc-ico">🏦</span>
+          <span class="gc-name">위택스(Wetax)</span>
+          <span class="gc-desc">행정안전부. 취득세 등 지방세 신고·납부·조회.</span>
+          <span class="gc-go">바로가기</span>
+        </a>
+        <a class="gov-card" href="https://etax.seoul.go.kr" target="_blank" rel="noopener" title="서울시. 서울 소재 부동산 취득세 등 서울시 지방세 신고·납부·조회.">
+          <span class="gc-ico">🏛</span>
+          <span class="gc-name">서울시 이택스(ETAX)</span>
+          <span class="gc-desc">서울시. 서울 소재 부동산 취득세 등 서울시 지방세 신고·납부·조회.</span>
+          <span class="gc-go">바로가기</span>
+        </a>
+        <a class="gov-card" href="https://rt.molit.go.kr" target="_blank" rel="noopener" title="국토교통부. 아파트·오피스텔·토지 등 부동산 실거래가 조회.">
+          <span class="gc-ico">📈</span>
+          <span class="gc-name">실거래가 공개시스템</span>
+          <span class="gc-desc">국토교통부. 아파트·오피스텔·토지 등 부동산 실거래가 조회.</span>
+          <span class="gc-go">바로가기</span>
+        </a>
+        <a class="gov-card" href="https://rtms.molit.go.kr" target="_blank" rel="noopener" title="국토교통부. 부동산 거래신고·주택 임대차 신고를 인터넷으로 접수.">
+          <span class="gc-ico">✍️</span>
+          <span class="gc-name">부동산거래관리시스템</span>
+          <span class="gc-desc">국토교통부. 부동산 거래신고·주택 임대차 신고를 인터넷으로 접수.</span>
+          <span class="gc-go">바로가기</span>
+        </a>
+        <a class="gov-card" href="https://www.eum.go.kr" target="_blank" rel="noopener" title="국토교통부. 토지이용계획·지역지구·행위제한 열람.">
+          <span class="gc-ico">🗺</span>
+          <span class="gc-name">토지이음</span>
+          <span class="gc-desc">국토교통부. 토지이용계획·지역지구·행위제한 열람.</span>
+          <span class="gc-go">바로가기</span>
+        </a>
+        <a class="gov-card" href="https://land.seoul.go.kr/land/" target="_blank" rel="noopener" title="서울시. 개별공시지가·토지이용계획·건축물대장·실거래가 통합 열람.">
+          <span class="gc-ico">🏙</span>
+          <span class="gc-name">서울부동산정보광장</span>
+          <span class="gc-desc">서울시. 개별공시지가·토지이용계획·건축물대장·실거래가 통합 열람.</span>
+          <span class="gc-go">바로가기</span>
+        </a>
+        <a class="gov-card" href="https://teht.hometax.go.kr/websquare/websquare.html?w2xPath=%2Fui%2Fsf%2Fa%2Fa%2FUTESFAAM13.xml" target="_blank" rel="noopener" title="국세청 홈택스. 오피스텔·상업용 건물 기준시가 조회(양도·상속·증여세 기준).">
+          <span class="gc-ico">🏬</span>
+          <span class="gc-name">오피스텔·상업용 기준시가</span>
+          <span class="gc-desc">국세청 홈택스. 오피스텔·상업용 건물 기준시가 조회(양도·상속·증여세 기준).</span>
+          <span class="gc-go">바로가기</span>
+        </a>
+        <a class="gov-card" href="https://www.reb.or.kr/reb/cm/cntnts/cntntsView.do?cntntsId=1297" target="_blank" rel="noopener" title="한국부동산원. 상가·오피스텔 기준시가 제도 안내·열람.">
+          <span class="gc-ico">🏢</span>
+          <span class="gc-name">한국부동산원 기준시가</span>
+          <span class="gc-desc">한국부동산원. 상가·오피스텔 기준시가 제도 안내·열람.</span>
+          <span class="gc-go">바로가기</span>
+        </a>
+        <a class="gov-card" href="https://www.hikorea.go.kr" target="_blank" rel="noopener" title="법무부. 외국인 출입국·체류·비자 전자민원 종합 포털.">
+          <span class="gc-ico">🌏</span>
+          <span class="gc-name">하이코리아</span>
+          <span class="gc-desc">법무부. 외국인 출입국·체류·비자 전자민원 종합 포털.</span>
+          <span class="gc-go">바로가기</span>
+        </a>
+      </div>
+    </div>
+
+    <p class="gov-note">※ 위 링크는 의뢰인 편의를 위한 공공기관 사이트 안내입니다. 각 사이트의 정보는 해당 기관이 관리하며, 본 사무소와 무관합니다.</p>
+  </div>
+</section>
+
 <!-- ===== 세무사 정보 안내 (삽입 시작) ===== -->
 <section class="block" id="tax-partner">
   <div class="wrap">
@@ -1103,36 +1575,8 @@ try{restoreFromCard();}catch(e){}
   </div>
 </section>
 
-<section class="block why" id="why">
-  <div class="wrap">
-    <div class="sec-head fu">
-      <div class="sec-tag">WHY US</div>
-      <h2>왜 저희를 선택해야 할까요</h2>
-    </div>
-    <div class="why-grid">
-      <div class="why-item fu"><div class="n">01</div><h4>현장을 아는 실무 경험</h4><p>33년간 사건 실무를 다뤄온 경험으로, 사실관계와 증거가 서류에 빠짐없이 담기도록 작성합니다.</p></div>
-      <div class="why-item fu d1"><div class="n">02</div><h4>법무사 + 행정사 원스톱</h4><p>법률 서류와 행정 인허가 서류를 한 사무소에서 함께 준비할 수 있습니다.</p></div>
-      <div class="why-item fu d2"><div class="n">03</div><h4>정직한 사건 진단</h4><p>사건의 쟁점과 유리·불리한 사정, 보완이 필요한 자료를 있는 그대로 설명드립니다. 무리하게 수임하지 않습니다.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="block process" id="process">
-  <div class="wrap">
-    <div class="sec-head fu">
-      <div class="sec-tag">PROCESS</div>
-      <h2>상담은 이렇게 진행됩니다</h2>
-    </div>
-    <div class="steps">
-      <div class="step fu"><div class="circle">1</div><h4>상담 신청</h4><p>전화 또는 온라인 폼으로 간단히 신청</p></div>
-      <div class="step fu d1"><div class="circle">2</div><h4>사실관계 확인</h4><p>당사자·쟁점·기한을 함께 정리</p></div>
-      <div class="step fu d2"><div class="circle">3</div><h4>전략 · 서류 준비</h4><p>맞춤형 서류 작성과 대응 방향 설계</p></div>
-      <div class="step fu d3"><div class="circle">4</div><h4>제출 · 사후 관리</h4><p>제출 지원 및 진행 단계별 안내</p></div>
-    </div>
-  </div>
-</section>
-
 <section class="block contact" id="contact">
+  <span id="process" class="anchor-alias" aria-hidden="true"></span>
   <div class="wrap contact-inner">
     <div class="fu">
       <h2>지금 바로<br>상담을 신청하세요</h2>
@@ -1233,206 +1677,7 @@ try{restoreFromCard();}catch(e){}
 
 
 
-<section class="gov-links-sec" id="gov-links">
-  <div class="wrap">
-    <div class="sec-head fu">
-      <div class="sec-tag">USEFUL LINKS</div>
-      <h2>업무에 필요한 공식 사이트</h2>
-      <p>등기·소송·공탁·세무·인허가 등 자주 쓰이는 공공기관 사이트입니다.</p>
-    </div>
 
-    <div class="gov-group fu">
-      <h3 class="gov-group-title">법원 · 소송</h3>
-      <div class="gov-grid">
-        <a class="gov-card" href="https://ecfs.scourt.go.kr" target="_blank" rel="noopener">
-          <span class="gc-ico">📁</span>
-          <span class="gc-name">전자소송포털</span>
-          <span class="gc-desc">대법원. 민사·가사·행정 등 사건 서류의 전자 제출과 진행 조회.</span>
-          <span class="gc-go">바로가기</span>
-        </a>
-        <a class="gov-card" href="https://www.iros.go.kr" target="_blank" rel="noopener">
-          <span class="gc-ico">📑</span>
-          <span class="gc-name">인터넷등기소</span>
-          <span class="gc-desc">대법원. 부동산·법인 등기사항증명서 발급·열람, 등기 신청.</span>
-          <span class="gc-go">바로가기</span>
-        </a>
-        <a class="gov-card" href="https://ekt.scourt.go.kr" target="_blank" rel="noopener">
-          <span class="gc-ico">💰</span>
-          <span class="gc-name">전자공탁</span>
-          <span class="gc-desc">대법원. 변제·담보·집행 공탁의 전자 신청과 지급.</span>
-          <span class="gc-go">바로가기</span>
-        </a>
-        <a class="gov-card" href="https://egdrs.scourt.go.kr" target="_blank" rel="noopener">
-          <span class="gc-ico">👥</span>
-          <span class="gc-name">전자후견등기</span>
-          <span class="gc-desc">대법원. 후견 등기사항(부존재)증명서 인터넷 발급·진위확인.</span>
-          <span class="gc-go">바로가기</span>
-        </a>
-        <a class="gov-card" href="https://portal.scourt.go.kr/pgp/index.on" target="_blank" rel="noopener">
-          <span class="gc-ico">⚖️</span>
-          <span class="gc-name">사법정보공개포털</span>
-          <span class="gc-desc">대법원. 판례·법령·규칙·예규 통합 검색. 2025.1.31. 종합법률정보 이관·통합. 선고일 기준 3년분 판결문 제공.</span>
-          <span class="gc-go">바로가기</span>
-        </a>
-        <a class="gov-card" href="https://www.scourt.go.kr" target="_blank" rel="noopener">
-          <span class="gc-ico">🏛</span>
-          <span class="gc-name">대한민국 법원</span>
-          <span class="gc-desc">법원 종합 포털. 나의 사건검색·관할 정보·양식.</span>
-          <span class="gc-go">바로가기</span>
-        </a>
-        <a class="gov-card" href="https://slb.scourt.go.kr" target="_blank" rel="noopener">
-          <span class="gc-ico">🔄</span>
-          <span class="gc-name">서울회생법원</span>
-          <span class="gc-desc">개인·법인 회생, 파산, 상속재산파산 사건 안내·양식.</span>
-          <span class="gc-go">바로가기</span>
-        </a>
-        <a class="gov-card" href="https://efamily.scourt.go.kr" target="_blank" rel="noopener">
-          <span class="gc-ico">👪</span>
-          <span class="gc-name">전자가족관계등록시스템</span>
-          <span class="gc-desc">대법원. 가족관계·제적 증명서 발급, 가족관계등록 예규·문서양식.</span>
-          <span class="gc-go">바로가기</span>
-        </a>
-      </div>
-    </div>
-
-    <div class="gov-group fu d1">
-      <h3 class="gov-group-title">법령 · 인허가</h3>
-      <div class="gov-grid">
-        <a class="gov-card" href="https://www.easylaw.go.kr" target="_blank" rel="noopener">
-          <span class="gc-ico">📘</span>
-          <span class="gc-name">찾기쉬운 생활법령정보</span>
-          <span class="gc-desc">법제처. 상속·후견·회생 등 생활 법령을 알기 쉽게 해설.</span>
-          <span class="gc-go">바로가기</span>
-        </a>
-        <a class="gov-card" href="https://www.law.go.kr" target="_blank" rel="noopener">
-          <span class="gc-ico">📜</span>
-          <span class="gc-name">국가법령정보센터</span>
-          <span class="gc-desc">법제처. 법률·시행령·시행규칙 원문, 판례·예규.</span>
-          <span class="gc-go">바로가기</span>
-        </a>
-        <a class="gov-card" href="https://www.elis.go.kr" target="_blank" rel="noopener">
-          <span class="gc-ico">🏘</span>
-          <span class="gc-name">자치법규정보시스템</span>
-          <span class="gc-desc">행정안전부. 전국 지자체의 조례·규칙·예규. 지역별 인허가 근거.</span>
-          <span class="gc-go">바로가기</span>
-        </a>
-        <a class="gov-card" href="https://www.simpan.go.kr" target="_blank" rel="noopener">
-          <span class="gc-ico">📝</span>
-          <span class="gc-name">온라인행정심판</span>
-          <span class="gc-desc">국민권익위. 행정처분 불복을 위한 행정심판 전자 제출·조회.</span>
-          <span class="gc-go">바로가기</span>
-        </a>
-        <a class="gov-card" href="https://www.gov.kr" target="_blank" rel="noopener">
-          <span class="gc-ico">🏢</span>
-          <span class="gc-name">정부24</span>
-          <span class="gc-desc">행정안전부. 중앙·지자체 민원 1만3천여 종의 신청·발급 통합.</span>
-          <span class="gc-go">바로가기</span>
-        </a>
-        <a class="gov-card" href="https://crims.police.go.kr" target="_blank" rel="noopener">
-          <span class="gc-ico">🛡</span>
-          <span class="gc-name">범죄경력회보 발급시스템</span>
-          <span class="gc-desc">경찰청. 범죄·수사경력 회보서 온라인 발급(인허가·제출용).</span>
-          <span class="gc-go">바로가기</span>
-        </a>
-      </div>
-      <div class="g24" id="gov24-quick">
-        <div class="g24-head"><span class="g24-t">🏢 정부24 · 자주 찾는 민원 바로가기</span><span class="g24-s">누르면 그 민원의 신청 화면이 새 창으로 바로 열립니다. 발급은 본인 인증(간편인증·공동인증서 등) 후 진행됩니다.</span></div>
-        <div class="g24-row"><span class="g24-lab">주민등록</span><div class="g24-chips">
-          <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000015" target="_blank" rel="noopener" title="정부24 — 주민등록표 등본(초본) 발급">주민등록표 등본·초본</a>
-          <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000014" target="_blank" rel="noopener" title="정부24 — 주민등록표 열람">주민등록표 열람</a>
-          <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000016" target="_blank" rel="noopener" title="정부24 — 전입신고">전입신고</a>
-        </div></div>
-        <div class="g24-row"><span class="g24-lab">토지·건물</span><div class="g24-chips">
-          <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000026" target="_blank" rel="noopener" title="정부24 — 토지(임야)대장 등본 발급(열람)">토지(임야)대장</a>
-          <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000027" target="_blank" rel="noopener" title="정부24 — 지적도(임야도) 등본 발급(열람)">지적도(임야도)</a>
-          <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=15000000013" target="_blank" rel="noopener" title="정부24 — 토지이용계획확인신청">토지이용계획확인서</a>
-          <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=15000000098" target="_blank" rel="noopener" title="정부24 — 건축물대장 등본(초본) 발급(열람)">건축물대장 등·초본</a>
-          <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=15000000012" target="_blank" rel="noopener" title="정부24 — 개별공시지가 확인">개별공시지가 확인서</a>
-          <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=15000000011" target="_blank" rel="noopener" title="정부24 — 개별공시지가 이의신청">개별공시지가 이의신청</a>
-          <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13800000014" target="_blank" rel="noopener" title="정부24 — 농지대장 등본발급">농지대장</a>
-          <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000038" target="_blank" rel="noopener" title="정부24 — 부동산등기용 등록증명서 발급신청">부동산등기용 등록번호 증명서</a>
-        </div></div>
-        <div class="g24-row"><span class="g24-lab">세금·병역</span><div class="g24-chips">
-          <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000084" target="_blank" rel="noopener" title="정부24 — 지방세 세목별 과세증명서 발급">지방세 세목별 과세증명서</a>
-          <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000066" target="_blank" rel="noopener" title="정부24 — 취득세(등록면허세) 비과세(감면)확인">취득세(등록면허세) 비과세·감면 확인</a>
-          <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13000000016" target="_blank" rel="noopener" title="정부24 — 병적증명서 발급">병적증명서</a>
-        </div></div>
-        <div class="g24-row"><span class="g24-lab">다른 기관</span><div class="g24-chips">
-          <a class="ext" href="https://efamily.scourt.go.kr/pt/PtFrrpApplrInfoInqW.do?menuFg=02" target="_blank" rel="noopener" title="대법원 전자가족관계등록시스템 — 가족관계증명서 발급">가족관계증명서 <span class="org">대법원</span></a>
-          <a class="ext" href="https://rtms.molit.go.kr" target="_blank" rel="noopener" title="국토교통부 부동산거래관리시스템 — 부동산 거래신고·임대차 신고">부동산 거래신고 <span class="org">국토교통부</span></a>
-        </div></div>
-      </div>
-    </div>
-
-    <div class="gov-group fu d2">
-      <h3 class="gov-group-title">세무 · 부동산 · 출입국</h3>
-      <div class="gov-grid">
-        <a class="gov-card" href="https://www.hometax.go.kr" target="_blank" rel="noopener">
-          <span class="gc-ico">🧾</span>
-          <span class="gc-name">국세청 홈택스</span>
-          <span class="gc-desc">국세청. 취득·양도·상속·증여세 신고와 기준시가 조회.</span>
-          <span class="gc-go">바로가기</span>
-        </a>
-        <a class="gov-card" href="https://www.realtyprice.kr" target="_blank" rel="noopener">
-          <span class="gc-ico">🏠</span>
-          <span class="gc-name">부동산공시가격 알리미</span>
-          <span class="gc-desc">국토교통부. 공동주택·개별주택·표준지 공시가격 조회.</span>
-          <span class="gc-go">바로가기</span>
-        </a>
-        <a class="gov-card" href="https://nhuf.molit.go.kr/FP/FP07/FP0705/FP070509.jsp" target="_blank" rel="noopener">
-          <span class="gc-ico">📜</span>
-          <span class="gc-name">국민주택채권 매입</span>
-          <span class="gc-desc">주택도시기금. 등기 시 채권 매입금액·고객부담금 계산.</span>
-          <span class="gc-go">바로가기</span>
-        </a>
-        <a class="gov-card" href="https://www.wetax.go.kr" target="_blank" rel="noopener">
-          <span class="gc-ico">🏦</span>
-          <span class="gc-name">위택스(Wetax)</span>
-          <span class="gc-desc">행정안전부. 취득세 등 지방세 신고·납부·조회.</span>
-          <span class="gc-go">바로가기</span>
-        </a>
-        <a class="gov-card" href="https://rt.molit.go.kr" target="_blank" rel="noopener">
-          <span class="gc-ico">📈</span>
-          <span class="gc-name">실거래가 공개시스템</span>
-          <span class="gc-desc">국토교통부. 아파트·오피스텔·토지 등 부동산 실거래가 조회.</span>
-          <span class="gc-go">바로가기</span>
-        </a>
-        <a class="gov-card" href="https://www.eum.go.kr" target="_blank" rel="noopener">
-          <span class="gc-ico">🗺</span>
-          <span class="gc-name">토지이음</span>
-          <span class="gc-desc">국토교통부. 토지이용계획·지역지구·행위제한 열람.</span>
-          <span class="gc-go">바로가기</span>
-        </a>
-        <a class="gov-card" href="https://land.seoul.go.kr/land/" target="_blank" rel="noopener">
-          <span class="gc-ico">🏙</span>
-          <span class="gc-name">서울부동산정보광장</span>
-          <span class="gc-desc">서울시. 개별공시지가·토지이용계획·건축물대장·실거래가 통합 열람.</span>
-          <span class="gc-go">바로가기</span>
-        </a>
-        <a class="gov-card" href="https://teht.hometax.go.kr/websquare/websquare.html?w2xPath=%2Fui%2Fsf%2Fa%2Fa%2FUTESFAAM13.xml" target="_blank" rel="noopener">
-          <span class="gc-ico">🏬</span>
-          <span class="gc-name">오피스텔·상업용 기준시가</span>
-          <span class="gc-desc">국세청 홈택스. 오피스텔·상업용 건물 기준시가 조회(양도·상속·증여세 기준).</span>
-          <span class="gc-go">바로가기</span>
-        </a>
-        <a class="gov-card" href="https://www.reb.or.kr/reb/cm/cntnts/cntntsView.do?cntntsId=1297" target="_blank" rel="noopener">
-          <span class="gc-ico">🏢</span>
-          <span class="gc-name">한국부동산원 기준시가</span>
-          <span class="gc-desc">한국부동산원. 상가·오피스텔 기준시가 제도 안내·열람.</span>
-          <span class="gc-go">바로가기</span>
-        </a>
-        <a class="gov-card" href="https://www.hikorea.go.kr" target="_blank" rel="noopener">
-          <span class="gc-ico">🌏</span>
-          <span class="gc-name">하이코리아</span>
-          <span class="gc-desc">법무부. 외국인 출입국·체류·비자 전자민원 종합 포털.</span>
-          <span class="gc-go">바로가기</span>
-        </a>
-      </div>
-    </div>
-
-    <p class="gov-note">※ 위 링크는 의뢰인 편의를 위한 공공기관 사이트 안내입니다. 각 사이트의 정보는 해당 기관이 관리하며, 본 사무소와 무관합니다.</p>
-  </div>
-</section>
 
 
 
@@ -1481,7 +1726,7 @@ try{restoreFromCard();}catch(e){}
         <a href="#practice">민사 서류 작성</a><a href="#practice">상속·등기</a><a href="#practice">가사 서류 작성</a><a href="#practice">행정심판 청구서</a><a href="#practice">비영리법인 설립</a>
       </div>
       <div class="foot-col"><h5>바로가기</h5>
-        <a href="#about">사무소 소개</a><a href="#why">선택 이유</a><a href="#process">상담 절차</a>
+        <a href="#about">사무소 소개</a>
       <a href="#location">찾아오시는 길</a>
       <a href="#gov-links">유용한 링크</a><a href="#contact">상담 문의</a>
       </div>
@@ -1586,6 +1831,7 @@ try{restoreFromCard();}catch(e){}
   // burger
   const burger=document.getElementById('burger'),menu=document.getElementById('menu');
   burger.onclick=()=>menu.classList.toggle('open');
+  const qAll=document.getElementById('qAll'); if(qAll){qAll.onclick=()=>{menu.classList.toggle('open');qAll.setAttribute('aria-expanded',menu.classList.contains('open'));};}
   // 닫기(X) 버튼
   const menuClose=document.getElementById('menuClose');
   if(menuClose) menuClose.onclick=()=>menu.classList.remove('open');
@@ -1628,5 +1874,8 @@ try{restoreFromCard();}catch(e){}
 <a href="https://pf.kakao.com/_znJqX/chat" target="_blank" rel="noopener" class="kakao-float" aria-label="카카오톡으로 상담하기">
   <span class="ico">💬</span><span class="lbl">카톡상담</span>
 </a>
+<script>
+(function(){var bs=document.querySelectorAll('#practice .pa-gbox');for(var i=0;i<bs.length;i++){(function(b){var gt=b.querySelector('.pa-gt');var body=document.createElement('div');body.className='pa-gbody';var n=b.firstChild;while(n){var nx=n.nextSibling;if(n!==gt){body.appendChild(n);}n=nx;}b.appendChild(body);var t=document.createElement('button');t.type='button';t.className='pa-more';t.textContent='더 보기 ▾';t.setAttribute('aria-expanded','false');t.onclick=function(){var o=b.classList.toggle('open');t.textContent=o?'접기 ▴':'더 보기 ▾';t.setAttribute('aria-expanded',o);};if(gt){gt.appendChild(t);}else{b.insertBefore(t,body);}})(bs[i]);}})();
+</script>
 </body>
 </html>
