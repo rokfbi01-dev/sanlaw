@@ -581,7 +581,83 @@ details.fold[open]>summary::after{content:" ▴";}
 가압류를 당하셨을 때 <b>어느 방어를 고를지</b>는 <a href="C-1_가압류이의_방어.html">C-1 가압류 이의·방어</a>에서 네 갈래로 비교했습니다. <b>가처분</b>을 당하신 분은 <a href="C-2_가처분방어.html">C-2 가처분 방어</a>를 보십시오. 가압류를 <b>거는 쪽</b>의 절차는 <a href="A-1_예금채권가압류.html">A-1 예금채권 가압류</a> 이하 카드에 있습니다. 전체 유형은 <a href="보전처분_전체유형표.html">보전처분 전체 유형표</a>에서 한눈에 확인하실 수 있습니다.
 </div>
 
-<a class="cta" href="index.html#contact">해방공탁, 제 경우에 맞는지 상담받고 싶습니다</a>
+<div class="cb-box" id="cbBox" data-msg="해방공탁, 제 경우에 맞는지 상담받고 싶습니다">
+<style>
+.cb-box{margin:20px auto;max-width:660px;background:#fbf6ec;border:1px solid #e3cfa8;border-radius:14px;padding:16px 16px 14px;box-sizing:border-box}
+.cb-box .cb-t{font-weight:800;font-size:16.5px;color:#5a3b1c;text-align:center;margin:0 0 10px}
+.cb-box .cb-l{display:block;font-size:13px;font-weight:700;color:#7a5230;margin:8px 0 4px}
+.cb-box .cb-l small{font-weight:400;color:#8a7a62}
+.cb-box textarea{width:100%;box-sizing:border-box;border:1px solid #d9c7a3;border-radius:10px;padding:9px 12px;font:14px/1.6 'Pretendard',-apple-system,'Malgun Gothic',sans-serif;color:#2a2118;background:#fff;resize:vertical}
+.cb-box #cbAuto{min-height:120px;background:#fffdf8}
+.cb-box #cbMsg{min-height:70px}
+.cb-box textarea:focus{outline:2px solid #c8862d;outline-offset:1px}
+.cb-box .cb-row{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:12px}
+.cb-box .cb-row a{display:flex;align-items:center;justify-content:center;gap:6px;flex:1 1 150px;text-align:center;border-radius:999px;padding:12px 14px;font-size:15px;font-weight:700;text-decoration:none;box-shadow:0 3px 10px rgba(0,0,0,.12)}
+.cb-box .cb-k{background:#FEE500;color:#3c1e1e}.cb-box .cb-p{background:#c8862d;color:#fff}.cb-box .cb-m{background:#3d5a80;color:#fff}
+.cb-box .cb-n{font-size:12px;color:#8a7a62;text-align:center;margin:8px 0 0;line-height:1.5}
+.cb-box .cb-row a{white-space:nowrap}
+@media(max-width:520px){.cb-box .cb-row a{flex-basis:100%;padding:11px 14px}.cb-box textarea{font-size:16px}}
+.cb-toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:99999;max-width:min(92vw,460px);background:#2a2118;color:#fbf8f1;border-radius:10px;padding:12px 16px;font-size:14px;line-height:1.6;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+@media print{.cb-box{display:none}}
+</style>
+<div class="cb-t">💬 이 내용으로 상담하기</div>
+<label class="cb-l" for="cbAuto">① 보고 계신 내용 <small>(자동으로 옮겨집니다 · 고쳐 쓰셔도 됩니다)</small></label>
+<textarea id="cbAuto"></textarea>
+<label class="cb-l" for="cbMsg">② 덧붙일 말씀 <small>(내 상황·궁금한 점)</small></label>
+<textarea id="cbMsg" placeholder="예) 제 경우에도 해당하는지, 언제까지 해야 하는지 궁금합니다."></textarea>
+<div class="cb-row">
+<a class="cb-k" id="cbKakao" href="https://pf.kakao.com/_znJqX/chat" target="_blank" rel="noopener">💬 카카오톡으로 보내기</a>
+<a class="cb-m" id="cbMail" href="mailto:rokfbi01@gmail.com">✉️ 이메일로 보내기</a>
+<a class="cb-p" href="tel:01037480825">📞 전화 010-3748-0825</a>
+</div>
+<p class="cb-n">카카오톡은 대화창이 열리면 <b>붙여넣기</b>만 하시면 됩니다 (PC: Ctrl+V · 휴대폰: 입력칸을 길게 눌러 붙여넣기).</p>
+<script>
+(function(){
+  var box=document.getElementById('cbBox'); if(!box) return;
+  var au=document.getElementById('cbAuto'), ta=document.getElementById('cbMsg'), dirty=false, last='';
+  if(box.getAttribute('data-msg') && !ta.value) ta.value=box.getAttribute('data-msg');
+  function clean(el){ if(!el) return ''; var c=el.cloneNode(true);
+    [].forEach.call(c.querySelectorAll('.bub,script,style,button,.cb-box,.tt'),function(x){x.parentNode.removeChild(x);});
+    [].forEach.call(c.querySelectorAll('br'),function(x){x.parentNode.replaceChild(document.createTextNode(' '),x);});
+    return (c.textContent||'').replace(/\s+/g,' ').trim(); }
+  function title(){ return clean(document.querySelector('h1'))||document.title; }
+  function generic(){
+    var s=clean(document.querySelector('.tldr')||document.querySelector('.lead')||document.querySelector('main p'));
+    s=s.replace(/^⭐?\s*30초 결론부터\s*/,'');
+    var parts=s.split(/(?<=[.?!])\s+/), sum='';
+    for(var i=0;i<parts.length && sum.length<170;i++){ sum+=(sum?' ':'')+parts[i]; }
+    if(sum.length>240) sum=sum.slice(0,238)+'…';
+    return '보신 페이지: '+title()+(sum?'\n요약: '+sum:'');
+  }
+  function build(){
+    var body=''; try{ body=(typeof window.cbSummary==='function')?window.cbSummary():generic(); }catch(e){ body=generic(); }
+    return '[홈페이지 상담 문의]\n'+body+'\n주소: '+location.href;
+  }
+  function refresh(){ if(dirty) return; var v=build(); if(v!==last){ au.value=v; last=v; } }
+  au.addEventListener('input',function(){ dirty=true; });
+  var tm; function later(){ clearTimeout(tm); tm=setTimeout(refresh,350); }
+  document.addEventListener('change',function(e){ if(!box.contains(e.target)) later(); });
+  document.addEventListener('click',function(e){ if(!box.contains(e.target)) later(); });
+  window.addEventListener('hashchange',later);
+  refresh(); setTimeout(refresh,1500);
+  function full(){ refresh(); var m=ta.value.trim(); return au.value+(m?'\n\n덧붙일 말씀: '+m:''); }
+  function toast(m){ var t=document.createElement('div'); t.className='cb-toast'; t.textContent=m; document.body.appendChild(t); setTimeout(function(){ if(t.parentNode) t.parentNode.removeChild(t); },6500); }
+  function copy(text){
+    var ok=false;
+    try{ var x=document.createElement('textarea'); x.value=text; x.setAttribute('readonly',''); x.style.position='fixed'; x.style.top='0'; x.style.opacity='0'; document.body.appendChild(x); x.select(); ok=document.execCommand('copy'); document.body.removeChild(x); }catch(e){}
+    if(!ok && navigator.clipboard && window.isSecureContext){ ok=true; navigator.clipboard.writeText(text).catch(function(){}); }
+    return ok;
+  }
+  document.getElementById('cbKakao').addEventListener('click',function(){
+    var ok=copy(full());
+    toast(ok?'상담 내용을 복사했습니다. 카카오톡 대화창에 붙여넣기 하시면 됩니다.':'카카오톡 창이 열리면 위 상담 내용을 복사해 붙여넣어 주세요.');
+  });
+  document.getElementById('cbMail').addEventListener('click',function(){
+    this.href='mailto:rokfbi01@gmail.com?subject='+encodeURIComponent('[홈페이지] '+title()+' 상담 문의')+'&body='+encodeURIComponent(full());
+  });
+})();
+</script>
+</div>
 
 <div class="src">
 <b>근거</b> · 민사집행법 제282조(가압류해방금액)·제287조(본안의 제소명령)·제288조(사정변경 등에 따른 가압류취소)·제299조(가압류집행의 취소)·제307조(특별사정에 따른 가처분취소)·제15조제2항(즉시항고 1주 불변기간) · 민사소송 등 인지법 제9조제5항제4호 · 공탁법 제9조제2항제3호·제3항 · 공탁규칙 제32조·제34조 · 지방세법 제28조제1항·제151조제1항제2호 · 민법 제487조(변제공탁) · 형법 제140조(공무상표시무효)·제327조(강제집행면탈)<br>
@@ -649,6 +725,31 @@ details.fold[open]>summary::after{content:" ▴";}
     prints.forEach(function(d,i){d.open=s[i];});
     saved=null;
     setTimeout(sync,0);
+  });
+})();
+</script>
+<script>
+/* 2026-11-16 메일 단추 — PC에 메일 프로그램이 연결되어 있지 않으면 mailto 링크가 크롬 첫 화면만 여는 일이 많다.
+   그래서 PC에서는 Gmail 편지쓰기 화면을 받는 사람·제목·본문을 채워 새 탭으로 바로 열고, 내용은 복사해 둔다(네이버·다음 메일용).
+   휴대폰은 메일 앱이 그대로 열리므로 손대지 않는다. */
+(function(){
+  if(window.__sanMailFix) return; window.__sanMailFix=1;
+  if(/Android|iPhone|iPad|iPod|Mobile|Windows Phone/i.test(navigator.userAgent)) return;
+  function qp(s,k){ var m=s.match(new RegExp('(?:^|&)'+k+'=([^&]*)','i')); if(!m) return ''; try{ return decodeURIComponent(m[1]); }catch(e){ return m[1]; } }
+  function copy(t){ try{ var x=document.createElement('textarea'); x.value=t; x.setAttribute('readonly',''); x.style.position='fixed'; x.style.top='0'; x.style.opacity='0'; document.body.appendChild(x); x.select(); var ok=document.execCommand('copy'); document.body.removeChild(x); return ok; }catch(e){ return false; } }
+  function toast(m){ var t=document.createElement('div'); t.style.cssText='position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:100001;max-width:min(92vw,480px);background:#2a2118;color:#fbf8f1;border-radius:10px;padding:12px 16px;font-size:14px;line-height:1.6;box-shadow:0 8px 24px rgba(0,0,0,.35)'; t.textContent=m; document.body.appendChild(t); setTimeout(function(){ if(t.parentNode) t.parentNode.removeChild(t); },8000); }
+  document.addEventListener('click',function(e){
+    var a=(e.target&&e.target.closest)?e.target.closest('a[href^="mailto:"]'):null; if(!a||e.defaultPrevented) return;
+    var h=a.getAttribute('href').slice(7), i=h.indexOf('?'), to, q=i<0?'':h.slice(i+1);
+    try{ to=decodeURIComponent(i<0?h:h.slice(0,i)); }catch(x){ to=i<0?h:h.slice(0,i); }
+    var su=qp(q,'subject'), body=qp(q,'body'), keep=body.length, b, u, note='\n\n…(내용이 길어 일부만 담았습니다. 전체 내용은 복사되어 있으니 붙여넣어 주세요.)';
+    for(;;){ b=keep<body.length?body.slice(0,keep)+note:body;
+      u='https://mail.google.com/mail/?view=cm&fs=1&to='+encodeURIComponent(to)+(su?'&su='+encodeURIComponent(su):'')+(b?'&body='+encodeURIComponent(b):'');
+      if(u.length<7500||keep<300) break; keep=Math.floor(keep*0.75); }
+    e.preventDefault();
+    var copied=body?copy(body):false;
+    var w=window.open(u,'_blank'); if(w){ try{ w.opener=null; }catch(x){} } else { location.href=u; return; }
+    toast('Gmail 편지쓰기 창을 열었습니다. 받는 사람·제목·내용이 채워져 있으니 확인하고 보내기만 누르시면 됩니다.'+(copied?' 네이버·다음 메일을 쓰시면 내용이 복사되어 있으니 그 메일 본문에 붙여넣기(Ctrl+V) 하세요.':' 다른 메일을 쓰시면 받는 사람을 '+to+' 로 적어 보내 주세요.'));
   });
 })();
 </script>
