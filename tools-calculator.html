@@ -695,6 +695,7 @@
         <label><input type="checkbox" id="fh_bonus"> └ 300만원 한도(소형·저가 / 인구감소지역)</label>
         <label><input type="checkbox" id="birthHome"> 출산·양육 주택(§36의5 · 12억↓ · 500만원)</label>
         <label><input type="checkbox" id="smallHome"> 서민주택(§33② · 40㎡↓ · 1억 미만 · 전액면제)</label>
+        <label><input type="checkbox" id="luxury"> 고급주택·골프장·고급오락장(사치성 재산 §13⑤ · +8%)</label>
         <label><input type="checkbox" id="over85"> 85㎡ 초과(농특세)</label>
         <label><input type="checkbox" id="landAfterBuild" onchange="calcSale()"> 신축·증축 후 그 소유자가 부속토지 취득(§11④ → 주택세율 배제·4%)</label>
         <label><input type="checkbox" id="selfFarm"> 자경농지 감면</label>
@@ -7364,7 +7365,9 @@ function calcSale(fromEdit){
   document.getElementById('houseNline').style.display=(radio('ptype')==='house')?'flex':'none';
   if(!fromEdit){
     const _tr=shareOf(''), _tb=taxBaseOf('',price);   /* 세율=전체 금액 / 과세표준=지분 상당액 */
-    const rate=acqRateSale(price);let acq=_tb*rate;
+    /* [A] 지방세법 §13⑤ 사치성 재산 — 일반세율 + 중과기준세율(2%)의 400%(=8%). 주택 중과(§13의2①②)와 겹치면 그 세율 + 8% (§13의2③) */
+    const _rate0=acqRateSale(price), _lux=chk('luxury');
+    const rate=_rate0+(_lux?0.08:0);let acq=_tb*rate;
     const _acqRaw=acq;          /* 감면 전 산출 취득세 — 지방교육세 연동 감면율의 분모 */
     priceShareGuide(price,_tb,_tr);
     /* 지특법 주택 취득세 감면 — §36의3(생애최초)·§36의5(출산·양육)·§33②(서민주택)
@@ -7383,13 +7386,13 @@ function calcSale(fromEdit){
        나목 : §13의2 해당 시 (4% − 2%) × 20% = 0.4%
    ※ 종전에는 주택·비주택을 가리지 않고 「세율 × 10%」로 계산해 농지가 0.3%로 나왔다.
      법대로는 (3% − 2%) × 20% = 0.2% 다. 27회차 정정. */
-  const mid=(rate>=0.08);
+  const mid=(_rate0>=0.08);   /* 주택 중과(§13의2) 여부는 사치성 가산 전 세율로 본다 */
   const _isH=(radio('ptype')==='house');
   const _std=(radio('ptype')==='farm')?0.03:0.04;            // 비주택 표준세율
   let edu;
   if(chk('metroCorp')&&!_isH){ edu=_tb*(_std-0.02)*0.2*3; }  // 가목 — §13② 본문산출액의 300%
   else if(mid){ edu=_tb*0.004; }                             // 나목 — §13의2(주택 중과·법인 주택)
-  else if(_isH){ edu=_tb*rate*0.1; }                         // 괄호 — 주택 유상거래(세율×50%×20%)
+  else if(_isH){ edu=_tb*_rate0*0.1; }   /* 사치성 중과분은 지방교육세 본문 계산에 넣지 않는다(§151①1호) */                         // 괄호 — 주택 유상거래(세율×50%×20%)
   else { edu=_tb*(_std-0.02)*0.2; }                          // 본문 — (표준세율−2%)×20%
   /* ★ [A] 지방세법 §151①1호 「다목」 — 지방교육세는 취득세 감면에 「연동」된다.
        다. 「지방세특례제한법」·「조세특례제한법」 및 지방세감면조례(지방세감면법령)에서
@@ -7408,13 +7411,20 @@ function calcSale(fromEdit){
   const _cutRate=(_acqRaw>0)?((_acqRaw-acq)/_acqRaw):0;
   let eduCut=0;
   if(_cutRate>0){ eduCut=Math.round(edu*_cutRate); edu=edu-eduCut; }
-    let rural=0;if(radio('ptype')==='house')rural=chk('over85')?_tb*0.002:0;else rural=_tb*0.002;
+    /* [A] 농어촌특별세법 §5①6호 — 취득세 「표준세율을 2%로 적용」해 산출한 세액의 10%.
+         중과분은 그대로 더해지므로 (2% + 중과분) × 10% : 주택 8% 중과 → 0.6%, 12% 중과 → 1.0%, 사치성 +8% → +0.8%.
+         §13② 대도시 법인 주택 외(표준세율 300% − 중과기준세율 200%) → (2%×3 − 4%) × 10% = 0.2%.
+         85㎡ 이하 주택은 비과세(같은 법 §4). ※ 2026-11-16 정정: 종전에는 주택 중과여도 0.2%로 계산했다. */
+    const _ex=(_isH&&mid?_rate0-0.04:0)+(_lux?0.08:0);
+    let rural=0;
+    if(_isH) rural=chk('over85')?_tb*(0.02+_ex)*0.1:0;
+    else rural=_tb*(0.02+_ex)*0.1;
     document.getElementById('acqTax').value=taxLocal(Math.round(acq));
     document.getElementById('eduTax').value=taxLocal(Math.round(edu));
     const _en=document.getElementById('eduRate');
     if(_en)_en.textContent=(eduCut>0)?('(취득세 감면율 '+(_cutRate*100).toFixed(_cutRate*100%1?1:0)+'% 연동 −'+won(eduCut)+' · §151①1호 다목)'):'';
     document.getElementById('ruralTax').value=taxLocal(Math.round(rural));
-    document.getElementById('acqRate').textContent='('+(rate*100).toFixed(rate*100%1?2:0)+'%'+(mid?' 중과':'')+(radio('ptype')==='house'&&chk('landAfterBuild')?' §11④ 부속토지(주택세율 배제)':'')+_relTxt+(farmCut?' 자경50%':'')+(_tr<1?' · 세율은 부동산 전체 '+eokTxt(price)+' 기준(§11①8호 후단) · 과세표준은 지분 상당 '+eokTxt(_tb)+'(§11②)':'')+')';
+    document.getElementById('acqRate').textContent='('+(rate*100).toFixed(rate*100%1?2:0)+'%'+(mid?' 중과':'')+(_lux?' 사치성 +8%':'')+(radio('ptype')==='house'&&chk('landAfterBuild')?' §11④ 부속토지(주택세율 배제)':'')+_relTxt+(farmCut?' 자경50%':'')+(_tr<1?' · 세율은 부동산 전체 '+eokTxt(price)+' 기준(§11①8호 후단) · 과세표준은 지분 상당 '+eokTxt(_tb)+'(§11②)':'')+')';
   }
   const bondLoss=Math.round(val('bondBuy')*val('bondRate')/100);
   document.getElementById('bondLossCell').textContent=won(bondLoss)+' ('+val('bondRate')+'%)';
@@ -8069,7 +8079,8 @@ function calcGift(fromEdit){
     /* 지방교육세 §151①1호 — (표준세율 − 2%) × 20%
      무상 3.5% → 0.3% / 비영리 2.8% → 0.16% / 중과 12% → §11①7호나목 4% 기준 0.4% */
   const mid=(rate>=0.12);const edu=mid?_tb*0.004:(rate===0.028?_tb*0.0016:_tb*0.003);
-    let rural=0;if(radio('gv_ptype')==='house')rural=chk('gv_over85')?_tb*0.002:0;else rural=_tb*0.002;
+    /* 2026-11-16 정정 [A] 농특세법 §5①6호: 표준세율을 2%로 적용한 세액의 10% → 주택 중과 12%이면 (2%+8%)×10% = 1.0% (85㎡ 이하 비과세) */ 
+    let rural=0;if(radio('gv_ptype')==='house')rural=chk('gv_over85')?_tb*(0.02+(mid?rate-0.04:0))*0.1:0;else rural=_tb*0.002;
     document.getElementById('gv_acqTax').value=taxLocal(Math.round(acq));
     document.getElementById('gv_eduTax').value=taxLocal(Math.round(edu));
     document.getElementById('gv_ruralTax').value=taxLocal(Math.round(rural));
@@ -9066,7 +9077,8 @@ function calcNakchal(fromEdit){
     const mid=(rate>=0.08);
     const edu=mid?price*0.004:price*rate*0.1;
     let rural=0;
-    if(house)rural=chk('nk_over85')?price*0.002:0; else rural=price*0.002;
+    /* 2026-11-16 정정 [A] 농특세법 §5①6호: 표준세율을 2%로 적용한 세액의 10% → 주택 중과 12%이면 (2%+8%)×10% = 1.0% (85㎡ 이하 비과세) */ 
+    if(house)rural=chk('nk_over85')?price*(0.02+(mid?rate-0.04:0))*0.1:0; else rural=price*0.002;
     document.getElementById('nk_acqTax').value=taxLocal(Math.round(acq));
     document.getElementById('nk_eduTax').value=taxLocal(Math.round(edu));
     document.getElementById('nk_ruralTax').value=taxLocal(Math.round(rural));
@@ -9289,7 +9301,8 @@ function calcBurden(fromEdit){
     const bvMidExempt=(isLineal(radio('bv_relation'))&&chk('bv_donorOneHouse'));
     const rateN=(radio('bv_ptype')==='house'&&chk('bv_adj3')&&total>=3*억&&!bvMidExempt)?0.12:0.035;
     const acqN=gift*rateN, eduN=(rateN>=0.12?gift*0.004:gift*0.003);
-    let ruralN=0; if(radio('bv_ptype')==='house')ruralN=chk('bv_over85')?gift*0.002:0; else ruralN=gift*0.002;
+    /* 2026-11-16 정정 [A] 농특세법 §5①6호: 표준세율을 2%로 적용한 세액의 10% → 주택 중과 12%이면 (2%+8%)×10% = 1.0% (85㎡ 이하 비과세) */ 
+    let ruralN=0; if(radio('bv_ptype')==='house')ruralN=chk('bv_over85')?gift*(rateN>=0.12?0.01:0.002):0; else ruralN=gift*0.002;
     document.getElementById('bv_acqN').value=Math.round(acqN);
     document.getElementById('bv_eduN').value=Math.round(eduN);
     document.getElementById('bv_ruralN').value=Math.round(ruralN);
@@ -13037,28 +13050,54 @@ function calcConsult(kind,el){
 })();
 </script>
 <style id="gsx-20261116">
-.gsx-card .gsx-q{width:100%;box-sizing:border-box;border:1px solid #b9c9ea;border-radius:10px;padding:10px 12px;font-size:16px;background:#fff;margin-top:8px}
-.gsx-card .gsx-tags{margin:8px 0 0;display:flex;flex-wrap:wrap;gap:6px}
-.gsx-card .gsx-tags button{border:1px solid #c9d8f5;background:#fff;color:#1747c7;border-radius:999px;padding:4px 11px;font-size:13px;cursor:pointer}
-.gsx-card .gsx-cnt{font-size:13.5px;font-weight:700;color:#24345a;margin:10px 0 4px}
-.gsx-card .gsx-it{border-top:1px dashed #c9d8f5;padding:8px 0 4px;margin-top:6px;font-size:13px;line-height:1.65}
-.gsx-card .gsx-it .gn{font-weight:800;color:#5a3b1c;font-size:14px}
-.gsx-card .gsx-it ol{margin:4px 0 4px 18px;padding:0}
-.gsx-card .gsx-it .gx{color:#9b2c2c}
-.gsx-card .gsx-ap{margin-top:6px;border:0;border-radius:999px;background:#1d7a46;color:#fff;font-weight:700;font-size:13px;padding:6px 14px;cursor:pointer}
-.gsx-card .gsx-ap[disabled]{background:#8aa898;cursor:default}
-.gsx-card .gsx-na{display:block;margin-top:4px;color:#7a6a52;font-size:12.5px}
-@media print{.gsx-card{display:none!important}}
+.gsx-box{margin:10px 0 6px;padding:12px 14px;background:#f4f8ff;border:1px solid #c9d8f5;border-left:4px solid #1747c7;border-radius:10px}
+.gsx-box .gsx-t{font-weight:800;color:#1747c7;font-size:14.5px}
+.gsx-box .gsx-t small{font-weight:500;color:#6b6457;font-size:12px}
+.gsx-box .gsx-n{font-size:12.5px;color:#5c5446;line-height:1.6;margin:4px 0 0}
+.gsx-box .gsx-q{width:100%;box-sizing:border-box;border:1px solid #b9c9ea;border-radius:10px;padding:9px 12px;font-size:16px;background:#fff;margin-top:8px}
+.gsx-box .gsx-tags{margin:8px 0 0;display:flex;flex-wrap:wrap;gap:5px}
+.gsx-box .gsx-tags button{border:1px solid #c9d8f5;background:#fff;color:#1747c7;border-radius:999px;padding:3px 10px;font-size:12.5px;cursor:pointer}
+.gsx-box .gsx-tags button.h{border-color:#f0c4c4;color:#a32020}
+.gsx-box .gsx-cnt{font-size:13.5px;font-weight:700;color:#24345a;margin:10px 0 4px}
+.gsx-box .gsx-it{border-top:1px dashed #c9d8f5;padding:8px 0 4px;margin-top:6px;font-size:13px;line-height:1.65}
+.gsx-box .gsx-it .gn{font-weight:800;color:#5a3b1c;font-size:14px}
+.gsx-box .gk{display:inline-block;font-size:11.5px;font-weight:800;border-radius:6px;padding:1px 7px;margin-right:6px;vertical-align:1px}
+.gsx-box .gk.g{background:#e6f4e8;color:#1d6b2f}.gsx-box .gk.h{background:#fde8e8;color:#a32020}
+.gsx-box .gsx-it ol{margin:4px 0 4px 18px;padding:0}
+.gsx-box .gsx-it .gx{color:#9b2c2c}
+.gsx-box .gsx-ap{margin-top:6px;border:0;border-radius:999px;background:#1d7a46;color:#fff;font-weight:700;font-size:13px;padding:6px 14px;cursor:pointer}
+.gsx-box .gsx-ap.h{background:#a32020}
+.gsx-box .gsx-ap[disabled]{background:#8aa898;cursor:default}
+.gsx-box .gsx-na{display:block;margin-top:4px;color:#7a6a52;font-size:12.5px}
+.gsx-box a{color:#1747c7}
+@media print{.gsx-box{display:none!important}}
 </style>
 <script>
-/* 2026-11-16 비용 계산기 — 지방세 감면 사유 찾기
-   취득세가 나오는 계산 화면마다 「③ 공과금」 아래에 검색 칸을 둔다. 자료는 등기신청 준비서류 화면과 같은 파일(regdocs-data.json)을
-   처음 검색할 때 한 번만 불러온다. 계산기가 금액까지 계산하는 감면(매매 화면의 생애최초·출산양육·서민주택·자경농지)은
-   「계산에 넣기」 단추로 바로 반영하고, 나머지는 요건·서류 확인용으로 보여 준다. */
+/* 2026-11-16 비용 계산기 — 감면·중과 사유 찾기
+   · 자리: 각 계산 화면 ① 정보 카드의 「감면·가산 등」 줄 바로 밑 (그 줄이 없으면 ① 카드 맨 아래)
+   · 감면: 지방세특례제한법 취득세 감면 전체 (등기신청 준비서류 화면과 같은 regdocs-data.json 을 처음 검색할 때 불러옴)
+   · 중과·가산세: 아래 H 목록 — 2026. 11. 16. 국가법령정보센터 현행 조문으로 확인
+       지방세법 [시행 2026. 7. 1. 법률 제21308호] §13①②⑤·§13의2①②③·§20①·§28②③
+       지방세기본법 [시행 2026. 10. 2. 법률 제22017호] §53·§54·§55·§57② / 같은 법 시행령 §34①(1일 10만분의 22)
+   · 계산기가 직접 계산하는 것은 「계산에 넣기」 단추로 해당 체크칸을 켠다. */
 (function(){
   var G=null, loading=null;
-  var TAGS=['생애최초','출산','다자녀','장애인','국가유공자','귀농','농지','임대주택','전세사기','사회복지','종교','학교','산업단지','창업'];
-  /* 계산에 바로 넣을 수 있는 감면: 화면 → {조문: 체크칸 id} */
+  var LAW='https://www.law.go.kr/법령/';
+  var H=[
+    {n:'다주택자의 주택 구입 중과',a:'지방세법 §13의2①2호·3호',r:'조정대상지역 2주택·조정대상지역 밖 3주택 → 8% / 조정대상지역 3주택 이상·조정대상지역 밖 4주택 이상 → 12%',w:'주택을 사서(유상취득) 취득하는 1세대. 대통령령으로 정하는 일시적 2주택은 제외',how:'위 「보유 주택 수」와 「조정대상지역」을 고르시면 계산에 들어갑니다.',lk:LAW+'지방세법/제13조의2'},
+    {n:'법인의 주택 구입 중과',a:'지방세법 §13의2①1호',r:'12% (4% + 중과기준세율 2%의 400%)',w:'법인, 법인으로 보는 단체, 법인 아닌 사단·재단 등 개인이 아닌 자가 주택을 유상취득',ap:{'scene-매매':'corp'},lk:LAW+'지방세법/제13조의2'},
+    {n:'조정대상지역 안 일정 가액 이상 주택 증여 중과',a:'지방세법 §13의2②',r:'12% (4% + 중과기준세율 2%의 400%)',w:'조정대상지역에 있는 대통령령으로 정하는 가액 이상 주택을 증여 등 무상취득. 1세대 1주택자가 소유한 주택을 배우자·직계존비속이 받는 경우 등은 제외',how:'증여·부담부증여 화면의 「조정대상지역」·「증여자가 1세대 1주택」 칸으로 계산합니다.',lk:LAW+'지방세법/제13조의2'},
+    {n:'사치성 재산 중과 (고급주택·골프장·고급오락장·고급선박)',a:'지방세법 §13⑤ (별장은 2023. 3. 14. 개정으로 삭제)',r:'일반 세율 + 8% (중과기준세율 2%의 400%). 주택 중과와 겹치면 그 중과세율 + 8% (§13의2③)',w:'대통령령으로 정하는 면적·가액 기준을 넘는 고급주택, 회원제 골프장, 도박장·유흥주점영업장 등 고급오락장, 고급선박. 취득일부터 60일(상속은 상속개시일이 속하는 달의 말일부터 6개월, 외국 주소 9개월) 안에 다른 용도로 쓰거나 용도변경공사를 착공하면 제외',ap:{'scene-매매':'luxury'},lk:LAW+'지방세법/제13조'},
+    {n:'대도시 법인의 설립 5년 안 부동산 취득 중과',a:'지방세법 §13②',r:'표준세율 × 3 − 4% (주택 외 8%, 농지 5%, 주택은 12%)',w:'대도시(과밀억제권역에서 산업단지를 뺀 곳)에서 설립·지점 설치·전입 후 5년 안에 대도시 안 부동산을 취득하는 법인. 대도시 중과 제외 업종은 제외',ap:{'scene-매매':'metroCorp'},lk:LAW+'지방세법/제13조'},
+    {n:'과밀억제권역 안 본점 신·증축, 공장 신·증설 중과',a:'지방세법 §13①',r:'일반 세율 + 4% (중과기준세율 2%의 200%)',w:'과밀억제권역에서 본점·주사무소 사업용으로 신·증축하는 건축물과 부속토지, 공장 신·증설용 사업용 과세물건(공장은 산업단지·유치지역·공업지역 제외)',how:'이 계산기는 자동으로 넣지 않습니다. 해당하시면 상담 때 말씀해 주세요.',lk:LAW+'지방세법/제13조'},
+    {n:'법인 등기 등록면허세 대도시 중과',a:'지방세법 §28②③',r:'등록면허세 3배',w:'대도시(과밀억제권역에서 산업단지를 뺀 곳)에서 법인 설립(5년 안 증자 포함)·지점 설치, 대도시 밖 법인의 본점 전입(5년 안 증자 포함). 대도시 중과 제외 업종은 일반세율 — 다만 2년 안에 다른 업종으로 바꾸면 추징',how:'회사 설립·법인 변경등기 화면의 「본점 소재지 중과지역 확인」에서 주소로 확인할 수 있습니다.',lk:LAW+'지방세법/제28조'},
+    {n:'취득세 신고·납부 기한',a:'지방세법 §20①',r:'기한을 넘기면 아래 가산세가 붙습니다',w:'매매 등: 취득일부터 60일 / 증여·부담부증여 등 무상취득: 취득일이 속하는 달의 말일부터 3개월 / 상속: 상속개시일이 속하는 달의 말일부터 6개월(외국에 주소를 둔 상속인이 있으면 9개월)',lk:LAW+'지방세법/제20조'},
+    {n:'무신고가산세',a:'지방세기본법 §53',r:'납부할 세액의 20% (사기·부정행위 40%)',w:'신고기한까지 신고하지 않은 경우. 기한이 지난 뒤 1개월 안에 기한후신고하면 가산세의 50%, 3개월 안 30%, 6개월 안 20%를 줄여 줍니다(§57②2호)',lk:LAW+'지방세기본법/제53조'},
+    {n:'과소신고가산세',a:'지방세기본법 §54',r:'적게 신고한 세액의 10% (사기·부정행위 부분 40%)',w:'신고는 했지만 세액을 적게 신고한 경우. 기한이 지난 뒤 1개월 안에 수정신고하면 90%, 3개월 안 75%, 6개월 안 50%를 줄여 줍니다(§57②1호)',lk:LAW+'지방세기본법/제54조'},
+    {n:'납부지연가산세',a:'지방세기본법 §55 · 시행령 §34①',r:'내지 않은 세액 × 지난 날수 × 1일 10만분의 22 (내지 않은 세액의 75% 한도)',w:'납부기한까지 내지 않거나 적게 낸 경우',lk:LAW+'지방세기본법/제55조'}
+  ];
+  H.forEach(function(h){ h.h=1; });
+  var TAGS=[['생애최초'],['출산'],['다자녀'],['장애인'],['국가유공자'],['귀농'],['농지'],['임대주택'],['전세사기'],['사회복지'],['다주택',1],['법인',1],['고급주택',1],['대도시',1],['가산세',1],['신고 기한',1]];
   var APPLY={'scene-매매':{'제36조의3①':'firstHome','제36조의5①':'birthHome','제33조②':'smallHome','제6조①':'selfFarm'}};
   function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
   function nz(s){ return String(s||'').toLowerCase().replace(/\s+/g,''); }
@@ -13067,48 +13106,60 @@ function calcConsult(kind,el){
     if(!loading) loading=fetch('regdocs-data.json?v=20261029').then(function(r){ if(!r.ok) throw r.status; return r.json(); }).then(function(d){ G=d.G||[]; return G; });
     return loading;
   }
-  function render(card){
-    var q=card.querySelector('.gsx-q').value.trim(), out=card.querySelector('.gsx-res'), sid=card.getAttribute('data-scene'), ap=APPLY[sid]||{};
+  function apBtn(id,cls){ var cb=id&&document.getElementById(id); if(!cb) return ''; return '<button type="button" class="gsx-ap'+(cls?' '+cls:'')+'" data-cb="'+id+'"'+(cb.checked?' disabled>✔ 계산에 넣었습니다':'>계산에 넣기')+'</button>'; }
+  function itemH(e,sid){
+    var id=e.ap&&e.ap[sid];
+    return '<div class="gsx-it"><div class="gn"><span class="gk h">중과·가산세</span>'+esc(e.n)+'</div><b>얼마나:</b> '+esc(e.r)+'<br><b>대상:</b> '+esc(e.w)+'<br><small>근거 <a href="'+esc(e.lk)+'" target="_blank" rel="noopener">'+esc(e.a)+'</a></small>'
+      +(id&&document.getElementById(id)?'<div>'+apBtn(id,'h')+'</div>':(e.how?'<span class="gsx-na">'+esc(e.how)+'</span>':''))+'</div>';
+  }
+  function itemG(e,sid){
+    var ap=APPLY[sid]||{}, id=ap[e.a];
+    return '<div class="gsx-it"><div class="gn"><span class="gk g">감면</span>'+esc(e.n)+'</div><b>감면:</b> '+esc(e.r)+'<br><b>대상:</b> '+esc(e.w)+'<br><small>'+(e.e&&e.e!=='없음'?'적용기한 '+esc(e.e.replace(/-/g,'. '))+'.까지 · ':'')+'근거 지방세특례제한법 '+esc(e.a)+'</small>'
+      +'<div><b>신청 때 낼 서류</b><ol>'+(e.d||[]).map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ol></div>'
+      +(e.c?'<div class="gx">※ 추징: '+esc(e.c)+'</div>':'')
+      +(id&&document.getElementById(id)?apBtn(id):'<span class="gsx-na">이 감면은 계산 결과에 자동으로 빠지지 않습니다. 해당하시면 감면 신청 서류를 갖춰 시·군·구청에 신청하시고, 상담 때 말씀해 주시면 함께 살펴 드립니다.</span>')+'</div>';
+  }
+  function render(box){
+    var q=box.querySelector('.gsx-q').value.trim(), out=box.querySelector('.gsx-res'), sid=box.getAttribute('data-scene');
     if(!q){ out.innerHTML=''; return; }
-    out.innerHTML='<div class="gsx-cnt" style="font-weight:500">감면 자료를 불러오는 중입니다…</div>';
-    load().then(function(){
-      if(card.querySelector('.gsx-q').value.trim()!==q) return;
-      var terms=q.split(/\s+/).map(nz).filter(Boolean);
-      var hit=G.filter(function(e){ var h=nz([e.n,e.w,e.r,e.a,(e.d||[]).join(' '),e.c||''].join(' ')); return terms.every(function(x){ return h.indexOf(x)>=0; }); });
-      hit.sort(function(a,b){ return (ap[b.a]?1:0)-(ap[a.a]?1:0); });
-      if(!hit.length){ out.innerHTML='<div class="gsx-cnt">「'+esc(q)+'」이(가) 들어 있는 감면 사유가 없습니다. 낱말을 줄이거나 바꿔 보세요.</div>'; return; }
-      var h='<div class="gsx-cnt">「'+esc(q)+'」 찾은 감면 '+hit.length+'가지'+(hit.length>30?' — 앞의 30가지만 보여 드립니다':'')+'</div>';
-      hit.slice(0,30).forEach(function(e){
-        h+='<div class="gsx-it"><div class="gn">'+esc(e.n)+'</div><b>감면:</b> '+esc(e.r)+'<br><b>대상:</b> '+esc(e.w)+'<br><small>'+(e.e&&e.e!=='없음'?'적용기한 '+esc(e.e.replace(/-/g,'. '))+'.까지 · ':'')+'근거 지방세특례제한법 '+esc(e.a)+'</small>'
-          +'<div><b>신청 때 낼 서류</b><ol>'+(e.d||[]).map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ol></div>'
-          +(e.c?'<div class="gx">※ 추징: '+esc(e.c)+'</div>':'');
-        var id=ap[e.a], cb=id&&document.getElementById(id);
-        if(cb) h+='<button type="button" class="gsx-ap" data-cb="'+id+'"'+(cb.checked?' disabled>✔ 계산에 넣었습니다':'>이 감면을 계산에 넣기')+'</button>';
-        else h+='<span class="gsx-na">이 감면은 계산 결과에 자동으로 빠지지 않습니다. 해당하시면 감면 신청 서류를 갖춰 시·군·구청에 신청하시고, 상담 때 말씀해 주시면 함께 살펴 드립니다.</span>';
-        h+='</div>';
-      });
+    var terms=q.split(/\s+/).map(nz).filter(Boolean);
+    function hit(arr,keys){ return arr.filter(function(e){ var h=nz(keys(e)); return terms.every(function(x){ return h.indexOf(x)>=0; }); }); }
+    var hh=hit(H,function(e){ return [e.n,e.a,e.r,e.w,e.how||''].join(' '); });
+    out.innerHTML='<div class="gsx-cnt" style="font-weight:500">찾는 중입니다…</div>';
+    load().catch(function(){ return null; }).then(function(){
+      if(box.querySelector('.gsx-q').value.trim()!==q) return;
+      var gg=G?hit(G,function(e){ return [e.n,e.w,e.r,e.a,(e.d||[]).join(' '),e.c||''].join(' '); }):[];
+      var ap=APPLY[sid]||{}; gg.sort(function(a,b){ return (ap[b.a]?1:0)-(ap[a.a]?1:0); });
+      var total=hh.length+gg.length;
+      if(!total){ out.innerHTML='<div class="gsx-cnt">「'+esc(q)+'」이(가) 들어 있는 감면·중과 사유가 없습니다. 낱말을 줄이거나 바꿔 보세요.</div>'+(G?'':'<div class="gsx-na">감면 자료를 불러오지 못했습니다. 잠시 뒤 다시 시도해 주세요.</div>'); return; }
+      var h='<div class="gsx-cnt">「'+esc(q)+'」 중과·가산세 '+hh.length+'가지 · 감면 '+gg.length+'가지'+(gg.length>30?' (감면은 앞의 30가지만)':'')+'</div>';
+      hh.forEach(function(e){ h+=itemH(e,sid); });
+      gg.slice(0,30).forEach(function(e){ h+=itemG(e,sid); });
+      if(!G) h+='<div class="gsx-na">감면 자료를 불러오지 못해 중과·가산세만 보여 드렸습니다.</div>';
       out.innerHTML=h;
-    }).catch(function(){ out.innerHTML='<div class="gsx-cnt">감면 자료를 불러오지 못했습니다. 잠시 뒤 다시 시도해 주세요.</div>'; });
+    });
   }
   function build(){
     [].forEach.call(document.querySelectorAll('.scene'),function(sc){
-      if(sc.querySelector('.gsx-card')) return;
+      if(sc.querySelector('.gsx-box')) return;
       var td=[].filter.call(sc.querySelectorAll('.card table td:first-child'),function(x){ return /^\s*취득세/.test(x.textContent); })[0];
       if(!td) return;
-      var host=td.closest('.card');
-      var c=document.createElement('div'); c.className='card blue gsx-card'; c.setAttribute('data-scene',sc.id);
-      c.innerHTML='<h2>🔎 지방세 감면 사유 찾기 <small style="font-weight:500;font-size:12.5px">지방세특례제한법 취득세 감면 200여 가지에서</small></h2><div class="body">'
-        +'<div class="note">낱말을 넣거나 단추를 누르면 감면 내용·대상·신청 서류·추징 사유가 나옵니다.'+(APPLY[sc.id]?' 생애최초·출산양육·서민주택·자경농지 감면은 <b>「이 감면을 계산에 넣기」</b>를 누르면 위 계산에 바로 반영됩니다.':' 이 화면의 계산 결과에는 감면이 자동으로 반영되지 않습니다.')+' 감면을 받을 수 있는지와 금액은 시·군·구청이 정합니다.</div>'
-        +'<input type="search" class="gsx-q" placeholder="예: 생애최초, 출산, 장애인, 귀농, 임대주택, 제36조" autocomplete="off" aria-label="지방세 감면 사유 검색">'
-        +'<div class="gsx-tags">'+TAGS.map(function(w){ return '<button type="button" data-q="'+esc(w)+'">'+esc(w)+'</button>'; }).join('')+'</div>'
-        +'<div class="gsx-res" aria-live="polite"></div></div>';
-      host.parentNode.insertBefore(c,host.nextSibling);
-      var inp=c.querySelector('.gsx-q'), tm;
+      var c1=sc.querySelector(':scope > .card'), body=c1&&(c1.querySelector('.body')||c1);
+      if(!body) return;
+      var line=[].filter.call(body.querySelectorAll('.line'),function(l){ var b=l.querySelector('.lbl'); return b&&/감면/.test(b.textContent); })[0];
+      var bx=document.createElement('div'); bx.className='gsx-box'; bx.setAttribute('data-scene',sc.id);
+      bx.innerHTML='<div class="gsx-t">🔎 감면·중과 사유 찾기 <small>취득세 감면 200여 가지 · 중과·가산세</small></div>'
+        +'<div class="gsx-n">낱말을 넣거나 단추를 누르면 세금을 <b style="color:#1d6b2f">깎아 주는 감면</b>과 <b style="color:#a32020">무겁게 하는 중과·가산세</b>가 함께 나옵니다.'+(APPLY[sc.id]?' 「계산에 넣기」를 누르면 위 체크칸이 켜지고 바로 다시 계산됩니다.':'')+' 감면·중과 해당 여부는 시·군·구청이 최종 판단합니다.</div>'
+        +'<input type="search" class="gsx-q" placeholder="예: 생애최초, 다주택, 고급주택, 가산세, 장애인, 제36조" autocomplete="off" aria-label="감면·중과 사유 검색">'
+        +'<div class="gsx-tags">'+TAGS.map(function(t){ return '<button type="button"'+(t[1]?' class="h"':'')+' data-q="'+esc(t[0])+'">'+esc(t[0])+'</button>'; }).join('')+'</div>'
+        +'<div class="gsx-res" aria-live="polite"></div>';
+      if(line) line.parentNode.insertBefore(bx,line.nextSibling); else body.appendChild(bx);
+      var inp=bx.querySelector('.gsx-q'), tm;
       inp.addEventListener('focus',function(){ load().catch(function(){}); },{once:true});
-      inp.addEventListener('input',function(){ clearTimeout(tm); tm=setTimeout(function(){ render(c); },150); });
-      c.addEventListener('click',function(e){
+      inp.addEventListener('input',function(){ clearTimeout(tm); tm=setTimeout(function(){ render(bx); },150); });
+      bx.addEventListener('click',function(e){
         var t=e.target.closest('button'); if(!t) return;
-        if(t.hasAttribute('data-q')){ inp.value=t.getAttribute('data-q'); render(c); return; }
+        if(t.hasAttribute('data-q')){ inp.value=t.getAttribute('data-q'); render(bx); return; }
         if(t.classList.contains('gsx-ap')){
           var cb=document.getElementById(t.getAttribute('data-cb')); if(!cb||cb.checked) return;
           cb.checked=true; cb.dispatchEvent(new Event('change',{bubbles:true}));
@@ -13117,6 +13168,124 @@ function calcConsult(kind,el){
       });
     });
   }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',build); else build();
+})();
+</script>
+<style id="mzc-20261116">
+.mzc{margin:10px 0 6px;padding:12px 14px;background:#fff8f2;border:1px solid #f0d2b8;border-left:4px solid #b4531c;border-radius:10px;font-size:13.5px;line-height:1.65}
+.mzc .mz-t{font-weight:800;color:#8a3b0c;font-size:14.5px}
+.mzc .mz-t small{font-weight:500;color:#6b6457;font-size:12px}
+.mzc select{font-size:15px;padding:7px 8px;border:1px solid #d9c2ad;border-radius:8px;background:#fff;margin:6px 6px 0 0;max-width:100%}
+.mzc .mz-q{margin-top:8px;padding:8px 10px;background:#fff;border:1px dashed #e2c3a7;border-radius:8px}
+.mzc .mz-q label{display:block;margin:3px 0;cursor:pointer}
+.mzc .mz-res{margin-top:8px}
+.mzc .mz-ok{padding:8px 10px;border-radius:8px;background:#e6f4e8;color:#1d4d27}
+.mzc .mz-ng{padding:8px 10px;border-radius:8px;background:#fde8e8;color:#7a1b1b}
+.mzc .mz-mid{padding:8px 10px;border-radius:8px;background:#fff1d6;color:#6b4a07}
+.mzc button.mz-set{margin-top:6px;border:0;border-radius:999px;background:#8a3b0c;color:#fff;font-weight:700;font-size:13px;padding:6px 14px;cursor:pointer}
+.mzc .mz-links{margin-top:8px;font-size:12.5px;color:#5c5446}
+.mzc .mz-links a{color:#1747c7}
+@media print{.mzc{display:none!important}}
+</style>
+<script>
+/* 2026-11-16 상업등기 등록면허세 대도시 중과 — 본점(지점) 소재지로 중과 여부 확인
+   [A] 지방세법 §28② · §13② : 대도시 = 「수도권정비계획법」 §6의 과밀억제권역에서 산업단지를 뺀 곳
+   [A] 수도권정비계획법 시행령 [별표 1] (2017. 6. 20. 개정, 2026. 11. 16. 국가법령정보센터 현행 확인) 과밀억제권역:
+       서울특별시 / 인천광역시[강화군, 옹진군, 서구 대곡동·불로동·마전동·금곡동·오류동·왕길동·당하동·원당동,
+       인천경제자유구역(해제된 지역 포함), 남동 국가산업단지 제외] / 의정부시 / 구리시 /
+       남양주시(호평동·평내동·금곡동·일패동·이패동·삼패동·가운동·수석동·지금동·도농동만) / 하남시 / 고양시 / 수원시 /
+       성남시 / 안양시 / 부천시 / 광명시 / 과천시 / 의왕시 / 군포시 / 시흥시[반월특수지역(해제된 지역 포함) 제외]
+   ※ 인천은 2026. 7. 1. 행정구역이 바뀌었으나(제물포구·영종구·서구→서해구·검단구) 별표는 옛 이름 그대로라 동·구역으로 묻는다. */
+(function(){
+  var Y='yes', N='no';
+  var SEOUL=['종로구','중구','용산구','성동구','광진구','동대문구','중랑구','성북구','강북구','도봉구','노원구','은평구','서대문구','마포구','양천구','강서구','구로구','금천구','영등포구','동작구','관악구','서초구','강남구','송파구','강동구'];
+  var SEOUL_IND={'구로구':'서울디지털국가산업단지(구로동 일대)','금천구':'서울디지털국가산업단지(가산동 일대)'};
+  var GEOMDAN='대곡동·불로동·마전동·금곡동·오류동·왕길동·당하동·원당동';
+  var INCHEON=[
+    ['제물포구 (옛 중구 내륙·동구)',Y],
+    ['영종구 (옛 중구 영종·용유 등)',{q:'인천경제자유구역(영종지구, 경제자유구역에서 해제된 지역 포함) 안입니까?',yes:N,no:Y}],
+    ['미추홀구',Y],
+    ['연수구',{q:'송도국제도시 등 인천경제자유구역(해제된 지역 포함) 안입니까?',yes:N,no:Y}],
+    ['남동구',{q:'남동국가산업단지 안입니까?',yes:N,no:Y}],
+    ['부평구',Y,'부평국가산업단지'],
+    ['계양구',Y],
+    ['서해구 (옛 서구)',{q:'청라국제도시 등 인천경제자유구역(해제된 지역 포함) 안이거나, 법정동이 '+GEOMDAN+' 중 하나입니까?',yes:N,no:Y},'주안국가산업단지'],
+    ['검단구',{q:'법정동이 '+GEOMDAN+' 중 하나입니까?',yes:N,no:Y}],
+    ['강화군',N],['옹진군',N],
+    ['중구 (2026. 6. 30. 이전 주소)',{q:'영종도·용유도 등 인천경제자유구역(해제된 지역 포함) 안입니까?',yes:N,no:Y}],
+    ['동구 (2026. 6. 30. 이전 주소)',Y],
+    ['서구 (2026. 6. 30. 이전 주소)',{q:'청라국제도시 등 인천경제자유구역(해제된 지역 포함) 안이거나, 법정동이 '+GEOMDAN+' 중 하나입니까?',yes:N,no:Y},'주안국가산업단지']
+  ];
+  var GG=[['수원시',Y],['성남시',Y],['의정부시',Y],['안양시',Y],['부천시',Y],['광명시',Y],['고양시',Y],['과천시',Y],['구리시',Y],['하남시',Y],['군포시',Y],['의왕시',Y],
+    ['남양주시',{q:'법정동이 호평동·평내동·금곡동·일패동·이패동·삼패동·가운동·수석동·지금동·도농동 중 하나입니까? (다산신도시는 옛 지금동·도농동 지역이라 해당할 수 있으니 등기사항증명서의 법정동을 확인하세요)',yes:Y,no:N}],
+    ['시흥시',{q:'반월특수지역(시화지구 등, 해제된 지역 포함) 안입니까? (잘 모르시면 시흥시청 세무부서에 본점 주소로 물어보세요)',yes:N,no:Y}],
+    ['평택시',N],['동두천시',N],['안산시',N],['오산시',N],['용인시',N],['파주시',N],['이천시',N],['안성시',N],['김포시',N],['화성시',N],['광주시',N],['양주시',N],['포천시',N],['여주시',N],['연천군',N],['가평군',N],['양평군',N]];
+  var LINKS='<b>확인하는 곳</b> · <a href="https://www.eum.go.kr/web/ar/lu/luLandDet.jsp" target="_blank" rel="noopener">토지이음 토지이용계획 열람</a>(본점 주소를 넣으면 「국가산업단지·일반산업단지·도시첨단산업단지·농공단지」 등 지정 여부가 나옵니다)'
+    +' · <a href="https://www.industryland.or.kr/il/danji/list" target="_blank" rel="noopener">산업입지정보센터 산업단지 찾기</a>(시·도와 시·군·구를 골라 단지 목록·지도 확인)'
+    +' · <a href="https://www.law.go.kr/법령/수도권정비계획법시행령" target="_blank" rel="noopener">수도권정비계획법 시행령 [별표 1]</a>'
+    +' · <a href="https://www.law.go.kr/법령/지방세법/제28조" target="_blank" rel="noopener">지방세법 제28조</a>'
+    +' · <a href="https://www.law.go.kr/법령/지방세법시행령" target="_blank" rel="noopener">지방세법 시행령 제26조(대도시 중과 제외 업종)</a>';
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+  function opts(list){ return '<option value="">시·군·구 고르기</option>'+list.map(function(x,i){ return '<option value="'+i+'">'+esc(typeof x==='string'?x:x[0])+'</option>'; }).join(''); }
+  function make(cbId){
+    var cb=document.getElementById(cbId); if(!cb) return;
+    var line=cb.closest('.line'); if(!line||line.parentNode.querySelector('.mzc[data-cb="'+cbId+'"]')) return;
+    var bx=document.createElement('div'); bx.className='mzc'; bx.setAttribute('data-cb',cbId);
+    bx.innerHTML='<div class="mz-t">🔎 본점(지점) 소재지 중과지역 확인 <small>등록면허세 3배 중과는 「대도시」만 — 대도시 = 과밀억제권역에서 산업단지를 뺀 곳 (지방세법 §28②·§13②)</small></div>'
+      +'<select class="mz-sido" aria-label="시·도"><option value="">시·도 고르기</option><option value="seoul">서울특별시</option><option value="incheon">인천광역시</option><option value="gg">경기도</option><option value="etc">그 밖의 시·도 (부산·대구·대전·세종·충청·강원 등)</option></select>'
+      +'<select class="mz-gu" aria-label="시·군·구" hidden></select>'
+      +'<div class="mz-q" hidden></div><div class="mz-res" aria-live="polite"></div><div class="mz-links">'+LINKS+'</div>';
+    line.parentNode.insertBefore(bx,line.nextSibling);
+    var sido=bx.querySelector('.mz-sido'), gu=bx.querySelector('.mz-gu'), qb=bx.querySelector('.mz-q'), res=bx.querySelector('.mz-res');
+    var cur=null;
+    function list(){ return sido.value==='seoul'?SEOUL:sido.value==='incheon'?INCHEON:sido.value==='gg'?GG:[]; }
+    function setBtn(on){ return '<button type="button" class="mz-set" data-on="'+(on?1:0)+'">'+(on?'위 「대도시 중과」 체크 켜기':'위 「대도시 중과」 체크 끄기')+'</button>'; }
+    function verdict(st, place, ind){
+      qb.hidden=true;
+      if(st===N){ res.innerHTML='<div class="mz-ok"><b>'+esc(place)+'</b> — <b>과밀억제권역이 아닙니다.</b> 대도시 중과 대상이 아니므로 등록면허세는 일반세율입니다.</div>'+setBtn(false); return; }
+      /* 과밀억제권역 → 산업단지 안인지 묻는다 */
+      qb.hidden=false;
+      qb.innerHTML='<b>'+esc(place)+'</b>은(는) 과밀억제권역입니다. 그런데 <b>산업단지(국가·일반·도시첨단·농공단지) 안</b>이면 「대도시」에서 빠져 중과하지 않습니다. 본점(지점) 주소가 산업단지 안입니까?'
+        +(ind?'<br><small>이 지역의 대표적인 산업단지: '+esc(ind)+' — 경계는 토지이음에서 주소로 확인하세요.</small>':'')
+        +'<label><input type="radio" name="mzi_'+cbId+'" value="in"> 산업단지 안입니다</label><label><input type="radio" name="mzi_'+cbId+'" value="out"> 산업단지 밖입니다</label><label><input type="radio" name="mzi_'+cbId+'" value="unk"> 잘 모르겠습니다</label>';
+      res.innerHTML='';
+    }
+    function ind(v){
+      if(v==='in') res.innerHTML='<div class="mz-ok"><b>산업단지 안</b> — 과밀억제권역이지만 「대도시」에서 빠지므로 <b>중과하지 않습니다</b>(일반세율).</div>'+setBtn(false);
+      else if(v==='out') res.innerHTML='<div class="mz-ng"><b>대도시 중과 대상</b> — 등록면허세가 <b>3배</b>입니다(법인 설립·지점 설치·본점 전입, 그 뒤 5년 안의 증자 포함). 다만 <b>대도시 중과 제외 업종</b>(지방세법 시행령 §26)에 해당하면 일반세율이고, 2년 안에 다른 업종으로 바꾸면 추징됩니다(§28③).</div>'+setBtn(true);
+      else res.innerHTML='<div class="mz-mid">아래 <b>토지이음</b>에서 본점 주소를 넣고 「토지이용계획」에 산업단지 지정이 나오는지 보세요. 나오면 「산업단지 안」, 나오지 않으면 「산업단지 밖」을 고르시면 됩니다.</div>';
+    }
+    sido.addEventListener('change',function(){
+      qb.hidden=true; res.innerHTML=''; cur=null;
+      if(sido.value==='etc'){ gu.hidden=true; verdict(N,'서울·인천·경기 밖 지역'); return; }
+      gu.hidden=!sido.value; gu.innerHTML=opts(list());
+    });
+    gu.addEventListener('change',function(){
+      qb.hidden=true; res.innerHTML='';
+      if(gu.value===''){ return; }
+      var it=list()[+gu.value], name=typeof it==='string'?it:it[0], st=typeof it==='string'?Y:it[1];
+      var indName=sido.value==='seoul'?SEOUL_IND[name]:(Array.isArray(it)?it[2]:'');
+      cur={name:(sido.options[sido.selectedIndex].text+' '+name).replace(/\s*\(.*\)$/,''),ind:indName};
+      if(typeof st==='object'){
+        qb.hidden=false;
+        qb.innerHTML=esc(st.q)+'<label><input type="radio" name="mzs_'+cbId+'" value="1"> 예</label><label><input type="radio" name="mzs_'+cbId+'" value="0"> 아니요</label>';
+        qb.setAttribute('data-yes',st.yes); qb.setAttribute('data-no',st.no);
+      } else verdict(st,cur.name,cur.ind);
+    });
+    bx.addEventListener('change',function(e){
+      var t=e.target; if(!t||t.type!=='radio') return;
+      e.stopPropagation();
+      if(t.name==='mzs_'+cbId){ verdict(t.value==='1'?qb.getAttribute('data-yes'):qb.getAttribute('data-no'), cur.name+(t.value==='1'?' (위 질문에 「예」)':' (위 질문에 「아니요」)'), cur.ind); }
+      else if(t.name==='mzi_'+cbId){ ind(t.value); }
+    });
+    bx.addEventListener('click',function(e){
+      var b=e.target.closest('button.mz-set'); if(!b) return;
+      var on=b.getAttribute('data-on')==='1';
+      if(cb.checked!==on){ cb.checked=on; cb.dispatchEvent(new Event('change',{bubbles:true})); }
+      b.textContent=on?'✔ 대도시 중과를 켰습니다':'✔ 대도시 중과를 껐습니다'; b.disabled=true;
+    });
+  }
+  function build(){ make('co_metro'); make('cv_metro'); }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',build); else build();
 })();
 </script>
