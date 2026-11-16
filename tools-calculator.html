@@ -13374,5 +13374,237 @@ function calcConsult(kind,el){
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',build); else build();
 })();
 </script>
+<style id="d3v-20261116">
+/* ── 2026-11-16 준비서류 가독성 개편 ──
+   서류마다 한 칸(카드)으로 나누고, 서류 이름 → 설명 → [발급처·근거] 순서로 줄을 바꾼다.
+   「해당하는 경우에만」 묶음은 조건만 먼저 보이고 눌러서 펼친다. 인쇄할 때는 모두 펼친다. */
+.docs:has(.d3){background:transparent;padding:0;font-size:13.5px;line-height:1.75;}
+.d3 b{color:var(--ink);font-weight:700;}
+.d3 .hint b{color:inherit;}
+.d3sec{border-radius:12px;margin:0 0 16px;box-shadow:0 1px 3px rgba(60,45,20,.06);}
+.d3h{font-size:15px;line-height:1.5;padding:11px 14px;display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 8px;}
+.d3hs{font-size:12.5px;opacity:.85;}
+.d3b{padding:12px 14px 14px;}
+.d3who.d3v-g{display:flex;flex-direction:column;gap:2px;margin:18px 0 8px;padding:8px 12px;
+  background:#f7f2e6;border-left:4px solid var(--gold);border-radius:0 8px 8px 0;font-size:14.5px;color:var(--ink);}
+.d3b>.d3who.d3v-g:first-child{margin-top:0;}
+.d3who.d3v-g .d3v-gt{font-weight:800;}
+.d3who.d3v-g .hint{display:block;font-size:12.5px;font-weight:400;color:#6b6252;line-height:1.6;}
+.d3who.d3v-g.cond{background:#fdf6e3;border-left-color:#c98a1b;}
+.d3v-gbar{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;}
+.d3v-all{font:700 12px/1.6 "Malgun Gothic","맑은 고딕",sans-serif;color:#8a5a0b;background:#fff;border:1px solid #e3c47f;
+  border-radius:12px;padding:2px 10px;cursor:pointer;}
+.d3v-all:focus-visible{outline:2px solid #c98a1b;outline-offset:2px;}
+ul.d3l.d3v{list-style:none;margin:0 0 6px;padding:0;border:1px solid #e6dcc6;border-radius:10px;overflow:hidden;background:#fff;}
+ul.d3l.d3v>li{margin:0;padding:10px 14px 11px 40px;position:relative;border-top:1px solid #efe7d6;}
+ul.d3l.d3v>li:first-child{border-top:none;}
+ul.d3l.d3v>li::before{content:"";position:absolute;left:14px;top:15px;width:14px;height:14px;border:2px solid #b9a77f;border-radius:4px;background:#fff;}
+.d3o ul.d3l.d3v>li::before{content:"✓";border-color:#7fb08a;background:#e6f3e0;color:#2f6b3d;font:900 11px/14px sans-serif;text-align:center;}
+.d3v-t{font-size:14.5px;font-weight:800;color:var(--ink);line-height:1.55;}
+.d3v-t b{font-weight:800;}
+.d3v-d{margin-top:3px;font-size:13px;color:#5a5246;line-height:1.75;}
+.d3v-c{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;}
+.d3v-c .d3w{margin:0;font-size:12px;line-height:1.5;padding:3px 10px;border-radius:14px;background:#eef5fa;}
+.d3v-c .d3w a{font-weight:700;}
+.d3v-c .law{margin:0;}
+li.d3v-s>.d3v-d{display:inline;margin-right:8px;}
+li.d3v-s>.d3v-c{display:inline-flex;margin-top:2px;vertical-align:middle;}
+/* 해당하는 경우에만 — 조건 줄만 먼저 보인다 */
+ul.d3l.d3v.cond>li{padding-left:14px;cursor:pointer;}
+ul.d3l.d3v.cond>li.d3v-nox{cursor:default;}
+ul.d3l.d3v.cond>li::before{display:none;}
+.d3v-q{display:flex;gap:8px;align-items:flex-start;}
+.d3v-q .d3v-ar{flex:0 0 auto;color:#c98a1b;font-weight:900;transition:transform .15s;margin-top:1px;}
+.d3v-q .d3v-qt{flex:1 1 auto;}
+.d3v-q .d3v-t{font-size:14px;font-weight:700;}
+.d3v-need{display:block;margin-top:3px;font-size:13px;font-weight:600;color:#6e4a12;line-height:1.65;}
+.d3v-need b{color:#8a4b09;font-weight:800;}
+.d3v-need::before{content:"준비할 서류 ▸ ";font-weight:800;color:#b07a1c;}
+ul.d3l.d3v.cond>li .d3v-x{display:none;padding:6px 0 0 22px;}
+ul.d3l.d3v.cond>li.open .d3v-x{display:block;}
+ul.d3l.d3v.cond>li.open .d3v-ar{transform:rotate(90deg);}
+ul.d3l.d3v.cond>li:hover{background:#fffaf0;}
+ul.d3l.d3v.cond>li:focus-visible{outline:2px solid #c98a1b;outline-offset:-2px;}
+.d3note{font-size:12.5px;padding:8px 12px;border-radius:8px;line-height:1.7;margin-top:10px;}
+.d3warn{font-size:13px;line-height:1.7;padding:9px 12px;border-left-width:4px;border-radius:0 8px 8px 0;}
+table.d3t{font-size:13px;line-height:1.6;}
+table.d3t th{font-size:12.5px;padding:7px 9px;}
+table.d3t td{padding:8px 9px;}
+table.d3t tbody tr:nth-child(even) td{background:#fcfaf5;}
+table.d3t td:first-child{color:var(--ink);font-weight:600;}
+.d3tag{font-size:12px;padding:1px 9px;}
+@media (max-width:560px){
+  .docs:has(.d3){font-size:14px;}
+  .d3h{font-size:15.5px;padding:11px 12px;}
+  .d3hs{font-size:12.5px;flex-basis:100%;}
+  .d3b{padding:10px 10px 12px;}
+  ul.d3l.d3v>li{padding:11px 12px 12px 36px;}
+  ul.d3l.d3v>li::before{left:11px;}
+  ul.d3l.d3v.cond>li{padding-left:12px;}
+  .d3v-t{font-size:15px;}
+  .d3v-d{font-size:13.5px;}
+  table.d3t tr{border-radius:8px;margin-bottom:8px;padding:6px 2px;background:#fff;}
+  table.d3t tbody tr:nth-child(even) td{background:transparent;}
+  table.d3t td{padding:3px 9px;}
+  table.d3t td:first-child{font-size:14px;}
+  table.d3t td.d3law{font-size:12px;}
+}
+@media (prefers-reduced-motion:reduce){.d3v-q .d3v-ar{transition:none;}}
+@media print{
+  ul.d3l.d3v.cond>li .d3v-x{display:block!important;}
+  .d3v-all,.d3v-q .d3v-ar{display:none!important;}
+  .d3sec{box-shadow:none;}
+  ul.d3l.d3v>li{break-inside:avoid;}
+}
+</style>
+<script id="d3v-js-20261116">
+/* 준비서류 가독성 개편 — 렌더 함수(d3·d3c)는 그대로 두고, 그려진 결과만 다듬는다 */
+(function(){
+  var DASH=' — ';
+  function splitAtDash(li,sep){
+    /* li 바로 아래 글자 마디 중 처음 나오는 구분표(기본 「 — 」)에서 둘로 나눈다 */
+    sep=sep||DASH;
+    /* 괄호 안의 구분표 — 예: 「(자녀 모두 포기 → 손자녀 …)」 — 는 건너뛴다 */
+    var kids=[].slice.call(li.childNodes), head=[], tail=[], found=false, acc='';
+    function depth(t){ return (t.match(/[(（]/g)||[]).length-(t.match(/[)）]/g)||[]).length; }
+    kids.forEach(function(n){
+      if(found){ tail.push(n); return; }
+      if(n.nodeType===3){
+        var v=n.nodeValue, from=0, i;
+        while((i=v.indexOf(sep,from))>=0){
+          if(depth(acc+v.slice(0,i))<=0){
+            var a=v.slice(0,i), b=v.slice(i+sep.length);
+            if(a) head.push(document.createTextNode(a));
+            if(b) tail.push(document.createTextNode(b));
+            found=true; return;
+          }
+          from=i+sep.length;
+        }
+      }
+      acc+=n.textContent||''; head.push(n);
+    });
+    if(!found){
+      if(sep!==DASH) return null;
+      /* 「 — 」가 없으면 발급처·근거 표시만 떼어 내고 나머지를 이름으로 본다 */
+      head=[]; tail=[];
+      kids.forEach(function(n){ (n.nodeType===1&&(n.classList.contains('d3w')||n.classList.contains('law'))?tail:head).push(n); });
+    }
+    return {head:head, tail:tail};
+  }
+  function box(cls,nodes){ var d=document.createElement('div'); d.className=cls; nodes.forEach(function(n){d.appendChild(n);}); return d; }
+  function trimEdge(div){
+    /* 앞뒤 빈칸·남은 줄표 정리 */
+    var f=div.firstChild; if(f&&f.nodeType===3) f.nodeValue=f.nodeValue.replace(/^\s+/,'');
+    var l=div.lastChild; if(l&&l.nodeType===3) l.nodeValue=l.nodeValue.replace(/[\s—]+$/,'');
+  }
+  function chips(desc){
+    var c=[]; [].slice.call(desc.childNodes).forEach(function(n){
+      if(n.nodeType===1&&(n.classList.contains('d3w')||n.classList.contains('law'))) c.push(n);
+    });
+    c.forEach(function(n){ desc.removeChild(n); });
+    return c;
+  }
+  function doItem(li,cond){
+    if(cond) return doCond(li);
+    var s=splitAtDash(li);
+    var t=box('d3v-t',s.head), d=box('d3v-d',s.tail);
+    var ch=chips(d).concat(chips(t));
+    trimEdge(t); trimEdge(d);
+    li.innerHTML='';
+    li.appendChild(t);
+    if(d.textContent.trim()) li.appendChild(d);
+    if(ch.length) li.appendChild(box('d3v-c',ch));
+    /* 설명이 짧으면 발급처 표시를 같은 줄에 붙여 세로 길이를 줄인다 */
+    if(d.textContent.trim().length<=40 && ch.length<=2) li.classList.add('d3v-s');
+  }
+  /* 「해당하는 경우에만」 줄 — 「조건 → 준비할 서류 — 설명」 꼴을 세 칸으로 나눈다.
+     닫힌 상태에서는 조건과 준비할 서류만, 누르면 설명·발급처·근거가 보인다 */
+  function doCond(li){
+    var t, need=null, d, ar=splitAtDash(li,' → ');
+    if(ar){
+      t=box('d3v-t',ar.head);
+      var rest=box('',ar.tail), s2=splitAtDash(rest);
+      need=document.createElement('span'); need.className='d3v-need';
+      s2.head.forEach(function(n){need.appendChild(n);});
+      d=box('d3v-d',s2.tail);
+    }else{
+      var s=splitAtDash(li); t=box('d3v-t',s.head); d=box('d3v-d',s.tail);
+    }
+    var ch=chips(d).concat(chips(t)); if(need) ch=ch.concat(chips(need));
+    trimEdge(t); trimEdge(d); if(need){ trimEdge(need); if(!need.textContent.trim()) need=null; }
+    li.innerHTML='';
+    var q=document.createElement('div'); q.className='d3v-q';
+    var a=document.createElement('span'); a.className='d3v-ar'; a.textContent='▸'; a.setAttribute('aria-hidden','true');
+    var qt=document.createElement('div'); qt.className='d3v-qt'; qt.appendChild(t); if(need) qt.appendChild(need);
+    q.appendChild(a); q.appendChild(qt); li.appendChild(q);
+    var x=document.createElement('div'); x.className='d3v-x';
+    if(d.textContent.trim()) x.appendChild(d);
+    if(ch.length) x.appendChild(box('d3v-c',ch));
+    if(x.childNodes.length){ li.appendChild(x); li.tabIndex=0; li.setAttribute('role','button'); li.setAttribute('aria-expanded','false'); }
+    else { li.classList.add('d3v-nox'); a.style.visibility='hidden'; }
+  }
+  function doGroup(who){
+    if(who.classList.contains('d3v-g')) return;
+    who.classList.add('d3v-g');
+    /* 「■ 」 떼고 제목/설명 분리 */
+    var f=who.firstChild; if(f&&f.nodeType===3) f.nodeValue=f.nodeValue.replace(/^\s*■\s*/,'');
+    var hint=who.querySelector(':scope>.hint');
+    var tnodes=[].slice.call(who.childNodes).filter(function(n){return n!==hint;});
+    var bar=document.createElement('div'); bar.className='d3v-gbar';
+    var gt=box('d3v-gt',tnodes); trimEdge(gt); bar.appendChild(gt);
+    who.innerHTML=''; who.appendChild(bar);
+    if(hint){ var hf=hint.firstChild; if(hf&&hf.nodeType===3) hf.nodeValue=hf.nodeValue.replace(/^\s*—\s*/,''); who.appendChild(hint); }
+    var cond=/해당하는 경우|해당되는 경우|경우에만/.test(gt.textContent);
+    var ul=who.nextElementSibling;
+    if(cond) who.classList.add('cond');
+    /* 줄이 5개 이상일 때만 접어 둔다 — 몇 줄 안 되면 펼친 채로 둔다 */
+    cond=cond && ul && ul.matches('ul.d3l') && ul.children.length>=5;
+    if(cond){
+      var n=ul.children.length;
+      var btn=document.createElement('button'); btn.type='button'; btn.className='d3v-all';
+      btn.textContent='모두 펼치기 ('+n+')';
+      btn.addEventListener('click',function(){
+        var lis=[].slice.call(ul.children), open=lis.some(function(li){return !li.classList.contains('open');});
+        lis.forEach(function(li){ li.classList.toggle('open',open); li.setAttribute('aria-expanded',open?'true':'false'); });
+        btn.textContent=(open?'모두 접기 (':'모두 펼치기 (')+n+')';
+      });
+      bar.appendChild(btn);
+      if(hint==null){ var h=document.createElement('span'); h.className='hint'; h.textContent='내 경우에 해당하는 줄만 눌러서 확인하세요'; who.appendChild(h); }
+    }
+    if(ul && ul.matches('ul.d3l')) doList(ul,cond);
+  }
+  function doList(ul,cond){
+    if(ul.classList.contains('d3v')) return;
+    ul.classList.add('d3v'); if(cond) ul.classList.add('cond');
+    [].slice.call(ul.children).forEach(function(li){ if(li.tagName==='LI') doItem(li,cond); });
+  }
+  function run(root){
+    (root||document).querySelectorAll('.d3').forEach(function(d){
+      d.querySelectorAll('.d3who').forEach(doGroup);
+      d.querySelectorAll('ul.d3l:not(.d3v)').forEach(function(ul){ doList(ul,false); });
+    });
+  }
+  /* 조건 줄 펼치기 — 링크·근거표 누를 때는 접히지 않게 */
+  document.addEventListener('click',function(e){
+    var li=e.target.closest&&e.target.closest('ul.d3l.d3v.cond>li'); if(!li) return;
+    if(e.target.closest('a,.law,.d3v-x')) return;
+    var o=li.classList.toggle('open'); li.setAttribute('aria-expanded',o?'true':'false');
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key!=='Enter'&&e.key!==' ') return;
+    var li=e.target.matches&&e.target.matches('ul.d3l.d3v.cond>li')?e.target:null; if(!li) return;
+    e.preventDefault(); var o=li.classList.toggle('open'); li.setAttribute('aria-expanded',o?'true':'false');
+  });
+  var tm=null;
+  function later(){ clearTimeout(tm); tm=setTimeout(function(){ run(); },30); }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',function(){ run(); });
+  else run();
+  new MutationObserver(function(ms){
+    for(var i=0;i<ms.length;i++){ var t=ms[i].target; if(t.nodeType===1&&t.closest&&t.closest('.docs')&&t.querySelector('ul.d3l:not(.d3v)')){ later(); return; } }
+  }).observe(document.body,{childList:true,subtree:true});
+  window.d3vRun=run;
+})();
+</script>
+
 </body>
 </html>
