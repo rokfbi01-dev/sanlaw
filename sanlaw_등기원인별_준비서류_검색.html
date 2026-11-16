@@ -28,6 +28,19 @@ h2{font-family:'Nanum Myeongjo',serif; font-size:19px; font-weight:700; color:va
 .step{background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 18px; margin:16px 0; box-shadow:0 1px 0 rgba(0,0,0,.02);}
 .step .sh{font-weight:800; color:#241a10; margin-bottom:8px; font-size:16.5px;}
 .step .sh .no{display:inline-flex; align-items:center; justify-content:center; width:26px; height:26px; border-radius:50%; background:var(--gold); color:#fff; font-size:14px; margin-right:8px; vertical-align:1px;}
+/* 2026-11-16 차례대로 입력 — 앞 단계를 마치고 고른 내용이 표시되어야 다음 단계가 열린다 */
+.step.wz-lock{opacity:.45; pointer-events:none;}
+.step.wz-lock .sh::after{content:" — 앞 단계를 먼저 마쳐 주세요"; font-size:13px; font-weight:500; color:var(--muted);}
+.step.wz-on{border:2px solid var(--gold); box-shadow:0 0 0 4px rgba(200,134,45,.12);}
+.wz-done{display:none; margin:10px 0 0; padding:9px 12px; border-radius:10px; background:#eef6ec; border:1px solid #cfe3c9; color:#24451f; font-size:14.5px; line-height:1.55;}
+.wz-done.on{display:block;}
+.wz-next{display:flex; justify-content:flex-end; margin-top:12px;}
+.wz-next button{border:0; border-radius:999px; background:var(--gold); color:#fff; font-weight:800; font-size:15px; padding:11px 20px; cursor:pointer; box-shadow:0 3px 10px rgba(0,0,0,.12);}
+.wz-next button[hidden]{display:none;}
+#wzWait{display:none; margin:16px 0; padding:14px 16px; border:1px dashed var(--line); border-radius:12px; color:var(--muted); text-align:center; font-size:14.5px;}
+body.wz-pending #detail{display:none;}
+body.wz-pending #wzWait{display:block;}
+@media print{ .wz-next,#wzWait,.wz-done{display:none !important;} }
 .srow{display:flex; gap:8px; flex-wrap:wrap;}
 input[type=search],select{font:inherit; font-size:16px; padding:11px 12px; border:1.5px solid #d8cdb8; border-radius:10px; background:#fff; color:var(--ink); min-width:0;}
 input[type=search]{flex:1 1 320px;}
@@ -183,7 +196,7 @@ details.more summary{cursor:pointer; font-weight:700; color:var(--gold-d);}
 
 <div class="warn" id="topWarn"><span class="wt">⚠ 꼭 확인하세요</span><span class="warntext"></span></div>
 
-<section class="step" aria-labelledby="s1">
+<section class="step wz-on" aria-labelledby="s1">
   <div class="sh" id="s1"><span class="no">1</span>어떤 등기를 하시나요?</div>
   <label class="lab" for="q">등기원인이나 서류 이름으로 찾기</label>
   <div class="srow">
@@ -196,9 +209,10 @@ details.more summary{cursor:pointer; font-weight:700; color:var(--gold-d);}
   <div class="chips" id="chips" aria-label="자주 찾는 등기"></div>
   <div class="count" id="count" aria-live="polite"></div>
   <ul class="results" id="results" role="listbox" aria-label="검색 결과"></ul>
+  <div class="wz-done" id="wz1" aria-live="polite"></div>
 </section>
 
-<section class="step" aria-labelledby="s2">
+<section class="step wz-lock" aria-labelledby="s2" inert>
   <div class="sh" id="s2"><span class="no">2</span>누가 등기하시나요?</div>
   <div class="who">
     <div class="party"><label for="pO">넘겨주는 분 · 권리를 잃는 분 (등기의무자)</label>
@@ -207,14 +221,20 @@ details.more summary{cursor:pointer; font-weight:700; color:var(--gold-d);}
       <div class="half"><select id="pR"></select><div class="ps"><input type="search" id="qR" placeholder="이름으로 찾기 (예: 교회, 회사)" aria-label="등기권리자 종류를 이름으로 찾기" autocomplete="off"><div class="psug" id="sR"></div></div></div></div>
   </div>
   <p style="font-size:13.5px;color:var(--muted);margin:8px 0 0;">개인이시면 「성년 내국인 자연인」을 그대로 두시면 됩니다. 회사·조합·종중·외국인 등이면 왼쪽 목록에서 고르시거나, 오른쪽 칸에 이름을 넣어 찾으세요.</p>
+  <div class="wz-done" id="wz2" aria-live="polite"></div>
+  <div class="wz-next"><button type="button" id="wzN2" hidden>이대로 다음 ▸ 3. 어떤 부동산인가요?</button></div>
 </section>
 
-<section class="step" aria-labelledby="s3">
+<section class="step wz-lock" aria-labelledby="s3" inert>
   <div class="sh" id="s3"><span class="no">3</span>어떤 부동산인가요? <small style="font-weight:500;color:var(--muted);font-size:13.5px;">(해당하는 것을 모두 고르세요)</small></div>
   <div class="sits" id="props" role="group" aria-labelledby="s3"></div>
   <p class="sitnote">고르신 부동산에 따라 필요한 서류(농지취득자격증명, 주택 취득 명세서 등)가 목록에 함께 나옵니다. 고르지 않으면 부동산 종류에 따라 달라지는 서류는 「해당하는 경우에만 필요한 서류」 안에 접어 둡니다.</p>
+  <div class="wz-done" id="wz3" aria-live="polite"></div>
+  <div class="wz-next"><button type="button" id="wzN3" hidden>준비서류 보기 ▸</button></div>
 </section>
 
+<div id="wzWait">1·2·3단계를 차례로 마치시면 이 자리에 준비서류가 나타납니다.</div>
+<script>document.body.classList.add('wz-pending');</script>
 <div id="detail"><p class="loading">자료를 불러오는 중입니다…</p></div>
 
 <div class="warn" id="botWarn"><span class="wt">⚠ 꼭 확인하세요</span><span class="warntext"></span></div>
@@ -245,7 +265,7 @@ details.more summary{cursor:pointer; font-weight:700; color:var(--gold-d);}
 <label class="cb-l" for="cbAuto">① 보고 계신 내용 <small>(자동으로 옮겨집니다 · 고쳐 쓰셔도 됩니다)</small></label>
 <textarea id="cbAuto"></textarea>
 <label class="cb-l" for="cbMsg">② 덧붙일 말씀 <small>(내 상황·궁금한 점)</small></label>
-<textarea id="cbMsg" placeholder="예) 상속인이 3명이고, 그중 1명은 외국에 살고 있습니다."></textarea>
+<textarea id="cbMsg" placeholder="예) 제 경우에도 해당하는지, 언제까지 해야 하는지 궁금합니다."></textarea>
 <div class="cb-row">
 <a class="cb-k" id="cbKakao" href="https://pf.kakao.com/_znJqX/chat" target="_blank" rel="noopener">💬 카카오톡으로 보내기</a>
 <a class="cb-m" id="cbMail" href="mailto:rokfbi01@gmail.com">✉️ 이메일로 보내기</a>
@@ -256,8 +276,10 @@ details.more summary{cursor:pointer; font-weight:700; color:var(--gold-d);}
 (function(){
   var box=document.getElementById('cbBox'); if(!box) return;
   var au=document.getElementById('cbAuto'), ta=document.getElementById('cbMsg'), dirty=false, last='';
+  if(box.getAttribute('data-msg') && !ta.value) ta.value=box.getAttribute('data-msg');
   function clean(el){ if(!el) return ''; var c=el.cloneNode(true);
-    [].forEach.call(c.querySelectorAll('.bub,script,style,button,.cb-box'),function(x){x.parentNode.removeChild(x);});
+    [].forEach.call(c.querySelectorAll('.bub,script,style,button,.cb-box,.tt'),function(x){x.parentNode.removeChild(x);});
+    [].forEach.call(c.querySelectorAll('br'),function(x){x.parentNode.replaceChild(document.createTextNode(' '),x);});
     return (c.textContent||'').replace(/\s+/g,' ').trim(); }
   function title(){ return clean(document.querySelector('h1'))||document.title; }
   function generic(){
@@ -705,7 +727,7 @@ function partySec(r, cls, title, common, per, sel, side){
 }
 function show(i, scroll){
   if(i!==SELROW){ SEL={}; GSEL={}; SELROW=i; }
-  cur=i; var r=D.rows[i], o=+$('pO').value, g=+$('pR').value;
+  var wzPrev=cur; cur=i; var r=D.rows[i], o=+$('pO').value, g=+$('pR').value;
   Z={}; (r.z||[]).forEach(function(x){Z[x]=1;});
   defaults(r);
   var h='<div class="picked"><div class="pc">'+esc(r.n||r.c)+'</div><div class="pt">'+(r.n?'기록례 원인: '+esc(r.c)+' · ':'')+esc(r.t||'')+(r.d?' · '+esc(r.d):'')+' · 부동산등기기록례집 기록례 '+esc(r.k)+'</div>'
@@ -735,11 +757,11 @@ function show(i, scroll){
   /* 검색 칸 아래에 '고른 등기 서류로 내려가기' 단추 */
   var cnt=$('count'), old=cnt.querySelector('.go'); if(old) old.remove();
   var go=document.createElement('button'); go.type='button'; go.className='go'; go.textContent='↓ 「'+(r.n||r.c)+'」 준비서류 보기';
-  go.addEventListener('click',function(){ $('detail').scrollIntoView({behavior:'smooth',block:'start'}); }); cnt.appendChild(go);
+  go.addEventListener('click',function(){ wzGo($('detail')); }); cnt.appendChild(go);
   var oldb=cnt.querySelector('.back'); if(oldb) oldb.remove();
   if(HITS>1 && $('results').style.display==='none'){ var bk=document.createElement('button'); bk.type='button'; bk.className='go back'; bk.textContent='검색 결과 '+HITS+'건 다시 보기';
     bk.addEventListener('click',function(){ $('results').style.display=''; bk.remove(); }); cnt.appendChild(bk); }
-  if(scroll) $('detail').scrollIntoView({behavior:'smooth',block:'start'});
+  wzAfterShow(i,scroll,wzPrev);
 }
 function saveHash(){
   var p=[]; if(cur>=0) p.push('row='+cur); p.push('o='+$('pO').value,'r='+$('pR').value);
@@ -748,6 +770,48 @@ function saveHash(){
   /* 미리보기 창·메일 첨부처럼 주소를 바꿀 수 없는 곳에서도 화면은 그대로 동작하도록 */
   try{ history.replaceState(null,'','#'+p.join('&')); }catch(e){}
 }
+/* ===== 2026-11-16 차례대로 입력 =====
+   1단계(등기)를 고르면 고른 내용을 보여 주고 2단계로, 2단계를 확인하면 3단계로,
+   3단계를 확인해야 준비서류가 나타난다. 단계를 건너뛰지 않는다. */
+var FLOW=0; /* 0: 1단계 전 · 1: 2단계 차례 · 2: 3단계 차례 · 3: 모두 마침 */
+function wzSec(n){ return document.querySelector('section.step[aria-labelledby="s'+n+'"]'); }
+function wzOpt(id){ var s=$(id); return (s&&s.selectedIndex>=0)?s.options[s.selectedIndex].text:''; }
+function wzPaint(){
+  for(var n=1;n<=3;n++){
+    var s=wzSec(n); if(!s) continue;
+    var lock=(n===2&&FLOW<1)||(n===3&&FLOW<2);
+    s.classList.toggle('wz-lock',lock); if(lock) s.setAttribute('inert',''); else s.removeAttribute('inert');
+    s.classList.toggle('wz-on',FLOW<3&&n===FLOW+1);
+  }
+  document.body.classList.toggle('wz-pending',FLOW<3);
+  var r=(cur>=0&&D)?D.rows[cur]:null;
+  $('wz1').innerHTML=r?'✔ 고르신 등기: <b>'+esc(r.n||r.c)+'</b>'+(FLOW===1?' — 이제 아래 <b>2. 누가 등기하시나요?</b>를 확인해 주세요.':''):'';
+  $('wz1').classList.toggle('on',!!r);
+  $('wz2').innerHTML='✔ 넘겨주는 분: <b>'+esc(wzOpt('pO'))+'</b> · 받는 분: <b>'+esc(wzOpt('pR'))+'</b>'+(FLOW===2?' — 이제 아래 <b>3. 어떤 부동산인가요?</b>를 골라 주세요.':'');
+  $('wz2').classList.toggle('on',FLOW>=2);
+  var pp=PROPS.filter(function(x){return P[x.k];}).map(function(x){return x.l;});
+  $('wz3').innerHTML='✔ 부동산: <b>'+(pp.length?esc(pp.join(', ')):'고르지 않음')+'</b>'+(pp.length?'':' (부동산 종류에 따라 달라지는 서류는 접어서 보여 드립니다)');
+  $('wz3').classList.toggle('on',FLOW>=3);
+  $('wzN2').hidden=(FLOW!==1); $('wzN3').hidden=(FLOW!==2);
+  if(FLOW<3){ var g=document.querySelector('#count .go:not(.back)'); if(g) g.remove(); }
+}
+function wzGo(el){ if(!el) return; setTimeout(function(){
+  /* 위에 붙어 있는 메뉴 띠에 단계 제목이 가려지지 않도록 그 높이만큼 덜 내려간다 */
+  var hd=document.querySelector('header.subbar'), off=hd?hd.getBoundingClientRect().height:0;
+  var y=el.getBoundingClientRect().top+window.pageYOffset-off-10;
+  try{ window.scrollTo({top:y,behavior:'smooth'}); }catch(e){ window.scrollTo(0,y); }
+},60); }
+function wzAfterShow(i,scroll,prev){
+  if(prev!==i && FLOW>=1) FLOW=1;   /* 다른 등기를 새로 고르면 2·3단계를 다시 확인 */
+  if(FLOW<1) FLOW=1;
+  wzPaint();
+  /* 방금 고른 내용(✔ 표시)이 화면 맨 위에 보이고, 그 아래로 다음 단계가 이어지도록 내려간다 */
+  if(FLOW>=3){ if(scroll) wzGo($('wz3')); return; }
+  if(scroll && prev!==i) wzGo($('wz1'));
+}
+$('wzN2').addEventListener('click',function(){ FLOW=2; wzPaint(); wzGo($('wz2')); });
+$('wzN3').addEventListener('click',function(){ FLOW=3; show(cur,true); });
+['pO','pR'].forEach(function(id){ $(id).addEventListener('change',function(){ if(cur<0) wzPaint(); }); });
 function readHash(){
   var h={};
   try{
@@ -759,8 +823,10 @@ function readHash(){
   /* 주소에 적힌 부동산 종류는 미리 정한 이름만 받아들인다 (주소 조작 대비) */
   if(h.pp){ h.pp.split(',').forEach(function(k){ if(!PROPS.some(function(x){return x.k===k;})) return; var cb=document.querySelector('#props input[data-p="'+k+'"]'); if(cb){ cb.checked=true; P[k]=true; } }); }
   search();
-  if(h.row && D.rows[+h.row]) show(+h.row,false);
+  /* 공유 주소처럼 이미 다 고른 상태로 들어오면 단계 안내 없이 바로 준비서류를 보여 준다 */
+  if(h.row && D.rows[+h.row]){ cur=+h.row; FLOW=3; show(+h.row,false); }
   else $('detail').innerHTML='<div class="tip">① 위에서 등기를 고르시면 이곳에 준비서류가 나타납니다.</div>';
+  wzPaint();
 }
 /* 인쇄: 본목록과 「체크하신 서류」만 나오고, 접힌 목록(해당하는 경우·감면 전체)은 나오지 않음 — 화면 CSS @media print 참고 */
 window.__REGDOCS_START=start;
