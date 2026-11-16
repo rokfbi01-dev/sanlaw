@@ -677,10 +677,8 @@
       <div class="line" style="background:#fdf6e8;border-radius:6px;padding:8px;"><span class="lbl">★ 함께 지울<br>근저당권 등 건수</span><div class="stepper"><button onclick="step('cntCancel',-1,saleCancelChg)">−</button><input type="number" id="cntCancel" value="0" min="0" oninput="saleCancelChg()"><button onclick="step('cntCancel',1,saleCancelChg)">+</button></div><span class="hint">잔금 때 <b>함께 지우는</b> 근저당권·전세권·지상권·임차권의 건수입니다. <b>등기사항전부증명서 을구</b>에서 지워질 항목을 세어 넣으십시오. 없으면 <b>0</b> 그대로 두시면 됩니다.</span></div>
       <div class="note" id="cancelNote" style="display:none;">▸ <b>말소 비용은 원칙적으로 매도인이 부담합니다.</b> 파는 사람은 <b>온전한 소유권</b>을 넘겨줄 의무가 있기 때문입니다 <span class="law" title="민법 제568조제1항 — 매도인은 매수인에 대하여 매매의 목적이 된 권리를 이전하여야 한다. 제576조 — 매매의 목적이 된 부동산에 저당권·전세권의 행사로 매수인이 소유권을 취득할 수 없는 때에는 매수인은 계약을 해제할 수 있다.">민법 §568①·§576</span>. 다만 실무에서는 <b>잔금날 매수인 측 법무사가 한꺼번에 처리</b>하고 그 비용을 매매대금에서 정산하는 경우가 많아, 이 계산기는 <b>총액을 한 장에 보여드리려고</b> 함께 표시합니다. 누가 낼지는 <b>계약서·특약</b>에 따릅니다.<br>▸ 1건마다 <b>등록면허세 6,000원 + 지방교육세 1,200원 + 등기신청수수료</b>가 들고, 법무사 보수는 <b>1건당 80,000원</b>입니다 <span class="law" title="법무사 보수기준 제9조제5항제4호 및 보수표 Ⅰ-3(4) — 말소등기의 기본보수는 80,000원">보수기준 §9⑤4호</span>.<br>▸ <b>가압류·가처분·압류(체납)는 이 건수에 넣지 마십시오.</b> 이것들은 당사자가 신청해서 지우는 등기가 아니라 <b>법원·세무서가 촉탁</b>해서 지웁니다. 채권자의 집행해제(취하)신청 또는 체납액 완납이 먼저이며, <b>잔금 전에 해제 여부를 반드시 확인</b>하십시오. <span class="tag chk">확인필요</span></div>
       <div class="line" id="trustLine" style="background:#eef4fb;border-radius:6px;padding:8px;"><span class="lbl">★ 분양 신탁 부동산<br><small style="font-weight:400">신탁회사 명의에서 이전</small></span><div class="checks" onchange="calcSale()">
-        <label><input type="checkbox" id="trCancel"> 신탁등기 말소 — 소유권이전과 같은 신청서로 함께 신청<span class="law" title="부동산등기법 제87조제1항 — 신탁재산에 속한 권리가 이전되어 신탁재산에 속하지 아니하게 된 경우 신탁등기의 말소신청은 신탁된 권리의 이전등기 신청과 동시에 하여야 한다. 같은 조 제4항은 제82조제2항·제3항을 준용한다.">부동산등기법 §87</span></label>
-        <label><input type="checkbox" id="trChange"> 토지 신탁등기 변경등기 동시 신청 — 서면(전용 양식이 없어 신탁원부 변경등기 양식을 빌려 작성)</label>
-        <span class="hint">변경등기 건수</span> <input type="number" id="trChangeN" value="1" min="1" style="width:52px;margin-left:4px;" oninput="calcSale()"></div></div>
-      <div class="note" id="trustNote" style="display:none;">▸ 신탁회사(수탁자) 명의로 되어 있는 분양 부동산을 수분양자 앞으로 이전할 때는 <b>신탁등기 말소</b>를 이전등기와 <b>같은 신청서</b>로 함께 신청합니다. <b>토지 신탁등기 변경등기</b>는 전용 신청 양식(e-Form 포함)이 없어 <b>신탁원부 변경등기 양식을 빌려 서면으로 신청</b>합니다. 정해진 양식이 없어 <b>신청서를 사안에 맞게 직접 만들어야 하는, 난이도가 있는 신청</b>입니다. 등기신청수수료도 서면 기준으로 계산합니다. 공과금과 보수는 아래 표에 따로 나옵니다.</div>
+        <label><input type="checkbox" id="trCancel"> 신탁등기 말소 — 소유권이전과 같은 신청서로 함께 신청<span class="law" title="부동산등기법 제87조제1항 — 신탁재산에 속한 권리가 이전되어 신탁재산에 속하지 아니하게 된 경우 신탁등기의 말소신청은 신탁된 권리의 이전등기 신청과 동시에 하여야 한다. 같은 조 제4항은 제82조제2항·제3항을 준용한다.">부동산등기법 §87</span></label></div></div>
+      <div class="note" id="trustNote" style="display:none;">▸ 신탁회사(수탁자) 명의로 되어 있는 분양 부동산을 수분양자 앞으로 이전할 때는 <b>신탁등기 말소</b>를 이전등기와 <b>같은 신청서</b>로 함께 신청합니다. 그래서 말소 신청수수료는 따로 고르지 않고 <b>이전등기 신청 방법(e-Form·수기·전자)을 그대로 따라</b> 등기신청수수료에 들어갑니다. <b>토지 신탁등기 변경등기</b>가 함께 필요하면 아래 ② 공과금의 「등기신청수수료」 바로 아랫줄에서 <b>「서면 함께 신청」</b>을 고르십시오. 정해진 양식(e-Form 포함)이 없어 신탁원부 변경등기 양식을 빌려 <b>서면으로 직접 만들어 내는, 난이도가 있는 신청</b>입니다.</div>
       <div class="line"><span class="lbl">등기권리자(인)</span><div class="stepper"><button onclick="step('cntOwner',-1,calcSale)">−</button><input type="number" id="cntOwner" value="1" min="1" oninput="calcSale()"><button onclick="step('cntOwner',1,calcSale)">+</button></div><span class="hint">보수기준 <b>§2②4호</b> — 당사자·이해관계인 <b>5인 이상</b> 판정용 (아래 「당사자 다수 가산」과 연동)</span></div>
       <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcSale();junjuToggle()">
         <label><input type="radio" name="ptype" value="house" checked> 주택</label>
@@ -754,8 +752,12 @@
         <tr id="cancelEduRow" style="display:none;background:#fdf6e8;"><td>말소분 지방교육세 <span class="hint">(등록면허세×20%)</span><span class="law" title="지방세법 제151조제1항제2호 — 등록면허세액의 100분의 20을 지방교육세로 함께 납부합니다.">지방세법 §151①2호</span></td><td class="auto" id="cancelEduCell">0 원</td></tr>
         <tr id="trRegRow" style="display:none;background:#eef4fb;"><td>신탁 말소·변경 등록면허세 <span class="hint" id="trRegNote"></span><span class="law" title="지방세법 제28조제1항제1호 마목 — 그 밖의 등기는 매 1건당 6,000원">§28①1호마목</span></td><td class="auto" id="trRegCell">0 원</td></tr>
         <tr id="trEduRow" style="display:none;background:#eef4fb;"><td>신탁분 지방교육세 <span class="hint">(등록면허세×20%)</span><span class="law" title="지방세법 제151조제1항제2호 — 등록면허세액의 100분의 20">§151①2호</span></td><td class="auto" id="trEduCell">0 원</td></tr>
-        <tr id="trFeeRow" style="display:none;background:#eef4fb;"><td>신탁 말소·변경 등기신청수수료 <span class="hint" id="trFeeNote"></span><span class="tag B">B</span><span class="law" title="등기신청수수료 징수에 관한 예규(등기예규 제1861호) 별표 — 신탁등기의 변경·말소 등 그 밖의 신탁 관련 등기는 「그 밖의 등기」 수수료(서면 4,000 / e-Form 3,000 / 전자 1,000). 토지 신탁등기 변경등기는 전용 양식이 없어 서면으로 신청.">수수료 예규</span></td><td class="auto" id="trFeeCell">0 원</td></tr>
         <tr><td>등기신청수수료 <select id="regMethod" class="mini" onchange="calcSale()"><option value="e" selected>e-Form 15,000</option><option value="p">수기 18,000</option><option value="o">전자 10,000</option></select> <span class="hint" id="regNote"></span><span class="law" title="「등기사항증명서 등 수수료규칙」 §5의2 — 부동산 등기신청수수료. 2025.8.1. 시행(대법원규칙 제3222호)으로 방문서면·e-Form이 인상되었고 전자신청은 동결되었습니다.">수수료규칙 §5의2</span></td><td class="auto" id="regFeeCell">0 원</td></tr>
+        <tr id="regBreakRow" style="display:none;background:#eef4fb;"><td colspan="2" style="white-space:normal;word-break:keep-all;font-size:12.5px;line-height:1.7;padding:6px 10px 8px 14px;text-align:left;">
+          <div>└ 소유권이전 <b id="rbMain">0 원</b> <span class="hint" id="rbMainNote"></span></div>
+          <div>└ 신탁등기 말소 <b id="rbTrC">0 원</b> <span class="hint">— 이전등기와 같은 신청서라 위에서 고른 방법을 그대로 따릅니다</span></div>
+          <div>└ <label style="display:inline;"><input type="checkbox" id="trChange" onchange="calcSale()" style="vertical-align:-2px;"> 서면 함께 신청 — 토지 신탁등기 변경</label> 4,000원 × <input type="number" id="trChangeN" value="1" min="1" style="width:46px;" oninput="calcSale()"> 건 = <b id="rbTrV">0 원</b> <span class="hint">— e-Form·전자 양식이 없어 서면만 가능합니다</span></div>
+          <div style="border-top:1px dashed #c9d8f5;margin-top:4px;padding-top:4px;">= 등기신청수수료 합계 <b id="rbSum">0 원</b></div></td></tr>
         <tr><td>수입인지 <button class="btn ghost" style="padding:2px 8px;font-size:11px;" onclick="autoDutySale()">자동</button></td><td><input class="cell" id="stampDuty" type="number" value="0" oninput="calcSale(true)"></td></tr>
         <tr><td>대장·등본 우편 등 <span class="hint">(개수 곱)</span></td><td><input class="cell" id="postFee" type="number" value="6000" oninput="calcSale(true)"></td></tr>
         <tr class="subtot"><td>공과금계</td><td id="publicSum">0 원</td></tr>
@@ -7447,11 +7449,24 @@ function calcSale(fromEdit){
   const cntC=Math.max(0,val('cntCancel'));
   const m=document.getElementById('regMethod').value;const idx=m==='p'?0:(m==='o'?2:1);
   const unit=REG_RE.일반[idx], unitC=REG_RE.기타[idx];
-  const regFee=unit*cntE+unitC*cntC;
+  /* 분양 신탁 부동산 — 신탁등기 말소는 이전등기와 같은 신청서라 고른 신청 방법의 「그 밖의 등기」 단가(e-Form 3,000 등),
+     토지 신탁등기 변경등기는 서면 단가(4,000) — 모두 「등기신청수수료」 줄에 합쳐 표시·납부액에 넣는다 */
+  const _trC=chk('trCancel'), _trV=_trC&&chk('trChange'), _trN=_trV?Math.max(1,val('trChangeN')):0;   /* 변경 체크는 신탁 말소를 고른 때에만 보인다 */
+  const trFee=(_trC?unitC*cntE:0)+_trN*REG_RE.기타[0];
+  const regFee=unit*cntE+unitC*cntC+trFee;
   document.getElementById('regFeeCell').textContent=won(regFee);
-  document.getElementById('regNote').textContent=(cntC>0)
-    ?('이전 '+unit.toLocaleString()+'×'+cntE+'개 + 말소 '+unitC.toLocaleString()+'×'+cntC+'건')
-    :('건당 '+unit.toLocaleString());
+  {const _rb=document.getElementById('regBreakRow');
+   if(_rb){_rb.style.display=_trC?'table-row':'none';
+     if(_trC){document.getElementById('rbMain').textContent=won(unit*cntE+unitC*cntC);
+       document.getElementById('rbMainNote').textContent='('+({e:'e-Form',p:'수기',o:'전자'}[m]||'')+' '+unit.toLocaleString()+'×'+cntE+'개'+(cntC>0?' + 근저당 등 말소 '+unitC.toLocaleString()+'×'+cntC+'건':'')+')';
+       document.getElementById('rbTrC').textContent=won(unitC*cntE)+' ('+({e:'e-Form',p:'수기',o:'전자'}[m]||'')+' '+unitC.toLocaleString()+'×'+cntE+'개)';
+       document.getElementById('rbTrV').textContent=won(_trN*REG_RE.기타[0]);
+       document.getElementById('rbSum').textContent=won(regFee);}}}
+  {const _rp=['이전 '+unit.toLocaleString()+'×'+cntE+'개'];
+   if(cntC>0)_rp.push('말소 '+unitC.toLocaleString()+'×'+cntC+'건');
+   if(_trC)_rp.push('신탁말소 '+unitC.toLocaleString()+'×'+cntE+'개');
+   if(_trN)_rp.push('신탁등기 변경(서면) '+REG_RE.기타[0].toLocaleString()+'×'+_trN+'건');
+   document.getElementById('regNote').textContent=(_rp.length>1)?_rp.join(' + '):('건당 '+unit.toLocaleString());}
   const cancelReg=6000*cntC, cancelEdu=Math.round(cancelReg*0.2);
   {const _crR=document.getElementById('cancelRegRow'), _ceR=document.getElementById('cancelEduRow'), _cN=document.getElementById('cancelNote');
    if(_crR){_crR.style.display=cntC>0?'table-row':'none';document.getElementById('cancelRegCell').textContent=won(cancelReg);document.getElementById('cancelRegNote').textContent=cntC>0?('(6,000 × '+cntC+'건)'):'';}
@@ -7461,22 +7476,18 @@ function calcSale(fromEdit){
        · 등록면허세 : 그 밖의 등기 매 1건 6,000원(지방세법 §28①1호 마목) — 말소는 부동산마다, 변경은 건수만큼
        · 지방교육세 : 등록면허세의 20%(§151①2호)
        · 등기신청수수료 : 신탁 변경·말소 = 그 밖의 등기 단가(예규 제1861호 별표) — 말소는 고른 신청 방법, 변경은 서면 단가 [B] */
-  const _trC=chk('trCancel'), _trV=chk('trChange'), _trN=_trV?Math.max(1,val('trChangeN')):0;
   const _trCnt=(_trC?cntE:0)+_trN;
   const trReg=6000*_trCnt, trEdu=Math.round(trReg*0.2);
-  const trFee=(_trC?REG_RE.기타[idx]*cntE:0)+_trN*REG_RE.기타[0];
   {const show=(_trC||_trV)?'table-row':'none';
-   ['trRegRow','trEduRow','trFeeRow'].forEach(function(id){const r=document.getElementById(id);if(r)r.style.display=show;});
+   ['trRegRow','trEduRow'].forEach(function(id){const r=document.getElementById(id);if(r)r.style.display=show;});
    const _tn=document.getElementById('trustNote'); if(_tn)_tn.style.display=(_trC||_trV)?'block':'none';
    if(_trC||_trV){
      document.getElementById('trRegCell').textContent=won(trReg);
      document.getElementById('trRegNote').textContent='(6,000 × '+_trCnt+'건'+(_trC?' · 말소 '+cntE:'')+(_trV?' · 변경 '+_trN:'')+')';
      document.getElementById('trEduCell').textContent=won(trEdu);
-     document.getElementById('trFeeCell').textContent=won(trFee);
-     document.getElementById('trFeeNote').textContent='('+(_trC?'말소 '+REG_RE.기타[idx].toLocaleString()+'×'+cntE:'')+(_trC&&_trV?' + ':'')+(_trV?'변경(서면) '+REG_RE.기타[0].toLocaleString()+'×'+_trN:'')+')';
    }}
   const post=val('postFee')*cntE;
-  const publicSum=val('acqTax')+val('eduTax')+val('ruralTax')+bondLoss+regFee+cancelReg+cancelEdu+trReg+trEdu+trFee+val('stampDuty')+nongmakTax('','ptype','farm')+post+pubCustomSum('scene-매매');
+  const publicSum=val('acqTax')+val('eduTax')+val('ruralTax')+bondLoss+regFee+cancelReg+cancelEdu+trReg+trEdu+val('stampDuty')+nongmakTax('','ptype','farm')+post+pubCustomSum('scene-매매');
   document.getElementById('publicSum').textContent=won(publicSum);
   const adj=parseFloat(document.getElementById('feeAdjust').value)||1;
   /* ★ 표상 기본보수(feeRaw) — 가산보수(§10③④⑥·§14①②⑤)는 「당해 기본보수」 = 표상 금액을
@@ -7507,10 +7518,10 @@ function calcSale(fromEdit){
    if(_fcR){_fcR.style.display=cntC>0?'table-row':'none';document.getElementById('feeCancelCell').textContent=won(feeCancel);document.getElementById('feeCancelNote').textContent=cntC>0?('(80,000 × '+cntC+'건'+(adj!==1?' ×'+(adj*100)+'%':'')+')'):'';}}
   fee+=feeCancel;
   /* 신탁등기 말소 보수표 Ⅰ-4(4) 50,000 · 토지 신탁등기 변경 Ⅰ-4(2) 80,000 × 건수 (조정률 같이 적용) */
-  const _tRaw=(chk('trCancel')?FLAT['Ⅰ-4(4)']:0)+(chk('trChange')?FLAT['Ⅰ-4(2)']*Math.max(1,val('trChangeN')):0), feeTrust=Math.round(_tRaw*adj);
+  const _tRaw=(chk('trCancel')?FLAT['Ⅰ-4(4)']:0)+((chk('trCancel')&&chk('trChange'))?FLAT['Ⅰ-4(2)']*Math.max(1,val('trChangeN')):0), feeTrust=Math.round(_tRaw*adj);
   {const _ftR=document.getElementById('feeTrustRow');
    if(_ftR){_ftR.style.display=_tRaw>0?'table-row':'none';document.getElementById('feeTrustCell').textContent=won(feeTrust);
-     document.getElementById('feeTrustNote').textContent=_tRaw>0?('('+(chk('trCancel')?'말소 50,000':'')+(chk('trCancel')&&chk('trChange')?' + ':'')+(chk('trChange')?'토지신탁 변경 80,000×'+Math.max(1,val('trChangeN')):'')+(adj!==1?' ×'+(adj*100)+'%':'')+')'):'';}}
+     document.getElementById('feeTrustNote').textContent=_tRaw>0?('('+(chk('trCancel')?'말소 50,000':'')+(chk('trCancel')&&chk('trChange')?' + ':'')+((chk('trCancel')&&chk('trChange'))?'토지신탁 변경 80,000×'+Math.max(1,val('trChangeN')):'')+(adj!==1?' ×'+(adj*100)+'%':'')+')'):'';}}
   fee+=feeTrust;
   if(chk('f_origin')){const _oa=parseFloat((document.getElementById('originAdd')||{}).value)||0;const _oAdd=Math.round(50000*_oa);fee+=50000+_oAdd;const _oc=document.getElementById('originCell');if(_oc)_oc.textContent=won(50000+_oAdd)+(_oAdd>0?' (기본50,000+§25②가산'+won(_oAdd)+')':'');}else{const _oc=document.getElementById('originCell');if(_oc)_oc.textContent='0 원';}if(chk('f_tax'))fee+=50000;if(chk('f_bond'))fee+=40000;if(chk('f_trip'))fee+=val('tripFee');
   if(chk('f_same')){const n=Math.max(1,val('sameN')),e=Math.max(1,val('cntEstate'));const v=200000+((n-1)+(e-1))*30000;document.getElementById('sameCell').textContent=won(v);fee+=v;}else document.getElementById('sameCell').textContent='0 원';
