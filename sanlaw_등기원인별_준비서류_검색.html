@@ -68,6 +68,13 @@ input[type=search]:focus,select:focus,button:focus,a:focus{outline:3px solid #e9
 #cause{width:100%;}
 .count .go{margin-left:10px; border:1px solid var(--gold); background:#fffaf0; color:var(--gold-d); border-radius:999px; padding:3px 12px; font-weight:700; cursor:pointer; font-size:13.5px;}
 .gw{font-size:14px; color:#4a3b2a; line-height:1.65; margin:2px 0 6px;} .gw small{color:var(--muted);}
+.gsearch{margin:12px 0 8px; padding:12px 14px; background:#f4f8ff; border:1px solid #c9d8f5; border-left:4px solid #1747c7; border-radius:10px;}
+.gsearch label{display:block; font-weight:800; color:#1747c7; margin:0 0 6px; font-size:15px;} .gsearch label small{font-weight:500; color:var(--muted); font-size:13px;}
+.gsearch input{width:100%; box-sizing:border-box; border:1px solid #b9c9ea; border-radius:10px; padding:10px 12px; font-size:16px; background:#fff;}
+.gsearch .gtags{margin:8px 0 0; display:flex; flex-wrap:wrap; gap:6px;} .gsearch .gtags button{border:1px solid #c9d8f5; background:#fff; color:#1747c7; border-radius:999px; padding:4px 11px; font-size:13.5px; cursor:pointer;}
+.gsearch .gcnt{font-size:14px; font-weight:700; color:#24345a; margin:10px 0 4px;} .gsearch .gfit{display:inline-block; font-size:12px; font-weight:700; color:#1d6b2f; background:#e6f4e8; border-radius:6px; padding:1px 7px; margin-left:6px; vertical-align:2px;}
+.gsearch .gitem{border-top:1px dashed #c9d8f5; padding-top:8px; margin-top:8px;}
+@media print{ .gsearch{display:none !important;} }
 .gnote{font-size:13.5px; color:var(--muted); margin:8px 0;} .glab{font-size:13.5px; font-weight:700; color:var(--ink,#2b2b2b); margin:4px 0 0;} .glist{font-size:14px; line-height:1.7; padding-left:20px;} .glist small{color:var(--muted);}
 .picked .pnote{font-size:14px; color:#4a3b2a; margin:8px 0 0; line-height:1.6;}
 .who{display:grid; grid-template-columns:1fr; gap:12px; margin-top:4px;}
@@ -393,6 +400,8 @@ function start(data){
   /* 등기원인 목록 (가나다순) — 고르면 바로 준비서류 */
   fillCause();
   $('detail').addEventListener('change', onCheck);
+  $('detail').addEventListener('input', function(e){ if(e.target && e.target.id==='gq'){ GQ=e.target.value; var g=$('gres'); if(g) g.innerHTML=gSearchHtml(cur>=0?D.rows[cur]:null); } });
+  $('detail').addEventListener('click', function(e){ var b=e.target&&e.target.closest?e.target.closest('button[data-gq]'):null; if(!b) return; GQ=b.getAttribute('data-gq'); var q=$('gq'); if(q) q.value=GQ; var g=$('gres'); if(g) g.innerHTML=gSearchHtml(cur>=0?D.rows[cur]:null); });
   $('cause').addEventListener('change',function(){ var v=$('cause').value; if(v!=='') show(+v,true); });
   ['pO','pR'].forEach(function(id){
     var sel=$(id), groups={};
@@ -641,7 +650,7 @@ function onCheck(ev){
     var cg=t.closest('.cg'), k=cg.getAttribute('data-k'), gs=(/^(k:|g:|nj$)/.test(k))?$('detail').querySelectorAll('.cg[data-k="'+k+'"]'):[cg];
     Array.prototype.forEach.call(gs,function(g){ g.querySelectorAll('input.ck').forEach(function(x){ SEL[+x.getAttribute('data-id')]=t.checked; }); });
   }
-  else if(t.classList.contains('ckm')) GSEL[+t.getAttribute('data-g')]=t.checked;
+  else if(t.classList.contains('ckm')){ var gk=t.getAttribute('data-g'); GSEL[+gk]=t.checked; $('detail').querySelectorAll('input.ckm[data-g="'+gk+'"]').forEach(function(x){ x.checked=t.checked; }); }
   else return;
   updateChosen();
 }
@@ -666,9 +675,43 @@ function gamFor(r){
     return e.s.some(function(c){ return c.indexOf('inst:')===0 && kwMatch(c.slice(5), sn); });
   });
 }
+/* ---- 2026-11-16 감면 사유 검색: 지방세특례제한법 취득세 감면 전체(200여 가지)에서 낱말로 찾기 ---- */
+var GQ='';
+var GTAGS=['생애최초','출산','다자녀','장애인','국가유공자','귀농','농지','임대주택','전세사기','사회복지','종교','학교','산업단지','창업'];
+function gNorm(s){ return String(s||'').toLowerCase().replace(/\s+/g,''); }
+function gSearchHtml(r){
+  var q=GQ.trim(); if(!q) return '<div class="gcnt" style="font-weight:500;color:var(--muted)">낱말을 넣거나 위 단추를 누르면 감면 사유와 신청 서류가 바로 나옵니다.</div>';
+  var terms=q.split(/\s+/).map(gNorm).filter(Boolean), fit=r?gamFor(r):[];
+  var hit=D.G.filter(function(e){
+    var hay=gNorm([e.n,e.w,e.r,e.a,(e.d||[]).join(' '),e.c||''].join(' '));
+    return terms.every(function(x){ return hay.indexOf(x)>=0; });
+  });
+  /* 고르신 등기·받는 분·부동산에 해당할 수 있는 것을 먼저 */
+  hit.sort(function(a,b){ return (fit.indexOf(b)>=0)-(fit.indexOf(a)>=0); });
+  if(!hit.length) return '<div class="gcnt">「'+esc(q)+'」이(가) 들어 있는 감면 사유가 없습니다. 낱말을 줄이거나 바꿔 보세요 (예: "다자녀" → "자녀").</div>';
+  var h='<div class="gcnt">「'+esc(q)+'」 찾은 감면 '+hit.length+'가지'+(hit.length>30?' — 앞의 30가지만 보여 드립니다. 낱말을 더 넣으면 줄어듭니다':'')+'</div>';
+  hit.slice(0,30).forEach(function(e){
+    var g=gOne(e); if(fit.indexOf(e)>=0) g=g.replace('</div>','<span class="gfit">고르신 조건에 해당할 수 있음</span></div>');
+    h+='<div class="gitem">'+g+'</div>';
+  });
+  return h;
+}
+function gSearchBox(r){
+  return '<div class="gsearch"><label for="gq">🔎 감면 사유 검색 <small>(지방세특례제한법 취득세 감면 전체 '+D.G.length+'가지에서 찾기)</small></label>'
+    +'<input type="search" id="gq" value="'+esc(GQ)+'" placeholder="예: 생애최초, 출산, 장애인, 귀농, 임대주택, 제36조" autocomplete="off" aria-controls="gres">'
+    +'<div class="gtags">'+GTAGS.map(function(w){ return '<button type="button" data-gq="'+esc(w)+'">'+esc(w)+'</button>'; }).join('')+'</div>'
+    +'<div id="gres" aria-live="polite">'+gSearchHtml(r)+'</div></div>';
+}
+function gOne(e){
+  var gi=D.G.indexOf(e);
+  var t='<div class="grp">'+esc(e.n)+'</div><label class="ckl gck"><input type="checkbox" class="ckm" data-g="'+gi+'"'+(GSEL[gi]?' checked':'')+'><span>이 감면을 신청하려고 합니다 (아래 서류를 「체크하신 서류」와 인쇄에 넣기)</span></label><div class="gw"><b>감면:</b> '+esc(e.r)+'<br><b>대상:</b> '+esc(e.w)+'<br><small>'+(e.e&&e.e!=='없음'?'적용기한 '+esc(e.e.replace(/-/g,'. '))+'.까지 · ':'')+'근거 지방세특례제한법 '+esc(e.a)+'</small></div>';
+  t+='<div class="glab">감면 신청 때 준비할 서류</div><ol class="docs">'+e.d.map(function(x){return '<li><b>'+esc(x)+'</b></li>';}).join('')+'</ol>';
+  if(e.c) t+='<div class="note">※ 추징: '+esc(e.c)+'</div>';
+  return t;
+}
 function gamHtml(r){
   if(!r.g || !D.G || !D.G.length) return '';
-  var list=gamFor(r), h='';
+  var list=gamFor(r), h=gSearchBox(r);
   h+='<details class="more gam"><summary>취득세 감면을 받을 수 있는 경우 '+list.length+'가지 보기</summary>';
   h+='<p class="gnote">고르신 등기·받는 분·부동산에 해당할 수 있는 지방세특례제한법상 감면입니다. 요건을 갖추었는지는 취득일 현재를 기준으로 시·군·구청이 판단하며, 감면을 받으려면 취득세 신고 때 감면 신청서와 아래 서류를 함께 냅니다. 감면받은 뒤 정해진 기간 안에 팔거나 다른 용도로 쓰면 추징될 수 있습니다. 취득세가 전액 면제되는 경우라도 산출세액이 200만원을 넘으면 85%만 감면되고 15%는 내야 할 수 있습니다(최소납부세제, 지방자치단체 조례로 달리 정할 수 있음).</p>';
   if(!list.length) h+='<div class="none">고르신 조건에 맞는 감면 사유가 없습니다. 받는 분이나 부동산 종류를 바꿔 보시거나 아래 전체 목록을 확인하세요.</div>';
@@ -680,13 +723,7 @@ function gamHtml(r){
     (key?main:rest).push(e);
   });
   if(nat) main.sort(function(a,b){ return GKEY.indexOf(a.a)-GKEY.indexOf(b.a); });
-  function one(e){
-    var gi=D.G.indexOf(e);
-    var t='<div class="grp">'+esc(e.n)+'</div><label class="ckl gck"><input type="checkbox" class="ckm" data-g="'+gi+'"'+(GSEL[gi]?' checked':'')+'><span>이 감면을 신청하려고 합니다 (아래 서류를 「체크하신 서류」와 인쇄에 넣기)</span></label><div class="gw"><b>감면:</b> '+esc(e.r)+'<br><b>대상:</b> '+esc(e.w)+'<br><small>'+(e.e&&e.e!=='없음'?'적용기한 '+esc(e.e.replace(/-/g,'. '))+'.까지 · ':'')+'근거 지방세특례제한법 '+esc(e.a)+'</small></div>';
-    t+='<div class="glab">감면 신청 때 준비할 서류</div><ol class="docs">'+e.d.map(function(x){return '<li><b>'+esc(x)+'</b></li>';}).join('')+'</ol>';
-    if(e.c) t+='<div class="note">※ 추징: '+esc(e.c)+'</div>';
-    return t;
-  }
+  var one=gOne;
   main.forEach(function(e){ h+=one(e); });
   if(rest.length) h+='<details class="more"><summary>'+(main.length?'그 밖에 ':'')+'사업·시설 등 특정 용도로 취득하는 경우의 감면 '+rest.length+'가지 보기</summary>'+rest.map(one).join('')+'</details>';
   h+='</details>';
@@ -857,7 +894,7 @@ window.cbSummary=function(){
       var hd=sec.querySelector('.hd'); var h=hd?(hd.innerText||hd.textContent||'').split('\n')[0].replace(/\s+/g,' ').trim():'';
       if(!h || /법무사 사무소가 준비/.test(h)) return;
       var items=[];
-      [].forEach.call(sec.querySelectorAll('ol.docs'),function(ol){ if(ol.closest('details')) return; [].forEach.call(ol.children,function(li){ var s=item(li); if(s) items.push(s); }); });
+      [].forEach.call(sec.querySelectorAll('ol.docs'),function(ol){ if(ol.closest('details')||ol.closest('#gres')) return; [].forEach.call(ol.children,function(li){ var s=item(li); if(s) items.push(s); }); });
       if(items.length) docs.push('· '+h+': '+items.slice(0,6).join(' / ')+(items.length>6?' 외 '+(items.length-6)+'건':''));
     });
     if(docs.length){ out.push(''); out.push('화면에 나온 준비서류'); out=out.concat(docs); }
