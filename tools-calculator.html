@@ -13036,5 +13036,89 @@ function calcConsult(kind,el){
   });
 })();
 </script>
+<style id="gsx-20261116">
+.gsx-card .gsx-q{width:100%;box-sizing:border-box;border:1px solid #b9c9ea;border-radius:10px;padding:10px 12px;font-size:16px;background:#fff;margin-top:8px}
+.gsx-card .gsx-tags{margin:8px 0 0;display:flex;flex-wrap:wrap;gap:6px}
+.gsx-card .gsx-tags button{border:1px solid #c9d8f5;background:#fff;color:#1747c7;border-radius:999px;padding:4px 11px;font-size:13px;cursor:pointer}
+.gsx-card .gsx-cnt{font-size:13.5px;font-weight:700;color:#24345a;margin:10px 0 4px}
+.gsx-card .gsx-it{border-top:1px dashed #c9d8f5;padding:8px 0 4px;margin-top:6px;font-size:13px;line-height:1.65}
+.gsx-card .gsx-it .gn{font-weight:800;color:#5a3b1c;font-size:14px}
+.gsx-card .gsx-it ol{margin:4px 0 4px 18px;padding:0}
+.gsx-card .gsx-it .gx{color:#9b2c2c}
+.gsx-card .gsx-ap{margin-top:6px;border:0;border-radius:999px;background:#1d7a46;color:#fff;font-weight:700;font-size:13px;padding:6px 14px;cursor:pointer}
+.gsx-card .gsx-ap[disabled]{background:#8aa898;cursor:default}
+.gsx-card .gsx-na{display:block;margin-top:4px;color:#7a6a52;font-size:12.5px}
+@media print{.gsx-card{display:none!important}}
+</style>
+<script>
+/* 2026-11-16 비용 계산기 — 지방세 감면 사유 찾기
+   취득세가 나오는 계산 화면마다 「③ 공과금」 아래에 검색 칸을 둔다. 자료는 등기신청 준비서류 화면과 같은 파일(regdocs-data.json)을
+   처음 검색할 때 한 번만 불러온다. 계산기가 금액까지 계산하는 감면(매매 화면의 생애최초·출산양육·서민주택·자경농지)은
+   「계산에 넣기」 단추로 바로 반영하고, 나머지는 요건·서류 확인용으로 보여 준다. */
+(function(){
+  var G=null, loading=null;
+  var TAGS=['생애최초','출산','다자녀','장애인','국가유공자','귀농','농지','임대주택','전세사기','사회복지','종교','학교','산업단지','창업'];
+  /* 계산에 바로 넣을 수 있는 감면: 화면 → {조문: 체크칸 id} */
+  var APPLY={'scene-매매':{'제36조의3①':'firstHome','제36조의5①':'birthHome','제33조②':'smallHome','제6조①':'selfFarm'}};
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+  function nz(s){ return String(s||'').toLowerCase().replace(/\s+/g,''); }
+  function load(){
+    if(G) return Promise.resolve(G);
+    if(!loading) loading=fetch('regdocs-data.json?v=20261029').then(function(r){ if(!r.ok) throw r.status; return r.json(); }).then(function(d){ G=d.G||[]; return G; });
+    return loading;
+  }
+  function render(card){
+    var q=card.querySelector('.gsx-q').value.trim(), out=card.querySelector('.gsx-res'), sid=card.getAttribute('data-scene'), ap=APPLY[sid]||{};
+    if(!q){ out.innerHTML=''; return; }
+    out.innerHTML='<div class="gsx-cnt" style="font-weight:500">감면 자료를 불러오는 중입니다…</div>';
+    load().then(function(){
+      if(card.querySelector('.gsx-q').value.trim()!==q) return;
+      var terms=q.split(/\s+/).map(nz).filter(Boolean);
+      var hit=G.filter(function(e){ var h=nz([e.n,e.w,e.r,e.a,(e.d||[]).join(' '),e.c||''].join(' ')); return terms.every(function(x){ return h.indexOf(x)>=0; }); });
+      hit.sort(function(a,b){ return (ap[b.a]?1:0)-(ap[a.a]?1:0); });
+      if(!hit.length){ out.innerHTML='<div class="gsx-cnt">「'+esc(q)+'」이(가) 들어 있는 감면 사유가 없습니다. 낱말을 줄이거나 바꿔 보세요.</div>'; return; }
+      var h='<div class="gsx-cnt">「'+esc(q)+'」 찾은 감면 '+hit.length+'가지'+(hit.length>30?' — 앞의 30가지만 보여 드립니다':'')+'</div>';
+      hit.slice(0,30).forEach(function(e){
+        h+='<div class="gsx-it"><div class="gn">'+esc(e.n)+'</div><b>감면:</b> '+esc(e.r)+'<br><b>대상:</b> '+esc(e.w)+'<br><small>'+(e.e&&e.e!=='없음'?'적용기한 '+esc(e.e.replace(/-/g,'. '))+'.까지 · ':'')+'근거 지방세특례제한법 '+esc(e.a)+'</small>'
+          +'<div><b>신청 때 낼 서류</b><ol>'+(e.d||[]).map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ol></div>'
+          +(e.c?'<div class="gx">※ 추징: '+esc(e.c)+'</div>':'');
+        var id=ap[e.a], cb=id&&document.getElementById(id);
+        if(cb) h+='<button type="button" class="gsx-ap" data-cb="'+id+'"'+(cb.checked?' disabled>✔ 계산에 넣었습니다':'>이 감면을 계산에 넣기')+'</button>';
+        else h+='<span class="gsx-na">이 감면은 계산 결과에 자동으로 빠지지 않습니다. 해당하시면 감면 신청 서류를 갖춰 시·군·구청에 신청하시고, 상담 때 말씀해 주시면 함께 살펴 드립니다.</span>';
+        h+='</div>';
+      });
+      out.innerHTML=h;
+    }).catch(function(){ out.innerHTML='<div class="gsx-cnt">감면 자료를 불러오지 못했습니다. 잠시 뒤 다시 시도해 주세요.</div>'; });
+  }
+  function build(){
+    [].forEach.call(document.querySelectorAll('.scene'),function(sc){
+      if(sc.querySelector('.gsx-card')) return;
+      var td=[].filter.call(sc.querySelectorAll('.card table td:first-child'),function(x){ return /^\s*취득세/.test(x.textContent); })[0];
+      if(!td) return;
+      var host=td.closest('.card');
+      var c=document.createElement('div'); c.className='card blue gsx-card'; c.setAttribute('data-scene',sc.id);
+      c.innerHTML='<h2>🔎 지방세 감면 사유 찾기 <small style="font-weight:500;font-size:12.5px">지방세특례제한법 취득세 감면 200여 가지에서</small></h2><div class="body">'
+        +'<div class="note">낱말을 넣거나 단추를 누르면 감면 내용·대상·신청 서류·추징 사유가 나옵니다.'+(APPLY[sc.id]?' 생애최초·출산양육·서민주택·자경농지 감면은 <b>「이 감면을 계산에 넣기」</b>를 누르면 위 계산에 바로 반영됩니다.':' 이 화면의 계산 결과에는 감면이 자동으로 반영되지 않습니다.')+' 감면을 받을 수 있는지와 금액은 시·군·구청이 정합니다.</div>'
+        +'<input type="search" class="gsx-q" placeholder="예: 생애최초, 출산, 장애인, 귀농, 임대주택, 제36조" autocomplete="off" aria-label="지방세 감면 사유 검색">'
+        +'<div class="gsx-tags">'+TAGS.map(function(w){ return '<button type="button" data-q="'+esc(w)+'">'+esc(w)+'</button>'; }).join('')+'</div>'
+        +'<div class="gsx-res" aria-live="polite"></div></div>';
+      host.parentNode.insertBefore(c,host.nextSibling);
+      var inp=c.querySelector('.gsx-q'), tm;
+      inp.addEventListener('focus',function(){ load().catch(function(){}); },{once:true});
+      inp.addEventListener('input',function(){ clearTimeout(tm); tm=setTimeout(function(){ render(c); },150); });
+      c.addEventListener('click',function(e){
+        var t=e.target.closest('button'); if(!t) return;
+        if(t.hasAttribute('data-q')){ inp.value=t.getAttribute('data-q'); render(c); return; }
+        if(t.classList.contains('gsx-ap')){
+          var cb=document.getElementById(t.getAttribute('data-cb')); if(!cb||cb.checked) return;
+          cb.checked=true; cb.dispatchEvent(new Event('change',{bubbles:true}));
+          t.disabled=true; t.textContent='✔ 계산에 넣었습니다';
+        }
+      });
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',build); else build();
+})();
+</script>
 </body>
 </html>
