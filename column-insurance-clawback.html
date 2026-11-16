@@ -193,13 +193,14 @@
 </style>
 <style id="qpill-20261116">
 /* 상단 메뉴: 메인과 같은 컬러 알약 5개 + '☰ 전체' (2026-11-16) */
-.subbar .slinks{gap:7px!important;align-items:center!important}
-.subbar .slinks .qp{display:inline-flex!important;align-items:center!important;justify-content:center!important;color:#fff!important;font-family:'Pretendard',-apple-system,'Malgun Gothic',sans-serif!important;font-size:14.5px!important;font-weight:700!important;line-height:1.2!important;padding:8px 16px!important;border-radius:999px!important;border:1px solid rgba(255,255,255,.4)!important;margin:0!important;box-shadow:0 3px 10px rgba(0,0,0,.18);text-decoration:none!important;white-space:nowrap!important;cursor:pointer;transition:background .2s}
+.subbar .slinks{gap:6px!important;align-items:center!important;flex-wrap:wrap!important;justify-content:flex-end!important;overflow:visible!important}
+.subbar .slinks .qp{display:inline-flex!important;align-items:center!important;justify-content:center!important;color:#fff!important;font-family:'Pretendard',-apple-system,'Malgun Gothic',sans-serif!important;font-size:14px!important;font-weight:700!important;line-height:1.2!important;padding:7px 13px!important;border-radius:999px!important;border:1px solid rgba(255,255,255,.4)!important;margin:0!important;box-shadow:0 3px 10px rgba(0,0,0,.18);text-decoration:none!important;white-space:nowrap!important;cursor:pointer;transition:background .2s}
 .subbar .slinks .q-c1{background:#3d5a80!important}
 .subbar .slinks .q-c2{background:#8a5a22!important}
 .subbar .slinks .q-c3{background:#2f7d5b!important}
 .subbar .slinks .q-c4{background:#2b7bbd!important}
 .subbar .slinks .q-c7{background:#b5523b!important}
+.subbar .slinks .q-c6{background:#1f7a7a!important}
 .subbar .slinks .q-all{background:transparent!important;border-color:rgba(255,255,255,.6)!important;box-shadow:none}
 .subbar .slinks .qp:hover,.subbar .slinks .qp:focus-visible{background:#16202e!important;border-color:#c9a878!important}
 .subbar .slinks .qp[aria-current="page"]{border:2px solid #fff!important}
@@ -210,8 +211,9 @@
 .sb-panel a.cta{background:#c8862d;border-color:#c8862d;color:#fff}
 .sb-panel a[aria-current="page"]{outline:2px solid #fff;outline-offset:2px}
 .sb-panel .sb-close{position:absolute;top:16px;right:18px;background:none;border:0;color:#fff;font-size:26px;line-height:1;cursor:pointer;padding:6px}
+@media (min-width:769px) and (max-width:1100px){.subbar .slinks .qp{font-size:13px!important;padding:6px 10px!important}}
 @media (max-width:768px){
-  .subbar .slinks{flex-wrap:nowrap!important;justify-content:center!important;overflow-x:auto!important;padding:8px 10px 10px!important;gap:5px!important;scrollbar-width:none}
+  .subbar .slinks{flex-wrap:wrap!important;justify-content:center!important;overflow:visible!important;padding:8px 10px 10px!important;gap:5px!important}
   .subbar .slinks::-webkit-scrollbar{display:none}
   .subbar .slinks .qp{font-size:13px!important;padding:6px 11px!important;box-shadow:none;flex:0 0 auto}
 }
@@ -244,16 +246,10 @@
       <a href="index.html" class="qp q-c1">홈</a>
       <a href="index.html#practice" class="qp q-c2">업무</a>
       <a href="tools-calculator.html" class="qp q-c3">비용계산</a>
-      <a href="index.html#gov-links" class="qp q-c4">링크</a>
+      <a href="sanlaw_등기원인별_준비서류_검색.html" class="qp q-c6">등기신청 준비서류</a>
+      <a href="index.html#gov-links" class="qp q-c4">유용사이트</a>
       <a href="index.html#location" class="qp q-c7">오시는 길</a>
-      <button type="button" class="qp q-all" id="sbAll" aria-controls="sbMenu" aria-expanded="false">☰ 전체</button>
     </nav>
-<nav class="sb-panel" id="sbMenu" aria-label="전체 메뉴" hidden>
-  <button type="button" class="sb-close" aria-label="메뉴 닫기">✕</button>
-  <a href="index.html#about">사무소 소개</a>
-  <a href="column.html" aria-current="page">법률 칼럼</a>
-  <a href="index.html#contact" class="cta">상담 문의</a>
-</nav>
   </div>
 </header>
 
@@ -360,11 +356,5 @@
     ⓒ 산 법무사·김재섭 행정사 사무소. 본 칼럼의 무단 전재·복제를 금합니다.
   </footer>
 
-<script>
-(function(){var b=document.getElementById('sbAll'),p=document.getElementById('sbMenu');if(!b||!p)return;var c=p.querySelector('.sb-close');
-function op(){p.hidden=false;b.setAttribute('aria-expanded','true');}function cl(){p.hidden=true;b.setAttribute('aria-expanded','false');}
-b.addEventListener('click',function(){p.hidden?op():cl();});c.addEventListener('click',cl);
-p.addEventListener('click',function(e){if(e.target.tagName==='A')cl();});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!p.hidden){cl();b.focus();}});})();
-</script>
 </body>
 </html>

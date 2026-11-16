@@ -133,13 +133,14 @@ details.more summary{cursor:pointer; font-weight:700; color:var(--gold-d);}
 </style>
 <style id="qpill-20261116">
 /* 상단 메뉴: 메인과 같은 컬러 알약 5개 + '☰ 전체' (2026-11-16) */
-.subbar .slinks{gap:7px!important;align-items:center!important}
-.subbar .slinks .qp{display:inline-flex!important;align-items:center!important;justify-content:center!important;color:#fff!important;font-family:'Pretendard',-apple-system,'Malgun Gothic',sans-serif!important;font-size:14.5px!important;font-weight:700!important;line-height:1.2!important;padding:8px 16px!important;border-radius:999px!important;border:1px solid rgba(255,255,255,.4)!important;margin:0!important;box-shadow:0 3px 10px rgba(0,0,0,.18);text-decoration:none!important;white-space:nowrap!important;cursor:pointer;transition:background .2s}
+.subbar .slinks{gap:6px!important;align-items:center!important;flex-wrap:wrap!important;justify-content:flex-end!important;overflow:visible!important}
+.subbar .slinks .qp{display:inline-flex!important;align-items:center!important;justify-content:center!important;color:#fff!important;font-family:'Pretendard',-apple-system,'Malgun Gothic',sans-serif!important;font-size:14px!important;font-weight:700!important;line-height:1.2!important;padding:7px 13px!important;border-radius:999px!important;border:1px solid rgba(255,255,255,.4)!important;margin:0!important;box-shadow:0 3px 10px rgba(0,0,0,.18);text-decoration:none!important;white-space:nowrap!important;cursor:pointer;transition:background .2s}
 .subbar .slinks .q-c1{background:#3d5a80!important}
 .subbar .slinks .q-c2{background:#8a5a22!important}
 .subbar .slinks .q-c3{background:#2f7d5b!important}
 .subbar .slinks .q-c4{background:#2b7bbd!important}
 .subbar .slinks .q-c7{background:#b5523b!important}
+.subbar .slinks .q-c6{background:#1f7a7a!important}
 .subbar .slinks .q-all{background:transparent!important;border-color:rgba(255,255,255,.6)!important;box-shadow:none}
 .subbar .slinks .qp:hover,.subbar .slinks .qp:focus-visible{background:#16202e!important;border-color:#c9a878!important}
 .subbar .slinks .qp[aria-current="page"]{border:2px solid #fff!important}
@@ -150,8 +151,9 @@ details.more summary{cursor:pointer; font-weight:700; color:var(--gold-d);}
 .sb-panel a.cta{background:#c8862d;border-color:#c8862d;color:#fff}
 .sb-panel a[aria-current="page"]{outline:2px solid #fff;outline-offset:2px}
 .sb-panel .sb-close{position:absolute;top:16px;right:18px;background:none;border:0;color:#fff;font-size:26px;line-height:1;cursor:pointer;padding:6px}
+@media (min-width:769px) and (max-width:1100px){.subbar .slinks .qp{font-size:13px!important;padding:6px 10px!important}}
 @media (max-width:768px){
-  .subbar .slinks{flex-wrap:nowrap!important;justify-content:center!important;overflow-x:auto!important;padding:8px 10px 10px!important;gap:5px!important;scrollbar-width:none}
+  .subbar .slinks{flex-wrap:wrap!important;justify-content:center!important;overflow:visible!important;padding:8px 10px 10px!important;gap:5px!important}
   .subbar .slinks::-webkit-scrollbar{display:none}
   .subbar .slinks .qp{font-size:13px!important;padding:6px 11px!important;box-shadow:none;flex:0 0 auto}
 }
@@ -168,16 +170,10 @@ details.more summary{cursor:pointer; font-weight:700; color:var(--gold-d);}
       <a href="index.html" class="qp q-c1">홈</a>
       <a href="index.html#practice" class="qp q-c2">업무</a>
       <a href="tools-calculator.html" class="qp q-c3">비용계산</a>
-      <a href="index.html#gov-links" class="qp q-c4">링크</a>
+      <a href="sanlaw_등기원인별_준비서류_검색.html" class="qp q-c6" aria-current="page">등기신청 준비서류</a>
+      <a href="index.html#gov-links" class="qp q-c4">유용사이트</a>
       <a href="index.html#location" class="qp q-c7">오시는 길</a>
-      <button type="button" class="qp q-all" id="sbAll" aria-controls="sbMenu" aria-expanded="false">☰ 전체</button>
     </nav>
-<nav class="sb-panel" id="sbMenu" aria-label="전체 메뉴" hidden>
-  <button type="button" class="sb-close" aria-label="메뉴 닫기">✕</button>
-  <a href="index.html#about">사무소 소개</a>
-  <a href="column.html">법률 칼럼</a>
-  <a href="index.html#contact" class="cta">상담 문의</a>
-</nav>
   </div>
 </header>
 
@@ -225,7 +221,8 @@ details.more summary{cursor:pointer; font-weight:700; color:var(--gold-d);}
 
 <a href="tools-calculator.html" class="cta">🧮 내 등기 비용 미리 계산하기</a>
 <h2>고충은 덜어드리고, 끝까지 곁에서 돕겠습니다</h2>
-<div class="hire">본 사무소에서는 사실관계와 자료를 꼼꼼히 살펴 필요한 서류를 갖추어 드리고, 등기 절차를 마치실 때까지 성심껏 돕겠습니다. 상담은 홈 화면의 <a href="index.html#contact">상담 창구</a>를 이용하시면 됩니다.</div>
+<div class="hire">본 사무소에서는 사실관계와 자료를 꼼꼼히 살펴 필요한 서류를 갖추어 드리고, 등기 절차를 마치실 때까지 성심껏 돕겠습니다.</div>
+<a href="index.html#contact" class="consult-btn" style="display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;text-align:center;background:#c8862d;color:#fff;border-radius:999px;padding:13px 20px;margin:18px auto;max-width:440px;font-size:16px;font-weight:700;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.14)">💬 상담 문의 <span style="font-weight:500;font-size:13.5px;opacity:.92">전화 · 카카오톡 · 온라인</span></a>
 
 <div class="src" id="src">이 자료는 법원행정처 「부동산등기기록례집」의 등기원인별로, 일반적인 경우에 필요한 서류를 정리한 것입니다. 실무교재, 인터넷등기소 등기신청양식, 부동산등기법·규칙, 등기예규·선례, 지방세법과 대조하였으나 자주 쓰이지 않는 특수한 서류는 모두 담지 못했을 수 있습니다. 인감증명서·주민등록표등본·초본·가족관계등록부 증명서·대장 등본 등은 발행일부터 3개월 이내의 것을 내야 합니다. <span id="ver"></span></div>
 </main>
@@ -697,11 +694,5 @@ window.__REGDOCS_START=start;
 
 </script>
 <script>fetch('regdocs-data.json?v=20261029').then(function(r){if(!r.ok)throw r.status;return r.json();}).then(__REGDOCS_START).catch(function(){document.getElementById('detail').innerHTML=(location.protocol==='file:')?'<div class="warn"><span class="wt">이 파일은 홈페이지에 올리는 용도입니다</span>컴퓨터에서 바로 여실 때는 「sanlaw_등기원인별_준비서류_검색_로컬.html」 파일을 열어 주세요.</div>':'<div class="warn"><span class="wt">자료를 불러오지 못했습니다</span>잠시 뒤 다시 열어 주세요. 계속 열리지 않으면 상담 창구로 알려 주시기 바랍니다.</div>';});</script>
-<script>
-(function(){var b=document.getElementById('sbAll'),p=document.getElementById('sbMenu');if(!b||!p)return;var c=p.querySelector('.sb-close');
-function op(){p.hidden=false;b.setAttribute('aria-expanded','true');}function cl(){p.hidden=true;b.setAttribute('aria-expanded','false');}
-b.addEventListener('click',function(){p.hidden?op():cl();});c.addEventListener('click',cl);
-p.addEventListener('click',function(e){if(e.target.tagName==='A')cl();});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!p.hidden){cl();b.focus();}});})();
-</script>
 </body>
 </html>

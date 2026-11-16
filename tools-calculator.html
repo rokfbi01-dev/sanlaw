@@ -237,13 +237,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js"></script>
 <style id="qpill-20261116">
 /* 상단 메뉴: 메인과 같은 컬러 알약 5개 + '☰ 전체' (2026-11-16) */
-.subbar .slinks{gap:7px!important;align-items:center!important}
-.subbar .slinks .qp{display:inline-flex!important;align-items:center!important;justify-content:center!important;color:#fff!important;font-family:'Pretendard',-apple-system,'Malgun Gothic',sans-serif!important;font-size:14.5px!important;font-weight:700!important;line-height:1.2!important;padding:8px 16px!important;border-radius:999px!important;border:1px solid rgba(255,255,255,.4)!important;margin:0!important;box-shadow:0 3px 10px rgba(0,0,0,.18);text-decoration:none!important;white-space:nowrap!important;cursor:pointer;transition:background .2s}
+.subbar .slinks{gap:6px!important;align-items:center!important;flex-wrap:wrap!important;justify-content:flex-end!important;overflow:visible!important}
+.subbar .slinks .qp{display:inline-flex!important;align-items:center!important;justify-content:center!important;color:#fff!important;font-family:'Pretendard',-apple-system,'Malgun Gothic',sans-serif!important;font-size:14px!important;font-weight:700!important;line-height:1.2!important;padding:7px 13px!important;border-radius:999px!important;border:1px solid rgba(255,255,255,.4)!important;margin:0!important;box-shadow:0 3px 10px rgba(0,0,0,.18);text-decoration:none!important;white-space:nowrap!important;cursor:pointer;transition:background .2s}
 .subbar .slinks .q-c1{background:#3d5a80!important}
 .subbar .slinks .q-c2{background:#8a5a22!important}
 .subbar .slinks .q-c3{background:#2f7d5b!important}
 .subbar .slinks .q-c4{background:#2b7bbd!important}
 .subbar .slinks .q-c7{background:#b5523b!important}
+.subbar .slinks .q-c6{background:#1f7a7a!important}
 .subbar .slinks .q-all{background:transparent!important;border-color:rgba(255,255,255,.6)!important;box-shadow:none}
 .subbar .slinks .qp:hover,.subbar .slinks .qp:focus-visible{background:#16202e!important;border-color:#c9a878!important}
 .subbar .slinks .qp[aria-current="page"]{border:2px solid #fff!important}
@@ -254,8 +255,9 @@
 .sb-panel a.cta{background:#c8862d;border-color:#c8862d;color:#fff}
 .sb-panel a[aria-current="page"]{outline:2px solid #fff;outline-offset:2px}
 .sb-panel .sb-close{position:absolute;top:16px;right:18px;background:none;border:0;color:#fff;font-size:26px;line-height:1;cursor:pointer;padding:6px}
+@media (min-width:769px) and (max-width:1100px){.subbar .slinks .qp{font-size:13px!important;padding:6px 10px!important}}
 @media (max-width:768px){
-  .subbar .slinks{flex-wrap:nowrap!important;justify-content:center!important;overflow-x:auto!important;padding:8px 10px 10px!important;gap:5px!important;scrollbar-width:none}
+  .subbar .slinks{flex-wrap:wrap!important;justify-content:center!important;overflow:visible!important;padding:8px 10px 10px!important;gap:5px!important}
   .subbar .slinks::-webkit-scrollbar{display:none}
   .subbar .slinks .qp{font-size:13px!important;padding:6px 11px!important;box-shadow:none;flex:0 0 auto}
 }
@@ -289,7 +291,7 @@
     <a href="https://pf.kakao.com/_znJqX/chat" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:15px;margin:4px 0 14px;background:#FEE500;color:#3c1e1e;font-size:15.5px;font-weight:700;border-radius:8px;text-decoration:none;box-sizing:border-box;">💬 카카오톡으로 바로 상담</a>
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;color:#a99878;font-size:12.5px;"><span style="flex:1;height:1px;background:#e0d6c2;"></span>또는 아래 폼을 남기고 견적서 받기<span style="flex:1;height:1px;background:#e0d6c2;"></span></div>
     <form id="leadForm" onsubmit="return submitLead(event)">
-      <input type="hidden" name="_subject" value="[홈페이지] 수수료 계산기 상담 신청">
+      <input type="hidden" name="_subject" value="[홈페이지] 비용 계산기 상담 신청">
       <!-- 자동 프로그램(봇) 거르기 — 사람 눈에는 보이지 않는 칸이다. 값이 채워져 오면 봇으로 본다. -->
       <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
       <input name="이름" id="lf_name" type="text" placeholder="이름 *" required style="width:100%;padding:13px 14px;margin-bottom:10px;font-size:15.5px;border:1.5px solid #cfc2a8;border-radius:8px;box-sizing:border-box;outline:none;">
@@ -325,11 +327,12 @@
     if(qs.get('admin')==='san0622'){ localStorage.setItem(ADMIN_KEY,'1'); }
   }catch(e){}
   function isAdmin(){ try{ return localStorage.getItem(ADMIN_KEY)==='1'; }catch(e){ return false; } }
-  var pending=null;
+  var pending=null, consultMode=false;
   function unlocked(){ if(isAdmin()) return true; try{ var t=parseInt(localStorage.getItem(KEY)||"0",10); return !!(t && (Date.now()-t)<TTL); }catch(e){ return false; } }
   function hideGate(){ var g=document.getElementById('leadGate'); if(g)g.style.display='none'; HTML.style.overflow=''; }
   function showGate(cb){
-    pending=cb||null;
+    pending=cb||null; consultMode=false;
+    var hh=document.querySelector('#leadGate h2'); if(hh) hh.textContent='견적서 저장 · 상담 신청';
     var g=document.getElementById('leadGate'); if(g)g.style.display='flex'; HTML.style.overflow='hidden';
     var b=document.getElementById('lf_btn'); if(b){b.disabled=false;b.textContent='신청하고 견적서 저장하기';}
     var er=document.getElementById('lf_err'); if(er)er.style.display='none';
@@ -338,7 +341,22 @@
   }
   window.calcUnlocked=unlocked;
   window.requireUnlock=function(cb){ if(unlocked()){ cb&&cb(); } else { showGate(cb); } };
-  window.closeLeadGate=function(){ hideGate(); pending=null; };
+  window.closeLeadGate=function(){ hideGate(); pending=null; consultMode=false; };
+  /* 2026-11-16 — 계산 결과 옆 '상담 문의': 견적서 저장 없이 상담 신청서만 연다(계산 내용은 상담 내용 칸에 미리 적어 둠) */
+  window.openConsult=function(btn){
+    var name='', total='';
+    try{
+      var hs=document.querySelectorAll('h2.stitle');
+      for(var i=0;i<hs.length;i++){ if(hs[i].compareDocumentPosition(btn) & Node.DOCUMENT_POSITION_FOLLOWING){ name=(hs[i].firstChild&&hs[i].firstChild.textContent||hs[i].textContent).trim(); } }
+      var act=btn.closest('.actions'), tot=act&&act.previousElementSibling;
+      if(tot && tot.classList.contains('total')){ var g=tot.querySelector('.row.grand span:last-child'); if(g) total=g.textContent.trim(); }
+    }catch(e){}
+    showGate(null); consultMode=true;
+    var h=document.querySelector('#leadGate h2'); if(h) h.textContent='상담 신청';
+    var b=document.getElementById('lf_btn'); if(b) b.textContent='상담 신청하기';
+    var m=document.getElementById('lf_msg');
+    if(m && !m.value.trim()){ m.value='[비용 계산기] '+(name||'계산')+(total&&total!=='0 원'?' — 총 합계 '+total:'')+'\n상담하실 내용: '; }
+  };
   function showErr(m){var e=document.getElementById('lf_err'); e.innerHTML=m; e.style.display='block';}
 
   /* ───────── 장난·오기입 거르기 ─────────
@@ -416,6 +434,8 @@
      종전에는 Formspree가 거절하면(월 한도 초과·장애 등) 오류만 띄우고 출력이 멈췄다.
      잠금 해제(12시간)는 실제로 전송이 된 때에만 저장한다. */
   function releaseOnly(msg){
+    if(consultMode && msg){ msg=msg.replace(/\s*견적서는 그대로 저장해 드립니다\.?/,' 카카오톡이나 전화로 연락 주시면 바로 안내해 드리겠습니다.'); }
+    consultMode=false;
     var b=document.getElementById('lf_btn'); if(b){b.disabled=false;b.textContent='신청하고 견적서 저장하기';}
     var cb=pending; pending=null; hideGate();
     if(msg) leadToast(msg);
@@ -481,7 +501,7 @@
             var cc=(rc[0]===td)?parseInt(rc[1]||"0",10):0;
             localStorage.setItem('sanlaw_lead_day',td+'|'+(cc+1));
           }catch(e){}
-          var cb=pending; pending=null; hideGate(); if(cb)cb();
+          var cb=pending; pending=null; hideGate(); if(cb)cb(); else if(consultMode) leadToast('상담 신청이 접수되었습니다. 확인하는 대로 연락드리겠습니다.'); consultMode=false;
         }
         else { releaseOnly('상담 신청이 서버 사정으로 전달되지 않았습니다(응답 '+r.status+'). 견적서는 그대로 저장해 드립니다.'); }
       })
@@ -497,16 +517,10 @@
       <a href="index.html" class="qp q-c1">홈</a>
       <a href="index.html#practice" class="qp q-c2">업무</a>
       <a href="tools-calculator.html" class="qp q-c3" aria-current="page">비용계산</a>
-      <a href="index.html#gov-links" class="qp q-c4">링크</a>
+      <a href="sanlaw_등기원인별_준비서류_검색.html" class="qp q-c6">등기신청 준비서류</a>
+      <a href="index.html#gov-links" class="qp q-c4">유용사이트</a>
       <a href="index.html#location" class="qp q-c7">오시는 길</a>
-      <button type="button" class="qp q-all" id="sbAll" aria-controls="sbMenu" aria-expanded="false">☰ 전체</button>
     </div>
-<nav class="sb-panel" id="sbMenu" aria-label="전체 메뉴" hidden>
-  <button type="button" class="sb-close" aria-label="메뉴 닫기">✕</button>
-  <a href="index.html#about">사무소 소개</a>
-  <a href="index.html#column">법률 칼럼</a>
-  <a href="index.html#contact" class="cta">상담 문의</a>
-</nav>
   </div>
 </header>
 <header>
@@ -761,7 +775,7 @@
       <div class="row sub"><span>부가가치세 (10%)</span><span id="t_vat">0 원</span></div>
       <div class="row"><span>공과금계</span><span id="t_public">0 원</span></div>
       <div class="row grand"><span>총 합계</span><span id="t_grand">0 원</span></div></div>
-    <div class="actions"><button class="btn" onclick="calcSale()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+    <div class="actions"><button class="btn" onclick="calcSale()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button><button class="btn" type="button" onclick="openConsult(this)" style="background:#c8862d;">💬 상담 문의</button></div>
 
     <div class="card green"><h2>⑤ 매매 준비서류 · 대장</h2><div class="body">
       <div class="line" style="border:none;padding-top:0;"><span class="lbl">부동산 형태</span><div class="radios" onchange="renderDocsSale()">
@@ -868,7 +882,7 @@
       <div class="row sub"><span>부가가치세 (10%)</span><span id="s_t_vat">0 원</span></div>
       <div class="row"><span>공과금계</span><span id="s_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계</span><span id="s_t_grand">0 원</span></div></div>
-    <div class="actions"><button class="btn" onclick="calcInherit()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+    <div class="actions"><button class="btn" onclick="calcInherit()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button><button class="btn" type="button" onclick="openConsult(this)" style="background:#c8862d;">💬 상담 문의</button></div>
 
     <div class="card green"><h2>⑤ 상속 준비서류 · 대장</h2><div class="body">
       <div class="line" style="border:none;padding-top:0;"><span class="lbl">부동산 형태</span><div class="radios" onchange="renderDocsInherit()">
@@ -968,7 +982,7 @@
       <div class="row sub"><span>부가가치세 (10%)</span><span id="bq_t_vat">0 원</span></div>
       <div class="row"><span>공과금계</span><span id="bq_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계</span><span id="bq_t_grand">0 원</span></div></div>
-    <div class="actions"><button class="btn" onclick="calcBequest()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+    <div class="actions"><button class="btn" onclick="calcBequest()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button><button class="btn" type="button" onclick="openConsult(this)" style="background:#c8862d;">💬 상담 문의</button></div>
 
     <div class="card green"><h2>⑤ 유증 준비서류 · 대장</h2><div class="body">
       <div class="line" style="border:none;padding-top:0;"><span class="lbl">부동산 형태</span><div class="radios" onchange="renderDocsBequest()">
@@ -1048,7 +1062,7 @@
       <div class="row sub"><span>부가가치세 (10%)</span><span id="gd_t_vat">0 원</span></div>
       <div class="row"><span>공과금·실비계</span><span id="gd_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계</span><span id="gd_t_grand">0 원</span></div></div>
-    <div class="actions"><button class="btn" onclick="calcGuardian()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+    <div class="actions"><button class="btn" onclick="calcGuardian()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button><button class="btn" type="button" onclick="openConsult(this)" style="background:#c8862d;">💬 상담 문의</button></div>
 
     <div class="card green"><h2>④ 후견 준비서류 (유형별)</h2><div class="body">
       <div class="docs" id="gd_docsBox"></div>
@@ -1144,7 +1158,7 @@
       <div class="row sub"><span>부가가치세 (10%)</span><span id="gv_t_vat">0 원</span></div>
       <div class="row"><span>공과금계</span><span id="gv_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계</span><span id="gv_t_grand">0 원</span></div></div>
-    <div class="actions"><button class="btn" onclick="calcGift()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+    <div class="actions"><button class="btn" onclick="calcGift()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button><button class="btn" type="button" onclick="openConsult(this)" style="background:#c8862d;">💬 상담 문의</button></div>
 
     <div class="card green"><h2>⑤ 증여 준비서류 · 대장</h2><div class="body">
       <div class="line" style="border:none;padding-top:0;"><span class="lbl">부동산 형태</span><div class="radios" onchange="renderDocsGift()">
@@ -1333,7 +1347,7 @@
       <div class="row sub"><span>부가가치세 (10%)</span><span id="ea_t_vat">0 원</span></div>
       <div class="row"><span>공과금계</span><span id="ea_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계</span><span id="ea_t_grand">0 원</span></div></div>
-    <div class="actions"><button class="btn" onclick="calcEtcAcq()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+    <div class="actions"><button class="btn" onclick="calcEtcAcq()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button><button class="btn" type="button" onclick="openConsult(this)" style="background:#c8862d;">💬 상담 문의</button></div>
 
     <div class="card green"><h2>④ 기타 취득원인 준비서류 · 대장</h2><div class="body">
       <div class="line"><span class="lbl">등기의무자 — 법인격</span><select id="pty_ea__seller" onchange="renderDocsEtcAcq()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">내주는 쪽이 <b>법인·종중·교회</b>면 서류가 완전히 달라집니다</span></div>
@@ -1446,7 +1460,7 @@
       <div class="row sub"><span>부가가치세 (10%)</span><span id="pt_t_vat">0 원</span></div>
       <div class="row"><span>공과금계</span><span id="pt_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계</span><span id="pt_t_grand">0 원</span></div></div>
-    <div class="actions"><button class="btn" onclick="calcPartition()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+    <div class="actions"><button class="btn" onclick="calcPartition()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button><button class="btn" type="button" onclick="openConsult(this)" style="background:#c8862d;">💬 상담 문의</button></div>
 
     <div class="card green"><h2>⑤ 공유물분할 준비서류 · 대장</h2><div class="body">
       <div class="line" style="border:none;padding-top:0;"><span class="lbl">분할 근거</span><div class="radios" onchange="renderDocsPartition()">
@@ -1570,7 +1584,7 @@
       <div class="row sub"><span>부가가치세 (10%)</span><span id="nk_t_vat">0 원</span></div>
       <div class="row"><span>공과금계</span><span id="nk_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계</span><span id="nk_t_grand">0 원</span></div></div>
-    <div class="actions"><button class="btn" onclick="calcNakchal()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+    <div class="actions"><button class="btn" onclick="calcNakchal()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button><button class="btn" type="button" onclick="openConsult(this)" style="background:#c8862d;">💬 상담 문의</button></div>
 
     <div class="card green"><h2>⑤ 촉탁등기 준비서류 · 대장</h2><div class="body">
       <div class="line" style="border:none;padding-top:0;"><span class="lbl">절차</span><div class="radios" onchange="renderDocsNakchal()">
@@ -1681,7 +1695,7 @@
       <div class="row sub"><span>부가가치세 (10%)</span><span id="dv_t_vat">0 원</span></div>
       <div class="row"><span>공과금계</span><span id="dv_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계</span><span id="dv_t_grand">0 원</span></div></div>
-    <div class="actions"><button class="btn" onclick="calcDivision()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+    <div class="actions"><button class="btn" onclick="calcDivision()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button><button class="btn" type="button" onclick="openConsult(this)" style="background:#c8862d;">💬 상담 문의</button></div>
 
     <div class="card green"><h2>⑤ 재산분할 준비서류 · 대장</h2><div class="body">
       <div class="line" style="border:none;padding-top:0;"><span class="lbl">분할 근거</span><div class="radios" onchange="renderDocsDivision()">
@@ -1775,7 +1789,7 @@
       <div class="row sub"><span>부가가치세 (10%)</span><span id="bv_t_vat">0 원</span></div>
       <div class="row"><span>공과금계</span><span id="bv_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계</span><span id="bv_t_grand">0 원</span></div></div>
-    <div class="actions"><button class="btn" onclick="calcBurden()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+    <div class="actions"><button class="btn" onclick="calcBurden()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button><button class="btn" type="button" onclick="openConsult(this)" style="background:#c8862d;">💬 상담 문의</button></div>
 
     <div class="card green"><h2>⑤ 부담부증여 준비서류 · 대장</h2><div class="body">
       <div class="line" style="border:none;padding-top:0;"><span class="lbl">부동산 형태</span><div class="radios" onchange="renderDocsBurden()">
@@ -1867,7 +1881,7 @@
       <div class="row sub"><span>부가가치세 (10%)</span><span id="mt_t_vat">0 원</span></div>
       <div class="row"><span>공과금계</span><span id="mt_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계</span><span id="mt_t_grand">0 원</span></div></div>
-    <div class="actions"><button class="btn" onclick="calcMortgage()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+    <div class="actions"><button class="btn" onclick="calcMortgage()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button><button class="btn" type="button" onclick="openConsult(this)" style="background:#c8862d;">💬 상담 문의</button></div>
 
     <div class="card green"><h2>⑤ 근저당권 준비서류</h2><div class="body">
       <div class="line"><span class="lbl">소유자(등기의무자) — 외국 당사자</span><select id="mt_frOb" data-lbl="소유자(등기의무자)" data-role="ob" onchange="renderPartyDocs('mt_',null,null,'','')"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">내주는 쪽이 <b>외국인·재외국민</b>이면 <b>처분위임장·인감</b>이 달라집니다</span></div>
@@ -1930,7 +1944,7 @@
       <div class="row sub"><span>부가가치세 (10%)</span><span id="ga_t_vat">0 원</span></div>
       <div class="row"><span>공과금계</span><span id="ga_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계</span><span id="ga_t_grand">0 원</span></div></div>
-    <div class="actions"><button class="btn" onclick="calcGadeungi()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+    <div class="actions"><button class="btn" onclick="calcGadeungi()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button><button class="btn" type="button" onclick="openConsult(this)" style="background:#c8862d;">💬 상담 문의</button></div>
 
     <div class="card green"><h2>④ 가등기 준비서류</h2><div class="body">
       <div class="line"><span class="lbl">등기의무자(소유자) — 외국 당사자</span><select id="ga_frOb" data-lbl="등기의무자(소유자)" data-role="ob" onchange="renderPartyDocs('ga_',null,null,'','')"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">내주는 쪽이 <b>외국인·재외국민</b>이면 <b>처분위임장·인감</b>이 달라집니다</span></div>
@@ -1982,7 +1996,7 @@
       <div class="row sub"><span>부가가치세 (10%)</span><span id="mr_t_vat">0 원</span></div>
       <div class="row"><span>공과금계</span><span id="mr_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계</span><span id="mr_t_grand">0 원</span></div></div>
-    <div class="actions"><button class="btn" onclick="calcMarital()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+    <div class="actions"><button class="btn" onclick="calcMarital()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button><button class="btn" type="button" onclick="openConsult(this)" style="background:#c8862d;">💬 상담 문의</button></div>
 
     <div class="card green"><h2>④ 안내 및 준비서류</h2><div class="body">
       <div class="note"><b>혼인 성립 전</b>에 약정자 <b>쌍방이 공동으로</b> 신청해야 합니다(비송사건절차법 §70). 혼인신고 후 신청은 효력이 없습니다. 관할은 <b>남편이 될 사람의 주소지 관할 지방법원 등기과·등기소</b>(입부혼인 시 처가 될 사람 주소지)입니다. 등기 후 변경은 원칙적으로 불가하며, 정당한 사유가 있으면 법원 허가를 받아 변경할 수 있습니다(민법 §829②).</div>
@@ -2103,7 +2117,7 @@
       <div class="row sub"><span>부가가치세 (10%)</span><span id="rd_t_vat">0 원</span></div>
       <div class="row"><span>공과금계</span><span id="rd_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계</span><span id="rd_t_grand">0 원</span></div></div>
-    <div class="actions"><button class="btn" onclick="calcRedev()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+    <div class="actions"><button class="btn" onclick="calcRedev()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button><button class="btn" type="button" onclick="openConsult(this)" style="background:#c8862d;">💬 상담 문의</button></div>
     <div class="card green"><h2>④ 이전고시 등기 준비서류</h2><div class="body"><div class="line"><span class="lbl">조합원 — 외국 당사자</span><select id="rd_frRi" data-lbl="조합원(분양받는 분)" data-role="ri" onchange="renderPartyDocs('rd_',null,null,'','')"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">조합원 중 <b>외국인·재외국민</b>이 있으면 서류가 달라집니다</span></div><div id="rd_partyDocsBox"></div><div class="docs" id="rd_docsBox"></div></div></div>
   </div>
 
@@ -2155,7 +2169,7 @@
       <div class="row sub"><span>부가가치세 (10%)</span><span id="st_t_vat">0 원</span></div>
       <div class="row"><span>공과금계</span><span id="st_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계</span><span id="st_t_grand">0 원</span></div></div>
-    <div class="actions"><button class="btn" onclick="calcSintak()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+    <div class="actions"><button class="btn" onclick="calcSintak()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button><button class="btn" type="button" onclick="openConsult(this)" style="background:#c8862d;">💬 상담 문의</button></div>
 
     <div class="card green"><h2>④ 신탁등기 준비서류</h2><div class="body">
       <div class="line"><span class="lbl">위탁자(소유자) — 외국 당사자</span><select id="st_frOb" data-lbl="위탁자(소유자)" data-role="ob" onchange="renderPartyDocs('st_',null,null,'','')"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">내주는 쪽이 <b>외국인·재외국민</b>이면 <b>처분위임장·인감</b>이 달라집니다</span></div>
@@ -2252,7 +2266,7 @@
       <div class="row sub"><span>부가가치세 (10%)</span><span id="ma_t_vat">0 원</span></div>
       <div class="row"><span>공과금계</span><span id="ma_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계</span><span id="ma_t_grand">0 원</span></div></div>
-    <div class="actions"><button class="btn" onclick="calcMortgageAdd()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+    <div class="actions"><button class="btn" onclick="calcMortgageAdd()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button><button class="btn" type="button" onclick="openConsult(this)" style="background:#c8862d;">💬 상담 문의</button></div>
 
     <div class="card green"><h2>⑤ 담보권 추가설정 준비서류</h2><div class="body">
       <div class="line"><span class="lbl">소유자(등기의무자) — 외국 당사자</span><select id="ma_frOb" data-lbl="소유자(등기의무자)" data-role="ob" onchange="renderPartyDocs('ma_',null,null,'','')"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">내주는 쪽이 <b>외국인·재외국민</b>이면 <b>처분위임장·인감</b>이 달라집니다</span></div>
@@ -2306,7 +2320,7 @@
       <div class="row sub"><span>부가가치세 (10%)</span><span id="mtc_t_vat">0 원</span></div>
       <div class="row"><span>공과금계</span><span id="mtc_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계</span><span id="mtc_t_grand">0 원</span></div></div>
-    <div class="actions"><button class="btn" onclick="calcMortCancel()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+    <div class="actions"><button class="btn" onclick="calcMortCancel()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button><button class="btn" type="button" onclick="openConsult(this)" style="background:#c8862d;">💬 상담 문의</button></div>
 
     <div class="card green"><h2>④ 근저당권말소 준비서류</h2><div class="body">
       <div class="line"><span class="lbl">근저당권자(등기의무자) — 외국 당사자</span><select id="mtc_frOb" data-lbl="근저당권자(등기의무자)" data-role="ob" onchange="renderPartyDocs('mtc_',null,null,'','')"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">내주는 쪽이 <b>외국인·재외국민</b>이면 <b>처분위임장·인감</b>이 달라집니다</span></div>
@@ -2392,7 +2406,7 @@
       <div class="row sub"><span>부가가치세 (10%)</span><span id="pr_t_vat">0 원</span></div>
       <div class="row"><span>공과금계</span><span id="pr_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계</span><span id="pr_t_grand">0 원</span></div></div>
-    <div class="actions"><button class="btn" onclick="calcPreserve()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+    <div class="actions"><button class="btn" onclick="calcPreserve()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button><button class="btn" type="button" onclick="openConsult(this)" style="background:#c8862d;">💬 상담 문의</button></div>
 
     <div class="card green"><h2>⑤ 보존 준비서류 · 대장</h2><div class="body">
       <div class="line" style="border:none;padding-top:0;"><span class="lbl">부동산 형태</span><div class="radios" onchange="renderDocsPreserve()">
@@ -2459,7 +2473,7 @@
       <div class="row sub"><span>부가가치세 (10%)</span><span id="rt_t_vat">0 원</span></div>
       <div class="row"><span>공과금계</span><span id="rt_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계</span><span id="rt_t_grand">0 원</span></div></div>
-    <div class="actions"><button class="btn" onclick="calcRight()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+    <div class="actions"><button class="btn" onclick="calcRight()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button><button class="btn" type="button" onclick="openConsult(this)" style="background:#c8862d;">💬 상담 문의</button></div>
 
     <div class="card green"><h2>④ 준비서류</h2><div class="body">
       <div class="line"><span class="lbl">설정자(등기의무자) — 법인격</span><select id="pty_rt__seller" onchange="renderDocsRight()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">파는 쪽이 <b>법인·종중·교회</b>면 서류가 완전히 달라집니다</span></div><div class="line"><span class="lbl">권리자(등기권리자) — 법인격</span><select id="pty_rt__buyer" onchange="renderDocsRight()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">종교단체를 고르면 <b>취득세 감면 안내</b>가 함께 나옵니다</span></div><div class="line"><span class="lbl">설정자(등기의무자) — 외국 당사자</span><select id="rt_frOb" data-lbl="설정자(등기의무자)" onchange="renderDocsRight()"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">내주는 쪽이 <b>외국인·재외국민</b>이면 <b>처분위임장·인감</b>이 달라집니다</span></div><div class="line"><span class="lbl">권리자(등기권리자) — 외국 당사자</span><select id="rt_frRi" data-lbl="권리자(등기권리자)" onchange="renderDocsRight()"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">받는 쪽이 <b>외국인</b>이면 <b>취득신고·토지취득허가</b>가 따라옵니다</span></div><div id="rt_partyDocsBox"></div><div class="docs" id="rt_docsBox"></div>
@@ -2522,7 +2536,7 @@
       <div class="row sub"><span>부가가치세 (10%)</span><span id="co_t_vat">0 원</span></div>
       <div class="row"><span>공과금계</span><span id="co_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계</span><span id="co_t_grand">0 원</span></div></div>
-    <div class="actions"><button class="btn" onclick="calcCorp()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+    <div class="actions"><button class="btn" onclick="calcCorp()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button><button class="btn" type="button" onclick="openConsult(this)" style="background:#c8862d;">💬 상담 문의</button></div>
 
     <div class="card green"><h2>④ 회사설립 준비서류</h2><div class="body">
       <div class="line"><span class="lbl">임원 중 외국인</span><select id="co_frOfficer" onchange="renderCorpForeign('co_')"><option value="">해당 없음 (임원 모두 내국인)</option><option value="in">외국인 임원 — 국내 외국인등록·국내거소신고 있음</option><option value="out">외국인 임원 — 해외 거주(국내 등록 없음)</option></select><span class="hint">외국인 임원이 있으면 <b>취임승낙서 공증·아포스티유</b>가 필요합니다</span></div>
@@ -2630,7 +2644,7 @@
       <div class="row sub"><span>부가가치세 (10%)</span><span id="cv_t_vat">0 원</span></div>
       <div class="row"><span>공과금계</span><span id="cv_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계</span><span id="cv_t_grand">0 원</span></div></div>
-    <div class="actions"><button class="btn" onclick="calcCorpChange()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+    <div class="actions"><button class="btn" onclick="calcCorpChange()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button><button class="btn" type="button" onclick="openConsult(this)" style="background:#c8862d;">💬 상담 문의</button></div>
 
     <div class="card green"><h2>④ 법인 변경 준비서류</h2><div class="body">
       <div class="line"><span class="lbl">임원 중 외국인</span><select id="cv_frOfficer" onchange="renderCorpForeign('cv_')"><option value="">해당 없음 (임원 모두 내국인)</option><option value="in">외국인 임원 — 국내 외국인등록·국내거소신고 있음</option><option value="out">외국인 임원 — 해외 거주(국내 등록 없음)</option></select><span class="hint">외국인 임원이 있으면 <b>취임승낙서 공증·아포스티유</b>가 필요합니다</span></div>
@@ -2705,7 +2719,7 @@
       <div class="row sub"><span>부가가치세 (10%)</span><span id="am_t_vat">0 원</span></div>
       <div class="row"><span>공과금계</span><span id="am_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계 <span class="hint" id="am_t_ratio"></span></span><span id="am_t_grand">0 원</span></div></div>
-    <div class="actions"><button class="btn" onclick="calcAuctionFile()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+    <div class="actions"><button class="btn" onclick="calcAuctionFile()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button><button class="btn" type="button" onclick="openConsult(this)" style="background:#c8862d;">💬 상담 문의</button></div>
 
     <div class="card green"><h2>④ 안내</h2><div class="body">
       <div class="docs">
@@ -2749,7 +2763,7 @@
       <div class="row sub"><span>부가가치세 (10%)</span><span id="mi_t_vat">0 원</span></div>
       <div class="row"><span>공과금계</span><span id="mi_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계</span><span id="mi_t_grand">0 원</span></div></div>
-    <div class="actions"><button class="btn" onclick="calcMisc()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+    <div class="actions"><button class="btn" onclick="calcMisc()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button><button class="btn" type="button" onclick="openConsult(this)" style="background:#c8862d;">💬 상담 문의</button></div>
     <div class="card green"><h2>④ 안내</h2><div class="body"><div class="docs"><b>인지·송달</b>은 전자소송 포털 기준 기본값이며, 포털에서 정확한 금액 확인 후 수정 가능합니다.<br><b>임차권등기명령</b> 신청은 등록면허세가 추가되니 기타 공과금에 입력하세요.<br><b>송달 회차</b>는 신청 종류·법원에 따라 다를 수 있어 송달칸 직접 수정이 가능합니다.</div></div>
     <div class="card green"><h2>⑤ 준비서류</h2><div class="body"><div class="docs" id="mi_docsBox"></div></div></div></div>
   </div>
@@ -2789,7 +2803,7 @@
       <div class="row sub"><span>부가가치세 (10%)</span><span id="cs_t_vat">0 원</span></div>
       <div class="row"><span>공과금계</span><span id="cs_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계 <span class="hint" id="cs_t_ratio"></span></span><span id="cs_t_grand">0 원</span></div></div>
-    <div class="actions"><button class="btn" onclick="calcSeizure()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+    <div class="actions"><button class="btn" onclick="calcSeizure()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button><button class="btn" type="button" onclick="openConsult(this)" style="background:#c8862d;">💬 상담 문의</button></div>
     <div class="card green"><h2>④ 안내</h2><div class="body"><div class="docs"><b>인지</b> — 전자소송 포털 기준 압류 1,800·추심 1,800(전자), 종이 각 2,000원. 압류와 추심을 함께 신청하면 합산됩니다.<br><b>송달</b> — (채권자+채무자+제3채무자)×2회×<b>상단 단가</b> [A·재일 87-4 별표1].<br><b>담보 없음</b> — 본집행이므로 보증보험료·공탁금이 없습니다.</div></div>
     <div class="card green"><h2>⑤ 준비서류</h2><div class="body"><div class="docs" id="cs_docsBox"></div></div></div></div>
   </div>
@@ -2830,7 +2844,7 @@
       <div class="row sub"><span>부가가치세 (10%)</span><span id="ad_t_vat">0 원</span></div>
       <div class="row"><span>공과금계</span><span id="ad_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계 <span class="hint" id="ad_t_ratio"></span></span><span id="ad_t_grand">0 원</span></div></div>
-    <div class="actions"><button class="btn" onclick="calcAttachGoods()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+    <div class="actions"><button class="btn" onclick="calcAttachGoods()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button><button class="btn" type="button" onclick="openConsult(this)" style="background:#c8862d;">💬 상담 문의</button></div>
     <div class="card green"><h2>④ 안내</h2><div class="body"><div class="docs"><b>담보금</b> — 유체동산가압류 담보는 통상 청구금액의 4/5 수준이나 법원 재량 [확인필요·결과 샘플로 확정 가능].<br><b>klac</b>은 인지 전자할인·송달 회차가 협회와 다를 수 있습니다.</div></div>
     <div class="card green"><h2>⑤ 준비서류</h2><div class="body"><div class="docs" id="ad_docsBox"></div></div></div></div>
   </div>
@@ -2875,7 +2889,7 @@
       <div class="row sub"><span>부가가치세 (10%)</span><span id="av_t_vat">0 원</span></div>
       <div class="row"><span>공과금계</span><span id="av_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계 <span class="hint" id="av_t_ratio"></span></span><span id="av_t_grand">0 원</span></div></div>
-    <div class="actions"><button class="btn" onclick="calcAttachCar()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+    <div class="actions"><button class="btn" onclick="calcAttachCar()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button><button class="btn" type="button" onclick="openConsult(this)" style="background:#c8862d;">💬 상담 문의</button></div>
     <div class="card green"><h2>④ 안내</h2><div class="body"><div class="docs"><b>등록면허세</b> — 자동차 가압류는 자동차등록원부 등록(건당 정액 추정 15,000) [확인필요·결과 샘플로 확정].<br><b>담보금</b> — 통상 청구금액의 일정 비율, 법원 재량 [확인필요].</div></div>
     <div class="card green"><h2>⑤ 준비서류</h2><div class="body"><div class="docs" id="av_docsBox"></div></div></div></div>
   </div>
@@ -2925,7 +2939,7 @@
       <div class="row sub"><span>부가가치세 (10%)</span><span id="ac_t_vat">0 원</span></div>
       <div class="row"><span>공과금계</span><span id="ac_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계 <span class="hint" id="ac_t_ratio"></span></span><span id="ac_t_grand">0 원</span></div></div>
-    <div class="actions"><button class="btn" onclick="calcAttachClaim()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+    <div class="actions"><button class="btn" onclick="calcAttachClaim()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button><button class="btn" type="button" onclick="openConsult(this)" style="background:#c8862d;">💬 상담 문의</button></div>
 
     <div class="card green"><h2>④ 안내</h2><div class="body">
       <div class="docs">
@@ -2986,7 +3000,7 @@
       <div class="row sub"><span>부가가치세 (10%)</span><span id="at_t_vat">0 원</span></div>
       <div class="row"><span>공과금계</span><span id="at_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계 <span class="hint" id="at_t_ratio"></span></span><span id="at_t_grand">0 원</span></div></div>
-    <div class="actions"><button class="btn" onclick="calcAttach()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+    <div class="actions"><button class="btn" onclick="calcAttach()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button><button class="btn" type="button" onclick="openConsult(this)" style="background:#c8862d;">💬 상담 문의</button></div>
 
     <div class="card green"><h2>④ 안내</h2><div class="body">
       <div class="docs">
@@ -3050,7 +3064,7 @@
       <div class="row sub"><span>부가가치세 (10%)</span><span id="inj_t_vat">0 원</span></div>
       <div class="row"><span>공과금계</span><span id="inj_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계 <span class="hint" id="inj_t_ratio"></span></span><span id="inj_t_grand">0 원</span></div></div>
-    <div class="actions"><button class="btn" onclick="calcInjunction()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+    <div class="actions"><button class="btn" onclick="calcInjunction()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button><button class="btn" type="button" onclick="openConsult(this)" style="background:#c8862d;">💬 상담 문의</button></div>
 
     <div class="card green"><h2>④ 안내</h2><div class="body">
       <div class="docs">
@@ -3129,7 +3143,7 @@
       <div class="row sub"><span>부가가치세 (10%)</span><span id="so_t_vat">0 원</span></div>
       <div class="row"><span>공과금계</span><span id="so_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계</span><span id="so_t_grand">0 원</span></div></div>
-    <div class="actions"><button class="btn" onclick="calcLawsuit()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+    <div class="actions"><button class="btn" onclick="calcLawsuit()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button><button class="btn" type="button" onclick="openConsult(this)" style="background:#c8862d;">💬 상담 문의</button></div>
 
     <div class="card green" id="so_mainAdjBox" style="display:none;"><h2>④ 본안 이행·소제기 시 추가 공과금 (참고용) <span class="tag chk">확인필요</span></h2><div class="body">
       <div class="note">지급명령에 <b>이의신청</b>이 있거나 조정·제소전화해가 <b>불성립</b>하여 <b>본안 소송으로 이행</b>되면, 본안 기준 인지·송달료와의 <b>차액</b>을 추가 납부합니다. 아래는 추가 예상액입니다.</div>
@@ -3218,7 +3232,7 @@
       <div class="row sub"><span>상대방 부담비율 적용</span><span id="lc_t_pct">100%</span></div>
       <div class="row grand"><span>상대방 부담 소송비용 (확정 신청액)</span><span id="lc_t_grand">0 원</span></div>
     </div>
-    <div class="actions"><button class="btn" onclick="calcLitCost()">다시 계산</button><button class="btn" onclick="copyLitCost()" style="background:#1d7a46;">계산내역 복사</button></div>
+    <div class="actions"><button class="btn" onclick="calcLitCost()">다시 계산</button><button class="btn" onclick="copyLitCost()" style="background:#1d7a46;">계산내역 복사</button><button class="btn" type="button" onclick="openConsult(this)" style="background:#c8862d;">💬 상담 문의</button></div>
 
     <details class="ref" style="margin-top:14px;background:#fffdf8;border:1px solid var(--line);border-radius:10px;padding:4px 14px;">
       <summary style="cursor:pointer;font-weight:700;color:var(--ink);padding:8px 0;">📋 [별표] 변호사보수 산입 기준표 (펼쳐보기) <span class="tag A">A</span></summary>
@@ -3307,7 +3321,7 @@
       <div class="row sub"><span>부가가치세 (10%)</span><span id="ty_t_vat">0 원</span></div>
       <div class="row"><span>공과금계</span><span id="ty_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계</span><span id="ty_t_grand">0 원</span></div></div>
-    <div class="actions"><button class="btn" onclick="calcTy()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+    <div class="actions"><button class="btn" onclick="calcTy()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button><button class="btn" type="button" onclick="openConsult(this)" style="background:#c8862d;">💬 상담 문의</button></div>
   </div>
 
   <div class="scene" id="scene-generic">
@@ -3334,7 +3348,7 @@
       <div class="row sub"><span>부가가치세 (10%)</span><span id="g_t_vat">0 원</span></div>
       <div class="row"><span>공과금계</span><span id="g_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계</span><span id="g_t_grand">0 원</span></div></div>
-    <div class="actions"><button class="btn" onclick="calcGeneric()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+    <div class="actions"><button class="btn" onclick="calcGeneric()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button><button class="btn" type="button" onclick="openConsult(this)" style="background:#c8862d;">💬 상담 문의</button></div>
     <div class="note" style="margin-top:14px;">보수는 「법무사 보수기준」, 공과금은 현행 법령에 따라 산정합니다. 사건에 따라 취득세·준비서류 등 세부 항목이 추가될 수 있습니다.</div>
   </div>
 
@@ -12934,12 +12948,6 @@ async function _exportExcelBody(meta){
   document.body.appendChild(a);a.click();document.body.removeChild(a);
   setTimeout(()=>URL.revokeObjectURL(url),1000);
 }
-</script>
-<script>
-(function(){var b=document.getElementById('sbAll'),p=document.getElementById('sbMenu');if(!b||!p)return;var c=p.querySelector('.sb-close');
-function op(){p.hidden=false;b.setAttribute('aria-expanded','true');}function cl(){p.hidden=true;b.setAttribute('aria-expanded','false');}
-b.addEventListener('click',function(){p.hidden?op():cl();});c.addEventListener('click',cl);
-p.addEventListener('click',function(e){if(e.target.tagName==='A')cl();});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!p.hidden){cl();b.focus();}});})();
 </script>
 </body>
 </html>
