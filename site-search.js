@@ -72,6 +72,8 @@
     + '@media (max-width:560px){#sanSearch{margin-bottom:24px;}#sanSearch .ss-bar{height:40px;}#sanSearch input{font-size:16px;}#sanSearch .ss-go{padding:0 13px;font-size:14px;}#sanSearch .ss-chips>span{display:none;}'
     + '#sanSearch .ss-gate{font-size:12.5px;margin:10px 10px 4px;}#sanSearch .ss-gate:not(.ss-full) .ss-gt{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}#sanSearch .ss-gate:not(.ss-full) .ss-gmore{display:inline-block;}'
     + '#sanSearch .ss-panel{max-height:68vh;}#sanSearch li{flex-wrap:wrap;padding:0 0 10px;}#sanSearch li a.ss-main{padding-bottom:4px;}#sanSearch a.ss-calc{margin:0 0 0 16px;}}'
+    /* 2026-11-18 휴대폰·태블릿: 결과 창이 아래 화면 위에 겹쳐 뜨지 않고, 아래 내용을 밀어 내리며 그 자리에 펼쳐진다 */
+    + '@media (max-width:768px){#sanSearch .ss-panel{position:static;margin-top:8px;max-height:none;overflow:visible;box-shadow:0 6px 18px rgba(30,20,10,.22);}#sanSearch .ss-head{position:static;}}'
     + '@media print{#sanSearch{display:none!important;}}';
   if (!document.getElementById('ss-css')) {
     var st = document.createElement('style'); st.id = 'ss-css'; st.textContent = css; document.head.appendChild(st);
