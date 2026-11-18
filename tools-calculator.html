@@ -548,7 +548,7 @@
         <span>%</span>
       </span>
       <a href="https://svc.wooribank.com/svc/Dream?withyou=HBNHB0036&cc=c004893:c004893" target="_blank" rel="noopener" style="color:#241f1a;background:#f3d27a;font-weight:800;text-decoration:none;border:1px solid #f3d27a;border-radius:5px;padding:4px 12px;">🔎 오늘 고시율 조회 (새 창)</a>
-      <button type="button" id="bondPubBtn" onclick="bondPublish()" style="display:none;cursor:pointer;color:#fff;background:#1d7a46;font-weight:800;border:1px solid #1d7a46;border-radius:5px;padding:4px 10px;" title="사무소 전용 — 지금 칸의 할인율을 모든 의뢰인 화면에 적용합니다">📤 의뢰인 화면에 적용</button>
+      <button type="button" id="bondPubBtn" onclick="bondPublish()" style="display:none;cursor:pointer;color:#fff;background:#1d7a46;font-weight:800;border:1px solid #1d7a46;border-radius:5px;padding:4px 10px;" title="사무소 전용 — 할인율은 매일 자동으로 들어갑니다. 자동값이 은행 고시율과 다를 때만 지금 칸의 값으로 바로잡습니다">📤 의뢰인 화면에 적용</button>
     </div>
   </div>
 </header>
@@ -561,10 +561,6 @@
       <b>정확한 견적은 상담을 통해 안내</b>드리니, 이 금액은 <b>미리 가늠해 보시는 용도</b>로만 봐 주십시오. <span class="cta">부담 없이 물어보셔도 됩니다</span></p>
     <p class="sub">보수는 「법무사 보수기준」, 공과금(인지·송달료·국민주택채권 등)은 <b>현행 법령</b>을 기준으로 산정하되, <b>최종 금액은 접수 시점·법원·기관 기준</b>에 따릅니다.</p>
     <p class="sub">※ 표시된 보수는 「법무사 보수기준」에 따른 예상액이며, 실제 보수는 사건의 내용·난이도·업무범위를 확인한 뒤 위임인과 협의하여 정합니다. 이 계산기는 할인이나 최저가를 알리기 위한 것이 아닙니다.</p>
-  </div>
-  <div style="background:#fffdf9;border:1px solid #e3d6c2;border-left:4px solid #c8862d;border-radius:10px;padding:13px 16px;margin:14px 0;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
-    <div style="font-size:13.5px;color:#6b5d49;line-height:1.55;flex:1 1 230px;">🧾 <b>상속세·양도세·증여세</b> 등 국세 신고는 <b>세무사의 업무</b>입니다. 필요하시면 세무사 정보를 안내해 드립니다. <span style="color:#8a7c66;">(취득세는 등기와 함께 저희 사무소가 대행)</span></div>
-    <a href="index.html#tax-partner" target="_blank" rel="noopener" style="flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:2px;background:#c8862d;color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:10px 18px;border-radius:9px;white-space:nowrap;"><span>세무사 안내 보기 →</span><span style="font-size:11.5px;font-weight:600;opacity:.92;white-space:normal;text-align:center;line-height:1.35;">양도소득세·상속세·증여세<br>등 각종 세무상담</span></a>
   </div>
 
 
@@ -4676,8 +4672,9 @@ function saveSongUnit(){try{localStorage.setItem('sanlaw_songUnit',document.getE
 try{paintBondRateBadge();}catch(e){}      /* 할인율 최신 여부 배지 */
 /* ═══ 국민주택채권 할인율 — 사무소 확인값 자동 반영 (2026-09 신설) ═══
    ① 사무소(관리자 기기)에서 은행 고시율을 확인해 칸에 넣고 「📤 의뢰인 화면에 적용」을 누른다.
-   ② 값은 사무소 사이트 자체 서버(Cloudflare Pages Functions + KV · /api/bond-rate)에만 저장된다.
-      외부 기관 API·자동수집은 쓰지 않는다.
+   ② 값은 사무소 사이트 자체 서버(Cloudflare Pages Functions + KV · /api/bond-rate)에 저장된다.
+      2026-11-19 개정 — 그날 값이 없으면 서버가 우리은행(주택도시기금 수탁은행) 공개 고시표에서
+      가장 최근 영업일 할인율을 가져와 자동으로 채운다(functions/api/bond-rate.js). 사무소 값은 자동값을 바로잡을 때만 쓴다.
    ③ 의뢰인이 계산기를 열면 그 값을 읽어 칸에 넣고 기준일을 표시한다.
    ④ 서버 기능이 없거나 응답이 없으면 종전 방식(직접 입력)으로 그대로 동작한다. */
 const BOND_API='/api/bond-rate';
@@ -14929,6 +14926,9 @@ function addDocsSheet(wb,scene,caseName,picks){
 /* 접이식 단추 — 모두 「감면·중과 사유 찾기」(.gk-fold)와 같은 상자·파란 단추·같은 자리 */
 .sxgk{display:none;}
 body.sx-simple .sxgk{display:block;}
+.sx-moreRow{display:none;}
+body.sx-simple .sx-moreRow{display:table-row;}
+body.sx-simple .sx-moreRow > td{padding:8px 0 !important;border-bottom:none !important;}
 .sxgk .gk-head .gk-sum{color:#8a7c66;font-weight:600;text-align:left;}
 .sxgk.open .gk-head .gk-ar{transform:rotate(90deg);}
 .sxinfo{display:none;margin:0 0 8px auto;width:fit-content;font:inherit;cursor:pointer;color:var(--fold-c,#1a5bb5);background:var(--fold-bg,#eaf2fd);border:1px solid var(--fold-bd,#9bbde9);border-radius:999px;padding:2px 12px;font-size:12.5px;font-weight:800;}
@@ -15005,6 +15005,7 @@ body.sx-simple .sx-feeNote{display:block;}   /* 수임 범위·협의조정·당
     document.body.classList.toggle('sx-simple',simple);
     [].forEach.call(document.querySelectorAll('.sxbar .sxseg button'),function(b){b.setAttribute('aria-pressed',String((b.dataset.m==='simple')===simple));});
     moveFor(simple);
+    [].forEach.call(document.querySelectorAll('.card'),function(c){if(c._sxMore)arrange(c,simple);});
   }
   function bar(){
     if(document.querySelector('.sxbar')) return;
@@ -15031,9 +15032,32 @@ body.sx-simple .sx-feeNote{display:block;}   /* 수임 범위·협의조정·당
     var set=function(){var o=card.classList.contains(cls);w.classList.toggle('open',o);h.querySelector('.gk-tg').textContent=o?'▴ 접기':'▾ 해당하면 펼쳐서 고르기';h.setAttribute('aria-expanded',String(o));};
     h.onclick=function(){card.classList.toggle(cls);set();}; set(); return w;
   }
+  /* 2026-11-19 「상세 설정」은 숨긴 항목 바로 위에 둔다 — 종전에는 카드 맨 아래에 있어서
+     눌러도 항목이 카드 위쪽에서 펼쳐져 「아무것도 안 나온다」고 보였음(법무사님 지적). */
   function moreBtn(card,label){
-    var body=card.querySelector('.body')||card; if(body.querySelector(':scope > .sxgk.sx-more')) return;
-    var w=gkBtn(card,'sx-open','상세 설정',label); w.classList.add('sx-more'); body.appendChild(w);
+    var body=card.querySelector('.body')||card; if(card._sxMore) return;
+    var w=gkBtn(card,'sx-open','상세 설정',label); w.classList.add('sx-more');
+    var adv=[].slice.call(card.querySelectorAll('.sx-adv')), first=adv[0]||null;
+    var M={w:w,row:null,first:first,mv:[],on:false}; card._sxMore=M;
+    if(!first){body.appendChild(w);return;}
+    var par=first.parentNode, same=adv.filter(function(x){return x.parentNode===par;}), last=same[same.length-1];
+    if(first.tagName==='TR'){var tr=document.createElement('tr');tr.className='sx-moreRow';var td=document.createElement('td');td.colSpan=2;td.appendChild(w);tr.appendChild(td);M.row=tr;}
+    /* 숨긴 항목 사이에 끼어 있는 보통 항목(예: 교통비)은 단추 위로 올린다 — 설명글·「자세히 보기」는 제 항목 곁에 그대로 */
+    for(var x=first.nextElementSibling;x&&x!==last;x=x.nextElementSibling){
+      if(x.classList.contains('sx-adv')) continue;
+      if(x.tagName==='TR'||x.classList.contains('line')||x.classList.contains('sxpair')) M.mv.push(x);
+    }
+    arrange(card,document.body.classList.contains('sx-simple'));
+  }
+  function arrange(card,simple){
+    var M=card._sxMore; if(!M||!M.first) return;
+    if(simple&&!M.on){
+      var el=M.row||M.w; M.first.parentNode.insertBefore(el,M.first);
+      M.mv.forEach(function(x){var ph=document.createComment('sx-ph');x.parentNode.insertBefore(ph,x);x._sxPh=ph;el.parentNode.insertBefore(x,el);});
+      M.on=true;
+    }else if(!simple&&M.on){
+      M.mv.forEach(function(x){if(x._sxPh){x._sxPh.parentNode.insertBefore(x,x._sxPh);x._sxPh.remove();x._sxPh=null;}}); M.on=false;   /* 단추는 법무사 전용에서 보이지 않음 */
+    }
   }
   function notes(card){
     var list=[].filter.call(card.querySelectorAll('.note,details.ref'),function(n){
