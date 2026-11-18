@@ -712,7 +712,7 @@
         <label><input type="checkbox" id="landAfterBuild" onchange="calcSale()"> 신축·증축 후 그 소유자가 부속토지 취득(§11④ → 주택세율 배제·4%)</label>
         <label><input type="checkbox" id="selfFarm"> 자경농지 감면</label>
         <label><input type="checkbox" id="corp"> 법인·단체 취득<span class="law" title="지방세법 §13의2①1호 — 법인(국세기본법 §13에 따른 법인으로 보는 단체, 부동산등기법 §49①3호에 따른 법인 아닌 사단·재단 등 개인이 아닌 자를 포함한다)이 주택을 취득하는 경우: 4%에 중과기준세율의 400%를 더한 12%">§13의2①1호</span></label><label><input type="checkbox" id="metroCorp"> 대도시 법인 5년 내 취득<span class="law" title="지방세법 §13② — 대도시(수도권정비계획법 §6 과밀억제권역, 산업단지 제외)에서 법인을 설립·지점 설치하거나 대도시로 전입한 후 5년 이내에 취득하는 모든 부동산은 표준세율의 300%에서 중과기준세율의 200%를 뺀 세율을 적용한다. 다만 대도시 중과 제외 업종에 직접 사용할 목적이면 일반세율.">§13②</span></label>
-        <label><input type="checkbox" id="verify"> 확인서면(등기권리증 분실·법§51)</label></div></div>
+        </div></div>
       <div id="pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="feeAdjust" onchange="calcSale()">
         <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
@@ -785,7 +785,7 @@
         <tr id="trTaxRow" style="display:none;background:#eef4fb;"><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="f_trTax" checked onchange="calcSale()"> 등록면허세 신고대행 — 신탁 말소·변경</label> <span class="hint" id="trTaxNote"></span><span class="law" title="법무사 보수기준 제25조제1항 표 2호(부표 Ⅸ-2) — 취득세·등록면허세의 신고·납부 대행 1건당 50,000원. 이전·말소·변경을 각각 1건으로 본다(법무사님 실무 기준).">보수표 Ⅸ-2</span></td><td class="auto" id="trTaxCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="f_bond" checked onchange="calcSale()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="f_same" onchange="calcSale()"> 동일인 보증서 (200,000+)</label> <span class="hint">대상</span> <input type="number" id="sameN" value="1" min="1" style="width:54px;" oninput="calcSale()"></td><td class="auto" id="sameCell">0 원</td></tr>
-        <tr id="verifyRow" style="display:none;"><td><label class="checks" style="display:inline-flex;">확인서면 작성 <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="vfyN" value="1" min="1" style="width:54px;" oninput="calcSale()"> <span class="hint" id="verifyNote"></span></td><td class="auto" id="verifyCell">0 원</td></tr>
+        <tr id="verifyRow" style=""><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="verify" onchange="calcSale()"> 확인서면 작성 <span class="hint">(등기필증 분실 시)</span> <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="vfyN" value="1" min="1" style="width:54px;" oninput="calcSale()"> <span class="hint" id="verifyNote"></span></td><td class="auto" id="verifyCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="f_trip" checked onchange="calcSale()"> 교통비 및 일당</label></td><td><input class="cell" id="tripFee" type="number" value="160000" oninput="calcSale(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="extraAgent"></tbody>
@@ -852,7 +852,7 @@
         <label><input type="checkbox" id="s_oneHouse"> 1가구 1주택 특례(0.8%·§15①2호가목)<span class="law" title="지방세법 시행령 제29조 — 상속 후 상속인 가구(같은 세대별 주민등록표의 가족)가 국내에 1주택이 되는 경우입니다. 재외국민인 상속인은 제외합니다(제1항). 1주택을 여러 상속인이 함께 상속받으면 지분이 가장 큰 상속인을 그 주택의 소유자로 보고, 지분이 같으면 그 주택에 사는 사람, 그다음 나이가 가장 많은 사람 순으로 정합니다(제3항).">공동상속은 지분 가장 큰 상속인 기준</span></label>
         <label><input type="checkbox" id="s_farmSpecial"> 자경농민 농지 특례(0.3%·§15①2호나목)</label>
         <label><input type="checkbox" id="s_over85"> 85㎡ 초과(농특세) <small>— 수도권 밖 도시지역이 아닌 읍·면은 100㎡ 초과</small></label>
-        <label><input type="checkbox" id="s_verify"> 확인서면(등기권리증 분실·법§51)</label></div></div>
+        </div></div>
       <div id="s_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="s_adjust" onchange="calcInherit()">
         <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
@@ -897,7 +897,7 @@
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="s_f_tax" checked onchange="calcInherit()"> <span id="s_taxAgentLabel">취득세 신고대행</span> (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="s_f_bond" checked onchange="calcInherit()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="s_f_same" onchange="calcInherit()"> 동일인 보증서 (200,000+)</label> <span class="hint">대상</span> <input type="number" id="s_sameN" value="1" min="1" style="width:54px;" oninput="calcInherit()"></td><td class="auto" id="s_sameCell">0 원</td></tr>
-        <tr id="s_verifyRow" style="display:none;background:#fdf6e8;"><td><label class="checks" style="display:inline-flex;">확인서면 작성 <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="s_vfyN" value="1" min="1" style="width:54px;" oninput="calcInherit()"> <span class="hint" id="s_verifyNote"></span> <span class="hint" style="color:var(--seal);">※ 상속등기는 등기의무자가 없는 단독신청이라 등기필정보 제공이 불요합니다. 유증 등 등기의무자가 있는 경우에만 체크하십시오.</span></td><td class="auto" id="s_verifyCell">0 원</td></tr>
+        <tr id="s_verifyRow" style="background:#fdf6e8;"><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="s_verify" onchange="calcInherit()"> 확인서면 작성 <span class="hint">(등기필증 분실 시)</span> <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="s_vfyN" value="1" min="1" style="width:54px;" oninput="calcInherit()"> <span class="hint" id="s_verifyNote"></span> <span class="hint" style="color:var(--seal);">※ 상속등기는 등기의무자가 없는 단독신청이라 등기필정보 제공이 불요합니다. 유증 등 등기의무자가 있는 경우에만 체크하십시오.</span></td><td class="auto" id="s_verifyCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="s_f_trip" checked onchange="calcInherit()"> 교통비 및 일당</label></td><td><input class="cell" id="s_tripFee" type="number" value="160000" oninput="calcInherit(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="s_extraAgent"></tbody>
@@ -954,7 +954,7 @@
         <label><input type="checkbox" id="bq_oneHouse"> 1가구 1주택 특례(0.8%·§15①2호가목)</label>
         <label><input type="checkbox" id="bq_farmSpecial"> 자경농민 농지 특례(0.3%·§15①2호나목)</label>
         <label><input type="checkbox" id="bq_nonprofit" onchange="calcBequest()"> 수증자가 비영리사업자(2.8%·§11①2호 단서)</label><label><input type="checkbox" id="bq_over85"> 85㎡ 초과(농특세) <small>— 수도권 밖 도시지역이 아닌 읍·면은 100㎡ 초과</small></label>
-        <label><input type="checkbox" id="bq_verify"> 확인서면(등기권리증 분실·법§51)</label></div></div>
+        </div></div>
       <div id="bq_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="bq_adjust" onchange="calcBequest()">
         <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
@@ -997,7 +997,7 @@
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bq_f_tax" checked onchange="calcBequest()"> <span id="bq_taxAgentLabel">취득세 신고대행</span> (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bq_f_bond" checked onchange="calcBequest()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bq_f_same" onchange="calcBequest()"> 동일인 보증서 (200,000+)</label> <span class="hint">대상</span> <input type="number" id="bq_sameN" value="1" min="1" style="width:54px;" oninput="calcBequest()"></td><td class="auto" id="bq_sameCell">0 원</td></tr>
-        <tr id="bq_verifyRow" style="display:none;background:#fdf6e8;"><td><label class="checks" style="display:inline-flex;">확인서면 작성 <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="bq_vfyN" value="1" min="1" style="width:54px;" oninput="calcBequest()"> <span class="hint" id="bq_verifyNote"></span> <span class="hint" style="color:var(--seal);">※ 상속등기는 등기의무자가 없는 단독신청이라 등기필정보 제공이 불요합니다. 유증 등 등기의무자가 있는 경우에만 체크하십시오.</span></td><td class="auto" id="bq_verifyCell">0 원</td></tr>
+        <tr id="bq_verifyRow" style="background:#fdf6e8;"><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bq_verify" onchange="calcBequest()"> 확인서면 작성 <span class="hint">(등기필증 분실 시)</span> <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="bq_vfyN" value="1" min="1" style="width:54px;" oninput="calcBequest()"> <span class="hint" id="bq_verifyNote"></span> <span class="hint" style="color:var(--seal);">※ 상속등기는 등기의무자가 없는 단독신청이라 등기필정보 제공이 불요합니다. 유증 등 등기의무자가 있는 경우에만 체크하십시오.</span></td><td class="auto" id="bq_verifyCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bq_f_trip" checked onchange="calcBequest()"> 교통비 및 일당</label></td><td><input class="cell" id="bq_tripFee" type="number" value="160000" oninput="calcBequest(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="bq_extraAgent"></tbody>
@@ -1126,7 +1126,7 @@
         <label><input type="checkbox" id="gv_donorOneHouse" onchange="calcGift()"> └ 증여자가 1세대 1주택(§13의2② 단서 → 중과 배제)</label>
         <label><input type="checkbox" id="gv_nonprofit" onchange="calcGift()"> 비영리사업자 취득(§11①2호 단서 → 2.8%)</label>
         <label><input type="checkbox" id="gv_over85"> 85㎡ 초과(농특세) <small>— 수도권 밖 도시지역이 아닌 읍·면은 100㎡ 초과</small></label>
-        <label><input type="checkbox" id="gv_verify"> 확인서면(등기권리증 분실·법§51)</label></div></div>
+        </div></div>
       <div id="gv_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="gv_adjust" onchange="calcGift()">
         <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
@@ -1173,7 +1173,7 @@
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="gv_f_tax" checked onchange="calcGift()"> 취득세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="gv_f_bond" checked onchange="calcGift()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="gv_f_same" onchange="calcGift()"> 동일인 보증서 (200,000+)</label> <span class="hint">대상</span> <input type="number" id="gv_sameN" value="1" min="1" style="width:54px;" oninput="calcGift()"></td><td class="auto" id="gv_sameCell">0 원</td></tr>
-        <tr id="gv_verifyRow" style="display:none;"><td><label class="checks" style="display:inline-flex;">확인서면 작성 <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="gv_vfyN" value="1" min="1" style="width:54px;" oninput="calcGift()"> <span class="hint" id="gv_verifyNote"></span></td><td class="auto" id="gv_verifyCell">0 원</td></tr>
+        <tr id="gv_verifyRow" style=""><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="gv_verify" onchange="calcGift()"> 확인서면 작성 <span class="hint">(등기필증 분실 시)</span> <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="gv_vfyN" value="1" min="1" style="width:54px;" oninput="calcGift()"> <span class="hint" id="gv_verifyNote"></span></td><td class="auto" id="gv_verifyCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="gv_f_trip" checked onchange="calcGift()"> 교통비 및 일당</label></td><td><input class="cell" id="gv_tripFee" type="number" value="160000" oninput="calcGift(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="gv_extraAgent"></tbody>
@@ -1305,7 +1305,7 @@
         <label><input type="checkbox" id="ea_over85"> 전용 85㎡ 초과(농특세 과세) <small>— 수도권 밖 도시지역이 아닌 읍·면은 100㎡ 초과</small></label>
         <label><input type="checkbox" id="ea_mid13"> 취득물건이 <b>§13②</b>(대도시 법인 취득 등) → 산출세율 ×300%</label>
         <label><input type="checkbox" id="ea_noReg"> 등기신청 없음(취득세 신고만)</label>
-        <label><input type="checkbox" id="ea_verify"> 확인서면(등기권리증 분실·법§51)</label></div></div>
+        </div></div>
       <div id="ea_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="ea_adjust" onchange="calcEtcAcq()">
         <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
@@ -1362,7 +1362,7 @@
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ea_f_tax" checked onchange="calcEtcAcq()"> 취득세 신고대행 (50,000)</label></td><td class="auto" id="ea_taxCell">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ea_f_bond" onchange="calcEtcAcq()"> 채권 매입대행 (40,000)</label></td><td class="auto" id="ea_bondCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ea_f_same" onchange="calcEtcAcq()"> 동일인 보증서 (200,000+)</label> <span class="hint">대상</span> <input type="number" id="ea_sameN" value="1" min="1" style="width:54px;" oninput="calcEtcAcq()"></td><td class="auto" id="ea_sameCell">0 원</td></tr>
-        <tr id="ea_verifyRow" style="display:none;"><td><label class="checks" style="display:inline-flex;">확인서면 작성 <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="ea_vfyN" value="1" min="1" style="width:54px;" oninput="calcEtcAcq()"> <span class="hint" id="ea_verifyNote"></span></td><td class="auto" id="ea_verifyCell">0 원</td></tr>
+        <tr id="ea_verifyRow" style=""><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ea_verify" onchange="calcEtcAcq()"> 확인서면 작성 <span class="hint">(등기필증 분실 시)</span> <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="ea_vfyN" value="1" min="1" style="width:54px;" oninput="calcEtcAcq()"> <span class="hint" id="ea_verifyNote"></span></td><td class="auto" id="ea_verifyCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ea_f_trip" checked onchange="calcEtcAcq()"> 교통비 및 일당</label></td><td><input class="cell" id="ea_tripFee" type="number" value="160000" oninput="calcEtcAcq(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="ea_extraAgent"></tbody>
@@ -1407,7 +1407,7 @@
         <span class="hint">기본값은 조문 근거(아래 ③ 세율표 참조). 실무가 다르면 선택 <span class="tag chk">확인필요</span></span></div>
       <div class="line"><span class="lbl">농특세·가산 등</span><div class="checks" onchange="calcPartition()">
         <label><input type="checkbox" id="pt_over85"> 전용 85㎡ 초과(초과분 농특세 과세) <small>— 수도권 밖 도시지역이 아닌 읍·면은 100㎡ 초과</small></label>
-        <label><input type="checkbox" id="pt_verify"> 확인서면(등기권리증 분실·법§51)</label></div></div>
+        </div></div>
       <div id="pt_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="pt_adjust" onchange="calcPartition()">
         <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
@@ -1475,7 +1475,7 @@
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pt_f_tax" checked onchange="calcPartition()"> 취득세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pt_f_bond" checked onchange="calcPartition()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pt_f_same" onchange="calcPartition()"> 동일인 보증서 (200,000+)</label> <span class="hint">대상</span> <input type="number" id="pt_sameN" value="1" min="1" style="width:54px;" oninput="calcPartition()"></td><td class="auto" id="pt_sameCell">0 원</td></tr>
-        <tr id="pt_verifyRow" style="display:none;"><td><label class="checks" style="display:inline-flex;">확인서면 작성 <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="pt_vfyN" value="1" min="1" style="width:54px;" oninput="calcPartition()"> <span class="hint" id="pt_verifyNote"></span></td><td class="auto" id="pt_verifyCell">0 원</td></tr>
+        <tr id="pt_verifyRow" style=""><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pt_verify" onchange="calcPartition()"> 확인서면 작성 <span class="hint">(등기필증 분실 시)</span> <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="pt_vfyN" value="1" min="1" style="width:54px;" oninput="calcPartition()"> <span class="hint" id="pt_verifyNote"></span></td><td class="auto" id="pt_verifyCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pt_f_trip" checked onchange="calcPartition()"> 교통비 및 일당</label></td><td><input class="cell" id="pt_tripFee" type="number" value="160000" oninput="calcPartition(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="pt_extraAgent"></tbody>
@@ -1650,7 +1650,7 @@
         <label><input type="radio" name="dv_ptype" value="etc"> 주택외</label></div></div>
       <div class="line"><span class="lbl">농특세·가산 등</span><div class="checks" onchange="calcDivision()">
         <label><input type="checkbox" id="dv_over85"> 전용 85㎡ 초과(농특세 과세) <small>— 수도권 밖 도시지역이 아닌 읍·면은 100㎡ 초과</small></label>
-        <label><input type="checkbox" id="dv_verify"> 확인서면(등기권리증 분실·법§51)</label></div></div>
+        </div></div>
       <div id="dv_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="dv_adjust" onchange="calcDivision()">
         <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
@@ -1710,7 +1710,7 @@
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="dv_f_tax" checked onchange="calcDivision()"> 취득세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="dv_f_bond" checked onchange="calcDivision()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="dv_f_same" onchange="calcDivision()"> 동일인 보증서 (200,000+)</label> <span class="hint">대상</span> <input type="number" id="dv_sameN" value="1" min="1" style="width:54px;" oninput="calcDivision()"></td><td class="auto" id="dv_sameCell">0 원</td></tr>
-        <tr id="dv_verifyRow" style="display:none;"><td><label class="checks" style="display:inline-flex;">확인서면 작성 <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="dv_vfyN" value="1" min="1" style="width:54px;" oninput="calcDivision()"> <span class="hint" id="dv_verifyNote"></span></td><td class="auto" id="dv_verifyCell">0 원</td></tr>
+        <tr id="dv_verifyRow" style=""><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="dv_verify" onchange="calcDivision()"> 확인서면 작성 <span class="hint">(등기필증 분실 시)</span> <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="dv_vfyN" value="1" min="1" style="width:54px;" oninput="calcDivision()"> <span class="hint" id="dv_verifyNote"></span></td><td class="auto" id="dv_verifyCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="dv_f_trip" checked onchange="calcDivision()"> 교통비 및 일당</label></td><td><input class="cell" id="dv_tripFee" type="number" value="160000" oninput="calcDivision(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="dv_extraAgent"></tbody>
@@ -1755,7 +1755,7 @@
         <label><input type="checkbox" id="bv_adj3"> 조정대상지역 3억↑ 주택(무상분 12%)</label>
         <label><input type="checkbox" id="bv_donorOneHouse" onchange="calcBurden()"> └ 증여자가 1세대 1주택(§13의2② 단서 → 무상분 중과 배제)</label>
         <label><input type="checkbox" id="bv_over85"> 85㎡ 초과(농특세) <small>— 수도권 밖 도시지역이 아닌 읍·면은 100㎡ 초과</small></label>
-        <label><input type="checkbox" id="bv_verify"> 확인서면(등기권리증 분실·법§51)</label></div></div>
+        </div></div>
       <div id="bv_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="bv_adjust" onchange="calcBurden()">
         <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
@@ -1804,7 +1804,7 @@
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bv_f_tax" checked onchange="calcBurden()"> 취득세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bv_f_bond" checked onchange="calcBurden()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bv_f_same" onchange="calcBurden()"> 동일인 보증서 (200,000+)</label> <span class="hint">대상</span> <input type="number" id="bv_sameN" value="1" min="1" style="width:54px;" oninput="calcBurden()"></td><td class="auto" id="bv_sameCell">0 원</td></tr>
-        <tr id="bv_verifyRow" style="display:none;"><td><label class="checks" style="display:inline-flex;">확인서면 작성 <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="bv_vfyN" value="1" min="1" style="width:54px;" oninput="calcBurden()"> <span class="hint" id="bv_verifyNote"></span></td><td class="auto" id="bv_verifyCell">0 원</td></tr>
+        <tr id="bv_verifyRow" style=""><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bv_verify" onchange="calcBurden()"> 확인서면 작성 <span class="hint">(등기필증 분실 시)</span> <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="bv_vfyN" value="1" min="1" style="width:54px;" oninput="calcBurden()"> <span class="hint" id="bv_verifyNote"></span></td><td class="auto" id="bv_verifyCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bv_f_trip" checked onchange="calcBurden()"> 교통비 및 일당</label></td><td><input class="cell" id="bv_tripFee" type="number" value="160000" oninput="calcBurden(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="bv_extraAgent"></tbody>
@@ -1857,7 +1857,7 @@
       <div class="line"><span class="lbl">채권최고액(원)</span><input type="number" class="amt" id="mt_max" placeholder="0" oninput="calcMortgage()"></div>
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('mt_cntEstate',-1,calcMortgage)">−</button><input type="number" id="mt_cntEstate" value="1" min="1" oninput="calcMortgage()"><button onclick="step('mt_cntEstate',1,calcMortgage)">+</button></div></div>
       <div class="line"><span class="lbl">감면·가산 등</span><div class="checks" onchange="calcMortgage()">
-        <label><input type="checkbox" id="mt_verify"> 확인서면(등기권리증 분실·법§51)</label>
+        
         <label><input type="checkbox" id="mt_same"> 동일인 보증서</label></div></div>
       <div id="mt_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="mt_adjust" onchange="calcMortgage()">
         <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
@@ -1896,7 +1896,7 @@
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="mt_f_tax" checked onchange="calcMortgage()"> 등록면허세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="mt_f_bond" checked onchange="calcMortgage()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
         <tr id="mt_sameRow" style="display:none;"><td>동일인 보증서 (200,000)</td><td class="auto" id="mt_sameCell">0 원</td></tr>
-        <tr id="mt_verifyRow" style="display:none;"><td><label class="checks" style="display:inline-flex;">확인서면 작성 <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="mt_vfyN" value="1" min="1" style="width:54px;" oninput="calcMortgage()"> <span class="hint" id="mt_verifyNote"></span></td><td class="auto" id="mt_verifyCell">0 원</td></tr>
+        <tr id="mt_verifyRow" style=""><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="mt_verify" onchange="calcMortgage()"> 확인서면 작성 <span class="hint">(등기필증 분실 시)</span> <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="mt_vfyN" value="1" min="1" style="width:54px;" oninput="calcMortgage()"> <span class="hint" id="mt_verifyNote"></span></td><td class="auto" id="mt_verifyCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="mt_f_trip" checked onchange="calcMortgage()"> 교통비 및 일당</label></td><td><input class="cell" id="mt_tripFee" type="number" value="160000" oninput="calcMortgage(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="mt_extraAgent"></tbody>
@@ -1930,7 +1930,7 @@
       <div class="line"><span class="lbl">과세표준(원)</span><input type="number" class="amt" id="ga_base" placeholder="0" oninput="calcGadeungi()"><span class="hint">부동산가액 또는 채권액</span></div>
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('ga_cntEstate',-1,calcGadeungi)">−</button><input type="number" id="ga_cntEstate" value="1" min="1" oninput="calcGadeungi()"><button onclick="step('ga_cntEstate',1,calcGadeungi)">+</button></div></div>
       <div class="line"><span class="lbl">감면·가산 등</span><div class="checks" onchange="calcGadeungi()">
-        <label><input type="checkbox" id="ga_verify"> 확인서면(등기권리증 분실·법§51)</label></div></div>
+        </div></div>
       <div id="ga_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="ga_adjust" onchange="calcGadeungi()">
         <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
@@ -1959,7 +1959,7 @@
         <tr id="ga_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="ga_feeMultiNote"></span></td><td class="auto" id="ga_feeMultiCell">0 원</td></tr><tr id="ga_feeCntRow" style="display:none;"><td>부동산 개수 가산 <span class="hint" id="ga_feeCntNote"></span><span class="law" title="법무사보수기준 §10① — 대상 부동산이 1개를 초과하는 경우 초과하는 1개마다 20,000원을 가산합니다. (환지등기는 종전 토지 10필지 초과분)">보수기준 §10①</span></td><td class="auto" id="ga_feeCntCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ga_f_origin" checked onchange="calcGadeungi()"> 등기원인증서(매매예약서 등) 작성 (50,000)</label> <select id="ga_originAdd" onchange="calcGadeungi()" style="font-size:12px;margin-left:4px;"><option value="0" selected>문안 일반</option><option value="1">복잡·특수 +100%</option></select> <span class="law" title="법무사보수기준 §25②→§10③ — 업무가 특별히 중대·복잡하거나 특별한 조사·분석·연구·문안이 필요한 경우(§2②각호) 당해 기본보수(50,000)의 100%까지 가산. §2⑤ 상한.">보수기준 §25②</span></td><td class="auto" id="ga_originCell">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ga_f_tax" checked onchange="calcGadeungi()"> 등록면허세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
-        <tr id="ga_verifyRow" style="display:none;"><td><label class="checks" style="display:inline-flex;">확인서면 작성 <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="ga_vfyN" value="1" min="1" style="width:54px;" oninput="calcGadeungi()"> <span class="hint" id="ga_verifyNote"></span></td><td class="auto" id="ga_verifyCell">0 원</td></tr>
+        <tr id="ga_verifyRow" style=""><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ga_verify" onchange="calcGadeungi()"> 확인서면 작성 <span class="hint">(등기필증 분실 시)</span> <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="ga_vfyN" value="1" min="1" style="width:54px;" oninput="calcGadeungi()"> <span class="hint" id="ga_verifyNote"></span></td><td class="auto" id="ga_verifyCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ga_f_trip" checked onchange="calcGadeungi()"> 교통비 및 일당</label></td><td><input class="cell" id="ga_tripFee" type="number" value="160000" oninput="calcGadeungi(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="ga_extraAgent"></tbody>
@@ -2240,7 +2240,7 @@
       <div class="line"><span class="lbl">채권최고액(원)</span><input type="number" class="amt" id="ma_max" placeholder="0" oninput="calcMortgageAdd()"></div>
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('ma_cntEstate',-1,calcMortgageAdd)">−</button><input type="number" id="ma_cntEstate" value="1" min="1" oninput="calcMortgageAdd()"><button onclick="step('ma_cntEstate',1,calcMortgageAdd)">+</button></div></div>
       <div class="line"><span class="lbl">감면·가산 등</span><div class="checks" onchange="calcMortgageAdd()">
-        <label><input type="checkbox" id="ma_verify"> 확인서면(등기권리증 분실·법§51)</label>
+        
         <label><input type="checkbox" id="ma_same"> 동일인 보증서</label></div></div>
       <div id="ma_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="ma_adjust" onchange="calcMortgageAdd()">
         <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
@@ -2281,7 +2281,7 @@
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ma_f_tax" checked onchange="calcMortgageAdd()"> 등록면허세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ma_f_bond" checked onchange="calcMortgageAdd()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
         <tr id="ma_sameRow" style="display:none;"><td>동일인 보증서 (200,000)</td><td class="auto" id="ma_sameCell">0 원</td></tr>
-        <tr id="ma_verifyRow" style="display:none;"><td><label class="checks" style="display:inline-flex;">확인서면 작성 <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="ma_vfyN" value="1" min="1" style="width:54px;" oninput="calcMortgageAdd()"> <span class="hint" id="ma_verifyNote"></span></td><td class="auto" id="ma_verifyCell">0 원</td></tr>
+        <tr id="ma_verifyRow" style=""><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ma_verify" onchange="calcMortgageAdd()"> 확인서면 작성 <span class="hint">(등기필증 분실 시)</span> <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="ma_vfyN" value="1" min="1" style="width:54px;" oninput="calcMortgageAdd()"> <span class="hint" id="ma_verifyNote"></span></td><td class="auto" id="ma_verifyCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ma_f_trip" checked onchange="calcMortgageAdd()"> 교통비 및 일당</label></td><td><input class="cell" id="ma_tripFee" type="number" value="160000" oninput="calcMortgageAdd(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="ma_extraAgent"></tbody>
@@ -2380,7 +2380,7 @@
       <div class="line"><span class="lbl">감면·가산 등</span><div class="checks" onchange="calcPreserve()">
         <label><input type="checkbox" id="pr_over85"> 85㎡ 초과(농특세) <small>— 수도권 밖 도시지역이 아닌 읍·면은 100㎡ 초과</small></label>
         <label><input type="checkbox" id="pr_metro"> 대도시 내 취득 중과(취득세)</label>
-        <label><input type="checkbox" id="pr_verify"> 확인서면(등기권리증 분실·법§51)</label></div></div>
+        </div></div>
       <div id="pr_metroWarn" style="display:none;margin:6px 0;padding:8px 10px;background:#fff7e6;border:1px solid var(--gold);border-radius:6px;font-size:12.5px;color:#8a6d1c;">⚠ <b>대도시 취득 중과 [확인필요]</b> — 지방세법 §13②에 따라 대도시(과밀억제권역) 내 법인 설립·전입 후 5년 내 부동산 취득 등은 취득세가 중과될 수 있습니다. 다만 <b>원시취득 보존등기의 중과 해당 여부는 취득 주체·용도에 따라 달라</b> 자동 적용하지 않습니다. 해당 시 <b>취득세를 직접 재산정·입력</b>하세요(표준세율 + 중과기준세율 2배 등).</div>
       <div id="pr_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="pr_adjust" onchange="calcPreserve()">
         <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
@@ -2422,7 +2422,7 @@
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pr_f_tax" checked onchange="calcPreserve()"> 취득세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pr_f_bond" checked onchange="calcPreserve()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pr_f_same" onchange="calcPreserve()"> 동일인 보증서 (200,000+)</label> <span class="hint">대상</span> <input type="number" id="pr_sameN" value="1" min="1" style="width:54px;" oninput="calcPreserve()"></td><td class="auto" id="pr_sameCell">0 원</td></tr>
-        <tr id="pr_verifyRow" style="display:none;"><td><label class="checks" style="display:inline-flex;">확인서면 작성 <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="pr_vfyN" value="1" min="1" style="width:54px;" oninput="calcPreserve()"> <span class="hint" id="pr_verifyNote"></span></td><td class="auto" id="pr_verifyCell">0 원</td></tr>
+        <tr id="pr_verifyRow" style=""><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pr_verify" onchange="calcPreserve()"> 확인서면 작성 <span class="hint">(등기필증 분실 시)</span> <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="pr_vfyN" value="1" min="1" style="width:54px;" oninput="calcPreserve()"> <span class="hint" id="pr_verifyNote"></span></td><td class="auto" id="pr_verifyCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pr_f_trip" checked onchange="calcPreserve()"> 교통비 및 일당</label></td><td><input class="cell" id="pr_tripFee" type="number" value="160000" oninput="calcPreserve(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="pr_extraAgent"></tbody>
@@ -2458,7 +2458,7 @@
       <div class="line"><span class="lbl" id="rt_baseLbl">전세금(원)</span><input type="number" class="amt" id="rt_price" placeholder="0" oninput="calcRight()"></div>
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('rt_cntEstate',-1,calcRight)">−</button><input type="number" id="rt_cntEstate" value="1" min="1" oninput="calcRight()"><button onclick="step('rt_cntEstate',1,calcRight)">+</button></div></div>
       <div class="line"><span class="lbl">감면·가산 등</span><div class="checks" onchange="calcRight()">
-        <label><input type="checkbox" id="rt_verify"> 확인서면(등기권리증 분실·법§51)</label>
+        
         <label><input type="checkbox" id="rt_same"> 동일인 보증서</label></div></div>
       <div id="rt_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="rt_adjust" onchange="calcRight()">
         <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
@@ -2489,7 +2489,7 @@
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="rt_f_origin" checked onchange="calcRight()"> 등기원인증서(설정계약서) 작성 (50,000)</label> <select id="rt_originAdd" onchange="calcRight()" style="font-size:12px;margin-left:4px;"><option value="0" selected>문안 일반</option><option value="1">복잡·특수 +100%</option></select> <span class="law" title="법무사보수기준 §25②→§10③ — 업무가 특별히 중대·복잡하거나 특별한 조사·분석·연구·문안이 필요한 경우(§2②각호) 당해 기본보수(50,000)의 100%까지 가산. §2⑤ 상한.">보수기준 §25②</span></td><td class="auto" id="rt_originCell">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="rt_f_tax" checked onchange="calcRight()"> 등록면허세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr id="rt_sameRow" style="display:none;"><td>동일인 보증서 (200,000)</td><td class="auto" id="rt_sameCell">0 원</td></tr>
-        <tr id="rt_verifyRow" style="display:none;"><td><label class="checks" style="display:inline-flex;">확인서면 작성 <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="rt_vfyN" value="1" min="1" style="width:54px;" oninput="calcRight()"> <span class="hint" id="rt_verifyNote"></span></td><td class="auto" id="rt_verifyCell">0 원</td></tr>
+        <tr id="rt_verifyRow" style=""><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="rt_verify" onchange="calcRight()"> 확인서면 작성 <span class="hint">(등기필증 분실 시)</span> <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="rt_vfyN" value="1" min="1" style="width:54px;" oninput="calcRight()"> <span class="hint" id="rt_verifyNote"></span></td><td class="auto" id="rt_verifyCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="rt_f_trip" checked onchange="calcRight()"> 교통비 및 일당</label></td><td><input class="cell" id="rt_tripFee" type="number" value="160000" oninput="calcRight(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="rt_extraAgent"></tbody>
@@ -7580,7 +7580,7 @@ function calcSale(fromEdit){
      if(_tn>0&&chk('f_trTax'))fee+=_tv;}}if(chk('f_bond'))fee+=40000;if(chk('f_trip'))fee+=val('tripFee');
   if(chk('f_same')){const n=Math.max(1,val('sameN')),e=Math.max(1,val('cntEstate'));const v=200000+((n-1)+(e-1))*30000;document.getElementById('sameCell').textContent=won(v);fee+=v;}else document.getElementById('sameCell').textContent='0 원';
   const vRow=document.getElementById('verifyRow');
-  if(chk('verify')){const n=Math.max(1,val('vfyN')),e=Math.max(1,val('cntEstate'));const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('verifyCell').textContent=won(v);document.getElementById('verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else vRow.style.display='none';
+  if(chk('verify')){const n=Math.max(1,val('vfyN')),e=Math.max(1,val('cntEstate'));const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('verifyCell').textContent=won(v);document.getElementById('verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else{vRow.style.display='table-row';const _vc=vRow.querySelector('[id$="verifyCell"]'),_vn=vRow.querySelector('[id$="verifyNote"]');if(_vc)_vc.textContent=won(0);if(_vn)_vn.textContent='';}  /* 2026-11-18 확인서면 체크칸을 ④ 수수료로 옮김 — 줄은 늘 보인다 */
   EXTRA_AGENT.forEach(([id,name,code])=>{const c=document.getElementById('ck_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('qt_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('extraAgent');
   fee=pwApply('',fee);   /* §6·§5① 부분수임·중단 감액 */
@@ -7803,7 +7803,7 @@ function calcInherit(fromEdit){
   if(chk('s_f_origin')){const _oa=parseFloat((document.getElementById('s_originAdd')||{}).value)||0;const _oAdd=Math.round(50000*_oa);fee+=50000+_oAdd;const _oc=document.getElementById('s_originCell');if(_oc)_oc.textContent=won(50000+_oAdd)+(_oAdd>0?' (기본50,000+§25②가산'+won(_oAdd)+')':'');}else{const _oc=document.getElementById('s_originCell');if(_oc)_oc.textContent='0 원';}if(chk('s_f_tax'))fee+=50000;if(chk('s_f_bond'))fee+=40000;if(chk('s_f_trip'))fee+=val('s_tripFee');
   if(chk('s_f_same')){const n=Math.max(1,val('s_sameN')),e=Math.max(1,val('s_cntEstate'));const v=200000+((n-1)+(e-1))*30000;document.getElementById('s_sameCell').textContent=won(v);fee+=v;}else document.getElementById('s_sameCell').textContent='0 원';
   const vRow=document.getElementById('s_verifyRow');
-  if(chk('s_verify')){const n=Math.max(1,val('s_vfyN')),e=Math.max(1,val('s_cntEstate'));const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('s_verifyCell').textContent=won(v);document.getElementById('s_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else vRow.style.display='none';
+  if(chk('s_verify')){const n=Math.max(1,val('s_vfyN')),e=Math.max(1,val('s_cntEstate'));const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('s_verifyCell').textContent=won(v);document.getElementById('s_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else{vRow.style.display='table-row';const _vc=vRow.querySelector('[id$="verifyCell"]'),_vn=vRow.querySelector('[id$="verifyNote"]');if(_vc)_vc.textContent=won(0);if(_vn)_vn.textContent='';}  /* 2026-11-18 확인서면 체크칸을 ④ 수수료로 옮김 — 줄은 늘 보인다 */
   EXTRA_AGENT.forEach(([id,name,code])=>{const c=document.getElementById('sa_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('saq_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('s_extraAgent');
   fee=pwApply('s_',fee);   /* §6·§5① 부분수임·중단 감액 */
@@ -7917,7 +7917,7 @@ function calcBequest(fromEdit){
   if(chk('bq_f_origin')){const _oa=parseFloat((document.getElementById('bq_originAdd')||{}).value)||0;const _oAdd=Math.round(50000*_oa);fee+=50000+_oAdd;const _oc=document.getElementById('bq_originCell');if(_oc)_oc.textContent=won(50000+_oAdd)+(_oAdd>0?' (기본50,000+§25②가산'+won(_oAdd)+')':'');}else{const _oc=document.getElementById('bq_originCell');if(_oc)_oc.textContent='0 원';}if(chk('bq_f_tax'))fee+=50000;if(chk('bq_f_bond'))fee+=40000;if(chk('bq_f_trip'))fee+=val('bq_tripFee');
   if(chk('bq_f_same')){const n=Math.max(1,val('bq_sameN')),e=Math.max(1,val('bq_cntEstate'));const v=200000+((n-1)+(e-1))*30000;document.getElementById('bq_sameCell').textContent=won(v);fee+=v;}else document.getElementById('bq_sameCell').textContent='0 원';
   const vRow=document.getElementById('bq_verifyRow');
-  if(chk('bq_verify')){const n=Math.max(1,val('bq_vfyN')),e=Math.max(1,val('bq_cntEstate'));const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('bq_verifyCell').textContent=won(v);document.getElementById('bq_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else vRow.style.display='none';
+  if(chk('bq_verify')){const n=Math.max(1,val('bq_vfyN')),e=Math.max(1,val('bq_cntEstate'));const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('bq_verifyCell').textContent=won(v);document.getElementById('bq_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else{vRow.style.display='table-row';const _vc=vRow.querySelector('[id$="verifyCell"]'),_vn=vRow.querySelector('[id$="verifyNote"]');if(_vc)_vc.textContent=won(0);if(_vn)_vn.textContent='';}  /* 2026-11-18 확인서면 체크칸을 ④ 수수료로 옮김 — 줄은 늘 보인다 */
   EXTRA_AGENT.forEach(([id,name,code])=>{const c=document.getElementById('sa_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('saq_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('bq_extraAgent');
   fee=pwApply('bq_',fee);   /* §6·§5① 부분수임·중단 감액 */
@@ -8244,7 +8244,7 @@ function calcGift(fromEdit){
   if(chk('gv_f_origin')){const _oa=parseFloat((document.getElementById('gv_originAdd')||{}).value)||0;const _oAdd=Math.round(50000*_oa);fee+=50000+_oAdd;const _oc=document.getElementById('gv_originCell');if(_oc)_oc.textContent=won(50000+_oAdd)+(_oAdd>0?' (기본50,000+§25②가산'+won(_oAdd)+')':'');}else{const _oc=document.getElementById('gv_originCell');if(_oc)_oc.textContent='0 원';}if(chk('gv_f_inspect'))fee+=50000;if(chk('gv_f_tax'))fee+=50000;if(chk('gv_f_bond'))fee+=40000;if(chk('gv_f_trip'))fee+=val('gv_tripFee');
   if(chk('gv_f_same')){const n=Math.max(1,val('gv_sameN')),e=Math.max(1,val('gv_cntEstate'));const v=200000+((n-1)+(e-1))*30000;document.getElementById('gv_sameCell').textContent=won(v);fee+=v;}else document.getElementById('gv_sameCell').textContent='0 원';
   const vRow=document.getElementById('gv_verifyRow');
-  if(chk('gv_verify')){const n=Math.max(1,val('gv_vfyN')),e=Math.max(1,val('gv_cntEstate'));const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('gv_verifyCell').textContent=won(v);document.getElementById('gv_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else vRow.style.display='none';
+  if(chk('gv_verify')){const n=Math.max(1,val('gv_vfyN')),e=Math.max(1,val('gv_cntEstate'));const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('gv_verifyCell').textContent=won(v);document.getElementById('gv_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else{vRow.style.display='table-row';const _vc=vRow.querySelector('[id$="verifyCell"]'),_vn=vRow.querySelector('[id$="verifyNote"]');if(_vc)_vc.textContent=won(0);if(_vn)_vn.textContent='';}  /* 2026-11-18 확인서면 체크칸을 ④ 수수료로 옮김 — 줄은 늘 보인다 */
   EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const c=document.getElementById('gva_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('gvaq_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('gv_extraAgent');
   fee=pwApply('gv_',fee);   /* §6·§5① 부분수임·중단 감액 */
@@ -8413,7 +8413,7 @@ function calcDivision(fromEdit){
   if(chk('dv_f_same')){const n=Math.max(1,val('dv_sameN')),e=Math.max(1,val('dv_cntEstate'));const v=200000+((n-1)+(e-1))*30000;document.getElementById('dv_sameCell').textContent=won(v);fee+=v;}
   else document.getElementById('dv_sameCell').textContent='0 원';
   const vRow=document.getElementById('dv_verifyRow');
-  if(chk('dv_verify')){const n=Math.max(1,val('dv_vfyN')),e=Math.max(1,val('dv_cntEstate'));const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('dv_verifyCell').textContent=won(v);document.getElementById('dv_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else vRow.style.display='none';
+  if(chk('dv_verify')){const n=Math.max(1,val('dv_vfyN')),e=Math.max(1,val('dv_cntEstate'));const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('dv_verifyCell').textContent=won(v);document.getElementById('dv_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else{vRow.style.display='table-row';const _vc=vRow.querySelector('[id$="verifyCell"]'),_vn=vRow.querySelector('[id$="verifyNote"]');if(_vc)_vc.textContent=won(0);if(_vn)_vn.textContent='';}  /* 2026-11-18 확인서면 체크칸을 ④ 수수료로 옮김 — 줄은 늘 보인다 */
   EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const c=document.getElementById('dva_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('dvaq_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('dv_extraAgent');
   fee=pwApply('dv_',fee);   /* §6·§5① 부분수임·중단 감액 */
@@ -8867,7 +8867,7 @@ function calcEtcAcqTail(){
   if(chk('ea_f_same')){const n=Math.max(1,val('ea_sameN')),e=Math.max(1,val('ea_cntEstate'));const v=200000+((n-1)+(e-1))*30000;document.getElementById('ea_sameCell').textContent=won(v);fee+=v;}
   else document.getElementById('ea_sameCell').textContent='0 원';
   const vRow=document.getElementById('ea_verifyRow');
-  if(chk('ea_verify')){const n=Math.max(1,val('ea_vfyN')),e=Math.max(1,val('ea_cntEstate'));const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('ea_verifyCell').textContent=won(v);document.getElementById('ea_verifyNote').textContent='(120,000 + 초과 '+((n-1)+(e-1))+'건 × 30,000)';fee+=v;}else vRow.style.display='none';
+  if(chk('ea_verify')){const n=Math.max(1,val('ea_vfyN')),e=Math.max(1,val('ea_cntEstate'));const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('ea_verifyCell').textContent=won(v);document.getElementById('ea_verifyNote').textContent='(120,000 + 초과 '+((n-1)+(e-1))+'건 × 30,000)';fee+=v;}else{vRow.style.display='table-row';const _vc=vRow.querySelector('[id$="verifyCell"]'),_vn=vRow.querySelector('[id$="verifyNote"]');if(_vc)_vc.textContent=won(0);if(_vn)_vn.textContent='';}  /* 2026-11-18 확인서면 체크칸을 ④ 수수료로 옮김 — 줄은 늘 보인다 */
   EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const c=document.getElementById('eaa_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('eaaq_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('ea_extraAgent');
   fee=pwApply('ea_',fee);   /* §6·§5① 부분수임·중단 감액 */
@@ -9143,7 +9143,7 @@ function calcPartition(fromEdit){
   if(chk('pt_f_same')){const n=Math.max(1,val('pt_sameN')),e=Math.max(1,val('pt_cntEstate'));const v=200000+((n-1)+(e-1))*30000;document.getElementById('pt_sameCell').textContent=won(v);fee+=v;}
   else document.getElementById('pt_sameCell').textContent='0 원';
   const vRow=document.getElementById('pt_verifyRow');
-  if(chk('pt_verify')){const n=Math.max(1,val('pt_vfyN')),e=Math.max(1,val('pt_cntEstate'));const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('pt_verifyCell').textContent=won(v);document.getElementById('pt_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else vRow.style.display='none';
+  if(chk('pt_verify')){const n=Math.max(1,val('pt_vfyN')),e=Math.max(1,val('pt_cntEstate'));const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('pt_verifyCell').textContent=won(v);document.getElementById('pt_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else{vRow.style.display='table-row';const _vc=vRow.querySelector('[id$="verifyCell"]'),_vn=vRow.querySelector('[id$="verifyNote"]');if(_vc)_vc.textContent=won(0);if(_vn)_vn.textContent='';}  /* 2026-11-18 확인서면 체크칸을 ④ 수수료로 옮김 — 줄은 늘 보인다 */
   EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const c=document.getElementById('pta_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('ptaq_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('pt_extraAgent');
   fee=pwApply('pt_',fee);   /* §6·§5① 부분수임·중단 감액 */
@@ -9473,7 +9473,7 @@ function calcBurden(fromEdit){
   if(chk('bv_f_origin')){const _oa=parseFloat((document.getElementById('bv_originAdd')||{}).value)||0;const _oAdd=Math.round(50000*_oa);fee+=50000+_oAdd;const _oc=document.getElementById('bv_originCell');if(_oc)_oc.textContent=won(50000+_oAdd)+(_oAdd>0?' (기본50,000+§25②가산'+won(_oAdd)+')':'');}else{const _oc=document.getElementById('bv_originCell');if(_oc)_oc.textContent='0 원';}if(chk('bv_f_inspect'))fee+=50000;if(chk('bv_f_tax'))fee+=50000;if(chk('bv_f_bond'))fee+=40000;if(chk('bv_f_trip'))fee+=val('bv_tripFee');
   if(chk('bv_f_same')){const n=Math.max(1,val('bv_sameN')),e=Math.max(1,val('bv_cntEstate'));const v=200000+((n-1)+(e-1))*30000;document.getElementById('bv_sameCell').textContent=won(v);fee+=v;}else document.getElementById('bv_sameCell').textContent='0 원';
   const vRow=document.getElementById('bv_verifyRow');
-  if(chk('bv_verify')){const n=Math.max(1,val('bv_vfyN')),e=Math.max(1,val('bv_cntEstate'));const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('bv_verifyCell').textContent=won(v);document.getElementById('bv_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else vRow.style.display='none';
+  if(chk('bv_verify')){const n=Math.max(1,val('bv_vfyN')),e=Math.max(1,val('bv_cntEstate'));const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('bv_verifyCell').textContent=won(v);document.getElementById('bv_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else{vRow.style.display='table-row';const _vc=vRow.querySelector('[id$="verifyCell"]'),_vn=vRow.querySelector('[id$="verifyNote"]');if(_vc)_vc.textContent=won(0);if(_vn)_vn.textContent='';}  /* 2026-11-18 확인서면 체크칸을 ④ 수수료로 옮김 — 줄은 늘 보인다 */
   EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const c=document.getElementById('bva_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('bvaq_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('bv_extraAgent');
   fee=pwApply('bv_',fee);   /* §6·§5① 부분수임·중단 감액 */
@@ -9549,7 +9549,7 @@ function calcMortgage(mode){
   const sameRow=document.getElementById('mt_sameRow');
   if(chk('mt_same')){sameRow.style.display='table-row';document.getElementById('mt_sameCell').textContent=won(200000);fee+=200000;}else sameRow.style.display='none';
   const vRow=document.getElementById('mt_verifyRow');
-  if(chk('mt_verify')){const n=Math.max(1,val('mt_vfyN')),e=Math.max(1,cntE);const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('mt_verifyCell').textContent=won(v);document.getElementById('mt_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else vRow.style.display='none';
+  if(chk('mt_verify')){const n=Math.max(1,val('mt_vfyN')),e=Math.max(1,cntE);const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('mt_verifyCell').textContent=won(v);document.getElementById('mt_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else{vRow.style.display='table-row';const _vc=vRow.querySelector('[id$="verifyCell"]'),_vn=vRow.querySelector('[id$="verifyNote"]');if(_vc)_vc.textContent=won(0);if(_vn)_vn.textContent='';}  /* 2026-11-18 확인서면 체크칸을 ④ 수수료로 옮김 — 줄은 늘 보인다 */
   EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const c=document.getElementById('mta_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('mtaq_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('mt_extraAgent');
   fee=pwApply('mt_',fee);   /* §6·§5① 부분수임·중단 감액 */
@@ -9613,7 +9613,7 @@ function calcGadeungi(fromEdit){
   fee+=feeCnt;
   if(chk('ga_f_origin')){const _oa=parseFloat((document.getElementById('ga_originAdd')||{}).value)||0;const _oAdd=Math.round(50000*_oa);fee+=50000+_oAdd;const _oc=document.getElementById('ga_originCell');if(_oc)_oc.textContent=won(50000+_oAdd)+(_oAdd>0?' (기본50,000+§25②가산'+won(_oAdd)+')':'');}else{const _oc=document.getElementById('ga_originCell');if(_oc)_oc.textContent='0 원';}if(chk('ga_f_tax'))fee+=50000;if(chk('ga_f_trip'))fee+=val('ga_tripFee');
   const vRow=document.getElementById('ga_verifyRow');
-  if(chk('ga_verify')){const n=Math.max(1,val('ga_vfyN')),e=Math.max(1,cntE);const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('ga_verifyCell').textContent=won(v);document.getElementById('ga_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else vRow.style.display='none';
+  if(chk('ga_verify')){const n=Math.max(1,val('ga_vfyN')),e=Math.max(1,cntE);const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('ga_verifyCell').textContent=won(v);document.getElementById('ga_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else{vRow.style.display='table-row';const _vc=vRow.querySelector('[id$="verifyCell"]'),_vn=vRow.querySelector('[id$="verifyNote"]');if(_vc)_vc.textContent=won(0);if(_vn)_vn.textContent='';}  /* 2026-11-18 확인서면 체크칸을 ④ 수수료로 옮김 — 줄은 늘 보인다 */
   EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const c=document.getElementById('gaa_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('gaaq_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('ga_extraAgent');
   fee=pwApply('ga_',fee);   /* §6·§5① 부분수임·중단 감액 */
@@ -9772,7 +9772,7 @@ function calcMortgageAdd(fromEdit){
   const sameRow=document.getElementById('ma_sameRow');
   if(chk('ma_same')){sameRow.style.display='table-row';document.getElementById('ma_sameCell').textContent=won(200000);fee+=200000;}else sameRow.style.display='none';
   const vRow=document.getElementById('ma_verifyRow');
-  if(chk('ma_verify')){const n=Math.max(1,val('ma_vfyN')),e=Math.max(1,cntE);const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('ma_verifyCell').textContent=won(v);document.getElementById('ma_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else vRow.style.display='none';
+  if(chk('ma_verify')){const n=Math.max(1,val('ma_vfyN')),e=Math.max(1,cntE);const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('ma_verifyCell').textContent=won(v);document.getElementById('ma_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else{vRow.style.display='table-row';const _vc=vRow.querySelector('[id$="verifyCell"]'),_vn=vRow.querySelector('[id$="verifyNote"]');if(_vc)_vc.textContent=won(0);if(_vn)_vn.textContent='';}  /* 2026-11-18 확인서면 체크칸을 ④ 수수료로 옮김 — 줄은 늘 보인다 */
   EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const c=document.getElementById('maa_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('maaq_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('ma_extraAgent');
   fee=pwApply('ma_',fee);   /* §6·§5① 부분수임·중단 감액 */
@@ -9957,7 +9957,7 @@ function calcPreserve(fromEdit){
   if(chk('pr_f_tax'))fee+=50000;if(chk('pr_f_bond'))fee+=40000;if(chk('pr_f_trip'))fee+=val('pr_tripFee');
   if(chk('pr_f_same')){const n=Math.max(1,val('pr_sameN')),e=Math.max(1,val('pr_cntEstate'));const v=200000+((n-1)+(e-1))*30000;document.getElementById('pr_sameCell').textContent=won(v);fee+=v;}else document.getElementById('pr_sameCell').textContent='0 원';
   const vRow=document.getElementById('pr_verifyRow');
-  if(chk('pr_verify')){const n=Math.max(1,val('pr_vfyN')),e=Math.max(1,cntE);const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('pr_verifyCell').textContent=won(v);document.getElementById('pr_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else vRow.style.display='none';
+  if(chk('pr_verify')){const n=Math.max(1,val('pr_vfyN')),e=Math.max(1,cntE);const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('pr_verifyCell').textContent=won(v);document.getElementById('pr_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else{vRow.style.display='table-row';const _vc=vRow.querySelector('[id$="verifyCell"]'),_vn=vRow.querySelector('[id$="verifyNote"]');if(_vc)_vc.textContent=won(0);if(_vn)_vn.textContent='';}  /* 2026-11-18 확인서면 체크칸을 ④ 수수료로 옮김 — 줄은 늘 보인다 */
   EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const c=document.getElementById('pra_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('praq_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('pr_extraAgent');
   fee=pwApply('pr_',fee);   /* §6·§5① 부분수임·중단 감액 */
@@ -10062,7 +10062,7 @@ function calcRight(fromEdit){
   const sameRow=document.getElementById('rt_sameRow');
   if(chk('rt_same')){sameRow.style.display='table-row';document.getElementById('rt_sameCell').textContent=won(200000);fee+=200000;}else sameRow.style.display='none';
   const vRow=document.getElementById('rt_verifyRow');
-  if(chk('rt_verify')){const n=Math.max(1,val('rt_vfyN')),e=Math.max(1,cntE);const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('rt_verifyCell').textContent=won(v);document.getElementById('rt_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else vRow.style.display='none';
+  if(chk('rt_verify')){const n=Math.max(1,val('rt_vfyN')),e=Math.max(1,cntE);const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('rt_verifyCell').textContent=won(v);document.getElementById('rt_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else{vRow.style.display='table-row';const _vc=vRow.querySelector('[id$="verifyCell"]'),_vn=vRow.querySelector('[id$="verifyNote"]');if(_vc)_vc.textContent=won(0);if(_vn)_vn.textContent='';}  /* 2026-11-18 확인서면 체크칸을 ④ 수수료로 옮김 — 줄은 늘 보인다 */
   EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const c=document.getElementById('rta_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('rtaq_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('rt_extraAgent');
   fee=pwApply('rt_',fee);   /* §6·§5① 부분수임·중단 감액 */
@@ -12742,7 +12742,7 @@ function collectRows(card,stripParen){
     const tds=tr.querySelectorAll('td');if(tds.length<2)return;
     let name=mapName(cellName(tds[0]),stripParen);
     let amt;
-    if(cb){
+    if(cb&&!/verifyRow$/.test(tr.id)){
       // 대행료 행: 단가(라벨 내 굵은 '○○원') × 수량(숫자칸)
       const b=tds[0].querySelector('b');
       const unit=b?(parseFloat(b.textContent.replace(/[^0-9.]/g,''))||0):0;
@@ -13070,12 +13070,14 @@ function receiptGate(cb){
    +'<input id="rc_holder" type="text" placeholder="예금주" style="'+IN+'flex:1;min-width:0;"></div>'
    +'<input id="rc_acct" type="text" placeholder="계좌번호   예) 000-000000-00-000" style="'+IN+'margin-top:5px;">'
    +'<div id="rc_accwarn" style="margin-top:4px;font-size:11px;color:#b3261e;"></div></div>'
+   +'<div id="rc_docs" style="display:none;"></div>'
    +'<div style="display:flex;gap:6px;margin-top:12px;"><button id="rc_cancel" style="flex:0 0 72px;padding:9px 0;background:none;color:#8a7c66;border:1px solid #ddd0b8;border-radius:7px;font-size:13px;cursor:pointer;">취소</button>'
    +'<button id="rc_ok" style="flex:1;padding:9px;background:#1d7a46;color:#fff;border:none;border-radius:7px;font-size:14.5px;font-weight:700;cursor:pointer;">영수증 내려받기</button></div>'
    +'<div id="rc_keepnote" style="margin-top:7px;font-size:11px;color:#8a7c66;line-height:1.5;">※ 받는 분 성명·진행번호는 저장하지 않습니다(이 창을 닫기 전까지만 기억).</div>'
 
    +'</div>';
   document.body.appendChild(g);
+  try{ if(typeof rcDocsPaint==='function') rcDocsPaint(scene); }catch(e){}   /* 2026-11-18 준비서류 함께 출력(선택) */
   var fmt=function(n){return n?Number(n).toLocaleString():'';};
   var same=(RCPT_SESSION.scene===scene.id);
   document.getElementById('rc_name').value=same?(RCPT_SESSION.name||''):'';
@@ -13127,7 +13129,8 @@ function receiptGate(cb){
     }
     var meta={kind:kind,name:document.getElementById('rc_name').value.trim(),no:document.getElementById('rc_no').value.trim(),
       base:numOf(document.getElementById('rc_base').value)||0,std:numOf(document.getElementById('rc_std').value)||0};
-    RCPT_SESSION.scene=scene.id; RCPT_SESSION.name=meta.name; RCPT_SESSION.no=meta.no; RCPT_SESSION.kind=kind;
+    meta.docs=(typeof rcDocsPicked==='function')?rcDocsPicked():[];
+    RCPT_SESSION.scene=scene.id; RCPT_SESSION.name=meta.name; RCPT_SESSION.no=meta.no; RCPT_SESSION.kind=kind; RCPT_SESSION.docs=meta.docs;
     close(); cb(meta);
   };
   document.getElementById('rc_cancel').onclick=close;
@@ -13210,6 +13213,7 @@ async function _exportExcelBody(meta){
   for(let r=1;r<=last;r++){ ws.getCell(r,7).border={right:{style:'dashed'}}; } // 정중앙 분리 점선
   // 인쇄: A4 가로 1장에 전체(2부) 맞춤
   ws.pageSetup={paperSize:9,orientation:'landscape',fitToPage:true,fitToWidth:1,fitToHeight:1,horizontalCentered:true,verticalCentered:true,printArea:'A1:N'+last,margins:{left:0.2,right:0.2,top:0.3,bottom:0.3,header:0.1,footer:0.1}};
+  if(meta.docs&&meta.docs.length&&typeof addDocsSheet==='function'){ try{ addDocsSheet(wb,scene,caseName,meta.docs); }catch(e){} }   /* 2026-11-18 준비서류 장 */
   const buf=await wb.xlsx.writeBuffer();
   const blob=new Blob([buf],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
   const url=URL.createObjectURL(blob);
@@ -13233,7 +13237,7 @@ function calcInputs(scene){
   }
   pick.forEach(function(card){
     [].forEach.call(card.querySelectorAll('.line'),function(line){
-      if(line.offsetParent===null) return;
+      if(line.offsetParent===null && !line.closest('.gk-body')) return;   /* 2026-11-18 접힌 감면·가산 줄도 포함 */
       var lb=line.querySelector('.lbl'); if(!lb) return;
       var lc=lb.cloneNode(true); [].forEach.call(lc.querySelectorAll('.tag,.law,.hint'),function(x){x.remove();});
       var label=lc.textContent.replace(/\s+/g,' ').trim(); if(!label || /협의조정|다수 가산|등기소 가산/.test(label)) return;
@@ -14550,6 +14554,188 @@ function recBuild(){
     return _gm.apply(this, arguments);
   };
 })();
+</script>
+<style id="lay-20261118">
+/* 2026-11-18 화면 정리 — 감면·가산 접기 · 기타 대행료 접기 · 공시가격 바로가기 · 준비서류 출력 선택 */
+.gk-fold{margin:8px 0 6px;border:1px solid #e6dcc6;border-radius:10px;background:#fffdf8;}
+.gk-head{display:flex;align-items:center;gap:8px;width:100%;border:0;background:none;padding:10px 12px;font:inherit;font-size:14px;font-weight:800;color:var(--ink,#2a2118);cursor:pointer;text-align:left;}
+.gk-head .gk-ar{color:#a86b1f;transition:transform .15s;flex:0 0 auto;}
+.gk-fold.open .gk-head .gk-ar{transform:rotate(90deg);}
+.gk-head .gk-sum{font-size:12.5px;font-weight:600;color:#8a6a3a;margin-left:auto;text-align:right;}
+.gk-head:focus-visible{outline:2px solid #c98a1b;outline-offset:-2px;border-radius:10px;}
+.gk-body{display:none;padding:0 12px 10px;border-top:1px dashed #eadfc8;}
+.gk-fold.open .gk-body{display:block;}
+tr.ea-head td{cursor:pointer;user-select:none;}
+tr.ea-head td:hover{color:#8a5a0b!important;}
+tr.ea-head .ea-cnt{font-weight:600;color:#8a7c66;margin-left:6px;}
+tbody.ea-closed > tr:not(.ea-on):not(.custom-row){display:none;}
+.pl-links{display:inline-flex;flex-wrap:wrap;gap:4px 6px;margin:4px 0 0 8px;vertical-align:middle;font-size:12px;}
+.pl-links a{display:inline-block;padding:2px 9px;border:1px solid #cfe0ef;border-radius:12px;background:#f1f7fc;color:#1f4f72;font-weight:700;text-decoration:none;white-space:nowrap;}
+.pl-links a:hover{background:#e3effa;}
+@media (prefers-reduced-motion:reduce){.gk-head .gk-ar{transition:none;}}
+@media print{.gk-body{display:block!important;}.gk-head{display:none!important;}tbody.ea-closed > tr{display:table-row;}.pl-links{display:none!important;}}
+</style>
+<script id="lay-js-20261118">
+(function(){
+  /* ① 준비서류 카드를 ④ 수수료 바로 밑으로 — 「총 합계」와 출력·상담 단추는 맨 아래로 내린다 */
+  function reorder(sc){
+    var tot=sc.querySelector(':scope > .total'); if(!tot) return;
+    var cards=[].slice.call(sc.querySelectorAll(':scope > .card'));
+    var last=cards[cards.length-1]; if(!last) return;
+    if(!(tot.compareDocumentPosition(last) & Node.DOCUMENT_POSITION_FOLLOWING)) return;   /* 이미 맨 아래 */
+    var move=[], n=tot;
+    while(n && !(n.nodeType===1 && n.classList.contains('card'))){ move.push(n); n=n.nextSibling; }
+    var ref=last.nextSibling;
+    move.forEach(function(x){ sc.insertBefore(x, ref); });
+  }
+  /* ② 기타 대행료(보수표 Ⅸ) 접기 — 접어도 체크한 항목은 보이고 계산·영수증에 그대로 들어간다 */
+  function eaFold(sc){
+    [].forEach.call(sc.querySelectorAll('table td[colspan]'),function(td){
+      if(!/기타 대행료/.test(td.textContent) || td.closest('tr').classList.contains('ea-head')) return;
+      var tr=td.closest('tr'), tb=tr.parentNode.nextElementSibling;
+      if(!tb || tb.tagName!=='TBODY') return;
+      tr.classList.add('ea-head'); tb.classList.add('ea-closed');
+      td.setAttribute('role','button'); td.setAttribute('tabindex','0');
+      var base=td.textContent.replace(/^[▾▸]\s*/,'').trim();
+      td.innerHTML='<span class="ea-ar">▸</span> '+base+' <span class="ea-cnt"></span>';
+      function paint(){
+        var on=0; [].forEach.call(tb.querySelectorAll(':scope > tr'),function(r){ var c=r.querySelector('input[type=checkbox]'); var v=!!(c&&c.checked); r.classList.toggle('ea-on',v); if(v) on++; });
+        var open=!tb.classList.contains('ea-closed');
+        td.querySelector('.ea-ar').textContent=open?'▾':'▸';
+        td.querySelector('.ea-cnt').textContent=open?'— 접기':('— 펼쳐서 고르기'+(on?' · 선택 '+on+'건':''));
+        td.setAttribute('aria-expanded',open?'true':'false');
+      }
+      function toggle(){ tb.classList.toggle('ea-closed'); paint(); }
+      td.addEventListener('click',toggle);
+      td.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggle(); } });
+      tb.addEventListener('change',paint);
+      new MutationObserver(paint).observe(tb,{childList:true});   /* 등기유형 화면은 고를 때마다 줄을 새로 만든다 */
+      paint();
+    });
+  }
+  /* ③ 감면·가산 줄과 「감면·중과 사유 찾기」를 하나로 접기 */
+  function gkFold(sc){
+    var c1=sc.querySelector(':scope > .card'); if(!c1) return;
+    var line=[].filter.call(c1.querySelectorAll('.line'),function(l){ var b=l.querySelector(':scope > .lbl'); return b && /감면|농특세·가산/.test(b.textContent) && !l.closest('.gk-fold'); })[0];
+    if(!line) return;
+    /* 바로 뒤에 붙은 「감면·중과 사유 찾기」(.gsx-box)와 「중과지역 확인」(.mzc)도 함께 접는다 */
+    var extra=[], nx=line.nextElementSibling;
+    while(nx && (nx.classList.contains('gsx-box') || nx.classList.contains('mzc'))){ extra.push(nx); nx=nx.nextElementSibling; }
+    var box=extra.filter(function(x){ return x.classList.contains('gsx-box'); })[0]||null;
+    var w=document.createElement('div'); w.className='gk-fold';
+    var lbl=line.querySelector(':scope > .lbl').textContent.trim();
+    w.innerHTML='<button type="button" class="gk-head" aria-expanded="false"><span class="gk-ar">▸</span><span>'+lbl+(box?' · 감면·중과 사유 찾기':'')+'</span><span class="gk-sum"></span></button><div class="gk-body"></div>';
+    line.parentNode.insertBefore(w,line);
+    var body=w.querySelector('.gk-body'); body.appendChild(line); extra.forEach(function(x){ body.appendChild(x); });
+    var head=w.querySelector('.gk-head');
+    function paint(){
+      var picked=[].filter.call(line.querySelectorAll('input[type=checkbox]'),function(c){ return c.checked; }).map(function(c){
+        var l=c.closest('label'); if(!l) return ''; var t=l.cloneNode(true); [].forEach.call(t.querySelectorAll('.law,small'),function(x){x.remove();});
+        return t.textContent.replace(/\(.*$/,'').replace(/\s+/g,' ').trim(); }).filter(Boolean);
+      var sel=box?box.querySelectorAll('.gsx-sel [data-rm]').length:0;
+      var open=w.classList.contains('open');
+      head.querySelector('.gk-sum').textContent=picked.length||sel ? '선택: '+picked.slice(0,3).join(', ')+(picked.length>3?' 외 '+(picked.length-3):'')+(sel?(picked.length?' · ':'')+'찾기에서 '+sel+'건':'') : (open?'접기':'해당하면 펼쳐서 고르세요');
+      head.setAttribute('aria-expanded',open?'true':'false');
+    }
+    head.addEventListener('click',function(){ w.classList.toggle('open'); paint(); });
+    w.addEventListener('change',function(){ setTimeout(paint,0); });
+    w.addEventListener('click',function(e){ if(e.target.closest('[data-rm]')) setTimeout(paint,0); });
+    paint();
+  }
+  /* ④ 국민주택채권 — 공시가격 칸 옆 바로가기 (부동산공시가격 알리미의 조회 화면) */
+  var PL={
+    apt:['아파트·빌라 공시가격','https://www.realtyprice.kr/notice/town/siteLink.htm'],
+    house:['단독주택 공시가격','https://www.realtyprice.kr/notice/nf/nfCommon.htm?page_gbn=hpi_search'],
+    land:['토지 공시지가','https://www.realtyprice.kr/notice/nf/nfCommon.htm?page_gbn=gsi_search']
+  };
+  function plLinks(sc){
+    [].forEach.call(sc.querySelectorAll('input[id$="bondStdHouse"],input[id$="bondStdLand"],input[id$="_bondStd"]'),function(inp){
+      if(inp.nextElementSibling && inp.nextElementSibling.classList.contains('pl-links')) return;
+      var ks=/House$/.test(inp.id)?['apt','house']:(/Land$/.test(inp.id)?['land']:['apt','house','land']);
+      var sp=document.createElement('span'); sp.className='pl-links';
+      sp.innerHTML=ks.map(function(k){ return '<a href="'+PL[k][1]+'" target="_blank" rel="noopener" title="부동산공시가격 알리미에서 '+PL[k][0]+' 조회(새 창)">🔗 '+PL[k][0]+'</a>'; }).join('');
+      inp.insertAdjacentElement('afterend',sp);
+    });
+  }
+  function run(){
+    [].forEach.call(document.querySelectorAll('.scene'),function(sc){
+      try{ reorder(sc); }catch(e){}
+      try{ eaFold(sc); }catch(e){}
+      try{ gkFold(sc); }catch(e){}
+      try{ plLinks(sc); }catch(e){}
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',run); else run();
+  /* 국민주택채권 칸은 화면을 열 때 새로 그려지므로, 바뀔 때마다 바로가기를 다시 붙인다 */
+  var _plT=null;
+  new MutationObserver(function(){ clearTimeout(_plT); _plT=setTimeout(function(){ var sc=document.querySelector('.scene.active'); if(sc) try{ plLinks(sc); }catch(e){} },40); })
+    .observe(document.body,{childList:true,subtree:true});
+})();
+
+/* ⑤ 엑셀 출력 — 「의뢰인께서 준비하실 서류」를 당사자 묶음별로 골라 두 번째 장에 인쇄 */
+function docsGroups(scene){
+  var out=[]; if(!scene) return out;
+  var secs=[].slice.call(scene.querySelectorAll('.d3 .d3sec'));
+  var sec=secs.filter(function(s){ var h=s.querySelector('.d3h'); return h && /의뢰인/.test(h.textContent); })[0]||secs[0];
+  if(!sec) return out;
+  var clean=function(t){ return (t||'').replace(/\s+/g,' ').replace(/\s*—\s*$/,'').trim(); };
+  [].forEach.call(sec.querySelectorAll('.d3who'),function(who){
+    var ul=who.nextElementSibling; if(!ul || !ul.matches('ul.d3l')) return;
+    var gt=who.querySelector('.d3v-gt'), hint=who.querySelector('.hint');
+    var title=clean(gt?gt.textContent:who.childNodes[0]&&who.childNodes[0].textContent||who.textContent).replace(/^■\s*/,'');
+    if(!gt && hint) title=clean(who.textContent.replace(hint.textContent,'')).replace(/^■\s*/,'');
+    var items=[].map.call(ul.querySelectorAll(':scope > li'),function(li){
+      var tE=li.querySelector('.d3v-t'), nE=li.querySelector('.d3v-need'), dE=li.querySelector('.d3v-d');
+      var t, d;
+      if(tE){ t=clean(tE.textContent)+(nE?' → '+clean(nE.textContent):''); d=dE?clean(dE.textContent):''; }
+      else { var raw=clean(li.textContent), i=raw.indexOf(' — '); t=i>0?raw.slice(0,i):raw; d=i>0?raw.slice(i+3):''; }
+      var ws=[].map.call(li.querySelectorAll('.d3w'),function(x){ return clean(x.textContent); }).filter(Boolean);
+      var a=li.querySelector('.d3w a[href^="http"]');
+      return {t:t,d:d,w:ws.join(' / '),link:a?a.href:''};
+    });
+    if(items.length) out.push({title:title,hint:hint?clean(hint.textContent).replace(/^—\s*/,''):'',items:items});
+  });
+  return out;
+}
+function rcDocsPaint(scene){
+  var box=document.getElementById('rc_docs'); if(!box) return;
+  var G=docsGroups(scene); if(!G.length){ box.style.display='none'; return; }
+  var prev=(typeof RCPT_SESSION!=='undefined' && RCPT_SESSION.scene===scene.id && RCPT_SESSION.docs)||[];
+  box.style.cssText='margin-top:10px;padding:8px 10px 9px;background:#f3f8f2;border:1px solid #cfe2cc;border-radius:8px;';
+  box.innerHTML='<div style="font-size:11.5px;font-weight:700;color:#2f5a2b;">준비서류도 함께 출력 <span style="font-weight:400;color:#6b7d66;">(선택 · 같은 파일 두 번째 장)</span></div>'
+    +G.map(function(g,i){ return '<label style="display:flex;align-items:flex-start;gap:6px;margin-top:5px;font-size:12.5px;color:#2a2118;cursor:pointer;"><input type="checkbox" class="rc_doc" value="'+i+'"'+(prev.indexOf(i)>=0?' checked':'')+' style="margin-top:2px;"> <span>'+g.title.replace(/[<>&]/g,'')+' <span style="color:#8a7c66;">('+g.items.length+'가지)</span></span></label>'; }).join('');
+}
+function rcDocsPicked(){ return [].map.call(document.querySelectorAll('#rc_docs .rc_doc:checked'),function(c){ return +c.value; }); }
+function addDocsSheet(wb,scene,caseName,picks){
+  var G=docsGroups(scene).filter(function(g,i){ return picks.indexOf(i)>=0; });
+  if(!G.length) return;
+  var ws=wb.addWorksheet('준비서류',{views:[{showGridLines:false}]});
+  ws.columns=[{width:4},{width:30},{width:58},{width:24}];
+  var F='맑은 고딕', thin={style:'thin',color:{argb:'FFD9CDB4'}};
+  var est=function(s,per){ return Math.max(1,Math.ceil(((s||'').length)/per)); };
+  var r=1;
+  ws.mergeCells(r,1,r,4); var c=ws.getCell(r,1); c.value=caseName+' — 준비하실 서류'; c.font={name:F,size:15,bold:true}; c.alignment={horizontal:'center',vertical:'middle'}; ws.getRow(r).height=26; r++;
+  var d=new Date(), ds=d.getFullYear()+'. '+(d.getMonth()+1)+'. '+d.getDate()+'.';
+  ws.mergeCells(r,1,r,4); c=ws.getCell(r,1); c.value='출력일 '+ds+' · 입력하신 사건 내용 기준 안내입니다. 사정에 따라 서류가 늘거나 줄 수 있습니다.'; c.font={name:F,size:9,color:{argb:'FF7A6E5B'}}; c.alignment={horizontal:'center'}; r+=2;
+  G.forEach(function(g){
+    ws.mergeCells(r,1,r,4); c=ws.getCell(r,1); c.value='■ '+g.title; c.font={name:F,size:11.5,bold:true,color:{argb:'FF5A3A12'}};
+    c.fill={type:'pattern',pattern:'solid',fgColor:{argb:'FFF3E6CC'}}; c.alignment={vertical:'middle'}; ws.getRow(r).height=20; r++;
+    if(g.hint){ ws.mergeCells(r,1,r,4); c=ws.getCell(r,1); c.value=g.hint; c.font={name:F,size:9,italic:true,color:{argb:'FF6B6252'}}; c.alignment={wrapText:true,vertical:'top'}; ws.getRow(r).height=13*est(g.hint,95); r++; }
+    ['','서류','설명','발급처'].forEach(function(h,k){ var x=ws.getCell(r,k+1); x.value=h; x.font={name:F,size:9,bold:true,color:{argb:'FF8A7C66'}}; x.border={bottom:thin}; }); r++;
+    g.items.forEach(function(it){
+      var a=ws.getCell(r,1), b=ws.getCell(r,2), e=ws.getCell(r,3), w=ws.getCell(r,4);
+      a.value='□'; a.font={name:F,size:12}; a.alignment={horizontal:'center',vertical:'top'};
+      b.value=it.t; b.font={name:F,size:10,bold:true}; e.value=it.d; e.font={name:F,size:9.5,color:{argb:'FF4A4437'}};
+      w.value=it.link?{text:it.w||'바로가기',hyperlink:it.link}:it.w; w.font={name:F,size:9,color:{argb:it.link?'FF1F4F72':'FF4A4437'},underline:!!it.link};
+      [b,e,w].forEach(function(x){ x.alignment={wrapText:true,vertical:'top'}; });
+      [a,b,e,w].forEach(function(x){ x.border={bottom:thin}; });
+      ws.getRow(r).height=Math.max(18,14*Math.max(est(it.t,15),est(it.d,31),est(it.w,12)));
+      r++;
+    });
+    r++;
+  });
+  ws.pageSetup={paperSize:9,orientation:'portrait',fitToPage:true,fitToWidth:1,fitToHeight:0,horizontalCentered:true,printArea:'A1:D'+r,margins:{left:0.4,right:0.4,top:0.5,bottom:0.5,header:0.2,footer:0.2}};
+}
 </script>
 </body>
 </html>
