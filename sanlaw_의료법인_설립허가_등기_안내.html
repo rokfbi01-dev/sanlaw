@@ -323,6 +323,9 @@ h3.fgrp{font-size:15px;color:var(--gold-d);margin:22px 0 6px;padding-bottom:5px;
     <li>임원 결격사유 조회에 필요한 동의서 등 별도로 낼 서류가 있는지</li>
   </ol>
 </div>
+<div class="formbox calltbl" id="callsido_tbl">
+  <button class="fold-btn" type="button" onclick="toggleFold(this)"><span>📞 시·도별 담당 부서와 전화번호<small style="display:block;font-weight:500;color:#6b5a45;font-size:12.5px;margin-top:3px">16곳 · 눌러서 펼치기</small></span><span class="chev">▾</span></button>
+  <div class="fold-body">
 <div class="tblwrap"><table>
   <thead><tr><th style="width:18%">시·도</th><th style="width:33%">확인된 담당 부서</th><th style="width:19%">전화</th><th>업무 안내 화면</th></tr></thead>
   <tbody>
@@ -345,6 +348,8 @@ h3.fgrp{font-size:15px;color:var(--gold-d);margin:22px 0 6px;padding-bottom:5px;
   </tbody>
 </table></div>
 <div class="bnote">※ 2026. 11. 18. 각 시·도 누리집의 직원·업무 검색에서 「의료법인」으로 찾아 확인한 내용입니다. 조직 개편·인사이동으로 부서와 번호는 바뀔 수 있으니, 연결이 안 되면 「업무 안내 화면」에서 다시 찾거나 대표전화로 문의하십시오.<br>※ 서울특별시는 「서울특별시 사무위임 조례」 별표에 따라 의료법인 설립허가 사무를 <b>구청장</b>에게, 경기도는 「경기도 사무위임 조례」 별표 2에 따라 <b>시장·군수</b>에게 맡겼습니다. 이 두 곳은 주사무소가 있을 구청·시청·군청(보건소의 의약 담당 부서)에 먼저 연락하십시오.<br>※ 의뢰인이 직접 문의하셔도 되고, 서류 작성을 맡기신 경우에는 사무소가 담당 부서에 확인하고 그 지자체 지침과 서식으로 작성합니다.</div>
+  </div>
+</div>
 
 <h3 class="fgrp">① 보건복지부령 별지 서식 — 법령이 정한 양식</h3>
 <div class="formbox" id="fb_fMApply">
@@ -1036,6 +1041,9 @@ h3.fgrp{font-size:15px;color:var(--gold-d);margin:22px 0 6px;padding-bottom:5px;
   document.addEventListener('keydown',function(e){if(e.key==='Escape'){terms.forEach(function(x){x.classList.remove('on');});}});
 })();
 function toggleFold(b){var fb=b.parentElement;fb.classList.toggle('open');}
+function _openCall(id){var w=document.getElementById(id);var n=w&&w.nextElementSibling;if(n&&n.classList.contains('calltbl'))n.classList.add('open');}
+document.addEventListener('click',function(e){var a=e.target.closest?e.target.closest('a[href^="#call"]'):null;if(a)_openCall(a.getAttribute('href').slice(1));});
+if(location.hash.indexOf('#call')===0)_openCall(location.hash.slice(1));
 function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
 function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
 function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('양식이 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
