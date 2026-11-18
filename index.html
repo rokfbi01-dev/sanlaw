@@ -652,6 +652,94 @@ section.hero .hero-inner p.lead{max-width:900px;font-size:clamp(14px,1.45vw,16px
   .ps-mx{display:none}
 }
 </style>
+<style id="biz-20261118">
+/* 2026-11-18 취급 업무 분야 첫 화면 — 짧은 제목·작은 칸(종전의 절반), 휴대폰은 2칸으로 한 화면에. 게시된 분야는 표시 없음, 준비중만 작은 꼬리표 */
+#practice #bizGrid{gap:8px;grid-template-columns:repeat(5,minmax(0,1fr));}
+@media(max-width:900px){#practice #bizGrid{grid-template-columns:repeat(3,minmax(0,1fr));}}
+@media(max-width:560px){#practice #bizGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 7px;margin-top:12px;}#practice #bizGrid .pa-b{top:-10px;right:5px;font-size:9.5px;line-height:13px;padding:0 4px;}}
+#practice #bizGrid .pa-card{min-height:40px;padding:6px 9px;gap:8px;border-radius:9px;}
+#practice #bizGrid .pa-han{width:24px;height:24px;line-height:24px;font-size:13px;border-radius:6px;}
+#practice #bizGrid .pa-tx h3{font-size:15px;line-height:1.25;padding-right:0;word-break:keep-all;}
+#practice #bizGrid .pa-tx p{display:none;}
+#practice #bizGrid .pa-b{top:-8px;right:6px;font-size:10px;line-height:15px;padding:0 5px;}
+@media(max-width:560px){#practice #bizGrid .pa-tx h3{font-size:14px;line-height:1.2;}#practice #bizGrid .pa-card{padding:5px 8px;gap:7px;}#practice #bizGrid .pa-han{width:22px;height:22px;line-height:22px;font-size:12px;}}
+</style>
+<style id="mtop-20261118">
+/* 2026-11-18 휴대폰 첫 화면 줄이기 — 위 메뉴(작은 로고 밑에 사무소 이름, 작은 알약), 바로가기 6칸은 한 줄에 3개 */
+@media (max-width:768px){
+  #hd{padding:6px 0 0 !important;}
+  #hd .logo{flex-direction:column !important;align-items:center !important;justify-content:center !important;gap:3px !important;}
+  #hd .logo .logo-img,#hd.scrolled .logo .logo-img{width:30px !important;height:30px !important;}
+  #hd .logo .name-text{align-items:center !important;text-align:center !important;}
+  #hd .logo .name-text .nm{font-size:14.5px !important;line-height:1.2 !important;}
+  #hd .logo .name-text .sub{display:none !important;}
+  #hd .qbar{padding:5px 8px 6px !important;gap:4px !important;margin-top:5px !important;}
+  #hd .qbar a,#hd .qbar .q-all{font-size:12px !important;padding:3px 9px !important;border-width:1px !important;}
+  #top,#about,#practice,#gov-links,#column,#contact,#location,#why,#process{scroll-margin-top:100px !important;}
+  section.hero .hero-nav{grid-template-columns:repeat(3,minmax(0,1fr)) !important;grid-auto-rows:1fr !important;gap:6px !important;}
+  section.hero .hnav-card{padding:8px 4px !important;align-items:center !important;justify-content:center !important;text-align:center !important;gap:2px !important;min-height:0 !important;}
+  section.hero .hnav-card .hnav-ico{font-size:18px !important;margin:0 !important;line-height:1.2 !important;}
+  section.hero .hnav-card .hnav-t{font-size:12.5px !important;white-space:nowrap !important;line-height:1.25 !important;}
+  section.hero .hnav-card .hnav-s{display:none !important;}
+  section.hero .hnav-card .hnav-t[data-short]{font-size:0 !important;}
+  section.hero .hnav-card .hnav-t[data-short]::after{content:attr(data-short);font-size:clamp(10px,3.15vw,12.5px);letter-spacing:-.3px;white-space:nowrap;} /* 긴 이름만 글씨를 줄여 한 줄로 — 6칸 크기를 같게 */
+  #practice #bizGrid .pa-card.soon .pa-tx{padding-top:6px;}
+  /* 첫 화면: 글씨는 그대로, 넘치면 글씨(--fs)를 조금 줄임 */
+  section.hero{min-height:calc(100vh - var(--hdh,122px)) !important;min-height:calc(100svh - var(--hdh,122px)) !important;} /* 첫 화면 아래쪽에 다음 칸이 비치지 않게 */
+  section.hero .eyebrow{letter-spacing:2px !important;margin-bottom:4px !important;white-space:nowrap;font-size:calc(11px*var(--fs,1)) !important;}
+  section.hero .hero-inner h1{margin:4px 0 8px !important;font-size:calc(clamp(16px,4.3vw,22px)*var(--fs,1)) !important;}
+  section.hero .hero-inner p.lead{margin-bottom:0 !important;line-height:1.5 !important;font-size:calc(13px*var(--fs,1)) !important;}
+  section.hero .hero-nav{gap:6px !important;}
+  section.hero .hnav-card{padding:8px 4px !important;}
+  #sanSearch .ss-chips{flex-wrap:nowrap !important;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;justify-content:flex-start !important;padding-bottom:2px;-webkit-mask-image:linear-gradient(90deg,#000 86%,transparent);mask-image:linear-gradient(90deg,#000 86%,transparent);}
+  #sanSearch .ss-chips::-webkit-scrollbar{display:none;}
+  #sanSearch .ss-chip{flex:0 0 auto !important;}
+}
+</style>
+<script id="hdh-20261118">
+/* 첫 화면 간격 고르게(2026-11-18) — PC·휴대폰 공통
+   메뉴 아래 남는 높이를 재서, 다섯 군데 간격(메뉴→검색, 검색→제목, 소개글→찾기, 찾기→바로가기, 바로가기→화면 끝)을 똑같이 나눈다.
+   내용이 화면보다 길면 간격을 최소(8px)로 두고 휴대폰에서는 글씨(--fs)를 최대 14%까지 줄인다. */
+(function(){
+  var lastW=0;
+  function fit(force){
+    var hd=document.getElementById('hd'), hero=document.querySelector('section.hero'), inner=hero&&hero.querySelector('.hero-inner');
+    if(!hd||!hero||!inner) return;
+    var w=window.innerWidth; if(!force && w===lastW) return; lastW=w;
+    var hh=hd.offsetHeight, fixed=getComputedStyle(hd).position==='fixed';
+    var R=document.documentElement.style;
+    R.setProperty('--hdh',hh+'px');
+    hero.style.setProperty('--hpt',(fixed?hh:0)+'px');
+    hero.style.setProperty('--fs','1'); hero.style.setProperty('--G','0px');
+    var avail=window.innerHeight-hh;
+    var ps=hero.querySelector('.psearch'), nav=hero.querySelector('.hero-nav');
+    /* 간격을 0으로 두고 잰 내용 높이(검색창 위 ~ 바로가기 아래) */
+    function span(){ return (nav.offsetTop+nav.offsetHeight)-ps.offsetTop; } /* 나타나는 효과(위로 떠오름)와 무관하게 실제 배치 높이로 잰다 */
+    var G=(avail-span())/5;
+    if(G<8 && w<=768){ var fs=1; while(fs>0.86){ fs=Math.round((fs-0.02)*100)/100; hero.style.setProperty('--fs',fs); G=(avail-span())/5; if(G>=8) break; } }
+    G=Math.max(8,Math.min(G,90));
+    hero.style.setProperty('--G',G.toFixed(1)+'px');
+    for(var t=0;t<2;t++){ /* 남는 아래 여백(화면 끝 - 바로가기 아래 - G)을 다시 나눠 다섯 간격을 똑같이 */
+      var left=hero.getBoundingClientRect().bottom-inner.getBoundingClientRect().bottom-G;
+      if(Math.abs(left)<1.5) break; var G2=Math.max(8,Math.min(90,G+left/5)); if(Math.abs(G2-G)<0.5) break; G=G2; hero.style.setProperty('--G',G.toFixed(1)+'px'); }
+  }
+  function go(){ fit(true); }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',go); else go();
+  window.addEventListener('load',go);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(go);
+  window.addEventListener('resize',function(){ fit(false); });
+  window.addEventListener('orientationchange',function(){ setTimeout(go,250); });
+  /* 첫 화면 안 내용이 바뀌면(면책 확인 후 검색 안내문이 사라지는 등) 다시 고르게. 검색 결과 창이 열려 있을 때는 그대로 둔다 */
+  var tmr=null;
+  document.addEventListener('DOMContentLoaded',function(){
+    var inner=document.querySelector('section.hero .hero-inner'); if(!inner||!window.ResizeObserver) return;
+    var lastH=0;
+    new ResizeObserver(function(){ var h=inner.offsetHeight; if(Math.abs(h-lastH)<2) return; lastH=h;
+      var pan=document.querySelector('#sanSearch .ss-panel'); if(pan&&pan.offsetHeight>0) return;
+      clearTimeout(tmr); tmr=setTimeout(go,120); }).observe(inner);
+  });
+})();
+</script>
 </head>
 <body>
 
@@ -720,7 +808,7 @@ section.hero .hero-inner p.lead{max-width:900px;font-size:clamp(14px,1.45vw,16px
       </a>
       <a href="sanlaw_등기원인별_준비서류_검색.html" class="hnav-card">
         <span class="hnav-ico">📋</span>
-        <span class="hnav-t hnav-wrap">등기신청에 필요한 원인별 준비서류 찾기</span>
+        <span class="hnav-t hnav-wrap" data-short="등기신청 준비서류">등기신청에 필요한 원인별 준비서류 찾기</span>
         <span class="hnav-s">등기원인별 준비서류 한눈에</span>
       </a>
       <a href="#tax-partner" class="hnav-card">
@@ -927,19 +1015,19 @@ section.hero .hero-inner p.lead{max-width:900px;font-size:clamp(14px,1.45vw,16px
 <script>
 (function(){
 var BIZ=[
- {han:"訟",t:"민사 본안 서류 작성·제출지원",d:"대여금·손해배상·명도·소유권이전등기·확인의 소",open:true,key:"suit"},
- {han:"申",t:"민사 신청서 작성·제출지원",d:"가압류·가처분·지급명령·공시송달·담보취소",open:true,key:"motion"},
- {han:"執",t:"민사집행 서류 작성·신청지원",d:"경매·채권압류추심·재산명시·배당·담보회수",open:true,key:"exec"},
- {han:"相",t:"상속",d:"분할·유류분·포기·등기·유언·회복",open:true,key:"sangsok"},
- {han:"登",t:"각종 등기",d:"부동산 권리·법인(상업)·민법·특수법인 등기 대리",open:true,key:"deunggi"},
- {han:"後",t:"후견 심판청구서 작성·신청지원",d:"성년·한정·특정·임의후견 신청",open:true,key:"hugyeon"},
- {han:"家",t:"가사사건 서류 작성·신청지원",d:"파혼·이혼·재산분할·친권·양육비",open:true,key:"gasa"},
+ {han:"訟",t:"민사본안",d:"대여금·손해배상·명도·소유권이전등기·확인의 소",open:true,key:"suit"},
+ {han:"申",t:"민사신청",d:"가압류·가처분·지급명령·공시송달·담보취소",open:true,key:"motion"},
+ {han:"執",t:"민사집행",d:"경매·채권압류추심·재산명시·배당·담보회수",open:true,key:"exec"},
+ {han:"相",t:"상속분야",d:"분할·유류분·포기·등기·유언·회복",open:true,key:"sangsok"},
+ {han:"登",t:"등기(부동산, 법인)",d:"부동산 권리·법인(상업)·민법·특수법인 등기 대리",open:true,key:"deunggi"},
+ {han:"後",t:"후견심판청구",d:"성년·한정·특정·임의후견 신청",open:true,key:"hugyeon"},
+ {han:"家",t:"가사(이혼, 재산분할\u00a0등)",d:"파혼·이혼·재산분할·친권·양육비",open:true,key:"gasa"},
  {han:"免",t:"개인회생·파산면책",d:"빚 분석·압류 해방·면책",open:false,key:"dosan"},
- {han:"行",t:"행정심판·행정소송 서류 작성·절차지원",d:"영업정지·과징금·면허취소 등 처분 불복",open:false,key:"haeng"},
- {han:"法",t:"비영리법인 설립",d:"사단·재단법인 설립 허가",open:false,key:"bupin"},
- {han:"出",t:"출입국·체류",d:"비자·체류자격 변경·기간연장 신청",open:false,key:"chul"},
- {han:"刑",t:"형사 관련 서류 작성",d:"고소장·고발장·진정서·탄원서 작성 지원",open:false,key:"hyeongsa"},
- {han:"族",t:"가족관계등록 신청서 작성·신청지원",d:"개명·창성창본·등록부(본관 등) 정정 허가",open:true,key:"jok"},
+ {han:"行",t:"행정(심판)소송",d:"영업정지·과징금·면허취소 등 처분 불복",open:false,key:"haeng"},
+ {han:"法",t:"법인설립(비영리)",d:"사단·재단법인 설립 허가",open:false,key:"bupin"},
+ {han:"出",t:"출입국업무",d:"비자·체류자격 변경·기간연장 신청",open:false,key:"chul"},
+ {han:"刑",t:"형사관련",d:"고소장·고발장·진정서·탄원서 작성 지원",open:false,key:"hyeongsa"},
+ {han:"族",t:"가족관계등록 신청",d:"개명·창성창본·등록부(본관 등) 정정 허가",open:true,key:"jok"},
  {han:"供",t:"공탁",d:"변제·집행·혼합·해방·재판상 보증공탁",open:false,key:"gongtak"}
 ];
 document.addEventListener('DOMContentLoaded',function(){var bc=document.getElementById('bizCount');if(bc)bc.textContent=BIZ.length;});
@@ -1246,21 +1334,21 @@ var DEUNGGI=[
 ];
 /* ── 분야 ↔ 카테고리 연결표 (분야 추가 시 이 표만 수정) ── */
 var CATMAP={
- suit:['민사 본안 서류 작성·제출지원',CIVIL_SUIT],
- motion:['민사 신청서 작성·제출지원',CIVIL_MOTION],
- exec:['민사집행 서류 작성·신청지원',CIVIL_EXEC],
- sangsok:['상속',SANGSOK],
- deunggi:['각종 등기',DEUNGGI],
- hugyeon:['후견 심판청구서 작성·신청지원',HUGYEON],
- gasa:['가사사건 서류 작성·신청지원',GASA],
+ suit:['민사본안',CIVIL_SUIT],
+ motion:['민사신청',CIVIL_MOTION],
+ exec:['민사집행',CIVIL_EXEC],
+ sangsok:['상속분야',SANGSOK],
+ deunggi:['등기(부동산, 법인)',DEUNGGI],
+ hugyeon:['후견심판청구',HUGYEON],
+ gasa:['가사(이혼, 재산분할 등)',GASA],
  dosan:['개인회생·파산면책',DOSAN],
  nodong:['노동·노무',NODONG],
- haeng:['행정심판·행정소송 서류 작성·절차지원',HAENG],
- bupin:['비영리법인 설립',BUPIN],
- chul:['출입국·체류',CHUL],
- hyeongsa:['형사 관련 서류 작성',HYEONGSA],
+ haeng:['행정(심판)소송',HAENG],
+ bupin:['법인설립(비영리)',BUPIN],
+ chul:['출입국업무',CHUL],
+ hyeongsa:['형사관련',HYEONGSA],
  boho:['보호사건',BOHO],
- jok:['가족관계등록',JOK],
+ jok:['가족관계등록 신청',JOK],
  gongtak:['공탁',GONGTAK]
 };
 
@@ -1269,9 +1357,11 @@ function show(v){[vBiz,vCat,vItem].forEach(function(x){x.classList.add('pa-hidde
   var sec=document.getElementById('practice');if(sec)sec.scrollIntoView({behavior:'smooth',block:'start'});}
 var agreed=false;
 var bizGrid=document.getElementById('bizGrid');
+/* 게시된 카드가 하나라도 있어야 '열림' — 카드가 없으면 자동으로 준비중 (2026-11-18) */
+BIZ.forEach(function(b){var m=b.key?CATMAP[b.key]:null;b.open=!!m&&m[1].some(function(g){return g.items.some(function(i){return i.r!==false&&!!i.u;});});});
 BIZ.forEach(function(b){
-  var c=document.createElement('div');c.className='pa-card lock';
-  c.innerHTML='<span class="pa-b '+(b.open?'r">게시':'s">준비중')+'</span><div class="pa-han">'+b.han+'</div><div class="pa-tx"><h3>'+b.t+'</h3><p>'+b.d+'</p></div>';
+  var c=document.createElement('div');c.className='pa-card lock'+(b.open?'':' soon');
+  c.innerHTML=(b.open?'':'<span class="pa-b s">준비중</span>')+'<div class="pa-han">'+b.han+'</div><div class="pa-tx"><h3>'+b.t+'</h3><p>'+b.d+'</p></div>';c.title=b.d;
   c.addEventListener('click',function(){if(!agreed)return;var m=b.key?CATMAP[b.key]:null;if(b.open&&m)openCat(m[0],m[1]);});
   bizGrid.appendChild(c);
 });
@@ -2011,5 +2101,157 @@ try{restoreFromCard();}catch(e){}
 })();
 </script>
 <script src="site-search.js?v=20261118d" defer></script>
+<style id="fitall-20261118">
+/* 2026-11-18 바닥글(PC·휴대폰 공통): 업무 분야·바로가기·상담 문의 칸은 빼고, 로고 밑에 사무소 이름, 그 아래 문장은 모두 그대로 */
+footer .foot-top > .foot-col{display:none !important;}
+footer .foot-top{display:block !important;text-align:center;border-bottom:0 !important;}
+footer .foot-top .foot-logo{display:flex;flex-direction:column;align-items:center;gap:6px;margin-bottom:8px;}
+footer .foot-top .foot-logo .logo-img{margin:0 !important;}
+footer .foot-top .foot-logo + div{max-width:none !important;}
+/* 2026-11-18 첫 화면 간격 고르게(PC·휴대폰): 메뉴→검색, 검색→제목, 소개글→찾기, 찾기→바로가기, 바로가기→화면 끝 다섯 간격을 같게(--G, hdh 스크립트가 계산) */
+section.hero{align-items:flex-start !important;justify-content:center;padding-top:calc(var(--hpt,0px) + var(--G,16px)) !important;padding-bottom:var(--G,16px) !important;}
+section.hero .psearch{margin-top:0 !important;margin-bottom:var(--G,16px) !important;}
+section.hero #sanSearch{margin-top:var(--G,16px) !important;margin-bottom:var(--G,16px) !important;}
+section.hero #sanSearch{display:flow-root;}
+section.hero #sanSearch > :first-child{margin-top:0 !important;}
+section.hero #sanSearch > :last-child{margin-bottom:0 !important;} /* 안쪽 여백이 바깥 간격과 겹쳐 계산이 어긋나지 않게 */
+section.hero .hero-nav{margin-top:0 !important;}
+section.hero .scroll-hint{display:none !important;}
+section.hero .hero-inner{padding-top:0 !important;padding-bottom:0 !important;margin-top:0 !important;margin-bottom:0 !important;}
+/* 2026-11-18 PC·휴대폰 공통 — 구역마다 한 화면(자동 맞춤), 상담 문의 배치, 마지막 화면 묶음 */
+@media (min-width:769px){ #gov-links .gov-card .gc-name{font-size:13px !important;} #gov-links .gov-card,#gov-links .g24card .g24-main{padding:6px 12px !important;} }
+#top,#about,#philosophy,#practice,#gov-links,#tax-partner,#column,#contact,#location,#why,#process{scroll-margin-top:var(--hdhs,var(--hdh,122px)) !important;}
+.fitu{display:flex !important;flex-direction:column !important;justify-content:center !important;box-sizing:border-box;overflow:hidden;padding-top:28px !important;padding-bottom:28px !important;}
+.fitu > .fiti{flex:0 0 auto;transform-origin:top left;zoom:1 !important;min-width:0 !important;}
+#location.fitg,section.stats.fitg,footer.fitg{padding-top:18px !important;padding-bottom:18px !important;}
+section.stats.fitg .stat{padding-top:16px !important;padding-bottom:16px !important;}
+footer.fitg .foot-top{padding-bottom:16px !important;}
+/* 상담 문의: 위에 신청서, 그 아래에 안내 글 — 제목·문장 가운데, 전화·이메일 / 주소·상담시간 두 칸씩 */
+#contact .contact-inner{grid-template-columns:minmax(0,1fr) !important;gap:14px !important;align-items:start !important;justify-items:center !important;}
+#contact .contact-inner > .form{order:1 !important;width:100%;max-width:760px;}
+#contact .contact-inner > .fu:not(.form){order:2 !important;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:4px 18px;align-items:start;width:100%;max-width:760px;}
+#contact .contact-inner > .fu:not(.form) > h2,#contact .contact-inner > .fu:not(.form) > .lead{grid-column:1/-1;text-align:center;margin:0 0 6px !important;}
+#contact .contact-inner > .fu:not(.form) > .info-duo{display:contents !important;}
+#contact .contact-inner .info-row{margin:0 !important;}
+@media (max-width:768px){ .fitu{padding-top:16px !important;padding-bottom:16px !important;} #location.fitg,section.stats.fitg,footer.fitg{padding-top:14px !important;padding-bottom:14px !important;} section.stats.fitg .stat{padding-top:10px !important;padding-bottom:10px !important;} }
+/* 2026-11-18 휴대폰: 각 단위 화면(구역)을 한 화면에 — 나란히 배치 + 자동 축소(글씨가 작으면 두 손가락으로 확대) */
+@media (max-width:768px){
+  #philosophy .motto-row.trio{grid-template-columns:minmax(0,1fr) minmax(0,.8fr) minmax(0,1fr) !important;gap:14px !important;margin-top:0 !important;align-items:stretch !important;}
+  #philosophy .motto-row.trio > *{grid-column:auto !important;order:0 !important;width:auto !important;justify-self:stretch !important;}
+  #philosophy .motto-row.trio .career-block{align-self:center !important;aspect-ratio:auto !important;}
+  #philosophy .motto-row.trio .motto{padding:22px 16px 18px !important;}
+  /* 업무 분야 아래 안내 두 칸은 PC처럼 접어 두고 「더 보기」로 펼침 */
+  section#practice .pa-gbox .pa-gt{display:flex !important;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:0 !important;}
+  section#practice .pa-gbox .pa-gbody{display:none;margin-top:6px;}
+  section#practice .pa-gbox.open .pa-gbody{display:block;}
+  section#practice .pa-more{margin-left:auto;background:#fff;border:1px solid #e7e0d4;border-radius:999px;padding:2px 11px;font:700 12px/1.5 var(--sans);color:#7a5230;cursor:pointer;}
+  #gov-links .gov-grid{grid-template-columns:repeat(3,minmax(0,1fr)) !important;}
+  #gov-links .gov-card,#gov-links .g24card .g24-main{padding:6px 8px !important;gap:4px !important;min-width:0;}
+  #gov-links .gov-card .gc-name{font-size:12px !important;white-space:normal !important;overflow:visible !important;text-overflow:clip !important;word-break:keep-all;line-height:1.25 !important;}
+  #tax-partner .tp-top{flex-wrap:nowrap !important;}
+  #tax-partner .tp-body{display:grid !important;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:16px;align-items:start;}
+  #tax-partner .tp-body > *{grid-column:1/-1;}
+  #tax-partner .tp-body > span.tp-label{justify-self:start;}
+  #tax-partner .tp-body > span.tp-label:nth-of-type(1){grid-column:1;grid-row:2;}
+  #tax-partner .tp-body > ul.tp-list:nth-of-type(1){grid-column:1;grid-row:3;}
+  #tax-partner .tp-body > span.tp-label:nth-of-type(2){grid-column:2;grid-row:2;}
+  #tax-partner .tp-body > ul.tp-list:nth-of-type(2){grid-column:2;grid-row:3;}
+  #practice #bizGrid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr)) !important;}
+  #practice #catGrid,#practice #itemGrid{grid-template-columns:repeat(auto-fill,minmax(210px,1fr)) !important;}
+  #tax-partner .tp-actions{display:grid !important;grid-template-columns:repeat(3,minmax(0,1fr)) !important;gap:8px !important;grid-row:auto !important;}
+  #tax-partner .tp-actions > *{min-width:0 !important;}
+  #tax-partner .tp-actions *{white-space:normal !important;overflow-wrap:anywhere;word-break:keep-all;}
+  #tax-partner .tp-actions > a{min-width:0 !important;padding:8px 4px !important;}
+  #tax-partner .tp-actions > a span{font-size:11.5px !important;line-height:1.3 !important;} /* 전화번호·메일 주소가 칸 밖으로 나가지 않게 */
+  #tax-partner .tp-body > .tp-actions,#tax-partner .tp-body > .tp-note{grid-row:auto !important;}
+  #location .loc-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;gap:18px !important;}
+  #location .map-btns{display:grid !important;grid-template-columns:repeat(3,minmax(0,1fr)) !important;gap:6px !important;}
+  #practice .pa-guide{grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;}
+  #philosophy .motto-src span{white-space:normal !important;}
+}
+</style>
+<script id="fitall-js-20261118">
+/* PC·휴대폰 공통: 구역마다 화면 높이에 맞춰 자동으로 줄인다(2026-11-18).
+   넓게 펼친 뒤(가로 폭 1/s배) 통째로 s배 축소 — 글자 배치는 넓은 화면처럼, 크기는 화면에 맞게. 가운데 정렬 유지.
+   내용이 바뀌면(업무 분야 펼침 등) 다시 맞춘다. 첫 화면(hero)은 따로 맞춤(hdh 스크립트). */
+(function(){
+  var UNITS=[['#about'],['#philosophy'],['#practice'],['#gov-links'],['#tax-partner'],['#column'],['#contact'],['#location','section.stats','footer']];
+  var busy=false, lastW=0, tm=null, ro2=null, tm2=null;
+  function wrapOf(sec){ return sec.querySelector(':scope > .wrap') || sec.firstElementChild; }
+  function reset(sec,inner){ sec.classList.remove('fitu'); sec.classList.remove('fitg'); sec.style.minHeight=''; if(inner){ inner.classList.remove('fiti'); inner.style.transform=''; inner.style.width=''; inner.style.maxWidth=''; inner.style.marginLeft=''; inner.style.marginRight=''; inner.style.marginBottom=''; } }
+  /* 스크롤해 내려가면 머리글이 조금 작아지므로, 작아진 높이를 기준으로 한 화면을 잡는다 */
+  function headerH(){
+    var hd=document.getElementById('hd'); if(!hd) return 0;
+    if(hd.classList.contains('scrolled')) return hd.offsetHeight;
+    var c=hd.cloneNode(true); c.removeAttribute('id'); c.id='hd'; c.classList.add('scrolled');
+    c.style.cssText='position:absolute;left:0;right:0;top:0;visibility:hidden;transition:none;pointer-events:none;';
+    c.querySelectorAll('*').forEach(function(e){ e.style.transition='none'; if(e.id) e.removeAttribute('id'); });
+    hd.removeAttribute('id'); document.body.appendChild(c); var h=c.offsetHeight; c.remove(); hd.id='hd';
+    return h||hd.offsetHeight;
+  }
+  function fitOne(u,avail,hh){
+    var w=window.innerWidth, isHero=(u[0]==='#top');
+    var parts=[]; u.forEach(function(sel){ var sec=document.querySelector(sel); if(!sec) return; var inner=wrapOf(sec); if(!inner) return; reset(sec,inner); parts.push({sec:sec,inner:inner}); });
+    if(!parts.length) return;
+    if(isHero){ var hs=parts[0].sec; hs.style.removeProperty('padding-top'); hs.style.removeProperty('padding-bottom'); if(w<=768) return; }
+    var group=parts.length>1;
+    parts.forEach(function(p){ p.sec.classList.add('fitu'); p.inner.classList.add('fiti'); p.sec.classList.toggle('fitg',group); if(group) p.sec.style.minHeight='0px'; }); /* 묶음 안에서는 PC의 '한 화면 높이' 기본값을 끈다 */
+    if(isHero){ /* PC 첫 화면: 위에 떠 있는 머리글 아래부터 화면 끝까지 */
+      parts[0].sec.style.setProperty('padding-top',(hh+16)+'px','important'); parts[0].sec.style.setProperty('padding-bottom','20px','important');
+      avail=window.innerHeight;
+    }
+    var pads=parts.map(function(p){ var cs=getComputedStyle(p.sec); return parseFloat(cs.paddingTop)+parseFloat(cs.paddingBottom); });
+    var cw=parts.map(function(p){ var cs=getComputedStyle(p.sec); return p.sec.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight); });
+    var w0=parts.map(function(p,i){ return Math.min(p.inner.getBoundingClientRect().width, cw[i]); }); /* 내용이 화면보다 넓게 밀어내도 기준 폭은 화면 폭 */
+    function setW(s){ parts.forEach(function(p,i){
+      if(s<1){ p.inner.style.width=(w0[i]/s)+'px'; p.inner.style.maxWidth='none'; p.inner.style.marginLeft=Math.max(0,(cw[i]-w0[i])/2)+'px'; p.inner.style.marginRight='0'; }
+      else if(s>1){ p.inner.style.width=w0[i]+'px'; p.inner.style.maxWidth='none'; p.inner.style.marginLeft=Math.max(0,(cw[i]-w0[i]*s)/2)+'px'; p.inner.style.marginRight='0'; } /* 확대할 때는 배치를 바꾸지 않고 그대로 키움 */
+      else { p.inner.style.width=''; p.inner.style.maxWidth=''; p.inner.style.marginLeft=''; p.inner.style.marginRight=''; } }); }
+    function need(s){ setW(s); var t=0, wide=false; parts.forEach(function(p,i){ t+=p.inner.offsetHeight*s+pads[i]; if(p.inner.scrollWidth>p.inner.clientWidth+1) wide=true; }); return wide?Infinity:t; } /* 글자가 옆으로 삐져나가면 맞지 않은 것으로 본다 */
+    var best=1, lo, hi, k, mid;
+    if(need(1)>avail){ lo=0.2; hi=1; best=lo; for(k=0;k<8;k++){ mid=(lo+hi)/2; if(need(mid)<=avail){ best=mid; lo=mid; } else hi=mid; } }
+    else if(w>768){ /* PC: 빈 공간만큼 키워 화면을 채운다(최대 1.6배) — 휴대폰은 그대로 */
+      var wmax=Infinity; parts.forEach(function(p,i){ wmax=Math.min(wmax, cw[i]*0.97/w0[i]); });
+      var cap=(u[0]==='#practice'||u[0]==='#tax-partner')?1:1.15; /* PC 확대 한도 — 업무 분야·세무 안내는 키우지 않음 */
+      lo=1; hi=Math.max(1,Math.min(cap,wmax)); for(k=0;k<8;k++){ mid=(lo+hi)/2; if(need(mid)<=avail*0.97){ best=mid; lo=mid; } else hi=mid; }
+      if(best<1.03) best=1;
+    }
+    need(best);
+    if(best!==1){ parts.forEach(function(p){ p.inner.style.transform='scale('+best.toFixed(4)+')'; p.inner.style.marginBottom=(-(1-best)*p.inner.offsetHeight)+'px'; }); }
+    var used=0; parts.forEach(function(p){ used+=p.sec.getBoundingClientRect().height; });
+    var last=parts[parts.length-1].sec, lh=last.getBoundingClientRect().height;
+    if(isHero){ last.style.minHeight=window.innerHeight+'px'; }
+    else if(!group){ last.style.minHeight=avail+'px'; } else if(used<avail){ last.style.minHeight=(lh+avail-used)+'px'; }
+  }
+  function fitAll(force){
+    var w=window.innerWidth; if(!force && w===lastW) return; lastW=w;
+    var hh=headerH(); document.documentElement.style.setProperty('--hdhs',hh+'px');
+    var avail=window.innerHeight-hh;
+    busy=true;
+    UNITS.forEach(function(u){ fitOne(u,avail,hh); });
+    setTimeout(function(){ busy=false; },60);
+    watch();
+  }
+  /* 글자가 늦게 뜨거나 움직이는 효과로 높이가 바뀌면 다시 맞춘다 */
+  function watch(){
+    if(!window.ResizeObserver) return;
+    if(ro2) ro2.disconnect();
+    ro2=new ResizeObserver(function(){ if(busy) return; clearTimeout(tm2); tm2=setTimeout(function(){ fitAll(true); },150); });
+    document.querySelectorAll('.fiti').forEach(function(el){ ro2.observe(el); });
+  }
+  function go(){ fitAll(true); }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',go); else go();
+  window.addEventListener('load',go);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(go);
+  window.addEventListener('resize',function(){ fitAll(false); });
+  window.addEventListener('orientationchange',function(){ setTimeout(go,250); });
+  document.addEventListener('DOMContentLoaded',function(){
+    var mo=new MutationObserver(function(muts){ if(busy) return;
+      var real=muts.some(function(m){ return !(m.type==='attributes'&&m.attributeName==='class'&&m.target.classList&&m.target.classList.contains('fu')); });
+      if(!real) return; clearTimeout(tm); tm=setTimeout(go,120); });
+    UNITS.forEach(function(u){ u.forEach(function(sel){ var sec=document.querySelector(sel); if(sec) mo.observe(sec,{childList:true,subtree:true,attributes:true,attributeFilter:['class','open','hidden']}); }); });
+  });
+})();
+</script>
 </body>
 </html>
