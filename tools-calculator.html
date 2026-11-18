@@ -603,7 +603,7 @@
       </div>
     </details>
     <details class="exempt-set" style="margin-top:14px;background:#fffdf8;border:1px solid var(--line);border-radius:10px;padding:4px 14px;">
-      <summary style="cursor:pointer;font-weight:700;color:var(--ink);padding:8px 0;">📋 채권·세금 면제·감면 기준 안내 <span class="hint">(의뢰인용 · 펼쳐보기)</span></summary>
+      <summary style="cursor:pointer;font-weight:700;color:var(--ink);padding:8px 0;">📋 채권·세금 면제·감면 기준 안내 <span class="hint">(의뢰인용 · <span class="fold-txt">▾ 펼쳐보기</span>)</span></summary>
       <div style="padding:6px 0 16px;font-size:13.5px;line-height:1.65;color:var(--ink);">
         <div style="background:#f3ead9;border:1px solid #e0c89a;border-radius:8px;padding:9px 12px;margin-bottom:14px;font-size:12.5px;color:#6b4f2a;">
           아래는 실무에서 자주 적용되는 면제·감면 사유를 정리한 <b>개산 안내</b>입니다. 요건·금액은 <b>신청 시점의 현행 법령·관할 기관 기준</b>에 따라 달라질 수 있으며, 최종 적용 여부는 <b>상담·접수 시 확인</b>해 드립니다.
@@ -834,7 +834,7 @@
         <option value="agree" selected>상속인끼리 협의 — 「협의분할에 의한 상속」</option>
         <option value="mediate">가정법원 조정 — 「조정분할에 의한 상속」</option>
         <option value="judge">가정법원 심판 — 「심판분할에 의한 상속」</option></select><span class="hint">원인에 따라 준비서류가 달라집니다(비용은 같습니다) · 부동산등기기록례집 228·233~236</span></div>
-      <div class="line"><span class="lbl">상속재산 과세표준(원)</span><input type="number" class="amt" id="s_price" placeholder="0" oninput="calcInherit()"><span class="hint">시가표준액 합산</span></div>
+      <div class="line"><span class="lbl">상속재산 과세표준(원)</span><input type="number" class="amt" id="s_price" placeholder="0" oninput="calcInherit()"><span class="hint">시가표준액(토지 공시지가·주택 공시가격) 합산</span></div>
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('s_cntEstate',-1,calcInherit)">−</button><input type="number" id="s_cntEstate" value="1" min="1" oninput="calcInherit()"><button onclick="step('s_cntEstate',1,calcInherit)">+</button></div><span class="hint">등기수수료(매 부동산 20,000/17,000)·우편 곱</span></div>
       <div class="note" style="border-left:3px solid var(--gold);">▸ <b>보수기준 §9⑥</b> <span class="tag A">A</span> — <b>여러 부동산을 한 장의 신청서로</b> 상속등기하시는 경우, 각 부동산의 <b>과세표준을 모두 더한 금액</b>으로 기본보수를 <b>한 번만</b> 산정합니다<span class="law" title="법무사 보수기준 제9조제6항 — 1건의 신청서로 수개의 부동산에 관한 소유권 보존·이전 등기를 하는 경우에는 각 부동산의 과세표준액을 합산하며, 쌍방대리의 경우에는 1건으로 하여 기본보수를 산정한다.">§9⑥</span>. 위 「상속재산 과세표준」란에 <b>합산액</b>을 넣으십시오.<br>▸ 부동산이 여러 개면 기본보수와 별도로 <b>1개 초과분마다 20,000원</b>이 붙습니다<span class="law" title="법무사 보수기준 제10조제1항 — 대상 부동산이 1개를 초과하는 경우에는 초과하는 1개마다 20,000원을 가산한다.">§10①</span>. 아래 「부동산 개수」에 실제 개수를 넣으시면 자동 계산됩니다.<br>▸ <span class="hint">상속등기는 상속인이 <b>혼자 신청</b>하는 등기라 「쌍방대리」 문제가 생기지 않습니다.</span></div>
       <div class="line"><span class="lbl">상속인(인)</span><div class="stepper"><button onclick="step('s_cntHeir',-1,calcInherit)">−</button><input type="number" id="s_cntHeir" value="1" min="1" oninput="calcInherit()"><button onclick="step('s_cntHeir',1,calcInherit)">+</button></div><span class="hint">보수기준 <b>§2②4호</b> — 당사자·이해관계인 <b>5인 이상</b> 판정용 (아래 「당사자 다수 가산」과 연동)</span></div>
@@ -939,7 +939,7 @@
     <h2 class="stitle">상속 — 소유권이전 <small>보수표 Ⅰ-1 · 등기수수료 상속(20,000/17,000·전자불가)</small></h2>
 
     <div class="card blue"><h2>① 유증 정보</h2><div class="body"><div class="line"><span class="lbl">유증 유형</span><div class="radios" onchange="calcBequest()"><label><input type="radio" name="bq_kind" value="pogwal" checked> 포괄유증</label><label><input type="radio" name="bq_kind" value="teukjeong"> 특정유증</label></div><span class="hint">재산 <b>전부·비율</b>로 주면 포괄유증, <b>특정 부동산</b>을 지정하면 특정유증</span></div><div class="line"><span class="lbl">수증자 지위</span><div class="radios" onchange="calcBequest()"><label><input type="radio" name="bq_heir" value="yes" checked> 상속인</label><label><input type="radio" name="bq_heir" value="no"> 상속인 아님</label></div><span class="hint">이 선택으로 <b>취득세율이 2.8%와 3.5%로 갈립니다</b>(지방세법 §7⑦)</span></div><div class="line"><span class="lbl">유언 방식</span><select id="bq_willType" onchange="renderDocsBequest();calcBequest()"><option value="gongjeong">공정증서 — 검인 불요</option><option value="japil">자필증서 — 법원 검인 필요</option><option value="bimil">비밀증서 — 법원 검인 필요</option><option value="nokeum">녹음 — 법원 검인 필요</option><option value="gusu">구수증서 — 법원 검인(확인) 필요</option><option value="pangyeol">판결·조정으로 갈음</option></select><span class="hint">공정증서만 <b>검인 없이</b> 바로 등기됩니다</span></div><div class="line"><span class="lbl">유언집행자</span><div class="radios" onchange="renderDocsBequest()"><label><input type="radio" name="bq_exec" value="yes" checked> 지정·선임 있음</label><label><input type="radio" name="bq_exec" value="no"> 없음 (상속인 전원이 의무자)</label></div><span class="hint">없으면 <b>상속인 전원</b>이 등기의무자가 됩니다(민법 §1095)</span></div>
-      <div class="line"><span class="lbl">유증재산 과세표준(원)</span><input type="number" class="amt" id="bq_price" placeholder="0" oninput="calcBequest()"><span class="hint">시가표준액 합산</span></div>
+      <div class="line"><span class="lbl">유증재산 과세표준(원)</span><input type="number" class="amt" id="bq_price" placeholder="0" oninput="calcBequest()"><span class="hint" id="bq_priceHint">시가표준액(토지 공시지가·주택 공시가격) 합산</span></div>
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('bq_cntEstate',-1,calcBequest)">−</button><input type="number" id="bq_cntEstate" value="1" min="1" oninput="calcBequest()"><button onclick="step('bq_cntEstate',1,calcBequest)">+</button></div><span class="hint">등기수수료(매 부동산 20,000/17,000)·우편 곱</span></div>
       <div class="note" style="border-left:3px solid var(--gold);">▸ <b>보수기준 §9⑥</b> <span class="tag A">A</span> — ① <b>여러 부동산을 한 장의 신청서로</b> 유증등기하시는 경우, 각 부동산의 <b>과세표준을 모두 더한 금액</b>으로 기본보수를 <b>한 번만</b> 산정합니다<span class="law" title="법무사 보수기준 제9조제6항 — 1건의 신청서로 수개의 부동산에 관한 소유권 보존·이전 등기를 하는 경우에는 각 부동산의 과세표준액을 합산하며, 쌍방대리의 경우에는 1건으로 하여 기본보수를 산정한다.">§9⑥</span>. 위 「유증재산 과세표준」란에 <b>합산액</b>을 넣으십시오.<br>② 유증등기는 <b>유언집행자(또는 상속인)와 수증자가 함께</b> 신청하는 등기입니다. 법무사가 <b>양쪽을 모두 대리</b>하더라도 보수는 <b>1건으로만</b> 계산합니다 — <b>양쪽에 각각 기본보수를 청구할 수 없습니다.</b><br>▸ 부동산이 여러 개면 <b>1개 초과분마다 20,000원</b>이 별도로 붙습니다<span class="law" title="법무사 보수기준 제10조제1항 — 대상 부동산이 1개를 초과하는 경우에는 초과하는 1개마다 20,000원을 가산한다.">§10①</span>.</div>
       <div class="line"><span class="lbl">수증자(인)</span><div class="stepper"><button onclick="step('bq_cntHeir',-1,calcBequest)">−</button><input type="number" id="bq_cntHeir" value="1" min="1" oninput="calcBequest()"><button onclick="step('bq_cntHeir',1,calcBequest)">+</button></div><span class="hint">보수기준 <b>§2②4호</b> — 당사자·이해관계인 <b>5인 이상</b> 판정용 (아래 「당사자 다수 가산」과 연동)</span></div>
@@ -1394,7 +1394,7 @@
       <div class="line"><span class="lbl">분할 유형</span><div class="radios" onchange="calcPartition()">
         <label><input type="radio" name="pt_kind" value="share" checked> 공유물 분할 / 공유권 해소 지분이전 (§11①5호)</label>
         <label><input type="radio" name="pt_kind" value="joint"> 합유물·총유물 분할 (§11①6호)</label></div></div>
-      <div class="line"><span class="lbl">취득 부동산 전체<br>시가표준액(원)</span><input type="number" class="amt" id="pt_price" placeholder="0" oninput="calcPartition()"><span class="hint">분할받아 단독소유하는 부동산 <b>전체</b> 가액 (시행령 §29의2)</span></div>
+      <div class="line"><span class="lbl">취득 부동산 전체<br>시가표준액(원)</span><input type="number" class="amt" id="pt_price" placeholder="0" oninput="calcPartition()"><span class="hint">토지 공시지가·주택 공시가격 기준 · 분할받아 단독소유하는 부동산 <b>전체</b> 가액 (시행령 §29의2)</span></div>
       <div class="line"><span class="lbl">본인 종전 지분<br>상당액(원)</span><input type="number" class="amt" id="pt_ownShare" placeholder="0" oninput="calcPartition()"><span class="hint">전체 공유물 가액 × 본인 종전 지분율. 이를 <b>초과</b>하면 유상승계 <span class="tag chk">확인필요</span></span></div>
       <div class="line" id="pt_excessWarn" style="display:none;border-top:1px dashed var(--line);padding-top:8px;"><span class="hint" style="color:var(--seal);line-height:1.55;">▸ <b>본인 지분 초과분이 발생했습니다.</b> §11①5호 괄호(<i>등기부등본상 본인 지분을 초과하는 부분의 경우에는 제외한다</i>)에 따라 초과분은 특례 대상이 <b>아니며 일반 유상승계취득</b>으로 과세됩니다. 주택 유상세율의 구간 판정 기준은 <b>[확인필요]</b>이므로 관할청 확인 후 필요시 직접 입력하십시오.</span></div>
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('pt_cntEstate',-1,calcPartition)">−</button><input type="number" id="pt_cntEstate" value="1" min="1" oninput="calcPartition()"><button onclick="step('pt_cntEstate',1,calcPartition)">+</button></div></div>
@@ -1426,7 +1426,7 @@
       <div class="line"><span class="lbl">매입 요율</span><div class="radios" onchange="calcBondPartition()">
         <label><input type="radio" name="pt_bondKind" value="free" checked> 무상취득(18/28/42 · 14/25/39)</label>
         <label><input type="radio" name="pt_bondKind" value="paid"> 유상 소유권이전(주택13~31 등)</label></div></div>
-      <div class="line"><span class="lbl">시가표준액(원)</span><input type="number" class="amt" id="pt_bondStd" placeholder="0" oninput="calcBondPartition()"><span class="hint">부동산마다 개별 산정 <span id="pt_bondPct" class="hint"></span></span></div>
+      <div class="line"><span class="lbl">시가표준액(원)</span><input type="number" class="amt" id="pt_bondStd" placeholder="0" oninput="calcBondPartition()"><span class="hint">토지 공시지가·주택 공시가격 · 부동산마다 개별 산정 <span id="pt_bondPct" class="hint"></span></span></div>
       <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="pt_region" value="metro" checked onchange="calcBondPartition()"> 특별시·광역시</label><label><input type="radio" name="pt_region" value="other" onchange="calcBondPartition()"> 기타지역</label></div></div>
       <div class="line"><span class="lbl">채권 매입금(원)</span><input type="number" class="amt" id="pt_bondBuy" placeholder="0" oninput="calcPartition()"><span class="hint">자동 산출(직접 수정 가능)</span></div>
       <details class="ref"><summary>매입률 참고표 <span class="reftag" style="background:#e7efe6;color:var(--ok);">A</span> <span class="hint">— 계산기에 내장된 실제 요율</span></summary><div class="refbody"><div class="bondRefMount"></div><p style="margin:8px 0 0;font-size:11.5px;color:#8a8270;line-height:1.6;"><b>근거</b> 주택도시기금법 §8②·시행령 §8② [별표] 부표 1(부동산 등기) — 위 표는 <b>계산기에 내장된 값을 그대로 출력</b>한 것입니다.<br><b>계산규칙</b> 5천원 미만 절사 / 5천원 이상 올림 → 만원 단위 · 각 부동산마다 개별 산정 · 공유지분은 지분율을 곱한 시가표준액으로 판정 · 공동주택은 세대당 시가표준액</p></div></details>
@@ -1549,7 +1549,7 @@
       <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에는 사무소가 확인한 값이 자동으로 들어갑니다. 옆의 <b>기준일 표시</b>가 <b>등기하시는 날</b>과 같은지 확인해 주세요.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
       <div class="note" style="border-left:3px solid var(--seal);">▸ 경매·공매 낙찰은 <b>대가를 지급하고 취득</b>하는 것이므로 <b>유상 소유권이전 요율</b>이 적용됩니다. 무상취득 요율이 아닙니다.</div>
       <div class="line" style="display:none;"><div class="radios"><label><input type="radio" name="nk_bondKind" value="paid" checked> 유상</label></div></div>
-      <div class="line"><span class="lbl">시가표준액(원)</span><input type="number" class="amt" id="nk_bondStd" placeholder="0" oninput="calcBondNakchal()"><span class="hint">부동산마다 개별 산정 <span id="nk_bondPct" class="hint"></span></span></div>
+      <div class="line"><span class="lbl">시가표준액(원)</span><input type="number" class="amt" id="nk_bondStd" placeholder="0" oninput="calcBondNakchal()"><span class="hint">토지 공시지가·주택 공시가격 · 부동산마다 개별 산정 <span id="nk_bondPct" class="hint"></span></span></div>
       <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="nk_region" value="metro" checked onchange="calcBondNakchal()"> 특별시·광역시</label><label><input type="radio" name="nk_region" value="other" onchange="calcBondNakchal()"> 기타지역</label></div></div>
       <div class="line"><span class="lbl">채권 매입금(원)</span><input type="number" class="amt" id="nk_bondBuy" placeholder="0" oninput="calcNakchal()"><span class="hint">자동 산출(직접 수정 가능)</span></div>
       <details class="ref"><summary>매입률 참고표 <span class="reftag" style="background:#e7efe6;color:var(--ok);">A</span> <span class="hint">— 계산기에 내장된 실제 요율</span></summary><div class="refbody"><div class="bondRefMount"></div><p style="margin:8px 0 0;font-size:11.5px;color:#8a8270;line-height:1.6;"><b>근거</b> 주택도시기금법 §8②·시행령 §8② [별표] 부표 1(부동산 등기) — 위 표는 <b>계산기에 내장된 값을 그대로 출력</b>한 것입니다.<br><b>계산규칙</b> 5천원 미만 절사 / 5천원 이상 올림 → 만원 단위 · 각 부동산마다 개별 산정 · 공유지분은 지분율을 곱한 시가표준액으로 판정 · 공동주택은 세대당 시가표준액</p></div></details>
@@ -1643,7 +1643,7 @@
         <label><input type="radio" name="dv_marriage" value="legal" checked> 법률혼(협의·재판상 이혼)</label>
         <label><input type="radio" name="dv_marriage" value="defacto"> 사실혼 해소</label></div></div>
       <div class="line" id="dv_defactoNote" style="display:none;border-top:1px dashed var(--line);padding-top:8px;"><span class="hint" style="color:var(--seal);line-height:1.55;">▸ <b>사실혼 해소</b>에도 특례세율 <b>1.5%</b>가 적용됩니다(<b>대법원 2016.8.30. 선고 2016두36864</b>). 다만 과세관청이 거부하는 사례가 잦으므로 <b>사실혼 관계 입증자료를 선제적으로 정리</b>해 첨부하십시오. 판례: "객관적 자료에 의해 증명한 사람에 대해서는 그에 따른 법률효과를 부여함이 상당".</span></div>
-      <div class="line"><span class="lbl">과세표준(원)</span><input type="number" class="amt" id="dv_price" placeholder="0" oninput="calcDivision()"><span class="hint">시가인정액(지방세법 §10의3)</span></div>
+      <div class="line"><span class="lbl">과세표준(원)</span><input type="number" class="amt" id="dv_price" placeholder="0" oninput="calcDivision()"><span class="hint">시가인정액(지방세법 §10의2 · 재산분할은 대가 없는 무상취득)</span></div>
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('dv_cntEstate',-1,calcDivision)">−</button><input type="number" id="dv_cntEstate" value="1" min="1" oninput="calcDivision()"><button onclick="step('dv_cntEstate',1,calcDivision)">+</button></div></div>
       <div class="line"><span class="lbl">등기권리자</span><div class="stepper"><button onclick="step('dv_cntOwner',-1,calcDivision)">−</button><input type="number" id="dv_cntOwner" value="1" min="1" oninput="calcDivision()"><button onclick="step('dv_cntOwner',1,calcDivision)">+</button></div><span class="hint">보수기준 <b>§2②4호</b> — 당사자·이해관계인 <b>5인 이상</b> 판정용 (아래 「당사자 다수 가산」과 연동)</span></div>
       <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcDivision()">
@@ -1771,7 +1771,7 @@
     <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 사무소가 확인한 당일 값이 화면 위에 자동으로 들어갑니다(기준일 표시 확인). 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
       <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에는 사무소가 확인한 값이 자동으로 들어갑니다. 옆의 <b>기준일 표시</b>가 <b>등기하시는 날</b>과 같은지 확인해 주세요.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
       <div class="note">부담부증여는 채권 매입률을 <b>부담부분(유상)·증여분(무상) 각각</b> 적용 후 합산합니다(협회 방식). 시가표준액과 각 매입률을 입력하세요.</div>
-      <div class="line"><span class="lbl">시가표준액(원)</span><input type="number" class="amt" id="bv_bondStd" placeholder="0" oninput="calcBondBurden()"><span class="hint">전체 부동산 시가표준액</span></div>
+      <div class="line"><span class="lbl">시가표준액(원)</span><input type="number" class="amt" id="bv_bondStd" placeholder="0" oninput="calcBondBurden()"><span class="hint">전체 부동산 시가표준액(토지 공시지가·주택 공시가격)</span></div>
       <div class="line"><span class="lbl">부담부분 매입률(‰)</span><input type="number" id="bv_pctDebt" placeholder="예: 31" step="0.1" style="width:120px;" oninput="calcBondBurden()"><span class="hint">유상분 비율 × 시가표준액</span></div>
       <div class="line"><span class="lbl">증여분 매입률(‰)</span><input type="number" id="bv_pctGift" placeholder="예: 42" step="0.1" style="width:120px;" oninput="calcBondBurden()"><span class="hint">무상분 비율 × 시가표준액</span></div>
       <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="bv_region" value="metro" checked onchange="calcBondBurden()"> 특별시·광역시</label><label><input type="radio" name="bv_region" value="other" onchange="calcBondBurden()"> 기타지역</label></div></div>
@@ -3267,7 +3267,7 @@
     <div class="actions"><button class="btn" onclick="calcLitCost()">다시 계산</button><button class="btn" onclick="copyLitCost()" style="background:#1d7a46;">계산내역 복사</button><a class="btn" href="https://pf.kakao.com/_znJqX/chat" target="_blank" rel="noopener" onclick="calcConsult('kakao',this)" style="background:#FEE500;color:#3c1e1e;text-decoration:none;">💬 카톡 상담</a><a class="btn" href="mailto:rokfbi01@gmail.com" onclick="calcConsult('mail',this)" style="background:#3d5a80;text-decoration:none;">✉️ 이메일 상담</a><a class="btn" href="tel:01037480825" style="background:#c8862d;text-decoration:none;">📞 전화 상담</a></div>
 
     <details class="ref" style="margin-top:14px;background:#fffdf8;border:1px solid var(--line);border-radius:10px;padding:4px 14px;">
-      <summary style="cursor:pointer;font-weight:700;color:var(--ink);padding:8px 0;">📋 [별표] 변호사보수 산입 기준표 (펼쳐보기) <span class="tag A">A</span></summary>
+      <summary style="cursor:pointer;font-weight:700;color:var(--ink);padding:8px 0;">📋 [별표] 변호사보수 산입 기준표 <span class="fold-txt">▾ 펼쳐보기</span> <span class="tag A">A</span></summary>
       <div style="padding:8px 0 14px;overflow-x:auto;">
         <table class="ref">
           <tr><th>소송목적 또는 피보전권리의 값</th><th class="r">산입 비율/액</th><th>계산식(누진)</th></tr>
@@ -14576,6 +14576,30 @@ tbody.ea-closed > tr:not(.ea-on):not(.custom-row){display:none;}
 @media (prefers-reduced-motion:reduce){.gk-head .gk-ar{transition:none;}}
 @media print{.gk-body{display:block!important;}.gk-head{display:none!important;}tbody.ea-closed > tr{display:table-row;}.pl-links{display:none!important;}}
 </style>
+<style id="foldblue-20261118">
+/* 2026-11-18 접기·펼치기 글자를 파란 단추로 — 눈에 잘 띄게 */
+:root{--fold-c:#1a5bb5;--fold-bg:#eaf2fd;--fold-bd:#9bbde9;--fold-hv:#d9e8fb;}
+.card.fold>h2::after{color:var(--fold-c);background:var(--fold-bg);border:1px solid var(--fold-bd);border-radius:999px;padding:2px 12px;font-size:12.5px;font-weight:800;}
+.card.fold>h2:hover::after{background:var(--fold-hv);}
+.ntog{color:var(--fold-c);background:var(--fold-bg);border:1px solid var(--fold-bd);border-radius:999px;padding:2px 11px;font-size:12.5px;font-weight:800;text-decoration:none;}
+.ntog:hover{background:var(--fold-hv);}
+.ntog:focus-visible,.d3v-all:focus-visible,.gsx-box .gsx-fold:focus-visible,.gk-head:focus-visible{outline:2px solid var(--fold-c);outline-offset:2px;}
+.d3v-all{color:var(--fold-c);background:var(--fold-bg);border:1px solid var(--fold-bd);border-radius:999px;padding:2px 12px;font-size:12.5px;font-weight:800;}
+.d3v-all:hover{background:var(--fold-hv);}
+.d3v-q .d3v-ar{color:var(--fold-c);}
+.gsx-box .gsx-fold{color:var(--fold-c);background:var(--fold-bg);border-color:var(--fold-bd);font-weight:800;}
+.gsx-box .gsx-fold:hover{background:var(--fold-hv);}
+tr.ea-head .ea-ar{color:var(--fold-c);}
+tr.ea-head .ea-cnt{display:inline-block;color:var(--fold-c);background:var(--fold-bg);border:1px solid var(--fold-bd);border-radius:999px;padding:1px 11px;font-size:12.5px;font-weight:800;margin-left:8px;vertical-align:1px;}
+tr.ea-head td:hover .ea-cnt{background:var(--fold-hv);}
+.gk-head{flex-wrap:wrap;}
+.gk-head .gk-ar{color:var(--fold-c);}
+.gk-head .gk-sum{flex:1 1 auto;}
+.gk-head .gk-tg{flex:0 0 auto;color:var(--fold-c);background:var(--fold-bg);border:1px solid var(--fold-bd);border-radius:999px;padding:2px 12px;font-size:12.5px;font-weight:800;}
+.gk-head:hover .gk-tg{background:var(--fold-hv);}
+.fold-txt{color:var(--fold-c);font-weight:800;}
+@media print{.gk-head .gk-tg,tr.ea-head .ea-cnt{display:none!important;}}
+</style>
 <script id="lay-js-20261118">
 (function(){
   /* ① 준비서류 카드를 ④ 수수료 바로 밑으로 — 「총 합계」와 출력·상담 단추는 맨 아래로 내린다 */
@@ -14603,7 +14627,7 @@ tbody.ea-closed > tr:not(.ea-on):not(.custom-row){display:none;}
         var on=0; [].forEach.call(tb.querySelectorAll(':scope > tr'),function(r){ var c=r.querySelector('input[type=checkbox]'); var v=!!(c&&c.checked); r.classList.toggle('ea-on',v); if(v) on++; });
         var open=!tb.classList.contains('ea-closed');
         td.querySelector('.ea-ar').textContent=open?'▾':'▸';
-        td.querySelector('.ea-cnt').textContent=open?'— 접기':('— 펼쳐서 고르기'+(on?' · 선택 '+on+'건':''));
+        td.querySelector('.ea-cnt').textContent=open?'▴ 접기':('▾ 펼쳐서 고르기'+(on?' · 선택 '+on+'건':''));
         td.setAttribute('aria-expanded',open?'true':'false');
       }
       function toggle(){ tb.classList.toggle('ea-closed'); paint(); }
@@ -14625,7 +14649,7 @@ tbody.ea-closed > tr:not(.ea-on):not(.custom-row){display:none;}
     var box=extra.filter(function(x){ return x.classList.contains('gsx-box'); })[0]||null;
     var w=document.createElement('div'); w.className='gk-fold';
     var lbl=line.querySelector(':scope > .lbl').textContent.trim();
-    w.innerHTML='<button type="button" class="gk-head" aria-expanded="false"><span class="gk-ar">▸</span><span>'+lbl+(box?' · 감면·중과 사유 찾기':'')+'</span><span class="gk-sum"></span></button><div class="gk-body"></div>';
+    w.innerHTML='<button type="button" class="gk-head" aria-expanded="false"><span class="gk-ar">▸</span><span>'+lbl+(box?' · 감면·중과 사유 찾기':'')+'</span><span class="gk-sum"></span><span class="gk-tg"></span></button><div class="gk-body"></div>';
     line.parentNode.insertBefore(w,line);
     var body=w.querySelector('.gk-body'); body.appendChild(line); extra.forEach(function(x){ body.appendChild(x); });
     var head=w.querySelector('.gk-head');
@@ -14635,7 +14659,8 @@ tbody.ea-closed > tr:not(.ea-on):not(.custom-row){display:none;}
         return t.textContent.replace(/\(.*$/,'').replace(/\s+/g,' ').trim(); }).filter(Boolean);
       var sel=box?box.querySelectorAll('.gsx-sel [data-rm]').length:0;
       var open=w.classList.contains('open');
-      head.querySelector('.gk-sum').textContent=picked.length||sel ? '선택: '+picked.slice(0,3).join(', ')+(picked.length>3?' 외 '+(picked.length-3):'')+(sel?(picked.length?' · ':'')+'찾기에서 '+sel+'건':'') : (open?'접기':'해당하면 펼쳐서 고르세요');
+      head.querySelector('.gk-sum').textContent=picked.length||sel ? '선택: '+picked.slice(0,3).join(', ')+(picked.length>3?' 외 '+(picked.length-3):'')+(sel?(picked.length?' · ':'')+'찾기에서 '+sel+'건':'') : '';
+      head.querySelector('.gk-tg').textContent=open?'▴ 접기':'▾ 해당하면 펼쳐서 고르기';
       head.setAttribute('aria-expanded',open?'true':'false');
     }
     head.addEventListener('click',function(){ w.classList.toggle('open'); paint(); });
@@ -14650,12 +14675,16 @@ tbody.ea-closed > tr:not(.ea-on):not(.custom-row){display:none;}
     land:['토지 공시지가','https://www.realtyprice.kr/notice/nf/nfCommon.htm?page_gbn=gsi_search']
   };
   function plLinks(sc){
-    [].forEach.call(sc.querySelectorAll('input[id$="bondStdHouse"],input[id$="bondStdLand"],input[id$="_bondStd"]'),function(inp){
-      if(inp.nextElementSibling && inp.nextElementSibling.classList.contains('pl-links')) return;
+    [].forEach.call(sc.querySelectorAll('input[id$="bondStdHouse"],input[id$="bondStdLand"],input[id$="_bondStd"],input#s_price,input#bq_price,input#pt_price'),function(inp){
+      /* 2026-11-18 휴대폰에서 2개씩 나오던 오류 수정 — 휴대폰에서는 입력칸이 금액 안내 틀(.mhw)로 다시 감싸지므로
+         바로 옆이 아니라 같은 줄 안에 이미 있는지로 판단하고, 겹친 것은 지운다 */
+      var box=inp.closest('.line')||inp.parentNode;
+      var had=box.querySelectorAll('.pl-links[data-for="'+inp.id+'"]');
+      if(had.length){ for(var k=1;k<had.length;k++) had[k].remove(); return; }
       var ks=/House$/.test(inp.id)?['apt','house']:(/Land$/.test(inp.id)?['land']:['apt','house','land']);
-      var sp=document.createElement('span'); sp.className='pl-links';
+      var sp=document.createElement('span'); sp.className='pl-links'; sp.setAttribute('data-for',inp.id);
       sp.innerHTML=ks.map(function(k){ return '<a href="'+PL[k][1]+'" target="_blank" rel="noopener" title="부동산공시가격 알리미에서 '+PL[k][0]+' 조회(새 창)">🔗 '+PL[k][0]+'</a>'; }).join('');
-      inp.insertAdjacentElement('afterend',sp);
+      (inp.closest('.mhw')||inp).insertAdjacentElement('afterend',sp);
     });
   }
   function run(){
@@ -14737,6 +14766,92 @@ function addDocsSheet(wb,scene,caseName,picks){
   });
   ws.pageSetup={paperSize:9,orientation:'portrait',fitToPage:true,fitToWidth:1,fitToHeight:0,horizontalCentered:true,printArea:'A1:D'+r,margins:{left:0.4,right:0.4,top:0.5,bottom:0.5,header:0.2,footer:0.2}};
 }
+</script>
+<script id="bqhint-20261118">
+/* 2026-11-18 유증 과세표준 안내 — 지방세법 §7⑦: 상속인에게 한 유증·포괄유증은 상속으로 보아 시가표준액(§10의2②1호),
+   상속인 아닌 사람의 특정유증은 상속이 아닌 무상취득이라 시가인정액(§10의2①, 1억 원 이하는 선택 §10의2②2호·시행령 §14의2) */
+(function(){
+  function bqHint(){
+    var h=document.getElementById('bq_priceHint'); if(!h||typeof bequestIsInherit!=='function') return;
+    var t=bequestIsInherit()
+      ? '시가표준액(토지 공시지가·주택 공시가격) 합산 — 상속으로 봄(지방세법 §7⑦·§10의2②1호)'
+      : '시가인정액 합산 — 상속인 아닌 사람의 특정유증은 상속이 아니라 무상취득(지방세법 §10의2①). 시가표준액 1억 원 이하이면 시가표준액으로 신고할 수 있음(§10의2②2호)';
+    if(h.textContent!==t) h.textContent=t;
+  }
+  if(typeof window.calcBequest==='function'){
+    var _cb=window.calcBequest;
+    window.calcBequest=function(){ var r=_cb.apply(this,arguments); try{ bqHint(); }catch(e){} return r; };
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',bqHint); else bqHint();
+})();
+</script>
+<style id="tip-20261118">
+/* 2026-11-18 용어 말풍선 — 업무카드(.term)와 같은 모양. 마우스를 올리거나(휴대폰은 살짝 누름) Tab으로 가면 설명이 나온다 */
+.tip{color:var(--gold,#8a6d24);font-weight:700;border-bottom:1px dotted currentColor;cursor:help;outline:none;}
+.tip:focus-visible{outline:2px solid var(--fold-c,#1a5bb5);outline-offset:2px;border-radius:2px;}
+.tipbub{position:fixed;z-index:9999;background:#241a10;color:#fff;font:400 13px/1.6 "Pretendard","Malgun Gothic","맑은 고딕",sans-serif;text-align:left;padding:10px 13px;border-radius:9px;box-shadow:0 8px 22px rgba(0,0,0,.28);white-space:normal;word-break:keep-all;pointer-events:none;}
+.tipbub[hidden]{display:none;}
+.tipbub::after{content:"";position:absolute;left:var(--ax,18px);top:100%;border:7px solid transparent;border-top-color:#241a10;}
+.tipbub.below::after{top:auto;bottom:100%;border-top-color:transparent;border-bottom-color:#241a10;}
+@media print{.tipbub{display:none!important;}.tip{border:0;color:inherit;}.tip::after{content:" (" attr(data-tip) ")";font-weight:400;font-size:.9em;}}
+</style>
+<script id="tip-js-20261118">
+(function(){
+  if(window.__sanTip) return; window.__sanTip=1;
+  var TIP={
+    '시가인정액':'증여처럼 대가 없이 받을 때 취득세를 매기는 기준 금액입니다. 받은 날 전 6개월부터 받은 날 후 3개월 사이에 그 부동산의 매매가·감정가·경매가·공매가가 있으면 그 금액을 쓰고, 여럿이면 받은 날에 가장 가까운 것을 씁니다. 없으면 면적·위치·용도가 비슷한 부동산의 거래가를 쓰고, 그것도 없으면 시가표준액(공시가격)으로 합니다. 시가표준액 1억 원 이하 부동산은 둘 중 골라 신고할 수 있습니다. 상속은 시가표준액으로 합니다. (지방세법 §10의2, 시행령 §14·§14의2)',
+    '시가표준액':'세금과 국민주택채권을 계산할 때 쓰는, 나라가 정해 둔 기준 가격입니다. 토지는 개별공시지가에 면적을 곱한 금액, 아파트·연립·다세대는 공동주택가격, 단독·다가구주택은 개별주택가격(주택공시가격)이고, 상가·오피스텔처럼 주택이 아닌 건물은 시·군·구청장이 정한 건물 시가표준액입니다. 실제 거래 시세와는 다른 금액입니다. (지방세법 §4)',
+    '건물시가표준액':'상가·오피스텔·공장처럼 주택이 아닌 건물의 기준 가격입니다. 법령이 정한 기준에 따라 시·군·구청장이 정하며, 부동산이 있는 시·군·구청 세무과에서 확인할 수 있습니다. 땅값(토지 공시지가)은 따로 넣습니다. (지방세법 §4②)',
+    '토지공시가격':'땅의 시가표준액입니다. 개별공시지가는 1㎡당 가격이므로, 면적(㎡)을 곱한 전체 금액을 넣으세요. 예) 1㎡당 300만 원 × 100㎡ = 3억 원. (지방세법 §4①)',
+    '주택공시가격':'주택의 시가표준액입니다. 아파트·연립·다세대는 공동주택가격, 단독·다가구주택은 개별주택가격을 넣습니다. 땅값이 포함된 금액이므로 토지 공시지가를 따로 더하지 않습니다. (지방세법 §4①)'
+  };
+  var ORDER=['건물시가표준액','토지공시가격','주택공시가격','시가인정액','시가표준액'];
+  var SEL='.line > .lbl, .line .hint, tr[id$="nmRow"] td > .hint';
+  function wrap(el){
+    if(el.querySelector('.tip')) return;
+    var tw=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,{acceptNode:function(n){ var p=n.parentNode; return (p.closest('.law,.tag,.tip,a,button,.pl-links')||(p!==el&&p.closest('.hint')!==el&&p.closest('.lbl')!==el))?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT; }});
+    var n;
+    while((n=tw.nextNode())){
+      for(var i=0;i<ORDER.length;i++){
+        var k=ORDER[i], j=n.nodeValue.indexOf(k); if(j<0) continue;
+        var mid=n.splitText(j); mid.splitText(k.length);
+        var s=document.createElement('span'); s.className='tip'; s.tabIndex=0; s.setAttribute('role','button');
+        s.setAttribute('aria-describedby','sanTipBub'); s.setAttribute('aria-expanded','false'); s.setAttribute('data-tip',TIP[k]);
+        mid.parentNode.replaceChild(s,mid); s.appendChild(mid); return;
+      }
+    }
+  }
+  function deco(root){ [].forEach.call((root||document).querySelectorAll(SEL),function(el){ try{ wrap(el); }catch(e){} }); }
+  var bub=document.createElement('div'); bub.id='sanTipBub'; bub.className='tipbub'; bub.setAttribute('role','tooltip'); bub.hidden=true;
+  var cur=null, pinned=false;
+  function place(t){
+    var r=t.getBoundingClientRect(), vw=document.documentElement.clientWidth, w=Math.min(300,vw-24);
+    bub.style.width=w+'px'; bub.hidden=false;
+    var h=bub.offsetHeight, left=Math.max(12,Math.min(r.left,vw-w-12)), top=r.top-h-10, below=false;
+    if(top<8){ top=r.bottom+10; below=true; }
+    bub.style.left=left+'px'; bub.style.top=top+'px'; bub.classList.toggle('below',below);
+    bub.style.setProperty('--ax',Math.max(10,Math.min(w-24,r.left+Math.min(r.width/2,24)-left-7))+'px');
+  }
+  function show(t,pin){ if(cur&&cur!==t) cur.setAttribute('aria-expanded','false'); cur=t; pinned=!!pin; bub.textContent=t.getAttribute('data-tip'); if(!bub.parentNode) document.body.appendChild(bub); place(t); t.setAttribute('aria-expanded','true'); }
+  function hide(){ if(cur) cur.setAttribute('aria-expanded','false'); cur=null; pinned=false; bub.hidden=true; }
+  function tipOf(e){ return e.target&&e.target.closest?e.target.closest('.tip'):null; }
+  document.addEventListener('mouseover',function(e){ var t=tipOf(e); if(t&&t!==cur&&!pinned) show(t,false); });
+  document.addEventListener('mouseout',function(e){ var t=tipOf(e); if(t&&t===cur&&!pinned&&!(e.relatedTarget&&t.contains(e.relatedTarget))) hide(); });
+  document.addEventListener('focusin',function(e){ var t=tipOf(e); if(t&&!pinned) show(t,false); });
+  document.addEventListener('focusout',function(e){ var t=tipOf(e); if(t&&t===cur&&!pinned) hide(); });
+  document.addEventListener('click',function(e){ var t=tipOf(e); if(t){ e.preventDefault(); if(cur===t&&pinned) hide(); else show(t,true); return; } if(cur) hide(); },true);
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&cur){ hide(); return; }
+    if((e.key==='Enter'||e.key===' ')&&e.target.classList&&e.target.classList.contains('tip')){ e.preventDefault(); if(cur===e.target&&pinned) hide(); else show(e.target,true); }
+  });
+  window.addEventListener('scroll',function(){ if(cur) place(cur); },{passive:true});
+  window.addEventListener('resize',function(){ if(cur) place(cur); });
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',function(){ deco(); }); else deco();
+  /* 화면을 열거나 안내 글자가 바뀌면(물건 종류 바꾸기 등) 새로 붙인다 */
+  var tm=null;
+  new MutationObserver(function(){ clearTimeout(tm); tm=setTimeout(function(){ var sc=document.querySelector('.scene.active'); deco(sc||document); if(cur&&!cur.isConnected) hide(); },50); })
+    .observe(document.body,{childList:true,subtree:true,characterData:true});
+})();
 </script>
 </body>
 </html>
