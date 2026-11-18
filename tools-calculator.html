@@ -14524,6 +14524,7 @@ function recBuild(){
     var h=location.hash.replace(/^#/,''); if(!h) return null;
     try{ h=decodeURIComponent(h); }catch(e){}
     if(h.indexOf('s=')===0) h=h.slice(2);
+    h=h.split('&')[0];
     return (typeof SCENARIO!=='undefined' && SCENARIO[h]) ? h : null;
   }
   function refName(){
@@ -14548,9 +14549,23 @@ function recBuild(){
     sc.insertBefore(d, sc.firstChild);
   }
   function go(name, why){ try{ openScenario(name); note(name, why); }catch(e){} }
+  /* 카드 링크의 법인 종류(#s=법인설립&e=assoc) — 법인설립 화면에서 그 종류를 골라 둔다 */
+  function hashEnt(){
+    var h=location.hash.replace(/^#/,''); try{ h=decodeURIComponent(h); }catch(e){}
+    var m=h.match(/(?:^|&)e=([a-z]+)/); return (m && typeof ENT!=='undefined' && ENT[m[1]]) ? m[1] : null;
+  }
+  function pickEnt(name){
+    var k=hashEnt(); if(name!=='법인설립' || !k) return;
+    try{
+      if(typeof entFill==='function') entFill('co');
+      var s=document.getElementById('co_ent'); if(!s) return; s.value=k; if(s.value!==k) return;
+      if(typeof entPick==='function') entPick('co');
+      var d=document.querySelector('.dl-note'); if(d){ var b=document.createElement('span'); var nm=ENT[k].nm, c=nm.charCodeAt(nm.length-1)-0xAC00, jo=(c<0||c>11171||c%28===0||c%28===8)?'로':'으로'; b.innerHTML=' 법인 종류는 <b>'+nm+'</b>'+jo+' 골라 두었습니다.'; d.insertBefore(b, d.querySelector('button')); }
+    }catch(e){}
+  }
   var h=hashName();
-  if(h) go(h,'link'); else { var c=refName(); if(c) go(c,'card'); }
-  window.addEventListener('hashchange', function(){ var n=hashName(); if(n) go(n,'link'); });
+  if(h){ go(h,'link'); pickEnt(h); } else { var c=refName(); if(c) go(c,'card'); }
+  window.addEventListener('hashchange', function(){ var n=hashName(); if(n){ go(n,'link'); pickEnt(n); } });
   /* 메뉴로 돌아가면 안내줄과 주소의 화면 이름을 지운다(새로고침 때 엉뚱한 화면이 열리지 않게) */
   var _gm=window.goMenu;
   if(typeof _gm==='function') window.goMenu=function(){
