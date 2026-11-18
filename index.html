@@ -684,41 +684,44 @@ section.hero .hero-inner p.lead{max-width:900px;font-size:clamp(14px,1.45vw,16px
   section.hero .hnav-card .hnav-t[data-short]{font-size:0 !important;}
   section.hero .hnav-card .hnav-t[data-short]::after{content:attr(data-short);font-size:clamp(10px,3.15vw,12.5px);letter-spacing:-.3px;white-space:nowrap;} /* 긴 이름만 글씨를 줄여 한 줄로 — 6칸 크기를 같게 */
   #practice #bizGrid .pa-card.soon .pa-tx{padding-top:6px;}
-  /* 첫 화면 자동 맞춤 — 휴대폰마다 화면 높이를 재서 여백(--sp)부터, 그래도 넘치면 글씨(--fs)를 조금 줄인다(아래 hfit 스크립트) */
-  section.hero{--sp:1;--fs:1;padding-top:calc(4px*var(--sp)) !important;padding-bottom:calc(20px*var(--sp)) !important;min-height:calc(100vh - var(--hdh,122px)) !important;min-height:calc(100svh - var(--hdh,122px)) !important;}
-  section.hero .psearch{margin:calc(6px*var(--sp)) 0 calc(10px*var(--sp)) !important;}
-  section.hero .eyebrow{letter-spacing:2px !important;margin-bottom:calc(4px*var(--sp)) !important;white-space:nowrap;font-size:calc(11px*var(--fs)) !important;}
-  section.hero .hero-inner h1{margin:calc(4px*var(--sp)) 0 calc(8px*var(--sp)) !important;font-size:calc(clamp(16px,4.3vw,22px)*var(--fs)) !important;}
-  section.hero .hero-inner p.lead{margin-bottom:calc(10px*var(--sp)) !important;line-height:1.5 !important;font-size:calc(13px*var(--fs)) !important;}
-  section.hero #sanSearch{margin:calc(12px*var(--sp)) 0 calc(14px*var(--sp)) !important;}
-  section.hero .hero-nav{gap:calc(6px*var(--sp)) !important;}
-  section.hero .hnav-card{padding:calc(8px*var(--sp)) 4px !important;}
+  /* 첫 화면: 글씨는 그대로, 넘치면 글씨(--fs)를 조금 줄임 */
+  section.hero{min-height:calc(100vh - var(--hdh,122px)) !important;min-height:calc(100svh - var(--hdh,122px)) !important;} /* 첫 화면 아래쪽에 다음 칸이 비치지 않게 */
+  section.hero .eyebrow{letter-spacing:2px !important;margin-bottom:4px !important;white-space:nowrap;font-size:calc(11px*var(--fs,1)) !important;}
+  section.hero .hero-inner h1{margin:4px 0 8px !important;font-size:calc(clamp(16px,4.3vw,22px)*var(--fs,1)) !important;}
+  section.hero .hero-inner p.lead{margin-bottom:0 !important;line-height:1.5 !important;font-size:calc(13px*var(--fs,1)) !important;}
+  section.hero .hero-nav{gap:6px !important;}
+  section.hero .hnav-card{padding:8px 4px !important;}
   #sanSearch .ss-chips{flex-wrap:nowrap !important;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;justify-content:flex-start !important;padding-bottom:2px;-webkit-mask-image:linear-gradient(90deg,#000 86%,transparent);mask-image:linear-gradient(90deg,#000 86%,transparent);}
   #sanSearch .ss-chips::-webkit-scrollbar{display:none;}
   #sanSearch .ss-chip{flex:0 0 auto !important;}
 }
 </style>
 <script id="hdh-20261118">
-/* 휴대폰 첫 화면 자동 맞춤(2026-11-18)
-   ① 위 메뉴의 실제 높이를 재서 남색 첫 칸이 화면 끝까지 차게 하고(--hdh)
-   ② 내용이 화면보다 길면 여백(--sp)부터 줄이고, 그래도 넘치면 글씨(--fs)를 최대 14%까지 줄여
-      바로가기 6칸이 화면 맨 아래 안에 들어오게 한다. 짧으면 그대로(가운데 정렬). */
+/* 첫 화면 간격 고르게(2026-11-18) — PC·휴대폰 공통
+   메뉴 아래 남는 높이를 재서, 다섯 군데 간격(메뉴→검색, 검색→제목, 소개글→찾기, 찾기→바로가기, 바로가기→화면 끝)을 똑같이 나눈다.
+   내용이 화면보다 길면 간격을 최소(8px)로 두고 휴대폰에서는 글씨(--fs)를 최대 14%까지 줄인다. */
 (function(){
   var lastW=0;
   function fit(force){
     var hd=document.getElementById('hd'), hero=document.querySelector('section.hero'), inner=hero&&hero.querySelector('.hero-inner');
     if(!hd||!hero||!inner) return;
-    var w=window.innerWidth;
-    if(!force && w===lastW) return;              /* 주소창·자판 때문에 높이만 바뀐 경우는 그대로 둔다 */
-    lastW=w;
-    document.documentElement.style.setProperty('--hdh',hd.offsetHeight+'px');
-    hero.style.setProperty('--sp','1'); hero.style.setProperty('--fs','1');
-    if(w>768) return;
-    var avail=window.innerHeight-hd.offsetHeight;
-    function need(){ var cs=getComputedStyle(hero); return inner.getBoundingClientRect().height+parseFloat(cs.paddingTop)+parseFloat(cs.paddingBottom); }
-    var sp=1, fs=1;
-    while(need()>avail && sp>0.25){ sp=Math.round((sp-0.15)*100)/100; hero.style.setProperty('--sp',sp); }
-    while(need()>avail && fs>0.86){ fs=Math.round((fs-0.02)*100)/100; hero.style.setProperty('--fs',fs); }
+    var w=window.innerWidth; if(!force && w===lastW) return; lastW=w;
+    var hh=hd.offsetHeight, fixed=getComputedStyle(hd).position==='fixed';
+    var R=document.documentElement.style;
+    R.setProperty('--hdh',hh+'px');
+    hero.style.setProperty('--hpt',(fixed?hh:0)+'px');
+    hero.style.setProperty('--fs','1'); hero.style.setProperty('--G','0px');
+    var avail=window.innerHeight-hh;
+    var ps=hero.querySelector('.psearch'), nav=hero.querySelector('.hero-nav');
+    /* 간격을 0으로 두고 잰 내용 높이(검색창 위 ~ 바로가기 아래) */
+    function span(){ return (nav.offsetTop+nav.offsetHeight)-ps.offsetTop; } /* 나타나는 효과(위로 떠오름)와 무관하게 실제 배치 높이로 잰다 */
+    var G=(avail-span())/5;
+    if(G<8 && w<=768){ var fs=1; while(fs>0.86){ fs=Math.round((fs-0.02)*100)/100; hero.style.setProperty('--fs',fs); G=(avail-span())/5; if(G>=8) break; } }
+    G=Math.max(8,Math.min(G,90));
+    hero.style.setProperty('--G',G.toFixed(1)+'px');
+    for(var t=0;t<2;t++){ /* 남는 아래 여백(화면 끝 - 바로가기 아래 - G)을 다시 나눠 다섯 간격을 똑같이 */
+      var left=hero.getBoundingClientRect().bottom-inner.getBoundingClientRect().bottom-G;
+      if(Math.abs(left)<1.5) break; var G2=Math.max(8,Math.min(90,G+left/5)); if(Math.abs(G2-G)<0.5) break; G=G2; hero.style.setProperty('--G',G.toFixed(1)+'px'); }
   }
   function go(){ fit(true); }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',go); else go();
@@ -726,6 +729,15 @@ section.hero .hero-inner p.lead{max-width:900px;font-size:clamp(14px,1.45vw,16px
   if(document.fonts&&document.fonts.ready) document.fonts.ready.then(go);
   window.addEventListener('resize',function(){ fit(false); });
   window.addEventListener('orientationchange',function(){ setTimeout(go,250); });
+  /* 첫 화면 안 내용이 바뀌면(면책 확인 후 검색 안내문이 사라지는 등) 다시 고르게. 검색 결과 창이 열려 있을 때는 그대로 둔다 */
+  var tmr=null;
+  document.addEventListener('DOMContentLoaded',function(){
+    var inner=document.querySelector('section.hero .hero-inner'); if(!inner||!window.ResizeObserver) return;
+    var lastH=0;
+    new ResizeObserver(function(){ var h=inner.offsetHeight; if(Math.abs(h-lastH)<2) return; lastH=h;
+      var pan=document.querySelector('#sanSearch .ss-panel'); if(pan&&pan.offsetHeight>0) return;
+      clearTimeout(tmr); tmr=setTimeout(go,120); }).observe(inner);
+  });
 })();
 </script>
 </head>
@@ -2096,10 +2108,21 @@ footer .foot-top{display:block !important;text-align:center;border-bottom:0 !imp
 footer .foot-top .foot-logo{display:flex;flex-direction:column;align-items:center;gap:6px;margin-bottom:8px;}
 footer .foot-top .foot-logo .logo-img{margin:0 !important;}
 footer .foot-top .foot-logo + div{max-width:none !important;}
+/* 2026-11-18 첫 화면 간격 고르게(PC·휴대폰): 메뉴→검색, 검색→제목, 소개글→찾기, 찾기→바로가기, 바로가기→화면 끝 다섯 간격을 같게(--G, hdh 스크립트가 계산) */
+section.hero{align-items:flex-start !important;justify-content:center;padding-top:calc(var(--hpt,0px) + var(--G,16px)) !important;padding-bottom:var(--G,16px) !important;}
+section.hero .psearch{margin-top:0 !important;margin-bottom:var(--G,16px) !important;}
+section.hero #sanSearch{margin-top:var(--G,16px) !important;margin-bottom:var(--G,16px) !important;}
+section.hero #sanSearch{display:flow-root;}
+section.hero #sanSearch > :first-child{margin-top:0 !important;}
+section.hero #sanSearch > :last-child{margin-bottom:0 !important;} /* 안쪽 여백이 바깥 간격과 겹쳐 계산이 어긋나지 않게 */
+section.hero .hero-nav{margin-top:0 !important;}
+section.hero .scroll-hint{display:none !important;}
+section.hero .hero-inner{padding-top:0 !important;padding-bottom:0 !important;margin-top:0 !important;margin-bottom:0 !important;}
 /* 2026-11-18 PC·휴대폰 공통 — 구역마다 한 화면(자동 맞춤), 상담 문의 배치, 마지막 화면 묶음 */
+@media (min-width:769px){ #gov-links .gov-card .gc-name{font-size:13px !important;} #gov-links .gov-card,#gov-links .g24card .g24-main{padding:6px 12px !important;} }
 #top,#about,#philosophy,#practice,#gov-links,#tax-partner,#column,#contact,#location,#why,#process{scroll-margin-top:var(--hdhs,var(--hdh,122px)) !important;}
 .fitu{display:flex !important;flex-direction:column !important;justify-content:center !important;box-sizing:border-box;overflow:hidden;padding-top:28px !important;padding-bottom:28px !important;}
-.fitu > .fiti{flex:0 0 auto;transform-origin:top left;zoom:1 !important;}
+.fitu > .fiti{flex:0 0 auto;transform-origin:top left;zoom:1 !important;min-width:0 !important;}
 #location.fitg,section.stats.fitg,footer.fitg{padding-top:18px !important;padding-bottom:18px !important;}
 section.stats.fitg .stat{padding-top:16px !important;padding-bottom:16px !important;}
 footer.fitg .foot-top{padding-bottom:16px !important;}
@@ -2123,6 +2146,8 @@ footer.fitg .foot-top{padding-bottom:16px !important;}
   section#practice .pa-gbox.open .pa-gbody{display:block;}
   section#practice .pa-more{margin-left:auto;background:#fff;border:1px solid #e7e0d4;border-radius:999px;padding:2px 11px;font:700 12px/1.5 var(--sans);color:#7a5230;cursor:pointer;}
   #gov-links .gov-grid{grid-template-columns:repeat(3,minmax(0,1fr)) !important;}
+  #gov-links .gov-card,#gov-links .g24card .g24-main{padding:6px 8px !important;gap:4px !important;min-width:0;}
+  #gov-links .gov-card .gc-name{font-size:12px !important;white-space:normal !important;overflow:visible !important;text-overflow:clip !important;word-break:keep-all;line-height:1.25 !important;}
   #tax-partner .tp-top{flex-wrap:nowrap !important;}
   #tax-partner .tp-body{display:grid !important;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:16px;align-items:start;}
   #tax-partner .tp-body > *{grid-column:1/-1;}
@@ -2133,7 +2158,12 @@ footer.fitg .foot-top{padding-bottom:16px !important;}
   #tax-partner .tp-body > ul.tp-list:nth-of-type(2){grid-column:2;grid-row:3;}
   #practice #bizGrid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr)) !important;}
   #practice #catGrid,#practice #itemGrid{grid-template-columns:repeat(auto-fill,minmax(210px,1fr)) !important;}
-  #tax-partner .tp-actions{display:grid !important;grid-template-columns:repeat(5,minmax(0,1fr)) !important;}
+  #tax-partner .tp-actions{display:grid !important;grid-template-columns:repeat(3,minmax(0,1fr)) !important;gap:8px !important;grid-row:auto !important;}
+  #tax-partner .tp-actions > *{min-width:0 !important;}
+  #tax-partner .tp-actions *{white-space:normal !important;overflow-wrap:anywhere;word-break:keep-all;}
+  #tax-partner .tp-actions > a{min-width:0 !important;padding:8px 4px !important;}
+  #tax-partner .tp-actions > a span{font-size:11.5px !important;line-height:1.3 !important;} /* 전화번호·메일 주소가 칸 밖으로 나가지 않게 */
+  #tax-partner .tp-body > .tp-actions,#tax-partner .tp-body > .tp-note{grid-row:auto !important;}
   #location .loc-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;gap:18px !important;}
   #location .map-btns{display:grid !important;grid-template-columns:repeat(3,minmax(0,1fr)) !important;gap:6px !important;}
   #practice .pa-guide{grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;}
@@ -2171,17 +2201,19 @@ footer.fitg .foot-top{padding-bottom:16px !important;}
       avail=window.innerHeight;
     }
     var pads=parts.map(function(p){ var cs=getComputedStyle(p.sec); return parseFloat(cs.paddingTop)+parseFloat(cs.paddingBottom); });
-    var w0=parts.map(function(p){ return p.inner.getBoundingClientRect().width; });
     var cw=parts.map(function(p){ var cs=getComputedStyle(p.sec); return p.sec.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight); });
+    var w0=parts.map(function(p,i){ return Math.min(p.inner.getBoundingClientRect().width, cw[i]); }); /* 내용이 화면보다 넓게 밀어내도 기준 폭은 화면 폭 */
     function setW(s){ parts.forEach(function(p,i){
       if(s<1){ p.inner.style.width=(w0[i]/s)+'px'; p.inner.style.maxWidth='none'; p.inner.style.marginLeft=Math.max(0,(cw[i]-w0[i])/2)+'px'; p.inner.style.marginRight='0'; }
-      else if(s>1){ var L=Math.min(w0[i], cw[i]*0.96/s); p.inner.style.width=L+'px'; p.inner.style.maxWidth='none'; p.inner.style.marginLeft=Math.max(0,(cw[i]-L*s)/2)+'px'; p.inner.style.marginRight='0'; }
+      else if(s>1){ p.inner.style.width=w0[i]+'px'; p.inner.style.maxWidth='none'; p.inner.style.marginLeft=Math.max(0,(cw[i]-w0[i]*s)/2)+'px'; p.inner.style.marginRight='0'; } /* 확대할 때는 배치를 바꾸지 않고 그대로 키움 */
       else { p.inner.style.width=''; p.inner.style.maxWidth=''; p.inner.style.marginLeft=''; p.inner.style.marginRight=''; } }); }
-    function need(s){ setW(s); var t=0; parts.forEach(function(p,i){ t+=p.inner.offsetHeight*s+pads[i]; }); return t; }
+    function need(s){ setW(s); var t=0, wide=false; parts.forEach(function(p,i){ t+=p.inner.offsetHeight*s+pads[i]; if(p.inner.scrollWidth>p.inner.clientWidth+1) wide=true; }); return wide?Infinity:t; } /* 글자가 옆으로 삐져나가면 맞지 않은 것으로 본다 */
     var best=1, lo, hi, k, mid;
     if(need(1)>avail){ lo=0.2; hi=1; best=lo; for(k=0;k<8;k++){ mid=(lo+hi)/2; if(need(mid)<=avail){ best=mid; lo=mid; } else hi=mid; } }
     else if(w>768){ /* PC: 빈 공간만큼 키워 화면을 채운다(최대 1.6배) — 휴대폰은 그대로 */
-      lo=1; hi=1.6; for(k=0;k<8;k++){ mid=(lo+hi)/2; if(need(mid)<=avail*0.97){ best=mid; lo=mid; } else hi=mid; }
+      var wmax=Infinity; parts.forEach(function(p,i){ wmax=Math.min(wmax, cw[i]*0.97/w0[i]); });
+      var cap=(u[0]==='#practice'||u[0]==='#tax-partner')?1:1.15; /* PC 확대 한도 — 업무 분야·세무 안내는 키우지 않음 */
+      lo=1; hi=Math.max(1,Math.min(cap,wmax)); for(k=0;k<8;k++){ mid=(lo+hi)/2; if(need(mid)<=avail*0.97){ best=mid; lo=mid; } else hi=mid; }
       if(best<1.03) best=1;
     }
     need(best);
@@ -2196,7 +2228,7 @@ footer.fitg .foot-top{padding-bottom:16px !important;}
     var hh=headerH(); document.documentElement.style.setProperty('--hdhs',hh+'px');
     var avail=window.innerHeight-hh;
     busy=true;
-    [['#top']].concat(UNITS).forEach(function(u){ fitOne(u,avail,hh); });
+    UNITS.forEach(function(u){ fitOne(u,avail,hh); });
     setTimeout(function(){ busy=false; },60);
     watch();
   }
