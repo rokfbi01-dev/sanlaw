@@ -549,16 +549,6 @@
       </span>
       <a href="https://svc.wooribank.com/svc/Dream?withyou=HBNHB0036&cc=c004893:c004893" target="_blank" rel="noopener" style="color:#241f1a;background:#f3d27a;font-weight:800;text-decoration:none;border:1px solid #f3d27a;border-radius:5px;padding:4px 12px;">🔎 오늘 고시율 조회 (새 창)</a>
       <button type="button" id="bondPubBtn" onclick="bondPublish()" style="display:none;cursor:pointer;color:#fff;background:#1d7a46;font-weight:800;border:1px solid #1d7a46;border-radius:5px;padding:4px 10px;" title="사무소 전용 — 지금 칸의 할인율을 모든 의뢰인 화면에 적용합니다">📤 의뢰인 화면에 적용</button>
-      <span id="bondRateBadge" style="font-weight:800;"></span>
-      <span class="hint" style="color:#bcb29c;">(입력 즉시 보고 계신 화면에 바로 반영)</span>
-      <span style="width:1px;height:16px;background:#5a534a;"></span>
-      <span>송달료 1회</span>
-      <span style="display:inline-flex;align-items:center;gap:4px;">
-        <input type="number" id="songUnit" value="5640" step="10" oninput="recalc();saveSongUnit()" style="width:80px;">
-        <span>원</span>
-      </span>
-      <a href="https://www.scourt.go.kr/portal/dcboard/DcNewsListAction.work?gubun=41" target="_blank" rel="noopener" style="color:#f3d27a;font-weight:700;text-decoration:none;border:1px solid #5a534a;border-radius:4px;padding:2px 8px;">🔎 법원 공지 확인</a>
-      <span class="hint" style="color:#bcb29c;">(2026.7.1.~ 왕복 통상우편요금 500×2 + 등기·특별송달수수료 · 변경 시 수정 · 자동 저장)</span>
     </div>
   </div>
 </header>
@@ -666,8 +656,10 @@
         <div style="font-size:13px;color:#6b5540;line-height:1.65;margin-bottom:10px;">신규 분양·분양권 전매로 취득하셨다면 <b>분양대금만으로 계산하면 안 됩니다.</b> 발코니 확장비·붙박이 옵션(전매는 프리미엄까지)을 <b>더한 금액</b>이 취득세 과세표준입니다. 아래를 켜면 합산 도우미와 <b>분양 전용 준비서류</b>가 나옵니다.</div>
         <label class="checks" style="display:inline-flex;align-items:center;font-size:14.5px;font-weight:700;color:var(--gold-d);cursor:pointer;padding:8px 14px;background:#fff;border:1.5px solid var(--gold);border-radius:8px;">
           <input type="checkbox" id="ps_on" onchange="togglePresale()" style="width:18px;height:18px;margin-right:8px;"> 분양으로 취득 — 도우미 켜기</label>
+        <div class="sx-proOnly" style="margin-top:10px;font-size:13.5px;font-weight:800;line-height:1.6;color:var(--fold-c,#1a5bb5);">※ 주의 — 분양 아파트인 경우 반드시 <u>신탁등기 말소</u>와 <u>토지 신탁등기 변경등기</u> 사항을 확인할 것 (등기사항증명서 갑구 · 아래 「분양 신탁」 항목에서 선택)</div>
       </div>
       <div id="ps_box" style="display:none;background:#fdf6e8;border-radius:8px;padding:10px 12px;margin:6px 0 10px;">
+        <div class="note" style="border-left:3px solid #1a5bb5;margin-top:0;">▸ <b>국민주택채권:</b> 주택공시가격이 아직 공시되지 않은 신규 분양 공동주택은 <b>취득 당시 가액(아래 합계 과세표준)을 시가표준액으로</b> 보고 채권을 삽니다. 아래 ② 국민주택채권의 주택공시가격 칸에 그 금액을 넣으십시오 <span class="law" title="주택도시기금법 시행령 [별표] 부표 15호 가목 1) — 「주택시가표준액이 공시되지 않은 신규분양공동주택의 경우에는 「지방세법」 제10조의3에 따른 취득당시가액을 시가표준액으로 한다」(2026-11-19 국가법령정보센터 확인)">별표 부표 15호 가목 1)</span> <span class="tag A">A</span></div>
         <div class="note" style="border-left:3px solid var(--seal);margin-top:0;">▸ <b>분양은 시행사에게서 넘겨받는 유상승계취득</b>이므로 세율 구조는 매매와 같습니다. 다만 <b>과세표준에 분양대금만 넣으면 실제보다 적게 나옵니다.</b> 아래 항목을 더한 <b>합계</b>가 과세표준입니다. <span class="tag A">A</span><br>
         · <b>발코니 확장비</b> — 취득시기 <b>이전</b>에 확장이 완료되어 집과 하나가 된 경우 포함. 분양 세대는 사실상 언제나 해당합니다.<br>
         · <b>유상 옵션</b> — 세대와 하나가 되어 건축물의 효용가치를 이루는 <b>붙박이 설비</b>(시스템에어컨·빌트인 가전·중문·안전방충망 등)는 포함. <b>이동식 가전·가구 등 독립한 동산은 제외</b>합니다. (대법원 2018. 4. 26. 선고 2018두31535 판결 취지)<br>
@@ -1399,7 +1391,7 @@
       <div class="line" id="pt_excessWarn" style="display:none;border-top:1px dashed var(--line);padding-top:8px;"><span class="hint" style="color:var(--seal);line-height:1.55;">▸ <b>본인 지분 초과분이 발생했습니다.</b> §11①5호 괄호(<i>등기부등본상 본인 지분을 초과하는 부분의 경우에는 제외한다</i>)에 따라 초과분은 특례 대상이 <b>아니며 일반 유상승계취득</b>으로 과세됩니다. 주택 유상세율의 구간 판정 기준은 <b>[확인필요]</b>이므로 관할청 확인 후 필요시 직접 입력하십시오.</span></div>
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('pt_cntEstate',-1,calcPartition)">−</button><input type="number" id="pt_cntEstate" value="1" min="1" oninput="calcPartition()"><button onclick="step('pt_cntEstate',1,calcPartition)">+</button></div></div>
       <div class="line"><span class="lbl">등기권리자</span><div class="stepper"><button onclick="step('pt_cntOwner',-1,calcPartition)">−</button><input type="number" id="pt_cntOwner" value="1" min="1" oninput="calcPartition()"><button onclick="step('pt_cntOwner',1,calcPartition)">+</button></div><span class="hint">보수기준 <b>§2②4호</b> — 당사자·이해관계인 <b>5인 이상</b> 판정용 (아래 「당사자 다수 가산」과 연동)</span></div>
-      <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcPartition()">
+      <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcBondPartition()">
         <label><input type="radio" name="pt_ptype" value="house" checked> 주택</label>
         <label><input type="radio" name="pt_ptype" value="etc"> 주택외</label></div></div>
       <div class="line"><span class="lbl">농특세 (지분 범위 내)</span><div class="radios" onchange="calcPartition()">
@@ -1422,11 +1414,12 @@
 
     <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 사무소가 확인한 당일 값이 화면 위에 자동으로 들어갑니다(기준일 표시 확인). 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
       <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에는 사무소가 확인한 값이 자동으로 들어갑니다. 옆의 <b>기준일 표시</b>가 <b>등기하시는 날</b>과 같은지 확인해 주세요.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
-      <div class="note" style="border-left:3px solid var(--seal);">▸ <b>공유물분할이 「상속·증여 및 그 밖의 무상으로 취득하는 경우」에 해당하는지 명시적 근거를 확인하지 못했습니다.</b> 두 요율의 차이가 크므로(서울 3억 → 무상 1,260만원 / 유상 780만원) <b><a href="https://nhuf.molit.go.kr/FP/FP07/FP0705/FP070509.jsp" target="_blank" rel="noopener">주택도시기금 「셀프 채권매입 도우미」</a>에서 매입용도를 확인</b>한 뒤 선택하십시오.<br>· 대법원 2002두6422(<b>이혼 재산분할</b> 사건 — 재산분할을 실질적 공유물분할로 보아 유상양도가 아니라고 판시)의 취지에 따라 <b>무상 요율</b>을 기본값으로 두었습니다. 다만 <b>순수한 공유물분할 사건의 직접 판례는 아니므로</b> 그대로 원용하기 어려운 면이 있습니다. 다만 <b>본인 지분 초과분</b>은 유상취득이므로 <b>유상 요율</b>이 타당할 여지가 있습니다. <span class="tag chk">확인필요</span></div>
+      <div class="note" style="border-left:3px solid var(--seal);">▸ <b>공유물을 공유지분율에 따라 분할하여 이전등기를 하는 경우에는 국민주택채권을 사지 않습니다</b> <span class="law" title="주택도시기금법 시행령 [별표] 부표 15호 가목 (나) — 「공유물을 공유지분율에 따라 분할하여 이전등기를 하는 경우와 신탁 또는 신탁종료에 따라 수탁자 또는 위탁자에게 소유권이전등기를 하는 경우는 제외한다」(2026-11-19 국가법령정보센터 확인)">별표 부표 15호 가목 (나)</span> <span class="tag A">A</span>.<br>· <b>지분율보다 더 많이 가져가는 부분</b>이 있으면 <b>그 넘는 부분만</b> 채권을 삽니다 <span class="law" title="2026년 국민주택채권 업무편람(국토교통부·주택도시기금, 2026.6.) 70쪽 사례 45 — 공유물을 공유지분율에 따라 분할하는 것이 아닌 소유권 이전에 해당, 본인지분의 초과분에 대해서만 채권매입">업무편람 70쪽</span> <span class="tag A">A</span>. 요율은 「유상취득」 요율입니다. 아래에서 「지분을 넘는 부분」을 고르고, <b>넘는 부분의 시가표준액</b>만 넣으십시오 <span class="law" title="법제처 찾기쉬운 생활법령정보 「공유물 분할에 의한 소유권 이전등기」(2026.10.15. 기준) — 공유지분을 초과해 분할하는 경우에는 그 초과된 면적에 대해 유상취득에 해당하는 국민주택채권을 매입해야 합니다.">생활법령정보</span> <span class="tag B">B</span></div>
       <div class="line"><span class="lbl">매입 요율</span><div class="radios" onchange="calcBondPartition()">
-        <label><input type="radio" name="pt_bondKind" value="free" checked> 무상취득(18/28/42 · 14/25/39)</label>
-        <label><input type="radio" name="pt_bondKind" value="paid"> 유상 소유권이전(주택13~31 등)</label></div></div>
-      <div class="line"><span class="lbl">시가표준액(원)</span><input type="number" class="amt" id="pt_bondStd" placeholder="0" oninput="calcBondPartition()"><span class="hint">토지 공시지가·주택 공시가격 · 부동산마다 개별 산정 <span id="pt_bondPct" class="hint"></span></span></div>
+        <label><input type="radio" name="pt_bondKind" value="none" checked> 지분율대로 분할 — 매입 제외</label>
+        <label><input type="radio" name="pt_bondKind" value="paid"> 지분을 넘는 부분 — 유상 소유권이전 요율(주택13~31 등)</label></div></div>
+      <div class="line"><span class="lbl" id="pt_bondStdLbl">시가표준액(원)</span><input type="number" class="amt" id="pt_bondStd" placeholder="0" oninput="calcBondPartition()"><span class="hint">토지 공시지가·주택 공시가격 · 부동산마다 개별 산정 <span id="pt_bondPct" class="hint"></span></span></div>
+      <div class="line" id="pt_bldgLine" style="display:none;"><span class="lbl">건물분 시가표준액(원)</span><input type="number" class="amt" id="pt_bondStdBldg" placeholder="0" oninput="calcBondPartition()"><span class="hint">상가 등 <b>주택이 아닌 건물</b>이 있을 때만 넣으십시오. 위 칸에는 <b>땅(부속토지)</b> 금액을 넣습니다 <span class="law" title="2026년 국민주택채권 업무편람(국토교통부·주택도시기금, 2026.6.) 56쪽 — 주택 및 토지외의 부동산은 주택외의 토지에 정착된 건축물만을 뜻하며, 부속토지는 「토지」 구간 적용 / 68쪽 사례 38 — (부속토지 개별공시지가 산정액 × 토지 구간 매입율) + (건물 시가표준액 × 주택및토지외의 부동산 구간 매입율)">업무편람</span> <span class="tag A">A</span> <span id="pt_bondPctBldg" class="hint"></span></span></div>
       <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="pt_region" value="metro" checked onchange="calcBondPartition()"> 특별시·광역시</label><label><input type="radio" name="pt_region" value="other" onchange="calcBondPartition()"> 기타지역</label></div></div>
       <div class="line"><span class="lbl">채권 매입금(원)</span><input type="number" class="amt" id="pt_bondBuy" placeholder="0" oninput="calcPartition()"><span class="hint">자동 산출(직접 수정 가능)</span></div>
       <details class="ref"><summary>매입률 참고표 <span class="reftag" style="background:#e7efe6;color:var(--ok);">A</span> <span class="hint">— 계산기에 내장된 실제 요율</span></summary><div class="refbody"><div class="bondRefMount"></div><p style="margin:8px 0 0;font-size:11.5px;color:#8a8270;line-height:1.6;"><b>근거</b> 주택도시기금법 §8②·시행령 §8② [별표] 부표 1(부동산 등기) — 위 표는 <b>계산기에 내장된 값을 그대로 출력</b>한 것입니다.<br><b>계산규칙</b> 5천원 미만 절사 / 5천원 이상 올림 → 만원 단위 · 각 부동산마다 개별 산정 · 공유지분은 지분율을 곱한 시가표준액으로 판정 · 공동주택은 세대당 시가표준액</p></div></details>
@@ -1518,7 +1511,7 @@
       <div class="line" id="nk_cancelNote" style="border-top:1px dashed var(--line);padding-top:8px;"><span class="hint" style="line-height:1.55;">▸ <b>인수되는 권리는 말소되지 않습니다.</b> 말소기준권리보다 앞선 전세권·지상권·가등기, 대항력 있는 임차권은 그대로 남으므로 건수에서 <b>빼십시오</b>. 매각물건명세서로 확인하시기 바랍니다.</span></div>
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('nk_cntEstate',-1,calcNakchal)">−</button><input type="number" id="nk_cntEstate" value="1" min="1" oninput="calcNakchal()"><button onclick="step('nk_cntEstate',1,calcNakchal)">+</button></div></div>
       <div class="line"><span class="lbl">등기권리자</span><div class="stepper"><button onclick="step('nk_cntOwner',-1,calcNakchal)">−</button><input type="number" id="nk_cntOwner" value="1" min="1" oninput="calcNakchal()"><button onclick="step('nk_cntOwner',1,calcNakchal)">+</button></div><span class="hint">보수기준 <b>§2②4호</b> — 당사자·이해관계인 <b>5인 이상</b> 판정용 (아래 「당사자 다수 가산」과 연동)</span></div>
-      <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcNakchal()">
+      <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcBondNakchal()">
         <label><input type="radio" name="nk_ptype" value="house" checked> 주택</label>
         <label><input type="radio" name="nk_ptype" value="etc"> 주택외</label>
         <label><input type="radio" name="nk_ptype" value="farm"> 농지</label></div></div>
@@ -1549,7 +1542,8 @@
       <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에는 사무소가 확인한 값이 자동으로 들어갑니다. 옆의 <b>기준일 표시</b>가 <b>등기하시는 날</b>과 같은지 확인해 주세요.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
       <div class="note" style="border-left:3px solid var(--seal);">▸ 경매·공매 낙찰은 <b>대가를 지급하고 취득</b>하는 것이므로 <b>유상 소유권이전 요율</b>이 적용됩니다. 무상취득 요율이 아닙니다.</div>
       <div class="line" style="display:none;"><div class="radios"><label><input type="radio" name="nk_bondKind" value="paid" checked> 유상</label></div></div>
-      <div class="line"><span class="lbl">시가표준액(원)</span><input type="number" class="amt" id="nk_bondStd" placeholder="0" oninput="calcBondNakchal()"><span class="hint">토지 공시지가·주택 공시가격 · 부동산마다 개별 산정 <span id="nk_bondPct" class="hint"></span></span></div>
+      <div class="line"><span class="lbl" id="nk_bondStdLbl">시가표준액(원)</span><input type="number" class="amt" id="nk_bondStd" placeholder="0" oninput="calcBondNakchal()"><span class="hint">토지 공시지가·주택 공시가격 · 부동산마다 개별 산정 <span id="nk_bondPct" class="hint"></span></span></div>
+      <div class="line" id="nk_bldgLine" style="display:none;"><span class="lbl">건물분 시가표준액(원)</span><input type="number" class="amt" id="nk_bondStdBldg" placeholder="0" oninput="calcBondNakchal()"><span class="hint">상가 등 <b>주택이 아닌 건물</b>이 있을 때만 넣으십시오. 위 칸에는 <b>땅(부속토지)</b> 금액을 넣습니다 <span class="law" title="2026년 국민주택채권 업무편람(국토교통부·주택도시기금, 2026.6.) 56쪽 — 주택 및 토지외의 부동산은 주택외의 토지에 정착된 건축물만을 뜻하며, 부속토지는 「토지」 구간 적용 / 70쪽 사례 46 — 법원경매에 의해 낙찰 받은 부동산 취득시 채권매입기준: 시가표준액">업무편람</span> <span class="tag A">A</span> <span id="nk_bondPctBldg" class="hint"></span></span></div>
       <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="nk_region" value="metro" checked onchange="calcBondNakchal()"> 특별시·광역시</label><label><input type="radio" name="nk_region" value="other" onchange="calcBondNakchal()"> 기타지역</label></div></div>
       <div class="line"><span class="lbl">채권 매입금(원)</span><input type="number" class="amt" id="nk_bondBuy" placeholder="0" oninput="calcNakchal()"><span class="hint">자동 산출(직접 수정 가능)</span></div>
       <details class="ref"><summary>매입률 참고표 <span class="reftag" style="background:#e7efe6;color:var(--ok);">A</span> <span class="hint">— 계산기에 내장된 실제 요율</span></summary><div class="refbody"><div class="bondRefMount"></div><p style="margin:8px 0 0;font-size:11.5px;color:#8a8270;line-height:1.6;"><b>근거</b> 주택도시기금법 §8②·시행령 §8② [별표] 부표 1(부동산 등기) — 위 표는 <b>계산기에 내장된 값을 그대로 출력</b>한 것입니다.<br><b>계산규칙</b> 5천원 미만 절사 / 5천원 이상 올림 → 만원 단위 · 각 부동산마다 개별 산정 · 공유지분은 지분율을 곱한 시가표준액으로 판정 · 공동주택은 세대당 시가표준액</p></div></details>
@@ -1665,10 +1659,8 @@
 
     <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 사무소가 확인한 당일 값이 화면 위에 자동으로 들어갑니다(기준일 표시 확인). 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
       <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에는 사무소가 확인한 값이 자동으로 들어갑니다. 옆의 <b>기준일 표시</b>가 <b>등기하시는 날</b>과 같은지 확인해 주세요.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
-      <div class="note" style="border-left:3px solid var(--seal);">▸ <b>재산분할이 「상속·증여 및 그 밖의 무상으로 취득하는 경우」에 해당하는지 명시적 근거를 확인하지 못했습니다.</b> 두 요율의 차이가 크므로(서울 3억 → 무상 1,260만원 / 유상 780만원) <b><a href="https://nhuf.molit.go.kr/FP/FP07/FP0705/FP070509.jsp" target="_blank" rel="noopener">주택도시기금 「셀프 채권매입 도우미」</a>에서 매입용도를 확인</b>한 뒤 선택하십시오.<br>· 취득세법상 <b>무상취득</b>(§11①2호 3.5% 기준)으로 취급되고 대법원 2002두6422도 <b>재산분할을 실질적 공유물분할</b>로 보아 유상양도가 아니라고 하므로 <b>무상 요율</b>을 기본값으로 두었습니다. <span class="tag chk">확인필요</span></div>
-      <div class="line"><span class="lbl">매입 요율</span><div class="radios" onchange="calcBondDivision()">
-        <label><input type="radio" name="dv_bondKind" value="free" checked> 무상취득(18/28/42 · 14/25/39)</label>
-        <label><input type="radio" name="dv_bondKind" value="paid"> 유상 소유권이전(주택13~31 등)</label></div></div>
+      <div class="note" style="border-left:3px solid var(--seal);">▸ <b>이혼에 따른 재산분할(협의이혼·재판상 이혼)로 받는 부동산은 「상속·증여 그 밖의 무상취득」 요율로 채권을 삽니다</b> <span class="law" title="2026년 국민주택채권 업무편람(국토교통부·주택도시기금, 2026.6.) 68쪽 사례 36 — 협의이혼, 재판상이혼, 시효취득에 의한 소유권 이전: 채권매입(상속·증여 그 밖의 무상으로 취득하는 경우의 매입율 적용) / 82쪽 사례 1 — 협의 이혼(재판상 이혼 포함)으로 취득한 부동산에 대한 소유권이전등기: 「상속(증여, 그 밖의 무상으로 취득하는 경우를 포함)」 구간 매입율 적용">업무편람 68·82쪽</span> <span class="tag A">A</span>.</div>
+      <div class="line"><span class="lbl">매입 요율</span><div class="radios"><label><input type="radio" name="dv_bondKind" value="free" checked> 무상취득 요율(18/28/42 · 14/25/39)</label></div></div>
       <div id="dv_bondBody"></div>
       <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="dv_region" value="metro" checked onchange="calcBondDivision()"> 특별시·광역시</label><label><input type="radio" name="dv_region" value="other" onchange="calcBondDivision()"> 기타지역</label></div></div>
       <div class="line"><span class="lbl">채권 매입금(원)</span><input type="number" class="amt" id="dv_bondBuy" placeholder="0" oninput="calcDivision()"><span class="hint">자동 합산(직접 수정 가능)</span></div>
@@ -1770,12 +1762,8 @@
 
     <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 사무소가 확인한 당일 값이 화면 위에 자동으로 들어갑니다(기준일 표시 확인). 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
       <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에는 사무소가 확인한 값이 자동으로 들어갑니다. 옆의 <b>기준일 표시</b>가 <b>등기하시는 날</b>과 같은지 확인해 주세요.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
-      <div class="note">부담부증여는 채권 매입률을 <b>부담부분(유상)·증여분(무상) 각각</b> 적용 후 합산합니다(협회 방식). 시가표준액과 각 매입률을 입력하세요.</div>
-      <div class="line"><span class="lbl">시가표준액(원)</span><input type="number" class="amt" id="bv_bondStd" placeholder="0" oninput="calcBondBurden()"><span class="hint">전체 부동산 시가표준액(토지 공시지가·주택 공시가격)</span></div>
-      <div class="line"><span class="lbl">부담부분 매입률(‰)</span><input type="number" id="bv_pctDebt" placeholder="예: 31" step="0.1" style="width:120px;" oninput="calcBondBurden()"><span class="hint">유상분 비율 × 시가표준액</span></div>
-      <div class="line"><span class="lbl">증여분 매입률(‰)</span><input type="number" id="bv_pctGift" placeholder="예: 42" step="0.1" style="width:120px;" oninput="calcBondBurden()"><span class="hint">무상분 비율 × 시가표준액</span></div>
-      <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="bv_region" value="metro" checked onchange="calcBondBurden()"> 특별시·광역시</label><label><input type="radio" name="bv_region" value="other" onchange="calcBondBurden()"> 기타지역</label></div></div>
-      <div class="line"><span class="lbl">채권 매입금(원)</span><input type="number" class="amt" id="bv_bondBuy" placeholder="0" oninput="calcBurden()"><span class="hint" id="bv_bondNote">자동 합산</span></div>
+      <div class="note">부담부증여는 <b>부담부분(유상)</b>과 <b>증여부분(무상)</b>을 나누어 채권을 삽니다. 매입률 구간은 나눈 금액이 아니라 <b>전체 시가표준액</b>(토지·건물은 각각의 시가표준액)으로 정하고, 부담부분에는 유상 요율, 증여부분에는 무상(증여) 요율을 곱합니다. 매입률은 계산기가 표에서 자동으로 고릅니다. <span class="law" title="국토교통부 주택기금과 담당 주택도시기금 「매입대상금액조회」 — 매입용도 「부동산 등기(부담부 증여[주택]/[토지]/[주택, 토지 外])」 화면과 같은 방식(2026-11-19 확인: 주택 4억·부담 2억·서울 → 520만+840만=1,360만 / 토지 2억+건물 1억·부담 1억 → 367만+747만=1,114만). 근거 주택도시기금법 시행령 §8② [별표].">주택도시기금 매입대상금액조회 방식</span> <span class="tag A">A</span></div> <div class="line" id="bv_bsHouse"><span class="lbl">주택 시가표준액(원)</span><input type="number" class="amt" id="bv_bondStd" placeholder="0" oninput="bvBondReset();calcBondBurden()"><span class="hint">주택공시가격(토지 포함)</span></div> <div class="line" id="bv_bsLand" style="display:none;"><span class="lbl">토지 시가표준액(원)</span><input type="number" class="amt" id="bv_bondStdLand" placeholder="0" oninput="bvBondReset();calcBondBurden()"><span class="hint">개별공시지가 × 면적</span></div> <div class="line" id="bv_bsBldg" style="display:none;"><span class="lbl">건물 시가표준액(원)</span><input type="number" class="amt" id="bv_bondStdBldg" placeholder="0" oninput="bvBondReset();calcBondBurden()"><span class="hint">토지만 증여하면 비워 두십시오</span></div> <div class="line"><span class="lbl">부담부분(원)</span><input type="number" class="amt" id="bv_bondDebtPart" placeholder="0" oninput="this.dataset.user=this.value?'1':'';bvBondReset();calcBondBurden()"><span class="hint">처음에는 위 채무부담액이 들어갑니다(고쳐 쓸 수 있음) <span class="tag chk">확인필요</span></span></div> <div class="line"><span class="lbl">증여부분(원)</span><span class="auto" id="bv_bondGiftPart" style="font-variant-numeric:tabular-nums;">0 원</span><span class="hint">시가표준액 − 부담부분 자동</span></div> <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="bv_region" value="metro" checked onchange="calcBondBurden()"> 특별시·광역시</label><label><input type="radio" name="bv_region" value="other" onchange="calcBondBurden()"> 기타지역</label></div></div>
+      <div class="line"><span class="lbl">채권 매입금(원)</span><input type="number" class="amt" id="bv_bondBuy" placeholder="0" oninput="this.dataset.user=this.value?'1':'';calcBurden()"><span class="hint" id="bv_bondNote">자동 합산</span></div> <div class="hint" id="bv_bondCalc" style="margin:2px 0 6px;line-height:1.6;"></div>
       <details class="ref"><summary>매입률 참고표 <span class="reftag" style="background:#e7efe6;color:var(--ok);">A</span> <span class="hint">— 계산기에 내장된 실제 요율</span></summary><div class="refbody"><div class="bondRefMount"></div><p style="margin:8px 0 0;font-size:11.5px;color:#8a8270;line-height:1.6;"><b>근거</b> 주택도시기금법 §8②·시행령 §8② [별표] 부표 1(부동산 등기) — 위 표는 <b>계산기에 내장된 값을 그대로 출력</b>한 것입니다.<br><b>계산규칙</b> 5천원 미만 절사 / 5천원 이상 올림 → 만원 단위 · 각 부동산마다 개별 산정 · 공유지분은 지분율을 곱한 시가표준액으로 판정 · 공동주택은 세대당 시가표준액</p></div></details>
     </div></div>
 
@@ -2255,10 +2243,12 @@
 
     <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 사무소가 확인한 당일 값이 화면 위에 자동으로 들어갑니다(기준일 표시 확인). 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
       <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에는 사무소가 확인한 값이 자동으로 들어갑니다. 옆의 <b>기준일 표시</b>가 <b>등기하시는 날</b>과 같은지 확인해 주세요.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
-      <div class="note">담보권 추가설정 시 국민주택채권 매입 여부는 사안에 따라 다릅니다(기존 설정분과의 관계). 매입 대상이면 <b>채권최고액 기준</b> 매입률 직접 입력, 비대상이면 0으로 두세요. <span class="hint">[확인필요]</span></div>
-      <div class="line"><span class="lbl">매입률(‰)</span><input type="number" id="ma_bondPct" placeholder="예: 10" step="0.1" style="width:120px;" oninput="calcMortgageAdd()"><span class="hint">채권최고액 × 매입률</span></div>
-      <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="ma_region" value="metro" checked onchange="calcMortgageAdd()"> 특별시·광역시</label><label><input type="radio" name="ma_region" value="other" onchange="calcMortgageAdd()"> 기타지역</label></div></div>
-      <div class="line"><span class="lbl">채권 매입금(원)</span><input type="number" class="amt" id="ma_bondBuy" placeholder="0" oninput="calcMortgageAdd(true)"><span class="hint" id="ma_bondNote">채권최고액 × 매입률 자동</span></div>
+      <div class="note" style="border-left:3px solid var(--seal);">▸ <b>이미 설정된 근저당권과 같은 채권을 위해, 금액은 그대로 두고 담보(부동산)만 더하는 경우에는 국민주택채권을 사지 않습니다</b> <span class="law" title="2026년 국민주택채권 업무편람(국토교통부·주택도시기금, 2026.6.) 88쪽 사례 13 — 근저당권 설정금액 변동 없이 동일 채권을 위해 담보만 추가로 제공하는 경우에는 국민주택채권 매입대상 아님">업무편람 88쪽</span> <span class="tag A">A</span>.<br>· 채권최고액을 <b>늘리는</b> 경우에는 <b>늘어난 금액만</b> 기준으로 삽니다(늘어난 금액 × 10/1,000). 늘어난 금액이 <b>2천만원 미만이면 사지 않습니다</b> <span class="law" title="2026년 국민주택채권 업무편람(국토교통부·주택도시기금, 2026.6.) 88쪽 사례 10 — 저당권 증액으로 3,800만원이 되었다 하더라도 추가 설정금액이 1,900만원(2000만원 미만)이라면 채권매입 대상이 아님">업무편람 88쪽</span> <span class="tag A">A</span>.</div>
+      <div class="line"><span class="lbl">채권 매입</span><div class="radios" onchange="calcMortgageAdd()">
+        <label><input type="radio" name="ma_bondKind" value="none" checked> 금액 그대로, 담보만 추가 — 사지 않음</label>
+        <label><input type="radio" name="ma_bondKind" value="inc"> 채권최고액을 늘림 — 늘어난 금액 기준</label></div></div>
+      <div class="line" id="ma_incLine" style="display:none;"><span class="lbl">늘어난 금액(원)</span><input type="number" class="amt" id="ma_bondInc" placeholder="0" oninput="calcMortgageAdd()"><span class="hint">새 채권최고액 − 종전 채권최고액</span></div>
+      <div class="line"><span class="lbl">채권 매입금(원)</span><input type="number" class="amt" id="ma_bondBuy" placeholder="0" oninput="calcMortgageAdd(true)"><span class="hint" id="ma_bondNote">자동 산출(직접 수정 가능)</span></div>
     </div></div>
 
     <div class="card blue"><h2>③ 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
@@ -2395,7 +2385,7 @@
 
     <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 사무소가 확인한 당일 값이 화면 위에 자동으로 들어갑니다(기준일 표시 확인). 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
       <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에는 사무소가 확인한 값이 자동으로 들어갑니다. 옆의 <b>기준일 표시</b>가 <b>등기하시는 날</b>과 같은지 확인해 주세요.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
-      <div class="note">시가표준액 기준 매입(주택/주택외=토지+건물 분리). 매입률 직접 입력. <b>집합건물(아파트·빌라)은 세대(구분건물)마다 과세표준이 다르므로, 국민주택채권은 세대별 시가표준액으로 각각 산정 후 합산</b>하세요. 취득세는 전체 과세표준 합계 기준으로 계산됩니다.</div>
+      <div class="note"><b>건축물(주택·아파트·건물)의 소유권보존등기는 국민주택채권을 사지 않습니다.</b> 건축허가를 받을 때 이미 샀기 때문입니다 <span class="law" title="주택도시기금법 시행령 [별표] 부표 15호 가목 (가) — 「건축물의 소유권보존은 제외한다」(2026-11-19 국가법령정보센터 확인)">별표 부표 15호 가목 (가)</span> <span class="tag A">A</span>. 미등기 <b>토지</b>의 소유권보존등기만 토지 요율로 삽니다. 취득세는 전체 과세표준 합계 기준으로 계산됩니다.</div>
       <div id="pr_bondBody"></div>
       <div class="line"><span class="lbl">지역</span><div class="radios"><label><input type="radio" name="pr_region" value="metro" checked onchange="calcBondPreserve()"> 특별시·광역시</label><label><input type="radio" name="pr_region" value="other" onchange="calcBondPreserve()"> 기타지역</label></div></div>
       <div id="pr_bondShare"></div>
@@ -3149,7 +3139,7 @@
     </div></div>
 
     <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
-      <div class="note">인지대(민사소송등인지법)·송달료는 자동 계산됩니다. <b>송달료 1회 단가는 화면 상단에서 확인·수정</b>하십시오. 특별송달료·보정료는 직접 입력하세요. <span class="hint">[A] 인지법 / [B] 송달료 조견표</span></div>
+      <div class="note">인지대(민사소송등인지법)·송달료는 자동 계산됩니다. <b>송달료 1회 단가는 5,640원</b>(2026.7.1.~)으로 계산합니다. 특별송달료·보정료는 직접 입력하세요. <span class="hint">[A] 인지법 / [B] 송달료 조견표</span></div>
       <table class="t">
         <tr><td>인지대 <span id="so_injiNote" class="hint"></span><span class="law" title="「민사소송 등 인지법」 §2는 소가에 따른 인지액을, §16은 전자소송으로 낼 때 10분의 9(10% 할인)를 정하고 있습니다.">인지법 §2·§16</span></td><td><input class="cell" id="so_inji" type="number" oninput="calcLawsuit(true)"></td></tr>
         <tr><td>송달료 <span id="so_songNote" class="hint"></span><span class="law" title="「송달료규칙의 시행에 따른 업무처리요령」(재일 87-4) 별표1이 사건 종류별 예납 회차를 정합니다. 1회 단가는 우편요금에 연동되며 화면 상단에서 바꿀 수 있습니다.">재일 87-4 별표1</span></td><td><input class="cell" id="so_song" type="number" oninput="calcLawsuit(true)"></td></tr>
@@ -4677,7 +4667,9 @@ function paintBondRateBadge(){
    └ 2026.7.1.~  통상우편 500원 → 500×2 = 1,000 … 1회 5,640원  (인상분 70×2 = 140)
       ※ 규격 5g초과 25g까지 기준(통상우편요금 시행일 2026.7.1.).
       교차확인: 대한법무사협회 계산기 5,640원 / 신우법무사 「법원 송달료 1회분 5,640원으로 인상 – 2026.7.1.」
-   법정 요율이므로 하드코딩하지 않고 상단 입력값을 단일 출처로 사용한다. */
+   법정 요율이므로 하드코딩하지 않고 상단 입력값을 단일 출처로 사용한다.
+   ※ 2026-11-19 상단 송달료 입력칸 삭제(법무사님 지시) → 칸이 없으면 아래 기본값 5,640원을 쓴다.
+     송달료가 바뀌면 아래 함수의 5640 한 곳만 고치면 전 화면에 반영된다. */
 function songUnit(){const e=document.getElementById('songUnit');const v=e?numOf(e.value):NaN;return (isNaN(v)||v<=0)?5640:v;}
 function saveSongUnit(){try{localStorage.setItem('sanlaw_songUnit',document.getElementById('songUnit').value);}catch(e){}}
 (function(){try{var s=localStorage.getItem('sanlaw_bondRate');if(s!==null&&s!==''&&!isNaN(parseFloat(s)))document.getElementById('bondRate').value=s;}catch(e){}})();
@@ -9062,14 +9054,20 @@ function renderDocsEtcAcq(){
            §5①6호 과세분도 표준세율 2% 의제 시 2%−2%=0 → 0
            ※ 재산분할(§15①6호)은 시행령 §4④ 열거에 없어 감면분 0.4% 과세 — 구별할 것 */
 function calcBondPartition(){
-  const std=val('pt_bondStd'), metro=radio('pt_region')==='metro';
-  const free=(radio('pt_bondKind')!=='paid');
-  const t=free?'무상':(radio('pt_ptype')==='house'?'주택':'토지');
-  const r=bondRate(t,std,metro);
-  const pe=document.getElementById('pt_bondPct');
+  const std=val('pt_bondStd'), sb=val('pt_bondStdBldg'), metro=radio('pt_region')==='metro';
+  const house=(radio('pt_ptype')==='house');
+  /* 2026-11-19 [A] 업무편람 56쪽·68쪽 사례38 — 주택외는 땅(토지 요율)과 건물(주택·토지외 요율)을 나눠 산정
+     (종전: 주택외 전체를 토지 요율로 계산 → 상가 건물분 과다) */
+  const bl=document.getElementById('pt_bldgLine'); if(bl)bl.style.display=house?'none':'';
+  const lb=document.getElementById('pt_bondStdLbl'); if(lb)lb.textContent=house?'시가표준액(원)':'토지분 시가표준액(원)';
+  const pe=document.getElementById('pt_bondPct'), pb=document.getElementById('pt_bondPctBldg');
+  /* 2026-11-19 [A] 별표 부표 15호 가목 (나) — 지분율대로 분할하면 매입 제외 */
+  if(radio('pt_bondKind')==='none'){if(pe)pe.textContent='· 지분율대로 분할 — 매입 제외';if(pb)pb.textContent='';const bb=document.getElementById('pt_bondBuy');if(bb)bb.value=0;calcPartition();return;}
+  /* 2026-11-19 지분을 넘는 부분만, 유상 요율 — 업무편람 70쪽 사례45(초과분만 매입) [A] · 생활법령정보(유상취득 요율) [B] */
+  const r=bondRate(house?'주택':'토지',std,metro), rb=house?0:bondRate('건물',sb,metro);
   if(pe)pe.textContent=std>0?('· 매입률 '+r+'‰'):'';
-  const buy=bondAmount(std,r);
-  if(buy>0)document.getElementById('pt_bondBuy').value=buy;
+  if(pb)pb.textContent=(!house&&sb>0)?('· 매입률 '+rb+'‰'):'';
+  document.getElementById('pt_bondBuy').value=bondAmount(std,r)+(house?0:bondAmount(sb,rb));
   calcPartition();
 }
 function calcPartition(fromEdit){
@@ -9174,13 +9172,18 @@ function acqRateNakchal(price){
   return 0.12;
 }
 function calcBondNakchal(){
-  const std=val('nk_bondStd'), metro=radio('nk_region')==='metro';
-  const t=(radio('nk_ptype')==='house')?'주택':'토지';
-  const r=bondRate(t,std,metro);
-  const pe=document.getElementById('nk_bondPct');
+  const std=val('nk_bondStd'), sb=val('nk_bondStdBldg'), metro=radio('nk_region')==='metro';
+  const ty=radio('nk_ptype'), house=(ty==='house'), bldg=(ty==='etc');
+  /* 2026-11-19 [A] 업무편람 56쪽 — 주택외 건물은 「주택 및 토지외의 부동산」 요율, 부속토지는 토지 요율
+     (종전: 주택외 전체를 토지 요율로 계산 → 상가 건물분 과다). 농지는 토지 요율만 */
+  const bl=document.getElementById('nk_bldgLine'); if(bl)bl.style.display=bldg?'':'none';
+  const lb=document.getElementById('nk_bondStdLbl'); if(lb)lb.textContent=bldg?'토지분 시가표준액(원)':'시가표준액(원)';
+  const r=bondRate(house?'주택':'토지',std,metro), rb=bldg?bondRate('건물',sb,metro):0;
+  const pe=document.getElementById('nk_bondPct'), pb=document.getElementById('nk_bondPctBldg');
   if(pe)pe.textContent=std>0?('· 매입률 '+r+'‰'):'';
-  const buy=bondAmount(std,r);
-  if(buy>0)document.getElementById('nk_bondBuy').value=buy;
+  if(pb)pb.textContent=(bldg&&sb>0)?('· 매입률 '+rb+'‰'):'';
+  const buy=bondAmount(std,r)+(bldg?bondAmount(sb,rb):0);
+  if(buy>0||std>0||sb>0)document.getElementById('nk_bondBuy').value=buy;
   calcNakchal();
 }
 function calcNakchal(fromEdit){
@@ -9371,19 +9374,42 @@ function renderDocsPartition(){
   tb.appendChild(tr);});})();
 
 /* ===================== 부담부증여 (풀기능) ===================== */
-function calcBondBurden(){
-  const std=val('bv_bondStd'),total=val('bv_total'),debt=val('bv_debt');
-  const gift=Math.max(0,total-debt);
-  const pd=val('bv_pctDebt'),pg=val('bv_pctGift');
-  // 부담부분/증여분 비율로 시가표준액 안분 후 각 매입률 적용
-  let buy=0;
-  if(std>0&&total>0){
-    const stdDebt=std*(debt/total), stdGift=std*(gift/total);
-    buy=Math.round(stdDebt*pd/1000 + stdGift*pg/1000);
+/* 2026-11-19 부담부증여 채권 — 국토교통부 주택기금과 「매입대상금액조회」(부담부 증여) 방식으로 다시 짬 [A]
+   ① 부담부분은 금액으로 넣고, 증여부분 = 시가표준액 − 부담부분
+   ② 매입률 구간은 「전체 시가표준액」으로 판정(토지·건물이 따로면 각자의 시가표준액)
+   ③ 부담부분 × 유상 요율(주택·토지·건물 표), 증여부분 × 무상 요율
+   ④ 토지+건물이면 부담부분·증여부분을 토지:건물 시가표준액 비율로 나눔
+   ⑤ 부담부분 합계·증여부분 합계를 각각 5천원 미만 버림·이상 올림 → 만원 단위
+   공식 화면 대조(2026-11-19, 서울): 주택 4억·부담 2억 → 5,200,000+8,400,000 / 주택 4억·부담 3.5억 → 9,100,000+2,100,000
+                                     토지 2억+건물 1억·부담 1억 → 3,670,000+7,470,000
+   ※ 종전(비율 안분 + 매입률 직접 입력)은 공식 방식과 달라 폐기 */
+function bvRound10k(a){if(!(a>0))return 0;const f=a%10000;return f<5000?Math.floor(a/10000)*10000:Math.ceil(a/10000)*10000;}
+function bvBondReset(){const b=document.getElementById('bv_bondBuy');if(b)b.dataset.user='';}
+function calcBondBurden(noChain){
+  const house=radio('bv_ptype')!=='etc', metro=radio('bv_region')==='metro';
+  const sh=document.getElementById('bv_bsHouse'),sl=document.getElementById('bv_bsLand'),sb=document.getElementById('bv_bsBldg');
+  if(sh)sh.style.display=house?'':'none'; if(sl)sl.style.display=house?'none':''; if(sb)sb.style.display=house?'none':'';
+  const SH=house?val('bv_bondStd'):0, SL=house?0:val('bv_bondStdLand'), SB=house?0:val('bv_bondStdBldg');
+  const T=house?SH:(SL+SB);
+  const dEl=document.getElementById('bv_bondDebtPart');
+  if(dEl&&dEl.dataset.user!=='1'){const d0=val('bv_debt');const v=T>0?Math.min(d0,T):d0;dEl.value=v>0?Math.round(v):'';}
+  const D=Math.max(0,Math.min(val('bv_bondDebtPart'),T>0?T:Infinity)), G=Math.max(0,T-D);
+  const gEl=document.getElementById('bv_bondGiftPart'); if(gEl)gEl.textContent=won(G);
+  const pm=r=>r+'/1,000';
+  let bD=0,bG=0,lines=[];
+  if(T>0){
+    const parts=house?[[SH,'주택','주택']]:[[SL,'토지','토지'],[SB,'건물','건물']].filter(p=>p[0]>0);
+    parts.forEach(([S,key,nm])=>{const w=S/T, ry=bondRate(key,S,metro), rn=bondRate('무상',S,metro);
+      const dd=D*w, gg=G*w; bD+=dd*ry/1000; bG+=gg*rn/1000;
+      lines.push('<b>'+nm+'</b>'+(parts.length>1?' (시가표준액 '+won(S)+' 기준 구간)':' (전체 '+won(S)+' 기준 구간)')+' — 부담부분 '+won(Math.round(dd))+' × '+pm(ry)+' · 증여부분 '+won(Math.round(gg))+' × '+pm(rn));});
   }
-  if(buy>0)document.getElementById('bv_bondBuy').value=buy;
-  document.getElementById('bv_bondNote').textContent='부담부분+증여분 각 요율 합산';
-  calcBurden();
+  const buyD=bvRound10k(bD), buyG=bvRound10k(bG), buy=buyD+buyG;
+  const bEl=document.getElementById('bv_bondBuy');
+  if(bEl&&bEl.dataset.user!=='1'){bEl.value=buy>0?buy:'';}
+  const c=document.getElementById('bv_bondCalc');
+  if(c)c.innerHTML=T>0?(lines.join('<br>')+'<br>→ 부담부분 <b>'+won(buyD)+'</b> + 증여부분 <b>'+won(buyG)+'</b> = <b>'+won(buy)+'</b> <span class="hint">(각각 만원 단위 · 5천원 미만 버림)</span>'):'';
+  const n=document.getElementById('bv_bondNote'); if(n)n.textContent=(bEl&&bEl.dataset.user==='1')?'직접 고친 값':'자동 합산';
+  if(!noChain)calcBurden();
 }
 function renderDocsBurden(){
   renderPartyDocs('bv_','pty_bv__seller','pty_bv__buyer','증여자(등기의무자)','수증자(등기권리자)',true);
@@ -9437,6 +9463,7 @@ function calcBurden(fromEdit){
     document.getElementById('bv_acqRateN').textContent='('+(rateN*100).toFixed(1)+'%'+(rateN>=0.12?' 조정3억↑ 중과 §13의2②':(bvMidExempt&&chk('bv_adj3')&&radio('bv_ptype')==='house'&&total>=3*억?' 무상 · 중과배제(§13의2② 단서)':' 무상'))+')';
     if(typeof gsxPost==='function') gsxPost('scene-부담부증여',{acq:'bv_acqN',edu:'bv_eduN',rural:'bv_ruralN',lbl:'bv_acqRateN',house:radio('bv_ptype')==='house',over85:chk('bv_over85'),base:gift,kinds:['무상'],part:'N',round:true});
   }
+  if(typeof calcBondBurden==='function')calcBondBurden(true);   /* 2026-11-19 채무부담액·부동산 종류가 바뀌면 채권도 다시 */
   const bondLoss=Math.round(val('bv_bondBuy')*val('bondRate')/100);
   document.getElementById('bv_bondLossCell').textContent=won(bondLoss)+' ('+val('bondRate')+'%)';
   const cntE=Math.max(1,val('bv_cntEstate'));
@@ -9733,8 +9760,15 @@ function calcMortgageAdd(fromEdit){
     document.getElementById('ma_regTax').value=taxLocal(max>0?maReg:0);
     document.getElementById('ma_eduTax').value=taxLocal(Math.round((max>0?maReg:0)*0.2));
     document.getElementById('ma_regRate').textContent='(채권최고액 × 0.2%)';
-    const pct=val('ma_bondPct');
-    if(max>0&&pct>0)document.getElementById('ma_bondBuy').value=Math.round(max*pct/1000);
+    /* 2026-11-19 [A] 업무편람 88쪽 사례13(금액 변동 없이 담보만 추가 → 매입 없음)·사례10(증액분 2천만원 미만 → 매입 없음)
+       증액분 × 10/1,000 · 만원 반올림 · 매입금액 10억원 한도(별표 부표 15호 다목) */
+    const _mk=radio('ma_bondKind'), _inc=val('ma_bondInc');
+    const _il=document.getElementById('ma_incLine'); if(_il)_il.style.display=(_mk==='inc')?'':'none';
+    let _mb=0,_mn='금액 그대로 담보만 추가 → 사지 않음 (업무편람 88쪽)';
+    if(_mk==='inc'){ if(_inc>=20000000){_mb=Math.min(_inc*10/1000,1000000000);_mb=Math.round(_mb/10000)*10000;_mn='늘어난 금액 × 10/1,000 · 만원 반올림';}
+      else _mn=_inc>0?'늘어난 금액 2천만원 미만 → 사지 않음 (업무편람 88쪽)':'늘어난 금액을 넣으십시오'; }
+    document.getElementById('ma_bondBuy').value=_mb;
+    const _ne=document.getElementById('ma_bondNote'); if(_ne)_ne.textContent=_mn;
   }
   const bondLoss=Math.round(val('ma_bondBuy')*val('bondRate')/100);
   document.getElementById('ma_bondLossCell').textContent=won(bondLoss)+' ('+val('bondRate')+'%)';
@@ -9848,20 +9882,23 @@ function renderBondUIPreserve(){
   let h='';
   if(t==='house'){
     h='<div class="line"><span class="lbl">주택공시가격(원)</span><input type="number" class="amt" id="pr_bondStdHouse" placeholder="0" oninput="calcBondPreserve()"></div>'+
-      '<div class="line"><span class="lbl">주택 매입률(‰)</span><input type="number" id="pr_bondPctHouse" readonly placeholder="자동" style="width:120px;background:#efe7d6;font-weight:700;" oninput="calcBondPreserve()"></div>';
+      '<div class="line"><span class="lbl">주택 매입률(‰)</span><input type="number" id="pr_bondPctHouse" readonly placeholder="0" style="width:120px;background:#efe7d6;font-weight:700;" oninput="calcBondPreserve()"><span class="hint">건축물 보존 — 매입 제외(건축허가 때 매입)</span></div>';
   }else{
     h='<div class="line"><span class="lbl">토지공시가격(원)</span><input type="number" class="amt" id="pr_bondStdLand" placeholder="0" oninput="calcBondPreserve()"></div>'+
       '<div class="line"><span class="lbl">토지 매입률(‰)</span><input type="number" id="pr_bondPctLand" readonly placeholder="자동" style="width:120px;background:#efe7d6;font-weight:700;" oninput="calcBondPreserve()"></div>'+
       '<div class="line"><span class="lbl">건물시가표준액(원)</span><input type="number" class="amt" id="pr_bondStdBldg" placeholder="0" oninput="calcBondPreserve()"></div>'+
-      '<div class="line"><span class="lbl">건물 매입률(‰)</span><input type="number" id="pr_bondPctBldg" readonly placeholder="자동" style="width:120px;background:#efe7d6;font-weight:700;" oninput="calcBondPreserve()"></div>';
+      '<div class="line"><span class="lbl">건물 매입률(‰)</span><input type="number" id="pr_bondPctBldg" readonly placeholder="0" style="width:120px;background:#efe7d6;font-weight:700;" oninput="calcBondPreserve()"><span class="hint">건축물 보존 — 매입 제외</span></div>';
   }
   bb.innerHTML=h;
 }
 function calcBondPreserve(){
+  /* 2026-11-19 검증 [A] 주택도시기금법 시행령 [별표] 부표 15호 가목 (가) — 「건축물의 소유권보존은 제외한다」
+     건축물(주택·아파트·건물)은 건축허가 때 이미 국민주택채권을 사므로 보존등기 때는 사지 않는다. 토지 보존만 토지 요율로 산다.
+     종전에는 주택·건물 보존에도 요율을 적용해 채권이 잡혀 있었음 → 바로잡음 */
   const t=radio('pr_ptype');const metro=radio('pr_region')==='metro';let buy=0;let items=[];
-  if(t==='house'){const s=val('pr_bondStdHouse');const r=bondRate('주택',s,metro);if(document.getElementById('pr_bondPctHouse'))document.getElementById('pr_bondPctHouse').value=r;buy=bondAmount(s,r);items=[{label:'주택',key:'주택',std:s}];}
-  else{const sl=val('pr_bondStdLand'),sb=val('pr_bondStdBldg');const rl=bondRate('토지',sl,metro),rb=bondRate('건물',sb,metro);if(document.getElementById('pr_bondPctLand'))document.getElementById('pr_bondPctLand').value=rl;if(document.getElementById('pr_bondPctBldg'))document.getElementById('pr_bondPctBldg').value=rb;buy=bondAmount(sl,rl)+bondAmount(sb,rb);items=[{label:'토지',key:'토지',std:sl},{label:'건물',key:'건물',std:sb}];}
-  bsRender('pr_',items);const _sp=bsApply('pr_',items,metro);if(_sp!==null)buy=_sp;   /* 공동보존 → 지분권자별 개별 산정 */
+  if(t==='house'){if(document.getElementById('pr_bondPctHouse'))document.getElementById('pr_bondPctHouse').value=0;buy=0;items=[];}
+  else{const sl=val('pr_bondStdLand');const rl=bondRate('토지',sl,metro);if(document.getElementById('pr_bondPctLand'))document.getElementById('pr_bondPctLand').value=rl;if(document.getElementById('pr_bondPctBldg'))document.getElementById('pr_bondPctBldg').value=0;buy=bondAmount(sl,rl);items=[{label:'토지',key:'토지',std:sl}];}
+  bsRender('pr_',items);const _sp=bsApply('pr_',items,metro);if(_sp!==null)buy=_sp;   /* 공동보존 → 지분권자별 개별 산정(토지분만) */
   document.getElementById('pr_bondBuy').value=buy;
   calcPreserve(true);
 }
@@ -14659,28 +14696,27 @@ tr.ea-head td:hover .ea-cnt{background:var(--fold-hv);}
       paint();
     });
   }
-  /* ③ 감면·가산 줄과 「감면·중과 사유 찾기」를 하나로 접기 */
+  /* ③ 2026-11-19 감면·가산 줄(원인별 기본 사항)은 늘 보이게 두고, 그 아래 「감면·중과 사유 찾기」만 접이식으로 */
   function gkFold(sc){
     var c1=sc.querySelector(':scope > .card'); if(!c1) return;
-    var line=[].filter.call(c1.querySelectorAll('.line'),function(l){ var b=l.querySelector(':scope > .lbl'); return b && /감면|농특세·가산/.test(b.textContent) && !l.closest('.gk-fold'); })[0];
+    var line=[].filter.call(c1.querySelectorAll('.line'),function(l){ var b=l.querySelector(':scope > .lbl'); return b && /감면|농특세·가산/.test(b.textContent) && !l.closest('.gk-fold') && !l.hasAttribute('data-gk'); })[0];
     if(!line) return;
-    /* 바로 뒤에 붙은 「감면·중과 사유 찾기」(.gsx-box)와 「중과지역 확인」(.mzc)도 함께 접는다 */
+    line.setAttribute('data-gk','1');
     var extra=[], nx=line.nextElementSibling;
     while(nx && (nx.classList.contains('gsx-box') || nx.classList.contains('mzc'))){ extra.push(nx); nx=nx.nextElementSibling; }
+    if(!extra.length) return;                                   /* 찾기가 없는 화면은 접을 것이 없음 */
     var box=extra.filter(function(x){ return x.classList.contains('gsx-box'); })[0]||null;
+    var hasM=extra.some(function(x){ return x.classList.contains('mzc'); });
     var w=document.createElement('div'); w.className='gk-fold';
-    var lbl=line.querySelector(':scope > .lbl').textContent.trim();
-    w.innerHTML='<button type="button" class="gk-head" aria-expanded="false"><span class="gk-ar">▸</span><span>'+lbl+(box?' · 감면·중과 사유 찾기':'')+'</span><span class="gk-sum"></span><span class="gk-tg"></span></button><div class="gk-body"></div>';
-    line.parentNode.insertBefore(w,line);
-    var body=w.querySelector('.gk-body'); body.appendChild(line); extra.forEach(function(x){ body.appendChild(x); });
+    var ttl=(box?'감면·중과 사유 찾기':'')+(hasM?(box?' · ':'')+'중과지역 확인':'');
+    w.innerHTML='<button type="button" class="gk-head" aria-expanded="false"><span class="gk-ar">▸</span><span>'+ttl+'</span><span class="gk-sum"></span><span class="gk-tg"></span></button><div class="gk-body"></div>';
+    line.parentNode.insertBefore(w,line.nextSibling);
+    var body=w.querySelector('.gk-body'); extra.forEach(function(x){ body.appendChild(x); });
     var head=w.querySelector('.gk-head');
     function paint(){
-      var picked=[].filter.call(line.querySelectorAll('input[type=checkbox]'),function(c){ return c.checked; }).map(function(c){
-        var l=c.closest('label'); if(!l) return ''; var t=l.cloneNode(true); [].forEach.call(t.querySelectorAll('.law,small'),function(x){x.remove();});
-        return t.textContent.replace(/\(.*$/,'').replace(/\s+/g,' ').trim(); }).filter(Boolean);
       var sel=box?box.querySelectorAll('.gsx-sel [data-rm]').length:0;
       var open=w.classList.contains('open');
-      head.querySelector('.gk-sum').textContent=picked.length||sel ? '선택: '+picked.slice(0,3).join(', ')+(picked.length>3?' 외 '+(picked.length-3):'')+(sel?(picked.length?' · ':'')+'찾기에서 '+sel+'건':'') : '';
+      head.querySelector('.gk-sum').textContent=sel?'찾기에서 고른 사유 '+sel+'건':'';
       head.querySelector('.gk-tg').textContent=open?'▴ 접기':'▾ 해당하면 펼쳐서 고르기';
       head.setAttribute('aria-expanded',open?'true':'false');
     }
@@ -14874,5 +14910,263 @@ function addDocsSheet(wb,scene,caseName,picks){
     .observe(document.body,{childList:true,subtree:true,characterData:true});
 })();
 </script>
+<style id="sx-20261119">
+/* ═══ 2026-11-19 간단 보기 — 처음 쓰는 분은 기본 항목만 보고, 나머지는 펼쳐서 ═══
+   계산 로직은 건드리지 않고 「보이는 것」만 바꾼다. 접힌 항목이라도 값을 넣었거나 고른 것은 그대로 보인다. */
+/* 2026-11-19 보기 선택 — 눈에 띄게 크게: 일반용 = 파란 바탕, 법무사 전용 = 갈색 바탕, 두 단추 같은 크기로 상자 폭을 꽉 채움 */
+.sxbar{margin:14px 0 12px;}
+.sxbar .sxseg{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;}
+.sxbar .sxseg button{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:64px;padding:10px 14px;border:3px solid transparent;border-radius:12px;font:inherit;font-size:18px;font-weight:800;letter-spacing:-.2px;color:#fff;cursor:pointer;opacity:.5;transition:opacity .15s,transform .15s,box-shadow .15s;}
+.sxbar .sxseg button small{font-size:12.5px;font-weight:600;opacity:.92;letter-spacing:0;}
+.sxbar .sxseg button[data-m="simple"]{background:#1a5bb5;}
+.sxbar .sxseg button[data-m="detail"]{background:#8a5a2b;}
+.sxbar .sxseg button[aria-pressed="true"]{opacity:1;border-color:#ffd66b;box-shadow:0 4px 14px rgba(40,30,10,.28);transform:translateY(-1px);}
+.sxbar .sxseg button[aria-pressed="true"]::before{content:"✔ 지금 보는 화면";position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:#ffd66b;color:#3b2a12;font-size:11.5px;font-weight:800;padding:1px 10px;border-radius:999px;white-space:nowrap;}
+.sxbar .sxseg button:hover{opacity:.85;}
+.sxbar .sxseg button[aria-pressed="true"]:hover{opacity:1;}
+.sxbar .sxseg button:focus-visible{outline:3px solid #ffd66b;outline-offset:2px;}
+@media (prefers-reduced-motion:reduce){.sxbar .sxseg button{transition:none;}}
+/* 접이식 단추 — 모두 「감면·중과 사유 찾기」(.gk-fold)와 같은 상자·파란 단추·같은 자리 */
+.sxgk{display:none;}
+body.sx-simple .sxgk{display:block;}
+.sxgk .gk-head .gk-sum{color:#8a7c66;font-weight:600;text-align:left;}
+.sxgk.open .gk-head .gk-ar{transform:rotate(90deg);}
+.sxinfo{display:none;margin:0 0 8px auto;width:fit-content;font:inherit;cursor:pointer;color:var(--fold-c,#1a5bb5);background:var(--fold-bg,#eaf2fd);border:1px solid var(--fold-bd,#9bbde9);border-radius:999px;padding:2px 12px;font-size:12.5px;font-weight:800;}
+.sxinfo:hover{background:var(--fold-hv,#d9e8fb);}
+body.sx-simple .sxinfo{display:block;}
+/* 간단 보기에서 접는 것 */
+body.sx-simple .card:not(.sx-open) .sx-adv:not(.sx-touched){display:none !important;}
+body.sx-simple .card:not(.sx-notes) .sx-note{display:none !important;}
+body.sx-simple .scene .ntog{display:none !important;}
+body.sx-simple .scene .t .law,body.sx-simple .scene .card h2 .law,body.sx-simple .scene .card h2 .tag{display:none !important;}
+body.sx-simple .scene .stitle small{display:none !important;}
+body.sx-simple .disclaimer p.sub{display:none !important;}
+
+/* 준비서류 간단 목록 */
+.sx-docs{display:none;margin:4px 0 6px;}
+body.sx-simple .sx-docs{display:block;}
+body.sx-simple .card.sx-docsOn:not(.open) .fbody{display:none;}
+.sxd-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;}
+.sxd-col{background:#fff;border:1px solid #e3d6c2;border-radius:9px;padding:9px 12px;}
+.sxd-who{font-weight:800;color:#5a3d1e;font-size:13.5px;margin-bottom:5px;}
+.sxd-col ul{margin:0;padding-left:18px;}
+.sxd-col li{font-size:13.5px;line-height:1.55;margin:2px 0;}
+.sxd-col li .sxd-w{display:inline-block;margin-left:4px;font-size:11.5px;color:#1d6fb8;font-weight:700;text-decoration:none;white-space:nowrap;}
+.sxd-off{margin:8px 0 0;font-size:12.5px;color:#6b5d49;}
+body.sx-simple .ratebar .hint{display:none !important;}   /* 간단히 보기: 할인율·송달료 칸 아래 작은 설명줄은 감춤(칸은 그대로) */
+@media (max-width:600px){.sxbar{margin:14px 0 10px;}.sxbar .sxseg button{min-height:58px;font-size:16px;padding:8px 6px;}.sxbar .sxseg button small{font-size:11px;}
+  body.sx-simple .disclaimer{margin-top:6px;}
+  body.sx-simple .disclaimer .dtitle{padding-top:8px;padding-bottom:8px;font-size:15px;}
+  body.sx-simple .disclaimer p{font-size:12.5px !important;line-height:1.55 !important;margin:0 !important;padding:8px 12px !important;}
+  body.sx-simple .disclaimer .cta{display:inline-block;margin-top:2px;}}
+/* 나란히 배치(일반용·법무사 전용 공통) — 칸의 자리만 옮기고 입력칸 이름·연결은 그대로 */
+.sxpair{display:grid;column-gap:22px;border-bottom:1px dashed var(--line);}
+.sxpair.sxp-amt{grid-template-columns:repeat(auto-fit,minmax(270px,1fr));}
+.sxpair.sxp-step{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));}
+.sxpair > .line{border-bottom:0;min-width:0;}
+.sxpair > .line .lbl{flex:0 0 auto;min-width:92px;}
+.sxpair > .line .hint{flex-basis:100%;}
+.sxpair > .line input.amt{min-width:120px;}
+/* 수임 범위 ~ 여러 등기소 가산: 일반용에서는 한 묶음으로 접기 */
+
+body.sx-simple .sx-fee:not(.sx-touched){display:none !important;}
+body.sx-simple .sx-proOnly{display:none !important;}   /* 법무사 전용에서만 보이는 주의 문구 */
+.sx-feeNote{display:none;margin:10px 0 2px;font-size:13px;font-weight:700;color:#8a5a2b;}
+body.sx-simple .sx-feeNote{display:block;}   /* 수임 범위·협의조정·당사자 다수·여러 등기소: 일반용에서는 감춤 */
+@media (max-width:560px){.sxpair > .line .lbl{flex-basis:100%;}.sxpair.sxp-step{grid-template-columns:1fr 1fr;column-gap:12px;}.sxpair.sxp-step > .line .hint{font-size:11.5px;}}
+@media print{.sxbar,.sxgk,.sxinfo{display:none !important;}}
+</style>
+<script id="sx-20261119-js">
+/* 간단 보기 — 화면별 「기본 입력」 목록. 여기에 없는 화면은 설명글만 접힌다(입력칸은 그대로). */
+(function(){
+  var KEY='sanlaw_calc_view';
+  var CFG={
+    '매매':{basic:/^(매매금액|부동산 개수|등기권리자|부동산 종류|보유 주택 수|감면·가산|외국인·재외국민 가산)/,
+            adv:'말소 동시신청·분양 신탁 등',
+            keep:function(el){return el.id==='ps_box'||/분양받은 아파트/.test(el.textContent);}}   /* 2026-11-19 분양 아파트 질문은 일반용에도 보임 */
+  };
+  function mode(){try{return localStorage.getItem(KEY)||'simple';}catch(e){return 'simple';}}
+  function save(m){try{localStorage.setItem(KEY,m);}catch(e){}}
+  var moved=[];
+  function moveFor(simple){
+    /* 첫 화면: 간단 보기에서는 계산 종류 단추를 먼저, 세무사 안내·등기유형 찾기는 그 아래로 */
+    var menu=document.getElementById('menu'); if(!menu) return;
+    if(simple&&!moved.length){
+      var disc=document.querySelector('.disclaimer'), tax=disc&&disc.nextElementSibling;
+      if(tax&&/세무사의 업무/.test(tax.textContent)){var ph=document.createComment('sx-tax');tax.parentNode.insertBefore(ph,tax);menu.parentNode.insertBefore(tax,menu.nextSibling);moved.push([tax,ph]);}
+      var typ=menu.querySelector('.mcat.type');
+      if(typ){var ph2=document.createComment('sx-type');typ.parentNode.insertBefore(ph2,typ);var last=menu.querySelector('.mcat.family')||[].slice.call(menu.querySelectorAll('.mcat')).pop();last.parentNode.insertBefore(typ,last.nextSibling);moved.push([typ,ph2]);}
+    }else if(!simple&&moved.length){
+      moved.forEach(function(x){x[1].parentNode.insertBefore(x[0],x[1]);x[1].remove();}); moved=[];
+    }
+  }
+  function apply(m){
+    var simple=(m!=='detail');
+    document.body.classList.toggle('sx-simple',simple);
+    [].forEach.call(document.querySelectorAll('.sxbar .sxseg button'),function(b){b.setAttribute('aria-pressed',String((b.dataset.m==='simple')===simple));});
+    moveFor(simple);
+  }
+  function bar(){
+    if(document.querySelector('.sxbar')) return;
+    var disc=document.querySelector('.disclaimer'); if(!disc) return;
+    var d=document.createElement('div'); d.className='sxbar';
+    d.innerHTML='<div class="sxseg" role="group" aria-label="계산 화면 고르기"><button type="button" data-m="simple">일반용 계산<small>꼭 필요한 칸과 기본 공과금·수수료만</small></button><button type="button" data-m="detail">법무사 전용 계산<small>모든 항목·가산·근거 조문까지</small></button></div>';
+    disc.parentNode.insertBefore(d,disc);
+    d.addEventListener('click',function(e){var b=e.target.closest('button[data-m]');if(!b)return;save(b.dataset.m);apply(b.dataset.m);});
+  }
+  /* 입력 상태 스냅숏 — 처음과 달라지면(값을 넣거나 고르면) 접힌 항목도 보이게 */
+  function snap(el){
+    var s=(el.style&&el.style.display==='none')?'H':'S';
+    [].forEach.call(el.querySelectorAll('input,select,textarea'),function(c){s+='|'+(c.type==='checkbox'||c.type==='radio'?(c.checked?'1':'0'):c.value);});
+    return s;
+  }
+  function touch(scene){
+    [].forEach.call(scene.querySelectorAll('.sx-adv,.sx-fee'),function(el){el.classList.toggle('sx-touched',snap(el)!==el.getAttribute('data-sx0'));});
+  }
+  /* 파란 접이식 머리 — kind: 'open'(상세 설정) / 'feeOpen'(수임 범위·보수 가산) */
+  function gkBtn(card,cls,title,desc){
+    var w=document.createElement('div'); w.className='gk-fold sxgk';
+    w.innerHTML='<button type="button" class="gk-head" aria-expanded="false"><span class="gk-ar">▸</span><span>'+title+'</span><span class="gk-sum">'+desc+'</span><span class="gk-tg"></span></button>';
+    var h=w.querySelector('.gk-head');
+    var set=function(){var o=card.classList.contains(cls);w.classList.toggle('open',o);h.querySelector('.gk-tg').textContent=o?'▴ 접기':'▾ 해당하면 펼쳐서 고르기';h.setAttribute('aria-expanded',String(o));};
+    h.onclick=function(){card.classList.toggle(cls);set();}; set(); return w;
+  }
+  function moreBtn(card,label){
+    var body=card.querySelector('.body')||card; if(body.querySelector(':scope > .sxgk.sx-more')) return;
+    var w=gkBtn(card,'sx-open','상세 설정',label); w.classList.add('sx-more'); body.appendChild(w);
+  }
+  function notes(card){
+    var list=[].filter.call(card.querySelectorAll('.note,details.ref'),function(n){
+      if(n.closest('.d3')) return false;                       /* 준비서류 안 안내문은 그대로 */
+      var dyn=n.id&&(n.classList.contains('alert')||n.style.display==='none'||!n.textContent.trim());
+      return !dyn;});
+    if(!list.length) return;
+    list.forEach(function(n){n.classList.add('sx-note');});
+    var body=card.querySelector('.body'); if(!body||body.querySelector(':scope > .sxinfo')) return;
+    var b=document.createElement('button'); b.type='button'; b.className='sxinfo';
+    var set=function(){b.textContent=card.classList.contains('sx-notes')?'ⓘ 설명 ▴ 접기':'ⓘ 이 항목 설명 ▾ 펼쳐 보기';};
+    b.onclick=function(){card.classList.toggle('sx-notes');set();}; set(); body.insertBefore(b,body.firstChild);
+  }
+  /* 준비서류 간단 목록 — 지금 상세 목록(① 의뢰인께서 준비하실 서류)에서 서류 이름과 발급처만 뽑는다 */
+  function docsSimple(card){
+    var fb=card.querySelector('.fbody'); if(!fb) return;
+    var box=card.querySelector('.sx-docs');
+    if(!box){box=document.createElement('div');box.className='sx-docs';fb.parentNode.insertBefore(box,fb);card.classList.add('sx-docsOn');}
+    var sec=fb.querySelector('.d3c'); if(!sec){box.innerHTML='';return;}
+    var h='',col=null;
+    [].forEach.call(sec.querySelectorAll('.d3who, ul.d3l'),function(el){
+      if(el.classList.contains('d3who')){ if(col!==null) h+='</ul></div>'; var t=(el.querySelector('.d3v-gt')||el).textContent.trim(); h+='<div class="sxd-col"><div class="sxd-who">'+t.replace(/</g,'&lt;')+'</div><ul>'; col=1; }
+      else{ if(col===null){h+='<div class="sxd-col"><ul>';col=1;}
+        [].forEach.call(el.children,function(li){ var t=li.querySelector('.d3v-t'); if(!t) return;
+          var w=''; var a=li.querySelector('.d3v-c a[href]');
+          if(a) w='<a class="sxd-w" href="'+a.getAttribute('href')+'" target="_blank" rel="noopener">'+a.textContent.trim().replace(/</g,'&lt;')+'</a>';
+          else{var sp=li.querySelector('.d3v-c .d3w'); if(sp) w='<span class="sxd-w" style="color:#8a7c66;">'+sp.textContent.trim().replace(/</g,'&lt;')+'</span>';}
+          h+='<li>'+t.innerHTML+w+'</li>'; }); }
+    });
+    if(col!==null) h+='</ul></div>';
+    box.innerHTML='<div class="sxd-grid">'+h+'</div><div class="sxd-off">등기신청서·위임장 등은 사무소가 준비합니다. 서류마다 발급 방법·근거·등기소 제출 목록은 위 제목(⑤)을 눌러 자세히 보실 수 있습니다.</div>';
+  }
+  /* ── 수임 범위 ~ 여러 등기소 가산 : 한 묶음 접이식(일반용) ── */
+  var FEE_RE=/^(수임 범위|보수 협의조정|당사자 다수 가산|여러 등기소 가산)/;   /* 외국인·재외국민 가산은 일반용에도 남김 */
+  function lblOf(el){return ((el.querySelector&&el.querySelector('.lbl'))||el).textContent.replace(/^[\s★]+/,'').trim();}
+  function feeFold(card){
+    var body=card.querySelector('.body'); if(!body||card.classList.contains('sx-hasFee')) return;
+    var list=[].filter.call(body.children,function(el){
+      if(el.id&&/pwBox$/.test(el.id)) return true;
+      return el.classList.contains('line')&&FEE_RE.test(lblOf(el));});
+    if(list.length<2) return;
+    list.forEach(function(el){el.classList.add('sx-fee');});
+    /* 묶음 바로 뒤의 §9⑥ 등 보수 설명글도 같이 접힘(설명글은 원래 일반용에서 접힘) */
+    /* 2026-11-19 일반용에서는 머리줄까지 감춤 — 법무사 전용에서 값을 바꾼 줄만 일반용에서도 보임 */
+    card.classList.add('sx-hasFee');
+  }
+  /* ── 나란히 배치 (일반용·법무사 전용 공통, 모든 화면) ── */
+  function wrap(items,kind){
+    items=items.filter(Boolean); if(items.length<2) return;
+    if(items.some(function(x){return x.parentElement&&x.parentElement.classList.contains('sxpair');})) return;
+    var w=document.createElement('div'); w.className='sxpair '+kind;
+    items[0].parentNode.insertBefore(w,items[0]); items.forEach(function(x){w.appendChild(x);});
+  }
+  function lines(body){return [].filter.call(body.children,function(x){return x.classList&&x.classList.contains('line');});}
+  function pairScene(scene){
+    [].forEach.call(scene.querySelectorAll('.card .body, .card [id$="bondBody"]'),function(body){
+      var L=lines(body), find=function(re){return L.filter(function(x){return re.test(lblOf(x));})[0];};
+      /* 부동산 개수 + 등기권리자 */
+      var cnt=find(/^부동산 개수/), own=find(/^등기권리자/); if(cnt&&own) wrap([cnt,own],'sxp-step');
+      /* 신고금액 + 채무부담액 + 증여분 (부담부증여) */
+      var tot=find(/^신고금액/), debt=find(/^채무부담액/), gp=find(/^증여분/); if(tot&&debt) wrap([tot,debt,gp],'sxp-amt');
+      /* 채권: 공시가격(시가표준액) + 매입률 — 바로 이어진 두 줄 */
+      L.forEach(function(x){ if(!/매입률/.test(lblOf(x))) return; var p=x.previousElementSibling;
+        if(p&&p.classList.contains('line')&&/(공시가격|공시지가|시가표준액)/.test(lblOf(p))) wrap([p,x],'sxp-amt'); });
+    });
+    /* 부담부증여 채권: 시가표준액(주택/토지/건물) + 부담부분 + 증여부분 */
+    var bh=scene.querySelector('#bv_bsHouse');
+    if(bh&&!bh.parentElement.classList.contains('sxpair')){
+      var dp=document.getElementById('bv_bondDebtPart'), gp2=document.getElementById('bv_bondGiftPart');
+      wrap([bh,document.getElementById('bv_bsLand'),document.getElementById('bv_bsBldg'),dp&&dp.closest('.line'),gp2&&gp2.closest('.line')],'sxp-amt');
+    }
+  }
+  var inited={};
+  /* 화면을 열 때마다 — 여러 계산 종류가 한 화면(범용 화면 등)을 함께 쓰므로 「지금 열린 화면」을 기준으로 처리 */
+  function initScene(name){
+    var scene=document.querySelector('.scene.active')||document.getElementById('scene-'+name); if(!scene) return;
+    var cfg=CFG[scene.id.replace(/^scene-/,'')];
+    pairScene(scene);
+    if(!scene._sxPairObs){ scene._sxPairObs=new MutationObserver(function(){clearTimeout(scene._sxPT);scene._sxPT=setTimeout(function(){pairScene(scene);setup(scene,cfg);},40);}); scene._sxPairObs.observe(scene,{childList:true,subtree:true}); }
+    setup(scene,cfg);
+    if(!scene._sxEv){
+      var tm=null, f=function(){clearTimeout(tm);tm=setTimeout(function(){touch(scene);},30);};
+      scene.addEventListener('input',f); scene.addEventListener('change',f); scene.addEventListener('click',f);
+      new MutationObserver(f).observe(scene,{attributes:true,attributeFilter:['style'],subtree:true});
+      scene._sxEv=true;
+    }
+    touch(scene);
+  }
+  function setup(scene,cfg){
+    [].forEach.call(scene.querySelectorAll('.card'),function(card){
+      var h2=card.querySelector('h2'); var title=h2?h2.textContent:'';
+      if(/준비서류/.test(title)&&card.querySelector('.fbody')){
+        if(!card._sxDocs){ card._sxDocs=true; docsSimple(card); new MutationObserver(function(){clearTimeout(card._sxT);card._sxT=setTimeout(function(){docsSimple(card);},60);}).observe(card.querySelector('.fbody'),{childList:true,subtree:true}); }
+        return; }
+      feeFold(card);
+      if(/수수료|법무사 보수|보수 상한/.test(title)&&!card.querySelector('.sx-feeNote')){ var fb2=card.querySelector('.body'); if(fb2){ var nt=document.createElement('div'); nt.className='sx-feeNote'; nt.textContent='※ 수수료(법무사 보수)는 사안에 따라 증감될 수 있습니다.'; fb2.appendChild(nt);} }
+      if(!card._sxNotes){ card._sxNotes=true; notes(card); }
+      if(!cfg||card._sxCfg) return;
+      var body=card.querySelector('.body'); if(!body) return;
+      if(/^\s*①/.test(title)){
+        card._sxCfg=true;
+        [].forEach.call(body.children,function(el){
+          if(el.classList.contains('sx-note')||el.classList.contains('ntog')||el.classList.contains('sxinfo')||el.classList.contains('gk-fold')||el.classList.contains('sx-fee')||el.classList.contains('sxgk')||el.classList.contains('sx-feeNote')) return;
+          if(el.classList.contains('sxpair')){ [].forEach.call(el.children,function(x){ if(x.classList.contains('line')){var l2=(x.querySelector('.lbl')||x).textContent.replace(/^[\s★]+/,'').trim(); if(!cfg.basic.test(l2)) x.classList.add('sx-adv');} }); return; }
+          if(el.classList.contains('line')){var l=(el.querySelector('.lbl')||el).textContent.replace(/^[\s★]+/,'').trim(); if(!cfg.basic.test(l)) el.classList.add('sx-adv');}
+          else if((el.querySelector('input,select')||el.id==='ps_box')&&!(cfg.keep&&cfg.keep(el))) el.classList.add('sx-adv');
+        });
+        moreBtn(card,cfg.adv);
+      }
+      if(/^\s*④/.test(title)){
+        var t=card.querySelector('table'); if(t){ card._sxCfg=true;
+          [].forEach.call(t.querySelectorAll('tr'),function(tr){
+            var txt=tr.textContent.replace(/\s+/g,' ').trim();
+            if(/^▸\s*기타 대행료/.test(txt)){tr.classList.add('sx-adv');return;}
+            var cb=tr.querySelector('input[type=checkbox]');
+            if(cb&&!cb.checked) tr.classList.add('sx-adv');
+          });
+          moreBtn(card,'확인서면·동일인 보증서·기타 대행 항목');
+        }
+      }
+    });
+    [].forEach.call(scene.querySelectorAll('.sx-adv,.sx-fee'),function(el){ if(!el.hasAttribute('data-sx0')) el.setAttribute('data-sx0',snap(el)); });
+  }
+  function boot(){
+    bar(); apply(mode());
+    if(typeof window.openScenario==='function'&&!window.openScenario._sx){
+      var o=window.openScenario; window.openScenario=function(n){var r=o.apply(this,arguments); setTimeout(function(){initScene(n);},0); return r;}; window.openScenario._sx=true;
+    }
+    var act=document.querySelector('.scene.active'); if(act) initScene(act.id.replace(/^scene-/,''));
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',boot); else boot();
+})();
+</script>
+
 </body>
 </html>
