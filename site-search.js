@@ -69,10 +69,17 @@
     + '#sanSearch .ss-none a{color:#7a5230;font-weight:800;}'
     + '#sanSearch .ss-part{padding:8px 16px;font-size:12.5px;color:#a3742f;background:#fffaf0;}'
     + '#sanSearch .ss-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}'
-    + '@media (max-width:560px){#sanSearch{margin-bottom:24px;}#sanSearch .ss-bar{height:40px;}#sanSearch input{font-size:16px;}#sanSearch .ss-go{padding:0 13px;font-size:14px;}#sanSearch .ss-chips>span{display:none;}'
+    + '@media (max-width:560px){#sanSearch{margin-bottom:24px;}#sanSearch .ss-bar{height:38px;}#sanSearch input{font-size:16px;}#sanSearch .ss-go{padding:0 13px;font-size:14px;}#sanSearch .ss-chips>span{display:none;}'
     + '#sanSearch .ss-gate{font-size:12.5px;margin:10px 10px 4px;}#sanSearch .ss-gate:not(.ss-full) .ss-gt{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}#sanSearch .ss-gate:not(.ss-full) .ss-gmore{display:inline-block;}'
     + '#sanSearch .ss-panel{max-height:68vh;}#sanSearch li{flex-wrap:wrap;padding:0 0 10px;}#sanSearch li a.ss-main{padding-bottom:4px;}#sanSearch a.ss-calc{margin:0 0 0 16px;}}'
     /* 2026-11-18 휴대폰·태블릿: 결과 창이 아래 화면 위에 겹쳐 뜨지 않고, 아래 내용을 밀어 내리며 그 자리에 펼쳐진다 */
+    /* 2026-11-18 휴대폰: 결과 글씨·여백을 줄이고 「비용 계산」 단추를 작게 */
+    + '@media (max-width:560px){#sanSearch .ss-lab{font-size:12px;margin-bottom:6px;}#sanSearch .ss-chips{gap:5px;margin-top:7px;}#sanSearch .ss-chip{font-size:12px;padding:2px 9px;}'
+    + '#sanSearch .ss-head{padding:7px 12px;font-size:12px;}#sanSearch .ss-x{font-size:12px;padding:4px 9px;}'
+    + '#sanSearch li a.ss-main{padding:9px 10px 3px 12px;}#sanSearch .ss-t{font-size:14px;line-height:1.45;}#sanSearch .ss-b{font-size:10.5px;padding:0 5px;margin-right:5px;}'
+    + '#sanSearch .ss-p{font-size:11.5px;margin-top:1px;}#sanSearch .ss-s{font-size:12px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}'
+    + '#sanSearch li{padding-bottom:8px;}#sanSearch a.ss-calc{margin:2px 0 0 12px;font-size:11.5px;padding:2px 8px;}'
+    + '#sanSearch .ss-gate{font-size:12px;padding:9px 11px;}#sanSearch .ss-gate label{font-size:12px;}#sanSearch .ss-more{font-size:13px;padding:8px;margin:4px 12px 10px;width:calc(100% - 24px);}#sanSearch .ss-none{font-size:13px;}}'
     + '@media (max-width:768px){#sanSearch .ss-panel{position:static;margin-top:8px;max-height:none;overflow:visible;box-shadow:0 6px 18px rgba(30,20,10,.22);}#sanSearch .ss-head{position:static;}}'
     + '@media print{#sanSearch{display:none!important;}}';
   if (!document.getElementById('ss-css')) {
@@ -194,7 +201,8 @@
     return h;
   }
   var BADGE = { card: '업무카드', calc: '비용 계산기', page: '안내', soon: '준비중' };
-  var shown = 8, last = null;
+  var FIRST = (window.matchMedia && window.matchMedia('(max-width:560px)').matches) ? 6 : 8;   /* 휴대폰은 처음 6건 */
+  var shown = FIRST, last = null;
   function agreed() { if (!GATE) return true; var c = document.getElementById(GATE); return !c || c.checked; }
   function gateHtml() {
     if (agreed()) return '';
@@ -246,20 +254,21 @@
     clearTimeout(timer);
     if (!v) { open(false); return; }
     timer = setTimeout(function () {
-      load().then(function () { shown = 8; render(v); })
+      load().then(function () { shown = FIRST; render(v); })
         .catch(function () { panel.innerHTML = '<div class="ss-none">검색 자료를 불러오지 못했습니다. 잠시 뒤 다시 해 보시거나 <a href="' + contactHref() + '">상담 문의</a>를 이용해 주십시오.</div>'; open(true); });
     }, now ? 0 : 140);
   }
   function has() { mount.classList.toggle('ss-has', !!q.value); }
   q.addEventListener('input', function () { has(); run(false); });
   mount.querySelector('.ss-clr').addEventListener('click', function () { q.value = ''; has(); open(false); q.focus(); });
-  q.addEventListener('focus', function () { load().catch(function () {}); if (q.value.trim()) run(true); });
+  var hold = false;   /* 닫기 직후 입력칸으로 초점이 돌아올 때 창이 다시 열리지 않게 */
+  q.addEventListener('focus', function () { load().catch(function () {}); if (hold) { hold = false; return; } if (q.value.trim()) run(true); });
   mount.querySelector('.ss-go').addEventListener('click', function () { run(true); q.focus(); });
   mount.querySelectorAll('.ss-chip').forEach(function (b) { b.addEventListener('click', function () { q.value = b.textContent; has(); run(true); q.focus(); }); });
 
   /* 결과 누르기 — 면책 확인 전이면 막고 확인란을 보여 준다 */
   panel.addEventListener('click', function (e) {
-    if (e.target.closest('.ss-x')) { open(false); q.focus(); return; }
+    if (e.target.closest('.ss-x')) { clearTimeout(timer); open(false); return; }   /* 2026-11-18 휴대폰에서 닫기를 눌러도 다시 열리던 오류 수정 */
     if (e.target.closest('.ss-gmore')) { var gg = panel.querySelector('#ssGate'); if (gg) gg.classList.add('ss-full'); return; }
     if (e.target.closest('.ss-more')) { shown += 12; render(q.value.trim()); return; }
     var a = e.target.closest('a');
@@ -291,5 +300,5 @@
     }
   });
   document.addEventListener('click', function (e) { if (!e.target.isConnected || mount.contains(e.target)) return; open(false); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && mount.classList.contains('ss-open')) { open(false); q.focus(); } });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && mount.classList.contains('ss-open')) { open(false); if (document.activeElement !== q) { hold = true; q.focus(); } } });
 })();

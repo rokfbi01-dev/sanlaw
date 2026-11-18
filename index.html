@@ -632,11 +632,22 @@ section.about .credos li{font-size:15px;margin-bottom:8px}
 /* 제목은 2줄로 — 글씨를 줄인다 / 안내문도 2줄 */
 section.hero .hero-inner h1{font-size:clamp(18px,4.7vw,36px);line-height:1.38;margin-bottom:14px}
 section.hero .hero-inner p.lead{max-width:900px;font-size:clamp(14px,1.45vw,16px);line-height:1.8}
-@media (max-width:768px){section.hero .hero-inner h1{font-size:clamp(17px,4.6vw,24px)!important;line-height:1.4}section.hero .hero-inner p.lead{font-size:14px}}
+/* 2026-11-18 휴대폰에서 첫 화면이 오른쪽으로 잘리던 문제 — 휴대폰 브라우저마다 zoom 계산이 달라 화면보다 넓어졌다.
+   zoom을 쓰지 않고 글자 크기로 줄인다. */
+@media (max-width:768px){
+  section.hero .hero-inner{zoom:1!important;max-width:100%;box-sizing:border-box;padding-left:16px;padding-right:16px}
+  section.hero .hero-inner h1{font-size:clamp(16px,4.3vw,22px)!important;line-height:1.4}
+  section.hero .hero-inner p.lead{font-size:13px;line-height:1.75}
+  section.hero .hero-inner .eyebrow{font-size:11px}
+  section.hero .hero-inner .psearch,section.hero .hero-inner #sanSearch,section.hero .hero-inner .hero-nav{max-width:100%;box-sizing:border-box}
+  section.hero .hero-inner .hnav-card{padding:10px 12px}
+  section.hero .hero-inner .hnav-card .hnav-t{font-size:14px}
+  section.hero .hero-inner .hnav-card .hnav-s{font-size:11px}
+}
 @media (max-width:768px){
   .psearch{flex-wrap:wrap;justify-content:stretch;gap:8px;margin:10px 0 16px}
   .ps-col{flex:1 1 100%;width:100%}
-  .ps-col .ps{flex:1 1 auto;width:auto;height:40px}
+  .ps-col .ps{flex:1 1 auto;width:auto;height:36px}
   .ps-mail{padding:6px 10px;min-width:92px;justify-content:center}
   .ps-mx{display:none}
 }
@@ -1999,6 +2010,6 @@ try{restoreFromCard();}catch(e){}
   });
 })();
 </script>
-<script src="site-search.js?v=20261118c" defer></script>
+<script src="site-search.js?v=20261118d" defer></script>
 </body>
 </html>
