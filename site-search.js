@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   산 법무사 사무소 — 사이트 안 검색 (2026-11-18)
+   산 법무사 사무소 — 업무 및 내용으로 찾기 (2026-11-18)
    ─ 쓰는 법: 검색창을 둘 자리에 <div id="sanSearch"></div> 를 두고
              </body> 앞에 <script src="site-search.js?v=20261118" defer></script>
    ─ data-gate="chk" : 첫 화면처럼 면책 확인란이 있는 페이지에서 그 확인란 id.
@@ -17,19 +17,23 @@
 
   /* ── 모양 (페이지에 한 번만) ── */
   var css = ''
-    + '#sanSearch{position:relative;max-width:760px;margin:0 auto 34px;text-align:left;font-family:inherit;z-index:30;}'
-    + '#sanSearch .ss-lab{display:block;font-size:15px;font-weight:700;letter-spacing:.02em;color:#e9d8b4;margin:0 0 9px 4px;}'
+    + '#sanSearch{position:relative;max-width:620px;margin:0 auto 30px;text-align:left;font-family:inherit;z-index:30;}'
+    + '#sanSearch .ss-lab{display:block;font-size:13.5px;font-weight:700;letter-spacing:.02em;color:#e9d8b4;margin:0 0 7px 4px;}'
     + '#sanSearch.ss-light .ss-lab{color:#7a5230;}'
-    + '#sanSearch .ss-bar{display:flex;align-items:center;background:#fff;border:2px solid #c9a46a;border-radius:14px;box-shadow:0 6px 22px rgba(0,0,0,.18);overflow:hidden;}'
+    + '#sanSearch .ss-bar{display:flex;align-items:center;height:38px;box-sizing:border-box;background:#fff;border:2px solid #c9a46a;border-radius:9px;box-shadow:0 3px 10px rgba(0,0,0,.16);overflow:hidden;}'
     + '#sanSearch .ss-bar:focus-within{border-color:#a47148;box-shadow:0 0 0 3px rgba(201,164,106,.35),0 6px 22px rgba(0,0,0,.18);}'
-    + '#sanSearch .ss-ico{flex:0 0 auto;padding:0 4px 0 15px;color:#a47148;display:flex;}'
-    + '#sanSearch input{flex:1 1 auto;min-width:0;border:0;outline:0;background:transparent;font:inherit;font-size:17px;color:#241a10;padding:15px 10px;}'
+    + '#sanSearch .ss-ico{flex:0 0 auto;padding:0 2px 0 11px;color:#a47148;display:flex;}'
+    + '#sanSearch input{flex:1 1 auto;min-width:0;height:100%;border:0;outline:0;background:transparent;font:inherit;font-size:14.5px;color:#241a10;padding:0 8px;}'
+    + '#sanSearch input::-webkit-search-cancel-button{display:none;}'
+    + '#sanSearch .ss-clr{flex:0 0 auto;display:none;align-items:center;gap:3px;border:0;background:#f1ece2;color:#6b5d49;font:inherit;font-size:12.5px;font-weight:700;border-radius:12px;padding:3px 9px;margin-right:6px;cursor:pointer;}'
+    + '#sanSearch.ss-has .ss-clr{display:inline-flex;}'
+    + '#sanSearch .ss-clr:hover{background:#e6dcc9;color:#3d2f1d;}'
     + '#sanSearch input::placeholder{color:#9a8f7c;}'
-    + '#sanSearch .ss-go{flex:0 0 auto;border:0;background:#7a5230;color:#fff;font:inherit;font-size:16px;font-weight:700;padding:0 22px;align-self:stretch;cursor:pointer;}'
+    + '#sanSearch .ss-go{flex:0 0 auto;border:0;background:#7a5230;color:#fff;font:inherit;font-size:14px;font-weight:700;padding:0 16px;align-self:stretch;cursor:pointer;}'
     + '#sanSearch .ss-go:hover{background:#5f3f24;}'
-    + '#sanSearch .ss-chips{display:flex;flex-wrap:wrap;gap:7px;margin:10px 2px 0;font-size:13.5px;color:#d9ccb3;align-items:center;}'
+    + '#sanSearch .ss-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:9px 2px 0;font-size:12.5px;color:#d9ccb3;align-items:center;}'
     + '#sanSearch.ss-light .ss-chips{color:#6b6252;}'
-    + '#sanSearch .ss-chip{border:1px solid rgba(233,216,180,.55);background:rgba(255,255,255,.08);color:#f3e7cf;border-radius:16px;padding:4px 12px;font:inherit;font-size:13.5px;cursor:pointer;}'
+    + '#sanSearch .ss-chip{border:1px solid rgba(233,216,180,.55);background:rgba(255,255,255,.08);color:#f3e7cf;border-radius:14px;padding:3px 10px;font:inherit;font-size:12.5px;cursor:pointer;}'
     + '#sanSearch.ss-light .ss-chip{border-color:#e3d3b4;background:#fff;color:#7a5230;}'
     + '#sanSearch .ss-chip:hover{background:rgba(255,255,255,.2);}'
     + '#sanSearch.ss-light .ss-chip:hover{background:#f8f1e4;}'
@@ -37,7 +41,8 @@
     + '#sanSearch .ss-panel{display:none;position:absolute;left:0;right:0;top:100%;margin-top:8px;background:#fff;border:1px solid #e7e0d4;border-radius:14px;box-shadow:0 14px 40px rgba(30,20,10,.28);max-height:min(70vh,620px);overflow:auto;color:#241a10;}'
     + '#sanSearch.ss-open .ss-panel{display:block;}'
     + '#sanSearch .ss-head{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 16px;font-size:13px;color:#7a6e5b;border-bottom:1px solid #f0e9dc;position:sticky;top:0;background:#fff;z-index:1;}'
-    + '#sanSearch .ss-x{border:0;background:none;font-size:20px;line-height:1;color:#9a8f7c;cursor:pointer;padding:2px 6px;}'
+    + '#sanSearch .ss-x{border:1px solid #e3d8c3;background:#fff;font:inherit;font-size:12.5px;font-weight:700;line-height:1;color:#6b5d49;cursor:pointer;padding:5px 10px;border-radius:12px;white-space:nowrap;}'
+    + '#sanSearch .ss-x:hover{background:#f6f1e7;}'
     + '#sanSearch .ss-gate{margin:12px 14px 4px;padding:11px 13px;background:#f8f5ee;border:1px solid #e7e0d4;border-left:4px solid #a47148;border-radius:0 10px 10px 0;font-size:13.5px;line-height:1.7;color:#4a4437;}'
     + '#sanSearch .ss-gate label{display:flex;align-items:center;gap:8px;margin-top:7px;font-weight:700;color:#241a10;cursor:pointer;}'
     + '#sanSearch .ss-gate input{width:19px;height:19px;accent-color:#a47148;flex:0 0 auto;padding:0;}'
@@ -64,7 +69,7 @@
     + '#sanSearch .ss-none a{color:#7a5230;font-weight:800;}'
     + '#sanSearch .ss-part{padding:8px 16px;font-size:12.5px;color:#a3742f;background:#fffaf0;}'
     + '#sanSearch .ss-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}'
-    + '@media (max-width:560px){#sanSearch{margin-bottom:26px;}#sanSearch input{font-size:16px;padding:13px 8px;}#sanSearch .ss-go{padding:0 15px;font-size:15px;}'
+    + '@media (max-width:560px){#sanSearch{margin-bottom:24px;}#sanSearch .ss-bar{height:40px;}#sanSearch input{font-size:16px;}#sanSearch .ss-go{padding:0 13px;font-size:14px;}#sanSearch .ss-chips>span{display:none;}'
     + '#sanSearch .ss-gate{font-size:12.5px;margin:10px 10px 4px;}#sanSearch .ss-gate:not(.ss-full) .ss-gt{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}#sanSearch .ss-gate:not(.ss-full) .ss-gmore{display:inline-block;}'
     + '#sanSearch .ss-panel{max-height:68vh;}#sanSearch li{flex-wrap:wrap;padding:0 0 10px;}#sanSearch li a.ss-main{padding-bottom:4px;}#sanSearch a.ss-calc{margin:0 0 0 16px;}}'
     + '@media print{#sanSearch{display:none!important;}}';
@@ -75,10 +80,11 @@
   /* ── 화면 ── */
   var EX = ['빚 상속', '형제 도장', '전세보증금', '유언장', '부모님 치매', '법인설립', '가압류', '이혼 재산분할'];
   mount.innerHTML =
-    '<label class="ss-lab" for="ssQ">🔎 사무소 안에서 찾기 — 지금 상황을 쉬운 말로 적어 보세요</label>'
+    '<label class="ss-lab" for="ssQ">🔎 업무 및 내용으로 찾기 — 지금 상황을 쉬운 말로 적어 보세요</label>'
     + '<div class="ss-box"><div class="ss-bar" role="search">'
     + '<span class="ss-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg></span>'
     + '<input id="ssQ" type="search" autocomplete="off" enterkeyhint="search" placeholder="예: 형제가 상속 도장을 안 찍어 줘요" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="ssList">'
+    + '<button type="button" class="ss-clr" aria-label="검색어 지우기">✕ 지우기</button>'
     + '<button type="button" class="ss-go">찾기</button></div>'
     + '<div class="ss-panel" id="ssPanel" aria-live="polite"></div></div>'
     + '<div class="ss-chips"><span>자주 찾는 말:</span>' + EX.map(function (w) { return '<button type="button" class="ss-chip">' + w + '</button>'; }).join('') + '</div>';
@@ -212,7 +218,7 @@
   function render(str) {
     var R = search(str); last = R;
     var list = R.full.length ? R.full : R.part;
-    var html = '<div class="ss-head"><span>' + (list.length ? '「' + esc(str) + '」 찾은 결과 ' + list.length + '건' : '「' + esc(str) + '」') + '</span><button type="button" class="ss-x" aria-label="검색 결과 닫기">×</button></div>';
+    var html = '<div class="ss-head"><span>' + (list.length ? '「' + esc(str) + '」 찾은 결과 ' + list.length + '건' : '「' + esc(str) + '」') + '</span><button type="button" class="ss-x" aria-label="검색 결과 닫기">닫기 ✕</button></div>';
     html += gateHtml();
     if (!list.length) {
       html += '<div class="ss-none">맞는 안내를 찾지 못했습니다.<br>다른 쉬운 말로 다시 찾아보시거나, <a href="' + contactHref() + '">상담 문의</a>로 상황을 알려 주시면 맞는 길을 안내해 드리겠습니다.</div>';
@@ -242,10 +248,12 @@
         .catch(function () { panel.innerHTML = '<div class="ss-none">검색 자료를 불러오지 못했습니다. 잠시 뒤 다시 해 보시거나 <a href="' + contactHref() + '">상담 문의</a>를 이용해 주십시오.</div>'; open(true); });
     }, now ? 0 : 140);
   }
-  q.addEventListener('input', function () { run(false); });
+  function has() { mount.classList.toggle('ss-has', !!q.value); }
+  q.addEventListener('input', function () { has(); run(false); });
+  mount.querySelector('.ss-clr').addEventListener('click', function () { q.value = ''; has(); open(false); q.focus(); });
   q.addEventListener('focus', function () { load().catch(function () {}); if (q.value.trim()) run(true); });
   mount.querySelector('.ss-go').addEventListener('click', function () { run(true); q.focus(); });
-  mount.querySelectorAll('.ss-chip').forEach(function (b) { b.addEventListener('click', function () { q.value = b.textContent; run(true); q.focus(); }); });
+  mount.querySelectorAll('.ss-chip').forEach(function (b) { b.addEventListener('click', function () { q.value = b.textContent; has(); run(true); q.focus(); }); });
 
   /* 결과 누르기 — 면책 확인 전이면 막고 확인란을 보여 준다 */
   panel.addEventListener('click', function (e) {
@@ -280,6 +288,6 @@
       else run(true);
     }
   });
-  document.addEventListener('click', function (e) { if (!mount.contains(e.target)) open(false); });
+  document.addEventListener('click', function (e) { if (!e.target.isConnected || mount.contains(e.target)) return; open(false); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && mount.classList.contains('ss-open')) { open(false); q.focus(); } });
 })();
