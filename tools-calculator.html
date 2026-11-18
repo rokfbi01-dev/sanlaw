@@ -584,7 +584,7 @@
     <div class="mcat corp"><h3>법인 (상업등기)</h3><div class="mgrid" id="grid-corp"></div></div>
     <div class="mcat civil"><h3>민사 · 비송 · 기타</h3><div class="mgrid" id="grid-civil"></div></div>
     <div class="mcat family"><h3>가사</h3><div class="mgrid" id="grid-family"></div></div>
-    <div class="verifybar" id="verifybar">데이터 검증 대기…</div>
+    <div class="verifybar" id="verifybar" style="display:none;">데이터 검증 대기…</div>
     <details class="office-set" style="margin-top:14px;background:#fffdf8;border:1px solid var(--line);border-radius:10px;padding:4px 14px;">
       <summary style="cursor:pointer;font-weight:700;color:var(--ink);padding:8px 0;">⚙ 사무소 정보 설정 <span class="hint">(영수증·견적서 출력에 사용 · 수정 가능)</span><span id="of_badge" style="display:none;margin-left:6px;padding:2px 8px;border-radius:10px;background:var(--seal);color:#fff;font-size:11.5px;font-weight:700;">미입력</span></summary>
       <div style="padding:8px 0 14px;">
@@ -1421,7 +1421,7 @@
 
     <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 사무소가 확인한 당일 값이 화면 위에 자동으로 들어갑니다(기준일 표시 확인). 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
       <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에는 사무소가 확인한 값이 자동으로 들어갑니다. 옆의 <b>기준일 표시</b>가 <b>등기하시는 날</b>과 같은지 확인해 주세요.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
-      <div class="note" style="border-left:3px solid var(--seal);">▸ <b>공유물분할이 「상속·증여 및 그 밖의 무상으로 취득하는 경우」에 해당하는지 명시적 근거를 확인하지 못했습니다.</b> 두 요율의 차이가 크므로(서울 3억 → 무상 1,260만원 / 유상 780만원) <b>주택도시기금 「셀프 채권매입 도우미」에서 매입용도를 확인</b>한 뒤 선택하십시오.<br>· 대법원 2002두6422(<b>이혼 재산분할</b> 사건 — 재산분할을 실질적 공유물분할로 보아 유상양도가 아니라고 판시)의 취지에 따라 <b>무상 요율</b>을 기본값으로 두었습니다. 다만 <b>순수한 공유물분할 사건의 직접 판례는 아니므로</b> 그대로 원용하기 어려운 면이 있습니다. 다만 <b>본인 지분 초과분</b>은 유상취득이므로 <b>유상 요율</b>이 타당할 여지가 있습니다. <span class="tag chk">확인필요</span></div>
+      <div class="note" style="border-left:3px solid var(--seal);">▸ <b>공유물분할이 「상속·증여 및 그 밖의 무상으로 취득하는 경우」에 해당하는지 명시적 근거를 확인하지 못했습니다.</b> 두 요율의 차이가 크므로(서울 3억 → 무상 1,260만원 / 유상 780만원) <b><a href="https://nhuf.molit.go.kr/FP/FP07/FP0705/FP070509.jsp" target="_blank" rel="noopener">주택도시기금 「셀프 채권매입 도우미」</a>에서 매입용도를 확인</b>한 뒤 선택하십시오.<br>· 대법원 2002두6422(<b>이혼 재산분할</b> 사건 — 재산분할을 실질적 공유물분할로 보아 유상양도가 아니라고 판시)의 취지에 따라 <b>무상 요율</b>을 기본값으로 두었습니다. 다만 <b>순수한 공유물분할 사건의 직접 판례는 아니므로</b> 그대로 원용하기 어려운 면이 있습니다. 다만 <b>본인 지분 초과분</b>은 유상취득이므로 <b>유상 요율</b>이 타당할 여지가 있습니다. <span class="tag chk">확인필요</span></div>
       <div class="line"><span class="lbl">매입 요율</span><div class="radios" onchange="calcBondPartition()">
         <label><input type="radio" name="pt_bondKind" value="free" checked> 무상취득(18/28/42 · 14/25/39)</label>
         <label><input type="radio" name="pt_bondKind" value="paid"> 유상 소유권이전(주택13~31 등)</label></div></div>
@@ -1664,7 +1664,7 @@
 
     <div class="card pink"><h2>② 국민주택채권 <span class="tag chk">확인필요</span><span class="law" title="매입률표(주택·토지·건물·무상)는 주택도시기금법 시행령 [별표]에 따라 전 구간이 계산기에 내장되어 있습니다(참고표에서 실제 값을 확인하실 수 있습니다). 다만 ① 면제·일부면제 대상(종교단체·사립학교·농어업인·정비사업조합·중소기업 등 20여 항목)은 사안별이라 자동판정하지 않고, ② 할인율은 매일 바뀌므로 사무소가 확인한 당일 값이 화면 위에 자동으로 들어갑니다(기준일 표시 확인). 그래서 이 두 가지만 확인이 필요합니다.">사유: 면제대상·할인율만</span></h2><div class="body">
       <div class="note alert"><span class="head">국민주택채권 — 실제로 내는 돈은 「할인손실」뿐입니다</span>등기할 때 <b>의무적으로 채권을 사야</b> 합니다. 다만 거의 모두 <b>그 자리에서 바로 되팔기</b> 때문에, 실제 부담은 <b>사고 팔 때 생기는 차액(할인손실)</b>뿐입니다. 매입금 전액을 내는 것이 아닙니다.<br>▸ <b>할인율은 매일 바뀝니다.</b> 화면 위 할인율 칸에는 사무소가 확인한 값이 자동으로 들어갑니다. 옆의 <b>기준일 표시</b>가 <b>등기하시는 날</b>과 같은지 확인해 주세요.<br>▸ <b>면제 대상일 수 있습니다.</b> 종교단체·사립학교법인·농어업인·정비사업조합·중소기업 등 <b>20여 항목</b>은 매입이 면제되거나 일부 면제됩니다. 해당될 수 있으면 <b>상담 때 꼭 말씀해 주십시오.</b> 계산기는 면제를 자동 판정하지 않습니다.</div>
-      <div class="note" style="border-left:3px solid var(--seal);">▸ <b>재산분할이 「상속·증여 및 그 밖의 무상으로 취득하는 경우」에 해당하는지 명시적 근거를 확인하지 못했습니다.</b> 두 요율의 차이가 크므로(서울 3억 → 무상 1,260만원 / 유상 780만원) <b>주택도시기금 「셀프 채권매입 도우미」에서 매입용도를 확인</b>한 뒤 선택하십시오.<br>· 취득세법상 <b>무상취득</b>(§11①2호 3.5% 기준)으로 취급되고 대법원 2002두6422도 <b>재산분할을 실질적 공유물분할</b>로 보아 유상양도가 아니라고 하므로 <b>무상 요율</b>을 기본값으로 두었습니다. <span class="tag chk">확인필요</span></div>
+      <div class="note" style="border-left:3px solid var(--seal);">▸ <b>재산분할이 「상속·증여 및 그 밖의 무상으로 취득하는 경우」에 해당하는지 명시적 근거를 확인하지 못했습니다.</b> 두 요율의 차이가 크므로(서울 3억 → 무상 1,260만원 / 유상 780만원) <b><a href="https://nhuf.molit.go.kr/FP/FP07/FP0705/FP070509.jsp" target="_blank" rel="noopener">주택도시기금 「셀프 채권매입 도우미」</a>에서 매입용도를 확인</b>한 뒤 선택하십시오.<br>· 취득세법상 <b>무상취득</b>(§11①2호 3.5% 기준)으로 취급되고 대법원 2002두6422도 <b>재산분할을 실질적 공유물분할</b>로 보아 유상양도가 아니라고 하므로 <b>무상 요율</b>을 기본값으로 두었습니다. <span class="tag chk">확인필요</span></div>
       <div class="line"><span class="lbl">매입 요율</span><div class="radios" onchange="calcBondDivision()">
         <label><input type="radio" name="dv_bondKind" value="free" checked> 무상취득(18/28/42 · 14/25/39)</label>
         <label><input type="radio" name="dv_bondKind" value="paid"> 유상 소유권이전(주택13~31 등)</label></div></div>
@@ -2896,7 +2896,7 @@
     </div></div>
     <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
       <table class="t">
-        <tr><td>등록면허세 <span class="hint">(자동차 가압류등록 건당 15,000)</span> <span class="tag chk">확인필요</span><span class="law" title="자동차 가압류등록의 등록면허세는 확정된 근거를 확보하지 못했습니다. 화면의 15,000원은 추정치이므로 관할 시·군·구 또는 접수 법원에 확인한 금액을 직접 입력하십시오. 같은 화면 아래 안내문도 「추정·확인필요」로 되어 있습니다.">근거 미확보 · 추정치</span></td><td><input class="cell" id="av_regTax" type="number" oninput="calcAttachCar(true)"></td></tr>
+        <tr><td>등록면허세 <span class="hint">(자동차 가압류 등록 — 「그 밖의 등록」 건당 15,000)</span><span class="law" title="지방세법 제28조제1항제3호는 자동차 등록의 등록면허세를 가목(소유권)·나목(저당권)·다목(취득대금 지급자·운수업체 등록)·라목(그 밖의 등록 — 건당 15,000원)으로 나눕니다. 가압류 등록은 가~다목에 없으므로 라목에 해당합니다. 관할 시·군·구에서 다르게 안내하면 그 금액으로 고쳐 넣으십시오.">지방세법 §28①3호라목</span></td><td><input class="cell" id="av_regTax" type="number" oninput="calcAttachCar(true)"></td></tr>
         <tr><td>지방교육세 <span class="hint">(klac 미부과·필요시 입력)</span></td><td><input class="cell" id="av_eduTax" type="number" oninput="calcAttachCar(true)"></td></tr>
         <tr><td>인지대 <span class="hint">(가압류 10,000 정액)</span><span class="law" title="「민사소송 등 인지법」 §9② — 가압류·가처분의 신청, 그 결정에 대한 이의·취소 신청서에는 각 10,000원의 인지를 붙입니다.">인지법 §9②</span></td><td><input class="cell" id="av_inji" type="number" oninput="calcAttachCar(true)"></td></tr>
         <tr><td>송달료 <span class="hint" id="av_songNote"></span><span class="law" title="「송달료규칙의 시행에 따른 업무처리요령」(재일 87-4) 별표1이 사건 종류별 예납 회차를 정합니다. 1회 단가는 우편요금에 연동되며 화면 상단에서 바꿀 수 있습니다.">재일 87-4 별표1</span></td><td><input class="cell" id="av_song" type="number" oninput="calcAttachCar(true)"></td></tr>
@@ -2921,7 +2921,7 @@
       <div class="row"><span>공과금계</span><span id="av_t_public">0 원</span></div>
       <div class="row grand"><span>총 합계 <span class="hint" id="av_t_ratio"></span></span><span id="av_t_grand">0 원</span></div></div>
     <div class="actions"><button class="btn" onclick="calcAttachCar()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button><a class="btn" href="https://pf.kakao.com/_znJqX/chat" target="_blank" rel="noopener" onclick="calcConsult('kakao',this)" style="background:#FEE500;color:#3c1e1e;text-decoration:none;">💬 카톡 상담</a><a class="btn" href="mailto:rokfbi01@gmail.com" onclick="calcConsult('mail',this)" style="background:#3d5a80;text-decoration:none;">✉️ 이메일 상담</a><a class="btn" href="tel:01037480825" style="background:#c8862d;text-decoration:none;">📞 전화 상담</a></div>
-    <div class="card green"><h2>④ 안내</h2><div class="body"><div class="docs"><b>등록면허세</b> — 자동차 가압류는 자동차등록원부 등록(건당 정액 추정 15,000) [확인필요·결과 샘플로 확정].<br><b>담보금</b> — 통상 청구금액의 일정 비율, 법원 재량 [확인필요].</div></div>
+    <div class="card green"><h2>④ 안내</h2><div class="body"><div class="docs"><b>등록면허세</b> — 자동차 가압류는 자동차등록원부에 「그 밖의 등록」으로 올라가 건당 15,000원입니다(지방세법 §28①3호라목).<br><b>담보금</b> — 통상 청구금액의 일정 비율, 법원 재량 [확인필요].</div></div>
     <div class="card green"><h2>⑤ 준비서류</h2><div class="body"><div class="docs" id="av_docsBox"></div></div></div></div>
   </div>
 
@@ -3008,7 +3008,7 @@
         <tr><td>지방교육세 <span class="hint">(등면세×20%)</span><span class="law" title="지방교육세를 정한 조항입니다. 2호는 납부해야 할 「등록면허세액의 100분의 20(20%)」을 세액으로 합니다.">지방세법 §151①2호</span></td><td><input class="cell" id="at_eduTax" type="number" oninput="calcAttach(true)"></td></tr>
         <tr><td>인지대 <span class="hint">(가압류 10,000 정액)</span><span class="law" title="「민사소송 등 인지법」 §9② — 가압류·가처분의 신청, 그 결정에 대한 이의·취소 신청서에는 각 10,000원의 인지를 붙입니다.">인지법 §9②</span></td><td><input class="cell" id="at_inji" type="number" oninput="calcAttach(true)"></td></tr>
         <tr><td>송달료 <span class="hint" id="at_songNote"></span><span class="law" title="「송달료규칙의 시행에 따른 업무처리요령」(재일 87-4) 별표1이 사건 종류별 예납 회차를 정합니다. 1회 단가는 우편요금에 연동되며 화면 상단에서 바꿀 수 있습니다.">재일 87-4 별표1</span></td><td><input class="cell" id="at_song" type="number" oninput="calcAttach(true)"></td></tr>
-        <tr><td>보증보험료 <span class="hint">(담보금×0.3% 기본·수정가능) [확인필요]</span></td><td><input class="cell" id="at_bond" type="number" oninput="calcAttach(true)"></td></tr>
+        <tr><td>보증보험료 <span class="hint">(담보금×0.085%·최저15,000·수정가능) [확인필요]</span></td><td><input class="cell" id="at_bond" type="number" oninput="calcAttach(true)"></td></tr>
         <tr><td>등기신청수수료 <span class="hint">(부동산당 4,000 기본)</span><span class="law" title="「등기사항증명서 등 수수료규칙」 §5의2 — 부동산 등기신청수수료. 2025.8.1. 시행(대법원규칙 제3222호)으로 방문서면·e-Form이 인상되었고 전자신청은 동결되었습니다.">수수료규칙 §5의2</span></td><td><input class="cell" id="at_regFee" type="number" value="4000" oninput="calcAttach(true)"></td></tr>
         <tr><td>보정료 등 <span class="hint">(직접 입력)</span></td><td><input class="cell" id="at_correct" type="number" value="0" oninput="calcAttach(true)"></td></tr>
         <tr class="subtot"><td>공과금계</td><td id="at_publicSum">0 원</td></tr>
@@ -3072,7 +3072,7 @@
         <tr id="inj_eduRow"><td>지방교육세 <span class="hint">(등면세×20%)</span><span class="law" title="지방교육세를 정한 조항입니다. 2호는 납부해야 할 「등록면허세액의 100분의 20(20%)」을 세액으로 합니다.">지방세법 §151①2호</span></td><td><input class="cell" id="inj_eduTax" type="number" oninput="calcInjunction(true)"></td></tr>
         <tr><td>인지대 <span class="hint" id="inj_injiNote"></span><span class="law" title="「민사소송 등 인지법」 §9② — 가압류·가처분 신청은 10,000원입니다. 다만 단서에 따라 「임시의 지위를 정하는 가처분」은 본안 소가 인지액의 2분의 1(상한 50만원)입니다.">인지법 §9②</span></td><td><input class="cell" id="inj_inji" type="number" oninput="calcInjunction(true)"></td></tr>
         <tr><td>송달료 <span class="hint" id="inj_songNote"></span><span class="law" title="「송달료규칙의 시행에 따른 업무처리요령」(재일 87-4) 별표1이 사건 종류별 예납 회차를 정합니다. 1회 단가는 우편요금에 연동되며 화면 상단에서 바꿀 수 있습니다.">재일 87-4 별표1</span></td><td><input class="cell" id="inj_song" type="number" oninput="calcInjunction(true)"></td></tr>
-        <tr><td>보증보험료 <span class="hint">(담보금×0.3% 기본·수정가능) [확인필요]</span></td><td><input class="cell" id="inj_bond" type="number" oninput="calcInjunction(true)"></td></tr>
+        <tr><td>보증보험료 <span class="hint">(담보금×0.085%·최저15,000·수정가능) [확인필요]</span></td><td><input class="cell" id="inj_bond" type="number" oninput="calcInjunction(true)"></td></tr>
         <tr id="inj_regFeeRow"><td>등기신청수수료 <span class="hint">(부동산당 4,000 기본)</span><span class="law" title="「등기사항증명서 등 수수료규칙」 §5의2 — 부동산 등기신청수수료. 2025.8.1. 시행(대법원규칙 제3222호)으로 방문서면·e-Form이 인상되었고 전자신청은 동결되었습니다.">수수료규칙 §5의2</span></td><td><input class="cell" id="inj_regFee" type="number" value="4000" oninput="calcInjunction(true)"></td></tr>
         <tr><td>보정료 등 <span class="hint">(직접 입력)</span></td><td><input class="cell" id="inj_correct" type="number" value="0" oninput="calcInjunction(true)"></td></tr>
         <tr class="subtot"><td>공과금계</td><td id="inj_publicSum">0 원</td></tr>
@@ -3341,6 +3341,7 @@
         <tr id="ty_fXRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="ty_fXNote"></span></td><td class="auto" id="ty_fXCell">0 원</td></tr>
         <tr id="ty_fARow" style="display:none;"><td>난이도·당사자 가산 <span class="hint" id="ty_fANote"></span></td><td class="auto" id="ty_fACell">0 원</td></tr>
         <tr id="ty_fVRow" style="display:none;"><td>확인서면·보증서 작성 <span class="hint" id="ty_fVNote"></span></td><td class="auto" id="ty_fVCell">0 원</td></tr>
+        <tr id="ty_taxRow"><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ty_f_tax" onchange="calcTy()"> <span id="ty_taxLbl">등록면허세</span> 신고·납부 대행 (50,000)</label><span class="law" title="법무사 보수기준 제25조제1항 표 2호(부표 Ⅸ-2) — 취득세·등록면허세의 신고·납부 또는 감면신청 및 공과금 납부 대행 1건당 50,000원.">보수표 Ⅸ-2</span></td><td class="auto" id="ty_taxCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ty_f_trip" onchange="calcTy()"> 교통비 및 일당</label></td><td><input class="cell" id="ty_tripFee" type="number" value="160000" oninput="calcTy(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="ty_extraAgent"></tbody>
@@ -4215,6 +4216,7 @@ const SCENARIO={
  "소유권보존":{cat:'re',full:'preserve',ref:'Ⅰ-1'},
  "근저당권설정":{cat:'re',full:'mortgage',ref:'Ⅰ-1'},
  "근저당권말소":{cat:'re',full:'mortgageCancel',ref:'Ⅰ-3(4) 80,000'},
+ "소유권말소(판결·합의해제 등)":{cat:'re',full:'ty',ty:'re',preset:{n:'소유권이전말소',cause:'확정판결',tax:true},ref:'Ⅰ-3(4) 80,000'},
  "전세권·지상권 설정":{cat:'re',full:'right',ref:'Ⅰ-1'},
  "가등기":{cat:'re',full:'gadeungi',ref:'Ⅰ-1'},
  "신탁등기":{cat:'re',full:'sintak',ref:'Ⅰ-4'},
@@ -4757,7 +4759,13 @@ function _doOpenScenario(name){
   document.getElementById('menu').style.display='none';
   document.querySelectorAll('.scene').forEach(s=>s.classList.remove('active'));
   document.getElementById('hsub').textContent=name;
-  if(SCENARIO[name].full==='ty'){document.getElementById('scene-유형별').classList.add('active');if(TYS.cat!==SCENARIO[name].ty){TYS.cat=SCENARIO[name].ty;TYS.i=0;TYS.cause='';TYS.opt=0;TYS.cls='';TYS.m='';}tyRender();}
+  if(SCENARIO[name].full==='ty'){document.getElementById('scene-유형별').classList.add('active');if(TYS.cat!==SCENARIO[name].ty){TYS.cat=SCENARIO[name].ty;TYS.i=0;TYS.cause='';TYS.opt=0;TYS.cls='';TYS.m='';}
+    /* 2026-11-18 — 메뉴 바로가기(예: 소유권말소)는 등기유형·원인을 미리 골라 둔다 */
+    const _ps=SCENARIO[name].preset;
+    if(_ps&&TYS.cat==='re'){const _ix=TY.RE.findIndex(t=>t.n===_ps.n);if(_ix>=0){TYS.i=_ix;TYS.cause=_ps.cause||'';TYS.opt=0;TYS.sub='';}
+    }
+    {const _c=document.getElementById('ty_f_tax');if(_c)_c.checked=!!(_ps&&_ps.tax);}   /* 바로가기에서만 기본 체크 */
+    tyRender();}
   else if(SCENARIO[name].full===true){document.getElementById('scene-매매').classList.add('active');calcSale();}
   else if(SCENARIO[name].full==='inherit'){document.getElementById('scene-상속').classList.add('active');calcInherit();}
   else if(SCENARIO[name].full==='bequest'){document.getElementById('scene-유증').classList.add('active');calcBequest();renderDocsBequest();}
@@ -5182,7 +5190,7 @@ const LK={
   iros:'<a href="https://www.iros.go.kr" target="_blank" rel="noopener">인터넷등기소</a>',
   rtms:'<a href="https://rtms.molit.go.kr" target="_blank" rel="noopener">부동산거래관리시스템</a>',
   wetax:'<a href="https://www.wetax.go.kr" target="_blank" rel="noopener">위택스</a>',
-  bond:'<a href="https://nhuf.molit.go.kr" target="_blank" rel="noopener">주택도시기금</a>',
+  bond:'<a href="https://nhuf.molit.go.kr/FP/FP07/FP0705/FP070509.jsp" target="_blank" rel="noopener">주택도시기금 셀프 채권매입 도우미</a>',
   eum:'<a href="https://www.eum.go.kr" target="_blank" rel="noopener">토지이음</a>'
 };
 const D3_SEAL='<span class="hint">주민센터에서 발급합니다(인터넷 발급은 되지 않습니다). <b>본인서명사실확인서</b>로 대신할 수도 있습니다 <span class="law" title="부동산등기실무(2026) 138쪽 — 인감증명서, 본인서명사실확인서 또는 전자본인서명확인서의 발급증">실무교재 138쪽</span></span>';
@@ -9033,7 +9041,7 @@ function renderDocsEtcAcq(){
     +'· <b>공시가격(시가표준액) 조회</b> → <a href="https://www.realtyprice.kr" target="_blank" rel="noopener">부동산공시가격 알리미</a><br>'
     +'· <b>건축 인허가 서류</b> → <a href="https://www.eais.go.kr" target="_blank" rel="noopener">세움터</a> 또는 시·군·구청 건축과<br>'
     +'<br><span style="color:var(--seal);font-weight:700;">※ 국민주택채권은 취득원인별 매입용도가 달라 자동계산하지 않습니다. '
-    +'<a href="https://nhuf.molit.go.kr" target="_blank" rel="noopener">주택도시기금 「셀프 채권매입 도우미」</a>로 확인한 금액을 계산기의 공과금(채권) 칸에 직접 넣으십시오.</span><br>'
+    +'<a href="https://nhuf.molit.go.kr/FP/FP07/FP0705/FP070509.jsp" target="_blank" rel="noopener">주택도시기금 「셀프 채권매입 도우미」</a>로 확인한 금액을 계산기의 공과금(채권) 칸에 직접 넣으십시오.</span><br>'
     +'<span class="hint">▸ 모든 서류는 <b>주민등록번호 뒷자리가 나오게</b> 발급받으십시오.<br>'
     +'▸ 위 목록은 일반적인 경우입니다. <b>사안에 따라 서류가 더 필요할 수 있습니다.</b></span></div>';
   db.innerHTML=d3({clientHTML:h,office:office,attach:attach,attachNote:anote,tail:tailWhere,
@@ -12434,6 +12442,11 @@ function calcTy(fromEdit){
   const fX=Math.round(feeRaw*(pct('ty_fr')+pct('ty_frc'))); tyRowSet('fX',fX,'× '+Math.round((pct('ty_fr')+pct('ty_frc'))*100)+'% · '+(add.indexOf('X')>=0?'§14②':'§10⑥')); fee+=fX;
   const fA=Math.round(feeRaw*pct('ty_adj')); tyRowSet('fA',fA,'× '+Math.round(pct('ty_adj')*100)+'% · §2②→§10③'); fee+=fA;
   const vb=pct('ty_v'); const fV=vb>0?vb+Math.max(0,val('ty_vn')-1)*30000:0; tyRowSet('fV',fV,(vb===200000?'동일인보증서':'본인확인서면')+' · §10⑤'); fee+=fV;
+  /* 2026-11-18 — 보수기준 §25①2호(Ⅸ-2) 신고·납부 대행. 세금이 없는 등기(lic none)는 줄을 숨긴다 */
+  {const _lic=(r&&r.lic)||(cur&&cur.base&&cur.base.lic)||'';const _row=document.getElementById('ty_taxRow');
+   const _on=_lic!=='none';if(_row)_row.style.display=_on?'':'none';
+   const _lb=document.getElementById('ty_taxLbl');if(_lb)_lb.textContent=_lic==='acq'?'취득세':'등록면허세';
+   const _tv=(_on&&chk('ty_f_tax'))?FLAT['Ⅸ-2']:0;const _tc=document.getElementById('ty_taxCell');if(_tc)_tc.textContent=won(_tv);fee+=_tv;}
   if(chk('ty_f_trip'))fee+=val('ty_tripFee');
   EXTRA_AGENT.forEach(([id,nm,code])=>{const c=document.getElementById('tyck_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('tyqt_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('ty_extraAgent');
@@ -12547,6 +12560,8 @@ function verifyData(){
   const bar=document.getElementById('verifybar');
   if(fail===0)bar.innerHTML='★ 보수표 검증 통과 — 누진 '+cntTier+'개 경계 연속성 정상 · 정액 '+cntFlat+'개 · 사건 '+cntScene+'종 로드 (누락·오류 0)';
   else{bar.style.color='var(--seal)';bar.innerHTML='⚠ 누진 검증 실패 '+fail+'건';}
+  /* 2026-11-18 — 내부 점검 문구라 관리자 기기에서만 보인다 */
+  try{ if(localStorage.getItem('sanlaw_calc_admin')==='1') bar.style.display=''; }catch(e){}
 }
 
 document.querySelectorAll('.bondRefMount').forEach(el=>el.innerHTML=bondRefTable()); // 채권 참고표 = BOND_RATE 자동출력
@@ -14480,5 +14495,61 @@ function recBuild(){
 .gsx-box.gsx-folded .rec-list{display:none}
 @media print{.gsx-box.gsx-folded .rec-list{display:block}}
 </style>
+<style id="dl-20261118">
+.dl-note{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:0 0 14px;padding:10px 14px;background:#eef6ef;border:1px solid #cfe5d3;border-left:4px solid #2f6b3d;border-radius:0 10px 10px 0;font-size:14px;line-height:1.6;color:#23412b;}
+.dl-note b{color:#1f4d2b;}
+.dl-note button{border:1px solid #2f6b3d;background:#fff;color:#2f6b3d;border-radius:14px;padding:3px 12px;font:inherit;font-size:13px;font-weight:700;cursor:pointer;}
+.dl-note button:hover{background:#e3f1e6;}
+@media print{.dl-note{display:none!important;}}
+</style>
+<script id="dl-js-20261118">
+/* ═══ 2026-11-18 딥링크 ═══
+   ① 주소로 화면 열기: tools-calculator.html#s=화면이름 (예: #s=%EB%A7%A4%EB%A7%A4 = 매매)
+      — 사이트 검색 결과·다른 페이지 링크가 이 주소를 쓴다.
+   ② 업무카드에서 온 경우: 카드 주소(document.referrer)를 아래 표에서 찾아 맞는 화면을 연다.
+      카드 파일은 고치지 않는다. 같은 창에서 한 번만 적용(새로고침 때 다시 끌어오지 않음).
+   표에 없는 카드에서 오면 종전처럼 전체 메뉴가 보인다. */
+(function(){
+  var CARD2CALC = {"A-1_예금채권가압류.html":"채권가압류","A-2_부동산가압류.html":"부동산가압류","A-3_급여가압류.html":"채권가압류","A-4_전세보증금가압류.html":"부동산가압류","A-5_지명채권가압류.html":"채권가압류","A-6_유체동산가압류.html":"유체동산가압류","A-7_자동차가압류.html":"자동차가압류","A-8_주식지분가압류.html":"채권가압류","A-9_회원권가압류.html":"채권가압류","A-10_담보제공_보증보험.html":"부동산가압류","B-1_부동산처분금지가처분.html":"가처분","B-2_점유이전금지가처분.html":"가처분","B-3_공사금지가처분.html":"가처분","B-4_인격권침해금지가처분.html":"가처분","B-5_직무집행정지가처분.html":"가처분","B-6_임금지급가처분.html":"가처분","B-7_가등기가처분.html":"가처분","C-1_가압류이의_방어.html":"민사 신청사건(기타)","C-2_가처분방어.html":"민사 신청사건(기타)","C-3_해방공탁.html":"공탁","C-4_제소명령.html":"민사 신청사건(기타)","C-5_사정변경취소.html":"민사 신청사건(기타)","C-6_부당가압류_손해배상.html":"소장·답변서·준비서면","가1-1_혼인전재산_재산분할여부.html":"재판상 이혼","가5-1_약혼해제_위자료.html":"소장·답변서·준비서면","족2-1_본관_바로잡기.html":"본관 정정(가족관계등록부 정정허가)","후1-1_성년후견개시.html":"후견 신청 및 등기","후1-2_한정후견개시.html":"후견 신청 및 등기","후1-3_특정후견개시.html":"후견 신청 및 등기","후1-4_임의후견_후견계약.html":"후견 신청 및 등기","후2-1_후견진단서준비.html":"후견 신청 및 등기","1-1_상속재산분할심판.html":"상속재산분할 심판청구","1-3_기여분.html":"상속재산분할 심판청구","1-4_상속예금.html":"상속재산분할 심판청구","1-5_도장거부_연락두절.html":"상속재산분할 심판청구","1-6_제사용재산.html":"상속재산분할 심판청구","1-7_상속결격.html":"소장·답변서·준비서면","1-8_현물분할_대상분할_경매.html":"상속재산분할 심판청구","2-1_유류분_반환청구.html":"소장·답변서·준비서면","2-2_형제자매_유류분.html":"소장·답변서·준비서면","2-3_유류분_기여대가.html":"소장·답변서·준비서면","2-4_상속권상실_구하라법.html":"소장·답변서·준비서면","2-5_유류분_청구기간.html":"소장·답변서·준비서면","2-6_생전증여_계좌내역_확보.html":"소장·답변서·준비서면","2-7_유언대용신탁_유류분_포함여부.html":"소장·답변서·준비서면","3-1_상속받지않기_포기_한정승인.html":"상속포기·한정승인 신고","3-2_특별한정승인.html":"상속포기·한정승인 신고","3-3_상속포기후_관리계속의무.html":"상속포기·한정승인 신고","3-4_전원포기_손자녀.html":"상속포기·한정승인 신고","3-5_상속포기후_독촉장_대응_안내.html":"소장·답변서·준비서면","3-7_해외거주자_포기_한정승인_실무.html":"상속포기·한정승인 신고","4-1_상속등기_부동산명의이전.html":"상속","4-2_대습상속.html":"상속","4-3_제외국민_외국인_상속등기.html":"상속","5-1_소송수계의_기본_개념및_신청.html":"소장·답변서·준비서면","5-2_상속포기_수계신청_대응.html":"소장·답변서·준비서면","5-3_한정승인_수계_책임범위유보.html":"소장·답변서·준비서면","5-4_상속포기_가압류_경매_대응.html":"소장·답변서·준비서면","6-3_유언_형식요건_무효.html":"소장·답변서·준비서면","6-5_유언무효확인소송_필적의사.html":"소장·답변서·준비서면","6-6_유언집행자_역할과절차.html":"유증(유언에 의한 소유권이전)","7-1_상속회복청구.html":"소장·답변서·준비서면","7-2_제3자_상속재산_회복.html":"소장·답변서·준비서면","7-3_위조_협의분할_상속등기.html":"소장·답변서·준비서면","sanlaw_매매등기_안내.html":"매매","sanlaw_증여등기_안내.html":"증여","sanlaw_부담부증여_안내.html":"부담부증여","sanlaw_친인척_저가매매_증여_안내.html":"매매","sanlaw_상속등기_안내.html":"상속","sanlaw_소유권보존등기_안내.html":"소유권보존","sanlaw_근저당권설정등기_안내.html":"근저당권설정","sanlaw_근저당권말소등기_안내.html":"근저당권말소","sanlaw_전세권등기_안내.html":"전세권·지상권 설정","sanlaw_지상권등기_안내.html":"전세권·지상권 설정","sanlaw_가등기_안내.html":"가등기","sanlaw_신탁등기_안내.html":"신탁등기","sanlaw_담보권추가설정등기_안내.html":"담보권추가설정","sanlaw_관할특례등기_안내.html":"매매","sanlaw_공유물분할등기_안내.html":"공유물분할(소유권이전)","sanlaw_재산분할등기_안내.html":"이혼 재산분할(소유권이전)","sanlaw_분양등기_안내.html":"신규 분양·분양권(소유권이전)","sanlaw_경매공매등기_안내.html":"경매·공매 낙찰(촉탁등기)","sanlaw_부부재산약정등기_안내.html":"부부재산약정등기","sanlaw_외국인_재외동포_등기_안내.html":"외국인·재외국민 준비서류","sanlaw_주식회사설립등기_안내.html":"법인설립","sanlaw_전문건설업_법인설립_안내.html":"법인설립","sanlaw_조경건설업_법인설립_안내.html":"법인설립","sanlaw_외국인_한국법인설립_안내.html":"법인설립","sanlaw_외국인_법인설립_안내.html":"법인설립","sanlaw_증자등기_안내.html":"자본증감(증자)","sanlaw_소규모회사_증자_안내.html":"자본증감(증자)","sanlaw_전환사채발행등기_안내.html":"전환사채발행","sanlaw_임원변경등기_안내.html":"임원 선임·변경","sanlaw_상호목적변경등기_안내.html":"상호·목적 변경","sanlaw_본점이전_지점등기_안내.html":"본점 관내이전","sanlaw_해산청산등기_안내.html":"해산·청산종결·계속","sanlaw_학교법인_설립허가_등기_안내.html":"법인설립","sanlaw_사회복지법인_설립허가_등기_안내.html":"법인설립"};
+  function hashName(){
+    var h=location.hash.replace(/^#/,''); if(!h) return null;
+    try{ h=decodeURIComponent(h); }catch(e){}
+    if(h.indexOf('s=')===0) h=h.slice(2);
+    return (typeof SCENARIO!=='undefined' && SCENARIO[h]) ? h : null;
+  }
+  function refName(){
+    try{
+      var r=document.referrer; if(!r) return null;
+      var u=new URL(r), bare=function(x){return x.replace(/^www\./,'');}; if(bare(u.hostname)!==bare(location.hostname)) return null;
+      var f=decodeURIComponent((u.pathname.split('/').pop())||''); if(!f) return null;
+      if(!/\.html$/.test(f)) f+='.html';
+      var n=CARD2CALC[f]; if(!n || !SCENARIO[n]) return null;
+      var k='dl_ref_done'; try{ if(sessionStorage.getItem(k)===r) return null; sessionStorage.setItem(k,r); }catch(e){}
+      return n;
+    }catch(e){ return null; }
+  }
+  function note(name, why){
+    document.querySelectorAll('.dl-note').forEach(function(x){ x.remove(); });
+    var sc=document.querySelector('.scene.active'); if(!sc) return;
+    var d=document.createElement('div'); d.className='dl-note';
+    d.innerHTML=(why==='card'
+      ? '📌 업무 안내 카드에서 오셔서 <b>「'+name+'」</b> 계산 화면을 바로 열었습니다.'
+      : '📌 <b>「'+name+'」</b> 계산 화면입니다.')
+      +' <button type="button" onclick="goMenu()">다른 계산 고르기 ▸</button>';
+    sc.insertBefore(d, sc.firstChild);
+  }
+  function go(name, why){ try{ openScenario(name); note(name, why); }catch(e){} }
+  var h=hashName();
+  if(h) go(h,'link'); else { var c=refName(); if(c) go(c,'card'); }
+  window.addEventListener('hashchange', function(){ var n=hashName(); if(n) go(n,'link'); });
+  /* 메뉴로 돌아가면 안내줄과 주소의 화면 이름을 지운다(새로고침 때 엉뚱한 화면이 열리지 않게) */
+  var _gm=window.goMenu;
+  if(typeof _gm==='function') window.goMenu=function(){
+    document.querySelectorAll('.dl-note').forEach(function(x){ x.remove(); });
+    if(hashName()) try{ history.replaceState(null,'',location.pathname+location.search); }catch(e){}
+    return _gm.apply(this, arguments);
+  };
+})();
+</script>
 </body>
 </html>

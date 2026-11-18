@@ -613,6 +613,30 @@ section.about .credos li{font-size:15px;margin-bottom:8px}
 }
 @media print{.psearch{display:none}}
 </style>
+<style id="ps-20261118">
+/* 2026-11-18 — 네이버·구글 검색창을 작게 줄여 메뉴 바로 밑 오른쪽에 두고, 메일 바로가기를 각 검색창 바로 옆에 붙인다.
+   가운데 큰 검색창은 「사무소 안에서 찾기」(site-search.js) 자리. */
+.psearch{flex-wrap:nowrap;justify-content:flex-end;align-items:center;gap:16px;width:100%;margin:-6px 0 26px}
+.ps-col{flex:0 1 auto;flex-direction:row;align-items:center;gap:6px}
+.ps-col .ps{width:240px;height:38px;flex:none;box-shadow:0 3px 10px rgba(0,0,0,.16)}
+.ps input{font-size:14px;padding:0 8px}
+.ps-naver .ps-lab{font-size:14px;padding-left:10px}
+.ps-naver button{width:40px}
+.ps-naver button svg{width:17px;height:17px}
+.ps-google{padding-left:11px}
+.ps-google .ps-lab{font-size:13.5px;padding-left:6px}
+.ps-google button{height:28px;margin-right:5px;padding:0 11px;font-size:12.5px}
+.ps-mail{flex:0 0 auto;font-size:12px;padding:6px 10px;white-space:nowrap}
+.ps-note{display:none}
+@media (max-width:980px) and (min-width:769px){.ps-col .ps{width:190px}.ps-mx{display:none}}
+@media (max-width:768px){
+  .psearch{flex-wrap:wrap;justify-content:stretch;gap:8px;margin:10px 0 16px}
+  .ps-col{flex:1 1 100%;width:100%}
+  .ps-col .ps{flex:1 1 auto;width:auto;height:40px}
+  .ps-mail{padding:6px 10px;min-width:92px;justify-content:center}
+  .ps-mx{display:none}
+}
+</style>
 </head>
 <body>
 
@@ -645,7 +669,7 @@ section.about .credos li{font-size:15px;margin-bottom:8px}
         <input id="psNaver" type="search" name="query" placeholder="네이버 검색" autocomplete="off" enterkeyhint="search" required>
         <button type="submit" aria-label="네이버에서 검색"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg></button>
       </form>
-      <a class="ps-mail" href="https://mail.naver.com/" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>네이버 메일 바로가기</a>
+      <a class="ps-mail" href="https://mail.naver.com/" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>네이버 메일<span class="ps-mx"> 바로가기</span></a>
       </div>
       <div class="ps-col">
       <form class="ps ps-google" action="https://www.google.com/search" method="get" target="_blank" rel="noopener">
@@ -655,13 +679,15 @@ section.about .credos li{font-size:15px;margin-bottom:8px}
         <input id="psGoogle" type="search" name="q" placeholder="구글 검색" autocomplete="off" enterkeyhint="search" required>
         <button type="submit" aria-label="구글에서 검색">검색</button>
       </form>
-      <a class="ps-mail" href="https://mail.google.com/" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>Gmail 바로가기</a>
+      <a class="ps-mail" href="https://mail.google.com/" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>Gmail<span class="ps-mx"> 바로가기</span></a>
       </div>
     </div>
     <span class="eyebrow fu in">검찰 33년 · 법무사 · 행정사</span>
     <h1 class="fu in d1">33년 검찰 실무의 눈으로,<br><span class="em">쟁점부터 서류 한 장까지</span><br>상세히 살핍니다.</h1>
     <p class="lead fu in d2">민사·가사·상속·등기·행정심판·법인(상업법인, 비영리법인) 설립.<br>법무사·행정사 두 자격으로 정확한 서류를 준비해<br>의뢰인의 권리 보호를 위해 최선을 다하겠습니다.</p>
-    <div class="hero-nav fu in d3">
+    <!-- 2026-11-18 사이트 안 검색 -->
+<div id="sanSearch" data-gate="chk" style="margin-top:24px;"></div>
+<div class="hero-nav fu in d3">
       <a href="#practice" class="hnav-card">
         <span class="hnav-ico">⚖</span>
         <span class="hnav-t">업무 분야</span>
@@ -1969,5 +1995,6 @@ try{restoreFromCard();}catch(e){}
   });
 })();
 </script>
+<script src="site-search.js?v=20261118" defer></script>
 </body>
 </html>
