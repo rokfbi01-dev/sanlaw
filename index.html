@@ -615,8 +615,8 @@ section.about .credos li{font-size:15px;margin-bottom:8px}
 </style>
 <style id="ps-20261118">
 /* 2026-11-18 — 네이버·구글 검색창을 작게 줄여 메뉴 바로 밑 오른쪽에 두고, 메일 바로가기를 각 검색창 바로 옆에 붙인다.
-   가운데 큰 검색창은 「사무소 안에서 찾기」(site-search.js) 자리. */
-.psearch{flex-wrap:nowrap;justify-content:flex-end;align-items:center;gap:16px;width:100%;margin:-6px 0 26px}
+   가운데 큰 검색창은 「찾을 내용 및 업무」(site-search.js) 자리. */
+.psearch{flex-wrap:nowrap;justify-content:center;align-items:center;gap:16px;width:100%;margin:-6px 0 26px}
 .ps-col{flex:0 1 auto;flex-direction:row;align-items:center;gap:6px}
 .ps-col .ps{width:240px;height:38px;flex:none;box-shadow:0 3px 10px rgba(0,0,0,.16)}
 .ps input{font-size:14px;padding:0 8px}
@@ -629,6 +629,10 @@ section.about .credos li{font-size:15px;margin-bottom:8px}
 .ps-mail{flex:0 0 auto;font-size:12px;padding:6px 10px;white-space:nowrap}
 .ps-note{display:none}
 @media (max-width:980px) and (min-width:769px){.ps-col .ps{width:190px}.ps-mx{display:none}}
+/* 제목은 2줄로 — 글씨를 줄인다 / 안내문도 2줄 */
+section.hero .hero-inner h1{font-size:clamp(18px,4.7vw,36px);line-height:1.38;margin-bottom:14px}
+section.hero .hero-inner p.lead{max-width:900px;font-size:clamp(14px,1.45vw,16px);line-height:1.8}
+@media (max-width:768px){section.hero .hero-inner h1{font-size:clamp(17px,4.6vw,24px)!important;line-height:1.4}section.hero .hero-inner p.lead{font-size:14px}}
 @media (max-width:768px){
   .psearch{flex-wrap:wrap;justify-content:stretch;gap:8px;margin:10px 0 16px}
   .ps-col{flex:1 1 100%;width:100%}
@@ -683,8 +687,8 @@ section.about .credos li{font-size:15px;margin-bottom:8px}
       </div>
     </div>
     <span class="eyebrow fu in">검찰 33년 · 법무사 · 행정사</span>
-    <h1 class="fu in d1">33년 검찰 실무의 눈으로,<br><span class="em">쟁점부터 서류 한 장까지</span><br>상세히 살핍니다.</h1>
-    <p class="lead fu in d2">민사·가사·상속·등기·행정심판·법인(상업법인, 비영리법인) 설립.<br>법무사·행정사 두 자격으로 정확한 서류를 준비해<br>의뢰인의 권리 보호를 위해 최선을 다하겠습니다.</p>
+    <h1 class="fu in d1">33년 검찰 실무의 눈으로,<br><span class="em">쟁점부터 서류 한 장까지</span> 상세히 살핍니다.</h1>
+    <p class="lead fu in d2">민사·가사·상속·등기·행정심판·법인(상업, 비영리) 설립 및 등기.<br>법무사·행정사 두 자격으로 정확한 서류를 준비해 의뢰인의 권리 보호를 위해 최선을 다하겠습니다.</p>
     <!-- 2026-11-18 사이트 안 검색 -->
 <div id="sanSearch" data-gate="chk" style="margin-top:24px;"></div>
 <div class="hero-nav fu in d3">
