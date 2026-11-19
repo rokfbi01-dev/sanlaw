@@ -2345,6 +2345,65 @@
     </div></div>
   </div>
 
+  <!-- ===== 변경·경정 등기 (2026-11-19 신설) — 명의인 표시·근저당권·부동산 표시·전세권 등 ===== -->
+  <div class="scene" id="scene-변경등기">
+    <button class="back" onclick="goMenu()">‹ 메인메뉴</button>
+    <h2 class="stitle">변경·경정 등기 <small>보수표 Ⅰ-3(2)·(3) 정액 · 채권액 증가·증축은 Ⅰ-1 · 등기수수료·등록면허세는 바뀐 사유에 따라</small></h2>
+
+    <div class="card blue"><h2>① 무엇이 바뀌었나요?</h2><div class="body">
+      <div class="line"><span class="lbl">바뀐 내용</span><select id="chg_why" onchange="chgPick()" style="max-width:100%;"></select></div>
+      <div class="note" id="chg_whyNote" style="border-left:3px solid var(--seal);"></div>
+      <div class="line" id="chg_incLine" style="display:none;"><span class="lbl" id="chg_incLbl">늘어나는 금액(원)</span><input type="number" class="amt" id="chg_inc" placeholder="0" oninput="calcChange()"><span class="hint" id="chg_incHint"></span></div>
+      <div class="line"><span class="lbl">부동산 수 <span class="hint" id="chg_cntHint">(한 신청서 · 토지·건물 각각 1개)</span></span><div class="stepper"><button onclick="step('chg_cnt',-1,calcChange)">−</button><input type="number" id="chg_cnt" value="1" min="1" oninput="calcChange()"><button onclick="step('chg_cnt',1,calcChange)">+</button></div></div>
+      <div id="chg_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="chg_adjust" onchange="calcChange()">
+        <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
+        <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
+        <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
+        <option value="1.4">140%</option><option value="1.5">150%</option><option value="1.6">160%</option>
+        <option value="1.7">170%</option><option value="1.8">180%</option><option value="1.9">190%</option><option value="2">200%</option></select></div>
+      <div class="line"><span class="lbl">당사자 다수 가산</span><span>등기권리자</span><input type="number" id="chg_pnOwn" value="1" min="1" style="width:52px;margin:0 4px;" oninput="calcChange()"><span>인</span><span style="margin-left:6px;">등기의무자</span><input type="number" id="chg_pnObl" value="1" min="0" style="width:52px;margin:0 4px;" oninput="calcChange()"><span>인</span><select id="chg_pnAdd" onchange="calcChange()" style="margin-left:8px;"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint" id="chg_pnInfo" style="margin-left:8px;"></span></div><div class="line"><span class="lbl">외국인·재외국민 가산</span><select id="chg_frAdd" onchange="calcChange()"><option value="0" selected>해당 없음</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.5">50%</option><option value="0.7">70%</option><option value="1">100% (상한)</option></select><span class="hint">보수기준 <b>§10⑥</b> — 외국인·재외국민이 포함되거나 <b>등기원인 관련 서류를 외국에서 받아야 하는</b> 등기 → <b>기본보수의 100%까지</b> 가산</span></div>
+      <div class="line"><span class="lbl">여러 등기소 가산</span><select id="chg_moAdd" onchange="calcChange()"><option value="0" selected>해당 없음</option><option value="0.1">10%</option><option value="0.2">20%</option><option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50% (상한)</option></select><span class="hint">같은 원인·같은 목적의 등기를 하는데 <b>부동산들이 서로 다른 등기소에 속해 있으면</b> 기본보수의 <b>50%까지</b> 더 받을 수 있습니다<span class="law" title="법무사 보수기준 제10조제4항 — 등기원인 및 등기목적이 동일한 것으로서 여러 개의 등기소의 관할에 걸쳐 있는 여러 개의 부동산에 관한 권리의 등기를 신청하는 경우에는 당해 기본보수의 50% 상당액까지 가산할 수 있다.">보수기준 §10④</span><span class="tag A">A</span><br>· <b>해당하는 예</b> — 상속받은 <b>서울 아파트</b>와 <b>용인 땅</b>을 함께 이전등기. 등기소가 두 곳이라 <b>신청서도 따로</b> 내야 하고 그만큼 품이 더 듭니다.<br>· <b>해당하지 않는 예</b> — 부동산이 여러 개라도 <b>모두 같은 등기소</b>에 속하는 경우. 이때는 아래 「부동산 개수」 가산(1개 초과 시 개당 20,000원)만 적용됩니다<span class="law" title="법무사 보수기준 제10조제1항 — 대상 부동산이 1개를 초과하는 경우에는 초과하는 1개마다 20,000원을 가산한다.">§10①</span>.</span></div>
+    </div></div>
+
+    <div class="card blue"><h2>② 공과금 (VAT 비과세)</h2><div class="body">
+      <table class="t">
+        <tr><td>등록면허세 <span class="hint" id="chg_taxNote"></span></td><td><input class="cell" id="chg_regTax" type="number" oninput="calcChange(true)"></td></tr>
+        <tr><td>지방교육세 <span class="hint">(등록면허세 20%)</span><span class="law" title="지방세법 제151조제1항제2호 — 납부해야 할 등록면허세액의 100분의 20을 지방교육세로 냅니다.">지방세법 §151①2호</span></td><td><input class="cell" id="chg_eduTax" type="number" oninput="calcChange(true)"></td></tr>
+        <tr><td>등기신청수수료 <select id="chg_regMethod" class="mini" onchange="calcChange()"><option value="e" selected>e-Form 3,000</option><option value="p">수기 4,000</option><option value="o">전자 1,000</option></select> <span class="hint" id="chg_regNote"></span></td><td class="auto" id="chg_regFeeCell">0 원</td></tr>
+        <tr id="chg_bondRow" style="display:none;"><td>국민주택채권 매입액 <span class="hint" id="chg_bondNote"></span></td><td><input class="cell" id="chg_bondBuy" type="number" oninput="calcChange(true)"></td></tr>
+        <tr id="chg_bondLossRow" style="display:none;"><td>채권 즉시매도 부담액 <span class="hint">(매입액 × 위 할인율)</span></td><td class="auto" id="chg_bondLossCell">0 원</td></tr>
+        <tr><td>대장·등본 우편 등</td><td><input class="cell" id="chg_postFee" type="number" value="3000" oninput="calcChange(true)"></td></tr>
+        <tr class="subtot"><td>공과금계</td><td id="chg_publicSum">0 원</td></tr>
+      </table>
+    </div></div>
+
+    <div class="card pink"><h2>③ 수수료 (법무사 보수, VAT 별도) <span class="tag A">A</span></h2><div class="body">
+      <table class="t">
+        <tr><td>기본보수 <span class="hint" id="chg_feeBaseNote"></span></td><td class="auto" id="chg_feeBaseCell">0 원</td></tr>
+        <tr id="chg_feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="chg_feeForeignNote"></span></td><td class="auto" id="chg_feeForeignCell">0 원</td></tr><tr id="chg_feePartyRow" style="display:none;"><td>당사자 다수 가산 <span class="hint" id="chg_feePartyNote"></span></td><td class="auto" id="chg_feePartyCell">0 원</td></tr>
+        <tr id="chg_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="chg_feeMultiNote"></span></td><td class="auto" id="chg_feeMultiCell">0 원</td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="chg_f_tax" checked onchange="this.dataset.user='1';calcChange()"> 등록면허세 신고대행 (50,000)</label><span class="law" title="법무사 보수기준 제25조제1항 표 2호(부표 Ⅸ-2) — 취득세·등록면허세의 신고·납부 대행 1건당 50,000원">보수표 Ⅸ-2</span></td><td class="auto" id="chg_f_taxCell">0 원</td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="chg_f_trip" checked onchange="calcChange()"> 교통비 및 일당</label></td><td><input class="cell" id="chg_tripFee" type="number" value="160000" oninput="calcChange(true)"></td></tr>
+        <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
+        <tbody id="chg_extraAgent"></tbody>
+        <tr class="subtot"><td>수수료계 (보수)</td><td id="chg_feeSum">0 원</td></tr>
+      </table>
+    </div></div>
+
+    <div class="total"><div class="row"><span>법무사 보수 소계</span><span id="chg_t_fee">0 원</span></div>
+      <div class="row sub"><span>부가가치세 (10%)</span><span id="chg_t_vat">0 원</span></div>
+      <div class="row"><span>공과금계</span><span id="chg_t_public">0 원</span></div>
+      <div class="row grand"><span>총 합계</span><span id="chg_t_grand">0 원</span></div></div>
+    <div class="actions"><button class="btn" onclick="calcChange()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button></div>
+
+    <div class="card green"><h2>④ 준비서류</h2><div class="body">
+      <div class="line" id="chg_frObLine"><span class="lbl">등기의무자(내주는 쪽) — 외국 당사자</span><select id="chg_frOb" data-lbl="등기의무자" data-role="ob" onchange="calcChange()"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select></div>
+      <div class="line"><span class="lbl" id="chg_frRiLbl">신청인(등기명의인) — 외국 당사자</span><select id="chg_frRi" data-lbl="신청인" data-role="rn" onchange="calcChange()"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select></div>
+      <div id="chg_partyDocsBox"></div>
+      <div class="docs" id="chg_docsBox"></div>
+    </div></div>
+  </div>
+
   <!-- ===== 소유권보존 (풀기능) ===== -->
   <div class="scene" id="scene-보존">
     <button class="back" onclick="goMenu()">‹ 메인메뉴</button>
@@ -3507,7 +3566,7 @@ function pwRun(p){
 /* §6 은 「등기(부동산, 상업·법인, 동산·채권담보)나 공탁」의 신청서류만 대상이다 [A 보수기준 §6].
    소장·가압류·가처분·경매신청 등 송무·집행 화면과 후견(Ⅲ)에는 §6 선택지를 보이지 않는다.
    범용화면(g_)은 보수표 Ⅳ(동산·채권담보)·Ⅴ(공탁)일 때만 허용. 2026-09 감사 신설. */
-const PW_S6_OK=['','ty_','gv_','bv_','s_','bq_','pr_','mt_','mtc_','rt_','ga_','st_','ma_','mr_','dv_','pt_','nk_','ea_','rd_','co_','cv_'];
+const PW_S6_OK=['','ty_','chg_','gv_','bv_','s_','bq_','pr_','mt_','mtc_','rt_','ga_','st_','ma_','mr_','dv_','pt_','nk_','ea_','rd_','co_','cv_'];
 function pwS6Ok(p){
   if(PW_S6_OK.indexOf(p)>=0)return true;
   if(p==='g_'){
@@ -4208,6 +4267,8 @@ const SCENARIO={
  "가등기":{cat:'re',full:'gadeungi',ref:'Ⅰ-1'},
  "신탁등기":{cat:'re',full:'sintak',ref:'Ⅰ-4'},
  "담보권추가설정":{cat:'re',full:'mortgageAdd',ref:'Ⅰ-2'},
+ /* 2026-11-19 변경·경정 등기 — 메뉴 단추는 하나(법무사님 지시). 화면 안에서 「바뀐 것」을 고른다 */
+ "변경·경정 등기(주소·이름·근저당·부동산 표시·전세권)":{cat:'re',full:'change',chg:'name',ref:'Ⅰ-3(2)·(3)'},
  "부부재산약정등기":{cat:'re',full:'marital',ref:'§28①14호'},
  "이혼 재산분할(소유권이전)":{cat:'re',full:'division',ref:'§15①6호'},
  "공유물분할(소유권이전)":{cat:'re',full:'partition',ref:'§15①4호'},
@@ -4764,6 +4825,7 @@ function _doOpenScenario(name){
   else if(SCENARIO[name].full==='gift'){document.getElementById('scene-증여').classList.add('active');calcGift();}
   else if(SCENARIO[name].full==='burden'){document.getElementById('scene-부담부증여').classList.add('active');calcBurden();}
   else if(SCENARIO[name].full==='mortgage'){document.getElementById('scene-근저당설정').classList.add('active');calcMortgage();}
+  else if(SCENARIO[name].full==='change'){document.getElementById('scene-변경등기').classList.add('active');chgSetKind(SCENARIO[name].chg);}
   else if(SCENARIO[name].full==='mortgageCancel'){document.getElementById('scene-근저당말소').classList.add('active');calcMortCancel();}
   else if(SCENARIO[name].full==='mortgageAdd'){document.getElementById('scene-담보권추가설정').classList.add('active');calcMortgageAdd();}
   else if(SCENARIO[name].full==='lawsuit'){document.getElementById('scene-소장').classList.add('active');document.getElementById('so_type').value='sm';calcLawsuit();}
@@ -9869,6 +9931,242 @@ function calcMortCancel(fromEdit){
 (function(){const tb=document.getElementById('mtc_extraAgent');EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const tr=document.createElement('tr');
   tr.innerHTML='<td><label class="checks" style="display:inline-flex;align-items:flex-start;"><input type="checkbox" id="mtca_'+id+'" onchange="calcMortCancel()" style="margin-top:2px;"> <span style="font-size:12.5px;">'+name+' <b style="color:var(--seal);">'+FLAT[code].toLocaleString()+'원</b></span></label></td><td><input type="number" id="mtcaq_'+id+'" value="1" min="1" style="width:54px;text-align:center;" oninput="calcMortCancel()"></td>';
   tb.appendChild(tr);});})();
+/* ===================== 변경·경정 등기 (2026-11-19 신설 · 법무사님 지시) =====================
+   네 갈래 — ① 등기명의인 표시변경·경정 ② 근저당권 변경 ③ 부동산 표시변경 ④ 전세권·지상권·임차권 변경
+   근거(전부 화면 안내에 같이 표시):
+   · 보수 — 법무사 보수기준(2026.8.20.) §9① 「채권액의 증가」·「건물의 증축」은 Ⅰ-1, §9⑤2호 권리의 변경·경정 120,000,
+            §9⑤3호 부동산·등기명의인 표시의 변경·경정 40,000, §10① 부동산 1개 초과마다 20,000 [A]
+   · 등록면허세 — 지방세법 §28①1호마목 그 밖의 등기 건당 6,000 / 다목2)·4) 저당권·전세권 1,000분의 2(같은 항 단서 최저 6,000)
+            §26②2호 행정구역·주민등록번호·지번 변경·공무원 착오 등 단순 표시변경·경정 비과세 [A]
+            부동산 표시변경(지목·분할·합병·구조·멸실)도 부동산마다 6,000 — 시행령 §41 3호, 실무Ⅰ(2015) 457쪽, 대법원 양식 작성요령 [A]
+            불가항력 멸실 건축물 말소등기 면제 — 지방세특례제한법 §92② [A]
+            채권액·전세금 증액은 증가액을 과세표준으로 보는 실무 [B]
+   · 등기신청수수료 — 「등기신청수수료 징수에 관한 예규」(제1861호) 2.다. 부동산표시변경·분할·합병·멸실, 행정구역·지번 변경,
+            주민등록번호 정정, 등기관 과오 경정은 받지 않음 [A] / 도로명주소 변경 — 등기예규 제1729호 7항 [B]
+   · 국민주택채권 — 근저당권 증액은 증가액 기준, 2천만원 미만 매입 없음 — 2026 국민주택채권 업무편람 88쪽 사례10 [A]
+   · 절차·서류 — 부동산등기실무(법원공무원교육원, 2026) 해당 쪽 */
+const CHG={
+ name:{t:'내 주소·이름 (등기명의인 표시변경·경정)',fee:'Ⅰ-3(3)',rsn:[
+  ['addr','주소가 바뀌었어요(이사)','전거','r6000','etc'],
+  ['rename','이름이 바뀌었어요(개명)','개명','r6000','etc'],
+  ['corp','법인 상호·명칭 또는 본점·주사무소가 바뀌었어요','상호변경 · 본점이전 등','r6000','etc'],
+  ['rrnadd','등기부에 주민등록번호(등록번호)가 빠져 있어 넣어요','주민등록번호 추가','r6000','etc'],
+  ['rrnfix','주민등록번호가 바뀌었거나 잘못 적혀 있어요','주민등록번호 정정','free','free'],
+  ['admin','동 이름·지번 등 행정구역이 바뀌었어요','행정구역 및 지번 변경','free','free'],
+  ['road','지번 주소를 도로명주소로 바꿔요','도로명주소','free','free'],
+  ['fix','등기할 때 주소·이름이 잘못 적혔어요(경정)','신청착오','r6000','etc'],
+  ['fixoff','등기소(등기관)가 잘못 적었어요','착오발견','free','free']]},
+ mort:{t:'근저당권 (채권최고액·채무자)',fee:'Ⅰ-3(2)',rsn:[
+  ['inc','채권최고액을 늘려요(추가 대출 등)','변경계약','inc','etc'],
+  ['dec','채권최고액을 줄여요(일부 상환 등)','변경계약','r6000','etc'],
+  ['debtor','채무자가 바뀌어요(계약인수·채무인수)','계약인수 · 확정채무의 면책적 인수 등','r6000','etc'],
+  ['dshow','채무자의 주소·이름만 바뀌었어요','주소변경 · 개명 등','r6000','etc']]},
+ prop:{t:'부동산 자체 (지목·분할·합병·증축·멸실)',fee:'Ⅰ-3(3)',rsn:[
+  ['land','토지 지목·면적이 바뀌었어요(지목변경·등록전환 등)','지목변경 등','r6000','free'],
+  ['split','토지를 나눴어요(분할)','분할','r6000','free'],
+  ['merge','토지를 합쳤어요(합병)','합병','r6000','free'],
+  ['bchg','건물 구조·용도·면적이 바뀌었어요(증축 제외)','구조변경 · 용도변경 등','r6000','free'],
+  ['bext','건물을 넓혔어요(증축·부속건물 신축)','증축','acq','free'],
+  ['destroy','건물을 헐었거나 토지가 없어졌어요(멸실)','멸실','r6000','free'],
+  ['destroyF','화재·천재지변 등으로 건물이 없어졌어요','멸실','free','free'],
+  ['admin','행정구역·지번이 바뀌었거나 도로명주소를 넣어요','행정구역 및 지번 변경 · 도로명주소','free','free']]},
+ right:{t:'전세권·지상권·임차권',fee:'Ⅰ-3(2)',rsn:[
+  ['jinc','전세금을 올려요','변경계약','inc','etc'],
+  ['jdec','전세금을 내려요','변경계약','r6000','etc'],
+  ['term','존속기간을 늘리거나 줄여요','변경계약 · 법정갱신','r6000','etc'],
+  ['other','지상권·임차권의 범위·지료·차임 등을 바꿔요','변경계약','r6000','etc']]}
+};
+const CHG_SRC='부동산등기실무(법원공무원교육원, 2026)';
+const chgLaw=(t,txt)=>'<span class="law" title="'+t+'">'+txt+'</span>';
+const CHG_NOTE={
+ name:'등기명의인이 <b>혼자</b> 신청합니다'+chgLaw('부동산등기법 제23조제6항 — 등기명의인표시의 변경이나 경정의 등기는 해당 권리의 등기명의인이 단독으로 신청한다.','법 §23⑥')+'. <b>등기권리증·인감증명서는 필요 없습니다.</b>',
+ mort:'<b>근저당권자(은행 등)와 소유자</b>가 함께 신청합니다. 불리해지는 쪽이 등기의무자입니다'+chgLaw(CHG_SRC+' 227쪽 — 권리의 변경등기는 일반원칙에 따라 공동신청','실무교재 227쪽')+'.',
+ prop:'부동산 표시의 변경은 <b>등기신청수수료를 받지 않습니다</b>'+chgLaw('등기신청수수료 징수에 관한 예규(제1861호) 2.다.(2)·(3) — 부동산표시변경 및 경정등기, 부동산에 관한 분할·구분·합병 및 멸실등기(대지권에 관한 등기 제외)는 등기신청수수료를 받지 아니한다.','예규 제1861호 2.다.')+' <span class="tag A">A</span>. 소유자는 바뀐 날부터 <b>1개월 안에</b> 신청해야 하지만, 늦어도 과태료는 없습니다'+chgLaw(CHG_SRC+' 202쪽 — 부동산등기법 제35조·제39조·제41조·제43조 신청의무, 등기신청을 하지 않더라도 과태료는 부과되지 않는다','실무교재 202쪽')+'.',
+ right:'<b>전세권자 등 권리자와 소유자</b>가 함께 신청합니다. 이익을 보는 쪽이 등기권리자, 불리해지는 쪽이 등기의무자입니다'+chgLaw(CHG_SRC+' 331쪽 — 전세금 증액·존속기간 연장은 전세권설정자가 등기의무자, 감액·단축은 그 반대','실무교재 331쪽')+'.'
+};
+const CHG_WHY={
+ addr:'· 주소가 여러 번 바뀌었어도 <b>지금 주소로 한 번만</b> 바꾸면 됩니다'+chgLaw(CHG_SRC+' 228쪽','실무교재 228쪽')+'.<br>· <b>따로 신청하지 않아도 되는 경우</b> — ① 집을 <b>파실 때</b>: 소유권이전등기 때 등기관이 직권으로 바꿉니다'+chgLaw('부동산등기규칙 제122조 · '+CHG_SRC+' 230~231쪽 — 직권 주소변경은 소유권이전등기 신청에 한한다(도로명주소 변경은 제외).','규칙 §122')+' ② 근저당권 <b>말소</b>·건물 <b>멸실</b>등기: 바뀐 것을 증명하는 서류만 내면 됩니다'+chgLaw(CHG_SRC+' 229쪽 — 등기예규 제593호','실무교재 229쪽')+' ③ <b>상속</b>등기: 돌아가신 분의 등기부 주소가 달라도 같은 사람임을 증명하는 서면으로 바로 상속등기를 합니다'+chgLaw('상속등기 실무(서울중앙지방법원, 2026) — 선례 제2-259호·제3-396호 등','상속등기 실무(2026)')+'.<br>· <b>꼭 먼저 신청해야 하는 경우</b> — 근저당권·전세권 설정 등 소유자가 등기의무자가 되는 등기를 하기 전(주소가 다르면 각하됩니다)'+chgLaw('부동산등기법 제29조제7호 · '+CHG_SRC+' 230~231쪽 — 저당권설정자의 주소가 변경된 경우에는 저당권설정등기를 신청하기 전에 먼저 주소변경등기를 신청해야 한다.','실무교재 231쪽')+', 그리고 주소를 바로잡아 두고 싶을 때입니다. 이렇게 따로 신청하면 등록면허세를 냅니다'+chgLaw(CHG_SRC+' 231쪽','실무교재 231쪽')+'.',
+ rename:'· 가족관계등록부에 개명이 올라간 뒤 신청합니다. 주민등록에도 이름이 바뀌었는지 확인해 주십시오.',
+ corp:'· <b>법인등기(상호·본점 변경)를 먼저</b> 마친 뒤 부동산마다 표시변경을 합니다. 회사의 조직이 바뀐 경우(예: 주식회사→유한회사)도 이전등기가 아니라 이 등기로 합니다'+chgLaw(CHG_SRC+' 229쪽 — 등기예규 제612호','실무교재 229쪽')+'.',
+ rrnadd:'· 지금 효력 있는 등기에 주민등록번호가 없을 때 넣는 등기입니다. 등기원인은 「주민등록번호 추가」, 원인일자는 신청일입니다'+chgLaw(CHG_SRC+' 230쪽 — 등기예규 제1620호','실무교재 230쪽')+'.',
+ rrnfix:'· <b>등록면허세 비과세</b>'+chgLaw('지방세법 제26조제2항제2호 — 행정구역의 변경, 주민등록번호의 변경, 지적 소관청의 지번 변경, 계량단위의 변경, 등기 담당 공무원의 착오 등으로 인한 주소·성명·주민등록번호·지번 등의 단순한 표시변경·회복 또는 경정 등기에는 등록면허세를 부과하지 아니한다.','지방세법 §26②2호')+' · <b>등기신청수수료 없음</b>'+chgLaw('등기신청수수료 징수에 관한 예규(제1861호) 2.다.(4) — 행정구역·지번의 변경, 주민등록번호(또는 부동산등기용등록번호)의 정정을 원인으로 한 등기명의인표시변경 또는 경정등기','예규 제1861호 2.다.(4)')+' <span class="tag A">A</span>',
+ admin:'· <b>등록면허세 비과세</b>'+chgLaw('지방세법 제26조제2항제2호','지방세법 §26②2호')+' · <b>등기신청수수료 없음</b>'+chgLaw('등기신청수수료 징수에 관한 예규(제1861호) 2.다.(4)','예규 제1861호')+' <span class="tag A">A</span><br>· 등기관이 직권으로 바꿀 수도 있으니 먼저 등기부를 확인해 보십시오'+chgLaw(CHG_SRC+' 231쪽 — 선례 V-877','실무교재 231쪽')+'.',
+ road:'· 도로명주소법에 따른 변경은 <b>등록면허세와 등기신청수수료를 내지 않습니다</b>'+chgLaw('등기예규 제1729호(도로명주소법에 따른 부동산등기 사무처리지침) 7항','등기예규 제1729호')+' <span class="tag B">B</span>.<br>· 이 변경은 소유권이전등기 때 등기관이 직권으로 해 주지 않습니다'+chgLaw(CHG_SRC+' 231쪽 — 등기예규 제1436호','실무교재 231쪽')+'.',
+ fix:'· 바로잡기 전과 후가 <b>같은 사람</b>이어야 합니다. 다른 사람이면 경정이 아니라 그 등기를 지우고 다시 등기해야 합니다'+chgLaw(CHG_SRC+' 238~239쪽 — 등기명의인 표시경정은 인격의 동일성이 유지되는 경우에만','실무교재 238~239쪽')+'.',
+ fixoff:'· 등기관의 잘못을 바로잡는 경정은 <b>수수료를 받지 않고</b>'+chgLaw('등기신청수수료 징수에 관한 예규(제1861호) 2.다.(1)','예규 제1861호 2.다.(1)')+' <b>등록면허세도 비과세</b>입니다'+chgLaw('지방세법 제26조제2항제2호 — 등기 담당 공무원의 착오','지방세법 §26②2호')+' <span class="tag A">A</span>.',
+ inc:'· 늘어나는 금액만큼은 새로 설정하는 것과 같습니다 — 보수는 <b>보수표 Ⅰ-1(증가액 기준)</b>'+chgLaw('법무사 보수기준 제9조제1항 — 용익권·담보권의 설정, 처분 또는 채권액의 증가에 관한 등기','보수기준 §9①')+', 등록면허세는 <b>증가액 × 1,000분의 2(최저 6,000원)</b>'+chgLaw('지방세법 제28조제1항제1호다목2) 저당권 — 채권금액의 1천분의 2, 같은 항 단서(그 밖의 등기 세율보다 적으면 6,000원) / 대법원 등기신청서 양식 작성요령(「변경계약에 의한 근저당권변경등기신청」) — 감액은 부동산 1개당 6,000원, 증액은 증액된 금액의 1,000분의 2','지방세법 §28①1호다목2)')+' <span class="tag A">A</span>, 국민주택채권은 <b>증가액이 2천만원 이상일 때만</b> 증가액 × 10/1,000'+chgLaw('2026 국민주택채권 업무편람 88쪽 사례10 — 저당권 증액으로 3,800만원이 되었다 하더라도 추가 설정금액이 1,900만원(2천만원 미만)이라면 채권매입 대상이 아님','업무편람 88쪽')+' <span class="tag A">A</span>.<br>· 뒤 순위 권리자(2번 근저당권자 등)가 있으면 그 사람의 <b>승낙서</b>가 있어야 기존 순위로 늘어납니다. 승낙이 없으면 늘어난 부분은 뒤 순위가 됩니다'+chgLaw('부동산등기법 제52조제5호 · '+CHG_SRC+' 227~228쪽','법 §52 5호')+'.',
+ dec:'· 감액은 <b>근저당권자가 등기의무자</b>입니다 — 근저당권자의 등기필정보가 필요합니다.<br>· 근저당권을 담보로 잡은 질권자 등이 있으면 그 승낙 없이는 줄일 수 없습니다'+chgLaw(CHG_SRC+' 357쪽 — 선례 201105-1','실무교재 357쪽')+'.',
+ dshow:'· 채무자의 주소·이름만 바뀐 경우도 근저당권 변경등기로 합니다. 실질은 표시변경과 같아 <b>등기의무자의 인감증명서와 등기필정보(등기권리증)가 필요 없습니다</b>'+chgLaw('법원행정처 부동산등기과-1953 질의회답(2011. 10. 19.) — 채무자 표시변경을 원인으로 근저당권 변경등기를 신청하는 경우 그 실질은 등기명의인 표시변경등기와 다를 바 없어 등기의무자의 인감증명과 등기필정보를 첨부할 필요가 없다(부동산작성실무 수록)','질의회답 2011. 10. 19.')+' <span class="tag B">B</span>.',
+ debtor:'· 채권이 확정되기 전이면 「계약인수」·「계약의 일부 인수」·「중첩적 계약인수」, 확정된 뒤면 「확정채무의 면책적 인수」·「확정채무의 중첩적 인수」가 등기원인입니다'+chgLaw(CHG_SRC+' 354쪽','실무교재 354쪽')+'.<br>· 채무자가 돌아가셔서 상속인 한 명이 채무를 맡는 경우도 이 등기로 합니다'+chgLaw(CHG_SRC+' 355쪽 — 등기예규 제1867호','실무교재 355쪽')+'.',
+ land:'· 등록면허세는 '+chgLaw('지방세법 제28조제1항제1호마목 — 그 밖의 등기 건당 6천원 / 같은 법 시행령 제41조제3호 — 「한 건」이란 등기 대상 건수마다를 말하며 여러 개를 한꺼번에 신청해도 같다 / 『부동산등기실무Ⅰ』(법원행정처, 2015) 456~457쪽 — 1개의 신청서로 여러 부동산의 부동산 표시변경등기를 신청하면 부동산 수만큼 등록면허세를 낸다','부동산마다 6,000원')+'입니다 <span class="tag A">A</span>.',
+ split:'· 등록면허세는 '+chgLaw('지방세법 제28조제1항제1호마목 — 그 밖의 등기 건당 6천원 / 같은 법 시행령 제41조제3호 — 「한 건」이란 등기 대상 건수마다를 말하며 여러 개를 한꺼번에 신청해도 같다 / 『부동산등기실무Ⅰ』(법원행정처, 2015) 456~457쪽 — 1개의 신청서로 여러 부동산의 부동산 표시변경등기를 신청하면 부동산 수만큼 등록면허세를 낸다','부동산마다 6,000원')+' <span class="tag A">A</span> — <b>분할 뒤의 필지 수</b>(원래 토지와 나뉘어 나간 토지 모두)로 셉니다'+chgLaw('대법원 등기신청서 양식 작성요령(「토지분필등기신청」) — 분할된 후 부동산 개수 1개당 6,000원(1필지가 2필지로 되면 2건) · 부동산작성실무 분필 작성례도 같음','양식 작성요령')+' <span class="tag A">A</span>.',
+ merge:'· 등록면허세는 '+chgLaw('지방세법 제28조제1항제1호마목 — 그 밖의 등기 건당 6천원 / 같은 법 시행령 제41조제3호 — 「한 건」이란 등기 대상 건수마다를 말하며 여러 개를 한꺼번에 신청해도 같다 / 『부동산등기실무Ⅰ』(법원행정처, 2015) 456~457쪽 — 1개의 신청서로 여러 부동산의 부동산 표시변경등기를 신청하면 부동산 수만큼 등록면허세를 낸다','부동산마다 6,000원')+' <span class="tag A">A</span> — <b>합병 전의 필지 수</b>로 셉니다(2필지를 합치면 2건)'+chgLaw('대법원 등기신청서 양식 작성요령(「토지합필등기신청」) — 합필 전의 부동산 개수 1개당 6,000원(2필지가 1필지로 되면 2건) · 부동산작성실무 합필 작성례도 같음','양식 작성요령')+' <span class="tag A">A</span>.',
+ bchg:'· 건축물대장이 먼저 바뀌어야 합니다. 대장소관청이 등기소에 직접 촉탁하는 경우도 있으니 등기부를 먼저 확인해 보십시오'+chgLaw(CHG_SRC+' 207쪽','실무교재 207쪽')+'.<br>· 등록면허세는 '+chgLaw('지방세법 제28조제1항제1호마목 — 그 밖의 등기 건당 6천원 / 같은 법 시행령 제41조제3호 — 「한 건」이란 등기 대상 건수마다를 말하며 여러 개를 한꺼번에 신청해도 같다 / 『부동산등기실무Ⅰ』(법원행정처, 2015) 456~457쪽 — 1개의 신청서로 여러 부동산의 부동산 표시변경등기를 신청하면 부동산 수만큼 등록면허세를 낸다','부동산마다 6,000원')+' <span class="tag A">A</span> — 건물을 나누거나 구분하면 <b>나뉜 뒤의 건물 수</b>로 셉니다'+chgLaw('부동산작성실무 「건물분할등기」·「건물구분등기」 작성례 · 대법원 등기신청서 양식 작성요령(「건물구조변경등기신청」·「건물멸실등기신청」 — 부동산 1개당 6,000원)','작성실무·양식 작성요령')+' <span class="tag A">A</span>.',
+ bext:'· 증축·부속건물 신축은 <b>보수표 Ⅰ-1(증축 부분 과세표준)</b>으로 계산합니다'+chgLaw('법무사 보수기준 제9조제1항 — 소유권 보존(건물의 증축 및 부속건물 신축을 포함한다)','보수기준 §9①')+' <span class="tag A">A</span>.<br>· 증축은 <b>취득세</b> 신고 대상이라 등록면허세 대신 취득세를 냅니다'+chgLaw('지방세법 제23조제1호 — 취득을 원인으로 이루어지는 등기는 등록면허세의 「등록」에서 제외','지방세법 §23 1호')+' <span class="tag B">B</span>. 금액은 시·군·구에 신고할 때 정해지므로 직접 넣으십시오.',
+ destroy:'· 멸실 사실이 적힌 <b>건축물대장(토지는 토지대장)</b>으로 신청합니다. 근저당권이 있어도 대장에 멸실이 적혀 있으면 근저당권자 승낙 없이 신청할 수 있습니다'+chgLaw(CHG_SRC+' 212쪽 — 부동산등기규칙 제102조','실무교재 212쪽')+'.<br>· 등록면허세는 '+chgLaw('지방세법 제28조제1항제1호마목 — 그 밖의 등기 건당 6천원 / 같은 법 시행령 제41조제3호 — 「한 건」이란 등기 대상 건수마다를 말하며 여러 개를 한꺼번에 신청해도 같다 / 『부동산등기실무Ⅰ』(법원행정처, 2015) 456~457쪽 — 1개의 신청서로 여러 부동산의 부동산 표시변경등기를 신청하면 부동산 수만큼 등록면허세를 낸다','부동산마다 6,000원')+' <span class="tag A">A</span>. 화재·천재지변 등으로 없어졌으면 아래 「화재·천재지변」을 고르십시오 — 면제입니다.',
+ destroyF:'· 천재지변·화재 등 불가항력으로 없어진 건축물의 말소(멸실)등기는 <b>등록면허세를 면제</b>합니다'+chgLaw('지방세특례제한법 제92조제2항 — 천재지변, 그 밖의 불가항력으로 멸실 또는 파손된 건축물의 말소등기에 대해서는 등록면허세를 면제한다.','지방세특례제한법 §92②')+' <span class="tag A">A</span>. 등기신청수수료도 받지 않습니다(예규 제1861호 2.다.(3)). 면제를 받으려면 시·군·구의 <b>감면 확인</b>을 받습니다'+chgLaw('『부동산등기실무Ⅰ』(법원행정처, 2015) 452쪽',"실무Ⅰ 452쪽")+'.',
+ padmin:'· <b>등록면허세 비과세</b>'+chgLaw('지방세법 제26조제2항제2호 — 행정구역의 변경, 지번 변경 등 단순한 표시변경','지방세법 §26②2호')+' · <b>등기신청수수료 없음</b> <span class="tag A">A</span>. 대장소관청이 직접 촉탁하는 경우가 많습니다'+chgLaw(CHG_SRC+' 207쪽','실무교재 207쪽')+'.',
+ jinc:'· 보수는 <b>보수표 Ⅰ-3(2) 정액</b>(권리의 변경)입니다'+chgLaw('법무사 보수기준 제9조제5항제2호','보수기준 §9⑤2호')+'.<br>· 등록면허세는 <b>늘어난 전세금 × 1,000분의 2(최저 6,000원)</b>'+chgLaw('지방세법 제28조제1항제1호다목4) 전세권 — 전세금액의 1천분의 2 / 대법원 등기신청서 양식 작성요령(「전세권변경등기신청」) — 부동산 1개당 6,000원, 전세금을 늘리는 변경은 늘어난 금액에 대한 등록면허세','지방세법 §28①1호다목4)')+' <span class="tag A">A</span>. 존속기간 연장도 함께 하면 등록면허세·수수료를 <b>각각</b> 냅니다'+chgLaw('등기선례 제9-406호(2011. 10. 19.) — 하나의 신청서로 전세기간 연장 및 전세금 증액의 변경등기를 신청하더라도 수개의 등기신청을 하나의 신청서에 기재한 것에 불과하므로 등록면허세와 등기신청수수료를 각각 납부(『부동산등기실무Ⅱ』(법원행정처, 2015)에도 같은 설명)','선례 9-406')+' <span class="tag A">A</span>.<br>· 뒤 순위 권리자가 있으면 그 승낙이 있어야 기존 순위로 올라갑니다'+chgLaw(CHG_SRC+' 332쪽','실무교재 332쪽')+'.',
+ jdec:'· 전세금 감액은 <b>전세권자가 등기의무자</b>입니다. 전세권을 담보로 잡은 근저당권자·가압류권자 등이 있으면 그 승낙이 필요할 수 있습니다'+chgLaw(CHG_SRC+' 333쪽','실무교재 333쪽')+'.',
+ term:'· 기간을 <b>늘리면 소유자</b>, <b>줄이면 전세권자</b>가 등기의무자입니다.<br>· 건물 전세권은 기간이 끝나도 법정갱신될 수 있습니다. 법정갱신된 전세권을 넘기거나 담보로 잡히려면 먼저 존속기간 변경등기를 해야 합니다'+chgLaw(CHG_SRC+' 331쪽','실무교재 331쪽')+'.',
+ other:'· 지상권·임차권의 범위·지료·차임 등을 바꾸는 변경등기입니다. 불리해지는 쪽이 등기의무자입니다.'
+};
+/* 2026-11-19 법무사님 지시 — 「바뀐 것」·「바뀐 사유」 두 번 고르지 않고 한 목록에서 고른다(값 = 갈래:사유) */
+function chgCur(){const sel=document.getElementById('chg_why');const v=(sel.value||'name:addr').split(':');const k=CHG[v[0]]?v[0]:'name';const r=CHG[k].rsn.find(x=>x[0]===v[1])||CHG[k].rsn[0];return {k:k,r:r};}
+function chgBuild(){const sel=document.getElementById('chg_why');if(sel.options.length)return;
+  sel.innerHTML=Object.keys(CHG).map(k=>'<optgroup label="'+CHG[k].t+'">'+CHG[k].rsn.map(r=>'<option value="'+k+':'+r[0]+'">'+r[1]+'</option>').join('')+'</optgroup>').join('');}
+function chgPick(){const ft=document.getElementById('chg_f_tax'); if(ft)delete ft.dataset.user;
+  /* 분할·합병은 최소 2건(분할 뒤 / 합병 전 필지 수) */
+  const v=document.getElementById('chg_why').value, c=document.getElementById('chg_cnt');
+  if((v==='prop:split'||v==='prop:merge')&&c&&val('chg_cnt')<2)c.value=2;
+  calcChange();}
+function chgKind(){chgBuild();calcChange();}
+function chgSetKind(k){chgBuild();const sel=document.getElementById('chg_why');const o=[...sel.options].find(x=>x.value.indexOf((k||'name')+':')===0);if(o&&sel.value.indexOf((k||'name')+':')!==0)sel.value=o.value;chgPick();}
+function calcChange(fromEdit){
+  const sel=document.getElementById('chg_why'); if(sel&&!sel.options.length){chgKind();return;}
+  const c=chgCur(), k=c.k, r=c.r, id=r[0], tax=r[3], rf=r[4];
+  const cnt=Math.max(1,val('chg_cnt')), inc=val('chg_inc');
+  /* 금액 칸 — 채권최고액·전세금 증액, 증축 */
+  const needInc=(tax==='inc'||tax==='acq');
+  const il=document.getElementById('chg_incLine'); if(il)il.style.display=needInc?'':'none';
+  document.getElementById('chg_incLbl').textContent=tax==='acq'?'증축 부분 과세표준액(원)':(k==='right'?'늘어나는 전세금(원)':'늘어나는 채권최고액(원)');
+  document.getElementById('chg_incHint').textContent=tax==='acq'?'건축물 시가표준액 등 — 보수 Ⅰ-1의 과세표준':'새 금액 − 종전 금액';
+  document.getElementById('chg_whyNote').innerHTML=CHG_NOTE[k]+'<br><b>등기원인</b> — 「'+r[2]+'」'+(CHG_WHY[k==='prop'&&id==='admin'?'padmin':id]?'<br>'+CHG_WHY[k==='prop'&&id==='admin'?'padmin':id]:'');
+  /* 단독신청(명의인·부동산 표시)은 등기의무자 칸을 숨긴다 */
+  const ch=document.getElementById('chg_cntHint'); if(ch)ch.textContent=id==='split'?'(분할 뒤 필지 수 — 원래 토지 포함)':id==='merge'?'(합병 전 필지 수)':'(한 신청서 · 토지·건물 각각 1개)';
+  const ol=document.getElementById('chg_frObLine'); if(ol)ol.style.display=(k==='name'||k==='prop')?'none':'';
+  if(k==='name'||k==='prop'){const fo=document.getElementById('chg_frOb');if(fo)fo.value='';}
+  document.getElementById('chg_frRiLbl').textContent=(k==='name'||k==='prop')?'신청인(등기명의인·소유자) — 외국 당사자':'등기권리자 — 외국 당사자';
+  /* ── 공과금 ── */
+  let lv=0,ln='';
+  if(tax==='r6000'){lv=6000*cnt;ln='(건당 6,000 × 부동산 '+cnt+'개)';}
+  else if(tax==='inc'){lv=inc>0?Math.max(6000,Math.round(inc*0.002)):0;ln='(증가액 × 0.2% · 최저 6,000)';}
+  else if(tax==='free'){lv=0;ln=id==='destroyF'?'(면제)':'(비과세)';}
+  else if(tax==='acq'){lv=0;ln='(증축 — 취득세: 신고 후 직접 입력)';}
+  else {lv=0;ln='(자동 계산 안 함 — 세무과 확인 후 입력)';}
+  const _tl={r6000:'지방세법 §28①1호마목 — 그 밖의 등기 건당 6,000원',inc:(k==='right'?'지방세법 §28①1호다목4) 전세권 1,000분의 2':'지방세법 §28①1호다목2) 저당권 1,000분의 2')+' · 같은 항 단서 최저 6,000원',free:'지방세법 §26②2호 비과세(도로명주소는 등기예규 제1729호)',acq:'지방세법 §23 1호 — 취득을 원인으로 하는 등기는 취득세',man:'관할 시·군·구 세무과 확인'}[tax]||'';
+  document.getElementById('chg_taxNote').innerHTML=ln+' '+chgLaw(id==='destroyF'?'지방세특례제한법 §92② — 불가항력으로 멸실된 건축물의 말소등기 면제':(tax==='r6000'?_tl+' / 지방세법 시행령 §41 3호 — 등기 대상 건수마다':_tl),'근거');
+  if(!fromEdit){
+    document.getElementById('chg_regTax').value=taxLocal(lv);
+    document.getElementById('chg_eduTax').value=(tax==='acq')?0:taxLocal(Math.round(lv*0.2));
+  }
+  const m=document.getElementById('chg_regMethod').value, mi=m==='p'?0:(m==='o'?2:1);
+  const unit=(rf==='free')?0:REG_RE.기타[mi], regFee=unit*cnt;
+  document.getElementById('chg_regFeeCell').textContent=won(regFee);
+  document.getElementById('chg_regNote').textContent=rf==='free'?'(받지 않음 — 예규 제1861호 2.다.'+(id==='road'?' · 예규 제1729호':'')+')':'(건당 '+unit.toLocaleString()+' × '+cnt+')';
+  /* 국민주택채권 — 근저당권 증액만 [A 업무편람 88쪽 사례10 · 별표 부표 15호 다목] */
+  const isBond=(k==='mort'&&id==='inc');
+  document.getElementById('chg_bondRow').style.display=isBond?'':'none';
+  document.getElementById('chg_bondLossRow').style.display=isBond?'':'none';
+  if(isBond&&!fromEdit){let b=0;if(inc>=20000000){b=Math.min(inc*10/1000,1000000000);b=Math.round(b/10000)*10000;}document.getElementById('chg_bondBuy').value=b;}
+  if(!isBond)document.getElementById('chg_bondBuy').value=0;
+  document.getElementById('chg_bondNote').textContent=isBond?(inc>0&&inc<20000000?'(증가액 2천만원 미만 → 매입 없음)':'(증가액 × 10/1,000 · 만원 반올림 · 10억 한도)'):'';
+  const bondLoss=isBond?Math.round(val('chg_bondBuy')*val('bondRate')/100):0;
+  document.getElementById('chg_bondLossCell').textContent=won(bondLoss);
+  const publicSum=val('chg_regTax')+val('chg_eduTax')+regFee+bondLoss+val('chg_postFee')+pubCustomSum('scene-변경등기');
+  document.getElementById('chg_publicSum').textContent=won(publicSum);
+  /* ── 보수 ── */
+  const tier=(tax==='inc'&&k==='mort')||tax==='acq';
+  const code=tier?'Ⅰ-1':CHG[k].fee;
+  const base=tier?Math.round(tierFee('Ⅰ-1',inc)):FLAT[code];
+  const feeRaw=(tier&&inc<=0)?0:base+20000*(cnt-1);
+  const adj=parseFloat(document.getElementById('chg_adjust').value)||1;
+  const feeBase=Math.round(feeRaw*adj);
+  document.getElementById('chg_feeBaseCell').textContent=won(feeBase);
+  document.getElementById('chg_feeBaseNote').textContent=(tier&&inc<=0)?'(위 금액을 넣으면 계산합니다 — 보수표 Ⅰ-1)':'(보수표 '+code+(tier?' 과세표준 '+won(inc):' '+FLAT[code].toLocaleString())+(cnt>1?' + 초과 '+(cnt-1)+'개×20,000(§10①)':'')+(adj!==1?' ×'+Math.round(adj*100)+'%':'')+')';
+  const _fr=frAddRate('chg_frAdd'), feeForeign=Math.round(feeRaw*_fr);
+  const _frR=document.getElementById('chg_feeForeignRow');
+  if(_frR){_frR.style.display=feeForeign>0?'table-row':'none';document.getElementById('chg_feeForeignCell').textContent=won(feeForeign);document.getElementById('chg_feeForeignNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+(_fr*100)+'% · §10⑥)';}
+  const _mo=frAddRate('chg_moAdd'), feeMulti=Math.round(feeRaw*_mo);
+  const _moR=document.getElementById('chg_feeMultiRow');
+  if(_moR){_moR.style.display=feeMulti>0?'table-row':'none';document.getElementById('chg_feeMultiCell').textContent=won(feeMulti);document.getElementById('chg_feeMultiNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+Math.round(_mo*100)+'% · §10④)';}
+  const feeParty=partyAdd('chg_',feeRaw);
+  let fee=feeBase+feeForeign+feeMulti+feeParty;
+  /* 등록면허세 신고대행 — 낼 세금이 없으면(비과세) 기본으로 끈다. 이용자가 직접 고르면 그대로 둔다 */
+  const ft=document.getElementById('chg_f_tax');
+  if(ft&&!ft.dataset.user)ft.checked=!(tax==='free');
+  const taxAgent=chk('chg_f_tax')?FLAT['Ⅸ-2']:0; fee+=taxAgent;
+  document.getElementById('chg_f_taxCell').textContent=won(taxAgent);
+  if(chk('chg_f_trip'))fee+=val('chg_tripFee');
+  EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([eid,name,ec])=>{const cb=document.getElementById('chga_'+eid);if(cb&&cb.checked){const q=Math.max(1,parseInt(document.getElementById('chgaq_'+eid).value)||1);fee+=FLAT[ec]*q;}});
+  fee+=customSum('chg_extraAgent');
+  fee=pwApply('chg_',fee);
+  document.getElementById('chg_feeSum').textContent=won(fee);
+  const vat=Math.round(fee*0.1);
+  document.getElementById('chg_t_fee').textContent=won(fee);
+  document.getElementById('chg_t_vat').textContent=won(vat);
+  document.getElementById('chg_t_public').textContent=won(publicSum);
+  document.getElementById('chg_t_grand').textContent=won(fee+vat+publicSum);
+  renderPartyDocs('chg_',null,null,'','');
+  renderDocsChange(k,id,tax,rf);
+}
+(function(){const tb=document.getElementById('chg_extraAgent');if(!tb)return;EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const tr=document.createElement('tr');
+  tr.innerHTML='<td><label class="checks" style="display:inline-flex;align-items:flex-start;"><input type="checkbox" id="chga_'+id+'" onchange="calcChange()" style="margin-top:2px;"> <span style="font-size:12.5px;">'+name+' <b style="color:var(--seal);">'+FLAT[code].toLocaleString()+'원</b></span></label></td><td><input type="number" id="chgaq_'+id+'" value="1" min="1" style="width:54px;text-align:center;" oninput="calcChange()"></td>';
+  tb.appendChild(tr);});})();
+function renderDocsChange(k,id,tax,rf){
+  const box=document.getElementById('chg_docsBox'); if(!box)return;
+  const fr=(document.getElementById('chg_frRi')||{}).value||'';
+  const seal=d3i('<b>인감증명서</b> 1통, <b>인감도장</b>, <b>신분증</b>',D3_SEAL,'주민센터');
+  const pay=id==='destroyF'?d3i('<b>등록면허세 감면 확인</b>','시·군·구에서 면제(지방세특례제한법 §92②) 확인을 받습니다',''):tax==='free'?d3i('<b>등록면허세</b>','비과세 — 신청서에 비과세 뜻과 근거 법령을 적습니다'+chgLaw(CHG_SRC+' 114쪽','실무교재 114쪽'),''):(tax==='acq'?d3i('<b>취득세 신고·납부</b>','증축 부분 — 시·군·구에 신고하고 영수필확인서를 받습니다',LK.wetax):d3i('<b>등록면허세 신고·납부</b>','영수필확인서를 받습니다',LK.wetax));
+  const fee=rf==='free'?d3i('<b>등기신청수수료</b>','받지 않습니다(예규 제1861호 2.다.'+(id==='road'?' · 예규 제1729호':'')+')',''):d3i('<b>등기신청수수료 납부</b>',LK.iros+'에서 납부하고 영수필확인서를 출력합니다','');
+  let client=[], office=[d3i('<b>등기신청서</b>','사무소가 작성합니다',''),d3i('<b>위임장</b>','사무소가 작성하고 신청인이 날인합니다','')], attach=[], note='', law='', src='';
+  if(k==='name'){
+    const it=[];
+    if(id==='addr'||id==='admin'||id==='rrnfix'||id==='rrnadd') it.push(d3i('<b>주민등록표 초본</b> 1통',(id==='addr'?'<b>주소 변동 사항이 모두 나오게</b> — 등기부에 적힌 옛 주소부터 지금 주소까지':id==='admin'?'행정구역이 바뀐 사항이 나오는 것':'주민등록번호 뒷자리가 모두 나오게'+(id==='rrnfix'?', 번호가 바뀐 이력이 나오는 것':'')),LK.juminCho));
+    if(id==='rename'){it.push(d3i('<b>기본증명서(상세)</b> 1통','개명한 사실이 나오는 것',LK.family));it.push(d3i('<b>주민등록표 초본</b> 1통','이름이 바뀐 이력이 나오는 것',LK.juminCho));}
+    if(id==='corp') it.push(d3i('<b>법인등기사항증명서</b>(말소사항 포함)','바뀌기 전 상호·본점이 함께 나오는 것 — 오래전 변경이면 <b>폐쇄등기사항증명서</b>도',LK.iros));
+    if(id==='rrnadd') it.push(d3i('법인 아닌 사단·재단(종중 등)이면 <b>부동산등기용등록번호증명서</b>, 정관·규약, 대표자를 증명하는 서면','등기관이 엄격히 심사합니다'+chgLaw(CHG_SRC+' 230쪽','실무교재 230쪽'),LK.regno));
+    if(id==='road') it.push(d3i('<b>주민등록표 초본</b> 1통 또는 <b>건축물대장</b>','도로명주소가 나오는 것(도로명주소 안내시스템 조회 결과도 됩니다)'+chgLaw('등기예규 제1729호 3항 다목','예규 제1729호'),LK.juminCho+' · '+LK.bldg));
+    if(id==='fix'||id==='fixoff') it.push(d3i('<b>바로잡을 내용을 증명하는 서류</b>','주민등록표 초본·기본증명서 등. 받을 수 없으면 공무원이나 법무사 등이 같은 사람임을 보증하는 서면(보증인의 인감증명·자격 증명 첨부)으로 대신합니다'+chgLaw(CHG_SRC+' 239쪽','실무교재 239쪽'),LK.juminCho));
+    if(fr.indexOf('alien')===0||fr==='dongpo') it.push(d3i('외국인이면 <b>외국인등록사실증명</b>(또는 국내거소신고사실증명)과, 바뀌기 전후가 <b>같은 사람</b>이라는 <b>본국 관공서의 증명</b> 또는 <b>공정증서</b>','<span class="tag B">B</span>'+chgLaw(CHG_SRC+' 229쪽 — 등기예규 제1564호','실무교재 229쪽'),''));
+    it.push(d3i('<b>신분증</b>, 도장','등기권리증·인감증명서는 필요 없습니다',''));
+    client=[{who:'등기명의인 (신청하시는 분)',items:it}];
+    office.push(pay,fee,d3i('<b>등기사항전부증명서 열람</b>','등기부의 지금 표시를 확인합니다 <span class="hint">(확인용)</span>',''));
+    attach=[['표시 변경(경정)을 증명하는 정보 <small>— 초본·기본증명서·법인등기사항증명서 등</small>','신청인','규칙 §46①1호'],['위임장','신청인 날인','규칙 §46①5호'],[tax==='free'?'등록면허세 비과세 근거 기재':'등록면허세·지방교육세 영수필확인서','사무소','규칙 §44'],rf==='free'?null:['등기신청수수료 영수필확인서','사무소','수수료규칙 §5의2']];
+    law='부동산등기법 §23⑥, 부동산등기규칙 §44·§46①·§122, 지방세법 §26②2호·§28①1호마목, 등기신청수수료 징수에 관한 예규 2.다.';
+    src='등기명의인 표시변경·경정 — '+CHG_SRC+' 228~231쪽·238~239쪽';
+  } else if(k==='mort'||k==='right'){
+    const holder=k==='mort'?'근저당권자 (은행 등)':'전세권자·지상권자·임차권자';
+    const obIsHolder=(id==='dec'||id==='jdec');
+    if(id==='dshow'){
+      client=[{who:'근저당권자 (은행 등)',items:[d3i('<b>등기신청 위임장</b>','날인',''),d3i('법인이면 <b>법인등기사항증명서</b>','대표자 자격 증명','')]},
+        {who:'소유자 (설정자)',items:[d3i('<b>신분증</b>, 도장','인감증명서·등기권리증은 필요 없습니다'+chgLaw('부동산등기과-1953 질의회답(2011. 10. 19.)','질의회답'),'')]},
+        {who:'채무자',items:[d3i('<b>주민등록표 초본</b>(주소 변동 사항 포함) 또는 <b>기본증명서(상세)</b>(개명)','바뀐 주소·이름이 나오는 것',LK.juminCho+' · '+LK.family)]}];
+      office.push(pay,fee,d3i('<b>등기사항전부증명서 열람</b>','바꿀 근저당권의 <b>접수일자·접수번호</b> 확인 <span class="hint">(확인용)</span>',''));
+      attach=[['채무자의 표시 변경을 증명하는 정보 <small>— 초본·기본증명서 등</small>','채무자','규칙 §46①1호'],['위임장','당사자 날인','규칙 §46①5호'],['등록면허세·지방교육세 영수필확인서','사무소','규칙 §44'],['등기신청수수료 영수필확인서','사무소','수수료규칙 §5의2']];
+      box.innerHTML=d3({client:client,office:office,attach:attach,law:'부동산등기규칙 §44·§46①, 지방세법 §28①1호마목',src:'채무자 표시변경 — 부동산등기과-1953 질의회답(2011. 10. 19.), 부동산작성실무 수록'});
+      return;
+    }
+    const hi=[d3i('<b>'+(k==='mort'?'근저당권':'')+' 변경계약서</b>',k==='mort'?(id==='inc'?'늘어나는 채권최고액이 적힌 것':id==='dec'?'줄어드는 채권최고액이 적힌 것':'새 채무자와 인수 내용이 적힌 것'):'바뀌는 전세금·기간 등이 적힌 것',''),d3i('<b>등기신청 위임장</b>','날인','')];
+    if(obIsHolder) hi.push(d3i('<b>등기필정보(등기권리증)</b>',(k==='mort'?'근저당권':'전세권')+'을 설정할 때 받은 것 — 없으면 사무소가 확인서면으로 대신합니다',''));
+    if(k==='mort') hi.push(d3i('법인이면 <b>법인등기사항증명서</b>','대표자 자격 증명',''));
+    const oi=obIsHolder?[d3i('<b>신분증</b>, 도장','소유자는 등기권리자로서 서류가 적습니다','')]:[d3i('<b>등기권리증(등기필정보)</b>','잃어버리셨으면 사무소가 확인서면으로 대신합니다',''),seal];
+    client=[{who:holder+(k==='mort'?' — 거래 은행 영업점에서 받으실 서류':''),items:hi},{who:'소유자 (설정자)',items:oi},
+      {who:'해당하는 경우에만',items:[d3i('<b>등기상 이해관계 있는 제3자의 승낙서</b>와 그 <b>인감증명서</b>',(id==='inc'||id==='jinc')?'뒤 순위 근저당권자 등 — 승낙이 있어야 기존 순위로 늘어납니다':'변경으로 불리해지는 권리자(질권자 등)가 있을 때'+chgLaw('부동산등기법 제52조제5호 · 규칙 제46조제1항제3호','법 §52 5호'),'')]}];
+    if(k==='right'&&id==='term') client[1].items.push(d3i('기간을 <b>줄이는</b> 경우에는 전세권자가 등기의무자가 되어 전세권자의 등기필정보가 필요합니다','',''));
+    office.push(d3i('<b>자격자대리인의 등기의무자 확인 및 자필서명 정보</b>','법무사가 등기의무자를 확인하여 작성합니다',''),d3i('<b>확인서면</b> <span class="hint">(등기의무자에게 등기필정보가 없을 때만)</span>','<span class="law" title="부동산등기법 제51조">법 §51</span>',''),pay,fee);
+    if(k==='mort'&&id==='inc') office.push(d3i('<b>국민주택채권 매입</b>','증가액 2천만원 이상일 때 — 매입 후 바로 팔면 위 「부담액」만 듭니다',LK.bond));
+    office.push(d3i('<b>등기사항전부증명서 열람</b>','바꿀 '+(k==='mort'?'근저당권':'권리')+'의 <b>접수일자·접수번호</b>를 확인합니다 <span class="hint">(확인용)</span>',''));
+    attach=[[(k==='mort'?'근저당권 ':'')+'변경계약서','당사자','규칙 §46①1호'],['등기의무자의 등기필정보 <small>— 없으면 확인서면 + 인감증명</small>',obIsHolder?holder:'소유자','법 §50② · §51'],obIsHolder?null:['소유자의 인감증명서','소유자','규칙 §60①1호'],k==='mort'?['법인등기사항증명서 <small>(근저당권자가 법인일 때)</small>','근저당권자','규칙 §46①4호']:null,['등기상 이해관계 있는 제3자의 승낙서 · 인감증명서 <small>(있을 때만)</small>','이해관계인','법 §52 5호 · 규칙 §46①3호'],['위임장','당사자 날인','규칙 §46①5호'],['자격자대리인의 등기의무자 확인 및 자필서명 정보','사무소','규칙 §46①8호'],['등록면허세·지방교육세 영수필확인서','사무소','규칙 §44'],['등기신청수수료 영수필확인서','사무소','수수료규칙 §5의2'],(k==='mort'&&id==='inc')?['국민주택채권 매입 정보 <small>(증가액 2천만원 이상)</small>','사무소','주택도시기금법 §8']:null];
+    law='부동산등기법 §50②·§51·§52 5호, 부동산등기규칙 §44·§46①·§60①1호, 지방세법 §28①1호';
+    src=(k==='mort'?'근저당권 변경 — '+CHG_SRC+' 227~228쪽·354~357쪽':'전세권 변경 — '+CHG_SRC+' 331~333쪽');
+  } else {
+    const it=[];
+    if(id==='land'||id==='split'||id==='merge') it.push(d3i('<b>토지대장</b>(임야는 임야대장) 1통','바뀐 내용이 올라간 것',LK.land));
+    if(id==='bchg'||id==='bext') it.push(d3i('<b>건축물대장</b> 1통','바뀐 내용(증축이면 증축 부분)이 올라간 것',LK.bldg));
+    if(id==='destroy'||id==='destroyF') it.push(d3i('<b>건축물대장</b>(말소된 것) — 토지는 <b>토지대장</b>','멸실 사실이 적힌 것',LK.bldg+' · '+LK.land));
+    if(id==='admin') it.push(d3i('<b>토지대장·건축물대장</b>','바뀐 행정구역·지번(도로명주소)이 나오는 것',LK.land+' · '+LK.bldg));
+    if(id==='bext') it.push(d3i('<b>취득세 영수필확인서</b>','증축 부분 취득세를 시·군·구에 신고·납부한 뒤 받습니다',LK.wetax));
+    it.push(d3i('<b>신분증</b>, 도장','등기권리증·인감증명서는 필요 없습니다',''));
+    client=[{who:'소유자 (등기명의인)',items:it}];
+    office.push(pay,d3i('<b>등기신청수수료</b>','받지 않습니다(예규 제1861호 2.다.)',''),d3i('<b>등기사항전부증명서 열람</b>','<span class="hint">(확인용)</span>',''));
+    attach=[['변경(멸실)을 증명하는 대장 정보 <small>— 토지·임야대장 또는 건축물대장</small>','소유자','규칙 §72·§83·§86·§102'],['위임장','소유자 날인','규칙 §46①5호'],tax==='free'?['등록면허세 비과세 근거 기재','사무소','규칙 §44']:[tax==='acq'?'취득세 영수필확인서':'등록면허세 영수필확인서 <small>(세무과 확인 후)</small>','사무소','규칙 §44']];
+    law='부동산등기법 §35·§39·§41·§43, 부동산등기규칙 §72·§83·§86·§102, 등기신청수수료 징수에 관한 예규 2.다.(2)·(3)';
+    src='부동산 표시 변경 — '+CHG_SRC+' 202~212쪽';
+  }
+  box.innerHTML=d3({client:client,office:office,attach:attach.filter(Boolean),law:law,src:src});
+}
+
 
 /* ===================== 소유권보존 (풀기능) ===================== */
 let pr_curBondType=null;
@@ -12565,7 +12863,7 @@ const SCENE_CALC={
  '매매':['calcSale',true],           '상속':['calcInherit',true],       '유증':['calcBequest',true],       '증여':['calcGift',true],
  '부담부증여':['calcBurden',true],    '보존':['calcPreserve',true],      '공유물분할':['calcPartition',true],
  '이혼재산분할':['calcDivision',true],'경매낙찰촉탁':['calcNakchal',true],'기타취득원인':['calcEtcAcq',true],
- '근저당설정':['calcMortgage',true],  '근저당말소':['calcMortCancel',true],'담보권추가설정':['calcMortgageAdd',true],
+ '근저당설정':['calcMortgage',true],  '근저당말소':['calcMortCancel',true],'변경등기':['calcChange',true],'담보권추가설정':['calcMortgageAdd',true],
  '가등기':['calcGadeungi',true],      '부부재산약정':['calcMarital',true],'신탁등기':['calcSintak',true],
  '권리설정':['calcRight',true],       '재건축재개발':['calcRedev',true],  '법인설립':['calcCorp',true],
  '법인변경':['calcCorpChange',true],  '소장':['calcLawsuit',true],       '부동산가압류':['calcAttach',true],
@@ -12688,7 +12986,7 @@ const CUSTOM_MAP={extraAgent:calcSale,s_extraAgent:calcInherit,gv_extraAgent:cal
 /* ===================== 공과금 직접추가 + 준비서류 수기편집 ===================== */
 function pubCustomSum(sceneId){let s=0;const sc=document.getElementById(sceneId);if(sc)sc.querySelectorAll('.pub-custom .custom-amt').forEach(i=>{s+=numOf(i.value)||0;});return s;}
 (function addPubCustomAndDocs(){
-  const map={'scene-매매':calcSale,'scene-상속':calcInherit,'scene-증여':calcGift,'scene-부담부증여':calcBurden,'scene-근저당설정':calcMortgage,'scene-근저당말소':calcMortCancel,'scene-보존':calcPreserve,'scene-권리설정':calcRight,'scene-법인설립':calcCorp,'scene-법인변경':calcCorpChange,'scene-가등기':calcGadeungi,'scene-부부재산약정':calcMarital,'scene-재건축재개발':calcRedev,'scene-이혼재산분할':calcDivision,'scene-신탁등기':calcSintak,'scene-담보권추가설정':calcMortgageAdd,'scene-소장':calcLawsuit,'scene-부동산가압류':calcAttach,'scene-가처분':calcInjunction,'scene-부동산경매신청':calcAuctionFile,'scene-채권가압류':calcAttachClaim,'scene-유체동산가압류':calcAttachGoods,'scene-자동차가압류':calcAttachCar,'scene-압류추심':calcSeizure,'scene-기타신청':calcMisc};
+  const map={'scene-매매':calcSale,'scene-상속':calcInherit,'scene-증여':calcGift,'scene-부담부증여':calcBurden,'scene-근저당설정':calcMortgage,'scene-근저당말소':calcMortCancel,'scene-변경등기':calcChange,'scene-보존':calcPreserve,'scene-권리설정':calcRight,'scene-법인설립':calcCorp,'scene-법인변경':calcCorpChange,'scene-가등기':calcGadeungi,'scene-부부재산약정':calcMarital,'scene-재건축재개발':calcRedev,'scene-이혼재산분할':calcDivision,'scene-신탁등기':calcSintak,'scene-담보권추가설정':calcMortgageAdd,'scene-소장':calcLawsuit,'scene-부동산가압류':calcAttach,'scene-가처분':calcInjunction,'scene-부동산경매신청':calcAuctionFile,'scene-채권가압류':calcAttachClaim,'scene-유체동산가압류':calcAttachGoods,'scene-자동차가압류':calcAttachCar,'scene-압류추심':calcSeizure,'scene-기타신청':calcMisc};
   Object.keys(map).forEach(sid=>{
     const sc=document.getElementById(sid);if(!sc)return;
     let pubTable=null;
@@ -13070,7 +13368,7 @@ function receiptAuto(scene){
   const BASE={'매매':'price','상속':'s_price','유증':'bq_price','증여':'gv_price','기타취득원인':'ea_price',
     '공유물분할':'pt_price','경매낙찰촉탁':'nk_price','이혼재산분할':'dv_price','부담부증여':'bv_total',
     '근저당설정':'mt_max','가등기':'ga_base','신탁등기':'st_base','담보권추가설정':'ma_max','보존':'pr_price',
-    '법인설립':'co_cap','법인변경':'cv_cap'};
+    '법인설립':'co_cap','법인변경':'cv_cap','변경등기':'chg_inc'};
   const NO_BASE={'재건축재개발':1,'후견':1,'외국인준비서류':1,'부부재산약정':1,'근저당말소':1,'소송비용확정':1};
   let base=0;
   if(BASE[id]) base=_visNum(q(BASE[id]));
