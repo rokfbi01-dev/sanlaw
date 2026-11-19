@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[회생 E-4] 월급·통장이 압류됐습니다 — 개인회생 중지명령·금지명령으로 먼저 멈추기 | 산 법무사 김재섭</title>
+<meta name="description" content="학교법인 설립 안내. 교육청·교육부 설립허가 신청서류 14가지와 요건 점검표, 허가 뒤 3주 안에 하는 설립등기 첨부서면, 등록면허세 면제, 신청서 작성 예시까지.">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+ul{margin:8px 0 12px; padding-left:20px;} li{margin:6px 0;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(300px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.who{background:var(--box); border-radius:10px; padding:14px 16px; margin:12px 0; border-left:4px solid #b9a98c;}
+.who .wl{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;margin-left:3px;}
+.tag.free{background:#5a9a72;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.cta{display:block; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; text-decoration:none; font-weight:700; font-size:16px; padding:15px; border-radius:11px; margin:18px 0; box-shadow:0 3px 8px rgba(122,82,48,.25);}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:11px 15px;margin:10px 0;font-size:13.5px;line-height:1.7;}
+.lawbox .ll{display:inline-block;font-size:11.5px;font-weight:700;color:#fff;background:var(--gold-d);border-radius:5px;padding:2px 8px;margin-right:6px;}
+.lawbox a{color:var(--gold-d);font-weight:600;}
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:14.5px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:16px;margin:10px 0;font-family:'D2Coding','Courier New',monospace;font-size:12.5px;line-height:1.65;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:15px;letter-spacing:2px;margin-bottom:10px;color:#241a10;}
+.howto{font-size:13.5px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:12.5px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:6px 12px;cursor:pointer;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.concept{background:var(--box);border-radius:9px;padding:11px 15px;margin:8px 0 14px;font-size:14.5px;color:#5a4a36;border-left:3px solid #b9a98c;}
+.concept b{color:var(--gold-d);}
+.flow{background:linear-gradient(180deg,#fcf9f2,#f7f1e5);border:1.5px solid var(--gold);border-radius:14px;padding:18px 18px 14px;margin:14px 0 20px;}
+.flow .ft2{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:12px;}
+.flow ol{counter-reset:fl;list-style:none;margin:0;padding:0;}
+.flow li{position:relative;padding:8px 10px 8px 44px;margin:7px 0;background:#fff;border:1px solid var(--line);border-radius:10px;font-size:14.5px;line-height:1.6;}
+.flow li::before{counter-increment:fl;content:counter(fl);position:absolute;left:10px;top:8px;width:26px;height:26px;line-height:26px;text-align:center;background:var(--gold);color:#fff;border-radius:50%;font-weight:800;font-size:14px;}
+.flow li b{color:var(--gold-d);}
+.flow .arw{text-align:center;color:var(--gold);font-size:13px;margin:-2px 0;}
+.newlaw{background:#eef6f0;border:1px solid #cfe6d6;border-left:4px solid #5a9a72;border-radius:8px;padding:13px 16px;margin:14px 0;}
+.newlaw .nt{font-weight:700;color:#2f6a47;display:block;margin-bottom:4px;}
+.newlaw .badge{display:inline-block;font-size:11px;font-weight:800;color:#fff;background:#5a9a72;border-radius:5px;padding:2px 8px;margin-right:6px;vertical-align:middle;}
+.faq{margin:14px 0;}
+.faq details{border:1px solid var(--line);border-radius:10px;margin:9px 0;background:#fff;overflow:hidden;}
+.faq summary{list-style:none;cursor:pointer;padding:13px 44px 13px 38px;font-weight:700;font-size:15px;color:#241a10;background:#faf7f0;position:relative;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::before{content:"Q";position:absolute;left:15px;color:var(--gold-d);font-family:'Nanum Myeongjo',serif;font-weight:800;}
+.faq summary::after{content:"▾";position:absolute;right:16px;top:13px;color:var(--gold-d);transition:.2s;}
+.faq details[open] summary::after{transform:rotate(180deg);}
+.faq .fa{padding:13px 15px 15px 38px;font-size:14.5px;line-height:1.75;color:#3a3a3a;position:relative;border-top:1px solid var(--line);}
+.faq .fa::before{content:"A";position:absolute;left:15px;top:13px;color:#5a9a72;font-family:'Nanum Myeongjo',serif;font-weight:800;}
+.helm{background:linear-gradient(135deg,#2c3e50,#3a4a5c);color:#f4f0e8;border-radius:14px;padding:20px 22px;margin:0 0 24px;box-shadow:0 4px 14px rgba(44,62,80,.18);}
+.helm .ht2{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:17px;color:#f0d98c;margin-bottom:9px;}
+.helm p{margin:0;font-size:14.5px;line-height:1.9;color:#eae4d8;}
+.helm b{color:#f4e2a6;}
+.qhead{display:flex;gap:12px;align-items:flex-start;margin:8px 0 8px;}
+.qhead .qb{flex:none;width:34px;height:34px;border-radius:50%;background:var(--gold);color:#fff;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(176,141,87,.4);}
+.qhead h2{margin:0;border:0;padding:0;font-size:20px;line-height:1.45;}
+.lawrow{display:flex;flex-wrap:wrap;background:var(--box);border-radius:10px;overflow:hidden;margin:12px 0;border:1px solid var(--line);}
+.lawrow .lrl{flex:none;background:var(--gold);color:#fff;font-weight:700;font-size:13.5px;padding:11px 15px;display:flex;align-items:center;}
+.lawrow .lrc{flex:1;min-width:210px;padding:11px 15px;font-size:14px;line-height:1.75;}
+@media(max-width:520px){.lawrow .lrl{width:100%;}}
+.calc{display:block;background:linear-gradient(135deg,#fff7e8,#fdeecb);border:1.5px solid var(--gold);border-radius:14px;padding:16px 18px;margin:18px 0;text-decoration:none;color:var(--ink);transition:.15s;}
+.calc:hover{box-shadow:0 4px 14px rgba(176,141,87,.25);transform:translateY(-1px);}
+.calc .cah{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:4px;}
+.calc .cas{font-size:13.5px;color:var(--muted);}
+.ctabtn{display:block;text-align:center;background:var(--gold);color:#fff;font-weight:800;font-size:17px;padding:16px;border-radius:12px;text-decoration:none;margin:22px 0 6px;box-shadow:0 3px 10px rgba(176,141,87,.35);}
+.ctabtn:hover{background:var(--gold-d);}
+.doclabel{display:inline-block;font-size:12px;font-weight:800;color:#fff;border-radius:6px;padding:3px 11px;margin-bottom:6px;}
+.doclabel.give{background:#b0885a;}
+.doclabel.back{background:#5a9a72;}
+.dl{color:var(--gold-d);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--gold);}
+.dl:hover{background:#fbf5e8;}
+.ddl{display:flex;gap:2px 10px;flex-wrap:wrap;margin:8px 0 2px;padding:9px 12px;background:#fbf7ee;border-radius:8px;font-size:13px;}
+.ddl b{color:var(--gold-d);}
+.deadline{width:100%;border-collapse:collapse;margin:10px 0;font-size:13.5px;}
+.deadline th{background:#3a4a5c;color:#fff;padding:8px;font-weight:700;}
+.deadline td{border:1px solid var(--line);padding:8px 10px;background:#fff;}
+.bnote{color:#0b4a9c;font-weight:600;background:#eaf2fc;border-left:4px solid #2b7fff;border-radius:8px;padding:9px 13px;margin:8px 0;font-size:13.5px;line-height:1.7;}
+.bnote b{color:#0a3d82;}
+.capital th{background:#f0ebe1;text-align:center;font-size:13px;}
+.capital td{text-align:center;font-size:13.5px;}
+.capital td:first-child{text-align:left;font-weight:700;background:#faf7f0;}
+.capital .hi{background:#fdf6e3;font-weight:700;color:var(--gold-d);}
+.capital .bad{color:#9c3a22;font-weight:700;}
+.grp{border-radius:10px;padding:13px 16px;margin:12px 0;border:1px solid var(--line);border-left-width:5px;}
+.grp .gt{font-weight:800;font-size:15px;margin-bottom:5px;}
+.grp.a{background:#eef6f0;border-left-color:#5a9a72;} .grp.a .gt{color:#2f6a47;}
+.grp.b{background:#fdf9e8;border-left-color:#d4a72c;} .grp.b .gt{color:#8a6d10;}
+.grp.c{background:#fdf2ee;border-left-color:#d9694a;} .grp.c .gt{color:#9c3a22;}
+@media print{.term>.bub{display:inline !important;position:static;background:none;color:#555;box-shadow:none;padding:0;width:auto;font-size:12px;}.term>.bub::before{content:" (";}.term>.bub::after{content:")";border:0;position:static;}.formbox .fold-body{display:block !important;}}
+.part{margin:38px 0 14px;padding:16px 18px;border-radius:12px;background:linear-gradient(135deg,#2c3e50,#3a4a5c);color:#f4f0e8;box-shadow:0 4px 14px rgba(44,62,80,.18);}
+.part .pn{display:inline-block;font-size:12px;font-weight:800;color:#2c3e50;background:#f0d98c;border-radius:6px;padding:2px 10px;margin-bottom:6px;}
+.part .pt2{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:20px;color:#fff;margin-bottom:4px;}
+.part .pw{font-size:13.5px;line-height:1.7;color:#eae4d8;} .part .pw b{color:#f4e2a6;}
+.chk td:first-child{width:30px;text-align:center;color:var(--gold-d);font-size:16px;}
+.tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.srcb{display:inline-block;font-size:11px;font-weight:800;color:#fff;border-radius:5px;padding:1px 7px;margin-left:6px;vertical-align:middle;}
+.srcb.moe{background:#2f5b78;} .srcb.goe{background:#5a9a72;} .srcb.own{background:#9a8f7d;}
+.srcline{font-size:12.5px;color:var(--muted);background:#faf7f0;border-radius:7px;padding:7px 11px;margin:0 0 6px;}
+h3.fgrp{font-size:15px;color:var(--gold-d);margin:22px 0 6px;padding-bottom:5px;border-bottom:1px dashed var(--line);}
+.form{overflow-x:auto;}
+@media(max-width:560px){table{font-size:12.5px;} th,td{padding:7px 6px;overflow-wrap:anywhere;} .tblwrap table{min-width:560px;} .who{padding:12px 10px;}}
+
+/* ── 접이식 섹션(details.sec) · 목차 · 전체펼치기 ── */
+details.sec{border:1px solid var(--line);border-radius:11px;margin:13px 0;background:#fff;overflow:hidden;}
+details.sec>summary{cursor:pointer;list-style:none;padding:13px 16px;background:var(--box);border-left:4px solid var(--gold);display:flex;align-items:center;gap:11px;}
+details.sec>summary::-webkit-details-marker{display:none;}
+details.sec>summary .qb{flex:none;width:31px;height:31px;border-radius:50%;background:var(--gold);color:#fff;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(176,141,87,.4);}
+details.sec>summary .st{flex:1;font-family:'Nanum Myeongjo',serif;font-size:17.5px;font-weight:700;color:var(--gold-d);line-height:1.5;}
+details.sec>summary .st .sub{display:block;font-family:'Pretendard',sans-serif;font-size:13px;font-weight:400;color:var(--muted);margin-top:3px;}
+details.sec>summary::after{content:"펼치기 ▾";flex:none;font-family:'Pretendard',sans-serif;font-size:12.5px;font-weight:700;color:var(--gold);background:#fff;border:1px solid var(--line);border-radius:20px;padding:3px 10px;white-space:nowrap;}
+details.sec[open]>summary::after{content:"접기 ▴";}
+details.sec>summary:hover{background:#f2ede3;}
+.secbody{padding:4px 17px 16px;}
+.toc{background:#fffaf0;border:1.5px solid var(--gold);border-radius:12px;padding:15px 18px;margin:18px 0 22px;}
+.toc .tct{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:16px;color:var(--gold-d);margin-bottom:9px;}
+.toc ol{margin:0;padding-left:21px;font-size:14.5px;line-height:1.95;}
+.toc a{color:#3a3a3a;text-decoration:none;border-bottom:1px dotted #c9b48c;}
+.toc a:hover{color:var(--gold-d);}
+.allbtn{display:inline-block;margin-top:11px;font-size:13.5px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:20px;padding:6px 15px;cursor:pointer;user-select:none;}
+.allbtn:hover{background:#f6ecd8;}
+@media(max-width:520px){details.sec>summary{gap:8px;padding:12px 11px;} details.sec>summary .st{font-size:16px;} details.sec>summary::after{font-size:11.5px;padding:2px 7px;} .secbody{padding:4px 12px 14px;}}
+@media print{details.sec:not([open])>*{display:block !important;} details.sec>summary::after{display:none;} .toc,.allbtn{display:none !important;}}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+
+<h1>[회생 E-4] 월급·통장이 압류됐습니다 — 먼저 멈추는 법</h1>
+
+<div class="tnote">어려운 법률용어에는 <b>점선 밑줄</b>이 그어져 있습니다. <b>PC는 마우스를 올리면</b>, <b>휴대폰은 손가락으로 톡 터치하면</b> 쉬운 설명이 뜹니다. (인쇄하면 괄호로 함께 나옵니다.)</div>
+
+<div class="helm">
+<div class="ht2">⚓ 이 매뉴얼을 끝까지 읽으시는 분께</div>
+<p>이 매뉴얼은 <b>의뢰인이 직접 법원에 신청할 수 있도록 모든 서류 양식, 비용, 요건을 구체적으로 담았습니다.</b> 하지만 소송은 살아있는 생물과 같아 상대방의 격렬한 저항이 뒤따릅니다. 혼자 진행하시다가 막히는 부분이 생기거나 방어막이 필요할 때, 언제든 이 매뉴얼을 들고 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</p>
+</div>
+
+<div class="tldr">
+<div class="tt">⭐ 30초 결론부터</div>
+<ul>
+<li><b>개인회생을 신청하면서 함께 내면, 법원이 압류를 멈춰 줍니다.</b> 서류를 다 모을 때까지 기다릴 필요가 없습니다. 법원은 <b>신청서를 낸 날부터 3일 안에</b> 결정합니다.</li>
+<li><b>두 가지가 있습니다. <span class="term">중지명령<span class="bub">이미 진행 중인 압류·경매를 그 자리에서 멈추게 하는 법원의 명령. 어느 사건을 멈출지 콕 집어 신청합니다.</span></span>은 '지금 진행 중인 것'을 멈추고, <span class="term">금지명령<span class="bub">앞으로 새로 압류하거나 독촉하지 못하게 막는 법원의 명령. 채권자 전부를 상대로 낼 수 있습니다.</span></span>은 '앞으로 할 것'을 막습니다.</b> 보통 둘 다 함께 냅니다.</li>
+<li><b>결정문을 받았다고 저절로 멈추지 않습니다.</b> 압류를 진행하는 <b>그 법원(집행법원)에 결정문을 제출</b>해야 비로소 멈춥니다. 이것을 모르고 기다리다 월급을 더 떼이는 분이 많습니다.</li>
+<li><b>이미 떼어간 돈은 돌아오지 않습니다.</b> 중지명령은 <b>앞으로를 멈추는 것</b>이지 지나간 것을 되돌리지 않습니다. 그래서 <b>하루라도 빨리</b> 내는 것이 돈으로 직결됩니다.</li>
+</ul>
+</div>
+
+<div class="part">
+<span class="pn">먼저 확인</span>
+<div class="pt2">🧭 지금 어떤 상태입니까</div>
+<div class="pw">자기 상황을 먼저 고르십시오. 멈추는 방법이 조금씩 다릅니다.</div>
+</div>
+
+<div class="sit-wrap">
+<div class="sit"><span class="sl">① 월급에서 떼어 가고 있다</span>회사가 급여에서 일정액을 공제해 채권자에게 보내고 있는 상태입니다. → <b>중지명령</b>으로 멈춥니다. 회사에는 따로 보내지 않아도 되고, <b>압류를 진행한 법원에 결정문을 내면</b> 멈춥니다.</div>
+<div class="sit"><span class="sl">② 통장이 묶였다</span>카드 결제가 막히고 잔액이 인출되지 않습니다. → <b>중지명령</b>. 다만 <b>이미 은행에서 채권자에게 넘어간 돈은 돌아오지 않습니다.</b></div>
+</div>
+<div class="sit-wrap">
+<div class="sit"><span class="sl">③ 집이 경매에 넘어갔다</span>담보로 잡힌 집의 경매도 <b>멈출 수 있습니다</b>(법 제593조 제1항 제3호). 다만 <b>이미 낙찰된 뒤</b>라면 법원이 중지명령을 취소하는 경우가 있으므로 <b>서두르셔야 합니다.</b></div>
+<div class="sit"><span class="sl">④ 아직 압류는 없지만 독촉이 심하다</span>전화·문자·방문 독촉이 계속된다면 → <b>금지명령</b>으로 막습니다. 앞으로의 압류도 함께 막힙니다.</div>
+</div>
+
+<div class="warn"><span class="wt">⚠ 신청서만 내면 자동으로 멈추는 것이 아닙니다</span>
+개인회생을 신청했다는 사실만으로는 압류가 멈추지 않습니다. <b>중지·금지명령을 따로 신청해서 법원의 결정을 받아야</b> 합니다. 신청서 한 장에 인지 <b>2,000원</b>씩이면 되는데, 이것을 몰라 몇 달을 더 떼이는 경우가 많습니다.</div>
+
+<div class="toc">
+<div class="tct">이어지는 내용 — 필요한 곳만 펼쳐 보십시오</div>
+<ol>
+<li><a href="#f1">중지명령과 금지명령은 어떻게 다릅니까</a></li>
+<li><a href="#f2">멈출 수 있는 것 — 법이 정한 다섯 가지</a></li>
+<li><a href="#f3">이미 압류된 돈은 돌려받습니까</a></li>
+<li><a href="#f4">어떻게 신청합니까 — 서류·비용·3일</a></li>
+<li><a href="#f5"><b>결정문을 받았습니다 — 여기서 끝이 아닙니다</b></a></li>
+<li><a href="#f6">받은 뒤에 취소될 수도 있습니다</a></li>
+<li><a href="#f7">언제까지 효력이 있습니까</a></li>
+<li><a href="#f8"><b>서식</b> — 중지명령·금지명령·집행정지 신청서</a></li>
+<li><a href="#f9">필요한 자료, 어디서 떼나</a></li>
+<li><a href="#f10">자주 묻는 질문</a></li>
+</ol>
+<span class="allbtn" id="allBtn" role="button" tabindex="0">전체 펼치기</span>
+</div>
+<div class="part">
+<span class="pn">알아 둘 것</span>
+<div class="pt2">무엇이 멈추고, 무엇이 멈추지 않는가</div>
+<div class="pw">법이 정해 둔 다섯 가지만 멈출 수 있습니다. 내 사정이 여기 들어가는지 먼저 보십시오.</div>
+</div>
+
+<details class="sec" id="f1"><summary><span class="qb">1</span><span class="st">중지명령과 금지명령은 어떻게 다릅니까<span class="sub">중지는 진행 중인 것, 금지는 앞으로 할 것</span></span></summary>
+<div class="secbody">
+<div class="tblwrap">
+<table>
+<tr><th></th><th>중지명령</th><th>금지명령</th></tr>
+<tr><th>무엇을</th><td><b>지금 진행 중인</b> 압류·경매를 멈춤</td><td><b>앞으로 새로 하는 것</b>을 막음</td></tr>
+<tr><th>누구를 상대로</th><td>그 압류를 신청한 <b>채권자를 콕 집어</b></td><td>채권자목록의 <b>모든 채권자</b></td></tr>
+<tr><th>언제 효력이</th><td>결정문을 <b>집행법원에 내는 때</b></td><td>그 채권자에게 <b>송달되는 때</b></td></tr>
+<tr><th>이미 된 압류는</th><td><b>풀리지 않습니다.</b> 더 진행되지 않을 뿐</td><td>이미 시작된 집행은 막지 못합니다</td></tr>
+<tr><th>같은 채권자가<br>또 압류하면</th><td><b>막지 못합니다.</b> 새 중지명령이 필요</td><td><b>막습니다</b></td></tr>
+</table>
+</div>
+<div class="tip"><span class="pt">💡 그래서 둘을 함께 냅니다</span>중지명령만 내면 <b>그 사건</b>은 멈추지만 같은 채권자가 다른 재산을 새로 압류할 수 있습니다. 금지명령만 내면 <b>앞으로는</b> 막히지만 <b>이미 진행 중인 압류는 멈추지 않습니다</b>. 그래서 실무에서는 <b>중지명령과 금지명령을 함께</b> 신청합니다.</div>
+<div class="bnote"><b>대법원도 같은 취지로 판단했습니다.</b> 금지명령은 장래의 강제집행을 금지한 것이므로, 그 송달만으로 <b>이미 개시된 채권압류 및 전부명령이 중지되지는 않는다</b>고 보았습니다(대법원 2017. 11. 29. 선고 2017다201538 판결). 진행 중인 사건은 반드시 <b>중지명령</b>으로 따로 멈춰야 합니다.</div>
+
+</div></details>
+
+<details class="sec" id="f2"><summary><span class="qb">2</span><span class="st">멈출 수 있는 것 — 법이 정한 다섯 가지<span class="sub">강제집행 · 경매 · 독촉 · 체납처분</span></span></summary>
+<div class="secbody">
+<div class="tblwrap">
+<table>
+<tr><th>근거</th><th>무엇이 멈추나</th><th>쉽게 말하면</th></tr>
+<tr><td><b>1호</b></td><td>회생절차 또는 파산절차</td><td>다른 도산절차가 진행 중일 때</td></tr>
+<tr><td><b>2호</b></td><td>강제집행·가압류·가처분</td><td><b>월급 압류, 통장 압류, 유체동산 압류</b></td></tr>
+<tr><td><b>3호</b></td><td>담보권 설정 또는 <b>담보권 실행 경매</b></td><td><b>집·땅의 경매</b>(주택담보대출 연체로 들어온 것 포함)</td></tr>
+<tr><td><b>4호</b></td><td>변제를 받거나 요구하는 <b>일체의 행위</b><br><span style="color:#9c3a22">다만 소송행위는 제외</span></td><td><b>전화·문자·방문 독촉</b>. 다만 <b>소송을 거는 것은 못 막습니다</b></td></tr>
+<tr><td><b>5호</b></td><td>국세·지방세 <b>체납처분</b></td><td><b>세금 압류.</b> 다만 세무서·구청의 의견을 들어야 합니다</td></tr>
+</table>
+</div>
+<div class="warn"><span class="wt">⚠ 멈추지 않는 것</span>
+<b>· 소송</b> — 채권자가 지급명령이나 대여금 소송을 거는 것은 막지 못합니다(4호 단서). 소장이 오면 <b>따로 대응</b>하셔야 합니다.<br>
+<b>· 위 다섯 가지에 없는 것</b> — 예컨대 보증인에 대한 청구는 막지 못합니다. <b>내 빚을 보증 선 가족·지인에게는 독촉이 계속됩니다.</b><br>
+<b>· 이미 떼어간 돈</b> — 중지명령은 앞으로를 멈추는 것이지 지나간 것을 되돌리지 않습니다.</div>
+
+</div></details>
+
+<details class="sec" id="f3"><summary><span class="qb">3</span><span class="st">이미 압류된 돈은 돌려받습니까<span class="sub">이미 떼어간 돈은 돌아오지 않습니다</span></span></summary>
+<div class="secbody">
+<div class="concept">받지 못합니다. 중지명령은 <b>그 절차를 더 진행시키지 않는다</b>는 효력만 있고, <b>이미 집행된 압류의 효력은 그대로 유지</b>됩니다. 통장에 걸린 압류 자체가 풀리는 것도 아닙니다. <b>다만 그 뒤로 더 빠져나가지 않습니다.</b></div>
+<div class="tip"><span class="pt">💡 그래서 하루가 돈입니다</span>월급에서 매달 100만원이 나가고 있다면, 신청이 한 달 늦어질 때마다 <b>100만원이 그대로 사라집니다.</b> 서류를 다 갖추고 나서 내는 것이 아니라, <b>개인회생 신청서와 함께 또는 먼저</b> 중지·금지명령부터 내는 것이 맞습니다.</div>
+</div></details>
+<div class="part">
+<span class="pn">실행</span>
+<div class="pt2">신청부터 실제로 멈추기까지 — 네 단계</div>
+<div class="pw">여기서 <b>3단계를 빠뜨리면 결정을 받고도 계속 떼입니다.</b> 가장 중요한 대목입니다.</div>
+</div>
+
+<details class="sec" id="f4"><summary><span class="qb">4</span><span class="st">어떻게 신청합니까<span class="sub">어느 법원에 · 무엇을 적고 · 얼마에 · 3일</span></span></summary>
+<div class="secbody">
+<ol class="steps">
+<li><b>어느 법원에 내나</b> — 개인회생을 신청한(또는 신청할) <b>그 법원</b>에 냅니다. 압류를 진행하는 법원이 아닙니다. 개인회생 신청과 <b>같은 날 함께</b> 낼 수 있고, 급하면 신청서를 먼저 접수한 뒤 바로 내도 됩니다.</li>
+<li><b>무엇을 적나</b> — 중지명령은 <b>멈출 사건을 콕 집어</b> 적어야 합니다. "○○지방법원 20○○타채○○○○호 채권압류 및 추심명령"처럼 <b>법원 이름과 사건번호</b>를 써야 합니다. 금지명령은 사건을 특정하지 않아도 됩니다.
+<div class="howto">▷ <b>사건번호를 모르면</b> 압류한 은행이나 회사 경리부에 물으면 알려 줍니다. 또는 <a href="https://www.scourt.go.kr/portal/aj/AJMyMain.work">대법원 나의 사건검색</a>에서 본인 이름으로 확인할 수 있습니다.</div></li>
+<li><b>돈은 얼마나</b> — 신청서 <b>한 건당 인지 2,000원</b>, 송달료는 별도입니다. 중지명령과 금지명령을 따로 내면 각각 2,000원입니다.</li>
+<li><b>며칠 걸리나</b> — 법원은 특별한 사정이 없는 한 <b>접수일부터 3일 안에</b> 발령 여부를 결정합니다. <b>다만 인지와 송달료를 내지 않으면 이 3일이 적용되지 않습니다.</b></li>
+</ol>
+<div class="cost"><span class="ct">💰 비용</span>
+<b>· 중지명령 신청</b> 인지 2,000원 + 송달료<br>
+<b>· 금지명령 신청</b> 인지 2,000원 + 송달료<br>
+<b>· 개인회생 개시신청</b> 인지 30,000원(전자소송 27,000원) + 송달료(10회분 + 채권자 수 × 8회분)
+<div style="margin-top:11px; padding-top:10px; border-top:1px dashed #cfe6d6; color:#c0392b; font-weight:600; line-height:1.8;">※ 송달료는 채권자 수에 따라 달라집니다. <a href="https://sanlaw.co.kr/tools-calculator.html" style="color:#c0392b; text-decoration:underline; font-weight:700;">🧮 비용 계산기</a>에서 미리 확인하십시오.</div>
+</div>
+
+</div></details>
+
+<details class="sec" id="f5"><summary><span class="qb">5</span><span class="st">결정문을 받았습니다 — 여기서 끝이 아닙니다<span class="sub">집행법원에 내야 실제로 멈춥니다</span></span></summary>
+<div class="secbody">
+<div class="warn"><span class="wt">⚠ 가장 많이 놓치는 대목 — 집행법원에 내야 멈춥니다</span>
+중지명령 결정문은 <b>「강제집행의 일시정지를 명한 재판의 정본」</b>에 해당합니다(민사집행법 제49조 제2호). 즉 <b>그 결정문을 압류가 진행되는 법원에 제출하고 "집행을 정지해 달라"고 해야</b> 비로소 멈춥니다. 결정문을 손에 쥐고 집에서 기다리면 <b>월급은 계속 나갑니다.</b></div>
+<ol class="steps">
+<li><b>결정문을 여러 통 받아 둡니다.</b> 압류 사건이 여러 개면 사건마다 제출해야 합니다.</li>
+<li><b>압류를 진행하는 법원(집행법원)에 제출</b>하고 집행정지를 신청합니다. 사건번호를 적은 간단한 서면과 함께 냅니다.</li>
+<li><b>급여압류라면</b> 회사 경리부에도 사본을 전하는 것이 실무상 안전합니다. 법원에서 회사로 통지가 가기까지 시간이 걸리기 때문입니다.</li>
+<li><b>금지명령은 채권자에게 송달되어야</b> 그 채권자에게 효력이 생깁니다. 채권자마다 송달 시기가 달라 <b>효력이 생기는 날도 제각각</b>입니다. 송달 여부는 법원에 확인할 수 있습니다.</li>
+</ol>
+<div class="bnote"><b>금지명령을 어기고 독촉하면</b> 그 자체를 처벌하는 규정은 없지만, <b>불법행위로 손해배상 책임</b>을 질 수 있습니다. 어기고 새로 들어온 압류는 <b>무효</b>이므로, 금지명령 정본과 <b>그 채권자에 대한 송달증명원</b>을 집행법원에 내어 취소를 구할 수 있습니다.</div>
+
+</div></details>
+
+<details class="sec" id="f6"><summary><span class="qb">6</span><span class="st">받은 뒤에 취소될 수도 있습니다<span class="sub">최근 1년 빚이 많으면 취소될 수 있습니다</span></span></summary>
+<div class="secbody">
+<div class="concept">중지·금지명령에는 <b>즉시항고를 할 수 없습니다</b>. 그러나 채권자가 법원에 <b>취소·변경을 신청</b>할 수는 있고, 법원이 직권으로 취소하기도 합니다. 서울회생법원은 아래 사정이 소명되면 <b>면밀히 검토</b>하도록 정해 두었습니다.</div>
+<div class="tblwrap">
+<table class="chk">
+<tr><th style="width:34px">⚠</th><th>채권자가 내세우는 취소 사유</th></tr>
+<tr><td>☐</td><td><b>신청일 전 1년 안에 생긴 빚</b>이 전체 빚에서 차지하는 비중이 큰 경우</td></tr>
+<tr><td>☐</td><td><b>신청일 전 1년 안에 생긴 빚</b>의 금액 자체가 큰 경우</td></tr>
+<tr><td>☐</td><td>과거에 <b>개인파산이나 개인회생을 신청한 적</b>이 있는 경우</td></tr>
+<tr><td>☐</td><td>그 밖에 개인회생을 <b>남용</b>한다고 볼 객관적 사정이 있는 경우</td></tr>
+</table>
+</div>
+<div class="tip"><span class="pt">💡 해당된다면 미리 준비하십시오</span>최근 1년 안에 빌린 돈이 많다면 <b>그 돈을 어디에 썼는지</b> 설명할 자료를 미리 갖추십시오. 생활비·치료비·사업자금 등 <b>쓴 곳이 분명하면</b> 문제되지 않는 경우가 많습니다. 반대로 설명하지 못하면 중지명령이 취소되고 압류가 다시 진행됩니다.</div>
+
+</div></details>
+
+<details class="sec" id="f7"><summary><span class="qb">7</span><span class="st">언제까지 효력이 있습니까<span class="sub">개시결정이 날 때까지</span></span></summary>
+<div class="secbody">
+<ol class="steps">
+<li><b>개인회생 개시결정이 날 때까지</b>입니다. 그때까지 압류를 막아 주는 다리 역할입니다.</li>
+<li><b>개시결정이 나면</b> 중지·금지명령이 없어도 강제집행이 <b>당연히 멈춥니다</b>(법 제600조 제1항). 따로 신청할 필요가 없습니다.</li>
+<li><b>신청이 기각되면</b> 중지·금지명령은 효력을 잃고 <b>멈췄던 압류가 다시 진행됩니다</b>(법 제593조 제3항).</li>
+<li><b>시효는 그대로 갑니다.</b> 이미 압류로 중단된 소멸시효는 중지명령을 받아도 계속 중단된 상태입니다.</li>
+</ol>
+<div class="warn"><span class="wt">⚠ 중지·금지명령을 받은 뒤에는 마음대로 취하할 수 없습니다</span>개인회생 신청은 개시결정 전까지 자유롭게 취하할 수 있지만, <b>중지·금지명령을 받은 뒤에는 법원의 허가를 받아야</b> 취하할 수 있습니다(법 제594조). 압류만 멈춰 놓고 절차를 그만두는 것을 막기 위한 규정입니다.</div>
+</div></details>
+<details class="sec" id="f8"><summary><span class="qb">書</span><span class="st">서식 — 어디서 받고 어떻게 적나<span class="sub">중지명령 · 금지명령 · 집행정지 신청서</span></span></summary>
+<div class="secbody">
+<div class="srcline">출처 · 대한민국 법원 전자소송 「서식모음」 및 서울회생법원 홈페이지 「양식」 — <a class="dl" href="https://ecfs.scourt.go.kr/psp/index.on?m=PSP720M24" target="_blank">전자소송 서식모음</a> / <a class="dl" href="https://slb.scourt.go.kr" target="_blank">서울회생법원</a> (경로: 정보광장 → 양식·서식 → 개인회생)</div>
+<div class="concept"><b>법원이 정해 둔 양식을 내려받아 쓰십시오.</b> 아래는 그 양식에 무엇을 적어야 하는지를 보여 주는 <b>기재 예시</b>입니다. 양식 자체는 법원 것을 쓰시고, 빈칸 <b>○○○</b>를 자기 사건 내용으로 채우시면 됩니다.</div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="srcb own">사무소 기재례</span>중지명령 신청서 — 진행 중인 압류를 멈출 때<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f1"><span class="ft">중지명령 신청서</span>사건   20○○개회○○○○  개인회생
+신청인(채무자)  ○○○   (☎: ○○○-○○○○-○○○○)
+주민등록번호  ○○○○○○-○○○○○○○
+주소  ○○○
+
+상대방(채권자)  주식회사 ○○○
+대표이사  ○○○
+주소  ○○○
+
+                            신 청 취 지
+
+○○지방법원 20○○타채○○○○호 채권압류 및 추심명령 사건의
+집행절차를 이 사건 개인회생절차개시신청에 관한 결정이 있을 때까지
+중지한다.
+라는 결정을 구합니다.
+
+                            신 청 이 유
+
+1. 신청인은 20○○. ○. ○. 이 법원에 개인회생절차개시신청을
+   하였습니다.
+
+2. 상대방은 신청인에 대한 ○○지방법원 20○○가소○○○○호
+   ○○○ 사건의 집행력 있는 판결정본에 기하여
+   ○○지방법원 20○○타채○○○○호로 채권압류 및 추심명령을 받아,
+   20○○. ○. ○.부터 신청인의 급여(또는 예금)에서
+   매월 금 ○○○원을 추심하고 있습니다.
+
+3. 신청인은 위 추심으로 인하여 최소한의 생계조차 유지하기 어려운
+   형편이며, 이 상태가 계속되면 변제계획을 수행할 재원마저
+   잃게 되어 개인회생절차의 목적을 달성할 수 없습니다.
+
+4. 이에 「채무자 회생 및 파산에 관한 법률」 제593조 제1항 제2호에
+   따라 위 집행절차의 중지를 구하고자 이 사건 신청에 이른 것입니다.
+
+                            첨 부 서 류
+
+1. 개인회생절차개시신청서 접수증명         1통
+2. 채권압류 및 추심명령 결정문 사본        1통
+3. 급여명세서(또는 예금거래내역)           1통
+
+                            20○○.  ○.  ○.
+
+                  위 신청인(채무자)  ○○○  (서명 또는 날인)
+
+○○회생법원(또는 ○○지방법원)   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f1')">📋 복사</button><button type="button" onclick="printForm('f1')">🖨 인쇄</button><button type="button" onclick="downloadForm('f1','중지명령_신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>신청취지에 사건을 정확히 적는 것이 전부입니다.</b> "○○지방법원 20○○타채○○○○호"처럼 <b>법원 이름과 사건번호</b>를 틀리지 않게 쓰십시오. 사건이 여러 개면 <b>사건마다 한 줄씩</b> 모두 적습니다. <b>집 경매</b>를 멈추려면 근거를 <b>제593조 제1항 제3호</b>로, <b>세금 압류</b>라면 <b>제5호</b>로 바꿔 적습니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="srcb own">사무소 기재례</span>금지명령 신청서 — 앞으로의 압류·독촉을 막을 때<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f2"><span class="ft">금지명령 신청서</span>사건   20○○개회○○○○  개인회생
+신청인(채무자)  ○○○   (☎: ○○○-○○○○-○○○○)
+주민등록번호  ○○○○○○-○○○○○○○
+주소  ○○○
+
+                            신 청 취 지
+
+개인회생채권자목록에 기재된 개인회생채권자들은 이 사건
+개인회생절차개시신청에 관한 결정이 있을 때까지 신청인의 업무 및
+재산에 대하여 개인회생채권에 기한 강제집행·가압류 또는 가처분을
+하여서는 아니 되고, 개인회생채권을 변제받거나 변제를 요구하는
+일체의 행위(소송행위는 제외한다)를 하여서는 아니 된다.
+라는 결정을 구합니다.
+
+                            신 청 이 유
+
+1. 신청인은 20○○. ○. ○. 이 법원에 개인회생절차개시신청을
+   하였습니다.
+
+2. 신청인은 현재 ○○개 금융기관 등에 합계 금 ○○○원의 채무를
+   부담하고 있고, 채권자들로부터 전화·문자·방문에 의한 변제 독촉을
+   계속 받고 있어 정상적인 직장생활과 생계유지가 어려운 형편입니다.
+
+3. 또한 채권자들이 새로이 급여나 예금을 압류할 경우 신청인은
+   변제계획을 수행할 재원을 잃게 되어 개인회생절차의 목적을
+   달성할 수 없게 됩니다.
+
+4. 이에 「채무자 회생 및 파산에 관한 법률」 제593조 제1항에 따라
+   신청취지와 같은 결정을 구합니다.
+
+                            첨 부 서 류
+
+1. 개인회생절차개시신청서 접수증명         1통
+2. 개인회생채권자목록 사본                 1통
+
+                            20○○.  ○.  ○.
+
+                  위 신청인(채무자)  ○○○  (서명 또는 날인)
+
+○○회생법원(또는 ○○지방법원)   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f2')">📋 복사</button><button type="button" onclick="printForm('f2')">🖨 인쇄</button><button type="button" onclick="downloadForm('f2','금지명령_신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><b>금지명령은 채권자를 특정하지 않아도 됩니다.</b> 채권자목록에 적힌 사람 전부가 대상이 되고, 법원이 <b>목록의 모든 채권자에게 송달</b>합니다. 그래서 <b>채권자목록이 정확해야</b> 빠짐없이 막힙니다. 목록에서 빠진 채권자에게는 금지명령이 송달되지 않아 <b>그 채권자는 계속 압류할 수 있습니다.</b></div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="srcb own">사무소 기재례</span>집행정지 신청서 — 결정문을 받은 뒤 집행법원에 내는 서면<span class="chev">▾</span></button><div class="fold-body">
+<div class="form" id="f3"><span class="ft">강제집행정지 신청서</span>사건   ○○지방법원 20○○타채○○○○호
+        채권압류 및 추심명령
+채권자  주식회사 ○○○
+채무자  ○○○   (☎: ○○○-○○○○-○○○○)
+제3채무자  ○○ 주식회사
+
+위 사건에 관하여 채무자는 아래와 같이 집행의 정지를 신청합니다.
+
+                              아        래
+
+1. 채무자는 ○○회생법원 20○○개회○○○○호로 개인회생절차개시신청을
+   하였고, 같은 법원은 20○○. ○. ○. 위 사건의 집행절차를 중지한다는
+   중지명령을 하였습니다(별첨 결정문).
+
+2. 위 중지명령 결정문은 「민사집행법」 제49조 제2호의
+   '강제집행의 일시정지를 명한 취지를 적은 재판의 정본'에
+   해당합니다.
+
+3. 이에 위 사건의 집행절차를 정지하여 주시기 바랍니다.
+
+                            첨 부 서 류
+
+1. 중지명령 결정문 정본                   1통
+
+                            20○○.  ○.  ○.
+
+                       위 채무자  ○○○  (서명 또는 날인)
+
+○○지방법원   귀중</div>
+<div class="form-tools"><button type="button" onclick="copyForm('f3')">📋 복사</button><button type="button" onclick="printForm('f3')">🖨 인쇄</button><button type="button" onclick="downloadForm('f3','집행정지_신청서.txt')">⬇ 다운로드</button></div>
+<div class="howto"><span style="color:#9c3a22"><b>이 서면을 내야 실제로 멈춥니다.</b></span> 중지명령을 한 법원이 아니라 <b>압류를 진행하는 법원(집행법원)</b>에 냅니다. 중지명령 결정문 <b>정본</b>을 붙여야 하므로, 결정문을 받을 때 <b>사건 수만큼 여러 통</b> 받아 두십시오. 압류 사건이 세 개면 세 곳에 각각 내야 합니다.</div>
+</div></div>
+</div></details>
+<div class="qhead"><span class="qb">所</span><h2>고충은 덜어드리고, 끝까지 곁에서 돕겠습니다</h2></div>
+<div class="hire">
+<p>본 사무소에서는 사실관계와 자료를 꼼꼼히 살펴 필요한 서류를 갖추어 드리고, 절차를 마치실 때까지 성심껏 돕겠습니다.</p>
+<p style="margin-top:12px"><b>· 지금 압류가 들어온 분</b><br>개인회생 신청과 <b>중지·금지명령을 함께</b> 접수하고, 결정이 나면 <b>집행법원에 제출하여 실제로 멈추는 것까지</b> 처리해 드립니다. 압류 사건이 여러 개면 사건마다 빠짐없이 냅니다.</p>
+<p style="margin-top:10px"><b>· 집이 경매에 넘어간 분</b><br>낙찰 전이라면 <b>경매도 멈출 수 있습니다.</b> 다만 시간이 촉박하므로 경매 진행 단계를 먼저 확인해야 합니다.</p>
+<p style="margin-top:10px"><b>· 최근 1년 안에 빚이 늘어난 분</b><br>채권자가 중지명령 취소를 구할 수 있는 사안입니다. <b>그 돈을 어디에 썼는지</b> 소명자료를 함께 준비해 드립니다.</p>
+<p style="margin-top:12px; font-size:14px; color:#eae4d8;">※ <b>개인회생·개인파산 신청대리는 법무사의 업무</b>입니다(법무사법 제2조).</p>
+</div>
+
+<div class="warn"><span class="wt">⚠ 압류가 들어왔다고 해서 하지 말아야 할 일</span>
+<b>· 통장의 돈을 급히 빼내어 다른 사람 계좌로 옮기지 마십시오.</b> <span class="term">강제집행면탈죄<span class="bub">강제집행을 피할 목적으로 재산을 숨기거나 빼돌려 채권자를 해치는 범죄(형법 제327조). 3년 이하의 징역 또는 1천만원 이하의 벌금.</span></span>가 문제될 수 있고, 개인회생에서도 재산을 숨긴 것으로 보아 불리해집니다.<br>
+<b>· 급한 마음에 사채를 쓰지 마십시오.</b> 신청 직전에 생긴 빚은 <b>중지명령이 취소되는 사유</b>가 됩니다.<br>
+<b>· 특정 채권자에게만 급히 갚지 마십시오.</b> 다른 채권자와의 형평이 깨져 문제가 됩니다.</div>
+
+<a href="https://sanlaw.co.kr/tools-calculator.html" class="cta">🧮 내 사건 비용 미리 계산하기</a>
+<details class="sec" id="f9"><summary><span class="qb">發</span><span class="st">필요한 자료, 어디서 떼나<span class="sub">사건번호 · 채권 내역 · 경매 단계</span></span></summary>
+<div class="secbody">
+<p style="font-size:13.5px;color:var(--muted)">'바로가기'를 누르면 해당 사이트로 갑니다. 첫 화면으로 연결되면 옆의 <b>찾아가는 길</b>을 따라가십시오.</p>
+<div class="tblwrap">
+<table>
+<tr><th>무엇을 확인하려고</th><th>필요한 것</th><th>바로가기 · 찾아가는 길</th></tr>
+<tr><td><b>어느 법원 몇 호 사건인지</b><br>(중지명령에 꼭 필요)</td><td>압류 사건번호</td><td><a href="https://www.scourt.go.kr/portal/aj/AJMyMain.work">나의 사건검색</a><br><span style="font-size:12.5px;color:var(--muted)">은행·회사 경리부에 물어도 알려 줍니다</span></td></tr>
+<tr><td><b>내 빚이 전부 얼마인지</b><br>(채권자목록 작성용)</td><td>신용정보 조회 내역</td><td><a href="https://www.credit4u.or.kr">크레딧포유</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 본인인증 → 신용정보 조회 → 대출·채무 내역</span></td></tr>
+<tr><td><b>얼마가 빠져나갔는지</b></td><td>급여명세서, 예금거래내역</td><td>회사 경리부 / 거래은행 앱<br><span style="font-size:12.5px;color:var(--muted)">압류 공제액이 찍힌 부분을 함께 출력</span></td></tr>
+<tr><td><b>집 경매가 어디까지 갔는지</b></td><td>경매 진행 단계, 매각기일</td><td><a href="https://www.courtauction.go.kr/pgj/index.on?w2xPath=%2Fpgj%2Fui%2Fpgj100%2FPGJ159M00.xml">법원경매정보 · 경매사건검색</a><br><span style="font-size:12.5px;color:var(--muted)">낙찰 전인지 먼저 확인하십시오</span></td></tr>
+<tr><td><b>신청서 제출</b></td><td>중지·금지명령 신청서 양식</td><td><a href="https://ecfs.scourt.go.kr">전자소송</a> / <a href="https://slb.scourt.go.kr">서울회생법원</a><br><span style="font-size:12.5px;color:var(--muted)">경로: 전자소송 → 서류제출 → 회생·파산 → 개인회생</span></td></tr>
+</table>
+</div>
+
+</div></details>
+
+<details class="sec" id="f10"><summary><span class="qb">Q</span><span class="st">자주 묻는 질문<span class="sub">압류당한 분이 가장 많이 묻는 것</span></span></summary>
+<div class="secbody">
+<div class="faq">
+<div class="fa"><b>Q. 개인회생 서류를 아직 다 못 모았습니다. 그래도 됩니까?</b><br>됩니다. <b>개인회생 신청서를 먼저 접수</b>하고 중지·금지명령을 내면 됩니다. 서류가 일부 빠져 있어도 접수는 되고, 빠진 것은 나중에 보정으로 냅니다. <b>압류가 진행 중이라면 서류를 다 갖출 때까지 기다리는 것이 가장 손해</b>입니다.</div>
+<div class="fa"><b>Q. 회사에 알려집니까?</b><br>급여가 압류된 상태라면 회사는 이미 알고 있습니다. 중지명령으로 공제가 멈추면 회사 입장에서는 오히려 업무가 줄어듭니다. 다만 법원에서 회사로 통지가 가기까지 시간이 걸리므로, <b>결정문 사본을 경리부에 직접 전하는 편</b>이 빠릅니다.</div>
+<div class="fa"><b>Q. 통장이 묶였는데 생활비가 없습니다.</b><br>예금은 <b>개인별 합산 250만원까지는 압류가 금지</b>되어 있습니다. 그 범위를 넘겨 압류되었다면 <b>압류금지채권 범위변경 신청</b>으로 되찾을 수 있습니다. 중지명령과는 별개의 절차이며, 두 가지를 함께 쓰는 경우가 많습니다.</div>
+<div class="fa"><b>Q. 보증을 선 가족에게도 독촉이 멈춥니까?</b><br>멈추지 않습니다. 중지·금지명령은 <b>신청한 본인</b>에 대한 절차만 멈춥니다. 보증인에 대한 청구와 압류는 계속됩니다. 보증인도 사정이 어렵다면 <b>보증인 본인이 따로</b> 개인회생이나 파산을 검토해야 합니다.</div>
+<div class="fa"><b>Q. 세금 압류도 멈춥니까?</b><br>법은 체납처분도 중지 대상으로 정하고 있습니다(제593조 제1항 제5호). 다만 <b>세무서나 구청의 의견을 들어야</b> 하므로 다른 압류보다 시간이 걸리고, 받아들여지지 않는 경우도 있습니다.</div>
+<div class="fa"><b>Q. 결정이 3일 안에 안 나옵니다.</b><br><b>인지와 송달료를 냈는지</b> 먼저 확인하십시오. 납부하지 않으면 3일 기준이 적용되지 않습니다. 납부했는데도 늦어진다면 사건을 맡은 재판부에 진행 상황을 문의할 수 있습니다.</div>
+<div class="fa"><b>Q. 중지명령을 받았는데 월급에서 또 떼어 갔습니다.</b><br><b>결정문을 집행법원에 제출하셨습니까?</b> 결정문을 받는 것과 집행이 멈추는 것은 별개입니다. 압류를 진행하는 법원에 <b>집행정지 신청서</b>와 결정문 정본을 내야 멈춥니다(위 작성례 참조).</div>
+<div class="fa"><b>Q. 개인회생이 기각되면 어떻게 됩니까?</b><br>중지·금지명령도 함께 효력을 잃고 <b>멈췄던 압류가 다시 진행됩니다</b>. 그래서 중지명령만 받아 두고 절차를 미루는 것은 의미가 없습니다. 중지명령은 <b>개인회생을 끝까지 진행하기 위한 다리</b>로 생각하셔야 합니다.</div>
+</div>
+
+</div></details>
+
+<div class="src">
+근거 — <b>채무자 회생 및 파산에 관한 법률</b> 제13조 제1항(즉시항고)·제45조(포괄적 금지명령)·제246조 관련 민사집행법 압류금지·제593조(중지명령 등)·제594조(개인회생절차개시신청의 취하)·제600조(개시결정의 효과) · <b>채무자 회생 및 파산에 관한 규칙</b> 제4조 제10호(중지명령·금지명령 신청의 인지액) · <b>민사집행법</b> 제49조(집행의 필수적 정지·제한) · <b>민사소송 등 인지법</b> 제9조 제1항 제3호·제16조 제2항 · <b>형법</b> 제327조(강제집행면탈) · <b>개인회생사건 처리지침</b>(재민 2004-4) · <b>서울회생법원 실무준칙</b> 제403호(중지명령 등의 발령 — 접수일부터 3일, 취소·변경 검토사유) · <b>서울회생법원 회생위원 직무편람</b>(중지·금지명령의 대상·효력·송달·존속기간) · 대법원 2017. 11. 29. 선고 2017다201538 판결(금지명령의 송달만으로 이미 개시된 채권압류 및 전부명령이 중지되지는 아니함) · 법제처 찾기쉬운 생활법령정보 · 대한법률구조공단 · 대법원 전자민원센터. 본 자료는 일반적인 법률정보로, 개별 사건의 법률자문이 아닙니다.
+</div>
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+    t.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();t.classList.toggle('on');}if(e.key==='Escape'){t.classList.remove('on');t.blur();}});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){terms.forEach(function(x){x.classList.remove('on');});}});
+})();
+function toggleFold(b){var fb=b.parentElement;fb.classList.toggle('open');}
+function _openCall(id){var w=document.getElementById(id);var n=w&&w.nextElementSibling;if(n&&n.classList.contains('calltbl'))n.classList.add('open');}
+document.addEventListener('click',function(e){var a=e.target.closest?e.target.closest('a[href^="#call"]'):null;if(a)_openCall(a.getAttribute('href').slice(1));});
+if(location.hash.indexOf('#call')===0)_openCall(location.hash.slice(1));
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('양식이 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('양식이 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('양식을 내려받았습니다');}
+
+(function(){
+  document.querySelectorAll('.toc a').forEach(function(a){
+    a.addEventListener('click',function(){
+      var el=document.querySelector(a.getAttribute('href'));
+      if(el&&el.tagName==='DETAILS')el.open=true;
+    });
+  });
+  var btn=document.getElementById('allBtn');
+  if(!btn)return;
+  function toggleAll(){
+    var opening=btn.textContent.indexOf('펼치기')>-1;
+    document.querySelectorAll('details.sec').forEach(function(d){d.open=opening;});
+    btn.textContent=opening?'전체 접기':'전체 펼치기';
+  }
+  btn.addEventListener('click',toggleAll);
+  btn.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleAll();}});
+})();
+</script>
+</body>
+</html>
