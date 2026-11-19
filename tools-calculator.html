@@ -1969,12 +1969,20 @@
   <!-- ===== 부부재산약정등기 (신설) Ⅶ-1① 기본보수 + 약정서작성 별도 · 등록면허세 §28①14호 정액 ===== -->
   <div class="scene" id="scene-부부재산약정">
     <button class="back" onclick="goMenu()">‹ 메인메뉴</button>
-    <h2 class="stitle">부부재산약정등기 <small>비송사건절차법 §70 · 등록면허세 12,000원(§28①14호) · 신청수수료 2,000원(수수료규칙 §5의4③) · 보수 정액 50만원+난이도</small></h2>
+    <h2 class="stitle">부부재산약정등기 <small>처음 약정·변경·소멸 · 비송사건절차법 §68·§70 · 등록면허세 12,000원(§28①14호) · 신청수수료 2,000원(수수료규칙 §5의4③) · 보수 — 약정서 작성(처음·변경) 정액 50만원+난이도 / 변경·소멸 등기 신청 100,000원</small></h2>
 
     <div class="card blue"><h2>① 약정 정보</h2><div class="body">
-      <div class="note">부부재산약정등기의 보수는 재산가액이 아니라 <b>약정서 문안의 난이도</b>로 산정합니다. 기본보수 50만원을 기준으로, 전문직·사업가 등 재산관계가 복잡한 경우 난이도를 150~200%로 조정하세요.</div>
+      <div class="line"><span class="lbl">신청 내용</span><select id="mr_kind" onchange="mrKind()">
+        <option value="new" selected>처음 약정등기 (혼인신고 전)</option>
+        <option value="who">약정자 표시 변경 (주소·이름 등)</option>
+        <option value="chg">약정 내용 변경 (가정법원 허가)</option>
+        <option value="mgr">재산관리자 변경·공유재산 분할</option>
+        <option value="end">약정 소멸 (사망·이혼 등)</option></select></div>
+      <div class="line" id="mr_agrLine" style="display:none;"><label class="checks" style="display:inline-flex;align-items:flex-start;"><input type="checkbox" id="mr_agr" onchange="calcMarital()" style="margin-top:3px;"> <span id="mr_agrLbl"></span></label></div>
+      <div class="line" id="mr_courtLine" style="display:none;"><label class="checks" style="display:inline-flex;align-items:flex-start;"><input type="checkbox" id="mr_court" onchange="calcMarital()" style="margin-top:3px;"> <span id="mr_courtLbl"></span></label></div>
+      <div class="note" id="mr_newNote">부부재산약정등기의 보수는 재산가액이 아니라 <b>약정서 문안의 난이도</b>로 산정합니다. 기본보수 50만원을 기준으로, 전문직·사업가 등 재산관계가 복잡한 경우 난이도를 150~200%로 조정하세요.</div>
       <div class="line"><span class="lbl">신청 건수</span><div class="stepper"><button onclick="step('mr_cnt',-1,calcMarital)">−</button><input type="number" id="mr_cnt" value="1" min="1" oninput="calcMarital()"><button onclick="step('mr_cnt',1,calcMarital)">+</button></div></div>
-      <div id="mr_pwBox"></div><div class="line"><span class="lbl">문안 난이도</span><select id="mr_adjust" onchange="calcMarital()">
+      <div id="mr_pwBox"></div><div class="line" id="mr_adjLine"><span class="lbl">문안 난이도</span><select id="mr_adjust" onchange="calcMarital()">
         <option value="0.8">80% (감액)</option><option value="0.9">90%</option>
         <option value="1" selected>100% (기본·50만원)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
@@ -1983,11 +1991,13 @@
     </div></div>
 
     <div class="card blue"><h2>② 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
-      <div class="note">부부재산약정등기는 부동산등기가 아니므로 <b>등록면허세는 건당 12,000원 정액</b>입니다(그 밖의 등기). 지방교육세는 그 20%(2,400원). 등기신청수수료는 <b>매 건 2,000원</b>입니다. 소유권이전이 아니므로 국민주택채권 매입·농특세는 없습니다. <span class="hint">[A] 지방세법 §28①14호·§151①2호 / 등기사항증명서 등 수수료규칙 §5의4③</span></div>
+      <div class="note">부부재산약정등기는 부동산등기가 아니므로 <b>등록면허세는 건당 12,000원 정액</b>입니다(그 밖의 등기). 지방교육세는 그 20%(2,400원). 등기신청수수료는 <b>매 건 2,000원</b>입니다. <b>변경·소멸 등기도 같은 금액</b>입니다. 소유권이전이 아니므로 국민주택채권 매입·농특세는 없습니다. <span class="hint">[A] 지방세법 §28①14호·§151①2호 / 등기사항증명서 등 수수료규칙 §5의4③</span></div>
       <table class="t">
         <tr><td>등록면허세 (정액) <span class="hint">건당 12,000</span><span class="law" title="부동산등기가 아닌 「그 밖의 등기·등록」의 등록면허세로, 건당 12,000원입니다. 부동산등기의 6,000원(1호 마목)과 다르니 주의하십시오.">지방세법 §28①14호</span></td><td><input class="cell" id="mr_regTax" type="number" oninput="calcMarital(true)"></td></tr>
         <tr><td>지방교육세 (20%)<span class="law" title="지방교육세를 정한 조항입니다. 2호는 납부해야 할 「등록면허세액의 100분의 20(20%)」을 세액으로 합니다.">지방세법 §151①2호</span></td><td><input class="cell" id="mr_eduTax" type="number" oninput="calcMarital(true)"></td></tr>
         <tr><td>등기신청수수료 <span class="hint">건당 2,000</span><span class="law" title="「등기사항증명서 등 수수료규칙」 §5의4③ — 부부재산약정등기의 신청수수료는 매 건 2,000원입니다.">수수료규칙 §5의4③</span></td><td><input class="cell" id="mr_regFee" type="number" oninput="calcMarital(true)"></td></tr>
+        <tr id="mr_injiRow" style="display:none;"><td>심판청구 인지 <span class="hint" id="mr_injiNote"></span><span class="law" title="가사소송수수료규칙 제3조제1항 — 라류 가사비송사건의 심판 청구 수수료는 1건당 5,000원, 마류 가사비송사건은 1건당 10,000원(같은 항 제1호·제2호 사건 제외). 부부재산약정 변경 허가는 라류(가사소송법 §2①2호가목7)), 재산관리자 변경·공유재산 분할은 마류(같은 호 나목2))입니다.">가사소송수수료규칙 §3①</span></td><td><input class="cell" id="mr_inji" type="number" oninput="calcMarital(true)"></td></tr>
+        <tr id="mr_songRow" style="display:none;"><td>송달료 <span class="hint" id="mr_songNote"></span><span class="law" title="송달료규칙의 시행에 따른 업무처리요령(재일 87-4) 별표1 — 가사비송 라류 6회분 × 청구인 수, 마류 12회분 × (청구인 수 + 상대방 수). 1회분 금액은 계산기 기본값(5,640원)을 씁니다.">재일 87-4</span></td><td><input class="cell" id="mr_song" type="number" oninput="calcMarital(true)"></td></tr>
         <tr><td>대장·등본 우편 등</td><td><input class="cell" id="mr_postFee" type="number" value="6000" oninput="calcMarital(true)"></td></tr>
         <tr class="subtot"><td>공과금계</td><td id="mr_publicSum">0 원</td></tr>
       </table>
@@ -1995,7 +2005,9 @@
 
     <div class="card pink"><h2>③ 수수료 (법무사 보수, VAT 별도) <span class="tag A">A</span></h2><div class="body">
       <table class="t">
-        <tr><td>기본보수 (약정서 작성) <span class="hint" id="mr_feeBaseNote"></span></td><td class="auto" id="mr_feeBaseCell">0 원</td></tr>
+        <tr><td><span id="mr_feeBaseLbl">기본보수 (약정서 작성)</span> <span class="hint" id="mr_feeBaseNote"></span></td><td class="auto" id="mr_feeBaseCell">0 원</td></tr>
+        <tr id="mr_agrFeeRow" style="display:none;"><td><span id="mr_agrFeeLbl">변경 약정서 작성</span> <span class="hint" id="mr_agrFeeNote"></span><span class="law" title="보수표에 약정서 작성 칸이 따로 없어, 같은 Ⅶ-1①(보수기준 §23①)에 속하는 준비서면 작성과 견주어 처음 약정서와 같은 정액 500,000원을 기준으로 삼고 문안 난이도로 조정합니다(보수기준 §3② 단서 협의 · §2② 증액). 실제 금액은 당사자와 협의해 정합니다.">§3② 협의 · Ⅶ-1① 견줌</span></td><td class="auto" id="mr_agrFeeCell">0 원</td></tr>
+        <tr id="mr_courtFeeRow" style="display:none;"><td>가정법원 심판청구서 작성 <span class="hint">(Ⅶ-1① · 소가를 산정할 수 없어 5천만원으로 봄)</span><span class="law" title="법무사보수기준 제23조제1항 — 비송사건의 신청서 등 문안을 요하는 서류의 작성. 소송물가액이 없거나 산정할 수 없으면 5천만원으로 본다 → 560,000원 + 3천만원 초과액의 10/10,000 = 580,000원. 계산기의 개명·친권자 지정 등 가사비송 화면과 같은 방식입니다.">보수기준 §23①</span></td><td class="auto" id="mr_courtFeeCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="mr_f_tax" checked onchange="calcMarital()"> 등록면허세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="mr_f_trip" checked onchange="calcMarital()"> 교통비 및 일당</label></td><td><input class="cell" id="mr_tripFee" type="number" value="160000" oninput="calcMarital(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
@@ -2011,8 +2023,8 @@
     <div class="actions"><button class="btn" onclick="calcMarital()">다시 계산</button><button class="btn" onclick="exportExcel()" style="background:#1d7a46;">엑셀/한셀 출력</button><a class="btn" href="https://pf.kakao.com/_znJqX/chat" target="_blank" rel="noopener" onclick="calcConsult('kakao',this)" style="background:#FEE500;color:#3c1e1e;text-decoration:none;">💬 카톡 상담</a><a class="btn" href="mailto:rokfbi01@gmail.com" onclick="calcConsult('mail',this)" style="background:#3d5a80;text-decoration:none;">✉️ 이메일 상담</a><a class="btn" href="tel:01037480825" style="background:#c8862d;text-decoration:none;">📞 전화 상담</a></div>
 
     <div class="card green"><h2>④ 안내 및 준비서류</h2><div class="body">
-      <div class="note"><b>혼인 성립 전</b>에 약정자 <b>쌍방이 공동으로</b> 신청해야 합니다(비송사건절차법 §70). 혼인신고 후 신청은 효력이 없습니다. 관할은 <b>남편이 될 사람의 주소지 관할 지방법원 등기과·등기소</b>(입부혼인 시 처가 될 사람 주소지)입니다. 등기 후 변경은 원칙적으로 불가하며, 정당한 사유가 있으면 법원 허가를 받아 변경할 수 있습니다(민법 §829②).</div>
-      <div class="note" style="background:#fff7e6;border-left-color:var(--gold);">기본보수는 재산가액이 아니라 <b>약정서 문안 난이도</b>로 산정합니다. 정액 500,000원을 기준으로, 전문직·사업가 등 재산관계가 복잡한 경우 150~200%로 조정하세요(법무사보수기준 §2②·§3② 협의). 공과금(등록면허세 12,000·지방교육세 2,400·등기신청수수료 2,000)은 건수에 따라 자동 계산됩니다.</div>
+      <div class="note" id="mr_guide"></div>
+      <div class="note" id="mr_feeGuide" style="background:#fff7e6;border-left-color:var(--gold);">기본보수는 재산가액이 아니라 <b>약정서 문안 난이도</b>로 산정합니다. 정액 500,000원을 기준으로, 전문직·사업가 등 재산관계가 복잡한 경우 150~200%로 조정하세요(법무사보수기준 §2②·§3② 협의). 공과금(등록면허세 12,000·지방교육세 2,400·등기신청수수료 2,000)은 건수에 따라 자동 계산됩니다.</div>
       <div class="docs" id="mr_docsBox"></div>
     </div></div>
   </div>
@@ -4269,7 +4281,7 @@ const SCENARIO={
  "담보권추가설정":{cat:'re',full:'mortgageAdd',ref:'Ⅰ-2'},
  /* 2026-11-19 변경·경정 등기 — 메뉴 단추는 하나(법무사님 지시). 화면 안에서 「바뀐 것」을 고른다 */
  "변경·경정 등기(주소·이름·근저당·부동산 표시·전세권)":{cat:'re',full:'change',chg:'name',ref:'Ⅰ-3(2)·(3)'},
- "부부재산약정등기":{cat:'re',full:'marital',ref:'§28①14호'},
+ "부부재산약정등기":{cat:'re',full:'marital',ref:'처음·변경·소멸 · §28①14호'},
  "이혼 재산분할(소유권이전)":{cat:'re',full:'division',ref:'§15①6호'},
  "공유물분할(소유권이전)":{cat:'re',full:'partition',ref:'§15①4호'},
  "신규 분양·분양권(소유권이전)":{cat:'re',full:'presale',ref:'과세표준 합산'},
@@ -7314,28 +7326,88 @@ function renderDocsSintak(){
 }
 function renderDocsMarital(){
   const box=document.getElementById('mr_docsBox'); if(!box)return;
-  const client=[
-    {who:'약정하시는 부부 두 분 모두',items:[
-      d3i('<b>기본증명서</b>, <b>가족관계증명서</b>, <b>혼인관계증명서</b> 각 1통','',LK.family),
-      d3i('<b>주민등록표 초본</b>','',LK.juminCho),
-      d3i('<b>인감증명서</b>, <b>인감도장</b>, <b>신분증</b>',D3_SEAL,'주민센터')]},
-    {who:'재산 관련',items:[
-      d3i('<b>재산목록</b>과 그 <b>소명자료</b>(등기사항증명서·통장 사본 등)','약정서에 붙일 재산을 특정합니다','')]}];
-  const office=[
-    d3i('<b>부부재산약정서 작성</b>','두 분의 뜻을 듣고 사무소가 작성합니다',''),
+  /* 2026-11-19 신청 내용별 안내·서류 — 부부재산약정등기규칙 §3(처음)·§4(변경)·§5(소멸) [A] */
+  const k=(typeof mrK==='function')?mrK():'new', C=(typeof mrCourt==='function')?mrCourt():null;
+  const GUIDE={
+    new:'<b>혼인신고 전에</b> 약정자 <b>두 분이 함께</b> 신청합니다(비송사건절차법 §70). 혼인신고 전까지 등기하지 않으면 약정 내용을 <b>부부의 승계인이나 제3자에게 주장할 수 없고</b>(민법 §829④), 신청할 때 <b>혼인신고를 하지 않았다는 증명서면</b>을 내야 하므로(부부재산약정등기규칙 §3 3호) 혼인신고 뒤에는 이 등기를 할 수 없습니다. 신청할 곳은 <b>남편이 될 사람의 주소지</b>를 관할하는 지방법원·지원 또는 등기소입니다(비송사건절차법 §68). 등기한 약정은 혼인 중 바꿀 수 없는 것이 원칙이고, 정당한 사유가 있으면 가정법원의 허가를 받아 바꿀 수 있습니다(민법 §829②) — 위 「신청 내용」에서 고르십시오.',
+    who:'주소·이름 등 <b>약정자의 표시</b>가 바뀌면 약정자 <b>두 분이 함께</b> 변경등기를 신청합니다(비송사건절차법 §70). 약정 내용을 바꾸는 것이 아니므로 가정법원 허가는 필요 없습니다. 등기관은 종전 표시를 지우고 바뀐 뒤의 표시 전부를 새 번호로 다시 기록합니다(부부재산약정등기규칙 §4②, 『등기기록례집』 기록례 914). 신청할 곳은 약정등기 기록이 있는 등기소(비송사건절차법 §68)입니다.',
+    chg:'혼인 중에는 약정을 바꿀 수 없는 것이 원칙이고, <b>정당한 사유</b>가 있으면 가정법원의 <b>허가</b>를 받아 바꿀 수 있습니다(민법 §829②). 허가 심판은 <b>부부 두 분이 함께</b> 청구하는 라류 가사비송 사건입니다(가사소송규칙 §60, 가사소송법 §2①2호가목7)). 관할은 가사소송법 §44①3호의 가정법원입니다. 허가 심판에는 이해관계인이 즉시항고할 수 있어(가사소송규칙 §61) <b>확정되어야 효력</b>이 생깁니다(가사소송법 §40 단서). 확정 뒤 <b>허가 심판 등본</b>을 붙여 두 분이 함께 변경등기를 신청하면(부부재산약정등기규칙 §4①, 비송사건절차법 §70), 등기관이 바뀐 뒤의 약정 내용 전부를 새 번호로 다시 기록합니다(같은 규칙 §4②, 기록례 915).',
+    mgr:'약정에 따라 한쪽이 다른 쪽의 재산을 관리하다가 <b>부적당한 관리로 재산을 위태롭게</b> 하면, 다른 한쪽은 자기가 관리하겠다고 가정법원에 청구할 수 있고 그 재산이 공유이면 <b>분할</b>을 청구할 수 있습니다(민법 §829③ — 마류 가사비송, 가사소송법 §2①2호나목2)). 약정에서 정한 방법으로 관리자를 바꾸는 경우도 있습니다. 어느 경우든 그 <b>등기를 하지 않으면</b> 부부의 승계인이나 제3자에게 주장할 수 없습니다(민법 §829⑤). 변경등기에는 그 <b>재판의 등본</b>이나 이에 관한 <b>약정서</b>를 붙입니다(부부재산약정등기규칙 §4①).',
+    end:'부부 한쪽이 <b>사망</b>하면 <b>남은 배우자 혼자</b> 소멸등기를 신청합니다(비송사건절차법 §70 단서). 이혼 등 다른 사유일 때는 두 분이 함께 신청합니다(같은 조 본문, 『등기기록례집』 기록례 916). 사유를 증명하는 서면을 붙이면(부부재산약정등기규칙 §5①) 등기관이 약정자 표시를 지우고 <b>등기기록을 폐쇄</b>합니다(같은 조 ②).'
+  };
+  const g=document.getElementById('mr_guide'); if(g) g.innerHTML=GUIDE[k];
+  const fg=document.getElementById('mr_feeGuide');
+  if(fg) fg.innerHTML=(k==='new')
+    ?'기본보수는 재산가액이 아니라 <b>약정서 문안 난이도</b>로 산정합니다. 정액 500,000원을 기준으로, 전문직·사업가 등 재산관계가 복잡한 경우 150~200%로 조정하세요(법무사보수기준 §2②·§3② 협의). 공과금(등록면허세 12,000·지방교육세 2,400·등기신청수수료 2,000)은 건수에 따라 자동 계산됩니다.'
+    :'법무사 보수표에는 부부재산약정 변경·소멸 등기 칸이 따로 없어, 성질이 비슷한 <b>Ⅲ(2) 「후견등기기록의 변경, 기타 등기」 100,000원</b>을 기준으로 삼았습니다. 공과금(등록면허세 12,000·지방교육세 2,400·등기신청수수료 2,000)은 처음 등기와 같고 건수에 따라 자동 계산됩니다.'
+     +(MR_KIND[k].agr?' <b>약정서</b>를 함께 맡기시면 처음 약정서와 같은 기준(정액 500,000원 × 문안 난이도 — 준비서면 작성에 견줌, 보수기준 §3② 협의)이 더해지고, 실제 금액은 당사자와 협의해 정합니다.':'')
+     +(MR_KIND[k].court?' 가정법원 심판청구서를 함께 맡기시면 <b>심판청구서 작성 보수(Ⅶ-1①)·인지·송달료</b>가 더해집니다.':'');
+
+  const ID_BOTH=d3i('<b>신분증</b>, <b>도장</b>','위임장에 찍습니다','');
+  const FOREIGN='<div class="d3note">※ <b>외국인·주민등록번호가 없는 재외국민</b>은 주민등록번호 대신 <b>생년월일을 증명하는 서면</b>(여권 등)을 내고, 본국에 인감증명 제도가 없으면 신청서·위임장의 서명이 본인 것이라는 <b>본국 관공서 증명이나 공정증서</b>로 인감증명서를 갈음합니다(부부재산약정등기규칙 §2 3호·§3 2호·5호).</div>';
+  const OFF_REG=[
     d3i('<b>등기신청서</b>, <b>위임장</b>','',''),
     d3i('<b>등록면허세 신고·납부</b>','영수필확인서를 받습니다. 세금은 의뢰인 부담입니다',''),
-    d3i('<b>등기신청수수료 납부</b>','',''),];
-  const attach=[
-    ['부부재산약정서','사무소 작성 · 부부 날인','<span class="tag chk">확인필요</span>'],
-    ['재산목록·소명자료','의뢰인',''],
-    ['부부 각자의 기본·가족관계·혼인관계증명서, 주민등록표 초본, 인감증명서','의뢰인','<span class="tag chk">확인필요</span>'],
-    ['위임장','사무소 작성 · 부부 날인',''],
-    ['등록면허세 영수필확인서','사무소 (신고 대행)',''],
-    ['등기신청수수료 영수필확인서','사무소','']];
-  box.innerHTML=d3({client:client,office:office,attach:attach,
-    attachNote:'부부재산약정등기는 약정 내용에 따라 더 필요한 서류가 생길 수 있어 <b>상담 때 다시 확인해 드립니다</b>.',
-    law:'민법 §829',book:false,src:''});
+    d3i('<b>등기신청수수료 납부</b>','','')];
+  const ATT_TAIL=[
+    ['위임장','사무소 작성 · '+(k==='end'?'신청인':'부부')+' 날인',(k==='new'?'규칙 §3 6호':'규칙 §6 · 부동산등기규칙 §46①5호 준용')],
+    ['등록면허세 영수필확인서','사무소 (신고 대행)','지방세법 §28①14호'],
+    ['등기신청수수료 영수필확인서','사무소','수수료규칙 §5의4③']];
+  let client=[], office=[], attach=[], note='', law='민법 §829, 비송사건절차법 §68·§70, 부부재산약정등기규칙 §2~§6';
+
+  if(k==='new'){
+    client=[
+      {who:'약정하시는 두 분 모두',items:[
+        d3i('<b>혼인관계증명서</b>','혼인신고를 하지 않았음을 증명합니다(규칙 §3 3호)',LK.family),
+        d3i('<b>주민등록표 초본</b>','주소와 주민등록번호를 증명합니다(규칙 §3 4·5호)',LK.juminCho),
+        d3i('<b>인감증명서</b>, <b>인감도장</b>, <b>신분증</b>',D3_SEAL,'주민센터')],extra:FOREIGN},
+      {who:'재산 관련',items:[
+        d3i('<b>재산목록</b>과 그 <b>소명자료</b>(등기사항증명서·통장 사본 등)','약정서에 적을 재산을 특정합니다','')]}];
+    office=[d3i('<b>부부재산약정서 작성</b>','두 분의 뜻을 듣고 사무소가 작성합니다','')].concat(OFF_REG);
+    attach=[
+      ['부부재산약정서','사무소 작성 · 부부 날인','규칙 §3 1호'],
+      ['각 약정자의 인감증명서 <small>(인감증명이 없는 외국인은 서명 증명·공정증서)</small>','의뢰인','규칙 §3 2호'],
+      ['혼인신고를 하지 않았음을 증명하는 서면 <small>(혼인관계증명서)</small>','의뢰인','규칙 §3 3호'],
+      ['주소·주민등록번호를 증명하는 서면 <small>(주민등록표 초본 — 외국인은 생년월일 증명)</small>','의뢰인','규칙 §3 4·5호']].concat(ATT_TAIL);
+    note='부부재산약정등기는 약정 내용에 따라 더 필요한 서류가 생길 수 있어 <b>상담 때 다시 확인해 드립니다</b>.';
+  } else if(k==='who'){
+    client=[{who:'약정하시는 두 분 모두',items:[
+      d3i('<b>주민등록표 초본</b>','주소가 바뀐 경우 — <b>주소 변동 내역이 나오게</b> 떼어 주십시오',LK.juminCho),
+      d3i('<b>기본증명서(상세)</b>','이름(개명)이 바뀐 경우',LK.family),
+      ID_BOTH],extra:FOREIGN}];
+    office=OFF_REG.slice();
+    attach=[['바뀐 내용을 증명하는 서면 <small>(주민등록표 초본·기본증명서 등)</small>','의뢰인','규칙 §6 · 부동산등기규칙 §46①1호 준용']].concat(ATT_TAIL);
+    note='약정자 표시 변경에 필요한 서류는 바뀐 내용에 따라 달라질 수 있어 <b>상담 때 다시 확인해 드립니다</b>.';
+  } else if(k==='chg'||k==='mgr'){
+    const isChg=(k==='chg');
+    client=[{who:(isChg?'두 분 모두':'신청하시는 분'),items:[
+      d3i('<b>주민등록표 초본</b>','',LK.juminCho),
+      ID_BOTH].concat(C?[d3i('<b>혼인관계증명서</b>, <b>가족관계증명서</b>','가정법원 심판청구서에 붙입니다 <span class="tag chk">확인필요</span>',LK.family)]:[]),
+      extra:FOREIGN},
+     {who:'재산 관련',items:[d3i('<b>바꾸려는 내용과 그 이유</b>를 보여 주는 자료','재산목록·등기사항증명서·통장 사본 등',''),
+       d3i('<b>지금의 부부재산약정 등기사항증명서</b>','없으시면 사무소가 발급합니다','')]}];
+    const A=(typeof mrAgr==='function')&&mrAgr();
+    office=(A?[d3i('<b>'+(isChg?'변경 약정서':'관리자 변경·공유재산 분할 약정서')+' 작성</b>','두 분의 뜻을 듣고 사무소가 처음부터 작성합니다','')]:[])
+      .concat(C?[d3i('<b>가정법원 '+(isChg?'허가':'처분')+' 심판청구서 작성</b>',(isChg?'두 분이 함께 청구합니다(가사소송규칙 §60)':'상대방이 있는 마류 사건입니다'),''),
+               d3i('<b>심판 확정 확인</b>','확정되어야 효력이 생깁니다(가사소송법 §40 단서) — 확정 뒤 심판 등본을 받습니다','')]:[])
+      .concat(OFF_REG);
+    attach=[[(isChg?'약정내용 변경을 허가한 재판의 등본':'재산관리자 변경·공유재산 분할 재판의 등본 <small>또는 이에 관한 약정서</small>'),(isChg?(C?'사무소 (법원에서 받음)':'의뢰인'):(A?'사무소 작성 · 부부 날인':(C?'사무소 (법원에서 받음)':'의뢰인'))),'규칙 §4①'],
+            ['심판 확정증명원 <small>(재판으로 하는 경우)</small>',(C?'사무소 (법원에서 받음)':'의뢰인'),'가사소송법 §40 단서 <span class="tag chk">확인필요</span>']].concat(ATT_TAIL);
+    note=(isChg?'':'법원 처분에 따른 등기를 한쪽이 혼자 신청할 수 있는지는 규정에 따로 없어(비송사건절차법 §70은 약정자 양쪽 신청) <b>상담 때 확인해 드립니다</b> <span class="tag chk">확인필요</span>. ')
+      +'확정증명원을 등기신청서에 함께 붙여야 하는지는 「부부재산약정등기 사무처리지침」 원문으로 다시 확인할 사항입니다.';
+    law+=', 가사소송법 §2①2호·§40·§44①3호, 가사소송규칙 §60·§61';
+  } else {
+    client=[{who:'신청하시는 분 (사망이면 남은 배우자, 이혼 등이면 두 분 모두)',items:[
+      d3i('<b>사망한 배우자의 기본증명서(상세)</b>','사망으로 소멸하는 경우 — 사유를 증명합니다(규칙 §5①)',LK.family),
+      d3i('<b>혼인관계증명서(상세)</b>','이혼으로 소멸하는 경우',LK.family),
+      d3i('<b>주민등록표 초본</b>','',LK.juminCho),
+      ID_BOTH],extra:FOREIGN}];
+    office=OFF_REG.slice();
+    attach=[['소멸 사유를 증명하는 서면 <small>(기본증명서·혼인관계증명서 등)</small>','의뢰인','규칙 §5①']].concat(ATT_TAIL);
+    note='소멸 사유에 따라 필요한 서류가 달라질 수 있어 <b>상담 때 다시 확인해 드립니다</b>.';
+  }
+  box.innerHTML=d3({client:client,office:office,attach:attach,attachNote:note,law:law,book:false,
+    src:'『부동산등기기록례집(재단·입목·선박·부부재산 등기 포함)』 제5편 671~673쪽'});
 }
 /* 말소 건수를 바꾸면 금액과 준비서류를 함께 갱신한다 */
 function saleCancelChg(){calcSale();renderDocsSale();}
@@ -9713,8 +9785,39 @@ function calcGadeungi(fromEdit){
 }
 
 /* ===================== 부부재산약정등기 (신설) ===================== */
+/* 2026-11-19 신청 내용(처음·변경·소멸) 추가
+   · 변경·소멸 등기: 부부재산약정등기규칙 §4·§5, 비송사건절차법 §70, 『부동산등기기록례집』 기록례 914~916 [A]
+   · 등록면허세 §28①14호·수수료 §5의4③은 처음 등기와 같음 [A]
+   · 보수: 보수표에 부부재산약정 변경·소멸 칸이 없어 Ⅲ(2) 「후견등기기록의 변경, 기타 등기」 100,000원을 기준으로 삼음(법무사님 결정 2026-11-19)
+   · 처음 약정등기(new)의 계산은 종전과 똑같다 */
+const MR_FEE_CHG=100000;
+const MR_KIND={
+  new:{},
+  who:{},
+  chg:{agr:{def:true,lbl:'<b>변경 약정서</b>도 작성 <span class="hint">(바뀐 약정 내용 — 처음 약정서와 같은 기준, 당사자와 협의)</span>',row:'변경 약정서 작성'},court:{ty:'라류',inji:5000,song:6,def:true,lbl:'가정법원 <b>허가 심판청구서</b>도 작성 <span class="hint">(라류 — 부부 두 분이 함께 청구, 가사소송규칙 §60)</span>'}},
+  mgr:{agr:{def:true,lbl:'<b>관리자 변경·공유재산 분할 약정서</b>도 작성 <span class="hint">(법원 처분 없이 약정으로 하는 경우 — 처음 약정서와 같은 기준, 당사자와 협의)</span>',row:'관리자 변경·분할 약정서 작성'},court:{ty:'마류',inji:10000,song:12,def:false,lbl:'가정법원 <b>처분 심판청구서</b>도 작성 <span class="hint">(마류 — 상대방 있음, 민법 §829③)</span>'}},
+  end:{}
+};
+function mrK(){const e=document.getElementById('mr_kind');return (e&&MR_KIND[e.value])?e.value:'new';}
+function mrCourt(){const K=MR_KIND[mrK()];return (K.court&&chk('mr_court'))?K.court:null;}
+function mrAgr(){const K=MR_KIND[mrK()];return !!(K.agr&&chk('mr_agr'));}
+function mrKind(){
+  const k=mrK(),K=MR_KIND[k],g=id=>document.getElementById(id);
+  const isNew=(k==='new');
+  g('mr_newNote').style.display=isNew?'':'none';
+  g('mr_agrLine').style.display=K.agr?'':'none';
+  if(K.agr){g('mr_agrLbl').innerHTML=K.agr.lbl;g('mr_agr').checked=!!K.agr.def;}
+  g('mr_courtLine').style.display=K.court?'':'none';
+  if(K.court){g('mr_courtLbl').innerHTML=K.court.lbl;g('mr_court').checked=!!K.court.def;}
+  calcMarital();
+}
 function calcMarital(fromEdit){
   renderDocsMarital();
+  const k=mrK(), C=mrCourt();
+  ['mr_injiRow','mr_songRow','mr_courtFeeRow'].forEach(id=>{const e=document.getElementById(id);if(e)e.style.display=C?'':'none';});
+  const A=mrAgr();
+  document.getElementById('mr_agrFeeRow').style.display=A?'':'none';
+  document.getElementById('mr_adjLine').style.display=(k==='new'||A)?'':'none';   /* 문안 난이도 — 처음 약정서·변경 약정서에 적용 */
   const cnt=Math.max(1,val('mr_cnt'));
   if(!fromEdit){
     /* 등록면허세 — 지방세법 §28①14호 「제1호부터 제7호까지의 등기 외의 등기: 건당 1만2천원」 [A]
@@ -9724,14 +9827,39 @@ function calcMarital(fromEdit){
     document.getElementById('mr_regTax').value=taxLocal(reg);
     document.getElementById('mr_eduTax').value=taxLocal(Math.round(reg*0.2)); // §151①2호 [A]
     document.getElementById('mr_regFee').value=2000*cnt; // 등기사항증명서등수수료규칙 §5의4③: 부부재산약정등기 매 건 2,000원 [A]
+    /* 가정법원 심판청구 — 인지(가사소송수수료규칙 §3①) · 송달료(재일 87-4 별표1: 라류 6회×청구인 2 / 마류 12회×(청구인 1+상대방 1)) */
+    document.getElementById('mr_inji').value=C?C.inji:0;
+    document.getElementById('mr_song').value=C?C.song*2*songUnit():0;
   }
-  const publicSum=val('mr_regTax')+val('mr_eduTax')+val('mr_regFee')+val('mr_postFee')+pubCustomSum('scene-부부재산약정');
+  if(C){
+    document.getElementById('mr_injiNote').textContent='('+C.ty+' '+C.inji.toLocaleString()+'원)';
+    document.getElementById('mr_songNote').textContent='('+C.song+'회 × 2인 × '+songUnit().toLocaleString()+'원)';
+  }
+  const publicSum=val('mr_regTax')+val('mr_eduTax')+val('mr_regFee')+(C?val('mr_inji')+val('mr_song'):0)+val('mr_postFee')+pubCustomSum('scene-부부재산약정');
   document.getElementById('mr_publicSum').textContent=won(publicSum);
-  const adj=parseFloat(document.getElementById('mr_adjust').value)||1;
-  const feeBase=Math.round(500000*adj); // 약정서 작성 정액 50만원 × 문안 난이도 (재산가액 무관)
+  let feeBase;
+  if(k==='new'){
+    const adj=parseFloat(document.getElementById('mr_adjust').value)||1;
+    feeBase=Math.round(500000*adj); // 약정서 작성 정액 50만원 × 문안 난이도 (재산가액 무관)
+    document.getElementById('mr_feeBaseLbl').textContent='기본보수 (약정서 작성)';
+    document.getElementById('mr_feeBaseNote').textContent='(정액 500,000'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
+  } else {
+    feeBase=MR_FEE_CHG*cnt;
+    document.getElementById('mr_feeBaseLbl').textContent=(k==='end'?'소멸':'변경')+'등기 신청 기본보수';
+    document.getElementById('mr_feeBaseNote').textContent='(건당 100,000'+(cnt>1?' × '+cnt+'건':'')+' — 보수표 Ⅲ(2) 금액 준용)';
+  }
   document.getElementById('mr_feeBaseCell').textContent=won(feeBase);
-  document.getElementById('mr_feeBaseNote').textContent='(정액 500,000'+(adj!==1?' ×'+(adj*100)+'%':'')+')';
-  let fee=feeBase;
+  let agrFee=0;
+  if(A){
+    const adj2=parseFloat(document.getElementById('mr_adjust').value)||1;
+    agrFee=Math.round(500000*adj2);   // 변경 약정서 — 처음 약정서와 같은 기준(준비서면 작성에 견줌, §3② 협의)
+    document.getElementById('mr_agrFeeLbl').textContent=MR_KIND[k].agr.row;
+    document.getElementById('mr_agrFeeNote').textContent='(정액 500,000'+(adj2!==1?' ×'+(adj2*100)+'%':'')+')';
+  }
+  document.getElementById('mr_agrFeeCell').textContent=won(agrFee);
+  const courtFee=C?tierFee('Ⅶ-1①',5000*만):0;   // 소가 산정불능 5천만원 → 580,000원
+  document.getElementById('mr_courtFeeCell').textContent=won(courtFee);
+  let fee=feeBase+agrFee+courtFee;
   if(chk('mr_f_tax'))fee+=50000;
   if(chk('mr_f_trip'))fee+=val('mr_tripFee');
   EXTRA_AGENT.filter(a=>a[3].includes('civil')&&!['ea5','ea6','ea7'].includes(a[0])).forEach(([id,name,code])=>{const c=document.getElementById('mra_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('mraq_'+id).value)||1);fee+=FLAT[code]*q;}});
