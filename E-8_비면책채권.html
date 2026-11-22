@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[파산 E-8] 면책이 되지 않는 빚도 있나요 — 비면책채권 여덟 가지 | 산 법무사 김재섭</title>
+<meta name="description" content="면책을 받아도 남는 빚이 있습니다. 세금·벌금·양육비·임금, 그리고 가장 많이 걸리는 「악의로 채권자목록에 적지 않은 빚」까지 — 대법원이 보는 기준과 다툼이 생겼을 때 내는 소송을 정리했습니다.">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+ul{margin:8px 0 12px; padding-left:20px;} li{margin:6px 0;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(300px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.who{background:var(--box); border-radius:10px; padding:14px 16px; margin:12px 0; border-left:4px solid #b9a98c;}
+.who .wl{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.case{background:var(--box); border-radius:10px; padding:14px 16px; margin:14px 0; border-left:4px solid #b9a98c;}
+.case .ct{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;margin-left:3px;}
+.tag.free{background:#5a9a72;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.cta{display:block; text-align:center; background:linear-gradient(145deg,#8a5a33,#6e4524); color:#fff; text-decoration:none; font-weight:700; font-size:16px; padding:15px; border-radius:11px; margin:18px 0; box-shadow:0 3px 8px rgba(122,82,48,.25);}
+.src{font-size:12.5px; color:#6e6353; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:11px 15px;margin:10px 0;font-size:13.5px;line-height:1.7;}
+.lawbox .ll{display:inline-block;font-size:11.5px;font-weight:700;color:#fff;background:var(--gold-d);border-radius:5px;padding:2px 8px;margin-right:6px;}
+.lawbox a{color:var(--gold-d);font-weight:600;}
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:14.5px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:16px;margin:10px 0;font-family:'D2Coding','Courier New',monospace;font-size:12.5px;line-height:1.65;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:15px;letter-spacing:2px;margin-bottom:10px;color:#241a10;}
+.howto{font-size:13.5px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:12.5px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:6px 12px;cursor:pointer;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.concept{background:var(--box);border-radius:9px;padding:11px 15px;margin:8px 0 14px;font-size:14.5px;color:#5a4a36;border-left:3px solid #b9a98c;}
+.concept b{color:var(--gold-d);}
+.flow{background:linear-gradient(180deg,#fcf9f2,#f7f1e5);border:1.5px solid var(--gold);border-radius:14px;padding:18px 18px 14px;margin:14px 0 20px;}
+.flow .ft2{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:12px;}
+.flow ol{counter-reset:fl;list-style:none;margin:0;padding:0;}
+.flow li{position:relative;padding:8px 10px 8px 44px;margin:7px 0;background:#fff;border:1px solid var(--line);border-radius:10px;font-size:14.5px;line-height:1.6;}
+.flow li::before{counter-increment:fl;content:counter(fl);position:absolute;left:10px;top:8px;width:26px;height:26px;line-height:26px;text-align:center;background:var(--gold);color:#fff;border-radius:50%;font-weight:800;font-size:14px;}
+.flow li b{color:var(--gold-d);}
+.flow .arw{text-align:center;color:var(--gold);font-size:13px;margin:-2px 0;}
+.newlaw{background:#eef6f0;border:1px solid #cfe6d6;border-left:4px solid #5a9a72;border-radius:8px;padding:13px 16px;margin:14px 0;}
+.newlaw .nt{font-weight:700;color:#2f6a47;display:block;margin-bottom:4px;}
+.newlaw .badge{display:inline-block;font-size:11px;font-weight:800;color:#fff;background:#5a9a72;border-radius:5px;padding:2px 8px;margin-right:6px;vertical-align:middle;}
+.faq{margin:14px 0;}
+.faq details{border:1px solid var(--line);border-radius:10px;margin:9px 0;background:#fff;overflow:hidden;}
+.faq summary{list-style:none;cursor:pointer;padding:13px 44px 13px 38px;font-weight:700;font-size:15px;color:#241a10;background:#faf7f0;position:relative;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::before{content:"Q";position:absolute;left:15px;color:var(--gold-d);font-family:'Nanum Myeongjo',serif;font-weight:800;}
+.faq summary::after{content:"▾";position:absolute;right:16px;top:13px;color:var(--gold-d);transition:.2s;}
+.faq details[open] summary::after{transform:rotate(180deg);}
+.faq .fa{padding:13px 15px 15px 38px;font-size:14.5px;line-height:1.75;color:#3a3a3a;position:relative;border-top:1px solid var(--line);}
+.faq .fa::before{content:"A";position:absolute;left:15px;top:13px;color:#5a9a72;font-family:'Nanum Myeongjo',serif;font-weight:800;}
+.helm{background:linear-gradient(135deg,#2c3e50,#3a4a5c);color:#f4f0e8;border-radius:14px;padding:20px 22px;margin:0 0 24px;box-shadow:0 4px 14px rgba(44,62,80,.18);}
+.helm .ht2{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:17px;color:#f0d98c;margin-bottom:9px;}
+.helm p{margin:0;font-size:14.5px;line-height:1.9;color:#eae4d8;}
+.helm b{color:#f4e2a6;}
+.qhead{display:flex;gap:12px;align-items:flex-start;margin:8px 0 8px;}
+.qhead .qb{flex:none;width:34px;height:34px;border-radius:50%;background:#8a5a33;color:#fff;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(176,141,87,.4);}
+.qhead h2{margin:0;border:0;padding:0;font-size:20px;line-height:1.45;}
+.lawrow{display:flex;flex-wrap:wrap;background:var(--box);border-radius:10px;overflow:hidden;margin:12px 0;border:1px solid var(--line);}
+.lawrow .lrl{flex:none;background:var(--gold);color:#fff;font-weight:700;font-size:13.5px;padding:11px 15px;display:flex;align-items:center;}
+.lawrow .lrc{flex:1;min-width:210px;padding:11px 15px;font-size:14px;line-height:1.75;}
+@media(max-width:520px){.lawrow .lrl{width:100%;}}
+.calc{display:block;background:linear-gradient(135deg,#fff7e8,#fdeecb);border:1.5px solid var(--gold);border-radius:14px;padding:16px 18px;margin:18px 0;text-decoration:none;color:var(--ink);transition:.15s;}
+.calc:hover{box-shadow:0 4px 14px rgba(176,141,87,.25);transform:translateY(-1px);}
+.calc .cah{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:4px;}
+.calc .cas{font-size:13.5px;color:var(--muted);}
+.ctabtn{display:block;text-align:center;background:#8a5a33;color:#fff;font-weight:800;font-size:17px;padding:16px;border-radius:12px;text-decoration:none;margin:22px 0 6px;}
+.ctabtn:hover{background:var(--gold-d);}
+.doclabel{display:inline-block;font-size:12px;font-weight:800;color:#fff;border-radius:6px;padding:3px 11px;margin-bottom:6px;}
+.doclabel.give{background:#b0885a;}
+.doclabel.back{background:#5a9a72;}
+.dl{color:var(--gold-d);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--gold);}
+.dl:hover{background:#fbf5e8;}
+.ddl{display:flex;gap:2px 10px;flex-wrap:wrap;margin:8px 0 2px;padding:9px 12px;background:#fbf7ee;border-radius:8px;font-size:13px;}
+.ddl b{color:var(--gold-d);}
+.deadline{width:100%;border-collapse:collapse;margin:10px 0;font-size:13.5px;}
+.deadline th{background:#3a4a5c;color:#fff;padding:8px;font-weight:700;}
+.deadline td{border:1px solid var(--line);padding:8px 10px;background:#fff;}
+.bnote{color:#0b4a9c;font-weight:600;background:#eaf2fc;border-left:4px solid #2b7fff;border-radius:8px;padding:9px 13px;margin:8px 0;font-size:13.5px;line-height:1.7;}
+.bnote b{color:#0a3d82;}
+.capital th{background:#f0ebe1;text-align:center;font-size:13px;}
+.capital td{text-align:center;font-size:13.5px;}
+.capital td:first-child{text-align:left;font-weight:700;background:#faf7f0;}
+.capital .hi{background:#fdf6e3;font-weight:700;color:var(--gold-d);}
+.capital .bad{color:#9c3a22;font-weight:700;}
+.grp{border-radius:10px;padding:13px 16px;margin:12px 0;border:1px solid var(--line);border-left-width:5px;}
+.grp .gt{font-weight:800;font-size:15px;margin-bottom:5px;}
+.grp.a{background:#eef6f0;border-left-color:#5a9a72;} .grp.a .gt{color:#2f6a47;}
+.grp.b{background:#fdf9e8;border-left-color:#d4a72c;} .grp.b .gt{color:#8a6d10;}
+.grp.c{background:#fdf2ee;border-left-color:#d9694a;} .grp.c .gt{color:#9c3a22;}
+@media print{.case,.warn,.tip,.cost,.who,.steps li,.tnote,.flow,.flow li,.lawbox,.hire{background:#fff !important;border-color:#ccc !important;}
+.term>.bub{display:inline !important;position:static;background:none;color:#555;box-shadow:none;padding:0;width:auto;font-size:12px;}.term>.bub::before{content:" (";}.term>.bub::after{content:")";border:0;position:static;}.formbox .fold-body{display:block !important;}}
+.part{margin:38px 0 14px;padding:16px 18px;border-radius:12px;background:linear-gradient(135deg,#2c3e50,#3a4a5c);color:#f4f0e8;box-shadow:0 4px 14px rgba(44,62,80,.18);}
+.part .pn{display:inline-block;font-size:12px;font-weight:800;color:#2c3e50;background:#f0d98c;border-radius:6px;padding:2px 10px;margin-bottom:6px;}
+.part .pt2{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:20px;color:#fff;margin-bottom:4px;}
+.part .pw{font-size:13.5px;line-height:1.7;color:#eae4d8;} .part .pw b{color:#f4e2a6;}
+.chk td:first-child{width:30px;text-align:center;color:var(--gold-d);font-size:16px;}
+.tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.srcb{display:inline-block;font-size:11px;font-weight:800;color:#fff;border-radius:5px;padding:1px 7px;margin-left:6px;vertical-align:middle;}
+.srcb.moe{background:#2f5b78;} .srcb.goe{background:#3d7a55;} .srcb.own{background:#6e6353;}
+.srcline{font-size:12.5px;color:var(--muted);background:#faf7f0;border-radius:7px;padding:7px 11px;margin:0 0 6px;}
+h3.fgrp{font-size:15px;color:var(--gold-d);margin:22px 0 6px;padding-bottom:5px;border-bottom:1px dashed var(--line);}
+.form{overflow-x:auto;}
+@media(max-width:560px){table{font-size:12.5px;} th,td{padding:7px 6px;overflow-wrap:anywhere;} .tblwrap table{min-width:560px;} .who{padding:12px 10px;}}
+
+/* ── 접이식 섹션(details.sec) · 목차 · 전체펼치기 ── */
+details.sec{border:1px solid var(--line);border-radius:11px;margin:13px 0;background:#fff;overflow:hidden;}
+details.sec>summary{cursor:pointer;list-style:none;padding:13px 16px;background:var(--box);border-left:4px solid var(--gold);display:flex;align-items:center;gap:11px;}
+details.sec>summary::-webkit-details-marker{display:none;}
+details.sec>summary .qb{flex:none;width:31px;height:31px;border-radius:50%;background:#8a5a33;color:#fff;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(176,141,87,.4);}
+details.sec>summary .st{flex:1;font-family:'Nanum Myeongjo',serif;font-size:17.5px;font-weight:700;color:var(--gold-d);line-height:1.5;}
+details.sec>summary .st .sub{display:block;font-family:'Pretendard',sans-serif;font-size:13px;font-weight:400;color:var(--muted);margin-top:3px;}
+details.sec>summary::after{content:"펼치기 ▾";flex:none;font-family:'Pretendard',sans-serif;font-size:12.5px;font-weight:700;color:var(--gold);background:#fff;border:1px solid var(--line);border-radius:20px;padding:3px 10px;white-space:nowrap;}
+details.sec[open]>summary::after{content:"접기 ▴";}
+details.sec>summary:hover{background:#f2ede3;}
+.secbody{padding:4px 17px 16px;}
+.toc{background:#fffaf0;border:1.5px solid var(--gold);border-radius:12px;padding:15px 18px;margin:18px 0 22px;}
+.toc .tct{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:16px;color:var(--gold-d);margin-bottom:9px;}
+.toc ol{margin:0;padding-left:21px;font-size:14.5px;line-height:1.95;}
+.toc a{color:#3a3a3a;text-decoration:none;border-bottom:1px dotted #c9b48c;}
+.toc a:hover{color:var(--gold-d);}
+.allbtn{display:inline-block;margin-top:11px;font-size:13.5px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:20px;padding:6px 15px;cursor:pointer;user-select:none;}
+.allbtn:hover{background:#f6ecd8;}
+@media(max-width:520px){details.sec>summary{gap:8px;padding:12px 11px;} details.sec>summary .st{font-size:16px;} details.sec>summary::after{font-size:11.5px;padding:2px 7px;} .secbody{padding:4px 12px 14px;}}
+@media print{details.sec:not([open])>*{display:block !important;} details.sec>summary::after{display:none;} .toc,.allbtn{display:none !important;}}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+<h1>[파산 E-8] 면책이 되지 않는 빚도 있나요 — 비면책채권 여덟 가지</h1>
+
+<div class="tnote">어려운 법률용어에는 <b>점선 밑줄</b>이 그어져 있습니다. <b>PC는 마우스를 올리면</b>, <b>휴대폰은 손가락으로 톡 터치하면</b> 쉬운 설명이 뜹니다. (인쇄하면 괄호로 함께 나옵니다.)</div>
+
+<div class="helm">
+<div class="ht2">⚓ 이 매뉴얼을 끝까지 읽으시는 분께</div>
+<p>이 매뉴얼은 <b>의뢰인이 직접 법원에 신청할 수 있도록 모든 서류 양식, 비용, 요건을 구체적으로 담았습니다.</b> 하지만 소송은 살아있는 생물과 같아 상대방의 격렬한 저항이 뒤따릅니다. 혼자 진행하시다가 막히는 부분이 생기거나 방어막이 필요할 때, 언제든 이 매뉴얼을 들고 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</p>
+</div>
+
+<div class="tldr">
+<div class="tt">⭐ 30초 결론부터</div>
+<ul>
+<li><b>면책을 받으면 거의 모든 빚에서 벗어납니다.</b> 법은 "파산절차에 의한 배당을 제외하고는 <b>파산채권자에 대한 채무의 전부에 관하여 그 책임이 면제된다</b>"고 정했습니다(채무자회생법 제566조 본문).</li>
+<li><b>다만 여덟 가지는 남습니다.</b> ①세금 ②벌금·과료·추징금·과태료 ③고의로 저지른 불법행위 손해배상 ④중대한 과실로 사람의 생명·신체를 다치게 한 손해배상 ⑤내가 쓰던 직원의 임금·퇴직금·재해보상금 ⑥그 직원의 임치금·신원보증금 ⑦<b>악의로 채권자목록에 적지 않은 빚</b> ⑧양육비·부양료.</li>
+<li>★ <b>실제로 가장 많이 다투어지는 것은 ⑦번 하나입니다.</b> 나머지 일곱 가지는 해당 여부가 비교적 분명한데, ⑦번은 "알고도 빠뜨렸느냐"를 놓고 싸웁니다.</li>
+<li>★★ <b>대법원은 채무자 쪽에 섰습니다.</b> <b>몰랐으면 과실이 있어도 비면책채권이 아니고</b>, <b>알고도 빠뜨렸다는 점은 채권자가 증명해야 합니다</b>(대법원 2024. 12. 12. 선고 2023다266031 판결). <span class="srcb goe">A</span></li>
+<li><b>다만 불리한 쪽도 말씀드립니다.</b> <b>알고 있었다면 실수로 빠뜨렸더라도 그 빚은 남습니다</b>(대법원 2010. 10. 14. 선고 2010다49083 판결). 그래서 <b>채권자목록을 빠짐없이 적는 것</b>이 처음이자 마지막 방어선입니다.</li>
+<li><b>면책은 보증인에게 미치지 않습니다.</b> 내가 면책을 받아도 <b>보증을 선 사람은 그대로 갚아야 합니다</b>(같은 법 제567조).</li>
+</ul>
+</div>
+
+<div class="warn"><span class="wt">⚠ 지금 당장 — 채권자목록을 다시 펼쳐 보십시오</span>
+비면책채권 다툼의 거의 전부는 <b>「채권자목록에 적지 않은 빚」</b>에서 나옵니다. <b>아직 면책결정이 나지 않았다면 지금이 고칠 수 있는 마지막 기회입니다.</b><br><br>
+특히 이런 것들이 잘 빠집니다.<br>
+· <b>남의 빚에 보증을 선 것</b> — 아직 대신 갚지 않았어도 <b>장래의 구상채무</b>로 적습니다<br>
+· <b>가족·지인에게 빌린 돈</b> — 갚을 생각이어도 적어야 합니다<br>
+· <b>통신요금·의료비·관리비</b> 같은 생활 미납금<br>
+· <b>오래되어 잊은 카드·대부업체 채무</b> — <span class="term">신용정보조회<span class="bub">한국신용정보원이나 신용조회회사에서 내 명의로 된 대출·카드·연체 내역을 한 번에 조회하는 것. 본인은 무료로 받을 수 있습니다.</span></span>로 확인하십시오<br>
+· <b>세금·건강보험료 체납</b> — 어차피 면책되지 않지만 <b>적어야 합니다</b><br><br>
+<b>적어서 손해 볼 일은 없습니다.</b> 적지 않아서 남는 일이 있을 뿐입니다.</div>
+
+<div class="toc">
+<div class="tct">이 카드에 담긴 것 — 필요한 곳만 펼쳐 보십시오</div>
+<ol>
+<li><b>제 1 부 · 무엇이 남는가</b>
+  <ol style="padding-left:18px;font-size:14px">
+  <li><a href="#g1">면책은 「책임」을 면제하는 것입니다</a></li>
+  <li><a href="#g2">비면책채권 여덟 가지 한눈에</a></li>
+  <li><a href="#g3">세금·벌금은 왜 남나</a></li>
+  <li><a href="#g4">양육비·임금은 왜 남나</a></li>
+  </ol></li>
+<li><b>제 2 부 · 가장 많이 걸리는 7호</b>
+  <ol style="padding-left:18px;font-size:14px">
+  <li><a href="#g5">「악의로 채권자목록에 적지 않은 빚」이란</a></li>
+  <li><a href="#g6">대법원이 보는 일곱 가지 사정</a></li>
+  <li><a href="#g7">보증·구상채무를 빠뜨리기 쉬운 이유</a></li>
+  </ol></li>
+<li><b>제 3 부 · 다툼이 생겼을 때</b>
+  <ol style="padding-left:18px;font-size:14px">
+  <li><a href="#g8">면책확인의 소냐, 청구이의의 소냐</a></li>
+  <li><a href="#g9">면책 뒤에도 추심이 계속될 때</a></li>
+  <li><a href="#g10">자주 묻는 질문</a></li>
+  </ol></li>
+</ol>
+<span class="allbtn" id="allBtn" role="button" tabindex="0">전체 펼치기</span>
+</div>
+
+<div class="part"><span class="pn">제 1 부</span><span class="pt2">무엇이 남는가</span><span class="pw">— 면책의 뜻과, 그 바깥에 놓인 여덟 가지</span></div>
+
+<details class="sec" id="g1"><summary><span class="qb">1</span><span class="st">면책은 「책임」을 면제하는 것입니다<span class="sub">빚이 사라지는 것과는 조금 다릅니다</span></span></summary>
+<div class="secbody">
+
+<div class="concept"><b>법의 문언을 그대로 보겠습니다.</b><br><br>
+"면책을 받은 채무자는 파산절차에 의한 배당을 제외하고는 파산채권자에 대한 채무의 전부에 관하여 <b>그 책임이 면제된다</b>"(채무자회생법 제566조 본문). <span class="srcb goe">A</span><br><br>
+<b>「채무가 소멸한다」가 아니라 「책임이 면제된다」</b>고 적혀 있습니다. 실질적으로는 <b>더 이상 갚지 않아도 되고, 채권자가 강제로 받아낼 수도 없다</b>는 뜻입니다. 법원의 힘을 빌려 집행할 수 없게 되는 것입니다.<br><br>
+<b>그래서 이런 일들이 생깁니다.</b><br>
+· 채권자가 소송을 걸어와도 <b>면책을 주장해 막을 수 있습니다</b><br>
+· 이미 받아 둔 판결이 있어도 <b>그 판결로 집행할 수 없습니다</b> — 다만 가만히 있으면 집행이 들어오므로 <b>청구이의의 소</b>를 내야 합니다(<a href="#g8">8번 항목</a>)<br>
+· 내가 <b>스스로 갚는 것</b>은 막지 않습니다. 다만 갚을 의무는 없습니다</div>
+
+<div class="tblwrap"><table>
+<tr><th style="width:30%">언제 효력이 생기나</th><th>근거</th></tr>
+<tr><td><b>면책결정이 확정된 때</b><br><span style="font-size:13px">결정만으로는 아직 효력이 없습니다</span></td><td>법 제565조 — "면책결정은 확정된 후가 아니면 그 효력이 생기지 아니한다" <span class="srcb goe">A</span></td></tr>
+<tr><td><b>공고는 하되 송달은 생략할 수 있습니다</b></td><td>법 제564조 제3항. 면책 여부 결정에 대하여는 <b>즉시항고</b>를 할 수 있습니다(같은 조 제4항)</td></tr>
+</table></div>
+
+<div class="warn"><span class="wt">⚠ 보증인에게는 미치지 않습니다</span>
+법 제567조 — <b>"면책은 파산채권자가 채무자의 보증인 그 밖에 채무자와 더불어 채무를 부담하는 자에 대하여 가지는 권리와 파산채권자를 위하여 제공한 담보에 영향을 미치지 아니한다."</b> <span class="srcb goe">A</span><br><br>
+<b>내가 면책을 받아도 나를 위해 보증을 선 사람은 그대로 갚아야 합니다.</b> 가족이 보증을 섰다면 그 가족에게 청구가 갑니다. <b>면책을 신청하기 전에 보증인에게 미리 알리고 상의하십시오.</b> 모르고 있다가 갑자기 청구를 받으면 관계가 크게 상합니다.<br><br>
+담보도 마찬가지입니다. 내 집에 근저당이 설정되어 있으면 <b>그 담보권은 면책과 무관하게 살아 있습니다.</b></div>
+
+</div></details>
+
+<details class="sec" id="g2"><summary><span class="qb">2</span><span class="st">비면책채권 여덟 가지 한눈에<span class="sub">법 제566조 단서 — 이것만 남습니다</span></span></summary>
+<div class="secbody">
+
+<div class="tblwrap"><table>
+<tr><th style="width:6%">호</th><th style="width:30%">무엇</th><th>풀어서 보면</th></tr>
+<tr><td><b>1</b></td><td><b>조세</b></td><td>국세·지방세. <b>건강보험료·국민연금보험료처럼 세금처럼 걷는 공과금</b>도 실무상 함께 다루어집니다. 면책을 받아도 <span class="term">체납처분<span class="bub">세금을 내지 않았을 때 국가·지방자치단체가 재판 없이 바로 재산을 압류해 팔아 세금에 충당하는 절차.</span></span>은 계속됩니다</td></tr>
+<tr><td><b>2</b></td><td><b>벌금·과료·형사소송비용<br>추징금·과태료</b></td><td>형사처벌과 행정질서벌은 면책 대상이 아닙니다. <b>교통 과태료·범칙금</b>도 여기에 들어갑니다</td></tr>
+<tr><td><b>3</b></td><td><b>고의로 가한 불법행위로 인한<br>손해배상</b></td><td>일부러 남을 해쳐서 생긴 배상책임. <b>사기·횡령·배임</b>으로 인한 배상이 대표적입니다</td></tr>
+<tr><td><b>4</b></td><td><b>중대한 과실로 타인의 생명 또는<br>신체를 침해한 불법행위로 인한<br>손해배상</b></td><td>★ <b>음주운전·뺑소니 인사사고</b>가 여기에 해당할 수 있습니다. "중대한 과실"과 "생명 또는 신체" 두 가지를 모두 갖추어야 하므로, <b>물적 피해만 있는 사고는 해당하지 않습니다</b></td></tr>
+<tr><td><b>5</b></td><td><b>채무자의 근로자의<br>임금·퇴직금·재해보상금</b></td><td>★ <b>내가 사업을 하며 썼던 직원</b>의 임금입니다. 내가 받을 임금이 아닙니다</td></tr>
+<tr><td><b>6</b></td><td><b>채무자의 근로자의<br>임치금 및 신원보증금</b></td><td>직원에게서 맡아 둔 돈</td></tr>
+<tr><td><b>7</b></td><td>★ <b>채무자가 악의로 채권자목록에<br>기재하지 아니한 청구권</b><br><span style="font-size:13px">다만 <b>채권자가 파산선고가 있음을 안 때</b>에는 제외</span></td><td><b>실제 다툼의 거의 전부가 이것입니다.</b> <a href="#g5">제2부</a>에서 따로 봅니다<br><span style="color:#1b5e20">단서에 주의하십시오 — 목록에서 빠졌더라도 <b>그 채권자가 파산선고 사실을 알고 있었다면</b> 그 빚도 면책됩니다</span></td></tr>
+<tr><td><b>8</b></td><td><b>채무자가 양육자 또는 부양의무자로서<br>부담하여야 하는 비용</b></td><td><b>양육비와 부양료</b>입니다. 아이를 키우는 돈은 면책되지 않습니다</td></tr>
+</table></div>
+<p style="margin-top:8px"><span class="srcb goe">A</span><span class="src">채무자 회생 및 파산에 관한 법률 제566조 단서 — 국가법령정보센터 조문 확인. 종전 제9호는 2021. 12. 28. 삭제되었습니다</span></p>
+
+<div class="tip"><span class="pt">💡 여기에 없으면 모두 면책됩니다</span>
+<b>위 여덟 가지에 들어가지 않는 빚은 전부 면책됩니다.</b> 금액이 아무리 커도, 채권자가 누구여도, 몇 년 된 빚이어도 마찬가지입니다.<br><br>
+· <b>은행·카드·대부업체 대출</b> — 면책됩니다<br>
+· <b>사채·개인 간 차용금</b> — 면책됩니다<br>
+· <b>통신요금·의료비·관리비</b> — 면책됩니다<br>
+· <b>보증을 서서 생긴 구상채무</b> — 면책됩니다(채권자목록에 적었다면)<br>
+· <b>물적 피해만 있는 교통사고 손해배상</b> — 면책됩니다(4호는 생명·신체 침해만)<br><br>
+<b>"내 빚은 특별해서 안 될 것 같다"고 미리 포기하지 마십시오.</b> 위 여덟 가지에 들어가는지만 보시면 됩니다.</div>
+
+</div></details>
+
+<details class="sec" id="g3"><summary><span class="qb">3</span><span class="st">세금·벌금은 왜 남나<span class="sub">그리고 남았을 때 어떻게 하나</span></span></summary>
+<div class="secbody">
+
+<div class="concept"><b>국가가 공권력으로 부과한 것은 개인 사이의 빚과 성질이 다르기 때문입니다.</b> 세금은 모든 국민이 함께 지는 부담이고, 벌금·과태료는 제재입니다. 한 사람의 경제적 재기를 위해 면제할 성질이 아니라고 본 것입니다.</div>
+
+<div class="tblwrap"><table>
+<tr><th style="width:24%">무엇</th><th>면책 뒤 어떻게 되나</th></tr>
+<tr><td><b>국세·지방세</b></td><td>그대로 남습니다. <b>체납처분(압류·공매)이 계속</b>될 수 있습니다<br><span style="color:#1b5e20">· <b>다만 길이 있습니다.</b> 관할 세무서·시군구청에 <b>징수유예·분할납부</b>를 신청하거나, 재산이 전혀 없고 징수할 수 없음이 분명하면 <b>결손처분</b>이 이루어지는 경우가 있습니다. <b>파산·면책 결정문을 가지고 담당 부서와 상담하십시오</b></span></td></tr>
+<tr><td><b>건강보험료<br>국민연금보험료</b></td><td>실무상 조세에 준하여 다루어집니다. <b>국민건강보험공단에 결정문을 제출하고 분할납부를 상담</b>하십시오</td></tr>
+<tr><td><b>벌금·과료·추징금</b></td><td>그대로 남습니다. 내지 못하면 <span class="term">노역장 유치<span class="bub">벌금을 내지 못할 때 교도소에 일정 기간 머물며 노역으로 대신하는 것. 형법 제69조·제70조.</span></span>로 이어질 수 있으므로, <b>검찰청 집행과에 분할납부·납부연기를 신청</b>하십시오</td></tr>
+<tr><td><b>과태료</b></td><td>그대로 남습니다. 부과기관에 분할납부를 신청할 수 있습니다</td></tr>
+</table></div>
+
+<div class="warn"><span class="wt">⚠ 그래도 채권자목록에는 반드시 적으십시오</span>
+"어차피 면책이 안 되니 안 적어도 되지 않나" 하고 생각하시면 안 됩니다. <b>적어야 합니다.</b><br><br>
+<b>① 조세채권은 재단채권으로 먼저 변제받을 수 있습니다.</b> 파산재단에 돈이 생기면 일반 채권자보다 먼저 배당됩니다. 목록에 없으면 그 기회가 사라집니다.<br>
+<b>② 재산상태를 사실대로 적지 않은 것이 됩니다.</b> 법 제564조 제1항 3호는 <b>"허위의 채권자목록 그 밖의 신청서류를 제출"</b>한 것을 면책불허가사유로 정하고 있습니다.<br>
+<b>③ 법원과 파산관재인은 어차피 압니다.</b> 지방세 세목별 과세증명서와 납세·체납사실증명을 내도록 되어 있습니다.</div>
+
+</div></details>
+
+<details class="sec" id="g4"><summary><span class="qb">4</span><span class="st">양육비·임금은 왜 남나<span class="sub">지켜야 할 사람이 뒤에 있기 때문입니다</span></span></summary>
+<div class="secbody">
+
+<div class="concept"><b>5호·6호·8호에는 공통점이 있습니다 — 그 돈을 받지 못하면 생계가 무너지는 사람이 있다는 것입니다.</b> 내가 쓰던 직원의 임금, 맡아 둔 돈, 그리고 내가 키워야 할 아이의 양육비입니다. 법은 <b>채무자의 재기보다 그 사람들의 생존을 앞에 두었습니다.</b></div>
+
+<div class="tblwrap"><table>
+<tr><th style="width:22%">무엇</th><th>주의할 점</th></tr>
+<tr><td><b>양육비</b><br><span style="font-size:13px">법 제566조 8호</span></td><td>· <b>이미 밀린 양육비와 앞으로 낼 양육비 모두</b> 면책되지 않습니다<br>· <span class="term">양육비부담조서<span class="bub">협의이혼을 할 때 미성년 자녀가 있으면 법원이 작성해 주는 서면. 판결과 같은 효력이 있어 그대로 강제집행을 할 수 있습니다.</span></span>나 심판으로 정해진 금액이 그대로 남습니다<br>· <span style="color:#1b5e20"><b>사정이 바뀌었다면 가정법원에 양육비 감액 심판을 청구하는 길이 따로 있습니다.</b> 파산으로 해결할 문제가 아니라 가사사건으로 다투어야 합니다</span></td></tr>
+<tr><td><b>부양료</b><br><span style="font-size:13px">법 제566조 8호</span></td><td>부모·배우자에 대한 부양의무로 부담하는 비용</td></tr>
+<tr><td><b>내 직원의 임금·퇴직금<br>재해보상금</b><br><span style="font-size:13px">법 제566조 5호</span></td><td>· <b>내가 사업주였을 때 쓰던 직원</b>에게 못 준 돈입니다<br>· <span style="color:#9c3a22">임금 체불은 <b>근로기준법 위반으로 형사처벌</b>될 수 있고, 그 벌금 또한 2호로 면책되지 않습니다</span><br>· <span style="color:#1b5e20">직원이 <b>대지급금(체당금)</b>을 받았다면 그만큼은 근로복지공단이 나에게 구상합니다. 이 또한 남습니다</span></td></tr>
+<tr><td><b>직원의 임치금<br>신원보증금</b><br><span style="font-size:13px">법 제566조 6호</span></td><td>직원에게서 받아 맡아 둔 돈</td></tr>
+</table></div>
+
+<div class="tip"><span class="pt">💡 거꾸로, 내가 「받을」 임금은 면책과 무관합니다</span>
+위 5호는 <b>내가 사업주로서 직원에게 줄 임금</b>입니다. 내가 <b>근로자로서 받을</b> 임금·퇴직금은 전혀 다른 문제이고, 오히려 <b>퇴직금의 절반은 압류금지재산</b>이라 파산해도 남습니다(민사집행법 제246조 제1항 5호). 퇴직연금은 <b>전액</b> 압류금지입니다(대법원 2014. 1. 23. 선고 2013다71180 판결). 자세한 것은 <a href="E-7_면제재산_압류금지재산.html">E-7 카드</a>를 보십시오. <span class="srcb goe">A</span></div>
+
+</div></details>
+
+<div class="part"><span class="pn">제 2 부</span><span class="pt2">가장 많이 걸리는 7호</span><span class="pw">— 「악의로 채권자목록에 적지 않은 빚」</span></div>
+
+<details class="sec" id="g5"><summary><span class="qb">5</span><span class="st">「악의로 채권자목록에 적지 않은 빚」이란<span class="sub">몰랐으면 과실이 있어도 면책됩니다</span></span></summary>
+<div class="secbody">
+
+<div class="concept"><b>조문은 이렇습니다.</b><br><br>
+법 제566조 7호 — <b>"채무자가 악의로 채권자목록에 기재하지 아니한 청구권. 다만, 채권자가 파산선고가 있음을 안 때에는 그러하지 아니하다."</b> <span class="srcb goe">A</span><br><br>
+여기서 <b>「악의」는 나쁜 마음이라는 뜻이 아닙니다.</b> 법률 용어로 <b>「알고 있었다」</b>는 뜻입니다. 반대말은 「선의」, 즉 「몰랐다」입니다.</div>
+
+<div class="case"><span class="ct">판례 ① — 몰랐으면 과실이 있어도 면책됩니다</span>
+<b>대법원 2024. 12. 12. 선고 2023다266031 판결</b> (공2025상, 221) <span class="srcb goe">A</span><br><br>
+<b>【대법원이 정한 뜻】</b> 「악의로 채권자목록에 기재하지 아니한 청구권」이란 <b>채무자가 면책결정 이전에 파산채권자에 대한 채무의 존재 사실을 알면서도 이를 채권자목록에 기재하지 않은 경우</b>를 뜻합니다.<br><br>
+<b>· 몰랐던 경우</b> — <b>"채무자가 채무의 존재 사실을 알지 못한 때에는 비록 그와 같이 알지 못한 데에 과실이 있더라도 위 법조항에 정한 비면책채권에 해당하지 아니한다."</b><br>
+<b>· 알고 있었던 경우</b> — "채무자가 채무의 존재를 알고 있었다면 <b>과실로 채권자목록에 이를 기재하지 못하였다고 하더라도</b> 위 법조항에서 정하는 비면책채권에 해당한다."<br><br>
+<b>【왜 이런 규정을 두었나】</b> 대법원은 그 취지를 이렇게 설명합니다. 채권자목록에 적히지 않은 채권자는 <b>면책절차 안에서 이의를 신청할 기회를 빼앗기게 되므로</b>, 절차에 참여할 기회를 갖지 못한 채 불이익을 받는 채권자를 보호하기 위한 것입니다.<br><br>
+<b>【그러나 채무자 쪽도 보아야 한다고 했습니다】</b> <b>"면책제도는 지급불능 상태에 빠진 채무자에 대하여 경제적 재기와 회생의 기회를 부여하기 위한 것이고, 면책결정이 확정되었음에도 비면책채권으로 남는 경우 채무자는 면책의 효과를 누리지 못하고 오로지 그 채무변제를 위해서 경제활동을 해야 하는 상황에 놓이게 된다."</b> 그러므로 악의 여부는 <b>면책제도의 이념과 채무자의 불이익까지 충분히 감안하여</b> 판단하여야 한다고 하였습니다.<br><br>
+★ <b>【증명책임】</b> <b>"채무자가 채무의 존재를 알면서도 이를 채권자목록에 기재하지 않았다는 점을 증명할 책임은 비면책채권임을 주장하는 채권자에게 있다."</b> — 내가 "몰랐다"를 증명하는 것이 아니라, <b>채권자가 "알고 있었다"를 증명해야 합니다.</b></div>
+
+<div class="case"><span class="ct">판례 ② — 다만, 알고 있었다면 실수로 빠뜨려도 남습니다</span>
+<b>대법원 2010. 10. 14. 선고 2010다49083 판결</b> (공2010하, 2094) <span class="srcb goe">A</span><br><br>
+<b>【사안】</b> 甲의 채권자목록에서 乙의 구상금채권이 누락되었습니다. 원심은 비면책채권에 해당하지 않는다고 보았으나, <b>대법원은 원심판결을 파기했습니다.</b><br><br>
+<b>【대법원의 판단】</b> 제반 사정에 비추어 보면 <b>"甲이 과실로 채권자목록에 乙에 대한 구상금채무를 기재하지 아니하였다고 볼 수는 있을지언정, 甲이 乙의 구상금채권의 존재를 알지 못하였다고 인정할 수 있는 근거가 되는 사정이라 할 수 없다"</b>고 하였습니다.<br><br>
+<b>【이 판례가 말하는 것】</b> <b>"깜빡했다"는 변명은 통하지 않습니다.</b> 그 빚의 존재를 알고 있었다면, 빠뜨린 것이 단순한 실수였어도 그 빚은 남습니다. <b>불리한 판례이지만 그대로 알려 드립니다.</b> 그래서 채권자목록을 처음에 빠짐없이 적는 것이 유일한 방어입니다.</div>
+
+<div class="tip"><span class="pt">💡 단서를 기억하십시오 — 채권자가 알고 있었다면 면책됩니다</span>
+7호에는 <b>단서</b>가 붙어 있습니다. <b>"다만, 채권자가 파산선고가 있음을 안 때에는 그러하지 아니하다."</b><br><br>
+즉 목록에서 빠졌더라도 <b>그 채권자가 내 파산선고 사실을 알고 있었다면</b> 그 빚도 <b>면책됩니다.</b> 이의를 신청할 기회가 실제로 있었기 때문입니다.<br><br>
+<b>그러니 다툼이 생기면 이것부터 확인하십시오.</b> 그 채권자가 파산선고 공고를 보았거나, 다른 경로로 알고 있었다는 자료가 있으면 결정적입니다. <span class="srcb goe">A</span></div>
+
+</div></details>
+
+<details class="sec" id="g6"><summary><span class="qb">6</span><span class="st">대법원이 보는 일곱 가지 사정<span class="sub">「알고 있었느냐」를 가르는 기준</span></span></summary>
+<div class="secbody">
+
+<div class="concept"><b>대법원 2023다266031 판결이 제시한 판단 요소입니다.</b> 다툼이 생기면 법원은 아래를 <b>종합하여</b> 판단합니다. 내 사정 중 어디에 해당하는지 짚어 보십시오. <span class="srcb goe">A</span></div>
+
+<div class="tblwrap"><table>
+<tr><th style="width:6%">①</th><th style="width:38%">무엇을 보나</th><th>내게 유리하려면</th></tr>
+<tr><td><b>1</b></td><td><b>누락된 채권의 내역과 채무자와의 관련성</b></td><td>나와 멀고 간접적인 채권일수록 유리합니다</td></tr>
+<tr><td><b>2</b></td><td><b>채권자와 채무자의 관계</b></td><td>가까운 사이가 아니었고 거래가 없었다면 유리합니다</td></tr>
+<tr><td><b>3</b></td><td><b>채무부담의 원인이 된 법률행위 시점부터<br>면책신청 시까지의 시간적 간격</b></td><td>★ <b>오래 지났을수록 유리합니다.</b> 2023다266031 사건에서도 보증계약 후 <b>10여 년</b>이 지나 면책을 신청한 점이 중요하게 작용했습니다</td></tr>
+<tr><td><b>4</b></td><td><b>그동안 채권자의 이행청구·집행 등이 있었는지와<br>그에 대한 채무자의 현실적인 인식 가능성</b></td><td>★ <b>독촉장·소송·압류가 전혀 없었다면 유리합니다.</b> 반대로 독촉을 받아 왔다면 "알고 있었다"로 기울어집니다</td></tr>
+<tr><td><b>5</b></td><td><b>누락의 경위에 관한 채무자의 소명과<br>객관적 자료와의 부합 여부</b></td><td>★ <b>왜 빠졌는지 설명이 자료와 맞아떨어져야 합니다.</b> 신용정보조회서에도 나오지 않았다면 강력한 자료가 됩니다</td></tr>
+<tr><td><b>6</b></td><td><b>면책절차 당시 채무자의 경제적·심리적 상황</b></td><td>질병·고령·장기 실직 등으로 서류를 챙기기 어려웠던 사정이 있으면 참작됩니다</td></tr>
+<tr><td><b>7</b></td><td><b>법률관계 형성 무렵의 인식만으로<br>악의를 인정하는 데는 「신중」해야 함</b></td><td>★ <b>"계약할 때 알았으니 면책신청 때도 알았을 것"이라는 추측은 안 된다</b>고 대법원이 못 박았습니다</td></tr>
+</table></div>
+
+<div class="tip"><span class="pt">💡 다툼이 생기면 이런 자료를 모으십시오</span>
+<b>· 신용정보조회서</b> — 그 채권이 조회에 잡히지 않았다면 「몰랐다」의 유력한 근거입니다<br>
+<b>· 독촉장·내용증명을 받은 적이 없다는 점</b> — 받은 우편물 기록, 휴대전화 통화 기록<br>
+<b>· 주소 이전 내역</b> — 채권자의 통지가 옛 주소로 가서 받지 못했다면 주민등록초본으로 보입니다<br>
+<b>· 채권 발생 시점과 면책신청 시점의 간격</b> — 계약서·거래내역서<br>
+<b>· 그 채권자가 파산선고를 알고 있었다는 자료</b> — 7호 단서로 바로 면책됩니다<br><br>
+<b>그리고 증명책임은 채권자에게 있습니다.</b> 내가 완벽하게 증명하지 못했다고 해서 바로 지는 것이 아닙니다.</div>
+
+</div></details>
+
+<details class="sec" id="g7"><summary><span class="qb">7</span><span class="st">보증·구상채무를 빠뜨리기 쉬운 이유<span class="sub">실제 분쟁의 대부분이 여기서 나옵니다</span></span></summary>
+<div class="secbody">
+
+<div class="case"><span class="ct">사실관계 — 2023다266031 사건은 이런 일이었습니다</span>
+<b>甲</b>이 <b>乙 은행</b>에서 대출을 받았고, <b>丙</b>이 그 대출금채무에 관하여 <b>한정근보증</b>을 섰습니다.<br><br>
+그 뒤 甲이 파산 및 면책을 신청하면서 <b>채권자목록에 乙 은행에 대한 대출금채무는 적었으나, 丙에 대한 「장래의 구상채무」는 적지 않았습니다.</b><br><br>
+甲에 대한 면책결정이 확정된 뒤, <b>丙이 甲의 대출금채무를 대신 갚고(대위변제) 甲을 상대로 구상금을 청구</b>했습니다.<br><br>
+<b>원심</b>은 丙의 구상금채권이 7호 비면책채권에 해당한다고 보았습니다. <b>대법원은 파기했습니다.</b> ① 丙이 보증계약을 체결한 지 <b>10여 년이 지나</b> 면책을 신청했고, ② 丙은 면책결정 전까지 乙 은행에 보증채무를 이행하지 않았으며, ③ 그런 사정에 비추어 <b>甲이 면책신청 당시 丙에 대한 장래 구상금채무의 존재를 알고 있었다고 보기 어렵다</b>는 것입니다. <span class="srcb goe">A</span></div>
+
+<div class="concept"><b>왜 빠뜨리게 되는가 — 「아직 생기지 않은 빚」처럼 보이기 때문입니다.</b><br><br>
+보증을 섰을 뿐 아직 대신 갚지 않았다면, 보증인에 대한 구상채무는 <b>장래에 생길 빚</b>입니다. 그래서 채권자목록을 쓰면서 "이건 아직 빚이 아니지" 하고 넘어가기 쉽습니다.<br><br>
+<b>그러나 적어야 합니다.</b> 나중에 보증인이 대신 갚으면 그때 구상채무가 현실화되는데, 목록에 없으면 7호 다툼으로 이어집니다.</div>
+
+<div class="warn"><span class="wt">⚠ 채권자목록에 이런 것들을 반드시 넣으십시오</span>
+<b>· 내가 보증을 선 모든 채무</b> — 주채무자 이름, 금융기관, 금액을 적고 <b>「장래의 구상채무」</b>로 표시<br>
+<b>· 나를 위해 남이 보증을 선 것</b> — 그 보증인을 <b>채권자로</b> 적습니다(장래 구상권자)<br>
+<b>· 공동명의로 받은 대출</b> — 다른 명의자에 대한 구상채무<br>
+<b>· 연대보증·한정근보증·포괄근보증</b> — 이름이 무엇이든 전부<br>
+<b>· 휴대전화 할부, 리스, 렌탈</b> — 할부금융사가 따로 있는 경우가 많습니다<br>
+<b>· 이미 소멸시효가 지난 것 같은 오래된 빚</b> — 판단하지 말고 적으십시오<br><br>
+<b>적는 데는 비용이 들지 않습니다.</b> 채권자가 늘면 송달료가 늘어나지만, 한 사람당 몇 만원입니다. 빠뜨려서 평생 남는 것과 비교할 수 없습니다.</div>
+
+<div class="tip"><span class="pt">💡 이미 면책을 받았는데 빠진 빚이 생각났다면</span>
+<b>아직 다툼이 생기지 않았다면 그대로 두셔도 됩니다.</b> 목록에서 빠졌다는 사실만으로 바로 비면책채권이 되는 것이 아니라, <b>「알고도 빠뜨렸다」가 증명되어야</b> 하기 때문입니다.<br><br>
+<b>채권자가 청구해 오면 그때 다투시면 됩니다.</b> 위 <a href="#g6">일곱 가지 사정</a>에 비추어 내 사정을 정리하고, 그 채권자가 파산선고를 알고 있었는지(7호 단서)도 함께 확인하십시오. 대응 방법은 <a href="#g8">8번 항목</a>에 있습니다.<br><br>
+<span style="color:#9c3a22">다만 <b>면책취소</b>라는 제도가 따로 있습니다. 법 제569조 제1항은 ① 채무자가 <b>사기파산으로 유죄의 확정판결</b>을 받은 때, ② 채무자가 <b>부정한 방법으로 면책을 받은 경우로서 파산채권자가 면책 후 1년 이내에 취소를 신청</b>한 때에 법원이 면책취소결정을 할 수 있도록 정하고 있습니다. 목록에서 빠진 채권이 많고 금액이 크다면 사정이 복잡하므로 혼자 판단하지 마십시오. <span class="srcb goe">A</span></span></div>
+
+</div></details>
+
+<div class="part"><span class="pn">제 3 부</span><span class="pt2">다툼이 생겼을 때</span><span class="pw">— 어느 소를 내야 하는가</span></div>
+
+<details class="sec" id="g8"><summary><span class="qb">8</span><span class="st">면책확인의 소냐, 청구이의의 소냐<span class="sub">상대가 판결을 가지고 있느냐로 갈립니다</span></span></summary>
+<div class="secbody">
+
+<div class="concept"><b>면책을 받았는데도 채권자가 "그 빚은 비면책채권이다"라며 청구해 오는 경우가 있습니다.</b> 이때 내는 소송이 두 가지인데, <b>아무거나 내면 각하됩니다.</b> 대법원이 기준을 분명히 밝혀 두었습니다.</div>
+
+<div class="case"><span class="ct">판례 ③ — 집행권원이 있으면 「청구이의의 소」로 가야 합니다</span>
+<b>대법원 2017. 10. 12. 선고 2017다17771 판결</b> [면책효력확인] (공2017하, 2095) <span class="srcb goe">A</span><br><br>
+<b>"파산채무자에 대한 면책결정의 확정에도 불구하고 어떠한 채권이 비면책채권에 해당하는지 여부 등이 다투어지는 경우에 채무자는 면책확인의 소를 제기함으로써 권리 또는 법률상 지위에 현존하는 불안·위험을 제거할 수 있다."</b><br><br>
+<b>"그러나 면책된 채무에 관한 집행권원을 가지고 있는 채권자에 대한 관계에서 채무자는 청구이의의 소를 제기하여 면책의 효력에 기한 집행력의 배제를 구하는 것이 법률상 지위에 현존하는 불안·위험을 제거하는 유효적절한 수단이 된다. 따라서 이러한 경우에도 면책확인을 구하는 것은 분쟁의 종국적인 해결 방법이 아니므로 확인의 이익이 없어 부적법하다."</b><br><br>
+<b>【결론】</b> 상고 기각 — <b>집행권원을 가진 채권자를 상대로 낸 면책확인의 소는 각하</b>되었습니다.</div>
+
+<div class="tblwrap"><table>
+<tr><th style="width:26%">상대방이 가진 것</th><th style="width:26%">내야 할 소송</th><th>어디에 · 무엇과 함께</th></tr>
+<tr><td><b>아직 아무것도 없음</b><br><span style="font-size:13px">단지 "비면책채권이다"라고 주장만 하는 상태</span></td><td><b>면책확인의 소</b></td><td>민사소송법 제250조에 따른 확인의 소입니다. 상대방 주소지 등 일반 관할 법원</td></tr>
+<tr><td><b><span class="term">집행권원<span class="bub">강제집행을 할 수 있는 힘이 담긴 서류. 판결문, 지급명령, 이행권고결정, 공정증서 등이 여기에 해당합니다.</span></span>을 가지고 있음</b><br><span style="font-size:13px">판결·지급명령·이행권고결정·공정증서</span></td><td>★ <b>청구이의의 소</b></td><td><b>제1심 판결법원</b>에 냅니다(민사집행법 제44조 제1항). 지급명령이면 그 지급명령을 한 법원, 이행권고결정이면 그 소액사건 법원<br><span style="color:#9c3a22"><b>★ 「강제집행정지신청」을 반드시 함께 내십시오.</b> 청구이의의 소만으로는 집행이 멈추지 않습니다(같은 법 제46조 제1항). 법원은 신청에 따라 담보를 제공하게 하거나 제공하게 하지 않고 <b>판결이 있을 때까지 집행정지를 명할 수 있습니다</b>(같은 조 제2항)</span></td></tr>
+<tr><td><b>이미 압류가 들어옴</b></td><td><b>청구이의의 소<br>+ 강제집행정지신청</b></td><td>위와 같습니다. <b>정지결정을 받으면 그 결정문을 집행법원에 제출</b>해야 실제로 멈춥니다. 이 제출을 빠뜨리면 결정을 받고도 계속 떼입니다</td></tr>
+</table></div>
+
+<div class="tip"><span class="pt">💡 확정판결이라도 다툴 수 있습니다</span>
+청구이의의 이유는 원칙적으로 <b>변론이 끝난 뒤에 생긴 것</b>이어야 하는데(민사집행법 제44조 제2항), <b>면책결정은 그 뒤에 생긴 사유</b>이므로 문제되지 않습니다. 이행권고결정은 아예 그 제한을 받지 않습니다.<br><br>
+자세한 작성 방법은 <a href="E-5_인가후_변제계획변경_면책.html">E-5 카드</a>에 청구이의의 소 항목이 있습니다.</div>
+
+</div></details>
+
+<details class="sec" id="g9"><summary><span class="qb">9</span><span class="st">면책 뒤에도 추심이 계속될 때<span class="sub">법이 금지하고 있고, 처벌 조항이 있습니다</span></span></summary>
+<div class="secbody">
+
+<div class="concept"><b>면책을 받았는데도 전화와 문자가 계속 오는 일이 실제로 있습니다.</b> 채권이 다른 회사로 팔려 가면서 면책 사실이 전달되지 않는 경우가 많습니다. 그대로 참으실 필요가 없습니다.</div>
+
+<div class="tblwrap"><table>
+<tr><th style="width:30%">무엇이 금지되나</th><th>근거와 제재</th></tr>
+<tr><td><b>면책된 것을 알면서</b> 법령으로 정한 절차 밖에서 <b>반복적으로 갚으라고 요구하는 행위</b></td><td>「채권의 공정한 추심에 관한 법률」 제12조 4호 — 회생·파산·개인회생 절차에 따라 <b>전부 또는 일부 면책되었음을 알면서</b> 반복적으로 채무변제를 요구하는 행위는 <b>불공정한 행위</b>로 금지됩니다 <span class="srcb goe">A</span></td></tr>
+<tr><td><b>폭행·협박·감금</b>하거나 위력을 쓰는 행위</td><td>같은 법 제9조 1호 → <b>5년 이하의 징역 또는 5천만원 이하의 벌금</b>(같은 법 제15조 제1항) <span class="srcb goe">A</span></td></tr>
+<tr><td>정당한 사유 없이 <b>반복적으로</b> 또는 <b>야간(오후 9시~다음 날 오전 8시)</b>에 방문·전화·문자로 평온을 심하게 해치는 행위</td><td>같은 법 제9조 2호·3호</td></tr>
+<tr><td><b>갚을 의무가 없는 가족</b>에게 대신 갚으라고 요구하여 공포심·불안감을 일으키는 행위</td><td>같은 법 제9조 6호</td></tr>
+<tr><td>직장이나 집 앞에서 여러 사람이 있는 가운데 <b>빚이 있다는 사실을 공연히 알리는</b> 행위</td><td>같은 법 제9조 7호</td></tr>
+</table></div>
+
+<div class="warn"><span class="wt">⚠ 이렇게 대응하십시오 — 순서대로</span>
+<b>① 면책결정문과 확정증명을 보내십시오.</b> 내용증명으로 "○○○○하면 ○○호 면책결정이 ○년 ○월 ○일 확정되었고, 귀사의 채권은 채권자목록 ○번에 기재되어 면책되었다"고 통지합니다. 대부분 여기서 멈춥니다.<br>
+<b>② 그래도 계속되면 기록하십시오.</b> 날짜·시각·내용을 적고 통화를 녹음하십시오.<br>
+<b>③ 신고하십시오.</b> 불법 추심은 <b>금융감독원 ☎ 1332</b>, 폭행·협박·야간 방문은 <b>☎ 112</b>.<br>
+<b>④ 소송이나 압류가 들어오면</b> 위 <a href="#g8">8번 항목</a>의 청구이의의 소로 갑니다.<br><br>
+<span style="color:#1b5e20"><b>면책이 확정되면 법원이 한국신용정보원에 통보합니다</b>(개인파산 및 면책신청사건의 처리에 관한 예규 제5조 제1항). 사건번호·성명·주민등록번호·면책결정일·확정일이 통보되므로, <b>신용정보상 기록도 정리됩니다.</b> <span class="srcb goe">A</span></span></div>
+
+<div class="tip"><span class="pt">💡 등록기준지 통보는 면책을 받으면 이루어지지 않습니다</span>
+파산선고가 확정되면 법원이 <b>등록기준지 시·구·읍·면의 장에게 통보</b>하게 되어 있습니다(같은 예규 제6조 제1항 1호). 신원증명 업무에 반영되는 것입니다.<br><br>
+<b>그런데 같은 조항 단서가 이렇게 정하고 있습니다.</b> 채무자가 면책신청을 하거나 면책신청을 한 것으로 보는 경우에는 <b>그 면책신청이 각하·기각되거나 면책불허가결정이 내려지거나 면책취소의 결정이 확정된 때에 한하여</b> 통보합니다.<br><br>
+<b>즉 면책을 받으면 등록기준지에 통보되지 않습니다.</b> 걱정하지 않으셔도 됩니다. <span class="srcb goe">A</span></div>
+
+</div></details>
+
+<details class="sec" id="g10"><summary><span class="qb">10</span><span class="st">자주 묻는 질문<span class="sub">상담에서 가장 많이 나오는 것들</span></span></summary>
+<div class="secbody">
+
+<div class="faq"><b>Q. 세금이 많은데 파산해도 소용없나요?</b><br>
+그렇지 않습니다. <b>세금만 남고 나머지 빚은 모두 면책됩니다.</b> 빚이 1억원이고 그중 세금이 500만원이라면, 9,500만원에서 벗어나고 500만원이 남는 것입니다. 남은 세금은 관할 세무서·시군구청과 <b>분할납부나 징수유예를 상담</b>하십시오. 재산이 전혀 없으면 결손처분이 이루어지는 경우도 있습니다.</div>
+
+<div class="faq"><b>Q. 음주운전 사고를 낸 적이 있습니다. 면책이 안 되나요?</b><br>
+<b>사고의 내용에 따라 다릅니다.</b> 법 제566조 4호는 <b>「중대한 과실로 타인의 생명 또는 신체를 침해한 불법행위로 인하여 발생한 손해배상」</b>만 비면책채권으로 정하고 있습니다. 두 가지를 모두 갖추어야 합니다.<br>
+· <b>사람을 다치게 한 사고</b> → 4호에 해당할 수 있습니다<br>
+· <b>차량 파손 등 물적 피해만 있는 사고</b> → 4호에 해당하지 않아 면책됩니다<br>
+· 음주운전으로 받은 <b>벌금</b>은 2호로 그대로 남습니다</div>
+
+<div class="faq"><b>Q. 가족에게 빌린 돈도 채권자목록에 적어야 하나요?</b><br>
+<b>적어야 합니다.</b> 적지 않으면 7호 다툼의 대상이 됩니다. "가족이니까 나중에 갚으면 된다"고 빼 두시면, 나중에 그 가족이 청구할 때 오히려 복잡해집니다.<br>
+적는다고 해서 가족이 손해를 보는 것도 아닙니다. 어차피 배당받을 재산이 없는 경우가 대부분이고, <b>적어 두면 그 빚도 면책되어 깨끗하게 정리됩니다.</b></div>
+
+<div class="faq"><b>Q. 면책을 받으면 보증을 선 형이 갚아야 하나요?</b><br>
+<b>그렇습니다.</b> 법 제567조가 "면책은 ⋯ 보증인 그 밖에 채무자와 더불어 채무를 부담하는 자에 대하여 가지는 권리 ⋯ 에 영향을 미치지 아니한다"고 정하고 있습니다. <b>신청하기 전에 보증인에게 미리 알리고 상의하십시오.</b> 보증인도 사정이 어렵다면 함께 신청하는 방법을 검토할 수 있습니다.</div>
+
+<div class="faq"><b>Q. 면책 뒤에 생긴 빚은 어떻게 되나요?</b><br>
+<b>면책과 무관합니다.</b> 면책은 <b>파산선고 전에 생긴 원인</b>으로 인한 채권(파산채권)에 대한 것입니다. 면책을 받은 뒤에 새로 빌린 돈은 그대로 갚아야 합니다.</div>
+
+<div class="faq"><b>Q. 면책을 받았는데 다시 파산할 수 있나요?</b><br>
+<b>기간 제한이 있습니다.</b> 법 제564조 제1항 4호는 <b>면책허가결정 확정일부터 7년</b>(개인회생에 따른 면책이면 <b>면책확정일부터 5년</b>)이 지나지 않으면 면책불허가사유로 정하고 있습니다.</div>
+
+<div class="faq"><b>Q. 비면책채권만 남았는데 금액이 커서 갚을 수가 없습니다.</b><br>
+비면책채권은 파산으로 해결되지 않으므로 <b>각 채권의 성질에 맞는 길</b>을 찾아야 합니다. 세금은 징수유예·분할납부, 벌금은 검찰청 집행과의 분할납부·납부연기, 양육비는 가정법원의 <b>감액 심판</b>입니다. 소득이 생기셨다면 <b>개인회생</b>으로 조정할 수 있는 부분이 있는지도 함께 보셔야 합니다.</div>
+
+</div></details>
+
+<h2>고충은 덜어드리고, 끝까지 곁에서 돕겠습니다</h2>
+<div class="hire">
+<p>본 사무소에서는 사실관계와 자료를 꼼꼼히 살펴 필요한 서류를 갖추어 드리고, 절차를 마치실 때까지 성심껏 돕겠습니다.</p>
+<p style="margin-top:12px"><b>· 아직 신청 전이신 분</b><br>채권자목록을 <b>빠짐없이</b> 채우는 것이 유일한 방어선입니다. 신용정보조회와 보증·구상채무까지 훑어 <b>장래의 구상채무</b>를 포함한 목록을 만들어 드립니다. 세금·보험료처럼 어차피 면책되지 않는 것도 빠짐없이 적습니다.</p>
+<p style="margin-top:10px"><b>· 면책을 받았는데 청구를 받으신 분</b><br>그 채권이 제566조 단서 여덟 가지에 들어가는지 먼저 가리고, 7호라면 대법원이 제시한 <b>일곱 가지 사정</b>에 맞추어 소명자료를 정리합니다. <b>증명책임은 채권자에게 있다는 점</b>(2023다266031)이 출발점입니다.</p>
+<p style="margin-top:10px"><b>· 압류나 소송이 들어온 분</b><br>상대가 <b>집행권원을 가지고 있는지</b>에 따라 면책확인의 소와 청구이의의 소가 갈립니다(2017다17771). 잘못 내면 각하되므로 먼저 확인합니다. 청구이의의 소에는 <b>강제집행정지신청을 함께</b> 내고, 정지결정문을 <b>집행법원에 제출하는 것까지</b> 해 드립니다.</p>
+<p style="margin-top:12px; font-size:14px; color:#0b4a9c; font-weight:600;">※ <b>개인회생·개인파산 사건 신청의 대리는 법무사의 업무</b>입니다(법무사법 제2조 제1항 제6호). 다만 같은 호 단서는 <b>각종 기일에서의 진술의 대리를 제외</b>하고 있어, <b>면책심문기일·의견청취기일에는 채무자 본인이 출석하셔야 합니다.</b> 본 사무소는 신청서류 작성과 <b>작성된 서류의 제출 대행</b>(같은 항 제7호), 파산관재인 면담 사전 준비와 보정 대응을 돕습니다.</p>
+</div>
+
+<div class="warn"><span class="wt">⚠ 신청 전후에 하지 말아야 할 일</span>
+<b>· 빚을 골라 적지 마십시오.</b> "이건 갚을 생각이니 빼자", "가족이니 빼자"가 나중에 7호 다툼이 됩니다. <b>전부 적는 것이 전부 면책되는 길입니다.</b><br>
+<b>· 재산을 가족 이름으로 옮기지 마십시오.</b> <span class="term">강제집행면탈죄<span class="bub">강제집행을 피할 목적으로 재산을 숨기거나 빼돌려 채권자를 해치는 범죄(형법 제327조). 3년 이하의 징역 또는 1천만원 이하의 벌금.</span></span>가 문제될 수 있고, <b>면책불허가사유</b>가 됩니다(채무자회생법 제564조 제1항).<br>
+<b>· 면책을 받은 뒤 함부로 갚지 마십시오.</b> 면책된 빚은 갚을 의무가 없습니다. 추심에 밀려 일부를 갚으면 분쟁이 복잡해집니다. <b>먼저 그 채권이 비면책채권인지부터 확인하십시오.</b><br>
+<b>· 보증인에게 알리지 않고 신청하지 마십시오.</b> 면책은 보증인에게 미치지 않습니다(법 제567조).</div>
+
+<div class="who"><span class="wl">함께 보시면 좋은 카드</span>
+<ul style="margin:5px 0 0;padding-left:20px;line-height:2">
+<li><a class="dl" href="E-6_파산_면책_신청서류.html">E-6 소득이 없어 갚을 길이 없습니다</a> — 채권자목록을 포함한 신청서류를 갖추실 때</li>
+<li><a class="dl" href="E-7_면제재산_압류금지재산.html">E-7 파산하면 집·차·보험은 어떻게 되나요</a> — 무엇이 남는지 확인하실 때</li>
+<li><a class="dl" href="E-5_인가후_변제계획변경_면책.html">E-5 인가 뒤에 못 내게 되었습니다</a> — 청구이의의 소 작성 방법이 있습니다</li>
+<li><a class="dl" href="E-1_개인회생_파산_선택.html">E-1 개인회생과 파산, 어느 쪽인가</a> — 비면책채권이 많아 개인회생을 함께 보셔야 할 때</li>
+</ul>
+</div>
+
+<a href="https://sanlaw.co.kr/tools-calculator.html#s=%EA%B0%9C%EC%9D%B8%ED%8C%8C%EC%82%B0%C2%B7%EB%A9%B4%EC%B1%85" class="cta">🧮 내 사건 비용 미리 계산하기 — 개인파산·면책</a>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+    t.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();t.classList.toggle('on');}if(e.key==='Escape'){t.classList.remove('on');t.blur();}});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){terms.forEach(function(x){x.classList.remove('on');});}});
+})();
+function toggleFold(b){var fb=b.parentElement;fb.classList.toggle('open');}
+function _openCall(id){var w=document.getElementById(id);var n=w&&w.nextElementSibling;if(n&&n.classList.contains('calltbl'))n.classList.add('open');}
+document.addEventListener('click',function(e){var a=e.target.closest?e.target.closest('a[href^="#call"]'):null;if(a)_openCall(a.getAttribute('href').slice(1));});
+if(location.hash.indexOf('#call')===0)_openCall(location.hash.slice(1));
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('양식이 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('양식이 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('양식을 내려받았습니다');}
+
+(function(){
+  document.querySelectorAll('.toc a').forEach(function(a){
+    a.addEventListener('click',function(){
+      var el=document.querySelector(a.getAttribute('href'));
+      if(el&&el.tagName==='DETAILS')el.open=true;
+    });
+  });
+  var btn=document.getElementById('allBtn');
+  if(!btn)return;
+  function toggleAll(){
+    var opening=btn.textContent.indexOf('펼치기')>-1;
+    document.querySelectorAll('details.sec').forEach(function(d){d.open=opening;});
+    btn.textContent=opening?'전체 접기':'전체 펼치기';
+  }
+  btn.addEventListener('click',toggleAll);
+  btn.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleAll();}});
+})();
+</script>
+</body>
+</html>
