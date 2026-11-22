@@ -707,8 +707,8 @@
       <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcSale();junjuToggle()">
         <label><input type="radio" name="ptype" value="house" checked> 주택</label>
         <label><input type="radio" name="ptype" value="etc" id="ptype_jun"> 준주택<span class="law" title="「주택법」 제2조제1호의2 및 같은 법 시행령 제4조 — 주택 외의 건축물과 그 부속토지로서 주거시설로 이용가능한 시설. 제1호 기숙사, 제2호 다중생활시설, 제3호 「노인복지법」 제32조제1항제3호의 노인복지주택, 제4호 오피스텔. 준주택은 「주택법」 제2조제1호의 주택이 아니므로 지방세법 제11조제1항제8호의 주택 유상거래 특례세율(1~3%)이 적용되지 아니한다.">주택법 §2 1호의2</span></label>
-        <label><input type="radio" name="ptype" value="etc"> 주택외</label>
-        <label><input type="radio" name="ptype" value="farm"> 농지</label></div><span class="hint">주택의 <b>지분이나 부속토지만</b> 사도 「주택」을 고르십시오(지방세법 §13의2① 괄호)</span></div>
+        <label><input type="radio" name="ptype" value="etc"> 주택외(상가·대지·임야 등)</label>
+        <label><input type="radio" name="ptype" value="farm"> 농지(논·밭·과수원)</label></div><span class="hint">주택의 <b>지분이나 부속토지만</b> 사도 「주택」을 고르십시오(지방세법 §13의2① 괄호)</span></div>
       <div class="note" id="junHint"><b>노인복지주택·오피스텔·기숙사·고시원(다중생활시설)</b>이라면 「주택」이 아니라 <b>「준주택」</b>을 골라 주십시오. 대장에 「노인복지주택」이라고 적혀 있어도 <b>세법상 주택이 아닙니다.</b> 잘못 고르면 세금이 <b>4배까지 차이</b>납니다. <span class="hint">▸ 헷갈리시면 그대로 두시고 상담 때 말씀해 주십시오.</span></div>
       <div class="note alert" id="junWarn" style="display:none;"><span class="head">준주택은 「주택」이 아니어서 세율이 다릅니다</span>노인복지주택·오피스텔·기숙사·다중생활시설은 <b>건축물대장에 「주택」처럼 적혀 있어도</b> 「주택법」 제2조제1호의 <b>주택이 아닙니다</b>(같은 조 제1호의2·시행령 §4 → <b>준주택</b>). 따라서 <b>주택에 주는 취득세 할인을 받지 못합니다.</b><br>▸ <b>매매 4.6%</b>(취득 4 + 교육 0.4 + 농특 0.2) · <b>증여 4.0%</b>(3.5+0.3+0.2) · <b>상속 3.16%</b>(2.8+0.16+0.2) <span class="law" title="지방세법 §11①7호나목·제2호·제1호나목, §151①1호 본문, 농어촌특별세법 §5①6호">지방세법 §11①·§151①1호</span><br>▸ <b>전용 85㎡ 이하라도 농어촌특별세 0.2%를 냅니다.</b> 농특세 비과세(농특세법 §4 11호)는 「주택법」상 <b>국민주택규모 주택</b>이 대상이어서 준주택은 해당하지 않습니다.<br>▸ 다주택 중과(§13의2)·조정대상지역·생애최초 감면은 <b>모두 적용되지 않습니다.</b> 그래서 주택에만 해당하는 칸은 아래에 나타나지 않습니다.<br><b style="color:#c0392b;">계약 전 반드시 확인하십시오.</b> 같은 노인복지주택이라도 <b>등기사항전부증명서 표제부에 「아파트」·「공동주택」으로 기재</b>되어 있으면 결론이 달라질 수 있습니다. 물건 소재지 <b>시·군·구청 세무과</b>에 「노인복지주택 취득 시 적용 세율」을 문의하신 뒤 진행하시기 바랍니다. <span class="tag chk">확인필요</span></div>
       <div class="line" id="houseNline"><span class="lbl">보유 주택 수</span><div class="radios" onchange="calcSale()">
@@ -818,8 +818,10 @@
     <div class="card green"><h2>⑤ 매매 준비서류 · 대장</h2><div class="body">
       <div class="line" style="border:none;padding-top:0;"><span class="lbl">부동산 형태</span><div class="radios" onchange="renderDocsSale()">
         <label><input type="radio" name="bform" value="apt" checked> 집합건물(아파트·빌라)</label>
-        <label><input type="radio" name="bform" value="house"> 일반건물(단독 등)</label>
-        <label><input type="radio" name="bform" value="land"> 토지만</label></div></div>
+        <label><input type="radio" name="bform" value="house"> 일반건물(단독·상가 등)</label>
+        <label><input type="radio" name="bform" value="land"> 토지(대지·잡종지 등)</label>
+        <label><input type="radio" name="bform" value="forest"> 임야</label>
+        <label><input type="radio" name="bform" value="farm"> 농지(논·밭·과수원)</label></div><span class="hint">땅 종류(지목)는 토지대장·임야대장이나 토지이용계획확인원에 적혀 있습니다. 지번 앞에 「산」이 있으면 <b>임야</b>, 논·밭·과수원이면 <b>농지</b>입니다</span></div>
       <div class="line"><span class="lbl">매도인 — 외국 당사자</span><select id="fr_sale_seller" onchange="renderDocsSale()">
         <option value="">해당 없음 (내국인·국내 거주)</option>
         <option value="kor-in">재외국민 — 입국하여 직접</option>
@@ -856,8 +858,8 @@
       <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcInherit();junjuToggle()">
         <label><input type="radio" name="s_ptype" value="house" checked> 주택</label>
         <label><input type="radio" name="s_ptype" value="etc" id="s_ptype_jun"> 준주택<span class="law" title="「주택법」 제2조제1호의2 및 같은 법 시행령 제4조 — 주택 외의 건축물과 그 부속토지로서 주거시설로 이용가능한 시설. 제1호 기숙사, 제2호 다중생활시설, 제3호 「노인복지법」 제32조제1항제3호의 노인복지주택, 제4호 오피스텔. 준주택은 「주택법」 제2조제1호의 주택이 아니므로 지방세법 제11조제1항제8호의 주택 유상거래 특례세율(1~3%)이 적용되지 아니한다.">주택법 §2 1호의2</span></label>
-        <label><input type="radio" name="s_ptype" value="etc"> 주택외</label>
-        <label><input type="radio" name="s_ptype" value="farm"> 농지</label></div><span class="hint">주택의 <b>지분이나 부속토지(주택이 서 있는 땅)만</b> 상속받아도 「주택」을 고르십시오<span class="law" title="지방세법 §11①8호 — 주택은 「주거용 건축물과 그 부속토지」 / §13의2① 괄호 — 주택의 공유지분이나 부속토지만 취득해도 주택을 취득한 것으로 본다(같은 조 ②항 무상취득 중과에도 적용) / 농어촌특별세법 시행령 §4⑤ — 국민주택규모 이하 「주거용 건물과 이에 부수되는 토지」는 농특세 비과세 / 지방세법 시행령 §29② — 주택의 부속토지만 소유해도 주택을 소유한 것으로 본다(1가구 1주택 판정)">지방세법 §11①8호 · §13의2①</span></span></div>
+        <label><input type="radio" name="s_ptype" value="etc"> 주택외(상가·대지·임야 등)</label>
+        <label><input type="radio" name="s_ptype" value="farm"> 농지(논·밭·과수원)</label></div><span class="hint">주택의 <b>지분이나 부속토지(주택이 서 있는 땅)만</b> 상속받아도 「주택」을 고르십시오<span class="law" title="지방세법 §11①8호 — 주택은 「주거용 건축물과 그 부속토지」 / §13의2① 괄호 — 주택의 공유지분이나 부속토지만 취득해도 주택을 취득한 것으로 본다(같은 조 ②항 무상취득 중과에도 적용) / 농어촌특별세법 시행령 §4⑤ — 국민주택규모 이하 「주거용 건물과 이에 부수되는 토지」는 농특세 비과세 / 지방세법 시행령 §29② — 주택의 부속토지만 소유해도 주택을 소유한 것으로 본다(1가구 1주택 판정)">지방세법 §11①8호 · §13의2①</span></span></div>
       <div class="note" id="s_junHint"><b>노인복지주택·오피스텔·기숙사·고시원(다중생활시설)</b>이라면 「주택」이 아니라 <b>「준주택」</b>을 골라 주십시오. 대장에 「노인복지주택」이라고 적혀 있어도 <b>세법상 주택이 아닙니다.</b> 잘못 고르면 세금이 <b>4배까지 차이</b>납니다. <span class="hint">▸ 헷갈리시면 그대로 두시고 상담 때 말씀해 주십시오.</span></div>
       <div class="note alert" id="s_junWarn" style="display:none;"><span class="head">준주택은 「주택」이 아니어서 세율이 다릅니다</span>노인복지주택·오피스텔·기숙사·다중생활시설은 <b>건축물대장에 「주택」처럼 적혀 있어도</b> 「주택법」 제2조제1호의 <b>주택이 아닙니다</b>(같은 조 제1호의2·시행령 §4 → <b>준주택</b>). 따라서 <b>주택에 주는 취득세 할인을 받지 못합니다.</b><br>▸ <b>매매 4.6%</b>(취득 4 + 교육 0.4 + 농특 0.2) · <b>증여 4.0%</b>(3.5+0.3+0.2) · <b>상속 3.16%</b>(2.8+0.16+0.2) <span class="law" title="지방세법 §11①7호나목·제2호·제1호나목, §151①1호 본문, 농어촌특별세법 §5①6호">지방세법 §11①·§151①1호</span><br>▸ <b>전용 85㎡ 이하라도 농어촌특별세 0.2%를 냅니다.</b> 농특세 비과세(농특세법 §4 11호)는 「주택법」상 <b>국민주택규모 주택</b>이 대상이어서 준주택은 해당하지 않습니다.<br>▸ 다주택 중과(§13의2)·조정대상지역·생애최초 감면은 <b>모두 적용되지 않습니다.</b> 그래서 주택에만 해당하는 칸은 아래에 나타나지 않습니다.<br><b style="color:#c0392b;">계약 전 반드시 확인하십시오.</b> 같은 노인복지주택이라도 <b>등기사항전부증명서 표제부에 「아파트」·「공동주택」으로 기재</b>되어 있으면 결론이 달라질 수 있습니다. 물건 소재지 <b>시·군·구청 세무과</b>에 「노인복지주택 취득 시 적용 세율」을 문의하신 뒤 진행하시기 바랍니다. <span class="tag chk">확인필요</span></div>
       <div class="line"><span class="lbl">세목 기준 <span class="tag A">A</span></span><div class="radios" onchange="calcInherit()">
@@ -942,8 +944,10 @@
     <div class="card green"><h2>⑤ 상속 준비서류 · 대장</h2><div class="body">
       <div class="line" style="border:none;padding-top:0;"><span class="lbl">부동산 형태</span><div class="radios" onchange="renderDocsInherit()">
         <label><input type="radio" name="s_bform" value="apt" checked> 집합건물(아파트·빌라)</label>
-        <label><input type="radio" name="s_bform" value="house"> 일반건물(단독 등)</label>
-        <label><input type="radio" name="s_bform" value="land"> 토지만</label></div></div>
+        <label><input type="radio" name="s_bform" value="house"> 일반건물(단독·상가 등)</label>
+        <label><input type="radio" name="s_bform" value="land"> 토지(대지·잡종지 등)</label>
+        <label><input type="radio" name="s_bform" value="forest"> 임야</label>
+        <label><input type="radio" name="s_bform" value="farm"> 농지(논·밭·과수원)</label></div><span class="hint">땅 종류(지목)는 토지대장·임야대장이나 토지이용계획확인원에 적혀 있습니다. 지번 앞에 「산」이 있으면 <b>임야</b>, 논·밭·과수원이면 <b>농지</b>입니다</span></div>
       <div class="line"><span class="lbl">피상속인 — 외국 당사자</span><select id="s_frDec" onchange="renderDocsInherit()">
         <option value="">해당 없음 (내국인·국내 거주)</option>
         <option value="kor-out">재외국민 (외국 거주 중 사망)</option>
@@ -972,8 +976,8 @@
       <div class="line"><span class="lbl">수증자(인)</span><div class="stepper"><button onclick="step('bq_cntHeir',-1,calcBequest)">−</button><input type="number" id="bq_cntHeir" value="1" min="1" oninput="calcBequest()"><button onclick="step('bq_cntHeir',1,calcBequest)">+</button></div><span class="hint">보수기준 <b>§2②4호</b> — 당사자·이해관계인 <b>5인 이상</b> 판정용 (아래 「당사자 다수 가산」과 연동)</span></div>
       <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcBequest()">
         <label><input type="radio" name="bq_ptype" value="house" checked> 주택</label>
-        <label><input type="radio" name="bq_ptype" value="etc"> 주택외</label>
-        <label><input type="radio" name="bq_ptype" value="farm"> 농지</label></div><span class="hint">주택의 <b>지분이나 부속토지(주택이 서 있는 땅)만</b> 유증받아도 「주택」을 고르십시오<span class="law" title="지방세법 §11①8호 — 주택은 「주거용 건축물과 그 부속토지」 / §13의2① 괄호 — 주택의 공유지분이나 부속토지만 취득해도 주택을 취득한 것으로 본다(같은 조 ②항 무상취득 중과에도 적용) / 농어촌특별세법 시행령 §4⑤ — 국민주택규모 이하 「주거용 건물과 이에 부수되는 토지」는 농특세 비과세">지방세법 §11①8호 · §13의2①</span></span></div>
+        <label><input type="radio" name="bq_ptype" value="etc"> 주택외(상가·대지·임야 등)</label>
+        <label><input type="radio" name="bq_ptype" value="farm"> 농지(논·밭·과수원)</label></div><span class="hint">주택의 <b>지분이나 부속토지(주택이 서 있는 땅)만</b> 유증받아도 「주택」을 고르십시오<span class="law" title="지방세법 §11①8호 — 주택은 「주거용 건축물과 그 부속토지」 / §13의2① 괄호 — 주택의 공유지분이나 부속토지만 취득해도 주택을 취득한 것으로 본다(같은 조 ②항 무상취득 중과에도 적용) / 농어촌특별세법 시행령 §4⑤ — 국민주택규모 이하 「주거용 건물과 이에 부수되는 토지」는 농특세 비과세">지방세법 §11①8호 · §13의2①</span></span></div>
       <div class="line"><span class="lbl">세목 기준 <span class="tag A">A</span></span><div class="radios" onchange="calcBequest()">
         <label><input type="radio" name="bq_taxMode" value="acq" checked> 2011.1.1.〜 상속개시(취득세)</label>
         <label><input type="radio" name="bq_taxMode" value="reg"> 〜2010.12.31. 상속개시(舊 등록세)</label></div></div>
@@ -1042,8 +1046,10 @@
     <div class="card green"><h2>⑤ 유증 준비서류 · 대장</h2><div class="body">
       <div class="line" style="border:none;padding-top:0;"><span class="lbl">부동산 형태</span><div class="radios" onchange="renderDocsBequest()">
         <label><input type="radio" name="bq_bform" value="apt" checked> 집합건물(아파트·빌라)</label>
-        <label><input type="radio" name="bq_bform" value="house"> 일반건물(단독 등)</label>
-        <label><input type="radio" name="bq_bform" value="land"> 토지만</label></div></div>
+        <label><input type="radio" name="bq_bform" value="house"> 일반건물(단독·상가 등)</label>
+        <label><input type="radio" name="bq_bform" value="land"> 토지(대지·잡종지 등)</label>
+        <label><input type="radio" name="bq_bform" value="forest"> 임야</label>
+        <label><input type="radio" name="bq_bform" value="farm"> 농지(논·밭·과수원)</label></div><span class="hint">땅 종류(지목)는 토지대장·임야대장이나 토지이용계획확인원에 적혀 있습니다. 지번 앞에 「산」이 있으면 <b>임야</b>, 논·밭·과수원이면 <b>농지</b>입니다</span></div>
       <div class="line"><span class="lbl">피상속인 — 외국 당사자</span><select id="bq_frDec" onchange="renderDocsBequest()">
         <option value="">해당 없음 (내국인·국내 거주)</option>
         <option value="kor-out">재외국민 (외국 거주 중 사망)</option>
@@ -1147,7 +1153,7 @@
       <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcGift();junjuToggle()">
         <label><input type="radio" name="gv_ptype" value="house" checked> 주택</label>
         <label><input type="radio" name="gv_ptype" value="etc" id="gv_ptype_jun"> 준주택<span class="law" title="「주택법」 제2조제1호의2 및 같은 법 시행령 제4조 — 주택 외의 건축물과 그 부속토지로서 주거시설로 이용가능한 시설. 제1호 기숙사, 제2호 다중생활시설, 제3호 「노인복지법」 제32조제1항제3호의 노인복지주택, 제4호 오피스텔. 준주택은 「주택법」 제2조제1호의 주택이 아니므로 지방세법 제11조제1항제8호의 주택 유상거래 특례세율(1~3%)이 적용되지 아니한다.">주택법 §2 1호의2</span></label>
-        <label><input type="radio" name="gv_ptype" value="etc"> 주택외</label></div><span class="hint">주택의 <b>지분이나 부속토지(주택이 서 있는 땅)만</b> 증여받아도 「주택」을 고르십시오<span class="law" title="지방세법 §11①8호 — 주택은 「주거용 건축물과 그 부속토지」 / §13의2① 괄호 — 주택의 공유지분이나 부속토지만 취득해도 주택을 취득한 것으로 본다(같은 조 ②항 무상취득 중과에도 적용) / 농어촌특별세법 시행령 §4⑤ — 국민주택규모 이하 「주거용 건물과 이에 부수되는 토지」는 농특세 비과세">지방세법 §11①8호 · §13의2①</span></span></div>
+        <label><input type="radio" name="gv_ptype" value="etc"> 주택외(상가·대지·임야 등)</label></div><span class="hint">주택의 <b>지분이나 부속토지(주택이 서 있는 땅)만</b> 증여받아도 「주택」을 고르십시오<span class="law" title="지방세법 §11①8호 — 주택은 「주거용 건축물과 그 부속토지」 / §13의2① 괄호 — 주택의 공유지분이나 부속토지만 취득해도 주택을 취득한 것으로 본다(같은 조 ②항 무상취득 중과에도 적용) / 농어촌특별세법 시행령 §4⑤ — 국민주택규모 이하 「주거용 건물과 이에 부수되는 토지」는 농특세 비과세">지방세법 §11①8호 · §13의2①</span></span></div>
       <div class="note" id="gv_junHint"><b>노인복지주택·오피스텔·기숙사·고시원(다중생활시설)</b>이라면 「주택」이 아니라 <b>「준주택」</b>을 골라 주십시오. 대장에 「노인복지주택」이라고 적혀 있어도 <b>세법상 주택이 아닙니다.</b> 잘못 고르면 세금이 <b>4배까지 차이</b>납니다. <span class="hint">▸ 헷갈리시면 그대로 두시고 상담 때 말씀해 주십시오.</span></div>
       <div class="note alert" id="gv_junWarn" style="display:none;"><span class="head">준주택은 「주택」이 아니어서 세율이 다릅니다</span>노인복지주택·오피스텔·기숙사·다중생활시설은 <b>건축물대장에 「주택」처럼 적혀 있어도</b> 「주택법」 제2조제1호의 <b>주택이 아닙니다</b>(같은 조 제1호의2·시행령 §4 → <b>준주택</b>). 따라서 <b>주택에 주는 취득세 할인을 받지 못합니다.</b><br>▸ <b>매매 4.6%</b>(취득 4 + 교육 0.4 + 농특 0.2) · <b>증여 4.0%</b>(3.5+0.3+0.2) · <b>상속 3.16%</b>(2.8+0.16+0.2) <span class="law" title="지방세법 §11①7호나목·제2호·제1호나목, §151①1호 본문, 농어촌특별세법 §5①6호">지방세법 §11①·§151①1호</span><br>▸ <b>전용 85㎡ 이하라도 농어촌특별세 0.2%를 냅니다.</b> 농특세 비과세(농특세법 §4 11호)는 「주택법」상 <b>국민주택규모 주택</b>이 대상이어서 준주택은 해당하지 않습니다.<br>▸ 다주택 중과(§13의2)·조정대상지역·생애최초 감면은 <b>모두 적용되지 않습니다.</b> 그래서 주택에만 해당하는 칸은 아래에 나타나지 않습니다.<br><b style="color:#c0392b;">계약 전 반드시 확인하십시오.</b> 같은 노인복지주택이라도 <b>등기사항전부증명서 표제부에 「아파트」·「공동주택」으로 기재</b>되어 있으면 결론이 달라질 수 있습니다. 물건 소재지 <b>시·군·구청 세무과</b>에 「노인복지주택 취득 시 적용 세율」을 문의하신 뒤 진행하시기 바랍니다. <span class="tag chk">확인필요</span></div>
       <div class="line"><span class="lbl">감면·가산 등</span><div class="checks" onchange="calcGift()">
@@ -1220,8 +1226,10 @@
     <div class="card green"><h2>⑤ 증여 준비서류 · 대장</h2><div class="body">
       <div class="line" style="border:none;padding-top:0;"><span class="lbl">부동산 형태</span><div class="radios" onchange="renderDocsGift()">
         <label><input type="radio" name="gv_bform" value="apt" checked> 집합건물(아파트·빌라)</label>
-        <label><input type="radio" name="gv_bform" value="house"> 일반건물(단독 등)</label>
-        <label><input type="radio" name="gv_bform" value="land"> 토지만</label></div></div>
+        <label><input type="radio" name="gv_bform" value="house"> 일반건물(단독·상가 등)</label>
+        <label><input type="radio" name="gv_bform" value="land"> 토지(대지·잡종지 등)</label>
+        <label><input type="radio" name="gv_bform" value="forest"> 임야</label>
+        <label><input type="radio" name="gv_bform" value="farm"> 농지(논·밭·과수원)</label></div><span class="hint">땅 종류(지목)는 토지대장·임야대장이나 토지이용계획확인원에 적혀 있습니다. 지번 앞에 「산」이 있으면 <b>임야</b>, 논·밭·과수원이면 <b>농지</b>입니다</span></div>
       <div class="line"><span class="lbl">당사자 관계</span><div class="radios" onchange="calcGift()">
         <label><input type="radio" name="gv_relation" value="spouse"> 배우자</label>
         <label><input type="radio" name="gv_relation" value="lineal1" checked> 직계존비속 (부모↔자녀)</label>
@@ -1326,8 +1334,8 @@
       <div class="line"><span class="lbl">과세표준(원)</span><input type="number" class="amt" id="ea_price" placeholder="0" oninput="calcEtcAcq()"><span class="hint" id="ea_priceHint"></span></div>
       <div class="line" id="ea_ptypeRow"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcEtcAcq()">
         <label><input type="radio" name="ea_ptype" value="house" checked> 주택</label>
-        <label><input type="radio" name="ea_ptype" value="etc"> 주택외</label>
-        <label><input type="radio" name="ea_ptype" value="farm"> 농지</label></div></div>
+        <label><input type="radio" name="ea_ptype" value="etc"> 주택외(상가·대지·임야 등)</label>
+        <label><input type="radio" name="ea_ptype" value="farm"> 농지(논·밭·과수원)</label></div></div>
       <div class="line" id="ea_excessRow" style="display:none;"><span class="lbl">종전 건축물 가액(원)</span><input type="number" class="amt" id="ea_prevVal" placeholder="0" oninput="calcEtcAcq()"><span class="hint">§15①5호 단서 — <b>이를 초과하는 가액</b>은 특례 제외(원시취득 2.8%)</span></div>
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('ea_cntEstate',-1,calcEtcAcq)">−</button><input type="number" id="ea_cntEstate" value="1" min="1" oninput="calcEtcAcq()"><button onclick="step('ea_cntEstate',1,calcEtcAcq)">+</button></div></div>
       <div class="line"><span class="lbl">등기권리자</span><div class="stepper"><button onclick="step('ea_cntOwner',-1,calcEtcAcq)">−</button><input type="number" id="ea_cntOwner" value="1" min="1" oninput="calcEtcAcq()"><button onclick="step('ea_cntOwner',1,calcEtcAcq)">+</button></div><span class="hint">보수기준 <b>§2②4호</b> — 당사자·이해관계인 <b>5인 이상</b> 판정용 (아래 「당사자 다수 가산」과 연동)</span></div>
@@ -1430,7 +1438,7 @@
       <div class="line"><span class="lbl">등기권리자</span><div class="stepper"><button onclick="step('pt_cntOwner',-1,calcPartition)">−</button><input type="number" id="pt_cntOwner" value="1" min="1" oninput="calcPartition()"><button onclick="step('pt_cntOwner',1,calcPartition)">+</button></div><span class="hint">보수기준 <b>§2②4호</b> — 당사자·이해관계인 <b>5인 이상</b> 판정용 (아래 「당사자 다수 가산」과 연동)</span></div>
       <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcBondPartition()">
         <label><input type="radio" name="pt_ptype" value="house" checked> 주택</label>
-        <label><input type="radio" name="pt_ptype" value="etc"> 주택외</label></div><span class="hint">주택의 <b>지분이나 부속토지(주택이 서 있는 땅)만</b> 나눠 받아도 「주택」을 고르십시오<span class="law" title="지방세법 §11①8호 — 주택은 「주거용 건축물과 그 부속토지」 / §13의2① 괄호 — 주택의 공유지분이나 부속토지만 취득해도 주택을 취득한 것으로 본다(같은 조 ②항 무상취득 중과에도 적용) / 농어촌특별세법 시행령 §4⑤ — 국민주택규모 이하 「주거용 건물과 이에 부수되는 토지」는 농특세 비과세">지방세법 §11①8호 · §13의2①</span></span></div>
+        <label><input type="radio" name="pt_ptype" value="etc"> 주택외(상가·대지·임야 등)</label></div><span class="hint">주택의 <b>지분이나 부속토지(주택이 서 있는 땅)만</b> 나눠 받아도 「주택」을 고르십시오<span class="law" title="지방세법 §11①8호 — 주택은 「주거용 건축물과 그 부속토지」 / §13의2① 괄호 — 주택의 공유지분이나 부속토지만 취득해도 주택을 취득한 것으로 본다(같은 조 ②항 무상취득 중과에도 적용) / 농어촌특별세법 시행령 §4⑤ — 국민주택규모 이하 「주거용 건물과 이에 부수되는 토지」는 농특세 비과세">지방세법 §11①8호 · §13의2①</span></span></div>
       <div class="line"><span class="lbl">농특세 (지분 범위 내)</span><div class="radios" onchange="calcPartition()">
         <label><input type="radio" name="pt_ruralKind" value="exempt" checked> 0 — 비과세(§4 8호·시행령 §4④)</label>
         <label><input type="radio" name="pt_ruralKind" value="levy"> 0.4% — 감면분 과세</label></div>
@@ -1526,8 +1534,10 @@
         <label><input type="radio" name="pt_basis" value="judge"> 판결·조정(공유물분할의 소)</label></div></div>
       <div class="line"><span class="lbl">부동산 형태</span><div class="radios" onchange="renderDocsPartition()">
         <label><input type="radio" name="pt_bform" value="apt" checked> 집합건물(아파트·빌라)</label>
-        <label><input type="radio" name="pt_bform" value="house"> 일반건물(단독 등)</label>
-        <label><input type="radio" name="pt_bform" value="land"> 토지만</label></div></div>
+        <label><input type="radio" name="pt_bform" value="house"> 일반건물(단독·상가 등)</label>
+        <label><input type="radio" name="pt_bform" value="land"> 토지(대지·잡종지 등)</label>
+        <label><input type="radio" name="pt_bform" value="forest"> 임야</label>
+        <label><input type="radio" name="pt_bform" value="farm"> 농지(논·밭·과수원)</label></div><span class="hint">땅 종류(지목)는 토지대장·임야대장이나 토지이용계획확인원에 적혀 있습니다. 지번 앞에 「산」이 있으면 <b>임야</b>, 논·밭·과수원이면 <b>농지</b>입니다</span></div>
       <div class="line"><span class="lbl">공유자(등기의무자) — 법인격</span><select id="pty_pt__seller" onchange="renderDocsPartition()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">파는 쪽이 <b>법인·종중·교회</b>면 서류가 완전히 달라집니다</span></div><div class="line"><span class="lbl">취득자(등기권리자) — 법인격</span><select id="pty_pt__buyer" onchange="renderDocsPartition()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">종교단체를 고르면 <b>취득세 감면 안내</b>가 함께 나옵니다</span></div><div class="line"><span class="lbl">공유자(등기의무자) — 외국 당사자</span><select id="pt_frOb" data-lbl="공유자(등기의무자)" onchange="renderDocsPartition()"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">내주는 쪽이 <b>외국인·재외국민</b>이면 <b>처분위임장·인감</b>이 달라집니다</span></div><div class="line"><span class="lbl">취득자(등기권리자) — 외국 당사자</span><select id="pt_frRi" data-lbl="취득자(등기권리자)" onchange="renderDocsPartition()"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">받는 쪽이 <b>외국인</b>이면 <b>취득신고·토지취득허가</b>가 따라옵니다</span></div><div id="pt_partyDocsBox"></div><div class="docs" id="pt_docsBox"></div>
     </div></div>
   </div>
@@ -1550,8 +1560,8 @@
       <div class="line"><span class="lbl">등기권리자</span><div class="stepper"><button onclick="step('nk_cntOwner',-1,calcNakchal)">−</button><input type="number" id="nk_cntOwner" value="1" min="1" oninput="calcNakchal()"><button onclick="step('nk_cntOwner',1,calcNakchal)">+</button></div><span class="hint">보수기준 <b>§2②4호</b> — 당사자·이해관계인 <b>5인 이상</b> 판정용 (아래 「당사자 다수 가산」과 연동)</span></div>
       <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcBondNakchal()">
         <label><input type="radio" name="nk_ptype" value="house" checked> 주택</label>
-        <label><input type="radio" name="nk_ptype" value="etc"> 주택외</label>
-        <label><input type="radio" name="nk_ptype" value="farm"> 농지</label></div><span class="hint">주택의 <b>지분이나 부속토지(주택이 서 있는 땅)만</b> 낙찰받아도 「주택」을 고르십시오<span class="law" title="지방세법 §11①8호 — 주택은 「주거용 건축물과 그 부속토지」 / §13의2① 괄호 — 주택의 공유지분이나 부속토지만 취득해도 주택을 취득한 것으로 본다(같은 조 ②항 무상취득 중과에도 적용) / 농어촌특별세법 시행령 §4⑤ — 국민주택규모 이하 「주거용 건물과 이에 부수되는 토지」는 농특세 비과세">지방세법 §11①8호 · §13의2①</span></span></div>
+        <label><input type="radio" name="nk_ptype" value="etc"> 주택외(상가·대지·임야 등)</label>
+        <label><input type="radio" name="nk_ptype" value="farm"> 농지(논·밭·과수원)</label></div><span class="hint">주택의 <b>지분이나 부속토지(주택이 서 있는 땅)만</b> 낙찰받아도 「주택」을 고르십시오<span class="law" title="지방세법 §11①8호 — 주택은 「주거용 건축물과 그 부속토지」 / §13의2① 괄호 — 주택의 공유지분이나 부속토지만 취득해도 주택을 취득한 것으로 본다(같은 조 ②항 무상취득 중과에도 적용) / 농어촌특별세법 시행령 §4⑤ — 국민주택규모 이하 「주거용 건물과 이에 부수되는 토지」는 농특세 비과세">지방세법 §11①8호 · §13의2①</span></span></div>
       <div class="line" id="nk_houseNline"><span class="lbl">세대 주택 수</span><div class="radios" onchange="calcNakchal()">
         <label><input type="radio" name="nk_hn" value="1" checked> 1주택</label>
         <label><input type="radio" name="nk_hn" value="2"> 2주택</label>
@@ -1651,8 +1661,10 @@
         <label><input type="radio" name="nk_basis" value="onbid"> 공매(온비드)</label></div></div>
       <div class="line"><span class="lbl">부동산 형태</span><div class="radios" onchange="renderDocsNakchal()">
         <label><input type="radio" name="nk_bform" value="apt" checked> 집합건물(아파트·빌라)</label>
-        <label><input type="radio" name="nk_bform" value="house"> 일반건물(단독 등)</label>
-        <label><input type="radio" name="nk_bform" value="land"> 토지만</label></div></div>
+        <label><input type="radio" name="nk_bform" value="house"> 일반건물(단독·상가 등)</label>
+        <label><input type="radio" name="nk_bform" value="land"> 토지(대지·잡종지 등)</label>
+        <label><input type="radio" name="nk_bform" value="forest"> 임야</label>
+        <label><input type="radio" name="nk_bform" value="farm"> 농지(논·밭·과수원)</label></div><span class="hint">땅 종류(지목)는 토지대장·임야대장이나 토지이용계획확인원에 적혀 있습니다. 지번 앞에 「산」이 있으면 <b>임야</b>, 논·밭·과수원이면 <b>농지</b>입니다</span></div>
       <div class="line"><span class="lbl">매수인(등기권리자) — 법인격</span><select id="pty_nk__buyer" onchange="renderDocsNakchal()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">종교단체를 고르면 <b>취득세 감면 안내</b>가 함께 나옵니다</span></div><div class="line"><span class="lbl">매수인(등기권리자) — 외국 당사자</span><select id="nk_frRi" data-lbl="매수인(등기권리자)" onchange="renderDocsNakchal()"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">받는 쪽이 <b>외국인</b>이면 <b>취득신고·토지취득허가</b>가 따라옵니다</span></div><div id="nk_partyDocsBox"></div><div class="docs" id="nk_docsBox"></div>
     </div></div>
   </div>
@@ -1679,7 +1691,7 @@
       <div class="line"><span class="lbl">등기권리자</span><div class="stepper"><button onclick="step('dv_cntOwner',-1,calcDivision)">−</button><input type="number" id="dv_cntOwner" value="1" min="1" oninput="calcDivision()"><button onclick="step('dv_cntOwner',1,calcDivision)">+</button></div><span class="hint">보수기준 <b>§2②4호</b> — 당사자·이해관계인 <b>5인 이상</b> 판정용 (아래 「당사자 다수 가산」과 연동)</span></div>
       <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcDivision()">
         <label><input type="radio" name="dv_ptype" value="house" checked> 주택</label>
-        <label><input type="radio" name="dv_ptype" value="etc"> 주택외</label></div><span class="hint">주택의 <b>지분이나 부속토지(주택이 서 있는 땅)만</b> 받아도 「주택」을 고르십시오<span class="law" title="지방세법 §11①8호 — 주택은 「주거용 건축물과 그 부속토지」 / §13의2① 괄호 — 주택의 공유지분이나 부속토지만 취득해도 주택을 취득한 것으로 본다(같은 조 ②항 무상취득 중과에도 적용) / 농어촌특별세법 시행령 §4⑤ — 국민주택규모 이하 「주거용 건물과 이에 부수되는 토지」는 농특세 비과세">지방세법 §11①8호 · §13의2①</span></span></div>
+        <label><input type="radio" name="dv_ptype" value="etc"> 주택외(상가·대지·임야 등)</label></div><span class="hint">주택의 <b>지분이나 부속토지(주택이 서 있는 땅)만</b> 받아도 「주택」을 고르십시오<span class="law" title="지방세법 §11①8호 — 주택은 「주거용 건축물과 그 부속토지」 / §13의2① 괄호 — 주택의 공유지분이나 부속토지만 취득해도 주택을 취득한 것으로 본다(같은 조 ②항 무상취득 중과에도 적용) / 농어촌특별세법 시행령 §4⑤ — 국민주택규모 이하 「주거용 건물과 이에 부수되는 토지」는 농특세 비과세">지방세법 §11①8호 · §13의2①</span></span></div>
       <div class="line"><span class="lbl">농특세·가산 등</span><div class="checks" onchange="calcDivision()">
         <label><input type="checkbox" id="dv_over85"> 전용 85㎡ 초과(농특세 과세) <small>— 수도권 밖 도시지역이 아닌 읍·면은 100㎡ 초과</small></label>
         </div></div>
@@ -1760,8 +1772,10 @@
         <label><input type="radio" name="dv_basis" value="judge"> 판결·조정</label></div></div>
       <div class="line"><span class="lbl">부동산 형태</span><div class="radios" onchange="renderDocsDivision()">
         <label><input type="radio" name="dv_bform" value="apt" checked> 집합건물(아파트·빌라)</label>
-        <label><input type="radio" name="dv_bform" value="house"> 일반건물(단독 등)</label>
-        <label><input type="radio" name="dv_bform" value="land"> 토지만</label></div></div>
+        <label><input type="radio" name="dv_bform" value="house"> 일반건물(단독·상가 등)</label>
+        <label><input type="radio" name="dv_bform" value="land"> 토지(대지·잡종지 등)</label>
+        <label><input type="radio" name="dv_bform" value="forest"> 임야</label>
+        <label><input type="radio" name="dv_bform" value="farm"> 농지(논·밭·과수원)</label></div><span class="hint">땅 종류(지목)는 토지대장·임야대장이나 토지이용계획확인원에 적혀 있습니다. 지번 앞에 「산」이 있으면 <b>임야</b>, 논·밭·과수원이면 <b>농지</b>입니다</span></div>
       <div class="line"><span class="lbl">분할의무자(등기의무자) — 법인격</span><select id="pty_dv__seller" onchange="renderDocsDivision()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">파는 쪽이 <b>법인·종중·교회</b>면 서류가 완전히 달라집니다</span></div><div class="line"><span class="lbl">분할권리자(등기권리자) — 법인격</span><select id="pty_dv__buyer" onchange="renderDocsDivision()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">종교단체를 고르면 <b>취득세 감면 안내</b>가 함께 나옵니다</span></div><div class="line"><span class="lbl">분할의무자(등기의무자) — 외국 당사자</span><select id="dv_frOb" data-lbl="분할의무자(등기의무자)" onchange="renderDocsDivision()"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">내주는 쪽이 <b>외국인·재외국민</b>이면 <b>처분위임장·인감</b>이 달라집니다</span></div><div class="line"><span class="lbl">분할권리자(등기권리자) — 외국 당사자</span><select id="dv_frRi" data-lbl="분할권리자(등기권리자)" onchange="renderDocsDivision()"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">받는 쪽이 <b>외국인</b>이면 <b>취득신고·토지취득허가</b>가 따라옵니다</span></div><div id="dv_partyDocsBox"></div><div class="docs" id="dv_docsBox"></div>
     </div></div>
   </div>
@@ -1780,7 +1794,7 @@
       <div class="line"><span class="lbl">등기권리자(수증자)</span><div class="stepper"><button onclick="step('bv_cntOwner',-1,calcBurden)">−</button><input type="number" id="bv_cntOwner" value="1" min="1" oninput="calcBurden()"><button onclick="step('bv_cntOwner',1,calcBurden)">+</button></div><span class="hint">보수기준 <b>§2②4호</b> — 당사자·이해관계인 <b>5인 이상</b> 판정용 (아래 「당사자 다수 가산」과 연동)</span></div>
       <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcBurden()">
         <label><input type="radio" name="bv_ptype" value="house" checked> 주택</label>
-        <label><input type="radio" name="bv_ptype" value="etc"> 주택외</label></div><span class="hint">주택의 <b>지분이나 부속토지(주택이 서 있는 땅)만</b> 증여받아도 「주택」을 고르십시오<span class="law" title="지방세법 §11①8호 — 주택은 「주거용 건축물과 그 부속토지」 / §13의2① 괄호 — 주택의 공유지분이나 부속토지만 취득해도 주택을 취득한 것으로 본다(같은 조 ②항 무상취득 중과에도 적용) / 농어촌특별세법 시행령 §4⑤ — 국민주택규모 이하 「주거용 건물과 이에 부수되는 토지」는 농특세 비과세">지방세법 §11①8호 · §13의2①</span></span></div>
+        <label><input type="radio" name="bv_ptype" value="etc"> 주택외(상가·대지·임야 등)</label></div><span class="hint">주택의 <b>지분이나 부속토지(주택이 서 있는 땅)만</b> 증여받아도 「주택」을 고르십시오<span class="law" title="지방세법 §11①8호 — 주택은 「주거용 건축물과 그 부속토지」 / §13의2① 괄호 — 주택의 공유지분이나 부속토지만 취득해도 주택을 취득한 것으로 본다(같은 조 ②항 무상취득 중과에도 적용) / 농어촌특별세법 시행령 §4⑤ — 국민주택규모 이하 「주거용 건물과 이에 부수되는 토지」는 농특세 비과세">지방세법 §11①8호 · §13의2①</span></span></div>
       <div class="line"><span class="lbl">감면·가산 등</span><div class="checks" onchange="calcBurden()">
         <label><input type="checkbox" id="bv_adj3"> 조정대상지역 안 주택 — 시가표준액 3억원 이상이면 무상분 12% <small>(아래 「주택 시가표준액」으로 판정 · 영 §28의6①)</small></label>
         <label><input type="checkbox" id="bv_donorOneHouse" onchange="calcBurden()"> └ 증여자가 1세대 1주택(§13의2② 단서 → 무상분 중과 배제)</label>
@@ -1848,8 +1862,10 @@
     <div class="card green"><h2>⑤ 부담부증여 준비서류 · 대장</h2><div class="body">
       <div class="line" style="border:none;padding-top:0;"><span class="lbl">부동산 형태</span><div class="radios" onchange="renderDocsBurden()">
         <label><input type="radio" name="bv_bform" value="apt" checked> 집합건물(아파트·빌라)</label>
-        <label><input type="radio" name="bv_bform" value="house"> 일반건물(단독 등)</label>
-        <label><input type="radio" name="bv_bform" value="land"> 토지만</label></div></div>
+        <label><input type="radio" name="bv_bform" value="house"> 일반건물(단독·상가 등)</label>
+        <label><input type="radio" name="bv_bform" value="land"> 토지(대지·잡종지 등)</label>
+        <label><input type="radio" name="bv_bform" value="forest"> 임야</label>
+        <label><input type="radio" name="bv_bform" value="farm"> 농지(논·밭·과수원)</label></div><span class="hint">땅 종류(지목)는 토지대장·임야대장이나 토지이용계획확인원에 적혀 있습니다. 지번 앞에 「산」이 있으면 <b>임야</b>, 논·밭·과수원이면 <b>농지</b>입니다</span></div>
       <div class="line"><span class="lbl">당사자 관계</span><div class="radios" onchange="calcBurden()">
         <label><input type="radio" name="bv_relation" value="spouse"> 배우자</label>
         <label><input type="radio" name="bv_relation" value="lineal1" checked> 직계존비속 (부모↔자녀)</label>
@@ -2476,7 +2492,7 @@
       <div class="line"><span class="lbl">등기권리자(소유자)</span><div class="stepper"><button onclick="step('pr_cntOwner',-1,calcPreserve)">−</button><input type="number" id="pr_cntOwner" value="1" min="1" oninput="calcPreserve()"><button onclick="step('pr_cntOwner',1,calcPreserve)">+</button></div><span class="hint">보수기준 <b>§2②4호</b> — 당사자·이해관계인 <b>5인 이상</b> 판정용 (아래 「당사자 다수 가산」과 연동)</span></div>
       <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcPreserve()">
         <label><input type="radio" name="pr_ptype" value="house" checked> 주택</label>
-        <label><input type="radio" name="pr_ptype" value="etc"> 주택외</label></div></div>
+        <label><input type="radio" name="pr_ptype" value="etc"> 주택외(상가·대지·임야 등)</label></div></div>
       <div class="line"><span class="lbl">감면·가산 등</span><div class="checks" onchange="calcPreserve()">
         <label><input type="checkbox" id="pr_over85"> 85㎡ 초과(농특세) <small>— 수도권 밖 도시지역이 아닌 읍·면은 100㎡ 초과</small></label>
         <label><input type="checkbox" id="pr_metro"> 대도시 내 취득 중과(취득세)</label>
@@ -2539,8 +2555,10 @@
     <div class="card green"><h2>⑤ 보존 준비서류 · 대장</h2><div class="body">
       <div class="line" style="border:none;padding-top:0;"><span class="lbl">부동산 형태</span><div class="radios" onchange="renderDocsPreserve()">
         <label><input type="radio" name="pr_bform" value="apt" checked> 집합건물(아파트·빌라)</label>
-        <label><input type="radio" name="pr_bform" value="house"> 일반건물(단독 등)</label>
-        <label><input type="radio" name="pr_bform" value="land"> 토지</label></div></div>
+        <label><input type="radio" name="pr_bform" value="house"> 일반건물(단독·상가 등)</label>
+        <label><input type="radio" name="pr_bform" value="land"> 토지(대지·잡종지 등)</label>
+        <label><input type="radio" name="pr_bform" value="forest"> 임야</label>
+        <label><input type="radio" name="pr_bform" value="farm"> 농지(논·밭·과수원)</label></div><span class="hint">땅 종류(지목)는 토지대장·임야대장이나 토지이용계획확인원에 적혀 있습니다. 지번 앞에 「산」이 있으면 <b>임야</b>, 논·밭·과수원이면 <b>농지</b>입니다</span></div>
       <div class="line"><span class="lbl">소유자(등기권리자) — 법인격</span><select id="pty_pr__buyer" onchange="renderDocsPreserve()"><option value="ind" selected>개인</option><option value="corp">법인 (주식회사·재단법인·사단법인 등)</option><option value="unic">법인 아닌 사단·재단 (종중·문중·교회·사찰 등)</option><option value="relig">종교단체·향교 — 취득세 감면 대상</option><option value="gov">국가·지방자치단체</option></select><span class="hint">종교단체를 고르면 <b>취득세 감면 안내</b>가 함께 나옵니다</span></div><div class="line"><span class="lbl">소유자(등기권리자) — 외국 당사자</span><select id="pr_frRi" data-lbl="소유자(등기권리자)" onchange="renderDocsPreserve()"><option value="">해당 없음 (내국인·국내 거주)</option><option value="kor-in">재외국민 — 입국하여 직접</option><option value="kor-out">재외국민 — 외국 거주(위임)</option><option value="dongpo">외국국적동포 — 국내거소신고</option><option value="alien-in">외국인 — 외국인등록(국내 거주)</option><option value="alien-out">외국인 — 외국 거주(등록 없음)</option></select><span class="hint">받는 쪽이 <b>외국인</b>이면 <b>취득신고·토지취득허가</b>가 따라옵니다</span></div><div id="pr_partyDocsBox"></div><div class="docs" id="pr_docsBox"></div>
     </div></div>
   </div>
@@ -4684,6 +4702,18 @@ function junjuToggle(){
   });
 }
 document.addEventListener('DOMContentLoaded',junjuToggle);
+/* 2026-11-22 세금 칸 「부동산 종류」에서 농지를 고르면 준비서류 「부동산 형태」도 농지로 맞춘다(처음 선택값일 뿐 — 서류 칸에서 다시 바꿀 수 있음).
+   농지에서 다른 종류로 바꾸면 서류 칸도 농지에서 풀어 준다(주택 → 집합건물, 그 밖 → 토지). 세법상 농지(영 §21)는 지목뿐 아니라 실제 경작 여부도 보므로 반대 방향(서류 → 세금)은 맞추지 않는다. */
+document.addEventListener('change',function(e){
+  var t=e.target; if(!t||t.type!=='radio'||!/ptype$/.test(t.name||'')) return;
+  var bn=t.name.replace(/ptype$/,'bform'), cur=document.querySelector('input[name="'+bn+'"]:checked'); if(!cur) return;
+  var want=null;
+  if(t.value==='farm'&&cur.value!=='farm') want='farm';
+  else if(t.value!=='farm'&&cur.value==='farm') want=(t.value==='house'?'apt':'land');
+  if(!want) return;
+  var r=document.querySelector('input[name="'+bn+'"][value="'+want+'"]'); if(!r) return;
+  r.checked=true; r.dispatchEvent(new Event('change',{bubbles:true}));
+});
 /* ═══════════════ 2026-11-22 중과·감면 사유 — 고른 부동산 종류에 해당하는 것만 보이게 (법무사님 지시) ═══════
    종류 기호: h 주택 / j 준주택 / e 주택외(토지 포함) / f 농지
    · 주택에만 [A] — 지방세법 §13의2①②(주택 중과: 「§11①8호에 따른 주택」), 지특법 §36의3(생애최초)·§36의5(출산·양육)·§33②(서민주택),
@@ -5490,8 +5520,18 @@ function d3i(name,desc,where){
 function d3ledger(f){
   if(f==='apt') return '집합건축물대장(전유부·표제부), 대지권등록부, 대지권 목적 토지의 토지대장';
   if(f==='house') return '일반건축물대장, 토지대장';
-  return '토지대장(임야는 임야대장)';
+  if(f==='forest') return '임야대장';   /* 공간정보관리법 시행령 §56① — 임야대장·임야도 등록 토지는 지번 앞에 「산」 */
+  return '토지대장';
 }
+/* 2026-11-22 땅 종류 세분(토지·임야·농지) — 법무사님 지시 「쉽게 사용하도록」
+   [A] 농지법 §8① 본문(농지를 취득하려는 자 → 농지취득자격증명) · 단서 1호(§6②4호 상속[상속인에게 한 유증 포함] 등) · 3호(공유 농지의 분할 등)
+   [A] 국토의 계획 및 이용에 관한 법률 §83 3호 — 도시지역에는 농지법 §8 적용 안 함. 다만 녹지지역 농지로서 도시·군계획시설사업에 필요하지 않은 농지는 적용
+   [A] 부동산 거래신고 등에 관한 법률 §20① — 농지에 토지거래계약 허가를 받으면 농지취득자격증명을 받은 것으로 봄
+   [A] 지방세법 시행령 §21 — 세법상 농지는 공부상 지목 논·밭·과수원(축산용은 목장용지 포함)이고 실제 경작에 쓰는 땅 */
+function isLandForm(f){ return f==='land'||f==='forest'||f==='farm'; }
+const FARM_URBAN=' <span class="hint">도시지역(주거·상업·공업지역 등) 안의 농지는 필요 없습니다 — 토지이용계획확인원에서 확인</span> <span class="law" title="국토의 계획 및 이용에 관한 법률 제83조제3호 — 도시지역에 대하여는 「농지법」 제8조에 따른 농지취득자격증명 규정을 적용하지 아니한다. 다만, 녹지지역의 농지로서 도시·군계획시설사업에 필요하지 아니한 농지에 대하여는 그러하지 아니하다.">국토계획법 §83 3호</span>';
+function farmNeedItem(who,tradeOk){ return d3i('<b style="color:var(--seal);">농지취득자격증명</b>',who+'께서 <b>농지 소재지 시·구·읍·면사무소</b>(또는 정부24)에 신청합니다. 발급에 며칠 걸리니 <b>등기 전에 미리</b> 받아 두십시오'+(tradeOk?'. <b>토지거래허가</b>를 받았으면 따로 받지 않아도 됩니다(부동산 거래신고법 §20①)':'')+'.'+FARM_URBAN+' <span class="law" title="농지법 제8조제1항 — 농지를 취득하려는 자는 농지 소재지를 관할하는 시장·구청장·읍장 또는 면장에게서 농지취득자격증명을 발급받아야 한다.">농지법 §8①</span>',LK.gov); }
+function farmFreeItem(why,lawTitle,lawTxt){ return d3i('<b>농지취득자격증명은 필요 없습니다</b>',why+' <span class="law" title="'+lawTitle+'">'+lawTxt+'</span>',''); }
 /* 공통 사무소 준비 목록 — 권리에 관한 공동신청 등기 */
 function d3officeStd(o){
   o=o||{};
@@ -5537,7 +5577,7 @@ function judgeDocs(o){
       d3i('<b>판결정본</b>','조정·화해로 끝났으면 <b>조정조서·화해조서 정본</b>',''),
       d3i('<b>판결확정증명서</b>','조정조서·화해조서·인낙조서는 필요 없고, <b>조정을 갈음하는 결정·화해권고결정</b>은 필요합니다. 송달증명서는 필요 없습니다',''),
       d3i('<b>집행문</b> <span class="hint">(선이행·상환이행·조건부 판결일 때만)</span>','「돈을 받으면 등기해 주라」처럼 조건이 붙은 판결. 등기 이행과 반대급부 이행이 따로따로 적혀 있으면 필요 없습니다(등기예규 제1786호 5.나.)',''),
-      d3i((o.cause==='증여'?'':'<b>토지거래계약 허가증</b> · ')+'<b>농지취득자격증명</b> <span class="hint">(해당할 때)</span>','판결서에 허가 사실이 적혀 있어도 소유권이전등기에는 내야 합니다(부동산등기규칙 §46③ 단서 · 등기예규 제1786호 5.마.)'+(o.cause==='증여'?'. 증여는 토지거래허가 대상이 아닙니다(부동산 거래신고 등에 관한 법률 §11①)':'. 토지거래허가를 받으면 농지취득자격증명·검인을 받은 것으로 봅니다(같은 법 §20)'),'')]}];
+      d3i((o.cause==='증여'?'':'<b>토지거래계약 허가증</b> <span class="hint">(허가구역일 때)</span>'+(o.f==='farm'?' · ':''))+(o.f==='farm'?'<b style="color:var(--seal);">농지취득자격증명</b>':''),'판결서에 허가 사실이 적혀 있어도 소유권이전등기에는 내야 합니다(부동산등기규칙 §46③ 단서 · 등기예규 제1786호 5.마.)'+(o.cause==='증여'?'. 증여는 토지거래허가 대상이 아닙니다(부동산 거래신고 등에 관한 법률 §11①)':'. 토지거래허가를 받으면 농지취득자격증명·검인을 받은 것으로 봅니다(같은 법 §20)'),'')].filter(function(x,i,a){ return !(i===a.length-1&&o.cause==='증여'&&o.f!=='farm'); })}];
   const office=[
     d3i('<b>판결서 정본 검인</b>','부동산 소재지 시·군·구청에서 받습니다 — '+o.cause+' 등 계약을 원인으로 한 소유권이전은 판결서에도 검인이 필요합니다(부동산등기 특별조치법 §3② · 화해·인낙·조정조서 포함 — 등기예규 제1727호)',''),
     d3i('<b>등기신청서</b>, <b>위임장</b>',o.ri+'만 날인합니다',''),
@@ -5554,7 +5594,7 @@ function judgeDocs(o){
     ['취득세·지방교육세·농어촌특별세 영수필확인서','사무소 (신고 대행)','규칙 §44'],
     ['국민주택채권 매입 — 채권발행번호','사무소 (매입 대행)','규칙 §44'],
     ['등기신청수수료 영수필확인서','사무소','수수료규칙 §5의2'],
-    [(o.cause==='증여'?'':'토지거래계약 허가증 · ')+'농지취득자격증명 <small>(해당할 때만)</small>','의뢰인 신청','규칙 §46③ 단서 · 예규 제1786호 5.마.2)']];
+    [(o.cause==='증여'?'':'토지거래계약 허가증 <small>(허가구역일 때만)</small>'+(o.f==='farm'?' · ':''))+(o.f==='farm'?'농지취득자격증명 <small>(도시지역 농지는 불요)</small>':''),'의뢰인 신청','규칙 §46③ 단서 · 예규 제1786호 5.마.2)']].filter(function(r){ return r[0]; });
   return {client:client,office:office,attach:attach,
     attachNote:'<b>등기필정보와 '+o.ob+'의 인감증명서는 필요 없습니다</b> — 승소한 등기권리자 혼자 하는 신청입니다(부동산등기법 §23④·§50② 후문 · 인감은 부동산등기규칙 §60①1호가 등기의무자가 신청하는 경우만 정함). 판결이 확정된 지 10년이 지났어도 그 판결로 신청할 수 있습니다(등기예규 제1786호 2.라.).',
     law:'부동산등기법 §23④·§50②, 부동산등기 특별조치법 §3②, 부동산등기규칙 §46①·③·§60①1호, 등기예규 제1786호·제1727호',src:'판결에 의한 등기 — 실무교재 101~106쪽·117쪽, 등기예규 제1786호(2024. 11. 25.)'};
@@ -7421,12 +7461,13 @@ function d3giftParties(pf,st,bt,rel,burden){
   } else {
     ri.push(d3i('<b>미리 알려 주실 것</b> — <b>보유 주택 수 및 그 지번(주소)</b>','중과세율 판정에 필요합니다',''));
   }
+  if(radio(pf+'bform')==='farm') ri.push(farmNeedItem('수증자',burden));
   C.push({who:'수증자 (받는 분 · 등기권리자)'+(bt!=='ind'?' — '+PARTY_LABEL[bt]:''),items:d3party(bt,false,ri)});
   C.push({who:'친족관계 소명서류 <span class="hint">— 「가족관계의 등록 등에 관한 법률」 §15 — 모두 「<b>상세증명서</b>」로 발급. 취득세 신고 때 관계를 확인하는 데 씁니다(등기소 첨부서류는 아닙니다)</span>',
     items:d3kin(rel),extra:'<div class="d3note">발급 ▸ '+LK.family+' 또는 주민센터</div>'});
   return C;
 }
-function d3giftAttach(st,bt,led,burden){
+function d3giftAttach(st,bt,led,burden,f){
   const A=[];
   A.push([(burden?'부담부증여계약서':'증여계약서')+' <small>(검인받은 것)</small>','사무소 작성 · 당사자 날인','규칙 §46①1호 · 특조법 §3 검인']);
   A.push(['등기필정보(등기권리증) <small>— 없으면 확인서면</small>','증여자 · 확인서면은 사무소','법 §50② · §51']);
@@ -7444,7 +7485,8 @@ function d3giftAttach(st,bt,led,burden){
   A.push(['취득세·지방교육세·농어촌특별세 영수필확인서','사무소 (신고 대행)','규칙 §44']);
   A.push(['국민주택채권 매입 — 채권발행번호','사무소 (매입 대행)','규칙 §44']);
   A.push(['등기신청수수료 영수필확인서','사무소','수수료규칙 §5의2']);
-  A.push([burden?'토지거래계약 허가증 · 농지취득자격증명 <small>(해당할 때만)</small>':'농지취득자격증명 <small>(농지일 때만)</small>','의뢰인 신청','규칙 §46①2호']);
+  if(f==='farm') A.push(['농지취득자격증명 <small>(도시지역 농지는 불요)</small>','수증자 신청','규칙 §46①2호 · 농지법 §8①']);
+  if(burden) A.push(['토지거래계약 허가증 <small>(토지거래허가구역일 때만)</small>','의뢰인 신청','규칙 §46①2호']);
   return A;
 }
 /* ═══ 2026-10 정적 준비서류 → 3단 구분 (근저당권설정·추가설정·말소, 가등기, 신탁, 부부재산약정) ═══
@@ -7751,7 +7793,7 @@ function renderDocsSale(){
     ci.push(d3i('<b>부동산거래계약 신고필증</b>','계약일부터 <b>30일 이내</b> 신고 — 보통 중개사무소가 합니다. <b>직거래</b>면 당사자가 신고하거나 사무소가 대행합니다',LK.rtms));
   }
   ci.push(d3i('<b>토지거래계약 허가증</b> <span class="hint">(토지거래허가구역일 때)</span>','계약 <b>전에</b> 시·군·구청 허가를 받아야 합니다 <span class="tag chk">확인필요</span>',''));
-  ci.push(d3i('<b>농지취득자격증명</b> <span class="hint">(농지를 살 때)</span>','농지 소재지 시·구·읍·면사무소에서 사는 분이 신청합니다',LK.gov));
+  if(f==='farm') ci.push(farmNeedItem('매수인',true));
   client.push({who:'계약 관련 서류 <span class="hint">(매도인·매수인 중 가지고 계신 분)</span>',items:ci});
 
   const office=d3officeStd({oblig:ps?'':'매도인',ledger:led,
@@ -7778,7 +7820,8 @@ function renderDocsSale(){
   attach.push(['취득세·지방교육세·농어촌특별세 영수필확인서','사무소 (신고 대행)','규칙 §44']);
   attach.push(['국민주택채권 매입 — 채권발행번호','사무소 (매입 대행)','규칙 §44']);
   attach.push(['등기신청수수료 영수필확인서','사무소','수수료규칙 §5의2']);
-  attach.push(['토지거래계약 허가증 · 농지취득자격증명 <small>(해당할 때만)</small>','의뢰인 신청','규칙 §46①2호']);
+  if(f==='farm') attach.push(['농지취득자격증명 <small>(도시지역 농지·토지거래허가를 받은 경우는 불요)</small>','매수인 신청','규칙 §46①2호 · 농지법 §8①']);
+  attach.push(['토지거래계약 허가증 <small>(토지거래허가구역일 때만)</small>','의뢰인 신청','규칙 §46①2호']);
 
   if(frB&&frB!=='kor-in'&&frB!=='kor-out') tail.push('<div class="d3warn">▸ <b>외국인등의 부동산 취득</b> — 「부동산 거래신고 등에 관한 법률」 <span class="tag chk">확인필요</span><br>· <b>계약(매매)으로 취득</b> → 부동산거래신고를 하면 별도 취득신고는 하지 않습니다(중복 배제).<br>· <span style="color:#b03a3a;font-weight:700;">★ 「토지」를 취득하는 계약 — 군사기지 및 군사시설 보호구역, 문화유산·자연유산 보호구역, 생태·경관보전지역, 야생생물 특별보호구역 등은 「계약 체결 전」에 관할 시장·군수·구청장의 허가</b>를 받아야 하며, <b>허가 없이 체결한 계약은 무효</b>입니다. <b>토지이용계획확인원</b>('+LK.eum+')으로 반드시 확인하십시오.<br>· 종전 「외국인토지법」은 <b>폐지</b>되어 위 법률로 통합되었습니다.</div>');
   if(frS) tail.push('<div class="d3warn">▸ <b>매도인이 소득세법상 「비거주자」</b>이면 양도소득세 신고·납부 방법과 원천징수 여부가 달라질 수 있습니다. <b>세무사의 확인</b>을 받으시기 바랍니다. <span class="tag chk">확인필요</span> <span class="hint">— 세금 신고는 세무사의 업무입니다(법무사법 §2의 직무범위 밖).</span></div>');
@@ -7792,7 +7835,7 @@ function renderDocsSale(){
   tail.push(saleCancelDocs());
   if(!ps&&(document.getElementById('sale_cause')||{}).value==='judge'){
     /* 2026-11-22 판결로 매수인이 혼자 신청 — 매수인 서류·가족 간 매매 서류는 그대로 두고 나머지를 판결용으로 바꾼다 */
-    const J=judgeDocs({ob:'매도인',ri:'매수인',riS:'매수인이',cause:'매매',led:led,riItems:client[1].items});
+    const J=judgeDocs({ob:'매도인',ri:'매수인',riS:'매수인이',cause:'매매',led:led,f:f,riItems:client[1].items});
     const keep=client.filter(function(g){ return /친족 관계|대가 지급/.test(g.who); });
     document.getElementById('docsBox').innerHTML=d3({client:J.client.concat(keep),office:J.office,attach:J.attach,attachNote:J.attachNote,law:J.law,src:J.src,tail:tail.join('')});
     return;
@@ -8144,7 +8187,7 @@ function renderDocsInherit(){
   if(cz==='judge') tail.push('<div class="d3warn">▸ <b>가정법원 심판</b>으로 나눈 경우(등기원인 「심판분할에 의한 상속」) — 분할협의서·상속인 인감증명서 대신 <b>상속재산분할 심판서 정본과 확정증명서</b>를 냅니다. 심판이 확정된 뒤 가정법원에서 받아 오십시오.</div>');
   if(frDec||frHeir) tail.push('<div class="d3warn">▸ <b>외국 당사자가 있는 상속등기의 특례</b><br>· <b>외국인인 상속인</b>은 대한민국 가족관계등록부가 없으므로 <b>본국 관공서 발행 신분·친족관계 증명서</b>(출생증명서·혼인증명서·사망증명서 등) + <b>아포스티유</b>(또는 영사확인) + <b>번역문</b>으로 상속인 범위를 소명합니다.<br>· <b>준거법</b> — 상속은 <b>사망 당시 피상속인의 본국법</b>에 따릅니다(국제사법 §77①). 다만 피상속인이 유언으로 <b>일상거소지법</b>이나 <b>부동산 소재지법</b>을 지정했으면 그 법에 따릅니다(같은 조 ②). 피상속인이 외국인이면 <b>본국법의 상속인 범위·상속분</b>을 확인해야 하며, 그 내용을 소명하는 자료(본국 법령과 번역문, 본국 관공서 증명 등)가 요구될 수 있습니다.<br>· 피상속인의 본국에 상속인을 증명하는 제도가 없으면, 각 상속인의 출생·혼인증명서 등과 함께 「다른 상속인은 없다」는 <b>상속인 전원의 선서진술서</b>(본국 공증인 또는 공증담당영사의 인증)를 낼 수 있습니다 <span class="law" title="『상속등기』(서울중앙지방법원 2026) 77~78·148쪽 — 국제사법 제77조, 선례 제202006-2호">상속등기 77·148쪽</span><br>· <b>외국국적 취득으로 성명이 변경</b>된 상속인 → <b>동일인 증명서</b>(본국 관공서 증명·공증 + 아포스티유)<br>· <b>협의분할</b>에 참여하는 외국 거주 상속인 → <b>협의분할 위임장</b>(공증 + 아포스티유 또는 재외공관 인증)</div>');
   document.getElementById('s_docsBox').innerHTML=d3({client:client,office:office,attach:attach,tail:tail.join(''),
-    attachNote:'<b>등기필정보(등기권리증)와 돌아가신 분의 인감증명은 내지 않습니다</b> — 상속등기는 상속인이 혼자 신청하는 등기입니다 <span class="law" title="부동산등기법 제23조제3항 — 상속, 법인의 합병, 그 밖에 대법원규칙으로 정하는 포괄승계에 따른 등기는 등기권리자가 단독으로 신청한다.">법 §23③</span>',
+    attachNote:(f==='farm'?'<b>농지라도 상속에는 농지취득자격증명이 필요 없습니다</b> <span class="law" title="농지법 제8조제1항제1호·제6조제2항제4호 — 상속[상속인에게 한 유증을 포함한다]으로 농지를 취득하는 경우에는 농지취득자격증명을 발급받지 아니하고 농지를 취득할 수 있다.">농지법 §8①1호·§6②4호</span>. ':'')+'<b>등기필정보(등기권리증)와 돌아가신 분의 인감증명은 내지 않습니다</b> — 상속등기는 상속인이 혼자 신청하는 등기입니다 <span class="law" title="부동산등기법 제23조제3항 — 상속, 법인의 합병, 그 밖에 대법원규칙으로 정하는 포괄승계에 따른 등기는 등기권리자가 단독으로 신청한다.">법 §23③</span>',
     law:'부동산등기법 §23③, 부동산등기규칙 §44·§46①·§49·§60①6호·§62, 상속등기에 관한 업무처리지침(등기예규 제1871호, 2026. 3. 18.)',
     src:'상속 — 실무교재 292~296쪽, 『부동산등기실무Ⅱ』(법원행정처, 2015) 258~261쪽, 『상속등기』(서울중앙지방법원, 2026) 141~231·459~460쪽'});
 }
@@ -8430,7 +8473,8 @@ function renderDocsBequest(){
       extra:D3_FR('bq_frOb')?'':foreignBlock(D3_FR('bq_frHeir'),'상속인','ob')});
   else
     client.push({who:'상속인',items:[d3i('유언집행자가 있으면 상속인은 등기신청에 참여하지 않습니다.','<span class="hint">다만 <b>유류분</b> 분쟁 소지가 있으면 미리 정리하는 편이 안전합니다(민법 §1112 이하).</span>','')]});
-  client.push({who:'해당하는 경우에만',items:[d3i('<b>농지</b>를 <b>상속인이 아닌 분</b>이 <b>특정유증</b>으로 받으면 → 농지취득자격증명','포괄유증이나 상속인에게 한 특정유증은 필요 없습니다 <span class="law" title="『상속등기』(서울중앙지방법원 2026) 257쪽 — 포괄유증이나 상속인에 대한 특정유증인 경우에는 농지취득자격증명을 요하지 아니하나, 상속인 이외의 자에게 특정유증을 한 경우에는 농지취득자격증명을 첨부하여야 한다(선례 제4-397호, 예규 제1635호).">상속등기 257쪽</span>',LK.gov)]});
+  if(f==='farm'){ if(kind==='teukjeong'&&heir==='no') client.push({who:'농지 — 상속인 아닌 분의 특정유증',items:[farmNeedItem('수증자',false)]});
+    else client.push({who:'농지',items:[farmFreeItem('포괄유증이나 상속인에게 한 유증은 상속처럼 보아 필요 없습니다(상속인 아닌 분의 <b>특정유증</b>만 필요)','농지법 제8조제1항제1호·제6조제2항제4호 — 상속[상속인에게 한 유증을 포함한다]으로 농지를 취득하는 경우 농지취득자격증명 없이 취득할 수 있다. / 『상속등기』(서울중앙지방법원 2026) 257쪽 — 포괄유증이나 상속인에 대한 특정유증은 농지취득자격증명을 요하지 아니하나, 상속인 이외의 자에게 특정유증을 한 경우에는 첨부하여야 한다(선례 제4-397호, 예규 제1635호).','농지법 §8①1호 · 상속등기 257쪽')]}); }
 
   const office=d3officeStd({oblig:exec==='yes'?'유언집행자':'상속인',ledger:led});
   attach.push(['유언증서('+W[0]+')'+(W[3]?' + '+W[3]:''),'의뢰인','규칙 §46①1호 · 실무교재 299쪽']);
@@ -8652,11 +8696,11 @@ function renderDocsGift(){
       d3i('<b>토지이용계획확인원</b>','농지 여부 확인 <span class="hint">(확인용)</span>',LK.eum)]});
   if((document.getElementById('gv_cause')||{}).value==='judge'){
     /* 2026-11-22 판결로 수증자가 혼자 신청 — 친족관계 소명서류는 그대로 둔다 */
-    const J=judgeDocs({ob:'증여자',ri:'수증자',riS:'수증자가',cause:'증여',led:led,riItems:client[1].items});
+    const J=judgeDocs({ob:'증여자',ri:'수증자',riS:'수증자가',cause:'증여',led:led,f:f,riItems:client[1].items});
     document.getElementById('gv_docsBox').innerHTML=d3({client:J.client.concat(client.slice(2)),office:J.office,attach:J.attach,attachNote:J.attachNote,law:J.law,src:J.src});
     return;
   }
-  document.getElementById('gv_docsBox').innerHTML=d3({client:client,office:office,attach:d3giftAttach(st,bt,led,false),
+  document.getElementById('gv_docsBox').innerHTML=d3({client:client,office:office,attach:d3giftAttach(st,bt,led,false,f),
     attachNote:'증여는 대가가 없어 <b>토지거래허가 대상이 아닙니다</b> <span class="law" title="부동산등기실무(2026) 127쪽 — 증여계약 등은 허가의 대상이 되지 않는다.">실무교재 127쪽</span>.',
     src:'증여 — 실무교재 117~118쪽(검인)·230~231쪽(주소 직권변경)'});
 }
@@ -9760,7 +9804,7 @@ function renderDocsNakchal(){
     '▸ 다만 <b>매수인이 비용과 서류를 갖추어 촉탁을 신청</b>하지 않으면 등기가 진행되지 않습니다 <span class="law" title="민사집행법 제144조 · 부동산등기실무(2026) 406쪽 — 현실적으로 등기를 촉탁하기 위해서는 매수인이 취득세 등을 납부하고 등기촉탁에 필요한 정보를 집행법원에 제공하여야 한다.">민사집행법 §144③</span>.</div>';
   const client=[];
   client.push({who:'매수인 (낙찰받은 분 · 등기권리자)'+(bt!=='ind'?' — '+PARTY_LABEL[bt]:''),items:d3party(bt,false,[
-    d3i('<b>주민등록표 초본</b>(주소 이력 포함), 신분증, 도장','',LK.juminCho)])});
+    d3i('<b>주민등록표 초본</b>(주소 이력 포함), 신분증, 도장','',LK.juminCho)].concat(f==='farm'?[d3i('<b>농지취득자격증명</b> — '+(onbid?'공매는 처분청이 정한 기한까지 냅니다':'경매는 <b>매각결정기일까지</b> 경매계에 냅니다'),'내지 못하면 매각이 허가되지 않습니다. 이미 내셨다면 다시 준비하실 것은 없습니다'+FARM_URBAN,LK.gov)]:[]))});
   if(onbid) client.push({who:'공매(온비드) — 처분청에서 받은 서류',items:[
     d3i('<b>매각결정통지서</b>, <b>매수대금 납부확인서(영수증)</b>','','한국자산관리공사·세무서·지방자치단체'),
     d3i('<span class="hint"><b>인도명령 제도가 없습니다</b> — 점유자가 응하지 않으면 명도소송을 해야 합니다</span>','','')]});
@@ -9905,7 +9949,7 @@ function renderDocsBurden(){
   const office=d3officeStd({oblig:'증여자',ledger:led,
     cause:'부담부증여계약서(검인) 작성',causeDesc:'<b>부담부증여임을 명시</b>하고 <b>채무승계 조건</b>을 넣어 사무소가 작성하고, 부동산 소재지 시·군·구청에서 <b>검인</b>을 받습니다 <span class="law" title="부동산등기 특별조치법 제3조 — 부동산등기실무(2026) 117쪽">특조법 §3</span>',
     more:[d3i('<b>토지이용계획확인원</b>','토지거래허가구역·농지 여부 확인 <span class="hint">(확인용)</span>',LK.eum)]});
-  document.getElementById('bv_docsBox').innerHTML=d3({lead:lead,client:client,office:office,attach:d3giftAttach(st,bt,led,true),
+  document.getElementById('bv_docsBox').innerHTML=d3({lead:lead,client:client,office:office,attach:d3giftAttach(st,bt,led,true,f),
     src:'부담부증여 — 실무교재 117~118쪽(검인)·230~231쪽(주소 직권변경)'});
 }
 function calcBurden(fromEdit){
@@ -10680,13 +10724,13 @@ function renderDocsPreserve(){
   const f=radio('pr_bform');
   const bt=(document.getElementById('pty_pr__buyer')||{}).value||'ind';
   const led=f==='apt'?'집합건축물대장(전유부+표제부, 사용승인), 대지권등록부, 대지권 목적 토지대장'
-          :f==='house'?'일반건축물대장(사용승인), 토지대장':'토지대장(임야는 임야대장)';
+          :f==='house'?'일반건축물대장(사용승인), 토지대장':(f==='forest'?'임야대장':'토지대장');
   const client=[];
   client.push({who:'소유자 (신청인)'+(bt!=='ind'?' — '+PARTY_LABEL[bt]:''),items:d3party(bt,false,[
     d3i('<b>주민등록표 초본</b> 1통','',LK.juminCho),
     d3i('<b>도장</b>, <b>신분증</b>','',''),
     d3i('<span class="hint"><b>인감증명서·인감도장은 필요 없습니다</b> — 소유권보존은 소유자가 혼자 신청하는 등기라 넘겨주는 사람(등기의무자)이 없습니다(규칙 §60① 해당 없음).</span>','','')])});
-  if(f!=='land') client.push({who:'건물 신축(원시취득)',items:[
+  if(!isLandForm(f)) client.push({who:'건물 신축(원시취득)',items:[
     d3i('<b>사용승인서(준공)</b>','',''),
     d3i('<b>도급계약서</b>·공사비 세금계산서 등, <b>건축허가서</b>','취득세 신고(공사비 = 과세표준) 확인용입니다. 대장에 최초 소유자로 올라 있으면 소유권 증명은 대장으로 합니다 <span class="law" title="부동산등기실무(2026) 259~260쪽 — 법 제65조 각 호에 해당하는 자임을 증명하는 정보(건축물대장정보, 판결정본, 재결서등본, 시장 등의 확인서 등)를 첨부한다.">실무교재 259~260쪽</span>','')]});
   client.push({who:'해당하는 경우에만',items:[
@@ -10697,7 +10741,7 @@ function renderDocsPreserve(){
     more:[d3i('<b>토지이용계획확인원</b>','용도지역 등 확인 <span class="hint">(확인용 — 첨부서류는 아닙니다)</span>',LK.eum),
       d3i('<b>건물 소재도</b> <span class="hint">(대지 위에 건물이 여럿이고 건축물대장이 없을 때만)</span>','건축물대장을 내면 필요 없습니다 <span class="law" title="부동산등기규칙 제121조 · 부동산등기실무(2026) 260쪽">규칙 §121</span>','')]});
   const attach=[
-    [(f==='land'?'토지대장등본(최초 소유자로 등록된 것)':'건축물대장등본(최초 소유자로 등록된 것)')+' 또는 판결정본·수용재결서 등','사무소 발급 · 판결 등은 의뢰인','부동산등기법 §65 · 규칙 §121'],
+    [(isLandForm(f)?(f==='forest'?'임야대장등본(최초 소유자로 등록된 것)':'토지대장등본(최초 소유자로 등록된 것)'):'건축물대장등본(최초 소유자로 등록된 것)')+' 또는 판결정본·수용재결서 등','사무소 발급 · 판결 등은 의뢰인','부동산등기법 §65 · 규칙 §121'],
     [bt==='ind'?'소유자 주민등록표 초본':'소유자 주소·등록번호 증명','소유자','규칙 §46①6호'],
     [led,'사무소','규칙 §121'],
     ['위임장','사무소 작성 · 소유자 날인','규칙 §46①5호'],
