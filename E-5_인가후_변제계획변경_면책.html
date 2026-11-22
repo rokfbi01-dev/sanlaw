@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[회생 E-5] 인가 뒤에 못 내게 되었습니다 — 변제계획 변경과 면책 | 산 법무사 김재섭</title>
+<meta name="description" content="개인회생 인가 뒤 소득이 줄어 변제금을 못 내게 되었을 때의 길을 정리했습니다. 변제계획 변경 신청, 3개월 지체 시 처리, 폐지결정 불복, 특별면책, 면책 절차와 효력을 담았습니다.">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+ul{margin:8px 0 12px; padding-left:20px;} li{margin:6px 0;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(300px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.who{background:var(--box); border-radius:10px; padding:14px 16px; margin:12px 0; border-left:4px solid #b9a98c;}
+.who .wl{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.case{background:var(--box); border-radius:10px; padding:14px 16px; margin:14px 0; border-left:4px solid #b9a98c;}
+.case .ct{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;margin-left:3px;}
+.tag.free{background:#5a9a72;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.cta{display:block; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; text-decoration:none; font-weight:700; font-size:16px; padding:15px; border-radius:11px; margin:18px 0; box-shadow:0 3px 8px rgba(122,82,48,.25);}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:11px 15px;margin:10px 0;font-size:13.5px;line-height:1.7;}
+.lawbox .ll{display:inline-block;font-size:11.5px;font-weight:700;color:#fff;background:var(--gold-d);border-radius:5px;padding:2px 8px;margin-right:6px;}
+.lawbox a{color:var(--gold-d);font-weight:600;}
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:14.5px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:16px;margin:10px 0;font-family:'D2Coding','Courier New',monospace;font-size:12.5px;line-height:1.65;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:15px;letter-spacing:2px;margin-bottom:10px;color:#241a10;}
+.howto{font-size:13.5px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:12.5px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:6px 12px;cursor:pointer;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.concept{background:var(--box);border-radius:9px;padding:11px 15px;margin:8px 0 14px;font-size:14.5px;color:#5a4a36;border-left:3px solid #b9a98c;}
+.concept b{color:var(--gold-d);}
+.flow{background:linear-gradient(180deg,#fcf9f2,#f7f1e5);border:1.5px solid var(--gold);border-radius:14px;padding:18px 18px 14px;margin:14px 0 20px;}
+.flow .ft2{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:12px;}
+.flow ol{counter-reset:fl;list-style:none;margin:0;padding:0;}
+.flow li{position:relative;padding:8px 10px 8px 44px;margin:7px 0;background:#fff;border:1px solid var(--line);border-radius:10px;font-size:14.5px;line-height:1.6;}
+.flow li::before{counter-increment:fl;content:counter(fl);position:absolute;left:10px;top:8px;width:26px;height:26px;line-height:26px;text-align:center;background:var(--gold);color:#fff;border-radius:50%;font-weight:800;font-size:14px;}
+.flow li b{color:var(--gold-d);}
+.flow .arw{text-align:center;color:var(--gold);font-size:13px;margin:-2px 0;}
+.newlaw{background:#eef6f0;border:1px solid #cfe6d6;border-left:4px solid #5a9a72;border-radius:8px;padding:13px 16px;margin:14px 0;}
+.newlaw .nt{font-weight:700;color:#2f6a47;display:block;margin-bottom:4px;}
+.newlaw .badge{display:inline-block;font-size:11px;font-weight:800;color:#fff;background:#5a9a72;border-radius:5px;padding:2px 8px;margin-right:6px;vertical-align:middle;}
+.faq{margin:14px 0;}
+.faq details{border:1px solid var(--line);border-radius:10px;margin:9px 0;background:#fff;overflow:hidden;}
+.faq summary{list-style:none;cursor:pointer;padding:13px 44px 13px 38px;font-weight:700;font-size:15px;color:#241a10;background:#faf7f0;position:relative;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::before{content:"Q";position:absolute;left:15px;color:var(--gold-d);font-family:'Nanum Myeongjo',serif;font-weight:800;}
+.faq summary::after{content:"▾";position:absolute;right:16px;top:13px;color:var(--gold-d);transition:.2s;}
+.faq details[open] summary::after{transform:rotate(180deg);}
+.faq .fa{padding:13px 15px 15px 38px;font-size:14.5px;line-height:1.75;color:#3a3a3a;position:relative;border-top:1px solid var(--line);}
+.faq .fa::before{content:"A";position:absolute;left:15px;top:13px;color:#5a9a72;font-family:'Nanum Myeongjo',serif;font-weight:800;}
+.helm{background:linear-gradient(135deg,#2c3e50,#3a4a5c);color:#f4f0e8;border-radius:14px;padding:20px 22px;margin:0 0 24px;box-shadow:0 4px 14px rgba(44,62,80,.18);}
+.helm .ht2{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:17px;color:#f0d98c;margin-bottom:9px;}
+.helm p{margin:0;font-size:14.5px;line-height:1.9;color:#eae4d8;}
+.helm b{color:#f4e2a6;}
+.qhead{display:flex;gap:12px;align-items:flex-start;margin:8px 0 8px;}
+.qhead .qb{flex:none;width:34px;height:34px;border-radius:50%;background:var(--gold);color:#fff;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(176,141,87,.4);}
+.qhead h2{margin:0;border:0;padding:0;font-size:20px;line-height:1.45;}
+.lawrow{display:flex;flex-wrap:wrap;background:var(--box);border-radius:10px;overflow:hidden;margin:12px 0;border:1px solid var(--line);}
+.lawrow .lrl{flex:none;background:var(--gold);color:#fff;font-weight:700;font-size:13.5px;padding:11px 15px;display:flex;align-items:center;}
+.lawrow .lrc{flex:1;min-width:210px;padding:11px 15px;font-size:14px;line-height:1.75;}
+@media(max-width:520px){.lawrow .lrl{width:100%;}}
+.calc{display:block;background:linear-gradient(135deg,#fff7e8,#fdeecb);border:1.5px solid var(--gold);border-radius:14px;padding:16px 18px;margin:18px 0;text-decoration:none;color:var(--ink);transition:.15s;}
+.calc:hover{box-shadow:0 4px 14px rgba(176,141,87,.25);transform:translateY(-1px);}
+.calc .cah{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:4px;}
+.calc .cas{font-size:13.5px;color:var(--muted);}
+.ctabtn{display:block;text-align:center;background:var(--gold);color:#fff;font-weight:800;font-size:17px;padding:16px;border-radius:12px;text-decoration:none;margin:22px 0 6px;box-shadow:0 3px 10px rgba(176,141,87,.35);}
+.ctabtn:hover{background:var(--gold-d);}
+.doclabel{display:inline-block;font-size:12px;font-weight:800;color:#fff;border-radius:6px;padding:3px 11px;margin-bottom:6px;}
+.doclabel.give{background:#b0885a;}
+.doclabel.back{background:#5a9a72;}
+.dl{color:var(--gold-d);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--gold);}
+.dl:hover{background:#fbf5e8;}
+.ddl{display:flex;gap:2px 10px;flex-wrap:wrap;margin:8px 0 2px;padding:9px 12px;background:#fbf7ee;border-radius:8px;font-size:13px;}
+.ddl b{color:var(--gold-d);}
+.deadline{width:100%;border-collapse:collapse;margin:10px 0;font-size:13.5px;}
+.deadline th{background:#3a4a5c;color:#fff;padding:8px;font-weight:700;}
+.deadline td{border:1px solid var(--line);padding:8px 10px;background:#fff;}
+.bnote{color:#0b4a9c;font-weight:600;background:#eaf2fc;border-left:4px solid #2b7fff;border-radius:8px;padding:9px 13px;margin:8px 0;font-size:13.5px;line-height:1.7;}
+.bnote b{color:#0a3d82;}
+.capital th{background:#f0ebe1;text-align:center;font-size:13px;}
+.capital td{text-align:center;font-size:13.5px;}
+.capital td:first-child{text-align:left;font-weight:700;background:#faf7f0;}
+.capital .hi{background:#fdf6e3;font-weight:700;color:var(--gold-d);}
+.capital .bad{color:#9c3a22;font-weight:700;}
+.grp{border-radius:10px;padding:13px 16px;margin:12px 0;border:1px solid var(--line);border-left-width:5px;}
+.grp .gt{font-weight:800;font-size:15px;margin-bottom:5px;}
+.grp.a{background:#eef6f0;border-left-color:#5a9a72;} .grp.a .gt{color:#2f6a47;}
+.grp.b{background:#fdf9e8;border-left-color:#d4a72c;} .grp.b .gt{color:#8a6d10;}
+.grp.c{background:#fdf2ee;border-left-color:#d9694a;} .grp.c .gt{color:#9c3a22;}
+@media print{.case,.warn,.tip,.cost,.who,.steps li,.tnote,.flow,.flow li,.lawbox,.hire{background:#fff !important;border-color:#ccc !important;}
+.term>.bub{display:inline !important;position:static;background:none;color:#555;box-shadow:none;padding:0;width:auto;font-size:12px;}.term>.bub::before{content:" (";}.term>.bub::after{content:")";border:0;position:static;}.formbox .fold-body{display:block !important;}}
+.part{margin:38px 0 14px;padding:16px 18px;border-radius:12px;background:linear-gradient(135deg,#2c3e50,#3a4a5c);color:#f4f0e8;box-shadow:0 4px 14px rgba(44,62,80,.18);}
+.part .pn{display:inline-block;font-size:12px;font-weight:800;color:#2c3e50;background:#f0d98c;border-radius:6px;padding:2px 10px;margin-bottom:6px;}
+.part .pt2{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:20px;color:#fff;margin-bottom:4px;}
+.part .pw{font-size:13.5px;line-height:1.7;color:#eae4d8;} .part .pw b{color:#f4e2a6;}
+.chk td:first-child{width:30px;text-align:center;color:var(--gold-d);font-size:16px;}
+.tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.srcb{display:inline-block;font-size:11px;font-weight:800;color:#fff;border-radius:5px;padding:1px 7px;margin-left:6px;vertical-align:middle;}
+.srcb.moe{background:#2f5b78;} .srcb.goe{background:#5a9a72;} .srcb.own{background:#9a8f7d;}
+.srcline{font-size:12.5px;color:var(--muted);background:#faf7f0;border-radius:7px;padding:7px 11px;margin:0 0 6px;}
+h3.fgrp{font-size:15px;color:var(--gold-d);margin:22px 0 6px;padding-bottom:5px;border-bottom:1px dashed var(--line);}
+.form{overflow-x:auto;}
+@media(max-width:560px){table{font-size:12.5px;} th,td{padding:7px 6px;overflow-wrap:anywhere;} .tblwrap table{min-width:560px;} .who{padding:12px 10px;}}
+
+/* ── 접이식 섹션(details.sec) · 목차 · 전체펼치기 ── */
+details.sec{border:1px solid var(--line);border-radius:11px;margin:13px 0;background:#fff;overflow:hidden;}
+details.sec>summary{cursor:pointer;list-style:none;padding:13px 16px;background:var(--box);border-left:4px solid var(--gold);display:flex;align-items:center;gap:11px;}
+details.sec>summary::-webkit-details-marker{display:none;}
+details.sec>summary .qb{flex:none;width:31px;height:31px;border-radius:50%;background:var(--gold);color:#fff;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(176,141,87,.4);}
+details.sec>summary .st{flex:1;font-family:'Nanum Myeongjo',serif;font-size:17.5px;font-weight:700;color:var(--gold-d);line-height:1.5;}
+details.sec>summary .st .sub{display:block;font-family:'Pretendard',sans-serif;font-size:13px;font-weight:400;color:var(--muted);margin-top:3px;}
+details.sec>summary::after{content:"펼치기 ▾";flex:none;font-family:'Pretendard',sans-serif;font-size:12.5px;font-weight:700;color:var(--gold);background:#fff;border:1px solid var(--line);border-radius:20px;padding:3px 10px;white-space:nowrap;}
+details.sec[open]>summary::after{content:"접기 ▴";}
+details.sec>summary:hover{background:#f2ede3;}
+.secbody{padding:4px 17px 16px;}
+.toc{background:#fffaf0;border:1.5px solid var(--gold);border-radius:12px;padding:15px 18px;margin:18px 0 22px;}
+.toc .tct{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:16px;color:var(--gold-d);margin-bottom:9px;}
+.toc ol{margin:0;padding-left:21px;font-size:14.5px;line-height:1.95;}
+.toc a{color:#3a3a3a;text-decoration:none;border-bottom:1px dotted #c9b48c;}
+.toc a:hover{color:var(--gold-d);}
+.allbtn{display:inline-block;margin-top:11px;font-size:13.5px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:20px;padding:6px 15px;cursor:pointer;user-select:none;}
+.allbtn:hover{background:#f6ecd8;}
+@media(max-width:520px){details.sec>summary{gap:8px;padding:12px 11px;} details.sec>summary .st{font-size:16px;} details.sec>summary::after{font-size:11.5px;padding:2px 7px;} .secbody{padding:4px 12px 14px;}}
+@media print{details.sec:not([open])>*{display:block !important;} details.sec>summary::after{display:none;} .toc,.allbtn{display:none !important;}}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+<h1>[회생 E-5] 인가 뒤에 못 내게 되었습니다 — 변제계획 변경과 면책</h1>
+
+<div class="tnote">어려운 법률용어에는 <b>점선 밑줄</b>이 그어져 있습니다. <b>PC는 마우스를 올리면</b>, <b>휴대폰은 손가락으로 톡 터치하면</b> 쉬운 설명이 뜹니다. (인쇄하면 괄호로 함께 나옵니다.)</div>
+
+<div class="helm">
+<div class="ht2">⚓ 이 매뉴얼을 끝까지 읽으시는 분께</div>
+<p>이 매뉴얼은 <b>의뢰인이 직접 법원에 신청할 수 있도록 모든 서류 양식, 비용, 요건을 구체적으로 담았습니다.</b> 하지만 소송은 살아있는 생물과 같아 상대방의 격렬한 저항이 뒤따릅니다. 혼자 진행하시다가 막히는 부분이 생기거나 방어막이 필요할 때, 언제든 이 매뉴얼을 들고 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</p>
+</div>
+
+<div class="tldr">
+<div class="tt">⭐ 30초 결론부터</div>
+<ul>
+<li><b>못 내게 된 것 자체는 끝이 아닙니다.</b> 법은 <b>변제계획을 고치는 길</b>을 열어 두었습니다. 채무자·회생위원·채권자 누구든 <b>변제가 끝나기 전에는</b> 변경안을 낼 수 있습니다(채무자회생법 제619조 제1항).</li>
+<li><b>가장 위험한 것은 돈이 없는 것이 아니라 연락이 끊기는 것입니다.</b> 세 달분이 밀리면 통지서가 오고, <b>송달받은 날부터 7일 안에 진술서</b>를 내야 합니다. 연락이 닿지 않거나 진술서를 내지 않으면 <b>그것만으로 폐지됩니다.</b></li>
+<li><b>끝까지 못 갚아도 면책받는 길이 있습니다.</b> 책임질 수 없는 사유가 있고, 이미 낸 돈이 청산가치 이상이며, 변경도 불가능하면 <b>변제를 다 하지 못해도 면책결정</b>을 받을 수 있습니다(같은 법 제624조 제2항).</li>
+<li><b>다 갚으면 법원이 면책결정을 "하여야" 합니다.</b> 재량이 아닙니다(같은 조 제1항). 면책이 확정되면 <b>개인회생절차는 그것으로 끝나고</b>(채무자회생규칙 제96조), 법원이 <b>한국신용정보원에 즉시 통보</b>하여 등록된 정보가 해제됩니다.</li>
+<li><b>다만 지워지지 않는 빚이 여덟 가지</b> 있습니다. <b>세금, 벌금, 양육비, 고의 불법행위 손해배상, 직원 임금</b> 등입니다(같은 법 제625조 제2항 단서). <b>보증인은 그대로 갚아야 합니다</b>(같은 조 제3항).</li>
+</ul>
+</div>
+
+<div class="qhead"><span class="qb">Q</span><h2>인가를 받고 잘 내고 있었는데, 사정이 생겨 못 내게 되었습니다. 어떻게 됩니까?</h2></div>
+<div class="concept">36개월은 깁니다. 그 사이에 <b>실직, 질병, 사고, 출산, 사업 부진</b>이 생기는 것은 드문 일이 아닙니다. 법도 그것을 알고 있어서 <b>중간에 고칠 수 있는 길</b>을 여러 갈래 두었습니다.<br><br>
+<b>그런데 그 길들은 모두 "내가 움직여야" 열립니다.</b> 가만히 있으면 절차가 <span class="term">폐지<span class="bub">개인회생절차를 중간에 끝내 버리는 법원의 결정. 폐지되면 면책을 받지 못하고 빚이 그대로 남습니다. 다만 이미 낸 변제금과 그동안 생긴 효력은 사라지지 않습니다(채무자회생법 제621조 제2항).</span></span>되고, 폐지되면 <b>그동안 낸 돈은 남지만 면책은 받지 못합니다.</b> 빚이 다시 전부 살아납니다.</div>
+
+<div class="warn"><span class="wt">⚠ 지금 당장 하셔야 할 것 세 가지</span>
+<ol style="margin:6px 0 0;padding-left:21px;line-height:2.05">
+<li><b>법원과 회생위원의 우편물을 반드시 받으십시오.</b> 주소나 전화가 바뀌었으면 <b>오늘 바로 신고</b>하십시오. 연락이 닿지 않는 것이 폐지의 첫째 사유입니다.</li>
+<li><b>세 달분이 밀리기 전에 움직이십시오.</b> 밀린 뒤보다 밀리기 전이 훨씬 수월합니다.</li>
+<li><b>돈이 없어도 연락은 받으십시오.</b> "낼 돈이 없어 창피해서" 전화를 피하시는 분이 가장 많이 폐지됩니다. <b>못 내는 사정을 적어 내는 것 자체가 길을 엽니다.</b></li>
+</ol>
+</div>
+
+<div class="toc">
+<div class="tct">이 카드에 담긴 것 — 필요한 곳만 펼쳐 보십시오</div>
+<ol>
+<li><b>제1부 · 인가되면 무엇이 달라지나</b>
+  <ol style="padding-left:18px;font-size:14px">
+  <li><a href="#e1">인가의 효력 — 압류가 풀리고, 월급이 돌아옵니다</a></li>
+  <li><a href="#e2">변제금은 어떻게 내나 — 회생위원 계좌</a></li>
+  </ol></li>
+<li><b>제2부 · 못 내게 되었을 때</b>
+  <ol style="padding-left:18px;font-size:14px">
+  <li><a href="#e3">길 ① 변제계획을 고칩니다 — 가장 많이 쓰는 길</a></li>
+  <li><a href="#e4">세 달분이 밀리면 — 통지서와 7일</a></li>
+  <li><a href="#e5">폐지결정을 받았다면 — 되살리는 두 가지 길</a></li>
+  <li><a href="#e6">길 ② 특별면책 — 다 못 갚아도 끝낼 수 있습니다</a></li>
+  </ol></li>
+<li><b>제3부 · 끝내기</b>
+  <ol style="padding-left:18px;font-size:14px">
+  <li><a href="#e7">돈이 생겼을 때 — 남은 것을 한 번에</a></li>
+  <li><a href="#e8">면책 — 신청하고 결정받고 확정되기까지</a></li>
+  <li><a href="#e9">지워지지 않는 빚 여덟 가지</a></li>
+  <li><a href="#e10">면책 뒤에 생기는 일 — 신용회복 · 추심 대응 · 면책 취소</a></li>
+  </ol></li>
+<li><a href="#e11"><b>작성례</b> — 변제계획변경안 제출서 · 면책신청서</a></li>
+<li><a href="#e12"><b>자주 묻는 질문</b></a></li>
+</ol>
+<span class="allbtn" id="allBtn" role="button" tabindex="0">전체 펼치기</span>
+</div>
+
+<div class="part">
+<span class="pn">제1부</span>
+<div class="pt2">인가되면 무엇이 달라지나</div>
+<div class="pw">못 내게 된 이야기를 하기 전에, <b>인가로 무엇이 생겼는지</b>를 먼저 보겠습니다. 이것을 알아야 폐지되면 무엇을 잃는지 알 수 있습니다.</div>
+</div>
+
+<details class="sec" id="e1"><summary><span class="qb">1</span><span class="st">인가의 효력<span class="sub">압류가 풀리고 월급이 돌아옵니다 — 다만 빚은 아직 안 지워졌습니다</span></span></summary>
+<div class="secbody">
+
+<div class="flow">
+<div class="ft2">인가결정으로 생기는 세 가지</div>
+<ol>
+<li><b>진행 중이던 압류·가압류가 효력을 잃습니다</b><br>중지되어 있던 회생·파산절차와 <b>개인회생채권에 기한 강제집행·가압류·가처분은 효력을 잃습니다</b>(채무자회생법 제615조 제3항). 통장 압류, 월급 압류가 이 시점에 풀립니다. <span style="color:#9c3a22">다만 <b>변제계획이나 인가결정에서 달리 정한 때는 예외</b>이고, <b>담보권에 의한 경매는 해당하지 않습니다.</b></span><br><span style="font-size:13.5px;color:#4a5b66">개시결정 때의 "중지"와 인가 때의 "실효"는 다릅니다. 대법원은 <b>개시결정에 의한 중지란 진행 중이던 절차가 그 시점에서 동결되고 속행이 허용되지 않음을 뜻할 뿐, 강제집행이 소급하여 무효가 되거나 취소되는 것은 아니라고</b> 보았습니다(대법원 2023. 9. 19.자 2023마6207 결정 <span class="srcb goe">A</span>). <b>없어지는 것은 인가 때입니다.</b></span></li>
+<li><b>월급 전부명령도 장래 부분은 끊어집니다</b><br>신청 전에 이미 확정된 급여 <span class="term">전부명령<span class="bub">압류한 채권을 채권자에게 그대로 넘겨 주는 법원의 명령. 월급 전부명령이 확정되면 그 뒤의 월급이 채권자에게 바로 넘어갑니다.</span></span>이 있어도 <b>인가결정 후에 제공한 노무로 인한 부분</b>에 대하여는 효력을 잃습니다(제616조 제1항). 전부채권자가 받지 못하게 된 금액은 <b>개인회생채권</b>이 되어 변제계획에 따라 나누어 받습니다(같은 조 제2항).</li>
+<li><b>그러나 빚이 지워지는 것은 아직 아닙니다</b><br>인가결정으로 변제계획의 효력은 생기지만, <b>권리의 변경(빚이 깎이는 효과)은 면책결정이 확정되기까지 생기지 않습니다</b>(제615조 제1항 단서). <b>인가는 출발선입니다.</b> 36회를 다 넣고 면책결정을 받아야 끝납니다.</li>
+</ol>
+</div>
+
+<div class="warn"><span class="wt">⚠ 압류는 풀려도 "흔적"은 저절로 지워지지 않습니다</span>
+인가결정으로 압류·가압류는 <b>법원의 별도 재판 없이 효력을 잃습니다.</b> 그러나 <b>소급해서 없던 일이 되는 것은 아니고</b>, 이미 집행되어 있는 경우에는 <b>절차의 외형을 제거하기 위하여 채무자가 그 집행법원에 집행취소신청을 하여야 합니다.</b><br><br>
+즉 <b>등기부에 적힌 가압류 기입등기, 통장에 걸린 압류 표시, 회사에 간 압류 통지는 가만히 두면 그대로 남습니다.</b> 인가결정문과 확정 여부를 확인할 자료를 들고 <b>그 압류를 한 집행법원</b>에 집행취소신청을 내십시오. 월급 압류라면 회사(제3채무자)에도 알려야 급여가 정상적으로 나옵니다. <span style="color:#9c3a22">이 절차를 몰라 "인가받았는데 왜 월급이 그대로 묶여 있느냐"고 하시는 분이 많습니다.</span></div>
+
+<div class="warn"><span class="wt">⚠ 담보 잡힌 집·차는 인가로 오히려 경매가 "풀립니다"</span>
+개시결정으로 <b>담보권 실행을 위한 경매도 중지</b>되어 있었습니다. 그런데 그 중지는 <b>변제계획 인가결정일 또는 폐지결정 확정일 중 먼저 오는 날까지</b>입니다(채무자회생법 제600조 제2항). 그러니 <b>인가를 받는 순간 멈춰 있던 경매가 다시 진행됩니다.</b> 인가로 효력을 잃는 것은 <b>개인회생채권에 기한 강제집행·가압류·가처분</b>이지 담보권 경매가 아닙니다.<br><br>
+<b>"개인회생을 하면 집은 지킨다"는 말은 사실이 아닙니다.</b> 주택담보대출 원리금은 변제금과 <b>별도로</b> 계속 갚으셔야 하고, 안 갚으면 경매가 진행됩니다. <span style="color:#9c3a22">인가 전에 담보권자와 조율하지 못한 채 인가를 받고 나서야 경매 진행 통지를 받으시는 분들이 계십니다. 담보가 있으시다면 지금 바로 상환 상황을 확인하십시오.</span></div>
+
+<div class="warn"><span class="wt">⚠ 그래서 폐지되면 이것을 전부 잃습니다</span>
+폐지결정이 확정되면 <b>빚이 전액 되살아나고</b>, 풀렸던 압류를 채권자가 다시 걸 수 있습니다. <b>이미 낸 변제금과 그동안 생긴 효력은 사라지지 않지만</b>(제621조 제2항), 남은 빚은 그대로 돌아옵니다. <b>그동안 넣은 돈이 아깝다는 이유만으로도 끝까지 가셔야 할 이유가 됩니다.</b></div>
+
+</div></details>
+
+<details class="sec" id="e2"><summary><span class="qb">2</span><span class="st">변제금은 어떻게 내나<span class="sub">채권자에게 직접 보내면 안 됩니다</span></span></summary>
+<div class="secbody">
+
+<div class="concept">변제금은 <b>회생위원에게 <span class="term">임치<span class="bub">맡겨 두는 것. 채무자가 회생위원 명의의 계좌에 변제금을 넣으면, 회생위원이 이를 채권자들에게 나누어 보냅니다. 내가 채권자에게 직접 보내는 것이 아닙니다(채무자회생법 제617조).</span></span></b>합니다. 채권자는 법원에 계좌를 신고하여 <b>회생위원으로부터 송금받습니다</b>(채무자회생법 제617조 제1항·제2항). <b>채무자가 채권자에게 직접 보내는 것이 아닙니다.</b></div>
+
+<div class="tblwrap">
+<table>
+<tr><th style="width:26%">상황</th><th>처리</th></tr>
+<tr><td><b>계좌를 신고하지 않은<br>채권자가 있을 때</b></td><td>회생위원이 그 몫을 적립해 두었다가 <b>연 1회 법원에 공탁</b>할 수 있습니다(같은 조 제2항 단서). <b>내가 신경 쓸 일이 아닙니다.</b> 그 채권자 몫도 똑같이 넣으시면 됩니다</td></tr>
+<tr><td><b>자동이체</b></td><td><b>걸어 두십시오.</b> 깜빡해서 밀리는 분이 많습니다. 월급날 다음 날로 잡아 두시면 안전합니다</td></tr>
+<tr><td><b>이체확인증</b></td><td>회차·금액이 맞는지 나중에 대조합니다. <b>모아 두십시오.</b> 분쟁이 생겼을 때 내가 냈다는 증거는 내가 가지고 있어야 합니다</td></tr>
+<tr><td><b>다 내고도 남은 돈이<br>있을 때</b></td><td>변제금이 채권자에게 모두 배분되었는데도 <b>환급할 적립금이 남으면, 미리 신고한 계좌로 돌려줍니다</b>(서울회생법원 실무준칙 제452호 제3조). <span style="color:#9c3a22"><b>계좌를 신고해 두셔야 받습니다.</b></span></td></tr>
+</table>
+</div>
+
+<div class="warn"><span class="wt">⚠ 독촉이 와도 한 곳에만 따로 보내지 마십시오</span>
+채무자회생법 제582조는 <b>채권자목록에 적힌 개인회생채권은 변제계획에 의하지 아니하고는 변제할 수 없다</b>고 정하고 있고, 제612조는 <b>일부 채권자에게만 특별한 이익을 주는 행위를 무효</b>로 하고 있습니다. 전화가 괴로워 한 곳에만 보내면 <b>평등이 깨져 문제가 됩니다.</b> 인가 뒤에도 독촉이 멈추지 않으면 <b>그 채권자가 채권자목록에 있는지부터 확인</b>하십시오. 목록에 있는데도 독촉한다면 법원에 알리십시오.</div>
+
+</div></details>
+
+<div class="part">
+<span class="pn">제2부</span>
+<div class="pt2">못 내게 되었을 때 — 네 갈래 길</div>
+<div class="pw">돈이 모자라게 된 순간부터 쓸 수 있는 길이 넷입니다. <b>① 변제계획을 고치는 길</b>, <b>② 다 못 갚고 끝내는 길(특별면책)</b>, <b>③ 폐지된 뒤 되살리는 길</b>, <b>④ 개인파산으로 갈아타는 길</b>. 순서대로 보겠습니다.</div>
+</div>
+
+<details class="sec" id="e3"><summary><span class="qb">3</span><span class="st">길 ① 변제계획을 고칩니다<span class="sub">가장 많이 쓰는 길 — 다만 "변제가 끝나기 전"에만 됩니다</span></span></summary>
+<div class="secbody">
+
+<div class="lawbox">
+<div class="lawrow"><span class="lrl">채무자회생법 제619조 제1항</span><span class="lrc">채무자ㆍ회생위원 또는 개인회생채권자는 <b>변제계획에 따른 변제가 완료되기 전에는</b> 인가된 변제계획의 변경안을 제출할 수 있다.</span></div>
+<div class="lawrow"><span class="lrl">같은 조 제2항</span><span class="lrc">제1항의 규정에 의한 변제계획변경안에 관하여는 제597조제2항ㆍ제611조ㆍ제613조ㆍ제614조ㆍ제615조제1항 및 제617조의 규정을 준용한다.</span></div>
+</div>
+
+<div class="concept">조문이 짧습니다. <b>변경사유를 법이 제한하지 않습니다.</b> 회생절차(법인회생)는 변경사유를 법으로 좁혀 두었는데(제282조), 개인회생은 그러지 않았습니다. <b>살다 보면 생기는 일이면 대체로 사유가 됩니다.</b><br><br>
+다만 <b>"변제가 완료되기 전"</b>이라는 딱 한 가지 시간 제한이 있습니다. 다 내고 나서는 고칠 수 없습니다.</div>
+
+<div class="flow">
+<div class="ft2">어떤 때 고칠 수 있나 — 서울회생법원이 채무자에게 보내는 안내문에 적힌 여섯 가지</div>
+<ol>
+<li><b>병에 걸리거나 사고를 당했을 때</b><br>지금의 근로활동이나 사업활동을 <b>계속 유지할 수 없을 정도</b>여야 합니다.</li>
+<li><b>임신·출산으로 일을 못 하게 되어 소득이 사라지거나 줄었을 때</b></li>
+<li><b>출산, 부모 간호 등으로 부양가족이 늘어 생계비가 증가했을 때</b></li>
+<li><b>집이 경매로 넘어가 이사하면서 월세가 새로 생겼거나, 그 밖의 사유로 주거비가 크게 늘었을 때</b></li>
+<li><b>사장이 폐업했거나 임금이 밀렸거나, 내가 실직·이직하여 소득이 사라지거나 줄었을 때</b></li>
+<li><b>그 밖에 내가 예상하지 못했거나 통제할 수 없는 사유로 가용소득이 사라지거나 줄었을 때</b></li>
+</ol>
+<div class="ft2" style="margin-top:12px">고치는 방식 — 세 가지 중에서 고릅니다</div>
+<ol>
+<li><b>기간은 그대로 두고, 어느 시점부터 월 변제액을 줄이는 방법</b></li>
+<li><b>몇 회분을 나중에 나누어 내는 것으로 기간을 늘리는 방법</b></li>
+<li><b>몇 회분의 지급을 아예 중지하는 방법</b></li>
+</ol>
+</div>
+<div class="srcline">서울회생법원 실무준칙 제441호 [별지 3 변제계획변경 절차 이용 안내문] <span class="srcb goe">A</span></div>
+
+<div class="tip"><span class="pt">💡 서울회생법원은 변경의 필요성을 "가급적 넓게" 봅니다</span>
+대법원이 <b>변경사유가 필요하다</b>고 선을 그은 뒤에도, 실무가 야박해진 것은 아닙니다. <b>채무자가 사정변경이 발생하였음을 이유로 변경안을 제출한 경우 변경의 필요성을 가급적 넓게 인정하는 것이 서울회생법원의 다수 실무례</b>입니다. <span class="srcb own">B</span><br><br>
+다만 구체적으로는 <b>① 사정변경이 생긴 경위 ② 가용소득이나 재산의 변동 폭 ③ 채권자의 이의 여부 ④ 남은 변제기간 ⑤ 변제율</b>을 종합하여 사안별로 봅니다. <b>그러니 "무슨 일이 있었는지"를 경위부터 차근차근 적으십시오.</b> 금액만 적은 변경안과, 왜 그렇게 되었는지가 적힌 변경안은 다르게 읽힙니다.</div>
+
+<div class="warn"><span class="wt">⚠ 두 개의 벽 — 미리 아셔야 합니다</span>
+<ol style="margin:6px 0 0;padding-left:21px;line-height:2.05">
+<li><b>5년을 넘길 수 없습니다.</b> 어떤 방식을 쓰든 <b>인가된 원래 변제계획의 최초 변제일을 기준으로 5년</b>을 넘기지 못합니다. 3년짜리라면 최대 2년을 더 버는 셈입니다.</li>
+<li><b>두 번째는 어렵습니다.</b> 이미 한 번 변경안을 인가받으셨다면, 경우에 따라 다시 인가받기 어려울 수 있습니다. <b>한 번 쓸 수 있는 카드라고 생각하고 신중히 쓰십시오.</b></li>
+</ol>
+</div>
+
+<div class="tip"><span class="pt">💡 "언제까지 내면 되나" — 서울회생법원은 3개월 전까지로 정해 두었습니다</span>
+법은 "변제 완료 전"이라고만 하지만, 서울회생법원은 <b>특별한 사정이 없는 한 변제완료일 3개월 전까지</b> 변경안을 내도록 하고 있습니다(실무준칙 제442호 제2조 제1항). 채권자집회를 다시 열고 인부결정을 해야 하므로 시간이 걸리기 때문입니다. <b>마지막 달에 가서 내면 늦습니다.</b></div>
+
+<div class="flow">
+<div class="ft2">절차 — 다섯 단계</div>
+<ol>
+<li><b>변제계획변경안 + 변경신청서를 냅니다</b><br>변경신청서에는 ① 사건의 표시 ② 채무자·제출인과 그 대리인의 표시 ③ <b>변경안을 내는 취지와 그 사유</b>를 적습니다(채무자회생규칙 제91조). 변경안은 <b>알고 있는 채권자 수에 1을 더한 만큼 부본</b>을 함께 냅니다(같은 규칙 제85조 제2항). 채권자가 12명이면 부본 13부입니다.</li>
+<li><b>회생위원이 조사하고 의견서를 냅니다</b><br>변경사유가 있는지, 변경안이 제대로 작성됐는지 봅니다. 수입 감소면 <b>질병휴직서·회사와의 협약서·사직 경위 자료</b>를, 생계비 증가면 <b>질병·부상·출산·실직에 관한 객관적 자료</b>를 확인합니다(준칙 제442호 제4조 제2항).</li>
+<li><b>법원이 채권자집회기일을 정하고, 채권자들에게 변경안 부본을 보냅니다</b></li>
+<li><b>회생위원이 집회 1주 전까지 보고서를 냅니다</b>(준칙 제442호 제4조 제3항)</li>
+<li><b>법원이 <span class="term">인부결정<span class="bub">신청을 받아들일지(인가) 받아들이지 않을지(불인가)를 정하는 법원의 결정. "인가·불인가 결정"을 줄여 부르는 말입니다.</span></span>을 합니다</b><br>인가되면 <b>확정을 기다리지 않고 바로 효력이 생깁니다</b>(제619조 제2항, 제615조 제1항 본문).</li>
+</ol>
+</div>
+
+<div class="who">
+<span class="wl">내실 자료 — 사유별로 다릅니다</span>
+<div class="tblwrap">
+<table>
+<tr><th style="width:27%">사유</th><th>붙일 자료</th></tr>
+<tr><td><b>실직·이직</b></td><td>이직확인서·퇴직증명서(사업장), <b>고용보험 피보험자격 이력내역서</b>(고용24 또는 근로복지공단), 새 직장의 급여명세서 3개월분, 건강보험 자격득실확인서<br><span style="color:#9c3a22">회생위원은 <b>그만둘 수밖에 없었는지</b>와 <b>지금 급여가 전 직장에 비해 적정한 수준인지</b>를 봅니다. 스스로 그만둔 경우에는 그 경위를 구체적으로 적으십시오.</span></td></tr>
+<tr><td><b>질병·부상</b></td><td>진단서(치료기간 명시), 입·퇴원확인서, 진료비 영수증, 휴직원 또는 질병휴직서</td></tr>
+<tr><td><b>출산·육아</b></td><td>출생증명서 또는 가족관계증명서(상세), 육아휴직확인서, 급여 감소를 보여 주는 급여명세서</td></tr>
+<tr><td><b>부양가족 증가</b></td><td>가족관계증명서(상세) + 주민등록표 등본(같이 사는 것), 부양하게 된 가족의 소득 없음을 보여 주는 자료(건강보험 피부양자 등재 등)</td></tr>
+<tr><td><b>주거비 증가</b></td><td>새 임대차계약서, 경매 사건의 <b>매각허가결정</b> 또는 부동산등기사항증명서, 종전·현재 주거비 대비표</td></tr>
+<tr><td><b>영업소득 감소</b></td><td>부가가치세 과세표준증명원, 소득금액증명원(홈택스), 매출 거래내역<br><span style="color:#9c3a22">영업소득은 오르내림이 커서 <b>심사가 가장 엄격합니다.</b> 일시적인 감소인지 변제기간 끝까지 갈 감소인지를 보여 주셔야 합니다.</span></td></tr>
+</table>
+</div>
+</div>
+
+<div class="dl">
+<b>서류 떼는 곳 — 바로 가기</b>
+<ul>
+<li><b>소득금액증명·부가세 과세표준증명</b> — <a href="https://hometax.go.kr" target="_blank" rel="noopener">홈택스</a> → 민원증명 → 소득금액증명</li>
+<li><b>고용보험 피보험자격 이력내역서</b> — <a href="https://www.work24.go.kr" target="_blank" rel="noopener">고용24</a> → 증명서 발급</li>
+<li><b>건강보험 자격득실확인서</b> — <a href="https://www.nhis.or.kr" target="_blank" rel="noopener">국민건강보험</a> → 증명서 발급</li>
+<li><b>가족관계증명서·주민등록표 등본</b> — <a href="https://efamily.scourt.go.kr" target="_blank" rel="noopener">전자가족관계등록시스템</a> / <a href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a></li>
+<li><b>제출</b> — <a href="https://ecfs.scourt.go.kr" target="_blank" rel="noopener">대법원 전자소송</a> → 회생·파산 → 서류제출</li>
+</ul>
+</div>
+
+<div class="case">
+<span class="ct">⚖ 판례는 이렇게 말합니다 — 사정이 변해야 고칠 수 있습니다</span>
+<p><b>대법원 2019. 3. 19.자 2018마6364 결정</b></p>
+<p>변제기간 상한을 5년에서 3년으로 줄인 <b>법 개정이 있었다는 이유만으로는</b> 인가된 변제계획에서 정한 변제기간을 변경할 사유가 생겼다고 볼 수 없고, <b>인가 후에 채무자의 소득이나 재산 등이 변동되어</b> 인가된 변제계획의 변제기간이 상당하지 아니하게 되는 등 <b>변경사유가 발생하였다고 인정되는 경우</b>에 변제기간 변경이 가능하다고 보았습니다.</p>
+<p style="margin-top:8px"><b>→ 읽는 법.</b> "법이 바뀌었으니 줄여 달라"는 통하지 않습니다. <b>"나에게 무슨 일이 생겼는지"</b>를 적고 그 자료를 붙이셔야 합니다.</p>
+<p style="margin-top:8px"><b>→ 이 결정의 무게.</b> 변제기간 상한이 5년에서 3년으로 줄어든 2018. 6. 13. 개정 당시, 서울회생법원은 그 전에 접수된 사건에도 단축 효과를 주려고 <b>경과 사건 처리를 위한 업무지침</b>을 두고 기간단축 변경신청을 받아 주고 있었습니다. 그런데 위 결정이 나오자 <b>법원은 지침을 유지할 수 없다고 발표하고 폐지하였고(2019. 3. 26.), 그때까지 인가되었던 기간단축안들이 모두 원점으로 돌아갔습니다.</b> <span style="color:#9c3a22">법이 바뀌었다는 사정만으로는 안 된다는 것이 그만큼 분명합니다.</span> <span class="srcb own">B</span></p>
+</div>
+
+<div class="case">
+<span class="ct">⚖ 다만 법원도 절차를 건너뛸 수는 없습니다</span>
+<p><b>대법원 2015. 6. 26.자 2015마95 결정</b> <span class="srcb own">B</span></p>
+<p>채무자가 낸 변제계획변경안에 대하여 <b>채권자집회 등을 통해 회생위원·채권자가 이의를 진술하는지 확인하지 않은 채</b>, 단지 그 변경안이 법이 정한 요건을 충족하지 못했다는 사정만으로 불인가결정을 한 것은 <b>위법</b>하다는 취지로 판단했습니다.</p>
+<p style="margin-top:8px"><b>→ 읽는 법.</b> 변경안을 냈는데 집회도 열리지 않고 불인가되었다면 <b>즉시항고를 검토해 볼 여지</b>가 있습니다. 다만 변경사유가 발생하지 않았음이 명백한 사건은 집회를 거칠 필요가 없다는 견해도 실무에 있습니다(위 2018마6364 결정 이후). <span style="color:#9c3a22">이 결정은 법원 발간 직무편람을 통해 확인한 것으로, 전문을 직접 확인하지 못했습니다.</span></p>
+</div>
+
+<div class="warn"><span class="wt">⚠ 고치면 청산가치를 다시 봅니다 — 여기서 막히는 분이 있습니다</span>
+변경안의 <b>인가결정일을 기준으로</b> 앞으로 낼 돈의 현재가치가 <b>그 시점의 <span class="term">청산가치<span class="bub">지금 내 재산을 모두 팔아 채권자들에게 나누어 주면 채권자들이 받게 될 금액. 변제계획으로 갚는 총액이 이 금액보다 적으면 "차라리 파산시키는 편이 낫다"는 결과가 되므로 인가되지 않습니다(채무자회생법 제614조 제1항 제4호).</span></span>를 밑돌면 안 됩니다</b>(제619조 제2항, 제614조 제1항 제4호). 그 사이에 재산이 늘었다면 — 상속을 받았다든지, 경매에서 예상보다 높게 낙찰되어 배당을 받았다든지 — <b>줄이려고 낸 변경안이 오히려 올라가는 수</b>가 있습니다.<br><br>
+반대로 <b>채권자나 회생위원이 이의를 진술하면</b> 청산가치보장 외에 <b>가용소득 전부 제공</b>과 <b>최저변제액</b>까지 전부 충족해야 합니다(제614조 제2항). 이의가 없으면 제614조 제1항 요건만 봅니다.</div>
+
+<div class="tip"><span class="pt">💡 반대로, 소득이 늘면 고쳐야 하나요?</span>
+정기 승급처럼 <b>인가 당시에 예상할 수 있었던 범위</b>라면 그때마다 고칠 일은 아닙니다. 그러나 <b>파격적인 승진이나 전직으로 급여가 크게 오른 경우</b>, 또는 <b>상속·복권 당첨 등으로 재산이 크게 늘어난 경우</b>에는 채권자와의 형평상 변제금을 올리는 변경이 필요할 수 있습니다.<br><br>
+또 인가결정에 <b>"소득이 일정 부분 늘면 변경안을 낸다"</b>는 조건이 붙은 사건(조건부 인가)이 있습니다. 그 조건을 잊고 다 내 버린 경우, 서울회생법원 실무는 <b>면책은 해 주되</b> 소득자료를 내게 하여 일정 수준(2024년 기준 약 30%) 이상 늘었으면 변경절차를 거치게 하고 있습니다. <b>인가결정문의 "기타사항"란을 지금 한 번 확인해 보십시오.</b></div>
+
+</div></details>
+
+<details class="sec" id="e4"><summary><span class="qb">4</span><span class="st">세 달분이 밀리면<span class="sub">통지서가 옵니다 — 받은 날부터 7일</span></span></summary>
+<div class="secbody">
+
+<div class="concept"><b>"3개월분"</b>이 기준선입니다. 지체액이 3개월분 변제액에 이르면 회생위원이 법원에 <b>변제계획 불수행 보고서</b>를 올리게 되어 있습니다(개인회생사건 처리지침 제11조의3 제1항, 채무자회생규칙 제88조 제1항 제4호). 서울회생법원은 이런 사건을 <b>"변제계획 불수행 사건"</b>이라 부릅니다(실무준칙 제441호 제2조).</div>
+
+<div class="flow">
+<div class="ft2">세 달분이 밀린 뒤 벌어지는 일 — 순서대로</div>
+<ol>
+<li><b>회생위원이 연락합니다</b><br>전화·전자우편·팩스 등으로 <b>왜 못 내는지, 변경이 필요한지·가능한지</b>를 확인합니다(준칙 제441호 제3조 제2항).</li>
+<li><b>서류 세 장이 옵니다</b><br>[별지 1 통지서], [별지 2 채무자 진술서], [별지 3 변제계획변경 절차 이용 안내문]을 보냅니다(같은 조 제3항). <span style="color:#9c3a22">다만 송달료가 모자라고 달리 연락도 되지 않으면 <b>이 발송이 생략될 수 있습니다.</b> 그래도 폐지는 진행됩니다.</span></li>
+<li><b>진술서를 7일 안에 냅니다</b><br>통지서에 <b>"이 통지서를 송달받은 날부터 7일 이내에"</b> 지체사유와 미납금 해결방안을 구체적으로 적어 소명자료와 함께 내라고 적혀 있습니다.</li>
+<li><b>회생위원이 법원에 보고합니다</b><br>지체 내역과 사유, <b>변제계획 이행가능성</b>, <b>변경의 필요성</b>, <b>제624조 제2항 면책(특별면책)의 가능성</b>에 관한 의견을 적습니다(준칙 제441호 제4조 제2항).</li>
+<li><b>법원이 폐지 여부를 결정합니다</b></li>
+</ol>
+</div>
+
+<div class="tblwrap"><table class="deadline">
+<tr><th colspan="4">⏰ 진술서 제출기한 — 4단 계산</th></tr>
+<tr><th style="width:23%">① 기산일</th><th style="width:26%">② 근거 조문</th><th style="width:24%">③ 말일 처리</th><th>④ 최종 만료일</th></tr>
+<tr><td><b>통지서를 송달받은<br>날의 다음 날</b><br><span style="font-size:12.5px;color:var(--muted)">보낸 날이 아니라 <b>받은 날</b>이 기준입니다</span></td><td>서울회생법원 실무준칙<br>제441호 [별지 1 통지서]<br>"송달받은 날부터 7일 이내"<br><span style="font-size:12.5px;color:var(--muted)">기간 계산은 민법 제157조 본문(초일 불산입)</span></td><td>말일이 <b>토요일 또는 공휴일</b>이면 <b>그 다음 날</b>로 밀립니다<br><span style="font-size:12.5px;color:var(--muted)">민법 제161조</span></td><td><b>송달일 + 7일</b><br><span style="font-size:12.5px;color:var(--muted)">예) 11월 3일(월) 수령 → <b>11월 10일(월) 24시</b>까지<br>전자소송은 24시까지 접수하면 그날 제출로 봅니다</span></td></tr>
+</table>
+</div>
+
+<div class="warn"><span class="wt">⚠ 돈이 없어도 진술서는 내십시오 — 이것이 갈림길입니다</span>
+준칙 제441호 제5조는 <b>폐지하는 세 가지 경우</b>를 정해 두었는데, 그중 둘이 <b>"돈"이 아니라 "응답"</b>에 관한 것입니다.
+<ol style="margin:8px 0 0;padding-left:21px;line-height:2.05">
+<li><b>회생위원이 연락을 시도했으나 닿지 않았고, 채무자도 아무 의견을 밝히지 않은 경우</b></li>
+<li><b>통지서 등을 보냈는데 채무자가 '채무자 진술서'를 내지 않은 경우</b></li>
+<li>진술서와 자료를 보아도 <b>이행가능성이 없다고 판단되고</b>, 제619조의 변경도, 제624조 제2항의 면책도 할 사유가 아니라고 판단된 경우</li>
+</ol>
+<div style="margin-top:9px"><b>①과 ②는 돈과 무관합니다.</b> 전화를 받고 진술서를 내는 것만으로 ①②는 피할 수 있습니다. 그다음에야 ③, 즉 내용 판단으로 넘어갑니다.</div>
+</div>
+
+<div class="case">
+<span class="ct">⚖ "압류 때문에 못 넣었다"면 — 폐지가 부당할 수 있습니다</span>
+<p><b>대법원 2023. 9. 19.자 2023마6207 결정</b> <span class="srcb goe">A</span></p>
+<p>개인회생을 신청한 뒤 어느 채권자가 채무자의 <b>급여채권에 채권압류 및 추심명령</b>을 받아 갔습니다. 개시결정이 난 뒤 채무자는 변제기간을 "인가일 직후 최초 도래하는 월의 30일로부터 36개월"로 적은 변제계획 수정안을 <b>회사가 발급한 급여압류적립금 확인서와 함께</b> 냈습니다. 그런데 법원은 <b>"변제예정액을 납부하지 않아 수행가능성이 없다"</b>며 폐지결정을 했습니다.</p>
+<p>대법원은 이를 뒤집었습니다. <b>변제계획 인가결정이 있으면 채권압류 및 추심명령은 효력을 잃게 되어 채무자가 변제금을 납입할 수 있는 상태가 되므로, 수행가능성이 없다고 단정할 수 없다</b>는 것입니다.</p>
+<p style="margin-top:8px"><b>→ 읽는 법.</b> <b>압류 때문에 손에 들어오는 돈이 없어 변제금을 못 넣고 계시다면, 그 사실을 자료로 보여 드려야 합니다.</b> 회사에 <b>급여압류적립금 확인서</b>(압류로 떼어 두고 있는 금액의 내역)를 발급받아 진술서와 함께 내십시오. "돈을 안 낸 것"과 "압류 때문에 못 낸 것"은 전혀 다릅니다.</p>
+</div>
+
+<div class="tip"><span class="pt">💡 천재지변·감염병·전쟁 등으로 어려웠던 기간은 불리하게 보지 않습니다</span>
+준칙 제441호 제4조 제2항 단서와 제5조 제3호 단서는 <b>천재지변, 감염병 확산, 전쟁, 테러, 소요사태</b> 등으로 재정적 어려움을 겪은 기간의 불수행은 <b>부정적인 요소로 고려하지 아니할 수 있다</b>고 정하고 있습니다. 해당하신다면 <b>진술서에 그 기간과 사정을 분명히 적으십시오.</b> 적지 않으면 참작되지 않습니다.</div>
+
+<div class="who">
+<span class="wl">채무자 진술서에 무엇을 적나 — 서울회생법원 [별지 2] 양식 그대로</span>
+<div class="tblwrap">
+<table>
+<tr><th style="width:30%">① 변제금 납부 지체사유</th><td>구체적으로 적고 <b>소명자료를 붙입니다</b><br><span style="color:#555">예) "2026. 7. 15. ○○산업에서 권고사직하여 소득이 끊겼고, 8월부터 10월까지 구직 중이었습니다(이직확인서, 구직활동내역 첨부)."</span></td></tr>
+<tr><th>② 미납금 해결방안</th><td>구체적으로 적고 <b>실현가능성에 관한 소명자료를 붙입니다.</b> 양식에 예시가 셋 있습니다<br>① 앞으로 월 변제액을 제때 내면서 미납금은 <b>진술서 제출일부터 1개월(또는 2개월) 이내</b>에 모두 내겠습니다<br>② 앞으로 월 변제액을 제때 내면서 미납금은 <b>월 변제액에 얼마씩 더 얹어</b> 내겠습니다<span style="color:#555">(구체적 금액을 적습니다)</span><br>③ 기타<br><span style="color:#9c3a22">③을 고르셨다면 <b>변제계획변경안을 함께 내시는 것</b>이 사실상 유일한 길입니다. 그래서 [별지 3] 안내문이 같이 오는 것입니다.</span></td></tr>
+</table>
+</div>
+</div>
+
+<div class="bnote"><b>진술서와 변경안은 같이 내는 것이 좋습니다.</b> 진술서만 내고 "앞으로 잘 내겠다"고 적었다가 또 밀리면, 그때는 ③(이행가능성 없음)으로 바로 넘어갑니다. <b>줄여야 낼 수 있는 형편이라면 처음부터 줄이는 안을 내십시오.</b></div>
+
+</div></details>
+
+<details class="sec" id="e5"><summary><span class="qb">5</span><span class="st">폐지결정을 받았다면<span class="sub">되살리는 두 가지 길이 있습니다 — 다만 시간이 아주 짧습니다</span></span></summary>
+<div class="secbody">
+
+<div class="warn"><span class="wt">⚠ 폐지결정은 송달되지 않을 수 있습니다 — 공고로 끝납니다</span>
+법원은 폐지결정을 하면 <b>주문과 이유의 요지를 공고</b>하고, <b>송달은 하지 아니할 수 있습니다</b>(채무자회생법 제622조). 우편물을 못 받았다고 모르고 지나가면 그대로 확정됩니다. 공고는 <a href="https://www.scourt.go.kr/portal/notice/public/public.jsp" target="_blank" rel="noopener">대법원 법원공고</a>란에 올라옵니다.</div>
+
+<div class="lawbox">
+<div class="lawrow"><span class="lrl">제621조 제1항</span><span class="lrc">법원은 다음 각호의 어느 하나에 해당하는 때에는 이해관계인의 신청에 의하거나 직권으로 개인회생절차폐지의 결정을 하여야 한다.<br>1. <b>면책불허가결정이 확정된 때</b><br>2. <b>채무자가 인가된 변제계획을 이행할 수 없음이 명백할 때.</b> 다만, 채무자가 제624조제2항의 규정에 의한 면책결정을 받은 때에는 그러하지 아니하다.<br>3. 채무자가 <b>재산 및 소득의 은닉 그 밖의 부정한 방법</b>으로 인가된 변제계획을 수행하지 아니하는 때</span></div>
+<div class="lawrow"><span class="lrl">같은 조 제2항</span><span class="lrc">제1항의 규정에 의한 개인회생절차의 폐지는 <b>이미 행한 변제와 이 법의 규정에 의하여 생긴 효력에 영향을 미치지 아니한다.</b></span></div>
+</div>
+
+<div class="case"><span class="ct">판례 — "조금 흔들린다"고 바로 폐지되지는 않습니다 (대법원 2024. 8. 20.자 2024마6102 결정)</span>
+대법원은 제2호의 <b>"이행할 수 없음이 명백한 때"</b>를 판단할 때 <b>①인가된 변제계획의 내용 ②그때까지 이행된 정도 ③이행하지 못하게 된 이유 ④이행에 대한 채무자의 성실성의 정도 ⑤재정상태와 수입·지출의 현황 ⑥개시 시점과 비교한 사정변경의 유무 ⑦채권자들의 의사</b>를 <b>종합적으로</b> 고려하여야 하고, <b>"단순히 이행 가능성이 확고하지 못하다거나 다소 유동적이라는 정도의 사정만으로는 '이행할 수 없음이 명백한 때'에 해당한다고 할 것이 아니다"</b>라고 판시하였습니다. <span class="srcb goe">A</span><br><br>
+<b>사실관계가 남의 일 같지 않으실 것입니다.</b> 채무자는 <b>11회분까지 성실히 납입</b>하다가 그 뒤 <b>7회 이상 밀렸고</b>, 밀린 돈을 낼 수 있다는 소명자료도 내지 못하여 <b>제1심에서 폐지결정</b>을 받았습니다. 즉시항고를 했으나 <b>1회분만 넣고</b> 나머지를 넣지 못하여 <b>항고도 기각</b>되었습니다. 그런데 <b>재항고를 하면서 미납금 중 일부를 변제하고 그 직후 잔존 미납금을 모두 납입</b>하였고, 대법원은 그 경위 등 제반 사정에 비추어 <b>"이행할 수 없음이 명백한 경우에 해당한다고 보기 어렵다"</b>고 보아 원심결정을 깨뜨렸습니다.<br><br>
+<b>→ 읽는 법.</b> 밀렸다는 사실 자체보다 <b>그때까지 얼마나 성실했는지, 왜 밀렸는지, 지금 메울 수 있는지</b>가 갈림길입니다. 그러므로 폐지결정을 받으셨다면 <b>①밀린 돈을 최대한 넣고 ②밀린 사유를 소명할 자료(해고통지서·진단서·폐업사실증명 등)를 갖추어</b> 다투십시오. 가만히 두면 그대로 확정됩니다.</div>
+
+<div class="concept"><b>제2호 단서를 눈여겨보십시오.</b> "이행할 수 없음이 명백"하더라도 <b>특별면책(제624조 제2항)을 받으면 폐지하지 않습니다.</b> 즉 <b>폐지와 특별면책은 같은 갈림길에 서 있습니다.</b> 회생위원이 법원에 올리는 보고서에 <b>"면책결정의 가능성"</b>에 관한 의견을 적게 되어 있는 것도 그 때문입니다(실무준칙 제441호 제4조 제2항).</div>
+
+<div class="flow">
+<div class="ft2">되살리는 길 — 항고하면서 원심법원이 스스로 취소하게 하는 방법</div>
+<p style="margin:0 0 9px">폐지결정에 대하여는 <b><span class="term">즉시항고<span class="bub">법원의 결정에 불복하여 상급 법원의 판단을 구하는 절차. 정해진 기간(개인회생에서는 공고일부터 14일 등)을 넘기면 결정이 그대로 확정되어 다툴 수 없게 됩니다.</span></span></b>를 할 수 있습니다(제623조 제1항). 그런데 항고하면 반드시 항고심까지 가는 것은 아닙니다. <b>원심법원(결정을 한 그 법원)이 스스로 폐지결정을 취소할 수 있는 두 경우</b>를 서울회생법원이 정해 두었습니다.</p>
+<ol>
+<li><b>밀린 돈을 전부 넣고 자료를 내는 경우</b><br>폐지결정 이후 <b>사건기록이 항고심에 송부되기 전까지</b> 지체한 변제액을 <b>모두 납입</b>하고 원심법원에 그 소명자료를 제출한 경우</li>
+<li><b>전부 넣지 못했어도 사정이 소명되는 경우</b><br>지체사유가 소명되었고, 그 사유가 <b>제619조의 변제계획 변경</b>이나 <b>제624조 제2항의 면책</b>을 하여야 할 사유로 판단되는 경우</li>
+</ol>
+</div>
+<div class="srcline">서울회생법원 실무준칙 제441호 제6조 <span class="srcb goe">A</span></div>
+
+<div class="warn"><span class="wt">⚠ "기록이 항고심에 가기 전까지" — 이 시간이 아주 짧습니다</span>
+항고기록 송부는 보증이 제공된 날부터 <b>1주일 이내</b>에 하도록 되어 있습니다(채무자회생규칙 제93조, 제71조 제5항). 보증을 명하지 않는 사건이면 더 빠릅니다. <b>항고장을 내는 그날 밀린 변제금도 함께 넣으시는 것이 안전합니다.</b> "항고부터 하고 돈은 나중에"는 늦습니다.</div>
+
+<div class="tblwrap"><table class="deadline">
+<tr><th colspan="3">⏰ 즉시항고 기간 — 세 가지를 구별하십시오</th></tr>
+<tr><th style="width:26%">무엇에 대한 항고</th><th style="width:20%">기간</th><th>근거</th></tr>
+<tr><td><b>개인회생절차<br>폐지결정</b></td><td><b>공고가 있은 날부터<br>14일</b></td><td>폐지결정은 공고합니다(제622조). 공고가 있는 재판의 즉시항고는 <b>공고일부터 14일</b>(제13조 제2항). <span style="color:#9c3a22">송달받은 날이 아닙니다</span></td></tr>
+<tr><td><b>면책결정</b><br><span style="font-size:12.5px;color:var(--muted)">채권자가 불복</span></td><td>공고가 있은 날부터<br>14일</td><td>면책결정도 공고합니다(제624조 제4항, 제13조 제2항)</td></tr>
+<tr><td><b>면책불허가결정</b><br><span style="font-size:12.5px;color:var(--muted)">채무자가 불복</span></td><td><b>재판이 고지된 날<br>(송달받은 날)부터 1주</b></td><td>면책불허가결정은 공고하지 않고 송달만 하므로 공고 규정이 적용되지 않습니다. 제33조에 따라 민사소송법 제444조 제1항("즉시항고는 재판이 고지된 날부터 1주 이내")이 준용됩니다 <span class="srcb own">B</span></td></tr>
+</table>
+</div>
+
+<div class="tblwrap"><table class="deadline">
+<tr><th colspan="4">⏰ 폐지결정 즉시항고 — 4단 계산</th></tr>
+<tr><th style="width:23%">① 기산일</th><th style="width:26%">② 근거 조문</th><th style="width:24%">③ 말일 처리</th><th>④ 최종 만료일</th></tr>
+<tr><td><b>공고가 있은 날의<br>다음 날</b><br><span style="font-size:12.5px;color:var(--muted)">대법원 법원공고란 게시일</span></td><td>채무자회생법<br>제622조(공고)<br>제13조 제2항(공고일부터 14일)<br><span style="font-size:12.5px;color:var(--muted)">기간 계산은 민법 제157조 본문</span></td><td>말일이 <b>토요일 또는 공휴일</b>이면 <b>그 다음 날</b>로 밀립니다<br><span style="font-size:12.5px;color:var(--muted)">민법 제161조</span></td><td><b>공고일 + 14일</b><br><span style="font-size:12.5px;color:var(--muted)">예) 11월 3일 공고 → <b>11월 17일 24시</b>까지</span></td></tr>
+</table>
+</div>
+
+<div class="who">
+<span class="wl">항고할 때 드는 돈 — 보증 공탁을 명할 수 있습니다</span>
+<div class="tblwrap">
+<table>
+<tr><th style="width:24%">항목</th><th>내용</th></tr>
+<tr><td><b>인지대</b></td><td><b>2,000원</b>(민사소송 등 인지법 제11조 제2항 — 같은 조 제1항의 항고장 외의 항고장에 붙이는 인지액)</td></tr>
+<tr><td><b>송달료</b></td><td>당사자 수 × 회차 × <b>1회 5,640원</b>(2026. 7. 1. 우편요금 인상 반영) <span style="color:#9c3a22">[확인필요] 회차는 법원·사건별로 다릅니다. 접수 전 해당 법원 종합민원실에 확인하십시오</span></td></tr>
+<tr><td><b>보증 공탁</b></td><td>원심법원이 <b>항고 제기일부터 1주일 이내에</b> 공탁을 명할지 결정합니다. 금액의 기준이 되는 조문은 <b>채무자회생규칙 제71조 제2항</b>인데, 그 문언은 "<b>확정된 의결권액</b>(그 액이 확정되지 않은 경우에는 목록에 기재되거나 신고된 의결권액)<b>의 총액의 20분의 1에 해당하는 금액 범위 내</b>에서 정한다"입니다. 이 조문은 원래 <b>회생절차</b>를 위한 것이고, 규칙 제93조가 개인회생의 폐지·불인가 결정에 <b>준용</b>하고 있습니다. 개인회생절차에는 채권자가 의결권을 행사하여 변제계획을 결의하는 절차가 없으므로, 실무에서는 이를 <b>개인회생채권자목록에 적힌 채권액 총액의 20분의 1 범위</b>로 읽습니다. <span class="srcb own">B</span> — 조문을 그대로 적용한 것이 아니라 <b>준용하여 해석한 결과</b>이므로, 실제 금액은 재판부가 아래 사정을 함께 고려하여 정합니다(같은 조 제3항: 채무자의 자산·부채 규모와 재산상태, 항고인의 지위와 항고에 이르게 된 경위, 향후 사정변경의 가능성, 그동안의 절차 진행경과).<br><span style="color:#9c3a22">채무 총액이 5,000만원이면 <b>최대 250만원</b>입니다. 정해진 기간 안에 넣지 않으면 <b>항고장이 각하됩니다</b>(같은 조 제4항).</span><br><b>서울회생법원은 보증보험증권으로 갈음하는 것을 허용하지 않고 현금만 받습니다.</b> 보증보험회사의 구상금채권이 새로 생기는 문제가 있기 때문입니다 <span class="srcb own">B</span></td></tr>
+<tr><td><b>공탁금은 돌려받나</b></td><td>항고가 인용되면 <b>공탁자가 회수</b>합니다. 항고가 기각되고 <b>파산선고가 없으며 파산절차도 속행되지 않으면</b> 역시 회수합니다. 다만 항고가 기각되고 <b>파산선고가 있거나 파산절차가 속행되면 공탁금은 파산재단에 속합니다</b>(제623조 제2항, 제247조 제6항). 회수할 때는 개인회생 담당 재판부 법원사무관등이 발급한 증명서[전산양식 D5515]를 붙입니다(개인회생사건 처리지침 제19조)</td></tr>
+</table>
+</div>
+</div>
+
+<div class="warn"><span class="wt">⚠ 14일을 넘기면 되살리기가 매우 어렵습니다</span>
+이 기간은 <b>불변기간</b>입니다. 당사자가 책임질 수 없는 사유로 지키지 못한 경우에는 <b>그 사유가 없어진 날부터 2주 이내</b>(그 사유가 없어질 당시 <b>외국에 있던 당사자는 30일 이내</b>)에 추후보완할 수 있지만(민사소송법 제173조 제1항), <b>"공고된 재판을 송달받지 못해 기간을 지키지 못했다"는 사정은 특별한 사정이 없는 한 책임질 수 없는 사유로 보기 어렵다</b>는 것이 실무입니다. <span class="srcb own">B</span><br><br>
+<span style="color:#9c3a22">다만 <b>법원의 절차 진행에 잘못이 있어 그런 재판이 나올 것을 예상하기 어려웠다면</b> 책임질 수 없는 사유로 볼 여지가 있다고 합니다. 기간을 넘기셨다면 그 경위부터 정리해 상담하십시오.</span><br><br>
+반대로, 공고를 하여야 하는데 <b>법원이 공고를 하지 않은 경우에는 공고가 있기 전에 즉시항고를 하는 것도 허용</b>된다는 것이 대법원 판단입니다 <span class="srcb own">B</span>.</div>
+
+<div class="tip"><span class="pt">💡 항고심은 "그때까지 생긴 사정"을 다시 봅니다 — 그래서 돈을 넣는 것이 의미가 있습니다</span>
+항고법원의 심리범위는 <b>항고이유에 의하여 제한되지 않습니다.</b> 불복신청의 한도 안에서 기록에 나타난 자료로 제1심 재판의 당부를 심리·판단하므로, <b>내가 적어 낸 이유만이 아니라 모든 폐지요건의 존부를 다시 봅니다</b> <span class="srcb own">B</span>. 그리고 —
+폐지결정에 대한 즉시항고가 제기되면, <b>항고심은 속심적 성격</b>을 가지므로 <b>항고심 결정 시를 기준으로 그때까지 발생한 사정까지 고려하여</b> 판단하고, 필요하면 변론을 열거나 당사자·이해관계인·참고인을 심문한 다음 항고의 당부를 판단할 수도 있습니다. 이는 대법원이 명시적으로 판시한 법리입니다(대법원 2024. 8. 20.자 2024마6102 결정). <span class="srcb goe">A</span><br><br>
+<b>→ 그러므로 원심법원이 취소해 주지 않아 기록이 항고심에 올라갔더라도 끝이 아닙니다.</b> 항고심 결정이 나기 전까지 밀린 변제금을 넣고 그 자료를 내시면 고려됩니다. <span style="color:#9c3a22">다만 원심에서 끝내는 쪽이 훨씬 빠르고 비용도 적게 듭니다.</span></div>
+
+<div class="warn"><span class="wt">⚠ 결정문을 받았더라도 기간은 "공고일"부터입니다</span>
+법원이 폐지결정을 공고하면서 <b>채무자에게 결정문을 송달해 주기도 합니다.</b> 채무자의 즉시항고권을 실질적으로 보장하기 위한 실무입니다. 그러나 <b>공고와 송달이 모두 이루어진 경우에도 즉시항고 기간의 기준은 공고가 있은 날부터 14일</b>입니다. <span class="srcb own">B</span><br>
+<b>결정문을 늦게 받으셨다고 기간이 늘어나지 않습니다.</b> 결정문을 받으셨다면 거기 적힌 결정일을 보고 <b>법원 공고란에서 공고일부터 확인</b>하십시오.</div>
+
+<div class="tip"><span class="pt">💡 인가 전에 폐지되는 경우는 기준이 다릅니다</span>
+아직 <b>인가를 받기 전</b>이라면 제621조가 아니라 <b>제620조</b>가 적용되고, 서울회생법원은 다음 기준을 두고 있습니다(실무준칙 제432호).
+<ul style="margin:7px 0 0;padding-left:20px;line-height:2.0">
+<li>채권자집회기일을 마치고 <b>1개월이 지나도록 3개월분 이상의 적립금을 미납</b>하면 회생위원이 법원에 보고하고, 법원이 "변제계획안을 인가할 수 없는 때"(제620조 제1항 제2호)에 해당하는지 판단합니다</li>
+<li><b>채권자집회기일에 2회 불출석</b>하거나, <b>1회 불출석 + 적립금 3개월분 이상 미납</b>이면 특별한 사정이 없는 한 폐지결정을 합니다</li>
+<li>다만 <b>출석할 수 없었거나 적립금을 낼 수 없었던 정당한 사유를 소명</b>하면 폐지하지 않습니다 — <span style="color:#9c3a22">여기서도 결국 <b>소명</b>입니다</span></li>
+</ul>
+<div style="margin-top:10px"><b>스스로 그만두실 수도 있습니다.</b> 인가 전에 변제계획 이행이 어렵거나 <b>보증인에 대한 추심이 들어와</b> 절차를 계속할 뜻이 없어진 경우, 채무자가 직접 폐지신청을 하는 사례가 있습니다. 이때 실무는 변제계획불인가결정을 따로 하지 않고 <b>바로 폐지결정</b>을 합니다. <span class="srcb own">B</span></div>
+</div>
+
+<div class="warn"><span class="wt">⚠ 채무자가 사망하면 절차는 이어지지 않습니다</span>
+변제계획은 <b>채무자의 수입에서 생계비를 뺀 가용소득</b>을 넣어 이행하는 것이므로, 채무자가 사망하면 <b>"인가된 변제계획을 이행할 수 없음이 명백한 때"</b>(제621조 제1항 제2호)에 해당하여 폐지결정을 하게 됩니다. 실무에서 <b>상속인이 대신 변제계획을 이어받거나 일시변제로 면책을 받을 수 있는지</b> 묻는 경우가 있으나 <b>받아들여지지 않습니다.</b> <span class="srcb own">B</span><br><br>
+<span style="color:#9c3a22">변제를 완료하였음을 이유로 직권 면책결정을 했는데 <b>그 전에 이미 채무자가 사망한 사실</b>이 뒤늦게 드러나 직권으로 면책을 취소한 하급심 사례도 있습니다(서울회생법원 2022. 9. 5.자 2010개회36617 결정 <span class="srcb own">B</span>).</span> <b>개인회생을 진행하시는 분이 큰 병을 앓고 계시다면, 상속인에게 절차의 존재와 사건번호를 알려 두십시오.</b> 사망하면 남은 빚은 상속재산의 문제로 넘어가고, 상속포기·한정승인의 기한(안 날부터 3개월)이 따로 흘러갑니다.</div>
+
+<div class="flow">
+<div class="ft2">폐지가 확정되면 — 남는 것과 사라지는 것</div>
+<div class="tblwrap">
+<table>
+<tr><th style="width:34%">이것은 <b style="color:#2e7d52">남습니다</b></th><th>이것은 <b style="color:#9c3a22">사라집니다</b></th></tr>
+<tr><td><b>이미 낸 변제금</b> — 폐지되어도 그 변제가 비채변제가 되어 돌려받을 수 있게 되는 것이 아니고, <b>낸 만큼 채무를 소멸시킨 효과는 그대로</b>입니다(제621조 제2항). 다만 원금·이자·지연손해금 중 어디에 충당되는지는 법에 규정이 없어 <b>민법의 법정충당</b>으로 처리됩니다</td><td rowspan="3"><b>남은 빚에 대한 보호</b> 전부입니다. 채권자는 <b>원래의 채권 내용대로</b> 권리를 행사하고 집행할 수 있게 됩니다. 변제계획에 따라 깎였던 이자·지연손해금도 원래대로 돌아갑니다</td></tr>
+<tr><td><b>인가로 실효된 압류·가압류·가처분</b>은 되살아나지 않습니다(제615조 제3항의 효력 유지). <b>전부명령이 끊어진 부분</b>도 마찬가지입니다(제616조 제1항)</td></tr>
+<tr><td><b>시효중단의 효력</b> — 채권자목록 제출과 절차 참가로 생긴 시효중단은 유지됩니다(제32조 제3호)</td></tr>
+</table>
+</div>
+</div>
+
+<div class="warn"><span class="wt">⚠ 폐지 뒤에는 판결 없이도 바로 집행이 들어올 수 있습니다</span>
+개인회생절차가 폐지되면 개인회생채권자는 <b>별도의 집행권원이 없더라도 개인회생채권자표에 기하여 강제집행을 할 수 있습니다</b>(채무자회생법 제603조 제4항). 내가 채권자목록에 적어 낸 그 금액이 그대로 집행권원이 된다는 뜻입니다. <b>소송을 거치지 않습니다.</b> 같은 조 제3항은 채권자표의 기재가 <b>개인회생채권자 전원에 대하여 확정판결과 동일한 효력</b>을 가진다고 정하고 있습니다. 채권자표에 적힌 내용 자체를 뒤늦게 다투기는 매우 어렵다는 뜻이므로, <b>채권자목록은 처음 낼 때 정확하게 적어야 합니다.</b> 그래서 폐지는 "원점으로 돌아가는 것"이 아니라 <b>이전보다 불리한 자리로 가는 것</b>입니다.</div>
+
+<div class="warn"><span class="wt">⚠ 폐지된다고 파산이 "자동으로" 되지는 않습니다</span>
+개인회생절차의 폐지가 확정되면 절차가 끝나고 개인회생채권이 절차의 구속에서 풀릴 뿐, <b>현행법에는 법원이 반드시 또는 재량으로 파산선고를 하여야 한다는 규정이 없습니다.</b> 회생절차와 달리 <b>직권 파산선고의 근거 규정이 없기 때문</b>입니다. <span class="srcb own">B</span>
+<div class="tblwrap" style="margin-top:8px">
+<table>
+<tr><th style="width:26%">언제 폐지되었나</th><th>파산은 어떻게 되나</th></tr>
+<tr><td><b>인가 전에 폐지</b></td><td>개시결정으로 <b>중지·금지되어 있던 파산절차가 풀려 속행</b>되거나 새로 신청할 수 있게 됩니다. <b>전에 내 둔 파산신청이 있으면 그것이 되살아납니다</b></td></tr>
+<tr><td><b>인가 후에 폐지</b></td><td><span style="color:#9c3a22"><b>파산절차는 인가결정으로 이미 효력을 잃었고, 그 실효는 폐지된다고 번복되지 않습니다.</b></span> 따라서 파산을 받으시려면 <b>채무자가 파산신청을 처음부터 다시 하여야 합니다</b></td></tr>
+</table>
+</div>
+<div style="margin-top:9px"><b>→ 그러므로 "폐지되면 자동으로 파산으로 넘어가겠지" 하고 기다리시면 안 됩니다.</b> 인가 후 폐지라면 <b>내가 움직여야</b> 파산이 시작됩니다. 그 사이에 채권자는 개인회생채권자표로 바로 집행할 수 있습니다.</div>
+</div>
+
+<div class="bnote"><b>폐지가 확정되면 그다음은 무엇입니까.</b> 법원은 <b>폐지결정 확정 사실을 한국신용정보원에 통보</b>합니다(개인회생사건 처리지침 제18조 제1항 제3호). 이 단계에서 선택지는 <b>다시 개인회생을 신청하는 것</b>과 <b>개인파산으로 가는 것</b> 둘입니다. 어느 쪽이 맞는지는 소득이 남아 있는지로 갈립니다 — <a href="E-1_개인회생_파산_선택.html">E-1 카드</a>에서 다룹니다. <b>폐지나 기각으로 끝난 경우에는 다시 신청하는 데 기간 제한이 없습니다.</b> <span style="color:#9c3a22">다만 다시 신청하실 때 전에 받은 퇴직금 등을 썼다면 <b>그 사용처를 소명</b>하셔야 합니다. 소명이 납득되지 않으면 "신청이 성실하지 아니한 경우"(제595조 제7호)로 기각될 수 있습니다.</span></div>
+
+</div></details>
+
+<details class="sec" id="e6"><summary><span class="qb">6</span><span class="st">길 ② 특별면책<span class="sub">다 못 갚아도 끝낼 수 있습니다 — 요건 세 가지를 모두 갖춰야 합니다</span></span></summary>
+<div class="secbody">
+
+<div class="lawbox">
+<div class="lawrow"><span class="lrl">제624조 제2항</span><span class="lrc">법원은 채무자가 변제계획에 따른 변제를 <b>완료하지 못한 경우에도</b> 다음 각호의 요건이 <b>모두</b> 충족되는 때에는 <b>이해관계인의 의견을 들은 후</b> 면책의 결정을 할 수 있다.<br>1. 채무자가 <b>책임질 수 없는 사유</b>로 인하여 변제를 완료하지 못하였을 것<br>2. 개인회생채권자가 <b>면책결정일까지 변제받은 금액</b>이 채무자가 파산절차를 신청한 경우 파산절차에서 <b>배당받을 금액보다 적지 아니할 것</b><br>3. <b>변제계획의 변경이 불가능할 것</b></span></div>
+</div>
+
+<div class="concept">제1항의 면책(다 갚은 경우)은 법원이 <b>"하여야 한다"</b>입니다. 반면 특별면책은 <b>"할 수 있다"</b>입니다. 요건을 다 갖춰도 법원의 판단이 남습니다. 그래서 <b>요건을 갖췄다는 것을 내가 자료로 보여 드려야 합니다.</b></div>
+
+<div class="flow">
+<div class="ft2">요건 셋을 하나씩 — 무엇을 보여 드려야 하나</div>
+<ol>
+<li><b>책임질 수 없는 사유</b><br>준칙이 드는 예는 <b>"비자발적 실직으로 인한 장기간의 소득 상실"</b>입니다. 그 밖에 실직·급여 감소로 소득 자체가 줄어든 경우, 본인이나 가족의 질병·부상으로 의료비가 나간 경우, 출산이나 부모의 실직으로 부양가족이 늘어 가용소득이 줄어든 경우가 여기에 듭니다.<br><span style="color:#9c3a22"><b>주의.</b> 실직한 뒤 재취업하지 않은 상태가 이어지더라도, <b>전문직처럼 다시 소득을 얻기 쉬운 경우</b>에는 신중히 판단합니다. 구직활동을 했다는 자료를 모아 두십시오.</span></li>
+<li><b>청산가치 이상을 변제했을 것</b><br>여기서 말하는 청산가치는 <b>인가결정 당시의 청산가치</b>를 말합니다. 지금까지 낸 돈이 그 금액 이상이면 됩니다. <b>"적지 아니할 것"이므로 같은 금액이어도 충족됩니다.</b><br><span style="color:#9c3a22">인가결정문에 적힌 청산가치와, 지금까지 낸 총액(적립금 조회)을 비교해 보십시오. 이미 넘었다면 이 길이 열려 있습니다.</span><br><span style="font-size:13.5px;color:#4a5b66"><b>불리한 점도 말씀드립니다.</b> 인가 뒤에 예상 못 한 일로 재산이 줄어든 경우 — 예를 들어 토지보상금이나 경매 매각대금이 인가 당시 예상보다 적게 나온 경우 — 에도 <b>인가결정 당시의 청산가치</b>를 기준으로 비교하면 채무자에게 가혹합니다. 그래서 그런 경우에는 <b>면책결정일을 기준으로</b> 비교해야 한다는 견해가 실무에 있습니다. <b>다만 확립된 기준은 아닙니다.</b> 해당하신다면 그 사정을 신청서에 분명히 적어 두십시오. <span class="srcb own">C</span></span></li>
+<li><b>변제계획의 변경이 불가능할 것</b><br>준칙이 드는 예는 <b>"생계비를 초과하는 수입을 계속적으로 얻을 수 있다고 보기 어려운 경우"</b>입니다. <b>줄여서라도 낼 수 있으면 변경이 먼저입니다.</b> 변경으로 이어 갈 수 있다면 특별면책이 아니라 변경 절차를 거칩니다.</li>
+</ol>
+</div>
+<div class="srcline">서울회생법원 실무준칙 제451호 제4조 제1항·제3항 <span class="srcb goe">A</span></div>
+
+<div class="flow">
+<div class="ft2">절차와 걸리는 시간</div>
+<ol>
+<li><b>면책신청서를 냅니다</b> — 기재사항은 ① 사건의 표시 ② 채무자·신청인과 그 대리인의 표시 ③ 면책을 신청한 취지 ④ <b>제624조 제2항 각 호의 요건을 갖춘 내용</b>입니다(채무자회생규칙 제94조 제2항).</li>
+<li><b>회생위원이 1개월 안에 조사를 마칩니다</b> — 책임질 수 없는 사유의 구체적 사정, 청산가치 이상 변제 여부, 변경이 불가능한 사유, 면책불허가 사유의 존부를 봅니다. 필요하면 <b>면담</b>을 합니다(준칙 제451호 제4조 제1항·제2항).</li>
+<li><b>회생위원이 조사를 마친 뒤 14일 안에 의견서를 냅니다</b>(같은 조 제3항) — [별지 1] 양식에 요건별로 ○·×를 적고 <b>"적정 의견" 또는 "부적정 의견"</b>을 씁니다.</li>
+<li><b>법원이 이해관계인의 의견을 듣습니다</b> — 채권자들에게 의견청취서를 보냅니다. <span style="color:#9c3a22">채권자가 반대해도 법원이 그 의견에 구속되지는 않습니다.</span></li>
+<li><b>법원이 보고를 받은 뒤 특별한 사정이 없는 한 1주 안에 결정합니다</b>(같은 조 제4항).</li>
+</ol>
+</div>
+
+<div class="tip"><span class="pt">💡 실제로 특별면책이 인정된 경우들 — 내 사정이 여기 있는지 보십시오</span>
+특별면책은 오랫동안 요건을 엄격하게 보아 거의 쓰이지 않았습니다. 그런데 코로나19로 경기침체가 이어지자 <b>대법원 산하 회생·파산위원회가 2020. 6. 25. 특별면책의 활성화를 권고</b>했고, 이에 따라 서울회생법원이 <b>2020. 7. 22. 준칙 제451호 제4조와 제441호 제3조를 개정</b>(2020. 7. 23. 시행)하여 요건의 예시를 명시하고, <b>변제를 지체한 채무자에게 보내는 안내문에 특별면책 규정도 함께 알리도록</b> 했습니다. 그 뒤로 넓게 인정되고 있습니다.
+<div style="margin-top:8px"><b>개정 이후 실제로 인정된 대표적 사례</b> <span class="srcb own">B</span></div>
+<ol style="margin:6px 0 0;padding-left:21px;line-height:2.0">
+<li><b>사고나 질병으로 근로능력이 상실되거나 감소한 경우</b></li>
+<li><b>코로나19 등 외부적 요인으로 실직하거나 폐업</b>하여, 재취업을 위해 노력했음에도 단기간에 재취업이 어려운 경우</li>
+<li><b>가족의 질병·부상</b> 등으로 필수적인 의료비 지출이 증가한 경우</li>
+<li><b>출산이나 부모의 실직</b> 등으로 피부양자가 늘어난 경우</li>
+</ol>
+<div style="margin-top:8px;color:#9c3a22"><b>해당하신다면 그 사정을 신청서 첫머리에 쓰십시오.</b> 위 네 가지는 법에 적힌 것이 아니라 실무에서 쌓인 예이므로, 그대로 들어맞지 않더라도 <b>"내 책임이 아닌 일이 있었다"는 점을 자료로 보여 드리면 됩니다.</b></div>
+</div>
+
+<div class="tip"><span class="pt">💡 받아들여지지 않으면 어떻게 되나 — 서울회생법원 실무가 채무자에게 유리합니다</span>
+특별면책을 받아들이지 않을 때 <b>면책불허가결정</b>을 하는 방법과 <b>면책신청 기각결정</b>을 하는 방법이 있는데, 서울회생법원은 <b>기각결정으로 처리</b>하고 있습니다. 면책불허가결정이 확정되면 그 자체가 폐지사유(제621조 제1항 제1호)가 되어 절차가 끝나 버리지만, <b>기각결정이면 변제계획변경을 신청할 기회가 남기 때문</b>입니다. <b>기각되었다고 끝난 것이 아닙니다.</b> 곧바로 변경안을 검토하십시오.</div>
+
+<div class="warn"><span class="wt">⚠ 폐지가 확정된 뒤에는 특별면책을 신청할 수 없습니다</span>
+특별면책은 <b>개인회생절차가 진행 중임을 전제</b>로 한 것이어서, <b>폐지결정이 확정되어 절차가 끝난 뒤에 낸 특별면책 신청은 부적법</b>하다고 본 대법원 결정이 있습니다(대법원 2012. 7. 12.자 2012마811 결정 <span class="srcb own">B</span>). <b>순서가 생명입니다.</b> 폐지 통지를 받으셨다면 <b>항고기간 안에</b> 특별면책 신청과 항고를 함께 검토하셔야 합니다.<br><br>
+<span style="font-size:13.5px">대법원이 든 이유는 이렇습니다. ① 절차가 끝난 뒤에도 면책신청을 할 수 있다고 하면 <b>절차의 구속에서 벗어난 채권자의 지위가 불안정</b>해지고, ② 면책불허가결정이 확정되면 절차를 폐지하여야 하는데(제621조 제1항 제1호) <b>이미 폐지가 확정된 뒤 다시 면책신청을 받으면 종료한 절차가 또 종료하거나 폐지결정을 다시 해야 하는 모순</b>이 생긴다는 것입니다.</span></div>
+
+<div class="tip"><span class="pt">💡 개인회생에서는 "과한 낭비"가 면책불허가 사유가 아닙니다</span>
+개인파산의 면책에서는 <b>과다한 낭비로 과대한 채무를 부담한 것</b>이 면책불허가 사유가 되지만, 개인회생의 면책불허가 사유는 제624조 제3항의 <b>두 가지뿐</b>입니다 — ① 면책결정 당시까지 <b>악의로</b> 채권자목록에 적지 않은 채권이 있는 경우, ② 법에 정한 채무자의 의무를 이행하지 않은 경우. 낭비는 여기에 들지 않습니다(대법원 2012. 1. 31.자 2011마2392 결정 <span class="srcb own">B</span>).<br><br>
+<b>"악의로"는 "알면서도"라는 뜻입니다.</b> 모르고 빠뜨린 채권이 있다고 해서 면책이 막히지는 않습니다. 다만 <b>알면서 빼면</b> 문제가 됩니다. 그리고 면책불허가 사유가 있어도 법원은 <b>"불허하는 결정을 할 수 있다"</b>이므로, 제반 사정을 보아 면책할 수도 있습니다.</div>
+
+<div class="bnote"><b>2018. 6. 13. 전에 인가받으신 분이라면 또 하나의 길이 있습니다.</b> 변제기간 상한을 5년에서 3년으로 줄인 법 개정의 부칙(2017. 12. 12.) 제2조 제1항에 따라, <b>개정규정 시행일(2018. 6. 13.) 당시 이미 3년 이상 변제계획을 수행</b>하였다면 신청 또는 직권으로 이해관계인의 의견을 들은 뒤 면책결정을 할 수 있습니다. 실무에서 <b>'부칙면책'</b>이라 부르며, 제624조 제2항의 특별면책과는 근거와 요건이 다릅니다. 소득 변동은 심사요건이 아니고, <b>청산가치 보장만 봅니다.</b> 오래된 사건을 아직 수행 중이시라면 인가결정일부터 확인해 보십시오. <span style="color:#9c3a22">이 대목은 법원 발간 직무편람으로 확인한 것입니다 <span class="srcb own">B</span></span></div>
+
+</div></details>
+
+<div class="part">
+<span class="pn">제3부</span>
+<div class="pt2">끝내기 — 면책까지</div>
+<div class="pw">마지막 회차를 넣었다고 저절로 끝나지 않습니다. <b>면책결정을 받고, 그 결정이 확정되어야</b> 개인회생절차가 종료합니다(채무자회생규칙 제96조). 그 사이에 할 일이 있습니다.</div>
+</div>
+
+<details class="sec" id="e7"><summary><span class="qb">7</span><span class="st">돈이 생겼을 때<span class="sub">남은 것을 한 번에 — 일시변제</span></span></summary>
+<div class="secbody">
+
+<div class="concept">변제기간 중에 <b>목돈이 생겨 남은 회차를 한 번에 넣고 끝내고 싶은</b> 경우가 있습니다. 서울회생법원은 이를 <b>일시변제</b>로 따로 다룹니다(실무준칙 제444호). <b>변제계획의 변경이 아니라 앞당겨 갚는 것</b>이므로 제619조의 변경절차를 거치지 않습니다.</div>
+
+<div class="flow">
+<div class="ft2">절차 — 여섯 단계</div>
+<ol>
+<li><b>일시변제신청서를 냅니다</b> — 일시변제를 하게 된 사유를 소명하고 아래 네 가지를 붙입니다(준칙 제444호 제2조 제1항).
+  <ol style="padding-left:19px;margin-top:5px">
+  <li><b>변제자금의 출처에 관한 금융거래자료</b></li>
+  <li>재산목록에 적은 재산내역에 변동이 있으면 <b>그에 대한 소명자료</b></li>
+  <li><b>채무자의 진술서</b></li>
+  <li><b>일시변제에 따른 변제계획수정안</b></li>
+  </ol></li>
+<li><b>수정안은 이렇게 만듭니다</b> — 특별한 사정이 없는 한 <b>이미 수행한 변제계획은 그대로 두고, 마지막 회차에 일시변제금을 채권자들에게 안분</b>하는 내용으로 작성합니다(같은 조 제2항).</li>
+<li><b>법원이 채권자들에게 의견청취서를 보냅니다</b> — 신청서 사본을 붙여 보냅니다(제3조).</li>
+<li><b>회생위원이 조사하여 보고합니다</b> — <b>재원 마련 경위가 적절한지</b>, <b>신청 당시의 수입·재산 신고가 진실하였는지</b>, 면책이 가능한지에 관한 의견을 적습니다(제4조).</li>
+<li><b>법원의 허가가 나면 일시변제금을 넣고, 회생위원이 채권자들에게 이체합니다</b>(제5조 제1항). <b>신청서를 내면서 미리 넣어 두셔도 됩니다</b>(같은 조 제2항).</li>
+<li><b>전부 넣은 뒤 면책을 신청합니다</b>(제6조). 이때의 면책은 <b>변제계획에 따른 변제이므로 일반면책</b>입니다 — 특별면책이 아닙니다.</li>
+</ol>
+</div>
+
+<div class="warn"><span class="wt">⚠ 아무 돈이나 되는 것이 아닙니다</span>
+일시변제에 쓰는 돈은 원칙적으로 <b>채무자 본인의 재산이 아니라</b>, 친지 등이 도와주어 대신 내 주는 돈이어야 한다는 것이 실무의 출발점입니다. 내 재산이 늘어난 것이라면 그것은 <b>청산가치에 반영할 문제</b>, 즉 변제계획 변경의 문제가 됩니다.<br><br>
+<b>단순히 소득이 늘었다거나 이직으로 급여가 올랐다는 것은 일시변제 사유가 되지 않습니다.</b> 그것은 가용소득 증가에 따른 변경사유인지를 따질 문제입니다. 실무상 일시변제가 허용된 예로는 <b>정년퇴직에 따른 퇴직금</b>으로 신청한 경우가 있습니다(이때 회생위원은 <b>재취업 가능성</b>을 조사합니다).</div>
+
+<div class="tip"><span class="pt">💡 퇴직금을 받으셨다면 — 쓰기 전에 먼저 알리십시오</span>
+퇴직금을 일시금으로 받아 <b>써 버린 뒤</b> "수입이 줄었다"며 변경안을 내면, 회생위원은 <b>사용내역의 소명</b>을 요구합니다. 납득할 만한 소명(암 등으로 인한 다액의 병원비 지출 같은)이 없으면 변경안이 불허될 수 있고, 나아가 <b>"부정한 방법으로 변제계획을 수행하지 아니하는 때"(제621조 제1항 제3호)</b>에 해당하여 직권 폐지를 검토하는 사안이 될 수 있습니다.<br><br>
+<b>순서를 바꾸십시오.</b> 받기 전이나 받은 직후에 회생위원에게 알리고, 일시변제로 끝낼지 변경으로 갈지를 먼저 정하는 것이 안전합니다.</div>
+
+</div></details>
+
+<details class="sec" id="e8"><summary><span class="qb">8</span><span class="st">면책<span class="sub">신청하고, 결정받고, 확정되기까지</span></span></summary>
+<div class="secbody">
+
+<div class="lawbox">
+<div class="lawrow"><span class="lrl">제624조 제1항</span><span class="lrc">법원은 채무자가 변제계획에 따른 변제를 <b>완료한 때</b>에는 당사자의 신청에 의하거나 <b>직권으로</b> 면책의 결정을 <b>하여야 한다.</b></span></div>
+<div class="lawrow"><span class="lrl">제624조 제4항</span><span class="lrc">법원은 면책의 결정을 한 때에는 그 주문과 이유의 요지를 <b>공고</b>하여야 한다. 이 경우 <b>송달은 하지 아니할 수 있다.</b></span></div>
+<div class="lawrow"><span class="lrl">제625조 제1항</span><span class="lrc">면책의 결정은 <b>확정된 후가 아니면 그 효력이 생기지 아니한다.</b></span></div>
+<div class="lawrow"><span class="lrl">채무자회생규칙 제96조</span><span class="lrc">법 제624조의 면책결정이 확정되면 <b>개인회생절차는 종료한다.</b></span></div>
+</div>
+
+<div class="concept"><b>"하여야 한다"</b>입니다. 다 갚으셨으면 법원의 재량이 아니라 <b>의무</b>입니다. 그리고 <b>신청하지 않아도 직권으로</b> 할 수 있게 되어 있습니다.</div>
+
+<div class="flow">
+<div class="ft2">세 갈래 — 내 경우가 어디인지 먼저 보십시오</div>
+<ol>
+<li><b>신청면책</b> — 다 갚고 내가 면책신청서를 낸 경우<br>회생위원은 <b>신청서를 받은 날부터 1개월 이내</b>에 ① 신청서에 규칙 제94조 제1항 각 호 사항이 적혔는지 ② 변제를 완료했는지 ③ 면책불허가 사유가 있는지를 보고합니다. 법원은 보고를 받은 뒤 <b>특별한 사정이 없는 한 1주 이내</b>에 결정합니다(실무준칙 제451호 제2조).</li>
+<li><b>직권면책</b> — 다 갚았는데 내가 신청을 안 한 경우<br>회생위원은 <b>변제를 완료하였음에도 6개월 이내에 면책신청을 하지 않으면</b> 변제완료 여부와 면책불허가 사유의 존부를 법원에 보고하여야 하고, 법원은 <b>1주 이내</b>에 결정합니다(같은 준칙 제3조).<br><span style="color:#9c3a22"><b>잊어버려도 결국은 됩니다. 다만 6개월을 그냥 기다리게 됩니다.</b> 신용정보 해제도 그만큼 늦어집니다. 마지막 회차를 넣으셨으면 바로 신청하십시오.</span></li>
+<li><b>특별면책</b> — 다 갚지 못한 경우 → <a href="#e6">6번 항목</a></li>
+</ol>
+</div>
+
+<div class="who">
+<span class="wl">면책신청서에 적을 것 — 채무자회생규칙 제94조 제1항</span>
+<div class="tblwrap">
+<table>
+<tr><th style="width:25%">1. 사건의 표시</th><td>서울회생법원 2023개회○○○○○호 개인회생</td></tr>
+<tr><th>2. 채무자·신청인과<br>그 대리인의 표시</th><td>성명·주민등록번호·주소·연락처</td></tr>
+<tr><th>3. 면책을 신청한 취지</th><td>"채무자에 대하여 면책을 결정한다는 결정을 구합니다."</td></tr>
+<tr><th>4. 변제를 완료한 내용</th><td>인가결정일, 변제기간, <b>총 변제예정액과 실제 납입 총액</b>, 최종 납입일<br><span style="color:#9c3a22">적립금 조회 내역이나 납입증명을 붙이시면 확인이 빠릅니다</span></td></tr>
+</table>
+</div>
+</div>
+
+<div class="warn"><span class="wt">⚠ 면책결정도 송달되지 않을 수 있습니다 — 공고를 확인하십시오</span>
+면책결정 역시 <b>공고하고 송달은 하지 아니할 수 있습니다</b>(제624조 제4항). 채권자의 즉시항고 기간은 <b>공고가 있은 날부터 14일</b>이고(제13조 제2항), 그 기간이 지나면 확정됩니다. <b>"결정문을 못 받았으니 아직 안 끝났나 보다" 하고 기다리지 마십시오.</b> 전자소송 사건기록이나 법원 공고란에서 확인하시고, <b>확정증명원</b>을 발급받아 두십시오.</div>
+
+<div class="flow">
+<div class="ft2">마지막 회차를 넣은 뒤 — 법원이 확인하는 것들</div>
+<ol>
+<li><b>미수행금액이 0원인지</b> — 적립금 조회로 확인합니다</li>
+<li><b>채권자별 출급금액과 총 변제예정액이 일치하는지</b> — 채권이 양도된 경우, 계좌 미신고 채권자가 있는 경우, 미확정채권이 남은 경우에는 정리가 더 필요합니다</li>
+<li><b><span class="term">미확정 개인회생채권<span class="bub">금액이 아직 확정되지 않은 채권. 담보 잡힌 재산의 경매가 끝나야 비로소 얼마가 남는지 알 수 있는 경우가 대표적입니다. 그 몫은 유보금으로 떼어 두었다가 확정되면 지급합니다.</span></span>이 남아 있는지</b> — 별제권(담보) 실행이 끝나지 않아 채권액이 확정되지 않은 경우입니다. 법원은 변제완료 시 확정 여부를 확인하고, <b>면책 단계까지 확정되지 않으면 최종변제기에 유보한 금액 전부를 일반 채권자들에게 채권액 비례로 추가 배분한 뒤 면책절차를 진행</b>합니다(실무준칙 제452호 제4조)<br><span style="color:#9c3a22">회생위원은 인가일부터 <b>1년 6월</b>이 지나도록 확정되지 않으면 해당 채권자에게 확정 신고를 촉구하게 되어 있습니다(개인회생사건 처리지침 제11조의6 제1호). 담보가 있는 분은 <b>경매가 끝났으면 채권자에게 확정신고를 하도록 알려 두십시오.</b> 이것 때문에 면책이 늦어지는 사건이 많습니다.</span></li>
+<li><b>돌려받을 돈이 있는지</b> — 채권자가 반환한 금액이나 남은 적립금이 있으면 <b>미리 신고한 계좌로 환급</b>합니다(실무준칙 제452호 제3조)</li>
+</ol>
+</div>
+
+<div class="tip"><span class="pt">💡 인가를 못 받고 끝났다면 — 넣어 둔 돈은 돌려받습니다</span>
+인가 전에 미리 적립해 두었는데 <b>변제계획안이 인가되지 못한 채 절차가 끝난 경우</b>, 회생위원은 임치된 금원을 <b>채무자에게 반환하여야 합니다.</b> 채무자가 미리 신고한 금융기관 예금계좌로 송금하는 것이 원칙입니다(개인회생사건 처리지침 제12조 제1항). <b>잘못 더 넣은 돈(과오납)도 같습니다</b>(같은 조 제5항).<br>
+<span style="color:#9c3a22"><b>계좌를 신고해 두셔야 받습니다.</b> 신청 때 적은 계좌가 해지되었다면 지금 바꿔 두십시오.</span></div>
+
+<div class="tip"><span class="pt">💡 면책 전에 법원이 교육·상담을 합니다</span>
+서울회생법원은 채무자가 실질적으로 재기할 수 있도록 <b>신용관리·취업지원 등에 관한 교육 또는 상담</b>을 하고 있고, 이는 <b>절차 종료 전까지 실시하는 것을 원칙</b>으로 합니다(실무준칙 제603호).<br><br>
+또 <b>2026. 11. 18.자로 「뉴스타트 상담센터」가 「통합도산지원센터」로 개편</b>되어, 도산절차 상담(뉴스타트상담)에 더하여 <b>대한법률구조공단·신용회복위원회·서울금융복지상담센터·소상공인시장진흥공단·한국자산관리공사·신용보증기금·중소벤처기업진흥공단</b> 등이 제공하는 법률·금융·복지·채무조정 지원까지 한자리에서 안내받을 수 있게 되었습니다(실무준칙 제602호). <b>무료입니다.</b> 면책을 앞두셨다면 한 번 들러 보시기를 권합니다.</div>
+
+</div></details>
+
+<details class="sec" id="e9"><summary><span class="qb">9</span><span class="st">지워지지 않는 빚 여덟 가지<span class="sub">면책은 "안 갚아도 된다"가 아니라 "강제로 받아 갈 수 없다"입니다</span></span></summary>
+<div class="secbody">
+
+<div class="concept"><b>면책은 빚이 사라지는 것이 아닙니다.</b> 채무 자체는 남고 <b>책임만 면제됩니다</b>(제625조 제2항 본문). 그래서 면책된 채권은 <b>소를 제기할 권능을 잃습니다</b> — 채권자가 소송을 걸어도 각하 또는 기각됩니다. 이런 채무를 실무에서 <b>자연채무</b>라고 부릅니다.</div>
+
+<div class="warn"><span class="wt">⚠ 자연채무로 남는다는 것의 실제 의미 — 실수로 갚으면 돌려받지 못합니다</span>
+"책임이 면제된다"는 것은 <b>갚으라고 추궁할 수 없게 된다</b>는 뜻이지 빚이 없어진다는 뜻이 아닙니다. 그래서 이런 결과가 따라옵니다. <span class="srcb own">B</span>
+<ul style="margin:7px 0 0;padding-left:20px;line-height:2.0">
+<li>채권자는 <b>소송·가압류·강제집행을 할 수 없습니다</b></li>
+<li><span style="color:#9c3a22">그러나 <b>채무자가 스스로 갚으면 유효한 변제</b>가 되어, <b>부당이득이라며 돌려달라고 할 수 없습니다</b></span></li>
+<li>채권자가 그 채권을 <b>상계의 자동채권으로 쓰거나</b>, 경개·준소비대차의 기초로 삼는 것은 가능합니다</li>
+<li>그 채무에 붙은 <b>보증이나 담보는 유효합니다</b></li>
+</ul>
+<div style="margin-top:9px"><b>→ 그러므로 면책 뒤에 "조금이라도 갚아 드리겠다"며 송금하지 마십시오.</b> 돌려받지 못합니다. 미안한 마음이 드시더라도, 면책은 법원이 정식으로 내준 결정입니다.</div>
+</div>
+
+<div class="lawbox">
+<div class="lawrow"><span class="lrl">제625조 제2항 단서</span><span class="lrc">다만, 다음 각호의 청구권에 관하여는 <b>책임이 면제되지 아니한다.</b><br>1. <b>개인회생채권자목록에 기재되지 아니한 청구권</b><br>2. 제583조제1항제2호의 규정에 의한 <b>조세 등의 청구권</b><br>3. <b>벌금ㆍ과료ㆍ형사소송비용ㆍ추징금 및 과태료</b><br>4. 채무자가 <b>고의로 가한 불법행위</b>로 인한 손해배상<br>5. 채무자가 <b>중대한 과실로 타인의 생명 또는 신체를 침해한 불법행위</b>로 인하여 발생한 손해배상<br>6. 채무자의 <b>근로자의 임금ㆍ퇴직금 및 재해보상금</b><br>7. 채무자의 <b>근로자의 임치금 및 신원보증금</b><br>8. 채무자가 <b>양육자 또는 부양의무자로서 부담하여야 할 비용</b></span></div>
+<div class="lawrow"><span class="lrl">같은 조 제3항</span><span class="lrc">면책은 개인회생채권자가 채무자의 <b>보증인</b> 그 밖에 채무자와 더불어 채무를 부담하는 자에 대하여 가지는 권리와 개인회생채권자를 위하여 제공한 <b>담보</b>에 영향을 미치지 아니한다.</span></div>
+</div>
+
+<div class="warn"><span class="wt">⚠ 1호가 가장 무섭습니다 — 빠뜨린 빚은 그대로 남습니다</span>
+목록에 적지 않은 빚은 면책되지 않습니다. <b>모르고 빠뜨린 것은 면책불허가 사유는 아니지만</b>(그것은 "악의로" 빠뜨린 경우입니다 — <a href="#e6">6번 항목</a>), <b>그 채권 자체는 면책되지 않고 남습니다.</b> 둘은 다른 문제입니다.<br><br>
+<b>지금이라도 확인하십시오.</b> <a href="https://www.credit4u.or.kr" target="_blank" rel="noopener">신용회복위원회 크레딧포유</a>나 <a href="https://www.kcredit.or.kr" target="_blank" rel="noopener">한국신용정보원</a>에서 채무 현황을 떼어 인가된 채권자목록과 대조해 보십시오. 빠진 것이 있고 <b>아직 변제 중</b>이라면 채권자목록 수정(제589조의2)을 검토할 수 있습니다.</div>
+
+<div class="warn"><span class="wt">⚠ 이 대목에서 개인회생은 개인파산보다 엄격합니다</span>
+같은 "목록에 없는 빚"이라도 두 절차의 취급이 다릅니다.
+<div class="tblwrap" style="margin-top:8px">
+<table>
+<tr><th style="width:16%"></th><th style="width:42%">개인회생(제625조 제2항 단서 제1호)</th><th>개인파산(제566조 단서 제7호)</th></tr>
+<tr><td><b>요건</b></td><td><b>악의를 요구하지 않습니다.</b> 모르고 빠뜨렸어도 <b>그 채권은 면책되지 않습니다</b></td><td><b>악의로</b> 기재하지 아니한 청구권만 비면책입니다</td></tr>
+<tr><td><b>채권자가<br>알았던 경우</b></td><td>채권자가 개시결정을 알고 있었더라도 <b>여전히 비면책</b>입니다</td><td>채권자가 파산선고 사실을 <b>알고 있었으면 면책</b>됩니다</td></tr>
+</table>
+</div>
+<div style="margin-top:9px">개인회생에는 <b>채권신고 제도가 없어</b> 채무자가 적어 낸 목록이 전부이기 때문입니다. 그래서 <b>채권자목록은 개인회생에서 가장 무거운 서류</b>입니다. <span style="color:#9c3a22">오래되어 잊은 빚, 보증 선 빚, 가족·지인에게 빌린 빚 — 지금이라도 전부 찾아 확인하십시오.</span> <span class="srcb own">B</span></div>
+</div>
+
+<div class="case">
+<span class="ct">⚖ "따로 갚겠다"는 각서를 써 주었다면 — 그 각서도 면책됩니다</span>
+<p><b>대법원 2021. 9. 9. 선고 2020다277184 판결</b> <span class="srcb goe">A</span></p>
+<p>개인회생이 진행되는 동안 채권자가 찾아와 <b>"변제계획과 별도로 나한테는 따로 갚겠다"는 각서나 약정</b>을 받아 가는 일이 드물지 않습니다. 대법원은 이렇게 판단했습니다.</p>
+<p>제625조 제2항 본문의 면책은 <b>채무 자체는 존속하지만 이행을 강제할 수 없다는 의미</b>이고, 면책제도의 취지는 <b>채권자들에 대한 공평한 변제를 확보하면서 채무자에게 경제적 재기와 회생의 기회를 주는 것</b>입니다. 그런데 <b>개시 후 면책결정 확정 전에</b> 채무자가 "변제계획과 별도로 갚겠다"는 의사를 표시했다고 해서 면책 뒤에도 그 책임이 남는다고 보면 <b>면책제도의 취지에 반합니다.</b> 따라서 그로 인한 채무가 <b>실질적으로 개인회생채무와 동일성이 없는 완전히 새로운 별개 채무라고 볼 만한 특별한 사정이 없는 한</b>, 원래의 개인회생채무와 똑같이 <b>면책결정의 효력이 미칩니다.</b></p>
+<p style="margin-top:8px"><b>→ 읽는 법.</b> 이미 각서를 써 주셨더라도 <b>그것만으로 끝난 것이 아닙니다.</b> 그 각서가 <b>개인회생채무의 일부를 갚겠다는 내용</b>인 이상 면책이 미칩니다. <span style="color:#9c3a22">다만 <b>개인회생과 무관한 새 돈을 빌린 것</b>이라면 이야기가 다릅니다. 각서를 요구받으시면 <b>쓰지 마시고</b>, 이미 쓰셨다면 그 각서와 당시 상황을 정리해 두십시오.</span></p>
+</div>
+
+<div class="tip"><span class="pt">💡 세금도 양육비도 지워지지 않습니다 — 미리 계획을 세우십시오</span>
+2호의 조세, 8호의 양육비는 면책 뒤에도 그대로 남습니다. 다만 2호·6호·7호는 <b>개인회생재단채권</b>이어서 채권자목록이 아니라 <b>변제계획안 제3항(개인회생재단채권에 대한 변제)</b>에 적어 변제계획 안에서 처리합니다. 면책 후 남을 세금이 있다면 <b>국세청·지자체의 징수유예나 납부기한 연장</b>을 따로 알아보셔야 합니다.</div>
+
+<div class="case">
+<span class="ct">⚖ 판례 ① — 담보 잡은 은행이 경매는 안 하고 소송을 걸어왔다면</span>
+<p><b>대법원 2025. 5. 15. 선고 2022다256327 판결</b> <span class="srcb goe">A</span></p>
+<p><b>[사실관계]</b> 채무자는 2005년 은행에서 3,700만원을 대출받으면서 자기 부동산에 채권최고액 4,485만원의 근저당권을 설정해 주었습니다. 2013. 6. 24. 개인회생을 신청하여 2014. 3. 6. 개시결정, 같은 해 10. 6. 변제계획 인가를 받았습니다. 이 대출채권은 <b>채권자목록에 들어 있었고</b> 은행이 이의기간 안에 조사확정재판을 신청하지 않아 그대로 확정되었습니다. 채무자는 2019. 7. 8. 면책결정을 받아 확정되었습니다. <b>은행은 면책이 확정될 때까지 경매를 신청하지 않았습니다.</b> 그러고 나서 채무자를 상대로 <b>대여금 청구 소송</b>을 냈습니다.</p>
+<p><b>[판단]</b> 대법원은 청구를 받아들이지 않았습니다. 제625조 제2항 본문의 면책은 <b>채무 자체는 존속하지만 이행을 강제할 수 없다는 뜻</b>이므로 면책된 개인회생채권은 <b>소를 제기할 권능을 잃습니다.</b> 단서 제1호는 "목록에 기재되지 아니한 청구권"만 제외할 뿐 <b><span class="term">별제권자<span class="bub">채무자의 재산에 저당권·질권·전세권 등 담보를 가진 채권자. 개인회생절차에 따르지 않고 그 담보물을 경매에 넘겨 우선 변제받을 수 있습니다(채무자회생법 제586조, 제411조).</span></span>의 개인회생채권을 제외 대상으로 정하고 있지 않으므로</b>, 그 채권이 목록에 적혀 있는 한 면책의 효력이 미칩니다. 따라서 별제권자는 <b>담보권을 실행할 수 있을 뿐, 채무자를 상대로 종전 채권의 이행을 소구할 수는 없습니다.</b></p>
+<p style="margin-top:8px"><b>→ 읽는 법.</b> 면책 뒤에 <b>담보 잡은 금융기관이 돈을 갚으라는 소송을 걸어오면 면책을 주장하십시오.</b> 그쪽이 할 수 있는 것은 경매(담보권 실행)뿐입니다. 거꾸로 말하면 <b>담보 잡힌 부동산은 면책을 받아도 경매될 수 있습니다.</b> 그것이 제625조 제3항의 "담보에 영향을 미치지 아니한다"입니다.</p>
+</div>
+
+<div class="case">
+<span class="ct">⚖ 판례 ② — 보증보험·신용보증재단이 대신 갚고 나에게 구상해 올 때</span>
+<p><b>대법원 2025. 10. 16. 선고 2024다221042 판결</b> <span class="srcb goe">A</span></p>
+<p><b>[사실관계]</b> 채무자는 2009년과 2010년에 새마을금고에서 1,500만원과 500만원을 대출받았고, <b>신용보증재단이 연대보증</b>을 섰습니다. 2011. 9. 1. 개인회생을 신청하면서 채권자목록에 <b>새마을금고의 대출채권은 적었지만 보증인인 재단의 구상금채권은 빠뜨렸습니다.</b> 2011. 11. 25. 개시결정, 2012. 1. 31. 변제계획 인가(5년 분할변제). 재단은 <b>2012. 9. 5. 새마을금고에 원리금을 전액 <span class="term">대위변제<span class="bub">보증인이나 제3자가 채무자를 대신하여 채권자에게 빚을 갚는 것. 갚은 사람은 그만큼을 채무자에게 돌려달라고 청구할 수 있는데, 그 권리를 구상권(구상금채권)이라 합니다.</span></span></b>하고, 2013년 채무자를 상대로 구상금 소송을 내어 <b><span class="term">이행권고결정<span class="bub">소액사건(청구액 3,000만원 이하)에서 법원이 변론 없이 "피고는 원고에게 얼마를 지급하라"고 먼저 권고하는 결정. 피고가 2주 안에 이의하지 않으면 확정판결과 같은 효력이 생겨 그대로 집행할 수 있습니다.</span></span>(약 1,957만원)을 확정</b>받았습니다. 채무자는 변제를 완료하여 <b>2017. 3. 28. 면책결정</b>을 받았습니다. 그 뒤 재단이 그 이행권고결정으로 집행하려 하자 채무자가 <b><span class="term">청구이의의 소<span class="bub">확정판결·지급명령·이행권고결정 같은 집행권원이 이미 있더라도, 그 뒤에 빚이 없어졌거나 면책되었다는 사유를 들어 "이 집행권원으로는 집행할 수 없다"고 다투는 소송(민사집행법 제44조). 집행권원 자체를 없애지는 못하고 집행력만 배제합니다.</span></span></b>를 냈습니다.</p>
+<p><b>[판단]</b> 대법원은 <b>채무자의 손을 들어 주었습니다.</b> 목록에 보증인이 빠졌더라도, <b>보증인이 전액 대위변제한 뒤 행사할 수 있는 원채권자의 채권이 목록에 적혀 변제대상이 된 이상</b>, 대위변제로 현실화되는 구상금채권도 <b>실질적으로 변제계획에 의한 변제대상이 되었다</b>고 볼 수 있다는 것입니다. 목록에 넣었더라도 보증인은 결국 <b>변제계획에 따라 감축된 금액만큼만</b> 받을 수 있었을 것이므로 <b>불이익이 있다고 단정할 수 없고</b>, 변제를 완료한 채무자에게 면책이 안 된다고 하는 것은 <b>지나치게 가혹하다</b>고 보았습니다.</p>
+<p style="margin-top:8px"><b>→ 읽는 법.</b> <b>보증보험·신용보증재단·주택금융공사가 대신 갚았다며 구상금을 청구해 오는 일이 아주 흔합니다.</b> ① 원래 채권이 채권자목록에 들어 있었고 ② <b>인가결정 후에</b> 보증인이 전액 대위변제했으며 ③ 내가 변제를 완료하여 면책받았다면, <b>그 구상금채권에도 면책이 미칩니다.</b> 이미 판결이나 이행권고결정이 확정되어 집행해 오더라도 <b>청구이의의 소</b>로 막을 수 있습니다.<br>
+<span style="color:#9c3a22"><b>다만 세 가지 조건이 모두 맞아야 합니다.</b> 원채권이 목록에 없었거나, 대위변제가 <b>인가결정 전</b>이었거나, 변제를 완료하지 못한 경우는 이 판결과 사안이 다릅니다.</span></p>
+</div>
+
+<div class="tip"><span class="pt">💡 보증인이 그대로 갚아야 한다는 원칙에는 예외가 있습니다 — 세 공공기금 보증</span>
+채권자가 <b>신용보증기금·기술보증기금·중소벤처기업진흥공단</b>인 경우에는 법률에 특칙이 있습니다. <b>신용보증기금법 제30조의3</b>[시행 2026. 1. 2.]은 "「채무자 회생 및 파산에 관한 법률」 제250조제2항, 제567조, <b>제625조제3항에도 불구하고</b> 채권자가 기금인 경우에는 <b>중소기업의</b> 회생계획인가결정을 받는 시점 및 파산선고 이후 면책결정을 받는 시점에 <b>주채무가 감경 또는 면제될 경우 연대보증채무도 동일한 비율로 감경 또는 면제한다</b>"고 정하고 있습니다. <span class="srcb goe">A</span><br><br>
+<b>기술보증기금법 제37조의3</b>[시행 2026. 10. 8.]도 제1항에서 같은 내용을 정하고, 여기에 더해 <b>제2항·제3항이 2020. 12. 8. 신설</b>되었습니다. <b>제2항</b>은 기금이 <b>연대보증채무자의 재기 지원을 위하여 필요한 경우</b> 같은 법 제29조에 따른 업무방법서가 정하는 바에 따라 <b>연대보증채무를 감경하거나 면제할 수 있다</b>고 정합니다. 주채무가 줄지 않았더라도 보증인 쪽 사정만으로 감면의 길이 열려 있다는 뜻이므로, <b>기술보증기금에 직접 감면을 신청해 볼 수 있습니다.</b> <b>제3항</b>은 그렇게 감면을 받은 사람 외의 <b>다른 연대보증채무자는 「민법」 제485조에도 불구하고 기금에 면책을 주장할 수 없다</b>고 하여, 한 사람을 감면해 주었다고 나머지 보증인까지 덩달아 빠져나가지는 못하게 막아 두었습니다. <span class="srcb goe">A</span><br><br>
+<b>중소기업진흥에 관한 법률 제74조의2</b>(연대보증채무의 감경·면제)[시행 2026. 7. 1.]도 같은 취지이나 <b>두 가지가 다릅니다.</b> 첫째, 주체가 <b>중소벤처기업진흥공단</b>입니다(2018. 12. 31. 개정 전 명칭이 중소기업진흥공단이었습니다 — 오래된 책자나 안내문에는 옛 이름으로 적혀 있습니다). 둘째, <b>같은 법 제66조제5항에 따라 대출 방식으로 이루어지는 사업에 한정</b>됩니다. 공단의 보증·투자 등 대출이 아닌 형태의 지원에는 이 조문이 적용되지 않습니다. <span class="srcb goe">A</span><br><br>
+<span style="color:#9c3a22"><b>[확인필요]</b> 세 조문 모두 <b>"중소기업의"</b> 회생계획인가·면책을 전제로 적고 있어, <b>개인사업자·중소기업 대표가 받은 개인회생 면책에 그대로 적용되는지는 사안별로 따져야 합니다.</b> 채권자목록에 위 세 기관이 들어 있고 보증인을 세우셨다면, <b>그 보증인에게도 감면이 미치는지 해당 기관에 반드시 확인</b>하십시오. 가족이 보증을 선 경우에는 더욱 그렇습니다.</span></div>
+
+<div class="tip"><span class="pt">💡 보증인·연대채무자가 나에게 가지는 "구상권"은 원래 면책 대상입니다</span>
+제625조 제3항은 <b>채권자가 보증인에게 가지는 권리</b>에 면책이 영향을 미치지 않는다는 것이지, <b>보증인이 나에게 가지는 구상권</b>까지 보호한다는 뜻이 아닙니다. <b>보증인·물상보증인·연대채무자가 채무자에 대하여 가지는 구상권은 그 자체가 개인회생채권</b>이므로 원칙적으로 <b>모두 면책의 대상</b>입니다. <span class="srcb own">B</span><br><br>
+그래서 <b>채권자목록에 보증인의 장래 구상금채권도 함께 적는 것</b>이 원칙입니다. 적어 두면 변제계획에 따라 처리되고, 빠뜨렸더라도 위 2024다221042 판결의 요건에 맞으면 면책이 미칩니다.</div>
+
+<div class="bnote"><b>전셋집 세입자의 보증금은 다릅니다.</b> 집주인에 대한 개인회생절차에서 집이 환가되지 않아 세입자가 보증금을 못 받은 채 집주인이 면책받았더라도, <b>주택임대차보호법상 우선변제권이 인정되는 한도 내에서는</b> 제625조 제2항 단서 제1호의 "목록에 기재되지 아니한 청구권"에 해당하여 <b>면책의 효력이 미치지 않는다</b>는 것이 대법원 판단입니다(대법원 2017. 1. 12. 선고 2014다32014 판결 <span class="srcb goe">A</span>). 위 2022다256327 판결도 이 판결을 두고 <b>"우선변제권은 있으나 경매신청권은 없는 주택임차인"</b>의 사안이어서 별제권자(근저당권자)와는 사안이 다르다고 명시적으로 구별했습니다. <b>집주인으로 개인회생을 하시는 분은 세입자 보증금을 가볍게 보시면 안 됩니다.</b></div>
+
+</div></details>
+
+<details class="sec" id="e10"><summary><span class="qb">10</span><span class="st">면책 뒤에 생기는 일<span class="sub">신용 회복 · 추심이 또 올 때 · 면책 취소</span></span></summary>
+<div class="secbody">
+
+<div class="flow">
+<div class="ft2">① 신용정보 — 법원이 알아서 통보합니다</div>
+<p style="margin:0">법원은 면책결정이 확정되면 <b>한국신용정보원의 장에게 즉시 통보</b>하여, 변제계획 인가결정 때 등록된 <b>특수기록정보 등 신용거래정보가 해제</b>되도록 하여야 합니다(실무준칙 제452호 제2조, 개인회생사건 처리지침 제18조 제1항 제2호). 통보 내용에는 사건번호·성명·주민등록번호·면책결정일·<b>확정일</b>·면책의 종류(제624조 제1항 면책인지 제2항 면책인지)가 들어갑니다.</p>
+<p style="margin:9px 0 0"><b>내가 할 일은 없습니다.</b> 다만 몇 주가 지나도 기록이 그대로라면 <a href="https://www.credit4u.or.kr" target="_blank" rel="noopener">크레딧포유</a>에서 본인 신용정보를 조회해 보시고, 법원에서 받은 <b>면책결정문과 확정증명원</b>을 가지고 한국신용정보원에 정정을 요청하십시오.</p>
+</div>
+
+<div class="flow">
+<div class="ft2">② 면책된 빚으로 또 추심이 올 때 — 상황별로 대응이 다릅니다</div>
+<div class="tblwrap">
+<table>
+<tr><th style="width:27%">상황</th><th>대응</th></tr>
+<tr><td><b>전화·문자·우편으로<br>독촉만 할 때</b></td><td><b>면책결정문과 확정증명원 사본</b>을 보내고 면책 사실을 통지하십시오. 그래도 계속되면 금융기관은 <a href="https://www.fss.or.kr" target="_blank" rel="noopener">금융감독원</a>, 대부업자는 <b>관할 지자체 대부업 담당 부서</b>에 민원을 넣을 수 있습니다</td></tr>
+<tr><td><b>가압류·가처분이<br>들어왔을 때</b></td><td><b>가압류(가처분) 이의</b>로 불복합니다 — 면책받은 채권에 기한 것임을 주장합니다</td></tr>
+<tr><td><b>압류·추심명령,<br>전부명령이 들어왔을 때</b></td><td><span style="color:#9c3a22"><b>즉시항고가 아니라 「청구이의의 소」입니다.</b></span> 아래 설명을 보십시오</td></tr>
+<tr><td><b>고의로 집행해 온 경우</b></td><td>면책된 사실을 <b>알면서</b> 면책된 채권에 기하여 강제집행·가압류·가처분의 방법으로 추심행위를 한 자는 <b>500만원 이하의 과태료</b>에 처합니다(제660조 제3항). 집행사건을 접수한 법원의 법원사무관등이 과태료에 처할 자의 주소지 관할 법원에 통지하게 되어 있습니다</td></tr>
+</table>
+</div>
+</div>
+
+<div class="warn"><span class="wt">⚠ 여기서 가장 많이 틀립니다 — 면책은 "집행장애사유"가 아닙니다</span>
+개인회생 <b>개시결정 전에 이미 받아 둔 판결·지급명령</b>(그 채권은 개인회생채권으로 면책됩니다)을 가지고 있다가, 절차가 끝난 뒤 압류 및 추심명령을 신청해 오는 경우가 있습니다. 이때 <b>"면책받았는데 왜 집행이 되느냐"며 즉시항고를 하면 받아들여지지 않습니다.</b><br><br>
+면책결정이 확정되어도 그것이 <b><span class="term">집행권원<span class="bub">강제집행을 할 수 있는 근거가 되는 문서. 확정판결, 지급명령, 이행권고결정, 공정증서, 화해조서 등이 이에 해당합니다.</span></span>의 효력을 당연히 상실시키지는 않습니다.</b> 면책은 <b>청구이의의 소를 통하여 집행력을 배제시킬 수 있는 실체상의 사유</b>일 뿐이고, 확정 후 비로소 개시된 강제집행의 <b>집행장애사유가 되지 않습니다.</b> 따라서 <b>채권압류명령에 대한 적법한 항고이유가 되지 않습니다.</b>
+<div style="margin-top:9px">대법원 <b>2013. 9. 16.자 2013마1438 결정</b>(채권압류 및 추심명령) <span class="srcb own">B</span> / 대법원 <b>2021. 11. 5.자 2021마251 결정</b>(채권압류 및 전부명령) <span class="srcb goe">A</span></div>
+<div style="margin-top:9px"><b>→ 할 일.</b> 집행권원을 가진 법원(판결을 한 법원)에 <b>청구이의의 소</b>를 제기하고, 함께 <b>강제집행정지신청</b>을 내십시오. 정지신청을 같이 내지 않으면 소송하는 동안 돈이 빠져나갑니다.</div>
+</div>
+
+<div class="flow">
+<div class="ft2">③ 개인회생 중이라는 이유로 불이익을 줄 수 없습니다</div>
+<div class="lawbox">
+<div class="lawrow"><span class="lrl">채무자회생법 제32조의2</span><span class="lrc">누구든지 이 법에 따른 회생절차ㆍ파산절차 또는 개인회생절차 <b>중에 있다는 이유로 정당한 사유 없이 취업의 제한 또는 해고 등 불이익한 처우를 받지 아니한다.</b></span></div>
+</div>
+<p style="margin:0">절차가 <b>진행 중일 때</b>를 포함합니다. 면책을 받은 뒤는 더 말할 것도 없습니다. 회사에 알려졌다는 이유로 <b>해고·전보·승진 제외·재계약 거부</b>를 당하셨다면 이 조문을 드십시오.</p>
+<p style="margin:9px 0 0;color:#9c3a22">다만 <b>"정당한 사유 없이"</b>라는 단서가 있습니다. 또 금융기관 임직원처럼 <b>다른 법률이 별도로 자격·결격을 정해 둔 경우</b>는 그 법률의 문제로 따로 봅니다. 분쟁이 되면 노동위원회 구제신청(부당해고는 <b>해고일부터 3개월 이내</b>)이나 소송으로 다투게 되므로, <b>불이익을 받으신 경위와 시점을 기록해 두십시오.</b></p>
+</div>
+
+<div class="warn"><span class="wt">⚠ 숨기면 형사처벌까지 갑니다 — 면책 취소보다 더 무겁습니다</span>
+<div class="tblwrap" style="margin-top:7px">
+<table>
+<tr><th style="width:30%">무엇</th><th style="width:26%">형</th><th>내용</th></tr>
+<tr><td><b>사기회생죄</b><br>(제643조 제3항)</td><td><b>5년 이하 징역<br>또는<br>5천만원 이하 벌금</b></td><td>자기 또는 타인의 이익을 도모하거나 <b>채권자를 해할 목적</b>으로 ① <b>재산을 은닉 또는 손괴하거나 채권자에게 불이익하게 처분</b>하는 행위 ② <b>허위로 부담을 증가</b>시키는 행위를 하고, <b>개인회생절차개시결정이 확정된 때</b></td></tr>
+<tr><td><b>보고와 검사거절의 죄</b><br>(제649조 제5호)</td><td>1년 이하 징역<br>또는<br>1천만원 이하 벌금</td><td>정당한 사유 없이 <b>제591조에 의한 법원·회생위원의 보고·조사·시정 요구를 거부하거나 허위보고</b>를 한 채무자</td></tr>
+</table>
+</div>
+<div style="margin-top:9px"><b>차명계좌, 가족 명의로 돌려놓은 재산, 없는 빚을 적어 넣는 것</b>이 여기에 해당합니다. 면책이 취소되는 데 그치지 않고 <b>형사처벌</b>로 갑니다. <span style="color:#9c3a22">반대로, 사기죄(형법 제347조)와는 다릅니다. 사기죄 피해자의 채권은 <b>그 채권만</b> 비면책채권이 될 수 있지만, 사기회생죄가 인정되면 <b>면책 자체가 불허</b>되거나 취소될 수 있습니다.</span></div>
+</div>
+
+<div class="flow">
+<div class="ft2">④ 면책이 취소될 수 있습니다 — 확정일부터 1년</div>
+<div class="tblwrap">
+<table>
+<tr><th style="width:22%">사유</th><td>채무자가 <b>기망 그 밖의 부정한 방법</b>으로 면책을 받은 때(제626조 제1항)</td></tr>
+<tr><th>누가</th><td>이해관계인의 신청 또는 <b>법원 직권</b></td></tr>
+<tr><th>기간</th><td>이해관계인의 신청은 <b>면책결정의 확정일부터 1년 이내</b>(같은 조 제2항).<br><span style="color:#9c3a22">직권 취소에는 따로 기한이 없습니다. 1년이 지나 낸 신청은 직권발동을 촉구하는 의미로 받아들여집니다 <span class="srcb own">B</span></span></td></tr>
+<tr><th>절차</th><td>법원은 <b>이해관계인을 심문하여야 합니다</b>(같은 조 제1항 단서). 또 <b>채무자도 심문</b>합니다(개인회생사건 처리지침 제15조). 신청 시 인지 1,000원, 송달료 4회분 <span class="srcb own">B</span></td></tr>
+<tr><th>결정</th><td>면책취소결정은 <b>공고</b>합니다(채무자회생규칙 제95조). 공고와 아울러 송달도 합니다. 취소결정이 확정되면 <b>면책으로 소멸되었던 책임이 되살아납니다</b></td></tr>
+<tr><th>취하</th><td>이해관계인이 면책취소를 신청하여 <b>면책취소결정이 난 뒤에 신청을 취하</b>하더라도, 그 취하는 <b>면책취소결정의 효력에 미치지 못합니다.</b> 면책취소절차는 비송절차의 성격을 가지고, 법원의 직권 취소도 가능하기 때문입니다 <span class="srcb own">B</span></td></tr>
+<tr><th>불복</th><td>면책취소결정에 대하여는 <b>즉시항고</b>(제627조). 반면 <b>면책취소신청을 기각한 결정</b>에 대하여는 규정이 없어 즉시항고를 할 수 없고 <b><span class="term">특별항고<span class="bub">불복할 수 없는 결정·명령에 대하여, 재판에 영향을 미친 <b>헌법 위반</b>이 있거나 재판의 전제가 된 명령·규칙·처분의 헌법·법률 위반 여부에 대한 판단이 부당함을 이유로 대법원에 하는 항고(민사소송법 제449조 제1항). 기간은 재판이 고지된 날부터 1주이고 늘릴 수 없습니다(같은 조 제2항·제3항).</span></span></b>만 허용된다는 것이 대법원 판단이며, 이것이 헌법에 위반되지 않는다는 헌법재판소 결정도 있습니다 <span class="srcb own">B</span></td></tr>
+</table>
+</div>
+</div>
+
+<div class="warn"><span class="wt">⚠ 면책 뒤 5년 동안은 다시 개인회생을 신청할 수 없습니다</span>
+법원은 <b>채무자가 신청일 전 5년 이내에 면책(파산절차에 의한 면책을 포함한다)을 받은 사실이 있는 때</b>에는 개인회생절차개시의 신청을 <b>기각할 수 있습니다</b>(채무자회생법 제595조 제5호). <b>개인파산으로 받은 면책도 포함</b>된다는 점을 놓치지 마십시오.<br><br>
+나아가 그 사실을 밝히지 않아 개시결정이 났다가 <b>뒤늦게 드러나면 절차가 폐지</b>됩니다(제620조 제1항 제1호). <span style="color:#9c3a22"><b>반면 폐지나 기각으로 끝난 경우에는 기간 제한이 없습니다.</b> 면책을 받은 것과 폐지된 것은 다릅니다.</span></div>
+
+<div class="tip"><span class="pt">💡 "빚이 없다"는 확인판결을 받아 둘 필요는 없습니다</span>
+면책을 받고 나서 불안한 마음에 <b>채무부존재확인의 소</b>를 내려는 분이 계십니다. 대법원은 <b>면책된 채무자에 대한 채무부존재확인의 소는 특별한 사정이 없는 한 확인의 이익이 없어 부적법</b>하다고 보았습니다(대법원 2019. 6. 13. 선고 2017다277986, 277993 판결 <span class="srcb goe">A</span>).<br>
+<b>면책결정문과 확정증명원이 곧 증거입니다.</b> 따로 소송을 걸 것이 아니라, 채권자가 청구해 오면 그때 <b>항변으로 면책을 주장</b>하시면 됩니다. 이미 집행권원이 있는 경우라면 <b>청구이의의 소</b>입니다.</div>
+
+<div class="tip"><span class="pt">💡 면책 뒤에도 "비면책채권"이라며 소송을 걸어오는 경우가 있습니다</span>
+채권자가 나를 <b>사기로 고소</b>했다는 사실만으로 면책절차에 영향은 없습니다. 다만 수사 결과 <b>사기죄가 인정되면</b> 그 채권이 비면책채권인 <b>"고의로 가한 불법행위로 인한 손해배상"</b>(제625조 제2항 단서 제4호)으로 인정될 가능성이 높아집니다. 이때 채권자는 <b>별도의 소송을 제기하여</b> 비면책채권임을 주장해야 합니다.<br><br>
+그런 소송이 들어오면 <b>채무자는 면책받은 사실을 항변(또는 본안전항변)으로 주장</b>하고, 채권자가 <b>유죄 판결문을 내며 재항변</b>하는 구조가 됩니다. <b>소장을 받으시면 답변서 제출기한(송달일부터 30일) 안에 면책 사실부터 적어 내십시오.</b></div>
+
+<div class="bnote"><b>그리고 한 가지 더.</b> 채권자목록에 보증인을 적지 않았는데 <b>면책결정 후에</b> 그 보증인이 채권자에게 대위변제한 경우, 보증인은 자기 구상권을 행사할 수 있고 <b>주채무가 면책되었다는 이유로 보증인의 채권까지 면책되는 것은 아니라는 것이 종래 실무</b>였습니다 <span class="srcb own">B</span>. <b>다만 위 2024다221042 판결은 "인가결정 후 전액 대위변제"한 경우를 다룬 것</b>이어서, 대위변제 시점이 인가 전인지 후인지, 면책 전인지 후인지에 따라 결론이 달라질 수 있습니다. <b>구상금 청구를 받으셨다면 대위변제일자부터 확인하십시오.</b></div>
+
+</div></details>
+
+<details class="sec" id="e11"><summary><span class="qb">11</span><span class="st">작성례<span class="sub">그대로 베껴 쓰실 수 있도록 — 다섯 가지</span></span></summary>
+<div class="secbody">
+
+<div class="concept">아래 양식은 <b>대법원 전자민원센터·서울회생법원 실무준칙에 게시된 양식과 채무자회생규칙이 정한 기재사항</b>에 맞추어 만든 것입니다. <b>○○○ 부분을 자기 사건 내용으로 바꾸어</b> 쓰시면 됩니다. 금액과 날짜는 모두 예시입니다.</div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="srcb goe">규칙 제91조</span>① 변제계획 변경신청서<span class="chev">▾</span></button><div class="fold-body">
+<div class="howto"><b>어디에 내나.</b> 인가결정을 한 그 법원(사건이 걸려 있는 회생법원 또는 지방법원)입니다. <a href="https://ecfs.scourt.go.kr" target="_blank" rel="noopener">전자소송</a>으로 내실 수 있습니다.<br><b>무엇과 같이 내나.</b> <b>변제계획 변경안</b>과 함께 냅니다. 변경안은 <b>알고 있는 채권자 수 + 1</b>만큼 부본을 붙입니다(규칙 제85조 제2항).</div>
+<div class="form-tools"><button type="button" onclick="copyForm('form-1')">📋 복사</button><button type="button" onclick="printForm('form-1')">🖨 인쇄</button><button type="button" onclick="downloadForm('form-1','변제계획_변경신청서.txt')">⬇ 다운로드</button></div>
+<div class="form" id="form-1"><span class="ft">변제계획 변경신청서</span>사 건   20○○개회○○○○○ 개인회생
+채무자   ○ ○ ○ (○○○○○○-○○○○○○○)
+         주소  ○○시 ○○구 ○○로 ○○, ○○○동 ○○○호
+         연락처 010-○○○○-○○○○
+
+위 사건에 관하여 채무자는 채무자 회생 및 파산에 관한 법률 제619조
+제1항에 따라 다음과 같이 인가된 변제계획의 변경안을 제출합니다.
+
+                        다       음
+
+1. 변경안을 제출하는 취지
+   채무자가 제출하는 별지 변제계획 변경안과 같이 변제계획을
+   변경하여 주시기 바랍니다.
+
+2. 변경안을 제출하는 사유
+  가. 인가 경과
+     채무자는 20○○. ○. ○. 변제계획 인가결정을 받아, 매월 ○○일
+     ○○○,○○○원씩 36회를 변제하기로 하였고, 20○○. ○. ○.자
+     제○○회분까지 지체 없이 변제를 수행하였습니다.
+
+  나. 변경이 필요하게 된 사정
+     채무자는 20○○. ○. ○. 근무하던 주식회사 ○○○이 경영난으로
+     ○○사업부를 폐지하면서 권고사직을 당하여 소득이 전부
+     끊겼습니다(소갑 제1호증 이직확인서).
+     이후 ○개월간 구직활동을 하여 20○○. ○. ○. 주식회사 □□□에
+     입사하였으나, 월 평균 수입이 종전 ○,○○○,○○○원에서
+     ○,○○○,○○○원으로 ○○○,○○○원 감소하였습니다
+     (소갑 제2호증 급여명세서, 소갑 제3호증 근로계약서).
+
+  다. 채무자의 책임 없는 사유임
+     위 사직은 사업부 폐지에 따른 것으로 채무자가 통제할 수 없는
+     사유이고, 새 직장의 급여도 채무자의 경력과 연령에 비추어
+     현재 구할 수 있는 수준입니다.
+
+  라. 변경의 내용
+     이에 채무자는 제○○회분부터 월 변제액을 ○○○,○○○원으로
+     감액하고, 변제기간을 ○○개월 연장하여 총 ○○회로 하는
+     변경안을 제출합니다. 변경안에 따른 총 변제예정액의
+     현재가치는 ○○,○○○,○○○원으로, 인가결정 당시 청산가치
+     ○○,○○○,○○○원을 밑돌지 아니합니다.
+
+                       첨 부 서 류
+
+1. 변제계획 변경안                           ○통(채권자 수 + 1)
+2. 소갑 제1호증  이직확인서                        1통
+3. 소갑 제2호증  급여명세서(최근 3개월분)          1통
+4. 소갑 제3호증  근로계약서                        1통
+5. 소갑 제4호증  고용보험 피보험자격 이력내역서    1통
+
+                     20○○.  ○.  ○.
+
+                       채무자  ○ ○ ○  (서명 또는 날인)
+
+○○회생법원 제○단독 귀중</div>
+<div class="bnote"><b>"라. 변경의 내용"이 핵심입니다.</b> 줄여 달라는 말만 쓰고 <b>청산가치를 밑돌지 않는다</b>는 점을 적지 않으면 보정을 받습니다. 인가결정문에 적힌 청산가치를 찾아 그대로 옮겨 적으십시오.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="srcb goe">준칙 제441호 별지 2</span>② 채무자 진술서 — 세 달분이 밀려 통지서를 받으셨을 때<span class="chev">▾</span></button><div class="fold-body">
+<div class="howto"><b>기한.</b> <b>통지서를 송달받은 날부터 7일 이내</b>입니다. <b>소명자료를 반드시 붙이십시오.</b> 서울회생법원이 쓰는 양식 그대로입니다.</div>
+<div class="form-tools"><button type="button" onclick="copyForm('form-2')">📋 복사</button><button type="button" onclick="printForm('form-2')">🖨 인쇄</button><button type="button" onclick="downloadForm('form-2','채무자_진술서.txt')">⬇ 다운로드</button></div>
+<div class="form" id="form-2"><span class="ft">채 무 자 진 술 서</span>사 건   20○○개회○○○○○ 개인회생
+채무자   ○ ○ ○
+
+채무자는 변제금 납부 지체와 관련하여 다음과 같이 진술합니다.
+
+1. 변제금 납부 지체사유 (구체적으로 기재하고 소명자료 첨부)
+
+   채무자는 20○○. ○. ○.까지 제○○회분 변제금을 납입하였으나,
+   같은 해 ○월 ○일 배우자 ○○○이 ○○질환으로 입원하여
+   ○개월간 치료를 받으면서 의료비 합계 ○,○○○,○○○원을
+   지출하였고, 간병을 위하여 채무자도 ○개월간 무급휴직을
+   하였습니다. 그로 인하여 제○○회분부터 제○○회분까지
+   3개월분 합계 ○,○○○,○○○원을 납입하지 못하였습니다.
+   (소명자료: 진단서, 입퇴원확인서, 진료비 영수증, 휴직원)
+
+   ※ 천재지변·감염병 확산 등으로 어려움을 겪으신 기간이 있다면
+     그 기간과 사정을 여기에 반드시 적으십시오. 적지 않으면
+     참작되지 않습니다.
+
+2. 미납금 해결방안 (구체적으로 기재하고 실현가능성에 관한
+   소명자료 첨부)
+
+   [아래 ①②③ 중 해당하는 것을 고르십시오]
+
+   ① 앞으로 월 변제액을 제때 납입하면서, 미납금은 이 진술서
+      제출일부터 ○개월 이내에 모두 납부하겠습니다.
+      (소명자료: ○○○)
+
+   ② 앞으로 월 변제액을 제때 납입하면서, 미납금은 20○○. ○.
+      ○.부터 월 변제액에 ○○○,○○○원씩 추가하여 ○개월간
+      분할 납부하겠습니다.
+      (소명자료: 급여명세서, 예금거래내역)
+
+   ③ 기타
+      채무자는 현재 소득으로는 인가된 변제계획을 그대로
+      수행하기 어려우므로, 본 진술서와 함께 변제계획
+      변경안을 제출합니다. 변경안에 따른 변제를 성실히
+      수행하겠습니다.
+
+                     20○○.  ○.  ○.
+
+                       채무자  ○ ○ ○  (서명 또는 인)</div>
+<div class="bnote"><b>③을 고르셨다면 변경안을 같이 내셔야 합니다.</b> 진술서만 내고 "앞으로 잘 내겠다"고 썼다가 또 밀리면, 다음은 곧바로 폐지 판단으로 넘어갑니다.</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="srcb goe">규칙 제94조 제1항</span>③ 면책신청서 — 변제를 완료하신 경우<span class="chev">▾</span></button><div class="fold-body">
+<div class="howto"><b>언제.</b> 마지막 회차 납입이 확인되면 바로 내십시오. 내지 않아도 <b>6개월이 지나면 회생위원 보고로 직권면책</b>이 진행되지만, 그만큼 늦어집니다.</div>
+<div class="form-tools"><button type="button" onclick="copyForm('form-3')">📋 복사</button><button type="button" onclick="printForm('form-3')">🖨 인쇄</button><button type="button" onclick="downloadForm('form-3','면책신청서.txt')">⬇ 다운로드</button></div>
+<div class="form" id="form-3"><span class="ft">면 책 신 청 서</span>사 건   20○○개회○○○○○ 개인회생
+신청인
+(채무자) ○ ○ ○ (○○○○○○-○○○○○○○)
+         주소  ○○시 ○○구 ○○로 ○○, ○○○동 ○○○호
+         연락처 010-○○○○-○○○○
+
+                     신 청 취 지
+
+   채무자에 대하여 면책을 결정한다
+   라는 결정을 구합니다.
+
+                     신 청 원 인
+
+1. 채무자는 20○○. ○. ○. 이 법원으로부터 변제계획 인가결정을
+   받았습니다.
+
+2. 인가된 변제계획은 20○○. ○. ○.을 제1회로 하여 매월 ○○일
+   ○○○,○○○원씩 ○○회를 변제하는 것이고, 총 변제예정액은
+   ○○,○○○,○○○원입니다.
+
+3. 채무자는 20○○. ○. ○. 제○○회분을 마지막으로 납입하여
+   총 ○○,○○○,○○○원을 전부 납입함으로써, 변제계획에
+   따른 변제를 완료하였습니다.
+
+4. 따라서 채무자 회생 및 파산에 관한 법률 제624조 제1항에
+   따라 면책결정을 하여 주시기 바랍니다.
+
+                       첨 부 서 류
+
+1. 변제계획 인가결정문 사본                      1통
+2. 적립금(변제수행) 내역 출력물                  1통
+
+                     20○○.  ○.  ○.
+
+                       신청인(채무자)  ○ ○ ○  (서명 또는 날인)
+
+○○회생법원 제○단독 귀중</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="srcb goe">규칙 제94조 제2항</span>④ 면책신청서 — 다 갚지 못한 경우(특별면책)<span class="chev">▾</span></button><div class="fold-body">
+<div class="howto"><b>차이.</b> 완제형과 달리 <b>제624조 제2항 각 호의 요건을 갖춘 내용</b>을 적어야 합니다(규칙 제94조 제2항 제4호). 요건 셋을 <b>항목을 나누어</b> 쓰시는 것이 좋습니다.<br><span style="color:#9c3a22"><b>폐지결정이 확정된 뒤에는 낼 수 없습니다.</b> 절차가 진행 중일 때만 가능합니다.</span></div>
+<div class="form-tools"><button type="button" onclick="copyForm('form-4')">📋 복사</button><button type="button" onclick="printForm('form-4')">🖨 인쇄</button><button type="button" onclick="downloadForm('form-4','특별면책_신청서.txt')">⬇ 다운로드</button></div>
+<div class="form" id="form-4"><span class="ft">면 책 신 청 서</span>사 건   20○○개회○○○○○ 개인회생
+신청인
+(채무자) ○ ○ ○ (○○○○○○-○○○○○○○)
+         주소  ○○시 ○○구 ○○로 ○○, ○○○동 ○○○호
+         연락처 010-○○○○-○○○○
+
+                     신 청 취 지
+
+   채무자에 대하여 면책을 결정한다
+   라는 결정을 구합니다.
+
+                     신 청 원 인
+
+1. 경과
+   채무자는 20○○. ○. ○. 변제계획 인가결정을 받아 매월
+   ○○○,○○○원씩 ○○회를 변제하기로 하였고, 20○○. ○. ○.
+   제○○회분까지 합계 ○○,○○○,○○○원을 납입하였습니다.
+
+2. 채무자가 책임질 수 없는 사유로 변제를 완료하지 못하였습니다
+   (법 제624조 제2항 제1호)
+   채무자는 20○○. ○. ○. ○○○의 폐업으로 비자발적으로
+   실직하였고, 당시 만 ○○세로서 ○○개월간 구직활동을
+   계속하였음에도 재취업하지 못하였습니다. 현재는
+   ○○○질환으로 근로능력이 제한되어 있습니다.
+   (소갑 제1호증 폐업사실증명, 제2호증 구직활동내역,
+    제3호증 진단서)
+
+3. 이미 변제한 금액이 청산가치 이상입니다
+   (같은 항 제2호)
+   인가결정 당시 산정된 청산가치는 ○,○○○,○○○원인데,
+   채무자가 면책결정일까지 변제한 금액은 ○○,○○○,○○○원으로
+   이를 밑돌지 아니합니다.
+   (소갑 제4호증 인가결정문, 제5호증 적립금 내역)
+
+4. 변제계획의 변경이 불가능합니다
+   (같은 항 제3호)
+   채무자의 현재 수입은 ○○○,○○○원으로 3인 가구 기준
+   중위소득의 100분의 60에 해당하는 생계비 ○,○○○,○○○원에
+   미치지 못하여 가용소득이 없습니다. 따라서 변제액을
+   감액하거나 기간을 연장하는 방법으로도 변제를 계속할 수
+   없습니다.
+   (소갑 제6호증 소득금액증명, 제7호증 건강보험 자격득실확인서)
+
+5. 면책불허가 사유가 없습니다
+   채무자에게는 법 제624조 제3항 각 호의 사유가 없습니다.
+
+6. 따라서 법 제624조 제2항에 따라 면책결정을 하여 주시기
+   바랍니다.
+
+                     20○○.  ○.  ○.
+
+                       신청인(채무자)  ○ ○ ○  (서명 또는 날인)
+
+○○회생법원 제○단독 귀중</div>
+</div></div>
+
+<div class="formbox"><button class="fold-btn" type="button" onclick="toggleFold(this)"><span class="srcb own">사무소 작성례</span>⑤ 청구이의의 소장 — 면책된 빚으로 집행이 들어왔을 때<span class="chev">▾</span></button><div class="fold-body">
+<div class="howto"><b>어디에 내나.</b> <b>제1심 판결법원</b>입니다(민사집행법 제44조 제1항). 지급명령이면 그 지급명령을 한 법원, 이행권고결정이면 그 소액사건 법원입니다.<br>
+<b>같이 내야 할 것.</b> <b>강제집행정지신청</b>을 반드시 함께 내십시오. 청구이의의 소만으로는 집행이 멈추지 않습니다(같은 법 제46조 제1항). 법원은 신청에 따라 담보를 제공하게 하거나 제공하게 하지 않고 <b>판결이 있을 때까지 집행정지를 명할 수 있습니다</b>(같은 조 제2항).<br>
+<b>확정판결이라도 됩니다.</b> 청구이의의 이유는 원칙적으로 변론종결 뒤에 생긴 것이어야 하는데(제44조 제2항), <b>면책결정은 그 뒤에 생긴 사유</b>이므로 문제되지 않습니다. 이행권고결정은 아예 그 제한을 받지 않습니다(소액사건심판법 제5조의8 제3항).<br>
+<span style="color:#9c3a22">인지대는 소가에 따라 달라집니다. <b>[확인필요]</b> — 소가와 인지대·송달료는 <a href="https://sanlaw.co.kr/tools-calculator.html" target="_blank" rel="noopener">계산기</a>에서 확인하십시오.</span></div>
+<div class="form-tools"><button type="button" onclick="copyForm('form-5')">📋 복사</button><button type="button" onclick="printForm('form-5')">🖨 인쇄</button><button type="button" onclick="downloadForm('form-5','청구이의의_소장.txt')">⬇ 다운로드</button></div>
+<div class="form" id="form-5"><span class="ft">소       장</span>원 고   ○ ○ ○ (○○○○○○-○○○○○○○)
+         주소  ○○시 ○○구 ○○로 ○○, ○○○동 ○○○호
+         연락처 010-○○○○-○○○○
+
+피 고   ○○신용보증재단
+         주소  ○○시 ○○구 ○○로 ○○
+         대표자 이사장 ○ ○ ○
+
+청구이의의 소
+
+                     청 구 취 지
+
+1. 피고의 원고에 대한 ○○지방법원 20○○가소○○○○○호
+   구상금 사건의 20○○. ○. ○.자 이행권고결정에 기한
+   강제집행을 불허한다.
+2. 소송비용은 피고가 부담한다.
+   라는 판결을 구합니다.
+
+                     청 구 원 인
+
+1. 집행권원의 존재
+   피고는 원고를 상대로 ○○지방법원 20○○가소○○○○○호로
+   구상금 청구의 소를 제기하여, 같은 법원은 20○○. ○. ○.
+   "원고는 피고에게 ○○,○○○,○○○원 및 이에 대한 지연손해금을
+   지급하라"는 이행권고결정을 하였고 위 결정은 그대로
+   확정되었습니다(갑 제1호증).
+
+2. 개인회생절차의 경과
+  가. 원고는 20○○. ○. ○. ○○회생법원 20○○개회○○○○○호로
+     개인회생절차개시신청을 하면서, 개인회생채권자목록에
+     주식회사 ○○은행의 원고에 대한 대출채권 ○○,○○○,○○○원을
+     기재하였습니다(갑 제2호증).
+  나. 원고는 20○○. ○. ○. 개인회생절차개시결정을, 20○○. ○. ○.
+     변제계획 인가결정을 각 받았습니다(갑 제3호증).
+  다. 피고는 위 대출채무를 연대보증한 자로서 20○○. ○. ○.
+     주식회사 ○○은행에 위 대출채권 원리금 전액을
+     대위변제하였습니다(갑 제4호증).
+  라. 원고는 인가된 변제계획에 따른 변제를 완료하여
+     20○○. ○. ○. 면책결정을 받았고 위 결정은 확정되었습니다
+     (갑 제5호증 면책결정문, 갑 제6호증 확정증명원).
+
+3. 피고의 구상금채권에 면책의 효력이 미칩니다
+   보증인이 있는 개인회생채권에 관하여 채무자가 변제계획인가
+   결정을 받은 후에 변제계획에 따른 변제를 완료하여 면책결정을
+   받았다면, 비록 개인회생채권자목록에 원래의 채권자만
+   기재되었을 뿐 보증인이 누락되었다 하더라도, 면책결정의
+   효력은 특별한 사정이 없는 한 변제계획인가결정 후 채권
+   전액을 대위변제한 보증인의 구상금채권에 대하여 미칩니다
+   (대법원 2025. 10. 16. 선고 2024다221042 판결).
+
+   이 사건에서 피고는 변제계획 인가결정 후인 20○○. ○. ○.
+   채권 전액을 대위변제하였고, 그 원채권인 주식회사 ○○은행의
+   대출채권은 개인회생채권자목록에 기재되어 변제계획에 의한
+   변제대상이 되었으므로, 피고의 구상금채권에도 면책결정의
+   효력이 미칩니다.
+
+4. 결론
+   따라서 위 이행권고결정에 기한 강제집행은 불허되어야 하므로
+   청구취지와 같은 판결을 구합니다.
+
+                       입 증 방 법
+
+1. 갑 제1호증  이행권고결정 정본
+2. 갑 제2호증  개인회생채권자목록
+3. 갑 제3호증  변제계획 인가결정문
+4. 갑 제4호증  대위변제통지서
+5. 갑 제5호증  면책결정문
+6. 갑 제6호증  확정증명원
+
+                       첨 부 서 류
+
+1. 위 입증방법                               각 1통
+2. 소장 부본                                     1통
+3. 송달료납부서                                  1통
+
+                     20○○.  ○.  ○.
+
+                       원고  ○ ○ ○  (서명 또는 날인)
+
+○○지방법원 귀중</div>
+<div class="bnote"><b>이 작성례는 위 2024다221042 판결의 사안에 맞춘 것입니다.</b> 내 사건의 <b>대위변제일이 인가결정 전</b>이거나, <b>원채권이 채권자목록에 없었거나</b>, <b>변제를 완료하지 못한 경우</b>에는 이 논리가 그대로 들어맞지 않습니다. 그런 경우에는 다른 이유(예: 변제·상계·소멸시효 완성)를 찾아야 하므로 <b>반드시 상담을 받으십시오.</b></div>
+</div></div>
+
+</div></details>
+
+<div class="who">
+<span class="wl">💰 이 단계에서 드는 돈 — 최소 기준</span>
+<div class="tblwrap">
+<table>
+<tr><th style="width:26%">무엇</th><th style="width:22%">얼마</th><th>설명</th></tr>
+<tr><td><b>변제계획 변경신청</b></td><td><b>인지 없음</b><br>+ 송달료</td><td>변경안 부본을 채권자 전원에게 보내야 하므로 <b>송달료가 추가로 듭니다.</b> 채권자가 많을수록 늘어납니다 <span style="color:#9c3a22">[확인필요] 회차 기준은 법원별로 달라 접수 전 확인이 필요합니다</span></td></tr>
+<tr><td><b>면책신청</b></td><td><b>인지 없음</b></td><td>면책신청서에는 <b>인지를 따로 붙이지 않습니다</b>(민사접수서류에 붙일 인지액 및 그 편철방법 등에 관한 예규(재민 91-1)[재판예규 제1916호, 시행 2025. 7. 12.] 별표의 인지액란에 개인회생 면책신청이 들어 있지 않습니다). 신청하지 않아도 변제완료 후 6개월이 지나면 직권으로 진행됩니다(실무준칙 제451호 제3조)</td></tr>
+<tr><td><b>일시변제신청</b></td><td>송달료</td><td>채권자 전원에게 의견청취서를 보냅니다(실무준칙 제444호 제3조)</td></tr>
+<tr><td><b>폐지결정 즉시항고</b></td><td><b>인지 2,000원</b><br>+ 송달료<br>+ <b>보증 공탁</b></td><td>민사소송 등 인지법 제11조 제2항(같은 조 제1항의 항고장 외의 항고장). 보증 공탁은 채무자회생규칙 제93조가 준용하는 같은 규칙 제71조 제2항에 따라 <b>총액의 20분의 1에 해당하는 금액 범위 내</b>에서 법원이 정하며(조문 문언은 "의결권액"이나, 개인회생에는 의결권 행사 절차가 없어 실무는 <b>채권자목록의 채권액 총액</b>으로 읽습니다 <span class="srcb own">B</span>), 정해진 기간 안에 넣지 않으면 <b>항고장이 각하</b>됩니다(같은 조 제4항)</td></tr>
+<tr><td><b>면책취소신청</b></td><td>인지 1,000원<br>+ 송달료 4회분</td><td>채권자가 내는 것입니다. 사건부호는 '개기' <span class="srcb own">B</span></td></tr>
+<tr><td><b>청구이의의 소</b></td><td>소가에 따름<br>+ 송달료</td><td>집행력 배제를 구하는 금액이 소가입니다. <b>강제집행정지신청</b>을 함께 내면 <b>담보제공</b>을 명할 수 있습니다(민사집행법 제46조 제2항) <span style="color:#9c3a22">[확인필요]</span></td></tr>
+<tr><td><b>송달료 1회분</b></td><td><b>5,640원</b></td><td>2026. 7. 1. 우편요금 인상 반영. <b>당사자 수 × 회차</b>로 계산합니다</td></tr>
+</table>
+</div>
+</div>
+
+<a class="calc" href="https://sanlaw.co.kr/tools-calculator.html">
+<div class="cah">🧮 인지·송달료 계산기</div>
+<div class="cas">당사자 수와 회차를 넣으면 송달료가, 소가를 넣으면 인지대가 계산됩니다. 변경신청으로 추가되는 송달료도 함께 확인하실 수 있습니다.</div>
+</a>
+<p style="color:#c0392b;font-size:13.5px;margin:4px 0 0"><b>※ 계산기 결과는 참고용 어림수입니다.</b> 송달료는 우편요금이 오르면 함께 오르고, 회차 기준은 법원·사건별로 다릅니다. 접수 전 해당 법원 종합민원실에서 확인하십시오. 부족하면 보정명령이 옵니다.</p>
+
+<details class="sec" id="e12"><summary><span class="qb">Q</span><span class="st">자주 묻는 질문<span class="sub">인가 뒤에 가장 많이 받는 질문</span></span></summary>
+<div class="secbody">
+<div class="faq">
+
+<details><summary>이번 달 한 번 못 냈습니다. 바로 폐지되나요?</summary><div class="fa"><b>아닙니다.</b> 회생위원이 법원에 보고하게 되는 기준은 <b>지체액이 3개월분 변제액에 이른 때</b>입니다(개인회생사건 처리지침 제11조의3 제1항, 채무자회생규칙 제88조 제1항 제4호). 한 달 밀린 것으로 폐지되지는 않습니다. <b>다만 그다음이 중요합니다.</b> 다음 달에 두 달치를 넣어 메우시면 아무 일도 생기지 않습니다. 그대로 두면 석 달째에 통지서가 옵니다. <b>밀린 것을 알아차리신 그날이 가장 수습하기 쉬운 날입니다.</b></div></details>
+
+<details><summary>회생위원에게서 전화가 왔는데 무서워서 못 받았습니다. 어떻게 하나요?</summary><div class="fa"><b>지금 바로 다시 거십시오.</b> 서울회생법원 실무준칙 제441호 제5조 제1호는 <b>"회생위원이 연락을 시도하였으나 채무자에게 연락이 되지 않았고, 채무자도 아무 의견을 밝히지 않은 경우"</b>를 폐지사유로 정하고 있습니다. <b>돈이 없다는 것은 폐지사유가 아니지만, 연락이 끊기는 것은 그 자체로 폐지사유입니다.</b> 회생위원은 채무자를 몰아세우려는 사람이 아니라, <b>변경이 필요한지·가능한지를 확인하고 법원에 보고하는 사람</b>입니다. 사정을 그대로 말씀하시면 됩니다.</div></details>
+
+<details><summary>변제계획을 줄이면 나중에 또 줄일 수 있나요?</summary><div class="fa">어렵습니다. 서울회생법원이 채무자에게 보내는 안내문에 <b>"이미 1회 이상 변제계획변경안을 인가받은 적이 있다면 경우에 따라 다시 인가받기 어려울 수 있습니다"</b>라고 적혀 있습니다(실무준칙 제441호 별지 3). 또 어떤 방식을 쓰든 <b>원래 변제계획의 최초 변제일을 기준으로 5년을 넘길 수 없습니다.</b> <b>한 번 쓸 수 있는 카드라고 생각하시고, 줄이실 때 넉넉히 줄이십시오.</b> 아슬아슬하게 줄였다가 또 밀리면 그때는 선택지가 없습니다.</div></details>
+
+<details><summary>직장을 잃어 아예 낼 수가 없습니다. 변경이 아니라 끝낼 방법은 없나요?</summary><div class="fa"><b>있습니다 — 특별면책입니다</b>(채무자회생법 제624조 제2항). ① 책임질 수 없는 사유로 변제를 완료하지 못하였고 ② 지금까지 낸 돈이 <b>인가결정 당시의 청산가치 이상</b>이며 ③ 변제계획의 변경도 불가능하면, 다 갚지 못해도 면책결정을 받을 수 있습니다. 세 요건을 <b>모두</b> 갖춰야 합니다. <b>먼저 ②부터 확인해 보십시오.</b> 인가결정문에 적힌 청산가치와 지금까지 낸 총액을 비교해서 이미 넘으셨다면 길이 열려 있습니다. 자세한 것은 <a class="dl" href="#e6">6번 항목</a>에 있습니다.</div></details>
+
+<details><summary>폐지결정문을 오늘 봤습니다. 늦었나요?</summary><div class="fa">날짜부터 세어 보십시오. 폐지결정은 <b>공고</b>하고 송달은 하지 않을 수 있으며(제622조), 즉시항고는 <b>공고가 있은 날부터 14일</b> 이내입니다(제13조 제2항). <b>송달받은 날이 아니라 공고일 기준</b>이라는 점을 꼭 보십시오. 아직 기간 안이라면 <b>항고장을 내면서 밀린 변제금을 전부 넣고 그 자료를 원심법원에 제출</b>하십시오. 서울회생법원 실무준칙 제441호 제6조는 <b>사건기록이 항고심에 송부되기 전까지</b> 지체액을 모두 납입하고 소명자료를 내면 원심법원이 폐지결정을 <b>취소할 수 있다</b>고 정하고 있습니다. 기록 송부는 보증 제공일부터 <b>1주일 이내</b>에 이루어지므로 시간이 아주 짧습니다. <b>오늘 안에 움직이셔야 합니다.</b></div></details>
+
+<details><summary>다 갚았는데 면책결정이 안 나옵니다. 왜 그럴까요?</summary><div class="fa">가장 흔한 원인은 <b>미확정 개인회생채권</b>입니다. 담보 잡힌 재산의 경매가 끝나지 않아 채권액이 확정되지 않으면, 그 몫이 <b><span class="term">유보금<span class="bub">금액이 아직 정해지지 않은 채권자에게 줄 몫으로 떼어 두는 돈. 담보물 경매가 끝나야 채권액이 확정되는 경우에 생깁니다. 끝까지 확정되지 않으면 다른 채권자들에게 나누어 주고 면책을 진행합니다.</span></span></b>으로 남아 면책이 진행되지 않습니다. 회생위원은 인가일부터 <b>1년 6월</b>이 지나도록 확정되지 않으면 채권자에게 확정신고를 촉구하게 되어 있고(개인회생사건 처리지침 제11조의6), 변제완료 때까지도 확정되지 않으면 <b>유보금 전액을 일반 채권자들에게 채권액 비례로 추가 배분한 뒤 면책절차를 진행</b>합니다(실무준칙 제452호 제4조). 둘째 원인은 <b>계좌를 신고하지 않은 채권자</b>, 셋째는 <b>채권양도가 반영되지 않은 경우</b>입니다. <b>담당 회생위원에게 전화하여 "무엇 때문에 멈춰 있는지"를 물으시면 바로 알려 줍니다.</b></div></details>
+
+<details><summary>면책받았는데 보증인인 형이 대신 갚으라는 독촉을 받고 있습니다.</summary><div class="fa"><b>맞습니다.</b> 면책은 채권자가 <b>보증인이나 연대채무자에 대하여 가지는 권리에 영향을 미치지 아니합니다</b>(채무자회생법 제625조 제3항). 내가 면책받아도 <b>보증인은 그대로 갚아야 합니다.</b> 개인회생을 하시기 전에 보증인에게 알려 드려야 하는 이유입니다.<br><br>
+<b>다만 그 뒤가 다릅니다.</b> 보증인이 <b>변제계획 인가결정 후에 채권 전액을 대위변제</b>하였고, 원래 채권이 <b>채권자목록에 적혀 있었으며</b>, 내가 <b>변제를 완료하여 면책</b>받았다면, 그 보증인이 나에게 가지는 <b>구상금채권에는 면책의 효력이 미칩니다</b>(대법원 2025. 10. 16. 선고 2024다221042 판결). 즉 <b>형이 은행에 갚는 것은 막을 수 없지만, 형이 나에게 구상하는 것은 면책될 수 있습니다.</b> 가족 사이에서는 그것이 또 다른 문제가 되므로 <b>신청 전에 가족과 상의하십시오.</b></div></details>
+
+<details><summary>면책 뒤에 통장이 압류되었습니다. 즉시항고하면 되나요?</summary><div class="fa"><b>아닙니다 — 여기서 가장 많이 틀립니다.</b> 면책결정이 확정되어도 그것이 <b>집행권원의 효력을 당연히 상실시키지는 않습니다.</b> 면책은 <b>청구이의의 소를 통하여 집행력을 배제시킬 수 있는 실체상의 사유</b>일 뿐이고, <b>집행장애사유가 아니어서 채권압류명령에 대한 적법한 항고이유가 되지 않습니다</b>(대법원 2013. 9. 16.자 2013마1438 결정, 대법원 2021. 11. 5.자 2021마251 결정).<br><br>
+<b>해야 할 일은 둘입니다.</b> ① 집행권원을 만든 <b>제1심 판결법원에 청구이의의 소</b>를 제기하고, ② 같은 법원에 <b>강제집행정지신청</b>을 함께 냅니다. ②를 빠뜨리면 소송하는 동안 돈이 계속 빠져나갑니다. 작성례는 <a class="dl" href="#e11">11번 항목</a>에 있습니다. 가압류·가처분이면 <b>가압류(가처분) 이의</b>로 다툽니다.</div></details>
+
+<details><summary>면책 뒤 신용등급은 언제 회복되나요?</summary><div class="fa">법원이 면책결정 확정 사실을 <b>한국신용정보원에 즉시 통보</b>하여, 인가결정 때 등록된 <b>특수기록정보 등 신용거래정보가 해제</b>되도록 하게 되어 있습니다(실무준칙 제452호 제2조, 개인회생사건 처리지침 제18조 제1항 제2호). <b>내가 따로 신청할 것은 없습니다.</b> 다만 몇 주가 지나도 기록이 남아 있다면 <a class="dl" href="https://www.credit4u.or.kr">크레딧포유</a>에서 본인 신용정보를 조회하시고, <b>면책결정문과 확정증명원</b>을 가지고 정정을 요청하십시오. 등록정보가 해제되는 것과 <b>신용점수가 올라가는 것은 별개</b>입니다. 점수는 그 뒤 거래 이력을 쌓으면서 회복됩니다. <b>면책 전 신용관리 교육·상담</b>을 법원이 하고 있으니(실무준칙 제603호) 받아 두시면 도움이 됩니다.</div></details>
+
+<details><summary>중간에 목돈이 생겼습니다. 한 번에 갚고 끝낼 수 있나요?</summary><div class="fa">가능합니다 — <b>일시변제</b>입니다(실무준칙 제444호). 다만 아무 돈이나 되는 것은 아닙니다. 실무의 출발점은 <b>친지 등이 도와주어 대신 내 주는 돈</b>이어야 한다는 것이고, <b>내 재산이 늘어난 경우</b>라면 그것은 일시변제가 아니라 <b>청산가치를 다시 보는 변제계획 변경</b>의 문제가 됩니다. 또 단순한 소득 증가나 이직에 따른 급여 상승은 일시변제 사유가 되지 않습니다. 신청하시면 <b>자금 출처에 관한 금융거래자료</b>를 내셔야 하고, 회생위원이 <b>신청 당시의 수입·재산 신고가 진실하였는지</b>를 함께 봅니다. 자세한 것은 <a class="dl" href="#e7">7번 항목</a>에 있습니다.</div></details>
+
+<details><summary>이사를 했는데 법원에 알려야 하나요?</summary><div class="fa"><b>반드시 알리십시오. 그것도 바로.</b> 통지서나 결정문이 송달되지 않으면 그 자체가 불리하게 작용합니다. 회생위원이 연락을 시도했는데 닿지 않으면 폐지사유가 되고(실무준칙 제441호 제5조 제1호), 송달료가 모자라고 달리 연락도 되지 않으면 <b>통지서 발송 자체가 생략될 수 있습니다</b>(같은 준칙 제3조 제3항 단서). 모르는 사이에 폐지되는 가장 흔한 경로입니다. <b>주소·전화번호·계좌가 바뀌면 그날 바로 신고하십시오.</b> <a class="dl" href="https://ecfs.scourt.go.kr">전자소송</a>에서 주소변경신고를 하실 수 있습니다. 계좌는 환급받을 적립금이 있을 때 쓰이므로(실무준칙 제452호 제3조) 함께 갱신해 두십시오.</div></details>
+
+<details><summary>회사에서 개인회생 사실을 알고 그만두라고 합니다.</summary><div class="fa">채무자회생법 제32조의2는 <b>"누구든지 이 법에 따른 회생절차ㆍ파산절차 또는 개인회생절차 중에 있다는 이유로 정당한 사유 없이 취업의 제한 또는 해고 등 불이익한 처우를 받지 아니한다"</b>고 정하고 있습니다. <b>절차가 진행 중인 동안에도 적용됩니다.</b><br><br>
+먼저 <b>그만두라는 말을 들은 날짜와 경위, 말한 사람, 회사가 어떻게 알게 되었는지</b>를 적어 두십시오. 문자나 메일이 있으면 보관하십시오. 실제로 해고되셨다면 <b>부당해고 구제신청은 해고일부터 3개월 이내</b>에 지방노동위원회에 내야 합니다 — 이 기간을 넘기면 구제신청 자체가 안 됩니다. <span style="color:#9c3a22">다만 금융기관 임직원 등 <b>다른 법률이 별도로 자격·결격을 정해 둔 직종</b>은 그 법률에 따라 달리 볼 수 있으므로, 직종을 말씀해 주시면 함께 확인해 드리겠습니다.</span></div></details>
+
+<details><summary>채권자가 "따로 갚겠다는 각서를 쓰면 독촉을 멈추겠다"고 합니다.</summary><div class="fa"><b>쓰지 마십시오.</b> 채권자목록에 적힌 개인회생채권은 <b>변제계획에 의하지 아니하고는 변제할 수 없고</b>(제582조), 일부 채권자에게만 특별한 이익을 주는 행위는 <b>무효</b>입니다(제612조).<br><br>
+이미 쓰셨더라도 길이 있습니다. 대법원은 <b>개시 후 면책결정 확정 전에</b> "변제계획과 별도로 개인회생채무를 변제하겠다"는 의사를 표시한 경우, 그 채무가 <b>개인회생채무와 동일성이 없는 완전히 새로운 별개 채무라고 볼 특별한 사정이 없는 한 면책결정의 효력이 미친다</b>고 보았습니다(대법원 2021. 9. 9. 선고 2020다277184 판결). <b>즉 그 각서도 함께 면책됩니다.</b> 각서 사본과 당시 상황을 정리해 두시고, 나중에 그 각서로 청구가 들어오면 면책을 주장하십시오.</div></details>
+
+<details><summary>압류 때문에 손에 들어오는 돈이 없어 변제금을 못 넣고 있습니다.</summary><div class="fa"><b>그 사실을 자료로 보여 드려야 합니다.</b> 대법원은 급여채권에 채권압류 및 추심명령이 있어 변제예정액을 납부하지 못한 사안에서, <b>변제계획 인가결정이 있으면 압류 및 추심명령이 효력을 잃어 변제금을 납입할 수 있는 상태가 되므로 수행가능성이 없다고 단정할 수 없다</b>고 보았습니다(대법원 2023. 9. 19.자 2023마6207 결정).<br><br>
+<b>회사(제3채무자)에서 「급여압류적립금 확인서」를 받아 내십시오.</b> 압류로 떼어 두고 있는 금액과 기간이 적힌 서면입니다. 이것을 진술서나 변제계획 수정안과 함께 내시면 "돈을 안 낸 것"이 아니라 "압류 때문에 못 낸 것"임이 드러납니다. <span style="color:#9c3a22">인가 뒤인데도 압류가 그대로라면, 그 압류를 한 <b>집행법원에 집행취소신청</b>을 내셔야 외형이 지워집니다.</span></div></details>
+
+<details><summary>이사 가면서 사는 지역이 바뀌었습니다. 법원도 바뀌나요?</summary><div class="fa">이미 진행 중인 사건은 <b>그 법원에서 계속됩니다.</b> 주소가 바뀌면 <b>주소변경신고만</b> 하시면 됩니다.<br><br>
+다만 <b>새로 신청하실 때</b>의 관할은 알아 두실 만합니다. 개인회생사건은 ① 보통재판적이 있는 곳 ② 주된 사무소·영업소 또는 계속 근무하는 사무소·영업소가 있는 곳 ③ 둘 다 없으면 재산이 있는 곳을 관할하는 <b>회생법원</b>의 전속관할입니다(제3조 제1항). 여기에 더해 법은 몇 곳에 <b>중복관할</b>을 두었습니다(같은 조 제10항~제13항).
+<div class="tblwrap" style="margin-top:8px">
+<table>
+<tr><th style="width:44%">사시는 곳</th><th>여기에도 낼 수 있습니다</th></tr>
+<tr><td>강릉시·동해시·삼척시·속초시·양양군·고성군</td><td><b>춘천지방법원 강릉지원</b></td></tr>
+<tr><td>울산광역시·경상남도</td><td><b>부산회생법원</b></td></tr>
+<tr><td>충청북도</td><td><b>대전회생법원</b></td></tr>
+<tr><td>전북특별자치도·제주특별자치도</td><td><b>광주회생법원</b></td></tr>
+</table>
+</div>
+<span style="color:#9c3a22">2026. 3. 1.부터 <b>대전·대구·광주에도 회생법원이 개원</b>했습니다. 어느 쪽이 유리한지는 사건 성격에 따라 다르므로, 두 곳 모두 가능하시면 상담 때 말씀해 주십시오.</span></div></details>
+
+<details><summary>개인회생을 하는 중에 제가 사망하면 가족이 이어받을 수 있나요?</summary><div class="fa"><b>이어받을 수 없습니다.</b> 변제계획은 채무자의 수입에서 생계비를 뺀 가용소득을 넣어 이행하는 것이므로, 채무자가 사망하면 <b>"인가된 변제계획을 이행할 수 없음이 명백한 때"</b>(제621조 제1항 제2호)에 해당하여 절차가 폐지됩니다. 실무에서 상속인이 대신 변제하거나 일시변제로 면책받고 싶다는 문의가 있으나 받아들여지지 않습니다.<br><br>
+<b>그러므로 가족에게 미리 알려 두십시오.</b> 사건번호와 담당 법원, 남은 빚의 규모를 적어 두시면 됩니다. 사망하면 남은 빚은 <b>상속</b>의 문제가 되고, 상속포기나 한정승인은 <b>상속개시를 안 날부터 3개월</b> 안에 해야 합니다. 이 기간을 놓치면 가족이 빚을 그대로 떠안습니다. <span style="color:#9c3a22">큰 병을 앓고 계시다면 이 점을 꼭 정리해 두시기를 권합니다.</span></div></details>
+
+<details><summary>폐지되었습니다. 다시 개인회생을 신청할 수 있나요?</summary><div class="fa"><b>할 수 있습니다.</b> <b>폐지나 기각으로 끝난 경우에는 기간 제한이 없습니다.</b> <span style="color:#9c3a22">기간 제한은 <b>면책을 받은 경우</b>에 붙습니다 — 신청일 전 5년 이내에 면책(개인파산으로 받은 면책 포함)을 받은 사실이 있으면 기각될 수 있습니다(제595조 제5호).</span> 다만 두 가지를 보셔야 합니다. 첫째, <b>왜 폐지되었는지</b>가 그대로 다시 문제됩니다. 소득이 끊겨 폐지되었다면 지금은 소득이 있는지, 전에 받은 퇴직금 등을 썼다면 <b>그 사용처를 소명</b>할 수 있는지를 봅니다. 소명이 납득되지 않으면 <b>"신청이 성실하지 아니한 경우"</b>(제595조 제7호)로 기각될 수 있습니다. 둘째, <b>소득이 사실상 없다면 개인회생이 아니라 개인파산이 맞을 수 있습니다.</b> 어느 쪽인지는 <a class="dl" href="E-1_개인회생_파산_선택.html">E-1 카드</a>에서 갈라 보십시오. <b>폐지가 확정되기 전이라면 먼저 특별면책과 항고를 검토하십시오. 그쪽이 훨씬 빠릅니다.</b></div></details>
+
+</div>
+</div></details>
+
+<div class="hire">
+<div class="ht">본 사무소가 도와드리는 일</div>
+<ol style="margin:4px 0 0;padding-left:21px;line-height:2">
+<li><b>변제계획 변경안 작성 지원</b> — 변경사유 정리, 소명자료 구성, 청산가치 재검토, 부본 준비</li>
+<li><b>채무자 진술서 작성 지원</b> — 세 달분이 밀려 통지서를 받으셨을 때의 7일 대응</li>
+<li><b>면책신청서·특별면책신청서 작성 지원</b> — 요건별 소명자료 정리, 일시변제신청</li>
+<li><b>폐지결정 즉시항고 및 면책 뒤 대응</b> — 항고이유서, 청구이의의 소장과 강제집행정지신청, 가압류이의</li>
+</ol>
+<p style="margin:9px 0 0;font-size:14px">개인회생·개인파산 <b>사건 신청의 대리는 법무사의 업무</b>입니다(법무사법 제2조 제1항 제6호). 다만 같은 호 단서는 <b>각종 기일에서의 진술의 대리를 제외</b>하고 있어, <b>회생위원 면담기일과 채권자집회기일에는 채무자 본인이 출석하셔야 합니다.</b> 본 사무소는 신청서류 작성과 <b>작성된 서류의 제출 대행</b>(같은 항 제7호), 기일 사전 준비와 보정 대응을 돕습니다. 서류 작성만 맡기셔도 되고, 면책까지 함께 가셔도 됩니다.</p>
+</div>
+
+<div style="text-align:center; background:#f6ecd8; border:1px solid var(--gold); border-radius:11px; padding:14px; margin:18px 0; font-size:15px; color:var(--gold-d); font-weight:700;">📞 상담은 홈 화면의 상담 창구를 이용하시면 됩니다.</div>
+
+<div class="who"><span class="wl">함께 보시면 좋은 카드</span>
+<ul style="margin:5px 0 0;padding-left:20px;line-height:2">
+<li><a class="dl" href="E-3_변제계획안_작성.html">E-3 매달 얼마를 갚게 되나요</a> — 가용소득·청산가치·최저변제액을 다시 계산해 보실 때</li>
+<li><a class="dl" href="E-1_개인회생_파산_선택.html">E-1 개인회생과 파산, 어느 쪽인가</a> — 폐지된 뒤 다음 길을 정하실 때</li>
+<li><a class="dl" href="E-2_개인회생_신청서류.html">E-2 개인회생 신청서류 총정리</a> — 다시 신청하실 때</li>
+<li><a class="dl" href="E-4_중지명령_금지명령.html">E-4 중지명령·금지명령</a> — 다시 신청하면서 압류를 먼저 멈춰야 할 때</li>
+</ul>
+</div>
+
+<div class="src">
+근거 — <b>채무자 회생 및 파산에 관한 법률</b>[시행 2026. 10. 2., 법률 제21490호] 제3조(재판관할)·제13조(즉시항고)·제32조(시효의 중단)·제32조의2(차별적 취급의 금지)·제33조(민사소송법 및 민사집행법의 준용)·제247조(항고)·제582조(개인회생채권의 변제)·제586조(별제권)·제589조의2(개인회생채권자목록의 수정)·제595조(개인회생절차개시신청의 기각사유)·제600조(다른 절차의 중지 등)·제603조(개인회생채권자표)·제609조의2(채권자 명의변경)·제611조(변제계획의 내용)·제612조(특별한 이익을 주는 행위의 무효)·제613조(개인회생채권자집회)·제614조(변제계획의 인부)·제615조(변제계획인가의 효력)·제616조(전부명령에 대한 특칙)·제617조(변제의 수행)·제617조의2(채무자를 위한 공탁)·제619조(인가 후의 변제계획변경)·제620조(변제계획인가 전 개인회생절차의 폐지)·제621조(변제계획인가 후 개인회생절차의 폐지)·제622조(개인회생절차폐지결정의 공고)·제623조(개인회생절차폐지결정에 대한 즉시항고)·제624조(면책결정)·제625조(면책결정의 효력)·제626조(면책의 취소)·제627조(면책결정 등에 관한 즉시항고)·제643조(사기회생죄)·제649조(보고와 검사거절의 죄)·제660조(과태료) · <b>채무자 회생 및 파산에 관한 규칙</b>[시행 2026. 3. 1., 대법원규칙 제3234호] 제71조(항고와 보증으로 공탁하게 할 금액)·제84조(계좌신고와 공탁)·제85조(부본의 제출)·제88조(회생위원의 업무)·제91조(인가후의 변제계획 변경신청)·제92조(개인회생절차폐지의 신청)·제93조(항고와 보증으로 공탁하게 할 금액)·제94조(면책의 신청)·제95조(면책취소결정의 공고)·제96조(개인회생절차의 종료) · <b>개인회생사건 처리지침</b>(재민 2004-4)[시행 2026. 7. 1., 대법원재판예규 제1958호] 제11조(변제액의 임치와 지급)·제12조(임치금의 반환 등)·제11조의3(회생위원의 변제계획 불수행 보고 등)·제11조의5(개인회생공탁 등)·제11조의6(미확정 개인회생채권에 관한 통지절차)·제15조(면책취소신청과 채무자의 심문)·제18조(한국신용정보원의 장에 대한 통보)·제19조(항고 보증 공탁물 출급 또는 회수 절차) · <b>서울회생법원 실무준칙</b>[2026. 11. 18.자] 제424호(변제계획의 변제기간)·제431호(변제계획의 인가결정)·제432호(변제계획인가 전 폐지결정)·제441호(변제계획 불수행 사건의 처리)·제442호(변제계획의 변경)·제443호(변제계획의 수정처리)·제444호(변제기간 중의 일시변제)·제451호(면책 여부의 결정)·제452호(면책결정 전후의 절차)·제602호(통합도산지원센터 설치 및 운영)·제603호(면책 전 신용관리 등 교육 및 상담) · <b>민사접수서류에 붙일 인지액 및 그 편철방법 등에 관한 예규</b>(재민 91-1)[시행 2025. 7. 12., 재판예규 제1916호] · <b>민사집행법</b>[시행 2026. 2. 1.] 제44조(청구에 관한 이의의 소)·제46조(이의의 소와 잠정처분) · <b>소액사건심판법</b> 제5조의8(이행권고결정에 따른 강제집행의 특례) · <b>민사소송 등 인지법</b>[시행 2025. 3. 1., 법률 제20003호] 제11조(항고장 등) · <b>민법</b>[시행 2026. 3. 17., 법률 제21454호] 제157조(기간의 기산점)·제161조(공휴일 등과 기간의 만료점) · <b>판례</b> 대법원 2024. 8. 20.자 2024마6102 결정(제621조 제1항 제2호 "이행할 수 없음이 명백한 때"의 판단 기준, 폐지결정 즉시항고의 판단 기준시=항고심 결정 시)· 대법원 2025. 10. 16. 선고 2024다221042 판결 · 대법원 2025. 5. 15. 선고 2022다256327 판결 · 대법원 2023. 9. 19.자 2023마6207 결정 · 대법원 2021. 11. 5.자 2021마251 결정 · 대법원 2021. 9. 9. 선고 2020다277184 판결 · 대법원 2019. 6. 13. 선고 2017다277986, 277993 판결 · 대법원 2019. 3. 19.자 2018마6364 결정 · 대법원 2017. 1. 12. 선고 2014다32014 판결 · 대법원 2016. 4. 18.자 2015마2115 결정 · 대법원 2015. 6. 26.자 2015마95 결정 · 대법원 2015. 4. 24.자 2015마74 결정 · 대법원 2014. 11. 3.자 2014마1278 결정 · 대법원 2013. 9. 16.자 2013마1438 결정 · 대법원 2012. 7. 12.자 2012마811 결정 · 대법원 2012. 1. 31.자 2011마2392 결정 · 대법원 2011. 9. 29.자 2011마1015 결정 · 헌법재판소 2017. 7. 27. 선고 2016헌바212 결정 · <b>신용보증기금법</b>[시행 2026. 1. 2., 법률 제21065호] 제30조의3(연대보증채무의 감경·면제) · <b>기술보증기금법</b>[시행 2026. 10. 8., 법률 제21540호] 제37조의3(연대보증채무의 감경·면제) · <b>중소기업진흥에 관한 법률</b>[시행 2026. 7. 1., 법률 제21447호] 제74조의2(연대보증채무의 감경·면제) · <b>민사소송법</b>[시행 2026. 10. 2., 법률 제21993호] 제173조(소송행위의 추후보완)·제444조(즉시항고)·제449조(특별항고) · <b>개인파산·회생실무</b>(제6판, 서울회생법원 재판실무연구회) · <b>서울회생법원 회생위원 직무편람</b>(제5판, 2024. 12.) · <b>도산실무</b>(법원공무원교육원, 2026년판) · <b>통합도산법</b>(법무사연수원 교재, 2026) · 국가법령정보센터 · 대법원 전자민원센터 · 대한법률구조공단. 본 자료는 일반적인 법률정보로, 개별 사건의 결과를 보장하지 않습니다.
+</div>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+    t.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();t.classList.toggle('on');}if(e.key==='Escape'){t.classList.remove('on');t.blur();}});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){terms.forEach(function(x){x.classList.remove('on');});}});
+})();
+function toggleFold(b){var fb=b.parentElement;fb.classList.toggle('open');}
+function _openCall(id){var w=document.getElementById(id);var n=w&&w.nextElementSibling;if(n&&n.classList.contains('calltbl'))n.classList.add('open');}
+document.addEventListener('click',function(e){var a=e.target.closest?e.target.closest('a[href^="#call"]'):null;if(a)_openCall(a.getAttribute('href').slice(1));});
+if(location.hash.indexOf('#call')===0)_openCall(location.hash.slice(1));
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('양식이 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('양식이 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('양식을 내려받았습니다');}
+
+(function(){
+  document.querySelectorAll('.toc a').forEach(function(a){
+    a.addEventListener('click',function(){
+      var el=document.querySelector(a.getAttribute('href'));
+      if(el&&el.tagName==='DETAILS')el.open=true;
+    });
+  });
+  var btn=document.getElementById('allBtn');
+  if(!btn)return;
+  function toggleAll(){
+    var opening=btn.textContent.indexOf('펼치기')>-1;
+    document.querySelectorAll('details.sec').forEach(function(d){d.open=opening;});
+    btn.textContent=opening?'전체 접기':'전체 펼치기';
+  }
+  btn.addEventListener('click',toggleAll);
+  btn.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleAll();}});
+})();
+</script>
+</body>
+</html>
