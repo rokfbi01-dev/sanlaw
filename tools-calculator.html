@@ -545,7 +545,7 @@
       <span>기준일 <b id="today"></b> · 국민주택채권 할인율</span>
       <span style="display:inline-flex;align-items:center;gap:4px;">
         <input type="number" id="bondRate" value="15.66563" step="0.00001" oninput="recalc();saveBondRate()" style="width:110px;">
-        <span>%</span>
+        <span>%</span><b id="bondRateDay" style="font-size:12px;color:#f3d27a;"></b>
       </span>
       <a href="https://svc.wooribank.com/svc/Dream?withyou=HBNHB0036&cc=c004893:c004893" target="_blank" rel="noopener" style="color:#241f1a;background:#f3d27a;font-weight:800;text-decoration:none;border:1px solid #f3d27a;border-radius:5px;padding:4px 12px;">🔎 오늘 고시율 조회 (새 창)</a>
       <button type="button" id="bondPubBtn" onclick="bondPublish()" style="display:none;cursor:pointer;color:#fff;background:#1d7a46;font-weight:800;border:1px solid #1d7a46;border-radius:5px;padding:4px 10px;" title="사무소 전용 — 할인율은 매일 자동으로 들어갑니다. 자동값이 은행 고시율과 다를 때만 지금 칸의 값으로 바로잡습니다">📤 의뢰인 화면에 적용</button>
@@ -678,13 +678,27 @@
         <span class="hint">변경등기 건수</span> <input type="number" id="trChangeN" value="1" min="1" style="width:46px;margin-left:4px;" oninput="calcSale()"> <span class="hint">건 — 말소와 따로, 해당할 때만 체크</span></div></div>
       <div class="note" id="trustNote" style="display:none;">▸ 신탁회사(수탁자) 명의로 되어 있는 분양 부동산을 수분양자 앞으로 이전할 때는 <b>신탁등기 말소</b>를 이전등기와 <b>같은 신청서</b>로 함께 신청합니다. 그래서 말소 신청수수료는 따로 고르지 않고 <b>이전등기 신청 방법(e-Form·수기·전자)을 그대로 따라</b> 등기신청수수료에 들어갑니다. 분양 토지에 신탁이 있어 <b>토지 신탁등기 변경등기</b>가 필요하면 위 <b>「토지 신탁등기 변경등기」</b>를 말소와 따로 체크하십시오. 정해진 양식(e-Form 포함)이 없어 신탁원부 변경등기 양식을 빌려 <b>서면으로 직접 만들어 내는, 난이도가 있는 신청</b>입니다.</div>
       <div class="line"><span class="lbl">등기권리자(인)</span><div class="stepper"><button onclick="step('cntOwner',-1,calcSale)">−</button><input type="number" id="cntOwner" value="1" min="1" oninput="calcSale()"><button onclick="step('cntOwner',1,calcSale)">+</button></div><span class="hint">보수기준 <b>§2②4호</b> — 당사자·이해관계인 <b>5인 이상</b> 판정용 (아래 「당사자 다수 가산」과 연동)</span></div>
+      <div class="line"><span class="lbl">신청 방법 (등기원인 서류)</span><select id="sale_cause" onchange="renderDocsSale()"><option value="contract" selected>계약서로 함께 신청 — 공동신청</option><option value="judge">판결·조정 등으로 매수인이 혼자 신청</option></select><span class="hint">신청 방법에 따라 준비서류가 달라집니다(세금·수수료는 같습니다) · 부동산등기법 §23④ · 실무교재 101~106쪽</span></div>
+      <div class="line" id="famLine"><span class="lbl">매도인과의 관계</span><select id="famRel" onchange="famUI();calcSale();renderDocsSale()">
+        <option value="" selected>해당 없음</option>
+        <option value="spouse">배우자</option>
+        <option value="lineal">직계존비속 (부모·자녀·조부모·손자녀)</option>
+        <option value="kin">그 밖의 친족 (형제·사위·며느리 등 — 4촌 이내 혈족·3촌 이내 인척)</option></select><span class="law" title="지방세법 제7조제11항 — 배우자 또는 직계존비속의 부동산등을 취득하는 경우에는 증여로 취득한 것으로 본다. 다만 공매·경매, 파산, 교환, 대가 지급 사실이 증명되는 경우(취득자의 소득, 소유재산 처분·담보 금액, 과세·신고된 상속·수증 재산, 그 밖에 취득자 재산으로 지급)는 유상으로 본다. 대가가 시가인정액보다 낮아 그 차액이 3억원 이상이거나 시가인정액의 30% 이상이면 제외(시행령 제11조의3)">지방세법 §7⑪</span></div>
+      <div id="famBox" style="display:none;">
+        <div class="line" id="famProofLine"><span class="lbl">대가 지급 증빙</span><div class="radios" onchange="calcSale();renderDocsSale()">
+          <label><input type="radio" name="famProof" value="no" checked> 없음 — 증명하기 어려움</label>
+          <label><input type="radio" name="famProof" value="yes"> 있음 — 매수인의 소득·재산 처분(담보)·신고한 상속·증여재산으로 냄</label></div></div>
+        <div class="line"><span class="lbl">시가인정액(원)</span><input type="number" class="amt" id="famMv" placeholder="모르면 비워 두세요" oninput="calcSale()"><span class="hint">취득일 전 6개월~후 3개월 안에 <b>같은 부동산</b>의 매매·감정·경매가액(지방세법 §10의2 · 시행령 §14). 비워 두면 매매금액과 같다고 보고 계산합니다</span></div>
+        <div class="line" id="famOneLine"><span class="lbl"></span><label class="checks"><input type="checkbox" id="famOneHouse" onchange="calcSale()"> 매도인(파시는 분)이 1세대 1주택자 — 증여로 보더라도 조정대상지역 주택 12% 중과에서 빠짐(시행령 §28의6②1호)</label></div>
+        <div class="note alert" id="famNote"></div>
+      </div>
       <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcSale();junjuToggle()">
         <label><input type="radio" name="ptype" value="house" checked> 주택</label>
         <label><input type="radio" name="ptype" value="etc" id="ptype_jun"> 준주택<span class="law" title="「주택법」 제2조제1호의2 및 같은 법 시행령 제4조 — 주택 외의 건축물과 그 부속토지로서 주거시설로 이용가능한 시설. 제1호 기숙사, 제2호 다중생활시설, 제3호 「노인복지법」 제32조제1항제3호의 노인복지주택, 제4호 오피스텔. 준주택은 「주택법」 제2조제1호의 주택이 아니므로 지방세법 제11조제1항제8호의 주택 유상거래 특례세율(1~3%)이 적용되지 아니한다.">주택법 §2 1호의2</span></label>
         <label><input type="radio" name="ptype" value="etc"> 주택외</label>
-        <label><input type="radio" name="ptype" value="farm"> 농지</label></div></div>
+        <label><input type="radio" name="ptype" value="farm"> 농지</label></div><span class="hint">주택의 <b>지분이나 부속토지만</b> 사도 「주택」을 고르십시오(지방세법 §13의2① 괄호)</span></div>
       <div class="note" id="junHint"><b>노인복지주택·오피스텔·기숙사·고시원(다중생활시설)</b>이라면 「주택」이 아니라 <b>「준주택」</b>을 골라 주십시오. 대장에 「노인복지주택」이라고 적혀 있어도 <b>세법상 주택이 아닙니다.</b> 잘못 고르면 세금이 <b>4배까지 차이</b>납니다. <span class="hint">▸ 헷갈리시면 그대로 두시고 상담 때 말씀해 주십시오.</span></div>
-      <div class="note alert" id="junWarn" style="display:none;"><span class="head">준주택은 「주택」이 아니어서 세율이 다릅니다</span>노인복지주택·오피스텔·기숙사·다중생활시설은 <b>건축물대장에 「주택」처럼 적혀 있어도</b> 「주택법」 제2조제1호의 <b>주택이 아닙니다</b>(같은 조 제1호의2·시행령 §4 → <b>준주택</b>). 따라서 <b>주택에 주는 취득세 할인을 받지 못합니다.</b><br>▸ <b>매매 4.6%</b>(취득 4 + 교육 0.4 + 농특 0.2) · <b>증여 4.0%</b>(3.5+0.3+0.2) · <b>상속 3.16%</b>(2.8+0.16+0.2) <span class="law" title="지방세법 §11①7호나목·제2호·제1호나목, §151①1호 본문, 농어촌특별세법 §5①6호">지방세법 §11①·§151①1호</span><br>▸ <b>전용 85㎡ 이하라도 농어촌특별세 0.2%를 냅니다.</b> 농특세 비과세(농특세법 §4 11호)는 「주택법」상 <b>국민주택규모 주택</b>이 대상이어서 준주택은 해당하지 않습니다.<br>▸ 다주택 중과(§13의2)·조정대상지역·생애최초 감면은 <b>모두 적용되지 않습니다.</b> 위 항목은 비워 두십시오.<br><b style="color:#c0392b;">계약 전 반드시 확인하십시오.</b> 같은 노인복지주택이라도 <b>등기사항전부증명서 표제부에 「아파트」·「공동주택」으로 기재</b>되어 있으면 결론이 달라질 수 있습니다. 물건 소재지 <b>시·군·구청 세무과</b>에 「노인복지주택 취득 시 적용 세율」을 문의하신 뒤 진행하시기 바랍니다. <span class="tag chk">확인필요</span></div>
+      <div class="note alert" id="junWarn" style="display:none;"><span class="head">준주택은 「주택」이 아니어서 세율이 다릅니다</span>노인복지주택·오피스텔·기숙사·다중생활시설은 <b>건축물대장에 「주택」처럼 적혀 있어도</b> 「주택법」 제2조제1호의 <b>주택이 아닙니다</b>(같은 조 제1호의2·시행령 §4 → <b>준주택</b>). 따라서 <b>주택에 주는 취득세 할인을 받지 못합니다.</b><br>▸ <b>매매 4.6%</b>(취득 4 + 교육 0.4 + 농특 0.2) · <b>증여 4.0%</b>(3.5+0.3+0.2) · <b>상속 3.16%</b>(2.8+0.16+0.2) <span class="law" title="지방세법 §11①7호나목·제2호·제1호나목, §151①1호 본문, 농어촌특별세법 §5①6호">지방세법 §11①·§151①1호</span><br>▸ <b>전용 85㎡ 이하라도 농어촌특별세 0.2%를 냅니다.</b> 농특세 비과세(농특세법 §4 11호)는 「주택법」상 <b>국민주택규모 주택</b>이 대상이어서 준주택은 해당하지 않습니다.<br>▸ 다주택 중과(§13의2)·조정대상지역·생애최초 감면은 <b>모두 적용되지 않습니다.</b> 그래서 주택에만 해당하는 칸은 아래에 나타나지 않습니다.<br><b style="color:#c0392b;">계약 전 반드시 확인하십시오.</b> 같은 노인복지주택이라도 <b>등기사항전부증명서 표제부에 「아파트」·「공동주택」으로 기재</b>되어 있으면 결론이 달라질 수 있습니다. 물건 소재지 <b>시·군·구청 세무과</b>에 「노인복지주택 취득 시 적용 세율」을 문의하신 뒤 진행하시기 바랍니다. <span class="tag chk">확인필요</span></div>
       <div class="line" id="houseNline"><span class="lbl">보유 주택 수</span><div class="radios" onchange="calcSale()">
         <label><input type="radio" name="hn" value="1" checked> 1주택</label>
         <label><input type="radio" name="hn" value="2"> 2주택</label>
@@ -696,9 +710,9 @@
         <label><input type="checkbox" id="fh_bonus"> └ 300만원 한도(소형·저가 / 인구감소지역)</label>
         <label><input type="checkbox" id="birthHome"> 출산·양육 주택(§36의5 · 12억↓ · 500만원)</label>
         <label><input type="checkbox" id="smallHome"> 서민주택(§33② · 40㎡↓ · 1억 미만 · 전액면제)</label>
-        <label><input type="checkbox" id="luxury"> 고급주택·골프장·고급오락장(사치성 재산 §13⑤ · +8%)</label>
+        <label><input type="checkbox" id="luxury"> <span id="luxuryLbl">고급주택·골프장·고급오락장(사치성 재산 §13⑤ · +8%)</span></label>
         <label><input type="checkbox" id="over85"> 85㎡ 초과(농특세) <small>— 수도권 밖 도시지역이 아닌 읍·면은 100㎡ 초과</small></label>
-        <label><input type="checkbox" id="landAfterBuild" onchange="calcSale()"> 신축·증축 후 그 소유자가 부속토지 취득(§11④ → 주택세율 배제·4%)</label>
+        <label><input type="checkbox" id="landAfterBuild" onchange="calcSale()"> 신축·증축 후 그 주택 소유자(배우자·직계존비속 포함)가 부속토지 취득(§11④ → 주택세율 배제·4%)</label>
         <label><input type="checkbox" id="selfFarm"> 자경농지 감면</label>
         <label><input type="checkbox" id="corp"> 법인·단체 취득<span class="law" title="지방세법 §13의2①1호 — 법인(국세기본법 §13에 따른 법인으로 보는 단체, 부동산등기법 §49①3호에 따른 법인 아닌 사단·재단 등 개인이 아닌 자를 포함한다)이 주택을 취득하는 경우: 4%에 중과기준세율의 400%를 더한 12%">§13의2①1호</span></label><label><input type="checkbox" id="metroCorp"> 대도시 법인 5년 내 취득<span class="law" title="지방세법 §13② — 대도시(수도권정비계획법 §6 과밀억제권역, 산업단지 제외)에서 법인을 설립·지점 설치하거나 대도시로 전입한 후 5년 이내에 취득하는 모든 부동산은 표준세율의 300%에서 중과기준세율의 200%를 뺀 세율을 적용한다. 다만 대도시 중과 제외 업종에 직접 사용할 목적이면 일반세율.">§13②</span></label>
         </div></div>
@@ -739,6 +753,7 @@
         <p style="margin:8px 0 0;font-size:11.5px;color:#8a8270;">6~9억: (가액×2÷3억−3)% · 현행 지방세법 확인 후 사용</p>
       </div></details>
                   <div class="note alert" id="fhWarn" style="display:none;"></div>
+      <div class="note alert" id="std3Warn" style="display:none;"></div>
       <table class="t">
         <tr><td>취득세 <span id="acqRate" class="hint"></span><span class="law" title="매매처럼 돈을 주고 사는 「유상취득」의 취득세율을 정한 조항입니다. 주택은 8호, 주택이 아닌 건물·토지는 7호나목, 농지는 7호가목이 적용됩니다.">지방세법 §11①7호·8호</span></td><td><input class="cell" id="acqTax" type="number" oninput="calcSale(true)"></td></tr>
         <tr><td>지방교육세<span class="law" title="지방교육세를 정한 조항입니다. 1호 본문은 취득세율에서 1천분의 20(2%)을 뺀 세율로 계산한 금액의 100분의 20(20%)을 세액으로 합니다(주택 유상거래는 그 세율에 100분의 50을 곱한 세율로 산출). 취득세와 함께 신고·납부합니다(§152①). 같은 호 다목 — 지방세특례제한법 등 지방세감면법령에서 취득세를 감면하는 경우에는 본문 계산방법으로 산출한 지방교육세액을 「해당 취득세 감면율로 감면하고 남은 금액」으로 합니다.">지방세법 §151①1호</span> <span class="hint" id="eduRate"></span></td><td><input class="cell" id="eduTax" type="number" oninput="calcSale(true)"></td></tr>
@@ -830,9 +845,9 @@
         <label><input type="radio" name="s_ptype" value="house" checked> 주택</label>
         <label><input type="radio" name="s_ptype" value="etc" id="s_ptype_jun"> 준주택<span class="law" title="「주택법」 제2조제1호의2 및 같은 법 시행령 제4조 — 주택 외의 건축물과 그 부속토지로서 주거시설로 이용가능한 시설. 제1호 기숙사, 제2호 다중생활시설, 제3호 「노인복지법」 제32조제1항제3호의 노인복지주택, 제4호 오피스텔. 준주택은 「주택법」 제2조제1호의 주택이 아니므로 지방세법 제11조제1항제8호의 주택 유상거래 특례세율(1~3%)이 적용되지 아니한다.">주택법 §2 1호의2</span></label>
         <label><input type="radio" name="s_ptype" value="etc"> 주택외</label>
-        <label><input type="radio" name="s_ptype" value="farm"> 농지</label></div></div>
+        <label><input type="radio" name="s_ptype" value="farm"> 농지</label></div><span class="hint">주택의 <b>지분이나 부속토지(주택이 서 있는 땅)만</b> 상속받아도 「주택」을 고르십시오<span class="law" title="지방세법 §11①8호 — 주택은 「주거용 건축물과 그 부속토지」 / §13의2① 괄호 — 주택의 공유지분이나 부속토지만 취득해도 주택을 취득한 것으로 본다(같은 조 ②항 무상취득 중과에도 적용) / 농어촌특별세법 시행령 §4⑤ — 국민주택규모 이하 「주거용 건물과 이에 부수되는 토지」는 농특세 비과세 / 지방세법 시행령 §29② — 주택의 부속토지만 소유해도 주택을 소유한 것으로 본다(1가구 1주택 판정)">지방세법 §11①8호 · §13의2①</span></span></div>
       <div class="note" id="s_junHint"><b>노인복지주택·오피스텔·기숙사·고시원(다중생활시설)</b>이라면 「주택」이 아니라 <b>「준주택」</b>을 골라 주십시오. 대장에 「노인복지주택」이라고 적혀 있어도 <b>세법상 주택이 아닙니다.</b> 잘못 고르면 세금이 <b>4배까지 차이</b>납니다. <span class="hint">▸ 헷갈리시면 그대로 두시고 상담 때 말씀해 주십시오.</span></div>
-      <div class="note alert" id="s_junWarn" style="display:none;"><span class="head">준주택은 「주택」이 아니어서 세율이 다릅니다</span>노인복지주택·오피스텔·기숙사·다중생활시설은 <b>건축물대장에 「주택」처럼 적혀 있어도</b> 「주택법」 제2조제1호의 <b>주택이 아닙니다</b>(같은 조 제1호의2·시행령 §4 → <b>준주택</b>). 따라서 <b>주택에 주는 취득세 할인을 받지 못합니다.</b><br>▸ <b>매매 4.6%</b>(취득 4 + 교육 0.4 + 농특 0.2) · <b>증여 4.0%</b>(3.5+0.3+0.2) · <b>상속 3.16%</b>(2.8+0.16+0.2) <span class="law" title="지방세법 §11①7호나목·제2호·제1호나목, §151①1호 본문, 농어촌특별세법 §5①6호">지방세법 §11①·§151①1호</span><br>▸ <b>전용 85㎡ 이하라도 농어촌특별세 0.2%를 냅니다.</b> 농특세 비과세(농특세법 §4 11호)는 「주택법」상 <b>국민주택규모 주택</b>이 대상이어서 준주택은 해당하지 않습니다.<br>▸ 다주택 중과(§13의2)·조정대상지역·생애최초 감면은 <b>모두 적용되지 않습니다.</b> 위 항목은 비워 두십시오.<br><b style="color:#c0392b;">계약 전 반드시 확인하십시오.</b> 같은 노인복지주택이라도 <b>등기사항전부증명서 표제부에 「아파트」·「공동주택」으로 기재</b>되어 있으면 결론이 달라질 수 있습니다. 물건 소재지 <b>시·군·구청 세무과</b>에 「노인복지주택 취득 시 적용 세율」을 문의하신 뒤 진행하시기 바랍니다. <span class="tag chk">확인필요</span></div>
+      <div class="note alert" id="s_junWarn" style="display:none;"><span class="head">준주택은 「주택」이 아니어서 세율이 다릅니다</span>노인복지주택·오피스텔·기숙사·다중생활시설은 <b>건축물대장에 「주택」처럼 적혀 있어도</b> 「주택법」 제2조제1호의 <b>주택이 아닙니다</b>(같은 조 제1호의2·시행령 §4 → <b>준주택</b>). 따라서 <b>주택에 주는 취득세 할인을 받지 못합니다.</b><br>▸ <b>매매 4.6%</b>(취득 4 + 교육 0.4 + 농특 0.2) · <b>증여 4.0%</b>(3.5+0.3+0.2) · <b>상속 3.16%</b>(2.8+0.16+0.2) <span class="law" title="지방세법 §11①7호나목·제2호·제1호나목, §151①1호 본문, 농어촌특별세법 §5①6호">지방세법 §11①·§151①1호</span><br>▸ <b>전용 85㎡ 이하라도 농어촌특별세 0.2%를 냅니다.</b> 농특세 비과세(농특세법 §4 11호)는 「주택법」상 <b>국민주택규모 주택</b>이 대상이어서 준주택은 해당하지 않습니다.<br>▸ 다주택 중과(§13의2)·조정대상지역·생애최초 감면은 <b>모두 적용되지 않습니다.</b> 그래서 주택에만 해당하는 칸은 아래에 나타나지 않습니다.<br><b style="color:#c0392b;">계약 전 반드시 확인하십시오.</b> 같은 노인복지주택이라도 <b>등기사항전부증명서 표제부에 「아파트」·「공동주택」으로 기재</b>되어 있으면 결론이 달라질 수 있습니다. 물건 소재지 <b>시·군·구청 세무과</b>에 「노인복지주택 취득 시 적용 세율」을 문의하신 뒤 진행하시기 바랍니다. <span class="tag chk">확인필요</span></div>
       <div class="line"><span class="lbl">세목 기준 <span class="tag A">A</span></span><div class="radios" onchange="calcInherit()">
         <label><input type="radio" name="s_taxMode" value="acq" checked> 2011.1.1.〜 상속개시(취득세)</label>
         <label><input type="radio" name="s_taxMode" value="reg"> 〜2010.12.31. 상속개시(舊 등록세)</label></div></div>
@@ -934,7 +949,7 @@
       <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcBequest()">
         <label><input type="radio" name="bq_ptype" value="house" checked> 주택</label>
         <label><input type="radio" name="bq_ptype" value="etc"> 주택외</label>
-        <label><input type="radio" name="bq_ptype" value="farm"> 농지</label></div></div>
+        <label><input type="radio" name="bq_ptype" value="farm"> 농지</label></div><span class="hint">주택의 <b>지분이나 부속토지(주택이 서 있는 땅)만</b> 유증받아도 「주택」을 고르십시오<span class="law" title="지방세법 §11①8호 — 주택은 「주거용 건축물과 그 부속토지」 / §13의2① 괄호 — 주택의 공유지분이나 부속토지만 취득해도 주택을 취득한 것으로 본다(같은 조 ②항 무상취득 중과에도 적용) / 농어촌특별세법 시행령 §4⑤ — 국민주택규모 이하 「주거용 건물과 이에 부수되는 토지」는 농특세 비과세">지방세법 §11①8호 · §13의2①</span></span></div>
       <div class="line"><span class="lbl">세목 기준 <span class="tag A">A</span></span><div class="radios" onchange="calcBequest()">
         <label><input type="radio" name="bq_taxMode" value="acq" checked> 2011.1.1.〜 상속개시(취득세)</label>
         <label><input type="radio" name="bq_taxMode" value="reg"> 〜2010.12.31. 상속개시(舊 등록세)</label></div></div>
@@ -1104,14 +1119,15 @@
       <div class="line"><span class="lbl">시가인정액(원)</span><input type="number" class="amt" id="gv_price" placeholder="0" oninput="calcGift()"><span class="hint">증여 취득세 과세표준(시가인정액)</span></div>
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('gv_cntEstate',-1,calcGift)">−</button><input type="number" id="gv_cntEstate" value="1" min="1" oninput="calcGift()"><button onclick="step('gv_cntEstate',1,calcGift)">+</button></div></div>
       <div class="line"><span class="lbl">등기권리자(수증자)</span><div class="stepper"><button onclick="step('gv_cntOwner',-1,calcGift)">−</button><input type="number" id="gv_cntOwner" value="1" min="1" oninput="calcGift()"><button onclick="step('gv_cntOwner',1,calcGift)">+</button></div><span class="hint">보수기준 <b>§2②4호</b> — 당사자·이해관계인 <b>5인 이상</b> 판정용 (아래 「당사자 다수 가산」과 연동)</span></div>
+      <div class="line"><span class="lbl">신청 방법 (등기원인 서류)</span><select id="gv_cause" onchange="renderDocsGift()"><option value="contract" selected>계약서로 함께 신청 — 공동신청</option><option value="judge">판결·조정 등으로 수증자가 혼자 신청</option></select><span class="hint">신청 방법에 따라 준비서류가 달라집니다(세금·수수료는 같습니다) · 부동산등기법 §23④ · 실무교재 101~106쪽</span></div>
       <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcGift();junjuToggle()">
         <label><input type="radio" name="gv_ptype" value="house" checked> 주택</label>
         <label><input type="radio" name="gv_ptype" value="etc" id="gv_ptype_jun"> 준주택<span class="law" title="「주택법」 제2조제1호의2 및 같은 법 시행령 제4조 — 주택 외의 건축물과 그 부속토지로서 주거시설로 이용가능한 시설. 제1호 기숙사, 제2호 다중생활시설, 제3호 「노인복지법」 제32조제1항제3호의 노인복지주택, 제4호 오피스텔. 준주택은 「주택법」 제2조제1호의 주택이 아니므로 지방세법 제11조제1항제8호의 주택 유상거래 특례세율(1~3%)이 적용되지 아니한다.">주택법 §2 1호의2</span></label>
-        <label><input type="radio" name="gv_ptype" value="etc"> 주택외</label></div></div>
+        <label><input type="radio" name="gv_ptype" value="etc"> 주택외</label></div><span class="hint">주택의 <b>지분이나 부속토지(주택이 서 있는 땅)만</b> 증여받아도 「주택」을 고르십시오<span class="law" title="지방세법 §11①8호 — 주택은 「주거용 건축물과 그 부속토지」 / §13의2① 괄호 — 주택의 공유지분이나 부속토지만 취득해도 주택을 취득한 것으로 본다(같은 조 ②항 무상취득 중과에도 적용) / 농어촌특별세법 시행령 §4⑤ — 국민주택규모 이하 「주거용 건물과 이에 부수되는 토지」는 농특세 비과세">지방세법 §11①8호 · §13의2①</span></span></div>
       <div class="note" id="gv_junHint"><b>노인복지주택·오피스텔·기숙사·고시원(다중생활시설)</b>이라면 「주택」이 아니라 <b>「준주택」</b>을 골라 주십시오. 대장에 「노인복지주택」이라고 적혀 있어도 <b>세법상 주택이 아닙니다.</b> 잘못 고르면 세금이 <b>4배까지 차이</b>납니다. <span class="hint">▸ 헷갈리시면 그대로 두시고 상담 때 말씀해 주십시오.</span></div>
-      <div class="note alert" id="gv_junWarn" style="display:none;"><span class="head">준주택은 「주택」이 아니어서 세율이 다릅니다</span>노인복지주택·오피스텔·기숙사·다중생활시설은 <b>건축물대장에 「주택」처럼 적혀 있어도</b> 「주택법」 제2조제1호의 <b>주택이 아닙니다</b>(같은 조 제1호의2·시행령 §4 → <b>준주택</b>). 따라서 <b>주택에 주는 취득세 할인을 받지 못합니다.</b><br>▸ <b>매매 4.6%</b>(취득 4 + 교육 0.4 + 농특 0.2) · <b>증여 4.0%</b>(3.5+0.3+0.2) · <b>상속 3.16%</b>(2.8+0.16+0.2) <span class="law" title="지방세법 §11①7호나목·제2호·제1호나목, §151①1호 본문, 농어촌특별세법 §5①6호">지방세법 §11①·§151①1호</span><br>▸ <b>전용 85㎡ 이하라도 농어촌특별세 0.2%를 냅니다.</b> 농특세 비과세(농특세법 §4 11호)는 「주택법」상 <b>국민주택규모 주택</b>이 대상이어서 준주택은 해당하지 않습니다.<br>▸ 다주택 중과(§13의2)·조정대상지역·생애최초 감면은 <b>모두 적용되지 않습니다.</b> 위 항목은 비워 두십시오.<br><b style="color:#c0392b;">계약 전 반드시 확인하십시오.</b> 같은 노인복지주택이라도 <b>등기사항전부증명서 표제부에 「아파트」·「공동주택」으로 기재</b>되어 있으면 결론이 달라질 수 있습니다. 물건 소재지 <b>시·군·구청 세무과</b>에 「노인복지주택 취득 시 적용 세율」을 문의하신 뒤 진행하시기 바랍니다. <span class="tag chk">확인필요</span></div>
+      <div class="note alert" id="gv_junWarn" style="display:none;"><span class="head">준주택은 「주택」이 아니어서 세율이 다릅니다</span>노인복지주택·오피스텔·기숙사·다중생활시설은 <b>건축물대장에 「주택」처럼 적혀 있어도</b> 「주택법」 제2조제1호의 <b>주택이 아닙니다</b>(같은 조 제1호의2·시행령 §4 → <b>준주택</b>). 따라서 <b>주택에 주는 취득세 할인을 받지 못합니다.</b><br>▸ <b>매매 4.6%</b>(취득 4 + 교육 0.4 + 농특 0.2) · <b>증여 4.0%</b>(3.5+0.3+0.2) · <b>상속 3.16%</b>(2.8+0.16+0.2) <span class="law" title="지방세법 §11①7호나목·제2호·제1호나목, §151①1호 본문, 농어촌특별세법 §5①6호">지방세법 §11①·§151①1호</span><br>▸ <b>전용 85㎡ 이하라도 농어촌특별세 0.2%를 냅니다.</b> 농특세 비과세(농특세법 §4 11호)는 「주택법」상 <b>국민주택규모 주택</b>이 대상이어서 준주택은 해당하지 않습니다.<br>▸ 다주택 중과(§13의2)·조정대상지역·생애최초 감면은 <b>모두 적용되지 않습니다.</b> 그래서 주택에만 해당하는 칸은 아래에 나타나지 않습니다.<br><b style="color:#c0392b;">계약 전 반드시 확인하십시오.</b> 같은 노인복지주택이라도 <b>등기사항전부증명서 표제부에 「아파트」·「공동주택」으로 기재</b>되어 있으면 결론이 달라질 수 있습니다. 물건 소재지 <b>시·군·구청 세무과</b>에 「노인복지주택 취득 시 적용 세율」을 문의하신 뒤 진행하시기 바랍니다. <span class="tag chk">확인필요</span></div>
       <div class="line"><span class="lbl">감면·가산 등</span><div class="checks" onchange="calcGift()">
-        <label><input type="checkbox" id="gv_adj3"> 조정대상지역 3억↑ 주택(12% 중과)</label>
+        <label><input type="checkbox" id="gv_adj3"> 조정대상지역 안 주택 — 시가표준액(공시가격) 3억원 이상이면 12% 중과 <small>(아래 채권 칸에 주택공시가격을 넣으시면 그 값으로 판정 · 영 §28의6①)</small></label>
         <label><input type="checkbox" id="gv_donorOneHouse" onchange="calcGift()"> └ 증여자가 1세대 1주택(§13의2② 단서 → 중과 배제)</label>
         <label><input type="checkbox" id="gv_nonprofit" onchange="calcGift()"> 비영리사업자 취득(§11①2호 단서 → 2.8%)</label>
         <label><input type="checkbox" id="gv_over85"> 85㎡ 초과(농특세) <small>— 수도권 밖 도시지역이 아닌 읍·면은 100㎡ 초과</small></label>
@@ -1139,6 +1155,7 @@
 
     <div class="card blue"><h2>③ 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
       <div class="note" id="gv_taxNote">증여 취득세 <b>3.5%</b>(조정대상 3억↑ 주택은 <b>12% 중과</b>) 자동. 교육세 0.3%(중과 0.4%)·농특세 85㎡↑ 0.2%. 등기수수료 일반(매 부동산).<br><b>지분 이전이면</b> 과세표준은 <b>지분 상당액</b>입니다(§11②). 다만 <b>조정대상 3억 중과 판정</b>은 <b>주택 전체</b> 시가표준액 기준입니다(§13의2②).</div>
+      <div class="note alert" id="gv_std3Warn" style="display:none;"></div>
       <table class="t">
         <tr><td>취득세 <span id="gv_acqRate" class="hint"></span><span class="law" title="상속이 아닌 무상취득(증여)의 취득세율 조항입니다. 본문은 1천분의 35(3.5%), 단서는 대통령령이 정하는 비영리사업자에게 1천분의 28(2.8%)을 적용합니다.">지방세법 §11①2호</span></td><td><input class="cell" id="gv_acqTax" type="number" oninput="calcGift(true)"></td></tr>
         <tr><td>지방교육세<span class="law" title="지방교육세를 정한 조항입니다. 1호는 취득세율에서 1천분의 20(2%)을 뺀 세율로 계산한 금액의 100분의 20(20%)을 세액으로 합니다. 취득세와 함께 신고·납부합니다(§152①).">지방세법 §151①1호</span></td><td><input class="cell" id="gv_eduTax" type="number" oninput="calcGift(true)"></td></tr>
@@ -1389,7 +1406,7 @@
       <div class="line"><span class="lbl">등기권리자</span><div class="stepper"><button onclick="step('pt_cntOwner',-1,calcPartition)">−</button><input type="number" id="pt_cntOwner" value="1" min="1" oninput="calcPartition()"><button onclick="step('pt_cntOwner',1,calcPartition)">+</button></div><span class="hint">보수기준 <b>§2②4호</b> — 당사자·이해관계인 <b>5인 이상</b> 판정용 (아래 「당사자 다수 가산」과 연동)</span></div>
       <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcBondPartition()">
         <label><input type="radio" name="pt_ptype" value="house" checked> 주택</label>
-        <label><input type="radio" name="pt_ptype" value="etc"> 주택외</label></div></div>
+        <label><input type="radio" name="pt_ptype" value="etc"> 주택외</label></div><span class="hint">주택의 <b>지분이나 부속토지(주택이 서 있는 땅)만</b> 나눠 받아도 「주택」을 고르십시오<span class="law" title="지방세법 §11①8호 — 주택은 「주거용 건축물과 그 부속토지」 / §13의2① 괄호 — 주택의 공유지분이나 부속토지만 취득해도 주택을 취득한 것으로 본다(같은 조 ②항 무상취득 중과에도 적용) / 농어촌특별세법 시행령 §4⑤ — 국민주택규모 이하 「주거용 건물과 이에 부수되는 토지」는 농특세 비과세">지방세법 §11①8호 · §13의2①</span></span></div>
       <div class="line"><span class="lbl">농특세 (지분 범위 내)</span><div class="radios" onchange="calcPartition()">
         <label><input type="radio" name="pt_ruralKind" value="exempt" checked> 0 — 비과세(§4 8호·시행령 §4④)</label>
         <label><input type="radio" name="pt_ruralKind" value="levy"> 0.4% — 감면분 과세</label></div>
@@ -1510,7 +1527,7 @@
       <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcBondNakchal()">
         <label><input type="radio" name="nk_ptype" value="house" checked> 주택</label>
         <label><input type="radio" name="nk_ptype" value="etc"> 주택외</label>
-        <label><input type="radio" name="nk_ptype" value="farm"> 농지</label></div></div>
+        <label><input type="radio" name="nk_ptype" value="farm"> 농지</label></div><span class="hint">주택의 <b>지분이나 부속토지(주택이 서 있는 땅)만</b> 낙찰받아도 「주택」을 고르십시오<span class="law" title="지방세법 §11①8호 — 주택은 「주거용 건축물과 그 부속토지」 / §13의2① 괄호 — 주택의 공유지분이나 부속토지만 취득해도 주택을 취득한 것으로 본다(같은 조 ②항 무상취득 중과에도 적용) / 농어촌특별세법 시행령 §4⑤ — 국민주택규모 이하 「주거용 건물과 이에 부수되는 토지」는 농특세 비과세">지방세법 §11①8호 · §13의2①</span></span></div>
       <div class="line" id="nk_houseNline"><span class="lbl">세대 주택 수</span><div class="radios" onchange="calcNakchal()">
         <label><input type="radio" name="nk_hn" value="1" checked> 1주택</label>
         <label><input type="radio" name="nk_hn" value="2"> 2주택</label>
@@ -1638,7 +1655,7 @@
       <div class="line"><span class="lbl">등기권리자</span><div class="stepper"><button onclick="step('dv_cntOwner',-1,calcDivision)">−</button><input type="number" id="dv_cntOwner" value="1" min="1" oninput="calcDivision()"><button onclick="step('dv_cntOwner',1,calcDivision)">+</button></div><span class="hint">보수기준 <b>§2②4호</b> — 당사자·이해관계인 <b>5인 이상</b> 판정용 (아래 「당사자 다수 가산」과 연동)</span></div>
       <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcDivision()">
         <label><input type="radio" name="dv_ptype" value="house" checked> 주택</label>
-        <label><input type="radio" name="dv_ptype" value="etc"> 주택외</label></div></div>
+        <label><input type="radio" name="dv_ptype" value="etc"> 주택외</label></div><span class="hint">주택의 <b>지분이나 부속토지(주택이 서 있는 땅)만</b> 받아도 「주택」을 고르십시오<span class="law" title="지방세법 §11①8호 — 주택은 「주거용 건축물과 그 부속토지」 / §13의2① 괄호 — 주택의 공유지분이나 부속토지만 취득해도 주택을 취득한 것으로 본다(같은 조 ②항 무상취득 중과에도 적용) / 농어촌특별세법 시행령 §4⑤ — 국민주택규모 이하 「주거용 건물과 이에 부수되는 토지」는 농특세 비과세">지방세법 §11①8호 · §13의2①</span></span></div>
       <div class="line"><span class="lbl">농특세·가산 등</span><div class="checks" onchange="calcDivision()">
         <label><input type="checkbox" id="dv_over85"> 전용 85㎡ 초과(농특세 과세) <small>— 수도권 밖 도시지역이 아닌 읍·면은 100㎡ 초과</small></label>
         </div></div>
@@ -1739,9 +1756,9 @@
       <div class="line"><span class="lbl">등기권리자(수증자)</span><div class="stepper"><button onclick="step('bv_cntOwner',-1,calcBurden)">−</button><input type="number" id="bv_cntOwner" value="1" min="1" oninput="calcBurden()"><button onclick="step('bv_cntOwner',1,calcBurden)">+</button></div><span class="hint">보수기준 <b>§2②4호</b> — 당사자·이해관계인 <b>5인 이상</b> 판정용 (아래 「당사자 다수 가산」과 연동)</span></div>
       <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcBurden()">
         <label><input type="radio" name="bv_ptype" value="house" checked> 주택</label>
-        <label><input type="radio" name="bv_ptype" value="etc"> 주택외</label></div></div>
+        <label><input type="radio" name="bv_ptype" value="etc"> 주택외</label></div><span class="hint">주택의 <b>지분이나 부속토지(주택이 서 있는 땅)만</b> 증여받아도 「주택」을 고르십시오<span class="law" title="지방세법 §11①8호 — 주택은 「주거용 건축물과 그 부속토지」 / §13의2① 괄호 — 주택의 공유지분이나 부속토지만 취득해도 주택을 취득한 것으로 본다(같은 조 ②항 무상취득 중과에도 적용) / 농어촌특별세법 시행령 §4⑤ — 국민주택규모 이하 「주거용 건물과 이에 부수되는 토지」는 농특세 비과세">지방세법 §11①8호 · §13의2①</span></span></div>
       <div class="line"><span class="lbl">감면·가산 등</span><div class="checks" onchange="calcBurden()">
-        <label><input type="checkbox" id="bv_adj3"> 조정대상지역 3억↑ 주택(무상분 12%)</label>
+        <label><input type="checkbox" id="bv_adj3"> 조정대상지역 안 주택 — 시가표준액 3억원 이상이면 무상분 12% <small>(아래 「주택 시가표준액」으로 판정 · 영 §28의6①)</small></label>
         <label><input type="checkbox" id="bv_donorOneHouse" onchange="calcBurden()"> └ 증여자가 1세대 1주택(§13의2② 단서 → 무상분 중과 배제)</label>
         <label><input type="checkbox" id="bv_over85"> 85㎡ 초과(농특세) <small>— 수도권 밖 도시지역이 아닌 읍·면은 100㎡ 초과</small></label>
         </div></div>
@@ -1765,6 +1782,7 @@
 
     <div class="card blue"><h2>③ 공과금 (VAT 비과세) <span class="tag A">A</span></h2><div class="body">
       <div class="note"><b>유상분</b>(채무부담액): 취득세 = 채무부담액 × <b>전체가액 기준 주택 유상세율</b>. <b>무상분</b>(증여분): 취득세 3.5%(중과 12%). 두 세목이 분리 표기됩니다.</div>
+      <div class="note alert" id="bv_std3Warn" style="display:none;"></div>
       <table class="t">
         <tr><td>취득세 (유상) <span id="bv_acqRateY" class="hint"></span><span class="law" title="부담부증여에서 「빚을 떠안은 부분」은 돈을 주고 산 것으로 보아(§7⑫) 유상취득 세율을 적용합니다.">지방세법 §7⑫·§11①7호·8호</span></td><td><input class="cell" id="bv_acqY" type="number" oninput="calcBurden(true)"></td></tr>
         <tr><td>지방교육세 (유상)<span class="law" title="지방교육세를 정한 조항입니다. 1호는 취득세율에서 1천분의 20(2%)을 뺀 세율로 계산한 금액의 100분의 20(20%)을 세액으로 합니다. 취득세와 함께 신고·납부합니다(§152①).">지방세법 §151①1호</span></td><td><input class="cell" id="bv_eduY" type="number" oninput="calcBurden(true)"></td></tr>
@@ -4562,6 +4580,9 @@ function addClamp(el,cls){
 function foldNotes(root){
   (root||document).querySelectorAll('.scene .note').forEach(function(n){
     if(n.__tog||n.closest('.card.fold .fbody')||n.closest('#scene-외국인준비서류'))return;
+    /* 2026-11-22 고를 때 나타나는 안내(준주택 주의·말소 비용·분양 신탁 등)는 자르지 않는다 —
+       일반용 화면에는 「자세히 보기」 단추가 없어 뒷부분이 보이지 않던 문제(법무사님 지적) */
+    if(/display\s*:\s*none/.test(n.getAttribute('style')||''))return;
     var alert=n.classList.contains('alert');
     if((n.textContent||'').length<(alert?260:150))return;
     addClamp(n,alert?'nclamp nclamp-alert':'nclamp');
@@ -4613,6 +4634,62 @@ function junjuToggle(){
   });
 }
 document.addEventListener('DOMContentLoaded',junjuToggle);
+/* ═══════════════ 2026-11-22 중과·감면 사유 — 고른 부동산 종류에 해당하는 것만 보이게 (법무사님 지시) ═══════
+   종류 기호: h 주택 / j 준주택 / e 주택외(토지 포함) / f 농지
+   · 주택에만 [A] — 지방세법 §13의2①②(주택 중과: 「§11①8호에 따른 주택」), 지특법 §36의3(생애최초)·§36의5(출산·양육)·§33②(서민주택),
+                    농특세법 §4 11호(국민주택규모 이하 「주택」 비과세 → 85㎡ 칸), 지방세법 §11④(주택 신축·증축 후 부속토지),
+                    §15①2호가목(1가구 1주택 상속)
+   · 농지에만 [A] — 지특법 §6①(자경농민 농지), 지방세법 §15①2호나목(자경농민 농지 상속)
+   · 종류 무관 [A] — 지방세법 §13②(대도시 법인 — 부동산 전부), §11①2호 단서(비영리사업자 무상취득)
+   · 사치성 재산 §13⑤ — 고급주택(주택)·골프장·고급오락장(건축물·토지). 준주택이 「주거용 건축물」로 고급주택에 해당할 수 있는지는 [확인필요] → 보이게 둔다
+   · 준주택(오피스텔·기숙사·다중생활시설·노인복지주택)은 주택법 §2 1호의2의 준주택으로 §11①8호 「주택」이 아니므로 주택 전용 사유가 적용되지 않는다.
+   감춘 칸은 체크를 끈다 — 다른 종류에서 켠 체크가 숨은 채 계산에 남지 않게. 해당하는 사유가 하나도 없으면 그 줄 전체를 감춘다. */
+const PT_RELIEF={
+  ptype:{adjusted:'h',firstHome:'h',fh_bonus:'h',birthHome:'h',smallHome:'h',luxury:'hje',over85:'h',landAfterBuild:'h',selfFarm:'f',corp:'h',metroCorp:'hjef'},
+  s_ptype:{s_oneHouse:'h',s_farmSpecial:'f',s_over85:'h'},
+  bq_ptype:{bq_oneHouse:'h',bq_farmSpecial:'f',bq_nonprofit:'hjef',bq_over85:'h'},
+  gv_ptype:{gv_adj3:'h',gv_donorOneHouse:'h',gv_nonprofit:'hjef',gv_over85:'h'},
+  bv_ptype:{bv_adj3:'h',bv_donorOneHouse:'h',bv_over85:'h'},
+  nk_ptype:{nk_adjusted:'h',nk_corp:'h',nk_over85:'h'},
+  ea_ptype:{ea_over85:'h',ea_mid13:'hjef'},
+  pt_ptype:{pt_over85:'h'},
+  dv_ptype:{dv_over85:'h'},
+  pr_ptype:{pr_over85:'h',pr_metro:'hjef'}
+};
+function ptKind(name){
+  const el=document.querySelector('input[name="'+name+'"]:checked'); if(!el) return 'h';
+  if(/_jun$/.test(el.id||'')) return 'j';
+  return {house:'h',etc:'e',farm:'f'}[el.value]||'h';
+}
+/* 사치성 재산 칸 이름을 종류에 맞게 — 2026-11-22 법무사님 지시
+   준주택(주거용 오피스텔 등)은 「고급주택 요건에 해당하는 경우에만」 중과:
+   행안부 부동산세제과-56(2019. 7. 30., 지방세예규심사위원회 심의) — 주거용 오피스텔도 고급주택이 될 수 있고,
+   집합건물로 호별 구분등기된 것은 시행령 §28④4호(공동주택 연면적 245㎡, 복층 274㎡ 초과) 기준. 같은 항 단서 — 시가표준액 9억원 초과일 때만 */
+const PT_LABEL={luxuryLbl:{
+  h:'고급주택(사치성 재산 §13⑤3호 · +8%)',
+  j:'고급주택 요건에 해당하는 주거용 오피스텔 등 — 전용 245㎡(복층 274㎡) 초과 <b>그리고</b> 시가표준액 9억원 초과(§13⑤3호 · 영 §28④4호 · +8%)',
+  e:'골프장·고급오락장(사치성 재산 §13⑤2호·4호 · +8%)'}};
+function ptReliefSync(only){
+  Object.keys(PT_RELIEF).forEach(function(name){
+    if(only&&only!==name) return;
+    const k=ptKind(name), map=PT_RELIEF[name], lines=[];
+    Object.keys(map).forEach(function(id){
+      const cb=document.getElementById(id); if(!cb) return;
+      const on=map[id].indexOf(k)>=0, lab=cb.closest('label')||cb;
+      lab.style.display=on?'':'none';
+      if(!on&&cb.checked) cb.checked=false;
+      const ln=cb.closest('.line'); if(ln&&lines.indexOf(ln)<0) lines.push(ln);
+    });
+    lines.forEach(function(ln){
+      const any=[].some.call(ln.querySelectorAll('input[type=checkbox]'),function(c){ return (c.closest('label')||c).style.display!=='none'; });
+      ln.style.display=any?'':'none';
+    });
+    if(name==='ptype'){ Object.keys(PT_LABEL).forEach(function(id){ const el=document.getElementById(id); if(el&&PT_LABEL[id][k]) el.innerHTML=PT_LABEL[id][k]; }); }
+  });
+}
+/* 종류를 바꾸면 계산(각 줄의 onchange)보다 먼저 감추고 체크를 끈다 — capture 단계 */
+document.addEventListener('change',function(e){ const t=e.target; if(t&&t.type==='radio'&&PT_RELIEF[t.name]) ptReliefSync(t.name); },true);
+document.addEventListener('DOMContentLoaded',function(){ ptReliefSync(); });
 function chk(id){const e=document.getElementById(id);return e&&e.checked;}
 /* 스테퍼 — 하한(min)을 존중하도록 정정 [29회차]
    종전에는 하한이 1로 고정되어 있어, HTML에 min="0"으로 선언해 둔 칸
@@ -4653,11 +4730,12 @@ function nongmakTax(p,ptName,landVal){
 function taxNational(v){return taxTrim(v);}  // 국세 — 10원 미만 절사
 function tierFee(key,a){const t=TIERS[key];if(!t)return 0;for(const[l,b,o,r]of t){if(a<=l)return b+(a-o)*r;}return 0;}
 document.getElementById('today').textContent=(()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');})();
-/* 할인율은 매일 바뀌므로 「언제 확인한 값인지」를 늘 보이게 한다.
-   외부 기관·은행 화면을 자동 수집하지 않는다(27회차 결정 유지 — 2026-09 재확인):
-   · 은행 조회화면은 로봇 수집 차단(robots)·조회 폼 방식이고,
-   · 공공데이터포털·KRX 채권시세 API는 전 영업일 「가격」(할인율 아님)이며 공공누리 4유형(상업적 이용·변경 금지)이다.
-   → 대신 사무소가 하루 한 번 넣은 값을 사무소 서버(/api/bond-rate)에 두고 의뢰인 화면이 자동으로 읽는다(아래 bondFetchShared). */
+/* 할인율은 매일 바뀌므로 「어느 날 적용되는 값인지」를 늘 보이게 한다.
+   2026-11-22 재확인(법무사님 지시) — 우리은행(주택도시기금 수탁은행) 공개 조회화면에서 서버가 정해진 때에만 가져온다(functions/api/bond-rate.js).
+   · 우리은행 svc·spot·www 세 주소 모두 robots.txt 없음. 비회원 공개 화면에 적용되는 홈페이지 이용약관은 찾지 못함
+     (「인터넷뱅킹서비스 이용약관」은 가입 이용자 대상·자동 조회 금지 조항 없음). 판단 틀 — 대법원 2022. 5. 12. 선고 2021도1533 판결.
+   · 공식 공개데이터(공공데이터포털 금융위원회 채권발행정보 등)에는 즉시매도 할인율이 없다.
+   · 종전(2026-09) 메모의 「은행 조회화면 로봇 수집 차단」은 오늘 확인과 달라 지운다. */
 function todayKey(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
 function saveBondRate(){try{
   localStorage.setItem('sanlaw_bondRate',document.getElementById('bondRate').value);
@@ -4714,7 +4792,18 @@ function officeReady(){
   }
   return miss;
 }
+/* 2026-11-22 할인율 옆 적용일 표시 — 다음 영업일 값이면 「(11. 23. 월 적용)」, 지난 값이면 「(11. 20. 고시값)」 */
+function paintBondRateDay(){
+  const el=document.getElementById('bondRateDay');if(!el)return;
+  let day=null,src=null;try{day=localStorage.getItem('sanlaw_bondRateDay');src=localStorage.getItem('sanlaw_bondRateSrc');}catch(e){}
+  const t=todayKey();
+  if(src!=='office'||!day||day===t){el.textContent='';el.title='';return;}
+  const wd='일월화수목금토'.charAt(new Date(day+'T00:00:00').getDay()), md=Number(day.slice(5,7))+'. '+Number(day.slice(8))+'. '+wd;
+  if(day>t){el.textContent='('+md+' 적용)';el.title='오늘 업무가 끝났거나(평일 18:30 이후) 주말·공휴일이어서, 우리은행 고시표에 올라온 다음 영업일 적용 할인율입니다.';}
+  else{el.textContent='('+md+' 고시값)';el.title='오늘 할인율을 아직 받지 못해 가장 최근 고시값을 보여 드립니다. 「오늘 고시율 조회」로 확인하실 수 있습니다.';}
+}
 function paintBondRateBadge(){
+  try{paintBondRateDay();}catch(e){}
   const el=document.getElementById('bondRateBadge');if(!el)return;
   let day=null,src=null;try{day=localStorage.getItem('sanlaw_bondRateDay');src=localStorage.getItem('sanlaw_bondRateSrc');}catch(e){}
   const t=todayKey(), dow=new Date().getDay();
@@ -4722,7 +4811,10 @@ function paintBondRateBadge(){
   /* 토·일에는 고시율이 새로 나오지 않으므로 직전 금요일 값이 최신이다 (공휴일은 판별하지 않음) */
   const lastBiz=day&&((dow===6&&gap===1)||(dow===0&&gap===2));
   const G='#9fd6a8',Y='#f3d27a';
-  if(src==='office'&&day===t){el.textContent='✓ 오늘('+day+') 고시율 자동 반영';el.style.color=G;el.title='사무소가 오늘 은행 고시율을 확인해 넣은 값입니다.';}
+  if(src==='office'&&day&&day>t){const wd='일월화수목금토'.charAt(new Date(day+'T00:00:00').getDay());
+    el.textContent='✓ 다음 영업일('+day.slice(5).replace('-','. ')+'. '+wd+') 적용 할인율 자동 반영';el.style.color=G;
+    el.title='오늘 업무가 끝났거나(평일 18:30 이후) 주말·공휴일이어서, 우리은행 고시표에 올라온 다음 영업일 적용 할인율을 보여 드립니다.';}
+  else if(src==='office'&&day===t){el.textContent='✓ 오늘('+day+') 고시율 자동 반영';el.style.color=G;el.title='사무소가 오늘 은행 고시율을 확인해 넣은 값입니다.';}
   else if(src==='office'&&lastBiz){el.textContent='✓ 최근 영업일('+day+') 고시율 자동 반영';el.style.color=G;el.title='주말에는 고시율이 새로 나오지 않습니다. 등기는 평일에 하므로 그날 값으로 다시 확인됩니다.';}
   else if(src==='office'&&day){el.textContent='⚠ '+day+' 사무소 확인값 ('+gap+'일 전) — 오늘 값은 아직 등록 전입니다';el.style.color=Y;el.title='오늘 값이 등록되면 자동으로 바뀝니다. 급하시면 조회 버튼으로 직접 확인해 넣으셔도 됩니다.';}
   else if(day===t){el.textContent='✓ 오늘 직접 확인함';el.style.color=G;el.title='오늘 날짜로 할인율을 직접 입력하셨습니다.';}
@@ -4744,10 +4836,11 @@ function saveSongUnit(){try{localStorage.setItem('sanlaw_songUnit',document.getE
 (function(){try{var s=localStorage.getItem('sanlaw_bondRate');if(s!==null&&s!==''&&!isNaN(parseFloat(s)))document.getElementById('bondRate').value=s;}catch(e){}})();
 try{paintBondRateBadge();}catch(e){}      /* 할인율 최신 여부 배지 */
 /* ═══ 국민주택채권 할인율 — 사무소 확인값 자동 반영 (2026-09 신설) ═══
-   ① 사무소(관리자 기기)에서 은행 고시율을 확인해 칸에 넣고 「📤 의뢰인 화면에 적용」을 누른다.
-   ② 값은 사무소 사이트 자체 서버(Cloudflare Pages Functions + KV · /api/bond-rate)에 저장된다.
-      2026-11-19 개정 — 그날 값이 없으면 서버가 우리은행(주택도시기금 수탁은행) 공개 고시표에서
-      가장 최근 영업일 할인율을 가져와 자동으로 채운다(functions/api/bond-rate.js). 사무소 값은 자동값을 바로잡을 때만 쓴다.
+   ① 서버(Cloudflare Pages Functions + KV · /api/bond-rate)가 우리은행 고시표를 정해진 때에만 가져온다(2026-11-22 개정).
+      18:30 다음 영업일 값 / 00:30 못 받았으면 보충 / 08:00 영업일 아침 점검 — 주말·공휴일은 고시표 날짜로 알아서 건너뛴다.
+   ② 보여 주는 값(법무사님 결정) — 고시표에 다음 영업일 값이 올라와 있으면 그 값, 아직 없으면 오늘 값.
+      평일 18:30 조회 뒤부터, 주말·공휴일에는 내내 다음 영업일 값이 나온다(당일 업무가 끝나면 그날 할인율로 살 일이 없음).
+      「📤 의뢰인 화면에 적용」은 자동값이 은행 고시율과 다를 때만 쓴다(지금 의뢰인 화면에 보이는 적용일의 값을 바로잡음).
    ③ 의뢰인이 계산기를 열면 그 값을 읽어 칸에 넣고 기준일을 표시한다.
    ④ 서버 기능이 없거나 응답이 없으면 종전 방식(직접 입력)으로 그대로 동작한다. */
 const BOND_API='/api/bond-rate';
@@ -4779,9 +4872,10 @@ function bondPublish(){
   if(!bondValidRate(v)){alert('할인율을 0보다 크고 50보다 작은 숫자로 넣어 주십시오.');return;}
   let key=null;try{key=localStorage.getItem('sanlaw_bond_key');}catch(e){}
   if(!key){key=prompt('할인율 공유 비밀번호를 입력하십시오.\n(Cloudflare에 등록한 BOND_ADMIN_KEY — 이 기기에만 저장됩니다)');if(!key)return;}
-  if(!confirm('할인율 '+v+'% 를 오늘('+todayKey()+') 값으로 모든 의뢰인 화면에 적용합니다.\n은행 고시율과 같은지 확인하셨습니까?'))return;
+  const tgt=(BOND_SHARED&&BOND_SHARED.date)||todayKey();
+  if(!confirm('할인율 '+v+'% 를 '+tgt+' 적용 값으로 모든 의뢰인 화면에 적용합니다.\n은행 고시율과 같은지 확인하셨습니까?'))return;
   const btn=document.getElementById('bondPubBtn');if(btn){btn.disabled=true;btn.textContent='저장 중…';}
-  fetch(BOND_API,{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+key},body:JSON.stringify({rate:v})})
+  fetch(BOND_API,{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+key},body:JSON.stringify({rate:v,date:tgt})})
     .then(function(r){return r.json().catch(function(){return {};}).then(function(j){return {ok:r.ok,status:r.status,j:j};});})
     .then(function(x){
       if(x.ok){try{localStorage.setItem('sanlaw_bond_key',key);}catch(e){}
@@ -5087,6 +5181,86 @@ function eokTxt(v){v=Math.round(v||0);const e=Math.floor(v/100000000),m=Math.rou
 function shareOf(p){return bsTrRatio(p);}
 /* 과세표준 = 전체 금액 × 이전 지분 */
 function taxBaseOf(p,total){const r=bsTrRatio(p);return (r>0&&r<1)?Math.round(total*r):total;}
+/* ═══════════════ 2026-11-22 가족 간 매매 (법무사님 지시) ═══════════════
+   [A] 2026. 11. 22. 국가법령정보센터 현행 원문 대조
+   · 지방세법 §7⑪ [법률 제21308호, 2026. 7. 1. 시행] — 배우자·직계존비속의 부동산을 취득하면 증여로 취득한 것으로 본다.
+       다만 1. 공매·경매 2. 파산 3. 교환 4. 대가 지급 사실이 증명되는 경우(가 소득 나 처분·담보 다 신고·과세된 상속·수증재산 라 그 밖의 취득자 재산)는 유상.
+       4호 단서(2025. 12. 31. 신설) — 대가가 시가인정액보다 낮아 차액이 대통령령 범위 이상이면 4호에서 제외(→ 증여로 봄)
+   · 같은 법 시행령 §11의3 [2026. 5. 29. 개정] — 그 범위: 차액 3억원 이상 또는 시가인정액의 100분의 30 이상
+       (지분 취득은 전체 지분, 부속토지만은 전체 주택을 취득한 것으로 보아 계산. 시가인정액이 없으면 시가표준액)
+   · 지방세법 §10의3② · 시행령 §18의2 — 특수관계인에게서 시가인정액보다 싸게 사서 차액 3억원 이상 또는 5% 이상 → 과세표준은 시가인정액
+       (2025. 12. 31. 개정 — §7⑪으로 증여로 보는 경우는 제외 / 특수관계인 = 지방세기본법 시행령 §2① 4촌 이내 혈족·3촌 이내 인척 등)
+   · 적용 시기 [A 부칙 원문 — 2026. 11. 22. 국가법령정보센터]
+       법률 제21308호 부칙 §1(2026. 1. 1. 시행)·§3 — §7⑪·§10의3② 개정규정은 시행 이후 부동산등을 취득하는 경우부터 적용
+       대통령령 제36043호 부칙 §1 — 영 §11의3 신설 2026. 1. 1. 시행
+       대통령령 제36364호 부칙 §1·§2 — 영 §11의3 지분·부속토지 전체 기준은 2026. 6. 1. 이후 납세의무 성립분부터
+       (계산기는 매매금액·시가인정액을 부동산 전체 금액으로 받으므로 차액도 전체 기준으로 계산된다)
+   · 증여로 보면: §11①2호 무상취득 1천분의 35 / §13의2②·영 §28의6① 조정대상지역 시가표준액 3억원 이상 주택은 12%
+       (영 §28의6②1호 — 1세대 1주택자의 주택을 배우자·직계존비속이 무상취득하면 중과 제외)
+   · 지방교육세 §151①1호 (3.5% − 2%) × 20% = 0.3% / 중과 나목 0.4% · 농특세 §5①6호 (2% + 중과분) × 10%, 85㎡ 이하 주택 비과세(§4 11호)
+   · 증여로 보면 생애최초(지특법 §36의3① — 「유상거래(부담부증여 제외)」)·서민주택(§33② — 「상속·증여로 인한 취득 및 원시취득은 제외」)은 적용하지 않는다
+     출산·양육(§36의5)은 유상거래 한정 문구가 없어 [확인필요] — 자동 계산하지 않고 안내만(2026-11-22 원문 검증)
+   · 국민주택채권·등기신청수수료·보수는 등기원인(매매)대로 둔다 — §7⑪은 취득세에만 적용되는 규정이다 */
+function famSale(price){
+  const rel=(document.getElementById('famRel')||{}).value||'';
+  const mvIn=val('famMv'), mv=mvIn>0?mvIn:price;
+  const r={rel:rel,gift:false,base:price,mv:mv,mvIn:mvIn,kind:'',low:0};
+  if(!rel||!(price>0)) return r;
+  const low=mv-price; r.low=low;
+  if(rel==='spouse'||rel==='lineal'){
+    if(radio('famProof')!=='yes'){ r.gift=true; r.base=mv; r.kind='noproof'; return r; }
+    if(low>0&&(low>=3*억||low>=mv*0.3)){ r.gift=true; r.base=mv; r.kind='toolow'; return r; }   /* §7⑪4호 단서 · 영 §11의3 */
+    r.kind='proof';
+  } else r.kind='kin';
+  if(low>0&&(low>=3*억||low>=mv*0.05)){ r.base=mv; r.kind='unfair'; }                           /* §10의3② · 영 §18의2 */
+  return r;
+}
+function famUI(){
+  const rel=(document.getElementById('famRel')||{}).value||'';
+  const box=document.getElementById('famBox'); if(box) box.style.display=rel?'':'none';
+  const pl=document.getElementById('famProofLine'); if(pl) pl.style.display=(rel==='spouse'||rel==='lineal')?'':'none';
+}
+function famPaint(fs){
+  const ol=document.getElementById('famOneLine');
+  if(ol) ol.style.display=(fs.gift&&radio('ptype')==='house')?'':'none';
+  const n=document.getElementById('famNote'); if(!n) return;
+  if(!fs.rel){ n.style.display='none'; n.innerHTML=''; return; }
+  n.style.display='';
+  const pct=fs.mv>0?Math.round(fs.low/fs.mv*1000)/10:0;
+  const diff=fs.low>0?' (매매금액이 시가인정액보다 '+won(fs.low)+', '+pct+'% 낮음)':'';
+  let h='';
+  if(fs.kind==='noproof') h='<span class="head">증여로 보고 계산했습니다</span>배우자·직계존비속에게서 산 부동산은 <b>대가를 낸 사실을 증명하지 못하면 증여로 취득한 것으로 봅니다</b>(지방세법 §7⑪). 취득세는 <b>무상취득 세율 3.5%</b>(조정대상지역 안 시가표준액 3억원 이상 주택은 12%)이고, 과세표준은 <b>시가인정액</b>입니다. 대가를 낸 증빙을 갖추시면 매매(유상)로 계산됩니다 — 위 「대가 지급 증빙」을 「있음」으로 바꿔 보십시오. 생애최초 감면(지특법 §36의3 — 유상거래만)·서민주택 감면(§33② — 증여 제외)과 보유 주택 수에 따른 중과는 넣지 않았습니다. 출산·양육 감면(§36의5)은 유상거래로 한정하는 문구가 없어 증여로 보는 경우에도 받을 여지가 있습니다 <span class="tag chk">확인필요</span> — 해당하시면 상담 때 말씀해 주세요.';
+  else if(fs.kind==='toolow') h='<span class="head">대가를 증명해도 증여로 봅니다</span>매매대금이 시가인정액보다 <b>3억원 이상 또는 30% 이상 낮으면</b> 유상취득으로 인정하지 않습니다'+diff+'(지방세법 §7⑪4호 단서 · 시행령 §11의3 — 2026. 1. 1. 이후 취득분부터, 법률 제21308호 부칙 제3조). 취득세는 무상취득 세율로, 과세표준은 시가인정액으로 계산했습니다. 생애최초·서민주택 감면은 넣지 않았습니다(출산·양육 감면은 <span class="tag chk">확인필요</span>).';
+  else if(fs.kind==='unfair') h='<span class="head">과세표준을 시가인정액으로 계산했습니다</span>특수관계인에게서 시가인정액보다 싸게 사서 차액이 <b>3억원 이상 또는 시가인정액의 5% 이상</b>이면 부당행위계산으로 보아 시가인정액이 과세표준입니다'+diff+'(지방세법 §10의3② · 시행령 §18의2).';
+  else if(fs.kind==='proof') h='<span class="head">매매(유상)로 계산했습니다</span>대가 지급 증빙을 갖춘 경우입니다(지방세법 §7⑪4호). 취득세를 신고할 때 증빙을 함께 내셔야 하고, 시·군·구청이 인정하지 않으면 <b>증여 세율로 다시 매겨질 수 있습니다</b>.';
+  else h='<span class="head">그 밖의 친족 간 매매</span>형제·사위·며느리 등은 증여로 보는 규정(지방세법 §7⑪) 대상이 아닙니다. 다만 시가인정액보다 <b>3억원 이상 또는 5% 이상</b> 싸게 사면 시가인정액으로 과세됩니다(§10의3② · 시행령 §18의2).';
+  h+='<br><span style="font-weight:400;">▸ <b>증여세(국세)</b>는 따로 따집니다 — 배우자·직계존비속에게 양도한 재산은 증여로 추정하고(상속세 및 증여세법 §44, 대가 지급이 명백하면 제외 — 시행령 §33③), 특수관계인 사이에 시가보다 싸게 사고팔면 그 차액 중 「시가의 30%와 3억원 중 적은 금액」을 넘는 부분이 증여입니다(같은 법 §35 · 시행령 §26②). 증여세 판단은 세무서·세무사 소관입니다.'
+    +'<br>▸ 국민주택채권·등기신청수수료·보수는 등기원인(매매)대로 계산합니다(채권은 등기원인 기준 — 2026 국민주택채권 업무편람 사례67 취지).</span>';
+  n.innerHTML=h;
+}
+function famGiftTax(fs){
+  const t=radio('ptype'), isH=(t==='house'), _tr=shareOf(''), _tb=taxBaseOf('',fs.base);
+  const mid=isH&&chk('adjusted')&&std3('bondStdHouse',fs.base)&&!chk('famOneHouse');   /* 영 §28의6① 시가표준액 3억원 */
+  const lux=chk('luxury');
+  std3Warn('std3Warn',isH&&chk('adjusted')&&!chk('famOneHouse'),'bondStdHouse',fs.base,_tb);
+  const rate0=mid?0.12:0.035, rate=rate0+(lux?0.08:0);
+  let acq=_tb*rate; const raw=acq;
+  paintRelief(null);
+  const farmCut=(t==='farm'&&chk('selfFarm')); if(farmCut) acq=acq*0.5;   /* 자경농지 감면(지특법 §6①)은 위 체크대로 */
+  let edu=mid?_tb*0.004:_tb*0.003;
+  if(raw>0&&acq<raw) edu=edu*(acq/raw);                                    /* §151①1호 다목 — 감면율 연동 */
+  let rural;
+  if(isH) rural=chk('over85')?_tb*(0.02+(mid?0.08:0)+(lux?0.08:0))*0.1:0;
+  else rural=_tb*(0.02+(lux?0.08:0))*0.1;
+  if(farmCut) rural=0;                                                     /* 농특세법 §4 10호 */
+  document.getElementById('acqTax').value=taxLocal(Math.round(acq));
+  document.getElementById('eduTax').value=taxLocal(Math.round(edu));
+  document.getElementById('ruralTax').value=taxLocal(Math.round(rural));
+  const en=document.getElementById('eduRate'); if(en) en.textContent='';
+  priceShareGuide(fs.base,_tb,_tr);
+  document.getElementById('acqRate').textContent='(증여로 봄 §7⑪ · '+(rate*100).toFixed(rate*100%1?1:0)+'%'+(mid?' 조정 3억↑ 중과 §13의2②':'')+(lux?' 사치성 +8%':'')+(farmCut?' 자경50%':'')+' · 과세표준 시가인정액 '+eokTxt(_tb)+((isH&&chk('adjusted')&&std3Txt('bondStdHouse',fs.base))?' · '+std3Txt('bondStdHouse',fs.base):'')+')';
+  if(typeof gsxPost==='function') gsxPost('scene-매매',{acq:'acqTax',edu:'eduTax',rural:'ruralTax',lbl:'acqRate',house:isH,over85:chk('over85'),base:_tb,kinds:['무상']});
+}
 function acqRateSale(price,rateBase){const t=radio('ptype'),hn=radio('hn'),adj=chk('adjusted'),cp=chk('corp');
   const rb=(rateBase&&rateBase>0)?rateBase:price;      // 구간 판정용
   /* [A] 지방세법 §13② — 대도시 법인 설립·지점설치·전입 후 5년 이내 부동산 취득
@@ -5285,6 +5459,55 @@ function d3officeStd(o){
   return L;
 }
 /* 세 칸을 그린다 */
+/* ═══════════════ 2026-11-22 판결·조정 등에 의한 소유권이전 — 승소한 등기권리자의 단독신청 ═══════════════
+   [A] 부동산등기법 §23④ — 등기절차의 이행을 명하는 판결에 의한 등기는 승소한 등기권리자가 단독으로 신청
+   [A] 실무교재(법원공무원교육원 2026 『부동산등기실무』) 101~106쪽
+       · 등기원인증서 = 판결정본 + 확정증명서. 조정·화해·인낙조서는 확정증명서 불요, 조정을 갈음하는 결정·화해권고결정은 필요, 송달증명서 불요
+       · 승소한 등기권리자가 신청하면 등기필정보 불요(101쪽·111쪽 — 일방 신청)
+       · 집행문 원칙 불요 — 선이행·상환이행·조건부 이행판결은 필요(106쪽)
+       · 소유권이전등기: 등기권리자의 주소증명서면, 판결문상 주소와 등기기록상 등기의무자 주소가 다르면 의무자 주소증명도(106쪽)
+       · 제3자 허가서는 원칙적으로 면제되지만 소유권이전등기는 토지거래허가 등 행정관청 허가서를 반드시 제출(105쪽 · 부동산등기 특별조치법 §5①)
+   [A] 117쪽 — 계약을 원인으로 한 소유권이전등기는 판결서(화해·인낙·조정조서 포함) 정본에도 검인(부동산등기 특별조치법 §3①②)
+   [C] 등기의무자의 인감증명 — 부동산등기규칙 §60①1호는 「소유권의 등기명의인이 등기의무자로서 등기를 신청하는 경우」라, 의무자가 신청하지 않는 판결 단독신청에는 해당하지 않음(문언 해석 — 명시한 예규·선례 미확인)
+   2026-11-22 최신 원문 검증 반영 [A]
+   · 「판결 등 집행권원에 의한 등기의 신청에 관한 업무처리지침」 등기예규 제1786호(2024. 11. 25.) — 5.가 확정증명·송달증명, 5.나 집행문(반대급부가 따로 적혀 있으면 불요),
+     5.라.1) 주소증명(판결상 피고 주소가 등기기록과 다르면 의무자 주소서면 — 등기기록상 주소가 병기돼도 같음, 법원이 확인한 피고 주민등록번호가 등기기록과 같으면 불요),
+     5.마.2) 판결서에 허가 사실이 있어도 소유권이전은 허가서 제출(규칙 §46③ 단서), 2.라 확정 후 10년이 지나도 신청 가능
+   · 판결서 검인 — 특조법 §3② 「집행력 있는 판결서 또는 판결과 같은 효력을 갖는 조서」, 화해·인낙·조정조서 포함은 등기예규 제1727호 1.가.(1)
+   · 증여는 토지거래허가 대상이 아님(부동산 거래신고 등에 관한 법률 §11① — 대가를 받는 경우만), 토지거래허가를 받으면 농지취득자격증명·검인을 받은 것으로 봄(같은 법 §20) */
+function judgeDocs(o){
+  /* o: {ob:'매도인', ri:'매수인', riItems:[...], cause:'매매'|'증여', led} */
+  const client=[
+    {who:o.ob+' (피고 · 등기의무자)',items:[
+      d3i('받으실 서류가 없습니다','판결로 '+o.riS+' 혼자 신청하므로 '+o.ob+'의 등기필정보·인감증명서가 필요 없습니다',''),
+      d3i('판결문에 적힌 '+o.ob+' 주소가 등기기록의 주소와 <b>다르면</b> — '+o.ob+'의 <b>주소를 증명하는 서면</b>(주민등록표 초본 등)','판결에 등기기록상 주소가 함께 적혀 있어도 마찬가지입니다. 다만 법원이 확인한 '+o.ob+'의 주민등록번호가 등기기록과 같으면 필요 없습니다(등기예규 제1786호 5.라.). 발급 방법은 상담 때 안내해 드립니다','')]},
+    {who:o.ri+' (원고 · 등기권리자)',items:o.riItems},
+    {who:'판결 관련 서류 <span class="hint">— 판결한 법원(민원실)에서 받습니다</span>',items:[
+      d3i('<b>판결정본</b>','조정·화해로 끝났으면 <b>조정조서·화해조서 정본</b>',''),
+      d3i('<b>판결확정증명서</b>','조정조서·화해조서·인낙조서는 필요 없고, <b>조정을 갈음하는 결정·화해권고결정</b>은 필요합니다. 송달증명서는 필요 없습니다',''),
+      d3i('<b>집행문</b> <span class="hint">(선이행·상환이행·조건부 판결일 때만)</span>','「돈을 받으면 등기해 주라」처럼 조건이 붙은 판결. 등기 이행과 반대급부 이행이 따로따로 적혀 있으면 필요 없습니다(등기예규 제1786호 5.나.)',''),
+      d3i((o.cause==='증여'?'':'<b>토지거래계약 허가증</b> · ')+'<b>농지취득자격증명</b> <span class="hint">(해당할 때)</span>','판결서에 허가 사실이 적혀 있어도 소유권이전등기에는 내야 합니다(부동산등기규칙 §46③ 단서 · 등기예규 제1786호 5.마.)'+(o.cause==='증여'?'. 증여는 토지거래허가 대상이 아닙니다(부동산 거래신고 등에 관한 법률 §11①)':'. 토지거래허가를 받으면 농지취득자격증명·검인을 받은 것으로 봅니다(같은 법 §20)'),'')]}];
+  const office=[
+    d3i('<b>판결서 정본 검인</b>','부동산 소재지 시·군·구청에서 받습니다 — '+o.cause+' 등 계약을 원인으로 한 소유권이전은 판결서에도 검인이 필요합니다(부동산등기 특별조치법 §3② · 화해·인낙·조정조서 포함 — 등기예규 제1727호)',''),
+    d3i('<b>등기신청서</b>, <b>위임장</b>',o.ri+'만 날인합니다',''),
+    d3i('<b>취득세 신고·납부</b>','영수필확인서를 받습니다. 세금은 의뢰인 부담입니다',''),
+    d3i('<b>국민주택채권 매입</b>','',''),
+    d3i('<b>등기신청수수료 납부</b>','',''),
+    d3i('<b>건축물대장·토지대장</b>','',LK.gov)];
+  const attach=[
+    ['판결정본 + 확정증명서 <small>(검인받은 것 · 조정·화해·인낙조서는 확정증명 불요)</small>','의뢰인 (법원에서 받음)','규칙 §46①1호 · 특조법 §3② · 예규 제1786호 5.가'],
+    [o.ri+' 주민등록표 등(초)본','의뢰인','규칙 §46①6호'],
+    [o.ob+' 주소증명 <small>(판결문 주소와 등기기록 주소가 다를 때만 — 주민등록번호가 같으면 불요)</small>','의뢰인','예규 제1786호 5.라.1)'],
+    [o.led,'사무소','규칙 §46①7호'],
+    ['위임장 <small>('+o.ri+'만 날인)</small>','사무소 작성','규칙 §46①5호'],
+    ['취득세·지방교육세·농어촌특별세 영수필확인서','사무소 (신고 대행)','규칙 §44'],
+    ['국민주택채권 매입 — 채권발행번호','사무소 (매입 대행)','규칙 §44'],
+    ['등기신청수수료 영수필확인서','사무소','수수료규칙 §5의2'],
+    [(o.cause==='증여'?'':'토지거래계약 허가증 · ')+'농지취득자격증명 <small>(해당할 때만)</small>','의뢰인 신청','규칙 §46③ 단서 · 예규 제1786호 5.마.2)']];
+  return {client:client,office:office,attach:attach,
+    attachNote:'<b>등기필정보와 '+o.ob+'의 인감증명서는 필요 없습니다</b> — 승소한 등기권리자 혼자 하는 신청입니다(부동산등기법 §23④·§50② 후문 · 인감은 부동산등기규칙 §60①1호가 등기의무자가 신청하는 경우만 정함). 판결이 확정된 지 10년이 지났어도 그 판결로 신청할 수 있습니다(등기예규 제1786호 2.라.).',
+    law:'부동산등기법 §23④·§50②, 부동산등기 특별조치법 §3②, 부동산등기규칙 §46①·③·§60①1호, 등기예규 제1786호·제1727호',src:'판결에 의한 등기 — 실무교재 101~106쪽·117쪽, 등기예규 제1786호(2024. 11. 25.)'};
+}
 function d3(o){
   let h='<div class="d3">';
   if(o.lead) h+=o.lead;
@@ -7443,6 +7666,26 @@ function renderDocsSale(){
       d3i('<b>주민등록표 초본</b>, 도장, 신분증','',LK.juminCho),
       d3i('<b>미리 알려 주실 것</b> — 지금 가지고 계신 <b>주택 수와 그 주소</b>','다주택 중과·생애최초 감면 판정에 필요합니다','')]),
     extra:foreignBlock(frB,ps?'수분양자':'매수인','ri')});
+  /* 2026-11-22 가족 간 매매 — 관계 소명서류·대가 지급 증빙(지방세법 §7⑪4호 가~라목) */
+  const famRel=(document.getElementById('famRel')||{}).value||'';
+  if(famRel&&!ps){
+    const kin=famRel==='spouse'?[
+        d3i('<b>혼인관계증명서(상세)</b> — 매도인·매수인 <b>양쪽</b>','지금 혼인 중인 배우자임을 확인합니다',LK.family),
+        d3i('<b>주민등록표 등본</b>(세대원 전체 포함)','같은 세대인지 확인합니다',LK.juminCho)]
+      :famRel==='lineal'?[
+        d3i('<b>가족관계증명서(상세)</b> — 매도인 기준 · 매수인 기준 <b>각 1통</b>','부모·자녀 관계를 확인합니다',LK.family),
+        d3i('조부모↔손자녀이면 <b>중간자(손자녀의 아버지 또는 어머니) 기준 가족관계증명서(상세)</b>도','가족관계증명서에는 본인의 부모·배우자·자녀만 나옵니다',LK.family),
+        d3i('입양한 사이면 <b>입양관계증명서(상세)</b>','',LK.family)]
+      :[d3i('관계를 보여 주는 <b>가족관계증명서(상세)</b> 등 <span class="hint">(필요한 경우)</span>','형제는 부모 기준 가족관계증명서, 사위·며느리는 혼인관계증명서와 배우자 기준 가족관계증명서',LK.family)];
+    client.push({who:'친족 관계 소명서류 <span class="hint">— 취득세 신고 때 관계를 확인하는 데 씁니다(등기소 첨부서류는 아닙니다)</span>',items:kin});
+    if(famRel!=='kin') client.push({who:'대가 지급 증빙 <span class="hint">— 갖추지 못하면 취득세를 증여 세율로 냅니다(지방세법 §7⑪)</span>',items:[
+      d3i('<b>매매대금 이체 내역</b> — 매수인 명의 계좌에서 매도인 계좌로','통장 사본 또는 은행 거래내역서. 현금으로 주고받으면 증명이 어렵습니다','거래 은행'),
+      d3i('<b>매수인의 소득 증빙</b> — 소득금액증명원 또는 근로소득 원천징수영수증','대가를 낼 소득이 있었음을 보여 줍니다(§7⑪4호가목)','<a href="https://www.hometax.go.kr" target="_blank" rel="noopener">홈택스</a> › 민원증명 › 소득금액증명, 세무서'),
+      d3i('재산을 팔거나 담보로 빌린 돈으로 냈다면 — <b>그 매매계약서·대출약정서·대출거래내역</b>','(§7⑪4호나목)','거래 은행'),
+      d3i('신고한 상속·증여재산으로 냈다면 — <b>상속세·증여세 신고서 또는 결정통지서</b>','(§7⑪4호다목)','세무서·홈택스'),
+      d3i('대금 일부를 대출이나 전세보증금을 넘겨받는 것으로 치렀다면 — <b>부채증명서·임대차계약서</b> 등 그 증빙','','거래 은행')],
+      extra:'<div class="d3note">같은 증빙이 증여세(상속세 및 증여세법 §44 — 배우자·직계존비속 양도의 증여 추정) 소명에도 쓰입니다. 다만 증여세에서 대가 지급으로 인정하는 범위(같은 법 시행령 §33③ — 교환, 과세·신고된 소득·상속·수증재산, 소유재산 처분대금)는 취득세보다 좁아 <b>담보 대출금</b> 등은 명시되어 있지 않습니다. 증여세 판단은 세무서·세무사 소관입니다.</div>'});
+  }
   const ci=[];
   if(ps){
     ci.push(d3i('<b>분양(공급)계약서</b> 원본','',''));
@@ -7496,6 +7739,13 @@ function renderDocsSale(){
       +'<b style="color:var(--seal);">※ 취득시기 — 잔금지급일과 사용승인일 중 <u>늦은 날</u>. 그날부터 60일 내 취득세 신고·납부.</b></div>');
   }
   tail.push(saleCancelDocs());
+  if(!ps&&(document.getElementById('sale_cause')||{}).value==='judge'){
+    /* 2026-11-22 판결로 매수인이 혼자 신청 — 매수인 서류·가족 간 매매 서류는 그대로 두고 나머지를 판결용으로 바꾼다 */
+    const J=judgeDocs({ob:'매도인',ri:'매수인',riS:'매수인이',cause:'매매',led:led,riItems:client[1].items});
+    const keep=client.filter(function(g){ return /친족 관계|대가 지급/.test(g.who); });
+    document.getElementById('docsBox').innerHTML=d3({client:J.client.concat(keep),office:J.office,attach:J.attach,attachNote:J.attachNote,law:J.law,src:J.src,tail:tail.join('')});
+    return;
+  }
   document.getElementById('docsBox').innerHTML=d3({client:client,office:office,attach:attach,tail:tail.join('')});
 }
 
@@ -7524,17 +7774,19 @@ function calcPresale(){
 function calcSale(fromEdit){
   renderBondUI();
   const price=val('price');
-  document.getElementById('houseNline').style.display=(radio('ptype')==='house')?'flex':'none';
-  if(!fromEdit){
-    const _tr=shareOf(''), _tb=taxBaseOf('',price);   /* 세율=전체 금액 / 과세표준=지분 상당액 */
+  document.getElementById('houseNline').style.display=(radio('ptype')==='house'&&!famSale(price).gift)?'flex':'none';   /* 증여로 보면 보유 주택 수(§13의2①)는 쓰지 않는다 */
+  const _fs=famSale(price); famPaint(_fs); if(!fromEdit) std3Warn('std3Warn',false);
+  if(_fs.gift&&!fromEdit){ famGiftTax(_fs); }
+  else if(!fromEdit){
+    const _tr=shareOf(''), _tb=taxBaseOf('',_fs.base);   /* 세율=전체 금액 / 과세표준=지분 상당액 · 가족 간 저가 거래면 시가인정액(§10의3②) */
     /* [A] 지방세법 §13⑤ 사치성 재산 — 일반세율 + 중과기준세율(2%)의 400%(=8%). 주택 중과(§13의2①②)와 겹치면 그 세율 + 8% (§13의2③) */
-    const _rate0=acqRateSale(price), _lux=chk('luxury');
+    const _rate0=acqRateSale(_fs.base), _lux=chk('luxury');
     const rate=_rate0+(_lux?0.08:0);let acq=_tb*rate;
     const _acqRaw=acq;          /* 감면 전 산출 취득세 — 지방교육세 연동 감면율의 분모 */
-    priceShareGuide(price,_tb,_tr);
+    priceShareGuide(_fs.base,_tb,_tr);
     /* 지특법 주택 취득세 감면 — §36의3(생애최초)·§36의5(출산·양육)·§33②(서민주택)
        §180에 따라 감면세액이 가장 큰 하나만 적용한다. 산출세액 ≤ 한도 → 면제 / 초과 → 한도 공제 */
-    const _rel=houseRelief(price, acq);
+    const _rel=houseRelief(_fs.base, acq);
     const fhOK=!!_rel;
     let fhCut=0, _relTxt='';
     if(_rel){ fhCut=_rel.pick.cut; acq=acq-fhCut; _relTxt=' '+_rel.pick.name+' −'+won(fhCut); }
@@ -7604,7 +7856,7 @@ function calcSale(fromEdit){
     const _en=document.getElementById('eduRate');
     if(_en)_en.textContent=(eduCut>0)?('(취득세 감면율 '+(_cutRate*100).toFixed(_cutRate*100%1?1:0)+'% 연동 −'+won(eduCut)+' · §151①1호 다목)'):'';
     document.getElementById('ruralTax').value=taxLocal(Math.round(rural));
-    document.getElementById('acqRate').textContent='('+(rate*100).toFixed(rate*100%1?2:0)+'%'+(mid?' 중과':'')+(_lux?' 사치성 +8%':'')+(radio('ptype')==='house'&&chk('landAfterBuild')?' §11④ 부속토지(주택세율 배제)':'')+_relTxt+(farmCut&&!_gRep?' 자경50%':'')+(_tr<1?' · 세율은 부동산 전체 '+eokTxt(price)+' 기준(§11①8호 후단) · 과세표준은 지분 상당 '+eokTxt(_tb)+'(§11②)':'')+')';
+    document.getElementById('acqRate').textContent='('+(rate*100).toFixed(rate*100%1?2:0)+'%'+(mid?' 중과':'')+(_lux?' 사치성 +8%':'')+(radio('ptype')==='house'&&chk('landAfterBuild')?' §11④ 부속토지(주택세율 배제)':'')+_relTxt+(farmCut&&!_gRep?' 자경50%':'')+(_tr<1?' · 세율은 부동산 전체 '+eokTxt(_fs.base)+' 기준(§11①8호 후단) · 과세표준은 지분 상당 '+eokTxt(_tb)+'(§11②)':'')+(_fs.kind==='unfair'?' · 과세표준 시가인정액(§10의3②)':'')+')';
   }
   const bondLoss=Math.round(val('bondBuy')*val('bondRate')/100);
   document.getElementById('bondLossCell').textContent=won(bondLoss)+' ('+val('bondRate')+'%)';
@@ -8296,9 +8548,34 @@ function giftMidExempt(){return isLineal(radio('gv_relation'))&&chk('gv_donorOne
    시행령 §29: 종교·제사, 학교·학술연구·장학, 사회복지법인, 정당 등 [A]
    ※ 비영리사업자의 조정지역 주택 무상취득에 §13의2② 중과가 적용되는지는 [확인필요] —
      본 계산기는 비영리사업자 선택 시 2.8% 우선 적용 */
+/* 2026-11-22 정정 (법무사님 지시) — 무상취득 중과(지방세법 §13의2②)의 3억원은 「시가표준액」 기준이다 [A]
+   지방세법 시행령 §28의6① — 취득 당시 법 §4에 따른 시가표준액(지분·부속토지만 취득하면 전체 주택의 시가표준액)이 3억원 이상인 주택
+   · 주택공시가격(시가표준액)을 넣었으면 그 값으로 판정한다
+   · 넣지 않았으면 신고금액(시가인정액)으로 가늠한다 — 시가표준액은 보통 시가보다 낮으므로, 시가인정액이 3억원 미만이면 중과가 아니다.
+     시가인정액이 3억원 이상이면 공시가격을 넣어야 정확하다(화면에 안내)
+   ※ 종전: 시가인정액만으로 판정 → 시가인정액 3억원 이상·공시가격 3억원 미만 주택을 12%로 잘못 계산할 수 있었다 */
+/* 2026-11-22 공시가격 미입력 경고(법무사님 승인) — 조정대상지역 무상취득 중과의 3억원은 공시가격(시가표준액)으로 판단한다(영 §28의6①).
+   공시가격을 비우면 신고금액으로 가늠하는데 신고금액은 대개 공시가격보다 높아 중과(12%) 쪽으로 잘못 나올 수 있으므로 크게 알린다.
+   cand = 주택·조정대상지역·중과 제외 아님 / base = 과세표준(지분이면 지분 상당액) */
+function std3Warn(boxId,cand,stdId,value,base){
+  const b=document.getElementById(boxId); if(!b) return;
+  const on=!!cand&&!(val(stdId)>0)&&value>=3*억;
+  if(!on){ b.style.display='none'; b.innerHTML=''; return; }
+  const gap=Math.round((base>0?base:value)*0.085);
+  b.innerHTML='<span class="head">공시가격을 넣어야 정확합니다 — 지금은 12% 중과로 계산했습니다</span>'
+    +'주택 <b>공시가격</b>이 비어 있어 신고금액 <b>'+eokTxt(value)+'</b>으로 3억원 이상인지 가늠했습니다. 그러나 법은 <b>공시가격(시가표준액)</b>으로 판단합니다'
+    +'<span class="law" title="지방세법 시행령 §28의6① — 법 §13의2②의 「일정가액 이상의 주택」은 취득 당시 법 §4에 따른 시가표준액(지분이나 부속토지만 취득한 경우에는 전체 주택의 시가표준액)이 3억원 이상인 주택">시행령 §28의6①</span>. '
+    +'공시가격이 3억원 미만이면 취득세가 <b>12% → 3.5%</b>로 줄어 <b>취득세만 약 '+eokTxt(gap)+'</b> 적어집니다.<br>'
+    +'▸ 위 <b>② 국민주택채권</b> 칸의 주택 공시가격에 넣어 주십시오. 지분이나 부속토지만 받으셔도 <b>주택 전체</b> 공시가격을 넣습니다. '
+    +'<a href="https://www.realtyprice.kr/notice/town/siteLink.htm" target="_blank" rel="noopener">🔗 아파트·빌라 공시가격</a> · '
+    +'<a href="https://www.realtyprice.kr/notice/nf/nfCommon.htm?page_gbn=hpi_search" target="_blank" rel="noopener">🔗 단독주택 공시가격</a>';
+  b.style.display='';
+}
+function std3(stdId,value){const v=val(stdId);return v>0?v>=3*억:value>=3*억;}
+function std3Txt(stdId,value){const v=val(stdId);return v>0?'공시가격 '+eokTxt(v)+(v>=3*억?' ≥ 3억':' < 3억 → 중과 아님(영 §28의6①)'):(value>=3*억?'공시가격 미입력 — 넣으시면 시가표준액으로 판정':'');}
 function giftAcqRate(value){const t=radio('gv_ptype'),adj3=chk('gv_adj3');
   if(chk('gv_nonprofit'))return 0.028;
-  if(t==='house'&&adj3&&value>=3*억&&!giftMidExempt())return 0.12;
+  if(t==='house'&&adj3&&std3('gv_bondStdHouse',value)&&!giftMidExempt())return 0.12;
   return 0.035;}
 function renderDocsGift(){
   renderPartyDocs('gv_','pty_gv__seller','pty_gv__buyer','증여자(등기의무자)','수증자(등기권리자)',true);
@@ -8311,6 +8588,12 @@ function renderDocsGift(){
     cause:'증여계약서 작성 · 검인',causeDesc:'사무소가 계약서(<b>3부</b> — 취득세 신고용 포함)를 작성하고 부동산 소재지 시·군·구청에서 <b>검인</b>을 받습니다 <span class="law" title="부동산등기 특별조치법 제3조 — 계약을 원인으로 소유권이전등기를 신청할 때에는 검인을 받은 계약서 원본(판결서 정본 포함)을 제출한다 — 부동산등기실무(2026) 117쪽">특조법 §3</span>',
     more:[d3i('<b>등기사항전부증명서</b>로 증여인의 부채 유무 확인','',''),
       d3i('<b>토지이용계획확인원</b>','농지 여부 확인 <span class="hint">(확인용)</span>',LK.eum)]});
+  if((document.getElementById('gv_cause')||{}).value==='judge'){
+    /* 2026-11-22 판결로 수증자가 혼자 신청 — 친족관계 소명서류는 그대로 둔다 */
+    const J=judgeDocs({ob:'증여자',ri:'수증자',riS:'수증자가',cause:'증여',led:led,riItems:client[1].items});
+    document.getElementById('gv_docsBox').innerHTML=d3({client:J.client.concat(client.slice(2)),office:J.office,attach:J.attach,attachNote:J.attachNote,law:J.law,src:J.src});
+    return;
+  }
   document.getElementById('gv_docsBox').innerHTML=d3({client:client,office:office,attach:d3giftAttach(st,bt,led,false),
     attachNote:'증여는 대가가 없어 <b>토지거래허가 대상이 아닙니다</b> <span class="law" title="부동산등기실무(2026) 127쪽 — 증여계약 등은 허가의 대상이 되지 않는다.">실무교재 127쪽</span>.',
     src:'증여 — 실무교재 117~118쪽(검인)·230~231쪽(주소 직권변경)'});
@@ -8329,8 +8612,9 @@ function calcGift(fromEdit){
     document.getElementById('gv_acqTax').value=taxLocal(Math.round(acq));
     document.getElementById('gv_eduTax').value=taxLocal(Math.round(edu));
     document.getElementById('gv_ruralTax').value=taxLocal(Math.round(rural));
-    document.getElementById('gv_acqRate').textContent='('+(rate*100).toFixed(rate===0.028?1:1)+'%'+(chk('gv_nonprofit')?' 비영리사업자 §11①2호 단서':'')+(mid?' 조정3억↑ 중과 §13의2②':(giftMidExempt()&&chk('gv_adj3')&&radio('gv_ptype')==='house'&&price>=3*억?' 무상 · 중과배제(§13의2② 단서)':' 무상'))+')';
+    document.getElementById('gv_acqRate').textContent='('+(rate*100).toFixed(rate===0.028?1:1)+'%'+(chk('gv_nonprofit')?' 비영리사업자 §11①2호 단서':'')+(mid?' 조정3억↑ 중과 §13의2②':(giftMidExempt()&&chk('gv_adj3')&&radio('gv_ptype')==='house'&&std3('gv_bondStdHouse',price)?' 무상 · 중과배제(§13의2② 단서)':' 무상'))+((chk('gv_adj3')&&radio('gv_ptype')==='house'&&!chk('gv_nonprofit')&&std3Txt('gv_bondStdHouse',price))?' · '+std3Txt('gv_bondStdHouse',price):'')+')';
     if(typeof gsxPost==='function') gsxPost('scene-증여',{acq:'gv_acqTax',edu:'gv_eduTax',rural:'gv_ruralTax',lbl:'gv_acqRate',house:radio('gv_ptype')==='house',over85:chk('gv_over85'),base:_tb});
+    std3Warn('gv_std3Warn',radio('gv_ptype')==='house'&&chk('gv_adj3')&&!chk('gv_nonprofit')&&!giftMidExempt(),'gv_bondStdHouse',price,_tb);
   }
   const bondLoss=Math.round(val('gv_bondBuy')*val('bondRate')/100);
   document.getElementById('gv_bondLossCell').textContent=won(bondLoss)+' ('+val('bondRate')+'%)';
@@ -9584,14 +9868,15 @@ function calcBurden(fromEdit){
     // 무상분: 증여분 × 3.5%(조정3억↑ 12%)
     /* §13의2② 단서 + 시행령 §28의6② — 1세대1주택자 소유 주택을 배우자·직계존비속이 무상취득 시 중과 배제 [A] */
     const bvMidExempt=(isLineal(radio('bv_relation'))&&chk('bv_donorOneHouse'));
-    const rateN=(radio('bv_ptype')==='house'&&chk('bv_adj3')&&total>=3*억&&!bvMidExempt)?0.12:0.035;
+    const rateN=(radio('bv_ptype')==='house'&&chk('bv_adj3')&&std3('bv_bondStd',total)&&!bvMidExempt)?0.12:0.035;   /* 시행령 §28의6① 시가표준액 3억 — 2026-11-22 정정 */
     const acqN=gift*rateN, eduN=(rateN>=0.12?gift*0.004:gift*0.003);
+    std3Warn('bv_std3Warn',radio('bv_ptype')==='house'&&chk('bv_adj3')&&!bvMidExempt,'bv_bondStd',total,gift);
     /* 2026-11-16 정정 [A] 농특세법 §5①6호: 표준세율을 2%로 적용한 세액의 10% → 주택 중과 12%이면 (2%+8%)×10% = 1.0% (85㎡ 이하 비과세) */ 
     let ruralN=0; if(radio('bv_ptype')==='house')ruralN=chk('bv_over85')?gift*(rateN>=0.12?0.01:0.002):0; else ruralN=gift*0.002;
     document.getElementById('bv_acqN').value=Math.round(acqN);
     document.getElementById('bv_eduN').value=Math.round(eduN);
     document.getElementById('bv_ruralN').value=Math.round(ruralN);
-    document.getElementById('bv_acqRateN').textContent='('+(rateN*100).toFixed(1)+'%'+(rateN>=0.12?' 조정3억↑ 중과 §13의2②':(bvMidExempt&&chk('bv_adj3')&&radio('bv_ptype')==='house'&&total>=3*억?' 무상 · 중과배제(§13의2② 단서)':' 무상'))+')';
+    document.getElementById('bv_acqRateN').textContent='('+(rateN*100).toFixed(1)+'%'+(rateN>=0.12?' 조정3억↑ 중과 §13의2②':(bvMidExempt&&chk('bv_adj3')&&radio('bv_ptype')==='house'&&std3('bv_bondStd',total)?' 무상 · 중과배제(§13의2② 단서)':' 무상'))+((chk('bv_adj3')&&radio('bv_ptype')==='house'&&std3Txt('bv_bondStd',total))?' · '+std3Txt('bv_bondStd',total):'')+')';
     if(typeof gsxPost==='function') gsxPost('scene-부담부증여',{acq:'bv_acqN',edu:'bv_eduN',rural:'bv_ruralN',lbl:'bv_acqRateN',house:radio('bv_ptype')==='house',over85:chk('bv_over85'),base:gift,kinds:['무상'],part:'N',round:true});
   }
   if(typeof calcBondBurden==='function')calcBondBurden(true);   /* 2026-11-19 채무부담액·부동산 종류가 바뀌면 채권도 다시 */
@@ -12977,7 +13262,29 @@ function calcTy(fromEdit){
   b+='<br>▸ 등기신청수수료: 「등기사항증명서 등 수수료규칙」 '+((reg.indexOf('C')===0)?'§5의3':'§5의2')+((TYS.cat!=='re'&&TYS.cat!=='corp')?'(§5의4 준용)':'')+' — 신청 방법에 따라 금액이 다릅니다.';
   const lk=(se&&se[3])||r.link||base.link;
   if(lk&&SCENARIO[lk])b+='<br>▸ '+(TYS.cat==='corp'?'등록면허세 중과·준비서류까지':'취득세·국민주택채권 등 세금까지')+' 자세히: <button class="btn mini" style="padding:3px 10px;font-size:12px;" onclick="openScenario(\''+lk.replace(/'/g,"\\'")+'\')">「'+tyEsc(lk)+'」 화면 열기</button>';
-  document.getElementById('ty_basis').innerHTML=b;
+  document.getElementById('ty_basis').innerHTML=b+'<div id="ty_docLink"></div>';
+  tyDocLink();
+}
+/* 2026-11-22 홈페이지 「등기원인별 준비서류 찾기」로 바로 가기 (법무사님 지시 — 우선 이름이 정확히 맞는 유형·원인만)
+   · 준비서류 자료(regdocs-data.json — 감면 찾기와 같은 파일)의 행 중 등기 종류(t)와 원인(c)이 지금 고른 유형·원인과 정확히 같은 것만 연결한다
+   · 행 번호를 미리 적어 두지 않고 고를 때마다 이름으로 찾는다 — 홈페이지 자료가 바뀌어 행 순서가 달라져도 어긋나지 않게
+   · 맞는 행이 없으면 단추를 내지 않는다(2026-11-22 기준 부동산 유형·원인 53쌍) */
+function tyDocLink(){
+  const box=document.getElementById('ty_docLink'); if(!box)return; box.innerHTML='';
+  if(TYS.cat!=='re'||!TYS.cause)return;
+  const t=TY.RE[TYS.i]; if(!t)return;
+  const want=TYS.i+'|'+TYS.cause;
+  const nz=v=>String(v||'').replace(/\s+/g,'').replace(/등기$/,'');
+  const P=window.__rdData||(window.__rdData=fetch('regdocs-data.json?v=20261029').then(r=>{if(!r.ok)throw r.status;return r.json();}));
+  P.then(D=>{
+    if((TYS.i+'|'+TYS.cause)!==want)return;           /* 그사이 다른 것을 골랐으면 그리지 않는다 */
+    const rows=(D&&D.rows)||[];
+    const i=rows.findIndex(x=>nz(x.t)===nz(t.n)&&nz(x.c)===nz(TYS.cause));
+    if(i<0)return;
+    box.innerHTML='<div style="margin-top:8px;padding:8px 10px;background:#eef6ee;border:1px solid #b9d8b9;border-left:4px solid #2f7d3a;border-radius:6px;">'
+      +'📋 <b>'+tyEsc(t.n)+' — '+tyEsc(TYS.cause)+'</b>의 준비서류를 홈페이지에서 보실 수 있습니다. '
+      +'<a class="btn mini" style="padding:3px 10px;font-size:12.5px;background:#2f7d3a;" href="sanlaw_등기원인별_준비서류_검색.html#row='+i+'" target="_blank" rel="noopener">준비서류 보기 ↗</a></div>';
+  }).catch(()=>{});
 }
 (function(){const tb=document.getElementById('ty_extraAgent');if(tb)tb.innerHTML='';})();
 
@@ -14237,7 +14544,29 @@ function calcConsult(kind,el){
       [].forEach.call(document.querySelectorAll('.gsx-box input[data-cb="'+id+'"]'),function(x){ x.checked=e.target.checked; });
     });
   }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',build); else build();
+  /* 2026-11-22 예시 단추를 고른 부동산 종류에 맞게 거른다 (법무사님 지시)
+     · 주택에만: 생애최초(지특법 §36의3)·출산(§36의5)·서민주택(§33②)·다주택(지방세법 §13의2①)·법인(§13의2①1호 주택 중과)·조정대상지역(§13의2②)
+     · 주택·준주택: 임대주택(지특법 §31 — 주거용 오피스텔 포함)·전세사기(피해주택 — 주거용 오피스텔 포함)
+     · 농지·주택외(토지): 농지·자경
+     · 사치성 재산(고급주택): 주택·준주택(주거용 오피스텔 — 행안부 부동산세제과-56, 2019. 7. 30.)·주택외(골프장·고급오락장). 농지는 뺀다
+     · 그 밖의 단추(가산세·신고 기한·대도시·과밀억제권역·국가유공자·인구감소·중소기업 등)는 늘 보인다
+     검색칸에 직접 넣는 낱말은 거르지 않는다. */
+  var TAGK={'생애최초':'h','출산':'h','서민주택':'h','다주택':'h','법인':'h','조정대상지역':'h',
+            '임대주택':'hj','전세사기':'hj','농지':'ef','자경':'ef','고급주택':'hje'};
+  var SC_PT={'scene-매매':'ptype','scene-상속':'s_ptype','scene-유증':'bq_ptype','scene-증여':'gv_ptype','scene-부담부증여':'bv_ptype',
+             'scene-경매낙찰촉탁':'nk_ptype','scene-기타취득원인':'ea_ptype','scene-공유물분할':'pt_ptype','scene-이혼재산분할':'dv_ptype','scene-보존':'pr_ptype'};
+  function tagSync(){
+    Object.keys(SC_PT).forEach(function(sid){
+      var bx=document.querySelector('.gsx-box[data-scene="'+sid+'"]'); if(!bx) return;
+      var k=(typeof ptKind==='function')?ptKind(SC_PT[sid]):'h';
+      [].forEach.call(bx.querySelectorAll('.gsx-tags button[data-q]'),function(b){
+        var m=TAGK[b.getAttribute('data-q')]; b.hidden=!!(m&&m.indexOf(k)<0);
+      });
+    });
+  }
+  window.gsxTagSync=tagSync;
+  document.addEventListener('change',function(e){ var t=e.target; if(t&&t.type==='radio'&&/ptype$/.test(t.name||'')) tagSync(); });
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',function(){ build(); tagSync(); }); else { build(); tagSync(); }
 })();
 </script>
 <style id="mzc-20261116">
