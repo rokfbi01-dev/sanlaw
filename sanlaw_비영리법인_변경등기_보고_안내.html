@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[등기 안내] 비영리 사단법인·재단법인 변경등기 — 임원·사무소·명칭·목적·자산 변경과 주무관청 보고 | 산 법무사 김재섭</title>
+<meta name="description" content="민법상 비영리 사단법인·재단법인(공익법인 포함)의 변경등기 안내. 이사 취임·중임·퇴임, 이사장과 대표권제한규정, 주소, 주사무소 이전·분사무소, 명칭·목적·존립시기·자산 총액·출자방법이 바뀔 때 법인이 준비할 서류, 사무소가 작성하는 서류, 등기소 첨부서면, 의사록 공증, 3주 기한 계산, 등록면허세와 수수료, 보정 대비, 등기 후 주무관청 보고까지.">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+ul{margin:8px 0 12px; padding-left:20px;} li{margin:6px 0;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(300px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.who{background:var(--box); border-radius:10px; padding:14px 16px; margin:12px 0; border-left:4px solid #b9a98c;}
+.who .wl{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;margin-left:3px;}
+.tag.free{background:#5a9a72;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.cta{display:block; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; text-decoration:none; font-weight:700; font-size:16px; padding:15px; border-radius:11px; margin:18px 0; box-shadow:0 3px 8px rgba(122,82,48,.25);}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:11px 15px;margin:10px 0;font-size:13.5px;line-height:1.7;}
+.lawbox .ll{display:inline-block;font-size:11.5px;font-weight:700;color:#fff;background:var(--gold-d);border-radius:5px;padding:2px 8px;margin-right:6px;}
+.lawbox a{color:var(--gold-d);font-weight:600;}
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:14.5px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:16px;margin:10px 0;font-family:'D2Coding','Courier New',monospace;font-size:12.5px;line-height:1.65;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:15px;letter-spacing:2px;margin-bottom:10px;color:#241a10;}
+.howto{font-size:13.5px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:12.5px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:6px 12px;cursor:pointer;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.concept{background:var(--box);border-radius:9px;padding:11px 15px;margin:8px 0 14px;font-size:14.5px;color:#5a4a36;border-left:3px solid #b9a98c;}
+.concept b{color:var(--gold-d);}
+.flow{background:linear-gradient(180deg,#fcf9f2,#f7f1e5);border:1.5px solid var(--gold);border-radius:14px;padding:18px 18px 14px;margin:14px 0 20px;}
+.flow .ft2{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:12px;}
+.flow ol{counter-reset:fl;list-style:none;margin:0;padding:0;}
+.flow li{position:relative;padding:8px 10px 8px 44px;margin:7px 0;background:#fff;border:1px solid var(--line);border-radius:10px;font-size:14.5px;line-height:1.6;}
+.flow li::before{counter-increment:fl;content:counter(fl);position:absolute;left:10px;top:8px;width:26px;height:26px;line-height:26px;text-align:center;background:var(--gold);color:#fff;border-radius:50%;font-weight:800;font-size:14px;}
+.flow li b{color:var(--gold-d);}
+.flow .arw{text-align:center;color:var(--gold);font-size:13px;margin:-2px 0;}
+.newlaw{background:#eef6f0;border:1px solid #cfe6d6;border-left:4px solid #5a9a72;border-radius:8px;padding:13px 16px;margin:14px 0;}
+.newlaw .nt{font-weight:700;color:#2f6a47;display:block;margin-bottom:4px;}
+.newlaw .badge{display:inline-block;font-size:11px;font-weight:800;color:#fff;background:#5a9a72;border-radius:5px;padding:2px 8px;margin-right:6px;vertical-align:middle;}
+.faq{margin:14px 0;}
+.faq details{border:1px solid var(--line);border-radius:10px;margin:9px 0;background:#fff;overflow:hidden;}
+.faq summary{list-style:none;cursor:pointer;padding:13px 44px 13px 38px;font-weight:700;font-size:15px;color:#241a10;background:#faf7f0;position:relative;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::before{content:"Q";position:absolute;left:15px;color:var(--gold-d);font-family:'Nanum Myeongjo',serif;font-weight:800;}
+.faq summary::after{content:"▾";position:absolute;right:16px;top:13px;color:var(--gold-d);transition:.2s;}
+.faq details[open] summary::after{transform:rotate(180deg);}
+.faq .fa{padding:13px 15px 15px 38px;font-size:14.5px;line-height:1.75;color:#3a3a3a;position:relative;border-top:1px solid var(--line);}
+.faq .fa::before{content:"A";position:absolute;left:15px;top:13px;color:#5a9a72;font-family:'Nanum Myeongjo',serif;font-weight:800;}
+.helm{background:linear-gradient(135deg,#2c3e50,#3a4a5c);color:#f4f0e8;border-radius:14px;padding:20px 22px;margin:0 0 24px;box-shadow:0 4px 14px rgba(44,62,80,.18);}
+.helm .ht2{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:17px;color:#f0d98c;margin-bottom:9px;}
+.helm p{margin:0;font-size:14.5px;line-height:1.9;color:#eae4d8;}
+.helm b{color:#f4e2a6;}
+.qhead{display:flex;gap:12px;align-items:flex-start;margin:8px 0 8px;}
+.qhead .qb{flex:none;width:34px;height:34px;border-radius:50%;background:var(--gold);color:#fff;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(176,141,87,.4);}
+.qhead h2{margin:0;border:0;padding:0;font-size:20px;line-height:1.45;}
+.lawrow{display:flex;flex-wrap:wrap;background:var(--box);border-radius:10px;overflow:hidden;margin:12px 0;border:1px solid var(--line);}
+.lawrow .lrl{flex:none;background:var(--gold);color:#fff;font-weight:700;font-size:13.5px;padding:11px 15px;display:flex;align-items:center;}
+.lawrow .lrc{flex:1;min-width:210px;padding:11px 15px;font-size:14px;line-height:1.75;}
+@media(max-width:520px){.lawrow .lrl{width:100%;}}
+.calc{display:block;background:linear-gradient(135deg,#fff7e8,#fdeecb);border:1.5px solid var(--gold);border-radius:14px;padding:16px 18px;margin:18px 0;text-decoration:none;color:var(--ink);transition:.15s;}
+.calc:hover{box-shadow:0 4px 14px rgba(176,141,87,.25);transform:translateY(-1px);}
+.calc .cah{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:4px;}
+.calc .cas{font-size:13.5px;color:var(--muted);}
+.ctabtn{display:block;text-align:center;background:var(--gold);color:#fff;font-weight:800;font-size:17px;padding:16px;border-radius:12px;text-decoration:none;margin:22px 0 6px;box-shadow:0 3px 10px rgba(176,141,87,.35);}
+.ctabtn:hover{background:var(--gold-d);}
+.doclabel{display:inline-block;font-size:12px;font-weight:800;color:#fff;border-radius:6px;padding:3px 11px;margin-bottom:6px;}
+.doclabel.give{background:#b0885a;}
+.doclabel.back{background:#5a9a72;}
+.dl{color:var(--gold-d);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--gold);}
+.dl:hover{background:#fbf5e8;}
+.ddl{display:flex;gap:2px 10px;flex-wrap:wrap;margin:8px 0 2px;padding:9px 12px;background:#fbf7ee;border-radius:8px;font-size:13px;}
+.ddl b{color:var(--gold-d);}
+.deadline{width:100%;border-collapse:collapse;margin:10px 0;font-size:13.5px;}
+.deadline th{background:#3a4a5c;color:#fff;padding:8px;font-weight:700;}
+.deadline td{border:1px solid var(--line);padding:8px 10px;background:#fff;}
+.bnote{color:#0b4a9c;font-weight:600;background:#eaf2fc;border-left:4px solid #2b7fff;border-radius:8px;padding:9px 13px;margin:8px 0;font-size:13.5px;line-height:1.7;}
+.bnote b{color:#0a3d82;}
+.capital th{background:#f0ebe1;text-align:center;font-size:13px;}
+.capital td{text-align:center;font-size:13.5px;}
+.capital td:first-child{text-align:left;font-weight:700;background:#faf7f0;}
+.capital .hi{background:#fdf6e3;font-weight:700;color:var(--gold-d);}
+.capital .bad{color:#9c3a22;font-weight:700;}
+.grp{border-radius:10px;padding:13px 16px;margin:12px 0;border:1px solid var(--line);border-left-width:5px;}
+.grp .gt{font-weight:800;font-size:15px;margin-bottom:5px;}
+.grp.a{background:#eef6f0;border-left-color:#5a9a72;} .grp.a .gt{color:#2f6a47;}
+.grp.b{background:#fdf9e8;border-left-color:#d4a72c;} .grp.b .gt{color:#8a6d10;}
+.grp.c{background:#fdf2ee;border-left-color:#d9694a;} .grp.c .gt{color:#9c3a22;}
+@media print{.term>.bub{display:inline !important;position:static;background:none;color:#555;box-shadow:none;padding:0;width:auto;font-size:12px;}.term>.bub::before{content:" (";}.term>.bub::after{content:")";border:0;position:static;}.formbox .fold-body{display:block !important;}}
+.part{margin:38px 0 14px;padding:16px 18px;border-radius:12px;background:linear-gradient(135deg,#2c3e50,#3a4a5c);color:#f4f0e8;box-shadow:0 4px 14px rgba(44,62,80,.18);}
+.part .pn{display:inline-block;font-size:12px;font-weight:800;color:#2c3e50;background:#f0d98c;border-radius:6px;padding:2px 10px;margin-bottom:6px;}
+.part .pt2{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:20px;color:#fff;margin-bottom:4px;}
+.part .pw{font-size:13.5px;line-height:1.7;color:#eae4d8;} .part .pw b{color:#f4e2a6;}
+.chk td:first-child{width:30px;text-align:center;color:var(--gold-d);font-size:16px;}
+.tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.srcb{display:inline-block;font-size:11px;font-weight:800;color:#fff;border-radius:5px;padding:1px 7px;margin-left:6px;vertical-align:middle;}
+.srcb.moe{background:#2f5b78;} .srcb.goe{background:#5a9a72;} .srcb.own{background:#9a8f7d;}
+.srcline{font-size:12.5px;color:var(--muted);background:#faf7f0;border-radius:7px;padding:7px 11px;margin:0 0 6px;}
+h3.fgrp{font-size:15px;color:var(--gold-d);margin:22px 0 6px;padding-bottom:5px;border-bottom:1px dashed var(--line);}
+.form{overflow-x:auto;}
+@media(max-width:560px){table{font-size:12.5px;} th,td{padding:7px 6px;overflow-wrap:anywhere;} .tblwrap table{min-width:560px;} .who{padding:12px 10px;}}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+<h1>비영리 사단법인·재단법인 변경등기 — 임원·사무소·명칭·목적·자산이 바뀌었을 때</h1>
+
+<div class="helm">
+  <div class="ht2">⚓ 이 안내를 준비한 마음</div>
+  <p>사단법인·재단법인은 이사가 바뀌거나 사무실을 옮기거나 이름·목적을 고치면 <b>3주 안에 변경등기</b>를 해야 하고, 등기를 마치면 대개 <b>10일 안에 주무관청에 보고</b>합니다. 해마다 한두 번 있는 일이라 담당자가 바뀌면 순서와 서류를 다시 찾게 되고, 그 사이 기한이 지나 과태료 통지를 받기도 합니다. 이 안내는 바뀌는 사항(변경 원인)마다 <b>법인이 준비할 서류, 본 사무소가 작성하는 서류, 등기소에 내는 서류</b>를 나누어 적고, 보정이 자주 나는 곳을 짚어 두었습니다.</p>
+</div>
+
+<div class="qhead"><span class="qb">Q</span>
+  <h2>무엇이 바뀌면 등기해야 하고, 언제까지 해야 하나요?</h2>
+</div>
+
+<div class="tnote">밑줄 친 <span class="term">용어<span class="bub">밑줄 친 말에 마우스를 올리거나(휴대폰은 살짝 누르면) 쉬운 설명이 나옵니다.</span></span>에 마우스를 올리면 설명이 나옵니다. 파란 <b>발급처 링크</b>를 누르면 서류를 발급받거나 원문을 보는 화면으로 바로 이동합니다. 이 안내에서 「선례」는 대법원 상업등기선례, 「예규」는 등기예규이며 누르면 사법정보공개포털 원문이 열립니다.</div>
+
+<div class="tldr">
+  <div class="tt">이런 상황입니다 — 등기부에 오른 사항이 바뀌면 3주 안에 고칩니다</div>
+  <p style="margin:0 0 8px;font-size:14.5px">민법에 따라 세운 비영리 사단법인·재단법인(공익법인 포함)의 등기부에는 다음 사항이 올라 있습니다(민법 §49②, 「법인의 등기사항 등에 관한 특례법」 §2). 이 가운데 하나라도 바뀌면 <b>주된 사무소 소재지 등기소</b>에 변경등기를 합니다(민법 §52, 비송사건절차법 §60①).</p>
+  <ul>
+    <li><b>목적 · 명칭 · 사무소</b>(주사무소와 분사무소) · 설립허가 연월일 · <b>존립시기나 해산사유</b>(정한 경우) · <b>자산의 총액</b> · 출자의 방법(정한 경우)</li>
+    <li><b>이사</b>의 성명과 주민등록번호 · <b>대표권 있는 이사의 주소</b> · <span class="term">대표권제한규정<span class="bub">「이사 ○○○ 외에는 대표권이 없음」처럼, 이사 가운데 누구만 법인을 대표하는지 정한 정관 규정입니다. 이사장만 대표하는 법인은 이렇게 등기합니다.</span></span></li>
+    <li><b>기한</b> — 바뀐 날부터 <b>3주 안</b>. 주무관청의 허가가 있어야 바뀌는 사항(정관변경 등)은 <b>허가서가 법인에 도착한 날부터 3주 안</b>입니다(민법 §52·§53).</li>
+    <li><b>등기 후</b> — 대부분의 부처 규칙은 등기를 마친 날부터 <b>10일 안</b>에 주무관청에 보고하도록 정합니다(감사원·헌법재판소사무처·법원행정처 소관은 7일, 공익법인은 7일).</li>
+  </ul>
+</div>
+
+<div class="warn">
+  <span class="wt">놓치면 바로 불이익이 생기는 세 가지</span>
+  ① 등기를 3주 안에 하지 않으면 이사에게 <b>500만원 이하의 과태료</b>가 부과될 수 있고, 등기관은 기한이 지난 사실을 법원에 통지합니다(민법 §97 1호, 상업등기규칙 §176, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2172512" target="_blank" rel="noopener">예규 제1574호</a>). ② 정관에 적힌 소재지 범위 밖으로 주사무소를 옮기면서 <b>주무관청의 정관변경 허가를 받지 않으면</b> 그 이전등기는 효력이 없고, 나중에 허가를 받아도 바로잡히지 않습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195860" target="_blank" rel="noopener">선례 제2-105호</a> 항목 1). ③ 이사가 사임하거나 임기가 끝나 <b>정원이 모자라게 되면</b>, 후임 이사의 취임등기와 함께 내지 않는 한 퇴임등기를 받아 주지 않습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854679" target="_blank" rel="noopener">선례 제1-373호</a> ③, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1863603" target="_blank" rel="noopener">예규 제187호</a>). 이 안내와 본 사무소의 도움은 서류를 갖추고 기한을 맞추는 데까지이며, 주무관청의 허가나 등기 결과를 약속하지 않습니다.
+</div>
+
+<div class="lawrow"><div class="lrl">관련 법령</div><div class="lrc">
+  <a class="dl" href="https://www.law.go.kr/법령/민법/제49조" target="_blank" rel="noopener">민법 §49</a> 등기사항 · <a class="dl" href="https://www.law.go.kr/법령/민법/제52조" target="_blank" rel="noopener">민법 §52</a> 변경등기 · <a class="dl" href="https://www.law.go.kr/법령/민법/제53조" target="_blank" rel="noopener">민법 §53</a> 허가 사항 · <a class="dl" href="https://www.law.go.kr/법령/민법/제42조" target="_blank" rel="noopener">민법 §42</a> 사단 정관변경 · <a class="dl" href="https://www.law.go.kr/법령/민법/제45조" target="_blank" rel="noopener">민법 §45</a> 재단 정관변경 · <a class="dl" href="https://www.law.go.kr/법령/민법/제97조" target="_blank" rel="noopener">민법 §97</a> 과태료 · <a class="dl" href="https://www.law.go.kr/법령/비송사건절차법/제64조" target="_blank" rel="noopener">비송사건절차법 §64</a> 변경등기 첨부서면 · <a class="dl" href="https://www.law.go.kr/법령/법인의등기사항등에관한특례법/제2조" target="_blank" rel="noopener">특례법 §2</a> 등기사항 특례 · <a class="dl" href="https://www.law.go.kr/법령/민법법인및특수법인등기규칙/제6조" target="_blank" rel="noopener">민법법인 및 특수법인 등기규칙(민특규칙) §6</a> 준용 · <a class="dl" href="https://www.law.go.kr/법령/공증인법/제66조의2" target="_blank" rel="noopener">공증인법 §66의2</a> 의사록 인증 · <a class="dl" href="https://www.law.go.kr/법령/공익법인의설립ㆍ운영에관한법률/제5조" target="_blank" rel="noopener">공익법인법 §5</a> 공익법인 임원 · <a class="dl" href="https://www.law.go.kr/법령/지방세법/제28조" target="_blank" rel="noopener">지방세법 §28</a> 등록면허세
+</div></div>
+
+<div class="qhead"><span class="qb">表</span>
+  <h2>한눈에 보기 — 변경 원인별 공증·허가·양식·세금·기한</h2>
+</div>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:19%">바뀌는 사항</th><th style="width:10%">의사록 공증</th><th style="width:15%">주무관청 허가</th><th style="width:9%">신청서 양식</th><th style="width:17%">등록면허세 + 지방교육세</th><th style="width:10%">신청수수료<br><small>(서면)</small></th><th>3주를 세는 날</th></tr></thead>
+  <tbody>
+    <tr><td><b>이사 취임·중임</b></td><td>필요</td><td>원칙 불요<br><small>(정관에 허가 규정이 있으면 필요, 공익법인은 취임승인)</small></td><td>제9호</td><td>48,240원<br><small>(여러 명이어도 1건)</small></td><td>7,000원</td><td>취임일·중임일 다음 날</td></tr>
+    <tr><td><b>이사 퇴임</b><br><small>임기만료·사임·사망 등</small></td><td>불요<br><small>(해임은 필요)</small></td><td>불요</td><td>제9호</td><td>48,240원</td><td>7,000원</td><td>퇴임일 다음 날<br><small>(정원이 모자라면 후임 취임일)</small></td></tr>
+    <tr><td><b>이사장(대표권 있는 이사) 변경</b></td><td>필요</td><td>원칙 불요</td><td>제9호</td><td>48,240원</td><td>7,000원</td><td>취임일 다음 날</td></tr>
+    <tr><td><b>대표권제한규정</b> 설정·변경·폐지</td><td>필요</td><td><b>필요</b></td><td>제9호</td><td>48,240원</td><td>7,000원</td><td>허가서 도착일 다음 날</td></tr>
+    <tr><td><b>이사장 주소</b> 변경</td><td>불요</td><td>불요</td><td>제6호</td><td>48,240원</td><td>7,000원</td><td>주민등록상 전입일 다음 날</td></tr>
+    <tr><td><b>주사무소 이전</b>(같은 등기소 관할 안)</td><td>필요</td><td>정관 소재지 범위 밖이면 필요</td><td>제2-1호</td><td>135,000원</td><td>7,000원</td><td>이전일(허가가 필요하면 허가서 도착일) 다음 날</td></tr>
+    <tr><td><b>주사무소 이전</b>(다른 등기소 관할로)</td><td>필요</td><td>대부분 필요</td><td>제2-2호</td><td>135,000원<br><small>(대도시 전입은 중과)</small></td><td><b>35,000원</b></td><td>같음</td></tr>
+    <tr><td><b>분사무소</b> 설치·이전·폐지</td><td>정관이 바뀌면 필요<br><small>(안 바뀌면 불요)</small></td><td>정관 범위 밖이면 필요</td><td>제3·4·5호</td><td>48,240원<br><small>(대도시 설치 144,720원)</small></td><td>7,000원</td><td>설치·이전·폐지일 다음 날</td></tr>
+    <tr><td><b>명칭·목적</b>, 존립시기·해산사유</td><td>필요</td><td><b>필요</b></td><td>제7호</td><td>48,240원<br><small>(목적 여러 개라도 1건)</small></td><td>7,000원</td><td>허가서 도착일 다음 날</td></tr>
+    <tr><td><b>자산의 총액</b></td><td>정관에 적힌 경우만</td><td>정관에 적힌 경우만</td><td>제8호</td><td>증가액의 2/1000 + 20%<br><small>(최저 135,000원) · 감소 48,240원</small></td><td>7,000원</td><td>변경일 다음 날</td></tr>
+    <tr><td><b>출자의 방법</b></td><td>필요</td><td><b>필요</b></td><td>제8호</td><td>48,240원</td><td>7,000원</td><td>허가서 도착일 다음 날</td></tr>
+    <tr><td>행정구역·지번·도로명주소 변경</td><td>불요</td><td>불요</td><td>—</td><td>없음</td><td>없음</td><td>신청 의무 없음</td></tr>
+  </tbody>
+</table></div>
+<div class="bnote">※ 신청서 양식 번호는 <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3334578" target="_blank" rel="noopener">예규 제1793호</a>(민법법인 등기신청서 양식) 기준이며, <a class="dl" href="https://www.iros.go.kr/index.jsp?w2xPath=/ui/pm10/p0/dgcvapctr/Pm10P0RgsApplFrmt.xml" target="_blank" rel="noopener">인터넷등기소 등기신청양식</a> 「법인등기」에 202-1~209번으로 올라 있습니다. 등록면허세는 표준세율 기준이고(지방세법 §28①6호·§151①2호), 신청수수료는 등기목적마다 <b>서면 7,000원 · 전자표준양식 5,000원 · 전자신청 2,000원</b>입니다(등기사항증명서 등 수수료규칙 §5의3·§5의4·§5의5, 2025. 8. 1. 시행). 여러 사항을 한 신청서로 내면 세금과 수수료를 사항마다 더하되, 같은 사항의 여러 변경(이사 두 명 취임 등)은 1건으로 칩니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3334428" target="_blank" rel="noopener">예규 제1790호</a> §9, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2025000016591" target="_blank" rel="noopener">예규 제1861호</a> 3.다.(1)).</div>
+
+<div class="flow">
+  <div class="ft2">대부분 이 순서로 진행됩니다</div>
+  <ol>
+    <li><b>정관 확인</b> — 이사의 임기·정원, 선임하는 기관(총회·이사회), 사무소 소재지를 어떻게 적었는지, 「주무관청의 허가를 받아 취임」 같은 규정이 있는지 봅니다</li>
+    <div class="arw">▼</div>
+    <li><b>결의 · 승낙</b> — 사원총회나 이사회에서 결의하고, 새 이사의 취임승낙서와 물러나는 이사의 사임서를 받습니다</li>
+    <div class="arw">▼</div>
+    <li><b>(정관이 바뀌면) 주무관청 정관변경 허가</b> — 허가서가 <b>도착한 날</b>을 꼭 적어 두십시오. 등기원인일과 3주 기한이 이 날로 정해집니다 <span style="color:var(--muted)">(공익법인 이사는 취임승인)</span></li>
+    <div class="arw">▼</div>
+    <li><b>의사록 공증</b> — 법무부가 지정·고시한 법인이 아니면 공증인의 인증을 받습니다</li>
+    <div class="arw">▼</div>
+    <li><b>등록면허세 신고·납부 → 변경등기 신청</b> — 3주 안에 주된 사무소 관할 등기소에 냅니다</li>
+    <div class="arw">▼</div>
+    <li><b>주무관청에 등기 결과 보고</b> — 등기를 마친 날부터 10일(일부 7일) 안. 대표자가 바뀌면 설립허가증 재발급을 함께 안내받는 경우가 많습니다</li>
+  </ol>
+</div>
+
+<div class="qhead"><span class="qb">期</span>
+  <h2>3주는 이렇게 셉니다 — 날짜 예시</h2>
+</div>
+<p>첫날은 세지 않고 다음 날부터 셉니다. 3주의 끝날이 토요일이나 공휴일이면 그다음 날까지입니다.</p>
+<table class="deadline">
+  <thead><tr><th>경우</th><th>① 기산일</th><th>② 계산 근거 조문</th><th>③ 말일 처리</th><th>④ 최종 만료일(예)</th></tr></thead>
+  <tbody>
+    <tr><td>일반</td><td>바뀐 날의 <b>다음 날</b></td><td>민법 §52, §157(초일 불산입), §160②(주로 정한 기간)</td><td>§161 — 토요일·공휴일이면 그다음 날</td><td>2027. 3. 8.(월) 취임 → 기산 3. 9. → <b>3. 29.(월)</b></td></tr>
+    <tr><td>끝날이 토요일</td><td>같음</td><td>같음</td><td>토요일 → 다음 날 일요일도 공휴일 → 월요일</td><td>2027. 3. 13.(토) 사임 → 끝날 4. 3.(토) → <b>4. 5.(월)</b></td></tr>
+    <tr><td>허가가 필요한 사항</td><td><b>허가서 도착일</b>의 다음 날</td><td>민법 §53 + 위 조문</td><td>§161</td><td>2027. 4. 9.(금) 허가서 도착 → <b>4. 30.(금)</b></td></tr>
+    <tr><td>정원 부족으로 후임과 함께 하는 퇴임</td><td><b>후임 이사가 취임한 날</b>의 다음 날</td><td><a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2172512" target="_blank" rel="noopener">예규 제1574호</a> §2② 단서 + 위 조문</td><td>§161</td><td>후임 2027. 5. 10.(월) 취임 → <b>5. 31.(월)</b></td></tr>
+  </tbody>
+</table>
+<p style="font-size:13.5px;color:var(--muted)">※ 퇴임 이사가 정원 때문에 후임이 올 때까지 이사의 권리·의무를 계속 지는 경우(민법 §691 유추), 퇴임등기 기간은 후임 취임일부터 셉니다. 이 특례는 예규 문언상 <b>임기만료와 사임</b>에만 있으므로, 사망·해임은 사유가 생긴 날부터 세어 두는 편이 안전합니다.</p>
+
+<!-- ══════════ 제1부 ══════════ -->
+<div class="part" id="part1">
+  <div class="pn">제1부</div>
+  <div class="pt2">이사가 바뀔 때 — 취임·중임·퇴임·이사장 변경</div>
+  <div class="pw">변경등기 신청 대리와 신청서·의사록·취임승낙서·사임서 작성은 <b>법무사 업무</b>입니다(법무사법 §2). 『민법법인등기실무』(법원행정처, 2018) 307~362쪽을 현행 법령·예규·선례로 대조했습니다.</div>
+</div>
+
+<div class="qhead"><span class="qb">1</span>
+  <h2>이사에 관해 등기부에 오르는 것, 오르지 않는 것</h2>
+</div>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:22%">구분</th><th>내용</th><th style="width:28%">근거</th></tr></thead>
+  <tbody>
+    <tr><td><b>등기하는 것</b></td><td>이사 <b>전원</b>의 성명·주민등록번호. 대표권 있는 이사(대표권제한규정이 없으면 이사 전원)의 <b>주소</b>. 대표권제한규정</td><td>민법 §49②8호·9호, 특례법 §2</td></tr>
+    <tr><td><b>이사장</b>의 표시</td><td>민법법인은 「이사장」이라는 직함으로 등기하지 않고, 「이사 ○○○ 외에는 대표권 없음」이라는 <b>대표권제한규정</b>으로 등기합니다(공익법인도 같음). 정관 문언은 그대로 두고 사람만 바뀌면 정관변경 허가가 필요 없습니다</td><td>『민법법인등기실무』 350쪽</td></tr>
+    <tr><td><b>등기하지 않는 것</b></td><td><b>감사</b>, 법원이 선임한 <b>임시이사</b>, 정관에 정한 직무대행자, 특별대리인, 분사무소 대리인은 등기할 수 없습니다. 감사가 바뀌어도 등기는 없고, 주무관청 보고만 정관·규칙에 따라 합니다</td><td>민법 §49②, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195862" target="_blank" rel="noopener">선례 제2-107호</a>, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195755" target="_blank" rel="noopener">선례 제2-155호</a>, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3210769" target="_blank" rel="noopener">선례 제201902-1호</a></td></tr>
+    <tr><td>사회복지법인과의 차이</td><td>사회복지법인은 「대표이사」로 등기하고 대표권제한규정을 등기하지 않지만, 이것은 사회복지사업법에 따른 것이어서 <b>민법법인에는 적용되지 않습니다</b></td><td><a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3324977" target="_blank" rel="noopener">선례 제202405-1호</a></td></tr>
+  </tbody>
+</table></div>
+
+<div class="concept"><b>이사의 취임승낙서·사임서에는 대표권이 없는 이사도 인감이 필요합니다.</b> 「인감증명법」에 따라 신고한 인감을 찍고 발급 3개월 이내의 <b>인감증명서</b>를 붙이거나, 본인서명사실확인서(또는 전자본인서명확인서 발급증)를 내고 서명합니다. 공증인의 인증으로 갈음할 수도 있습니다(민법법인 및 특수법인 등기규칙 §6② → 상업등기규칙 §154② → §104①, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195865" target="_blank" rel="noopener">선례 제2-110호</a>, 양식 제9호 주1). 2025. 2. 10. 폐지된 <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2025000004991" target="_blank" rel="noopener">선례 제1-313호</a>도 폐지 이유에서 같은 점을 밝혔습니다. 인감증명이 필요 없다고 한 옛 선례(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1858532" target="_blank" rel="noopener">선례 제4-877호</a>, 학교법인 <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854841" target="_blank" rel="noopener">선례 제1-380호</a>)가 포털에 「현행」으로 남아 있지만, 이를 근거로 생략하면 보정 사유가 됩니다.</div>
+
+<div class="qhead"><span class="qb">2</span>
+  <h2>원인별 서류 — 이사 취임·중임·퇴임</h2>
+</div>
+<p style="font-size:13.5px;color:var(--muted)">① 법인과 당사자가 준비하거나 발급받는 서류 / ② 본 사무소가 작성·준비하는 서류 / ③ 등기소에 내는 첨부서면입니다. 의사록·취임승낙서·사임서는 결의하고 서명하는 사람이 법인·당사자이지만, 초안은 본 사무소가 작성해 드립니다.</p>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:13%">원인</th><th style="width:31%">① 법인·당사자가 준비</th><th style="width:25%">② 본 사무소가 작성·준비</th><th>③ 등기소 첨부서면</th></tr></thead>
+  <tbody>
+    <tr><td><b>이사 취임</b><br><small>새로 선임</small></td><td>· 정관이 정한 기관(사원총회·이사회·정관상 위원회)의 <b>선임 결의 의사록</b>. 이사회가 없는 법인은 이사결정서<br>· 새 이사의 <b>취임승낙서</b> + <a class="dl" href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000025" target="_blank" rel="noopener">인감증명서</a>(3개월) 또는 <a class="dl" href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13110000047" target="_blank" rel="noopener">본인서명사실확인서</a><br>· 새 이사의 <a class="dl" href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000015" target="_blank" rel="noopener">주민등록표 초본</a>(3개월)<br>· 정관(임기·정원·선임 기관 확인용)<br>· 정관에 「허가를 받아 취임」 규정이 있으면 주무관청 허가서</td><td>· 변경등기신청서(양식 제9호)<br>· 의사록·취임승낙서 초안<br>· 의사록 <b>공증 촉탁</b>(공증인에게 낼 진술서·확인서 포함)<br>· 등록면허세 신고·납부, 신청수수료 납부<br>· 위임장</td><td>· 공증받은 의사록<br>· 취임승낙서 + 인감증명서 등<br>· 주민등록표 등·초본<br>· 정관 · 허가서(해당 시)<br>· 등록면허세·수수료 영수필확인서 · 위임장<br><small>※ 공증받은 의사록에 선임 결의와 본인의 승낙이 함께 적혀 있으면 그것이 취임승낙서가 됩니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2192432" target="_blank" rel="noopener">선례 제201507-4호</a>). 인감증명서는 주민등록번호·주소를 증명하는 서류가 아닙니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854500" target="_blank" rel="noopener">선례 제1-94호</a>)</small></td></tr>
+    <tr><td><b>당연직 이사 취임</b><br><small>○○장이 당연히 이사</small></td><td>그 직위에 오른 것을 증명하는 <b>인사발령장 등 공문서</b>, 주민등록표 초본</td><td>신청서, 위임장</td><td>공문서로 충분하고 취임승낙서·인감증명서는 필요 없습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195865" target="_blank" rel="noopener">선례 제2-110호</a> ②, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854815" target="_blank" rel="noopener">선례 제1-312호</a>). 다만 인사발령 공문은 주민등록번호 증명서류가 아니므로 초본을 따로 냅니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195785" target="_blank" rel="noopener">선례 제2-30호</a>)</td></tr>
+    <tr><td><b>이사 중임</b><br><small>임기 끝나고 다시 선임</small></td><td>재선임 결의 의사록, <b>중임승낙서</b>(인감 + 인감증명서. 등기소에 인감을 낸 이사장은 그 인감을 찍으면 증명서 생략), 정관(임기 조항)</td><td>신청서(원인 「중임」), 공증 촉탁, 위임장</td><td>공증 의사록, 중임승낙서, 정관, 위임장, 영수필확인서. <b>주민등록번호 증명서류는 생략</b>할 수 있습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1866664" target="_blank" rel="noopener">예규 제943호</a> 5.나.)</td></tr>
+    <tr><td><b>임기만료 퇴임</b></td><td>정관(임기 조항). 정원이 모자라면 <b>후임 선임 서류 전부</b></td><td>신청서(원인일 = 본래 임기 끝나는 날), 위임장</td><td>정관(등기기록의 취임일과 맞춰 임기만료를 보여 줌). 정원 부족이면 후임 취임 서류를 함께. 물러나는 이사장의 주소 증명은 필요 없습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195793" target="_blank" rel="noopener">선례 제2-38호</a>·<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195794" target="_blank" rel="noopener">선례 제2-39호</a>)</td></tr>
+    <tr><td><b>사임</b></td><td>사임하는 이사의 <b>사임서</b> + 인감 날인 + 인감증명서(또는 본인서명사실확인서·공증). 등기소에 인감을 낸 이사장은 그 인감을 찍은 사임서로 갈음. 정원이 모자라면 후임 서류</td><td>신청서(원인일 = 사임 의사가 법인에 도달한 날), 위임장</td><td>사임서 + 인감증명서 등, 위임장, 영수필확인서. 사임만 있으면 <b>의사록은 필요 없습니다</b>(양식 제9호는 해임·선임 때만 의사록)</td></tr>
+    <tr><td><b>해임</b></td><td>정관상 해임 권한이 있는 기관의 <b>해임 결의 의사록</b>, 정관(해임 근거·정족수)</td><td>신청서(원인 「해임」), 공증 촉탁, 위임장</td><td>공증 의사록, 정관, 위임장, 영수필확인서. 해임된 이사 명의의 서류는 필요 없습니다</td></tr>
+    <tr><td><b>사망</b></td><td>사망 사실이 나오는 <a class="dl" href="https://efamily.scourt.go.kr" target="_blank" rel="noopener">가족관계등록사항별증명서</a>(기본증명서 등, 3개월) — 유족의 협조가 필요할 수 있습니다</td><td>신청서(원인일 = 사망일), 위임장</td><td>가족관계등록사항별증명서(양식 제9호 「사망, 개명의 경우」), 위임장, 영수필확인서</td></tr>
+    <tr><td><b>성년후견 개시</b></td><td>성년후견개시 심판문 + <b>확정증명</b>, 또는 <a class="dl" href="https://egdrs.scourt.go.kr" target="_blank" rel="noopener">후견등기사항증명서</a></td><td>신청서(원인일 = 심판 확정일), 위임장</td><td>퇴임을 증명하는 서면(비송사건절차법 §64①). 성년후견이 시작되면 위임관계가 끝나므로(민법 §690) 이사에서 물러나고, 심판은 즉시항고 기간(14일)이 지나 <b>확정되어야</b> 효력이 생깁니다(가사소송법 §40·§43⑤). 한정후견은 이 사유가 아닙니다</td></tr>
+    <tr><td><b>파산</b></td><td>이사 개인의 파산선고 결정문</td><td>신청서, 위임장</td><td>파산 사실을 증명하는 서면(민법 §690 — 파산도 위임 종료 사유)</td></tr>
+    <tr><td><b>자격 상실·당연퇴직</b></td><td>정관에 정한 당연퇴직 사유가 생긴 것을 증명하는 서면. 당연직 이사는 인사발령 공문</td><td>신청서(원인 「정관 소정의 자격상실에 의한 퇴임」 등), 위임장</td><td>별도 해임 결의는 필요 없고, 해당 여부는 등기관이 판단합니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854826" target="_blank" rel="noopener">선례 제1-344호</a>). 당연직 이사가 인사발령으로 물러나면 원인을 「임기만료」, 「정관 소정의 자격상실에 의한 퇴임」, 「정관 소정의 사유에 의한 퇴임」 가운데 골라 적을 수 있고(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2026000032264" target="_blank" rel="noopener">선례 제202502-1호</a>), <b>정원이 모자라도 퇴임등기만 따로</b> 할 수 있습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3324982" target="_blank" rel="noopener">선례 제202404-1호</a>)</td></tr>
+  </tbody>
+</table></div>
+
+<div class="tip">
+  <span class="pt">정원이 모자라게 되는 퇴임 — 후임과 함께 내야 합니다</span>
+  사임하거나 임기가 끝난 이사는 남은 이사만으로 정관의 정원을 채우지 못하면 후임이 취임할 때까지 이사의 권리·의무를 그대로 집니다. 그래서 등기소는 이런 퇴임등기를 <b>후임 이사 취임등기와 동시에 신청</b>해야 받아 주고(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854679" target="_blank" rel="noopener">선례 제1-373호</a> ③, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1863603" target="_blank" rel="noopener">예규 제187호</a>), 퇴임등기 기간도 후임 취임일부터 셉니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2172512" target="_blank" rel="noopener">예규 제1574호</a> §2② 단서). 예외는 두 가지입니다. 법원이 <b>임시이사</b>를 선임한 경우에는 결원 때문에 남아 있던 이사의 퇴임등기만 따로 할 수 있고(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195862" target="_blank" rel="noopener">선례 제2-107호</a> ②), 당연직 이사가 인사발령으로 물러난 경우도 퇴임등기만 할 수 있습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3324982" target="_blank" rel="noopener">선례 제202404-1호</a>). 후임을 뽑지 못한 채 시간이 흐르면 과태료 위험이 커지므로, 사임서를 받는 날 후임 선임 일정도 함께 잡으십시오.
+</div>
+
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:22%">날짜를 정하는 법</th><th>내용</th><th style="width:26%">근거</th></tr></thead>
+  <tbody>
+    <tr><td><b>취임일</b></td><td>선임 결의와 본인의 승낙이 모두 있은 날. 승낙일을 따로 밝히지 않으면 선임 결의일</td><td><a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854096" target="_blank" rel="noopener">선례 제1-169호</a>, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3224390" target="_blank" rel="noopener">선례 제201907-1호</a></td></tr>
+    <tr><td><b>임기만료일</b></td><td>정관의 임기를 등기기록의 취임일부터 셉니다. 정원 때문에 권리·의무를 계속 진 기간이 있어도 퇴임일은 <b>본래 임기가 끝난 날</b>입니다</td><td><a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854679" target="_blank" rel="noopener">선례 제1-373호</a> ②, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854096" target="_blank" rel="noopener">선례 제1-169호</a></td></tr>
+    <tr><td><b>중임일</b></td><td>임기만료일의 <b>다음 날</b>. 임기 끝날이 일요일·공휴일이면 그다음 날 만료되고 그 다음 날이 중임일입니다(예: 끝날 2027. 3. 7.(일) → 3. 8.(월) 만료 → 중임일 3. 9.(화) → 등기 기한 3. 30.(화))</td><td><a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195782" target="_blank" rel="noopener">선례 제2-27호</a>·<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195787" target="_blank" rel="noopener">선례 제2-32호</a>·<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2177656" target="_blank" rel="noopener">선례 제201505-1호</a></td></tr>
+    <tr><td>임기 전 재선임</td><td>미리 재선임 결의를 했더라도 <b>임기가 끝나기 전에는 중임등기를 신청할 수 없습니다</b></td><td><a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1865211" target="_blank" rel="noopener">예규 제525호</a></td></tr>
+    <tr><td>간격이 생긴 재선임</td><td>임기가 끝나고 날짜 간격을 두고 다시 뽑았다면 중임이 아니라 <b>퇴임 + 취임</b>으로 신청합니다. 이사장이면 인감도 다시 냅니다</td><td><a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854474" target="_blank" rel="noopener">선례 제1-153호</a>, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3210766" target="_blank" rel="noopener">선례 제201906-1호</a></td></tr>
+  </tbody>
+</table></div>
+
+<div class="qhead"><span class="qb">3</span>
+  <h2>이사장(대표권 있는 이사)과 대표권제한규정이 바뀔 때</h2>
+</div>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:14%">원인</th><th style="width:31%">① 법인·당사자가 준비</th><th style="width:25%">② 본 사무소가 작성·준비</th><th>③ 등기소 첨부서면</th></tr></thead>
+  <tbody>
+    <tr><td><b>이사장 취임</b></td><td>· 이사 선임과 이사장 선임 결의 의사록(정관이 정한 기관. 회장을 사원총회에서 뽑는 법인은 사원총회 의사록)<br>· 취임승낙서 + 인감증명서<br>· 주민등록표 초본(주소 포함)<br>· 정관<br>· 새 이사장의 개인 인감과 <b>인감증명서</b>(법인 인감 신고용, 3개월)<br>· 새로 쓸 <b>법인 인감</b>(도장)</td><td>· 신청서(양식 제9호 — 대표권제한규정에 새 이사장 성명, 주소 기재)<br>· <b>인감신고서</b>(별지 제1호) — 대표자가 바뀌면 개인(改印)신고가 아닌 <b>새 인감신고</b>입니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3210768" target="_blank" rel="noopener">선례 제201901-1호</a>)<br>· 인감카드 계속사용신청서(별지 제15호) 또는 새 카드 발급<br>· 공증 촉탁, 위임장</td><td>공증 의사록, 취임승낙서 + 인감증명서, 주민등록표 초본, 정관, 인감신고서(+ 인감증명서), 위임장, 영수필확인서</td></tr>
+    <tr><td><b>이사장 중임</b></td><td>재선임 의사록, 중임승낙서(등기소에 낸 인감을 찍으면 증명서 생략), 주소가 바뀌었으면 초본</td><td>신청서, 위임장. 날짜 간격 없는 중임이면 인감을 다시 낼 필요 없습니다</td><td>공증 의사록, 중임승낙서, 주소 변경 시 초본</td></tr>
+    <tr><td><b>이사장 퇴임</b></td><td>위 표의 퇴임 원인별 서류와 <b>후임 이사장 선임 서류</b></td><td>후임의 인감신고서 또는 인감카드 계속사용신청서</td><td>퇴임 증명서면, 후임 서류. 물러나는 이사장의 주소 증명은 필요 없습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195793" target="_blank" rel="noopener">선례 제2-38호</a>). 종전 인감 기록은 폐쇄됩니다(상업등기규칙 §38)</td></tr>
+    <tr><td><b>이사장직만 사임</b><br><small>이사로는 남음</small></td><td>「이사장직만 사임하고 이사직은 유지한다」는 뜻을 분명히 적은 사임서(개인 인감 + 인감증명서), 후임 이사장 선임 의사록</td><td>신청서, 후임 인감신고서, 위임장</td><td>사임서, 공증 의사록, 후임 서류. 이사장직과 이사직은 별개여서, 이사장직 사임서만으로는 이사 사임등기를 할 수 없습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2245774" target="_blank" rel="noopener">선례 제201708-2호</a>). 이사장 겸 이사를 함께 그만두면 한 장에 「이사장 겸 이사」로 적고 개인 인감을 찍습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2245775" target="_blank" rel="noopener">선례 제201711-1호</a>)</td></tr>
+    <tr><td><b>대표권제한규정 설정</b><br><small>이사장만 대표하게 정함</small></td><td>정관변경 결의 의사록(사단법인: 총사원 3분의 2 이상 동의 또는 정관이 정한 수, 재단법인: 정관이 정한 방법) + 이사장 선임 결의, <b>주무관청의 정관변경 허가서</b>(도착일 증빙 보관), 이사장의 취임 서류·인감</td><td>신청서(원인 「대표권제한규정설정」, 원인일 = 허가서 도착일), 인감신고서, 공증 촉탁, 위임장</td><td>공증 의사록, 허가서 원본 또는 인증 등본, 이사장 주민등록표 초본, 인감신고서, 위임장, 영수필확인서</td></tr>
+    <tr><td><b>대표권제한규정 변경</b><br><small>단독 ↔ 공동대표 등</small></td><td>정관변경 결의 의사록, 허가서</td><td>신청서(원인 「대표권제한규정변경」), 위임장</td><td>공증 의사록, 허가서, 새로 대표권이 생기는 이사의 초본. 공동대표로 하려면 <b>「공동으로 대표권을 행사한다」</b>는 문구를 꼭 넣습니다 — 없으면 각자 대표로 봅니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2223910" target="_blank" rel="noopener">선례 제201611-1호</a>)</td></tr>
+    <tr><td><b>대표권제한규정 폐지</b><br><small>이사 모두 대표</small></td><td>정관변경 결의 의사록, 허가서, <b>이사 전원의 주민등록표 초본</b>(이사 모두의 주소가 등기됨)</td><td>신청서(원인 「대표권제한규정폐지」), 위임장. 인감은 신청하는 대표자만 내면 되고, 공동대표로 정한 경우에만 전원이 냅니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2026000038745" target="_blank" rel="noopener">예규 제1880호</a> §2②)</td><td>공증 의사록, 허가서, 이사 전원 주소 증명(3개월)</td></tr>
+  </tbody>
+</table></div>
+<div class="bnote">※ 대표권제한규정을 바꾸는 것은 정관변경이므로 허가가 있어야 효력이 생기고(민법 §42②·§45③), 등기부의 변경일은 결의일이 아니라 <b>허가서가 법인에 도착한 날</b>입니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854796" target="_blank" rel="noopener">선례 제1-385호</a>). 이사 취임과 대표권제한규정 변경을 한 신청서로 내면 등기사항이 달라 등록면허세를 2건(96,480원)으로 내는 편이 안전합니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3334428" target="_blank" rel="noopener">예규 제1790호</a> §9 단서는 같은 등기사항의 여러 변경만 1건으로 봅니다).</div>
+
+<div class="qhead"><span class="qb">4</span>
+  <h2>이사의 이름·주민등록번호·주소가 바뀔 때</h2>
+</div>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:15%">원인</th><th style="width:27%">① 법인·당사자가 준비</th><th style="width:16%">② 본 사무소</th><th>③ 첨부서면 · 세금 · 기한</th></tr></thead>
+  <tbody>
+    <tr><td><b>이사 개명</b></td><td>개명 사실이 나오는 <a class="dl" href="https://efamily.scourt.go.kr" target="_blank" rel="noopener">가족관계등록사항별증명서</a>(기본증명서 상세 등, 3개월)</td><td>신청서(제9호), 위임장</td><td>성명 변경을 증명하는 서면. 등록면허세 48,240원, 수수료 7,000원. 이사장이 개명해도 인감을 다시 낼 필요는 없습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2026000038745" target="_blank" rel="noopener">예규 제1880호</a> §4⑥). 기한은 개명허가 결정을 고지받은 날부터 3주(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195792" target="_blank" rel="noopener">선례 제2-37호</a>)</td></tr>
+    <tr><td><b>주민등록번호 변경·정정</b></td><td>변경 이력이 나오는 주민등록표 초본</td><td>신청서, 위임장</td><td>주민등록번호를 증명하는 서면. 등록면허세는 비과세(지방세법 §26②2호), 신청수수료는 면제 사유에 「주민등록번호의 <b>정정</b>」만 적혀 있어(수수료규칙 §5의3② 단서 3호), 주민등록법에 따라 번호를 <b>변경</b>한 경우는 7,000원을 냅니다</td></tr>
+    <tr><td><b>이사장 주소 변경</b></td><td>이사장의 주민등록표 등·초본(3개월, 주소 변동 이력 포함)</td><td>신청서(<b>양식 제6호</b>), 위임장</td><td>주민등록표 등·초본. 48,240원, 7,000원. 기한은 주민등록상 <b>전입일</b>부터 3주. 다른 이사 변경과 한 신청서로 내면 1건입니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2025000016591" target="_blank" rel="noopener">예규 제1861호</a> 3.다.(1)). 이 등기만은 신청서에 기명날인 대신 서명할 수 있습니다(상업등기규칙 §61①2호)</td></tr>
+  </tbody>
+</table></div>
+<div class="warn">
+  <span class="wt">주소 변경에서 자주 틀리는 세 가지</span>
+  ① A → B → C로 두 번 옮겼다면 C로 바로 등기할 수 있지만, <b>B로 옮긴 때 등기하지 않은 데 대한 과태료</b>는 피하지 못합니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854077" target="_blank" rel="noopener">선례 제1-143호</a>, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2172512" target="_blank" rel="noopener">예규 제1574호</a>). ② 물러나기 전에 주소가 바뀌었다면 퇴임등기와 별도로 주소변경등기를 해야 합니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854208" target="_blank" rel="noopener">선례 제1-140호</a>). ③ 신청서의 이사장 주소가 초본과 한 글자라도 다르면 <b>각하 사유</b>입니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3261478" target="_blank" rel="noopener">선례 제202106-6호</a>, 상업등기법 §26 9호). 도로명주소는 괄호 안의 동 이름·아파트 이름(참고항목)까지 초본대로 적습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3260089" target="_blank" rel="noopener">예규 제1728호</a> 4.가.). 대표권이 없는 이사의 주소는 처음부터 등기사항이 아니므로 신청하지 않습니다(특례법 §2).
+</div>
+
+<div class="qhead"><span class="qb">5</span>
+  <h2>직무집행정지 가처분 · 임시이사 · 판결이 있을 때</h2>
+</div>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:22%">경우</th><th>처리</th><th style="width:26%">근거</th></tr></thead>
+  <tbody>
+    <tr><td>이사 직무집행정지·직무대행자 선임 <b>가처분</b></td><td>법원이 주사무소 관할 등기소에 <b>촉탁</b>하므로 법인이 신청하지 않습니다(수수료 면제). 법원이 선임한 직무대행자는 인감을 낼 수 있으므로 직무대행자 명의 인감신고서를 준비합니다. 직무대행자는 가처분명령에 다른 정함이 없으면 통상사무만 합니다</td><td>민법 §52의2·§60의2, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3336575" target="_blank" rel="noopener">예규 제1826호</a> §2, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2026000038745" target="_blank" rel="noopener">예규 제1880호</a> §2①, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3210771" target="_blank" rel="noopener">선례 제201905-2호</a></td></tr>
+    <tr><td>가처분 중 해임·후임 선임</td><td>직무집행정지만 있으면 적법한 해임 등의 등기는 받아 줍니다. <b>직무대행자 선임 가처분등기가 함께 있으면</b> 그것이 말소되기 전에는 해임 퇴임등기·후임 취임등기를 받지 않습니다</td><td><a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3336575" target="_blank" rel="noopener">예규 제1826호</a> §5①</td></tr>
+    <tr><td>법원이 선임한 <b>임시이사</b></td><td>임시이사는 등기하지 않습니다. 다른 등기를 신청할 때 법원 선임결정서로 자격을 증명하고, 등기소에 인감을 내지 않고 신청합니다</td><td><a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195862" target="_blank" rel="noopener">선례 제2-107호</a>, 비송사건절차법 §64②·§66①</td></tr>
+    <tr><td>이사선임 결의 <b>무효 판결</b> 확정</td><td>법인 대표자가 그 판결로 등기를 신청하고, 하지 않으면 승소한 사람이 대위 신청할 수 있습니다</td><td><a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2177441" target="_blank" rel="noopener">선례 제201501-1호</a>, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854828" target="_blank" rel="noopener">선례 제1-378호</a>, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854190" target="_blank" rel="noopener">선례 제1-149호</a></td></tr>
+  </tbody>
+</table></div>
+
+<h3 class="fgrp">이사 변경에 쓰는 사무소 작성례</h3>
+<div class="formbox" id="fb_fCBoard">
+  <button class="fold-btn" type="button" onclick="toggleFold(this)">📄 이사회 의사록 — 이사 선임·이사장 선임 (재단법인 예) <span class="srcb own">사무소 작성례</span><span class="chev">▾</span></button>
+  <div class="fold-body">
+    <div class="srcline">출처 · 법령에 정해진 서식이 없어, 민법·비송사건절차법·상업등기규칙과 『민법법인등기실무』가 요구하는 항목으로 만든 사무소 작성례입니다. 근거: 비송사건절차법 §64①, 공증인법 §66의2①, 『민법법인등기실무』 312~321·348~353쪽.</div>
+<div class="form" id="fCBoard">                    재단법인 ○○○○ 이사회 의사록
+1. 일시   20○○년 ○월 ○일 ○○:○○
+2. 장소   서울특별시 ○○구 ○○로 ○○, ○층 회의실
+3. 이사 총수 ○명 중 출석 이사 ○명 (정관 제○조의 의사정족수 충족)
+   감사 ○명 중 출석 ○명
+이사장 ○○○이 의장이 되어 개회를 선언하고 다음 의안을 상정하다.
+
+제1호 의안 : 이사 선임의 건
+  의장은 이사 △△△이 20○○년 ○월 ○일 사임하여(또는 임기가 끝나)
+  후임 이사를 선임하여야 한다고 설명하고, 정관 제○조에 따라
+  다음 사람을 이사로 선임할 것을 물은바 출석 이사 전원이 찬성하다.
+     이사 □□□ (생년월일 19○○. ○. ○.)
+  피선임자는 그 자리에서 취임을 승낙하다. (출석하지 않았으면 이 줄을 지움)
+
+제2호 의안 : 이사장 선임의 건  (이사장이 바뀔 때만)
+  정관 제○조에 따라 이사 중에서 이사장으로 □□□을 선임하다.
+  피선임자는 취임을 승낙하다.
+
+[주사무소를 옮길 때의 의안 예]
+제○호 의안 : 주사무소 이전의 건
+  정관 제○조가 정한 범위 안에서 주사무소를 20○○년 ○월 ○일
+  서울특별시 ○○구 ○○로 ○○으로 이전하기로 하다.
+
+의장은 이상으로 의안 심의를 마쳤으므로 폐회를 선언하다.
+위 결의를 명확히 하기 위하여 이 의사록을 작성하고 의장과 출석한 이사가
+기명날인하다.
+                              20○○년 ○월 ○일
+   의장 이사장 ○○○ (인)   이사 ○○○ (인)   이사 ○○○ (인)
+   이사 ○○○ (인)          감사 ○○○ (인)</div>
+    <div class="howto">① 결의하는 기관은 <b>정관이 정한 곳</b>입니다. 사단법인에서 이사를 사원총회가 뽑게 되어 있으면 아래 사원총회 의사록을 씁니다. 정관상 위원회(임원추천위원회 등)가 뽑으면 그 위원회 의사록도 공증합니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3261470" target="_blank" rel="noopener">선례 제202105-1호</a>).<br>② 등기에 내는 의사록은 <b>공증인의 인증</b>을 받습니다. 공증인은 결의에 참석해 확인하거나, 의결 정족수 이상 이사의 진술을 듣고 인증합니다(공증인법 §66의2①~③). 법무부가 지정·고시한 법인만 면제됩니다.<br>③ 출석한 피선임자가 그 자리에서 승낙했다고 적고 본인이 기명날인하면, 공증받은 의사록이 취임승낙서를 겸할 수 있습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2192432" target="_blank" rel="noopener">선례 제201507-4호</a>). 이때도 인감 날인과 인감증명서를 갖추는 것이 안전합니다.<br>④ 주사무소 이전 의안은 정관의 소재지 범위 안일 때만 이사회로 충분합니다. 범위 밖이면 정관변경 결의와 주무관청 허가가 있어야 합니다.</div>
+    <div class="form-tools">
+      <button type="button" onclick="copyForm('fCBoard')">📋 복사</button>
+      <button type="button" onclick="printForm('fCBoard')">🖨 인쇄</button>
+      <button type="button" onclick="downloadForm('fCBoard','이사회의사록_이사선임_이사장선임_작성예시.txt')">⬇ 내려받기</button>
+    </div>
+  </div>
+</div>
+<div class="formbox" id="fb_fCGen">
+  <button class="fold-btn" type="button" onclick="toggleFold(this)">📄 사원총회 의사록 — 이사 선임·정관변경 (사단법인 예) <span class="srcb own">사무소 작성례</span><span class="chev">▾</span></button>
+  <div class="fold-body">
+    <div class="srcline">출처 · 법령에 정해진 서식이 없어, 민법·비송사건절차법·상업등기규칙과 『민법법인등기실무』가 요구하는 항목으로 만든 사무소 작성례입니다. 근거: 민법 §42①·§76, 비송사건절차법 §64①, 공증인법 §66의2①, 『민법법인등기실무』 264·297~305쪽.</div>
+<div class="form" id="fCGen">                   사단법인 ○○○○ 정기(임시) 사원총회 의사록
+1. 일시   20○○년 ○월 ○일 ○○:○○
+2. 장소   서울특별시 ○○구 ○○로 ○○, ○층 대회의실
+3. 사원 총수 ○○○명 중 출석 ○○명, 위임 출석 ○○명 (합계 ○○○명)
+회장(이사장) ○○○이 의장이 되어 정관 제○조의 정족수가 찼음을 알리고
+개회를 선언한 뒤 다음 의안을 상정하다.
+
+제1호 의안 : 이사 선임의 건
+  임기가 끝나는 이사 △△△의 후임으로 □□□을 이사로 선임하다.
+  (찬성 ○○○명, 반대 ○명)
+
+제2호 의안 : 정관 일부 변경의 건  (명칭·목적·대표권제한규정 등을 바꿀 때)
+  정관 제○조(명칭)를 다음과 같이 변경하다.
+     변경 전 : 이 법인은 「사단법인 ○○○○」이라 한다.
+     변경 후 : 이 법인은 「사단법인 ◇◇◇◇」이라 한다.
+  정관 제○조(목적)를 다음과 같이 변경하다. (변경 전·후 조항 전문을 적음)
+  이 변경은 주무관청의 허가를 받은 날부터 효력이 있다.
+  (찬성 ○○○명 — 총사원의 3분의 2 이상, 반대 ○명)
+
+의장은 이상으로 의안 심의를 마쳤으므로 폐회를 선언하다.
+위 결의를 명확히 하기 위하여 이 의사록을 작성하고 의장과 출석한 이사가
+기명날인하다.
+                              20○○년 ○월 ○일
+   의장 ○○○ (인)   출석 이사 ○○○ (인)   출석 이사 ○○○ (인)</div>
+    <div class="howto">① 사원총회 의사록에는 의사의 경과·요령·결과를 적고 <b>의장과 출석한 이사</b>가 기명날인합니다(민법 §76②).<br>② 정관변경은 정관에 다른 정함이 없으면 <b>총사원 3분의 2 이상</b>의 동의가 있어야 하고(민법 §42①), 주무관청의 허가가 없으면 효력이 없습니다(같은 조 ②). 찬성 수를 꼭 적으십시오. 재단법인은 정관이 정한 변경 방법(대개 이사회 의결)에 따릅니다(민법 §45①).<br>③ 목적은 허가받은 정관 조항의 문언 그대로 등기합니다. 의사록·허가 정관·신청서의 문언이 다르면 보정 사유이므로, 본 사무소가 세 문서를 글자 단위로 맞춥니다. 정관의 수익사업 조항은 목적란에 등기하지 않습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195894" target="_blank" rel="noopener">선례 제2-139호</a>).<br>④ 공증인의 인증을 받습니다. 주무관청 허가서를 붙여도 공증은 면제되지 않습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854134" target="_blank" rel="noopener">선례 제1-25호</a>).</div>
+    <div class="form-tools">
+      <button type="button" onclick="copyForm('fCGen')">📋 복사</button>
+      <button type="button" onclick="printForm('fCGen')">🖨 인쇄</button>
+      <button type="button" onclick="downloadForm('fCGen','사원총회의사록_이사선임_정관변경_작성예시.txt')">⬇ 내려받기</button>
+    </div>
+  </div>
+</div>
+<div class="formbox" id="fb_fCAcc">
+  <button class="fold-btn" type="button" onclick="toggleFold(this)">📄 취임승낙서 (이사 · 이사장) <span class="srcb own">사무소 작성례</span><span class="chev">▾</span></button>
+  <div class="fold-body">
+    <div class="srcline">출처 · 등기 첨부용 사무소 작성례 — 인감 날인 + 인감증명서, 또는 본인서명사실확인서 + 서명, 또는 공증인 인증(민특규칙 §6② → 상업등기규칙 §154② → §104①, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195865" target="_blank" rel="noopener">선례 제2-110호</a>, 양식 제9호 주1)</div>
+<div class="form" id="fCAcc">                         취 임 승 낙 서
+
+본인은 20○○년 ○월 ○일 [사단법인 / 재단법인] ○○○○의
+[ 사원총회 / 이사회 ]에서 [ 이사 / 이사장 ] (해당하는 것만 남김)으로
+선임되었으므로 그 직에 취임할 것을 승낙합니다.
+                              20○○년 ○월 ○일
+                    성명 □□□ (인감 날인 또는 서명)
+                    주민등록번호 ○○○○○○-○○○○○○○
+                    주소 서울특별시 ○○구 ○○로 ○○ (○○동, ○○아파트)
+[사단법인 / 재단법인] ○○○○ 귀중
+붙임: 인감증명서(또는 본인서명사실확인서) 1통</div>
+    <div class="howto">① <b>대표권이 없는 이사도</b> 인감을 찍고 발급 3개월 이내 인감증명서를 붙입니다. 본인서명사실확인서나 전자본인서명확인서 발급증을 낼 때는 도장 대신 서명합니다.<br>② 같은 사람이 이사와 이사장에 함께 선임되면 한 장에 「이사 및 이사장」으로 적어도 됩니다.<br>③ 중임이면 「중임을 승낙합니다」로 고치고, 등기소에 인감을 낸 이사장은 그 법인 인감이 아니라 <b>등기소에 낸 인감</b>을 찍으면 인감증명서를 생략할 수 있습니다(상업등기규칙 §104① 단서).<br>④ 외국인은 본국 관청에 신고한 인감과 그 증명, 또는 본인 서명에 대한 본국 관청의 증명이나 국내 공증인의 인증으로 갈음합니다(아래 [외국인·재외국민 이사]).</div>
+    <div class="form-tools">
+      <button type="button" onclick="copyForm('fCAcc')">📋 복사</button>
+      <button type="button" onclick="printForm('fCAcc')">🖨 인쇄</button>
+      <button type="button" onclick="downloadForm('fCAcc','취임승낙서_비영리법인이사_작성예시.txt')">⬇ 내려받기</button>
+    </div>
+  </div>
+</div>
+<div class="formbox" id="fb_fCRes">
+  <button class="fold-btn" type="button" onclick="toggleFold(this)">📄 사임서 (이사 · 이사장직만) <span class="srcb own">사무소 작성례</span><span class="chev">▾</span></button>
+  <div class="fold-body">
+    <div class="srcline">출처 · 등기 첨부용 사무소 작성례 — 인감 날인 + 인감증명서 등(민특규칙 §6② → 상업등기규칙 §154② → §104①, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195865" target="_blank" rel="noopener">선례 제2-110호</a>·<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2245774" target="_blank" rel="noopener">선례 제201708-2호</a>)</div>
+<div class="form" id="fCRes">                           사 임 서
+
+본인은 [사단법인 / 재단법인] ○○○○의
+  [ 이사 ]
+  [ 이사장직 (이사직은 유지함) ]
+  [ 이사장 겸 이사 ]          (해당하는 것만 남김)
+의 직을 20○○년 ○월 ○일자로 사임합니다.
+                              20○○년 ○월 ○일
+                    성명 △△△ (인감 날인 또는 서명)
+                    주민등록번호 ○○○○○○-○○○○○○○
+                    주소 서울특별시 ○○구 ○○로 ○○
+[사단법인 / 재단법인] ○○○○ 이사장 귀하
+붙임: 인감증명서(또는 본인서명사실확인서) 1통</div>
+    <div class="howto">① 사임은 법인에 <b>도달한 때</b> 효력이 생기므로, 받은 날짜를 사임서 여백이나 접수 기록에 남겨 두십시오. 등기원인일이 됩니다.<br>② 이사장직만 그만두는지, 이사직까지 그만두는지를 분명히 적습니다. 이사장직 사임서만으로는 이사 사임등기를 할 수 없습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2245774" target="_blank" rel="noopener">선례 제201708-2호</a>).<br>③ 둘 다 그만두면 「이사장 겸 이사」로 한 장에 적고 <b>개인 인감</b>(인감증명법상 인감)을 찍습니다. 법인 인감만 찍은 사임서는 보정 대상이 될 수 있습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2245775" target="_blank" rel="noopener">선례 제201711-1호</a>, 주식회사 사안).<br>④ 사임으로 정원이 모자라게 되면 후임 선임 서류를 함께 준비해야 등기할 수 있습니다.</div>
+    <div class="form-tools">
+      <button type="button" onclick="copyForm('fCRes')">📋 복사</button>
+      <button type="button" onclick="printForm('fCRes')">🖨 인쇄</button>
+      <button type="button" onclick="downloadForm('fCRes','사임서_비영리법인이사_작성예시.txt')">⬇ 내려받기</button>
+    </div>
+  </div>
+</div>
+<div class="formbox" id="fb_fCPow">
+  <button class="fold-btn" type="button" onclick="toggleFold(this)">📄 위임장 (변경등기) <span class="srcb own">사무소 작성례</span><span class="chev">▾</span></button>
+  <div class="fold-body">
+    <div class="srcline">출처 · 등기 신청 대리용 사무소 작성례 — 대리인이 신청할 때(상업등기규칙 §52①1호, 민특규칙 §6①)</div>
+<div class="form" id="fCPow">                            위 임 장
+대리인  법무사 ○○○
+        ○○시 ○○로 ○○
+위 사람을 대리인으로 정하고 다음 사항을 위임합니다.
+1. [사단법인 / 재단법인] ○○○○의 변경등기 신청에 관한 일체의 행위
+   (등기의 목적: 이사 변경 / 주사무소 이전 / 명칭 변경 등 해당 사항)
+2. 법인 인감신고 및 인감카드 계속사용 신청 (이사장이 바뀔 때)
+3. 등록면허세 신고·납부 대행 및 등기신청수수료 납부
+4. 원본 환부 청구, 신청의 보정 및 취하
+                              20○○년 ○월 ○일
+위임인  [사단법인 / 재단법인] ○○○○
+        주사무소 서울특별시 ○○구 ○○로 ○○
+        이사 □□□ (등기소에 신고한 법인 인감)</div>
+    <div class="howto">위임장에는 원칙적으로 <b>관할 등기소에 낸 법인 인감</b>을 찍습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854257" target="_blank" rel="noopener">선례 제1-16호</a>). 이사장이 바뀌는 등기는 새 이사장이 새로 신고하는 인감을 찍고, 인감신고서와 함께 냅니다. 공동대표로 정한 법인은 공동대표 전원이 날인합니다. 위임장은 돌려받을 수 없습니다(상업등기규칙 §66①).</div>
+    <div class="form-tools">
+      <button type="button" onclick="copyForm('fCPow')">📋 복사</button>
+      <button type="button" onclick="printForm('fCPow')">🖨 인쇄</button>
+      <button type="button" onclick="downloadForm('fCPow','위임장_비영리법인_변경등기_작성예시.txt')">⬇ 내려받기</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ 제2부 ══════════ -->
+<div class="part" id="part2">
+  <div class="pn">제2부</div>
+  <div class="pt2">사무소가 바뀔 때 — 주사무소 이전 · 분사무소 설치·이전·폐지</div>
+  <div class="pw">2025. 1. 31.부터 <b>분사무소 소재지 등기가 없어지고</b> 모든 등기를 주사무소 관할 등기소 한 곳에서 합니다(민법 §50·§51, 상업등기법 §55, 2024. 9. 20. 개정). 『민법법인등기실무』 266~296쪽의 「구·신 소재지 2건 신청」, 「분사무소 소재지 등기」 설명은 현행과 다릅니다.</div>
+</div>
+
+<div class="qhead"><span class="qb">6</span>
+  <h2>먼저 정관의 소재지 문언을 보십시오 — 허가가 필요한지가 여기서 갈립니다</h2>
+</div>
+<ul>
+  <li>정관에 소재지를 <b>최소 행정구역</b>(예: 「서울특별시에 둔다」)으로만 적었고 그 안에서 옮기면 <b>정관변경도 주무관청 허가도 필요 없습니다</b>. 이사회 결의(이사회가 없으면 이사 과반수 결정, 민법 §58②)로 옮깁니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854845" target="_blank" rel="noopener">선례 제1-424호</a>, 분사무소는 <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195861" target="_blank" rel="noopener">선례 제2-106호</a>).</li>
+  <li>정관에 <b>번지·동·호수까지</b> 적었다면 같은 구 안에서 옮겨도 정관변경과 허가가 필요합니다(『민법법인등기실무』 270·277쪽).</li>
+  <li>정관 범위 밖으로 옮기면 정관변경 결의(사단법인은 사원총회, 재단법인은 정관이 정한 방법)와 <b>주무관청의 정관변경 허가</b>를 먼저 받습니다. 허가 없이 한 이전등기는 무효이고 나중에 허가를 받아도 바로잡히지 않습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195860" target="_blank" rel="noopener">선례 제2-105호</a> 항목 1).</li>
+  <li>민법상 사단법인의 분사무소는 협동조합의 지사무소와 달리 정관에 근거를 두어야 하므로, 정관에 없는 곳에 분사무소를 두려면 정관변경부터 합니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3224387" target="_blank" rel="noopener">선례 제201910-2호</a> 3., <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195861" target="_blank" rel="noopener">선례 제2-106호</a>).</li>
+</ul>
+
+<div class="qhead"><span class="qb">7</span>
+  <h2>원인별 서류 — 사무소</h2>
+</div>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:14%">원인</th><th style="width:30%">① 법인이 준비</th><th style="width:27%">② 본 사무소가 작성·준비</th><th>③ 등기소 첨부서면</th></tr></thead>
+  <tbody>
+    <tr><td><b>주사무소 이전</b><br><small>같은 등기소 관할 안</small></td><td>· 이전 결의 의사록(정관 범위 안: 이사회, 범위 밖: 정관변경 결의 — 같은 회의에서 함께 결의하면 1부)<br>· 정관 범위 밖이거나 정관에 번지까지 적혀 있으면 주무관청 <b>정관변경 허가서</b> 원본<br>· 현행 정관<br>· 새 사무소 임대차계약서 등(이전일 확인용)</td><td>· 신청서(<b>양식 제2-1호</b> — 새 주사무소, 이전 연월일, 허가서 도착 연월일)<br>· 의사록 초안·공증 촉탁<br>· 등록면허세 신고(<b>새 소재지</b> 시·군·구, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3334428" target="_blank" rel="noopener">예규 제1790호</a> §4)<br>· 위임장</td><td>공증 의사록, 허가서(해당 시), 정관, 위임장, 등록면허세·수수료 영수필확인서. 법인 인감은 다시 낼 필요 없습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2026000038745" target="_blank" rel="noopener">예규 제1880호</a> §4⑥)</td></tr>
+    <tr><td><b>주사무소 이전</b><br><small>다른 등기소 관할로</small></td><td>위와 같음. 다른 시·군으로 옮기는 경우가 많아 대부분 정관변경과 허가가 따릅니다</td><td>· 신청서 <b>1부</b>(<b>양식 제2-2호</b> — 종전 소재지, 새 소재지, 이전 연월일)<br>· 낼 곳: <b>종전 또는 새 관할 등기소 중 한 곳</b>(상업등기법 §55)<br>· 세금: 새 소재지 1건. 대도시 밖에서 대도시로 들어오면 중과(아래 세금 표)<br>· 수수료 35,000원</td><td>위와 같음. <b>다른 등기(이사 변경 등)와 한 신청서로 묶을 수 없으므로</b> 따로 냅니다(상업등기규칙 §53① 단서). 처리되는 동안에는 법인 인감증명서가 발급되지 않으니 일정을 미리 잡으십시오(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2026000038745" target="_blank" rel="noopener">예규 제1880호</a> §13①5호)</td></tr>
+    <tr><td><b>분사무소 설치</b></td><td>· 설치 결의 의사록(<b>설치일</b>을 적음)<br>· 정관 범위 밖이면 정관변경 결의와 허가서</td><td>· 신청서(<b>양식 제3호</b> — 분사무소의 명칭·소재지·설치 연월일)<br>· 등록면허세는 <b>분사무소 소재지</b> 시·군·구에 신고(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3334428" target="_blank" rel="noopener">예규 제1790호</a> §5)<br>· 위임장</td><td>의사록(정관이 바뀌면 공증), 허가서(해당 시), 위임장, 영수필확인서. 결의로 정한 설치일 전에는 신청할 수 없습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195778" target="_blank" rel="noopener">선례 제2-23호</a>)</td></tr>
+    <tr><td><b>분사무소 이전</b></td><td>이전 결의 의사록, 범위 밖이면 정관변경·허가</td><td>신청서(<b>양식 제4호</b>), 세금은 <b>새 분사무소 소재지</b>(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3334428" target="_blank" rel="noopener">예규 제1790호</a> §6)</td><td>위와 같음</td></tr>
+    <tr><td><b>분사무소 폐지</b></td><td>폐지 결의 의사록, 범위 밖이면 정관변경·허가</td><td>신청서(<b>양식 제5호</b>), 세금은 <b>폐지하는 분사무소 소재지</b>(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3334428" target="_blank" rel="noopener">예규 제1790호</a> §7)</td><td>위와 같음</td></tr>
+    <tr><td>행정구역·명칭 변경</td><td>없음</td><td>원하면 신청서·위임장(의무 아님)</td><td>관보 등 변경을 증명하는 서면. 등기부는 법에 따라 바뀐 것으로 보고(상업등기법 §28) 등기관이 직권으로 고칠 수 있습니다. 의사록·허가서 불요(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854270" target="_blank" rel="noopener">선례 제1-127호</a>)</td></tr>
+    <tr><td>도로명주소로 바꾸기</td><td>없음</td><td>원하면 신청서·위임장</td><td>건축물대장 등 도로명주소를 확인하는 서면. 괄호 안 동 이름·건물 이름까지 적습니다. <b>세금·수수료 없음</b>(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3260089" target="_blank" rel="noopener">예규 제1728호</a> 3.·6.)</td></tr>
+  </tbody>
+</table></div>
+<div class="tip">
+  <span class="pt">분사무소 의사록 — 정관이 바뀌지 않으면 공증하지 않아도 됩니다</span>
+  공증인법은 「대통령령으로 정하는 경미한 사항」을 의결한 의사록을 인증 대상에서 빼고(§66의2①3호), 시행령은 그 경미한 사항으로 「지점의 설치·이전 또는 폐지」를 들면서 <b>정관의 변경이 필요한 경우는 제외</b>합니다(시행령 §37의3②1호). 대법원 <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3334578" target="_blank" rel="noopener">예규 제1793호</a>의 민법법인 양식 제3~5호(분사무소 설치·이전·폐지)도 첨부서면 칸에 「정관이 변경되는 경우에는 의사록 공증 필요」라고 적어, 분사무소에 이 면제가 적용됨을 전제하고 있습니다. 다만 사단법인은 분사무소를 정관에 근거를 두어 설치하므로, 정관에 새 소재지가 없어 <b>정관을 바꾸어야 하면 공증과 주무관청 허가가 함께 필요</b>합니다. 이 점을 직접 다룬 선례는 없어(2026. 11. 23. 사법정보공개포털 재검색), 처음 하는 등기소라면 접수 전에 한 번 확인해 두면 안심입니다.
+</div>
+
+<!-- ══════════ 제3부 ══════════ -->
+<div class="part" id="part3">
+  <div class="pn">제3부</div>
+  <div class="pt2">정관 기재사항이 바뀔 때 — 명칭·목적·존립시기·자산·출자방법</div>
+  <div class="pw">이 사항들은 정관을 바꾸어야 바뀌므로 <b>주무관청의 정관변경 허가</b>가 있어야 효력이 생기고(민법 §42②·§45③), 등기부의 변경일은 결의일이 아니라 <b>허가서가 법인에 도착한 날</b>입니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854796" target="_blank" rel="noopener">선례 제1-385호</a>). 허가서를 받은 봉투나 전자문서 수신 기록을 꼭 보관하십시오.</div>
+</div>
+
+<div class="qhead"><span class="qb">8</span>
+  <h2>원인별 서류 — 정관 기재사항</h2>
+</div>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:14%">원인</th><th style="width:30%">① 법인이 준비</th><th style="width:26%">② 본 사무소가 작성·준비</th><th>③ 등기소 첨부서면</th></tr></thead>
+  <tbody>
+    <tr><td><b>명칭 변경</b></td><td>· 정관변경 결의 의사록(사단: 총사원 3분의 2 이상 또는 정관이 정한 수, 재단: 정관이 정한 방법)<br>· 주무관청 <b>정관변경 허가서</b> 원본<br>· 변경된 정관</td><td>· 신청서(<b>양식 제7호</b>)<br>· 의사록 초안·공증 촉탁<br>· 등록면허세 신고, 위임장<br>· 법인 인감은 다시 낼 의무가 없습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2026000038745" target="_blank" rel="noopener">예규 제1880호</a> §4⑥). 새 명칭을 새긴 인감으로 바꾸려면 개인(改印)신고서를 함께 냅니다</td><td>공증 의사록, 허가서 원본 또는 인증 등본, 위임장, 영수필확인서. 명칭에 「사단법인」 또는 「재단법인」을 넣습니다(민특규칙 §4). 회사와 달리 같은 명칭 금지 규정은 적용되지 않습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3281750" target="_blank" rel="noopener">선례 제202206-1호</a>)</td></tr>
+    <tr><td><b>목적 변경</b></td><td>· 정관변경 결의 의사록(변경 전·후 목적 조항 전문)<br>· 허가서 원본, 변경된 정관<br>· 주무관청이 바뀌면 이관 관련 문서</td><td>신청서(<b>양식 제7호</b> — 허가받은 목적 조항 문언 그대로), 공증 촉탁, 위임장</td><td>공증 의사록, 허가서, 위임장, 영수필확인서. 정관의 <b>수익사업</b> 조항은 목적란에 등기하지 않습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195894" target="_blank" rel="noopener">선례 제2-139호</a>). 목적이 여러 개 바뀌어도 세금·수수료는 1건</td></tr>
+    <tr><td><b>존립시기·해산사유</b><br>설정·변경·폐지</td><td>정관변경 결의 의사록, 허가서. 존립기간을 늘리려면 <b>끝나기 전에</b> 결의와 허가까지 마칩니다</td><td>신청서(<b>양식 제7호</b>, 원인 「존립기간 변경」 등), 공증 촉탁, 위임장</td><td>공증 의사록, 허가서, 위임장, 영수필확인서. 정관에 없는 존립기간이 잘못 등기되어 있으면 정관 등 소명자료로 말소를 신청합니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854732" target="_blank" rel="noopener">선례 제1-332호</a>)</td></tr>
+    <tr><td><b>자산 총액 변경</b><br><small>정관에 금액을 적지 않은 경우(대부분)</small></td><td>결산서, 재무상태표, 재산목록(순재산액 = 재산 − 부채). 출연금을 받았으면 입금 증빙</td><td>신청서(<b>양식 제8호</b>), <b>자산의 총액 확인서</b> 초안(아래 작성례), 등록면허세 계산·신고, 위임장</td><td>재산목록(재산총액증명서)·재무상태표 또는 대표자가 법인 인감을 찍은 자산총액 확인서(『민법법인등기실무』 304쪽). 의사록·허가서는 필요 없습니다</td></tr>
+    <tr><td><b>자산 총액 변경</b><br><small>정관에 기재·기본재산 편입·처분</small></td><td>정관변경 결의 의사록, 기본재산 처분(편입)과 정관변경 허가서, 재산목록</td><td>위와 같음 + 공증 촉탁</td><td>공증 의사록, 허가서, 재산목록 등</td></tr>
+    <tr><td><b>출자방법</b><br>설정·변경·폐지</td><td>정관변경 결의 의사록(회비·분담금 조항 변경 전·후 문언), 허가서</td><td>신청서(<b>양식 제8호</b>), 공증 촉탁, 위임장</td><td>공증 의사록, 허가서, 위임장, 영수필확인서</td></tr>
+  </tbody>
+</table></div>
+<div class="concept"><b>자산 총액은 바뀔 때마다 3주 안에 등기할 사항입니다.</b> 등기하는 금액은 적극재산에서 부채를 뺀 <b>순재산액</b>이고(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854715" target="_blank" rel="noopener">선례 제1-323호</a>, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3281746" target="_blank" rel="noopener">선례 제202203-3호</a>), 이자를 적립해 늘어난 것도 변경등기 대상입니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854236" target="_blank" rel="noopener">선례 제1-298호</a>). 실무에서는 결산을 확정한 뒤 해마다 한 번 등기하는 법인이 많지만, 법령에 그런 특례가 있는 것은 아니어서 기한을 넘기면 과태료 위험이 남습니다. 출연금 납입처럼 날짜가 분명한 증가는 그날이 변경일이고, 이자·잉여금처럼 결산으로 확정되는 증감은 결산을 승인한 날을 변경일로 잡는 것이 실무입니다. 이를 정한 선례·예규는 없으므로(1987년 <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1856959" target="_blank" rel="noopener">등기선례 제2-715호</a>도 「변경이 있는 때에는 3주 내」라고만 함, 2026. 11. 23. 재검색) <b>[확인필요]</b>, 이사회 결산 승인 직후 바로 신청하는 일정을 권합니다. 명칭 변경으로 사단법인을 재단법인으로 바꾸는 것처럼 <b>법인의 종류를 바꾸는 것은 할 수 없습니다</b>(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2192429" target="_blank" rel="noopener">선례 제201508-2호</a>).</div>
+
+<div class="qhead"><span class="qb">9</span>
+  <h2>주무관청에 내는 정관변경 허가 신청 서류</h2>
+</div>
+<p>부처마다 「○○ 소관 비영리법인의 설립 및 감독에 관한 규칙」이 있고, 서류 구성은 거의 같습니다. 법무부 규칙 제6조를 예로 들면 정관 변경허가 신청서(별지 서식)에 다음을 붙입니다(<a class="dl" href="https://www.law.go.kr/법령/법무부소관비영리법인의설립및감독에관한규칙" target="_blank" rel="noopener">법무부 소관 비영리법인 규칙</a>).</p>
+<ol>
+  <li>정관 변경 사유서</li>
+  <li>개정될 정관(신·구 조문 대비표 포함)</li>
+  <li>정관 변경과 관계있는 총회 또는 이사회 회의록</li>
+  <li>기본재산 처분에 따른 정관 변경이면 처분 사유, 처분재산 목록, 처분 방법을 적은 서류</li>
+</ol>
+<p style="font-size:13.5px;color:var(--muted)">※ 신청서 서식 번호는 부처마다 별지 제3호 또는 제4호로 다릅니다. 공익법인은 공익법인법 시행령 §10(정관변경이유서, 정관개정안, 총회·이사회 회의록, 변경 원인 사실 증명서류)에 따릅니다. 주무관청 제출 서류의 작성·제출 대행은 <b>행정사 업무</b>입니다.</p>
+
+<div class="formbox" id="fb_fCAsset">
+  <button class="fold-btn" type="button" onclick="toggleFold(this)">📄 자산의 총액 확인서 (자산총액 변경등기) <span class="srcb own">사무소 작성례</span><span class="chev">▾</span></button>
+  <div class="fold-body">
+    <div class="srcline">출처 · 법령에 정해진 서식이 없어, 민법·비송사건절차법·상업등기규칙과 『민법법인등기실무』가 요구하는 항목으로 만든 사무소 작성례입니다. 근거: 비송사건절차법 §64①, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3334578" target="_blank" rel="noopener">예규 제1793호</a> 양식 제8호 첨부서면 「재산목록(재산총액증명서)」, 『민법법인등기실무』 304쪽.</div>
+<div class="form" id="fCAsset">                       자산의 총액 확인서
+
+법인의 명칭   [사단법인 / 재단법인] ○○○○
+주사무소     서울특별시 ○○구 ○○로 ○○
+기준일       20○○년 ○월 ○일 (변경일)
+
+1. 변경 전 자산의 총액   금 ○,○○○,○○○,○○○원 (등기부 기재)
+2. 변경 후 자산의 총액   금 ○,○○○,○○○,○○○원
+     적극재산 합계        금 ○,○○○,○○○,○○○원
+     소극재산(부채) 합계  금   ○○○,○○○,○○○원
+     순재산액(①-②)      금 ○,○○○,○○○,○○○원
+3. 변경 사유   20○○ 회계연도 결산(○○○○년 ○월 ○일 이사회 승인)에 따른
+              순재산 증가 / 기본재산 출연 ○○○원 납입 등
+
+위 내용이 사실과 같음을 확인합니다.
+                              20○○년 ○월 ○일
+            [사단법인 / 재단법인] ○○○○ 이사 □□□ (법인 인감)
+붙임: 재무상태표(대차대조표) 1부, 재산목록 1부</div>
+    <div class="howto">① 등기하는 자산의 총액은 적극재산에서 부채를 뺀 <b>순재산액</b>입니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854715" target="_blank" rel="noopener">선례 제1-323호</a>, 재단법인도 같음 — <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3281746" target="_blank" rel="noopener">선례 제202203-3호</a>). 적극재산 합계만 적으면 보정 대상입니다.<br>② 증명 서면에 정해진 양식은 없어 재산목록·대차대조표·납입증명서를 내면 되고, 대표자가 법인 인감을 찍은 이 확인서를 내도 됩니다(『민법법인등기실무』 304쪽).<br>③ 정관에 자산 총액이나 기본재산을 적어 두었으면 정관변경 결의(공증)와 주무관청 허가서가 함께 필요합니다.<br>④ 결산서 숫자를 그대로 옮기므로, 법인 회계 담당자나 세무사가 확정한 재무상태표를 받아 작성합니다.</div>
+    <div class="form-tools">
+      <button type="button" onclick="copyForm('fCAsset')">📋 복사</button>
+      <button type="button" onclick="printForm('fCAsset')">🖨 인쇄</button>
+      <button type="button" onclick="downloadForm('fCAsset','자산총액확인서_비영리법인_작성예시.txt')">⬇ 내려받기</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ 제4부 ══════════ -->
+<div class="part" id="part4">
+  <div class="pn">제4부</div>
+  <div class="pt2">공익법인이라면 — 임원은 주무관청 승인을 받아 취임합니다</div>
+  <div class="pw">장학·연구비·학술·자선을 목적으로 하는 사단·재단법인은 「공익법인의 설립·운영에 관한 법률」이 먼저 적용됩니다. 임원 변경의 순서가 「선임 결의 → <b>승인 신청 → 승인</b> → 등기 → 7일 안 보고」가 됩니다.</div>
+</div>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:20%">항목</th><th>공익법인에서 달라지는 점</th><th style="width:24%">근거</th></tr></thead>
+  <tbody>
+    <tr><td><b>취임 승인</b></td><td>이사·감사는 <b>주무관청의 승인을 받아 취임</b>합니다. 승인서가 도착한 날부터 등기 기한을 세어 두는 것이 안전합니다</td><td>공익법인법 §5②, 민법 §53</td></tr>
+    <tr><td><b>승인 신청 서류</b></td><td>임원취임승인신청서에 ① 선임 결의 회의록 사본 ② 이력서 ③ 가족관계기록사항 증명서 ④ 취임승낙서 ⑤ 민간인 신원진술서(보안상 필요할 때) ⑦ 특수관계부존재각서. 연임이면 ②③⑤⑦ 생략. 법정 신청서 서식은 없어 주무관청 서식을 씁니다</td><td>시행령 §7①</td></tr>
+    <tr><td><b>등기 첨부</b></td><td>취임승낙서(인감증명서 포함)와 함께 <b>취임승인서</b>를 붙입니다. 승인서가 취임승낙서를 대신하는지는 학교법인 선례만 있어 둘 다 붙이는 것이 안전합니다</td><td>비송사건절차법 §64①, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195863" target="_blank" rel="noopener">선례 제2-108호</a>·<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195889" target="_blank" rel="noopener">선례 제2-134호</a> 취지</td></tr>
+    <tr><td><b>의결 방법</b></td><td>이사회는 <b>서면결의를 할 수 없고</b>, 재적 이사 과반수 찬성(정관에 특칙 가능), 출석 이사 중 대한민국 국민이 과반수여야 합니다. 이해관계가 있는 이사는 의결에서 빠집니다</td><td>§9①③④, §7②</td></tr>
+    <tr><td><b>구성</b></td><td>이사 5~15명, 감사 2명(승인으로 증감 가능). 임기는 이사 4년·감사 2년 이내(연임 가능). 이사 과반수가 국민이고, 특별한 관계가 있는 사람은 이사 현원의 5분의 1 이하</td><td>§5①③④⑤</td></tr>
+    <tr><td><b>결격</b></td><td>18세 미만(2026. 9. 22. 개정 전 「미성년자」), 피성년후견인·피한정후견인, 복권되지 않은 파산자, 금고 이상의 형 집행이 끝난 뒤 3년이 지나지 않은 사람, 취임승인이 취소된 뒤 2년이 지나지 않은 사람 등</td><td>§5⑥</td></tr>
+    <tr><td><b>결원 보충</b></td><td>이사가 비면 <b>2개월 안</b>에 보충합니다</td><td>§5⑦</td></tr>
+    <tr><td><b>의사록 공증</b></td><td>공익법인도 공증합니다(법무부 지정·고시 법인 제외)</td><td><a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195857" target="_blank" rel="noopener">선례 제2-102호</a></td></tr>
+    <tr><td><b>등기 후 보고</b></td><td>등기를 마친 날부터 <b>7일 안</b>에 등기보고서를 주무관청에 냅니다(주무관청이 공동이용으로 등기사항증명서 확인)</td><td>시행령 §9</td></tr>
+  </tbody>
+</table></div>
+
+<!-- ══════════ 제5부 ══════════ -->
+<div class="part" id="part5">
+  <div class="pn">제5부</div>
+  <div class="pt2">등기를 마친 뒤 — 주무관청 보고</div>
+  <div class="pw">국가법령정보센터의 현행 「○○ 소관 비영리법인의 설립 및 감독에 관한 규칙」 34건을 대조했습니다. 30건에는 임원 선임 보고·승인 조문이 따로 없고, 「민법 §49~§52에 따라 등기를 했을 때 10일 안 보고」 조문만 있습니다.</div>
+</div>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:23%">유형</th><th>해당 주무관청(규칙)</th><th style="width:26%">기한·방법</th></tr></thead>
+  <tbody>
+    <tr><td><b>10일 안 보고</b><br><small>주무관청이 공동이용으로 등기사항증명서 확인</small></td><td>법무부, 행정안전부, 보건복지부·질병관리청, 교육부, 성평등가족부, 기후에너지환경부·기상청, 고용노동부, 국토교통부, 외교부·재외동포청, 산업통상부, 재정경제부, 기획예산처, 지식재산처, 국가데이터처, 국무조정실, 법제처, 중소벤처기업부, 국가보훈부, 공정거래위원회, 과학기술정보통신부·우주항공청, 통일부, 금융위원회, 국방부, 인사혁신처, 국민권익위원회, 국민안전처, 식품의약품안전처, 해양수산부, 중앙선거관리위원회</td><td>등기를 마친 날부터 10일 안. 규칙마다 「보고」, 「서면 보고」, 「보고 또는 등기사항증명서 1부 제출」로 표현이 다릅니다</td></tr>
+    <tr><td><b>10일 안 증명서 제출</b></td><td>문화체육관광부·국가유산청(등기부등본 1부), 농림축산식품부(법인 등기사항증명서 1부)</td><td>등기사항증명서를 직접 냅니다</td></tr>
+    <tr><td><b>7일 안 증명서 제출</b></td><td>감사원, 헌법재판소사무처, 법원행정처</td><td>등기사항증명서(등기부등본) 1부</td></tr>
+    <tr><td><b>임원 선임 보고</b>가 따로 있는 곳</td><td>감사원(보고하고 <b>승인</b>), 헌법재판소사무처, 중앙선거관리위원회, 법원행정처</td><td>지체 없이 — 새 임원의 성명·생년월일(헌재는 주민등록번호)·주소·약력을 적은 서류, 취임승낙서, 선임 결의 회의록. 연임 임원은 앞의 서류 생략</td></tr>
+    <tr><td>가처분 등기도 보고하는 곳</td><td>국가데이터처·국무조정실·법제처·중소벤처기업부·지식재산처·국민권익위원회·해양수산부</td><td>직무집행정지 가처분 등기 뒤 10일 안</td></tr>
+    <tr><td><b>공익법인</b></td><td>주무관청 공통</td><td>등기를 마친 날부터 7일 안 등기보고서(시행령 §9)</td></tr>
+  </tbody>
+</table></div>
+<p style="font-size:13.5px;color:var(--muted)">※ 위 규칙명은 2026. 11. 22. 국가법령정보센터 현행 명칭입니다. 서울특별시 등 지방자치단체가 주무관청인 법인은 지자체 안내에 따르며, 대표자가 바뀌면 설립허가증 재발급(재발급 신청서, 회의록, 새 대표자 이력서, 현행 정관, 법인 인감증명서, 변경 등기사항증명서, 설립허가증 원본)을 함께 받는 예가 있습니다(<a class="dl" href="https://news.seoul.go.kr/gov/archives/78770" target="_blank" rel="noopener">서울특별시 안내</a>). 보고를 하지 않은 것 자체를 과태료로 정한 조문은 없지만, 주무관청의 자료 요구에 응하지 않거나 사실과 다른 내용을 보고하면 과태료 사유가 될 수 있습니다(민법 §97 3호·4호).</p>
+
+<div class="warn" id="callgun">
+  <span class="wt">보고 전에 주무관청 담당 부서에 확인하십시오</span>
+  등기 후 보고는 법령에 서식이 없어 주무관청마다 받는 서류가 다릅니다. 다음을 미리 물어 두면 보완 요청을 줄일 수 있습니다.
+  <ol style="margin:8px 0 0 20px;padding:0;line-height:1.75">
+    <li>보고를 받는 부서와 제출 방법(방문·우편·전자문서·정부24), 기한(10일 또는 7일)</li>
+    <li>등기사항증명서를 따로 내야 하는지, 담당 공무원이 행정정보 공동이용으로 확인하는지</li>
+    <li>임원이 바뀐 경우 선임 회의록 사본·취임승낙서·이력서를 함께 내야 하는지</li>
+    <li>대표자가 바뀐 경우 설립허가증 재발급 신청이 필요한지와 그 서류</li>
+    <li>(정관이 바뀌는 경우) 정관변경 허가 신청서 서식과 처리에 걸리는 기간 — 허가서 도착일부터 등기 기한 3주가 시작됩니다</li>
+  </ol>
+  <div style="margin-top:8px"><b>찾는 곳</b> — 설립허가증에 적힌 주무관청·담당 부서 · 정부 민원안내 <a class="dl" href="tel:110">☎ 110</a> · <a class="dl" href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a></div>
+</div>
+
+
+<div class="formbox" id="fb_fCRep">
+  <button class="fold-btn" type="button" onclick="toggleFold(this)">📄 주무관청 보고서 — 변경등기를 마쳤을 때 (법정 서식 없음) <span class="srcb own">사무소 작성례</span><span class="chev">▾</span></button>
+  <div class="fold-body">
+    <div class="srcline">출처 · 법령에 정해진 서식이 없어, 민법·비송사건절차법·상업등기규칙과 『민법법인등기실무』가 요구하는 항목으로 만든 사무소 작성례입니다. 근거: 각 부처 「소관 비영리법인의 설립 및 감독에 관한 규칙」 제5조 등(등기 후 10일 또는 7일 안 보고), 공익법인법 시행령 §9.</div>
+<div class="form" id="fCRep">                       법인 변경등기 보고
+
+수신   ○○부장관(○○과장) / ○○시장(○○과장)
+제목   [사단법인 / 재단법인] ○○○○ 변경등기 완료 보고
+
+1. 법인 명칭   [사단법인 / 재단법인] ○○○○ (설립허가 20○○. ○. ○. 제○○호)
+2. 주사무소   서울특별시 ○○구 ○○로 ○○
+3. 등기 내용   ┌ 등기 원인   이사 △△△ 임기만료 퇴임, 이사 □□□ 취임
+              │ 변경일      20○○년 ○월 ○일
+              └ 등기 완료일 20○○년 ○월 ○일 (○○지방법원 ○○등기소)
+4. 붙임
+   가. 법인 등기사항증명서 1부 (주무관청이 직접 확인하는 경우 생략)
+   나. 임원 선임 결의 의사록 사본 1부
+   다. 새 임원의 취임승낙서 사본, 이력서 각 1부
+   라. 임원 명단(변경 후) 1부
+   마. (대표자가 바뀐 경우) 설립허가증 원본과 재발급 신청서
+
+위와 같이 「○○ 소관 비영리법인의 설립 및 감독에 관한 규칙」 제○조에 따라
+보고합니다.
+                              20○○년 ○월 ○일
+            [사단법인 / 재단법인] ○○○○ 이사장 □□□ (법인 인감)</div>
+    <div class="howto">① 대부분의 부처 규칙은 등기를 마친 날부터 <b>10일 안</b>에 보고하게 하고, 주무관청이 행정정보 공동이용으로 등기사항증명서를 직접 확인합니다. 문화체육관광부·국가유산청·농림축산식품부 소관은 등기사항증명서를 직접 1부 냅니다. 감사원·헌법재판소사무처·법원행정처 소관은 <b>7일 안</b>입니다.<br>② 법령에 정해진 보고 서식이 없어 주무관청마다 받는 서류가 다릅니다. <b>붙임 나~마</b>는 실무에서 보완 요구가 자주 나오는 것이므로, 보고 전에 담당 부서에 확인하십시오.<br>③ 감사원·헌법재판소사무처·중앙선거관리위원회·법원행정처 소관 법인은 임원을 바꾸면 따로 <b>임원 선임 보고</b>를 지체 없이 합니다(감사원은 승인까지). 공익법인은 취임 전에 승인을 받고, 등기 후 7일 안에 보고합니다.<br>④ 주무관청 제출 서류의 작성·제출 대행은 <b>행정사 업무</b>로 맡으실 수 있습니다.</div>
+    <div class="form-tools">
+      <button type="button" onclick="copyForm('fCRep')">📋 복사</button>
+      <button type="button" onclick="printForm('fCRep')">🖨 인쇄</button>
+      <button type="button" onclick="downloadForm('fCRep','주무관청보고_변경등기완료_작성예시.txt')">⬇ 내려받기</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ 공통 ══════════ -->
+<div class="part" id="part6">
+  <div class="pn">공통</div>
+  <div class="pt2">공증 · 인감 · 외국인 이사 · 세금과 수수료 · 보정 대비</div>
+</div>
+
+<div class="qhead" id="notary"><span class="qb">公</span>
+  <h2>공증은 언제 받나요?</h2>
+</div>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:30%">서면</th><th style="width:14%">공증</th><th>설명 · 근거</th></tr></thead>
+  <tbody>
+    <tr><td>사원총회·이사회 의사록 — 이사 선임·해임, 이사장 선임, 정관변경, 주사무소 이전</td><td><b>필요</b></td><td>등기에 붙이는 법인 의사록은 공증인의 인증을 받습니다. 주무관청 허가서를 붙여도 면제되지 않습니다(공증인법 §66의2①, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1866610" target="_blank" rel="noopener">예규 제983호</a>, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854134" target="_blank" rel="noopener">선례 제1-25호</a>)</td></tr>
+    <tr><td>정관상 위원회(임원추천위원회 등) 의사록</td><td><b>필요</b></td><td><a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3261470" target="_blank" rel="noopener">선례 제202105-1호</a></td></tr>
+    <tr><td>분사무소 설치·이전·폐지 의사록</td><td>정관이 바뀌면 필요<br><small>안 바뀌면 불요</small></td><td>공증인법 §66의2①3호, 시행령 §37의3②1호, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3334578" target="_blank" rel="noopener">예규 제1793호</a> 양식 제3~5호 첨부서면 칸</td></tr>
+    <tr><td>이사결정서(이사회가 없는 법인)</td><td>인감으로 갈음</td><td>공증인법은 「법인 총회 등의 <b>의사록</b>」을 인증 대상으로 정하므로(§66의2①), 회의 없이 쓰는 이사결정서는 문언상 대상이 아닙니다. 교재는 공증 대신 <b>찬성한 과반수 이사가 개인 인감을 찍고 각자의 인감증명서를 붙이도록</b> 안내합니다(『민법법인등기실무』 271쪽 각주 22). 이를 정면으로 다룬 선례는 없으므로(2026. 11. 23. 재검색) 등기소에 미리 확인하면 확실합니다</td></tr>
+    <tr><td>사임·사망·임기만료만 있는 경우</td><td>해당 없음</td><td>공증할 의사록 자체가 없습니다(양식 제9호)</td></tr>
+    <tr><td>취임승낙서·사임서, 인감신고서</td><td>조건부</td><td>인감증명서를 붙이지 못할 때 본인이 기명날인·서명했다는 공증인 인증서면으로 갈음(상업등기규칙 §104①·§35②)</td></tr>
+    <tr><td>외국에서 만든 서류</td><td>조건부</td><td>그 나라 공증 + <b>아포스티유</b> 또는 대한민국 영사 확인. 없으면 등기관은 보정을 명합니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2153546" target="_blank" rel="noopener">예규 제1534호</a> §3, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2177442" target="_blank" rel="noopener">선례 제201502-1호</a>)</td></tr>
+  </tbody>
+</table></div>
+<div class="bnote">※ 공증이 면제되는 것은 공익성과 주무관청 감독으로 분쟁 소지가 없어 주무관청 추천을 받아 <b>법무부장관이 지정·고시한 법인</b>뿐입니다(공증인법 시행령 §37의3①). 일반 사단·재단법인은 자동으로 포함되지 않습니다. 우리 법인이 명단에 있는지는 <a class="dl" href="https://www.moj.go.kr/bbs/moj/294/611008/artclView.do" target="_blank" rel="noopener">법무부 「의사록 인증 제외대상 법인 고시」 게시물</a>(2026. 10. 2. 게시, 2026. 8. 31.까지 접수분)의 첨부 명단에서 확인하고, 명단에 있으면 고시 사본으로 소명합니다.</div>
+
+<div class="qhead"><span class="qb">印</span>
+  <h2>법인 인감 — 이사장이 바뀔 때만 새로 냅니다</h2>
+</div>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:24%">경우</th><th>할 일</th><th style="width:24%">근거</th></tr></thead>
+  <tbody>
+    <tr><td><b>이사장이 바뀜</b></td><td>새 이사장이 <b>인감신고서</b>(별지 제1호)를 냅니다. 신고서에는 「인감증명법」 인감을 찍고 3개월 이내 인감증명서를 붙입니다(또는 공증인 인증서면). 개인(改印)신고서로 내거나 옛 이사장 명의의 법인 인감으로 날인하면 보정 대상입니다. 법인 인감은 가로·세로 1cm 초과 2.4cm 이내</td><td>상업등기규칙 §35, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3210768" target="_blank" rel="noopener">선례 제201901-1호</a></td></tr>
+    <tr><td>인감카드</td><td>종전 카드를 계속 쓰려면 <b>인감카드 계속사용신청서</b>(별지 제15호, 비밀번호 6자리)를 내고, 아니면 새 카드를 발급받습니다</td><td><a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2026000038745" target="_blank" rel="noopener">예규 제1880호</a> §20①·§21</td></tr>
+    <tr><td>다시 낼 필요 없음</td><td>주사무소 이전, 명칭 변경, 이사장의 개명처럼 <b>인감 제출자에 관한 사항</b>만 바뀌는 경우, 날짜 간격 없는 이사장 중임</td><td><a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2026000038745" target="_blank" rel="noopener">예규 제1880호</a> §4⑥·별표 제1호</td></tr>
+    <tr><td>다시 내야 함</td><td>퇴임한 뒤 날짜 간격을 두고 다시 이사장이 된 경우</td><td><a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3210766" target="_blank" rel="noopener">선례 제201906-1호</a></td></tr>
+    <tr><td>대표자가 여럿</td><td>대표권제한규정이 없어 이사 모두가 대표자이면 <b>신청하는 이사만</b> 인감을 내도 되고, 공동대표로 정했으면 전원이 냅니다. 대표권이 제한된 이사는 인감을 낼 수 없습니다</td><td><a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2026000038745" target="_blank" rel="noopener">예규 제1880호</a> §2②, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854858" target="_blank" rel="noopener">선례 제1-295호</a></td></tr>
+  </tbody>
+</table></div>
+
+<div class="tip">
+  <span class="pt">이사가 외국 국적이거나 주민등록번호가 없는 재외국민일 때</span>
+  등기할 번호는 주민등록번호 대신 <b>외국인등록번호·국내거소신고번호 또는 생년월일</b>이므로 어느 번호로 할지 먼저 정하고, 신청서와 증명서류의 번호를 맞춥니다(상업등기규칙 §52①3호) — <a class="dl" href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=12700000027" target="_blank" rel="noopener">외국인등록사실증명</a>. 성명은 원지음을 한글로 적고 국적을 함께 등기합니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2239876" target="_blank" rel="noopener">예규 제1628호</a>, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2200025" target="_blank" rel="noopener">예규 제1598호</a>). 취임승낙서·사임서는 ① 본국 관청에 신고한 인감 + 그 인감증명 ② 본인 서명 + 본국 관청의 서명 증명 ③ 국내 공증인의 인증 가운데 하나로 갖춥니다(상업등기규칙 §104②, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2026000032267" target="_blank" rel="noopener">선례 제202502-2호</a>). 외국에서 만든 서류에는 아포스티유 또는 영사 확인과 번역문을 붙입니다(상업등기규칙 §52⑤, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2153546" target="_blank" rel="noopener">예규 제1534호</a>). 공익법인은 이사 과반수가 국민이어야 합니다. 착수 전에 ① 동일인 증명 방법 ② 번역·공증·아포스티유 범위 ③ 재외공관 확인 필요 여부 ④ 서명공증으로 인감을 갈음할지를 먼저 정합니다. 나라별 서류는 <a class="dl" href="sanlaw_외국인_재외동포_등기_안내.html">외국인·재외동포 등기서류 안내</a>를 보십시오.
+</div>
+
+<div class="qhead" id="cost"><span class="qb">稅</span>
+  <h2>세금과 수수료</h2>
+</div>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:24%">등기</th><th style="width:30%">등록면허세 + 지방교육세(20%)</th><th>설명 · 근거</th></tr></thead>
+  <tbody>
+    <tr><td>이사 변경, 명칭·목적·존립기간·출자방법, 대표권제한규정, 이사장 주소, 자산 감소 등 「그 밖의 등기」</td><td>40,200 + 8,040 = <b>48,240원</b></td><td>지방세법 §28①6호 바목. 이사 여러 명 취임처럼 같은 사항의 여러 변경은 1건(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3334428" target="_blank" rel="noopener">예규 제1790호</a> §9)</td></tr>
+    <tr><td>주사무소 이전</td><td>112,500 + 22,500 = <b>135,000원</b></td><td>라목. 새 소재지 시·군·구에 1건(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3334428" target="_blank" rel="noopener">예규 제1790호</a> §4)</td></tr>
+    <tr><td>분사무소 설치</td><td>48,240원 · 대도시이면 3배 <b>144,720원</b></td><td>마목, §28②. 학술·장학·문화예술·체육·청소년 단체가 설립목적 사업을 하는 경우, 의료업 등은 중과 제외(시행령 §26①)</td></tr>
+    <tr><td>대도시 밖 → 대도시로 주사무소 전입</td><td>등기된 자산 총액 × 2/1000 × 3배(= 6/1000) + 20%, 최저 <b>405,000원</b></td><td>설립으로 보아 중과합니다(§28②, 행정안전부 유권해석). 수도권에서는 서울 밖에서 서울로 들어오는 것도 해당합니다(§13②1호). 서울 → 인천처럼 대도시 안에서 옮기면 중과 없음(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854723" target="_blank" rel="noopener">선례 제1-44호</a>). 비영리법인도 중과 대상입니다(대법원 86누207) [유권해석·결정례 기준]</td></tr>
+    <tr><td>자산 총액 증가</td><td>증가액 × 2/1000 + 20%, 최저 112,500 + 22,500 = <b>135,000원</b></td><td>나목2). 출연·회비뿐 아니라 이자·잉여금·감정평가로 늘어난 것도 같은 세율로 보는 것이 과세관청·심판례의 입장이고(감심2004-81, 조심2020지3223), 과세표준은 등기부 자산총액란의 증가액입니다. 대도시에서 설립한 지 5년 안이면 3배(조심2009지0861)</td></tr>
+    <tr><td>행정구역·지번 변경, 주민등록번호 변경, 도로명주소 전환</td><td>없음</td><td>§26②2호, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3260089" target="_blank" rel="noopener">예규 제1728호</a> 6.</td></tr>
+  </tbody>
+</table></div>
+<ul>
+  <li><b>신청수수료</b> — 등기목적마다 서면 7,000원 · 전자표준양식 5,000원 · 전자신청 2,000원, 관외 주사무소 이전은 35,000원 · 28,000원 · 20,000원. 법원 촉탁(가처분 등), 행정구역·지번 변경, 등기관 잘못의 경정은 면제이지만, <b>법인 쪽 착오를 고치는 경정등기는 7,000원</b>을 냅니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2025000016591" target="_blank" rel="noopener">예규 제1861호</a> 별표 2).</li>
+  <li><b>전자신청</b> — 민법법인은 대법원예규로 지정해 인터넷등기소에 게시한 등기 유형만 전자신청할 수 있습니다(상업등기규칙 §66의2). <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2025000015161" target="_blank" rel="noopener">예규 제1855-1호</a> §7②가 「민법법인 … 이사 … 의 변경」을 적고 있어 이사 변경은 전자신청 대상으로 보이지만, 사무소·명칭 등 다른 변경은 지정 목록이 인터넷등기소에만 게시되어 있어 확인하지 못했습니다 <b>[확인필요]</b> — 인터넷등기소 법인 전자신청 화면에서 그 등기 목적이 선택되는지로 확인되며, 선택되지 않으면 서면(전자표준양식 포함)으로 냅니다.</li>
+  <li><b>예시</b> — 이사 2명 취임 + 1명 사임을 한 신청서로: 세금 48,240원 + 서면 수수료 7,000원. 명칭과 목적을 한 신청서(제7호)로 바꿈: 등기사항이 달라 2건 — 세금 96,480원, 서면 수수료 14,000원. 관외 이전 + 이사 변경: 신청서를 나누어 세금 135,000 + 48,240원, 수수료 35,000 + 7,000원. 세액은 10원 미만을 버립니다(지방회계법 §55).</li>
+  <li>지방교육세는 조례로 가감될 수 있어 표준세율로 적었습니다. 등록면허세는 등기 전에 위택스에서 신고·납부합니다 — <a class="dl" href="https://www.wetax.go.kr" target="_blank" rel="noopener">위택스</a>.</li>
+</ul>
+<a class="calc" href="https://sanlaw.co.kr/tools-calculator.html#s=%EC%9E%84%EC%9B%90%20%EC%84%A0%EC%9E%84%C2%B7%EB%B3%80%EA%B2%BD&amp;e=assoc" target="_blank" rel="noopener">
+  <div class="cah">🧮 변경등기 비용 미리 계산해 보기</div>
+  <div class="cas">누르시면 계산기 「법인변경」 화면이 <b>사단법인 · 임원 선임·변경</b>으로 골라진 채 열립니다. 재단법인이면 법인 종류를, 사무소 이전·명칭 변경이면 변경 유형을 바꾸십시오. 등록면허세·신청수수료와 보수 예상액, 준비서류와 인터넷등기소 양식 번호가 함께 나옵니다. (클릭 시 계산기로 이동)</div>
+</a>
+<div class="concept"><b>보수는 두 갈래입니다.</b> 변경등기 신청 대리와 등록면허세 신고·납부 대행 보수는 대한법무사협회 보수기준에 따라 <a class="dl" href="https://sanlaw.co.kr/tools-calculator.html#s=%EC%9E%84%EC%9B%90%20%EC%84%A0%EC%9E%84%C2%B7%EB%B3%80%EA%B2%BD&amp;e=assoc" target="_blank" rel="noopener">비용 계산기</a>에서 미리 보실 수 있습니다. 주무관청 정관변경 허가 신청이나 등기 후 보고 서류의 작성·제출 대행은 <b>행정사 업무</b>로서 법무사 보수기준이 적용되지 않으며, 서류 분량에 따라 상담 때 미리 알려 드립니다. 공증 비용은 공증사무소에 따로 냅니다.</div>
+
+<div class="qhead" id="hosung"><span class="qb">補</span>
+  <h2>보정이 나기 쉬운 곳 — 미리 막는 법</h2>
+</div>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:27%">보정 포인트</th><th style="width:8%">가능성</th><th style="width:25%">예상 보정 내용</th><th>대응 · 근거</th></tr></thead>
+  <tbody>
+    <tr><td>대표권 없는 이사의 취임승낙서·사임서에 인감증명 누락</td><td><b>상</b></td><td>「인감 날인과 인감증명서를 제공하십시오」</td><td>인감증명서 또는 본인서명사실확인서 + 서명. 옛 <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1858532" target="_blank" rel="noopener">선례 제4-877호</a>·<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854841" target="_blank" rel="noopener">선례 제1-380호</a>을 근거로 쓰지 않습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195865" target="_blank" rel="noopener">선례 제2-110호</a>)</td></tr>
+    <tr><td>의사록 공증 누락</td><td><b>상</b></td><td>「공증인의 인증을 받은 의사록을 제공하십시오」</td><td>법무부 고시 법인이면 고시 사본으로 소명. 아니면 공증(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1866610" target="_blank" rel="noopener">예규 제983호</a>, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854134" target="_blank" rel="noopener">선례 제1-25호</a>)</td></tr>
+    <tr><td>정원이 모자라는데 퇴임등기만 신청</td><td><b>상</b></td><td>「후임 이사 선임등기와 동시에 신청하십시오」</td><td>후임 서류를 함께. 임시이사 선임·당연직 인사발령은 예외(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854679" target="_blank" rel="noopener">선례 제1-373호</a>, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195862" target="_blank" rel="noopener">선례 제2-107호</a>, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3324982" target="_blank" rel="noopener">선례 제202404-1호</a>)</td></tr>
+    <tr><td>주민등록번호 증명을 인감증명서·인사발령 공문으로 갈음</td><td><b>상</b></td><td>「주민등록번호를 증명하는 정보를 제공하십시오」</td><td>주민등록표 초본 또는 운전면허증 사본(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854500" target="_blank" rel="noopener">선례 제1-94호</a>, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195785" target="_blank" rel="noopener">선례 제2-30호</a>)</td></tr>
+    <tr><td>이사장 주소가 신청서와 초본에서 다름</td><td><b>상</b><br><small>(각하)</small></td><td>신청정보 정정</td><td>참고항목까지 글자 단위로 대조(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3261478" target="_blank" rel="noopener">선례 제202106-6호</a>, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3260089" target="_blank" rel="noopener">예규 제1728호</a>)</td></tr>
+    <tr><td>정관 범위 밖 이전·설치인데 허가서 없음 / 허가서 사본만 첨부</td><td><b>상</b></td><td>「허가서 원본 또는 인증 등본을 제공하십시오」</td><td>원본을 내고 원본 환부를 청구(상업등기규칙 §66). 허가 없는 이전은 사후 허가로 치유되지 않아 <b>소명서로 보완할 수 없습니다</b>(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195860" target="_blank" rel="noopener">선례 제2-105호</a>)</td></tr>
+    <tr><td>외국 서류에 아포스티유·영사 확인 누락</td><td><b>상</b></td><td>「아포스티유 또는 영사 확인을 받은 서면을 제공하십시오」</td><td><a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2153546" target="_blank" rel="noopener">예규 제1534호</a> §3, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2177442" target="_blank" rel="noopener">선례 제201502-1호</a></td></tr>
+    <tr><td>옛 수수료(6,000원, 관외 이전 30,000 + 6,000원)로 납부</td><td><b>상</b></td><td>「수수료 부족분을 납부하십시오」</td><td>7,000원(관외 이전 35,000원 1건)</td></tr>
+    <tr><td>자산 총액을 적극재산 합계로 기재 / 최저세액 미반영</td><td><b>상</b></td><td>「순재산액으로 정정」, 「세액 부족」</td><td>재무상태표의 순자산, 최저 112,500원(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854715" target="_blank" rel="noopener">선례 제1-323호</a>)</td></tr>
+    <tr><td>변경 연월일을 결의일로 기재(허가 사항)</td><td>중</td><td>원인일 정정</td><td>허가서 도착일로 정정(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854796" target="_blank" rel="noopener">선례 제1-385호</a>). 단순 오기는 <b>대표자 명의 소명서로 보완</b>할 수 있는지 먼저 등기관과 협의합니다</td></tr>
+    <tr><td>임기만료 전에 중임등기 신청</td><td>중</td><td>신청 원인 보정</td><td>만료 뒤 신청(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1865211" target="_blank" rel="noopener">예규 제525호</a>)</td></tr>
+    <tr><td>날짜 간격이 있는 재선임을 중임으로 신청</td><td>중</td><td>퇴임·취임으로 정정</td><td><a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854474" target="_blank" rel="noopener">선례 제1-153호</a>. 이사장이면 인감 재제출</td></tr>
+    <tr><td>이사장 변경 때 개인(改印)신고서 제출</td><td>중</td><td>새 인감신고서 제공</td><td><a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3210768" target="_blank" rel="noopener">선례 제201901-1호</a></td></tr>
+    <tr><td>공동대표인데 「공동으로 대표권을 행사」 문구 누락</td><td>중</td><td>각자 대표로 처리됨</td><td>정관·신청서에 문구 명시(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2223910" target="_blank" rel="noopener">선례 제201611-1호</a>)</td></tr>
+    <tr><td>이사장직 사임서만으로 이사 사임등기</td><td>중</td><td>이사직 사임 증명 요구</td><td>사임 대상 직위를 분명히(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2245774" target="_blank" rel="noopener">선례 제201708-2호</a>)</td></tr>
+    <tr><td>관외 이전과 다른 등기를 한 신청서로</td><td>중</td><td>신청서 분리</td><td>상업등기규칙 §53① 단서</td></tr>
+    <tr><td>목적 문언이 의사록·허가 정관·신청서에서 다름 / 수익사업을 목적에 기재</td><td>중</td><td>문언 통일, 수익사업 삭제</td><td>허가 정관 문언으로 통일(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195894" target="_blank" rel="noopener">선례 제2-139호</a>). 의사록의 단순 오기는 재작성 전에 소명서 보완 가능성을 먼저 봅니다</td></tr>
+    <tr><td>감사·임시이사·정관상 직무대행자를 등기 신청</td><td>중<br><small>(각하)</small></td><td>등기할 사항이 아님</td><td>신청 대상에서 뺍니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195862" target="_blank" rel="noopener">선례 제2-107호</a>, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195755" target="_blank" rel="noopener">선례 제2-155호</a>)</td></tr>
+    <tr><td>인감증명서 등 3개월 경과</td><td>중</td><td>재발급본 제공</td><td>접수일 기준으로 역산(상업등기규칙 §52④)</td></tr>
+  </tbody>
+</table></div>
+<p style="font-size:13.5px;color:var(--muted)">※ 보정은 <b>보정을 명한 날의 다음 날까지</b> 마쳐야 각하를 피합니다(상업등기법 §26 단서). 인감증명·공증·허가서처럼 서류 자체가 요건인 것은 소명서로 갈음할 수 없지만, 날짜나 조항 번호의 단순 오기는 소명서로 보완을 협의할 여지가 있습니다. 공증받은 의사록을 고쳐야 하면 공증인의 정정 인증이 필요할 수 있습니다. 예상 보정 내용은 사무소가 정리한 것으로, 실제 보정명령 문구와 다를 수 있습니다.</p>
+
+<div class="qhead"><span class="qb">新</span>
+  <h2>교재(2018)와 달라진 점</h2>
+</div>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:38%">『민법법인등기실무』(2018) 설명</th><th>현행(2026. 11. 23. 확인)</th></tr></thead>
+  <tbody>
+    <tr><td>주사무소와 분사무소에서 각각 3주 안 등기, 관외 이전은 구·신 소재지 2건 신청과 2개 취하서(266~295쪽)</td><td>분사무소 소재지 등기 폐지. 주사무소 관할 1건, 관외 이전은 종전·새 관할 중 한 곳에 1건(2025. 1. 31. 시행, 민법 §50·§51, 상업등기법 §55)</td></tr>
+    <tr><td>수수료 6,000원 · 전자 2,000원 · 전자표준 4,000원(306·310쪽), 관외 이전 30,000 + 6,000원(273쪽)</td><td>7,000원 · 2,000원 · 5,000원, 관외 이전 1건 35,000원 · 20,000원 · 28,000원(2025. 8. 1. 시행)</td></tr>
+    <tr><td>관외 이전 등록면허세 구 소재지 40,200 + 새 소재지 112,500원(272쪽)</td><td>새 소재지 1건 112,500원(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3334428" target="_blank" rel="noopener">예규 제1790호</a> §4)</td></tr>
+    <tr><td>주민등록번호가 없는 외국인·재외국민은 생년월일(318·320쪽)</td><td>외국인등록번호·국내거소신고번호 또는 생년월일(상업등기규칙 §52①3호)</td></tr>
+    <tr><td>예규 1536호(가처분), 1626호(인감), 1629호(수수료), 1038호(등록면허세), 1437호(도로명주소)</td><td><a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3336575" target="_blank" rel="noopener">예규 제1826호</a>, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2026000038745" target="_blank" rel="noopener">예규 제1880호</a>(2026. 7. 1. 시행), <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2025000016591" target="_blank" rel="noopener">예규 제1861호</a>, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3334428" target="_blank" rel="noopener">예규 제1790호</a>, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3260089" target="_blank" rel="noopener">예규 제1728호</a></td></tr>
+    <tr><td>대도시 → 대도시 밖 이전 면제 「2018. 12. 31.까지」(272쪽)</td><td>과밀억제권역 밖 이전, 2027. 12. 31.까지(지방세특례제한법 §79②)</td></tr>
+    <tr><td>자산 총액 증가 1천분의 2(최저세액 언급 없음, 306쪽)</td><td>최저 112,500원 적용(지방세법 §28①6호 가목 괄호)</td></tr>
+    <tr><td>「법인의 등기사항에 관한 특례법」</td><td>「법인의 등기사항 등에 관한 특례법」(2024. 9. 20. 개정, 2025. 1. 31. 시행)</td></tr>
+  </tbody>
+</table></div>
+
+<div class="qhead"><span class="qb">Q</span>
+  <h2>자주 묻는 질문</h2>
+</div>
+<div class="faq">
+  <details><summary>감사가 바뀌었는데 등기해야 하나요?</summary><div class="fa">민법법인의 감사는 등기사항이 아니어서 등기하지 않습니다(민법 §49②). 다만 감사원·헌법재판소사무처·중앙선거관리위원회·법원행정처 소관 법인은 「임원」 선임 보고 대상이고, 공익법인은 감사도 주무관청 승인을 받아 취임합니다.</div></details>
+  <details><summary>이사 임기가 끝났는데 같은 사람을 다시 뽑았습니다. 무엇으로 등기하나요?</summary><div class="fa">임기가 끝난 다음 날 바로 이어서 다시 취임했다면 「중임」으로 1건 등기합니다. 중임일은 임기만료일 다음 날이고, 그날부터 3주 안에 신청합니다. 날짜 간격이 생겼다면 퇴임과 취임으로 나누어 신청하고, 이사장이면 인감도 다시 냅니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854474" target="_blank" rel="noopener">선례 제1-153호</a>). 임기가 끝나기 전에는 미리 중임등기를 할 수 없습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1865211" target="_blank" rel="noopener">예규 제525호</a>).</div></details>
+  <details><summary>이사장이 사임했는데 후임을 아직 못 뽑았습니다.</summary><div class="fa">사임으로 정원이 모자라게 되면 후임 취임등기와 함께 내야 퇴임등기를 받아 줍니다. 후임 선임이 늦어지면 법원에 임시이사 선임을 신청하는 방법이 있고(민법 §63), 임시이사가 선임되면 사임한 이사의 퇴임등기만 따로 할 수 있습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195862" target="_blank" rel="noopener">선례 제2-107호</a>). 후임 선임이 오래 걸릴 것 같으면 바로 상담하십시오.</div></details>
+  <details><summary>사무실을 같은 구 안에서 옮겼습니다. 주무관청 허가가 필요한가요?</summary><div class="fa">정관에 소재지를 「서울특별시」처럼 최소 행정구역으로 적었다면 허가 없이 이사회 결의로 옮기고 변경등기만 합니다. 정관에 번지·호수까지 적었다면 같은 구 안이라도 정관변경 허가를 받아야 합니다. 등록면허세 135,000원, 서면 수수료 7,000원이고, 의사록은 공증합니다.</div></details>
+  <details><summary>해마다 자산 총액이 바뀌는데 매년 등기해야 하나요?</summary><div class="fa">자산 총액은 바뀔 때마다 3주 안에 등기할 사항입니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854236" target="_blank" rel="noopener">선례 제1-298호</a>). 실무에서는 결산 승인 뒤 해마다 한 번 등기하는 경우가 많으므로, 이사회에서 결산을 승인하면 바로 재무상태표를 받아 신청하는 일정을 잡으십시오. 세금은 늘어난 금액의 1천분의 2(최저 112,500원)와 지방교육세입니다.</div></details>
+  <details><summary>등기를 마친 뒤 주무관청에는 무엇을 내나요?</summary><div class="fa">대부분 등기를 마친 날부터 10일 안에 변경등기 사실을 보고합니다. 정해진 서식은 없고, 주무관청이 등기사항증명서를 직접 확인하는 곳이 많지만 문화체육관광부·농림축산식품부 등은 증명서를 직접 냅니다. 대표자가 바뀌면 설립허가증 재발급을 함께 안내받는 경우가 많습니다. 위 [주무관청 보고서] 작성례를 참고하십시오.</div></details>
+</div>
+
+<div class="hire">
+  <div class="ht">고충은 덜어드리고, 끝까지 곁에서 돕겠습니다</div>
+  <p style="margin:0 0 8px;font-size:14.5px;line-height:1.85">본 사무소에서는 정관과 등기기록을 먼저 살펴 무엇을 언제까지 등기해야 하는지 정리해 드리고, 필요한 서류를 갖추어 절차를 마치실 때까지 성심껏 돕겠습니다.</p>
+  <p style="margin:0;font-size:14.5px;line-height:1.85">변경등기는 <b>법무사</b>로서 신청을 대리합니다. 3주 기한에 맞춰 일정을 짜고, 의사록·취임승낙서·사임서·위임장 작성, 공증 일정, 인감신고, 등록면허세 신고·납부 대행까지 함께 도와드립니다. 주무관청 정관변경 허가 신청과 등기 후 보고 서류의 작성·제출을 맡기실 때는 <b>행정사</b>로서 대행합니다.</p>
+</div>
+
+<div class="cb-box" id="cbBox">
+<style>
+.cb-box{margin:20px auto;max-width:660px;background:#fbf6ec;border:1px solid #e3cfa8;border-radius:14px;padding:16px 16px 14px;box-sizing:border-box}
+.cb-box .cb-t{font-weight:800;font-size:16.5px;color:#5a3b1c;text-align:center;margin:0 0 10px}
+.cb-box .cb-l{display:block;font-size:13px;font-weight:700;color:#7a5230;margin:8px 0 4px}
+.cb-box .cb-l small{font-weight:400;color:#8a7a62}
+.cb-box textarea{width:100%;box-sizing:border-box;border:1px solid #d9c7a3;border-radius:10px;padding:9px 12px;font:14px/1.6 'Pretendard',-apple-system,'Malgun Gothic',sans-serif;color:#2a2118;background:#fff;resize:vertical}
+.cb-box #cbAuto{min-height:120px;background:#fffdf8}
+.cb-box #cbMsg{min-height:70px}
+.cb-box textarea:focus{outline:2px solid #c8862d;outline-offset:1px}
+.cb-box .cb-row{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:12px}
+.cb-box .cb-row a{display:flex;align-items:center;justify-content:center;gap:6px;flex:1 1 150px;text-align:center;border-radius:999px;padding:12px 14px;font-size:15px;font-weight:700;text-decoration:none;box-shadow:0 3px 10px rgba(0,0,0,.12)}
+.cb-box .cb-k{background:#FEE500;color:#3c1e1e}.cb-box .cb-p{background:#c8862d;color:#fff}.cb-box .cb-m{background:#3d5a80;color:#fff}
+.cb-box .cb-n{font-size:12px;color:#8a7a62;text-align:center;margin:8px 0 0;line-height:1.5}
+.cb-box .cb-row a{white-space:nowrap}
+@media(max-width:520px){.cb-box .cb-row a{flex-basis:100%;padding:11px 14px}.cb-box textarea{font-size:16px}}
+.cb-toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:99999;max-width:min(92vw,460px);background:#2a2118;color:#fbf8f1;border-radius:10px;padding:12px 16px;font-size:14px;line-height:1.6;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+@media print{.cb-box{display:none}}
+</style>
+<div class="cb-t">💬 이 내용으로 상담하기</div>
+<label class="cb-l" for="cbAuto">① 보고 계신 내용 <small>(자동으로 옮겨집니다 · 고쳐 쓰셔도 됩니다)</small></label>
+<textarea id="cbAuto"></textarea>
+<label class="cb-l" for="cbMsg">② 덧붙일 말씀 <small>(내 상황·궁금한 점)</small></label>
+<textarea id="cbMsg" placeholder="예) 제 경우에도 해당하는지, 언제까지 해야 하는지 궁금합니다."></textarea>
+<div class="cb-row">
+<a class="cb-k" id="cbKakao" href="https://pf.kakao.com/_znJqX/chat" target="_blank" rel="noopener">💬 카카오톡으로 보내기</a>
+<a class="cb-m" id="cbMail" href="mailto:rokfbi01@gmail.com">✉️ 이메일로 보내기</a>
+<a class="cb-p" href="tel:01037480825">📞 전화 010-3748-0825</a>
+</div>
+<p class="cb-n">카카오톡은 대화창이 열리면 <b>붙여넣기</b>만 하시면 됩니다 (PC: Ctrl+V · 휴대폰: 입력칸을 길게 눌러 붙여넣기).</p>
+<script>
+(function(){
+  var box=document.getElementById('cbBox'); if(!box) return;
+  var au=document.getElementById('cbAuto'), ta=document.getElementById('cbMsg'), dirty=false, last='';
+  if(box.getAttribute('data-msg') && !ta.value) ta.value=box.getAttribute('data-msg');
+  function clean(el){ if(!el) return ''; var c=el.cloneNode(true);
+    [].forEach.call(c.querySelectorAll('.bub,script,style,button,.cb-box,.tt'),function(x){x.parentNode.removeChild(x);});
+    [].forEach.call(c.querySelectorAll('br'),function(x){x.parentNode.replaceChild(document.createTextNode(' '),x);});
+    return (c.textContent||'').replace(/\s+/g,' ').trim(); }
+  function title(){ return clean(document.querySelector('h1'))||document.title; }
+  function generic(){
+    var s=clean(document.querySelector('.tldr')||document.querySelector('.lead')||document.querySelector('main p'));
+    s=s.replace(/^⭐?\s*30초 결론부터\s*/,'');
+    var parts=s.split(/(?<=[.?!])\s+/), sum='';
+    for(var i=0;i<parts.length && sum.length<170;i++){ sum+=(sum?' ':'')+parts[i]; }
+    if(sum.length>240) sum=sum.slice(0,238)+'…';
+    return '보신 페이지: '+title()+(sum?'\n요약: '+sum:'');
+  }
+  function build(){
+    var body=''; try{ body=(typeof window.cbSummary==='function')?window.cbSummary():generic(); }catch(e){ body=generic(); }
+    return '[홈페이지 상담 문의]\n'+body+'\n주소: '+location.href;
+  }
+  function refresh(){ if(dirty) return; var v=build(); if(v!==last){ au.value=v; last=v; } }
+  au.addEventListener('input',function(){ dirty=true; });
+  var tm; function later(){ clearTimeout(tm); tm=setTimeout(refresh,350); }
+  document.addEventListener('change',function(e){ if(!box.contains(e.target)) later(); });
+  document.addEventListener('click',function(e){ if(!box.contains(e.target)) later(); });
+  window.addEventListener('hashchange',later);
+  refresh(); setTimeout(refresh,1500);
+  function full(){ refresh(); var m=ta.value.trim(); return au.value+(m?'\n\n덧붙일 말씀: '+m:''); }
+  function toast(m){ var t=document.createElement('div'); t.className='cb-toast'; t.textContent=m; document.body.appendChild(t); setTimeout(function(){ if(t.parentNode) t.parentNode.removeChild(t); },6500); }
+  function copy(text){
+    var ok=false;
+    try{ var x=document.createElement('textarea'); x.value=text; x.setAttribute('readonly',''); x.style.position='fixed'; x.style.top='0'; x.style.opacity='0'; document.body.appendChild(x); x.select(); ok=document.execCommand('copy'); document.body.removeChild(x); }catch(e){}
+    if(!ok && navigator.clipboard && window.isSecureContext){ ok=true; navigator.clipboard.writeText(text).catch(function(){}); }
+    return ok;
+  }
+  document.getElementById('cbKakao').addEventListener('click',function(){
+    var ok=copy(full());
+    toast(ok?'상담 내용을 복사했습니다. 카카오톡 대화창에 붙여넣기 하시면 됩니다.':'카카오톡 창이 열리면 위 상담 내용을 복사해 붙여넣어 주세요.');
+  });
+  document.getElementById('cbMail').addEventListener('click',function(){
+    this.href='mailto:rokfbi01@gmail.com?subject='+encodeURIComponent('[홈페이지] '+title()+' 상담 문의')+'&body='+encodeURIComponent(full());
+  });
+})();
+</script>
+</div>
+
+<div class="src">
+근거(2026. 11. 22.~23. 국가법령정보센터·사법정보공개포털 현행 확인) — 민법(법률 제21454호) §32· §40· §42· §43· §45· §46· §49· §50· §51· §52· §52의2· §53· §54· §58· §59· §60의2· §63· §76· §97· §157· §159· §160· §161· §690 / 비송사건절차법 §33· §60· §64· §66 / 법인의 등기사항 등에 관한 특례법 §2(2024. 9. 20. 개정) / 민법법인 및 특수법인 등기규칙(대법원규칙 제3170호) §4· §6 / 상업등기법(법률 제20437호) §23· §24· §25· §26· §28· §55 / 상업등기규칙(대법원규칙 제3293호, 2026. 11. 3. 시행) §35· §36· §38· §52· §53· §57· §61· §66· §66의2· §99· §104· §154· §176 / 공증인법 §66의2, 같은 법 시행령 §37의3 / 공익법인의 설립·운영에 관한 법률(제21956호) §5· §6· §7· §9, 같은 법 시행령 §7· §9· §10 / 각 부처 「소관 비영리법인의 설립 및 감독에 관한 규칙」 34건(제5조·제6조 등) / 지방세법 §13②· §26②· §28①6호·②~④· §151, 같은 법 시행령 §26① / 지방세특례제한법 §79② / 지방회계법 §55 / 등기사항증명서 등 수수료규칙 §5의3· §5의4· §5의5 / 가사소송법 §40· §43 / 법무사법 §2 · 행정사법 §2 / 등기예규 <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1863603" target="_blank" rel="noopener">예규 제187호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1865211" target="_blank" rel="noopener">예규 제525호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1866664" target="_blank" rel="noopener">예규 제943호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1866610" target="_blank" rel="noopener">예규 제983호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2153546" target="_blank" rel="noopener">예규 제1534호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2172512" target="_blank" rel="noopener">예규 제1574호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2200025" target="_blank" rel="noopener">예규 제1598호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2239876" target="_blank" rel="noopener">예규 제1628호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3260089" target="_blank" rel="noopener">예규 제1728호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3334428" target="_blank" rel="noopener">예규 제1790호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3334578" target="_blank" rel="noopener">예규 제1793호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3336575" target="_blank" rel="noopener">예규 제1826호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2025000015161" target="_blank" rel="noopener">예규 제1855-1호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2025000016591" target="_blank" rel="noopener">예규 제1861호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2026000038745" target="_blank" rel="noopener">예규 제1880호</a> / 상업등기선례 <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854257" target="_blank" rel="noopener">선례 제1-16호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854134" target="_blank" rel="noopener">선례 제1-25호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854723" target="_blank" rel="noopener">선례 제1-44호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854500" target="_blank" rel="noopener">선례 제1-94호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854270" target="_blank" rel="noopener">선례 제1-127호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854208" target="_blank" rel="noopener">선례 제1-140호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854077" target="_blank" rel="noopener">선례 제1-143호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854474" target="_blank" rel="noopener">선례 제1-153호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854096" target="_blank" rel="noopener">선례 제1-169호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854858" target="_blank" rel="noopener">선례 제1-295호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854236" target="_blank" rel="noopener">선례 제1-298호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854815" target="_blank" rel="noopener">선례 제1-312호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2025000004991" target="_blank" rel="noopener">선례 제1-313호</a>(폐지 이유)· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854715" target="_blank" rel="noopener">선례 제1-323호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854732" target="_blank" rel="noopener">선례 제1-332호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854826" target="_blank" rel="noopener">선례 제1-344호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854679" target="_blank" rel="noopener">선례 제1-373호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854828" target="_blank" rel="noopener">선례 제1-378호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854796" target="_blank" rel="noopener">선례 제1-385호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854845" target="_blank" rel="noopener">선례 제1-424호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854190" target="_blank" rel="noopener">선례 제1-149호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195778" target="_blank" rel="noopener">선례 제2-23호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195782" target="_blank" rel="noopener">선례 제2-27호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195785" target="_blank" rel="noopener">선례 제2-30호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195787" target="_blank" rel="noopener">선례 제2-32호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195792" target="_blank" rel="noopener">선례 제2-37호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195793" target="_blank" rel="noopener">선례 제2-38호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195794" target="_blank" rel="noopener">선례 제2-39호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195857" target="_blank" rel="noopener">선례 제2-102호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195860" target="_blank" rel="noopener">선례 제2-105호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195861" target="_blank" rel="noopener">선례 제2-106호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195862" target="_blank" rel="noopener">선례 제2-107호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195863" target="_blank" rel="noopener">선례 제2-108호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195865" target="_blank" rel="noopener">선례 제2-110호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195889" target="_blank" rel="noopener">선례 제2-134호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195894" target="_blank" rel="noopener">선례 제2-139호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195755" target="_blank" rel="noopener">선례 제2-155호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2177441" target="_blank" rel="noopener">선례 제201501-1호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2177442" target="_blank" rel="noopener">선례 제201502-1호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2177656" target="_blank" rel="noopener">선례 제201505-1호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2192432" target="_blank" rel="noopener">선례 제201507-4호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2192429" target="_blank" rel="noopener">선례 제201508-2호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2223910" target="_blank" rel="noopener">선례 제201611-1호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2245774" target="_blank" rel="noopener">선례 제201708-2호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2245775" target="_blank" rel="noopener">선례 제201711-1호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3210768" target="_blank" rel="noopener">선례 제201901-1호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3210769" target="_blank" rel="noopener">선례 제201902-1호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3210771" target="_blank" rel="noopener">선례 제201905-2호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3210766" target="_blank" rel="noopener">선례 제201906-1호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3224390" target="_blank" rel="noopener">선례 제201907-1호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3224387" target="_blank" rel="noopener">선례 제201910-2호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3261470" target="_blank" rel="noopener">선례 제202105-1호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3261478" target="_blank" rel="noopener">선례 제202106-6호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3281746" target="_blank" rel="noopener">선례 제202203-3호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3281750" target="_blank" rel="noopener">선례 제202206-1호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3324982" target="_blank" rel="noopener">선례 제202404-1호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3324977" target="_blank" rel="noopener">선례 제202405-1호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2026000032264" target="_blank" rel="noopener">선례 제202502-1호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2026000032267" target="_blank" rel="noopener">선례 제202502-2호</a> / 대법원 86누207 판결(중과 대상에 비영리법인 포함 — 지방세 법령정보시스템 인용) / <a class="dl" href="https://www.olta.re.kr/explainInfo/authoInterpretationDetail.do?num=60046234" target="_blank" rel="noopener">감사원 감심2004-81</a> · <a class="dl" href="https://www.olta.re.kr/explainInfo/judgeDecisionDetail.do?num=60088359" target="_blank" rel="noopener">조세심판원 조심2020지3223</a> · <a class="dl" href="https://www.olta.re.kr/explainInfo/judgeDecisionDetail.do?num=60050339" target="_blank" rel="noopener">조심2009지0861</a>(지방세 법령정보시스템 원문 확인) / 인터넷등기소 등기신청양식(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3334578" target="_blank" rel="noopener">예규 제1793호</a> 양식 제2-1호~제9호, 별지 제1호·제15호 — 2026. 10. 18. 내려받은 원문 대조) / 『민법법인등기실무』(법원행정처, 2018) 263~362쪽. 교재와 현행이 다른 곳은 현행을 따랐습니다. 2026. 11. 23. 사법정보공개포털·국가법령정보센터를 다시 검색해 분사무소 의사록 공증(공증인법 시행령 §37의3②·예규 제1793호 양식), 이사결정서 공증(공증인법 §66의2①), 주민등록번호 변경 수수료(수수료규칙 §5의3② 단서 3호)를 보완했고, 자산 총액 변경일과 사무소·명칭 변경의 전자신청 가능 여부는 이를 정한 선례·예규나 공개 목록을 찾지 못해 [확인필요]로 두었습니다. 발급처 링크는 각 기관 공식 사이트의 해당 화면으로 연결됩니다.
+</div>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+    t.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();t.classList.toggle('on');}if(e.key==='Escape'){t.classList.remove('on');t.blur();}});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){terms.forEach(function(x){x.classList.remove('on');});}});
+})();
+function toggleFold(b){var fb=b.parentElement;fb.classList.toggle('open');}
+function _openCall(id){var w=document.getElementById(id);var n=w&&w.nextElementSibling;if(n&&n.classList.contains('calltbl'))n.classList.add('open');}
+document.addEventListener('click',function(e){var a=e.target.closest?e.target.closest('a[href^="#call"]'):null;if(a)_openCall(a.getAttribute('href').slice(1));});
+if(location.hash.indexOf('#call')===0)_openCall(location.hash.slice(1));
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('양식이 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('양식이 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('양식을 내려받았습니다');}
+</script>
+<script>
+/* 2026-11-16 메일 단추 — PC에 메일 프로그램이 연결되어 있지 않으면 mailto 링크가 크롬 첫 화면만 여는 일이 많다.
+   그래서 PC에서는 Gmail 편지쓰기 화면을 받는 사람·제목·본문을 채워 새 탭으로 바로 열고, 내용은 복사해 둔다(네이버·다음 메일용).
+   휴대폰은 메일 앱이 그대로 열리므로 손대지 않는다. */
+(function(){
+  if(window.__sanMailFix) return; window.__sanMailFix=1;
+  if(/Android|iPhone|iPad|iPod|Mobile|Windows Phone/i.test(navigator.userAgent)) return;
+  function qp(s,k){ var m=s.match(new RegExp('(?:^|&)'+k+'=([^&]*)','i')); if(!m) return ''; try{ return decodeURIComponent(m[1]); }catch(e){ return m[1]; } }
+  function copy(t){ try{ var x=document.createElement('textarea'); x.value=t; x.setAttribute('readonly',''); x.style.position='fixed'; x.style.top='0'; x.style.opacity='0'; document.body.appendChild(x); x.select(); var ok=document.execCommand('copy'); document.body.removeChild(x); return ok; }catch(e){ return false; } }
+  function toast(m){ var t=document.createElement('div'); t.style.cssText='position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:100001;max-width:min(92vw,480px);background:#2a2118;color:#fbf8f1;border-radius:10px;padding:12px 16px;font-size:14px;line-height:1.6;box-shadow:0 8px 24px rgba(0,0,0,.35)'; t.textContent=m; document.body.appendChild(t); setTimeout(function(){ if(t.parentNode) t.parentNode.removeChild(t); },8000); }
+  document.addEventListener('click',function(e){
+    var a=(e.target&&e.target.closest)?e.target.closest('a[href^="mailto:"]'):null; if(!a||e.defaultPrevented) return;
+    var h=a.getAttribute('href').slice(7), i=h.indexOf('?'), to, q=i<0?'':h.slice(i+1);
+    try{ to=decodeURIComponent(i<0?h:h.slice(0,i)); }catch(x){ to=i<0?h:h.slice(0,i); }
+    var su=qp(q,'subject'), body=qp(q,'body'), keep=body.length, b, u, note='\n\n…(내용이 길어 일부만 담았습니다. 전체 내용은 복사되어 있으니 붙여넣어 주세요.)';
+    for(;;){ b=keep<body.length?body.slice(0,keep)+note:body;
+      u='https://mail.google.com/mail/?view=cm&fs=1&to='+encodeURIComponent(to)+(su?'&su='+encodeURIComponent(su):'')+(b?'&body='+encodeURIComponent(b):'');
+      if(u.length<7500||keep<300) break; keep=Math.floor(keep*0.75); }
+    e.preventDefault();
+    var copied=body?copy(body):false;
+    var w=window.open(u,'_blank'); if(w){ try{ w.opener=null; }catch(x){} } else { location.href=u; return; }
+    toast('Gmail 편지쓰기 창을 열었습니다. 받는 사람·제목·내용이 채워져 있으니 확인하고 보내기만 누르시면 됩니다.'+(copied?' 네이버·다음 메일을 쓰시면 내용이 복사되어 있으니 그 메일 본문에 붙여넣기(Ctrl+V) 하세요.':' 다른 메일을 쓰시면 받는 사람을 '+to+' 로 적어 보내 주세요.'));
+  });
+})();
+</script>
+</body>
+</html>
