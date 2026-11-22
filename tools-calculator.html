@@ -545,7 +545,7 @@
       <span>기준일 <b id="today"></b> · 국민주택채권 할인율</span>
       <span style="display:inline-flex;align-items:center;gap:4px;">
         <input type="number" id="bondRate" value="15.66563" step="0.00001" oninput="recalc();saveBondRate()" style="width:110px;">
-        <span>%</span><b id="bondRateDay" style="font-size:12px;color:#f3d27a;"></b>
+        <span>%</span>
       </span>
       <a href="https://svc.wooribank.com/svc/Dream?withyou=HBNHB0036&cc=c004893:c004893" target="_blank" rel="noopener" style="color:#241f1a;background:#f3d27a;font-weight:800;text-decoration:none;border:1px solid #f3d27a;border-radius:5px;padding:4px 12px;">🔎 오늘 고시율 조회 (새 창)</a>
       <button type="button" id="bondPubBtn" onclick="bondPublish()" style="display:none;cursor:pointer;color:#fff;background:#1d7a46;font-weight:800;border:1px solid #1d7a46;border-radius:5px;padding:4px 10px;" title="사무소 전용 — 할인율은 매일 자동으로 들어갑니다. 자동값이 은행 고시율과 다를 때만 지금 칸의 값으로 바로잡습니다">📤 의뢰인 화면에 적용</button>
@@ -678,7 +678,7 @@
         <span class="hint">변경등기 건수</span> <input type="number" id="trChangeN" value="1" min="1" style="width:46px;margin-left:4px;" oninput="calcSale()"> <span class="hint">건 — 말소와 따로, 해당할 때만 체크</span></div></div>
       <div class="note" id="trustNote" style="display:none;">▸ 신탁회사(수탁자) 명의로 되어 있는 분양 부동산을 수분양자 앞으로 이전할 때는 <b>신탁등기 말소</b>를 이전등기와 <b>같은 신청서</b>로 함께 신청합니다. 그래서 말소 신청수수료는 따로 고르지 않고 <b>이전등기 신청 방법(e-Form·수기·전자)을 그대로 따라</b> 등기신청수수료에 들어갑니다. 분양 토지에 신탁이 있어 <b>토지 신탁등기 변경등기</b>가 필요하면 위 <b>「토지 신탁등기 변경등기」</b>를 말소와 따로 체크하십시오. 정해진 양식(e-Form 포함)이 없어 신탁원부 변경등기 양식을 빌려 <b>서면으로 직접 만들어 내는, 난이도가 있는 신청</b>입니다.</div>
       <div class="line"><span class="lbl">등기권리자(인)</span><div class="stepper"><button onclick="step('cntOwner',-1,calcSale)">−</button><input type="number" id="cntOwner" value="1" min="1" oninput="calcSale()"><button onclick="step('cntOwner',1,calcSale)">+</button></div><span class="hint">보수기준 <b>§2②4호</b> — 당사자·이해관계인 <b>5인 이상</b> 판정용 (아래 「당사자 다수 가산」과 연동)</span></div>
-      <div class="line"><span class="lbl">신청 방법 (등기원인 서류)</span><select id="sale_cause" onchange="renderDocsSale()"><option value="contract" selected>계약서로 함께 신청 — 공동신청</option><option value="judge">판결·조정 등으로 매수인이 혼자 신청</option></select><span class="hint">신청 방법에 따라 준비서류가 달라집니다(세금·수수료는 같습니다) · 부동산등기법 §23④ · 실무교재 101~106쪽</span></div>
+      <div class="line"><span class="lbl">등기원인 (신청 방법)</span><select id="sale_cause" onchange="renderDocsSale()"><option value="contract" selected>계약서로 함께 신청 — 공동신청</option><option value="judge">판결·조정 등으로 매수인이 혼자 신청</option></select><span class="hint">신청 방법에 따라 준비서류가 달라집니다(세금·수수료는 같습니다) · 부동산등기법 §23④ · 실무교재 101~106쪽</span></div>
       <div class="line" id="famLine"><span class="lbl">매도인과의 관계</span><select id="famRel" onchange="famUI();calcSale();renderDocsSale()">
         <option value="" selected>해당 없음</option>
         <option value="spouse">배우자</option>
@@ -1119,7 +1119,7 @@
       <div class="line"><span class="lbl">시가인정액(원)</span><input type="number" class="amt" id="gv_price" placeholder="0" oninput="calcGift()"><span class="hint">증여 취득세 과세표준(시가인정액)</span></div>
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('gv_cntEstate',-1,calcGift)">−</button><input type="number" id="gv_cntEstate" value="1" min="1" oninput="calcGift()"><button onclick="step('gv_cntEstate',1,calcGift)">+</button></div></div>
       <div class="line"><span class="lbl">등기권리자(수증자)</span><div class="stepper"><button onclick="step('gv_cntOwner',-1,calcGift)">−</button><input type="number" id="gv_cntOwner" value="1" min="1" oninput="calcGift()"><button onclick="step('gv_cntOwner',1,calcGift)">+</button></div><span class="hint">보수기준 <b>§2②4호</b> — 당사자·이해관계인 <b>5인 이상</b> 판정용 (아래 「당사자 다수 가산」과 연동)</span></div>
-      <div class="line"><span class="lbl">신청 방법 (등기원인 서류)</span><select id="gv_cause" onchange="renderDocsGift()"><option value="contract" selected>계약서로 함께 신청 — 공동신청</option><option value="judge">판결·조정 등으로 수증자가 혼자 신청</option></select><span class="hint">신청 방법에 따라 준비서류가 달라집니다(세금·수수료는 같습니다) · 부동산등기법 §23④ · 실무교재 101~106쪽</span></div>
+      <div class="line"><span class="lbl">등기원인 (신청 방법)</span><select id="gv_cause" onchange="renderDocsGift()"><option value="contract" selected>계약서로 함께 신청 — 공동신청</option><option value="judge">판결·조정 등으로 수증자가 혼자 신청</option></select><span class="hint">신청 방법에 따라 준비서류가 달라집니다(세금·수수료는 같습니다) · 부동산등기법 §23④ · 실무교재 101~106쪽</span></div>
       <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcGift();junjuToggle()">
         <label><input type="radio" name="gv_ptype" value="house" checked> 주택</label>
         <label><input type="radio" name="gv_ptype" value="etc" id="gv_ptype_jun"> 준주택<span class="law" title="「주택법」 제2조제1호의2 및 같은 법 시행령 제4조 — 주택 외의 건축물과 그 부속토지로서 주거시설로 이용가능한 시설. 제1호 기숙사, 제2호 다중생활시설, 제3호 「노인복지법」 제32조제1항제3호의 노인복지주택, 제4호 오피스텔. 준주택은 「주택법」 제2조제1호의 주택이 아니므로 지방세법 제11조제1항제8호의 주택 유상거래 특례세율(1~3%)이 적용되지 아니한다.">주택법 §2 1호의2</span></label>
@@ -4564,7 +4564,11 @@ function foldCards(root){
     b.appendChild(fb);
     c.classList.add('fold');
     h.setAttribute('role','button'); h.tabIndex=0; h.setAttribute('aria-expanded','false');
-    var tg=function(){ var o=c.classList.toggle('open'); h.setAttribute('aria-expanded',o?'true':'false'); foldSync(); };
+    /* 2026-11-22 법무사님 지시 — 준비서류 간단 목록(박스 3개)은 접었을 때는 위에, 펼치면 맨 아래로
+       (펼치면 부동산 형태·당사자 고르는 칸 → 자세한 목록 → 간단 목록 순서) */
+    var tg=function(){ var o=c.classList.toggle('open'); h.setAttribute('aria-expanded',o?'true':'false');
+      var bx=c.querySelector('.sx-docs'); if(bx){ if(o) b.appendChild(bx); else b.insertBefore(bx,fb); }
+      foldSync(); };
     h.addEventListener('click',tg);
     h.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); tg(); } });
   });
@@ -4604,6 +4608,25 @@ function foldSync(){
   });
 }
 function foldInit(){ try{ foldCards(); foldNotes(); foldSync(); }catch(e){} }
+/* 2026-11-22 펼치기 전수 정비(법무사님 지시) — 어떤 펼치기 단추든 누르면 「새로 펼쳐진 부분」은 끝까지 다 보이게 한다.
+   종전에는 펼친 뒤에도 긴 안내·도움말은 앞부분만 보이고(「자세히 보기」를 또 눌러야 함), 안의 참고표는 닫혀 있었다.
+   대상: 상세 설정·감면·중과 사유 찾기·중과지역 확인 등 파란 접이식, 기타 대행료, 초록 카드 제목, 「이 항목 설명」 */
+(function(){
+  var SEL='.gk-head, .sxinfo, tr.ea-head td, .card.fold>h2';
+  function seen(root){ return [].filter.call(root.querySelectorAll('.nclamp,.hclamp,details'),function(x){return x.offsetParent!==null;}); }
+  document.addEventListener('click',function(e){
+    var t=e.target&&e.target.closest&&e.target.closest(SEL); if(!t) return;
+    var root=t.closest('.card')||t.closest('.scene')||document, before=seen(root);
+    setTimeout(function(){
+      if(t.getAttribute('aria-expanded')==='false') return;                       /* 접을 때는 손대지 않음 */
+      if(t.classList.contains('sxinfo')&&!root.classList.contains('sx-notes')) return;
+      seen(root).forEach(function(x){ if(before.indexOf(x)>=0) return;
+        if(x.tagName==='DETAILS'){ x.open=true; return; }
+        x.classList.add('open'); if(x.__tog) x.__tog.textContent='▴ 접기'; });
+      foldSync();
+    },40);
+  },true);
+})();
 (function(){ var tm=null; var f=function(){ clearTimeout(tm); tm=setTimeout(foldSync,60); };
   ['input','change','click'].forEach(function(ev){ document.addEventListener(ev,f,true); }); })();
 
@@ -4792,15 +4815,16 @@ function officeReady(){
   }
   return miss;
 }
-/* 2026-11-22 할인율 옆 적용일 표시 — 다음 영업일 값이면 「(11. 23. 월 적용)」, 지난 값이면 「(11. 20. 고시값)」 */
+/* 2026-11-22 머리줄 「기준일」 = 할인율이 적용되는 날(법무사님 지시 — 따로 적용일을 붙이지 않고 기준일을 바꾼다)
+   서버 값(우리은행 고시표)이 들어오면 그 날짜로, 아니면 오늘 날짜. 기준일(#today)은 화면 표시에만 쓰인다. */
 function paintBondRateDay(){
-  const el=document.getElementById('bondRateDay');if(!el)return;
+  const el=document.getElementById('today');if(!el)return;
   let day=null,src=null;try{day=localStorage.getItem('sanlaw_bondRateDay');src=localStorage.getItem('sanlaw_bondRateSrc');}catch(e){}
   const t=todayKey();
-  if(src!=='office'||!day||day===t){el.textContent='';el.title='';return;}
-  const wd='일월화수목금토'.charAt(new Date(day+'T00:00:00').getDay()), md=Number(day.slice(5,7))+'. '+Number(day.slice(8))+'. '+wd;
-  if(day>t){el.textContent='('+md+' 적용)';el.title='오늘 업무가 끝났거나(평일 18:30 이후) 주말·공휴일이어서, 우리은행 고시표에 올라온 다음 영업일 적용 할인율입니다.';}
-  else{el.textContent='('+md+' 고시값)';el.title='오늘 할인율을 아직 받지 못해 가장 최근 고시값을 보여 드립니다. 「오늘 고시율 조회」로 확인하실 수 있습니다.';}
+  if(src!=='office'||!day||day===t){el.textContent=t;el.title='';return;}
+  el.textContent=day;
+  el.title=day>t?'오늘 업무가 끝났거나(평일 18:30 이후) 주말·공휴일이어서, 우리은행 고시표에 올라온 다음 영업일('+day+') 할인율을 기준으로 합니다.'
+               :'오늘 할인율을 아직 받지 못해 가장 최근 고시일('+day+')의 할인율을 기준으로 합니다. 「오늘 고시율 조회」로 확인하실 수 있습니다.';
 }
 function paintBondRateBadge(){
   try{paintBondRateDay();}catch(e){}
@@ -4838,7 +4862,7 @@ try{paintBondRateBadge();}catch(e){}      /* 할인율 최신 여부 배지 */
 /* ═══ 국민주택채권 할인율 — 사무소 확인값 자동 반영 (2026-09 신설) ═══
    ① 서버(Cloudflare Pages Functions + KV · /api/bond-rate)가 우리은행 고시표를 정해진 때에만 가져온다(2026-11-22 개정).
       18:30 다음 영업일 값 / 00:30 못 받았으면 보충 / 08:00 영업일 아침 점검 — 주말·공휴일은 고시표 날짜로 알아서 건너뛴다.
-   ② 보여 주는 값(법무사님 결정) — 고시표에 다음 영업일 값이 올라와 있으면 그 값, 아직 없으면 오늘 값.
+   ② 보여 주는 값(법무사님 결정) — 고시표에 다음 영업일 값이 올라와 있으면 그 값, 아직 없으면 오늘 값. 머리줄 「기준일」도 그 날짜로 바뀐다.
       평일 18:30 조회 뒤부터, 주말·공휴일에는 내내 다음 영업일 값이 나온다(당일 업무가 끝나면 그날 할인율로 살 일이 없음).
       「📤 의뢰인 화면에 적용」은 자동값이 은행 고시율과 다를 때만 쓴다(지금 의뢰인 화면에 보이는 적용일의 값을 바로잡음).
    ③ 의뢰인이 계산기를 열면 그 값을 읽어 칸에 넣고 기준일을 표시한다.
@@ -8294,7 +8318,8 @@ function calcBequest(fromEdit){
   if(chk('bq_f_same')){const n=Math.max(1,val('bq_sameN')),e=Math.max(1,val('bq_cntEstate'));const v=200000+((n-1)+(e-1))*30000;document.getElementById('bq_sameCell').textContent=won(v);fee+=v;}else document.getElementById('bq_sameCell').textContent='0 원';
   const vRow=document.getElementById('bq_verifyRow');
   if(chk('bq_verify')){const n=Math.max(1,val('bq_vfyN')),e=Math.max(1,val('bq_cntEstate'));const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('bq_verifyCell').textContent=won(v);document.getElementById('bq_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else{vRow.style.display='table-row';const _vc=vRow.querySelector('[id$="verifyCell"]'),_vn=vRow.querySelector('[id$="verifyNote"]');if(_vc)_vc.textContent=won(0);if(_vn)_vn.textContent='';}  /* 2026-11-18 확인서면 체크칸을 ④ 수수료로 옮김 — 줄은 늘 보인다 */
-  EXTRA_AGENT.forEach(([id,name,code])=>{const c=document.getElementById('sa_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('saq_'+id).value)||1);fee+=FLAT[code]*q;}});
+  /* 2026-11-22 정정 — 종전에는 상속 화면의 체크칸(sa_)을 읽고 유증 화면에는 기타 대행료 줄이 없었다 → 유증 전용(bqa_) */
+  EXTRA_AGENT.forEach(([id,name,code])=>{const c=document.getElementById('bqa_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('bqaq_'+id).value)||1);fee+=FLAT[code]*q;}});
   fee+=customSum('bq_extraAgent');
   fee=pwApply('bq_',fee);   /* §6·§5① 부분수임·중단 감액 */
   document.getElementById('bq_feeSum').textContent=won(fee);
@@ -8665,6 +8690,9 @@ function calcGift(fromEdit){
 
   bsRefreshAll();      /* 취득세가 확정된 뒤 지분표의 세금 열을 갱신 */
 }
+(function(){const tb=document.getElementById('bq_extraAgent');if(!tb)return;EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const tr=document.createElement('tr');
+  tr.innerHTML='<td><label class="checks" style="display:inline-flex;align-items:flex-start;"><input type="checkbox" id="bqa_'+id+'" onchange="calcBequest()" style="margin-top:2px;"> <span style="font-size:12.5px;">'+name+' <b style="color:var(--seal);">'+FLAT[code].toLocaleString()+'원</b></span></label></td><td><input type="number" id="bqaq_'+id+'" value="1" min="1" style="width:54px;text-align:center;" oninput="calcBequest()"></td>';
+  tb.appendChild(tr);});})();
 (function(){const tb=document.getElementById('gv_extraAgent');EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const tr=document.createElement('tr');
   tr.innerHTML='<td><label class="checks" style="display:inline-flex;align-items:flex-start;"><input type="checkbox" id="gva_'+id+'" onchange="calcGift()" style="margin-top:2px;"> <span style="font-size:12.5px;">'+name+' <b style="color:var(--seal);">'+FLAT[code].toLocaleString()+'원</b></span></label></td><td><input type="number" id="gvaq_'+id+'" value="1" min="1" style="width:54px;text-align:center;" oninput="calcGift()"></td>';
   tb.appendChild(tr);});})();
@@ -13265,26 +13293,34 @@ function calcTy(fromEdit){
   document.getElementById('ty_basis').innerHTML=b+'<div id="ty_docLink"></div>';
   tyDocLink();
 }
-/* 2026-11-22 홈페이지 「등기원인별 준비서류 찾기」로 바로 가기 (법무사님 지시 — 우선 이름이 정확히 맞는 유형·원인만)
-   · 준비서류 자료(regdocs-data.json — 감면 찾기와 같은 파일)의 행 중 등기 종류(t)와 원인(c)이 지금 고른 유형·원인과 정확히 같은 것만 연결한다
-   · 행 번호를 미리 적어 두지 않고 고를 때마다 이름으로 찾는다 — 홈페이지 자료가 바뀌어 행 순서가 달라져도 어긋나지 않게
-   · 맞는 행이 없으면 단추를 내지 않는다(2026-11-22 기준 부동산 유형·원인 53쌍) */
+/* 2026-11-22 홈페이지 「등기원인별 준비서류 찾기」로 가기 (법무사님 지시 — 부동산 등기만. 홈페이지 준비서류도 부동산만 있음)
+   ① 이름이 정확히 맞는 유형·원인(53쌍) → 그 항목으로 바로 가는 딥링크(#row=행번호)
+   ② 나머지 → 일반 링크. 홈페이지 검색에 등기유형 이름을 넣어(#q=) 그 유형의 목록이 바로 보이게 하고,
+      그 이름으로 찾아지는 항목이 없으면 준비서류 찾기 첫 화면으로 보낸다.
+   · 자료(regdocs-data.json — 감면 찾기와 같은 파일)는 고를 때마다 이름으로 찾는다 — 홈페이지 자료 순서가 바뀌어도 어긋나지 않게 */
+const TY_DOCPAGE='sanlaw_등기원인별_준비서류_검색.html';
 function tyDocLink(){
   const box=document.getElementById('ty_docLink'); if(!box)return; box.innerHTML='';
-  if(TYS.cat!=='re'||!TYS.cause)return;
+  if(TYS.cat!=='re')return;
   const t=TY.RE[TYS.i]; if(!t)return;
   const want=TYS.i+'|'+TYS.cause;
   const nz=v=>String(v||'').replace(/\s+/g,'').replace(/등기$/,'');
+  const nm=v=>String(v||'').replace(/\s+/g,'').toLowerCase();       /* 홈페이지 검색과 같은 정규화 */
   const P=window.__rdData||(window.__rdData=fetch('regdocs-data.json?v=20261029').then(r=>{if(!r.ok)throw r.status;return r.json();}));
+  const paint=(href,deep,q)=>{
+    box.innerHTML='<div style="margin-top:8px;padding:8px 10px;background:#eef6ee;border:1px solid #b9d8b9;border-left:4px solid #2f7d3a;border-radius:6px;">'
+      +(deep?'📋 <b>'+tyEsc(t.n)+' — '+tyEsc(TYS.cause)+'</b>의 준비서류를 홈페이지에서 보실 수 있습니다. '
+            :'📋 이 등기의 준비서류는 홈페이지 「등기신청 준비서류」에서 찾아보실 수 있습니다'+(q?' — 「'+tyEsc(q)+'」로 찾은 목록이 먼저 나옵니다':'')+'. ')
+      +'<a class="btn mini" style="display:inline-block;white-space:nowrap;margin-top:3px;padding:3px 10px;font-size:12.5px;background:#2f7d3a;" href="'+href+'" target="_blank" rel="noopener">'+(deep?'준비서류 보기 ↗':'준비서류 찾아보기 ↗')+'</a></div>';
+  };
   P.then(D=>{
     if((TYS.i+'|'+TYS.cause)!==want)return;           /* 그사이 다른 것을 골랐으면 그리지 않는다 */
     const rows=(D&&D.rows)||[];
-    const i=rows.findIndex(x=>nz(x.t)===nz(t.n)&&nz(x.c)===nz(TYS.cause));
-    if(i<0)return;
-    box.innerHTML='<div style="margin-top:8px;padding:8px 10px;background:#eef6ee;border:1px solid #b9d8b9;border-left:4px solid #2f7d3a;border-radius:6px;">'
-      +'📋 <b>'+tyEsc(t.n)+' — '+tyEsc(TYS.cause)+'</b>의 준비서류를 홈페이지에서 보실 수 있습니다. '
-      +'<a class="btn mini" style="padding:3px 10px;font-size:12.5px;background:#2f7d3a;" href="sanlaw_등기원인별_준비서류_검색.html#row='+i+'" target="_blank" rel="noopener">준비서류 보기 ↗</a></div>';
-  }).catch(()=>{});
+    const i=TYS.cause?rows.findIndex(x=>nz(x.t)===nz(t.n)&&nz(x.c)===nz(TYS.cause)):-1;
+    if(i>=0){ paint(TY_DOCPAGE+'#row='+i,true); return; }
+    const q=nm(t.n), hit=q&&rows.some(x=>[x.t,x.c,x.n,x.a,x.d].some(v=>nm(v).indexOf(q)>=0));
+    paint(TY_DOCPAGE+(hit?'#q='+encodeURIComponent(t.n):''),false,hit?t.n:'');
+  }).catch(()=>{ if((TYS.i+'|'+TYS.cause)===want) paint(TY_DOCPAGE,false,''); });
 }
 (function(){const tb=document.getElementById('ty_extraAgent');if(tb)tb.innerHTML='';})();
 
@@ -15767,6 +15803,9 @@ body.sx-simple .card.sx-docsOn:not(.open) .fbody{display:none;}
 .sxd-col li{font-size:13.5px;line-height:1.55;margin:2px 0;}
 .sxd-col li .sxd-w{display:inline-block;margin-left:4px;font-size:11.5px;color:#1d6fb8;font-weight:700;text-decoration:none;white-space:nowrap;}
 .sxd-off{margin:8px 0 0;font-size:12.5px;color:#6b5d49;}
+.sxd-ttl{display:none;font-weight:800;color:#2f6b3a;font-size:14px;margin:14px 0 8px;padding-top:12px;border-top:1px dashed #cdbf9f;}
+.card.open .sxd-ttl{display:block;}
+.card.open .sxd-more{display:none;}
 body.sx-simple .ratebar .hint{display:none !important;}   /* 간단히 보기: 할인율·송달료 칸 아래 작은 설명줄은 감춤(칸은 그대로) */
 @media (max-width:600px){.sxbar{margin:14px 0 10px;}.sxbar .sxseg button{min-height:58px;font-size:16px;padding:8px 6px;}.sxbar .sxseg button small{font-size:11px;}
   body.sx-simple .disclaimer{margin-top:6px;}
@@ -15795,7 +15834,7 @@ body.sx-simple .sx-feeNote{display:block;}   /* 수임 범위·협의조정·당
 (function(){
   var KEY='sanlaw_calc_view';
   var CFG={
-    '매매':{basic:/^(매매금액|부동산 개수|등기권리자|부동산 종류|보유 주택 수|감면·가산|외국인·재외국민 가산)/,
+    '매매':{basic:/^(매매금액|부동산 개수|등기권리자|등기원인|매도인과의 관계|부동산 종류|보유 주택 수|감면·가산|외국인·재외국민 가산)/,   /* 2026-11-22 등기원인·관계 일반용에도 보임(법무사님 지적) */
             adv:'말소 동시신청·분양 신탁 등',
             keep:function(el){return el.id==='ps_box'||/분양받은 아파트/.test(el.textContent);}}   /* 2026-11-19 분양 아파트 질문은 일반용에도 보임 */
   };
@@ -15876,6 +15915,7 @@ body.sx-simple .sx-feeNote{display:block;}   /* 수임 범위·협의조정·당
   function notes(card){
     var list=[].filter.call(card.querySelectorAll('.note,details.ref'),function(n){
       if(n.closest('.d3')) return false;                       /* 준비서류 안 안내문은 그대로 */
+      if(n.closest('.fbody')) return false;                    /* 2026-11-22 제목을 눌러 펼치는 카드 안 안내문은 제목으로 펼친다(단추를 눌러도 안 보이던 문제) */
       var dyn=n.id&&(n.classList.contains('alert')||n.style.display==='none'||!n.textContent.trim());
       return !dyn;});
     if(!list.length) return;
@@ -15883,13 +15923,23 @@ body.sx-simple .sx-feeNote{display:block;}   /* 수임 범위·협의조정·당
     var body=card.querySelector('.body'); if(!body||body.querySelector(':scope > .sxinfo')) return;
     var b=document.createElement('button'); b.type='button'; b.className='sxinfo';
     var set=function(){b.textContent=card.classList.contains('sx-notes')?'ⓘ 설명 ▴ 접기':'ⓘ 이 항목 설명 ▾ 펼쳐 보기';};
-    b.onclick=function(){card.classList.toggle('sx-notes');set();}; set(); body.insertBefore(b,body.firstChild);
+    /* 2026-11-22 「펼쳐 보기」는 그 카드의 설명을 모두 펼친다(법무사님 지적 — 긴 안내는 「자세히 보기」를 또 눌러야 했고 세율표는 닫혀 있었음)
+       · 앞부분만 보이던 안내·도움말 → 끝까지 / 세율표 등 접힌 참고표 → 열기. 「접기」를 누르면 모두 되돌린다 */
+    var all=function(o){
+      [].forEach.call(card.querySelectorAll('.nclamp,.hclamp'),function(el){ if(el.closest('.fbody')) return;
+        el.classList.toggle('open',o); if(el.__tog) el.__tog.textContent=o?'▴ 접기':'▾ 자세히 보기'; });
+      [].forEach.call(card.querySelectorAll('details'),function(d){ if(!d.closest('.fbody')) d.open=o; });
+      if(typeof foldSync==='function') setTimeout(foldSync,0);
+    };
+    b.onclick=function(){var o=card.classList.toggle('sx-notes');all(o);set();}; set(); body.insertBefore(b,body.firstChild);
   }
   /* 준비서류 간단 목록 — 지금 상세 목록(① 의뢰인께서 준비하실 서류)에서 서류 이름과 발급처만 뽑는다 */
   function docsSimple(card){
     var fb=card.querySelector('.fbody'); if(!fb) return;
     var box=card.querySelector('.sx-docs');
-    if(!box){box=document.createElement('div');box.className='sx-docs';fb.parentNode.insertBefore(box,fb);card.classList.add('sx-docsOn');}
+    if(!box){box=document.createElement('div');box.className='sx-docs';
+      if(card.classList.contains('open')) fb.parentNode.appendChild(box); else fb.parentNode.insertBefore(box,fb);   /* 2026-11-22 펼친 상태면 맨 아래 */
+      card.classList.add('sx-docsOn');}
     var sec=fb.querySelector('.d3c'); if(!sec){box.innerHTML='';return;}
     var h='',col=null;
     [].forEach.call(sec.querySelectorAll('.d3who, ul.d3l'),function(el){
@@ -15902,7 +15952,7 @@ body.sx-simple .sx-feeNote{display:block;}   /* 수임 범위·협의조정·당
           h+='<li>'+t.innerHTML+w+'</li>'; }); }
     });
     if(col!==null) h+='</ul></div>';
-    box.innerHTML='<div class="sxd-grid">'+h+'</div><div class="sxd-off">등기신청서·위임장 등은 사무소가 준비합니다. 서류마다 발급 방법·근거·등기소 제출 목록은 위 제목(⑤)을 눌러 자세히 보실 수 있습니다.</div>';
+    box.innerHTML='<div class="sxd-ttl">▸ 준비서류 한눈에 보기</div><div class="sxd-grid">'+h+'</div><div class="sxd-off">등기신청서·위임장 등은 사무소가 준비합니다.<span class="sxd-more"> 법인·외국인이 당사자이거나 부동산 형태가 다르면 위 제목(⑤)을 눌러 고르십시오 — 목록이 그에 맞게 바뀝니다. 서류마다 발급 방법·근거·등기소 제출 목록도 거기서 자세히 보실 수 있습니다.</span></div>';
   }
   /* ── 수임 범위 ~ 여러 등기소 가산 : 한 묶음 접이식(일반용) ── */
   var FEE_RE=/^(수임 범위|보수 협의조정|당사자 다수 가산|여러 등기소 가산)/;   /* 외국인·재외국민 가산은 일반용에도 남김 */
