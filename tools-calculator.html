@@ -272,6 +272,18 @@
 @media (max-width:380px){.subbar .slinks .qp{font-size:12px!important;padding:6px 8px!important}}
 @media (prefers-reduced-motion:reduce){.subbar .slinks .qp{transition:none}}
 </style>
+
+<style id="togpos-20261122">
+/* 2026-11-22 펼치기 단추 위치 통일(법무사님 지시) — 일반용·법무사 전용 모두 「펼칠 내용의 제목 오른쪽」 */
+.ntog.ntog-in{float:right;margin:0 0 4px 10px;position:relative;z-index:1;line-height:1.45;}
+.hclamp:not(.open){display:block;-webkit-line-clamp:unset;max-height:3.15em;overflow:hidden;-webkit-mask-image:linear-gradient(#000 62%,rgba(0,0,0,.25));mask-image:linear-gradient(#000 62%,rgba(0,0,0,.25));}
+.scene details>summary{display:flex;align-items:center;flex-wrap:wrap;gap:4px 6px;list-style:none;}
+.scene details>summary::-webkit-details-marker{display:none;}
+.scene details>summary::after{content:"▾ 펼쳐 보기";margin-left:auto;color:var(--fold-c);background:var(--fold-bg);border:1px solid var(--fold-bd);border-radius:999px;padding:2px 11px;font-size:12.5px;font-weight:800;white-space:nowrap;}
+.scene details[open]>summary::after{content:"▴ 접기";}
+.scene details>summary .fold-txt{display:none;}
+@media print{.scene details>summary::after{display:none;}}
+</style>
 </head>
 <body>
 <style>
@@ -857,6 +869,18 @@
         <label><input type="checkbox" id="s_farmSpecial"> 자경농민 농지 특례(0.3%·§15①2호나목)</label>
         <label><input type="checkbox" id="s_over85"> 85㎡ 초과(농특세) <small>— 수도권 밖 도시지역이 아닌 읍·면은 100㎡ 초과</small></label>
         </div></div>
+      <!-- 2026-11-22 상속 취득세 감면 사유·공동상속 주택 판정·납부의무 (법무사님 지시 — 법무사 전용 화면에만) -->
+      <div class="note alert sx-proOnly" id="s_oneShareWarn" style="display:none;"><span class="head">공동상속 — 0.8% 특례는 「그 집의 주인으로 보는 상속인」 몫에만 적용된다고 보는 해설이 있습니다</span>지금 계산하는 지분이 <b>지분이 가장 큰 상속인</b>(지분이 같으면 <b>그 집에 사는 사람</b> → <b>나이가 가장 많은 사람</b>)의 몫이 아니라면 <b>2.8%</b>로 계산될 수 있습니다(지방세법 시행령 §29③). 지금 금액은 이 지분 전체에 0.8%를 적용한 것이며, 2.8%로 보면 약 <b id="s_oneShareGap">0 원</b> 더 나옵니다(취득세 2%포인트<span id="s_oneShareRural"></span>). 신고 전에 관할 시·군·구 세무과에 확인하십시오. <span class="hint">[B] 2차 해설 — 행정안전부 유권해석 번호는 확인하지 못했습니다. 계산기는 세율을 자동으로 바꾸지 않습니다.</span></div>
+      <details class="ref sx-proOnly" id="s_reliefRef" style="margin:4px 0 12px;"><summary>상속 취득세 — 줄여 주는 경우 · 공동상속 주택의 주인 · 누가 내나 <span class="reftag" style="background:#e7efe6;color:var(--ok);">A</span></summary><div class="refbody">
+        <p style="margin:0 0 6px;font-weight:800;">① 취득세를 줄여 주는 경우 (상속)</p>
+        <div style="border-bottom:1px dashed var(--line);"><div style="padding:8px 2px;border-top:1px dashed var(--line);line-height:1.65;"><div style="font-weight:800;">집 한 채 상속 (1가구 1주택)<span style="display:inline-block;margin-left:6px;padding:0 8px;border-radius:999px;background:#e7efe6;color:var(--ok);font-weight:800;white-space:nowrap;">2.8% → 0.8%</span></div><div>상속받은 뒤 상속인의 가구(같은 세대별 주민등록표의 가족. 배우자 등 일부는 주소가 달라도 같은 가구)가 <b>국내에 주택 1채만</b> 가진 경우. 주택의 지분이나 부속토지(집이 서 있는 땅)만 받아도 1채로 셉니다. <b>고급주택</b>과 <b>재외국민</b>(외국에 사는 한국 국민)인 상속인은 제외됩니다.</div><div style="font-size:11.5px;color:#8a8270;">근거 지방세법 §15①2호가목 · 시행령 §29①②</div></div><div style="padding:8px 2px;border-top:1px dashed var(--line);line-height:1.65;"><div style="font-weight:800;">농지 상속 (자경농민)<span style="display:inline-block;margin-left:6px;padding:0 8px;border-radius:999px;background:#e7efe6;color:var(--ok);font-weight:800;white-space:nowrap;">2.3% → 0.3%</span></div><div>지방세특례제한법 §6①의 <b>자경농민</b>(농업이 주업이고 2년 이상 농사를 지은 사람 등 — 세부 요건은 같은 법 시행령)이 <b>직접 농사지을</b> 농지</div><div style="font-size:11.5px;color:#8a8270;">근거 지방세법 §15①2호나목 · 지특법 §6① <span style="color:var(--warn);font-weight:700;">(기한 2026. 12. 31. — 연장 여부 확인필요)</span></div></div><div style="padding:8px 2px;border-top:1px dashed var(--line);line-height:1.65;"><div style="font-weight:800;">위 두 특례와 함께<span style="display:inline-block;margin-left:6px;padding:0 8px;border-radius:999px;background:#e7efe6;color:var(--ok);font-weight:800;white-space:nowrap;">농특세 0</span></div><div>면적과 관계없이 농어촌특별세가 붙지 않습니다</div><div style="font-size:11.5px;color:#8a8270;">근거 농어촌특별세법 §4 8호</div></div><div style="padding:8px 2px;border-top:1px dashed var(--line);line-height:1.65;"><div style="font-weight:800;">상속주택을 가진 채 다른 집을 살 때<span style="display:inline-block;margin-left:6px;padding:0 8px;border-radius:999px;background:#e7efe6;color:var(--ok);font-weight:800;white-space:nowrap;">주택 수 제외</span></div><div>상속개시일부터 <b>5년</b> 동안은 다주택 중과의 주택 수에 넣지 않습니다</div><div style="font-size:11.5px;color:#8a8270;">근거 시행령 §28의4⑥3호</div></div></div>
+        <p style="margin:12px 0 6px;font-weight:800;">② 집 한 채를 여럿이 상속받을 때 — 누구의 집으로 보나</p>
+        <p style="margin:0 0 4px;line-height:1.7;"><b>1순위</b> 지분이 가장 큰 상속인 → <b>2순위</b>(지분이 같으면) 그 집에 사는 사람 → <b>3순위</b>(그래도 같으면) 나이가 가장 많은 사람</p>
+        <p style="margin:0;line-height:1.7;">▸ 쓰이는 곳: 1가구 1주택 특례 판정(시행령 §29③), 다주택 중과의 주택 수 계산(시행령 §28의4⑤ — 같은 순서).<br>▸ 이 순서는 <b>세금을 누가 내느냐</b>가 아니라 <b>그 집을 누구의 집으로 셈하느냐</b>를 정합니다.</p>
+        <p style="margin:12px 0 6px;font-weight:800;">③ 취득세는 누가 내나</p>
+        <p style="margin:0;line-height:1.7;">▸ 상속인 <b>각자가 자기 지분만큼</b> 취득한 것으로 보고 냅니다(지방세법 §7⑦ 전단).<br>▸ 다만 공동상속인은 <b>연대납부</b>(한 사람이 안 내면 다른 상속인에게도 청구할 수 있는 것) 의무를 집니다(같은 항 후단 → 지방세기본법 §44①⑤ 준용).<br>▸ 혼동 주의: 「주된 상속자」(지분이 가장 큰 사람 → 같으면 나이가 가장 많은 사람, <b>거주 기준 없음</b>)는 취득세가 아니라 ⓐ 상속등기 전 재산의 <b>재산세</b> 납세의무자(지방세법 §107②2호·시행규칙 §53), ⓑ 사망한 납세자의 10만원 이하 <b>지방세 환급금</b>을 받을 사람(지방세기본법 §60⑦·시행규칙 §21)을 정할 때 씁니다.</p>
+        <p style="margin:8px 0 0;font-size:11.5px;color:#8a8270;line-height:1.6;"><b>확인</b> 국가법령정보센터 현행 원문(2026. 11. 22.) — 지방세법 §7⑦·§15①·§107②, 시행령 §28의4⑤⑥·§29, 지방세기본법 §44·§60⑦. 시행규칙 §53·§21과 지특법 §6① 기한은 2차 자료로 확인했습니다.</p>
+      </div></details>
       <div id="s_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="s_adjust" onchange="calcInherit()">
         <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
@@ -4573,12 +4597,15 @@ function foldCards(root){
     h.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); tg(); } });
   });
 }
+/* 2026-11-22 「자세히 보기」 단추 위치(법무사님 지시) — 글 밑이 아니라 그 글의 제목(첫 줄) 오른쪽에 둔다.
+   안내 상자에 제목(.head)이 있으면 제목 줄 오른쪽, 없으면 상자 첫 줄 오른쪽 */
 function addClamp(el,cls){
   if(el.__tog)return;
   el.classList.add.apply(el.classList,cls.split(' '));
-  var t=document.createElement('button'); t.type='button'; t.className='ntog'; t.textContent='▾ 자세히 보기'; t.style.display='none';
-  t.addEventListener('click',function(){ var o=el.classList.toggle('open'); t.textContent=o?'▴ 접기':'▾ 자세히 보기'; });
-  el.parentNode.insertBefore(t,el.nextSibling);
+  var t=document.createElement('button'); t.type='button'; t.className='ntog ntog-in'; t.textContent='▾ 자세히 보기'; t.style.display='none';
+  t.addEventListener('click',function(e){ e.stopPropagation(); var o=el.classList.toggle('open'); t.textContent=o?'▴ 접기':'▾ 자세히 보기'; });
+  var head=el.querySelector(':scope > .head'), host=head||el;
+  host.insertBefore(t,host.firstChild);
   el.__tog=t;
 }
 function foldNotes(root){
@@ -8164,6 +8191,16 @@ function calcInherit(fromEdit){
   const _tl=document.getElementById('s_taxLabel');if(_tl)_tl.textContent=regMode?'등록세(부동산)':'취득세';
   const _ta=document.getElementById('s_taxAgentLabel');if(_ta)_ta.textContent=regMode?'등록세 신고대행':'취득세 신고대행';
   const _rn=document.getElementById('s_regTaxNote');if(_rn)_rn.style.display=regMode?'flex':'none';
+  /* 2026-11-22 공동상속 0.8% 특례 경고(법무사 전용 .sx-proOnly) — 시행령 §29③: 공동상속 1주택은 지분이 가장 큰 상속인(→거주자→연장자)을 소유자로 본다.
+     소수지분 상속인 몫은 2.8%로 본다는 해설 [B]. 세율은 자동으로 바꾸지 않고 경고만 한다.
+     차이 = 취득세 (2.8%−0.8%) + 농특세(85㎡ 초과 주택이면 특례 없을 때 0.2%). 지방교육세는 어느 쪽이든 표준세율 기준이라 같다. */
+  (function(){const w=document.getElementById('s_oneShareWarn');if(!w)return;
+    const heirs=Number((document.getElementById('s_cntHeir')||{}).value)||1;
+    const on=!regMode&&radio('s_ptype')==='house'&&chk('s_oneHouse')&&(heirs>1||_tr<1);
+    w.style.display=on?'block':'none';if(!on)return;
+    const rural=chk('s_over85')?_tb*0.002:0;
+    document.getElementById('s_oneShareGap').textContent=won(_tb*0.02+rural);
+    document.getElementById('s_oneShareRural').textContent=rural?' + 농특세 0.2%':'';})();
   const _tn=document.getElementById('s_taxNote');if(_tn)_tn.innerHTML=regMode
     ?'舊 등록세 자동(농지외 <b>0.8%</b> / 농지 <b>0.3%</b>) + 지방교육세 20% · 농특세 없음. 2011년 통합 이전 상속개시분(부칙 §6). 등기수수료 상속 <b>매 부동산 20,000(수기)·17,000(e-Form)·전자불가</b>.'
     :'상속 취득세 자동(농지외 <b>2.8%</b> / 농지 <b>2.3%</b> / 1가구1주택 특례 <b>0.8%</b> / 자경농민 농지 특례 <b>0.3%</b>). 특례 적용 시 <b>농특세는 면적 무관 0</b>(§15①2호 → 농특세법 §4 8호·시행령 §4④). 등기수수료 상속 <b>매 부동산 20,000(수기)·17,000(e-Form)·전자불가</b>.';
