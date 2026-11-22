@@ -15670,8 +15670,13 @@ tr[data-frpin]{display:table-row !important;}   /* 2026-11-22 외국인·재외�
 .pl-links{flex-wrap:nowrap;white-space:nowrap;}   /* 바로가기 단추는 한 줄로 */
 .pl-links.pl-end{margin:0 0 0 auto;align-self:center;}   /* 매입률 칸이 없는 줄은 줄 오른쪽 끝에 맞춤 */
 .sxpair .line.has-pl-end input.amt{width:140px !important;}   /* 2026-11-22 매입률 칸 오른쪽 한 줄 */
-.line.has-pl input[id*="ondPct"]{width:84px !important;}
-@media (max-width:560px){.pl-links.pl-right{gap:4px;}.pl-links.pl-right a{padding:2px 7px;}}
+.line.has-pl input[id*="ondPct"]{width:68px !important;}
+/* 2026-11-22 바로가기 단추 — 조금 작게, 들어갈 자리가 없어 다음 줄로 내려가면 입력칸 왼쪽 끝에 맞춘다(JS가 위치 계산) */
+.pl-links.pl-right,.pl-links.pl-end{gap:4px;}
+.pl-links a{padding:2px 8px;letter-spacing:-.2px;}
+.pl-links a .pli{font-size:10.5px;margin-right:3px;}
+.pl-links.pl-wrap{margin-right:auto !important;}
+@media (max-width:560px){.pl-links.pl-right a{padding:2px 7px;}}
 @media (prefers-reduced-motion:reduce){.gk-head .gk-ar{transition:none;}}
 @media print{.gk-body{display:block!important;}.gk-head{display:none!important;}tbody.ea-closed > tr{display:table-row;}.pl-links{display:none!important;}}
 </style>
@@ -15800,11 +15805,34 @@ tr.ea-head td:hover .ea-cnt{background:var(--fold-hv);}
         [].forEach.call(had,function(x){x.remove();});
       }
       var sp=document.createElement('span'); sp.className='pl-links'+(right?' pl-right':' pl-end'); sp.setAttribute('data-for',inp.id); sp.setAttribute('data-ks',sig);
-      sp.innerHTML=ks.map(function(k){ var d=PL[k]; return '<a href="'+d[2]+'" target="_blank" rel="noopener" title="'+d[3]+'에서 '+d[1]+' 조회(새 창)">🔗 '+d[0]+'</a>'; }).join('');
+      sp.innerHTML=ks.map(function(k){ var d=PL[k]; return '<a href="'+d[2]+'" target="_blank" rel="noopener" title="'+d[3]+'에서 '+d[1]+' 조회(새 창)"><span class="pli" aria-hidden="true">🔗</span>'+d[0]+'</a>'; }).join('');
       if(right){ host.classList.add('has-pl'); var ri=host.querySelector('input,select'); (ri?(ri.closest('.mhw')||ri):host.lastChild).insertAdjacentElement('afterend',sp); }
       else { line.classList.add('has-pl-end'); (inp.closest('.mhw')||inp).insertAdjacentElement('afterend',sp); }
+      plWatch(host);
     });
   }
+  /* 2026-11-22 바로가기 줄 맞춤 — 입력칸 옆에 들어가면 그 줄 오른쪽 끝, 자리가 모자라 다음 줄로 내려가면 입력칸 왼쪽 끝에 맞춘다.
+     줄 너비가 바뀔 때(창 크기·화면 전환·접기 펼치기)마다 다시 잰다. */
+  function plAlign(host){
+    var sp=host.querySelector(':scope > .pl-links'); if(!sp) return;
+    sp.classList.remove('pl-wrap'); sp.style.marginLeft='';
+    if(!host.offsetParent) return;
+    var prev=sp.previousElementSibling; if(!prev) return;
+    var a=prev.getBoundingClientRect(), s=sp.getBoundingClientRect();
+    if(s.top>=a.bottom-2){
+      var h=host.getBoundingClientRect(), cs=getComputedStyle(host);
+      var x=Math.max(0,Math.round(a.left-h.left-parseFloat(cs.paddingLeft||0)-parseFloat(cs.borderLeftWidth||0)));
+      /* 입력칸 왼쪽에 맞추면 단추가 줄 밖으로 넘칠 때는 왼쪽 끝에서 시작 */
+      if(x+s.width>h.width-parseFloat(cs.paddingLeft||0)-parseFloat(cs.paddingRight||0)) x=0;
+      sp.classList.add('pl-wrap'); sp.style.marginLeft=x+'px';
+    }
+  }
+  var _plRO=('ResizeObserver' in window)?new ResizeObserver(function(ents){ ents.forEach(function(en){ plAlign(en.target); }); }):null;
+  function plWatch(host){
+    if(host.__plw){ plAlign(host); return; } host.__plw=1;
+    if(_plRO) _plRO.observe(host); else plAlign(host);
+  }
+  window.addEventListener('resize',function(){ if(_plRO) return; [].forEach.call(document.querySelectorAll('.has-pl,.has-pl-end'),plAlign); });
   /* 부동산 종류를 바꾸면 칸 하나짜리 화면의 바로가기를 다시 고른다 */
   document.addEventListener('change',function(e){ var t=e.target; if(t&&t.type==='radio'&&/ptype$/.test(t.name||'')){ var sc=t.closest('.scene'); if(sc) setTimeout(function(){plLinks(sc);},60); } });
   function run(){
@@ -16037,8 +16065,9 @@ body.sx-simple .ratebar .hint{display:none !important;}   /* 간단히 보기: �
 .sxpair.sxp-sel > .line{min-width:0;}
 .sxpair.sxp-sel > .line > select{flex:1 1 160px;width:auto;max-width:100%;min-width:0;}
 .sxpair.sxp-step3 > .line{align-content:flex-start;align-items:center;}
-.sxpair > .line{border-bottom:0;min-width:0;}
+.sxpair > .line{border-bottom:0;min-width:0;align-content:flex-start;}   /* 2026-11-22 나란히 놓인 칸들의 첫 줄(이름·입력칸)을 위쪽에 맞춤 — 옆 칸이 길어져도 가운데로 내려가지 않게 */
 .sxpair > .line .lbl{flex:0 0 auto;min-width:92px;}
+@media (min-width:561px){.sxpair.sxp-amt > .line:not(.has-pl) .lbl{min-width:124px;}}   /* 2026-11-22 금액칸 이름 폭을 같게 — 위아래 금액 입력칸의 왼쪽 끝을 맞춤 */
 .sxpair > .line .hint{flex-basis:100%;}
 .sxpair > .line input.amt{min-width:120px;}
 /* 수임 범위 ~ 여러 등기소 가산: 일반용에서는 한 묶음으로 접기 */
