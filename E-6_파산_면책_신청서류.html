@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[파산 E-6] 소득이 없어 갚을 길이 없습니다 — 파산·면책 신청서류 총정리 | 산 법무사 김재섭</title>
+<meta name="description" content="개인파산·면책 신청에 필요한 서류를 제출 순서대로 정리했습니다. 별지 양식 일곱 가지, 자료제출목록, 동시폐지와 파산관재인 선임, 예납금·인지·송달료, 면제재산 14일, 면책불허가사유와 재량면책을 담았습니다.">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+ul{margin:8px 0 12px; padding-left:20px;} li{margin:6px 0;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(300px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.who{background:var(--box); border-radius:10px; padding:14px 16px; margin:12px 0; border-left:4px solid #b9a98c;}
+.who .wl{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.case{background:var(--box); border-radius:10px; padding:14px 16px; margin:14px 0; border-left:4px solid #b9a98c;}
+.case .ct{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;margin-left:3px;}
+.tag.free{background:#5a9a72;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.cta{display:block; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; text-decoration:none; font-weight:700; font-size:16px; padding:15px; border-radius:11px; margin:18px 0; box-shadow:0 3px 8px rgba(122,82,48,.25);}
+.src{font-size:12.5px; color:#6e6353; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:11px 15px;margin:10px 0;font-size:13.5px;line-height:1.7;}
+.lawbox .ll{display:inline-block;font-size:11.5px;font-weight:700;color:#fff;background:var(--gold-d);border-radius:5px;padding:2px 8px;margin-right:6px;}
+.lawbox a{color:var(--gold-d);font-weight:600;}
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:14.5px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:16px;margin:10px 0;font-family:'D2Coding','Courier New',monospace;font-size:12.5px;line-height:1.65;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:15px;letter-spacing:2px;margin-bottom:10px;color:#241a10;}
+.howto{font-size:13.5px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:12.5px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:6px 12px;cursor:pointer;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.concept{background:var(--box);border-radius:9px;padding:11px 15px;margin:8px 0 14px;font-size:14.5px;color:#5a4a36;border-left:3px solid #b9a98c;}
+.concept b{color:var(--gold-d);}
+.flow{background:linear-gradient(180deg,#fcf9f2,#f7f1e5);border:1.5px solid var(--gold);border-radius:14px;padding:18px 18px 14px;margin:14px 0 20px;}
+.flow .ft2{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:12px;}
+.flow ol{counter-reset:fl;list-style:none;margin:0;padding:0;}
+.flow li{position:relative;padding:8px 10px 8px 44px;margin:7px 0;background:#fff;border:1px solid var(--line);border-radius:10px;font-size:14.5px;line-height:1.6;}
+.flow li::before{counter-increment:fl;content:counter(fl);position:absolute;left:10px;top:8px;width:26px;height:26px;line-height:26px;text-align:center;background:var(--gold);color:#fff;border-radius:50%;font-weight:800;font-size:14px;}
+.flow li b{color:var(--gold-d);}
+.flow .arw{text-align:center;color:var(--gold);font-size:13px;margin:-2px 0;}
+.newlaw{background:#eef6f0;border:1px solid #cfe6d6;border-left:4px solid #5a9a72;border-radius:8px;padding:13px 16px;margin:14px 0;}
+.newlaw .nt{font-weight:700;color:#2f6a47;display:block;margin-bottom:4px;}
+.newlaw .badge{display:inline-block;font-size:11px;font-weight:800;color:#fff;background:#5a9a72;border-radius:5px;padding:2px 8px;margin-right:6px;vertical-align:middle;}
+.faq{margin:14px 0;}
+.faq details{border:1px solid var(--line);border-radius:10px;margin:9px 0;background:#fff;overflow:hidden;}
+.faq summary{list-style:none;cursor:pointer;padding:13px 44px 13px 38px;font-weight:700;font-size:15px;color:#241a10;background:#faf7f0;position:relative;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::before{content:"Q";position:absolute;left:15px;color:var(--gold-d);font-family:'Nanum Myeongjo',serif;font-weight:800;}
+.faq summary::after{content:"▾";position:absolute;right:16px;top:13px;color:var(--gold-d);transition:.2s;}
+.faq details[open] summary::after{transform:rotate(180deg);}
+.faq .fa{padding:13px 15px 15px 38px;font-size:14.5px;line-height:1.75;color:#3a3a3a;position:relative;border-top:1px solid var(--line);}
+.faq .fa::before{content:"A";position:absolute;left:15px;top:13px;color:#5a9a72;font-family:'Nanum Myeongjo',serif;font-weight:800;}
+.helm{background:linear-gradient(135deg,#2c3e50,#3a4a5c);color:#f4f0e8;border-radius:14px;padding:20px 22px;margin:0 0 24px;box-shadow:0 4px 14px rgba(44,62,80,.18);}
+.helm .ht2{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:17px;color:#f0d98c;margin-bottom:9px;}
+.helm p{margin:0;font-size:14.5px;line-height:1.9;color:#eae4d8;}
+.helm b{color:#f4e2a6;}
+.qhead{display:flex;gap:12px;align-items:flex-start;margin:8px 0 8px;}
+.qhead .qb{flex:none;width:34px;height:34px;border-radius:50%;background:#8a5a33;color:#fff;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(176,141,87,.4);}
+.qhead h2{margin:0;border:0;padding:0;font-size:20px;line-height:1.45;}
+.lawrow{display:flex;flex-wrap:wrap;background:var(--box);border-radius:10px;overflow:hidden;margin:12px 0;border:1px solid var(--line);}
+.lawrow .lrl{flex:none;background:var(--gold);color:#fff;font-weight:700;font-size:13.5px;padding:11px 15px;display:flex;align-items:center;}
+.lawrow .lrc{flex:1;min-width:210px;padding:11px 15px;font-size:14px;line-height:1.75;}
+@media(max-width:520px){.lawrow .lrl{width:100%;}}
+.calc{display:block;background:linear-gradient(135deg,#fff7e8,#fdeecb);border:1.5px solid var(--gold);border-radius:14px;padding:16px 18px;margin:18px 0;text-decoration:none;color:var(--ink);transition:.15s;}
+.calc:hover{box-shadow:0 4px 14px rgba(176,141,87,.25);transform:translateY(-1px);}
+.calc .cah{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:4px;}
+.calc .cas{font-size:13.5px;color:var(--muted);}
+.ctabtn{display:block;text-align:center;background:var(--gold);color:#fff;font-weight:800;font-size:17px;padding:16px;border-radius:12px;text-decoration:none;margin:22px 0 6px;box-shadow:0 3px 10px rgba(176,141,87,.35);}
+.ctabtn:hover{background:var(--gold-d);}
+.doclabel{display:inline-block;font-size:12px;font-weight:800;color:#fff;border-radius:6px;padding:3px 11px;margin-bottom:6px;}
+.doclabel.give{background:#b0885a;}
+.doclabel.back{background:#5a9a72;}
+.dl{color:var(--gold-d);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--gold);}
+.dl:hover{background:#fbf5e8;}
+.ddl{display:flex;gap:2px 10px;flex-wrap:wrap;margin:8px 0 2px;padding:9px 12px;background:#fbf7ee;border-radius:8px;font-size:13px;}
+.ddl b{color:var(--gold-d);}
+.deadline{width:100%;border-collapse:collapse;margin:10px 0;font-size:13.5px;}
+.deadline th{background:#3a4a5c;color:#fff;padding:8px;font-weight:700;}
+.deadline td{border:1px solid var(--line);padding:8px 10px;background:#fff;}
+.bnote{color:#0b4a9c;font-weight:600;background:#eaf2fc;border-left:4px solid #2b7fff;border-radius:8px;padding:9px 13px;margin:8px 0;font-size:13.5px;line-height:1.7;}
+.bnote b{color:#0a3d82;}
+.capital th{background:#f0ebe1;text-align:center;font-size:13px;}
+.capital td{text-align:center;font-size:13.5px;}
+.capital td:first-child{text-align:left;font-weight:700;background:#faf7f0;}
+.capital .hi{background:#fdf6e3;font-weight:700;color:var(--gold-d);}
+.capital .bad{color:#9c3a22;font-weight:700;}
+.grp{border-radius:10px;padding:13px 16px;margin:12px 0;border:1px solid var(--line);border-left-width:5px;}
+.grp .gt{font-weight:800;font-size:15px;margin-bottom:5px;}
+.grp.a{background:#eef6f0;border-left-color:#5a9a72;} .grp.a .gt{color:#2f6a47;}
+.grp.b{background:#fdf9e8;border-left-color:#d4a72c;} .grp.b .gt{color:#8a6d10;}
+.grp.c{background:#fdf2ee;border-left-color:#d9694a;} .grp.c .gt{color:#9c3a22;}
+@media print{.case,.warn,.tip,.cost,.who,.steps li,.tnote,.flow,.flow li,.lawbox,.hire{background:#fff !important;border-color:#ccc !important;}
+.term>.bub{display:inline !important;position:static;background:none;color:#555;box-shadow:none;padding:0;width:auto;font-size:12px;}.term>.bub::before{content:" (";}.term>.bub::after{content:")";border:0;position:static;}.formbox .fold-body{display:block !important;}}
+.part{margin:38px 0 14px;padding:16px 18px;border-radius:12px;background:linear-gradient(135deg,#2c3e50,#3a4a5c);color:#f4f0e8;box-shadow:0 4px 14px rgba(44,62,80,.18);}
+.part .pn{display:inline-block;font-size:12px;font-weight:800;color:#2c3e50;background:#f0d98c;border-radius:6px;padding:2px 10px;margin-bottom:6px;}
+.part .pt2{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:20px;color:#fff;margin-bottom:4px;}
+.part .pw{font-size:13.5px;line-height:1.7;color:#eae4d8;} .part .pw b{color:#f4e2a6;}
+.chk td:first-child{width:30px;text-align:center;color:var(--gold-d);font-size:16px;}
+.tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.srcb{display:inline-block;font-size:11px;font-weight:800;color:#fff;border-radius:5px;padding:1px 7px;margin-left:6px;vertical-align:middle;}
+.srcb.moe{background:#2f5b78;} .srcb.goe{background:#3d7a55;} .srcb.own{background:#6e6353;}
+.srcline{font-size:12.5px;color:var(--muted);background:#faf7f0;border-radius:7px;padding:7px 11px;margin:0 0 6px;}
+h3.fgrp{font-size:15px;color:var(--gold-d);margin:22px 0 6px;padding-bottom:5px;border-bottom:1px dashed var(--line);}
+.form{overflow-x:auto;}
+@media(max-width:560px){table{font-size:12.5px;} th,td{padding:7px 6px;overflow-wrap:anywhere;} .tblwrap table{min-width:560px;} .who{padding:12px 10px;}}
+
+/* ── 접이식 섹션(details.sec) · 목차 · 전체펼치기 ── */
+details.sec{border:1px solid var(--line);border-radius:11px;margin:13px 0;background:#fff;overflow:hidden;}
+details.sec>summary{cursor:pointer;list-style:none;padding:13px 16px;background:var(--box);border-left:4px solid var(--gold);display:flex;align-items:center;gap:11px;}
+details.sec>summary::-webkit-details-marker{display:none;}
+details.sec>summary .qb{flex:none;width:31px;height:31px;border-radius:50%;background:#8a5a33;color:#fff;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(176,141,87,.4);}
+details.sec>summary .st{flex:1;font-family:'Nanum Myeongjo',serif;font-size:17.5px;font-weight:700;color:var(--gold-d);line-height:1.5;}
+details.sec>summary .st .sub{display:block;font-family:'Pretendard',sans-serif;font-size:13px;font-weight:400;color:var(--muted);margin-top:3px;}
+details.sec>summary::after{content:"펼치기 ▾";flex:none;font-family:'Pretendard',sans-serif;font-size:12.5px;font-weight:700;color:var(--gold);background:#fff;border:1px solid var(--line);border-radius:20px;padding:3px 10px;white-space:nowrap;}
+details.sec[open]>summary::after{content:"접기 ▴";}
+details.sec>summary:hover{background:#f2ede3;}
+.secbody{padding:4px 17px 16px;}
+.toc{background:#fffaf0;border:1.5px solid var(--gold);border-radius:12px;padding:15px 18px;margin:18px 0 22px;}
+.toc .tct{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:16px;color:var(--gold-d);margin-bottom:9px;}
+.toc ol{margin:0;padding-left:21px;font-size:14.5px;line-height:1.95;}
+.toc a{color:#3a3a3a;text-decoration:none;border-bottom:1px dotted #c9b48c;}
+.toc a:hover{color:var(--gold-d);}
+.allbtn{display:inline-block;margin-top:11px;font-size:13.5px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:20px;padding:6px 15px;cursor:pointer;user-select:none;}
+.allbtn:hover{background:#f6ecd8;}
+@media(max-width:520px){details.sec>summary{gap:8px;padding:12px 11px;} details.sec>summary .st{font-size:16px;} details.sec>summary::after{font-size:11.5px;padding:2px 7px;} .secbody{padding:4px 12px 14px;}}
+@media print{details.sec:not([open])>*{display:block !important;} details.sec>summary::after{display:none;} .toc,.allbtn{display:none !important;}}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+<h1>[파산 E-6] 소득이 없어 갚을 길이 없습니다 — 파산·면책 신청서류 총정리</h1>
+
+<div class="tnote">어려운 법률용어에는 <b>점선 밑줄</b>이 그어져 있습니다. <b>PC는 마우스를 올리면</b>, <b>휴대폰은 손가락으로 톡 터치하면</b> 쉬운 설명이 뜹니다. (인쇄하면 괄호로 함께 나옵니다.)</div>
+
+<div class="helm">
+<div class="ht2">⚓ 이 매뉴얼을 끝까지 읽으시는 분께</div>
+<p>이 매뉴얼은 <b>의뢰인이 직접 법원에 신청할 수 있도록 모든 서류 양식, 비용, 요건을 구체적으로 담았습니다.</b> 하지만 소송은 살아있는 생물과 같아 상대방의 격렬한 저항이 뒤따릅니다. 혼자 진행하시다가 막히는 부분이 생기거나 방어막이 필요할 때, 언제든 이 매뉴얼을 들고 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</p>
+</div>
+
+<div class="tldr">
+<div class="tt">⭐ 30초 결론부터</div>
+<ul>
+<li><b>갚을 길이 없으면 그것이 바로 파산원인입니다.</b> 법은 "채무자가 <b>지급을 할 수 없는 때</b>"라고만 적고 있습니다(채무자회생법 제305조 제1항). 빚이 얼마인지, 몇 명에게 졌는지는 <b>요건이 아닙니다.</b></li>
+<li><b>파산신청서를 내면 면책신청도 함께 한 것으로 봅니다.</b> 따로 적어 내지 않아도 됩니다(같은 법 제556조 제3항). 다만 <b>반대의 의사표시를 한 경우</b>는 제외되므로, 신청서에 면책을 원하지 않는다는 표시를 하지 마십시오.</li>
+<li>★ <b>집과 살림을 지키려면 파산선고 후 14일 안에 따로 신청해야 합니다.</b> <span class="term">면제재산<span class="bub">파산하더라도 채무자에게 남겨 주는 재산. 주거용 임차보증금 중 일정액과 6개월치 생계비가 이에 해당합니다. <b>법원이 알아서 빼 주지 않고, 채무자가 신청해야 합니다.</b></span></span> 신청은 <b>파산신청일 이후 파산선고 후 14일 이내</b>에 해야 합니다(같은 법 제383조 제3항). <b>이 기간을 넘기면 되돌릴 수 없습니다.</b></li>
+<li><b>대부분의 사건에서 파산관재인이 선임됩니다.</b> 서울회생법원은 "대부분의 개인파산사건에서 파산이 선고됨과 동시에 파산관재인이 선임된다"고 안내하고 있습니다. 그러면 <b>예납금 40만원</b>을 내야 합니다(서울회생법원 실무준칙 제361호 제2조 제1항).</li>
+<li><b>소득이 있는데 파산을 신청하면 기각됩니다.</b> 갚을 수 있는 소득이 있으면 개인회생으로 가야 하고, 그런데도 파산을 신청하면 <b>절차의 남용</b>으로 보아 기각될 수 있습니다(같은 법 제309조 제2항). 어느 쪽인지 먼저 가늠해 보시려면 <a href="E-1_개인회생_파산_선택.html">개인회생인가 파산인가 — 3분 자가진단(E-1)</a>을 보십시오.</li>
+</ul>
+</div>
+
+<div class="warn"><span class="wt">⚠ 지금 당장 — 날짜부터 적어 두십시오</span>
+파산·면책에는 <b>놓치면 되돌릴 수 없는 기한이 세 개</b> 있습니다. 달력에 먼저 적어 두시고 서류를 모으십시오.
+<div class="tblwrap"><table class="deadline">
+<tr><th style="width:26%">무엇</th><th style="width:30%">언제까지</th><th>근거 · 놓치면</th></tr>
+<tr><td><b>면제재산 신청</b></td><td><b>파산선고 후 14일 이내</b><br><span style="font-size:13px">(파산신청일 이후부터 가능)</span></td><td>법 제383조 제3항<br><span style="color:#9c3a22">넘기면 임차보증금과 생계비를 빼 달라고 할 수 없습니다</span></td></tr>
+<tr><td><b>면책신청</b></td><td><b>파산신청일부터<br>파산선고 확정 후 1월 이내</b></td><td>법 제556조 제1항<br><span style="color:#9c3a22">파산신청과 함께 한 것으로 보므로 보통은 문제되지 않으나, 채권자가 파산을 신청한 경우에는 <b>직접 내셔야 합니다</b></span></td></tr>
+<tr><td><b>예납금 납부</b></td><td><b>법원이 정한 기한</b></td><td>법 제309조 제1항 제1호 · 제559조 제1항 제3호<br><span style="color:#9c3a22">내지 않으면 파산신청도 면책신청도 <b>기각</b>됩니다</span></td></tr>
+</table></div></div>
+
+<div class="toc">
+<div class="tct">이 카드에 담긴 것 — 필요한 곳만 펼쳐 보십시오</div>
+<ol>
+<li><a href="#b0"><b>제출서류 총괄표</b> — 처음부터 끝까지 한 장으로</a></li>
+<li><b>제1부 · 반드시 내는 서류</b>
+  <ol style="padding-left:18px;font-size:14px">
+  <li><a href="#b1">파산 및 면책 신청서 — 한 장으로 두 가지를 신청합니다</a></li>
+  <li><a href="#b2">진술서 — 숫자가 아니라 사람을 보는 서면</a></li>
+  <li><a href="#b3">채권자목록 — 빠뜨리면 그 빚만 남습니다</a></li>
+  <li><a href="#b4">재산목록 — 없다고 적는 것이 아니라 없음을 보이는 것</a></li>
+  <li><a href="#b5">현재의 생활상황 · 수입 및 지출에 관한 목록</a></li>
+  <li><a href="#b6">자료제출목록 — 법원이 정한 소명자료 묶음</a></li>
+  </ol></li>
+<li><b>제2부 · 갈림길</b>
+  <ol style="padding-left:18px;font-size:14px">
+  <li><a href="#b7">동시폐지냐 파산관재인 선임이냐 — 비용이 갈립니다</a></li>
+  <li><a href="#b8">면제재산 — 14일 안에 신청하셔야 합니다</a></li>
+  <li><a href="#b9">면책불허가사유와 재량면책</a></li>
+  </ol></li>
+<li><b>제3부 · 접수 직전</b>
+  <ol style="padding-left:18px;font-size:14px">
+  <li><a href="#b10">비용 — 인지 · 송달료 · 예납금</a></li>
+  <li><a href="#b11">기한 — 4단 분리표</a></li>
+  <li><a href="#b12">돈이 없어 신청조차 못 하실 때</a></li>
+  </ol></li>
+<li><a href="#b13"><b>자주 묻는 질문</b></a></li>
+</ol>
+<span class="allbtn" id="allBtn" role="button" tabindex="0">전체 펼치기</span>
+</div>
+
+<div class="part"><span class="pn">제0부</span><span class="pt2">제출서류 총괄표</span><span class="pw">— 한 번에 떼고, 한 번에 내고, 보정 받지 않기</span></div>
+
+<details class="sec" id="b0" open><summary><span class="qb">0</span><span class="st">제출서류 총괄표<span class="sub">법원이 요구하는 서류 전부를 발급처별로 묶었습니다</span></span></summary>
+<div class="secbody">
+
+<div class="concept"><b>이 표를 왜 맨 앞에 두었는가</b><br><br>
+파산·면책 신청이 늦어지는 가장 큰 원인은 <b><span class="term">보정명령<span class="bub">법원이 "서류가 빠졌으니 언제까지 더 내시오"라고 보내는 명령. 받으면 그 서류를 떼러 다시 관공서를 돌아야 하고, 그동안 절차는 멈춰 있습니다.</span></span></b>입니다. 서류 한 장이 빠지면 보정명령이 나가고, 그 서류를 떼러 다시 주민센터·세무서·은행을 돌고, 그만큼 파산선고가 뒤로 밀립니다. 한 번 더 돌 때마다 보름씩 늦어집니다.<br><br>
+그런데 법원이 요구하는 서류는 <b>이미 정해져 있습니다.</b> 「개인파산 및 면책신청사건의 처리에 관한 예규」가 <b>별지 제7호 「자료제출목록」</b>을 표준으로 정하고(예규 제1조의2 제2항), 서울회생법원 「개인파산관재인 직무편람」이 그 목록을 <b>32개 항목</b>으로 펼쳐 발급처와 발급 조건까지 적어 두었습니다. 아래 표는 그것을 그대로 옮기고, 발급 화면으로 바로 가는 주소를 붙인 것입니다. <span class="srcb goe">A</span><span class="src">「개인파산 및 면책신청사건의 처리에 관한 예규(재민 2005-1)」 재판예규 제1902호(2025. 1. 24. 시행) 제1조의2 / 서울회생법원 「개인파산관재인 직무편람」(제4판, 2024. 7.) 부록 [서식 2] 자료제출목록 · 자료발급방법 상세안내서</span><br><br>
+<b>순서는 이렇습니다.</b> ① 아래 【A】 발급처별 쇼핑 목록으로 서류를 한 번에 떼고 → ② 【B】 법원 양식 7종을 채우고 → ③ 【C】 32개 항목에 하나하나 맞춰 보며 빠진 것을 찾고 → ④ 【D】 돈을 내고 접수합니다. <b>【C】를 먼저 보지 마십시오.</b> 32개를 하나씩 떼러 다니면 관공서를 열 번 가야 합니다. 【A】로 가면 다섯 곳에서 끝납니다.</div>
+
+<h3>【A】 발급처별 쇼핑 목록 — 이 다섯 곳만 돌면 됩니다</h3>
+
+<p>같은 관공서에서 뗄 수 있는 서류를 한 묶음으로 모았습니다. <b>이 종이를 그대로 들고 가서 창구에 보여 주십시오.</b> 괄호 안의 조건을 빼먹으면 다시 떼야 하므로, 조건까지 함께 보여 주시는 것이 안전합니다.</p>
+
+<div class="tblwrap"><table>
+<tr><th style="width:17%">어디서</th><th style="width:40%">무엇을 (조건까지 그대로 말하십시오)</th><th>인터넷으로 뗄 때</th></tr>
+
+<tr><td><b>① 주민센터<br>(또는 시·구·읍·면)</b><br><span style="font-size:13px">신분증 지참</span></td>
+<td>
+<b>ㄱ. 가족관계증명서</b> — <b>"상세"</b>로 (일반 아님)<br>
+<b>ㄴ. 혼인관계증명서</b> — <b>"상세"</b>로. <b>결혼한 적이 없어도 뗍니다</b><br>
+<b>ㄷ. 주민등록표 초본</b> — <b>"과거 주소 변동내역 전체 + 개명 + 주민등록번호 변동사항 포함"</b>으로<br>
+<b>ㄹ. 주민등록표 등본</b><br>
+<b>ㅁ. 지방세 세목별 과세증명</b> — <b>"현재부터 과거 5년, 전국 단위, 모든 세목 포함"</b>으로<br>
+<b>ㅂ. 자동차등록원부</b> — <b>"갑구·을구 모두 포함"</b>으로 (차가 있는 경우)
+</td>
+<td>
+ㄱ·ㄴ → <a href="https://efamily.scourt.go.kr/pt/PtFrrpApplrInfoInqW.do" target="_blank" rel="noopener">전자가족관계등록시스템 증명서 발급</a><br>
+ㄷ·ㄹ → <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000015" target="_blank" rel="noopener">정부24 주민등록표 등본(초본) 발급</a><br>
+ㅁ → <a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000084" target="_blank" rel="noopener">정부24 세목별 과세증명</a><br>
+ㅂ → <a href="https://plus.gov.kr/search/?srhQuery=%EC%9E%90%EB%8F%99%EC%B0%A8%EB%93%B1%EB%A1%9D%EC%9B%90%EB%B6%80" target="_blank" rel="noopener">정부24 자동차등록원부</a>
+</td></tr>
+
+<tr><td><b>② 세무서<br>(또는 홈택스)</b><br><span style="font-size:13px">장사를 한 적이<br>없어도 갑니다</span></td>
+<td>창구에서 <b>「사실증명」 신청서 한 장</b>에 아래 <b>9가지를 모두 체크</b>하고 내면, 공무원이 해당되는 것을 뽑아 줍니다. <b>세금 낸 적이 없어도 발급됩니다.</b><br>
+<div style="margin:8px 0 6px;line-height:2.1">
+☑ 사업자등록증명 &nbsp;·&nbsp; ☑ 휴업사실증명 &nbsp;·&nbsp; ☑ 폐업사실증명 &nbsp;·&nbsp; ☑ 납세증명 및 체납사실증명 &nbsp;·&nbsp; <b>☑ 소득금액증명(최근 3년분)</b> &nbsp;·&nbsp; ☑ 부가가치세과세표준증명 &nbsp;·&nbsp; ☑ 부가가치세면세사업자수입금액증명 &nbsp;·&nbsp; ☑ 표준재무제표증명(개인·법인) &nbsp;·&nbsp; ☑ 종합소득세 확정신고서(최근 2년분)
+</div>
+<span style="color:#9c3a22"><b>※ 이 가운데 「소득금액증명(최근 3년분)」은 개인영업을 한 적이 있든 없든 반드시 내야 합니다.</b></span></td>
+<td><a href="https://hometax.go.kr/" target="_blank" rel="noopener">홈택스</a> → 「국세증명·사업자등록·세금관련 신청/신고」 → 「즉시발급 증명」<br>
+전화 문의: 국번 없이 <b>126</b></td></tr>
+
+<tr><td><b>③ 등기소<br>(또는 인터넷등기소)</b></td>
+<td><b>부동산등기사항전부증명서</b> (옛 등기부등본)<br>
+· 지금 가지고 있는 부동산<br>
+· <b>갚을 수 없게 된 시점의 1년 전부터 신청할 때까지</b> 사이에 <b>부동산이나 한 건에 1,000만원 이상 되는 재산을 처분한 일이 있으면</b> 그 부동산 것도<br>
+· 등기가 안 된 건물이면 <b>토지대장·건축물대장</b>으로 대신합니다(주민센터·정부24)<br>
+<span style="color:#1b5e20">· <b>내 부동산이 아니어도 누구나 뗄 수 있습니다.</b> 남의 이름으로 된 것도 받을 수 있습니다</span></td>
+<td><a href="https://www.iros.go.kr/PMainJ.jsp" target="_blank" rel="noopener">대법원 인터넷등기소</a><br>
+전화 <b>1544-0770</b></td></tr>
+
+<tr><td><b>④ 생명보험협회<br>· 손해보험협회<br>· 각 보험회사</b></td>
+<td><b>ㄱ. 보험가입내역조회</b> — 협회에서 본인 조회로 발급<br>
+<b>ㄴ. 위 조회서에 나온 생명보험의 「해지·실효·유지 및 예상해약환급금 내역」</b> — 각 보험회사에서 발급<br>
+&nbsp;&nbsp;<span style="font-size:13px">(손해·자동차·운전자·여행자·단체·주말휴일상해 보험은 제외)</span><br>
+<span style="color:#9c3a22"><b>※ 두 가지를 반드시 지키십시오.</b> ① 내가 <b>계약자가 아니고 피보험자</b>로만 들어가 있는 보험도 계약자에게 부탁해서 떼야 합니다. ② <b>약관대출(보험계약대출)</b>을 받았다면 <b>그 대출금을 뺀 최종 예상해지환급금</b>이 표시된 것으로 떼야 합니다</span></td>
+<td><a href="https://cont.insure.or.kr/cont_web/" target="_blank" rel="noopener">생명보험협회 내보험 찾아줌</a> 02-2262-6570<br>
+<a href="https://cont.knia.or.kr/main.knia" target="_blank" rel="noopener">손해보험협회 내보험 찾아줌</a> 02-3702-8500<br>
+<span style="font-size:13px">협회 본사에서는 조회가 안 되므로, 지역본부·지부에 먼저 전화하고 가십시오</span></td></tr>
+
+<tr><td><b>⑤ 은행</b><br><span style="font-size:13px">거래했던 금융기관마다</span></td>
+<td><b>과거 1년부터 지금까지의 모든 계좌 거래내역서</b><br>
+· <b>내 이름으로 된 계좌 전부</b> + <b>내가 쓰는 남의 이름 계좌</b>도 포함<br>
+· 공과금·통신료·카드대금·급여이체가 찍힌 통장 사본 또는 거래내역서<br>
+· 가족 이름 통장을 쓰고 있다면 <b>그 명의자가 신분증을 가지고</b> 은행에서 떼야 합니다<br>
+<span style="color:#1b5e20">· 보증금·계약금·급여 부분은 <b>형광펜으로 표시</b>해서 내면 보정이 줄어듭니다</span></td>
+<td>어느 은행에 계좌가 있는지 모르실 때 →<br><a href="https://www.payinfo.or.kr/payinfo.html" target="_blank" rel="noopener">금융결제원 계좌정보통합관리서비스</a>에서 <b>금융기관별 계좌 목록</b>을 먼저 뽑으십시오</td></tr>
+</table></div>
+
+<div class="tip"><span class="pt">💡 다섯 곳 말고, 사정이 있을 때만 가는 곳</span>
+<b>직장</b> — 급여를 받고 계시면 <b>급여증명서(최근 2년분)</b>와 <b>근로소득세 원천징수영수증 사본</b>. &nbsp;<b>국민연금공단·행정복지센터</b> — 연금을 받으시면 <b>연금 수급증명서</b>, 기초생활수급자시면 <b>수급자 증명서</b>. &nbsp;<b>집주인 또는 부동산중개소</b> — 세를 살고 계시면 <b>임대차계약서 사본</b>(내 것이 없으면 집주인이나 중개소 것을 복사). &nbsp;<b>법원</b> — 최근 2년 안에 이혼하셨으면 <b>재판서·조정조서 등본과 확정증명</b>, 미성년 자녀가 있는 협의이혼이면 <b>양육비부담조서</b>. 내 재산이 경매로 팔렸으면 그 법원에서 <b>배당표와 사건별수불내역서</b>.</div>
+
+<h3>【B】 법원에 내는 양식 7종 — 빈 칸을 채우는 서류</h3>
+
+<p>위 【A】가 "증명서"라면, 아래는 <b>내가 직접 써서 내는 서류</b>입니다. 법이 정한 것이고(채무자회생법 제302조, 같은 법 규칙 제72조), 표준 양식이 예규 별지로 정해져 있습니다. <span class="srcb goe">A</span></p>
+
+<div class="tblwrap"><table>
+<tr><th style="width:8%">순서</th><th style="width:30%">서류 이름</th><th style="width:16%">근거</th><th>꼭 알아야 할 것</th></tr>
+<tr><td><b>1</b></td><td><b>파산 및 면책 신청서</b><br><span style="font-size:13px">(예규 별지 제1호)</span></td><td>법 제302조 제1항<br>예규 제1조의2 제1항</td><td><b>이 한 장으로 파산과 면책을 같이 신청합니다.</b> 파산신청을 하면 반대 의사를 밝히지 않는 한 <b>면책신청도 함께 한 것으로 봅니다</b>(법 제556조 제3항). 사건번호는 파산이 <b>「하단」</b>, 면책이 <b>「하면」</b>으로 각각 붙습니다(예규 제2조 제2항)</td></tr>
+<tr><td><b>2</b></td><td><b>진술서</b><br><span style="font-size:13px">(예규 별지 제2호)</span></td><td>규칙 제72조 제1항 1호·제2항</td><td>규칙이 <b>반드시 쓰라고 정한 두 가지</b>가 있습니다. ① 나에 대해 <b>회생절차나 개인회생절차가 법원에 걸려 있으면</b> 그 법원과 사건 표시, ② <b>전에 면책을 받은 적이 있으면</b> 그 사실과 <b>결정 확정일자</b>. 이 두 가지를 빠뜨리면 바로 보정 대상입니다</td></tr>
+<tr><td><b>3</b></td><td><b>채권자목록</b><br><span style="font-size:13px">(예규 별지 제3호)</span></td><td>법 제302조 제2항 1호</td><td>★ <b>면책용 채권자목록을 따로 낼 필요가 없습니다.</b> 파산신청 때 낸 것이 면책신청의 채권자목록이 됩니다(법 제556조 제7항, 예규 제2조 제1항). <b>다만 여기서 빠진 빚은 면책되지 않을 수 있습니다</b>(법 제566조 7호) — 아래 <a href="#b3">채권자목록 항목</a>을 꼭 보십시오</td></tr>
+<tr><td><b>4</b></td><td><b>재산목록</b><br><span style="font-size:13px">(예규 별지 제4호)</span></td><td>법 제302조 제2항 2호</td><td>"없다"고 쓰는 것이 아니라 <b>없음을 보이는</b> 서류입니다. 【A】의 증명서들이 이 목록의 근거가 됩니다</td></tr>
+<tr><td><b>5</b></td><td><b>현재의 생활상황</b><br><span style="font-size:13px">(예규 별지 제5호)</span></td><td>예규 제1조의2 제1항</td><td>누구와 살고, 집은 어떻게 마련했고, 생활비를 어떻게 꾸리는지 적습니다</td></tr>
+<tr><td><b>6</b></td><td><b>수입 및 지출에 관한 목록</b><br><span style="font-size:13px">(예규 별지 제6호)</span></td><td>법 제302조 제2항 3호</td><td><b>여기가 파산과 개인회생의 갈림길입니다.</b> 갚을 수 있는 소득이 적히면 법원은 개인회생으로 가라고 하고, 그래도 파산을 밀면 <b>절차 남용</b>으로 기각될 수 있습니다(법 제309조 제2항)</td></tr>
+<tr><td><b>7</b></td><td><b>자료제출목록</b><br><span style="font-size:13px">(예규 별지 제7호)</span></td><td>예규 제1조의2 제2항</td><td>아래 <b>【C】의 32개 항목이 바로 이 목록</b>입니다. 체크란에 ✔를 하고 <b>번호 순서대로 편철</b>해서 맨 앞에 붙입니다. 못 내는 서류가 있으면 <b>그 이유를 적고 이유를 뒷받침할 자료</b>를 붙이십시오</td></tr>
+</table></div>
+
+<div class="tip"><span class="pt">💡 규칙에 적힌 「호적등본」을 보고 당황하지 마십시오</span>
+「채무자 회생 및 파산에 관한 규칙」 제72조 제1항 1호는 지금도 첨부서류를 <b>"호적등본, 주민등록등본, 진술서, 그 밖의 소명자료"</b>라고 적고 있습니다. 그런데 <b>호적 제도는 2008. 1. 1.에 없어졌습니다.</b> 조문의 문언만 아직 그대로 남아 있는 것입니다.<br><br>
+<b>실제로 내는 것은 「가족관계등록부」에서 뽑는 증명서</b> — 즉 <b>가족관계증명서(상세)</b>와 <b>혼인관계증명서(상세)</b>입니다. 법원과 파산관재인이 쓰는 「자료제출목록」도 이 두 가지를 적고 있습니다. <b>호적등본을 떼러 가실 필요가 없습니다.</b> 떼어 주지도 않습니다. <span class="srcb goe">A</span><span class="src">「채무자 회생 및 파산에 관한 규칙」[대법원규칙, 2024. 5. 30. 시행] 제72조 제1항 1호 — 2026. 11. 22. 국가법령정보센터 조문 확인 / 「개인파산관재인 직무편람」(제4판) 자료제출목록</span></div>
+
+<div class="warn"><span class="wt">⚠ 양식은 반드시 법원이 올려 둔 것으로 받으십시오</span>
+인터넷에 돌아다니는 양식은 개정 전 것이 많습니다. 아래 두 곳이 공식입니다.<br><br>
+· <a href="https://slb.scourt.go.kr/rel/information/min/MinListAction.work" target="_blank" rel="noopener"><b>서울회생법원 민원서식 양식모음</b></a> — 들어가서 <b>「개인파산」</b>을 누르면 개인파산 양식만 나옵니다<br>
+· <a href="https://ecfs.scourt.go.kr/" target="_blank" rel="noopener"><b>대한민국 법원 전자소송</b></a> — 「사건유형별 절차안내 → 개인파산/회생 → 개인파산 및 면책」, 양식은 「공통안내 → 양식 및 작성안내 → 양식모음 → 개인파산」<br><br>
+<span style="font-size:13px">※ 「개인파산관재인 직무편람」(2024)에 적힌 '대법원 양식모음' 주소(scourt.go.kr/nm/minwon/doc/…)는 지금 전자소송 포털로 넘어갑니다. 위 두 곳을 쓰십시오. <span class="srcb own">B</span><span class="src">2026. 11. 22. 직접 접속 확인</span></span></div>
+
+<div class="concept"><b>신청서는 몇 부를 내나</b><br><br>
+법원 제출용 <b>1부</b>와 자신이 보관할 <b>사본 1부</b>를 만드십시오. 파산관재인이 선임되면 선고 뒤에 서류를 또 내야 하는데, <b>파산관재인 사무실에서는 복사를 해 주지 않습니다.</b> 직무편람이 "복사본 1부는 채무자가 보관, 1부는 파산관재인에게 제출"하라고 못 박아 두었습니다. 처음에 두 부를 만들어 두시면 나중에 한 번 덜 움직입니다. <span class="srcb goe">A</span><span class="src">「개인파산관재인 직무편람」(제4판) 부록 [서식 3] 파산관재인 안내문</span><br><br>
+<b>전자소송으로 내면</b> 복사가 필요 없습니다. 게다가 주민등록표 등본처럼 <b>행정기관이 가진 서류는 전자소송 화면에서 바로 끌어다 낼 수 있습니다</b>(「민사소송 등에서의 전자문서 이용 등에 관한 법률」 제8조의2). 인지도 종이로 낼 때보다 쌉니다.</div>
+
+</div></details>
+
+<details class="sec" id="b0c"><summary><span class="qb">0-2</span><span class="st">【C】 32개 항목 점검표<span class="sub">법원이 쓰는 「자료제출목록」 그대로 — 하나씩 ✔ 하십시오</span></span></summary>
+<div class="secbody">
+
+<div class="warn"><span class="wt">⚠ 먼저 — 주민등록번호 표기 때문에 되돌아오는 분이 가장 많습니다</span>
+<b>가족관계증명서·혼인관계증명서·주민등록등본</b>은 이렇게 떼야 합니다.<br><br>
+· <b>나 말고 다른 사람(배우자·자녀·부모)의 주민등록번호 뒷자리는 표기되지 않은 것</b>으로<br>
+· <b>다만 신청인 본인의 주민등록번호는 전체가 나와야 합니다</b><br><br>
+발급 화면에서 "주민등록번호 공개 여부"를 고르는 칸이 있습니다. <b>본인은 공개, 나머지는 비공개</b>로 맞추십시오. 한쪽만 틀려도 다시 떼야 합니다. <span class="srcb goe">A</span><span class="src">「개인파산관재인 직무편람」(제4판, 2024. 7.) 부록 [서식 2] 자료제출목록 유의사항</span></div>
+
+<p>아래 번호는 <b>법원·파산관재인이 쓰는 「자료제출목록」의 번호와 같습니다.</b> 이 순서대로 편철해서 내시면 됩니다. 「조건」 칸을 빼먹으면 서류가 있어도 보정이 나갑니다.</p>
+
+<h3>1. 인적 사항 및 주거 관련 서류 &nbsp;<span style="font-size:14px;font-weight:400">— 누구나 냅니다</span></h3>
+<div class="tblwrap"><table>
+<tr><th style="width:6%">번호</th><th style="width:32%">서류 이름 (이대로 말하십시오)</th><th style="width:30%">반드시 붙여야 하는 조건</th><th>어디서</th></tr>
+<tr><td><b>1</b></td><td>채무자의 <b>가족관계증명서</b></td><td><b>상세</b>로 발급</td><td rowspan="4"><a href="https://efamily.scourt.go.kr/pt/PtFrrpApplrInfoInqW.do" target="_blank" rel="noopener">전자가족관계등록시스템</a><br>(1·2번)<br><br><a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000015" target="_blank" rel="noopener">정부24</a><br>(3·4번)<br><br>주민센터·시·구·읍·면<br>무인발급기</td></tr>
+<tr><td><b>2</b></td><td>채무자의 <b>혼인관계증명서</b></td><td><b>상세</b>로 발급. <b>결혼한 적이 없어도 뗍니다</b></td></tr>
+<tr><td><b>3</b></td><td>채무자의 <b>주민등록표 초본</b></td><td><b>과거 주소 전체의 변동내역 + 개명 + 주민등록번호 변동사항</b>이 모두 포함된 것</td></tr>
+<tr><td><b>4</b></td><td>채무자의 <b>주민등록표 등본</b></td><td>—</td></tr>
+</table></div>
+
+<h3>2. 과세증명서 &nbsp;<span style="font-size:14px;font-weight:400">— 누구나 냅니다</span></h3>
+<div class="tblwrap"><table>
+<tr><th style="width:6%">번호</th><th style="width:32%">서류 이름</th><th style="width:30%">반드시 붙여야 하는 조건</th><th>어디서</th></tr>
+<tr><td><b>5</b></td><td>채무자에 대한 <b>지방세 세목별 과세증명서</b></td><td><b>현재부터 과거 5년</b> · <b>전국 단위</b> · <b>모든 세목이 포함되도록 표시</b>하여 발급<br><br><span style="color:#9c3a22"><b>★ 가장 많이 틀리는 곳</b> — 과거 5년 사이에 주민등록지가 <b>광역시·도·시·군·구(지방자치단체인 구) 단위로 바뀐 적이 있으면, 그 단위 이상의 주민등록지 전부에 대해 각각 떼야 합니다.</b> 서울에서 경기도로 이사했다면 서울 것과 경기도 것을 둘 다 떼야 합니다</span><br><br><span style="font-size:13px">세목: 부동산·차량·회원권 취득세, 면허세, 주민세, 건축물 재산세, 자동차세, 농지세, 종합토지세, 도시계획세 등이 전부 표시되도록</span></td><td><a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000084" target="_blank" rel="noopener">정부24 세목별 과세증명</a><br><br>주민센터·시·구·읍·면<br><span style="font-size:13px">지방의 관할 구청에 직접 가지 않아도 발급됩니다</span></td></tr>
+</table></div>
+
+<h3>3. 자동차 &nbsp;<span style="font-size:14px;font-weight:400">— 차가 없으면 「해당사항 없음」에 ✔</span></h3>
+<div class="tblwrap"><table>
+<tr><th style="width:6%">번호</th><th style="width:32%">서류 이름</th><th style="width:30%">반드시 붙여야 하는 조건</th><th>어디서</th></tr>
+<tr><td><b>6</b></td><td>채무자 소유 자동차에 관한 <b>자동차등록원부</b></td><td><b>갑구·을구가 모두 포함된 것</b>. <b>차량 소유자가 아니어도 누구나 뗄 수 있습니다</b></td><td><a href="https://plus.gov.kr/search/?srhQuery=%EC%9E%90%EB%8F%99%EC%B0%A8%EB%93%B1%EB%A1%9D%EC%9B%90%EB%B6%80" target="_blank" rel="noopener">정부24</a> · 주민센터</td></tr>
+<tr><td><b>7</b></td><td>채무자 소유 자동차 <b>시가 확인자료</b></td><td>객관적인 자료여야 합니다. <b>①</b> 보험개발원 <b>차량기준가액표</b>, 또는 <b>②</b> 중고차 시세 제공업체 <b>2곳 이상</b>의 차종·연식별 <b>일반 시세표</b><br><span style="color:#9c3a22">· <b>개별 매물의 판매가격은 안 됩니다.</b> 시세 검색 결과에 견적 금액이 표시되도록 출력하십시오</span></td><td>보험개발원<br>중고차 시세 사이트 2곳</td></tr>
+</table></div>
+
+<h3>4. 부동산 · 임대차 &nbsp;<span style="font-size:14px;font-weight:400">— 해당 없으면 「해당사항 없음」에 ✔</span></h3>
+<div class="tblwrap"><table>
+<tr><th style="width:6%">번호</th><th style="width:32%">서류 이름</th><th style="width:30%">반드시 붙여야 하는 조건</th><th>어디서</th></tr>
+<tr><td><b>8</b></td><td>채무자 소유 부동산에 관한 <b>부동산등기사항전부증명서</b></td><td>등기가 안 된 건물이면 <b>토지대장·건축물대장</b>으로 대신합니다</td><td><a href="https://www.iros.go.kr/PMainJ.jsp" target="_blank" rel="noopener">인터넷등기소</a> · 등기소<br><span style="font-size:13px">대장은 주민센터·정부24</span></td></tr>
+<tr><td><b>9</b></td><td><b>임대차계약서 사본</b> 등 <b>임차보증금 중 반환예상액을 알 수 있는 자료</b></td><td>지금 사는 집의 계약서. <b>내게 계약서가 없으면 집주인이 가진 것이나 부동산중개소가 보관한 것을 복사해서</b> 내십시오<br><span style="font-size:13px">집주인이 협조하지 않으면 목록의 「협조거부」에 ✔하고 사정을 적으십시오</span></td><td>본인 보관분 · 임대인 · 부동산중개소</td></tr>
+</table></div>
+
+<h3>5. 재산 처분 &nbsp;<span style="font-size:14px;font-weight:400">— 아래 조건에 걸릴 때만</span></h3>
+<div class="concept"><b>언제부터 언제까지의 처분을 적는가</b> — <b>갚을 수 없게 된 시점(지급불능 시점)의 1년 전부터 신청할 때까지</b> 사이에 <b>부동산</b>을 처분했거나, <b>한 건의 가액이 1,000만원 이상인 재산</b>을 처분한 경우입니다. 그런 일이 없으면 「해당사항 없음」에 ✔하면 됩니다.<br><br>
+<b>왜 묻는가</b> — 이 기간의 처분은 <b><span class="term">부인권<span class="bub">파산관재인이 "그 처분은 채권자들에게 손해를 주었으니 없던 일로 돌리겠다"고 법원에 청구하는 권한. 되돌려진 재산은 다시 파산재단에 들어가 채권자들에게 배당됩니다.</span></span></b> 대상이 되는지, 그리고 <b>면책불허가사유</b>(재산을 숨기거나 헐값에 팔았는지)에 해당하는지를 보는 자리입니다. 숨기면 면책이 안 나오고 형사처벌까지 갈 수 있으니 <b>있는 대로 적으십시오.</b> 적어 놓고 사정을 설명하는 쪽이 훨씬 안전합니다.</div>
+<div class="tblwrap"><table>
+<tr><th style="width:6%">번호</th><th style="width:32%">서류 이름</th><th style="width:30%">반드시 붙여야 하는 조건</th><th>어디서</th></tr>
+<tr><td><b>10</b></td><td>처분 시기와 대가를 확인할 수 있는 <b>부동산등기사항전부증명서</b></td><td><b>경매로 넘어간 경우</b>에는 <b>배당표 사본</b>과 <b>사건별수불내역서</b> 등 소명자료<br><span style="color:#9c3a22">· 경매가 <b>지금 진행 중이면 반드시 파산관재인에게 알려야 합니다</b></span></td><td>인터넷등기소<br>해당 법원(배당표·수불내역서)</td></tr>
+<tr><td><b>11</b></td><td><b>계약서 사본</b></td><td>처분 상대방·금액·날짜가 보이도록</td><td>본인 보관분</td></tr>
+<tr><td><b>12</b></td><td><b>영수증 사본</b></td><td>받은 돈이 어디로 갔는지까지 설명하실 준비를 하십시오</td><td>본인 보관분</td></tr>
+</table></div>
+
+<h3>6. 보험 &nbsp;<span style="font-size:14px;font-weight:400">— 누구나 냅니다</span></h3>
+<div class="tblwrap"><table>
+<tr><th style="width:6%">번호</th><th style="width:32%">서류 이름</th><th style="width:30%">반드시 붙여야 하는 조건</th><th>어디서</th></tr>
+<tr><td><b>13</b></td><td>채무자의 <b>보험가입내역조회</b></td><td>본인 조회로 발급. <b>해약한 보험도 나오게</b> 떼십시오</td><td><a href="https://cont.insure.or.kr/cont_web/" target="_blank" rel="noopener">생명보험협회 내보험 찾아줌</a><br>02-2262-6570<br><a href="https://cont.knia.or.kr/main.knia" target="_blank" rel="noopener">손해보험협회</a> 02-3702-8500<br><span style="font-size:13px">본사는 조회가 안 되므로 지역본부·지부로</span></td></tr>
+<tr><td><b>14</b></td><td>위 조회서에 나온 <b>생명보험의 해지·실효·유지 및 예상해약환급금 내역</b></td><td><b>①</b> 손해·자동차·운전자·여행자·단체·주말휴일상해 보험은 <b>제외</b><br><b>②</b> 내가 <b>계약자가 아니고 피보험자</b>로만 들어가 있어 유지 중인 보험도 <b>계약자에게 부탁해 떼야 합니다</b><br><b>③ 약관대출(보험계약대출)을 받았다면 반드시 약관대출금 내역이 포함된 것</b>으로 — 대출금을 뺀 <b>최종 예상해지환급금</b>이 표시되어야 합니다<br><b>④</b> 이미 해약했으면 <b>영수증 또는 해지증명서</b><br><span style="color:#9c3a22"><b>※ 「보험가입증명서」는 해당되지 않습니다.</b> 환급금이 적힌 서류여야 합니다</span></td><td>각 보험회사<br><span style="font-size:13px">(예: 교보생명, 삼성생명 등 회사별로 개별 발급)</span></td></tr>
+</table></div>
+
+<h3>7. 근로 · 영업 · 기타 소득 &nbsp;<span style="font-size:14px;font-weight:400">— 18번은 누구나, 나머지는 해당될 때</span></h3>
+<div class="tip"><span class="pt">💡 15번부터 23번까지는 세무서 한 번으로 끝납니다</span>
+창구에서 <b>「사실증명」 신청서 한 장</b>을 받아 아래 <b>9항목을 모두 체크</b>해서 내면, 공무원이 해당되는 것만 뽑아 교부해 줍니다. <b>세금을 낸 사실이 없어도 발급되는 서류가 있습니다.</b> 장사를 한 적이 없는 분도 <b>18번 소득금액증명은 반드시</b> 내야 하므로 세무서(또는 <a href="https://hometax.go.kr/" target="_blank" rel="noopener">홈택스</a>)에 한 번은 들러야 합니다. 전화 문의는 국번 없이 <b>126</b>.</div>
+<div class="tblwrap"><table>
+<tr><th style="width:6%">번호</th><th style="width:40%">서류 이름 (세무서 사실증명 체크 항목)</th><th>조건 · 주의</th></tr>
+<tr><td><b>15</b></td><td>① <b>사업자등록증명</b></td><td rowspan="9">개인영업을 한 적이 있으면 15~23번을 묶음으로 냅니다<br><br><span style="color:#9c3a22"><b>★ 18번 소득금액증명(최근 3년분)은 개인영업 여부와 상관없이 필수입니다</b></span><br><br>발급: 15·21번은 정부24에서도, 16~20·22·23번은 세무서 또는 홈택스</td></tr>
+<tr><td><b>16</b></td><td>② <b>휴업사실증명</b></td></tr>
+<tr><td><b>17</b></td><td>③ <b>납세증명 및 체납사실증명</b></td></tr>
+<tr><td><b>18</b></td><td>④ <b>소득금액증명(최근 3년분)</b> &nbsp;<span style="color:#9c3a22"><b>※ 필수 제출 ※</b></span></td></tr>
+<tr><td><b>19</b></td><td>⑤ <b>부가가치세과세표준증명</b></td></tr>
+<tr><td><b>20</b></td><td>⑥ <b>부가가치세면세사업자수입금액증명</b></td></tr>
+<tr><td><b>21</b></td><td>⑦ <b>표준재무제표증명(개인, 법인)</b></td></tr>
+<tr><td><b>22</b></td><td>⑧ <b>폐업증명서</b></td></tr>
+<tr><td><b>23</b></td><td>⑨ <b>종합소득세 확정신고서(최근 2년분)</b></td></tr>
+<tr><td><b>24</b></td><td><b>급여증명서(최근 2년분)</b>와 <b>근로소득세 원천징수영수증 사본</b></td><td>급여 소득이 있는 경우. 원천징수영수증은 <b>회사(사용자)</b>에서 받습니다</td></tr>
+<tr><td><b>25</b></td><td>연금을 받는 경우 <b>연금 수급증명서</b></td><td><b>국민연금공단</b></td></tr>
+<tr><td><b>26</b></td><td>기초생활수급자인 경우 <b>수급자 증명서</b></td><td><b>읍·면·동 행정복지센터</b> 또는 복지포털</td></tr>
+<tr><td><b>27</b></td><td><b>그 밖에 수입원을 나타내는 자료</b></td><td>일용·프리랜서·가족의 도움 등 생활비가 들어오는 길이 있으면 그것을 보이는 자료</td></tr>
+</table></div>
+
+<h3>8. 계좌 &nbsp;<span style="font-size:14px;font-weight:400">— 누구나 냅니다</span></h3>
+<div class="tblwrap"><table>
+<tr><th style="width:6%">번호</th><th style="width:32%">서류 이름</th><th style="width:30%">반드시 붙여야 하는 조건</th><th>어디서</th></tr>
+<tr><td><b>28</b></td><td><b>과거 1년부터 현재까지</b>의 <b>채무자 명의(채무자가 사용하는 타인 명의 포함) 모든 은행계좌 거래내역서</b><br><span style="font-size:13px">또는 금융결제원 계좌정보통합관리서비스에서 발급받은 은행별(금융기관별) 계좌 내역·계좌 상세내역서</span></td><td><b>①</b> 공과금·통신료·카드대금·급여이체와 관련된 거래 금융기관에 <b>신분증을 가지고</b> 방문<br><b>②</b> <b>가족 이름 통장을 쓰고 있다면 그 명의자가 신분증을 가지고</b> 은행에서 떼야 합니다<br><b>③</b> 보증금·계약금·급여 항목은 <b>형광펜으로 표시</b>해서 제출<br><span style="color:#9c3a22">· 계좌가 어디에 있는지 모르실 때는 먼저 계좌정보통합관리서비스로 <b>전 금융기관 계좌 목록</b>을 뽑으십시오</span></td><td>각 은행<br><a href="https://www.payinfo.or.kr/payinfo.html" target="_blank" rel="noopener">계좌정보통합관리서비스</a></td></tr>
+</table></div>
+
+<h3>9. 이혼 &nbsp;<span style="font-size:14px;font-weight:400">— 최근 2년 안에 이혼하셨을 때만</span></h3>
+<div class="concept"><b>최근 2년 안에 이혼에 따라 재산을 나눠 준 일이 있으면, 「재산분할」이든 「위자료」든 <u>이름에 관계없이</u> 자료를 내야 합니다.</b> 빚이 많은 상태에서 배우자에게 재산을 넘긴 것은 부인권 대상이 될 수 있고, 재산을 숨긴 것으로 보이면 면책이 불허가될 수 있습니다. 숨기지 말고 적은 뒤 <b>왜 그렇게 했는지</b>를 설명하십시오.</div>
+<div class="tblwrap"><table>
+<tr><th style="width:6%">번호</th><th style="width:32%">서류 이름</th><th style="width:30%">반드시 붙여야 하는 조건</th><th>어디서</th></tr>
+<tr><td><b>29</b></td><td>① <b>이혼에 따라 배우자에게 나눠 준 모든 재산의 내역</b></td><td>명목과 관계없이 전부</td><td>본인 작성 + 근거자료</td></tr>
+<tr><td><b>30</b></td><td>② <b>양육비부담조서</b></td><td>협의이혼이고 <b>미성년 자녀가 있는</b> 경우</td><td>관할 가정법원·지방법원</td></tr>
+<tr><td><b>31</b></td><td>③ <b>판결서·조정조서 등 재판서 및 확정증명</b></td><td><b>재판상 이혼</b>인 경우. 법원 민원실에서 <b>등본 교부신청서</b>를 내고 받습니다<br><span style="font-size:13px">· 가족관계등록부에 이혼이 이미 기록되어 있으면 <b>혼인관계증명서(상세)</b>로 갈음됩니다<br>· 재판은 끝났지만 아직 이혼신고를 안 했으면 <b>재판서 등본 + 확정증명</b><br>· 외국에서 이혼하고 아직 신고를 안 했으면 <b>그 나라 증서의 등본</b></span></td><td>관할 법원 민원실<br><span style="font-size:13px">방문 전에 신청서 첨부서류를 전화로 확인하십시오</span></td></tr>
+</table></div>
+
+<h3>10. 신용회복위원회 · 한국자산관리공사 등 유관기관 &nbsp;<span style="font-size:14px;font-weight:400">— 사적 채무조정을 해 보셨을 때</span></h3>
+<div class="tblwrap"><table>
+<tr><th style="width:6%">번호</th><th style="width:32%">서류 이름</th><th>조건 · 그리고 이것이 주는 이익</th></tr>
+<tr><td><b>32</b></td><td>신용회복위원회·한국자산관리공사 등 <b>법원 밖의 기관을 통해 채무조정을 시도한 적이 있으면 그와 관련된 자료</b><br><span style="font-size:13px">예: 신용회복위원회가 발급하는 민원 열람서류, 신용상담보고서</span></td><td>★ <b>여기에 이익이 숨어 있습니다.</b> 그 기관에서 받은 자료가 위 1~9번 서류와 겹치면, <b>법원이 겹치는 서류의 제출을 면제할 수 있습니다</b>(예규 제1조의2 제5항). 「자료제출목록」 맨 오른쪽 <b>「10번 제출」 칸에 ✔</b>를 하면 됩니다.<br><br>채무조정을 해 보신 분은 <b>먼저 그 기관에서 자료를 받아 오십시오.</b> 떼야 할 서류가 줄어듭니다. 신용회복위원회 <b>1600-5500</b> <span class="srcb goe">A</span></td></tr>
+</table></div>
+
+<div class="tip"><span class="pt">💡 못 내는 서류가 있을 때 — 비워 두지 말고 「이유」를 쓰십시오</span>
+「자료제출목록」에는 항목마다 <b>「제출 못하거나 일부만 제출한 이유(채무자)」</b> 칸이 있습니다. 집주인이 계약서를 안 보여 주거나, 오래되어 거래내역이 남아 있지 않은 경우가 실제로 있습니다. 그럴 때는<br><br>
+① <b>해당 서류의 이름을 적고</b> → ② <b>제출 여부 칸에 표시하고</b> → ③ <b>못 내는 이유를 자세히 쓰고</b> → ④ <b>그 설명을 뒷받침할 자료를 붙입니다.</b><br><br>
+<b>빈칸으로 두면 "불성실"로 읽힙니다.</b> 이유를 쓴 쪽은 그냥 넘어가는 경우가 많습니다. 법원도 필요하면 일부 자료를 내지 않아도 된다고 할 수 있습니다(예규 제1조의2 제2항 단서). <span class="srcb goe">A</span></div>
+
+</div></details>
+
+<details class="sec" id="b0d"><summary><span class="qb">0-3</span><span class="st">【D】 돈 · 편철 · 선고 뒤 7일<span class="sub">접수 직전에 확인하는 것과, 선고 뒤에 한 번 더 내는 것</span></span></summary>
+<div class="secbody">
+
+<h3>【D-1】 접수할 때 내는 돈</h3>
+
+<div class="cost">
+<div class="tblwrap"><table>
+<tr><th style="width:20%">무엇</th><th style="width:34%">얼마</th><th>근거 · 주의</th></tr>
+<tr><td><b>인지</b><br><span style="font-size:13px">(수입인지)</span></td>
+<td><b>종이로 낼 때 2,000원</b><br><span style="font-size:13px">(파산 1,000원 + 면책 1,000원)</span><br><br>
+<b>전자소송으로 낼 때 1,800원</b><br><span style="font-size:13px">(10분의 9)</span><br><br>
+<span style="font-size:13px">채권자가 남의 파산을 신청하는 경우에는 <b>30,000원</b></span></td>
+<td><b>채무자가 신청하는 경우 2,000원(파산 1,000원, 면책 1,000원)</b>입니다. 근거는 「민사접수서류에 붙일 인지액 및 그 편철방법 등에 관한 예규」의 <b>별표</b>입니다. <span class="srcb goe">A</span><span class="src">법제처 「찾기쉬운 생활법령정보」 개인파산ㆍ면책절차 &gt; 신청서 제출 &gt; 신청비용 등 / 「민사접수서류에 붙일 인지액 및 그 편철방법 등에 관한 예규(재민 91-1)」[재판예규 제1916호, 2025. 7. 12. 시행] 별표</span><br>
+<b>전자소송으로 내면 10분의 9</b>입니다. 「민사소송 등 인지법」 <b>제16조</b>가 전자문서로 제출하는 소장에 제2조 인지액의 10분의 9를 붙이도록 하고(제1항), <b>그 규정을 제3조부터 제10조까지 준용</b>한다고 정했기 때문입니다(제2항). 파산·면책 신청서의 인지는 제9조에 따른 것이므로 여기에 해당합니다. <span class="srcb goe">A</span><span class="src">「민사소송 등 인지법」 제16조</span><br>
+<b>채권자가 하는 파산신청이 30,000원</b>인 것은 같은 법 제9조 제1항 1호에 적혀 있습니다. <span class="srcb goe">A</span></td></tr>
+<tr><td><b>송달료</b></td>
+<td><b>1회분 5,640원</b> 기준<br><br>
+<b>파산</b> = (10 + <b>채권자수 × 4</b>) × 5,640원<br>
+<b>면책</b> = (10 + <b>채권자수 × 3</b>) × 5,640원<br><br>
+<span style="font-size:13px">채권자가 5명이면<br>파산 (10+20)×5,640 = <b>169,200원</b><br>면책 (10+15)×5,640 = <b>141,000원</b><br>합계 <b>310,200원</b></span></td>
+<td>회차는 「송달료규칙의 시행에 따른 업무처리요령(재일 87-4)」[재판예규 제1950호, 2026. 3. 1. 시행] <b>별표 1 「적용대상사건 및 당사자 1인당 송달료납부기준」</b>이 정합니다. <b>파산단독사건은 10회 + (채권자수 × 4회)</b>, <b>면책사건은 10회 + (채권자수 × 3회)</b>입니다. <span class="srcb goe">A</span><span class="src">법제처 「찾기쉬운 생활법령정보」 개인파산ㆍ면책절차 &gt; 신청서 제출 &gt; 신청비용 등 / 「송달료규칙의 시행에 따른 업무처리요령(재일 87-4)」 별표 1</span><br>
+<b>1회분 단가는 우편요금에 연동됩니다. 2026. 7. 1. 인상분이 반영된 5,640원으로 계산하십시오.</b></td></tr>
+<tr><td><b>예납금</b><br><span style="font-size:13px">파산관재인<br>선임 비용</span></td>
+<td><b>400,000원</b>이 원칙<br><br>
+<b>유관기관을 거쳐 온 사건</b>은 <b>300,000원</b><br><br>
+<span style="font-size:13px">동시폐지되는 사건은 내지 않습니다</span></td>
+<td>법은 "법원이 상당하다고 인정하는 금액"을 미리 내도록 하고(법 제303조), 예규가 상한을 <b>500만원</b>으로 정했습니다(예규 제2조의4). 그 안에서 서울회생법원 실무준칙 <b>제361호 제2조 제1항</b>이 "40만 원으로 한다. 다만, 유관기관 경유 사건 전담재판부의 예납금은 30만 원으로 한다"고 정합니다. <span class="srcb goe">A</span><span class="src">채무자회생법 제303조 / 예규 제2조의4 / 서울회생법원 실무준칙(2026. 11.) 제361호</span><br>
+<b>법원이 정한 기한에 내지 않으면 파산신청도(법 제309조 제1항 1호), 면책신청도(법 제559조 제1항 3호) 기각됩니다.</b> 이것만큼은 기한을 지키십시오</td></tr>
+</table></div>
+<div style="margin-top:10px"><b>채권자 5명, 파산관재인이 선임되는 보통의 사건이면</b> — 인지 2,000원 + 송달료 310,200원 + 예납금 400,000원 = <b>712,200원</b>이 법원에 내는 돈입니다. 전자소송으로 내면 인지가 1,800원이 되어 <b>712,000원</b>, 유관기관을 거쳐 오면 예납금이 10만원 줄어 <b>612,000원</b>이 됩니다.<br><br>
+<b>공고비용은 따로 들지 않습니다.</b> 개인파산·면책사건의 공고는 <b>법원 홈페이지 법원공고란에 게시하는 방법</b>으로 하기 때문입니다(예규 제7조 제2항). 신문에 내는 비용을 걱정하지 않으셔도 됩니다. <span class="srcb goe">A</span></div>
+</div>
+
+<div class="calc">🧮 <b>내 사건의 금액은 채권자 수에 따라 달라집니다.</b> 채권자 수를 넣으면 송달료와 합계가 바로 나옵니다 →
+<a href="https://sanlaw.co.kr/tools-calculator.html#s=%EA%B0%9C%EC%9D%B8%ED%8C%8C%EC%82%B0%C2%B7%EB%A9%B4%EC%B1%85" target="_blank" rel="noopener"><b>비용 계산기 — 개인파산·면책</b></a><br>
+<span style="color:#c0392b"><b>※ 송달료 1회분 단가는 우편요금이 오르면 함께 오릅니다. 계산기에는 2026. 7. 1. 인상분(5,640원)이 반영되어 있습니다.</b></span></div>
+
+<div class="tip"><span class="pt">💡 예납금 40만원을 줄일 수 있는 길이 둘 있습니다</span>
+<b>첫째, 「유관기관 경유 사건」이면 30만원입니다.</b> 준칙은 <b>"유관기관 경유 사건 전담재판부의 예납금은 30만 원으로 한다"</b>고만 정해 두었습니다(준칙 제361호 제2조 제1항 단서). <b>어느 기관을 거친 사건이 여기에 들어가는지는 법원이 정합니다.</b> 서울회생법원이 「파산·면책신청에 도움을 주는 기관」으로 안내하는 곳은 <b>서울금융복지상담센터</b>(1644-0120), <b>대한법률구조공단</b>(국번 없이 132), <b>신용회복위원회</b>(1600-5500), <b>서울지방변호사회 개인파산회생지원변호사단</b>(02-6200-6229)입니다. <b>상담을 받으실 때 "이 기관을 거치면 유관기관 경유 사건으로 접수되느냐"고 꼭 물어보십시오.</b> 10만원이 걸린 질문입니다. <span class="srcb goe">A</span><span class="src">서울회생법원 「개인파산·면책 제도 안내」 / 실무준칙(2026. 11.) 제361호</span><br><br>
+<b>둘째, 감액 사유가 2개 이상이면 감액될 수 있습니다</b>(준칙 제361호 제4조). ① 생계급여 수급자인 경우 ② 갚을 수 없게 된 시기가 파산신청일로부터 10년 이전인 경우 ③ 본인이나 부양하는 직계존비속에게 의료비가 계속 들어가야 하는 불가피한 사정이 인정되는 경우 ④ 질병이 있거나 재산·수입이 전혀 없어 예납금을 내기 어려운 특별한 사정이 인정되는 경우. <b>해당되는 사정이 있으면 신청서에 적고 자료를 붙이십시오. 가만히 있으면 깎아 주지 않습니다.</b> <span class="srcb goe">A</span><br><br>
+<span style="color:#9c3a22">반대로 <b>늘어나는</b> 경우도 있습니다 — 빚이 많거나, 채권자가 많거나, 신청 직전에 재산이 움직였거나, 되돌릴 대상(부인권) 행위가 보이거나, 관련 소송이 있으면 <b>최대 500만원까지</b> 올라갈 수 있습니다(준칙 제361호 제3조, 예규 제2조의4).</span></div>
+
+<h3>【D-2】 편철 — 묶는 방법 때문에 반송되지 않도록</h3>
+
+<div class="concept"><b>이 네 가지만 지키십시오.</b> 파산관재인 사무실이 실제로 당부하는 내용입니다. <span class="srcb goe">A</span><span class="src">「개인파산관재인 직무편람」(제4판, 2024. 7.) 부록 [서식 3] 파산관재인 안내문</span><br><br>
+<b>① 「자료제출목록」을 맨 앞에 둡니다.</b> 체크란에 ✔를 하고, <b>그 번호 순서대로</b> 뒤에 서류를 붙입니다. 순서가 뒤섞이면 확인이 늦어집니다.<br>
+<b>② 스테이플러(호치키스)를 모두 빼십시오.</b> 집게로 묶거나 클립을 쓰십시오.<br>
+<b>③ 복사본을 한 부 더 만들어 본인이 보관하십시오.</b> 파산관재인 사무실에서는 복사본을 만들어 주지 않습니다.<br>
+<b>④ 한 번 낸 서류는 돌려받지 못합니다.</b> 매매계약서처럼 <b>다시 발급받을 수 없는 원본</b>을 냈다면, 사건이 끝난 뒤 <b>7일 안에</b> 직접 찾아가셔야 합니다. 그 뒤에는 폐기됩니다. <b>원본은 되도록 사본으로 내시고 원본은 보관하십시오.</b></div>
+
+<h3>【D-3】 파산선고 뒤에 한 번 더 — 선고일부터 7일</h3>
+
+<div class="warn"><span class="wt">⚠ 여기서 끝이 아닙니다. 선고 당일에 서류를 또 받습니다</span>
+파산관재인이 선임되면, <b>파산선고 당일 법원에서</b> 파산선고 결정문과 함께 <b>「자료제출 안내문」</b>과 <b>「자료제출목록」 양식</b>을 받습니다. 그리고<br><br>
+· <b>받은 날부터 7일 안에</b> 빠진 서류를 <b>파산관재인 사무실</b>로 내야 합니다<br>
+· 처음 신청할 때 낸 서류 가운데 <b>기간이 지나 범위가 안 맞는 것(과거 5년, 과거 3년 등)은 새로 떼서</b> 내야 합니다<br>
+· 선고 당일 법원에서 하는 <b>신용교육</b>을 받고, <b>수료증을 서류 맨 앞에 붙여</b> 냅니다<br>
+· 파산관재인과 <b>면담</b>을 합니다. 보통 <b>선고일부터 2주~1달 사이</b>에 잡히고, 최소 한 번은 만납니다. 면담 뒤에 추가로 요구받는 서류가 생길 수 있습니다<br><br>
+<b>그러니 처음에 【A】~【C】를 빈틈없이 내 두시면, 선고 뒤에 할 일이 거의 없습니다.</b> 이것이 이 총괄표를 드리는 이유입니다. <span class="srcb goe">A</span><span class="src">「개인파산관재인 직무편람」(제4판) 부록 [서식 2] 자료제출 안내문 · [서식 3] 파산관재인 안내문</span></div>
+
+<div class="tip"><span class="pt">💡 파산관재인이 「목록에 없는 서류」를 요구할 때 — 이유를 들을 권리가 있습니다</span>
+파산관재인이 예규 <b>별지 제1호부터 제7호 외의 자료</b>를 요구할 때에는, <b>이 사건의 어떤 정황에 기초하여 요구하는 것인지 채무자에게 알려야 하고, 그렇게 고지하고 요구했다는 사실을 법원에 사후 보고해야 합니다.</b> 서울회생법원 실무준칙 제374호가 그렇게 정하고 있습니다. <span class="srcb goe">A</span><span class="src">서울회생법원 실무준칙(2026. 11.) 제374호 제2조</span><br><br>
+끝없이 서류를 요구받는다고 느껴지실 때, <b>"어떤 사정 때문에 필요한 서류인지 알려 주십시오"</b>라고 정중히 여쭤 보셔도 됩니다. 무례한 요구가 아니고, 준칙이 보장한 것입니다.<br><br>
+다만 <b>파산관재인의 요청에 설명할 의무는 법에 있습니다</b>(법 제321조). 정당한 이유 없이 설명하지 않거나 거짓으로 설명하면 <b>1년 이하의 징역 또는 1천만원 이하의 벌금</b>에 처해질 수 있고(법 제658조), <b>면책도 불허가될 수 있습니다</b>(법 제564조 제1항 1호). 숨기는 것이 가장 위험합니다. <b>불리한 사실도 적고 사정을 설명하는 쪽이 면책에 가깝습니다.</b></div>
+
+<h3>【D-4】 접수 전 마지막 점검 — 여기서 걸리는 분이 대부분입니다</h3>
+
+<div class="tblwrap"><table>
+<tr><th style="width:5%">✔</th><th style="width:40%">확인할 것</th><th>틀리면 생기는 일</th></tr>
+<tr><td style="text-align:center"><b>□</b></td><td>가족관계·혼인관계증명서를 <b>「상세」</b>로 뗐는가</td><td>「일반」으로 뗐으면 다시 떼야 합니다</td></tr>
+<tr><td style="text-align:center"><b>□</b></td><td><b>본인 주민등록번호는 전체 표기</b>, <b>제3자는 뒷자리 비표기</b>로 맞췄는가</td><td>한쪽만 틀려도 보정. 가장 흔한 사유입니다</td></tr>
+<tr><td style="text-align:center"><b>□</b></td><td>주민등록표 초본에 <b>과거 주소 전체 + 개명 + 주민등록번호 변동</b>이 모두 들어갔는가</td><td>주소 변동이 빠지면 과세증명 범위도 틀려집니다</td></tr>
+<tr><td style="text-align:center"><b>□</b></td><td>세목별 과세증명이 <b>과거 5년 · 전국 단위 · 전 세목</b>인가. <b>그 사이 이사한 광역시·도의 것도 각각</b> 뗐는가</td><td>이사 이력이 있는데 한 곳만 뗀 경우가 매우 많습니다</td></tr>
+<tr><td style="text-align:center"><b>□</b></td><td><b>소득금액증명(최근 3년분)</b>을 넣었는가 — 장사를 한 적이 없어도 필수</td><td>장사 안 했다고 빼놓으면 바로 보정</td></tr>
+<tr><td style="text-align:center"><b>□</b></td><td>보험 서류에 <b>약관대출금을 뺀 최종 예상해지환급금</b>이 표시되어 있는가</td><td>대출 전 금액이면 재산이 과대평가되어 불리합니다</td></tr>
+<tr><td style="text-align:center"><b>□</b></td><td>자동차 시가를 <b>차량기준가액표 또는 시세 사이트 2곳</b>으로 냈는가 (개별 매물가 아님)</td><td>매물 가격은 객관적 자료로 보지 않습니다</td></tr>
+<tr><td style="text-align:center"><b>□</b></td><td>계좌 거래내역이 <b>과거 1년 전부</b>이고, <b>내가 쓰는 가족 명의 계좌</b>까지 들어갔는가</td><td>쓰던 통장이 빠지면 재산을 숨긴 것으로 의심받습니다</td></tr>
+<tr><td style="text-align:center"><b>□</b></td><td>진술서에 <b>전에 받은 면책의 확정일자</b>와 <b>회생·개인회생 계속 여부</b>를 적었는가</td><td>규칙 제72조 제2항이 정한 필수 기재사항입니다</td></tr>
+<tr><td style="text-align:center"><b>□</b></td><td><b>채권자목록에 빠진 빚이 없는가</b> — 보증, 개인 간 차용, 통신·의료비, 세금까지</td><td>★ 빠뜨린 빚은 <b>면책되지 않을 수 있습니다</b>(법 제566조 7호). 가장 치명적입니다</td></tr>
+<tr><td style="text-align:center"><b>□</b></td><td><b>채권자 수</b>를 세어 송달료를 계산했는가</td><td>모자라면 추가로 내라는 명령이 나갑니다</td></tr>
+<tr><td style="text-align:center"><b>□</b></td><td>신청서 <b>사본 1부</b>를 따로 만들어 두었는가</td><td>선고 뒤 파산관재인에게 낼 때 복사해 주지 않습니다</td></tr>
+</table></div>
+
+<div class="hire"><span class="ht">⚓ 고충은 덜어드리고, 결정은 마스터님께</span>
+<p>이 총괄표는 <b>혼자서도 끝까지 가실 수 있도록</b> 법원과 파산관재인이 실제로 쓰는 목록을 그대로 펼친 것입니다. 그대로 따라가시면 보정 없이 접수되는 것이 보통입니다.</p>
+<p>다만 서류를 모으다 보면 "이것은 적어야 하나, 적으면 불리해지나" 하는 대목이 반드시 나옵니다. 최근에 집을 팔았다, 이혼하면서 재산을 나눴다, 가족 이름으로 된 계좌를 썼다, 카드로 현금을 많이 썼다 — 이런 사정은 <b>적는 것 자체가 문제가 아니고, 어떻게 설명하느냐가 결과를 가릅니다.</b> 숨기면 면책이 날아가고, 설명하면 넘어가는 일이 실제로 많습니다.</p>
+<p>본 사무소는 <b>개인의 파산사건 신청 대리</b>를 할 수 있습니다(법무사법 제2조 제1항 6호). 서류 작성과 접수, 보정 대응, 파산관재인 면담 준비까지 함께 짊어지겠습니다.</p>
+<p><b>미리 솔직하게 말씀드립니다.</b> 같은 조항 단서가 <b>「각종 기일에서의 진술의 대리는 제외한다」</b>고 정하고 있습니다. 그래서 <b>면책심문기일·의견청취기일에 법무사가 마스터님을 대신해 진술할 수는 없습니다.</b> 기일에는 본인이 출석하셔야 합니다. 저는 <b>무엇을 어떻게 말씀하실지 미리 함께 정리해 드리는 것</b>까지 할 수 있습니다. 실제로 기일에서 문제가 되는 것은 말솜씨가 아니라 <b>준비된 설명과 그 설명을 뒷받침하는 자료</b>이고, 그 준비는 함께 할 수 있습니다. <span class="srcb goe">A</span><span class="src">법무사법[법률 제21994호, 2026. 10. 2. 시행] 제2조 제1항 6호</span></p>
+<p style="color:#0b4a9c;font-weight:600">※ 혼자 해 보시다가 막히신 다음에 오셔도 늦지 않습니다. 떼어 두신 서류는 그대로 쓰면 됩니다. 이 매뉴얼을 들고 오십시오.</p>
+</div>
+
+</div></details>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+    t.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();t.classList.toggle('on');}if(e.key==='Escape'){t.classList.remove('on');t.blur();}});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){terms.forEach(function(x){x.classList.remove('on');});}});
+})();
+function toggleFold(b){var fb=b.parentElement;fb.classList.toggle('open');}
+function _openCall(id){var w=document.getElementById(id);var n=w&&w.nextElementSibling;if(n&&n.classList.contains('calltbl'))n.classList.add('open');}
+document.addEventListener('click',function(e){var a=e.target.closest?e.target.closest('a[href^="#call"]'):null;if(a)_openCall(a.getAttribute('href').slice(1));});
+if(location.hash.indexOf('#call')===0)_openCall(location.hash.slice(1));
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('양식이 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('양식이 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('양식을 내려받았습니다');}
+
+(function(){
+  document.querySelectorAll('.toc a').forEach(function(a){
+    a.addEventListener('click',function(){
+      var el=document.querySelector(a.getAttribute('href'));
+      if(el&&el.tagName==='DETAILS')el.open=true;
+    });
+  });
+  var btn=document.getElementById('allBtn');
+  if(!btn)return;
+  function toggleAll(){
+    var opening=btn.textContent.indexOf('펼치기')>-1;
+    document.querySelectorAll('details.sec').forEach(function(d){d.open=opening;});
+    btn.textContent=opening?'전체 접기':'전체 펼치기';
+  }
+  btn.addEventListener('click',toggleAll);
+  btn.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleAll();}});
+})();
+</script>
+</body>
+</html>
