@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[파산 E-8] 면책이 되지 않는 빚도 있나요 — 비면책채권 여덟 가지 | 산 법무사 김재섭</title>
+<meta name="description" content="면책을 받아도 남는 빚이 있습니다. 세금·벌금·양육비·임금, 그리고 가장 많이 걸리는 「악의로 채권자목록에 적지 않은 빚」까지 — 대법원이 보는 기준과 다툼이 생겼을 때 내는 소송을 정리했습니다.">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+ul{margin:8px 0 12px; padding-left:20px;} li{margin:6px 0;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(300px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.who{background:var(--box); border-radius:10px; padding:14px 16px; margin:12px 0; border-left:4px solid #b9a98c;}
+.who .wl{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.case{background:var(--box); border-radius:10px; padding:14px 16px; margin:14px 0; border-left:4px solid #b9a98c;}
+.case .ct{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;margin-left:3px;}
+.tag.free{background:#5a9a72;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.cta{display:block; text-align:center; background:linear-gradient(145deg,#8a5a33,#6e4524); color:#fff; text-decoration:none; font-weight:700; font-size:16px; padding:15px; border-radius:11px; margin:18px 0; box-shadow:0 3px 8px rgba(122,82,48,.25);}
+.src{font-size:12.5px; color:#6e6353; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:11px 15px;margin:10px 0;font-size:13.5px;line-height:1.7;}
+.lawbox .ll{display:inline-block;font-size:11.5px;font-weight:700;color:#fff;background:var(--gold-d);border-radius:5px;padding:2px 8px;margin-right:6px;}
+.lawbox a{color:var(--gold-d);font-weight:600;}
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:14.5px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:16px;margin:10px 0;font-family:'D2Coding','Courier New',monospace;font-size:12.5px;line-height:1.65;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:15px;letter-spacing:2px;margin-bottom:10px;color:#241a10;}
+.howto{font-size:13.5px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:12.5px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:6px 12px;cursor:pointer;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.concept{background:var(--box);border-radius:9px;padding:11px 15px;margin:8px 0 14px;font-size:14.5px;color:#5a4a36;border-left:3px solid #b9a98c;}
+.concept b{color:var(--gold-d);}
+.flow{background:linear-gradient(180deg,#fcf9f2,#f7f1e5);border:1.5px solid var(--gold);border-radius:14px;padding:18px 18px 14px;margin:14px 0 20px;}
+.flow .ft2{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:12px;}
+.flow ol{counter-reset:fl;list-style:none;margin:0;padding:0;}
+.flow li{position:relative;padding:8px 10px 8px 44px;margin:7px 0;background:#fff;border:1px solid var(--line);border-radius:10px;font-size:14.5px;line-height:1.6;}
+.flow li::before{counter-increment:fl;content:counter(fl);position:absolute;left:10px;top:8px;width:26px;height:26px;line-height:26px;text-align:center;background:var(--gold);color:#fff;border-radius:50%;font-weight:800;font-size:14px;}
+.flow li b{color:var(--gold-d);}
+.flow .arw{text-align:center;color:var(--gold);font-size:13px;margin:-2px 0;}
+.newlaw{background:#eef6f0;border:1px solid #cfe6d6;border-left:4px solid #5a9a72;border-radius:8px;padding:13px 16px;margin:14px 0;}
+.newlaw .nt{font-weight:700;color:#2f6a47;display:block;margin-bottom:4px;}
+.newlaw .badge{display:inline-block;font-size:11px;font-weight:800;color:#fff;background:#5a9a72;border-radius:5px;padding:2px 8px;margin-right:6px;vertical-align:middle;}
+.faq{margin:14px 0;}
+.faq details{border:1px solid var(--line);border-radius:10px;margin:9px 0;background:#fff;overflow:hidden;}
+.faq summary{list-style:none;cursor:pointer;padding:13px 44px 13px 38px;font-weight:700;font-size:15px;color:#241a10;background:#faf7f0;position:relative;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::before{content:"Q";position:absolute;left:15px;color:var(--gold-d);font-family:'Nanum Myeongjo',serif;font-weight:800;}
+.faq summary::after{content:"▾";position:absolute;right:16px;top:13px;color:var(--gold-d);transition:.2s;}
+.faq details[open] summary::after{transform:rotate(180deg);}
+.faq .fa{padding:13px 15px 15px 38px;font-size:14.5px;line-height:1.75;color:#3a3a3a;position:relative;border-top:1px solid var(--line);}
+.faq .fa::before{content:"A";position:absolute;left:15px;top:13px;color:#5a9a72;font-family:'Nanum Myeongjo',serif;font-weight:800;}
+.helm{background:linear-gradient(135deg,#2c3e50,#3a4a5c);color:#f4f0e8;border-radius:14px;padding:20px 22px;margin:0 0 24px;box-shadow:0 4px 14px rgba(44,62,80,.18);}
+.helm .ht2{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:17px;color:#f0d98c;margin-bottom:9px;}
+.helm p{margin:0;font-size:14.5px;line-height:1.9;color:#eae4d8;}
+.helm b{color:#f4e2a6;}
+.qhead{display:flex;gap:12px;align-items:flex-start;margin:8px 0 8px;}
+.qhead .qb{flex:none;width:34px;height:34px;border-radius:50%;background:#8a5a33;color:#fff;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(176,141,87,.4);}
+.qhead h2{margin:0;border:0;padding:0;font-size:20px;line-height:1.45;}
+.lawrow{display:flex;flex-wrap:wrap;background:var(--box);border-radius:10px;overflow:hidden;margin:12px 0;border:1px solid var(--line);}
+.lawrow .lrl{flex:none;background:var(--gold);color:#fff;font-weight:700;font-size:13.5px;padding:11px 15px;display:flex;align-items:center;}
+.lawrow .lrc{flex:1;min-width:210px;padding:11px 15px;font-size:14px;line-height:1.75;}
+@media(max-width:520px){.lawrow .lrl{width:100%;}}
+.calc{display:block;background:linear-gradient(135deg,#fff7e8,#fdeecb);border:1.5px solid var(--gold);border-radius:14px;padding:16px 18px;margin:18px 0;text-decoration:none;color:var(--ink);transition:.15s;}
+.calc:hover{box-shadow:0 4px 14px rgba(176,141,87,.25);transform:translateY(-1px);}
+.calc .cah{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:4px;}
+.calc .cas{font-size:13.5px;color:var(--muted);}
+.ctabtn{display:block;text-align:center;background:#8a5a33;color:#fff;font-weight:800;font-size:17px;padding:16px;border-radius:12px;text-decoration:none;margin:22px 0 6px;}
+.ctabtn:hover{background:var(--gold-d);}
+.doclabel{display:inline-block;font-size:12px;font-weight:800;color:#fff;border-radius:6px;padding:3px 11px;margin-bottom:6px;}
+.doclabel.give{background:#b0885a;}
+.doclabel.back{background:#5a9a72;}
+.dl{color:var(--gold-d);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--gold);}
+.dl:hover{background:#fbf5e8;}
+.ddl{display:flex;gap:2px 10px;flex-wrap:wrap;margin:8px 0 2px;padding:9px 12px;background:#fbf7ee;border-radius:8px;font-size:13px;}
+.ddl b{color:var(--gold-d);}
+.deadline{width:100%;border-collapse:collapse;margin:10px 0;font-size:13.5px;}
+.deadline th{background:#3a4a5c;color:#fff;padding:8px;font-weight:700;}
+.deadline td{border:1px solid var(--line);padding:8px 10px;background:#fff;}
+.bnote{color:#0b4a9c;font-weight:600;background:#eaf2fc;border-left:4px solid #2b7fff;border-radius:8px;padding:9px 13px;margin:8px 0;font-size:13.5px;line-height:1.7;}
+.bnote b{color:#0a3d82;}
+.capital th{background:#f0ebe1;text-align:center;font-size:13px;}
+.capital td{text-align:center;font-size:13.5px;}
+.capital td:first-child{text-align:left;font-weight:700;background:#faf7f0;}
+.capital .hi{background:#fdf6e3;font-weight:700;color:var(--gold-d);}
+.capital .bad{color:#9c3a22;font-weight:700;}
+.grp{border-radius:10px;padding:13px 16px;margin:12px 0;border:1px solid var(--line);border-left-width:5px;}
+.grp .gt{font-weight:800;font-size:15px;margin-bottom:5px;}
+.grp.a{background:#eef6f0;border-left-color:#5a9a72;} .grp.a .gt{color:#2f6a47;}
+.grp.b{background:#fdf9e8;border-left-color:#d4a72c;} .grp.b .gt{color:#8a6d10;}
+.grp.c{background:#fdf2ee;border-left-color:#d9694a;} .grp.c .gt{color:#9c3a22;}
+@media print{.case,.warn,.tip,.cost,.who,.steps li,.tnote,.flow,.flow li,.lawbox,.hire{background:#fff !important;border-color:#ccc !important;}
+.term>.bub{display:inline !important;position:static;background:none;color:#555;box-shadow:none;padding:0;width:auto;font-size:12px;}.term>.bub::before{content:" (";}.term>.bub::after{content:")";border:0;position:static;}.formbox .fold-body{display:block !important;}}
+.part{margin:38px 0 14px;padding:16px 18px;border-radius:12px;background:linear-gradient(135deg,#2c3e50,#3a4a5c);color:#f4f0e8;box-shadow:0 4px 14px rgba(44,62,80,.18);}
+.part .pn{display:inline-block;font-size:12px;font-weight:800;color:#2c3e50;background:#f0d98c;border-radius:6px;padding:2px 10px;margin-bottom:6px;}
+.part .pt2{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:20px;color:#fff;margin-bottom:4px;}
+.part .pw{font-size:13.5px;line-height:1.7;color:#eae4d8;} .part .pw b{color:#f4e2a6;}
+.chk td:first-child{width:30px;text-align:center;color:var(--gold-d);font-size:16px;}
+.tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.srcb{display:inline-block;font-size:11px;font-weight:800;color:#fff;border-radius:5px;padding:1px 7px;margin-left:6px;vertical-align:middle;}
+.srcb.moe{background:#2f5b78;} .srcb.goe{background:#3d7a55;} .srcb.own{background:#6e6353;}
+.srcline{font-size:12.5px;color:var(--muted);background:#faf7f0;border-radius:7px;padding:7px 11px;margin:0 0 6px;}
+h3.fgrp{font-size:15px;color:var(--gold-d);margin:22px 0 6px;padding-bottom:5px;border-bottom:1px dashed var(--line);}
+.form{overflow-x:auto;}
+@media(max-width:560px){table{font-size:12.5px;} th,td{padding:7px 6px;overflow-wrap:anywhere;} .tblwrap table{min-width:560px;} .who{padding:12px 10px;}}
+
+/* ── 접이식 섹션(details.sec) · 목차 · 전체펼치기 ── */
+details.sec{border:1px solid var(--line);border-radius:11px;margin:13px 0;background:#fff;overflow:hidden;}
+details.sec>summary{cursor:pointer;list-style:none;padding:13px 16px;background:var(--box);border-left:4px solid var(--gold);display:flex;align-items:center;gap:11px;}
+details.sec>summary::-webkit-details-marker{display:none;}
+details.sec>summary .qb{flex:none;width:31px;height:31px;border-radius:50%;background:#8a5a33;color:#fff;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(176,141,87,.4);}
+details.sec>summary .st{flex:1;font-family:'Nanum Myeongjo',serif;font-size:17.5px;font-weight:700;color:var(--gold-d);line-height:1.5;}
+details.sec>summary .st .sub{display:block;font-family:'Pretendard',sans-serif;font-size:13px;font-weight:400;color:var(--muted);margin-top:3px;}
+details.sec>summary::after{content:"펼치기 ▾";flex:none;font-family:'Pretendard',sans-serif;font-size:12.5px;font-weight:700;color:var(--gold);background:#fff;border:1px solid var(--line);border-radius:20px;padding:3px 10px;white-space:nowrap;}
+details.sec[open]>summary::after{content:"접기 ▴";}
+details.sec>summary:hover{background:#f2ede3;}
+.secbody{padding:4px 17px 16px;}
+.toc{background:#fffaf0;border:1.5px solid var(--gold);border-radius:12px;padding:15px 18px;margin:18px 0 22px;}
+.toc .tct{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:16px;color:var(--gold-d);margin-bottom:9px;}
+.toc ol{margin:0;padding-left:21px;font-size:14.5px;line-height:1.95;}
+.toc a{color:#3a3a3a;text-decoration:none;border-bottom:1px dotted #c9b48c;}
+.toc a:hover{color:var(--gold-d);}
+.allbtn{display:inline-block;margin-top:11px;font-size:13.5px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:20px;padding:6px 15px;cursor:pointer;user-select:none;}
+.allbtn:hover{background:#f6ecd8;}
+@media(max-width:520px){details.sec>summary{gap:8px;padding:12px 11px;} details.sec>summary .st{font-size:16px;} details.sec>summary::after{font-size:11.5px;padding:2px 7px;} .secbody{padding:4px 12px 14px;}}
+@media print{details.sec:not([open])>*{display:block !important;} details.sec>summary::after{display:none;} .toc,.allbtn{display:none !important;}}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+<h1>[파산 E-9] 파산하면 직장을 잃나요 — 자격제한과 복권</h1>
+
+<div class="tnote">어려운 법률용어에는 <b>점선 밑줄</b>이 그어져 있습니다. <b>PC는 마우스를 올리면</b>, <b>휴대폰은 손가락으로 톡 터치하면</b> 쉬운 설명이 뜹니다. (인쇄하면 괄호로 함께 나옵니다.)</div>
+
+<div class="helm">
+<div class="ht2">⚓ 이 매뉴얼을 끝까지 읽으시는 분께</div>
+<p>이 매뉴얼은 <b>의뢰인이 직접 법원에 신청할 수 있도록 모든 서류 양식, 비용, 요건을 구체적으로 담았습니다.</b> 하지만 소송은 살아있는 생물과 같아 상대방의 격렬한 저항이 뒤따릅니다. 혼자 진행하시다가 막히는 부분이 생기거나 방어막이 필요할 때, 언제든 이 매뉴얼을 들고 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</p>
+</div>
+
+<div class="tldr">
+<div class="tt">⭐ 30초 결론부터</div>
+<ul>
+<li><b>대부분의 직업은 아무 영향을 받지 않습니다.</b> 회사원·자영업자·일용직·프리랜서는 파산선고를 받아도 <b>법으로 그만두게 되는 일이 없습니다.</b> 자격이 제한되는 직업은 <b>법률이 하나하나 이름을 적어 둔 것들</b>뿐입니다.</li>
+<li><b>이것들은 그대로입니다.</b> <b>선거권·피선거권</b>(공직선거법 제18조 제1항에 파산은 없습니다), <b>여권과 해외여행, 운전면허, 혼인·이혼·친권 같은 가족관계</b>, 그리고 <b>가족의 재산과 직업</b>입니다. 파산은 <b>본인 한 사람</b>의 문제입니다.</li>
+<li>★ <b>공무원이라면 — 기한 내에 면책신청을 하시면 직을 잃지 않습니다.</b> <span class="term">당연퇴직<span class="bub">징계나 해임 같은 처분 없이, 법에 정한 사유가 생기면 그날로 저절로 신분을 잃는 것. 따로 통지서가 오지 않아도 효력이 생깁니다.</span></span> 조항에 <b>단서</b>가 붙어 있습니다. "<b>신청기한 내에 면책신청을 하지 아니하였거나 면책불허가 결정 또는 면책 취소가 확정된 경우만</b>" 당연퇴직입니다(국가공무원법 제69조 제1호 단서, 지방공무원법 제61조 제1호 단서). <span class="srcb goe">A</span></li>
+<li>★★ <b>그런데 교원은 다릅니다. 불리한 점을 먼저 말씀드립니다.</b> <b>국공립학교 교사(교육공무원)와 사립학교 교원에게는 그 보호 단서가 없습니다</b>(교육공무원법 제43조의2 제1항, 사립학교법 제57조 제1항). 두 조항의 단서는 <b>다른 결격사유에만</b> 붙어 있고 <b>파산에는 붙어 있지 않습니다.</b> <a href="#j4">4번 항목</a>을 반드시 읽으십시오.</li>
+<li>★ <b>신원조회에는 나오지 않습니다.</b> 법원이 파산선고 사실을 <span class="term">등록기준지<span class="bub">가족관계등록(옛 호적)의 기준이 되는 곳. 신원증명서를 발급해 주는 시·구·읍·면이 여기에 따라 정해집니다.</span></span> 관청에 통보하는 제도가 있지만, <b>면책신청을 한 경우에는 통보하지 않습니다.</b> 파산신청서를 내면 면책신청을 한 것으로 보므로(법 제556조 제3항), <b>보통의 개인파산 사건에서는 통보되지 않습니다</b>(예규 제6조 제1항 1호 단서). <span class="srcb goe">A</span></li>
+<li><b><span class="term">면책<span class="bub">파산절차에서 배당으로 갚지 못한 빚에 대하여 더 이상 갚을 책임을 지지 않게 해 주는 법원의 결정. 파산선고와는 별개의 결정입니다.</span></span>결정이 확정되면 그 날로 자격이 돌아옵니다.</b> 따로 신청할 것이 없습니다. 이것을 <span class="term">당연복권<span class="bub">법에 정한 일이 생기면 신청이나 재판 없이 저절로 자격이 회복되는 것. 면책결정 확정이 가장 흔한 경우입니다.</span></span>이라고 합니다(채무자회생법 제574조 제1항 1호). <span class="srcb goe">A</span></li>
+<li><b>다만 회사의 이사·감사 자리는 파산선고로 끝납니다.</b> 민법 제690조가 "위임은 당사자 한쪽의 사망이나 <b>파산</b>으로 종료된다"고 정하기 때문입니다. 이것은 <b>면책을 받아도 자동으로 되돌아오지 않습니다.</b> 다시 선임을 받아야 합니다.</li>
+</ul>
+</div>
+
+<div class="warn" style="border-left-color:#9c3a22">
+<span class="wt">🚨 가장 먼저 — 내 직업이 어디에 속하는지 확인하십시오</span>
+<b>파산선고로 자격이 제한되는 직업은 법률이 이름을 적어 둔 것들뿐입니다.</b> 아래 세 칸 중 어디에 속하는지만 보시면 됩니다.<br><br>
+
+<b>① 아무 영향이 없는 분 — 대다수가 여기 속합니다</b><br>
+회사원·공장 근로자·일용직·배달·운전·간병·요양보호사·미용·음식업·소매업·농업·어업·프리랜서·플랫폼 노동, <b>그리고 대부분의 사기업 직원</b>입니다. <b>법으로 그만두게 되는 일이 없습니다.</b><br>
+<span style="color:#9c3a22">다만 <b>회사 취업규칙이나 사규</b>에 "파산선고를 받은 때 당연퇴직"이라고 적혀 있는 경우가 간혹 있습니다. <b>내 회사 취업규칙을 먼저 확인하십시오.</b> <a href="#j4">4번 항목</a>에서 다룹니다.</span><br><br>
+
+<b>② 면책신청을 하면 지킬 수 있는 분</b><br>
+<b>국가공무원·지방공무원</b>(일반직·경찰·소방·군무원 등)입니다. <b>기한 내에 면책신청을 하시면 당연퇴직하지 않습니다.</b> <a href="#j3">3번 항목</a>을 보십시오.<br><br>
+
+<b>③ 파산선고 자체로 제한을 받는 분 — 가장 주의해야 합니다</b><br>
+<b>국공립·사립학교 교원</b>, <b>변호사·법무사</b>, <b>공인중개사</b>(개설등록), <b>보험설계사</b>, <b>회사의 이사·감사</b>, <b>미성년자·피성년후견인의 후견인</b>, <b>조합의 조합원</b>입니다.<br>
+<span style="color:#9c3a22"><b>이 경우 신청 자체를 다시 생각해 보셔야 할 수 있습니다.</b> 소득이 있다면 <a href="E-1_개인회생_파산_선택.html">개인회생</a>이 답일 수 있습니다. 개인회생에는 이런 자격제한이 없습니다.</span>
+</div>
+
+<div class="warn"><span class="wt">⚠ 날짜를 먼저 적어 두십시오 — 자격은 「복권」으로 돌아옵니다</span>
+<b>파산선고를 받은 날부터 복권되는 날까지</b>가 자격이 제한되는 기간입니다. 이 기간을 짧게 만드는 방법은 <b>면책을 빨리 받는 것</b> 하나뿐입니다.
+<div class="tblwrap"><table class="deadline">
+<tr><th style="width:26%">무엇</th><th style="width:30%">언제</th><th>근거 · 놓치면</th></tr>
+<tr><td><b>면책신청</b></td><td><b>파산신청일부터<br>파산선고 확정 후 1월 이내</b></td><td>법 제556조 제1항<br><span style="color:#9c3a22">파산신청과 함께 한 것으로 보므로 보통은 문제되지 않으나, <b>채권자가 파산을 신청한 경우에는 직접 내셔야 합니다.</b> 이것을 놓치면 당연퇴직 보호 단서도 적용받지 못합니다</span></td></tr>
+<tr><td><b>당연복권</b><br><span style="font-size:13px">신청할 것이 없습니다</span></td><td><b>면책결정이 확정된 때</b></td><td>법 제574조 제1항 1호<br><span style="color:#1b5e20">이 날 자격이 돌아옵니다</span></td></tr>
+<tr><td><b>복권신청</b><br><span style="font-size:13px">면책을 받지 못한 분만</span></td><td><b>변제 그 밖의 방법으로<br>책임을 면한 때</b></td><td>법 제575조 제1항<br><span style="font-size:13px">공고일부터 <b>3월</b>의 이의기간이 있습니다(법 제577조 제1항)</span></td></tr>
+<tr><td><b>10년 경과에 따른<br>당연복권</b></td><td><b>파산선고를 받은 뒤<br>10년이 지난 때</b></td><td>법 제574조 제1항 3호<br><span style="font-size:13px">사기파산으로 유죄 확정을 받지 않은 경우입니다. 면책을 받으면 10년을 기다릴 필요가 없습니다</span></td></tr>
+</table></div></div>
+
+<div class="toc">
+<div class="tct">이 카드에 담긴 것 — 필요한 곳만 펼쳐 보십시오</div>
+<ol>
+<li><b>제 1 부 · 무엇이 제한되고, 무엇은 그대로인가</b>
+  <ol style="padding-left:18px;font-size:14px">
+  <li><a href="#j1">제한되지 않는 것부터 — 선거권·여권·면허·가족</a></li>
+  <li><a href="#j2">자격이 제한되는 직업 — 법률 조문으로 확인</a></li>
+  <li><a href="#j3">★ 공무원은 면책신청을 하면 직을 잃지 않습니다</a></li>
+  <li><a href="#j4">★ 그런데 교원은 다릅니다 — 솔직하게 말씀드립니다</a></li>
+  </ol></li>
+<li><b>제 2 부 · 알려지는가, 그리고 회사 일</b>
+  <ol style="padding-left:18px;font-size:14px">
+  <li><a href="#j5">신원조회에 나오나요 — 등록기준지 통보의 단서</a></li>
+  <li><a href="#j6">회사와 금융기관에 알려지나요</a></li>
+  <li><a href="#j7">이사·감사·조합원 자리는 그날로 끝납니다</a></li>
+  </ol></li>
+<li><b>제 3 부 · 복권 — 원래대로 돌아가는 길</b>
+  <ol style="padding-left:18px;font-size:14px">
+  <li><a href="#j8">당연복권 — 신청할 것이 없습니다</a></li>
+  <li><a href="#j9">신청에 의한 복권 — 면책을 못 받은 분을 위한 길</a></li>
+  <li><a href="#j10">자주 묻는 질문</a></li>
+  </ol></li>
+</ol>
+<span class="allbtn" id="allBtn" role="button" tabindex="0">전체 펼치기</span>
+</div>
+
+<div class="part"><span class="pn">제 1 부</span><span class="pt2">무엇이 제한되고, 무엇은 그대로인가</span><span class="pw">— 법률이 이름을 적어 둔 것만 제한됩니다</span></div>
+
+<details class="sec" id="j1"><summary><span class="qb">1</span><span class="st">제한되지 않는 것부터 — 선거권·여권·면허·가족<span class="sub">걱정하시는 것 대부분은 그대로입니다</span></span></summary>
+<div class="secbody">
+
+<div class="concept"><b>상담을 오시면 가장 많이 물으시는 것들입니다. 먼저 안심하셔도 되는 것부터 말씀드립니다.</b><br><br>
+파산선고는 <b>법률이 "파산선고를 받고 복권되지 아니한 자"라고 콕 집어 적어 둔 자리</b>에만 영향을 미칩니다. 적어 두지 않은 곳에는 아무 효력이 없습니다. 아래는 <b>적혀 있지 않은 것들</b>입니다.</div>
+
+<div class="tblwrap"><table>
+<tr><th style="width:30%">걱정하시는 것</th><th>실제</th></tr>
+<tr><td><b>투표를 할 수 있나요<br>선거에 나갈 수 있나요</b></td><td><b>둘 다 그대로입니다.</b> 공직선거법 제18조 제1항은 선거권이 없는 사람을 열거하고 있는데, <b>거기에 파산은 없습니다.</b> 피선거권도 같습니다 <span class="srcb goe">A</span></td></tr>
+<tr><td><b>여권이 취소되나요<br>해외여행을 못 가나요</b></td><td><b>아닙니다.</b> 여권 발급과 해외여행은 제한되지 않습니다. 다만 <b><span class="term">파산관재인<span class="bub">법원이 선임하여 채무자의 재산을 조사·관리하고 채권자들에게 나누어 주는 일을 맡는 사람. 보통 변호사가 맡고, 채무자는 면담에 응하고 자료를 내야 합니다.</span></span>이 선임된 사건에서 장기간 연락이 닿지 않으면 절차에 불이익</b>이 생길 수 있으니, 출국하실 때는 <b>파산관재인에게 미리 알려 두십시오</b></td></tr>
+<tr><td><b>운전면허가 취소되나요</b></td><td><b>아닙니다.</b> 도로교통법에 파산은 결격·취소 사유로 적혀 있지 않습니다. <b>택시·버스·화물차 운전</b>(여객자동차운수사업법·화물자동차운수사업법)도 파산을 이유로 자격이 없어지지 않습니다</td></tr>
+<tr><td><b>가족이 피해를 보나요</b></td><td><b>아닙니다.</b> 파산은 <b>신청한 본인 한 사람</b>의 절차입니다. 배우자·자녀·부모의 재산과 직업, 신용에는 영향이 없습니다<br><span style="color:#9c3a22">다만 <b>가족이 보증을 섰다면 그 가족은 그대로 갚아야 합니다</b>(법 제567조). 이것은 자격제한과 다른 문제입니다 — <a href="E-8_비면책채권.html">E-8</a>을 보십시오</span></td></tr>
+<tr><td><b>혼인·이혼·친권이<br>제한되나요</b></td><td><b>아닙니다.</b> 혼인, 이혼, 자녀의 친권과 양육권은 파산과 무관합니다</td></tr>
+<tr><td><b>자녀 학교에<br>알려지나요</b></td><td><b>아닙니다.</b> 학교에 통보하는 제도가 없습니다</td></tr>
+<tr><td><b>기초생활수급이나<br>복지급여가 끊기나요</b></td><td><b>파산 때문에 끊기지는 않습니다.</b> 오히려 수급자이시면 <b>면제재산과 압류금지재산</b>으로 보호받는 폭이 넓습니다 — <a href="E-7_면제재산_압류금지재산.html">E-7</a>을 보십시오</td></tr>
+<tr><td><b>앞으로 취업이<br>안 되나요</b></td><td><b>법으로 막는 제도는 없습니다.</b> 채용 과정에서 <b>파산 사실을 확인할 수 있는 통로도 사실상 없습니다</b> — <a href="#j5">5번 항목</a>에서 자세히 보겠습니다</td></tr>
+</table></div>
+
+<div class="tip"><span class="tpt">💡 거꾸로 생각해 보십시오</span>
+<b>파산선고의 효력은 「재산」에 집중되어 있습니다.</b> 가지고 있던 재산을 <span class="term">파산재단<span class="bub">파산선고 당시 채무자가 가진 재산 중에서, 채권자들에게 나누어 주기 위해 법이 따로 묶어 두는 재산 덩어리.</span></span>으로 묶어 채권자들에게 나누어 주는 것이 이 절차의 본체입니다.<br><br>
+<b>신분이나 자격을 깎아내리는 것이 목적이 아닙니다.</b> 그래서 자격제한은 "돈을 다루는 자리", "남의 재산을 맡는 자리", "공적인 신뢰가 필요한 자리"에 한정되어 있습니다. 그 바깥은 그대로입니다.</div>
+
+</div></details>
+
+<details class="sec" id="j2"><summary><span class="qb">2</span><span class="st">자격이 제한되는 직업 — 법률 조문으로 확인<span class="sub">내 직업이 여기 있는지만 보십시오</span></span></summary>
+<div class="secbody">
+
+<div class="concept"><b>아래 표의 조문은 모두 국가법령정보센터에서 현행 조문을 직접 확인한 것입니다.</b> 내 직업이 표에 <b>없으면</b> 자격제한이 없다고 보셔도 됩니다.<br><br>
+표를 보실 때 두 가지를 구분하셔야 합니다.<br>
+· <b>「<span class="term">결격<span class="bub">법이 정한 사유에 해당하여 그 자격·지위를 가질 수 없는 것. "결격사유"는 그 사유를 모아 놓은 조항을 말합니다.</span></span>」</b> — 그 자격을 <b>새로 얻을 수 없다</b>는 뜻입니다<br>
+· <b>「당연퇴직」</b> — 이미 가진 자리에서 <b>저절로 물러나게 된다</b>는 뜻입니다. 훨씬 무겁습니다</div>
+
+<div class="tblwrap"><table>
+<tr><th style="width:22%">직업·자리</th><th style="width:30%">근거 조문</th><th>어떻게 되나</th></tr>
+<tr><td><b>국가공무원</b></td><td>국가공무원법 제33조 2호<br>(임용 결격)<br>같은 법 제69조 1호<br>(당연퇴직) <span class="srcb goe">A</span></td><td>조문은 "파산선고를 받고 <b>복권되지 아니한 자</b>"입니다<br><span style="color:#1b5e20">★ <b>제69조 1호에 단서가 있습니다.</b> 기한 내 면책신청을 하면 <b>당연퇴직하지 않습니다</b> — <a href="#j3">3번 항목</a></span></td></tr>
+<tr><td><b>지방공무원</b></td><td>지방공무원법 제31조 2호<br>같은 법 제61조 1호 <span class="srcb goe">A</span></td><td>국가공무원과 <b>똑같습니다.</b> 조문의 문구까지 같습니다<br><span style="color:#1b5e20">★ 제61조 1호에도 <b>같은 보호 단서</b>가 있습니다</span></td></tr>
+<tr><td><b>국공립학교 교사<br>(교육공무원)</b></td><td>교육공무원법 제10조의4 1호<br>같은 법 제43조의2 제1항 <span class="srcb goe">A</span></td><td>제10조의4 1호가 <b>"「국가공무원법」 제33조 각 호"를 그대로 끌어옵니다</b> → 파산도 결격<br><span style="color:#9c3a22">★★ <b>제43조의2의 단서에는 파산이 없습니다.</b> 보호받지 못합니다 — <a href="#j4">4번 항목</a></span></td></tr>
+<tr><td><b>사립학교 교원</b></td><td>사립학교법 제57조 제1항 <span class="srcb goe">A</span></td><td>"「교육공무원법」 제10조의4 각 호의 어느 하나에 해당하게 되면 <b>당연히 퇴직한다</b>"<br><span style="color:#9c3a22">★★ 여기도 <b>단서에 파산이 없습니다</b></span></td></tr>
+<tr><td><b>변호사</b></td><td>변호사법 제5조 9호 <span class="srcb goe">A</span></td><td>"파산선고를 받고 복권되지 아니한 자"는 <b>변호사가 될 수 없습니다</b></td></tr>
+<tr><td><b>법무사</b></td><td>법무사법 제6조 2호 <span class="srcb goe">A</span></td><td>"파산선고를 받은 자로서 <b>복권(復權)되지 아니한 자</b>"는 법무사가 될 수 없습니다</td></tr>
+<tr><td><b>공인중개사</b></td><td>공인중개사법 제10조 제1항 3호 <span class="srcb goe">A</span></td><td>★ <b>자격 자체는 없어지지 않고, 「중개사무소 개설등록」이 막힙니다.</b> 이미 등록한 분은 등록이 취소될 수 있습니다<br><span style="color:#1b5e20">복권되면 다시 등록할 수 있습니다</span></td></tr>
+<tr><td><b>보험설계사</b></td><td>보험업법 제84조 2호 <span class="srcb goe">A</span></td><td>"파산선고를 받은 자로서 복권되지 아니한 자"는 <b>보험설계사로 등록할 수 없습니다</b></td></tr>
+<tr><td><b>회사·법인의<br>이사·감사</b></td><td>민법 제690조 <span class="srcb goe">A</span></td><td>"위임은 당사자 한쪽의 사망이나 <b>파산</b>으로 종료된다" → <b>그 자리에서 물러나게 됩니다</b><br><span style="color:#9c3a22">면책을 받아도 <b>자동으로 돌아오지 않습니다.</b> 다시 선임을 받아야 합니다 — <a href="#j7">7번 항목</a></span></td></tr>
+<tr><td><b>후견인</b><br><span style="font-size:13px">미성년후견인·성년후견인</span></td><td>민법 제937조 3호 <span class="srcb goe">A</span></td><td>"회생절차개시결정 또는 <b>파산선고를 받은 자</b>"는 후견인이 될 수 없습니다<br><span style="font-size:13px">손주의 후견인을 맡고 계신 분은 미리 상의하십시오</span></td></tr>
+<tr><td><b>조합의 조합원</b></td><td>민법 제717조 2호 <span class="srcb goe">A</span></td><td>조합원이 파산하면 <b>조합에서 탈퇴하게 됩니다</b>(본인 의사와 무관)</td></tr>
+</table></div>
+
+<div class="warn"><span class="wt">⚠ 표에 적지 않은 자격은 「없다」가 아니라 「확인하셔야 한다」는 뜻입니다</span>
+위 표는 <b>상담에서 가장 자주 나오는 자격</b>을 모은 것입니다. 우리 법에는 파산을 결격사유로 둔 조항이 <b>이 밖에도 여러 법률에 흩어져 있습니다.</b> 금융·신탁·자산운용, 일부 공공기관 임원, 일부 조합·협회 임원 등이 그렇습니다.<br><br>
+<b>그래서 이렇게 확인하십시오.</b><br>
+① 내 자격을 규율하는 법률 이름을 확인합니다(예: 「건설산업기본법」, 「여신전문금융업법」)<br>
+② <a class="dl" href="https://www.law.go.kr/" target="_blank" rel="noopener">국가법령정보센터</a>에서 그 법률을 열고 <b>본문에서 「파산」을 검색</b>합니다<br>
+③ "파산선고를 받고 복권되지 아니한" 이라는 문구가 <b>결격사유</b> 조항에 있는지 봅니다<br><br>
+<span style="color:#9c3a22"><b>확실하지 않은 상태로 신청하지 마십시오.</b> 신청서를 내고 나면 되돌리기 어렵습니다. 자격이 생업이신 분은 <b>신청 전에</b> 확인을 마치셔야 합니다.</span></div>
+
+</div></details>
+
+<details class="sec" id="j3"><summary><span class="qb">3</span><span class="st">★ 공무원은 면책신청을 하면 직을 잃지 않습니다<span class="sub">2022년에 생긴 단서 — 이 한 줄이 생업을 지킵니다</span></span></summary>
+<div class="secbody">
+
+<div class="concept"><b>공무원이신 분께는 이 항목이 이 카드에서 가장 중요합니다.</b><br><br>
+예전에는 공무원이 파산선고를 받으면 <b>그것만으로 당연퇴직</b>이었습니다. 지금은 다릅니다. <b>당연퇴직 조항에 단서가 붙었습니다.</b></div>
+
+<div class="qbox"><div class="qhead"><span class="qb">조문</span>국가공무원법 제69조(당연퇴직) 제1호</div>
+<p>공무원이 다음 각 호의 어느 하나에 해당할 때에는 당연히 퇴직한다.</p>
+<p>1. 제33조제2호부터 제6호까지, 제6호의2부터 제6호의4까지, 제7호 및 제8호 중 어느 하나에 해당하는 경우. <b>다만, 제33조제2호는 파산선고를 받은 사람으로서 「채무자 회생 및 파산에 관한 법률」에 따라 신청기한 내에 면책신청을 하지 아니하였거나 면책불허가 결정 또는 면책 취소가 확정된 경우만 해당하고</b>, ⋯</p>
+<p class="src">[시행 2026. 10. 22.] [법률 제21574호, 2026. 4. 21., 일부개정] — 국가법령정보센터 현행 조문 <span class="srcb goe">A</span></p></div>
+
+<div class="concept"><b>쉽게 풀면 이렇습니다.</b><br><br>
+<b>파산선고를 받았다 → 그것만으로는 퇴직하지 않습니다.</b><br>
+<b>당연퇴직이 되는 것은 아래 세 경우뿐입니다.</b><br>
+· <b>신청기한 내에 면책신청을 하지 않은 경우</b><br>
+· <b>면책불허가 결정이 확정된 경우</b><br>
+· <b>면책 취소가 확정된 경우</b><br><br>
+<span style="color:#1b5e20"><b>그러니 공무원이신 분이 하실 일은 분명합니다. 면책신청을 기한 내에, 반드시 하시는 것입니다.</b></span><br><br>
+그리고 다행인 점이 하나 더 있습니다. <b>파산신청서를 내면 면책신청도 함께 한 것으로 봅니다</b>(법 제556조 제3항). 따로 적어 내지 않아도 됩니다. 다만 <b>면책을 원하지 않는다는 표시를 하면 제외</b>되므로, 신청서에 그런 표시를 하지 마십시오.</div>
+
+<div class="warn"><span class="wt">⚠ 공무원이시라면 이 두 가지는 꼭 지키십시오</span>
+<b>① 채권자가 파산을 신청한 경우에는 면책신청을 직접 내셔야 합니다.</b><br>
+법 제556조 제3항의 "함께 한 것으로 본다"는 <b>채무자가 파산을 신청한 경우</b>에 적용됩니다. 채권자가 신청해 파산선고가 난 경우에는 <b>파산선고 확정 후 1월 이내</b>에 면책신청서를 직접 내셔야 합니다(법 제556조 제1항). <b>이것을 놓치면 단서의 보호를 받지 못합니다.</b><br><br>
+<b>② 면책불허가가 나면 그때 당연퇴직이 됩니다.</b><br>
+그래서 <b><span class="term">면책불허가<span class="bub">법원이 면책을 허가하지 않는 결정. 재산을 숨기거나 빚을 골라 적는 등 법 제564조 제1항에 적힌 사유가 있을 때 내려집니다.</span></span>사유를 만들지 않는 것</b>이 결국 직을 지키는 일입니다. 재산을 숨기거나 가족 이름으로 옮기는 것, 채권자목록을 골라 적는 것, 신청 직전의 과다한 낭비·도박이 모두 면책불허가사유입니다(법 제564조 제1항). <a href="E-8_비면책채권.html">E-8</a>과 <a href="E-6_파산_면책_신청서류.html">E-6</a>을 함께 보십시오.</div>
+
+<div class="qbox"><div class="qhead"><span class="qb">함께 보면</span>지방공무원도 똑같습니다</div>
+<p><b>지방공무원법 제61조(당연퇴직) 제1호</b>에도 <b>글자까지 같은 단서</b>가 있습니다.</p>
+<p>"다만, <b>제31조제2호는 파산선고를 받은 사람으로서 「채무자 회생 및 파산에 관한 법률」에 따라 신청기한 내에 면책신청을 하지 아니하였거나 면책불허가 결정 또는 면책 취소가 확정된 경우만 해당하고</b>, ⋯"</p>
+<p class="src">[시행 2026. 10. 22.] [법률 제21560호, 2026. 4. 21., 일부개정] <span class="srcb goe">A</span></p>
+<p>그래서 <b>시·군·구 공무원, 지방직 소방·경찰 등</b>도 같은 보호를 받습니다.</p></div>
+
+<div class="qbox"><div class="qhead"><span class="qb">판례</span>당연퇴직 조항은 헌법재판소에서 다투어져 왔습니다</div>
+<p><b>헌법재판소 2022. 12. 22. 선고 2020헌가8 결정 [위헌]</b> — 국가공무원법 제69조 제1호 위헌제청 <span class="srcb goe">A</span></p>
+<p><b>어떤 사건이었나.</b> <span class="term">피성년후견인<span class="bub">정신적 제약으로 사무를 처리할 능력이 지속적으로 없어서 가정법원의 성년후견개시심판을 받은 사람.</span></span>이 된 국가공무원이 <b>그것만으로 당연퇴직</b>되도록 한 조항이 문제되었습니다.</p>
+<p><b>헌법재판소의 판단.</b> 현행법은 정신상의 장애로 직무를 감당할 수 없는 공무원에게 <b>최대 2년(공무상 질병·부상은 3년)의 휴직</b>을 명하고, 휴직이 끝나도 복귀하지 못할 때 <b>비로소 직권면직 절차</b>를 밟도록 하고 있으므로, 성년후견이 개시된 공무원에게도 이 방법으로 입법목적을 달성할 수 있다고 보았습니다. 곧바로 당연퇴직시키는 것은 <b>사익의 제한 정도가 과도</b>하여 <b>공무담임권을 침해</b>한다고 하여 <b>위헌</b>으로 선언했습니다.</p>
+<p><b>왜 이 결정을 소개하는가.</b> 현행 제69조 제1호가 <b>"제33조제2호부터"</b>로 시작하는 것은 이 결정에 따라 <b>1호(피성년후견인)가 당연퇴직 사유에서 빠졌기 때문</b>입니다. 국가법령정보센터의 해당 조문 끝에는 <b>"2024. 12. 31. 법률 제20627호에 의하여 2022. 12. 22. 헌법재판소에서 위헌 결정된 이 조를 개정함"</b>이라고 적혀 있습니다.</p>
+<p style="color:#6e6353;font-size:13.5px">※ 이 결정은 <b>파산이 아니라 성년후견</b>에 관한 것입니다. 파산에 관한 단서는 별도의 법 개정으로 들어왔습니다. 두 가지를 섞어 설명하는 글이 많으니 주의하십시오.</p></div>
+
+</div></details>
+
+<details class="sec" id="j4"><summary><span class="qb">4</span><span class="st">★ 그런데 교원은 다릅니다 — 솔직하게 말씀드립니다<span class="sub">국공립·사립 모두 보호 단서가 없습니다</span></span></summary>
+<div class="secbody">
+
+<div class="warn" style="border-left-color:#9c3a22"><span class="wt">🚨 교사·교원이시라면 이 항목을 반드시 읽으십시오</span>
+<b>공무원에게 적용되는 그 보호 단서가, 교원에게는 없습니다.</b> 듣기 좋은 말을 드릴 수 없어 먼저 사과드립니다. 그러나 <b>모르고 신청하시는 것이 훨씬 위험합니다.</b></div>
+
+<div class="qbox"><div class="qhead"><span class="qb">조문</span>교육공무원법 제43조의2(당연퇴직) 제1항</div>
+<p>① 교육공무원이 <b>제10조의4에 따른 결격사유에 해당하게 된 경우에는 당연히 퇴직한다.</b> 다만, 「국가공무원법」 <b>제33조제5호</b>는 「형법」 제129조부터 제132조까지 및 직무와 관련하여 「형법」 제355조 및 제356조에 규정된 죄를 저지른 사람으로서 금고 이상의 형의 <span class="term">선고유예<span class="bub">유죄는 인정하면서도 형을 정하지 않고 2년간 미뤄 두는 것. 그 기간을 무사히 넘기면 없던 일이 됩니다. 집행유예와 다릅니다.</span></span>를 받은 경우만 해당한다.</p>
+<p class="src">[시행 2026. 11. 20.] [법률 제21656호, 2026. 5. 19., 일부개정] <span class="srcb goe">A</span></p>
+<p><b>단서에 적힌 것은 「제33조제5호」(선고유예)뿐입니다. 「제33조제2호」(파산)는 단서에 없습니다.</b></p>
+<p>그리고 <b>제10조의4 제1호</b>는 결격사유로 <b>"「국가공무원법」 제33조 각 호의 어느 하나에 해당하는 사람"</b>을 들고 있습니다. 제33조 2호가 바로 <b>"파산선고를 받고 복권되지 아니한 자"</b>입니다.</p></div>
+
+<div class="qbox"><div class="qhead"><span class="qb">조문</span>사립학교법 제57조(당연퇴직의 사유) 제1항</div>
+<p>① 사립학교 교원이 「교육공무원법」 <b>제10조의4 각 호의 어느 하나에 해당하게 되면 당연히 퇴직한다.</b> 다만, 「국가공무원법」 <b>제33조제5호</b>는 ⋯ 금고 이상의 형의 선고유예를 받은 경우만 해당하며, 「국가공무원법」 <b>제33조제6호의2</b>를 적용할 때 "공무원"은 "교원"으로 본다.</p>
+<p class="src">[시행 2026. 10. 2.] [법률 제21857호, 2026. 8. 4., 타법개정] <span class="srcb goe">A</span></p>
+<p><b>여기도 단서는 제5호와 제6호의2에만 붙어 있고, 파산(제2호)에는 붙어 있지 않습니다.</b></p></div>
+
+<div class="concept"><b>그래서 조문대로 읽으면 이렇게 됩니다.</b><br><br>
+국가공무원·지방공무원은 <b>2022년 말 법 개정으로</b> "기한 내 면책신청을 하면 당연퇴직하지 않는다"는 보호를 받게 되었습니다. 그런데 <b>교육공무원법과 사립학교법에는 그 개정이 반영되지 않았습니다.</b><br><br>
+<b>결과적으로 같은 파산선고를 두고 이렇게 갈립니다.</b>
+<div class="tblwrap"><table>
+<tr><th style="width:34%">신분</th><th>면책신청을 기한 내에 한 경우</th></tr>
+<tr><td><b>국가·지방공무원</b></td><td><span style="color:#1b5e20"><b>당연퇴직하지 않습니다</b></span> (국가공무원법 제69조 1호 단서, 지방공무원법 제61조 1호 단서)</td></tr>
+<tr><td><b>국공립학교 교사<br>(교육공무원)</b></td><td><span style="color:#9c3a22"><b>조문에 보호 단서가 없습니다</b></span> (교육공무원법 제43조의2 제1항)</td></tr>
+<tr><td><b>사립학교 교원</b></td><td><span style="color:#9c3a22"><b>조문에 보호 단서가 없습니다</b></span> (사립학교법 제57조 제1항)</td></tr>
+</table></div>
+<br>
+<span style="color:#9c3a22"><b>저는 여기서 "그래도 괜찮을 것입니다"라고 말씀드리지 않겠습니다.</b> 조문에 없는 보호를 있는 것처럼 말씀드리는 것은 의뢰인을 위험에 빠뜨리는 일입니다. 교원이시라면 <b>신청 전에 반드시 상의하십시오.</b></span></div>
+
+<div class="qbox"><div class="qhead"><span class="qb">판례</span>헌법재판소는 이 조항을 합헌으로 보았습니다</div>
+<p><b>헌법재판소 2008. 11. 27. 선고 2005헌가21 결정 [합헌]</b> — 사립학교법 제57조 위헌제청 <span class="srcb goe">A</span></p>
+<p><b>어떤 사건이었나.</b> <b>사립학교 교원이 파산선고를 받으면 당연퇴직</b>되도록 정한 구 사립학교법(1997. 12. 13. 법률 제5438호로 개정된 것) 제57조 중 <b>국가공무원법 제33조 제1항 제2호 부분</b>이, 사립학교 교원의 <b>직업선택의 자유</b>를 침해하는지가 다투어졌습니다.</p>
+<p><b>헌법재판소의 판단(침해 아님).</b> 이 조항은 <b>교원의 사회적 책임과 교직에 대한 국민의 신뢰를 제고</b>하고 <b>성실하고 공정한 직무수행을 담보</b>하기 위한 조치로서 입법목적이 정당하고, 파산선고를 받은 교원을 교직에서 배제하는 것은 그 목적을 달성하기 위한 효과적·적절한 수단이라고 보았습니다. 또한 <b>제약이 덜한 대체수단의 존재가 명백하지 않고, 파산선고에 따른 자격제한을 없애면 파산신청의 남용이 우려된다</b>는 점 등을 들어, <b>침해의 최소성과 법익의 균형성에 위반되지 않는다</b>고 판단했습니다. 대학의 자율성 침해 주장도 받아들이지 않았습니다.</p>
+<p style="color:#9c3a22"><b>그러므로 "위헌이니 괜찮다"고 기대하실 수 없습니다.</b> 교원의 파산 당연퇴직은 헌법재판소가 <b>합헌</b>으로 확인한 제도입니다.</p>
+<p style="color:#6e6353;font-size:13.5px">※ 다만 이 결정은 <b>2008년</b>의 것이고, 그 뒤 국가공무원법·지방공무원법에는 보호 단서가 들어왔습니다. 교원에 관한 현재의 다툼이 어떻게 정리될지는 <b>아직 확인된 판례가 없어</b> 말씀드리지 않겠습니다.</p></div>
+
+<div class="concept"><b>교원이시라면 이렇게 검토하십시오.</b><br><br>
+<b>① 먼저 개인회생을 보십시오.</b> <b>개인회생에는 이런 자격제한이 없습니다.</b> 급여가 있으시면 개인회생이 가능한 경우가 많습니다. 교원은 <b>안정된 급여</b>가 있는 직업이므로 더욱 그렇습니다. <a href="E-1_개인회생_파산_선택.html">E-1 개인회생과 파산, 어느 쪽인가</a>를 먼저 보십시오.<br><br>
+<b>② 소득으로 감당이 안 되는지 다시 계산해 보십시오.</b> 개인회생은 <b>3년(특별한 사정이 있으면 5년)</b> 동안 갚을 수 있는 만큼만 갚고 나머지를 면책받는 절차입니다. 생각보다 변제액이 낮게 나오는 경우가 적지 않습니다.<br><br>
+<b>③ 그래도 파산밖에 길이 없다면, 퇴직을 전제로 설계해야 합니다.</b> 이것은 가볍게 결정할 일이 아닙니다. 퇴직금·연금의 처리, 가족의 생계, 재취업까지 함께 놓고 보셔야 합니다.</div>
+
+<div class="warn"><span class="wt">⚠ 사기업 직원이시라도 취업규칙은 한 번 보십시오</span>
+<b>법률이 아니라 회사 내부 규정</b>으로 "파산선고를 받은 때 당연퇴직" 또는 "면직"을 정해 둔 곳이 있습니다. 금융기관·증권사·보험사, 현금을 다루는 부서, 일부 공공기관이 그렇습니다.<br><br>
+<b>확인 방법은 이렇습니다.</b><br>
+· 회사 <b>취업규칙·인사규정</b>의 「당연퇴직」, 「결격사유」, 「면직」 조항을 찾아봅니다<br>
+· 사내 인트라넷이나 인사팀에 비치되어 있습니다. <b>근로자는 취업규칙을 열람할 수 있습니다</b>(근로기준법 제14조 — 사용자는 취업규칙을 근로자가 자유롭게 열람할 수 있는 장소에 게시하거나 갖추어 두어야 합니다)<br>
+· <b>인사팀에 "내 사건"으로 묻지 마십시오.</b> 규정 자체를 열람하는 방법으로 확인하십시오<br><br>
+<span style="color:#1b5e20">참고로 <b>법원이 회사에 통보하는 제도는 없습니다.</b> <a href="#j5">5번 항목</a>을 보십시오.</span></div>
+
+</div></details>
+
+<div class="part"><span class="pn">제 2 부</span><span class="pt2">알려지는가, 그리고 회사 일</span><span class="pw">— 통보 제도를 조문으로 확인합니다</span></div>
+
+<details class="sec" id="j5"><summary><span class="qb">5</span><span class="st">신원조회에 나오나요 — 등록기준지 통보의 단서<span class="sub">가장 많이 물으시는 질문입니다</span></span></summary>
+<div class="secbody">
+
+<div class="concept"><b>"파산하면 신원조회에 빨간 줄이 남는다"는 말을 들으셨을 것입니다.</b> 아주 오래된 이야기이고, <b>지금은 사정이 다릅니다.</b> 법원 예규의 조문을 그대로 보여 드리겠습니다.</div>
+
+<div class="qbox"><div class="qhead"><span class="qb">예규</span>개인파산 및 면책신청사건의 처리에 관한 예규 제6조(등록기준지 통보) 제1항</div>
+<p>① 법원은 개인인 채무자에 대하여 다음 각호의 사유가 있는 때에는 채무자의 <b>신원증명업무 관장자인 등록기준지 시(구가 설치된 시에 있어서는 구)·읍·면의 장</b>에게 그 사실을 통보하여야 한다. 다만, 제2호 내지 제4호의 사실은 제1호의 사실이 통보된 채무자에 한하여 통보한다.</p>
+<p>1. <b>파산선고가 확정된 때.</b> 다만, <b>채무자가 법 제556조제1항에 따른 면책신청을 하거나 동조제3항에 따라 면책신청을 한 것으로 보는 경우에는 그 면책신청이 각하·기각되거나 면책불허가결정이 내려지거나 면책취소의 결정이 확정된 때에 한하여 통보한다.</b></p>
+<p>2. 법 제574조제1항제1·2호의 사유가 발생된 때<br>
+3. <b>복권결정이 확정된 때</b><br>
+4. 면책취소의 결정이 확정된 때</p>
+<p>② 제1항의 통보는 전자통신매체를 이용하여 할 수 있다.</p>
+<p class="src">[시행 2025. 1. 24.] [대법원재판예규 제1902호, 2025. 1. 24., 일부개정] — 국가법령정보센터 행정규칙 원문 <span class="srcb goe">A</span></p></div>
+
+<div class="concept"><b>이 조문을 이용자의 말로 옮기면 이렇습니다.</b><br><br>
+<b>원칙은 "파산선고가 확정되면 통보한다"입니다.</b> 그런데 <b>1호에 붙은 단서</b>가 이 원칙을 거의 뒤집습니다.<br><br>
+<b>면책신청을 한 경우에는 통보하지 않습니다.</b> 통보하는 것은 <b>그 면책신청이</b><br>
+· <b><span class="term">각하<span class="bub">신청의 형식이나 요건이 갖추어지지 않아 내용을 따져 보지도 않고 물리치는 것. 내용을 따져 본 뒤 받아들이지 않는 "기각"과 다릅니다.</span></span></b>되거나<br>
+· <b>기각</b>되거나<br>
+· <b>면책불허가결정</b>이 내려지거나<br>
+· <b>면책취소결정이 확정</b>된<br>
+<b>때뿐입니다.</b><br><br>
+<span style="color:#1b5e20"><b>그리고 파산신청서를 내면 면책신청을 한 것으로 봅니다</b>(법 제556조 제3항). <b>그러므로 보통의 개인파산 사건 — 채무자가 스스로 신청해서 면책까지 받는 사건 — 에서는 등록기준지에 통보되지 않습니다.</b></span></div>
+
+<div class="tblwrap"><table>
+<tr><th style="width:42%">내 경우</th><th>등록기준지 통보</th></tr>
+<tr><td><b>스스로 파산을 신청하고<br>면책을 받았다</b><br><span style="font-size:13px">대부분의 사건이 여기 속합니다</span></td><td><span style="color:#1b5e20"><b>통보되지 않습니다</b></span><br><span style="font-size:13px">면책신청을 한 것으로 보기 때문입니다(법 제556조 제3항, 예규 제6조 제1항 1호 단서)</span></td></tr>
+<tr><td><b>채권자가 파산을 신청했고<br>내가 면책신청을 하지 않았다</b></td><td><span style="color:#9c3a22"><b>통보됩니다</b></span><br><span style="font-size:13px">★ 그래서 면책신청은 반드시 하셔야 합니다</span></td></tr>
+<tr><td><b>면책신청이 각하·기각되었다<br>또는 면책불허가가 났다</b></td><td><span style="color:#9c3a22"><b>통보됩니다</b></span></td></tr>
+<tr><td><b>면책취소가 확정되었다</b></td><td><span style="color:#9c3a22"><b>통보됩니다</b></span></td></tr>
+<tr><td><b>통보가 되었는데<br>나중에 복권되었다</b></td><td><b>복권결정이 확정된 때 다시 통보됩니다</b><br><span style="font-size:13px">예규 제6조 제1항 3호. 복권 사실이 같은 관청에 전달됩니다</span></td></tr>
+</table></div>
+
+<div class="tip"><span class="tpt">💡 조문이 말하는 것과, 말하지 않는 것을 구분해 드립니다</span>
+<b>조문이 정한 것은 "통보한다"까지입니다.</b> 통보의 상대방은 <b>"신원증명업무 관장자인 등록기준지 시·구·읍·면의 장"</b>이라고 적혀 있습니다.<br><br>
+<b>통보된 뒤 신원증명 사무에서 그것이 어떻게 관리되는지는 이 예규에 적혀 있지 않습니다.</b> 그 부분까지 단정해서 말씀드리지 않겠습니다. 다만 <b>복권결정이 확정되면 같은 조 3호에 따라 복권 사실도 통보되도록</b> 되어 있습니다.<br><br>
+<span style="color:#1b5e20"><b>이용자께서 기억하실 것은 하나입니다. 면책신청을 하면 애초에 통보 자체가 되지 않습니다.</b></span></div>
+
+<div class="warn"><span class="wt">⚠ 채용 과정에서 「신원조회 동의서」에 서명하실 때</span>
+회사가 요구하는 <b>신원조회 동의</b>의 범위는 회사마다 다릅니다. 통상은 <b>범죄·수사경력</b>이 대상이고, <b>파산은 그와 다른 제도</b>입니다.<br><br>
+<b>그래도 이렇게 하십시오.</b><br>
+· 동의서에 <b>무엇을 조회하는지</b> 적혀 있습니다. <b>서명 전에 그 항목을 읽으십시오</b><br>
+· 이력서나 입사서류에 <b>파산 사실을 적는 칸이 있는 경우</b>, 비워 두거나 거짓으로 적지 마십시오. <b>거짓 기재는 나중에 징계·해고 사유가 될 수 있습니다</b><br>
+· 묻지 않은 것을 <b>먼저 말씀하실 필요는 없습니다</b></div>
+
+</div></details>
+
+<details class="sec" id="j6"><summary><span class="qb">6</span><span class="st">회사와 금융기관에 알려지나요<span class="sub">통보되는 곳과 되지 않는 곳</span></span></summary>
+<div class="secbody">
+
+<div class="concept"><b>먼저 결론입니다. 법원이 「회사」에 통보하는 제도는 없습니다.</b><br><br>
+법원이 통보하는 곳은 예규에 <b>두 곳</b>만 적혀 있습니다. <b>등록기준지 관청</b>(제6조, 앞 항목에서 보았습니다)과 <b>한국신용정보원</b>(제5조)입니다. <b>직장·거래처·이웃에 통보하는 제도는 없습니다.</b></div>
+
+<div class="qbox"><div class="qhead"><span class="qb">예규</span>같은 예규 제5조(한국신용정보원의 장에 대한 통보)</div>
+<p>① 법원은 다음 각호의 경우에는 한국신용정보원의 장에게 통보하여야 한다.</p>
+<p>1. <b>면책결정이 확정된 경우</b> — 통보할 사항: 사건번호, 채무자의 성명, 주민등록번호, 면책결정일, 면책결정 확정일<br>
+2. <b>면책취소결정이 확정된 경우</b> — 통보할 사항: 사건번호, 채무자의 성명, 주민등록번호, 면책취소결정일, 면책취소결정 확정일</p>
+<p>② 제1항의 통보는 전자통신매체를 이용하여 할 수 있다.</p>
+<p class="src">[시행 2025. 1. 24.] [대법원재판예규 제1902호] <span class="srcb goe">A</span></p>
+<p><b>통보 대상이 「면책결정 확정」과 「면책취소 확정」 두 가지라는 점에 주의하십시오.</b> 이 조문에는 <b>파산선고 자체를 통보한다는 내용이 없습니다.</b></p></div>
+
+<div class="concept"><b>그러면 금융거래는 어떻게 되나.</b><br><br>
+<b>솔직히 말씀드립니다. 금융거래는 한동안 불편해집니다.</b> 면책결정 확정 사실이 한국신용정보원에 통보되면, 금융기관들이 그 정보를 공유합니다. 그래서 <b>새 대출과 신용카드 발급이 한동안 어렵습니다.</b><br><br>
+<b>다만 두 가지는 정확히 알고 계시는 것이 좋습니다.</b><br>
+· <b>이미 연체가 길어진 분은 어차피 그 전부터 신규 거래가 막혀 있었습니다.</b> 파산 때문에 새로 나빠지는 것이라기보다, <b>정리되는 과정</b>이라고 보시는 편이 사실에 가깝습니다<br>
+· <b>면책을 받으면 「끝나는 시점」이 생깁니다.</b> 연체를 끌고만 가면 끝이 없습니다<br><br>
+<span style="color:#6e6353">※ 등록이 유지되는 <b>기간</b>은 신용정보 관계 규정이 정하는 사항이고, <b>이 카드에서 확인한 범위를 넘습니다.</b> 그래서 몇 년이라고 적지 않겠습니다. 정확한 내 정보는 <b>한국신용정보원 「신용정보 열람」</b>에서 본인이 무료로 확인하실 수 있습니다.</span></div>
+
+<div class="qbox"><div class="qhead"><span class="qb">예규</span>공고는 법원 홈페이지에 게시됩니다 — 제7조(공고의 방법)</div>
+<p>① 개인파산 및 면책신청 사건에서의 공고는 <b>전자통신매체를 이용한 방법에 의한 공고를 원칙</b>으로 한다.</p>
+<p>② 「채무자 회생 및 파산에 관한 규칙」 제6조제1항제2호의 규정에 따른 전자통신매체를 이용한 공고는 공고사항을 <b>법원 홈페이지 법원공고란에 게시하는 방법</b>으로 한다.</p>
+<p class="src">[시행 2025. 1. 24.] [대법원재판예규 제1902호] <span class="srcb goe">A</span></p>
+<p><b>신문에 이름이 실리는 것이 아닙니다.</b> 법원 홈페이지의 <b>법원공고란</b>에 게시됩니다. 다만 <b><span class="term">공고<span class="bub">법원이 사건의 진행 사실을 일반에 알리는 것. 개인파산 사건에서는 법원 홈페이지의 법원공고란에 게시하는 방법으로 합니다.</span></span>는 공개된 절차</b>이므로, <b>"아무도 볼 수 없다"고는 말씀드리지 않겠습니다.</b></p></div>
+
+<div class="tblwrap"><table>
+<tr><th style="width:34%">어디에</th><th>통보·공개되나</th></tr>
+<tr><td><b>직장·회사</b></td><td><span style="color:#1b5e20"><b>통보 제도가 없습니다</b></span></td></tr>
+<tr><td><b>가족</b></td><td><span style="color:#1b5e20"><b>통보 제도가 없습니다</b></span><br><span style="font-size:13px">다만 파산관재인이 <b>가족의 소득·재산자료</b>를 요구하는 경우가 많아, 사실상 알게 되는 일이 흔합니다. 미리 상의하시는 편이 낫습니다</span></td></tr>
+<tr><td><b>채권자</b></td><td><b>송달·공고로 알게 됩니다.</b> 채권자목록에 적힌 채권자에게는 서면이 갑니다<br><span style="font-size:13px">이것은 절차의 본질입니다. 채권자에게 알리지 않고 면책을 받을 수는 없습니다</span></td></tr>
+<tr><td><b>등록기준지 관청</b></td><td><b>면책신청을 하면 통보되지 않습니다</b>(예규 제6조 제1항 1호 단서)</td></tr>
+<tr><td><b>한국신용정보원</b></td><td><b>면책결정 확정 사실이 통보됩니다</b>(예규 제5조)</td></tr>
+<tr><td><b>법원 홈페이지<br>법원공고란</b></td><td><b>공고됩니다</b>(예규 제7조)</td></tr>
+</table></div>
+
+</div></details>
+
+<details class="sec" id="j7"><summary><span class="qb">7</span><span class="st">이사·감사·조합원 자리는 그날로 끝납니다<span class="sub">면책을 받아도 자동으로 돌아오지 않습니다</span></span></summary>
+<div class="secbody">
+
+<div class="concept"><b>이 항목은 작은 회사를 운영하시거나, 법인의 등기임원으로 이름이 올라가 있는 분께 중요합니다.</b><br><br>
+자격제한 조항과 달리, 이것은 <b>민법의 일반 규정</b>에서 나옵니다. 그래서 눈에 잘 띄지 않고, 놓치는 분이 많습니다.</div>
+
+<div class="qbox"><div class="qhead"><span class="qb">조문</span>민법 제690조(사망·파산 등과 위임의 종료)</div>
+<p>"위임은 당사자 한쪽의 <b>사망이나 파산</b>으로 종료된다. 수임인이 성년후견개시의 심판을 받은 경우에도 이와 같다."</p>
+<p class="src">국가법령정보센터 현행 조문 <span class="srcb goe">A</span></p>
+<p><b>회사·법인과 이사의 관계는 <span class="term">위임<span class="bub">어떤 일의 처리를 남에게 맡기고 상대가 이를 받아들여 생기는 관계. 서로에 대한 신뢰가 핵심이어서, 한쪽이 파산하면 끝나는 것으로 법이 정하고 있습니다.</span></span>관계로 봅니다.</b> 그래서 <b>이사가 파산선고를 받으면 그 위임이 끝나고, 이사 자리에서 물러나게 됩니다.</b> 감사도 같습니다.</p></div>
+
+<div class="qbox"><div class="qhead"><span class="qb">판례</span>왜 파산이 위임의 종료사유인가 — 대법원이 밝힌 이유</div>
+<p><b>대법원 2003. 1. 10. 선고 2002다11236 판결 [감리비]</b> <span class="srcb goe">A</span></p>
+<p><b>어떤 사건이었나.</b> 주택건설촉진법에 따라 <b>주택조합과 시공사가 공동사업주체</b>로 사업계획승인을 받고, 승인권자가 지정한 감리자와 <b>공동으로 감리계약</b>을 체결했습니다. 그 뒤 <b>공동사업주체 중 일부가 파산선고</b>를 받았고, 그것만으로 감리계약이 끝났는지가 다투어졌습니다.</p>
+<p><b>대법원의 설명.</b> "민법 제690조가 위임계약의 일방 당사자의 파산을 위임계약 종료사유로 하고 있는 것은 <b>위임계약이 당사자 사이의 신뢰관계를 바탕으로 하고 있으므로 당사자의 일방이 파산한 경우에는 그 신뢰관계를 유지하기 어렵게 된다는 데 그 기초를 두고 있다</b>"고 밝혔습니다.</p>
+<p><b>다만 결론은 「종료되지 않는다」였습니다.</b> 이 사건의 감리계약은 법령에 따라 <b>승인권자가 지정한 감리자</b>와 체결하는 것이고 사업주체가 함부로 감리자를 교체할 수도 없으므로, <b>당사자 사이의 신뢰관계를 기초로 한 것이라기보다 승인권자의 지정에 기초</b>한 것이어서 <b>사업주체가 파산하였다고 하여 당연히 감리계약이 종료하는 것으로 볼 이유가 없다</b>고 판단했습니다.</p>
+<p><b>이 판결에서 얻을 것.</b> 제690조는 <b>"신뢰관계가 핵심인 위임"</b>에 적용됩니다. <b>회사와 이사의 관계는 신뢰관계가 핵심</b>이므로 제690조가 그대로 적용되는 것으로 다루어집니다. 반면 <b>법령에 따라 지정되어 체결하는 계약</b>처럼 신뢰관계가 핵심이 아닌 것은 파산만으로 끝나지 않을 수 있습니다.</p></div>
+
+<div class="warn"><span class="wt">⚠ 이것이 실무에서 가장 아픈 부분입니다</span>
+<b>자격제한은 복권되면 돌아옵니다. 그런데 이사·감사 자리는 복권되어도 자동으로 돌아오지 않습니다.</b><br><br>
+<b>위임이 「종료」되었기 때문입니다.</b> 끝난 계약이 되살아나는 것이 아니라, <b>새로 선임을 받아야</b> 합니다.<br>
+· 주식회사라면 <b>주주총회에서 다시 이사로 선임</b>받아야 합니다<br>
+· 그리고 <b>법인등기부의 임원 변경등기</b>를 해야 합니다<br><br>
+<span style="color:#9c3a22"><b>그러므로 내가 대표이사이거나 등기임원인 법인이 있다면, 파산신청 전에 반드시 정리 방향을 세우셔야 합니다.</b> 회사 운영에 공백이 생기고, 거래처·금융기관과의 관계에도 영향이 갑니다.</span></div>
+
+<div class="qbox"><div class="qhead"><span class="qb">조문</span>조합원은 탈퇴하게 됩니다 — 민법 제717조(비임의 탈퇴)</div>
+<p>"제716조의 경우 외에 조합원은 다음 각 호의 어느 하나에 해당하는 사유가 있으면 탈퇴된다." 그 2호가 <b>"파산"</b>입니다.</p>
+<p class="src">국가법령정보센터 현행 조문 <span class="srcb goe">A</span></p>
+<p><b>내 의사와 관계없이 탈퇴됩니다.</b> 동업으로 가게를 하고 계시거나, 공동으로 사업체를 꾸리고 계신 분은 <b>지분 정산 문제</b>가 따라옵니다. 이 정산금은 <b>파산재단에 속할 수 있으므로</b> 파산관재인과 협의해야 합니다.</p></div>
+
+<div class="qbox"><div class="qhead"><span class="qb">조문</span>후견인은 될 수 없습니다 — 민법 제937조(후견인의 결격사유)</div>
+<p>제937조는 후견인이 될 수 없는 사람을 열거하고 있는데, 그 <b>3호가 "회생절차개시결정 또는 파산선고를 받은 자"</b>입니다.</p>
+<p class="src">국가법령정보센터 현행 조문 <span class="srcb goe">A</span></p>
+<p><b>손주나 장애가 있는 자녀의 후견인을 맡고 계신 분</b>은 반드시 미리 상의하십시오. 후견인이 바뀌어야 하는 상황이 생길 수 있고, 이것은 <b>가정법원의 절차</b>가 따릅니다.</p></div>
+
+<div class="tip"><span class="tpt">💡 정리하면</span>
+<b>「자격」은 복권으로 돌아옵니다.</b> 공무원 임용자격, 변호사·법무사 자격, 공인중개사 개설등록, 보험설계사 등록은 복권되면 다시 길이 열립니다.<br><br>
+<b>「자리」는 돌아오지 않습니다.</b> 이사·감사 자리, 조합원 지위, 후견인 지위는 <b>이미 끝난 것</b>이어서 새로 선임·선정 절차를 밟아야 합니다.<br><br>
+이 차이를 모르고 "면책받으면 다 원래대로 된다"고 생각하시면 나중에 당황하십니다.</div>
+
+</div></details>
+
+<div class="part"><span class="pn">제 3 부</span><span class="pt2">복권 — 원래대로 돌아가는 길</span><span class="pw">— 조문 그대로 보여 드립니다</span></div>
+
+<details class="sec" id="j8"><summary><span class="qb">8</span><span class="st">당연복권 — 신청할 것이 없습니다<span class="sub">면책결정이 확정되면 그 날로 돌아옵니다</span></span></summary>
+<div class="secbody">
+
+<div class="concept"><b>자격제한은 "파산선고를 받고 <u>복권되지 아니한</u> 자"에게 붙습니다.</b> 조문들이 모두 그렇게 적혀 있습니다. 그러므로 <b>복권이 되면 제한이 사라집니다.</b><br><br>
+그리고 <b>대부분의 분은 아무것도 하실 필요가 없습니다.</b> 법이 정한 일이 생기면 <b>저절로</b> 복권됩니다.</div>
+
+<div class="qbox"><div class="qhead"><span class="qb">조문</span>채무자회생법 제574조(당연복권)</div>
+<p>① 파산선고를 받은 채무자는 다음 각호의 어느 하나에 해당하는 경우에는 복권된다.</p>
+<p>1. <b>면책의 결정이 확정된 때</b><br>
+2. 제538조의 규정에 의한 신청에 기한 <b>파산폐지의 결정이 확정된 때</b><br>
+3. 파산선고를 받은 채무자가 파산선고 후 제650조의 규정에 의한 <b>사기파산으로 유죄의 확정판결을 받음이 없이 10년이 경과한 때</b></p>
+<p>② <b>면책취소의 결정이 확정된 때에는 제1항제1호의 규정에 의한 복권은 장래에 향하여 그 효력을 잃는다.</b></p>
+<p class="src">[시행 2026. 10. 2.] [법률 제21490호, 2026. 3. 24., 타법개정] — 국가법령정보센터 현행 조문 <span class="srcb goe">A</span></p></div>
+
+<div class="tblwrap"><table>
+<tr><th style="width:8%">호</th><th style="width:30%">언제</th><th>이용자의 말로 풀면</th></tr>
+<tr><td><b>1</b></td><td><b>면책결정이 확정된 때</b></td><td>★ <b>거의 모든 분이 여기에 해당합니다.</b> 면책결정을 받고 그 결정이 확정되면 <b>그 날로 복권</b>됩니다<br><span style="font-size:13px">면책결정은 <b>확정된 후가 아니면 효력이 생기지 않습니다</b>(법 제565조). 결정문을 받으셨다면 확정 여부를 <a class="dl" href="https://www.scourt.go.kr/portal/information/events/search/search.jsp" target="_blank" rel="noopener">대법원 나의 사건검색</a>에서 확인하십시오</span></td></tr>
+<tr><td><b>2</b></td><td><b>동의에 의한 파산폐지결정이<br>확정된 때</b></td><td>제538조는 <b><span class="term">채권신고기간<span class="bub">파산선고를 하면서 법원이 정하는 기간. 채권자들은 이 기간 안에 자기 채권을 법원에 신고합니다.</span></span> 안에 신고한 파산채권자 전원의 동의</b>를 얻었거나, 동의하지 않은 채권자에게 <b>담보를 제공</b>한 경우에 채무자의 신청으로 파산을 폐지할 수 있도록 한 조항입니다<br><span style="font-size:13px">채권자 전원의 동의가 필요해 실제로는 드뭅니다</span></td></tr>
+<tr><td><b>3</b></td><td><b>사기파산 유죄 없이<br>10년이 지난 때</b></td><td><b>면책을 받지 못한 경우의 마지막 길</b>입니다. 파산선고 후 <b><span class="term">사기파산죄<span class="bub">파산선고 전후에 재산을 숨기거나 부수거나 불이익하게 처분하여 채권자를 해친 죄. 10년 이하의 징역 또는 1억원 이하의 벌금(채무자회생법 제650조).</span></span>로 유죄의 확정판결을 받지 않고 10년</b>이 지나면 저절로 복권됩니다<br><span style="color:#9c3a22;font-size:13px">★ 거꾸로 말하면, <b>사기파산으로 유죄가 확정되면 이 10년 복권의 길도 막힙니다</b></span></td></tr>
+</table></div>
+
+<div class="warn"><span class="wt">⚠ 제2항을 주의하십시오 — 면책이 취소되면 복권도 없어집니다</span>
+<b>면책취소결정이 확정되면, 면책으로 얻은 복권은 「장래에 향하여」 효력을 잃습니다</b>(법 제574조 제2항).<br><br>
+<b>"장래에 향하여"</b>라는 말이 중요합니다. <b>지난 일을 없던 것으로 만들지는 않지만, 그때부터 다시 "복권되지 아니한 자"가 됩니다.</b> 자격제한이 되살아난다는 뜻입니다.<br><br>
+면책취소는 <b>채무자가 부정한 방법으로 면책을 받은 경우</b> 등에 문제됩니다. <b>그러므로 신청서와 채권자목록을 정직하게 쓰시는 것이 결국 자격을 지키는 길입니다.</b></div>
+
+<div class="tip"><span class="tpt">💡 복권되었다는 것을 어떻게 증명하나</span>
+<b>별도의 「복권증명서」를 받는 제도는 없습니다.</b> 당연복권은 신청도 결정도 없이 일어나기 때문입니다.<br><br>
+<b>그래서 실무에서는 이렇게 증명합니다.</b><br>
+· <b>면책결정문</b>과 <b><span class="term">확정증명원<span class="bub">법원의 결정이 더 이상 다툴 수 없게 굳어졌다는 것을 법원이 증명해 주는 서면. 결정문만으로는 확정 여부를 알 수 없어 따로 발급받습니다.</span></span></b>을 발급받아 제출합니다<br>
+· 사건번호를 알고 계시면 <b>파산사건을 처리한 법원</b>(파산계속법원)에서 발급받을 수 있습니다<br>
+· <a class="dl" href="https://ecfs.scourt.go.kr/" target="_blank" rel="noopener">대법원 회생·파산 전자소송</a>으로 신청하셨다면 전자소송 사이트에서 <b>결정문을 직접 출력</b>하실 수 있습니다<br><br>
+자격기관(공무원 임용, 협회 등록 등)에 제출하실 때는 <b>"면책결정 확정"을 증명하는 서면</b>이면 됩니다. 복권은 그 확정에 따라 법률상 당연히 생기는 효과이기 때문입니다.</div>
+
+</div></details>
+
+<details class="sec" id="j9"><summary><span class="qb">9</span><span class="st">신청에 의한 복권 — 면책을 못 받은 분을 위한 길<span class="sub">전부 갚아 책임을 면한 경우입니다</span></span></summary>
+<div class="secbody">
+
+<div class="concept"><b>이 항목은 해당되시는 분이 많지 않습니다.</b> 면책을 받으면 당연복권되므로, 신청에 의한 복권은 <b>면책을 받지 못한 분</b>이 쓰는 길입니다.<br><br>
+예를 들어 <b>면책불허가 결정을 받았는데 그 뒤 사정이 좋아져 빚을 모두 갚으신 경우</b>가 여기에 해당합니다.</div>
+
+<div class="qbox"><div class="qhead"><span class="qb">조문</span>채무자회생법 제575조(신청에 의한 복권)</div>
+<p>① 제574조의 규정에 의하여 복권될 수 없는 파산선고를 받은 채무자가 <b>변제 그 밖의 방법으로 파산채권자에 대한 채무의 전부에 관하여 그 책임을 면한 때</b>에는 <b>파산계속법원</b>은 파산선고를 받은 채무자의 신청에 의하여 <b>복권의 결정을 하여야 한다.</b></p>
+<p>② 파산선고를 받은 채무자는 제1항의 규정에 의하여 복권의 신청을 하는 때에는 <b>그 책임을 면한 사실을 증명할 수 있는 서면을 제출하여야 한다.</b></p>
+<p>③ 제1항의 결정에 대하여는 <b>즉시항고</b>를 할 수 있다.</p>
+<p class="src">[시행 2026. 10. 2.] [법률 제21490호] <span class="srcb goe">A</span></p>
+<p><b>"하여야 한다"로 적혀 있습니다.</b> 요건을 갖추면 법원은 복권결정을 해야 합니다. 법원의 재량이 아닙니다.</p></div>
+
+<div class="concept"><b>절차는 이렇게 흘러갑니다.</b></div>
+
+<div class="steps">
+<div class="step"><span class="sn">1</span><div><b>파산계속법원에 복권신청서를 냅니다</b><br>
+<b>「<span class="term">파산계속법원<span class="bub">내 파산사건이 걸려 있는(계속되고 있는) 그 법원. 복권신청은 새로 관할을 따지지 않고 이 법원에 냅니다.</span></span>」</b>은 내 파산사건을 처리한 그 법원입니다. 새로 관할을 따지지 않습니다. 사건번호를 모르시면 <a class="dl" href="https://www.scourt.go.kr/portal/information/events/search/search.jsp" target="_blank" rel="noopener">대법원 나의 사건검색</a>에서 확인하십시오.<br>
+<span style="color:#9c3a22">★ 신청은 <b>법 제575조 제1항</b>에 따른 것이므로, 신청서 제목은 <b>「복권신청서」</b>로 하고 근거조문을 적으십시오.</span></div></div>
+
+<div class="step"><span class="sn">2</span><div><b>「책임을 면한 사실」을 증명하는 서면을 붙입니다</b> — 이것이 핵심입니다<br>
+법 제575조 제2항이 요구하는 서면입니다. <b>파산채권자 전원에 대하여</b> 책임을 면했다는 점이 드러나야 합니다.<br>
+· <b>채권자별 변제영수증·입금확인증</b> — 송금내역이 남는 계좌이체가 가장 깔끔합니다<br>
+· <b>채권자의 채무완제확인서</b>(인감 또는 서명, 신분 확인자료 첨부)<br>
+· <b><span class="term">공탁서<span class="bub">갚을 돈을 법원 공탁소에 맡기고 받는 서면. 채권자가 돈을 받지 않거나 어디 있는지 알 수 없을 때, 맡기는 것으로 갚은 효과를 얻습니다.</span></span></b> — 채권자가 수령을 거부하거나 소재불명인 경우<br>
+· <b>채권양도 통지서</b> — 채권자가 바뀐 경우 현재 채권자를 특정하는 자료<br>
+· 소멸시효가 완성된 채권이 있다면 그 <b>기산일과 경과를 보여 주는 자료</b><br>
+<span style="color:#9c3a22"><b>빠진 채권자가 한 명이라도 있으면 「전부」 요건을 갖추지 못합니다.</b> 파산사건의 <b>채권자목록과 채권신고 내역</b>을 받아 한 명씩 대조하십시오.</span></div></div>
+
+<div class="step"><span class="sn">3</span><div><b>법원이 공고하고, 서류를 비치합니다</b> (법 제576조)<br>
+"법원은 복권의 신청이 있은 때에는 <b>그 뜻을 공고</b>하고, <b>이해관계인이 열람할 수 있도록 그 신청에 관한 서류를 법원에 비치</b>하여야 한다."<br>
+공고는 <b>법원 홈페이지 법원공고란</b>에 게시됩니다(예규 제7조 제2항).</div></div>
+
+<div class="step"><span class="sn">4</span><div><b>파산채권자의 이의기간 — 공고일부터 3월</b> (법 제577조)<br>
+"파산채권자는 제576조의 규정에 의한 <b>공고가 있은 날부터 3월 이내</b>에 복권의 신청에 관하여 법원에 이의를 신청할 수 있다."<br>
+이의신청이 있으면 <b>법원은 채무자와 이의를 신청한 파산채권자의 의견을 들어야 합니다</b>(같은 조 제2항).<br>
+<span style="color:#9c3a22">★ <b>이 3월 때문에 복권신청은 시간이 걸립니다.</b> 자격 등록이 급하신 분은 미리 일정을 잡으셔야 합니다.</span></div></div>
+
+<div class="step"><span class="sn">5</span><div><b>복권결정 — 확정된 후부터 효력이 생깁니다</b> (법 제578조)<br>
+"복권의 결정은 <b>확정된 후부터 그 효력이 발생한다.</b>"<br>
+결정에 대하여는 <b><span class="term">즉시항고<span class="bub">법원의 결정에 불복하여 상급 법원의 판단을 받는 절차. 기간이 짧게 정해져 있어 그 안에 내지 않으면 결정이 확정됩니다.</span></span></b>를 할 수 있으므로(법 제575조 제3항), <b>결정문을 받은 날이 아니라 확정된 날</b>이 기준입니다.</div></div>
+
+<div class="step"><span class="sn">6</span><div><b>등록기준지에 복권 사실이 통보됩니다</b> (예규 제6조 제1항 3호)<br>
+"복권결정이 확정된 때"가 통보사유로 적혀 있습니다. 앞서 파산선고 사실이 통보되었던 분은 <b>복권 사실도 같은 관청에 전달됩니다.</b></div></div>
+
+<div class="step"><span class="sn">7</span><div><b>자격기관에 복권결정문과 확정증명원을 제출합니다</b><br>
+공무원 임용, 변호사·법무사 등록, 공인중개사 개설등록, 보험설계사 등록 등 <b>자격을 다시 얻으실 곳에 제출</b>하십시오. 각 기관의 등록 절차는 별도입니다.</div></div>
+</div>
+
+<div class="cost"><span class="ct">💰 복권신청에 드는 돈 — 별표 원문으로 확인했습니다</span>
+<div class="tblwrap"><table>
+<tr><th style="width:22%">무엇</th><th style="width:26%">얼마</th><th>근거</th></tr>
+<tr><td><b>인지액</b></td><td><b>1,000원</b></td><td>「민사접수서류에 붙일 인지액 및 그 편철방법 등에 관한 예규」(재민 91-1) <b>[별표] 일람표</b><br><span style="font-size:13px">「복권신청서 — 채무자회생 575① — <b>1,000원</b> — 도산사건입력 — 합철」<br>[시행 2025. 7. 12.] 대법원재판예규 제1916호</span> <span class="srcb goe">A</span></td></tr>
+<tr><td><b>송달료</b></td><td><b>(10 + 채권자수 × 3)회분</b></td><td>「송달료규칙의 시행에 따른 업무처리요령」(재일 87-4) <b>[별표 1]</b><br><span style="font-size:13px">「<b>복권사건(하기) — 10회 + (채권자수×3회)</b> — 신청인, 채무자 등」<br>[시행 2026. 3. 1.] 대법원재판예규 제1950호</span> <span class="srcb goe">A</span></td></tr>
+</table></div>
+
+<b>계산식을 그대로 보여 드립니다.</b> 송달료 1회분은 <b>5,640원</b>입니다(2026. 7. 1. 우편요금 인상 반영).<br>
+<b>송달료 = (10회 + 채권자수 × 3회) × 5,640원</b><br><br>
+
+<b>채권자가 5명이라면</b><br>
+· 회차 = 10 + (5 × 3) = <b>25회</b><br>
+· 송달료 = 25 × 5,640원 = <b>141,000원</b><br>
+· 인지액 = <b>1,000원</b><br>
+· <b>합계 142,000원</b><br><br>
+
+<b>채권자가 10명이라면</b><br>
+· 회차 = 10 + (10 × 3) = <b>40회</b><br>
+· 송달료 = 40 × 5,640원 = <b>225,600원</b><br>
+· 인지액 = <b>1,000원</b><br>
+· <b>합계 226,600원</b><br><br>
+
+<span style="color:#1b5e20">참고로 <b>면책사건의 송달료도 같은 기준</b>입니다(별표 1 「면책사건(하면) — 10회 + (채권자수×3회)」). <b>파산신청서의 인지액</b>은 원칙 30,000원이지만 <b>채무자 본인이 신청하면 1,000원</b>입니다(같은 별표 「파산신청서 — 채무자회생 294①」). 파산·면책 신청 전체 비용은 <a href="E-6_파산_면책_신청서류.html">E-6</a>에 정리해 두었습니다.</span></div>
+
+<p style="color:#9c3a22; font-weight:700; margin:14px 0 0">※ 채권자 수에 따라 송달료가 크게 달라집니다. 카드 맨 아래 <b>비용 계산기</b>에서 내 채권자 수를 넣어 확인하십시오.</p>
+
+<div class="warn" style="border-left-color:#9c3a22"><span class="wt">🚨 형사 리스크 — 복권의 길까지 막힙니다</span>
+<b>재산을 숨기거나 가족·지인 이름으로 옮기는 것은 범죄입니다.</b> 그리고 자격 회복의 마지막 길까지 닫습니다.<br><br>
+· <b>사기파산죄</b> — 파산선고 전후에 재산을 은닉·손괴하거나 불이익하게 처분한 경우, <b>10년 이하의 징역 또는 1억원 이하의 벌금</b>(채무자회생법 제650조)<br>
+· <b>강제집행면탈죄</b> — 강제집행을 피할 목적으로 재산을 은닉·손괴·허위양도한 경우, <b>3년 이하의 징역 또는 1천만원 이하의 벌금</b>(형법 제327조)<br>
+· <b>권리행사방해죄</b> — 자기 물건이라도 타인의 권리의 목적이 된 것을 취거·은닉·손괴한 경우, <b>5년 이하의 징역 또는 7백만원 이하의 벌금</b>(형법 제323조)<br><br>
+<span style="color:#9c3a22"><b>그리고 사기파산으로 유죄가 확정되면 제574조 제1항 3호의 「10년 경과 당연복권」도 적용받지 못합니다.</b> 면책도 못 받고, 10년이 지나도 복권되지 않는 상태가 됩니다. <b>이것이 가장 무서운 결과입니다.</b></span><br><br>
+<b>압류된 물건을 임의로 치우거나, 봉인을 떼거나, 집행관이 붙인 표지를 떼는 것도 범죄입니다</b>(공무상 비밀표시무효죄, 형법 제140조 — 5년 이하의 징역 또는 7백만원 이하의 벌금). <b>내 집, 내 물건이라도 그렇습니다.</b> 반드시 법으로 다투십시오.</div>
+
+</div></details>
+
+<details class="sec" id="j10"><summary><span class="qb">10</span><span class="st">자주 묻는 질문<span class="sub">상담에서 가장 많이 나오는 것들</span></span></summary>
+<div class="secbody">
+
+<div class="faq"><b>Q. 저는 회사원입니다. 파산하면 회사에서 잘리나요?</b><br>
+<b>법으로 그만두게 되는 일은 없습니다.</b> 법률이 "파산선고를 받고 복권되지 아니한 자"를 결격·당연퇴직 사유로 적어 둔 직업만 제한을 받습니다. 일반 회사원은 그 목록에 없습니다.<br>
+<b>다만 회사 취업규칙에 당연퇴직 조항이 있는지는 확인하십시오.</b> 금융기관·증권사 등에 간혹 있습니다(<a href="#j4">4번 항목</a>).</div>
+
+<div class="faq"><b>Q. 공무원인데 파산하면 바로 잘리는 줄 알았습니다.</b><br>
+<b>지금은 아닙니다.</b> 국가공무원법 제69조 제1호 단서, 지방공무원법 제61조 제1호 단서가 <b>"신청기한 내에 면책신청을 하지 아니하였거나 면책불허가 결정 또는 면책 취소가 확정된 경우만"</b> 당연퇴직으로 정하고 있습니다.<br>
+<b>그러니 면책신청을 기한 내에 하시는 것</b>이 가장 중요합니다. 채무자가 스스로 파산을 신청하면 면책신청도 함께 한 것으로 봅니다(법 제556조 제3항).</div>
+
+<div class="faq"><b>Q. 저는 초등학교 교사입니다. 같은 보호를 받나요?</b><br>
+<b>솔직히 말씀드립니다. 조문에 그 보호가 없습니다.</b> 교육공무원법 제43조의2 제1항의 단서는 「국가공무원법」 <b>제33조제5호</b>(선고유예)에만 붙어 있고, <b>제33조제2호(파산)에는 붙어 있지 않습니다.</b> 사립학교법 제57조 제1항도 같습니다.<br>
+<b>헌법재판소는 사립학교 교원의 파산 당연퇴직을 합헌으로 보았습니다</b>(2008. 11. 27. 2005헌가21). 그러므로 "위헌이라 괜찮다"고 기대하실 수 없습니다.<br>
+<b>신청 전에 반드시 상의하십시오.</b> 급여가 있으시면 <b>개인회생</b>이 답일 수 있습니다. 개인회생에는 이런 자격제한이 없습니다.</div>
+
+<div class="faq"><b>Q. 공인중개사 자격증이 취소되나요?</b><br>
+<b>자격 자체는 취소되지 않습니다.</b> 공인중개사법 제10조 제1항 3호는 <b>「중개사무소 개설등록」의 결격사유</b>로 정하고 있습니다. 즉 <b>사무소를 열어 영업하는 것</b>이 막히는 것입니다.<br>
+<b>복권되면 다시 등록하실 수 있습니다.</b> 면책결정이 확정되면 그 날로 복권됩니다(법 제574조 제1항 1호).</div>
+
+<div class="faq"><b>Q. 복권되면 「파산했던 기록」이 깨끗하게 지워지나요?</b><br>
+<b>그렇지는 않습니다.</b> 복권은 <b>자격제한을 풀어 주는 것</b>이고, 과거의 사건기록 자체를 없애는 제도가 아닙니다.<br>
+다만 <b>면책신청을 하신 분은 애초에 등록기준지 관청에 통보되지 않았습니다</b>(예규 제6조 제1항 1호 단서). 그리고 법원 사건기록은 <b>일반에 공개되는 것이 아닙니다.</b></div>
+
+<div class="faq"><b>Q. 면책을 받았는데, 면책결정문을 잃어버렸습니다.</b><br>
+<b>파산사건을 처리한 법원에서 다시 발급받으실 수 있습니다.</b> <b>결정문 정본·등본</b>과 <b>확정증명원</b>을 신청하십시오.<br>
+사건번호를 모르시면 <a class="dl" href="https://www.scourt.go.kr/portal/information/events/search/search.jsp" target="_blank" rel="noopener">대법원 나의 사건검색</a>에서 이름과 주민등록번호로 확인하실 수 있습니다. 전자소송으로 진행하셨다면 <a class="dl" href="https://ecfs.scourt.go.kr/" target="_blank" rel="noopener">대법원 회생·파산 전자소송</a>에서 직접 출력하실 수 있습니다.<br>
+준비서류로 <b>신분증</b>과, 경우에 따라 <b>주민등록초본</b>(<a class="dl" href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000015" target="_blank" rel="noopener">정부24</a>)이 필요합니다.</div>
+
+<div class="faq"><b>Q. 10년이 지나면 저절로 복권된다고 들었습니다. 기다리면 되나요?</b><br>
+<b>기다리실 필요가 없습니다.</b> 법 제574조 제1항 3호의 10년은 <b>면책을 받지 못한 분을 위한 마지막 길</b>입니다. <b>면책결정이 확정되면 그 날로 복권되므로</b>(같은 항 1호) 10년을 기다리지 않습니다.<br>
+<span style="color:#9c3a22">그리고 10년 조항에는 조건이 있습니다. <b>사기파산으로 유죄의 확정판결을 받지 않았어야</b> 합니다.</span></div>
+
+<div class="faq"><b>Q. 제가 대표이사인 작은 회사가 있습니다. 어떻게 되나요?</b><br>
+<b>대표이사·이사 자리는 파산선고로 끝납니다</b>(민법 제690조 — 위임은 당사자 한쪽의 사망이나 파산으로 종료된다).<br>
+<b>그리고 면책을 받아도 자동으로 돌아오지 않습니다.</b> 위임이 「종료」되었기 때문에 <b>주주총회에서 새로 선임</b>받고 <b>법인등기부의 임원 변경등기</b>를 해야 합니다.<br>
+<b>회사 운영에 공백이 생기므로 신청 전에 정리 방향을 세우셔야 합니다.</b> 다른 이사를 미리 선임해 두는 방법 등을 함께 검토하십시오.</div>
+
+<div class="faq"><b>Q. 파산하면 신용카드를 영원히 못 만드나요?</b><br>
+<b>영원히는 아닙니다.</b> 면책결정 확정 사실이 한국신용정보원에 통보되고(예규 제5조), 금융기관들이 그 정보를 공유하는 동안은 신규 거래가 어렵습니다.<br>
+<b>등록이 유지되는 기간은 신용정보 관계 규정이 정하는 사항이어서 이 카드에서 몇 년이라고 적지 않겠습니다.</b> <b>내 정보는 한국신용정보원에서 본인이 무료로 열람</b>하실 수 있으니 직접 확인하시는 편이 정확합니다.</div>
+
+<div class="faq"><b>Q. 가족 중에 공무원이 있습니다. 제 파산이 그 사람에게 영향을 주나요?</b><br>
+<b>영향이 없습니다.</b> 자격제한은 <b>파산선고를 받은 본인</b>에게만 적용됩니다. 가족의 직업·자격·신용에는 미치지 않습니다.<br>
+다만 <b>그 가족이 내 빚에 보증을 섰다면</b> 보증채무는 그대로 남습니다(법 제567조). 이것은 자격제한과 다른 문제입니다.</div>
+
+</div></details>
+
+<h2>고충은 덜어드리고, 끝까지 곁에서 돕겠습니다</h2>
+<div class="hire">
+<p>본 사무소에서는 사실관계와 자료를 꼼꼼히 살펴 필요한 서류를 갖추어 드리고, 절차를 마치실 때까지 성심껏 돕겠습니다.</p>
+<p style="margin-top:12px"><b>· 자격이 생업이신 분 — 신청 전에 먼저 오십시오</b><br>공무원·교원·중개사·설계사·전문자격처럼 <b>자격이 곧 생계</b>이신 분은 <b>신청 전 확인이 전부</b>입니다. 내 자격을 규율하는 법률의 결격·당연퇴직 조항을 <b>현행 조문으로 확인</b>해 드리고, 파산과 개인회생 중 어느 쪽이 맞는지 <b>소득·재산을 놓고 함께 계산</b>해 드립니다. 교원이시면 특히 그렇습니다.</p>
+<p style="margin-top:10px"><b>· 법인의 이사·감사로 이름이 올라가 계신 분</b><br>파산선고로 그 자리가 끝나므로(민법 제690조) <b>회사 운영에 공백이 생깁니다.</b> 임원 구성과 등기, 거래처·금융기관 관계까지 놓고 <b>순서를 잡아</b> 드립니다. 조합으로 동업하고 계신 분은 지분 정산을 파산관재인과 어떻게 정리할지도 함께 봅니다.</p>
+<p style="margin-top:10px"><b>· 면책을 받지 못하셨는데 빚을 다 갚으신 분</b><br><b>복권신청</b>으로 자격을 되찾는 길이 있습니다(법 제575조). 핵심은 <b>「파산채권자 전원에 대하여 책임을 면했다」는 증명</b>입니다. 채권자목록과 채권신고 내역을 받아 <b>한 명씩 대조</b>하고, 변제영수증·완제확인서·공탁서·채권양도 통지서를 정리해 신청서류를 갖추어 드립니다. <b>공고 후 3월의 이의기간</b>이 있으니 일정도 함께 잡습니다.</p>
+<p style="margin-top:12px; font-size:14px; color:#0b4a9c; font-weight:600;">※ <b>개인회생·개인파산 사건 신청의 대리는 법무사의 업무</b>입니다(법무사법 제2조 제1항 제6호). 다만 같은 호 단서는 <b>각종 기일에서의 진술의 대리를 제외</b>하고 있어, <b>면책심문기일·의견청취기일에는 채무자 본인이 출석하셔야 합니다.</b> 본 사무소는 신청서류 작성과 <b>작성된 서류의 제출 대행</b>(같은 항 제7호), 파산관재인 면담 사전 준비와 보정 대응을 돕습니다.</p>
+</div>
+
+<div class="warn"><span class="wt">⚠ 하지 말아야 할 일</span>
+<b>· 자격을 확인하지 않고 신청서를 내지 마십시오.</b> 접수 뒤에는 되돌리기 어렵습니다. <b>교원이시면 더욱 그렇습니다.</b> 내 자격의 근거 법률을 먼저 확인하십시오(<a href="#j2">2번 항목</a>).<br>
+<b>· 면책신청을 빠뜨리지 마십시오.</b> 공무원의 보호 단서도, 등록기준지 통보를 막는 단서도 <b>모두 "면책신청을 했는지"에 달려 있습니다.</b> 채권자가 파산을 신청한 경우에는 <b>직접 내셔야 합니다.</b><br>
+<b>· 입사서류나 등록신청서에 거짓으로 적지 마십시오.</b> 묻지 않은 것을 먼저 말씀하실 필요는 없지만, <b>거짓 기재는 나중에 징계·해고·등록취소 사유</b>가 될 수 있습니다.<br>
+<b>· 재산을 숨기거나 가족 이름으로 옮기지 마십시오.</b> 사기파산죄(채무자회생법 제650조)·강제집행면탈죄(형법 제327조)가 문제되고, <b>면책도 복권도 모두 막힙니다</b>(<a href="#j9">9번 항목</a>).<br>
+<b>· 압류 표지를 떼거나 압류된 물건을 치우지 마십시오.</b> 내 집, 내 물건이라도 범죄가 됩니다(형법 제140조·제323조). <b>반드시 법으로 다투십시오.</b></div>
+
+<div class="who"><span class="wl">함께 보시면 좋은 카드</span>
+<ul style="margin:5px 0 0;padding-left:20px;line-height:2">
+<li><a class="dl" href="E-1_개인회생_파산_선택.html">E-1 개인회생과 파산, 어느 쪽인가</a> — ★ 자격제한이 걸리는 직업이시라면 <b>가장 먼저</b> 보셔야 합니다</li>
+<li><a class="dl" href="E-6_파산_면책_신청서류.html">E-6 소득이 없어 갚을 길이 없습니다</a> — 신청서류와 비용을 갖추실 때</li>
+<li><a class="dl" href="E-7_면제재산_압류금지재산.html">E-7 파산하면 집·차·보험은 어떻게 되나요</a> — 무엇이 남는지 확인하실 때</li>
+<li><a class="dl" href="E-8_비면책채권.html">E-8 면책이 되지 않는 빚도 있나요</a> — 면책 뒤에도 남는 빚과 보증인 문제</li>
+</ul>
+</div>
+
+<a href="https://sanlaw.co.kr/tools-calculator.html#s=%EA%B0%9C%EC%9D%B8%ED%8C%8C%EC%82%B0%C2%B7%EB%A9%B4%EC%B1%85" class="cta">🧮 내 사건 비용 미리 계산하기 — 개인파산·면책</a>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+    t.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();t.classList.toggle('on');}if(e.key==='Escape'){t.classList.remove('on');t.blur();}});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){terms.forEach(function(x){x.classList.remove('on');});}});
+})();
+function toggleFold(b){var fb=b.parentElement;fb.classList.toggle('open');}
+function _openCall(id){var w=document.getElementById(id);var n=w&&w.nextElementSibling;if(n&&n.classList.contains('calltbl'))n.classList.add('open');}
+document.addEventListener('click',function(e){var a=e.target.closest?e.target.closest('a[href^="#call"]'):null;if(a)_openCall(a.getAttribute('href').slice(1));});
+if(location.hash.indexOf('#call')===0)_openCall(location.hash.slice(1));
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('양식이 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('양식이 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('양식을 내려받았습니다');}
+
+(function(){
+  document.querySelectorAll('.toc a').forEach(function(a){
+    a.addEventListener('click',function(){
+      var el=document.querySelector(a.getAttribute('href'));
+      if(el&&el.tagName==='DETAILS')el.open=true;
+    });
+  });
+  var btn=document.getElementById('allBtn');
+  if(!btn)return;
+  function toggleAll(){
+    var opening=btn.textContent.indexOf('펼치기')>-1;
+    document.querySelectorAll('details.sec').forEach(function(d){d.open=opening;});
+    btn.textContent=opening?'전체 접기':'전체 펼치기';
+  }
+  btn.addEventListener('click',toggleAll);
+  btn.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleAll();}});
+})();
+</script>
+</body>
+</html>
