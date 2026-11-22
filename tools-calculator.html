@@ -690,6 +690,7 @@
         <span class="hint">변경등기 건수</span> <input type="number" id="trChangeN" value="1" min="1" style="width:46px;margin-left:4px;" oninput="calcSale()"> <span class="hint">건 — 말소와 따로, 해당할 때만 체크</span></div></div>
       <div class="note" id="trustNote" style="display:none;">▸ 신탁회사(수탁자) 명의로 되어 있는 분양 부동산을 수분양자 앞으로 이전할 때는 <b>신탁등기 말소</b>를 이전등기와 <b>같은 신청서</b>로 함께 신청합니다. 그래서 말소 신청수수료는 따로 고르지 않고 <b>이전등기 신청 방법(e-Form·수기·전자)을 그대로 따라</b> 등기신청수수료에 들어갑니다. 분양 토지에 신탁이 있어 <b>토지 신탁등기 변경등기</b>가 필요하면 위 <b>「토지 신탁등기 변경등기」</b>를 말소와 따로 체크하십시오. 정해진 양식(e-Form 포함)이 없어 신탁원부 변경등기 양식을 빌려 <b>서면으로 직접 만들어 내는, 난이도가 있는 신청</b>입니다.</div>
       <div class="line"><span class="lbl">등기권리자(인)</span><div class="stepper"><button onclick="step('cntOwner',-1,calcSale)">−</button><input type="number" id="cntOwner" value="1" min="1" oninput="calcSale()"><button onclick="step('cntOwner',1,calcSale)">+</button></div><span class="hint">보수기준 <b>§2②4호</b> — 당사자·이해관계인 <b>5인 이상</b> 판정용 (아래 「당사자 다수 가산」과 연동)</span></div>
+      <div class="line"><span class="lbl">등기의무자(인)</span><div class="stepper"><button onclick="step('cntObl',-1,function(){oblSync('');calcSale();})">−</button><input type="number" id="cntObl" value="1" min="1" oninput="oblSync('');calcSale()"><button onclick="step('cntObl',1,function(){oblSync('');calcSale();})">+</button></div><span class="hint">지분을 <b>여러 명이 함께 넘기면</b> 넘기는 분(매도인)의 수를 넣으십시오 — 준비서류(<b>각자 준비</b>)와 아래 「당사자 다수 가산」·「확인서면 대상 인원」에 함께 들어갑니다 <span class="law" title="법무사보수기준 제2조제2항제4호·제10조제3항(당사자 5인 이상 가산) · 제10조제5항(확인서면 대상 인원 1인 초과 시 1인마다 30,000원) · 부동산등기규칙 제46조제1항제8호(자격자대리인의 등기의무자 확인) — 등기의무자가 여럿이면 각자 확인">보수기준 §10③⑤ · 규칙 §46①8호</span></span></div>
       <div class="line"><span class="lbl">등기원인 (신청 방법)</span><select id="sale_cause" onchange="renderDocsSale()"><option value="contract" selected>계약서로 함께 신청 — 공동신청</option><option value="judge">판결·조정 등으로 매수인이 혼자 신청</option></select><span class="hint">신청 방법에 따라 준비서류가 달라집니다(세금·수수료는 같습니다) · 부동산등기법 §23④ · 실무교재 101~106쪽</span></div>
       <div class="line" id="famLine"><span class="lbl">매도인과의 관계</span><select id="famRel" onchange="famUI();calcSale();renderDocsSale()">
         <option value="" selected>해당 없음</option>
@@ -800,9 +801,10 @@
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="f_tax" checked onchange="calcSale()"> 취득세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr id="trTaxRow" style="display:none;background:#eef4fb;"><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="f_trTax" checked onchange="calcSale()"> 등록면허세 신고대행 — 신탁 말소·변경</label> <span class="hint" id="trTaxNote"></span><span class="law" title="법무사 보수기준 제25조제1항 표 2호(부표 Ⅸ-2) — 취득세·등록면허세의 신고·납부 대행 1건당 50,000원. 이전·말소·변경을 각각 1건으로 본다(법무사님 실무 기준).">보수표 Ⅸ-2</span></td><td class="auto" id="trTaxCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="f_bond" checked onchange="calcSale()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
+        <tr id="djRow"><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="f_dj" checked onchange="djTouch('');calcSale()"> 대지권 있는 구분건물 가산 (20,000+) <span class="law" title="법무사보수기준 제10조제2항 — 수개의 구분건물을 1건의 신청서로 소유권보존등기를 하는 경우에는 각 구분건물마다 별건으로 보며, 대지권이 있는 구분건물의 소유권보존등기는 건당 40,000원, 소유권이전등기는 건당 20,000원을 가산한다.">§10②</span></label> <span class="hint">구분건물 수</span> <input type="number" id="djN" value="1" min="1" style="width:54px;" oninput="djTouch('');calcSale()"> <span class="hint" id="djHint">아파트·빌라 등 대지권 있는 집합건물일 때 — 준비서류의 「부동산 형태」를 따라갑니다</span></td><td class="auto" id="djCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="f_same" onchange="calcSale()"> 동일인 보증서 (200,000+)</label> <span class="hint">대상</span> <input type="number" id="sameN" value="1" min="1" style="width:54px;" oninput="calcSale()"></td><td class="auto" id="sameCell">0 원</td></tr>
         <tr id="verifyRow" style=""><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="verify" onchange="calcSale()"> 확인서면 작성 <span class="hint">(등기필증 분실 시)</span> <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="vfyN" value="1" min="1" style="width:54px;" oninput="calcSale()"> <span class="hint" id="verifyNote"></span></td><td class="auto" id="verifyCell">0 원</td></tr>
-        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="f_trip" checked onchange="calcSale()"> 교통비 및 일당</label></td><td><input class="cell" id="tripFee" type="number" value="160000" oninput="calcSale(true)"></td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="f_trip" checked onchange="calcSale()"> 교통비 및 일당 <span class="law" title="법무사보수기준 제27조제1항(보수표 Ⅹ-2) — 출장 시 ① 교통비: 1등급 여객운임(택시·KTX·SRT 일반석) 기준 실비(현지교통비는 80,000원까지) ② 숙박비: 1급 숙박업소 기준 실비 ③ 일당: 소요시간 4시간 이내 80,000원, 4시간 초과 160,000원. 같은 조 제2항 — 그 밖에 지출한 실비는 별도로 받는다.">§27①</span></label></td><td><input class="cell" id="tripFee" type="number" value="160000" oninput="calcSale(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="extraAgent"></tbody>
         <tr class="subtot"><td>수수료계 (보수)</td><td id="feeSum">0 원</td></tr>
@@ -926,9 +928,10 @@
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="s_f_origin" checked onchange="calcInherit()"> 등기원인증서(협의분할계약서 등) 작성 (50,000)</label> <select id="s_originAdd" onchange="calcInherit()" style="font-size:12px;margin-left:4px;"><option value="0" selected>문안 일반</option><option value="1">복잡·특수 +100%</option></select> <span class="law" title="법무사보수기준 §25②→§10③ — 업무가 특별히 중대·복잡하거나 특별한 조사·분석·연구·문안이 필요한 경우(§2②각호) 당해 기본보수(50,000)의 100%까지 가산. §2⑤ 상한.">보수기준 §25②</span></td><td class="auto" id="s_originCell">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="s_f_tax" checked onchange="calcInherit()"> <span id="s_taxAgentLabel">취득세 신고대행</span> (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="s_f_bond" checked onchange="calcInherit()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
+        <tr id="s_djRow"><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="s_f_dj" checked onchange="djTouch('s_');calcInherit()"> 대지권 있는 구분건물 가산 (20,000+) <span class="law" title="법무사보수기준 제10조제2항 — 수개의 구분건물을 1건의 신청서로 소유권보존등기를 하는 경우에는 각 구분건물마다 별건으로 보며, 대지권이 있는 구분건물의 소유권보존등기는 건당 40,000원, 소유권이전등기는 건당 20,000원을 가산한다.">§10②</span></label> <span class="hint">구분건물 수</span> <input type="number" id="s_djN" value="1" min="1" style="width:54px;" oninput="djTouch('s_');calcInherit()"> <span class="hint" id="s_djHint">아파트·빌라 등 대지권 있는 집합건물일 때 — 준비서류의 「부동산 형태」를 따라갑니다</span></td><td class="auto" id="s_djCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="s_f_same" onchange="calcInherit()"> 동일인 보증서 (200,000+)</label> <span class="hint">대상</span> <input type="number" id="s_sameN" value="1" min="1" style="width:54px;" oninput="calcInherit()"></td><td class="auto" id="s_sameCell">0 원</td></tr>
         <tr id="s_verifyRow" style="background:#fdf6e8;"><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="s_verify" onchange="calcInherit()"> 확인서면 작성 <span class="hint">(등기필증 분실 시)</span> <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="s_vfyN" value="1" min="1" style="width:54px;" oninput="calcInherit()"> <span class="hint" id="s_verifyNote"></span> <span class="hint" style="color:var(--seal);">※ 상속등기는 등기의무자가 없는 단독신청이라 등기필정보 제공이 불요합니다. 유증 등 등기의무자가 있는 경우에만 체크하십시오.</span></td><td class="auto" id="s_verifyCell">0 원</td></tr>
-        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="s_f_trip" checked onchange="calcInherit()"> 교통비 및 일당</label></td><td><input class="cell" id="s_tripFee" type="number" value="160000" oninput="calcInherit(true)"></td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="s_f_trip" checked onchange="calcInherit()"> 교통비 및 일당 <span class="law" title="법무사보수기준 제27조제1항(보수표 Ⅹ-2) — 출장 시 ① 교통비: 1등급 여객운임(택시·KTX·SRT 일반석) 기준 실비(현지교통비는 80,000원까지) ② 숙박비: 1급 숙박업소 기준 실비 ③ 일당: 소요시간 4시간 이내 80,000원, 4시간 초과 160,000원. 같은 조 제2항 — 그 밖에 지출한 실비는 별도로 받는다.">§27①</span></label></td><td><input class="cell" id="s_tripFee" type="number" value="160000" oninput="calcInherit(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="s_extraAgent"></tbody>
         <tr class="subtot"><td>수수료계 (보수)</td><td id="s_feeSum">0 원</td></tr>
@@ -1028,9 +1031,10 @@
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bq_f_origin" checked onchange="calcBequest()"> 등기원인증서(협의분할계약서 등) 작성 (50,000)</label> <select id="bq_originAdd" onchange="calcBequest()" style="font-size:12px;margin-left:4px;"><option value="0" selected>문안 일반</option><option value="1">복잡·특수 +100%</option></select> <span class="law" title="법무사보수기준 §25②→§10③ — 업무가 특별히 중대·복잡하거나 특별한 조사·분석·연구·문안이 필요한 경우(§2②각호) 당해 기본보수(50,000)의 100%까지 가산. §2⑤ 상한.">보수기준 §25②</span></td><td class="auto" id="bq_originCell">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bq_f_tax" checked onchange="calcBequest()"> <span id="bq_taxAgentLabel">취득세 신고대행</span> (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bq_f_bond" checked onchange="calcBequest()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
+        <tr id="bq_djRow"><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bq_f_dj" checked onchange="djTouch('bq_');calcBequest()"> 대지권 있는 구분건물 가산 (20,000+) <span class="law" title="법무사보수기준 제10조제2항 — 수개의 구분건물을 1건의 신청서로 소유권보존등기를 하는 경우에는 각 구분건물마다 별건으로 보며, 대지권이 있는 구분건물의 소유권보존등기는 건당 40,000원, 소유권이전등기는 건당 20,000원을 가산한다.">§10②</span></label> <span class="hint">구분건물 수</span> <input type="number" id="bq_djN" value="1" min="1" style="width:54px;" oninput="djTouch('bq_');calcBequest()"> <span class="hint" id="bq_djHint">아파트·빌라 등 대지권 있는 집합건물일 때 — 준비서류의 「부동산 형태」를 따라갑니다</span></td><td class="auto" id="bq_djCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bq_f_same" onchange="calcBequest()"> 동일인 보증서 (200,000+)</label> <span class="hint">대상</span> <input type="number" id="bq_sameN" value="1" min="1" style="width:54px;" oninput="calcBequest()"></td><td class="auto" id="bq_sameCell">0 원</td></tr>
         <tr id="bq_verifyRow" style="background:#fdf6e8;"><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bq_verify" onchange="calcBequest()"> 확인서면 작성 <span class="hint">(등기필증 분실 시)</span> <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="bq_vfyN" value="1" min="1" style="width:54px;" oninput="calcBequest()"> <span class="hint" id="bq_verifyNote"></span> <span class="hint" style="color:var(--seal);">※ 상속등기는 등기의무자가 없는 단독신청이라 등기필정보 제공이 불요합니다. 유증 등 등기의무자가 있는 경우에만 체크하십시오.</span></td><td class="auto" id="bq_verifyCell">0 원</td></tr>
-        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bq_f_trip" checked onchange="calcBequest()"> 교통비 및 일당</label></td><td><input class="cell" id="bq_tripFee" type="number" value="160000" oninput="calcBequest(true)"></td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bq_f_trip" checked onchange="calcBequest()"> 교통비 및 일당 <span class="law" title="법무사보수기준 제27조제1항(보수표 Ⅹ-2) — 출장 시 ① 교통비: 1등급 여객운임(택시·KTX·SRT 일반석) 기준 실비(현지교통비는 80,000원까지) ② 숙박비: 1급 숙박업소 기준 실비 ③ 일당: 소요시간 4시간 이내 80,000원, 4시간 초과 160,000원. 같은 조 제2항 — 그 밖에 지출한 실비는 별도로 받는다.">§27①</span></label></td><td><input class="cell" id="bq_tripFee" type="number" value="160000" oninput="calcBequest(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="bq_extraAgent"></tbody>
         <tr class="subtot"><td>수수료계 (보수)</td><td id="bq_feeSum">0 원</td></tr>
@@ -1149,6 +1153,7 @@
       <div class="line"><span class="lbl">시가인정액(원)</span><input type="number" class="amt" id="gv_price" placeholder="0" oninput="calcGift()"><span class="hint">증여 취득세 과세표준(시가인정액)</span></div>
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('gv_cntEstate',-1,calcGift)">−</button><input type="number" id="gv_cntEstate" value="1" min="1" oninput="calcGift()"><button onclick="step('gv_cntEstate',1,calcGift)">+</button></div></div>
       <div class="line"><span class="lbl">등기권리자(수증자)</span><div class="stepper"><button onclick="step('gv_cntOwner',-1,calcGift)">−</button><input type="number" id="gv_cntOwner" value="1" min="1" oninput="calcGift()"><button onclick="step('gv_cntOwner',1,calcGift)">+</button></div><span class="hint">보수기준 <b>§2②4호</b> — 당사자·이해관계인 <b>5인 이상</b> 판정용 (아래 「당사자 다수 가산」과 연동)</span></div>
+      <div class="line"><span class="lbl">등기의무자(증여자)</span><div class="stepper"><button onclick="step('gv_cntObl',-1,function(){oblSync('gv_');calcGift();})">−</button><input type="number" id="gv_cntObl" value="1" min="1" oninput="oblSync('gv_');calcGift()"><button onclick="step('gv_cntObl',1,function(){oblSync('gv_');calcGift();})">+</button></div><span class="hint">지분을 <b>여러 명이 함께 넘기면</b> 넘기는 분(증여자)의 수를 넣으십시오 — 준비서류(<b>각자 준비</b>)와 아래 「당사자 다수 가산」·「확인서면 대상 인원」에 함께 들어갑니다 <span class="law" title="법무사보수기준 제2조제2항제4호·제10조제3항(당사자 5인 이상 가산) · 제10조제5항(확인서면 대상 인원 1인 초과 시 1인마다 30,000원) · 부동산등기규칙 제46조제1항제8호(자격자대리인의 등기의무자 확인) — 등기의무자가 여럿이면 각자 확인">보수기준 §10③⑤ · 규칙 §46①8호</span></span></div>
       <div class="line"><span class="lbl">등기원인 (신청 방법)</span><select id="gv_cause" onchange="renderDocsGift()"><option value="contract" selected>계약서로 함께 신청 — 공동신청</option><option value="judge">판결·조정 등으로 수증자가 혼자 신청</option></select><span class="hint">신청 방법에 따라 준비서류가 달라집니다(세금·수수료는 같습니다) · 부동산등기법 §23④ · 실무교재 101~106쪽</span></div>
       <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcGift();junjuToggle()">
         <label><input type="radio" name="gv_ptype" value="house" checked> 주택</label>
@@ -1208,9 +1213,10 @@
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="gv_f_inspect" checked onchange="calcGift()"> 증여계약서 검인대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="gv_f_tax" checked onchange="calcGift()"> 취득세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="gv_f_bond" checked onchange="calcGift()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
+        <tr id="gv_djRow"><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="gv_f_dj" checked onchange="djTouch('gv_');calcGift()"> 대지권 있는 구분건물 가산 (20,000+) <span class="law" title="법무사보수기준 제10조제2항 — 수개의 구분건물을 1건의 신청서로 소유권보존등기를 하는 경우에는 각 구분건물마다 별건으로 보며, 대지권이 있는 구분건물의 소유권보존등기는 건당 40,000원, 소유권이전등기는 건당 20,000원을 가산한다.">§10②</span></label> <span class="hint">구분건물 수</span> <input type="number" id="gv_djN" value="1" min="1" style="width:54px;" oninput="djTouch('gv_');calcGift()"> <span class="hint" id="gv_djHint">아파트·빌라 등 대지권 있는 집합건물일 때 — 준비서류의 「부동산 형태」를 따라갑니다</span></td><td class="auto" id="gv_djCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="gv_f_same" onchange="calcGift()"> 동일인 보증서 (200,000+)</label> <span class="hint">대상</span> <input type="number" id="gv_sameN" value="1" min="1" style="width:54px;" oninput="calcGift()"></td><td class="auto" id="gv_sameCell">0 원</td></tr>
         <tr id="gv_verifyRow" style=""><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="gv_verify" onchange="calcGift()"> 확인서면 작성 <span class="hint">(등기필증 분실 시)</span> <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="gv_vfyN" value="1" min="1" style="width:54px;" oninput="calcGift()"> <span class="hint" id="gv_verifyNote"></span></td><td class="auto" id="gv_verifyCell">0 원</td></tr>
-        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="gv_f_trip" checked onchange="calcGift()"> 교통비 및 일당</label></td><td><input class="cell" id="gv_tripFee" type="number" value="160000" oninput="calcGift(true)"></td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="gv_f_trip" checked onchange="calcGift()"> 교통비 및 일당 <span class="law" title="법무사보수기준 제27조제1항(보수표 Ⅹ-2) — 출장 시 ① 교통비: 1등급 여객운임(택시·KTX·SRT 일반석) 기준 실비(현지교통비는 80,000원까지) ② 숙박비: 1급 숙박업소 기준 실비 ③ 일당: 소요시간 4시간 이내 80,000원, 4시간 초과 160,000원. 같은 조 제2항 — 그 밖에 지출한 실비는 별도로 받는다.">§27①</span></label></td><td><input class="cell" id="gv_tripFee" type="number" value="160000" oninput="calcGift(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="gv_extraAgent"></tbody>
         <tr class="subtot"><td>수수료계 (보수)</td><td id="gv_feeSum">0 원</td></tr>
@@ -1339,6 +1345,7 @@
       <div class="line" id="ea_excessRow" style="display:none;"><span class="lbl">종전 건축물 가액(원)</span><input type="number" class="amt" id="ea_prevVal" placeholder="0" oninput="calcEtcAcq()"><span class="hint">§15①5호 단서 — <b>이를 초과하는 가액</b>은 특례 제외(원시취득 2.8%)</span></div>
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('ea_cntEstate',-1,calcEtcAcq)">−</button><input type="number" id="ea_cntEstate" value="1" min="1" oninput="calcEtcAcq()"><button onclick="step('ea_cntEstate',1,calcEtcAcq)">+</button></div></div>
       <div class="line"><span class="lbl">등기권리자</span><div class="stepper"><button onclick="step('ea_cntOwner',-1,calcEtcAcq)">−</button><input type="number" id="ea_cntOwner" value="1" min="1" oninput="calcEtcAcq()"><button onclick="step('ea_cntOwner',1,calcEtcAcq)">+</button></div><span class="hint">보수기준 <b>§2②4호</b> — 당사자·이해관계인 <b>5인 이상</b> 판정용 (아래 「당사자 다수 가산」과 연동)</span></div>
+      <div class="line"><span class="lbl">등기의무자</span><div class="stepper"><button onclick="step('ea_cntObl',-1,function(){oblSync('ea_');calcEtcAcq();})">−</button><input type="number" id="ea_cntObl" value="1" min="1" oninput="oblSync('ea_');calcEtcAcq()"><button onclick="step('ea_cntObl',1,function(){oblSync('ea_');calcEtcAcq();})">+</button></div><span class="hint">지분을 <b>여러 명이 함께 넘기면</b> 넘기는 분(넘겨주는 분)의 수를 넣으십시오 — 준비서류(<b>각자 준비</b>)와 아래 「당사자 다수 가산」·「확인서면 대상 인원」에 함께 들어갑니다 <span class="law" title="법무사보수기준 제2조제2항제4호·제10조제3항(당사자 5인 이상 가산) · 제10조제5항(확인서면 대상 인원 1인 초과 시 1인마다 30,000원) · 부동산등기규칙 제46조제1항제8호(자격자대리인의 등기의무자 확인) — 등기의무자가 여럿이면 각자 확인">보수기준 §10③⑤ · 규칙 §46①8호</span></span></div>
       <div class="line"><span class="lbl">옵션</span><div class="checks" onchange="calcEtcAcq()">
         <label><input type="checkbox" id="ea_over85"> 전용 85㎡ 초과(농특세 과세) <small>— 수도권 밖 도시지역이 아닌 읍·면은 100㎡ 초과</small></label>
         <label><input type="checkbox" id="ea_mid13"> 취득물건이 <b>§13②</b>(대도시 법인 취득 등) → 산출세율 ×300%</label>
@@ -1399,9 +1406,10 @@
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ea_f_origin" checked onchange="calcEtcAcq()"> 등기원인증서 작성 (50,000)</label> <select id="ea_originAdd" onchange="calcEtcAcq()" style="font-size:12px;margin-left:4px;"><option value="0" selected>문안 일반</option><option value="1">복잡·특수 +100%</option></select> <span class="law" title="법무사보수기준 §25②→§10③ — 업무가 특별히 중대·복잡하거나 특별한 조사·분석·연구·문안이 필요한 경우(§2②각호) 당해 기본보수(50,000)의 100%까지 가산. §2⑤ 상한.">보수기준 §25②</span></td><td class="auto" id="ea_originCell">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ea_f_tax" checked onchange="calcEtcAcq()"> 취득세 신고대행 (50,000)</label></td><td class="auto" id="ea_taxCell">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ea_f_bond" onchange="calcEtcAcq()"> 채권 매입대행 (40,000)</label></td><td class="auto" id="ea_bondCell">0 원</td></tr>
+        <tr id="ea_djRow"><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ea_f_dj" onchange="djTouch('ea_');calcEtcAcq()"> 대지권 있는 구분건물 가산 (20,000+) <span class="law" title="법무사보수기준 제10조제2항 — 수개의 구분건물을 1건의 신청서로 소유권보존등기를 하는 경우에는 각 구분건물마다 별건으로 보며, 대지권이 있는 구분건물의 소유권보존등기는 건당 40,000원, 소유권이전등기는 건당 20,000원을 가산한다.">§10②</span></label> <span class="hint">구분건물 수</span> <input type="number" id="ea_djN" value="1" min="1" style="width:54px;" oninput="djTouch('ea_');calcEtcAcq()"> <span class="hint" id="ea_djHint">아파트·빌라 등 대지권 있는 집합건물일 때</span></td><td class="auto" id="ea_djCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ea_f_same" onchange="calcEtcAcq()"> 동일인 보증서 (200,000+)</label> <span class="hint">대상</span> <input type="number" id="ea_sameN" value="1" min="1" style="width:54px;" oninput="calcEtcAcq()"></td><td class="auto" id="ea_sameCell">0 원</td></tr>
         <tr id="ea_verifyRow" style=""><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ea_verify" onchange="calcEtcAcq()"> 확인서면 작성 <span class="hint">(등기필증 분실 시)</span> <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="ea_vfyN" value="1" min="1" style="width:54px;" oninput="calcEtcAcq()"> <span class="hint" id="ea_verifyNote"></span></td><td class="auto" id="ea_verifyCell">0 원</td></tr>
-        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ea_f_trip" checked onchange="calcEtcAcq()"> 교통비 및 일당</label></td><td><input class="cell" id="ea_tripFee" type="number" value="160000" oninput="calcEtcAcq(true)"></td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ea_f_trip" checked onchange="calcEtcAcq()"> 교통비 및 일당 <span class="law" title="법무사보수기준 제27조제1항(보수표 Ⅹ-2) — 출장 시 ① 교통비: 1등급 여객운임(택시·KTX·SRT 일반석) 기준 실비(현지교통비는 80,000원까지) ② 숙박비: 1급 숙박업소 기준 실비 ③ 일당: 소요시간 4시간 이내 80,000원, 4시간 초과 160,000원. 같은 조 제2항 — 그 밖에 지출한 실비는 별도로 받는다.">§27①</span></label></td><td><input class="cell" id="ea_tripFee" type="number" value="160000" oninput="calcEtcAcq(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="ea_extraAgent"></tbody>
         <tr class="subtot"><td>수수료계 (보수)</td><td id="ea_feeSum">0 원</td></tr>
@@ -1436,6 +1444,7 @@
       <div class="line" id="pt_excessWarn" style="display:none;border-top:1px dashed var(--line);padding-top:8px;"><span class="hint" style="color:var(--seal);line-height:1.55;">▸ <b>본인 지분 초과분이 발생했습니다.</b> §11①5호 괄호(<i>등기부등본상 본인 지분을 초과하는 부분의 경우에는 제외한다</i>)에 따라 초과분은 특례 대상이 <b>아니며 일반 유상승계취득</b>으로 과세됩니다. 주택 유상세율의 구간 판정 기준은 <b>[확인필요]</b>이므로 관할청 확인 후 필요시 직접 입력하십시오.</span></div>
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('pt_cntEstate',-1,calcPartition)">−</button><input type="number" id="pt_cntEstate" value="1" min="1" oninput="calcPartition()"><button onclick="step('pt_cntEstate',1,calcPartition)">+</button></div></div>
       <div class="line"><span class="lbl">등기권리자</span><div class="stepper"><button onclick="step('pt_cntOwner',-1,calcPartition)">−</button><input type="number" id="pt_cntOwner" value="1" min="1" oninput="calcPartition()"><button onclick="step('pt_cntOwner',1,calcPartition)">+</button></div><span class="hint">보수기준 <b>§2②4호</b> — 당사자·이해관계인 <b>5인 이상</b> 판정용 (아래 「당사자 다수 가산」과 연동)</span></div>
+      <div class="line"><span class="lbl">등기의무자</span><div class="stepper"><button onclick="step('pt_cntObl',-1,function(){oblSync('pt_');calcPartition();})">−</button><input type="number" id="pt_cntObl" value="1" min="1" oninput="oblSync('pt_');calcPartition()"><button onclick="step('pt_cntObl',1,function(){oblSync('pt_');calcPartition();})">+</button></div><span class="hint">지분을 <b>여러 명이 함께 넘기면</b> 넘기는 분(지분을 넘겨주는 공유자)의 수를 넣으십시오 — 준비서류(<b>각자 준비</b>)와 아래 「당사자 다수 가산」·「확인서면 대상 인원」에 함께 들어갑니다 <span class="law" title="법무사보수기준 제2조제2항제4호·제10조제3항(당사자 5인 이상 가산) · 제10조제5항(확인서면 대상 인원 1인 초과 시 1인마다 30,000원) · 부동산등기규칙 제46조제1항제8호(자격자대리인의 등기의무자 확인) — 등기의무자가 여럿이면 각자 확인">보수기준 §10③⑤ · 규칙 §46①8호</span></span></div>
       <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcBondPartition()">
         <label><input type="radio" name="pt_ptype" value="house" checked> 주택</label>
         <label><input type="radio" name="pt_ptype" value="etc"> 주택외(상가·대지·임야 등)</label></div><span class="hint">주택의 <b>지분이나 부속토지(주택이 서 있는 땅)만</b> 나눠 받아도 「주택」을 고르십시오<span class="law" title="지방세법 §11①8호 — 주택은 「주거용 건축물과 그 부속토지」 / §13의2① 괄호 — 주택의 공유지분이나 부속토지만 취득해도 주택을 취득한 것으로 본다(같은 조 ②항 무상취득 중과에도 적용) / 농어촌특별세법 시행령 §4⑤ — 국민주택규모 이하 「주거용 건물과 이에 부수되는 토지」는 농특세 비과세">지방세법 §11①8호 · §13의2①</span></span></div>
@@ -1513,9 +1522,10 @@
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pt_f_inspect" onchange="calcPartition()"> 분할계약서 검인대행 (50,000)</label> <span class="hint">판결·조정조서는 불요</span></td><td class="auto" id="pt_inspectCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pt_f_tax" checked onchange="calcPartition()"> 취득세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pt_f_bond" checked onchange="calcPartition()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
+        <tr id="pt_djRow"><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pt_f_dj" checked onchange="djTouch('pt_');calcPartition()"> 대지권 있는 구분건물 가산 (20,000+) <span class="law" title="법무사보수기준 제10조제2항 — 수개의 구분건물을 1건의 신청서로 소유권보존등기를 하는 경우에는 각 구분건물마다 별건으로 보며, 대지권이 있는 구분건물의 소유권보존등기는 건당 40,000원, 소유권이전등기는 건당 20,000원을 가산한다.">§10②</span></label> <span class="hint">구분건물 수</span> <input type="number" id="pt_djN" value="1" min="1" style="width:54px;" oninput="djTouch('pt_');calcPartition()"> <span class="hint" id="pt_djHint">아파트·빌라 등 대지권 있는 집합건물일 때 — 준비서류의 「부동산 형태」를 따라갑니다</span></td><td class="auto" id="pt_djCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pt_f_same" onchange="calcPartition()"> 동일인 보증서 (200,000+)</label> <span class="hint">대상</span> <input type="number" id="pt_sameN" value="1" min="1" style="width:54px;" oninput="calcPartition()"></td><td class="auto" id="pt_sameCell">0 원</td></tr>
         <tr id="pt_verifyRow" style=""><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pt_verify" onchange="calcPartition()"> 확인서면 작성 <span class="hint">(등기필증 분실 시)</span> <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="pt_vfyN" value="1" min="1" style="width:54px;" oninput="calcPartition()"> <span class="hint" id="pt_verifyNote"></span></td><td class="auto" id="pt_verifyCell">0 원</td></tr>
-        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pt_f_trip" checked onchange="calcPartition()"> 교통비 및 일당</label></td><td><input class="cell" id="pt_tripFee" type="number" value="160000" oninput="calcPartition(true)"></td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pt_f_trip" checked onchange="calcPartition()"> 교통비 및 일당 <span class="law" title="법무사보수기준 제27조제1항(보수표 Ⅹ-2) — 출장 시 ① 교통비: 1등급 여객운임(택시·KTX·SRT 일반석) 기준 실비(현지교통비는 80,000원까지) ② 숙박비: 1급 숙박업소 기준 실비 ③ 일당: 소요시간 4시간 이내 80,000원, 4시간 초과 160,000원. 같은 조 제2항 — 그 밖에 지출한 실비는 별도로 받는다.">§27①</span></label></td><td><input class="cell" id="pt_tripFee" type="number" value="160000" oninput="calcPartition(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="pt_extraAgent"></tbody>
         <tr class="subtot"><td>수수료계 (보수)</td><td id="pt_feeSum">0 원</td></tr>
@@ -1641,8 +1651,9 @@
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="nk_f_submit" checked onchange="calcNakchal()"> 촉탁신청서 제출대행 (40,000)</label> <span class="hint">보수표 Ⅸ-8</span></td><td class="auto">40,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="nk_f_tax" checked onchange="calcNakchal()"> 취득세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="nk_f_bond" checked onchange="calcNakchal()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
+        <tr id="nk_djRow"><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="nk_f_dj" checked onchange="djTouch('nk_');calcNakchal()"> 대지권 있는 구분건물 가산 (20,000+) <span class="law" title="법무사보수기준 제10조제2항 — 수개의 구분건물을 1건의 신청서로 소유권보존등기를 하는 경우에는 각 구분건물마다 별건으로 보며, 대지권이 있는 구분건물의 소유권보존등기는 건당 40,000원, 소유권이전등기는 건당 20,000원을 가산한다.">§10②</span></label> <span class="hint">구분건물 수</span> <input type="number" id="nk_djN" value="1" min="1" style="width:54px;" oninput="djTouch('nk_');calcNakchal()"> <span class="hint" id="nk_djHint">아파트·빌라 등 대지권 있는 집합건물일 때 — 준비서류의 「부동산 형태」를 따라갑니다</span></td><td class="auto" id="nk_djCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="nk_f_same" onchange="calcNakchal()"> 동일인 보증서 (200,000+)</label> <span class="hint">대상</span> <input type="number" id="nk_sameN" value="1" min="1" style="width:54px;" oninput="calcNakchal()"></td><td class="auto" id="nk_sameCell">0 원</td></tr>
-        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="nk_f_trip" checked onchange="calcNakchal()"> 교통비 및 일당</label></td><td><input class="cell" id="nk_tripFee" type="number" value="160000" oninput="calcNakchal(true)"></td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="nk_f_trip" checked onchange="calcNakchal()"> 교통비 및 일당 <span class="law" title="법무사보수기준 제27조제1항(보수표 Ⅹ-2) — 출장 시 ① 교통비: 1등급 여객운임(택시·KTX·SRT 일반석) 기준 실비(현지교통비는 80,000원까지) ② 숙박비: 1급 숙박업소 기준 실비 ③ 일당: 소요시간 4시간 이내 80,000원, 4시간 초과 160,000원. 같은 조 제2항 — 그 밖에 지출한 실비는 별도로 받는다.">§27①</span></label></td><td><input class="cell" id="nk_tripFee" type="number" value="160000" oninput="calcNakchal(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="nk_extraAgent"></tbody>
         <tr class="subtot"><td>수수료계 (보수)</td><td id="nk_feeSum">0 원</td></tr>
@@ -1751,9 +1762,10 @@
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="dv_f_inspect" onchange="calcDivision()"> 협의서 검인대행 (50,000)</label> <span class="hint">판결·조정조서는 불요</span></td><td class="auto" id="dv_inspectCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="dv_f_tax" checked onchange="calcDivision()"> 취득세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="dv_f_bond" checked onchange="calcDivision()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
+        <tr id="dv_djRow"><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="dv_f_dj" checked onchange="djTouch('dv_');calcDivision()"> 대지권 있는 구분건물 가산 (20,000+) <span class="law" title="법무사보수기준 제10조제2항 — 수개의 구분건물을 1건의 신청서로 소유권보존등기를 하는 경우에는 각 구분건물마다 별건으로 보며, 대지권이 있는 구분건물의 소유권보존등기는 건당 40,000원, 소유권이전등기는 건당 20,000원을 가산한다.">§10②</span></label> <span class="hint">구분건물 수</span> <input type="number" id="dv_djN" value="1" min="1" style="width:54px;" oninput="djTouch('dv_');calcDivision()"> <span class="hint" id="dv_djHint">아파트·빌라 등 대지권 있는 집합건물일 때 — 준비서류의 「부동산 형태」를 따라갑니다</span></td><td class="auto" id="dv_djCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="dv_f_same" onchange="calcDivision()"> 동일인 보증서 (200,000+)</label> <span class="hint">대상</span> <input type="number" id="dv_sameN" value="1" min="1" style="width:54px;" oninput="calcDivision()"></td><td class="auto" id="dv_sameCell">0 원</td></tr>
         <tr id="dv_verifyRow" style=""><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="dv_verify" onchange="calcDivision()"> 확인서면 작성 <span class="hint">(등기필증 분실 시)</span> <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="dv_vfyN" value="1" min="1" style="width:54px;" oninput="calcDivision()"> <span class="hint" id="dv_verifyNote"></span></td><td class="auto" id="dv_verifyCell">0 원</td></tr>
-        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="dv_f_trip" checked onchange="calcDivision()"> 교통비 및 일당</label></td><td><input class="cell" id="dv_tripFee" type="number" value="160000" oninput="calcDivision(true)"></td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="dv_f_trip" checked onchange="calcDivision()"> 교통비 및 일당 <span class="law" title="법무사보수기준 제27조제1항(보수표 Ⅹ-2) — 출장 시 ① 교통비: 1등급 여객운임(택시·KTX·SRT 일반석) 기준 실비(현지교통비는 80,000원까지) ② 숙박비: 1급 숙박업소 기준 실비 ③ 일당: 소요시간 4시간 이내 80,000원, 4시간 초과 160,000원. 같은 조 제2항 — 그 밖에 지출한 실비는 별도로 받는다.">§27①</span></label></td><td><input class="cell" id="dv_tripFee" type="number" value="160000" oninput="calcDivision(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="dv_extraAgent"></tbody>
         <tr class="subtot"><td>수수료계 (보수)</td><td id="dv_feeSum">0 원</td></tr>
@@ -1792,6 +1804,7 @@
       <div class="line"><span class="lbl">증여분(무상)</span><span class="auto" id="bv_giftPart" style="font-variant-numeric:tabular-nums;">0 원</span><span class="hint">신고금액 − 채무부담액 자동</span></div>
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('bv_cntEstate',-1,calcBurden)">−</button><input type="number" id="bv_cntEstate" value="1" min="1" oninput="calcBurden()"><button onclick="step('bv_cntEstate',1,calcBurden)">+</button></div></div>
       <div class="line"><span class="lbl">등기권리자(수증자)</span><div class="stepper"><button onclick="step('bv_cntOwner',-1,calcBurden)">−</button><input type="number" id="bv_cntOwner" value="1" min="1" oninput="calcBurden()"><button onclick="step('bv_cntOwner',1,calcBurden)">+</button></div><span class="hint">보수기준 <b>§2②4호</b> — 당사자·이해관계인 <b>5인 이상</b> 판정용 (아래 「당사자 다수 가산」과 연동)</span></div>
+      <div class="line"><span class="lbl">등기의무자(증여자)</span><div class="stepper"><button onclick="step('bv_cntObl',-1,function(){oblSync('bv_');calcBurden();})">−</button><input type="number" id="bv_cntObl" value="1" min="1" oninput="oblSync('bv_');calcBurden()"><button onclick="step('bv_cntObl',1,function(){oblSync('bv_');calcBurden();})">+</button></div><span class="hint">지분을 <b>여러 명이 함께 넘기면</b> 넘기는 분(증여자)의 수를 넣으십시오 — 준비서류(<b>각자 준비</b>)와 아래 「당사자 다수 가산」·「확인서면 대상 인원」에 함께 들어갑니다 <span class="law" title="법무사보수기준 제2조제2항제4호·제10조제3항(당사자 5인 이상 가산) · 제10조제5항(확인서면 대상 인원 1인 초과 시 1인마다 30,000원) · 부동산등기규칙 제46조제1항제8호(자격자대리인의 등기의무자 확인) — 등기의무자가 여럿이면 각자 확인">보수기준 §10③⑤ · 규칙 §46①8호</span></span></div>
       <div class="line"><span class="lbl">부동산 종류</span><div class="radios" onchange="calcBurden()">
         <label><input type="radio" name="bv_ptype" value="house" checked> 주택</label>
         <label><input type="radio" name="bv_ptype" value="etc"> 주택외(상가·대지·임야 등)</label></div><span class="hint">주택의 <b>지분이나 부속토지(주택이 서 있는 땅)만</b> 증여받아도 「주택」을 고르십시오<span class="law" title="지방세법 §11①8호 — 주택은 「주거용 건축물과 그 부속토지」 / §13의2① 괄호 — 주택의 공유지분이나 부속토지만 취득해도 주택을 취득한 것으로 본다(같은 조 ②항 무상취득 중과에도 적용) / 농어촌특별세법 시행령 §4⑤ — 국민주택규모 이하 「주거용 건물과 이에 부수되는 토지」는 농특세 비과세">지방세법 §11①8호 · §13의2①</span></span></div>
@@ -1844,9 +1857,10 @@
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bv_f_inspect" checked onchange="calcBurden()"> 계약서 검인대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bv_f_tax" checked onchange="calcBurden()"> 취득세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bv_f_bond" checked onchange="calcBurden()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
+        <tr id="bv_djRow"><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bv_f_dj" checked onchange="djTouch('bv_');calcBurden()"> 대지권 있는 구분건물 가산 (20,000+) <span class="law" title="법무사보수기준 제10조제2항 — 수개의 구분건물을 1건의 신청서로 소유권보존등기를 하는 경우에는 각 구분건물마다 별건으로 보며, 대지권이 있는 구분건물의 소유권보존등기는 건당 40,000원, 소유권이전등기는 건당 20,000원을 가산한다.">§10②</span></label> <span class="hint">구분건물 수</span> <input type="number" id="bv_djN" value="1" min="1" style="width:54px;" oninput="djTouch('bv_');calcBurden()"> <span class="hint" id="bv_djHint">아파트·빌라 등 대지권 있는 집합건물일 때 — 준비서류의 「부동산 형태」를 따라갑니다</span></td><td class="auto" id="bv_djCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bv_f_same" onchange="calcBurden()"> 동일인 보증서 (200,000+)</label> <span class="hint">대상</span> <input type="number" id="bv_sameN" value="1" min="1" style="width:54px;" oninput="calcBurden()"></td><td class="auto" id="bv_sameCell">0 원</td></tr>
         <tr id="bv_verifyRow" style=""><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bv_verify" onchange="calcBurden()"> 확인서면 작성 <span class="hint">(등기필증 분실 시)</span> <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="bv_vfyN" value="1" min="1" style="width:54px;" oninput="calcBurden()"> <span class="hint" id="bv_verifyNote"></span></td><td class="auto" id="bv_verifyCell">0 원</td></tr>
-        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bv_f_trip" checked onchange="calcBurden()"> 교통비 및 일당</label></td><td><input class="cell" id="bv_tripFee" type="number" value="160000" oninput="calcBurden(true)"></td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="bv_f_trip" checked onchange="calcBurden()"> 교통비 및 일당 <span class="law" title="법무사보수기준 제27조제1항(보수표 Ⅹ-2) — 출장 시 ① 교통비: 1등급 여객운임(택시·KTX·SRT 일반석) 기준 실비(현지교통비는 80,000원까지) ② 숙박비: 1급 숙박업소 기준 실비 ③ 일당: 소요시간 4시간 이내 80,000원, 4시간 초과 160,000원. 같은 조 제2항 — 그 밖에 지출한 실비는 별도로 받는다.">§27①</span></label></td><td><input class="cell" id="bv_tripFee" type="number" value="160000" oninput="calcBurden(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="bv_extraAgent"></tbody>
         <tr class="subtot"><td>수수료계 (보수)</td><td id="bv_feeSum">0 원</td></tr>
@@ -1901,7 +1915,7 @@
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('mt_cntEstate',-1,calcMortgage)">−</button><input type="number" id="mt_cntEstate" value="1" min="1" oninput="calcMortgage()"><button onclick="step('mt_cntEstate',1,calcMortgage)">+</button></div></div>
       <div class="line"><span class="lbl">감면·가산 등</span><div class="checks" onchange="calcMortgage()">
         
-        <label><input type="checkbox" id="mt_same"> 동일인 보증서</label></div></div>
+        <label><input type="checkbox" id="mt_same"> 동일인 보증서</label><span class="hint" style="margin-left:4px;">대상</span><input type="number" id="mt_sameN" value="1" min="1" style="width:46px;margin:0 4px;" oninput="calcMortgage()"><span class="hint">인 <span class="law" title="법무사보수기준 제10조제5항 — 동일인보증서를 작성하는 때에는 200,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></span></div></div>
       <div id="mt_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="mt_adjust" onchange="calcMortgage()">
         <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
@@ -1940,7 +1954,7 @@
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="mt_f_bond" checked onchange="calcMortgage()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
         <tr id="mt_sameRow" style="display:none;"><td>동일인 보증서 (200,000)</td><td class="auto" id="mt_sameCell">0 원</td></tr>
         <tr id="mt_verifyRow" style=""><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="mt_verify" onchange="calcMortgage()"> 확인서면 작성 <span class="hint">(등기필증 분실 시)</span> <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="mt_vfyN" value="1" min="1" style="width:54px;" oninput="calcMortgage()"> <span class="hint" id="mt_verifyNote"></span></td><td class="auto" id="mt_verifyCell">0 원</td></tr>
-        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="mt_f_trip" checked onchange="calcMortgage()"> 교통비 및 일당</label></td><td><input class="cell" id="mt_tripFee" type="number" value="160000" oninput="calcMortgage(true)"></td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="mt_f_trip" checked onchange="calcMortgage()"> 교통비 및 일당 <span class="law" title="법무사보수기준 제27조제1항(보수표 Ⅹ-2) — 출장 시 ① 교통비: 1등급 여객운임(택시·KTX·SRT 일반석) 기준 실비(현지교통비는 80,000원까지) ② 숙박비: 1급 숙박업소 기준 실비 ③ 일당: 소요시간 4시간 이내 80,000원, 4시간 초과 160,000원. 같은 조 제2항 — 그 밖에 지출한 실비는 별도로 받는다.">§27①</span></label></td><td><input class="cell" id="mt_tripFee" type="number" value="160000" oninput="calcMortgage(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="mt_extraAgent"></tbody>
         <tr class="subtot"><td>수수료계 (보수)</td><td id="mt_feeSum">0 원</td></tr>
@@ -2003,7 +2017,7 @@
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ga_f_origin" checked onchange="calcGadeungi()"> 등기원인증서(매매예약서 등) 작성 (50,000)</label> <select id="ga_originAdd" onchange="calcGadeungi()" style="font-size:12px;margin-left:4px;"><option value="0" selected>문안 일반</option><option value="1">복잡·특수 +100%</option></select> <span class="law" title="법무사보수기준 §25②→§10③ — 업무가 특별히 중대·복잡하거나 특별한 조사·분석·연구·문안이 필요한 경우(§2②각호) 당해 기본보수(50,000)의 100%까지 가산. §2⑤ 상한.">보수기준 §25②</span></td><td class="auto" id="ga_originCell">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ga_f_tax" checked onchange="calcGadeungi()"> 등록면허세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr id="ga_verifyRow" style=""><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ga_verify" onchange="calcGadeungi()"> 확인서면 작성 <span class="hint">(등기필증 분실 시)</span> <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="ga_vfyN" value="1" min="1" style="width:54px;" oninput="calcGadeungi()"> <span class="hint" id="ga_verifyNote"></span></td><td class="auto" id="ga_verifyCell">0 원</td></tr>
-        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ga_f_trip" checked onchange="calcGadeungi()"> 교통비 및 일당</label></td><td><input class="cell" id="ga_tripFee" type="number" value="160000" oninput="calcGadeungi(true)"></td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ga_f_trip" checked onchange="calcGadeungi()"> 교통비 및 일당 <span class="law" title="법무사보수기준 제27조제1항(보수표 Ⅹ-2) — 출장 시 ① 교통비: 1등급 여객운임(택시·KTX·SRT 일반석) 기준 실비(현지교통비는 80,000원까지) ② 숙박비: 1급 숙박업소 기준 실비 ③ 일당: 소요시간 4시간 이내 80,000원, 4시간 초과 160,000원. 같은 조 제2항 — 그 밖에 지출한 실비는 별도로 받는다.">§27①</span></label></td><td><input class="cell" id="ga_tripFee" type="number" value="160000" oninput="calcGadeungi(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="ga_extraAgent"></tbody>
         <tr class="subtot"><td>수수료계 (보수)</td><td id="ga_feeSum">0 원</td></tr>
@@ -2067,7 +2081,7 @@
         <tr id="mr_agrFeeRow" style="display:none;"><td><span id="mr_agrFeeLbl">변경 약정서 작성</span> <span class="hint" id="mr_agrFeeNote"></span><span class="law" title="보수표에 약정서 작성 칸이 따로 없어, 같은 Ⅶ-1①(보수기준 §23①)에 속하는 준비서면 작성과 견주어 처음 약정서와 같은 정액 500,000원을 기준으로 삼고 문안 난이도로 조정합니다(보수기준 §3② 단서 협의 · §2② 증액). 실제 금액은 당사자와 협의해 정합니다.">§3② 협의 · Ⅶ-1① 견줌</span></td><td class="auto" id="mr_agrFeeCell">0 원</td></tr>
         <tr id="mr_courtFeeRow" style="display:none;"><td>가정법원 심판청구서 작성 <span class="hint">(Ⅶ-1① · 소가를 산정할 수 없어 5천만원으로 봄)</span><span class="law" title="법무사보수기준 제23조제1항 — 비송사건의 신청서 등 문안을 요하는 서류의 작성. 소송물가액이 없거나 산정할 수 없으면 5천만원으로 본다 → 560,000원 + 3천만원 초과액의 10/10,000 = 580,000원. 계산기의 개명·친권자 지정 등 가사비송 화면과 같은 방식입니다.">보수기준 §23①</span></td><td class="auto" id="mr_courtFeeCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="mr_f_tax" checked onchange="calcMarital()"> 등록면허세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
-        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="mr_f_trip" checked onchange="calcMarital()"> 교통비 및 일당</label></td><td><input class="cell" id="mr_tripFee" type="number" value="160000" oninput="calcMarital(true)"></td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="mr_f_trip" checked onchange="calcMarital()"> 교통비 및 일당 <span class="law" title="법무사보수기준 제27조제1항(보수표 Ⅹ-2) — 출장 시 ① 교통비: 1등급 여객운임(택시·KTX·SRT 일반석) 기준 실비(현지교통비는 80,000원까지) ② 숙박비: 1급 숙박업소 기준 실비 ③ 일당: 소요시간 4시간 이내 80,000원, 4시간 초과 160,000원. 같은 조 제2항 — 그 밖에 지출한 실비는 별도로 받는다.">§27①</span></label></td><td><input class="cell" id="mr_tripFee" type="number" value="160000" oninput="calcMarital(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="mr_extraAgent"></tbody>
         <tr class="subtot"><td>수수료계 (보수)</td><td id="mr_feeSum">0 원</td></tr>
@@ -2188,7 +2202,7 @@
         <tr><td>§12 4호 표시변경·상속이전·보존대위</td><td class="auto" id="rd_s4Cell">0 원</td></tr>
         <tr><td>§12 5호 조사·분석 (공유자 가산 포함)</td><td class="auto" id="rd_s5Cell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="rd_f_tax" checked onchange="calcRedev()"> 취득세·등록면허세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
-        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="rd_f_trip" checked onchange="calcRedev()"> 교통비 및 일당</label></td><td><input class="cell" id="rd_tripFee" type="number" value="160000" oninput="calcRedev(true)"></td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="rd_f_trip" checked onchange="calcRedev()"> 교통비 및 일당 <span class="law" title="법무사보수기준 제27조제1항(보수표 Ⅹ-2) — 출장 시 ① 교통비: 1등급 여객운임(택시·KTX·SRT 일반석) 기준 실비(현지교통비는 80,000원까지) ② 숙박비: 1급 숙박업소 기준 실비 ③ 일당: 소요시간 4시간 이내 80,000원, 4시간 초과 160,000원. 같은 조 제2항 — 그 밖에 지출한 실비는 별도로 받는다.">§27①</span></label></td><td><input class="cell" id="rd_tripFee" type="number" value="160000" oninput="calcRedev(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="rd_extraAgent"></tbody>
         <tr class="subtot"><td>수수료계 (보수)</td><td id="rd_feeSum">0 원</td></tr>
@@ -2209,10 +2223,11 @@
     <h2 class="stitle">신탁등기 <small>보수표 Ⅰ-4 유형별 정액 · 등록면허세 건당 6,000원 · 소유권이전분 비과세</small></h2>
 
     <div class="card blue"><h2>① 신탁등기 정보</h2><div class="body">
-      <div class="line"><span class="lbl">신탁등기 유형</span><select id="st_trustType" onchange="calcSintak()"><option value="Ⅰ-4(1)" selected>신탁·재신탁·담보권신탁·고유재산 변경 등 (150,000)</option><option value="Ⅰ-4(2)">신탁원부 변경·합유명의인 변경·합병분할 (80,000)</option><option value="Ⅰ-4(3)">유한책임신탁 설정 (220,000)</option><option value="Ⅰ-4(4)">신탁등기 말소 (50,000)</option><option value="Ⅰ-4(5)">그 밖의 신탁 등기 (70,000)</option></select><span class="law" title="법무사보수기준 §11①·보수표 Ⅰ-4 — 신탁등기 유형별 정액 기본보수">보수기준 §11①</span></div>
-      <div class="line"><span class="lbl">부동산가액(원)</span><input type="number" class="amt" id="st_base" placeholder="0" oninput="calcSintak()"><span class="hint">참고용(보수는 유형별 정액)</span></div>
+      <div class="line"><span class="lbl">신탁등기 유형</span><select id="st_trustType" onchange="calcSintak()"><option value="Ⅰ-4(1)" selected>신탁·재신탁·담보권신탁·고유재산 변경 등 (150,000)</option><option value="Ⅰ-4(2)">신탁원부 변경·합유명의인 변경·합병분할 (80,000)</option><option value="Ⅰ-4(3)">유한책임신탁 설정 (220,000)</option><option value="Ⅰ-4(4)">신탁등기 말소 (50,000)</option><option value="T5">수탁자 경질 — 소유권이전 보수 (§11⑤ · 보수표 Ⅰ-1)</option><option value="T8">담보신탁 수익자 변경·수익금액 증가 — 담보권 이전·채권액 증가 보수 (§11⑧ · 보수표 Ⅰ-1)</option><option value="Ⅰ-4(5)">그 밖의 신탁 등기 (70,000)</option></select><span class="law" title="법무사보수기준 §11①·보수표 Ⅰ-4 — 신탁등기 유형별 정액 기본보수">보수기준 §11①</span></div>
+      <div class="line" id="st_sumLine"><span class="lbl">함께 신청하는 등기</span><label class="checks"><input type="checkbox" id="st_sum" checked onchange="calcSintak()"> 소유권이전(또는 담보권설정·청구권보전 가등기)과 <b>함께</b> 신청 — 그 등기의 보수(보수표 Ⅰ-1)를 <b>합산</b></label><span class="law" title="법무사보수기준 제11조제2항 — 소유권이전등기와 (재)신탁등기, 소유권이전등기와 신탁등기의 말소등기, 청구권보전가등기와 신탁가등기, 담보권설정등기와 담보권신탁등기, 유언대용신탁을 원인으로 하는 소유권이전등기와 신탁등기를 동시에 신청하는 경우에는 두 유형의 등기에 대한 보수를 합산한다.">보수기준 §11②</span><span class="hint">신탁을 원인으로 한 소유권이전 + 신탁등기, 신탁 종료에 따른 소유권이전 + 신탁 말소 등 — 아래 「부동산가액」(담보권이면 채권최고액)으로 계산합니다</span></div>
+      <div class="line"><span class="lbl">부동산가액(원)</span><input type="number" class="amt" id="st_base" placeholder="0" oninput="calcSintak()"><span class="hint">함께 하는 소유권이전 등의 보수(§11②)와 수탁자 경질(§11⑤)·담보신탁 변경(§11⑧) 보수의 기준 — 담보권이면 채권최고액(증가액)</span></div>
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('st_cntEstate',-1,calcSintak)">−</button><input type="number" id="st_cntEstate" value="1" min="1" oninput="calcSintak()"><button onclick="step('st_cntEstate',1,calcSintak)">+</button></div></div>
-      <div id="st_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="st_adjust" onchange="calcSintak()">
+      <div id="st_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><span class="law" title="법무사보수기준 제11조제9항 — 신탁계약서와 신탁원부 작성 등을 비롯한 신탁등기 신청과 관련한 업무의 난이도, 복잡 정도, 처리에 소요되는 시간 및 노력의 정도 등을 고려하여 위임인과 협의로 당해 기본보수의 100% 상당액까지 가산할 수 있다.">신탁 가산 §11⑨ — 100%까지</span><select id="st_adjust" onchange="calcSintak()">
         <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
         <option value="1.1">110%</option><option value="1.2">120%</option><option value="1.3">130%</option>
@@ -2240,7 +2255,7 @@
         <tr id="st_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="st_feeMultiNote"></span></td><td class="auto" id="st_feeMultiCell">0 원</td></tr><tr id="st_feeCntRow" style="display:none;"><td>부동산 개수 가산 <span class="hint" id="st_feeCntNote"></span><span class="law" title="법무사보수기준 §10① — 대상 부동산이 1개를 초과하는 경우 초과하는 1개마다 20,000원을 가산합니다. (환지등기는 종전 토지 10필지 초과분)">보수기준 §10①</span></td><td class="auto" id="st_feeCntCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="st_f_origin" checked onchange="calcSintak()"> 등기원인증서(신탁계약서) 작성 (50,000)</label> <select id="st_originAdd" onchange="calcSintak()" style="font-size:12px;margin-left:4px;"><option value="0" selected>문안 일반</option><option value="1">복잡·특수 +100%</option></select> <span class="law" title="법무사보수기준 §25②→§10③ — 업무가 특별히 중대·복잡하거나 특별한 조사·분석·연구·문안이 필요한 경우(§2②각호) 당해 기본보수(50,000)의 100%까지 가산. §2⑤ 상한.">보수기준 §25②</span></td><td class="auto" id="st_originCell">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="st_f_tax" checked onchange="calcSintak()"> 등록면허세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
-        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="st_f_trip" checked onchange="calcSintak()"> 교통비 및 일당</label></td><td><input class="cell" id="st_tripFee" type="number" value="160000" oninput="calcSintak(true)"></td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="st_f_trip" checked onchange="calcSintak()"> 교통비 및 일당 <span class="law" title="법무사보수기준 제27조제1항(보수표 Ⅹ-2) — 출장 시 ① 교통비: 1등급 여객운임(택시·KTX·SRT 일반석) 기준 실비(현지교통비는 80,000원까지) ② 숙박비: 1급 숙박업소 기준 실비 ③ 일당: 소요시간 4시간 이내 80,000원, 4시간 초과 160,000원. 같은 조 제2항 — 그 밖에 지출한 실비는 별도로 받는다.">§27①</span></label></td><td><input class="cell" id="st_tripFee" type="number" value="160000" oninput="calcSintak(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="st_extraAgent"></tbody>
         <tr class="subtot"><td>수수료계 (보수)</td><td id="st_feeSum">0 원</td></tr>
@@ -2296,7 +2311,7 @@
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('ma_cntEstate',-1,calcMortgageAdd)">−</button><input type="number" id="ma_cntEstate" value="1" min="1" oninput="calcMortgageAdd()"><button onclick="step('ma_cntEstate',1,calcMortgageAdd)">+</button></div></div>
       <div class="line"><span class="lbl">감면·가산 등</span><div class="checks" onchange="calcMortgageAdd()">
         
-        <label><input type="checkbox" id="ma_same"> 동일인 보증서</label></div></div>
+        <label><input type="checkbox" id="ma_same"> 동일인 보증서</label><span class="hint" style="margin-left:4px;">대상</span><input type="number" id="ma_sameN" value="1" min="1" style="width:46px;margin:0 4px;" oninput="calcMortgageAdd()"><span class="hint">인 <span class="law" title="법무사보수기준 제10조제5항 — 동일인보증서를 작성하는 때에는 200,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></span></div></div>
       <div id="ma_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="ma_adjust" onchange="calcMortgageAdd()">
         <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
@@ -2339,7 +2354,7 @@
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ma_f_bond" checked onchange="calcMortgageAdd()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
         <tr id="ma_sameRow" style="display:none;"><td>동일인 보증서 (200,000)</td><td class="auto" id="ma_sameCell">0 원</td></tr>
         <tr id="ma_verifyRow" style=""><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ma_verify" onchange="calcMortgageAdd()"> 확인서면 작성 <span class="hint">(등기필증 분실 시)</span> <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="ma_vfyN" value="1" min="1" style="width:54px;" oninput="calcMortgageAdd()"> <span class="hint" id="ma_verifyNote"></span></td><td class="auto" id="ma_verifyCell">0 원</td></tr>
-        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ma_f_trip" checked onchange="calcMortgageAdd()"> 교통비 및 일당</label></td><td><input class="cell" id="ma_tripFee" type="number" value="160000" oninput="calcMortgageAdd(true)"></td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ma_f_trip" checked onchange="calcMortgageAdd()"> 교통비 및 일당 <span class="law" title="법무사보수기준 제27조제1항(보수표 Ⅹ-2) — 출장 시 ① 교통비: 1등급 여객운임(택시·KTX·SRT 일반석) 기준 실비(현지교통비는 80,000원까지) ② 숙박비: 1급 숙박업소 기준 실비 ③ 일당: 소요시간 4시간 이내 80,000원, 4시간 초과 160,000원. 같은 조 제2항 — 그 밖에 지출한 실비는 별도로 받는다.">§27①</span></label></td><td><input class="cell" id="ma_tripFee" type="number" value="160000" oninput="calcMortgageAdd(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="ma_extraAgent"></tbody>
         <tr class="subtot"><td>수수료계 (보수)</td><td id="ma_feeSum">0 원</td></tr>
@@ -2394,7 +2409,7 @@
         <tr id="mtc_feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="mtc_feeForeignNote"></span></td><td class="auto" id="mtc_feeForeignCell">0 원</td></tr><tr id="mtc_feePartyRow" style="display:none;"><td>당사자 다수 가산 <span class="hint" id="mtc_feePartyNote"></span></td><td class="auto" id="mtc_feePartyCell">0 원</td></tr>
         <tr id="mtc_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="mtc_feeMultiNote"></span></td><td class="auto" id="mtc_feeMultiCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="mtc_f_tax" checked onchange="calcMortCancel()"> 등록면허세 신고대행 (50,000)</label><span class="law" title="법무사 보수기준 제25조제1항 표 2호(부표 Ⅸ-2) — 취득세·등록면허세의 신고·납부 대행 1건당 50,000원">보수표 Ⅸ-2</span></td><td class="auto">50,000 원</td></tr>
-        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="mtc_f_trip" checked onchange="calcMortCancel()"> 교통비 및 일당</label></td><td><input class="cell" id="mtc_tripFee" type="number" value="160000" oninput="calcMortCancel(true)"></td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="mtc_f_trip" checked onchange="calcMortCancel()"> 교통비 및 일당 <span class="law" title="법무사보수기준 제27조제1항(보수표 Ⅹ-2) — 출장 시 ① 교통비: 1등급 여객운임(택시·KTX·SRT 일반석) 기준 실비(현지교통비는 80,000원까지) ② 숙박비: 1급 숙박업소 기준 실비 ③ 일당: 소요시간 4시간 이내 80,000원, 4시간 초과 160,000원. 같은 조 제2항 — 그 밖에 지출한 실비는 별도로 받는다.">§27①</span></label></td><td><input class="cell" id="mtc_tripFee" type="number" value="160000" oninput="calcMortCancel(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="mtc_extraAgent"></tbody>
         <tr class="subtot"><td>수수료계 (보수)</td><td id="mtc_feeSum">0 원</td></tr>
@@ -2453,7 +2468,7 @@
         <tr id="chg_feeForeignRow" style="display:none;"><td>외국인·재외국민 가산 <span class="hint" id="chg_feeForeignNote"></span></td><td class="auto" id="chg_feeForeignCell">0 원</td></tr><tr id="chg_feePartyRow" style="display:none;"><td>당사자 다수 가산 <span class="hint" id="chg_feePartyNote"></span></td><td class="auto" id="chg_feePartyCell">0 원</td></tr>
         <tr id="chg_feeMultiRow" style="display:none;"><td>여러 등기소 관할 가산 <span class="hint" id="chg_feeMultiNote"></span></td><td class="auto" id="chg_feeMultiCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="chg_f_tax" checked onchange="this.dataset.user='1';calcChange()"> 등록면허세 신고대행 (50,000)</label><span class="law" title="법무사 보수기준 제25조제1항 표 2호(부표 Ⅸ-2) — 취득세·등록면허세의 신고·납부 대행 1건당 50,000원">보수표 Ⅸ-2</span></td><td class="auto" id="chg_f_taxCell">0 원</td></tr>
-        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="chg_f_trip" checked onchange="calcChange()"> 교통비 및 일당</label></td><td><input class="cell" id="chg_tripFee" type="number" value="160000" oninput="calcChange(true)"></td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="chg_f_trip" checked onchange="calcChange()"> 교통비 및 일당 <span class="law" title="법무사보수기준 제27조제1항(보수표 Ⅹ-2) — 출장 시 ① 교통비: 1등급 여객운임(택시·KTX·SRT 일반석) 기준 실비(현지교통비는 80,000원까지) ② 숙박비: 1급 숙박업소 기준 실비 ③ 일당: 소요시간 4시간 이내 80,000원, 4시간 초과 160,000원. 같은 조 제2항 — 그 밖에 지출한 실비는 별도로 받는다.">§27①</span></label></td><td><input class="cell" id="chg_tripFee" type="number" value="160000" oninput="calcChange(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="chg_extraAgent"></tbody>
         <tr class="subtot"><td>수수료계 (보수)</td><td id="chg_feeSum">0 원</td></tr>
@@ -2539,7 +2554,7 @@
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pr_f_bond" checked onchange="calcPreserve()"> 채권 매입대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pr_f_same" onchange="calcPreserve()"> 동일인 보증서 (200,000+)</label> <span class="hint">대상</span> <input type="number" id="pr_sameN" value="1" min="1" style="width:54px;" oninput="calcPreserve()"></td><td class="auto" id="pr_sameCell">0 원</td></tr>
         <tr id="pr_verifyRow" style=""><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pr_verify" onchange="calcPreserve()"> 확인서면 작성 <span class="hint">(등기필증 분실 시)</span> <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="pr_vfyN" value="1" min="1" style="width:54px;" oninput="calcPreserve()"> <span class="hint" id="pr_verifyNote"></span></td><td class="auto" id="pr_verifyCell">0 원</td></tr>
-        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pr_f_trip" checked onchange="calcPreserve()"> 교통비 및 일당</label></td><td><input class="cell" id="pr_tripFee" type="number" value="160000" oninput="calcPreserve(true)"></td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="pr_f_trip" checked onchange="calcPreserve()"> 교통비 및 일당 <span class="law" title="법무사보수기준 제27조제1항(보수표 Ⅹ-2) — 출장 시 ① 교통비: 1등급 여객운임(택시·KTX·SRT 일반석) 기준 실비(현지교통비는 80,000원까지) ② 숙박비: 1급 숙박업소 기준 실비 ③ 일당: 소요시간 4시간 이내 80,000원, 4시간 초과 160,000원. 같은 조 제2항 — 그 밖에 지출한 실비는 별도로 받는다.">§27①</span></label></td><td><input class="cell" id="pr_tripFee" type="number" value="160000" oninput="calcPreserve(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="pr_extraAgent"></tbody>
         <tr class="subtot"><td>수수료계 (보수)</td><td id="pr_feeSum">0 원</td></tr>
@@ -2577,7 +2592,7 @@
       <div class="line"><span class="lbl">부동산 개수</span><div class="stepper"><button onclick="step('rt_cntEstate',-1,calcRight)">−</button><input type="number" id="rt_cntEstate" value="1" min="1" oninput="calcRight()"><button onclick="step('rt_cntEstate',1,calcRight)">+</button></div></div>
       <div class="line"><span class="lbl">감면·가산 등</span><div class="checks" onchange="calcRight()">
         
-        <label><input type="checkbox" id="rt_same"> 동일인 보증서</label></div></div>
+        <label><input type="checkbox" id="rt_same"> 동일인 보증서</label><span class="hint" style="margin-left:4px;">대상</span><input type="number" id="rt_sameN" value="1" min="1" style="width:46px;margin:0 4px;" oninput="calcRight()"><span class="hint">인 <span class="law" title="법무사보수기준 제10조제5항 — 동일인보증서를 작성하는 때에는 200,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></span></div></div>
       <div id="rt_pwBox"></div><div class="line"><span class="lbl">보수 협의조정(감액·가산)</span><select id="rt_adjust" onchange="calcRight()">
         <option value="0.6">60% (감액)</option><option value="0.7">70% (감액)</option><option value="0.8">80% (감액)</option>
         <option value="0.9">90%</option><option value="1" selected>100% (기본)</option>
@@ -2608,7 +2623,7 @@
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="rt_f_tax" checked onchange="calcRight()"> 등록면허세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr id="rt_sameRow" style="display:none;"><td>동일인 보증서 (200,000)</td><td class="auto" id="rt_sameCell">0 원</td></tr>
         <tr id="rt_verifyRow" style=""><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="rt_verify" onchange="calcRight()"> 확인서면 작성 <span class="hint">(등기필증 분실 시)</span> <span class="law" title="법무사보수기준 §10⑤ — 등기필정보(등기필증)가 분실·멸실된 경우 등기의무자 본인임을 확인하는 서면을 작성하는 때에는 120,000원을 기본보수로 산정하되, 대상 인원 1인 또는 부동산이 1개를 초과하는 경우 초과하는 1인 또는 1개마다 30,000원을 가산한다.">§10⑤</span></label> <span class="hint">대상 인원(등기의무자)</span> <input type="number" id="rt_vfyN" value="1" min="1" style="width:54px;" oninput="calcRight()"> <span class="hint" id="rt_verifyNote"></span></td><td class="auto" id="rt_verifyCell">0 원</td></tr>
-        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="rt_f_trip" checked onchange="calcRight()"> 교통비 및 일당</label></td><td><input class="cell" id="rt_tripFee" type="number" value="160000" oninput="calcRight(true)"></td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="rt_f_trip" checked onchange="calcRight()"> 교통비 및 일당 <span class="law" title="법무사보수기준 제27조제1항(보수표 Ⅹ-2) — 출장 시 ① 교통비: 1등급 여객운임(택시·KTX·SRT 일반석) 기준 실비(현지교통비는 80,000원까지) ② 숙박비: 1급 숙박업소 기준 실비 ③ 일당: 소요시간 4시간 이내 80,000원, 4시간 초과 160,000원. 같은 조 제2항 — 그 밖에 지출한 실비는 별도로 받는다.">§27①</span></label></td><td><input class="cell" id="rt_tripFee" type="number" value="160000" oninput="calcRight(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="rt_extraAgent"></tbody>
         <tr class="subtot"><td>수수료계 (보수)</td><td id="rt_feeSum">0 원</td></tr>
@@ -2673,7 +2688,7 @@
         <tr id="co_pubRow" style="display:none;"><td>정관·의사록 공증 대행 (모집설립)</td><td class="auto" id="co_pubCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="co_f_tax" checked onchange="calcCorp()"> 등록면허세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="co_f_card" checked onchange="calcCorp()"> 법인인감카드 발급대행 (40,000)</label></td><td class="auto">40,000 원</td></tr>
-        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="co_f_trip" checked onchange="calcCorp()"> 교통비 및 일당</label></td><td><input class="cell" id="co_tripFee" type="number" value="160000" oninput="calcCorp(true)"></td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="co_f_trip" checked onchange="calcCorp()"> 교통비 및 일당 <span class="law" title="법무사보수기준 제27조제1항(보수표 Ⅹ-2) — 출장 시 ① 교통비: 1등급 여객운임(택시·KTX·SRT 일반석) 기준 실비(현지교통비는 80,000원까지) ② 숙박비: 1급 숙박업소 기준 실비 ③ 일당: 소요시간 4시간 이내 80,000원, 4시간 초과 160,000원. 같은 조 제2항 — 그 밖에 지출한 실비는 별도로 받는다.">§27①</span></label></td><td><input class="cell" id="co_tripFee" type="number" value="160000" oninput="calcCorp(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="co_extraAgent"></tbody>
         <tr class="subtot"><td>수수료계 (보수)</td><td id="co_feeSum">0 원</td></tr>
@@ -2782,7 +2797,7 @@
         <tr id="cv_certAgentRow" style="display:none;"><td>의사록 공증 대행 <span class="hint">(Ⅸ-6 50,000)</span></td><td class="auto" id="cv_certAgentCell">0 원</td></tr>
         <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="cv_f_tax" checked onchange="calcCorpChange()"> 등록면허세 신고대행 (50,000)</label></td><td class="auto">50,000 원</td></tr>
         <tr id="cv_cardAgentRow" style="display:none;"><td>법인인감카드 발급대행 (40,000)</td><td class="auto" id="cv_cardAgentCell">0 원</td></tr>
-        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="cv_f_trip" checked onchange="calcCorpChange()"> 교통비 및 일당</label></td><td><input class="cell" id="cv_tripFee" type="number" value="160000" oninput="calcCorpChange(true)"></td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="cv_f_trip" checked onchange="calcCorpChange()"> 교통비 및 일당 <span class="law" title="법무사보수기준 제27조제1항(보수표 Ⅹ-2) — 출장 시 ① 교통비: 1등급 여객운임(택시·KTX·SRT 일반석) 기준 실비(현지교통비는 80,000원까지) ② 숙박비: 1급 숙박업소 기준 실비 ③ 일당: 소요시간 4시간 이내 80,000원, 4시간 초과 160,000원. 같은 조 제2항 — 그 밖에 지출한 실비는 별도로 받는다.">§27①</span></label></td><td><input class="cell" id="cv_tripFee" type="number" value="160000" oninput="calcCorpChange(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="cv_extraAgent"></tbody>
         <tr class="subtot"><td>수수료계 (보수)</td><td id="cv_feeSum">0 원</td></tr>
@@ -3460,7 +3475,7 @@
         <tr id="ty_fARow" style="display:none;"><td>난이도·당사자 가산 <span class="hint" id="ty_fANote"></span></td><td class="auto" id="ty_fACell">0 원</td></tr>
         <tr id="ty_fVRow" style="display:none;"><td>확인서면·보증서 작성 <span class="hint" id="ty_fVNote"></span></td><td class="auto" id="ty_fVCell">0 원</td></tr>
         <tr id="ty_taxRow"><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ty_f_tax" onchange="calcTy()"> <span id="ty_taxLbl">등록면허세</span> 신고·납부 대행 (50,000)</label><span class="law" title="법무사 보수기준 제25조제1항 표 2호(부표 Ⅸ-2) — 취득세·등록면허세의 신고·납부 또는 감면신청 및 공과금 납부 대행 1건당 50,000원.">보수표 Ⅸ-2</span></td><td class="auto" id="ty_taxCell">0 원</td></tr>
-        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ty_f_trip" onchange="calcTy()"> 교통비 및 일당</label></td><td><input class="cell" id="ty_tripFee" type="number" value="160000" oninput="calcTy(true)"></td></tr>
+        <tr><td><label class="checks" style="display:inline-flex;"><input type="checkbox" id="ty_f_trip" onchange="calcTy()"> 교통비 및 일당 <span class="law" title="법무사보수기준 제27조제1항(보수표 Ⅹ-2) — 출장 시 ① 교통비: 1등급 여객운임(택시·KTX·SRT 일반석) 기준 실비(현지교통비는 80,000원까지) ② 숙박비: 1급 숙박업소 기준 실비 ③ 일당: 소요시간 4시간 이내 80,000원, 4시간 초과 160,000원. 같은 조 제2항 — 그 밖에 지출한 실비는 별도로 받는다.">§27①</span></label></td><td><input class="cell" id="ty_tripFee" type="number" value="160000" oninput="calcTy(true)"></td></tr>
         <tr><td colspan="2" style="padding-top:10px;color:var(--gold);font-weight:700;font-size:12.5px;border-bottom:1px solid var(--line);">▾ 기타 대행료 (보수표 Ⅸ)</td></tr>
         <tbody id="ty_extraAgent"></tbody>
         <tr class="subtot"><td>수수료계 (보수)</td><td id="ty_feeSum">0 원</td></tr>
@@ -3823,6 +3838,49 @@ function s242Add(p,feeRaw,adj,fn){
      각각 따로 적용된다. 택일이 아니다.
    ※ 확인서면(§10⑤)은 「등기의무자 본인확인」 서면이므로 이 가산과 무관하다.
    27회차 신설. */
+/* ═══════════ 2026-11-22 보수기준 재점검 보완 (법무사님 지시 「차근차근 누락없게」) ═══════════
+   ① §10② [A] 「대지권이 있는 구분건물의 … 소유권이전등기는 건당 20,000원을 가산한다」
+      — 종전에는 등기유형으로 찾기·보존 화면에만 있고 이전 화면(매매·상속·유증·증여·부담부증여·공유물분할·
+        재산분할·낙찰·기타취득)에는 없었다. 건 = 구분건물(같은 항 전단 「각 구분건물마다 별건」).
+        준비서류 「부동산 형태」가 집합건물이면 자동 체크·개수는 「부동산 개수」를 따라간다(직접 고치면 그 값 유지).
+        §10①(부동산 1개 초과 20,000)과는 별개 가산이다. 협의조정률을 곱하지 않는다(§10① 가산과 같게).
+   ② §10③ 후단 [A] 「그 사유가 중복되더라도 별도로 가산하지 않는다」 — §2②각호 가산은 모두 합쳐 기본보수의 100%까지.
+      「보수 협의조정」의 100% 초과분(§2②1~3호 가산)과 「당사자 다수 가산」(§2②4호)을 합쳐 100%를 넘지 않게 자른다.
+      (§24② 송무 특례에서 쓰는 방식과 같다 — 모수는 표상 기본보수 feeRaw)
+   ③ 등기의무자 여러 명(지분을 여럿이 함께 넘김) — 위쪽 「등기의무자(인)」 한 칸으로
+      「당사자 다수 가산」 의무자 수(§2②4호)·「확인서면 대상 인원」(§10⑤)·준비서류(각자 준비)를 함께 맞춘다.
+      아래 칸을 직접 고치면 그 값이 우선한다. */
+function djTouch(p){const c=document.getElementById(p+'f_dj');if(c)c.dataset.touched='1';const n=document.getElementById(p+'djN');if(n&&document.activeElement===n)n.dataset.touched='1';}
+function djFee(p){
+  const c=document.getElementById(p+'f_dj'), cell=document.getElementById(p+'djCell'); if(!c||!cell) return 0;
+  const nEl=document.getElementById(p+'djN'), eEl=document.getElementById(p+'cntEstate');
+  if(nEl&&!nEl.dataset.touched&&eEl) nEl.value=Math.max(1,numOf(eEl.value)||1);
+  const n=Math.max(1,numOf(nEl?nEl.value:1)||1), v=c.checked?n*20000:0;
+  cell.textContent=won(v); return v;
+}
+/* 준비서류 「부동산 형태」를 바꾸면 대지권 가산 체크를 맞춘다(직접 체크를 바꾼 뒤에는 건드리지 않음) */
+document.addEventListener('change',function(e){
+  var t=e.target; if(!t||t.type!=='radio'||!/bform$/.test(t.name||'')) return;
+  var p=t.name.replace(/bform$/,''), c=document.getElementById(p+'f_dj'); if(!c||c.dataset.touched) return;
+  var want=(t.value==='apt'); if(c.checked===want) return;
+  c.checked=want; var fn={'':'calcSale','s_':'calcInherit','bq_':'calcBequest','gv_':'calcGift','bv_':'calcBurden','pt_':'calcPartition','dv_':'calcDivision','nk_':'calcNakchal','ea_':'calcEtcAcq'}[p];
+  if(fn&&typeof window[fn]==='function') window[fn]();
+});
+function oblN(p){const e=document.getElementById(p+'cntObl');return e?Math.max(1,numOf(e.value)||1):1;}
+function oblSync(p){
+  const n=oblN(p);
+  ['pnObl','vfyN'].forEach(function(k){const e=document.getElementById(p+k); if(e&&!e.dataset.touched) e.value=n;});
+  const fn={'':'renderDocsSale','gv_':'renderDocsGift','bv_':'renderDocsBurden','pt_':'renderDocsPartition','ea_':'renderDocsEtcAcq'}[p];
+  if(fn&&typeof window[fn]==='function') window[fn]();
+}
+/* 아래 칸(당사자 다수 의무자 수·확인서면 대상 인원)을 손으로 고치면 위 칸이 덮어쓰지 않는다 */
+document.addEventListener('input',function(e){var t=e.target; if(t&&t.id&&/(pnObl|vfyN)$/.test(t.id)&&e.isTrusted) t.dataset.touched='1';});
+/* 준비서류 — 등기의무자가 여럿이면 각자 준비 안내 */
+function oblMark(o){
+  const n=o.oblN||1; if(n<2) return;
+  (o.client||[]).forEach(function(g){ if(g&&/등기의무자/.test(g.who)&&!/시행사/.test(g.who)&&!/피고/.test(g.who)) g.who+=' — <b style="color:var(--seal);">'+n+'명 각자</b>'; if(g&&/피고/.test(g.who)) g.who+=' — <b>'+n+'명</b>'; });
+  o.lead=(o.lead||'')+'<div class="d3warn">▸ <b>등기의무자(넘겨주는 분)가 '+n+'명</b>입니다. 등기의무자 서류(<b>등기필정보(등기권리증)·인감증명서·주민등록표 초본·신분증</b>)는 <b>'+n+'명이 각자</b> 준비하고, 등기필정보는 <b>각자 받은 것</b>을 냅니다. 법무사는 <b>한 분씩 직접</b> 만나 본인 확인을 합니다 <span class="law" title="부동산등기규칙 제46조제1항제8호 — 자격자대리인이 등기의무자를 확인하고 자필서명한 정보 / 제60조제1항 — 소유권의 등기명의인이 등기의무자로서 등기를 신청하는 경우 등기의무자의 인감증명">규칙 §46①8호·§60①</span></div>';
+}
 function partyCount(p){
   const own=document.getElementById(p+'cntOwner')||document.getElementById(p+'pnOwn');
   const obl=document.getElementById(p+'pnObl');
@@ -3834,10 +3892,13 @@ function partyCount(p){
 function partyAdd(p,feeRaw){
   const c=partyCount(p);
   const sel=document.getElementById(p+'pnAdd');
-  const rate=sel?(numOf(sel.value)||0):0;
+  const rate0=sel?(numOf(sel.value)||0):0;
+  /* §10③ 후단 — 보수 협의조정의 100% 초과분(§2②1~3호)과 합쳐 100%까지 */
+  const adjEl=(p==='st_')?null:document.getElementById(p?p+'adjust':'feeAdjust'), adj=adjEl?(parseFloat(adjEl.value)||1):1;   /* 신탁은 협의조정이 §11⑨(별도 조항) 가산이라 제외 */
+  const room=Math.max(0,1-Math.max(0,adj-1)), rate=Math.min(rate0,room), cut=rate<rate0;
   const ok=c.total>=5;
   const info=document.getElementById(p+'pnInfo');
-  if(info) info.innerHTML='권리자 '+c.own+' + 의무자 '+c.obl+' = <b>'+c.total+'인</b> — '
+  if(info) info.innerHTML=(cut?'<b style="color:var(--seal);">§10③ 후단 — 협의조정 가산('+Math.round((adj-1)*100)+'%)과 합쳐 기본보수의 100%까지만 가산합니다(사유가 겹쳐도 따로 가산하지 않음)</b><br>':'')+'권리자 '+c.own+' + 의무자 '+c.obl+' = <b>'+c.total+'인</b> — '
     +(ok?'<b style="color:var(--seal);">§2②4호 해당</b> (5인 이상) · 기본보수의 100%까지 가산 가능'
         :'§2②4호 미해당 <span style="color:#8a8070;">(5인 이상부터)</span>. 사건이 특별히 복잡하면 §2②1~3호로 가산할 수 있습니다.');
   const v=Math.round((feeRaw||0)*rate);
@@ -3847,7 +3908,7 @@ function partyAdd(p,feeRaw){
     const cell=document.getElementById(p+'feePartyCell');if(cell)cell.textContent=won(v);
     const note=document.getElementById(p+'feePartyNote');
     if(note)note.textContent='(표상 기본보수 '+won(feeRaw)+' × '+Math.round(rate*100)+'% · §2②'
-      +(ok?'4호':'각호')+'→§10③ · 당사자 '+c.total+'인)';
+      +(ok?'4호':'각호')+'→§10③ · 당사자 '+c.total+'인'+(cut?' · 협의조정 가산 '+Math.round((adj-1)*100)+'%와 합쳐 100% 한도(§10③ 후단)':'')+')';
   }
   return v;
 }
@@ -5600,6 +5661,7 @@ function judgeDocs(o){
     law:'부동산등기법 §23④·§50②, 부동산등기 특별조치법 §3②, 부동산등기규칙 §46①·③·§60①1호, 등기예규 제1786호·제1727호',src:'판결에 의한 등기 — 실무교재 101~106쪽·117쪽, 등기예규 제1786호(2024. 11. 25.)'};
 }
 function d3(o){
+  oblMark(o);
   let h='<div class="d3">';
   if(o.lead) h+=o.lead;
   h+='<div class="d3sec d3c"><div class="d3h">① 의뢰인께서 준비하실 서류</div><div class="d3b">'+(o.clientHTML||'');
@@ -7837,10 +7899,10 @@ function renderDocsSale(){
     /* 2026-11-22 판결로 매수인이 혼자 신청 — 매수인 서류·가족 간 매매 서류는 그대로 두고 나머지를 판결용으로 바꾼다 */
     const J=judgeDocs({ob:'매도인',ri:'매수인',riS:'매수인이',cause:'매매',led:led,f:f,riItems:client[1].items});
     const keep=client.filter(function(g){ return /친족 관계|대가 지급/.test(g.who); });
-    document.getElementById('docsBox').innerHTML=d3({client:J.client.concat(keep),office:J.office,attach:J.attach,attachNote:J.attachNote,law:J.law,src:J.src,tail:tail.join('')});
+    document.getElementById('docsBox').innerHTML=d3({oblN:oblN(''),client:J.client.concat(keep),office:J.office,attach:J.attach,attachNote:J.attachNote,law:J.law,src:J.src,tail:tail.join('')});
     return;
   }
-  document.getElementById('docsBox').innerHTML=d3({client:client,office:office,attach:attach,tail:tail.join('')});
+  document.getElementById('docsBox').innerHTML=d3({oblN:oblN(''),client:client,office:office,attach:attach,tail:tail.join('')});
 }
 
 /* ===== 분양 취득 — 과세표준 합산 도우미 (매매 scene 내장) =====
@@ -8048,6 +8110,7 @@ function calcSale(fromEdit){
      document.getElementById('trTaxCell').textContent=won(chk('f_trTax')?_tv:0);
      document.getElementById('trTaxNote').textContent=_tn>0?('(50,000 × '+_tn+'건 — '+[chk('trCancel')?'신탁 말소 1':'',chk('trChange')?'토지 신탁등기 변경 '+Math.max(1,val('trChangeN')):''].filter(Boolean).join(' · ')+')'):'';
      if(_tn>0&&chk('f_trTax'))fee+=_tv;}}if(chk('f_bond'))fee+=40000;if(chk('f_trip'))fee+=val('tripFee');
+  fee+=djFee('');
   if(chk('f_same')){const n=Math.max(1,val('sameN')),e=Math.max(1,val('cntEstate'));const v=200000+((n-1)+(e-1))*30000;document.getElementById('sameCell').textContent=won(v);fee+=v;}else document.getElementById('sameCell').textContent='0 원';
   const vRow=document.getElementById('verifyRow');
   if(chk('verify')){const n=Math.max(1,val('vfyN')),e=Math.max(1,val('cntEstate'));const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('verifyCell').textContent=won(v);document.getElementById('verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else{vRow.style.display='table-row';const _vc=vRow.querySelector('[id$="verifyCell"]'),_vn=vRow.querySelector('[id$="verifyNote"]');if(_vc)_vc.textContent=won(0);if(_vn)_vn.textContent='';}  /* 2026-11-18 확인서면 체크칸을 ④ 수수료로 옮김 — 줄은 늘 보인다 */
@@ -8281,6 +8344,7 @@ function calcInherit(fromEdit){
   {const _cR=document.getElementById('s_feeCntRow');if(_cR){_cR.style.display=feeCnt>0?'table-row':'none';document.getElementById('s_feeCntCell').textContent=won(feeCnt);document.getElementById('s_feeCntNote').textContent=feeCnt>0?'('+_cntE+'개 · 초과 '+(_cntE-1)+'개×20,000)':'';}}
   fee+=feeCnt;
   if(chk('s_f_origin')){const _oa=parseFloat((document.getElementById('s_originAdd')||{}).value)||0;const _oAdd=Math.round(50000*_oa);fee+=50000+_oAdd;const _oc=document.getElementById('s_originCell');if(_oc)_oc.textContent=won(50000+_oAdd)+(_oAdd>0?' (기본50,000+§25②가산'+won(_oAdd)+')':'');}else{const _oc=document.getElementById('s_originCell');if(_oc)_oc.textContent='0 원';}if(chk('s_f_tax'))fee+=50000;if(chk('s_f_bond'))fee+=40000;if(chk('s_f_trip'))fee+=val('s_tripFee');
+  fee+=djFee('s_');
   if(chk('s_f_same')){const n=Math.max(1,val('s_sameN')),e=Math.max(1,val('s_cntEstate'));const v=200000+((n-1)+(e-1))*30000;document.getElementById('s_sameCell').textContent=won(v);fee+=v;}else document.getElementById('s_sameCell').textContent='0 원';
   const vRow=document.getElementById('s_verifyRow');
   if(chk('s_verify')){const n=Math.max(1,val('s_vfyN')),e=Math.max(1,val('s_cntEstate'));const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('s_verifyCell').textContent=won(v);document.getElementById('s_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else{vRow.style.display='table-row';const _vc=vRow.querySelector('[id$="verifyCell"]'),_vn=vRow.querySelector('[id$="verifyNote"]');if(_vc)_vc.textContent=won(0);if(_vn)_vn.textContent='';}  /* 2026-11-18 확인서면 체크칸을 ④ 수수료로 옮김 — 줄은 늘 보인다 */
@@ -8395,6 +8459,7 @@ function calcBequest(fromEdit){
   {const _cR=document.getElementById('bq_feeCntRow');if(_cR){_cR.style.display=feeCnt>0?'table-row':'none';document.getElementById('bq_feeCntCell').textContent=won(feeCnt);document.getElementById('bq_feeCntNote').textContent=feeCnt>0?'('+_cntE+'개 · 초과 '+(_cntE-1)+'개×20,000)':'';}}
   fee+=feeCnt;
   if(chk('bq_f_origin')){const _oa=parseFloat((document.getElementById('bq_originAdd')||{}).value)||0;const _oAdd=Math.round(50000*_oa);fee+=50000+_oAdd;const _oc=document.getElementById('bq_originCell');if(_oc)_oc.textContent=won(50000+_oAdd)+(_oAdd>0?' (기본50,000+§25②가산'+won(_oAdd)+')':'');}else{const _oc=document.getElementById('bq_originCell');if(_oc)_oc.textContent='0 원';}if(chk('bq_f_tax'))fee+=50000;if(chk('bq_f_bond'))fee+=40000;if(chk('bq_f_trip'))fee+=val('bq_tripFee');
+  fee+=djFee('bq_');
   if(chk('bq_f_same')){const n=Math.max(1,val('bq_sameN')),e=Math.max(1,val('bq_cntEstate'));const v=200000+((n-1)+(e-1))*30000;document.getElementById('bq_sameCell').textContent=won(v);fee+=v;}else document.getElementById('bq_sameCell').textContent='0 원';
   const vRow=document.getElementById('bq_verifyRow');
   if(chk('bq_verify')){const n=Math.max(1,val('bq_vfyN')),e=Math.max(1,val('bq_cntEstate'));const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('bq_verifyCell').textContent=won(v);document.getElementById('bq_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else{vRow.style.display='table-row';const _vc=vRow.querySelector('[id$="verifyCell"]'),_vn=vRow.querySelector('[id$="verifyNote"]');if(_vc)_vc.textContent=won(0);if(_vn)_vn.textContent='';}  /* 2026-11-18 확인서면 체크칸을 ④ 수수료로 옮김 — 줄은 늘 보인다 */
@@ -8697,10 +8762,10 @@ function renderDocsGift(){
   if((document.getElementById('gv_cause')||{}).value==='judge'){
     /* 2026-11-22 판결로 수증자가 혼자 신청 — 친족관계 소명서류는 그대로 둔다 */
     const J=judgeDocs({ob:'증여자',ri:'수증자',riS:'수증자가',cause:'증여',led:led,f:f,riItems:client[1].items});
-    document.getElementById('gv_docsBox').innerHTML=d3({client:J.client.concat(client.slice(2)),office:J.office,attach:J.attach,attachNote:J.attachNote,law:J.law,src:J.src});
+    document.getElementById('gv_docsBox').innerHTML=d3({oblN:oblN('gv_'),client:J.client.concat(client.slice(2)),office:J.office,attach:J.attach,attachNote:J.attachNote,law:J.law,src:J.src});
     return;
   }
-  document.getElementById('gv_docsBox').innerHTML=d3({client:client,office:office,attach:d3giftAttach(st,bt,led,false,f),
+  document.getElementById('gv_docsBox').innerHTML=d3({oblN:oblN('gv_'),client:client,office:office,attach:d3giftAttach(st,bt,led,false,f),
     attachNote:'증여는 대가가 없어 <b>토지거래허가 대상이 아닙니다</b> <span class="law" title="부동산등기실무(2026) 127쪽 — 증여계약 등은 허가의 대상이 되지 않는다.">실무교재 127쪽</span>.',
     src:'증여 — 실무교재 117~118쪽(검인)·230~231쪽(주소 직권변경)'});
 }
@@ -8756,6 +8821,7 @@ function calcGift(fromEdit){
   {const _cR=document.getElementById('gv_feeCntRow');if(_cR){_cR.style.display=feeCnt>0?'table-row':'none';document.getElementById('gv_feeCntCell').textContent=won(feeCnt);document.getElementById('gv_feeCntNote').textContent=feeCnt>0?'('+_cntE+'개 · 초과 '+(_cntE-1)+'개×20,000)':'';}}
   fee+=feeCnt;
   if(chk('gv_f_origin')){const _oa=parseFloat((document.getElementById('gv_originAdd')||{}).value)||0;const _oAdd=Math.round(50000*_oa);fee+=50000+_oAdd;const _oc=document.getElementById('gv_originCell');if(_oc)_oc.textContent=won(50000+_oAdd)+(_oAdd>0?' (기본50,000+§25②가산'+won(_oAdd)+')':'');}else{const _oc=document.getElementById('gv_originCell');if(_oc)_oc.textContent='0 원';}if(chk('gv_f_inspect'))fee+=50000;if(chk('gv_f_tax'))fee+=50000;if(chk('gv_f_bond'))fee+=40000;if(chk('gv_f_trip'))fee+=val('gv_tripFee');
+  fee+=djFee('gv_');
   if(chk('gv_f_same')){const n=Math.max(1,val('gv_sameN')),e=Math.max(1,val('gv_cntEstate'));const v=200000+((n-1)+(e-1))*30000;document.getElementById('gv_sameCell').textContent=won(v);fee+=v;}else document.getElementById('gv_sameCell').textContent='0 원';
   const vRow=document.getElementById('gv_verifyRow');
   if(chk('gv_verify')){const n=Math.max(1,val('gv_vfyN')),e=Math.max(1,val('gv_cntEstate'));const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('gv_verifyCell').textContent=won(v);document.getElementById('gv_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else{vRow.style.display='table-row';const _vc=vRow.querySelector('[id$="verifyCell"]'),_vn=vRow.querySelector('[id$="verifyNote"]');if(_vc)_vc.textContent=won(0);if(_vn)_vn.textContent='';}  /* 2026-11-18 확인서면 체크칸을 ④ 수수료로 옮김 — 줄은 늘 보인다 */
@@ -8927,6 +8993,7 @@ function calcDivision(fromEdit){
   if(chk('dv_f_inspect')){fee+=50000;document.getElementById('dv_inspectCell').textContent='50,000 원';}else document.getElementById('dv_inspectCell').textContent='0 원';
   if(chk('dv_f_tax'))fee+=50000;if(chk('dv_f_bond'))fee+=40000;if(chk('dv_f_trip'))fee+=val('dv_tripFee');
   /* 동일인 보증서 200,000 기본 + 「대상인원 1인 또는 부동산 1개」 초과분마다 30,000 가산 (보수표 참고란·법무사보수기준 §10⑤) */
+  fee+=djFee('dv_');
   if(chk('dv_f_same')){const n=Math.max(1,val('dv_sameN')),e=Math.max(1,val('dv_cntEstate'));const v=200000+((n-1)+(e-1))*30000;document.getElementById('dv_sameCell').textContent=won(v);fee+=v;}
   else document.getElementById('dv_sameCell').textContent='0 원';
   const vRow=document.getElementById('dv_verifyRow');
@@ -9381,6 +9448,7 @@ function calcEtcAcqTail(){
   if(chk('ea_f_tax')){fee+=50000;document.getElementById('ea_taxCell').textContent='50,000 원';}else document.getElementById('ea_taxCell').textContent='0 원';
   if(chk('ea_f_bond')){fee+=40000;document.getElementById('ea_bondCell').textContent='40,000 원';}else document.getElementById('ea_bondCell').textContent='0 원';
   if(chk('ea_f_trip'))fee+=val('ea_tripFee');
+  fee+=djFee('ea_');
   if(chk('ea_f_same')){const n=Math.max(1,val('ea_sameN')),e=Math.max(1,val('ea_cntEstate'));const v=200000+((n-1)+(e-1))*30000;document.getElementById('ea_sameCell').textContent=won(v);fee+=v;}
   else document.getElementById('ea_sameCell').textContent='0 원';
   const vRow=document.getElementById('ea_verifyRow');
@@ -9561,7 +9629,7 @@ function renderDocsEtcAcq(){
     +'<a href="https://nhuf.molit.go.kr/FP/FP07/FP0705/FP070509.jsp" target="_blank" rel="noopener">주택도시기금 「셀프 채권매입 도우미」</a>로 확인한 금액을 계산기의 공과금(채권) 칸에 직접 넣으십시오.</span><br>'
     +'<span class="hint">▸ 모든 서류는 <b>주민등록번호 뒷자리가 나오게</b> 발급받으십시오.<br>'
     +'▸ 위 목록은 일반적인 경우입니다. <b>사안에 따라 서류가 더 필요할 수 있습니다.</b></span></div>';
-  db.innerHTML=d3({clientHTML:h,office:office,attach:attach,attachNote:anote,tail:tailWhere,
+  db.innerHTML=d3({oblN:oblN('ea_'),clientHTML:h,office:office,attach:attach,attachNote:anote,tail:tailWhere,
     law:'부동산등기법 §23③·§50②·§51, 부동산등기규칙 §42·§44·§46①·§60·§62',src:''});
 }
 
@@ -9663,6 +9731,7 @@ function calcPartition(fromEdit){
   if(chk('pt_f_origin')){const _oa=parseFloat((document.getElementById('pt_originAdd')||{}).value)||0;const _oAdd=Math.round(50000*_oa);fee+=50000+_oAdd;const _oc=document.getElementById('pt_originCell');if(_oc)_oc.textContent=won(50000+_oAdd)+(_oAdd>0?' (기본50,000+§25②가산'+won(_oAdd)+')':'');}else{const _oc=document.getElementById('pt_originCell');if(_oc)_oc.textContent='0 원';}
   if(chk('pt_f_inspect')){fee+=50000;document.getElementById('pt_inspectCell').textContent='50,000 원';}else document.getElementById('pt_inspectCell').textContent='0 원';
   if(chk('pt_f_tax'))fee+=50000;if(chk('pt_f_bond'))fee+=40000;if(chk('pt_f_trip'))fee+=val('pt_tripFee');
+  fee+=djFee('pt_');
   if(chk('pt_f_same')){const n=Math.max(1,val('pt_sameN')),e=Math.max(1,val('pt_cntEstate'));const v=200000+((n-1)+(e-1))*30000;document.getElementById('pt_sameCell').textContent=won(v);fee+=v;}
   else document.getElementById('pt_sameCell').textContent='0 원';
   const vRow=document.getElementById('pt_verifyRow');
@@ -9782,6 +9851,7 @@ function calcNakchal(fromEdit){
   if(chk('nk_f_tax'))fee+=50000;
   if(chk('nk_f_bond'))fee+=40000;
   if(chk('nk_f_trip'))fee+=val('nk_tripFee');
+  fee+=djFee('nk_');
   if(chk('nk_f_same')){const n=Math.max(1,val('nk_sameN')),e=cntE;const v=200000+((n-1)+(e-1))*30000;document.getElementById('nk_sameCell').textContent=won(v);fee+=v;}
   else document.getElementById('nk_sameCell').textContent='0 원';
   EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const c=document.getElementById('nka_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('nkaq_'+id).value)||1);fee+=FLAT[code]*q;}});
@@ -9886,7 +9956,7 @@ function renderDocsPartition(){
   attach.push(['국민주택채권 매입 — 채권발행번호 <small>(종전 지분을 넘는 부분)</small>','사무소 (매입 대행)','규칙 §44 · 선례 4-937·5-891']);
   attach.push(['등기신청수수료 영수필확인서','사무소','수수료규칙 §5의2']);
   attach.push(['토지거래계약 허가증 · 주무관청 허가서 <small>(해당할 때만)</small>','의뢰인 신청','규칙 §46①2호']);
-  document.getElementById('pt_docsBox').innerHTML=d3({lead:lead,client:client,office:office,attach:attach,
+  document.getElementById('pt_docsBox').innerHTML=d3({oblN:oblN('pt_'),lead:lead,client:client,office:office,attach:attach,
     attachNote:'<b>농지</b>여도 공유물분할에는 <b>농지취득자격증명이 필요 없습니다</b>. 국민주택채권은 <b>지분 비율대로 나누면 면제</b>, 종전 지분을 넘는 부분만 매입합니다 <span class="law" title="부동산등기실무Ⅱ(2015) 345~347쪽 — 농지법 제8조제1항제3호, 선례 6-562·4-937·5-891">실무교재Ⅱ(2015) 345~347쪽</span>',
     src:'공유물분할 — 『부동산등기실무Ⅱ』(2015) 344~347쪽'});
 }
@@ -9949,7 +10019,7 @@ function renderDocsBurden(){
   const office=d3officeStd({oblig:'증여자',ledger:led,
     cause:'부담부증여계약서(검인) 작성',causeDesc:'<b>부담부증여임을 명시</b>하고 <b>채무승계 조건</b>을 넣어 사무소가 작성하고, 부동산 소재지 시·군·구청에서 <b>검인</b>을 받습니다 <span class="law" title="부동산등기 특별조치법 제3조 — 부동산등기실무(2026) 117쪽">특조법 §3</span>',
     more:[d3i('<b>토지이용계획확인원</b>','토지거래허가구역·농지 여부 확인 <span class="hint">(확인용)</span>',LK.eum)]});
-  document.getElementById('bv_docsBox').innerHTML=d3({lead:lead,client:client,office:office,attach:d3giftAttach(st,bt,led,true,f),
+  document.getElementById('bv_docsBox').innerHTML=d3({oblN:oblN('bv_'),lead:lead,client:client,office:office,attach:d3giftAttach(st,bt,led,true,f),
     src:'부담부증여 — 실무교재 117~118쪽(검인)·230~231쪽(주소 직권변경)'});
 }
 function calcBurden(fromEdit){
@@ -10024,6 +10094,7 @@ function calcBurden(fromEdit){
   {const _cR=document.getElementById('bv_feeCntRow');if(_cR){_cR.style.display=feeCnt>0?'table-row':'none';document.getElementById('bv_feeCntCell').textContent=won(feeCnt);document.getElementById('bv_feeCntNote').textContent=feeCnt>0?'('+_cntE+'개 · 초과 '+(_cntE-1)+'개×20,000)':'';}}
   fee+=feeCnt;
   if(chk('bv_f_origin')){const _oa=parseFloat((document.getElementById('bv_originAdd')||{}).value)||0;const _oAdd=Math.round(50000*_oa);fee+=50000+_oAdd;const _oc=document.getElementById('bv_originCell');if(_oc)_oc.textContent=won(50000+_oAdd)+(_oAdd>0?' (기본50,000+§25②가산'+won(_oAdd)+')':'');}else{const _oc=document.getElementById('bv_originCell');if(_oc)_oc.textContent='0 원';}if(chk('bv_f_inspect'))fee+=50000;if(chk('bv_f_tax'))fee+=50000;if(chk('bv_f_bond'))fee+=40000;if(chk('bv_f_trip'))fee+=val('bv_tripFee');
+  fee+=djFee('bv_');
   if(chk('bv_f_same')){const n=Math.max(1,val('bv_sameN')),e=Math.max(1,val('bv_cntEstate'));const v=200000+((n-1)+(e-1))*30000;document.getElementById('bv_sameCell').textContent=won(v);fee+=v;}else document.getElementById('bv_sameCell').textContent='0 원';
   const vRow=document.getElementById('bv_verifyRow');
   if(chk('bv_verify')){const n=Math.max(1,val('bv_vfyN')),e=Math.max(1,val('bv_cntEstate'));const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('bv_verifyCell').textContent=won(v);document.getElementById('bv_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else{vRow.style.display='table-row';const _vc=vRow.querySelector('[id$="verifyCell"]'),_vn=vRow.querySelector('[id$="verifyNote"]');if(_vc)_vc.textContent=won(0);if(_vn)_vn.textContent='';}  /* 2026-11-18 확인서면 체크칸을 ④ 수수료로 옮김 — 줄은 늘 보인다 */
@@ -10100,7 +10171,7 @@ function calcMortgage(mode){
   fee+=feeCnt;
   if(chk('mt_f_origin')){const _oa=parseFloat((document.getElementById('mt_originAdd')||{}).value)||0;const _oAdd=Math.round(50000*_oa);fee+=50000+_oAdd;const _oc=document.getElementById('mt_originCell');if(_oc)_oc.textContent=won(50000+_oAdd)+(_oAdd>0?' (기본50,000+§25②가산'+won(_oAdd)+')':'');}else{const _oc=document.getElementById('mt_originCell');if(_oc)_oc.textContent='0 원';}if(chk('mt_f_tax'))fee+=50000;if(chk('mt_f_bond'))fee+=40000;if(chk('mt_f_trip'))fee+=val('mt_tripFee');
   const sameRow=document.getElementById('mt_sameRow');
-  if(chk('mt_same')){sameRow.style.display='table-row';document.getElementById('mt_sameCell').textContent=won(200000);fee+=200000;}else sameRow.style.display='none';
+  if(chk('mt_same')){/* 2026-11-22 §10⑤ — 대상 인원·부동산 1개 초과마다 30,000원(종전 200,000원 고정 누락) */const _sn=Math.max(1,val('mt_sameN')),_se=Math.max(1,cntE),_sv=200000+((_sn-1)+(_se-1))*30000;sameRow.style.display='table-row';document.getElementById('mt_sameCell').textContent=won(_sv);fee+=_sv;}else sameRow.style.display='none';
   const vRow=document.getElementById('mt_verifyRow');
   if(chk('mt_verify')){const n=Math.max(1,val('mt_vfyN')),e=Math.max(1,cntE);const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('mt_verifyCell').textContent=won(v);document.getElementById('mt_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else{vRow.style.display='table-row';const _vc=vRow.querySelector('[id$="verifyCell"]'),_vn=vRow.querySelector('[id$="verifyNote"]');if(_vc)_vc.textContent=won(0);if(_vn)_vn.textContent='';}  /* 2026-11-18 확인서면 체크칸을 ④ 수수료로 옮김 — 줄은 늘 보인다 */
   EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const c=document.getElementById('mta_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('mtaq_'+id).value)||1);fee+=FLAT[code]*q;}});
@@ -10296,13 +10367,20 @@ function calcSintak(fromEdit){
   const adj=parseFloat(document.getElementById('st_adjust').value)||1;
   /* ★ 표상 기본보수(feeRaw) — 가산보수(§10③④⑥·§14①②⑤)는 「당해 기본보수」 = 표상 금액을
      기준으로 산정한다. 조정 후 금액에 가산율을 곱하면 가산에 가산이 얹혀 §2⑤(상한) 초과 소지. */
-  const _tt=(document.getElementById('st_trustType')||{}).value||'Ⅰ-4(1)';const feeRaw=FLAT[_tt]||FLAT['Ⅰ-4(1)'];
+  const _tt=(document.getElementById('st_trustType')||{}).value||'Ⅰ-4(1)';
+  /* 2026-11-22 보수기준 재점검 — [A] §11② 소유권이전·담보권설정·청구권보전가등기와 신탁(가)등기·신탁 말소를 동시에 신청하면 두 보수를 합산
+     (종전에는 신탁 정액만 계산되어 함께 하는 소유권이전 보수가 빠졌다) / §11⑤ 수탁자 경질 → 소유권이전 보수 / §11⑧ 담보신탁 수익자 변경·수익금액 증가 → 담보권 이전·채권액 증가 보수.
+     합산한 금액이 「당해 기본보수」 — §10③④⑥ 가산도 이 합계를 모수로 한다. */
+  const _isT=(_tt==='T5'||_tt==='T8'), _sumOk=(_tt==='Ⅰ-4(1)'||_tt==='Ⅰ-4(4)');
+  {const _sl=document.getElementById('st_sumLine'); if(_sl) _sl.style.display=_sumOk?'':'none';}
+  const _trustRaw=_isT?tierFee('Ⅰ-1',base):(FLAT[_tt]||FLAT['Ⅰ-4(1)']), _sumRaw=(_sumOk&&chk('st_sum'))?tierFee('Ⅰ-1',base):0;
+  const feeRaw=_trustRaw+_sumRaw;
   const feeBase=Math.round(feeRaw*adj);
   /* 보수기준 §10⑥ — 외국인·재외국민 포함 또는 등기원인 관련 서류를 외국에서 받아야 하는 등기
      → 당해 기본보수의 100% 상당액까지 가산 [A] */
   const _fr=frAddRate('st_frAdd'), feeForeign=Math.round(feeRaw*_fr);
   document.getElementById('st_feeBaseCell').textContent=won(feeBase);
-  document.getElementById('st_feeBaseNote').textContent='(보수표 '+_tt+' 정액 '+feeRaw.toLocaleString()+(adj!==1?' ×'+(adj*100)+'%':'')+')';
+  document.getElementById('st_feeBaseNote').textContent='('+(_isT?(_tt==='T5'?'§11⑤ 수탁자 경질 — 보수표 Ⅰ-1 ':'§11⑧ 담보신탁 변경 — 보수표 Ⅰ-1 ')+_trustRaw.toLocaleString():'보수표 '+_tt+' 정액 '+_trustRaw.toLocaleString())+(_sumRaw?' + 함께 하는 등기 보수표 Ⅰ-1 '+_sumRaw.toLocaleString()+' (§11② 합산)':'')+(adj!==1?' ×'+(adj*100)+'%':'')+')';
   const _frR=document.getElementById('st_feeForeignRow');
   if(_frR){_frR.style.display=feeForeign>0?'table-row':'none';document.getElementById('st_feeForeignCell').textContent=won(feeForeign);document.getElementById('st_feeForeignNote').textContent='(표상 기본보수 '+won(feeRaw)+' × '+(_fr*100)+'% · §10⑥)';}
   /* 보수기준 §10④ — 등기원인·등기목적이 동일한 여러 부동산이 여러 등기소 관할에 걸친 경우
@@ -10386,7 +10464,7 @@ function calcMortgageAdd(fromEdit){
   fee+=feeCnt;
   if(chk('ma_f_origin')){const _oa=parseFloat((document.getElementById('ma_originAdd')||{}).value)||0;const _oAdd=Math.round(50000*_oa);fee+=50000+_oAdd;const _oc=document.getElementById('ma_originCell');if(_oc)_oc.textContent=won(50000+_oAdd)+(_oAdd>0?' (기본50,000+§25②가산'+won(_oAdd)+')':'');}else{const _oc=document.getElementById('ma_originCell');if(_oc)_oc.textContent='0 원';}if(chk('ma_f_tax'))fee+=50000;if(chk('ma_f_bond'))fee+=40000;if(chk('ma_f_trip'))fee+=val('ma_tripFee');
   const sameRow=document.getElementById('ma_sameRow');
-  if(chk('ma_same')){sameRow.style.display='table-row';document.getElementById('ma_sameCell').textContent=won(200000);fee+=200000;}else sameRow.style.display='none';
+  if(chk('ma_same')){/* 2026-11-22 §10⑤ — 대상 인원·부동산 1개 초과마다 30,000원(종전 200,000원 고정 누락) */const _sn=Math.max(1,val('ma_sameN')),_se=Math.max(1,cntE),_sv=200000+((_sn-1)+(_se-1))*30000;sameRow.style.display='table-row';document.getElementById('ma_sameCell').textContent=won(_sv);fee+=_sv;}else sameRow.style.display='none';
   const vRow=document.getElementById('ma_verifyRow');
   if(chk('ma_verify')){const n=Math.max(1,val('ma_vfyN')),e=Math.max(1,cntE);const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('ma_verifyCell').textContent=won(v);document.getElementById('ma_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else{vRow.style.display='table-row';const _vc=vRow.querySelector('[id$="verifyCell"]'),_vn=vRow.querySelector('[id$="verifyNote"]');if(_vc)_vc.textContent=won(0);if(_vn)_vn.textContent='';}  /* 2026-11-18 확인서면 체크칸을 ④ 수수료로 옮김 — 줄은 늘 보인다 */
   EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const c=document.getElementById('maa_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('maaq_'+id).value)||1);fee+=FLAT[code]*q;}});
@@ -10915,7 +10993,7 @@ function calcRight(fromEdit){
   fee+=feeCnt;
   if(chk('rt_f_origin')){const _oa=parseFloat((document.getElementById('rt_originAdd')||{}).value)||0;const _oAdd=Math.round(50000*_oa);fee+=50000+_oAdd;const _oc=document.getElementById('rt_originCell');if(_oc)_oc.textContent=won(50000+_oAdd)+(_oAdd>0?' (기본50,000+§25②가산'+won(_oAdd)+')':'');}else{const _oc=document.getElementById('rt_originCell');if(_oc)_oc.textContent='0 원';}if(chk('rt_f_tax'))fee+=50000;if(chk('rt_f_trip'))fee+=val('rt_tripFee');
   const sameRow=document.getElementById('rt_sameRow');
-  if(chk('rt_same')){sameRow.style.display='table-row';document.getElementById('rt_sameCell').textContent=won(200000);fee+=200000;}else sameRow.style.display='none';
+  if(chk('rt_same')){/* 2026-11-22 §10⑤ — 대상 인원·부동산 1개 초과마다 30,000원(종전 200,000원 고정 누락) */const _sn=Math.max(1,val('rt_sameN')),_se=Math.max(1,cntE),_sv=200000+((_sn-1)+(_se-1))*30000;sameRow.style.display='table-row';document.getElementById('rt_sameCell').textContent=won(_sv);fee+=_sv;}else sameRow.style.display='none';
   const vRow=document.getElementById('rt_verifyRow');
   if(chk('rt_verify')){const n=Math.max(1,val('rt_vfyN')),e=Math.max(1,cntE);const v=120000+((n-1)+(e-1))*30000;vRow.style.display='table-row';document.getElementById('rt_verifyCell').textContent=won(v);document.getElementById('rt_verifyNote').textContent='(서면 1건 기준 120,000 + 초과 '+((n-1)+(e-1))+'건×30,000 · 대상 '+n+'인 · 부동산 '+e+'개)';fee+=v;}else{vRow.style.display='table-row';const _vc=vRow.querySelector('[id$="verifyCell"]'),_vn=vRow.querySelector('[id$="verifyNote"]');if(_vc)_vc.textContent=won(0);if(_vn)_vn.textContent='';}  /* 2026-11-18 확인서면 체크칸을 ④ 수수료로 옮김 — 줄은 늘 보인다 */
   EXTRA_AGENT.filter(a=>a[3].includes('reTransfer')).forEach(([id,name,code])=>{const c=document.getElementById('rta_'+id);if(c&&c.checked){const q=Math.max(1,parseInt(document.getElementById('rtaq_'+id).value)||1);fee+=FLAT[code]*q;}});
@@ -15915,7 +15993,7 @@ body.sx-simple .sx-feeNote{display:block;}   /* 수임 범위·협의조정·당
 (function(){
   var KEY='sanlaw_calc_view';
   var CFG={
-    '매매':{basic:/^(매매금액|부동산 개수|등기권리자|등기원인|매도인과의 관계|부동산 종류|보유 주택 수|감면·가산|외국인·재외국민 가산)/,   /* 2026-11-22 등기원인·관계 일반용에도 보임(법무사님 지적) */
+    '매매':{basic:/^(매매금액|부동산 개수|등기권리자|등기의무자|등기원인|매도인과의 관계|부동산 종류|보유 주택 수|감면·가산|외국인·재외국민 가산)/,   /* 2026-11-22 등기원인·관계 일반용에도 보임(법무사님 지적) */
             adv:'말소 동시신청·분양 신탁 등',
             keep:function(el){return el.id==='ps_box'||/분양받은 아파트/.test(el.textContent);}}   /* 2026-11-19 분양 아파트 질문은 일반용에도 보임 */
   };
