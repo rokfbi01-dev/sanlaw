@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[파산 E-7] 파산하면 집·차·보험은 어떻게 되나요 — 압류금지재산과 면제재산 | 산 법무사 김재섭</title>
+<meta name="description" content="파산하면 집·차·보험·퇴직금은 어떻게 되는지, 법이 당연히 빼 주는 압류금지재산과 신청해야 빼 주는 면제재산의 차이, 파산선고 후 14일 신청기한, 지역별 보증금 한도와 6개월 생계비 계산까지 정리했습니다.">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+ul{margin:8px 0 12px; padding-left:20px;} li{margin:6px 0;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(300px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.who{background:var(--box); border-radius:10px; padding:14px 16px; margin:12px 0; border-left:4px solid #b9a98c;}
+.who .wl{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.case{background:var(--box); border-radius:10px; padding:14px 16px; margin:14px 0; border-left:4px solid #b9a98c;}
+.case .ct{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;margin-left:3px;}
+.tag.free{background:#5a9a72;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.cta{display:block; text-align:center; background:linear-gradient(145deg,#8a5a33,#6e4524); color:#fff; text-decoration:none; font-weight:700; font-size:16px; padding:15px; border-radius:11px; margin:18px 0; box-shadow:0 3px 8px rgba(122,82,48,.25);}
+.src{font-size:12.5px; color:#6e6353; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:11px 15px;margin:10px 0;font-size:13.5px;line-height:1.7;}
+.lawbox .ll{display:inline-block;font-size:11.5px;font-weight:700;color:#fff;background:var(--gold-d);border-radius:5px;padding:2px 8px;margin-right:6px;}
+.lawbox a{color:var(--gold-d);font-weight:600;}
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:14.5px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:16px;margin:10px 0;font-family:'D2Coding','Courier New',monospace;font-size:12.5px;line-height:1.65;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:15px;letter-spacing:2px;margin-bottom:10px;color:#241a10;}
+.howto{font-size:13.5px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:12.5px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:6px 12px;cursor:pointer;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.concept{background:var(--box);border-radius:9px;padding:11px 15px;margin:8px 0 14px;font-size:14.5px;color:#5a4a36;border-left:3px solid #b9a98c;}
+.concept b{color:var(--gold-d);}
+.flow{background:linear-gradient(180deg,#fcf9f2,#f7f1e5);border:1.5px solid var(--gold);border-radius:14px;padding:18px 18px 14px;margin:14px 0 20px;}
+.flow .ft2{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:12px;}
+.flow ol{counter-reset:fl;list-style:none;margin:0;padding:0;}
+.flow li{position:relative;padding:8px 10px 8px 44px;margin:7px 0;background:#fff;border:1px solid var(--line);border-radius:10px;font-size:14.5px;line-height:1.6;}
+.flow li::before{counter-increment:fl;content:counter(fl);position:absolute;left:10px;top:8px;width:26px;height:26px;line-height:26px;text-align:center;background:var(--gold);color:#fff;border-radius:50%;font-weight:800;font-size:14px;}
+.flow li b{color:var(--gold-d);}
+.flow .arw{text-align:center;color:var(--gold);font-size:13px;margin:-2px 0;}
+.newlaw{background:#eef6f0;border:1px solid #cfe6d6;border-left:4px solid #5a9a72;border-radius:8px;padding:13px 16px;margin:14px 0;}
+.newlaw .nt{font-weight:700;color:#2f6a47;display:block;margin-bottom:4px;}
+.newlaw .badge{display:inline-block;font-size:11px;font-weight:800;color:#fff;background:#5a9a72;border-radius:5px;padding:2px 8px;margin-right:6px;vertical-align:middle;}
+.faq{margin:14px 0;}
+.faq details{border:1px solid var(--line);border-radius:10px;margin:9px 0;background:#fff;overflow:hidden;}
+.faq summary{list-style:none;cursor:pointer;padding:13px 44px 13px 38px;font-weight:700;font-size:15px;color:#241a10;background:#faf7f0;position:relative;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::before{content:"Q";position:absolute;left:15px;color:var(--gold-d);font-family:'Nanum Myeongjo',serif;font-weight:800;}
+.faq summary::after{content:"▾";position:absolute;right:16px;top:13px;color:var(--gold-d);transition:.2s;}
+.faq details[open] summary::after{transform:rotate(180deg);}
+.faq .fa{padding:13px 15px 15px 38px;font-size:14.5px;line-height:1.75;color:#3a3a3a;position:relative;border-top:1px solid var(--line);}
+.faq .fa::before{content:"A";position:absolute;left:15px;top:13px;color:#5a9a72;font-family:'Nanum Myeongjo',serif;font-weight:800;}
+.helm{background:linear-gradient(135deg,#2c3e50,#3a4a5c);color:#f4f0e8;border-radius:14px;padding:20px 22px;margin:0 0 24px;box-shadow:0 4px 14px rgba(44,62,80,.18);}
+.helm .ht2{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:17px;color:#f0d98c;margin-bottom:9px;}
+.helm p{margin:0;font-size:14.5px;line-height:1.9;color:#eae4d8;}
+.helm b{color:#f4e2a6;}
+.qhead{display:flex;gap:12px;align-items:flex-start;margin:8px 0 8px;}
+.qhead .qb{flex:none;width:34px;height:34px;border-radius:50%;background:#8a5a33;color:#fff;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(176,141,87,.4);}
+.qhead h2{margin:0;border:0;padding:0;font-size:20px;line-height:1.45;}
+.lawrow{display:flex;flex-wrap:wrap;background:var(--box);border-radius:10px;overflow:hidden;margin:12px 0;border:1px solid var(--line);}
+.lawrow .lrl{flex:none;background:var(--gold);color:#fff;font-weight:700;font-size:13.5px;padding:11px 15px;display:flex;align-items:center;}
+.lawrow .lrc{flex:1;min-width:210px;padding:11px 15px;font-size:14px;line-height:1.75;}
+@media(max-width:520px){.lawrow .lrl{width:100%;}}
+.calc{display:block;background:linear-gradient(135deg,#fff7e8,#fdeecb);border:1.5px solid var(--gold);border-radius:14px;padding:16px 18px;margin:18px 0;text-decoration:none;color:var(--ink);transition:.15s;}
+.calc:hover{box-shadow:0 4px 14px rgba(176,141,87,.25);transform:translateY(-1px);}
+.calc .cah{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:4px;}
+.calc .cas{font-size:13.5px;color:var(--muted);}
+.ctabtn{display:block;text-align:center;background:#8a5a33;color:#fff;font-weight:800;font-size:17px;padding:16px;border-radius:12px;text-decoration:none;margin:22px 0 6px;}
+.ctabtn:hover{background:var(--gold-d);}
+.doclabel{display:inline-block;font-size:12px;font-weight:800;color:#fff;border-radius:6px;padding:3px 11px;margin-bottom:6px;}
+.doclabel.give{background:#b0885a;}
+.doclabel.back{background:#5a9a72;}
+.dl{color:var(--gold-d);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--gold);}
+.dl:hover{background:#fbf5e8;}
+.ddl{display:flex;gap:2px 10px;flex-wrap:wrap;margin:8px 0 2px;padding:9px 12px;background:#fbf7ee;border-radius:8px;font-size:13px;}
+.ddl b{color:var(--gold-d);}
+.deadline{width:100%;border-collapse:collapse;margin:10px 0;font-size:13.5px;}
+.deadline th{background:#3a4a5c;color:#fff;padding:8px;font-weight:700;}
+.deadline td{border:1px solid var(--line);padding:8px 10px;background:#fff;}
+.bnote{color:#0b4a9c;font-weight:600;background:#eaf2fc;border-left:4px solid #2b7fff;border-radius:8px;padding:9px 13px;margin:8px 0;font-size:13.5px;line-height:1.7;}
+.bnote b{color:#0a3d82;}
+.capital th{background:#f0ebe1;text-align:center;font-size:13px;}
+.capital td{text-align:center;font-size:13.5px;}
+.capital td:first-child{text-align:left;font-weight:700;background:#faf7f0;}
+.capital .hi{background:#fdf6e3;font-weight:700;color:var(--gold-d);}
+.capital .bad{color:#9c3a22;font-weight:700;}
+.grp{border-radius:10px;padding:13px 16px;margin:12px 0;border:1px solid var(--line);border-left-width:5px;}
+.grp .gt{font-weight:800;font-size:15px;margin-bottom:5px;}
+.grp.a{background:#eef6f0;border-left-color:#5a9a72;} .grp.a .gt{color:#2f6a47;}
+.grp.b{background:#fdf9e8;border-left-color:#d4a72c;} .grp.b .gt{color:#8a6d10;}
+.grp.c{background:#fdf2ee;border-left-color:#d9694a;} .grp.c .gt{color:#9c3a22;}
+@media print{.case,.warn,.tip,.cost,.who,.steps li,.tnote,.flow,.flow li,.lawbox,.hire{background:#fff !important;border-color:#ccc !important;}
+.term>.bub{display:inline !important;position:static;background:none;color:#555;box-shadow:none;padding:0;width:auto;font-size:12px;}.term>.bub::before{content:" (";}.term>.bub::after{content:")";border:0;position:static;}.formbox .fold-body{display:block !important;}}
+.part{margin:38px 0 14px;padding:16px 18px;border-radius:12px;background:linear-gradient(135deg,#2c3e50,#3a4a5c);color:#f4f0e8;box-shadow:0 4px 14px rgba(44,62,80,.18);}
+.part .pn{display:inline-block;font-size:12px;font-weight:800;color:#2c3e50;background:#f0d98c;border-radius:6px;padding:2px 10px;margin-bottom:6px;}
+.part .pt2{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:20px;color:#fff;margin-bottom:4px;}
+.part .pw{font-size:13.5px;line-height:1.7;color:#eae4d8;} .part .pw b{color:#f4e2a6;}
+.chk td:first-child{width:30px;text-align:center;color:var(--gold-d);font-size:16px;}
+.tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.srcb{display:inline-block;font-size:11px;font-weight:800;color:#fff;border-radius:5px;padding:1px 7px;margin-left:6px;vertical-align:middle;}
+.srcb.moe{background:#2f5b78;} .srcb.goe{background:#3d7a55;} .srcb.own{background:#6e6353;}
+.srcline{font-size:12.5px;color:var(--muted);background:#faf7f0;border-radius:7px;padding:7px 11px;margin:0 0 6px;}
+h3.fgrp{font-size:15px;color:var(--gold-d);margin:22px 0 6px;padding-bottom:5px;border-bottom:1px dashed var(--line);}
+.form{overflow-x:auto;}
+@media(max-width:560px){table{font-size:12.5px;} th,td{padding:7px 6px;overflow-wrap:anywhere;} .tblwrap table{min-width:560px;} .who{padding:12px 10px;}}
+
+/* ── 접이식 섹션(details.sec) · 목차 · 전체펼치기 ── */
+details.sec{border:1px solid var(--line);border-radius:11px;margin:13px 0;background:#fff;overflow:hidden;}
+details.sec>summary{cursor:pointer;list-style:none;padding:13px 16px;background:var(--box);border-left:4px solid var(--gold);display:flex;align-items:center;gap:11px;}
+details.sec>summary::-webkit-details-marker{display:none;}
+details.sec>summary .qb{flex:none;width:31px;height:31px;border-radius:50%;background:#8a5a33;color:#fff;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(176,141,87,.4);}
+details.sec>summary .st{flex:1;font-family:'Nanum Myeongjo',serif;font-size:17.5px;font-weight:700;color:var(--gold-d);line-height:1.5;}
+details.sec>summary .st .sub{display:block;font-family:'Pretendard',sans-serif;font-size:13px;font-weight:400;color:var(--muted);margin-top:3px;}
+details.sec>summary::after{content:"펼치기 ▾";flex:none;font-family:'Pretendard',sans-serif;font-size:12.5px;font-weight:700;color:var(--gold);background:#fff;border:1px solid var(--line);border-radius:20px;padding:3px 10px;white-space:nowrap;}
+details.sec[open]>summary::after{content:"접기 ▴";}
+details.sec>summary:hover{background:#f2ede3;}
+.secbody{padding:4px 17px 16px;}
+.toc{background:#fffaf0;border:1.5px solid var(--gold);border-radius:12px;padding:15px 18px;margin:18px 0 22px;}
+.toc .tct{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:16px;color:var(--gold-d);margin-bottom:9px;}
+.toc ol{margin:0;padding-left:21px;font-size:14.5px;line-height:1.95;}
+.toc a{color:#3a3a3a;text-decoration:none;border-bottom:1px dotted #c9b48c;}
+.toc a:hover{color:var(--gold-d);}
+.allbtn{display:inline-block;margin-top:11px;font-size:13.5px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:20px;padding:6px 15px;cursor:pointer;user-select:none;}
+.allbtn:hover{background:#f6ecd8;}
+@media(max-width:520px){details.sec>summary{gap:8px;padding:12px 11px;} details.sec>summary .st{font-size:16px;} details.sec>summary::after{font-size:11.5px;padding:2px 7px;} .secbody{padding:4px 12px 14px;}}
+@media print{details.sec:not([open])>*{display:block !important;} details.sec>summary::after{display:none;} .toc,.allbtn{display:none !important;}}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+<h1>[파산 E-7] 파산하면 집·차·보험은 어떻게 되나요 — 압류금지재산과 면제재산</h1>
+
+<div class="tnote">어려운 법률용어에는 <b>점선 밑줄</b>이 그어져 있습니다. <b>PC는 마우스를 올리면</b>, <b>휴대폰은 손가락으로 톡 터치하면</b> 쉬운 설명이 뜹니다. (인쇄하면 괄호로 함께 나옵니다.)</div>
+
+<div class="helm">
+<div class="ht2">⚓ 이 매뉴얼을 끝까지 읽으시는 분께</div>
+<p>이 매뉴얼은 <b>의뢰인이 직접 법원에 신청할 수 있도록 모든 서류 양식, 비용, 요건을 구체적으로 담았습니다.</b> 하지만 소송은 살아있는 생물과 같아 상대방의 격렬한 저항이 뒤따릅니다. 혼자 진행하시다가 막히는 부분이 생기거나 방어막이 필요할 때, 언제든 이 매뉴얼을 들고 사무실을 찾아주십시오. 혼자 짊어지신 무거운 짐, 제가 든든한 법률적 조타수가 되어 함께 헤쳐 나가겠습니다.</p>
+</div>
+
+<div class="tldr">
+<div class="tt">⭐ 30초 결론부터</div>
+<ul>
+<li><b>파산한다고 해서 가진 것을 전부 빼앗기지 않습니다.</b> 남겨 주는 재산이 두 갈래로 있습니다.</li>
+<li><b>㉠ 압류금지재산 — 신청하지 않아도 법이 당연히 빼 줍니다.</b> 현금 250만원, 예금 250만원, 급여의 절반, 퇴직금의 절반, 보험 해약환급금 250만원, 살림살이와 생필품이 여기에 들어갑니다. "압류할 수 없는 재산은 <span class="term">파산재단<span class="bub">파산선고 당시 채무자가 가진 재산 중에서, 채권자들에게 나누어 주려고 법이 따로 묶어 두는 재산 덩어리. 여기에 들어가지 않는 재산은 채무자가 그대로 씁니다.</span></span>에 속하지 아니한다"고 법에 적혀 있습니다(채무자회생법 제383조 제1항).</li>
+<li>★ <b>㉡ 면제재산 — 내가 신청해야만 빼 줍니다.</b> <b>살고 있는 집의 임차보증금</b>과 <b>6개월치 생계비</b> 두 가지입니다(같은 조 제2항). <b>법원이 알아서 빼 주지 않습니다.</b> 모르고 넘어가 손해 보시는 분이 가장 많은 대목입니다.</li>
+<li>★★ <b>신청 기한은 「파산선고 후 14일」입니다</b>(같은 조 제3항). 이 날짜를 넘기면 되돌릴 수 없습니다. 아래 <a href="#f3">신청하는 법</a>을 먼저 보십시오.</li>
+<li><b>대법원이 지켜 주고 있습니다.</b> 재산이 압류금지·면제재산 범위 안이어서 내다 팔 것이 없거나 아주 적으면, <b>파산관재인은 "돈을 좀 내놓으라"고 권유해서는 안 되고, 응하지 않았다고 해서 면책 심사에서 불리하게 보아서도 안 됩니다</b>(대법원 2024. 12. 26. 자 2024마6789 결정). <span class="srcb goe">A</span></li>
+</ul>
+</div>
+
+<div class="warn"><span class="wt">⚠ 지금 당장 — 달력에 「파산선고일 + 14일」을 적으십시오</span>
+면제재산 신청은 <b>기간이 지나면 받아 주지 않습니다.</b> 날짜 계산은 이렇게 합니다.
+<div class="tblwrap"><table class="deadline">
+<tr><th style="width:20%">단계</th><th>내용</th></tr>
+<tr><td><b>① 기산일</b></td><td><b>파산선고일의 다음 날</b>부터 셉니다. 기간을 날로 정한 때에는 <b>첫날을 넣지 않기</b> 때문입니다(민법 제157조). <span style="font-size:13px">※ 신청은 파산선고 전에도 할 수 있습니다 — 조문이 "파산신청일 이후"라고 정했습니다</span></td></tr>
+<tr><td><b>② 계산근거</b></td><td>채무자회생법 <b>제383조 제3항</b> — "제2항의 규정에 의한 신청은 <b>파산신청일 이후 파산선고 후 14일 이내</b>에 면제재산목록 및 소명에 필요한 자료를 첨부한 서면으로 하여야 한다" <span class="srcb goe">A</span></td></tr>
+<tr><td><b>③ 말일처리</b></td><td>14일째 되는 날이 <b>토요일이나 공휴일이면 그 다음 날</b> 끝납니다(민법 제161조). 그렇더라도 <b>미리 내십시오.</b> 말일에 기대지 마십시오</td></tr>
+<tr><td><b>④ 만료일</b></td><td><b>파산선고일 다음 날부터 14일째 되는 날</b>의 업무 종료 시(민법 제159조)<br><span style="color:#9c3a22">예) 파산선고일이 2026. 11. 2.(월)이면 → 11. 3.부터 세어 <b>11. 16.(월)</b>까지</span></td></tr>
+</table></div>
+<b>선고 전에 신청해 두면 더 좋습니다.</b> 파산선고 전에 면제재산 신청을 해 두면, 법원이 선고가 있을 때까지 그 재산에 대한 <b>강제집행·가압류·가처분을 중지하거나 금지하도록 명할 수 있습니다</b>(같은 조 제8항). 보증금이 압류될 위기라면 <b>파산신청서와 함께 내십시오.</b> <span class="srcb goe">A</span></div>
+
+<div class="toc">
+<div class="tct">이 카드에 담긴 것 — 필요한 곳만 펼쳐 보십시오</div>
+<ol>
+<li><b>제 1 부 · 무엇이 남는가</b>
+  <ol style="padding-left:18px;font-size:14px">
+  <li><a href="#f1">살림과 몸에 딸린 것은 그대로 남습니다 — 압류금지물건</a></li>
+  <li><a href="#f2">돈으로 받을 권리 — 급여·퇴직금·보험·예금·보증금</a></li>
+  <li><a href="#f3">신청해야 빠지는 것 — 면제재산 두 가지</a></li>
+  <li><a href="#f4">보증금이 많아도 포기하지 마십시오</a></li>
+  </ol></li>
+<li><b>제 2 부 · 어떻게 지키는가</b>
+  <ol style="padding-left:18px;font-size:14px">
+  <li><a href="#f5">기한은 「파산선고 후 14일」입니다</a></li>
+  <li><a href="#f6">내는 서류와 양식</a></li>
+  <li><a href="#f7">재산별로 무엇을 붙이나</a></li>
+  <li><a href="#f8">선고 전에 내면 집행을 미리 멈출 수 있습니다</a></li>
+  </ol></li>
+<li><b>제 3 부 · 알아 둘 것</b>
+  <ol style="padding-left:18px;font-size:14px">
+  <li><a href="#f9">판례는 이렇게 말합니다</a></li>
+  <li><a href="#f10">자주 묻는 질문</a></li>
+  </ol></li>
+</ol>
+<span class="allbtn" id="allBtn" role="button" tabindex="0">전체 펼치기</span>
+</div>
+
+<div class="part"><span class="pn">제 1 부</span><span class="pt2">무엇이 남는가</span><span class="pw">— 두 갈래를 구별하는 것에서 시작합니다</span></div>
+
+<details class="sec" id="f1"><summary><span class="qb">1</span><span class="st">살림과 몸에 딸린 것은 그대로 남습니다<span class="sub">압류금지물건 — 신청하지 않아도 빠집니다</span></span></summary>
+<div class="secbody">
+
+<div class="concept"><b>법이 이렇게 한 줄로 정해 두었습니다.</b><br><br>
+<b>"압류할 수 없는 재산은 파산재단에 속하지 아니한다"</b>(채무자회생법 제383조 제1항). <span class="srcb goe">A</span><br><br>
+즉 <b>압류가 금지된 재산은 처음부터 채권자들에게 나누어 줄 몫에 들어가지 않습니다.</b> 따로 신청할 필요도, 법원의 결정을 받을 필요도 없습니다. 무엇이 압류금지인지는 민사집행법이 정합니다.</div>
+
+<div class="tblwrap"><table>
+<tr><th style="width:32%">무엇</th><th style="width:16%">얼마까지</th><th>근거와 설명</th></tr>
+<tr><td><b>옷·이불·가구·부엌살림</b><br>그 밖의 생활필수품</td><td><b>전부</b></td><td>민사집행법 제195조 1호. <b>함께 사는 친족</b>(사실상 관계에 따른 친족 포함)의 것까지 포함합니다</td></tr>
+<tr><td><b>2개월치 식료품·연료·조명재료</b></td><td><b>전부</b></td><td>제195조 2호</td></tr>
+<tr><td><b>현금</b></td><td><b>250만원</b></td><td>제195조 3호 + 시행령 제2조<br><span style="color:#9c3a22">아래 「예금」이나 「생계비계좌」로 빠지는 금액이 있으면 <b>250만원에서 그만큼 뺍니다</b>(시행령 제2조 단서)</span></td></tr>
+<tr><td><b>일하는 데 꼭 필요한 도구</b></td><td><b>전부</b></td><td>제195조 4·5·6호. 농기구·비료·가축·종자, 고기잡이 도구·어망, 기술자·노무자의 제복과 연장 등</td></tr>
+<tr><td><b>안경·보청기·의치·의수족<br>지팡이·장애인용 휠체어</b></td><td><b>전부</b></td><td>제195조 14호</td></tr>
+<tr><td><b>장애인용 경형자동차</b></td><td><b>전부</b></td><td>제195조 15호. 일상생활에 필요한 자동차로서 자동차관리법이 정하는 장애인용 경형자동차<br><span style="font-size:13px">※ 그 밖의 자동차는 여기에 들어가지 않습니다</span></td></tr>
+<tr><td><b>훈장·위패·영정·묘비<br>족보·일기장·상업장부<br>도장·문패·간판</b></td><td><b>전부</b></td><td>제195조 7~11호</td></tr>
+<tr><td><b>공표되지 않은 저작·발명</b><br><b>교과서·학습용구</b></td><td><b>전부</b></td><td>제195조 12·13호</td></tr>
+</table></div>
+
+<div class="tip"><span class="pt">💡 "집에 있는 것을 가져가나요"</span>
+<b>가져가지 않습니다.</b> 위 표의 1호 생활필수품과 2호 식료품·연료는 금액 제한 없이 전부 압류금지입니다. 텔레비전·냉장고·세탁기·책상 같은 일반적인 살림은 <b>파산재단에 들어가지 않습니다.</b><br><br>
+파산관재인이 집에 찾아와 물건을 실어 가는 일을 걱정하시는 분이 많은데, <b>개인파산 사건에서 살림을 가져가는 일은 없습니다.</b> 파산관재인이 보는 것은 부동산·자동차·보험·예금처럼 <b>돈으로 바꿀 수 있고 실익이 있는 재산</b>입니다.</div>
+
+</div></details>
+
+<details class="sec" id="f2"><summary><span class="qb">2</span><span class="st">돈으로 받을 권리 — 어디까지 남는가<span class="sub">급여 · 퇴직금 · 보험 · 예금 · 보증금</span></span></summary>
+<div class="secbody">
+
+<div class="tblwrap"><table>
+<tr><th style="width:24%">무엇</th><th style="width:26%">얼마까지</th><th>근거와 설명</th></tr>
+<tr><td><b>살고 있는 집의<br>임차보증금</b></td><td><b>지역별 금액까지</b><br><span style="font-size:13px">서울 5,500만원 등<br>(아래 <a href="#f3">면제재산</a> 표와 같은 금액)</span></td><td>★ 민사집행법 제246조 제1항 <b>6호</b> — 「주택임대차보호법」 제8조와 같은 법 시행령에 따라 <b>우선변제를 받을 수 있는 금액</b>은 압류금지채권입니다. <span class="srcb goe">A</span><br><b>그래서 이 금액 범위의 보증금은 신청하지 않아도 이미 빠집니다.</b> 다만 집행을 멈추는 효력까지 받으시려면 면제재산 신청을 함께 하십시오</td></tr>
+<tr><td><b>급여·봉급·상여금<br>연금</b></td><td><b>절반</b><br><span style="font-size:13px">다만 <b>월 250만원까지는 전액</b> 압류하지 못합니다</span></td><td>제246조 제1항 4호 + 시행령 제3조<br><b>2026. 1. 27. 개정으로 185만원에서 250만원으로 올랐습니다</b>(시행 2026. 2. 1.) <span class="srcb goe">A</span><br><span style="font-size:13px">월 300만원이 넘는 부분은 시행령 제4조에 따라 따로 계산합니다</span></td></tr>
+<tr><td><b>퇴직금</b></td><td><b>절반</b></td><td>제246조 제1항 5호</td></tr>
+<tr><td><b>퇴직연금<br>(DB·DC·IRP)</b></td><td><b>전액</b></td><td>★ 대법원은 <b>퇴직연금채권은 전액 압류가 금지된다</b>고 하였습니다. 근로자퇴직급여 보장법 제7조의 양도금지가 <b>강행법규</b>이고 민사집행법보다 <b>특별법</b>이기 때문입니다(대법원 2014. 1. 23. 선고 2013다71180 판결). <span class="srcb goe">A</span></td></tr>
+<tr><td><b>보장성보험</b></td><td><b>사망보험금 1,500만원</b><br><b>해약환급금 250만원</b><br><b>만기환급금 250만원</b></td><td>제246조 제1항 7호 + 시행령 제6조<br>· 진료비·치료비·수술비·입원비·약제비처럼 <b>실제로 들어가는 치료비를 보장하는 보험금은 전액</b><br>· 그 밖의 치료·장애회복 보험금은 <b>절반</b><br><span style="color:#9c3a22">· <span class="term">약관대출<span class="bub">보험을 깨지 않고 해약환급금 범위에서 보험회사로부터 빌리는 돈. 보험계약대출이라고도 합니다. 빌린 금액은 나중에 환급금에서 빠집니다.</span></span>을 받았다면 <b>그 대출금을 뺀 금액</b>이 내 재산입니다</span></td></tr>
+<tr><td><b>예금·적금</b></td><td><b>250만원</b><br><span style="font-size:13px">전 금융기관 <b>합산</b></span></td><td>제246조 제1항 9호 + 시행령 제7조. <b>개인별 잔액</b> 기준입니다<br><span style="color:#9c3a22">현금이나 생계비계좌로 빠지는 금액이 있으면 그만큼 뺍니다</span></td></tr>
+<tr><td><b>생계비계좌</b></td><td><b>따로 250만원</b></td><td>제246조 제1항 8호 · 제246조의2. 금융기관이 <b>1개월 생계비를 넘겨 넣을 수 없는 계좌</b>를 만들어 주는 제도입니다<br><span style="font-size:13px">· 은행이 <b>다른 금융기관에 개설했는지 먼저 조회</b>한 뒤, 없을 때에 한하여 <b>하나만</b> 열어 줍니다(제246조의2 제2항)</span></td></tr>
+<tr><td><b>법에 정해진 부양료<br>유족부조료</b><br><b>구호사업으로 받는 수입</b></td><td><b>전부</b></td><td>제246조 제1항 1·2호</td></tr>
+<tr><td><b>국민연금</b></td><td><b>재산목록에 적지 않습니다</b></td><td>반환일시금을 받을 수 있는 사유가 법으로 제한되어 있습니다(국민연금법 제77조 제1항)</td></tr>
+</table></div>
+
+<div class="tip"><span class="pt">💡 압류금지 금액과 담보가 겹칠 때 — 빼는 순서가 있습니다</span>
+보험에 약관대출이 있거나 자동차에 저당이 잡혀 있으면 <b>① 재산 평가액에서 담보채권액을 먼저 빼고 → ② 그 남은 금액에서 다시 압류금지액을 뺍니다.</b> 순서를 바꾸면 금액이 달라집니다.<br><br>
+예를 들어 해약환급금이 <b>400만원</b>인데 약관대출 <b>200만원</b>이 있다면, 내 재산은 <b>400 − 200 = 200만원</b>이고 이는 압류금지 한도 250만원 안이므로 <b>전부 남습니다.</b></div>
+
+</div></details>
+
+<details class="sec" id="f3"><summary><span class="qb">3</span><span class="st">신청해야 빠지는 것 — 면제재산 두 가지<span class="sub">법원이 알아서 빼 주지 않습니다</span></span></summary>
+<div class="secbody">
+
+<div class="concept"><b>법은 이렇게 정했습니다.</b><br><br>
+"법원은 <b>개인인 채무자의 신청에 의하여</b> 다음 각호의 어느 하나에 해당하는 재산을 파산재단에서 면제할 수 있다"(채무자회생법 제383조 제2항). <span class="srcb goe">A</span><br><br>
+<b>「신청에 의하여」</b> — 이 다섯 글자가 전부입니다. 신청하지 않으면 법원은 움직이지 않습니다. 대상은 딱 두 가지입니다.</div>
+
+<h3>㉠ 살고 있는 집의 임차보증금</h3>
+<div class="tblwrap"><table>
+<tr><th style="width:56%">지역</th><th>면제되는 금액</th></tr>
+<tr><td><b>서울특별시</b></td><td><b>5,500만원</b></td></tr>
+<tr><td>과밀억제권역(서울 제외), 세종, 용인, 화성, 김포</td><td><b>4,800만원</b></td></tr>
+<tr><td>광역시(과밀억제권역·군 지역 제외), 안산, 광주, 파주, 이천, 평택</td><td><b>2,800만원</b></td></tr>
+<tr><td>그 밖의 지역</td><td><b>2,500만원</b></td></tr>
+</table></div>
+<p style="margin-top:8px">채무자회생법 시행령 제16조 제1항 + 주택임대차보호법 시행령 제10조 제1항(시행 2026. 7. 1.). <b>다만 이 금액이 주택가격의 2분의 1을 넘으면 주택가격의 2분의 1까지만</b> 됩니다. <span class="srcb goe">A</span><br>
+<span style="color:#9c3a22"><b>주거용</b>이어야 합니다. 가게로 쓰는 상가 보증금은 대상이 아닙니다.</span></p>
+
+<h3>㉡ 6개월치 생계비에 쓸 재산</h3>
+<p>채무자회생법 시행령 제16조 제2항 — 「국민기초생활 보장법」 제2조 제11호에 따른 <b>4인가구 기준 중위소득</b>(<b>파산선고 당시</b>의 기준 중위소득)의 <b>100분의 40</b>에 <b>6</b>을 곱한 금액. <span class="srcb goe">A</span></p>
+<div class="tblwrap"><table>
+<tr><th style="width:40%">계산</th><th>2026년</th><th>2027년</th></tr>
+<tr><td>4인가구 기준 중위소득</td><td>6,494,738원</td><td>6,929,885원</td></tr>
+<tr><td>× 100분의 40</td><td>2,597,895.2원</td><td>2,771,954원</td></tr>
+<tr><td><b>× 6 = 면제 상한</b></td><td><b>15,587,371원</b></td><td><b>16,631,724원</b></td></tr>
+</table></div>
+<p style="margin-top:8px">기준 중위소득은 <b>해마다 1월 1일에 바뀝니다.</b> 신청하시는 해의 금액으로 다시 계산하십시오. 2027년분은 이미 고시되었습니다(보건복지부고시 제2026-157호, 2026. 7. 29. 전부개정, 시행 2027. 1. 1.). <span class="srcb goe">A</span><br>
+<span style="color:#9c3a22">중간 계산에서 원 미만을 먼저 버리면 끝자리가 1원 어긋납니다. <b>곱셈을 모두 마친 뒤에</b> 원 미만을 버리십시오.</span></p>
+
+<div class="tip"><span class="pt">💡 면제재산 결정을 받으면 이것까지 따라옵니다</span>
+<b>① 집행이 멈춥니다.</b> 면제되는 재산에 대해서는 <b>면책신청을 할 수 있는 기한까지</b> 파산채권에 기한 강제집행·가압류·가처분을 <b>할 수 없습니다</b>(법 제383조 제10항).<br>
+<b>② 결정은 송달됩니다.</b> 법원은 채무자와 알고 있는 채권자에게 결정서를 송달하여야 합니다(제5항). 결정에 불복하려면 <span class="term">즉시항고<span class="bub">결정·명령에 불복하여 상급 법원의 판단을 구하는 절차. 보통 1주일 안에 하여야 합니다.</span></span>를 할 수 있습니다(제6항). 다만 즉시항고에는 <b>집행을 정지시키는 효력이 없습니다</b>(제7항). <span class="srcb goe">A</span></div>
+
+</div></details>
+
+<details class="sec" id="f4"><summary><span class="qb">4</span><span class="st">보증금이 많아도 포기하지 마십시오<span class="sub">소액임차인 요건을 갖출 필요가 없습니다</span></span></summary>
+<div class="secbody">
+
+<div class="warn"><span class="wt">★ 가장 많이 오해하시는 대목입니다</span>
+"내 보증금이 <span class="term">소액임차인<span class="bub">주택임대차보호법이 특별히 보호하는, 보증금이 적은 세입자. 보증금이 서울 1억 6,500만원 이하 등 지역별 기준 안에 들어야 합니다(주택임대차보호법 시행령 제11조).</span></span> 기준을 넘으니 나는 안 되겠지" 하고 포기하시는 분이 많습니다.<br><br>
+<b>그러실 필요 없습니다. 소액임차인 요건을 갖출 필요가 없습니다.</b><br><br>
+조문이 <b>"우선변제를 받을 수 있는 금액의 범위 안에서 대통령령이 정하는 금액을 초과하지 아니하는 부분"</b>이라고만 정했기 때문입니다(법 제383조 제2항 1호). <b>「우선변제를 받을 수 있는 금액」을 기준으로 삼았을 뿐, 「우선변제를 받을 수 있는 임차인일 것」을 요구하지 않습니다.</b><br><br>
+<b>서울에서 보증금이 3억원이어도 5,500만원까지는 면제재산으로 신청할 수 있습니다.</b></div>
+
+<div class="concept"><b>두 기준을 헷갈리지 마십시오 — 금액이 다릅니다</b><br><br>
+주택임대차보호법 시행령에는 <b>금액표가 두 개</b> 있습니다. 하나는 <b>"얼마까지 받느냐"</b>이고, 다른 하나는 <b>"누가 받을 자격이 있느냐"</b>입니다.</div>
+
+<div class="tblwrap"><table>
+<tr><th style="width:34%">지역</th><th style="width:33%">㉮ 면제·우선변제 <b>금액</b><br><span style="font-size:12.5px;font-weight:400">시행령 제10조 제1항 — <b>면제재산은 이 금액</b></span></th><th>㉯ 소액임차인 <b>자격</b> 기준<br><span style="font-size:12.5px;font-weight:400">시행령 제11조 — <b>면제재산에는 필요 없음</b></span></th></tr>
+<tr><td><b>서울특별시</b></td><td><b>5,500만원</b></td><td>보증금 1억 6,500만원 이하</td></tr>
+<tr><td>과밀억제권역(서울 제외), 세종, 용인, 화성, 김포</td><td><b>4,800만원</b></td><td>보증금 1억 4,500만원 이하</td></tr>
+<tr><td>광역시(과밀억제권역·군 지역 제외), 안산, 광주, 파주, 이천, 평택</td><td><b>2,800만원</b></td><td>보증금 8,500만원 이하</td></tr>
+<tr><td>그 밖의 지역</td><td><b>2,500만원</b></td><td>보증금 7,500만원 이하</td></tr>
+</table></div>
+<p style="margin-top:8px"><b>면제재산에서 쓰는 것은 왼쪽 ㉮ 금액뿐입니다.</b> 오른쪽 ㉯는 경매에서 우선변제를 받을 자격을 가리는 기준이고, 면제재산 신청에는 적용되지 않습니다. <span class="srcb goe">A</span><span class="src">주택임대차보호법 시행령 제10조 제1항·제11조(시행 2026. 7. 1.) / 채무자회생법 제383조 제2항 1호 · 시행령 제16조 제1항</span></p>
+
+<div class="tip"><span class="pt">💡 보증금이 면제 금액보다 클 때 — 집을 비워야 합니까</span>
+<b>그 위의 금액은 파산재단에 들어갑니다.</b> 서울에서 보증금이 1억원이면 5,500만원은 남고 4,500만원은 채권자들에게 돌아갑니다. 그래서 <b>보증금이 큰 집은 이사를 해야 하는 경우가 생깁니다.</b><br><br>
+다만 파산관재인은 보증금을 회수할 때 <b>압류금지채권에 상당한 금액이나 면제재산액 범위의 보증금은 채무자에게 돌려주는 내용으로 임대차 관계를 정리</b>하는 것이 실무입니다. <b>언제 어떻게 정리할지 파산관재인과 먼저 상의하십시오.</b> 혼자 급하게 이사해서 보증금을 받아 써 버리면 설명하기 어려워집니다. <span class="srcb goe">A</span><span class="src">서울회생법원 「개인파산관재인 직무편람」(제4판, 2024. 7.)</span></div>
+
+</div></details>
+
+<div class="part"><span class="pn">제 2 부</span><span class="pt2">어떻게 지키는가</span><span class="pw">— 14일 안에, 서면으로, 자료를 붙여서</span></div>
+
+<details class="sec" id="f5"><summary><span class="qb">5</span><span class="st">기한은 「파산선고 후 14일」입니다<span class="sub">날짜 계산을 틀리지 않도록</span></span></summary>
+<div class="secbody">
+
+<div class="concept"><b>법이 정한 것은 딱 세 가지입니다</b>(채무자회생법 제383조 제3항). <span class="srcb goe">A</span><br><br>
+<b>① 언제</b> — 파산신청일 이후 <b>파산선고 후 14일 이내</b><br>
+<b>② 어떻게</b> — <b>서면</b>으로<br>
+<b>③ 무엇을 붙여</b> — <b>면제재산목록</b>과 <b>소명에 필요한 자료</b><br><br>
+그 밖에 복잡한 요건은 없습니다. 정해진 날짜 안에, 목록과 자료를 붙여 서면으로 내면 됩니다.</div>
+
+<div class="tblwrap"><table class="deadline">
+<tr><th style="width:20%">단계</th><th>내용</th></tr>
+<tr><td><b>① 기산일</b></td><td><b>파산선고일의 다음 날</b>부터 셉니다. 기간을 날로 정한 때에는 <b>첫날을 넣지 않기</b> 때문입니다(민법 제157조)<br><span style="font-size:13px">※ 신청은 파산선고 전에도 할 수 있습니다 — 조문이 "파산신청일 이후"라고 정했습니다</span></td></tr>
+<tr><td><b>② 계산근거</b></td><td>채무자회생법 <b>제383조 제3항</b> — "제2항의 규정에 의한 신청은 <b>파산신청일 이후 파산선고 후 14일 이내</b>에 면제재산목록 및 소명에 필요한 자료를 첨부한 서면으로 하여야 한다" <span class="srcb goe">A</span></td></tr>
+<tr><td><b>③ 말일처리</b></td><td>14일째 되는 날이 <b>토요일이나 공휴일이면 그 다음 날</b> 끝납니다(민법 제161조). 그렇더라도 <b>미리 내십시오.</b> 말일에 기대지 마십시오</td></tr>
+<tr><td><b>④ 만료일</b></td><td><b>파산선고일 다음 날부터 14일째 되는 날</b>의 종료 시(민법 제159조)<br><span style="color:#9c3a22">예) 파산선고일이 2026. 11. 2.(월)이면 → 11. 3.부터 세어 <b>11. 16.(월)</b>까지</span></td></tr>
+</table></div>
+
+<div class="warn"><span class="wt">⚠ 기간을 놓치셨다면</span>
+법은 이 기간을 <b>늘려 주는 규정을 두지 않았습니다.</b> 면책신청처럼 "책임 없는 사유"로 늦은 경우를 구제하는 조항(법 제556조 제2항)이 면제재산에는 없습니다.<br><br>
+<b>그래도 포기하지 마십시오.</b> 두 가지가 남아 있습니다.<br>
+· <b>압류금지재산은 신청과 무관하게 빠집니다.</b> 서울 기준 5,500만원의 보증금은 민사집행법 제246조 제1항 6호의 압류금지채권이기도 하므로, 면제재산 신청을 못 했더라도 <b>그 금액은 애초에 파산재단에 들어가지 않습니다</b>(법 제383조 제1항).<br>
+· <b>파산관재인이 면제재산의 취지를 고려합니다.</b> 직무편람은 "면제재산신청을 한 채무자와의 형평성을 고려하여 <b>비록 면제재산신청이 없는 경우에도</b> 재산환가 과정에서 면제재산의 취지를 고려할 필요가 있다"고 적고 있습니다. <span class="srcb goe">A</span><br><br>
+<b>기간을 놓치신 것을 알게 되면 곧바로 파산관재인에게 사정을 말씀하십시오.</b> 숨기지 마십시오.</div>
+
+</div></details>
+
+<details class="sec" id="f6"><summary><span class="qb">6</span><span class="st">내는 서류와 양식<span class="sub">「면제재산 결정신청서」는 법원 양식이 있습니다</span></span></summary>
+<div class="secbody">
+
+<div class="tblwrap"><table>
+<tr><th style="width:26%">서류</th><th style="width:32%">어디서 받나</th><th>주의</th></tr>
+<tr><td><b>면제재산 결정신청서</b></td><td><b>법원이 올려 둔 양식</b>을 그대로 쓰십시오<br>· <a href="https://slb.scourt.go.kr/rel/information/min/MinListAction.work" target="_blank" rel="noopener">서울회생법원 민원서식 양식모음</a> → <b>「개인파산」</b><br>· <a href="https://ecfs.scourt.go.kr/" target="_blank" rel="noopener">전자소송</a> → 공통안내 → 양식 및 작성안내 → 양식모음 → 개인파산</td><td>전자민원센터의 <b>개인파산/면책</b> 분류에 「면제재산 결정신청서」가 있습니다. <b>개인회생용과 개인파산용이 따로 있으니 분류를 확인하십시오</b> <span class="srcb own">B</span><span class="src">2026. 11. 22. 서울회생법원 홈페이지 양식 검색 확인</span></td></tr>
+<tr><td><b>면제재산목록</b></td><td>신청서 양식에 포함되어 있습니다</td><td>면제받으려는 재산을 <b>하나하나 특정해서</b> 적습니다. 임차보증금이면 <b>주소와 금액</b>, 생계비면 <b>어느 재산인지</b></td></tr>
+<tr><td><b>임대차계약서 사본</b></td><td>본인 보관분 · 임대인 · 부동산중개소</td><td>보증금을 면제받으려는 경우. 내 것이 없으면 집주인이나 중개소가 가진 것을 복사해서 내십시오</td></tr>
+<tr><td><b>주민등록표 등본</b></td><td><a href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000015" target="_blank" rel="noopener">정부24</a> · 주민센터</td><td>그 집에 실제로 살고 있음을 보입니다<br><span style="color:#9c3a22">제3자의 주민등록번호 뒷자리는 <b>표기되지 않은 것</b>으로, 본인 것은 <b>전체가 나오게</b> 떼십시오</span></td></tr>
+<tr><td><b>생계비에 쓸 재산을<br>보이는 자료</b></td><td>예금잔액증명서, 통장 사본 등</td><td>6개월치 생계비를 면제받으려는 경우. <b>어느 재산을 생계비로 쓸 것인지 특정</b>해야 합니다</td></tr>
+</table></div>
+
+<div class="warn"><span class="wt">⚠ 양식은 반드시 법원이 올려 둔 것으로 받으십시오</span>
+인터넷에 돌아다니는 양식은 개정 전 것이 많습니다. 위 두 곳이 공식입니다. <b>개인회생용 「면제재산 결정신청서」와 개인파산용이 따로 있으므로</b>, 내려받기 전에 분류가 <b>「개인파산/면책」</b>인지 확인하십시오.</div>
+
+</div></details>
+
+<details class="sec" id="f7"><summary><span class="qb">7</span><span class="st">재산별로 무엇을 붙이나<span class="sub">집 · 차 · 보험 · 퇴직금 — 하나씩 보겠습니다</span></span></summary>
+<div class="secbody">
+
+<div class="tblwrap"><table>
+<tr><th style="width:16%">재산</th><th style="width:42%">어떻게 되나</th><th>붙일 자료</th></tr>
+
+<tr><td><b>살고 있는<br>전·월세 집</b></td>
+<td><b>지킬 수 있습니다.</b><br>· 지역별 금액(서울 5,500만원 등)까지는 <b>압류금지채권</b>이라 신청 없이도 빠집니다(민사집행법 제246조 제1항 6호)<br>· 그 금액을 <b>면제재산으로도 신청</b>해 두면 집행을 멈추는 효력까지 따라옵니다<br>· <span style="color:#9c3a22">그 위의 금액은 파산재단에 들어갑니다</span></td>
+<td>임대차계약서 사본<br>주민등록표 등본<br><span style="font-size:13px">밀린 월세·관리비를 뺀 금액으로 적으려면 <b>임대인 확인서</b>를 받으십시오</span></td></tr>
+
+<tr><td><b>내 집<br>(소유 부동산)</b></td>
+<td><b>면제재산이 아닙니다.</b> 파산재단에 들어가 팔립니다<br>· 다만 <b>담보대출이 시세를 넘어서면</b> 팔아도 남는 것이 없어 <span class="term">환가<span class="bub">파산관재인이 재산을 팔아 돈으로 바꾸는 것. 그 돈을 채권자들에게 나눠 줍니다.</span></span>하지 않는 경우가 있습니다<br>· <b>경매가 진행 중이면 반드시 파산관재인에게 알리십시오</b></td>
+<td>부동산등기사항전부증명서<br>(<a href="https://www.iros.go.kr/PMainJ.jsp" target="_blank" rel="noopener">인터넷등기소</a>)<br>시세자료 · 대출잔액증명<br>경매 중이면 배당표·사건별수불내역서</td></tr>
+
+<tr><td><b>자동차</b></td>
+<td><b>원칙적으로 면제재산이 아닙니다.</b><br>· <b>장애인용 경형자동차</b>는 압류금지물건이라 빠집니다(민사집행법 제195조 15호)<br>· 그 밖의 차는 <b>시가에서 남은 할부금·저당채무를 뺀 금액</b>이 재산이 됩니다. 남는 것이 없으면 환가하지 않는 경우가 많습니다</td>
+<td>자동차등록원부(<b>갑구·을구 모두</b>)<br>시가 확인자료<br><span style="color:#9c3a22">보험개발원 차량기준가액표 또는 <b>중고차 시세 사이트 2곳 이상</b>의 일반 시세표. <b>개별 매물 가격은 안 됩니다</b></span></td></tr>
+
+<tr><td><b>보험</b></td>
+<td><b>상당 부분 지켜집니다.</b><br>· 사망보험금 <b>1,500만원</b>, 해약환급금 <b>250만원</b>, 만기환급금 <b>250만원</b>까지 압류금지<br>· 실제 치료비를 보장하는 보험금은 <b>전액</b><br>· 약관대출이 있으면 <b>그것을 뺀 금액</b>이 내 재산</td>
+<td>보험가입내역조회<br>(<a href="https://cont.insure.or.kr/cont_web/" target="_blank" rel="noopener">생명보험협회</a> · <a href="https://cont.knia.or.kr/main.knia" target="_blank" rel="noopener">손해보험협회</a>)<br>예상해약환급금내역서<br><span style="color:#9c3a22"><b>약관대출금을 뺀 최종 금액</b>이 표시된 것으로</span></td></tr>
+
+<tr><td><b>퇴직금<br>퇴직연금</b></td>
+<td>· <b>퇴직금은 절반</b>이 압류금지(민사집행법 제246조 제1항 5호)<br>· ★ <b>퇴직연금(DB·DC·IRP)은 전액</b> 압류금지(대법원 2013다71180)</td>
+<td>퇴직금 추계액 확인서<br>퇴직연금 가입확인서</td></tr>
+
+<tr><td><b>현금·예금</b></td>
+<td>· 현금 <b>250만원</b>, 예금 <b>250만원</b>(전 금융기관 합산)<br>· <b>생계비계좌</b>를 열어 두면 <b>따로 250만원</b><br>· <span style="color:#9c3a22">현금·예금·생계비계좌는 서로 공제됩니다. 합쳐서 무한정 늘지 않습니다</span></td>
+<td>계좌 거래내역서 · 잔액증명서<br>(<a href="https://www.payinfo.or.kr/payinfo.html" target="_blank" rel="noopener">계좌정보통합관리서비스</a>로 계좌 목록 먼저)</td></tr>
+
+<tr><td><b>급여</b></td>
+<td>· <b>절반</b>이 압류금지. <b>다만 월 250만원까지는 전액</b> 압류하지 못합니다<br>· <b>2026. 2. 1.부터 185만원 → 250만원으로 올랐습니다</b></td>
+<td>급여증명서(최근 2년분)<br>근로소득세 원천징수영수증 사본</td></tr>
+
+<tr><td><b>배우자 명의<br>재산</b></td>
+<td>원칙적으로 <b>내 재산이 아닙니다</b><br>· <span style="color:#9c3a22">다만 이름만 배우자로 돌려놓은 것(명의신탁)으로 인정되거나 <span class="term">부인권<span class="bub">파산관재인이 "그 처분은 채권자들에게 손해를 주었으니 없던 일로 돌리겠다"고 법원에 청구하는 권한. 되돌려진 재산은 다시 파산재단에 들어갑니다.</span></span> 대상이면 들어갑니다</span><br>· 공동명의 보증금은 <b>먼저 2분의 1로 나눈 뒤</b> 면제재산을 계산합니다</td>
+<td>해당되는 경우 그 경위를 적은 설명과 자료</td></tr>
+</table></div>
+
+</div></details>
+
+<details class="sec" id="f8"><summary><span class="qb">8</span><span class="st">선고 전에 내면 집행을 미리 멈출 수 있습니다<span class="sub">압류가 이미 들어온 분은 이 항목을 보십시오</span></span></summary>
+<div class="secbody">
+
+<div class="concept"><b>개인파산에는 중지명령 제도가 없습니다. 딱 하나 예외가 이것입니다.</b><br><br>
+개인회생에는 신청하면서 집행을 멈춰 달라고 할 수 있는 제도가 있지만(중지명령·금지명령), <b>개인파산에는 없습니다.</b> 압류는 원칙적으로 <b>파산선고</b>가 나야 멈춥니다.<br><br>
+그런데 <b>면제재산에 관해서만</b> 법이 길을 하나 열어 두었습니다.</div>
+
+<div class="tblwrap"><table>
+<tr><th style="width:22%">조문</th><th>내용</th></tr>
+<tr><td><b>제383조 제8항</b></td><td>법원은 <b>파산선고 전에 면제신청이 있는 경우</b>에 채무자의 신청 또는 직권으로 <b>파산선고가 있을 때까지</b> 면제재산에 대하여 파산채권에 기한 <b>강제집행·가압류·가처분의 중지 또는 금지를 명할 수 있습니다</b></td></tr>
+<tr><td><b>제383조 제9항</b></td><td><b>면제결정이 확정된 때</b>에는 제8항에 따라 중지한 절차는 <b>그 효력을 잃습니다</b></td></tr>
+<tr><td><b>제383조 제10항</b></td><td>면제되는 재산에 대하여는 <b>면책신청을 할 수 있는 기한까지</b> 파산채권에 기한 강제집행·가압류·가처분을 <b>할 수 없습니다</b></td></tr>
+<tr><td><b>제383조 제4항</b></td><td>법원은 <b>파산선고 전에 신청이 있으면 파산선고와 동시에</b>, 선고 후에 신청이 있으면 <b>신청일부터 14일 이내에</b> 면제 여부와 그 범위를 결정하여야 합니다</td></tr>
+</table></div>
+<p style="margin-top:8px"><span class="srcb goe">A</span><span class="src">채무자 회생 및 파산에 관한 법률 제383조 — 국가법령정보센터 조문 확인</span></p>
+
+<div class="warn" style="border-left-color:#9c3a22"><span class="wt">🚨 보증금이 압류될 위기라면 — 파산신청서와 함께 내십시오</span>
+전세보증금에 압류나 가압류가 들어왔거나 들어올 것 같으면, <b>파산신청서를 낼 때 면제재산 결정신청서를 같이 내십시오.</b> 그래야 위 제8항의 중지·금지명령을 구할 수 있습니다.<br><br>
+<b>선고 뒤에 내면</b> 그 사이에 보증금이 빠져나갈 수 있고, 중지·금지명령을 받을 길도 없습니다(제8항은 "파산선고 전에 신청이 있는 경우"를 전제로 합니다).<br><br>
+<b>그리고 나머지 재산에 대해서는 파산선고를 기다리는 수밖에 없습니다.</b> 법원은 특별한 사정이 없으면 <b>파산신청일부터 30일 이내</b>에 선고 여부를 결정합니다(개인파산 및 면책신청사건의 처리에 관한 예규 제3조 제1항). 선고가 나면 파산재단에 속하는 재산에 걸려 있던 강제집행·가압류·가처분은 <b>효력을 잃고</b>(법 제348조 제1항), 그 뒤로 채권자는 <b>파산절차 밖에서 빚을 받아낼 수 없습니다</b>(법 제424조). <span class="srcb goe">A</span></div>
+
+<div class="tip"><span class="pt">💡 추심 전화가 심하실 때</span>
+폭행·협박, 정당한 사유 없이 <b>반복적으로</b> 또는 <b>야간(오후 9시부터 다음 날 오전 8시까지)</b>에 찾아오거나 전화·문자를 보내 평온을 심하게 해치는 행위, <b>갚을 의무가 없는 가족에게 대신 갚으라고 요구</b>하는 행위는 「채권의 공정한 추심에 관한 법률」 제9조 위반입니다. 폭행·협박은 <b>5년 이하 징역 또는 5천만원 이하 벌금</b>(같은 법 제15조 제1항). <span class="srcb goe">A</span><br><br>
+날짜·시각·내용을 적어 두고 통화를 녹음하십시오. 신고는 <b>금융감독원 ☎ 1332</b>, 폭행·협박·야간 방문은 <b>☎ 112</b>입니다.</div>
+
+</div></details>
+
+<div class="part"><span class="pn">제 3 부</span><span class="pt2">알아 둘 것</span><span class="pw">— 대법원이 무엇을 지켜 주는가</span></div>
+
+<details class="sec" id="f9"><summary><span class="qb">9</span><span class="st">판례는 이렇게 말합니다<span class="sub">두 결정 모두 채무자를 지켜 준 최신 대법원 판단입니다</span></span></summary>
+<div class="secbody">
+
+<div class="case"><span class="ct">판례 ① — 압류금지·면제재산을 처분했어도 면책불허가사유가 아닙니다</span>
+<b>대법원 2024. 5. 30. 자 2023마6319 결정</b> (공2024하, 997) <span class="srcb goe">A</span><br><br>
+<b>【쟁점】</b> 채무자가 <b>파산재단에 속하지 아니하는 재산</b>을 임의로 처분한 경우, 「파산재단에 속하는 재산을 은닉 또는 손괴하거나 채권자에게 불이익하게 처분하는 행위」(사기파산죄, 법 제650조 제1항 1호)에 해당하여 <b>면책불허가사유</b>(법 제564조 제1항 1호)가 되는지.<br><br>
+<b>【대법원의 답】</b> <b>되지 않습니다(소극).</b> 사기파산죄의 대상은 <b>「파산재단에 속하는 재산」</b>이므로, 압류금지재산이나 면제재산처럼 <b>처음부터 파산재단에 속하지 않는 재산</b>을 처분한 것은 여기에 해당하지 않습니다.<br><br>
+<b>【사실관계】</b> 甲이 파산 및 면책을 신청한 뒤 乙 주식회사에서 일하면서 <b>전 배우자인 丙 명의의 계좌로 급여를 받았고</b>, 그중 상당액이 丙 명의의 다른 은행 계좌로 이체되었습니다. 파산관재인이 그 계좌의 입출금 경위와 인출한 현금의 사용처를 소명하라고 요구했으나 甲이 제대로 응하지 않았습니다. 원심은 면책불허가사유에 해당하고 재량면책도 할 수 없다고 보았으나, <b>대법원은 원심에 법리오해가 있다고 보아 파기했습니다.</b><br><br>
+<b>【이 카드와의 관계】</b> 급여는 절반이, 월 250만원까지는 전액이 압류금지입니다. 그 범위의 돈은 애초에 파산재단에 들어가지 않으므로, 그것을 썼다고 해서 사기파산이 되지 않는다는 것입니다.</div>
+
+<div class="case"><span class="ct">판례 ② — 남길 재산밖에 없으면, 돈을 내놓으라고 권유해서는 안 됩니다</span>
+<b>대법원 2024. 12. 26. 자 2024마6789 결정</b> (공2025상, 398) <span class="srcb goe">A</span><br><br>
+<b>【대법원이 밝힌 기준】</b> 파산관재인은 법원의 허가를 받아 파산재단의 매각이나 회복을 갈음하여 채무자로부터 일정한 금원을 받아 파산재단에 편입하는 <b>화해계약을 체결할 수는 있습니다.</b> 그러나<br><br>
+<b>① 파산선고 당시 재산이 <u>압류금지재산(법 제383조 제1항) 또는 면제재산(같은 조 제2항)의 범위 내</u>여서 환가할 재산이 없거나 극히 미미한 경우</b>, 또는 <b>② 채무자의 처분행위가 부인권의 대상이 되는지가 불확실한 경우</b>에는<br><br>
+<b>채무자로 하여금 일정한 금원을 파산재단에 편입하도록 권유하여서는 아니 되고, 채무자가 이러한 권유에 응하지 아니하였다는 사정을 채무자의 면책심사에서 불리하게 고려하여서도 아니 됩니다.</b><br><br>
+<b>【사실관계】</b> 파산관재인이 甲의 명의로 운영된 업체의 <b>사업소득 처분내역과 폐업자산 내역</b>에 관한 소명·자료제출을 요구했는데 甲이 응하지 않았습니다. 원심은 설명의무위반(법 제658조, 제321조)으로 면책불허가사유에 해당하고 재량면책도 할 수 없다고 보았습니다. 대법원은 <b>그 자료가 파산절차 진행에 필수적인 내용이라고 보기 어렵고</b>, 甲이 채무를 부담하게 된 경위를 고려하면 <b>재량면책을 허용할 상당한 이유가 있어 보인다</b>며 원심결정을 <b>파기환송</b>했습니다.<br><br>
+<b>【이 카드와의 관계】</b> 남을 재산밖에 없는 분께 "그래도 얼마라도 내셔야 면책이 됩니다"라고 하는 것은 <b>대법원이 명시적으로 금지한 일</b>입니다. 그런 말을 들으셨다면 이 결정을 근거로 삼으실 수 있습니다.</div>
+
+<div class="tip"><span class="pt">💡 파산관재인이 목록에 없는 서류를 거듭 요구할 때</span>
+파산관재인이 예규 <b>별지 제1호부터 제7호 외의 자료</b>를 요구할 때에는 <b>이 사건의 어떤 정황에 기초하여 요구하는 것인지 채무자에게 알려야 하고, 그렇게 고지하고 요구했다는 사실을 법원에 사후 보고해야 합니다</b>(서울회생법원 실무준칙 제374호 제2조). <span class="srcb goe">A</span><br><br>
+<b>"어떤 사정 때문에 필요한 서류인지 알려 주십시오"</b>라고 정중히 여쭤 보셔도 됩니다. 무례한 요구가 아니라 준칙이 보장한 것입니다.<br><br>
+다만 <b>파산관재인의 요청에 설명할 의무는 법에 있습니다</b>(법 제321조). 정당한 이유 없이 설명하지 않거나 거짓으로 설명하면 1년 이하의 징역 또는 1천만원 이하의 벌금에 처해질 수 있고(법 제658조), 면책이 불허가될 수 있습니다(법 제564조 제1항 1호). <b>숨기는 것이 가장 위험합니다.</b></div>
+
+</div></details>
+
+<details class="sec" id="f10"><summary><span class="qb">10</span><span class="st">자주 묻는 질문<span class="sub">상담에서 가장 많이 나오는 것들</span></span></summary>
+<div class="secbody">
+
+<div class="faq"><b>Q. 신청했는데 결정문이 오지 않습니다. 잘못된 것인가요?</b><br>
+아닙니다. 서울회생법원의 「개인파산관재인 직무편람」은 <b>"서울회생법원은 면제재산신청이 있는 경우라도 실무적으로 면제재산결정을 하지 않고 있으므로, 면제재산결정이 없는 경우라도 파산재단에 속하는 재산을 환가할 경우 면제재산 금액을 고려하여 환가절차를 진행함이 바람직하다"</b>고 적고 있습니다. <span class="srcb goe">A</span><br><br>
+<b>결정문이 오지 않아도 파산관재인이 면제재산의 취지를 고려하여 그 재산을 팔지 않는 것이 실무입니다.</b> 그래도 <b>신청은 반드시 하십시오.</b> ① 결정을 해 주는 법원도 있고, ② 결정을 받아야 집행정지 효력이 분명해지며, ③ 신청하지 않으면 관재인의 재량에 기대야 하기 때문입니다.</div>
+
+<div class="faq"><b>Q. 살림살이를 가져가나요?</b><br>
+가져가지 않습니다. 옷·이불·가구·부엌살림 등 생활필수품과 2개월치 식료품·연료는 <b>금액 제한 없이 전부</b> 압류금지입니다(민사집행법 제195조 1·2호). 파산관재인이 보는 것은 부동산·자동차·보험·예금처럼 <b>돈으로 바꿀 수 있고 실익이 있는 재산</b>입니다.</div>
+
+<div class="faq"><b>Q. 보험을 깨야 하나요?</b><br>
+한도 안이면 깰 필요가 없습니다. 해약환급금 <b>250만원</b>, 사망보험금 <b>1,500만원</b>, 만기환급금 <b>250만원</b>까지 압류금지입니다. 약관대출이 있으면 <b>그 대출금을 뺀 금액</b>이 내 재산이므로, 실제로는 한도 안에 들어가는 경우가 많습니다. <b>급히 해약해서 써 버리면 그 돈의 사용처를 설명해야 하므로 오히려 불리해집니다.</b></div>
+
+<div class="faq"><b>Q. 다니는 직장의 월급이 압류될까요?</b><br>
+파산선고가 나면 파산재단에 속하는 재산에 걸려 있던 압류는 <b>효력을 잃습니다</b>(법 제348조 제1항). 그리고 급여는 <b>절반</b>이, <b>월 250만원까지는 전액</b>이 애초에 압류금지입니다(민사집행법 제246조 제1항 4호, 시행령 제3조).<br><br>
+<b>다만 파산선고 후에 일해서 번 돈은 「신득재산」이라 하여 파산재단에 들어가지 않습니다.</b> 선고 뒤의 월급은 그대로 쓰십니다.</div>
+
+<div class="faq"><b>Q. 면제재산을 신청하면 채권자가 알게 되나요?</b><br>
+법원이 결정을 하면 <b>채무자와 알고 있는 채권자에게 결정서를 송달</b>합니다(법 제383조 제5항). 채권자는 그 결정에 즉시항고를 할 수 있습니다(제6항). 다만 그 즉시항고에는 <b>집행을 정지시키는 효력이 없습니다</b>(제7항).</div>
+
+<div class="faq"><b>Q. 부부가 함께 신청하면 보증금 면제액이 두 배가 되나요?</b><br>
+아닙니다. 공동명의 보증금은 <b>먼저 2분의 1로 나눈 뒤</b> 각자의 몫에서 면제재산을 계산합니다. 또 면제 금액이 <b>주택가격의 2분의 1을 넘으면 주택가격의 2분의 1까지만</b> 됩니다(주택임대차보호법 시행령 제10조 제2항).</div>
+
+<div class="faq"><b>Q. 기준 중위소득은 언제 것으로 계산하나요?</b><br>
+시행령이 <b>"파산선고 당시의 기준 중위소득"</b>이라고 정했습니다(채무자회생법 시행령 제16조 제2항). 신청한 해가 아니라 <b>선고가 난 해</b>의 금액입니다. 연말에 신청해서 이듬해에 선고를 받으면 <b>이듬해 금액</b>으로 계산됩니다.</div>
+
+</div></details>
+
+<h2>고충은 덜어드리고, 끝까지 곁에서 돕겠습니다</h2>
+<div class="hire">
+<p>본 사무소에서는 사실관계와 자료를 꼼꼼히 살펴 필요한 서류를 갖추어 드리고, 절차를 마치실 때까지 성심껏 돕겠습니다.</p>
+<p style="margin-top:12px"><b>· 전세보증금이 걸려 있는 분</b><br>파산신청서와 <b>면제재산 결정신청서를 함께</b> 접수하여, 선고 전이라도 그 보증금에 대한 <b>강제집행·가압류의 중지 또는 금지를 구합니다</b>(법 제383조 제8항). 보증금이 면제 한도를 넘는 경우에는 어느 금액이 남고 어느 금액이 파산재단에 들어가는지를 먼저 계산해 드립니다.</p>
+<p style="margin-top:10px"><b>· 14일이 얼마 남지 않은 분</b><br>면제재산목록과 소명자료를 바로 갖추어 기한 안에 접수합니다. 기간을 이미 넘기셨다면 <b>압류금지재산으로 남는 범위</b>를 정리하여 파산관재인에게 설명할 서면을 준비해 드립니다.</p>
+<p style="margin-top:10px"><b>· "얼마라도 내셔야 면책이 됩니다"라는 말을 들으신 분</b><br>재산이 압류금지·면제재산 범위 안이라면 <b>대법원이 그런 권유를 금지하고 있습니다</b>(2024마6789). 어느 재산이 어느 조문으로 빠지는지 근거를 붙여 정리해 드립니다.</p>
+<p style="margin-top:12px; font-size:14px; color:#0b4a9c; font-weight:600;">※ <b>개인회생·개인파산 사건 신청의 대리는 법무사의 업무</b>입니다(법무사법 제2조 제1항 제6호). 다만 같은 호 단서는 <b>각종 기일에서의 진술의 대리를 제외</b>하고 있어, <b>면책심문기일·의견청취기일에는 채무자 본인이 출석하셔야 합니다.</b> 본 사무소는 신청서류 작성과 <b>작성된 서류의 제출 대행</b>(같은 항 제7호), 파산관재인 면담 사전 준비와 보정 대응을 돕습니다.</p>
+</div>
+
+<div class="warn"><span class="wt">⚠ 신청 전후에 하지 말아야 할 일</span>
+<b>· 재산을 가족 이름으로 옮기지 마십시오.</b> 법원과 파산관재인은 <b>배우자 명의 재산과 최근 2년간의 거래</b>까지 봅니다. 드러나면 <span class="term">강제집행면탈죄<span class="bub">강제집행을 피할 목적으로 재산을 숨기거나 빼돌려 채권자를 해치는 범죄(형법 제327조). 3년 이하의 징역 또는 1천만원 이하의 벌금.</span></span>가 문제될 수 있고, <b>면책불허가사유</b>가 됩니다(채무자회생법 제564조 제1항).<br>
+<b>· 보험을 급히 해약해 쓰지 마십시오.</b> 쓴 곳을 설명하지 못하면 불리해집니다.<br>
+<b>· 보증금을 받아 먼저 써 버리지 마십시오.</b> 이사를 하셔야 한다면 <b>파산관재인과 먼저 상의</b>하십시오.<br>
+<b>· 특정 채권자에게만 몰아서 갚지 마십시오.</b> 가족이나 지인에게 먼저 갚는 것도 같습니다.<br><br>
+<b>압류금지·면제재산 범위 안의 재산은 어차피 남습니다. 숨기거나 옮길 이유가 없습니다.</b></div>
+
+<div class="who"><span class="wl">함께 보시면 좋은 카드</span>
+<ul style="margin:5px 0 0;padding-left:20px;line-height:2">
+<li><a class="dl" href="E-6_파산_면책_신청서류.html">E-6 소득이 없어 갚을 길이 없습니다</a> — 파산·면책 신청서류를 한 번에 갖추실 때</li>
+<li><a class="dl" href="E-1_개인회생_파산_선택.html">E-1 개인회생과 파산, 어느 쪽인가</a> — 소득이 있어 어느 쪽이 맞는지 가늠해 보실 때</li>
+<li><a class="dl" href="E-3_변제계획안_작성.html">E-3 매달 얼마를 갚게 되나요</a> — 개인회생에서 청산가치를 계산하실 때(면제재산이 그대로 쓰입니다)</li>
+<li><a class="dl" href="E-4_중지명령_금지명령.html">E-4 월급·통장이 압류됐습니다</a> — 개인회생으로 압류를 먼저 멈추실 때</li>
+</ul>
+</div>
+
+<a href="https://sanlaw.co.kr/tools-calculator.html#s=%EA%B0%9C%EC%9D%B8%ED%8C%8C%EC%82%B0%C2%B7%EB%A9%B4%EC%B1%85" class="cta">🧮 내 사건 비용 미리 계산하기 — 개인파산·면책</a>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+    t.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();t.classList.toggle('on');}if(e.key==='Escape'){t.classList.remove('on');t.blur();}});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){terms.forEach(function(x){x.classList.remove('on');});}});
+})();
+function toggleFold(b){var fb=b.parentElement;fb.classList.toggle('open');}
+function _openCall(id){var w=document.getElementById(id);var n=w&&w.nextElementSibling;if(n&&n.classList.contains('calltbl'))n.classList.add('open');}
+document.addEventListener('click',function(e){var a=e.target.closest?e.target.closest('a[href^="#call"]'):null;if(a)_openCall(a.getAttribute('href').slice(1));});
+if(location.hash.indexOf('#call')===0)_openCall(location.hash.slice(1));
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('양식이 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('양식이 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('양식을 내려받았습니다');}
+
+(function(){
+  document.querySelectorAll('.toc a').forEach(function(a){
+    a.addEventListener('click',function(){
+      var el=document.querySelector(a.getAttribute('href'));
+      if(el&&el.tagName==='DETAILS')el.open=true;
+    });
+  });
+  var btn=document.getElementById('allBtn');
+  if(!btn)return;
+  function toggleAll(){
+    var opening=btn.textContent.indexOf('펼치기')>-1;
+    document.querySelectorAll('details.sec').forEach(function(d){d.open=opening;});
+    btn.textContent=opening?'전체 접기':'전체 펼치기';
+  }
+  btn.addEventListener('click',toggleAll);
+  btn.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleAll();}});
+})();
+</script>
+</body>
+</html>
