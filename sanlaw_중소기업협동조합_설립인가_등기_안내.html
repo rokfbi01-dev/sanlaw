@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[등기 안내] 중소기업협동조합·사업협동조합 — 설립인가와 설립등기 | 산 법무사 김재섭</title>
+<meta name="description" content="중소기업협동조합법상 협동조합·사업협동조합·연합회 설립 안내. 2026. 5. 26. 개정 발기인 수(20명·30명, 사업조합 5명), 창립총회 2주 전 공고와 의사록 발기인 전원 서명, 주무관청 설립인가 4주 안 신청, 인계 2주·납입 3주, 납입 뒤 3주 안 이사장 설립등기와 인가 후 90일, 감사 비등기, 재산목록, 의사록 공증 불요, 등록면허세 1천분의 4·대도시 3배, 설립 임원 임기 1년, 합병·해산, 보정 대비.">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+ul{margin:8px 0 12px; padding-left:20px;} li{margin:6px 0;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(300px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.who{background:var(--box); border-radius:10px; padding:14px 16px; margin:12px 0; border-left:4px solid #b9a98c;}
+.who .wl{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;margin-left:3px;}
+.tag.free{background:#5a9a72;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.cta{display:block; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; text-decoration:none; font-weight:700; font-size:16px; padding:15px; border-radius:11px; margin:18px 0; box-shadow:0 3px 8px rgba(122,82,48,.25);}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:11px 15px;margin:10px 0;font-size:13.5px;line-height:1.7;}
+.lawbox .ll{display:inline-block;font-size:11.5px;font-weight:700;color:#fff;background:var(--gold-d);border-radius:5px;padding:2px 8px;margin-right:6px;}
+.lawbox a{color:var(--gold-d);font-weight:600;}
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:14.5px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:16px;margin:10px 0;font-family:'D2Coding','Courier New',monospace;font-size:12.5px;line-height:1.65;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:15px;letter-spacing:2px;margin-bottom:10px;color:#241a10;}
+.howto{font-size:13.5px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:12.5px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:6px 12px;cursor:pointer;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.concept{background:var(--box);border-radius:9px;padding:11px 15px;margin:8px 0 14px;font-size:14.5px;color:#5a4a36;border-left:3px solid #b9a98c;}
+.concept b{color:var(--gold-d);}
+.flow{background:linear-gradient(180deg,#fcf9f2,#f7f1e5);border:1.5px solid var(--gold);border-radius:14px;padding:18px 18px 14px;margin:14px 0 20px;}
+.flow .ft2{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:12px;}
+.flow ol{counter-reset:fl;list-style:none;margin:0;padding:0;}
+.flow li{position:relative;padding:8px 10px 8px 44px;margin:7px 0;background:#fff;border:1px solid var(--line);border-radius:10px;font-size:14.5px;line-height:1.6;}
+.flow li::before{counter-increment:fl;content:counter(fl);position:absolute;left:10px;top:8px;width:26px;height:26px;line-height:26px;text-align:center;background:var(--gold);color:#fff;border-radius:50%;font-weight:800;font-size:14px;}
+.flow li b{color:var(--gold-d);}
+.flow .arw{text-align:center;color:var(--gold);font-size:13px;margin:-2px 0;}
+.newlaw{background:#eef6f0;border:1px solid #cfe6d6;border-left:4px solid #5a9a72;border-radius:8px;padding:13px 16px;margin:14px 0;}
+.newlaw .nt{font-weight:700;color:#2f6a47;display:block;margin-bottom:4px;}
+.newlaw .badge{display:inline-block;font-size:11px;font-weight:800;color:#fff;background:#5a9a72;border-radius:5px;padding:2px 8px;margin-right:6px;vertical-align:middle;}
+.faq{margin:14px 0;}
+.faq details{border:1px solid var(--line);border-radius:10px;margin:9px 0;background:#fff;overflow:hidden;}
+.faq summary{list-style:none;cursor:pointer;padding:13px 44px 13px 38px;font-weight:700;font-size:15px;color:#241a10;background:#faf7f0;position:relative;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::before{content:"Q";position:absolute;left:15px;color:var(--gold-d);font-family:'Nanum Myeongjo',serif;font-weight:800;}
+.faq summary::after{content:"▾";position:absolute;right:16px;top:13px;color:var(--gold-d);transition:.2s;}
+.faq details[open] summary::after{transform:rotate(180deg);}
+.faq .fa{padding:13px 15px 15px 38px;font-size:14.5px;line-height:1.75;color:#3a3a3a;position:relative;border-top:1px solid var(--line);}
+.faq .fa::before{content:"A";position:absolute;left:15px;top:13px;color:#5a9a72;font-family:'Nanum Myeongjo',serif;font-weight:800;}
+.helm{background:linear-gradient(135deg,#2c3e50,#3a4a5c);color:#f4f0e8;border-radius:14px;padding:20px 22px;margin:0 0 24px;box-shadow:0 4px 14px rgba(44,62,80,.18);}
+.helm .ht2{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:17px;color:#f0d98c;margin-bottom:9px;}
+.helm p{margin:0;font-size:14.5px;line-height:1.9;color:#eae4d8;}
+.helm b{color:#f4e2a6;}
+.qhead{display:flex;gap:12px;align-items:flex-start;margin:8px 0 8px;}
+.qhead .qb{flex:none;width:34px;height:34px;border-radius:50%;background:var(--gold);color:#fff;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(176,141,87,.4);}
+.qhead h2{margin:0;border:0;padding:0;font-size:20px;line-height:1.45;}
+.lawrow{display:flex;flex-wrap:wrap;background:var(--box);border-radius:10px;overflow:hidden;margin:12px 0;border:1px solid var(--line);}
+.lawrow .lrl{flex:none;background:var(--gold);color:#fff;font-weight:700;font-size:13.5px;padding:11px 15px;display:flex;align-items:center;}
+.lawrow .lrc{flex:1;min-width:210px;padding:11px 15px;font-size:14px;line-height:1.75;}
+@media(max-width:520px){.lawrow .lrl{width:100%;}}
+.calc{display:block;background:linear-gradient(135deg,#fff7e8,#fdeecb);border:1.5px solid var(--gold);border-radius:14px;padding:16px 18px;margin:18px 0;text-decoration:none;color:var(--ink);transition:.15s;}
+.calc:hover{box-shadow:0 4px 14px rgba(176,141,87,.25);transform:translateY(-1px);}
+.calc .cah{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:4px;}
+.calc .cas{font-size:13.5px;color:var(--muted);}
+.ctabtn{display:block;text-align:center;background:var(--gold);color:#fff;font-weight:800;font-size:17px;padding:16px;border-radius:12px;text-decoration:none;margin:22px 0 6px;box-shadow:0 3px 10px rgba(176,141,87,.35);}
+.ctabtn:hover{background:var(--gold-d);}
+.doclabel{display:inline-block;font-size:12px;font-weight:800;color:#fff;border-radius:6px;padding:3px 11px;margin-bottom:6px;}
+.doclabel.give{background:#b0885a;}
+.doclabel.back{background:#5a9a72;}
+.dl{color:var(--gold-d);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--gold);}
+.dl:hover{background:#fbf5e8;}
+.ddl{display:flex;gap:2px 10px;flex-wrap:wrap;margin:8px 0 2px;padding:9px 12px;background:#fbf7ee;border-radius:8px;font-size:13px;}
+.ddl b{color:var(--gold-d);}
+.deadline{width:100%;border-collapse:collapse;margin:10px 0;font-size:13.5px;}
+.deadline th{background:#3a4a5c;color:#fff;padding:8px;font-weight:700;}
+.deadline td{border:1px solid var(--line);padding:8px 10px;background:#fff;}
+.bnote{color:#0b4a9c;font-weight:600;background:#eaf2fc;border-left:4px solid #2b7fff;border-radius:8px;padding:9px 13px;margin:8px 0;font-size:13.5px;line-height:1.7;}
+.bnote b{color:#0a3d82;}
+.capital th{background:#f0ebe1;text-align:center;font-size:13px;}
+.capital td{text-align:center;font-size:13.5px;}
+.capital td:first-child{text-align:left;font-weight:700;background:#faf7f0;}
+.capital .hi{background:#fdf6e3;font-weight:700;color:var(--gold-d);}
+.capital .bad{color:#9c3a22;font-weight:700;}
+.grp{border-radius:10px;padding:13px 16px;margin:12px 0;border:1px solid var(--line);border-left-width:5px;}
+.grp .gt{font-weight:800;font-size:15px;margin-bottom:5px;}
+.grp.a{background:#eef6f0;border-left-color:#5a9a72;} .grp.a .gt{color:#2f6a47;}
+.grp.b{background:#fdf9e8;border-left-color:#d4a72c;} .grp.b .gt{color:#8a6d10;}
+.grp.c{background:#fdf2ee;border-left-color:#d9694a;} .grp.c .gt{color:#9c3a22;}
+@media print{.term>.bub{display:inline !important;position:static;background:none;color:#555;box-shadow:none;padding:0;width:auto;font-size:12px;}.term>.bub::before{content:" (";}.term>.bub::after{content:")";border:0;position:static;}.formbox .fold-body{display:block !important;}}
+.part{margin:38px 0 14px;padding:16px 18px;border-radius:12px;background:linear-gradient(135deg,#2c3e50,#3a4a5c);color:#f4f0e8;box-shadow:0 4px 14px rgba(44,62,80,.18);}
+.part .pn{display:inline-block;font-size:12px;font-weight:800;color:#2c3e50;background:#f0d98c;border-radius:6px;padding:2px 10px;margin-bottom:6px;}
+.part .pt2{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:20px;color:#fff;margin-bottom:4px;}
+.part .pw{font-size:13.5px;line-height:1.7;color:#eae4d8;} .part .pw b{color:#f4e2a6;}
+.chk td:first-child{width:30px;text-align:center;color:var(--gold-d);font-size:16px;}
+.tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.srcb{display:inline-block;font-size:11px;font-weight:800;color:#fff;border-radius:5px;padding:1px 7px;margin-left:6px;vertical-align:middle;}
+.srcb.moe{background:#2f5b78;} .srcb.goe{background:#5a9a72;} .srcb.own{background:#9a8f7d;}
+.srcline{font-size:12.5px;color:var(--muted);background:#faf7f0;border-radius:7px;padding:7px 11px;margin:0 0 6px;}
+h3.fgrp{font-size:15px;color:var(--gold-d);margin:22px 0 6px;padding-bottom:5px;border-bottom:1px dashed var(--line);}
+.form{overflow-x:auto;}
+@media(max-width:560px){table{font-size:12.5px;} th,td{padding:7px 6px;overflow-wrap:anywhere;} .tblwrap table{min-width:560px;} .who{padding:12px 10px;}}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+<h1>중소기업협동조합·사업협동조합 — 설립인가와 설립등기</h1>
+
+<div class="helm">
+  <div class="ht2">⚓ 이 안내를 준비한 마음</div>
+  <p>같은 업종의 중소기업이 모여 공동구매·공동판매·공동시설을 꾸리려 할 때 쓰는 법인이 중소기업협동조합법상 <b>협동조합</b>과 <b><span class="term">사업협동조합<span class="bub">같은 업종 또는 관련 업종 중소기업자 5명 이상이 공동사업을 하려고 세우는 조합입니다. 업종 전체를 대표하는 협동조합보다 규모가 작고 사업 중심입니다.</span></span></b>입니다. 2026. 5. 26. 개정으로 발기인 수가 크게 줄어 문턱이 낮아졌지만, 이 법에는 등기 조문이 거의 없어 민법을 빌려 와야 하고 기한과 첨부서면을 두고 해석이 갈립니다. 현행 법령과 『특수법인등기실무』(법원행정처, 2025) 284~305쪽, 등기선례를 맞춰 보고 어느 해석으로 보아도 보정이 나지 않는 길로 정리했습니다.</p>
+</div>
+
+<div class="qhead"><span class="qb">Q</span>
+  <h2>무엇이 어떤 순서로 필요한가요?</h2>
+</div>
+
+<div class="tnote">밑줄 친 <span class="term">용어<span class="bub">밑줄 친 말에 마우스를 올리거나(휴대폰은 살짝 누르면) 쉬운 설명이 나옵니다.</span></span>에 마우스를 올리면 설명이 나옵니다. 파란 <b>링크</b>를 누르면 법령 원문으로 바로 이동합니다.</div>
+
+<div class="tldr">
+  <div class="tt">이런 상황입니다 — 공고 2주 → 인가 → 인계 2주 → 납입 3주 → 등기 3주</div>
+  <ul>
+    <li><b>발기인</b> — 시·도 구역 협동조합 <b>20명</b>(도·소매 30명), 전국 구역 <b>30명</b>(도·소매 50명), <b>사업협동조합 5명</b>(다만 시·도·전국 구역이면 협동조합과 같은 수) 이상(<a class="dl" href="https://www.law.go.kr/법령/중소기업협동조합법/제27조" target="_blank" rel="noopener">중소기업협동조합법 §27</a>①, §80).</li>
+    <li><b>창립총회</b> — 2주 전 공고 → 의결 → 끝난 뒤 <b>4주 안</b>에 <span class="term">주무관청<span class="bub">조합의 설립을 인가하고 운영을 감독하는 행정기관입니다. 전국을 구역으로 하면 중소벤처기업부장관, 시·도 안이면 시·도지사입니다.</span></span>(전국 구역은 중소벤처기업부장관, 그 밖은 시·도지사)에 설립인가 신청(<a class="dl" href="https://www.law.go.kr/법령/중소기업협동조합법/제28조" target="_blank" rel="noopener">중소기업협동조합법 §28</a>, §12, 시행령 §8①).</li>
+    <li><b>인가 뒤</b> — 2주 안 이사장에게 사무 인계 → 3주 안 출자금 <b>한꺼번에</b> 납입 → 납입을 마친 날부터 <b>3주 안</b> 이사장이 설립등기(교재 289쪽). 인가일부터 <b>90일</b>이 지나도록 등기하지 않으면 시정명령, 그 명령까지 어기면 인가취소가 될 수 있습니다(§133①3호·②).</li>
+  </ul>
+</div>
+
+<div class="warn">
+  <span class="wt">농협·협동조합 기본법과 다른 다섯 가지</span>
+  ① <b>감사는 등기하지 않습니다</b>(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3261472" target="_blank" rel="noopener">선례 제202105-3호</a>). ② 이사장은 「이사장」이라는 명칭으로 이사와 따로 등기하고 대표권 제한은 등기하지 않습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195907" target="_blank" rel="noopener">선례 제2-152호</a>). ③ 창립총회 의사록에는 <b>의장과 발기인 전원</b>이 서명합니다(§31②). ④ 의사록 <b>공증은 필요 없습니다</b>(법무부 고시 제10-058호 50번). ⑤ 설립 당시 임원의 임기는 <b>설립등기일부터 1년</b>이어서 1년 뒤 임원 변경등기가 반드시 생깁니다(§52① 단서, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854824" target="_blank" rel="noopener">선례 제1-408호</a>).
+</div>
+
+<div class="lawrow"><div class="lrl">관련 법령</div><div class="lrc">
+  <a class="dl" href="https://www.law.go.kr/법령/중소기업협동조합법/제11조" target="_blank" rel="noopener">중소기업협동조합법 §11</a> 민법·상법 준용 · <a class="dl" href="https://www.law.go.kr/법령/중소기업협동조합법/제12조" target="_blank" rel="noopener">중소기업협동조합법 §12</a> 주무관청 · <a class="dl" href="https://www.law.go.kr/법령/중소기업협동조합법/제16조" target="_blank" rel="noopener">중소기업협동조합법 §16</a> 출자 · <a class="dl" href="https://www.law.go.kr/법령/중소기업협동조합법/제27조" target="_blank" rel="noopener">중소기업협동조합법 §27</a> 발기인 · <a class="dl" href="https://www.law.go.kr/법령/중소기업협동조합법/제28조" target="_blank" rel="noopener">중소기업협동조합법 §28</a>~<a class="dl" href="https://www.law.go.kr/법령/중소기업협동조합법/제34조" target="_blank" rel="noopener">중소기업협동조합법 §34</a> 설립 · <a class="dl" href="https://www.law.go.kr/법령/중소기업협동조합법/제47조" target="_blank" rel="noopener">중소기업협동조합법 §47</a> 정관변경 · <a class="dl" href="https://www.law.go.kr/법령/중소기업협동조합법/제48조" target="_blank" rel="noopener">중소기업협동조합법 §48</a> 총회 의사록 · <a class="dl" href="https://www.law.go.kr/법령/중소기업협동조합법/제50조" target="_blank" rel="noopener">중소기업협동조합법 §50</a> 임원 · <a class="dl" href="https://www.law.go.kr/법령/중소기업협동조합법/제52조" target="_blank" rel="noopener">중소기업협동조합법 §52</a> 임기 · <a class="dl" href="https://www.law.go.kr/법령/중소기업협동조합법/제73조" target="_blank" rel="noopener">중소기업협동조합법 §73</a> 해산 · <a class="dl" href="https://www.law.go.kr/법령/중소기업협동조합법/제74조" target="_blank" rel="noopener">중소기업협동조합법 §74</a> 합병 · <a class="dl" href="https://www.law.go.kr/법령/중소기업협동조합법/제80조" target="_blank" rel="noopener">중소기업협동조합법 §80</a> 사업조합 · <a class="dl" href="https://www.law.go.kr/법령/중소기업협동조합법/제133조" target="_blank" rel="noopener">중소기업협동조합법 §133</a> 인가취소 · <a class="dl" href="https://www.law.go.kr/법령/민법/제49조" target="_blank" rel="noopener">민법 §49</a> · <a class="dl" href="https://www.law.go.kr/법령/민법/제52조" target="_blank" rel="noopener">민법 §52</a> · <a class="dl" href="https://www.law.go.kr/법령/비송사건절차법/제63조" target="_blank" rel="noopener">비송사건절차법 §63</a>
+</div></div>
+
+<div class="qhead"><span class="qb">比</span>
+  <h2>협동조합 · 사업협동조합 · 연합회 — 한눈에 비교</h2>
+</div>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:17%">구분</th><th style="width:29%">협동조합</th><th style="width:27%">사업협동조합</th><th>협동조합연합회</th></tr></thead>
+  <tbody>
+    <tr><td><b>발기인</b></td><td>시·도 20명(도·소매 30) / 전국 30명(도·소매 50)</td><td>5명 — 시·도·전국 구역이면 왼쪽과 같음(§80)</td><td>업종연합회 3개 조합(도·소매 5개), 행정구역연합회 5개 조합(§90)</td></tr>
+    <tr><td><b>창립총회 의결</b></td><td>설립동의자 과반수 출석 + 출석 3분의 2 찬성(§28④)</td><td>설립동의자 <b>3분의 2 이상 찬성</b>(§81)</td><td>협동조합과 같음(§92)</td></tr>
+    <tr><td><b>설립 때 출자 최저</b></td><td>전국 8천만원 / 지방 4천만원</td><td>4천만원</td><td>4천만원(시행령 §7)</td></tr>
+    <tr><td><b>1인 출자 한도</b></td><td>총좌수의 100분의 20(§16③)</td><td>100분의 30(§79)</td><td>5분의 2(§89)</td></tr>
+    <tr><td><b>임원</b></td><td>이사장 1, 이사 5명 이상, 상근이사 1, 감사 2명 이하(§50①)</td><td>이사장 1, 이사 2명 이상, 감사 2명 이하, 상근이사는 정관으로(§84①)</td><td>회장 1, 이사 5명 이상, 상근이사 1, 감사 2명 이하(§95①)</td></tr>
+    <tr><td><b>등기 기한·첨부</b></td><td colspan="3">같음 — 모두 민법을 준용합니다(§11, 교재 286쪽). 연합회는 「이사장」을 「회장」으로 바꾸어 읽습니다</td></tr>
+  </tbody>
+</table></div>
+
+<!-- ══════════ 제1부 ══════════ -->
+<div class="part" id="part1">
+  <div class="pn">제1부</div>
+  <div class="pt2">세우기 — 창립총회와 설립인가</div>
+  <div class="pw">설립인가 신청서와 첨부서류의 작성·주무관청 제출은 <b>행정사 업무</b>, 정관·의사록 등 등기에 쓰는 서류는 <b>법무사</b>가 함께 준비합니다.</div>
+</div>
+
+<div class="qhead"><span class="qb">1</span>
+  <h2>요건 점검표 — 공고를 내기 전에</h2>
+</div>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:20%">요건</th><th style="width:52%">내용</th><th>근거</th></tr></thead>
+  <tbody>
+    <tr><td><b>조합원 자격</b></td><td>조합 구역에서 <b>같은 업종</b>을 하는 중소기업자. 중소기업자가 아닌 사람은 총 조합원의 20분의 1 이하, 다른 업종 중소기업자는 100분의 20 이하. 업종은 한국표준산업분류 소·세·세세분류 기준</td><td><a class="dl" href="https://www.law.go.kr/법령/중소기업협동조합법/제13조" target="_blank" rel="noopener">중소기업협동조합법 §13</a>, 시행령 §3·§4</td></tr>
+    <tr><td><b>발기인 수</b></td><td>위 비교표. 2026. 5. 26. 개정으로 줄었고, <b>설립 뒤에도 발기인 수만큼 조합원을 유지</b>해야 합니다</td><td>§27①②</td></tr>
+    <tr><td><b>출자</b></td><td>1좌 <b>10만원 이상</b> 균일, 조합원마다 1좌 이상, 정관에 따라 <b>한꺼번에 전액</b> 납입(분할 납입 불가)</td><td>§16①②, §34②, 시행령 §6</td></tr>
+    <tr><td><b>정관</b></td><td>목적·명칭(지방명 + 업종명)·업무구역·사업·사무소·조합원 자격·임원 정수와 선임·출자 1좌 금액과 납입방법·해산 사유·공고방법 등 16가지. <b>공증 불요</b></td><td>§5·§29①, 교재 286쪽</td></tr>
+    <tr><td><b>임원 결격</b></td><td>피성년후견인·미복권 파산자, 금고 이상 실형 뒤 3년 미경과 등. <b>공무원은 임원이 될 수 없습니다</b></td><td>§10·§51①</td></tr>
+  </tbody>
+</table></div>
+
+<div class="qhead"><span class="qb">2</span>
+  <h2>창립총회 → 설립인가 신청</h2>
+</div>
+<p>발기인은 정관을 만들어 회의 일시·장소와 함께 <b>회의 2주 전</b>까지 공고합니다(§28①②). 공고는 조합원 자격이 있는 사람이 쉽게 보는 일간지에 싣되, 게시 등으로 자격자 전원이 알 수 있으면 그것으로 됩니다(시행규칙 §2). 창립총회는 정관 채택, 사업계획, 그 밖에 설립에 필요한 사항(임원 선출 포함)을 의결하고(§28③), 의사록에는 <b>의장과 발기인 전원이 서명</b>합니다(§31②). 서명을 거부하는 발기인이 있으면 발기인 과반수가 사유서를 붙여 신청할 수 있습니다(§32②). 창립총회가 끝난 뒤 <b>4주 안</b>에 아래 서류로 주무관청에 인가를 신청합니다(시행령 §8①, 시행규칙 §3①).</p>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:26%">서류(시행규칙 §3①)</th><th style="width:28%">① 발기인이 준비</th><th style="width:22%">② 사무소가 작성</th><th>③ 제출처 · 근거</th></tr></thead>
+  <tbody>
+    <tr><td><b>설립인가신청서</b>(별지 제1호서식) 2통</td><td>발기인 대표 서명 또는 날인</td><td>행정사</td><td>전국 구역 협동조합·사업조합, 업종연합회 → <b>중소벤처기업부장관</b> / 그 밖 → 주된 사무소 관할 <b>시·도지사</b>(§12, 시행령 §8①)</td></tr>
+    <tr><td>설립취지서 · 사업계획서 · 수지예산서</td><td>사업 자료</td><td>행정사</td><td>같은 곳</td></tr>
+    <tr><td>정관</td><td>발기인 기명날인</td><td>법무사</td><td>같은 곳 — 등기에도 씁니다</td></tr>
+    <tr><td>출자 1좌 금액과 조합원별 인수 좌수를 적은 서류</td><td>조합원별 출자승낙</td><td>—</td><td>같은 곳. 이 승낙서는 <b>등기 때 납입 증명으로 쓸 수 없습니다</b>(교재 292쪽)</td></tr>
+    <tr><td>창립총회 의사록 · 창립총회 개최 공고문</td><td>의장·발기인 전원 서명, 공고 증빙</td><td>작성례</td><td>같은 곳</td></tr>
+    <tr><td>조합원 명부(별지 제2호서식) · 임원 이력서와 사진(3×4cm)</td><td>조합원·임원 자료</td><td>행정사</td><td>같은 곳. 발기인 조합원의 사업자등록증은 행정정보 공동이용으로 확인(동의하지 않으면 사본)</td></tr>
+  </tbody>
+</table></div>
+<div class="tip"><span class="pt">접수처와 처리기간을 먼저 물어 둡니다</span>법령에는 설립인가 처리기간·간주인가·수수료 규정이 없습니다. 시·도지사 권한은 시·도 사무위임조례로 시·군·구에 맡겨져 있을 수 있고, 업종을 주관하는 부처가 따로 있는 업종(시행령 별표 1)은 관할이 달라질 수 있으니 신청 전에 담당 부서와 예상 기간을 확인합니다. 인가가 나면 별지 제3호서식 <b>설립인가증</b>을 받습니다(시행규칙 §3②).</div>
+
+<!-- ══════════ 제2부 ══════════ -->
+<div class="part" id="part2">
+  <div class="pn">제2부</div>
+  <div class="pt2">설립등기 — 등기소에 내는 서류</div>
+  <div class="pw">설립등기 신청 대리와 신청서·첨부서면 작성은 <b>법무사 업무</b>입니다(법무사법 §2). 비용은 아래 [세금과 수수료]와 비용 계산기로 미리 보실 수 있습니다.</div>
+</div>
+
+<div class="qhead"><span class="qb">3</span>
+  <h2>언제까지, 어디에, 누가 신청하나요?</h2>
+</div>
+<p>중소기업협동조합법에는 등기 기한 조문이 없어 민법을 준용합니다(§11). 민법은 「허가가 있는 때부터 3주」라고 정하지만(민법 §49①), 인가 뒤 인계(2주)와 출자 납입(3주)에만 최대 5주가 걸리므로 교재는 <b>출자금 납입을 마친 날부터 3주 안</b>에 주된 사무소 소재지 등기소에 <b>이사장</b>이 신청하면 된다고 봅니다(교재 289쪽, 비송사건절차법 §63①). 법은 따로 <b>설립인가일부터 90일</b>이 지나도록 등기하지 않으면 시정명령을 하고, 그 명령을 어기면 인가를 취소할 수 있게 했습니다(§133①3호·②).</p>
+<table class="deadline">
+  <thead><tr><th>기산일</th><th>근거 조문</th><th>말일 처리</th><th>만료일(예)</th></tr></thead>
+  <tbody>
+    <tr><td>출자금 납입(현물 급부 포함)을 마친 날의 <b>다음 날</b><br><small>첫날은 세지 않습니다(민법 §157)</small></td><td>법 §11 → 민법 §49① 변형 준용(교재 289쪽) — 3주</td><td>말일이 토요일·공휴일이면 <b>그다음 날</b>(민법 §161)</td><td>2027. 6. 30.(수) 납입 완료 → <b>7. 21.(수)</b><br>2027. 4. 14.(수) 납입 완료 → 5. 5.(수·어린이날)이 말일 → <b>5. 6.(목)</b></td></tr>
+    <tr><td>설립인가일</td><td>§133①3호 — 90일(넘기면 시정명령, 명령 위반 시 인가취소 가능)</td><td>—</td><td>2027. 6. 9.(수) 인가 → 9. 7.(화) 무렵이 <b>넘기면 안 되는 선</b></td></tr>
+  </tbody>
+</table>
+<div class="tip"><span class="pt">가장 안전한 일정 — 인가서 도착일부터 3주 안에 모두 끝내기</span>민법 문언(§49①·§53)대로 「인가서가 도착한 날부터 3주」로 보는 엄격한 해석도 가능합니다. 인가 직후 바로 사무를 인계하고 납입 기일을 짧게 잡아 <b>인가서 도착일부터 3주 안에 납입과 등기까지 마치면</b> 어느 해석으로 보아도 기한 안입니다. 위 예에서는 2027. 6. 9.(수) 인가서 도착 → 6. 30.(수)까지입니다. 그렇게 하지 못해도 납입 완료일부터 3주와 인가일부터 90일 가운데 <b>먼저 오는 날</b> 안에는 반드시 신청합니다.</div>
+<div class="warn">
+  <span class="wt">등기를 늦추면</span>
+  중소기업협동조합법의 과태료 조문(§141)에는 등기 해태가 없지만, 민법을 준용하므로 민법 §97 1호(등기 해태 — 500만원 이하 과태료)가 문제 될 수 있습니다. 설립은 위 90일 선을 넘기면 인가취소까지 이어질 수 있습니다.
+</div>
+
+<div class="qhead"><span class="qb">4</span>
+  <h2>등기부에 무엇이 올라가나요?</h2>
+</div>
+<p>민법 §49②의 등기사항을 고쳐 준용합니다(교재 290~291쪽). ① 목적 ② 명칭 ③ 사무소 ④ <b>설립인가 연월일</b> ⑤ 존립 시기·해산 사유(정한 경우) ⑥ 자산 총액 대신 <b>출자 총좌수와 납입한 출자금의 총액</b> ⑦ 임원입니다.</p>
+<ul>
+  <li><b>이사장</b>은 「이사장」이라는 명칭으로 이사와 따로 등기하고 성명·주민등록번호·주소를 올립니다. 이사장은 법률에 따라 단독으로 대표하므로 <b>대표권 제한 규정은 등기하지 않습니다</b>(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195907" target="_blank" rel="noopener">선례 제2-152호</a>).</li>
+  <li><b>이사</b>는 성명과 주민등록번호만 올리고 주소는 올리지 않습니다(특례법 §2). 상근이사는 정관에서 「전무」 등으로 부르더라도 「<b>상근이사</b>」로 등기합니다(교재 291쪽). 실무에서는 설립 뒤 이사회 추천을 받아 이사장이 임명하므로 설립등기 때는 대개 없습니다(교재 288쪽 주 103).</li>
+  <li><b>감사는 등기하지 않습니다.</b> 법이 감사를 등기사항으로 정하지 않았으므로 민법을 근거로 등기할 수도 없습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3261472" target="_blank" rel="noopener">선례 제202105-3호</a>). 출자 1좌의 금액도 등기사항이 아닙니다.</li>
+  <li>조합·사업조합·연합회는 <b>지배인·대리인을 등기할 수 없습니다</b>. 법에 선임 근거가 없기 때문입니다(중앙회만 §106⑩·시행령 §16).</li>
+</ul>
+
+<div class="qhead"><span class="qb">5</span>
+  <h2>등기신청서 첨부서면 — 누가 준비하고, 누가 작성하나요?</h2>
+</div>
+<p>비송사건절차법 §63②은 정관, 이사의 자격을 증명하는 서면, 인가서, <b>재산목록</b>을 정하고, 「민법법인 및 특수법인 등기규칙」 §5③은 <b>출자금 납입 증명</b>을 더합니다. 교재(292쪽)의 목록에는 재산목록이 빠져 있지만 법령 목록에 있으므로 함께 붙이면 보정 걱정이 없습니다. 중소기업협동조합법에 따라 설립된 법인은 <b>의사록 공증이 필요 없습니다</b>(<a class="dl" href="https://www.moj.go.kr/bbs/moj/294/608101/artclView.do" target="_blank" rel="noopener">법무부 고시 제10-058호</a> 50번, 교재 286쪽).</p>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:24%">서류</th><th style="width:25%">① 조합(임원)이 준비</th><th style="width:22%">② 사무소가 작성</th><th>③ 근거 · 발급처 · 확인할 점</th></tr></thead>
+  <tbody>
+    <tr><td><b>설립인가증</b></td><td>주무관청이 발급한 인가증(원본과 사본)</td><td>—</td><td>비송법 §63②3호. 원본은 등기관 확인 뒤 돌려받을 수 있습니다(상업등기규칙 §66). 설립인가 연월일은 인가증 날짜로 적습니다</td></tr>
+    <tr><td><b>정관</b></td><td>인가받은 정관</td><td>—</td><td>§63②1호. 인가 때 정관 변경 명령을 받았다면 고친 정관을 냅니다(시행령 §8③)</td></tr>
+    <tr><td><b>창립총회 의사록</b>(공증 불요)</td><td>의장과 <b>발기인 전원</b> 서명</td><td>법무사 — 아래 작성례</td><td>이사장·이사의 자격(선임) 증명(§63②2호, 교재 292쪽). 출석 수와 찬성 수를 숫자로 적습니다(§28④·§81)</td></tr>
+    <tr><td><b>출자금 납입 증명서면</b></td><td>이사장 명의 계좌의 잔고증명서 등</td><td>법무사 — 이사장이 작성하는 <b>출자금 납입증명서</b>(아래 작성례)</td><td>민특규칙 §5③. 잔고증명서·납입금보관증명서·이사장 작성 출자금 내역서 모두 됩니다. <b>인가 신청 때의 출자승낙서는 안 됩니다</b>(교재 292쪽)</td></tr>
+    <tr><td><b>재산목록</b></td><td>설립 때 재산 자료</td><td>법무사 — 출자금 납입증명서와 같은 날짜로</td><td>비송법 §63②4호. 출자금(현금·현물)과 그 밖의 재산을 적습니다</td></tr>
+    <tr><td><b>취임승낙서</b>(이사장·이사)</td><td>인감 날인</td><td>법무사</td><td>상업등기규칙 §104①(민특규칙 §6③). 감사는 등기하지 않으므로 등기용 승낙서는 필요 없습니다</td></tr>
+    <tr><td>인감증명서 또는 본인서명사실확인서(이사장·이사)</td><td>발행 <b>3개월 이내</b> — 주민센터 방문 발급</td><td>—</td><td>상업등기규칙 §52④</td></tr>
+    <tr><td>주민등록표 초본(이사장·이사)</td><td>발행 3개월 이내 · <a class="dl" href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a></td><td>—</td><td>주민등록번호와 이사장 주소 증명. <b>외국인 임원</b>은 외국인등록사실증명(또는 국내거소신고사실증명), 인감 대신 본국 관청의 서명증명(영사 확인 또는 아포스티유, 번역문)을 냅니다(상업등기규칙 §52⑤·§104②)</td></tr>
+    <tr><td>인감신고서 + 이사장 인감증명서</td><td>이사장 개인인감</td><td>법무사 — 법인 인감 가로·세로 1cm 초과 2.4cm 이내</td><td>인감은 <b>이사장만</b> 제출합니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854748" target="_blank" rel="noopener">선례 제1-401호</a>). 상업등기규칙 §35</td></tr>
+    <tr><td>등록면허세·지방교육세 영수필확인서</td><td>조합 명의 납부</td><td>세액 계산·신고·납부 대행(아래 6번)</td><td>주된 사무소 관할 시·군·구 · <a class="dl" href="https://www.wetax.go.kr" target="_blank" rel="noopener">위택스</a></td></tr>
+    <tr><td>등기신청수수료</td><td>—</td><td>납부</td><td>서면 35,000원 / 전자표준양식 28,000원 / 전자신청 20,000원. 전자신청은 대법원예규로 지정한 등기유형만 되므로 인터넷등기소 지정 목록을 확인합니다</td></tr>
+    <tr><td>위임장</td><td>이사장 — 법인 인감 날인</td><td>법무사</td><td>대리 신청 때(상업등기규칙 §52①1호)</td></tr>
+  </tbody>
+</table></div>
+<p style="font-size:13.5px;color:var(--muted)">※ 인터넷등기소에는 중소기업협동조합 전용 신청서 양식이 없습니다. <b>201-1 「사단법인 설립등기신청서」</b>의 칸을 빌려 「자산의 총액」을 「출자 총좌수와 납입한 출자금의 총액」으로, 「설립허가 연월일」을 「설립인가 연월일」로 고치고 이사장·이사·상근이사를 구분해 씁니다 · <a class="dl" href="https://www.iros.go.kr" target="_blank" rel="noopener">인터넷등기소</a>.</p>
+
+<div class="qhead"><span class="qb">6</span>
+  <h2>세금과 수수료는 얼마인가요?</h2>
+</div>
+<p>법은 조합을 비영리로 운영하도록 하지만(§7①1호), 잉여금을 <b>조합원의 출자액과 이용 분량에 비례해 배당</b>하도록 정하고 있습니다(§71②, 사업조합 §86·연합회 §97 준용). 등록면허세의 「비영리법인」에서는 조합원에게 이익을 배당할 수 있는 법인이 빠지므로(지방세법 시행령 §43①3호) 설립·출자 증가 등기는 <b>1천분의 4</b>(112,500원 미만이면 112,500원)이고 지방교육세는 그 20%입니다(<a class="dl" href="https://www.law.go.kr/법령/지방세법/제28조" target="_blank" rel="noopener">지방세법 §28</a>①6호 가목, §151①2호). 주된 사무소가 서울 등 <b>대도시</b>(과밀억제권역, 산업단지 제외)이면 <b>3배</b>이고, 설립 뒤 5년 안 출자 증가도 3배입니다(같은 조 ②). 지방세특례제한법 §60은 공동시설용 부동산 취득세 감면이어서 법인등기에는 해당하지 않습니다.</p>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:34%">납입한 출자금 총액</th><th style="width:22%">대도시 밖</th><th style="width:22%">서울 등 대도시</th><th>근거</th></tr></thead>
+  <tbody>
+    <tr><td>4,000만원(지방조합·사업조합·연합회 설립 최저액)</td><td>160,000원 + 32,000원 = <b>192,000원</b></td><td>480,000원 + 96,000원 = <b>576,000원</b></td><td>지방세법 §28①6호 가목·②, §151①2호, 시행령 §7</td></tr>
+    <tr><td>8,000만원(전국조합 설립 최저액)</td><td>320,000원 + 64,000원 = <b>384,000원</b></td><td>960,000원 + 192,000원 = <b>1,152,000원</b></td><td>같음</td></tr>
+    <tr><td>1억원</td><td>400,000원 + 80,000원 = <b>480,000원</b></td><td>1,200,000원 + 240,000원 = <b>1,440,000원</b></td><td>같음</td></tr>
+    <tr><td>임원·명칭·목적 변경, 해산·청산인·청산종결</td><td colspan="2">등기의 목적마다 등록면허세 40,200원 + 지방교육세 8,040원 = <b>48,240원</b>(중과 없음)</td><td>지방세법 §28①6호 바목·④</td></tr>
+    <tr><td>분사무소 설치</td><td>40,200원 + 8,040원</td><td>120,600원 + 24,120원</td><td>같은 호 마목·②</td></tr>
+    <tr><td>주된 사무소 이전</td><td>112,500원 + 22,500원</td><td>대도시 밖에서 대도시로 들어오면 3배</td><td>같은 호 라목·②2호</td></tr>
+    <tr><td>등기신청수수료</td><td colspan="2">설립(합병·분할로 인한 설립 포함)과 다른 등기소 관할로 옮기는 주된 사무소 이전: 서면 35,000원 · 전자표준양식 28,000원 · 전자신청 20,000원<br>그 밖의 등기: 등기의 목적마다 7,000원 · 5,000원 · 2,000원</td><td>수수료규칙 §5의3·§5의4②·§5의5</td></tr>
+  </tbody>
+</table></div>
+<p style="font-size:13.5px;color:var(--muted)">※ 세액은 10원 미만을 버립니다(지방회계법 §55). 위 금액에서는 버릴 단수가 생기지 않습니다. 「비영리」라는 말만 보고 1천분의 2로 신고하면 출자금이 2,812만 5천원을 넘는 부분부터 세액이 모자랍니다. 중소기업협동조합법에는 세금·수수료 면제 규정이 없어 등기신청수수료도 그대로 냅니다. 세금 신고는 세무사의 업무입니다 — 세무사의 확인을 받으시기 바랍니다.</p>
+<a class="calc" href="https://sanlaw.co.kr/tools-calculator.html#s=%EB%B2%95%EC%9D%B8%EC%84%A4%EB%A6%BD&amp;e=sme" target="_blank" rel="noopener">
+  <div class="cah">🧮 설립등기 비용 미리 계산해 보기</div>
+  <div class="cas">누르시면 계산기 「법인설립」 화면이 <b>중소기업협동조합·사업협동조합</b>으로 골라진 채 열립니다. 납입한 출자금 총액을 넣고 주된 사무소가 대도시이면 대도시 중과를 고르십시오. 등록면허세·신청수수료와 보수 예상액, 준비서류가 함께 나옵니다. (클릭 시 계산기로 이동)</div>
+</a>
+<div class="concept"><b>보수는 업무마다 기준이 다릅니다.</b> 등기 신청 대리와 등록면허세 신고·납부 대행 보수는 대한법무사협회 보수기준에 따라 계산기에서 미리 보실 수 있습니다. 설립인가·정관변경 인가 신청서, 임원선임보고서, 해산신고서의 작성·제출 대리는 <b>행정사 업무</b>로, 보수를 상담 때 미리 알려 드립니다. 법인설립신고·사업자등록과 세무 신고는 <b>세무사의 업무입니다 — 세무사의 확인을 받으시기 바랍니다</b>.</div>
+
+<!-- ══════════ 제3부 ══════════ -->
+<div class="part" id="part3">
+  <div class="pn">제3부</div>
+  <div class="pt2">등기 뒤 — 임원·정관·사무소가 바뀔 때</div>
+  <div class="pw">변경등기는 <b>3주</b>(민법 §52 준용)이고, 주무관청 인가가 필요한 사항은 <b>인가서가 도착한 날</b>부터 셉니다(민법 §53).</div>
+</div>
+
+<div class="qhead"><span class="qb">7</span>
+  <h2>임원이 바뀔 때 — 설립 1년 뒤 첫 변경등기</h2>
+</div>
+<p>임원 임기는 비상근 4년, 상근 3년이지만 <b>설립 당시 임원은 1년</b>이고(§52①), 그 1년은 <b>설립등기일부터</b> 셉니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854824" target="_blank" rel="noopener">선례 제1-408호</a>). 이사장은 <b>두 차례만 연임</b>할 수 있고, 2018년 개정 뒤 처음 선출된 임기부터 셉니다(§52②, 법률 제15467호 부칙 §2). 총회 결과와 이사장·상근이사 선임은 <b>2주 안</b>에 주무관청에 보고합니다(§130①, 시행규칙 별지 제8호서식 — 수리는 중소기업중앙회장에게 위탁).</p>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:18%">변경 원인</th><th style="width:42%">붙일 서류</th><th>확인할 점</th></tr></thead>
+  <tbody>
+    <tr><td><b>이사장·이사 취임</b></td><td>정관 · <b>총회 의사록</b> — 의장과 <b>총회에서 지명한 이사 2명 이상</b>이 서명날인(§48④), 공증 불요 · 취임승낙서와 인감증명서 · 초본 · 새 이사장이면 인감신고서</td><td>총회에서 이사 2명을 「의사록 서명인」으로 지명한 결의가 의사록에 드러나야 합니다. 조합원 200명이 넘어 대의원총회를 둔 조합은 대의원총회 의사록(§44)</td></tr>
+    <tr><td><b>상근이사 임명</b></td><td>이사회 추천 의사록 — 의장과 <b>이사회가 지명한 이사 2명 이상</b> 서명(§55⑧) · 이사장의 임명 서면 · 취임승낙서와 인감증명서 · 초본</td><td>조합원이 아닌 사람 가운데 시행령 §13의 경력(5년 이상)을 갖춘 사람을 임명합니다(§50⑥)</td></tr>
+    <tr><td>임기만료 퇴임</td><td>임기를 확인할 정관 · 후임 선출 총회 의사록</td><td>정수에 모자라게 되면 <b>후임 취임등기와 동시에</b> 해야 퇴임등기를 할 수 있습니다(교재 294쪽)</td></tr>
+    <tr><td>사임</td><td><b>사임서와 인감증명서</b></td><td>이사장이 등기소에 낸 인감을 사임서에 찍으면 인감증명서를 대신합니다(교재 295쪽). 정수 결원이면 위와 같이 동시 신청</td></tr>
+    <tr><td>해임</td><td>해임을 의결한 총회 의사록 · 정관</td><td>총회 일반결의(§47①8호) 또는 조합원 4분의 1 이상 개선 청구 → 특별결의(§66). 개선 청구로 해임할 때는 7일 전 사유 통지와 진술 기회(§66③)를 준 사실을 의사록에 적습니다</td></tr>
+    <tr><td>당연퇴직</td><td>결격 사유를 증명하는 서면</td><td>결격 사유(§51①)가 생기면 당연퇴직합니다(§51②)</td></tr>
+  </tbody>
+</table></div>
+<div class="warn">
+  <span class="wt">직무대행자는 등기하지 않습니다</span>
+  이사장이 궐위되면 상근이사가 직무를 대행하지만(§58) 등기사항이 아니고, 정관에 따라 지명한 직무대행자도 등기할 수 없습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854724" target="_blank" rel="noopener">선례 제1-434호</a>). 결원은 사유가 생긴 날부터 <b>2개월 안</b>에 선출하되, 남은 임기가 6개월 미만이면 이사회 의결로 선출하지 않을 수 있습니다(§52④).
+</div>
+
+<div class="qhead"><span class="qb">8</span>
+  <h2>정관·사무소·출자가 바뀔 때</h2>
+</div>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:20%">바뀌는 것</th><th style="width:24%">기한</th><th>붙일 서류 · 확인할 점</th></tr></thead>
+  <tbody>
+    <tr><td><b>목적·명칭 등 정관 사항</b></td><td>인가서가 도착한 날부터 3주</td><td>총회 특별결의(총 조합원 과반수 출석 + 출석 3분의 2 이상, §49) 의사록 + <b>정관변경 인가서</b>(§47②, 시행령 §12④ — 정관 필요적 기재사항 전부가 인가 대상). 지방조합은 가입한 연합회나 중앙회를 거쳐 시·도지사에게, 전국조합은 중앙회를 거쳐 중소벤처기업부장관에게 냅니다(시행령 §12, 별지 제4호서식). <b><span class="term">정관례<span class="bub">주무관청이 미리 만들어 둔 표준 정관입니다. 그 문구 그대로 정관을 바꾸면 따로 인가를 받지 않아도 됩니다.</span></span>대로 바꾼 경우에는 인가가 필요 없으므로 소명서</b>로 밝힙니다(교재 293쪽 주 106, 아래 작성례)</td></tr>
+    <tr><td><b>주된 사무소 이전</b></td><td>이전한 날부터 3주(민법 §51①)</td><td>정관에 「서울특별시에 둔다」처럼 최소 행정구역만 적었고 그 안에서 옮기면 <b>총회 의결과 인가가 필요 없습니다</b>(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854845" target="_blank" rel="noopener">선례 제1-424호</a>). 정관에 정한 구역 밖이면 정관변경 인가가 먼저입니다. 종전 또는 새 소재지에서 등기합니다</td></tr>
+    <tr><td>분사무소 설치·이전</td><td>3주(민법 §50·§51②)</td><td>2025. 1. 31.부터 <b>주사무소 소재지에서만</b> 등기합니다</td></tr>
+    <tr><td><b>출자 총좌수·납입 출자금 총액</b></td><td>바뀐 날부터 3주(민법 §52)</td><td>농협처럼 연말 일괄 규정이 없습니다. 이사장 명의 출자금 변동 내역서와 가입·출자 증가 증빙을 붙입니다. 늘어나면 증가분의 1천분의 4(최저 112,500원), 설립 뒤 5년 안 대도시면 3배. 조합원의 출자좌수 감소는 정관에 따라 <b>사업연도 말에만</b> 할 수 있습니다(§16⑤)</td></tr>
+    <tr><td>출자 1좌 금액 감소</td><td>인가서 도착일부터 3주</td><td>의결일부터 2주 안 재무상태표 작성, 채권자 이의 공고와 개별 최고(이의기간 <b>30일 이상</b>), 변제·담보 증명(§68·§69). 1좌 금액은 원칙적으로 등기사항이 아니어서 1999년 전에 등기된 조합에서만 문제 됩니다(교재 295~296쪽)</td></tr>
+  </tbody>
+</table></div>
+
+<h3 class="fgrp">법령에 서식이 없는 서류 — 사무소 작성례</h3>
+<div class="formbox" id="fb_fSmFound">
+  <button class="fold-btn" type="button" onclick="toggleFold(this)">📄 창립총회 의사록 — 의장과 발기인 전원 서명 <span class="srcb own">사무소 작성례</span><span class="chev">▾</span></button>
+  <div class="fold-body">
+    <div class="srcline">출처 · 법령(중소기업협동조합법·시행령·시행규칙, 비송사건절차법)과 『특수법인등기실무』가 요구하는 항목으로 만든 사무소 작성례입니다. 주무관청이나 중소기업중앙회가 주는 서식이 있으면 그 서식에 같은 내용을 담습니다. 근거: 법 §28·§31, 사업조합 §81.</div>
+<div class="form" id="fSmFound">                ○○○○(지방명·업종명)협동조합 창립총회 의사록
+
+1. 공고 : 20○○년 ○월 ○일 ○○일보 제○면 게재(회의 2주 전)
+2. 일시 : 20○○년 ○월 ○일(○요일) 오후 ○시
+3. 장소 : 서울특별시 ○○구 ○○로 ○○, ○○빌딩 ○층 회의실
+4. 조합 설립에 동의한 자(조합원 자격자) : 총 ○○명
+   출석 : ○○명(본인 ○○명, 대리 ○명)
+   ※ 설립동의자 ○○명 중 과반수인 ○○명이 출석하여 성원되었음.
+
+5. 의사 진행
+가. 개회 : 발기인 대표 ○○○이 의장이 되어 성원을 보고하고 개회를 선언함.
+나. 제1호 의안 「정관 채택의 건」
+    발기인이 작성한 정관안을 낭독하고 심의함.
+    → 출석 ○○명 중 찬성 ○○명(3분의 2 이상)으로 원안대로 가결함.
+다. 제2호 의안 「사업계획 및 수지예산 설정의 건」
+    → 출석 ○○명 중 찬성 ○○명으로 가결함.
+라. 제3호 의안 「임원 선출의 건」
+    이사장 ○○○
+    이사 ○○○, ○○○, ○○○, ○○○, ○○○(5명 이상)
+    감사 ○○○
+    → 출석 ○○명 중 찬성 ○○명으로 가결함.
+    피선된 임원은 모두 그 자리에서 취임을 승낙함.
+마. 제4호 의안 「설립에 필요한 사항 결정의 건」
+    1) 출자 1좌의 금액은 금 100,000원으로 하고, 출자금은 설립인가 후
+       이사장이 정하는 기일에 한꺼번에 전액 납입함.
+    2) 주사무소를 서울특별시 ○○구 ○○로 ○○, ○○○호에 둠.
+    → 출석 ○○명 중 찬성 ○○명으로 가결함.
+6. 폐회 : 오후 ○시 ○분 폐회를 선언함.
+
+위 의사의 경과와 의결사항을 명확히 하기 위하여 이 의사록을 작성하고
+의장과 발기인 전원이 다음과 같이 서명한다.
+
+                              20○○년 ○월 ○일
+   (가칭) ○○○○협동조합 창립총회
+        의장(발기인 대표)  ○○○ (서명)
+        발기인            ○○○ (서명)   ○○○ (서명)   ○○○ (서명)
+                          ○○○ (서명)   ○○○ (서명)   … (발기인 전원)</div>
+    <div class="howto">① 창립총회 의사록에는 <b>의장과 발기인 전원</b>이 서명합니다(법 §31②). 일반 총회 의사록(의장 + 지명 이사 2명)과 다르니 섞지 않습니다. 서명을 거부한 발기인이 있으면 발기인 과반수가 인가 신청서에 사유서를 붙여 신청할 수 있으니(§32②) 그 사유서 사본을 등기에도 붙입니다.<br>② 협동조합은 <b>설립동의자 과반수 출석 + 출석자 3분의 2 이상 찬성</b>(§28④), 사업협동조합은 <b>설립동의자 3분의 2 이상 찬성</b>(§81)입니다. 사업조합이라면 「설립동의자 ○○명 중 찬성 ○○명」으로 고쳐 적습니다.<br>③ 출자금을 <b>한꺼번에 전액</b> 내기로 적어 두면(시행령 §6②, 법 §34②) 「납입을 마친 날」이 분명해집니다.<br>④ 설립인가 신청과 설립등기에 같은 의사록을 씁니다. <b>공증은 받지 않습니다.</b></div>
+    <div class="form-tools">
+      <button type="button" onclick="copyForm('fSmFound')">📋 복사</button>
+      <button type="button" onclick="printForm('fSmFound')">🖨 인쇄</button>
+      <button type="button" onclick="downloadForm('fSmFound','창립총회_의사록_중소기업협동조합_작성예시.txt')">⬇ 내려받기</button>
+    </div>
+  </div>
+</div>
+<div class="formbox" id="fb_fSmPaid">
+  <button class="fold-btn" type="button" onclick="toggleFold(this)">📄 출자금 납입증명서 — 이사장 작성 <span class="srcb own">사무소 작성례</span><span class="chev">▾</span></button>
+  <div class="fold-body">
+    <div class="srcline">출처 · 등기 첨부용 사무소 작성례 — 출자금 납입을 증명하는 서면(「민법법인 및 특수법인 등기규칙」 §5③, 교재 292쪽)</div>
+<div class="form" id="fSmPaid">                       출자금 납입증명서
+
+○○○○협동조합의 설립 출자금 납입 내역은 다음과 같음을 증명합니다.
+
+1. 출자 1좌의 금액      : 금 100,000원
+2. 출자 총좌수          : ○○○좌
+3. 납입한 출자금의 총액 : 금 ○○,○○○,○○○원
+                          (현금 금 ○○,○○○,○○○원 / 현물 없음)
+4. 사무 인수일          : 20○○. ○. ○.(인가일부터 2주 안 — 법 §33)
+5. 납입 기일            : 20○○. ○. ○.(인수일부터 3주 안 — 법 §34①)
+6. 납입을 마친 날        : 20○○. ○. ○.
+7. 출자 조합원 수        : ○○명
+8. 보관 계좌            : ○○은행 ○○지점 예금주 ○○○(이사장)
+                          계좌번호 (개인정보 — 원본 서류에만 기재)
+붙임 1. 조합원별 출자금 납입 명세 1부
+     2. 위 계좌의 예금잔액증명서 1부
+
+                              20○○년 ○월 ○일
+                    ○○○○협동조합  이사장 ○○○ (인)</div>
+    <div class="howto">① 납입 증명은 잔고증명서·납입금보관증명서 외에 <b>이사장이 작성한 납입증명서</b>로도 됩니다. 다만 인가 신청 때 낸 <b>출자승낙서는 납입 증명이 아닙니다</b>(교재 292쪽).<br>② 설립 때 출자금 총액은 <b>전국조합 8천만원, 지방조합·사업조합·연합회 4천만원 이상</b>이어야 합니다(시행령 §7). 1인 출자는 총좌수의 100분의 20(사업조합 100분의 30) 이하인지 함께 확인합니다.<br>③ <b>납입을 마친 날</b>이 설립등기 3주(교재 해석)의 출발점이므로 반드시 적습니다.</div>
+    <div class="form-tools">
+      <button type="button" onclick="copyForm('fSmPaid')">📋 복사</button>
+      <button type="button" onclick="printForm('fSmPaid')">🖨 인쇄</button>
+      <button type="button" onclick="downloadForm('fSmPaid','출자금납입증명서_중소기업협동조합_작성예시.txt')">⬇ 내려받기</button>
+    </div>
+  </div>
+</div>
+<div class="formbox" id="fb_fSmAsset">
+  <button class="fold-btn" type="button" onclick="toggleFold(this)">📄 재산목록 — 설립등기용 <span class="srcb own">사무소 작성례</span><span class="chev">▾</span></button>
+  <div class="fold-body">
+    <div class="srcline">출처 · 등기 첨부용 사무소 작성례 — 비송사건절차법 §63②4호(교재 목록에는 없지만 법령상 첨부서면)</div>
+<div class="form" id="fSmAsset">                           재 산 목 록
+                     (20○○. ○. ○. 현재)
+
+○○○○협동조합
+
+1. 현금 및 예금
+   ○○은행 ○○지점 보통예금(예금주 이사장 ○○○)   금 ○○,○○○,○○○원
+   ※ 설립 출자금 ○○○좌 × 금 100,000원
+2. 현물출자 재산                                   없음
+3. 그 밖의 재산                                     없음
+
+   합계                                             금 ○○,○○○,○○○원
+
+위와 같이 재산목록을 작성합니다.
+                              20○○년 ○월 ○일
+                    ○○○○협동조합  이사장 ○○○ (인)</div>
+    <div class="howto">① 비송사건절차법 §63②은 법인 설립등기에 <b>재산목록</b>을 붙이라고 정합니다. 교재(292쪽)의 목록에는 빠져 있지만 함께 내면 보정 걱정이 없습니다.<br>② 날짜와 금액은 출자금 납입증명서·잔고증명서와 맞춥니다. 등록면허세 과세표준(납입한 출자금 총액)과도 같아야 합니다.<br>③ 현물출자가 있으면 재산의 명칭·수량·가격을 적고 현물 급부를 증명하는 서면을 함께 붙입니다(법 §34③).</div>
+    <div class="form-tools">
+      <button type="button" onclick="copyForm('fSmAsset')">📋 복사</button>
+      <button type="button" onclick="printForm('fSmAsset')">🖨 인쇄</button>
+      <button type="button" onclick="downloadForm('fSmAsset','재산목록_중소기업협동조합_설립등기용_작성예시.txt')">⬇ 내려받기</button>
+    </div>
+  </div>
+</div>
+<div class="formbox" id="fb_fSmGM">
+  <button class="fold-btn" type="button" onclick="toggleFold(this)">📄 총회 의사록 — 임원 선출, 의장 + 총회가 지명한 이사 2명 이상 <span class="srcb own">사무소 작성례</span><span class="chev">▾</span></button>
+  <div class="fold-body">
+    <div class="srcline">출처 · 법령(중소기업협동조합법·시행령·시행규칙, 비송사건절차법)과 『특수법인등기실무』가 요구하는 항목으로 만든 사무소 작성례입니다. 주무관청이나 중소기업중앙회가 주는 서식이 있으면 그 서식에 같은 내용을 담습니다. 근거: 법 §46·§48·§50②.</div>
+<div class="form" id="fSmGM">                ○○○○협동조합 20○○년도 정기총회 의사록
+
+1. 일시 : 20○○년 ○월 ○일(○요일) 오전 ○시
+2. 장소 : ○○○○협동조합 회의실
+3. 소집통지 : 20○○. ○. ○. 회의 목적사항을 적어 발송(회의일 7일 전 — 법 §46)
+4. 총 조합원 ○○명 / 출석 ○○명(본인 ○○명, 서면·대리 ○명)
+   ※ 총 조합원 과반수 출석으로 성원되었음.
+
+5. 의사 진행
+가. 개회 : 이사장 ○○○이 의장이 되어 성원을 보고하고 개회를 선언함.
+나. 의사록 서명인 지명 : 의장의 제청으로 이사 ○○○, 이사 ○○○ 2명을
+    이 의사록에 서명날인할 이사로 지명함.
+다. 제1호 의안 「임원 선출의 건」
+    (설립 당시 임원의 임기 만료 — 법 제52조제1항 단서)
+    이사장 ○○○ / 이사 ○○○, ○○○, ○○○, ○○○, ○○○ / 감사 ○○○
+    → 출석 ○○명 중 찬성 ○○명(과반수)으로 가결함.
+    피선된 임원은 모두 그 자리에서 취임을 승낙함.
+6. 폐회 : 오전 ○시 ○분 폐회를 선언함.
+
+위 의사의 경과와 의결사항을 명확히 하기 위하여 이 의사록을 작성하고
+의장과 총회에서 지명한 이사가 다음과 같이 서명날인한다.
+
+                              20○○년 ○월 ○일
+                    ○○○○협동조합 정기총회
+        의장(이사장)              ○○○ (서명) (인)
+        총회에서 지명한 이사      ○○○ (서명) (인)
+        총회에서 지명한 이사      ○○○ (서명) (인)</div>
+    <div class="howto">① 총회 의사록에는 <b>의장과 총회에서 지명한 이사 2명 이상</b>이 서명날인합니다(법 §48④). 지명 결의가 의사록에 드러나야 하므로 「나.」 항목을 빼지 않습니다.<br>② 임원 선출은 총 조합원 과반수 출석, 출석자 과반수 찬성의 일반결의입니다(§48①·§47①8호). 정관변경·해산·합병은 3분의 2 이상 특별결의(§49)입니다.<br>③ 설립 당시 임원의 임기는 설립등기일부터 1년이므로(§52①, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854824" target="_blank" rel="noopener">선례 제1-408호</a>) 첫 개선 총회를 이 시기에 맞춥니다. 감사는 선출하지만 등기하지 않습니다.<br>④ 대의원총회를 둔 조합은 대의원총회 의사록으로 바꾸어 씁니다. <b>공증은 받지 않습니다.</b></div>
+    <div class="form-tools">
+      <button type="button" onclick="copyForm('fSmGM')">📋 복사</button>
+      <button type="button" onclick="printForm('fSmGM')">🖨 인쇄</button>
+      <button type="button" onclick="downloadForm('fSmGM','총회_의사록_임원선출_중소기업협동조합_작성예시.txt')">⬇ 내려받기</button>
+    </div>
+  </div>
+</div>
+<div class="formbox" id="fb_fSmBoard">
+  <button class="fold-btn" type="button" onclick="toggleFold(this)">📄 이사회 의사록 — 상근이사 추천 <span class="srcb own">사무소 작성례</span><span class="chev">▾</span></button>
+  <div class="fold-body">
+    <div class="srcline">출처 · 법령(중소기업협동조합법·시행령·시행규칙, 비송사건절차법)과 『특수법인등기실무』가 요구하는 항목으로 만든 사무소 작성례입니다. 주무관청이나 중소기업중앙회가 주는 서식이 있으면 그 서식에 같은 내용을 담습니다. 근거: 법 §50⑥·§55, 시행령 §13.</div>
+<div class="form" id="fSmBoard">                ○○○○협동조합 이사회 의사록
+
+1. 일시 : 20○○년 ○월 ○일(○요일) 오후 ○시
+2. 장소 : ○○○○협동조합 회의실
+3. 구성원(이사장·이사·상근이사) ○명 / 출석 ○명(과반수 출석)
+
+4. 의사 진행
+가. 개회 : 이사장 ○○○이 의장이 되어 개회를 선언함.
+나. 의사록 서명인 지명 : 이사 ○○○, 이사 ○○○ 2명을 지명함.
+다. 의안 「상근이사 추천의 건」
+    조합원이 아닌 사람 가운데 시행령 제13조의 자격(관련 경력 5년 이상)을
+    갖춘 ○○○을 상근이사 후보로 추천함.
+    → 출석 ○명 중 찬성 ○명(과반수)으로 가결함.
+5. 폐회 : 오후 ○시 ○분 폐회를 선언함.
+
+                              20○○년 ○월 ○일
+                    ○○○○협동조합 이사회
+        의장(이사장)              ○○○ (서명)
+        이사회가 지명한 이사      ○○○ (서명)
+        이사회가 지명한 이사      ○○○ (서명)
+붙임: 이사장의 상근이사 임명장 사본 1부</div>
+    <div class="howto">① 상근이사는 <b>조합원이 아닌 사람</b> 가운데 시행령 §13의 자격을 갖추고 <b>이사회 추천</b>을 받은 사람을 이사장이 임명합니다(법 §50⑥). 사업조합은 조합원 외의 사람 가운데 이사회 추천으로 이사장이 임명합니다(§84②).<br>② 이사회 의사록에는 <b>의장과 이사회가 지명한 이사 2명 이상</b>이 서명합니다(§55⑧).<br>③ 정관에서 「전무」 등으로 부르더라도 등기는 「상근이사」로 합니다(교재 291쪽). 임명 뒤 2주 안에 주무관청에 보고합니다(§130①).</div>
+    <div class="form-tools">
+      <button type="button" onclick="copyForm('fSmBoard')">📋 복사</button>
+      <button type="button" onclick="printForm('fSmBoard')">🖨 인쇄</button>
+      <button type="button" onclick="downloadForm('fSmBoard','이사회_의사록_상근이사추천_작성예시.txt')">⬇ 내려받기</button>
+    </div>
+  </div>
+</div>
+<div class="formbox" id="fb_fSmExpl">
+  <button class="fold-btn" type="button" onclick="toggleFold(this)">📄 소명서 — 정관례대로 바꾼 정관변경(인가 불요) <span class="srcb own">사무소 작성례</span><span class="chev">▾</span></button>
+  <div class="fold-body">
+    <div class="srcline">출처 · 등기 보정 대비 사무소 작성례 — 중소기업협동조합법 §47② 단서(정관례에 따른 변경은 인가 불요), 교재 293쪽 주 106</div>
+<div class="form" id="fSmExpl">                           소  명  서
+
+사    건 : ○○○○협동조합 변경등기(목적 변경)
+신 청 인 : ○○○○협동조합  이사장 ○○○
+
+신청인은 위 등기에 관하여 다음과 같이 소명합니다.
+
+1. 신청인은 20○○. ○. ○. 정기총회에서 총 조합원 ○○명 중 ○○명 출석,
+   출석 ○○명 중 ○○명 찬성으로 정관 제○조(목적)를 변경하였습니다.
+2. 변경 뒤 조문은 주무관청이 정한 「중소기업협동조합 정관례」 제○조와
+   같은 내용입니다(붙임 대조표).
+3. 정관례에 따라 변경하는 경우에는 주무관청의 인가를 받지 아니하여도
+   되므로(중소기업협동조합법 제47조제2항 단서) 인가서를 붙이지
+   아니하였습니다.
+
+붙임 1. 변경 전·후 정관과 정관례 조문 대조표 1부
+     2. 정기총회 의사록 1부
+
+                              20○○년 ○월 ○일
+                    신청인 ○○○○협동조합  이사장 ○○○ (인)
+○○지방법원 ○○등기소 귀중</div>
+    <div class="howto">① 정관 필요적 기재사항을 바꾸려면 주무관청 인가가 필요하지만(법 §47②, 시행령 §12④) <b>주무관청이 정한 정관례대로 바꾸면 인가가 필요 없습니다</b>. 교재는 이때 정관례에 따른 변경임을 소명하라고 합니다(293쪽 주 106).<br>② 대조표에는 정관례의 고시 번호와 조문을 그대로 옮기고, 사용한 정관례의 출처(국가법령정보센터 행정규칙 화면 등)를 함께 붙입니다.<br>③ 정관례와 다르게 바꾸었다면 이 소명서를 쓰지 않고 인가서를 받아 붙입니다.</div>
+    <div class="form-tools">
+      <button type="button" onclick="copyForm('fSmExpl')">📋 복사</button>
+      <button type="button" onclick="printForm('fSmExpl')">🖨 인쇄</button>
+      <button type="button" onclick="downloadForm('fSmExpl','소명서_정관례변경_인가불요_중소기업협동조합_작성예시.txt')">⬇ 내려받기</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ 제4부 ══════════ -->
+<div class="part" id="part4">
+  <div class="pn">제4부</div>
+  <div class="pt2">합병 · 분할 · 해산 · 청산</div>
+  <div class="pw">해산·합병·분할은 총회 특별결의로 하며 <b>대의원총회는 의결할 수 없습니다</b>(조합원 제명도 같음, §44③·§49). 조직변경 규정은 없습니다.</div>
+</div>
+
+<div class="qhead"><span class="qb">期</span>
+  <h2>시계는 모두 몇 개인가 — 2주·3주·4주·90일</h2>
+</div>
+<p>첫날은 세지 않고 다음 날부터 셉니다(민법 §157). 끝날이 토요일·공휴일이면 그다음 날까지입니다(§161). 「회의 2주 전」처럼 거꾸로 세는 기간은 공고일과 회의일 사이에 14일이 온전히 들어가게 잡으면 안전합니다. 2027년 공휴일은 우주항공청 「2027년 월력요항」(2026. 6. 29.)으로 확인했습니다.</p>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:20%">절차</th><th style="width:20%">① 기산일</th><th style="width:22%">② 근거 조문</th><th style="width:12%">③ 말일 처리</th><th>④ 만료일(예)</th></tr></thead>
+  <tbody>
+    <tr><td>창립총회 공고</td><td>총회일에서 거꾸로</td><td>법 §28② — 2주 전</td><td>앞당겨 잡음</td><td>2027. 4. 28.(수) 총회 → <b>4. 13.(화)</b>까지 공고</td></tr>
+    <tr><td>설립인가 신청</td><td>창립총회가 끝난 날의 다음 날</td><td>시행령 §8① — 4주</td><td>§161</td><td>2027. 4. 28.(수) 총회 → <b>5. 26.(수)</b></td></tr>
+    <tr><td>사무 인계 → 출자 납입</td><td>인가일 / 인수일의 다음 날</td><td>법 §33 — 2주 / §34① — 3주</td><td>§161</td><td>2027. 6. 9.(수) 인가 → 인계 6. 23.(수)까지 → 그로부터 3주 안 납입</td></tr>
+    <tr><td><b>설립등기</b></td><td>출자 납입을 마친 날의 다음 날</td><td>민법 §49① 준용(교재 289쪽) — 3주</td><td>§161</td><td>2027. 6. 30.(수) 납입 완료 → <b>7. 21.(수)</b> · 인가일부터 90일(§133①3호)도 넘기지 않게</td></tr>
+    <tr><td><b>변경등기</b>(임원·정관·사무소·출자)</td><td>변경일(인가 사항은 인가서 도착일)의 다음 날</td><td>민법 §50~§53 준용 — 3주</td><td>§161</td><td>2027. 3. 24.(수) 정기총회 선출·취임 → <b>4. 14.(수)</b></td></tr>
+    <tr><td>임원 선임 보고</td><td>선임일의 다음 날</td><td>법 §130① — 2주</td><td>§161</td><td>2027. 3. 24.(수) → <b>4. 7.(수)</b></td></tr>
+    <tr><td>해산신고 / 해산등기</td><td>해산일 / 청산인 취임일의 다음 날</td><td>법 §73② — 2주 / 민법 §85① — 3주</td><td>§161</td><td>2027. 8. 4.(수) → 신고 <b>8. 18.(수)</b> · 등기 <b>8. 25.(수)</b></td></tr>
+    <tr><td>합병·분할 등기</td><td>합병·분할 절차(채권자보호 포함)가 끝난 날의 다음 날</td><td>명문 없음 — 교재 301쪽은 상법을 유추해 2주</td><td>§161</td><td>2027. 6. 9.(수) 절차 종료 → <b>6. 23.(수)</b></td></tr>
+  </tbody>
+</table></div>
+
+<div class="qhead"><span class="qb">9</span>
+  <h2>합병 · 분할</h2>
+</div>
+<p>합병은 미리 총회 특별결의를 거치고(§74①·§49), 채권자보호절차(의결일부터 2주 안 재무상태표, 이의 공고와 개별 최고, 이의기간 30일 이상 — §68·§69 준용)를 밟은 뒤, 합병 사유서·존속(신설) 조합의 사업계획서·정관을 주무관청에 내고 <b>협의</b>합니다(§74③). 인가가 아니라 협의이므로 등기관이 협의 여부까지 심사하지는 않습니다(교재 301쪽). 합병은 존속·신설 조합의 주사무소 소재지에서 등기해야 효력이 생깁니다(§76①).</p>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:18%">등기</th><th style="width:20%">신청인</th><th>붙일 서류(교재 300~301쪽)</th></tr></thead>
+  <tbody>
+    <tr><td><b>흡수합병</b> — 존속조합 변경 + 소멸조합 해산</td><td>존속조합 이사장이 <b>동시에</b> 신청</td><td>합병계약서, 각 조합 합병 결의 총회 의사록, 채권자보호절차 증명, 존속조합 정관이 바뀌면 정관변경 인가서(정관례대로면 소명서). 소멸조합 해산등기 쪽은 따로 첨부서면이 필요 없습니다</td></tr>
+    <tr><td><b>신설합병</b> — 신설조합 설립 + 소멸조합 해산</td><td>신설조합 이사장이 동시에 신청</td><td>위 서류 + 신설조합 정관, 설립위원회 결정(정관 작성·임원 선임) 서면, 설립위원 자격을 확인할 각 총회 의사록, 신설조합 설립인가서, 임원 취임승낙서와 인감증명서, 인감신고서. 신설합병 때 뽑은 임원의 임기는 <b>다음 정기총회일까지</b>입니다(§75②)</td></tr>
+    <tr><td>분할</td><td>각 조합 이사장</td><td>분할계획서, 분할 결의 총회 의사록(신설 조합이 승계할 권리·의무 범위 포함, §77①), 채권자보호절차 증명, 신설조합 정관·인가서·임원 서류. 업종이 둘 이상인 조합은 일부 업종 조합원 과반수 찬성으로 분할할 수 있습니다(§77②, 시행령 §15)</td></tr>
+  </tbody>
+</table></div>
+
+<div class="qhead"><span class="qb">10</span>
+  <h2>해산 · 청산 · 계속</h2>
+</div>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:15%">절차</th><th style="width:43%">요건 · 순서</th><th>신고 · 등기</th></tr></thead>
+  <tbody>
+    <tr><td><b>해산</b></td><td>총회 특별결의, 합병·분할, 파산, 정관상 해산 사유, 주무관청 해산명령(휴면조합 등, §132·§133)(§73①). 청산인은 정관례상 이사장이고 총회에서 조합원 가운데 따로 뽑을 수 있습니다(교재 298쪽)</td><td>총회 결의·정관 사유·해산명령이면 해산한 날부터 <b>2주 안 주무관청 신고</b>(§73②, 별지 제5호서식 — 어기면 과태료 500만원 이하 §141②10호). 청산인 취임 뒤 <b>3주 안</b> 주사무소 소재지에서 해산등기와 청산인 등기(민법 §85①) — 해산 사유 증명, 이사장이 아닌 청산인이면 자격 증명(비송법 §65). 해산명령은 주무관청이 촉탁할 수 있습니다(§73③)</td></tr>
+    <tr><td>청산종결</td><td>청산 사무를 마친 때</td><td>3주 안 등기하고 주무관청에 신고(민법 §94)</td></tr>
+    <tr><td><b>조합 계속</b></td><td>존립기간 만료로 해산한 조합은 회사 계속 절차에 준해 총회에서 계속을 결의할 수 있습니다</td><td>해산등기 뒤 <b>조합계속등기</b>를 할 수 있습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2232113" target="_blank" rel="noopener">선례 제201701-1호</a>). 존립기간을 바꾸거나 없애는 것은 정관변경이므로 인가가 필요합니다(정관례대로면 불요)</td></tr>
+  </tbody>
+</table></div>
+
+<div class="qhead"><span class="qb">補</span>
+  <h2>보정·보완이 나기 쉬운 곳 — 먼저 소명서로 풀리는지 봅니다</h2>
+</div>
+<p>등기소가 보정을 명하면 그 내용대로 고쳐 내면 됩니다. 의사록은 공증을 받지 않으므로 서명인을 더해 다시 내는 일이 비교적 쉽습니다. 가능성은 사무소의 예측입니다.</p>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:10%">단계</th><th style="width:25%">예상 사유</th><th style="width:7%">가능성</th><th style="width:27%">예상 문구</th><th>대응(소명서로 되는지 먼저)</th></tr></thead>
+  <tbody>
+    <tr><td>인가</td><td>발기인 수 미달(사업조합을 시·도 구역으로 하면서 5명만 모음)</td><td><b>상</b></td><td>「발기인 수가 법정 기준에 미달합니다」</td><td>소명 불가 — 구역을 시·군·구로 줄이거나 발기인을 더 모아 다시 총회(§80 단서)</td></tr>
+    <tr><td>인가</td><td>창립총회 공고가 2주에 못 미침</td><td><b>상</b></td><td>「창립총회 공고를 증명하는 서류를 보완하십시오」</td><td>기간이 실제로 모자라면 소명 불가 — 다시 공고 후 총회. 증빙만 없으면 <b>소명서</b>와 게재·게시 자료로 보완</td></tr>
+    <tr><td>등기소</td><td>창립총회 의사록에 발기인 일부 서명 누락</td><td><b>상</b></td><td>「의장과 발기인 전원이 서명한 의사록을 내십시오」</td><td>빠진 발기인의 서명을 받아 다시 냄(§31②). 서명 거부라면 인가 신청 때 낸 사유서(§32②) 사본을 붙여 <b>소명</b></td></tr>
+    <tr><td>등기소</td><td>감사를 등기하려 함 / 이사장 대표권 제한을 기재</td><td>중</td><td>「등기할 수 없는 사항입니다」</td><td>신청서에서 삭제(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3261472" target="_blank" rel="noopener">선례 제202105-3호</a>, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195907" target="_blank" rel="noopener">선례 제2-152호</a>)</td></tr>
+    <tr><td>등기소</td><td>이사장을 「이사」로만 적음</td><td>중</td><td>「이사장의 명칭과 주소를 기재하십시오」</td><td>신청서 보정(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195907" target="_blank" rel="noopener">선례 제2-152호</a>)</td></tr>
+    <tr><td>등기소</td><td>납입 증명으로 출자승낙서만 냄</td><td><b>상</b></td><td>「출자금 납입을 증명하는 서면을 내십시오」</td><td>잔고증명서나 이사장 작성 납입증명서 추가(교재 292쪽)</td></tr>
+    <tr><td>등기소</td><td>재산목록 누락</td><td>중</td><td>「재산목록을 내십시오」</td><td>재산목록 추가(비송법 §63②4호) — 처음부터 붙이면 생기지 않습니다</td></tr>
+    <tr><td>등기소</td><td>총회 의사록 서명인이 의장 혼자이거나 이사 지명 결의가 없음</td><td><b>상</b></td><td>「의장과 총회에서 지명한 이사 2명 이상이 서명날인한 의사록을 내십시오」</td><td>지명된 이사의 서명날인 추가. 지명 결의 자체가 없었다면 소명 불가(§48④)</td></tr>
+    <tr><td>등기소</td><td>정관변경 인가서 없음</td><td>중</td><td>「주무관청의 인가서를 내십시오」</td><td>정관례대로 바꾼 것이면 <b>소명서</b>(정관례 조문 대조표)로 인가 불요를 밝힘(§47② 단서). 아니면 인가서 제출</td></tr>
+    <tr><td>등기소</td><td>해산·합병·분할·조합원 제명을 대의원총회에서 의결</td><td><b>상</b></td><td>「총회의 의결을 증명하는 서면을 내십시오」</td><td>소명 불가 — 총회에서 다시 의결(§44③)</td></tr>
+    <tr><td>등기소</td><td>결원인데 퇴임등기만 신청 / 직무대행자 등기 신청</td><td>중</td><td>「후임 임원 취임등기와 동시에 신청하십시오」 / 「등기할 수 없는 사항입니다」</td><td>후임 선출 후 동시 신청(교재 294쪽) / 신청 취하(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854724" target="_blank" rel="noopener">선례 제1-434호</a>)</td></tr>
+    <tr><td>등기소</td><td>등록면허세를 1천분의 2로 신고</td><td>중</td><td>「등록면허세가 부족합니다」</td><td>차액 추가 납부(위 6번 표)</td></tr>
+    <tr><td>등기소</td><td>인감증명서·초본 3개월 경과</td><td>중</td><td>「발행 3개월 이내의 증명서를 내십시오」</td><td>재발급</td></tr>
+  </tbody>
+</table></div>
+
+<div class="qhead"><span class="qb">Q</span>
+  <h2>자주 묻는 질문</h2>
+</div>
+<div class="faq">
+  <details><summary>협동조합 기본법 협동조합과 무엇이 다른가요?</summary><div class="fa">협동조합 기본법 협동조합은 발기인 5명으로 시·도에 <b>신고</b>하고 의사록을 공증받습니다. 중소기업협동조합법 조합은 같은 업종 중소기업자만 조합원이 되고 주무관청 <b>인가</b>를 받으며, 의사록 공증이 필요 없고 감사를 등기하지 않습니다. 업종 단체로 공동사업을 하려면 이쪽, 업종을 가리지 않는 모임이면 협동조합 기본법을 검토합니다.</div></details>
+  <details><summary>사업협동조합은 정말 5명이면 되나요?</summary><div class="fa">시·군·구 구역이면 5명 이상이면 됩니다. 그러나 <b>시·도나 전국을 구역으로 하면 협동조합과 같은 발기인 수</b>(시·도 20명, 전국 30명, 도·소매는 30명·50명)가 필요합니다(§80 단서). 교재(302쪽)는 5명만 적고 있으니 구역부터 정하십시오.</div></details>
+  <details><summary>인가를 받은 날부터 3주가 지나면 늦은 건가요?</summary><div class="fa">교재는 출자 납입을 마친 날부터 3주로 봅니다(289쪽). 다만 민법 문언대로 인가서 도착일부터 3주로 보는 해석도 있어, 가능하면 인가 직후 인계와 납입을 서둘러 <b>인가서 도착일부터 3주 안에 등기까지</b> 마치는 것이 가장 안전합니다. 어떤 경우에도 인가일부터 90일은 넘기지 않습니다(§133①3호).</div></details>
+  <details><summary>감사도 뽑았는데 등기하지 않아도 되나요?</summary><div class="fa">감사는 조합의 기관이지만 법이 등기사항으로 정하지 않았으므로 등기할 수 없습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3261472" target="_blank" rel="noopener">선례 제202105-3호</a>). 감사 선출은 주무관청 보고(§130①)와 조합 내부 서류로 관리합니다.</div></details>
+  <details><summary>첫 임원 임기는 언제 끝나나요?</summary><div class="fa">설립 당시 임원의 임기는 1년이고(§52① 단서) <b>설립등기일부터</b> 셉니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854824" target="_blank" rel="noopener">선례 제1-408호</a>). 설립등기 뒤 1년이 되는 시점의 총회에서 임원을 다시 뽑고 3주 안에 변경등기를 합니다.</div></details>
+  <details><summary>이사장이 바뀌면 인감도 새로 내야 하나요?</summary><div class="fa">네. 등기소에 인감을 낼 수 있는 사람은 이사장뿐이므로(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854748" target="_blank" rel="noopener">선례 제1-401호</a>) 새 이사장이 취임등기와 함께 인감신고서를 냅니다.</div></details>
+  <details><summary>설립인가 신청은 누가 대신할 수 있나요?</summary><div class="fa">주무관청에 내는 설립인가·정관변경 인가 신청서, 임원선임보고서, 해산신고서의 작성·제출 대리는 행정사의 업무이고, 등기 신청 대리는 법무사·변호사의 업무입니다. 본 사무소는 법무사·행정사 사무소여서 두 가지를 함께 맡을 수 있습니다.</div></details>
+</div>
+
+<div class="hire">
+  <div class="ht">고충은 덜어드리고, 끝까지 곁에서 돕겠습니다</div>
+  <p style="margin:0 0 8px;font-size:14.5px;line-height:1.85">공고 2주, 인가 신청 4주, 인계 2주, 납입 3주, 등기 3주 — 시계가 여러 개라 하나만 놓쳐도 일정이 꼬입니다. 본 사무소에서는 창립총회 날짜를 정할 때부터 등기일까지 거꾸로 짚어 일정표를 함께 만들고, 절차를 마치실 때까지 성심껏 돕겠습니다.</p>
+  <p style="margin:0;font-size:14.5px;line-height:1.85">설립인가·정관변경 인가 신청서, 임원선임보고서, 해산신고서의 작성과 주무관청 제출 대리는 <b>행정사</b>로서, 정관·창립총회 의사록·총회와 이사회 의사록·출자금 납입증명서·재산목록·소명서 작성과 설립·변경·합병·해산 등기 신청 대리, 등록면허세 신고·납부 대행은 <b>법무사</b>로서 돕습니다. 법인설립신고·사업자등록과 세무 신고는 세무사의 업무입니다 — 세무사의 확인을 받으시기 바랍니다.</p>
+</div>
+
+<div class="cb-box" id="cbBox">
+<style>
+.cb-box{margin:20px auto;max-width:660px;background:#fbf6ec;border:1px solid #e3cfa8;border-radius:14px;padding:16px 16px 14px;box-sizing:border-box}
+.cb-box .cb-t{font-weight:800;font-size:16.5px;color:#5a3b1c;text-align:center;margin:0 0 10px}
+.cb-box .cb-l{display:block;font-size:13px;font-weight:700;color:#7a5230;margin:8px 0 4px}
+.cb-box .cb-l small{font-weight:400;color:#8a7a62}
+.cb-box textarea{width:100%;box-sizing:border-box;border:1px solid #d9c7a3;border-radius:10px;padding:9px 12px;font:14px/1.6 'Pretendard',-apple-system,'Malgun Gothic',sans-serif;color:#2a2118;background:#fff;resize:vertical}
+.cb-box #cbAuto{min-height:120px;background:#fffdf8}
+.cb-box #cbMsg{min-height:70px}
+.cb-box textarea:focus{outline:2px solid #c8862d;outline-offset:1px}
+.cb-box .cb-row{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:12px}
+.cb-box .cb-row a{display:flex;align-items:center;justify-content:center;gap:6px;flex:1 1 150px;text-align:center;border-radius:999px;padding:12px 14px;font-size:15px;font-weight:700;text-decoration:none;box-shadow:0 3px 10px rgba(0,0,0,.12)}
+.cb-box .cb-k{background:#FEE500;color:#3c1e1e}.cb-box .cb-p{background:#c8862d;color:#fff}.cb-box .cb-m{background:#3d5a80;color:#fff}
+.cb-box .cb-n{font-size:12px;color:#8a7a62;text-align:center;margin:8px 0 0;line-height:1.5}
+.cb-box .cb-row a{white-space:nowrap}
+@media(max-width:520px){.cb-box .cb-row a{flex-basis:100%;padding:11px 14px}.cb-box textarea{font-size:16px}}
+.cb-toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:99999;max-width:min(92vw,460px);background:#2a2118;color:#fbf8f1;border-radius:10px;padding:12px 16px;font-size:14px;line-height:1.6;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+@media print{.cb-box{display:none}}
+</style>
+<div class="cb-t">💬 이 내용으로 상담하기</div>
+<label class="cb-l" for="cbAuto">① 보고 계신 내용 <small>(자동으로 옮겨집니다 · 고쳐 쓰셔도 됩니다)</small></label>
+<textarea id="cbAuto"></textarea>
+<label class="cb-l" for="cbMsg">② 덧붙일 말씀 <small>(내 상황·궁금한 점)</small></label>
+<textarea id="cbMsg" placeholder="예) 제 경우에도 해당하는지, 언제까지 해야 하는지 궁금합니다."></textarea>
+<div class="cb-row">
+<a class="cb-k" id="cbKakao" href="https://pf.kakao.com/_znJqX/chat" target="_blank" rel="noopener">💬 카카오톡으로 보내기</a>
+<a class="cb-m" id="cbMail" href="mailto:rokfbi01@gmail.com">✉️ 이메일로 보내기</a>
+<a class="cb-p" href="tel:01037480825">📞 전화 010-3748-0825</a>
+</div>
+<p class="cb-n">카카오톡은 대화창이 열리면 <b>붙여넣기</b>만 하시면 됩니다 (PC: Ctrl+V · 휴대폰: 입력칸을 길게 눌러 붙여넣기).</p>
+<script>
+(function(){
+  var box=document.getElementById('cbBox'); if(!box) return;
+  var au=document.getElementById('cbAuto'), ta=document.getElementById('cbMsg'), dirty=false, last='';
+  if(box.getAttribute('data-msg') && !ta.value) ta.value=box.getAttribute('data-msg');
+  function clean(el){ if(!el) return ''; var c=el.cloneNode(true);
+    [].forEach.call(c.querySelectorAll('.bub,script,style,button,.cb-box,.tt'),function(x){x.parentNode.removeChild(x);});
+    [].forEach.call(c.querySelectorAll('br'),function(x){x.parentNode.replaceChild(document.createTextNode(' '),x);});
+    return (c.textContent||'').replace(/\s+/g,' ').trim(); }
+  function title(){ return clean(document.querySelector('h1'))||document.title; }
+  function generic(){
+    var s=clean(document.querySelector('.tldr')||document.querySelector('.lead')||document.querySelector('main p'));
+    s=s.replace(/^⭐?\s*30초 결론부터\s*/,'');
+    var parts=s.split(/(?<=[.?!])\s+/), sum='';
+    for(var i=0;i<parts.length && sum.length<170;i++){ sum+=(sum?' ':'')+parts[i]; }
+    if(sum.length>240) sum=sum.slice(0,238)+'…';
+    return '보신 페이지: '+title()+(sum?'\n요약: '+sum:'');
+  }
+  function build(){
+    var body=''; try{ body=(typeof window.cbSummary==='function')?window.cbSummary():generic(); }catch(e){ body=generic(); }
+    return '[홈페이지 상담 문의]\n'+body+'\n주소: '+location.href;
+  }
+  function refresh(){ if(dirty) return; var v=build(); if(v!==last){ au.value=v; last=v; } }
+  au.addEventListener('input',function(){ dirty=true; });
+  var tm; function later(){ clearTimeout(tm); tm=setTimeout(refresh,350); }
+  document.addEventListener('change',function(e){ if(!box.contains(e.target)) later(); });
+  document.addEventListener('click',function(e){ if(!box.contains(e.target)) later(); });
+  window.addEventListener('hashchange',later);
+  refresh(); setTimeout(refresh,1500);
+  function full(){ refresh(); var m=ta.value.trim(); return au.value+(m?'\n\n덧붙일 말씀: '+m:''); }
+  function toast(m){ var t=document.createElement('div'); t.className='cb-toast'; t.textContent=m; document.body.appendChild(t); setTimeout(function(){ if(t.parentNode) t.parentNode.removeChild(t); },6500); }
+  function copy(text){
+    var ok=false;
+    try{ var x=document.createElement('textarea'); x.value=text; x.setAttribute('readonly',''); x.style.position='fixed'; x.style.top='0'; x.style.opacity='0'; document.body.appendChild(x); x.select(); ok=document.execCommand('copy'); document.body.removeChild(x); }catch(e){}
+    if(!ok && navigator.clipboard && window.isSecureContext){ ok=true; navigator.clipboard.writeText(text).catch(function(){}); }
+    return ok;
+  }
+  document.getElementById('cbKakao').addEventListener('click',function(){
+    var ok=copy(full());
+    toast(ok?'상담 내용을 복사했습니다. 카카오톡 대화창에 붙여넣기 하시면 됩니다.':'카카오톡 창이 열리면 위 상담 내용을 복사해 붙여넣어 주세요.');
+  });
+  document.getElementById('cbMail').addEventListener('click',function(){
+    this.href='mailto:rokfbi01@gmail.com?subject='+encodeURIComponent('[홈페이지] '+title()+' 상담 문의')+'&body='+encodeURIComponent(full());
+  });
+})();
+</script>
+</div>
+
+<div class="src">
+근거(2026. 11. 23. 국가법령정보센터·사법정보공개포털 현행 확인) — 중소기업협동조합법(법률 제21197호, 2026. 6. 3. 시행 — 발기인 수는 법률 제21705호, 2026. 5. 26. 시행) §3~§7· §10~§13· §16· §27~§34· §44· §47~§52· §55· §57· §58· §66· §68· §69· §71· §73~§81· §84· §86· §89~§92· §95· §97· §130· §133· §141과 법률 제15467호 부칙 §2 / 같은 법 시행령(대통령령 제36384호) §3· §4· §6· §7· §8· §12· §13· §15 / 같은 법 시행규칙(중소벤처기업부령 제91호) §2~§5· §7과 별지 제1~5·8호서식 / 민법 §49~§53· §85· §94· §97· §157· §161 / 비송사건절차법 §60· §63· §65· §67 / 민법법인 및 특수법인 등기규칙 §5· §6 / 법인의 등기사항 등에 관한 특례법 §2 / 지방세법 §28①6호·②·④· §151①2호, 같은 법 시행령 §43①3호 / 지방회계법 §55 / 등기사항증명서 등 수수료규칙 §5의3· §5의4· §5의5 / 상업등기규칙 §35· §52· §66· §104 / 공증인법 §66의2와 법무부 고시 제10-058호(의사록 인증 제외대상 법인) / 법무사법 §2 · 행정사법 §2 / 상업등기선례 <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854748" target="_blank" rel="noopener">선례 제1-401호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854824" target="_blank" rel="noopener">선례 제1-408호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854845" target="_blank" rel="noopener">선례 제1-424호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854724" target="_blank" rel="noopener">선례 제1-434호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195907" target="_blank" rel="noopener">선례 제2-152호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2232113" target="_blank" rel="noopener">선례 제201701-1호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3261472" target="_blank" rel="noopener">선례 제202105-3호</a> / 우주항공청 「2027년 월력요항」(2026. 6. 29.) / 『특수법인등기실무』(법원행정처, 2025) 284~305쪽. 교재는 2026. 5. 26. 발기인 수 개정 전에 나와 연합회 도·소매 발기인을 10개 조합으로 적고, 사업조합 발기인의 구역별 예외(§80 단서)와 인가 후 90일 규정(§133①3호), 재산목록(비송법 §63②4호)을 빠뜨려 현행 법령을 따랐습니다. 교재 302쪽이 인용한 선례 번호(2-125)는 내용상 <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195907" target="_blank" rel="noopener">선례 제2-152호</a>를 가리킵니다. 설립등기 기한은 교재 해석과 민법 문언이 달라 두 해석을 모두 지키는 일정으로 안내했습니다. 발급처 링크는 각 기관 공식 사이트의 해당 화면으로 연결됩니다.
+</div>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+    t.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();t.classList.toggle('on');}if(e.key==='Escape'){t.classList.remove('on');t.blur();}});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){terms.forEach(function(x){x.classList.remove('on');});}});
+})();
+function toggleFold(b){var fb=b.parentElement;fb.classList.toggle('open');}
+function _openCall(id){var w=document.getElementById(id);var n=w&&w.nextElementSibling;if(n&&n.classList.contains('calltbl'))n.classList.add('open');}
+document.addEventListener('click',function(e){var a=e.target.closest?e.target.closest('a[href^="#call"]'):null;if(a)_openCall(a.getAttribute('href').slice(1));});
+if(location.hash.indexOf('#call')===0)_openCall(location.hash.slice(1));
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('양식이 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('양식이 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('양식을 내려받았습니다');}
+</script>
+<script>
+/* 2026-11-16 메일 단추 — PC에 메일 프로그램이 연결되어 있지 않으면 mailto 링크가 크롬 첫 화면만 여는 일이 많다.
+   그래서 PC에서는 Gmail 편지쓰기 화면을 받는 사람·제목·본문을 채워 새 탭으로 바로 열고, 내용은 복사해 둔다(네이버·다음 메일용).
+   휴대폰은 메일 앱이 그대로 열리므로 손대지 않는다. */
+(function(){
+  if(window.__sanMailFix) return; window.__sanMailFix=1;
+  if(/Android|iPhone|iPad|iPod|Mobile|Windows Phone/i.test(navigator.userAgent)) return;
+  function qp(s,k){ var m=s.match(new RegExp('(?:^|&)'+k+'=([^&]*)','i')); if(!m) return ''; try{ return decodeURIComponent(m[1]); }catch(e){ return m[1]; } }
+  function copy(t){ try{ var x=document.createElement('textarea'); x.value=t; x.setAttribute('readonly',''); x.style.position='fixed'; x.style.top='0'; x.style.opacity='0'; document.body.appendChild(x); x.select(); var ok=document.execCommand('copy'); document.body.removeChild(x); return ok; }catch(e){ return false; } }
+  function toast(m){ var t=document.createElement('div'); t.style.cssText='position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:100001;max-width:min(92vw,480px);background:#2a2118;color:#fbf8f1;border-radius:10px;padding:12px 16px;font-size:14px;line-height:1.6;box-shadow:0 8px 24px rgba(0,0,0,.35)'; t.textContent=m; document.body.appendChild(t); setTimeout(function(){ if(t.parentNode) t.parentNode.removeChild(t); },8000); }
+  document.addEventListener('click',function(e){
+    var a=(e.target&&e.target.closest)?e.target.closest('a[href^="mailto:"]'):null; if(!a||e.defaultPrevented) return;
+    var h=a.getAttribute('href').slice(7), i=h.indexOf('?'), to, q=i<0?'':h.slice(i+1);
+    try{ to=decodeURIComponent(i<0?h:h.slice(0,i)); }catch(x){ to=i<0?h:h.slice(0,i); }
+    var su=qp(q,'subject'), body=qp(q,'body'), keep=body.length, b, u, note='\n\n…(내용이 길어 일부만 담았습니다. 전체 내용은 복사되어 있으니 붙여넣어 주세요.)';
+    for(;;){ b=keep<body.length?body.slice(0,keep)+note:body;
+      u='https://mail.google.com/mail/?view=cm&fs=1&to='+encodeURIComponent(to)+(su?'&su='+encodeURIComponent(su):'')+(b?'&body='+encodeURIComponent(b):'');
+      if(u.length<7500||keep<300) break; keep=Math.floor(keep*0.75); }
+    e.preventDefault();
+    var copied=body?copy(body):false;
+    var w=window.open(u,'_blank'); if(w){ try{ w.opener=null; }catch(x){} } else { location.href=u; return; }
+    toast('Gmail 편지쓰기 창을 열었습니다. 받는 사람·제목·내용이 채워져 있으니 확인하고 보내기만 누르시면 됩니다.'+(copied?' 네이버·다음 메일을 쓰시면 내용이 복사되어 있으니 그 메일 본문에 붙여넣기(Ctrl+V) 하세요.':' 다른 메일을 쓰시면 받는 사람을 '+to+' 로 적어 보내 주세요.'));
+  });
+})();
+</script>
+</body>
+</html>
