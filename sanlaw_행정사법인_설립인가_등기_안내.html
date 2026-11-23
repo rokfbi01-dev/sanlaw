@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[등기 안내] 행정사법인 — 설립인가, 설립등기와 법인업무신고 | 산 법무사 김재섭</title>
+<meta name="description" content="행정사법인 설립 안내. 행정사 3명 이상(경력 요건 없음), 정관 10가지 기재사항, 행정안전부장관 설립인가(별지 제19호의3서식, 처리 14일), 인가증 수령일부터 14일 안 구성원 전원 공동 설립등기와 첨부서면, 등록면허세 대도시 3배, 시·군·구 법인업무신고와 15일 안 보험·공탁, 변경·분사무소·해산 기한, 보정 대비.">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+ul{margin:8px 0 12px; padding-left:20px;} li{margin:6px 0;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(300px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.who{background:var(--box); border-radius:10px; padding:14px 16px; margin:12px 0; border-left:4px solid #b9a98c;}
+.who .wl{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;margin-left:3px;}
+.tag.free{background:#5a9a72;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.cta{display:block; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; text-decoration:none; font-weight:700; font-size:16px; padding:15px; border-radius:11px; margin:18px 0; box-shadow:0 3px 8px rgba(122,82,48,.25);}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:11px 15px;margin:10px 0;font-size:13.5px;line-height:1.7;}
+.lawbox .ll{display:inline-block;font-size:11.5px;font-weight:700;color:#fff;background:var(--gold-d);border-radius:5px;padding:2px 8px;margin-right:6px;}
+.lawbox a{color:var(--gold-d);font-weight:600;}
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:14.5px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:16px;margin:10px 0;font-family:'D2Coding','Courier New',monospace;font-size:12.5px;line-height:1.65;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:15px;letter-spacing:2px;margin-bottom:10px;color:#241a10;}
+.howto{font-size:13.5px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:12.5px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:6px 12px;cursor:pointer;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.concept{background:var(--box);border-radius:9px;padding:11px 15px;margin:8px 0 14px;font-size:14.5px;color:#5a4a36;border-left:3px solid #b9a98c;}
+.concept b{color:var(--gold-d);}
+.flow{background:linear-gradient(180deg,#fcf9f2,#f7f1e5);border:1.5px solid var(--gold);border-radius:14px;padding:18px 18px 14px;margin:14px 0 20px;}
+.flow .ft2{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:12px;}
+.flow ol{counter-reset:fl;list-style:none;margin:0;padding:0;}
+.flow li{position:relative;padding:8px 10px 8px 44px;margin:7px 0;background:#fff;border:1px solid var(--line);border-radius:10px;font-size:14.5px;line-height:1.6;}
+.flow li::before{counter-increment:fl;content:counter(fl);position:absolute;left:10px;top:8px;width:26px;height:26px;line-height:26px;text-align:center;background:var(--gold);color:#fff;border-radius:50%;font-weight:800;font-size:14px;}
+.flow li b{color:var(--gold-d);}
+.flow .arw{text-align:center;color:var(--gold);font-size:13px;margin:-2px 0;}
+.newlaw{background:#eef6f0;border:1px solid #cfe6d6;border-left:4px solid #5a9a72;border-radius:8px;padding:13px 16px;margin:14px 0;}
+.newlaw .nt{font-weight:700;color:#2f6a47;display:block;margin-bottom:4px;}
+.newlaw .badge{display:inline-block;font-size:11px;font-weight:800;color:#fff;background:#5a9a72;border-radius:5px;padding:2px 8px;margin-right:6px;vertical-align:middle;}
+.faq{margin:14px 0;}
+.faq details{border:1px solid var(--line);border-radius:10px;margin:9px 0;background:#fff;overflow:hidden;}
+.faq summary{list-style:none;cursor:pointer;padding:13px 44px 13px 38px;font-weight:700;font-size:15px;color:#241a10;background:#faf7f0;position:relative;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::before{content:"Q";position:absolute;left:15px;color:var(--gold-d);font-family:'Nanum Myeongjo',serif;font-weight:800;}
+.faq summary::after{content:"▾";position:absolute;right:16px;top:13px;color:var(--gold-d);transition:.2s;}
+.faq details[open] summary::after{transform:rotate(180deg);}
+.faq .fa{padding:13px 15px 15px 38px;font-size:14.5px;line-height:1.75;color:#3a3a3a;position:relative;border-top:1px solid var(--line);}
+.faq .fa::before{content:"A";position:absolute;left:15px;top:13px;color:#5a9a72;font-family:'Nanum Myeongjo',serif;font-weight:800;}
+.helm{background:linear-gradient(135deg,#2c3e50,#3a4a5c);color:#f4f0e8;border-radius:14px;padding:20px 22px;margin:0 0 24px;box-shadow:0 4px 14px rgba(44,62,80,.18);}
+.helm .ht2{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:17px;color:#f0d98c;margin-bottom:9px;}
+.helm p{margin:0;font-size:14.5px;line-height:1.9;color:#eae4d8;}
+.helm b{color:#f4e2a6;}
+.qhead{display:flex;gap:12px;align-items:flex-start;margin:8px 0 8px;}
+.qhead .qb{flex:none;width:34px;height:34px;border-radius:50%;background:var(--gold);color:#fff;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(176,141,87,.4);}
+.qhead h2{margin:0;border:0;padding:0;font-size:20px;line-height:1.45;}
+.lawrow{display:flex;flex-wrap:wrap;background:var(--box);border-radius:10px;overflow:hidden;margin:12px 0;border:1px solid var(--line);}
+.lawrow .lrl{flex:none;background:var(--gold);color:#fff;font-weight:700;font-size:13.5px;padding:11px 15px;display:flex;align-items:center;}
+.lawrow .lrc{flex:1;min-width:210px;padding:11px 15px;font-size:14px;line-height:1.75;}
+@media(max-width:520px){.lawrow .lrl{width:100%;}}
+.calc{display:block;background:linear-gradient(135deg,#fff7e8,#fdeecb);border:1.5px solid var(--gold);border-radius:14px;padding:16px 18px;margin:18px 0;text-decoration:none;color:var(--ink);transition:.15s;}
+.calc:hover{box-shadow:0 4px 14px rgba(176,141,87,.25);transform:translateY(-1px);}
+.calc .cah{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:4px;}
+.calc .cas{font-size:13.5px;color:var(--muted);}
+.ctabtn{display:block;text-align:center;background:var(--gold);color:#fff;font-weight:800;font-size:17px;padding:16px;border-radius:12px;text-decoration:none;margin:22px 0 6px;box-shadow:0 3px 10px rgba(176,141,87,.35);}
+.ctabtn:hover{background:var(--gold-d);}
+.doclabel{display:inline-block;font-size:12px;font-weight:800;color:#fff;border-radius:6px;padding:3px 11px;margin-bottom:6px;}
+.doclabel.give{background:#b0885a;}
+.doclabel.back{background:#5a9a72;}
+.dl{color:var(--gold-d);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--gold);}
+.dl:hover{background:#fbf5e8;}
+.ddl{display:flex;gap:2px 10px;flex-wrap:wrap;margin:8px 0 2px;padding:9px 12px;background:#fbf7ee;border-radius:8px;font-size:13px;}
+.ddl b{color:var(--gold-d);}
+.deadline{width:100%;border-collapse:collapse;margin:10px 0;font-size:13.5px;}
+.deadline th{background:#3a4a5c;color:#fff;padding:8px;font-weight:700;}
+.deadline td{border:1px solid var(--line);padding:8px 10px;background:#fff;}
+.bnote{color:#0b4a9c;font-weight:600;background:#eaf2fc;border-left:4px solid #2b7fff;border-radius:8px;padding:9px 13px;margin:8px 0;font-size:13.5px;line-height:1.7;}
+.bnote b{color:#0a3d82;}
+.capital th{background:#f0ebe1;text-align:center;font-size:13px;}
+.capital td{text-align:center;font-size:13.5px;}
+.capital td:first-child{text-align:left;font-weight:700;background:#faf7f0;}
+.capital .hi{background:#fdf6e3;font-weight:700;color:var(--gold-d);}
+.capital .bad{color:#9c3a22;font-weight:700;}
+.grp{border-radius:10px;padding:13px 16px;margin:12px 0;border:1px solid var(--line);border-left-width:5px;}
+.grp .gt{font-weight:800;font-size:15px;margin-bottom:5px;}
+.grp.a{background:#eef6f0;border-left-color:#5a9a72;} .grp.a .gt{color:#2f6a47;}
+.grp.b{background:#fdf9e8;border-left-color:#d4a72c;} .grp.b .gt{color:#8a6d10;}
+.grp.c{background:#fdf2ee;border-left-color:#d9694a;} .grp.c .gt{color:#9c3a22;}
+@media print{.term>.bub{display:inline !important;position:static;background:none;color:#555;box-shadow:none;padding:0;width:auto;font-size:12px;}.term>.bub::before{content:" (";}.term>.bub::after{content:")";border:0;position:static;}.formbox .fold-body{display:block !important;}}
+.part{margin:38px 0 14px;padding:16px 18px;border-radius:12px;background:linear-gradient(135deg,#2c3e50,#3a4a5c);color:#f4f0e8;box-shadow:0 4px 14px rgba(44,62,80,.18);}
+.part .pn{display:inline-block;font-size:12px;font-weight:800;color:#2c3e50;background:#f0d98c;border-radius:6px;padding:2px 10px;margin-bottom:6px;}
+.part .pt2{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:20px;color:#fff;margin-bottom:4px;}
+.part .pw{font-size:13.5px;line-height:1.7;color:#eae4d8;} .part .pw b{color:#f4e2a6;}
+.chk td:first-child{width:30px;text-align:center;color:var(--gold-d);font-size:16px;}
+.tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.srcb{display:inline-block;font-size:11px;font-weight:800;color:#fff;border-radius:5px;padding:1px 7px;margin-left:6px;vertical-align:middle;}
+.srcb.moe{background:#2f5b78;} .srcb.goe{background:#5a9a72;} .srcb.own{background:#9a8f7d;}
+.srcline{font-size:12.5px;color:var(--muted);background:#faf7f0;border-radius:7px;padding:7px 11px;margin:0 0 6px;}
+h3.fgrp{font-size:15px;color:var(--gold-d);margin:22px 0 6px;padding-bottom:5px;border-bottom:1px dashed var(--line);}
+.form{overflow-x:auto;}
+@media(max-width:560px){table{font-size:12.5px;} th,td{padding:7px 6px;overflow-wrap:anywhere;} .tblwrap table{min-width:560px;} .who{padding:12px 10px;}}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+<h1>행정사법인 — 설립인가와 설립등기, 그리고 법인업무신고</h1>
+
+<div class="helm">
+  <div class="ht2">⚓ 이 안내를 준비한 마음</div>
+  <p>행정사 세 분 이상이 함께 일하기로 하셨다면 <b>행정사법인</b>을 세울 수 있습니다. 행정안전부장관의 설립인가를 받고, 인가증을 받은 날부터 <b>14일 안</b>에 구성원 <b>전원이 함께</b> 설립등기를 해야 법인이 생깁니다. 그런데 등기로 끝이 아닙니다. 주사무소 관할 시·군·구에 <b>법인업무신고</b>를 해야 업무를 시작할 수 있고, 신고 뒤 15일 안에 보험이나 공탁으로 손해배상에 대비해야 합니다. 이 안내는 행정사법·시행령·시행규칙의 현행 조문을 기준으로, 2026년에 바뀐 서식 번호까지 반영해 정리했습니다.</p>
+</div>
+
+<div class="qhead"><span class="qb">Q</span>
+  <h2>행정사법인을 세우려면, 무엇이 어떤 순서로 필요한가요?</h2>
+</div>
+
+<div class="tnote">밑줄 친 <span class="term">용어<span class="bub">밑줄 친 말에 마우스를 올리거나(휴대폰은 살짝 누르면) 쉬운 설명이 나옵니다.</span></span>에 마우스를 올리면 설명이 나옵니다. 파란 <b>링크</b>를 누르면 법령 원문이나 서식 화면으로 바로 이동합니다.</div>
+
+<div class="tldr">
+  <div class="tt">이런 상황입니다 — 인가, 14일 안 등기, 그리고 구청 신고</div>
+  <p style="margin:0 0 8px;font-size:14.5px">행정사법은 행정사가 업무를 조직적이고 전문적으로 하도록 행정사 <b>3명 이상</b>이 구성원이 되는 행정사법인을 둘 수 있게 하고(<a class="dl" href="https://www.law.go.kr/법령/행정사법/제25조의2" target="_blank" rel="noopener">행정사법 §25의2</a>), 법에 정하지 않은 것은 상법의 <b>합명회사</b> 규정을 <span class="term">준용<span class="bub">비슷한 다른 제도의 규정을 그대로 끌어다 적용하는 것. 행정사법에 없는 내용은 상법의 합명회사 규정을 따른다는 뜻입니다.</span></span>합니다(<a class="dl" href="https://www.law.go.kr/법령/행정사법/제25조의13" target="_blank" rel="noopener">행정사법 §25의13</a>②). 법무사법인과 달리 구성원의 경력 요건은 없습니다.</p>
+  <ul>
+    <li><b>① 정관·설립인가</b> — 구성원이 될 행정사가 정관을 작성해 <b>행정안전부장관</b>에게 설립인가를 신청합니다(처리기간 14일, 수수료 없음 — <a class="dl" href="https://www.law.go.kr/법령/행정사법/제25조의3" target="_blank" rel="noopener">행정사법 §25의3</a>①, <a class="dl" href="https://www.law.go.kr/법령/행정사법시행령/제23조의2" target="_blank" rel="noopener">행정사법 시행령 §23의2</a>).</li>
+    <li><b>② 설립등기</b> — 설립인가증을 <b>받은 날부터 14일 안</b>에 주사무소 관할 등기소에, 구성원이 될 행정사 <b>전원이 공동으로</b> 신청합니다. 주사무소에서 등기해야 법인이 성립합니다(<a class="dl" href="https://www.law.go.kr/법령/행정사법시행령/제23조의4" target="_blank" rel="noopener">행정사법 시행령 §23의4</a>①③, 법 §25의3④).</li>
+    <li><b>③ 법인업무신고·손해배상 대비</b> — 주사무소 관할 <b>시장·군수·구청장</b>에게 <span class="term">법인업무신고<span class="bub">행정사법인이 실제로 행정사 업무를 하기 위해 시·군·구에 하는 신고. 이 신고를 하고 확인증을 받아야 업무를 시작할 수 있습니다.</span></span>를 하고(처리기간 10일), 신고 뒤 <b>15일 안</b>에 보험에 들거나 공탁합니다(<a class="dl" href="https://www.law.go.kr/법령/행정사법/제25조의4" target="_blank" rel="noopener">행정사법 §25의4</a>, <a class="dl" href="https://www.law.go.kr/법령/행정사법시행령/제23조의8" target="_blank" rel="noopener">행정사법 시행령 §23의8</a>).</li>
+  </ul>
+</div>
+
+<div class="warn">
+  <span class="wt">법인업무신고 없이 업무를 하면 형사처벌 대상입니다</span>
+  설립등기를 마쳤어도 법인업무신고를 하지 않고 행정사 업무를 하면 <b>1년 이하 징역 또는 1천만원 이하 벌금</b> 대상입니다(<a class="dl" href="https://www.law.go.kr/법령/행정사법/제36조" target="_blank" rel="noopener">행정사법 §36</a>②1호). 또 2026. 1. 1.부터 서식 번호가 한 칸씩 밀려 설립인가신청서가 <b>별지 제19호의3서식</b>이 되었고, 자격증·수료증·인가증·등기사항증명서 사본은 담당 공무원이 직접 확인하게 되어 내지 않아도 됩니다(시행규칙 §15의2③·§15의3③). 예전 안내서의 서식 번호와 첨부서류 목록을 그대로 쓰지 마십시오. 이 안내와 본 사무소의 도움은 요건을 점검하고 서류를 갖추는 데까지이며, 인가 결과를 약속하지 않습니다.
+</div>
+
+<div class="lawrow"><div class="lrl">관련 법령</div><div class="lrc">
+  <a class="dl" href="https://www.law.go.kr/법령/행정사법/제25조의2" target="_blank" rel="noopener">행정사법 §25의2</a> 설립 · <a class="dl" href="https://www.law.go.kr/법령/행정사법/제25조의3" target="_blank" rel="noopener">행정사법 §25의3</a> 설립 절차·정관·등기 · <a class="dl" href="https://www.law.go.kr/법령/행정사법/제25조의4" target="_blank" rel="noopener">행정사법 §25의4</a> 법인업무신고 · <a class="dl" href="https://www.law.go.kr/법령/행정사법/제25조의5" target="_blank" rel="noopener">행정사법 §25의5</a> 사무소·명칭 · <a class="dl" href="https://www.law.go.kr/법령/행정사법/제25조의6" target="_blank" rel="noopener">행정사법 §25의6</a> 소속행정사·구성원 보충 · <a class="dl" href="https://www.law.go.kr/법령/행정사법/제25조의7" target="_blank" rel="noopener">행정사법 §25의7</a> 업무수행 · <a class="dl" href="https://www.law.go.kr/법령/행정사법/제25조의8" target="_blank" rel="noopener">행정사법 §25의8</a> 해산 · <a class="dl" href="https://www.law.go.kr/법령/행정사법/제25조의9" target="_blank" rel="noopener">행정사법 §25의9</a> 합병 · <a class="dl" href="https://www.law.go.kr/법령/행정사법/제25조의10" target="_blank" rel="noopener">행정사법 §25의10</a> 인가취소 · <a class="dl" href="https://www.law.go.kr/법령/행정사법/제25조의11" target="_blank" rel="noopener">행정사법 §25의11</a> 경업금지 · <a class="dl" href="https://www.law.go.kr/법령/행정사법/제25조의12" target="_blank" rel="noopener">행정사법 §25의12</a> 손해배상 · <a class="dl" href="https://www.law.go.kr/법령/행정사법시행령/제23조의2" target="_blank" rel="noopener">행정사법 시행령 §23의2</a>~<a class="dl" href="https://www.law.go.kr/법령/행정사법시행령/제23조의8" target="_blank" rel="noopener">행정사법 시행령 §23의8</a> · <a class="dl" href="https://www.law.go.kr/법령/행정사법시행규칙/제15조의2" target="_blank" rel="noopener">행정사법 시행규칙 §15의2</a>~<a class="dl" href="https://www.law.go.kr/법령/행정사법시행규칙/제15조의4" target="_blank" rel="noopener">행정사법 시행규칙 §15의4</a> 서식
+</div></div>
+
+<div class="qhead"><span class="qb">比</span>
+  <h2>법무사법인과 무엇이 다른가요? — 한눈에 비교</h2>
+</div>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:20%">구분</th><th style="width:42%">행정사법인</th><th>(참고) 법무사법인</th></tr></thead>
+  <tbody>
+    <tr><td><b>구성원</b></td><td>행정사 <b>3명 이상</b>, 경력 요건 없음(법 §25의2)</td><td>법무사 3명 이상, 1명 이상은 경력 7년 등</td></tr>
+    <tr><td><b>인가</b></td><td><b>행정안전부장관</b>(처리: 행정안전부 행정제도과) — 위임 규정 없음</td><td>대법원장 → 소관 지방법원장 위임</td></tr>
+    <tr><td><b>등기 기한</b></td><td>설립인가증을 <b>받은 날</b>부터 <b>14일</b>(시행령 §23의4①)</td><td>설립인가가 있는 때부터 2주</td></tr>
+    <tr><td><b>등기 신청인</b></td><td>구성원이 될 행정사 <b>전원 공동</b>(시행령 §23의4③)</td><td>대표자</td></tr>
+    <tr><td><b>등기 뒤</b></td><td>시·군·구에 <b>법인업무신고</b>(처리 10일) → 확인증</td><td>7일 안 협회 명부 등록</td></tr>
+    <tr><td><b>손해배상 대비</b></td><td>업무신고 뒤 <b>15일 안</b> 보험 또는 공탁 — (구성원+소속행정사) × 1천만원 이상 또는 법인당 1억원 이상(시행령 §23의8)</td><td>업무 개시 전 — 1인당 1억5천만원 또는 법인당 10억원</td></tr>
+    <tr><td><b>사무소</b></td><td>사무소 수는 구성원 수 이하, 사무소마다 구성원 1명 이상 <b>상근</b>(법 §25의5①). 지역 제한 없음</td><td>주사무소 관할 지방법원 구역 안</td></tr>
+    <tr><td><b>구성원 보충</b></td><td><b>6개월</b> 안(법 §25의6⑥)</td><td>3개월 안</td></tr>
+  </tbody>
+</table></div>
+
+<!-- ══════════ 제1부 ══════════ -->
+<div class="part" id="part1">
+  <div class="pn">제1부</div>
+  <div class="pt2">설립 요건과 정관 · 설립인가</div>
+  <div class="pw">설립인가 신청서와 업무계획서·예산서 등 행정안전부에 내는 서류의 작성·제출은 <b>행정사 업무</b>입니다. 구성원 행정사께서 직접 하셔도 되고, 바쁘실 때는 본 사무소가 함께 준비합니다.</div>
+</div>
+
+<div class="qhead"><span class="qb">1</span>
+  <h2>요건 점검표 — 정관을 짓기 전에 확인하십시오</h2>
+</div>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:22%">요건</th><th style="width:46%">내용</th><th>근거</th></tr></thead>
+  <tbody>
+    <tr><td><b>구성원 수</b></td><td>행정사 3명 이상. 구성원과 소속행정사는 업무정지·휴업 중이 아니어야 합니다</td><td><a class="dl" href="https://www.law.go.kr/법령/행정사법/제25조의2" target="_blank" rel="noopener">행정사법 §25의2</a>, §25의6③</td></tr>
+    <tr><td><b>업무신고 기준</b><br><small>(등기 뒤 신고 때 심사)</small></td><td>구성원·소속행정사 모두 ① 결격사유 없음 ② <b>실무교육 이수</b> ③ 행정사 자격증 보유 ④ <b>행정사회 가입</b> ⑤ 법인은 인가와 설립등기 완료</td><td><a class="dl" href="https://www.law.go.kr/법령/행정사법시행령/제23조의5" target="_blank" rel="noopener">행정사법 시행령 §23의5</a>①, 법 §25의6⑤</td></tr>
+    <tr><td><b>명칭</b></td><td>사무소 명칭에 「행정사법인」 글자를 쓰고, 분사무소에는 분사무소임을 표시합니다. 행정사법인이 아니면 비슷한 명칭도 쓸 수 없습니다</td><td><a class="dl" href="https://www.law.go.kr/법령/행정사법/제25조의5" target="_blank" rel="noopener">행정사법 §25의5</a>②③</td></tr>
+    <tr><td><b>사무소</b></td><td>주사무소와 분사무소를 합한 수가 구성원 수를 넘지 못하고, 사무소마다 구성원 1명 이상이 상근합니다</td><td>법 §25의5①</td></tr>
+    <tr><td><b>다른 사무소 금지</b></td><td>구성원·소속행정사는 법인 사무소 밖에 따로 사무소를 둘 수 없고, 법인 업무 범위의 일을 자기나 제3자를 위해 할 수 없습니다. 지금 개인 행정사사무소를 운영 중이면 폐업 시기를 법인 업무신고에 맞춥니다</td><td>법 §25의6④, <a class="dl" href="https://www.law.go.kr/법령/행정사법/제25조의11" target="_blank" rel="noopener">행정사법 §25의11</a>①</td></tr>
+    <tr><td><b>출자</b></td><td>최저 자본 규정은 없지만 설립인가 신청 때 <b>자본금 납입을 증명하는 서류</b>를 내야 하므로, 인가 신청 <b>전</b>에 출자금을 입금해 둡니다</td><td>시행규칙 §15의2②1호</td></tr>
+  </tbody>
+</table></div>
+
+<div class="qhead"><span class="qb">2</span>
+  <h2>정관 — 꼭 적을 사항(법 8가지 + 시행령 2가지)</h2>
+</div>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:8%">번호</th><th style="width:50%">기재사항</th><th>근거</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>목적, 명칭, 주사무소 및 분사무소의 소재지</td><td>법 §25의3②1호</td></tr>
+    <tr><td>2</td><td>법인구성원(행정사법인을 구성하는 행정사)의 성명과 주소</td><td>같은 항 2호</td></tr>
+    <tr><td>3</td><td>법인구성원의 출자에 관한 사항</td><td>3호</td></tr>
+    <tr><td>4</td><td>법인구성원 회의에 관한 사항</td><td>4호</td></tr>
+    <tr><td>5</td><td>자산 및 회계에 관한 사항</td><td>5호</td></tr>
+    <tr><td>6</td><td>행정사법인의 대표에 관한 사항</td><td>6호</td></tr>
+    <tr><td>7</td><td>존립시기, 해산사유를 정한 경우 그 시기 또는 사유</td><td>7호</td></tr>
+    <tr><td>8</td><td>업무를 수행하는 행정사의 권리·의무 제한에 관한 사항</td><td><a class="dl" href="https://www.law.go.kr/법령/행정사법시행령/제23조의3" target="_blank" rel="noopener">행정사법 시행령 §23의3</a> 1호</td></tr>
+    <tr><td>9</td><td>법인구성원의 가입·탈퇴에 관한 사항</td><td>시행령 §23의3 2호</td></tr>
+  </tbody>
+</table></div>
+<div class="concept"><b>정관은 구성원 전원이 기명날인 또는 서명합니다.</b> 합명회사 정관은 총사원이 기명날인 또는 서명해야 합니다(상법 §179 — 법 §25의13②로 준용). 상법이 공증을 요구하는 것은 주식회사·유한회사 정관뿐이어서(상법 §292·§543③) 합명회사형인 행정사법인 정관은 공증을 받지 않습니다. 해산 신고에는 「해산에 관한 <b>총회</b> 회의록」을 붙이게 되어 있으므로(시행령 §23의6), 정관에 법인구성원 회의를 「총회」라고 이름 붙여 두면 서류 용어가 맞습니다. 출자는 <b>금전</b>으로 정하면 인가 때의 납입 증명, 등기 때의 이행 증명, 등록면허세 과세표준이 한 금액으로 맞습니다.</div>
+
+<div class="qhead"><span class="qb">3</span>
+  <h2>설립인가 신청 — 행정안전부장관에게</h2>
+</div>
+<p>구성원이 될 행정사가 <b>별지 제19호의3서식</b> 설립인가신청서에 아래 서류를 붙여 행정안전부장관(처리기관: 행정안전부 행정제도과)에게 냅니다. 처리기간은 <b>14일</b>, 수수료는 없습니다. 인가하면 인가대장에 인가번호·명칭·사무소·구성원과 소속행정사의 성명·자격증번호를 적고 <b>설립인가증</b>(별지 제19호의5서식)을 내줍니다(<a class="dl" href="https://www.law.go.kr/법령/행정사법시행령/제23조의2" target="_blank" rel="noopener">행정사법 시행령 §23의2</a>②). 이 인가증을 <b>받은 날</b>이 설립등기 14일의 출발점입니다.</p>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:22%">서류</th><th style="width:26%">① 구성원이 될 행정사가 준비</th><th style="width:24%">② 사무소가 작성</th><th>③ 제출처 · 근거 · 서식</th></tr></thead>
+  <tbody>
+    <tr><td><b>설립인가신청서</b></td><td>신청인 서명 또는 날인 — 대표자, 구성원·소속행정사의 성명·자격증번호·행정사 종류, 분사무소별 상근 구성원</td><td>행정사 — 서식 기재</td><td>행정안전부장관 · 시행령 §23의2①, <a class="dl" href="https://www.law.go.kr/법령/행정사법시행규칙/제15조의2" target="_blank" rel="noopener">행정사법 시행규칙 §15의2</a>① · <a class="dl" href="https://www.law.go.kr/법령/행정사법시행규칙" target="_blank" rel="noopener">별지 제19호의3서식(국가법령정보센터 서식 목록)</a></td></tr>
+    <tr><td><b>정관</b></td><td>구성원 전원 기명날인 또는 서명</td><td>행정사 — 위 2번의 9가지, 아래 작성례</td><td>같은 곳 · 시행령 §23의2①1호</td></tr>
+    <tr><td><b>업무계획서 · 예산서</b></td><td>사업 방향·예산 자료 제공</td><td>행정사 — 아래 작성례</td><td>같은 곳 · 시행령 §23의2①2호</td></tr>
+    <tr><td><b>자본금 납입 증명 서류</b></td><td>출자금 입금 뒤 은행 잔고증명서 등</td><td>—</td><td>같은 곳 · 시행규칙 §15의2②1호</td></tr>
+    <tr><td><b>사무소 설치 예정지 서류</b></td><td>주사무소(분사무소를 두면 그곳도) 임대차계약서 사본 등</td><td>—</td><td>같은 곳 · 시행규칙 §15의2②2호</td></tr>
+    <tr><td>(동의하지 않을 때만) 행정사 자격증 사본</td><td>구성원·소속행정사 전원</td><td>—</td><td>담당 공무원이 행정사정보시스템으로 확인하는 데 동의하면 내지 않습니다(시행규칙 §15의2③)</td></tr>
+  </tbody>
+</table></div>
+<div class="tip"><span class="pt">인가 기간에 등기 서류를 함께 준비하십시오</span>인가증을 받으면 14일 안에 구성원 <b>전원</b>이 함께 등기를 신청해야 합니다. 구성원 중 해외 체류나 장기 출장이 잡힌 분이 있으면 위임장 날인 일정을 인가 신청 때 미리 맞추어 두십시오. 인감증명서·주민등록표 초본은 발행 3개월 안의 것이어야 하므로 너무 일찍 떼지 않습니다.</div>
+
+<!-- ══════════ 제2부 ══════════ -->
+<div class="part" id="part2">
+  <div class="pn">제2부</div>
+  <div class="pt2">설립등기 — 등기소에 내는 서류</div>
+  <div class="pw">설립등기 신청 대리와 신청서·첨부서면 작성은 <b>법무사 업무</b>입니다(법무사법 §2). 비용은 아래 [세금과 수수료]와 비용 계산기로 미리 보실 수 있습니다.</div>
+</div>
+
+<div class="qhead"><span class="qb">4</span>
+  <h2>언제까지, 어디에, 누가 신청하나요?</h2>
+</div>
+<p>설립인가증을 <b>받은 날부터 14일 안</b>에 주사무소 소재지 관할 등기소에, 행정사법인의 구성원이 될 행정사 <b>전원이 공동으로</b> 신청합니다(<a class="dl" href="https://www.law.go.kr/법령/행정사법시행령/제23조의4" target="_blank" rel="noopener">행정사법 시행령 §23의4</a>①③). 행정사법인은 행정사법으로 세우는 <span class="term">특수법인<span class="bub">민법·상법이 아닌 다른 법률에 따라 세운 법인. 특수법인등기부에 기록됩니다.</span></span>이므로, 시행령에 없는 등기 절차는 「민법법인 및 특수법인 등기규칙」이 준용하는 상업등기법 §23①과 상업등기규칙(인감 신고·첨부서면 일반 등)을 따릅니다(<a class="dl" href="https://www.law.go.kr/법령/민법법인및특수법인등기규칙/제1조" target="_blank" rel="noopener">민법법인 및 특수법인 등기규칙 §1</a>·<a class="dl" href="https://www.law.go.kr/법령/민법법인및특수법인등기규칙/제6조" target="_blank" rel="noopener">민법법인 및 특수법인 등기규칙 §6</a>①).</p>
+<table class="deadline">
+  <thead><tr><th>기산일</th><th>근거 조문</th><th>말일 처리</th><th>만료일(예)</th></tr></thead>
+  <tbody>
+    <tr><td>설립인가증을 <b>받은 날의 다음 날</b><br><small>첫날은 세지 않습니다(민법 §157)</small></td><td><a class="dl" href="https://www.law.go.kr/법령/행정사법시행령/제23조의4" target="_blank" rel="noopener">행정사법 시행령 §23의4</a>① — 14일 이내</td><td>말일이 토요일·공휴일이면 <b>그다음 날</b>(민법 §161)</td><td>2027. 3. 10.(수) 수령 → <b>3. 24.(수)</b><br>2027. 2. 15.(월) 수령 → 3. 1.(월·삼일절)이 말일 → <b>3. 2.(화)</b></td></tr>
+  </tbody>
+</table>
+<div class="warn">
+  <span class="wt">14일을 넘기면 — 업무를 시작할 수 없고, 과태료도 문제 될 수 있습니다</span>
+  등기를 해야 법인이 성립하고(법 §25의3④), 법인업무신고 기준에 「인가를 받고 설립등기를 했을 것」이 들어 있어(시행령 §23의5①5호) 등기 없이는 업무를 시작할 수 없습니다. 행정사법에는 등기를 게을리한 데 대한 과태료 조문이 없지만, 근거 법률이 민법을 준용하면 민법의 등기해태 과태료(§97 1호)가 준용된다는 <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854856" target="_blank" rel="noopener">선례 제1-426호</a>의 취지에 비추면, 상법 합명회사 규정을 준용하는 행정사법인에는 <b>상법 §635①1호(등기를 게을리한 경우 500만원 이하 과태료)</b>가 문제 될 수 있습니다. 인가 기간에 등기 서류를 모아 두십시오.
+</div>
+
+<div class="qhead"><span class="qb">5</span>
+  <h2>등기신청서 첨부서면 — 누가 준비하고, 누가 작성하나요?</h2>
+</div>
+<p>시행령이 정한 첨부서면은 ① 정관 ② 설립인가증 <b>사본</b> ③ 재산출자에 관하여 이행한 부분을 증명하는 서면 세 가지입니다(<a class="dl" href="https://www.law.go.kr/법령/행정사법시행령/제23조의4" target="_blank" rel="noopener">행정사법 시행령 §23의4</a>③). 나머지는 「민법법인 및 특수법인 등기규칙」이 준용하는 상업등기규칙과, 같은 합명회사형 특수법인에 대한 『특수법인등기실무』(법원행정처, 2025) 66~67·403~406쪽의 설명에 따라 정리했습니다.</p>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:22%">서류</th><th style="width:25%">① 법인(구성원)이 준비</th><th style="width:25%">② 사무소가 작성</th><th>③ 제출처 · 근거 · 발급처</th></tr></thead>
+  <tbody>
+    <tr><td><b>설립등기신청서</b></td><td>신청인은 구성원 <b>전원</b> — 각자 기명날인(대리 신청이면 전원의 위임장)</td><td>법무사 — 등기할 사항을 시행령 §23의4②로 적음</td><td>등기소 · 전용 양식이 없어 <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3334567" target="_blank" rel="noopener">예규 제1792호</a> 양식 제27호(합명회사 설립등기)를 고쳐 씁니다 · <a class="dl" href="https://www.iros.go.kr" target="_blank" rel="noopener">인터넷등기소 등기신청양식</a></td></tr>
+    <tr><td><b>정관</b></td><td>인가받은 정관과 같은 것</td><td>—</td><td>등기소 · 시행령 §23의4③1호</td></tr>
+    <tr><td><b>설립인가증 사본</b></td><td>행정안전부에서 받은 인가증을 복사(원본은 법인 보관)</td><td>—</td><td>등기소 · 시행령 §23의4③2호</td></tr>
+    <tr><td><b>재산출자 이행 증명 서면</b></td><td>구성원별 입금 내역 · 잔고증명서</td><td>법무사 — 대표가 각 구성원의 출자 이행을 확인하는 서면(아래 작성례)</td><td>등기소 · 시행령 §23의4③3호, 「민법법인 및 특수법인 등기규칙」 §5③</td></tr>
+    <tr><td>대표를 정한 근거</td><td>정관에 대표를 이름으로 적었으면 정관으로 족함 / 「총회에서 선임」으로 두었으면 의사록</td><td>법무사 — 구성원 총회 의사록(<b>공증</b>)</td><td>등기소 · 시행령 §23의4②7호, 공증인법 §66의2①, 같은 책 405~406쪽</td></tr>
+    <tr><td>취임승낙서 + 인감증명서</td><td><b>대표 구성원만</b> — 인감증명서는 발행 3개월 이내</td><td>법무사</td><td>등기소 · 대표권 없는 구성원은 정관으로 지위가 정해져 불요(같은 책 67쪽)</td></tr>
+    <tr><td>주민등록표 초본</td><td><b>구성원 전원</b> — 발행 3개월 이내. 외국 국적이면 외국인등록사실증명 · <a class="dl" href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a></td><td>—</td><td>등기소 · 구성원의 성명과 <b>주소</b>를 등기합니다(시행령 §23의4②3호)</td></tr>
+    <tr><td>인감신고서</td><td>대표 구성원 개인인감 + 인감증명서</td><td>법무사 — 법인 인감 가로·세로 1cm 초과 2.4cm 이내</td><td>등기소 · 상업등기규칙 §35(등기규칙 §6①로 준용)</td></tr>
+    <tr><td>등록면허세·지방교육세 영수필확인서</td><td>법인 명의 납부</td><td>세액 계산·신고·납부 대행(아래 6번)</td><td>주사무소 관할 시·군·구 · <a class="dl" href="https://www.wetax.go.kr" target="_blank" rel="noopener">위택스</a></td></tr>
+    <tr><td>등기신청수수료</td><td>—</td><td>납부</td><td>등기소 · 서면 35,000원 / 전자표준양식 28,000원 / 전자신청 20,000원</td></tr>
+    <tr><td>위임장</td><td><b>구성원 전원</b> 날인</td><td>법무사</td><td>등기소 · 대리 신청 때(공동 신청이므로 한 사람이라도 빠지면 안 됩니다)</td></tr>
+  </tbody>
+</table></div>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:8%">번호</th><th style="width:52%">등기할 사항(시행령 §23의4②)</th><th>확인할 점</th></tr></thead>
+  <tbody>
+    <tr><td>1·2</td><td>목적 · 명칭</td><td>명칭에 「행정사법인」 글자(법 §25의5②)</td></tr>
+    <tr><td>3</td><td>법인구성원의 성명 및 주소</td><td>구성원 전원의 초본과 대조</td></tr>
+    <tr><td>4</td><td>주사무소와 분사무소의 소재지</td><td>인가증에 적힌 소재지와 같아야 합니다</td></tr>
+    <tr><td>5</td><td>법인구성원의 출자 종류, 재산출자는 그 가격과 <b>이행한 부분</b></td><td>이행 증명 서면의 금액과 일치</td></tr>
+    <tr><td>6</td><td>존립기간, 그 밖의 해산 사유를 정한 경우 그 기간 또는 사유</td><td>정관에 정한 경우만</td></tr>
+    <tr><td>7</td><td>대표하는 법인구성원을 정한 경우 그 성명</td><td>정하지 않으면 합명회사처럼 구성원 각자가 대표권을 가지므로 정해 두는 것이 좋습니다</td></tr>
+  </tbody>
+</table></div>
+<p style="font-size:13.5px;color:var(--muted)">※ 지배인·법인 업무 전반의 대리인은 등기하지 않습니다 — 같은 합명회사형 전문직 법인인 법무법인에 대해 <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195765" target="_blank" rel="noopener">선례 제2-10호</a>이 「상인이 아니어서 지배인등기·대리인등기를 신청할 수 없다」고 했습니다.</p>
+
+<div class="qhead"><span class="qb">6</span>
+  <h2>세금과 수수료는 얼마인가요?</h2>
+</div>
+<p>설립 등록면허세는 납입한 출자금액의 <b>1천분의 4</b>(112,500원 미만이면 112,500원)이고 지방교육세는 그 20%입니다(<a class="dl" href="https://www.law.go.kr/법령/지방세법/제28조" target="_blank" rel="noopener">지방세법 §28</a>①6호 가목, §151①2호). 행정사법인에 대한 결정례는 없지만, 같은 합명회사형 전문직 법인인 법무법인 설립등기에 영리법인 세율을 적용한 <a class="dl" href="https://www.olta.re.kr/explainInfo/judgeDecisionDetail.do?num=40001408" target="_blank" rel="noopener">조세심판원 2011. 12. 20. 조심2011지0712 결정</a>에 따라 영리법인 세율로 계산합니다. 주사무소가 서울 등 <b>대도시</b>(과밀억제권역, 산업단지 제외)이면 <b>3배</b>입니다(같은 조 ②) — 중과를 빼 주는 업종 목록(지방세법 시행령 §44 → §26①)에 행정사업은 없습니다.</p>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:34%">항목</th><th style="width:22%">대도시 밖</th><th style="width:22%">서울 등 대도시</th><th>근거</th></tr></thead>
+  <tbody>
+    <tr><td>금전 출자 1,500만원(3명×500만원)<br><small>(60,000원이 최저세액보다 적음)</small></td><td>112,500원 + 22,500원 = <b>135,000원</b></td><td>337,500원 + 67,500원 = <b>405,000원</b></td><td>지방세법 §28①6호 가목 괄호·②, §151①2호</td></tr>
+    <tr><td>금전 출자 3,000만원</td><td>120,000원 + 24,000원 = <b>144,000원</b></td><td>360,000원 + 72,000원 = <b>432,000원</b></td><td>같음</td></tr>
+    <tr><td>금전 출자 1억원</td><td>400,000원 + 80,000원 = <b>480,000원</b></td><td>1,200,000원 + 240,000원 = <b>1,440,000원</b></td><td>같음</td></tr>
+    <tr><td>설립등기 신청수수료</td><td colspan="2">서면 35,000원 · 전자표준양식 28,000원 · 전자신청 20,000원</td><td>수수료규칙 §5의3①·§5의4②·§5의5⑤⑦</td></tr>
+    <tr><td>변경등기(구성원·대표·목적 등)</td><td colspan="2">등기의 목적마다 등록면허세 40,200원 + 지방교육세 8,040원, 수수료 7,000원(전자 2,000원)</td><td>지방세법 §28①6호 바목·④, 수수료규칙 §5의3②</td></tr>
+    <tr><td>분사무소 설치등기</td><td>40,200원 + 8,040원</td><td>120,600원 + 24,120원</td><td>지방세법 §28①6호 마목·②</td></tr>
+    <tr><td>설립인가 · 법인업무신고</td><td colspan="2"><b>수수료 없음</b></td><td>별지 제19호의3·제19호의6서식</td></tr>
+  </tbody>
+</table></div>
+<p style="font-size:13.5px;color:var(--muted)">※ 세액은 10원 미만을 버립니다(지방회계법 §55). 위 금액에서는 버릴 단수가 생기지 않습니다. 합명회사형이라 노무·신용 출자도 정관에 정할 수 있지만, 설립인가 때 「자본금 납입 증명」을 내야 하고 과세표준 다툼도 피하려면 <b>금전 출자</b>가 안전합니다. 세금 신고는 세무사의 업무입니다 — 세무사의 확인을 받으시기 바랍니다.</p>
+<a class="calc" href="https://sanlaw.co.kr/tools-calculator.html#s=%EB%B2%95%EC%9D%B8%EC%84%A4%EB%A6%BD&amp;e=gp" target="_blank" rel="noopener">
+  <div class="cah">🧮 설립등기 비용 미리 계산해 보기</div>
+  <div class="cas">누르시면 계산기 「법인설립」 화면이 <b>합명회사</b>로 골라진 채 열립니다. 출자금액을 넣고 주사무소가 대도시이면 대도시 중과를 고르십시오. 등록면허세·신청수수료와 보수 예상액이 나옵니다. 계산기의 준비서류 목록은 일반 회사 기준이므로, 서류는 위 5번 표를 따르십시오. (클릭 시 계산기로 이동)</div>
+</a>
+<div class="concept"><b>보수는 업무마다 기준이 다릅니다.</b> 설립등기 신청 대리와 등록면허세 신고·납부 대행 보수는 대한법무사협회 보수기준에 따라 계산기에서 미리 보실 수 있습니다. 설립인가 신청과 법인업무신고·변경신고 서류의 작성·제출 대행은 <b>행정사 업무</b>로, 보수를 상담 때 미리 알려 드립니다. 법인설립신고와 사업자등록, 세무 신고는 <b>세무사의 업무입니다 — 세무사의 확인을 받으시기 바랍니다</b>.</div>
+
+<!-- ══════════ 제3부 ══════════ -->
+<div class="part" id="part3">
+  <div class="pn">제3부</div>
+  <div class="pt2">법인업무신고와 손해배상 대비 — 업무를 시작하기 전에</div>
+  <div class="pw">시·군·구에 내는 신고서의 작성·제출 대행은 <b>행정사 업무</b>입니다.</div>
+</div>
+
+<div class="qhead"><span class="qb">7</span>
+  <h2>법인업무신고 — 주사무소 관할 시장·군수·구청장에게</h2>
+</div>
+<p>설립등기를 마치면 <b>별지 제19호의6서식</b> 행정사법인 업무신고서를 주사무소 관할 시장·군수·구청장에게 냅니다(처리기간 10일, 수수료 없음 — <a class="dl" href="https://www.law.go.kr/법령/행정사법/제25조의4" target="_blank" rel="noopener">행정사법 §25의4</a>①, <a class="dl" href="https://www.law.go.kr/법령/행정사법시행규칙/제15조의3" target="_blank" rel="noopener">행정사법 시행규칙 §15의3</a>①). 기준을 갖추지 못하면 수리가 거부되고(법 §25의4②), 수리되면 <b>법인업무신고확인증</b>(별지 제19호의7서식)이 나옵니다.</p>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:24%">서류</th><th style="width:30%">① 법인(구성원·소속행정사)이 준비</th><th style="width:20%">② 사무소가 작성</th><th>③ 근거 · 확인할 점</th></tr></thead>
+  <tbody>
+    <tr><td><b>행정사법인 업무신고서</b></td><td>대표 서명 또는 날인 — 구성원별 실무교육 기관·기간, 분사무소별 상근 구성원 기재</td><td>행정사</td><td>시행규칙 §15의3① · 별지 제19호의6서식</td></tr>
+    <tr><td>사진</td><td>구성원·소속행정사 각 1장 — 신청일 전 6개월 안, 모자 없이 배경 없는 상반신, 가로 3cm·세로 4cm</td><td>—</td><td>시행규칙 §15의3①1호</td></tr>
+    <tr><td>행정사회 회원증 사본</td><td>구성원·소속행정사 각 1부</td><td>—</td><td>같은 항 2호 · 업무신고 기준 4호(행정사회 가입)</td></tr>
+    <tr><td>정관</td><td>1부</td><td>—</td><td>같은 항 3호</td></tr>
+    <tr><td>(담당 공무원 확인)</td><td>행정사 자격증 · 실무교육 수료증 · 설립인가증 · 법인 등기사항증명서 — 확인에 동의하면 내지 않습니다(등기사항증명서는 동의 없이 확인)</td><td>—</td><td>같은 조 ③ — 2026. 8. 30.부터 인가증 사본·등기부등본 첨부 삭제</td></tr>
+  </tbody>
+</table></div>
+
+<div class="qhead"><span class="qb">8</span>
+  <h2>손해배상 대비 — 업무신고 뒤 15일 안에 보험 또는 공탁</h2>
+</div>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:24%">방법</th><th style="width:40%">금액</th><th>근거 · 어기면</th></tr></thead>
+  <tbody>
+    <tr><td>① 보험 가입<br>② 주사무소 관할 공탁기관에 <b>현금 또는 국공채</b> 공탁</td><td>(법인구성원 수 + 소속행정사 수) × <b>1천만원 이상</b> 또는 법인당 <b>1억원 이상</b><br><small>예: 구성원 3명·소속행정사 0명이면 3천만원 이상</small></td><td><a class="dl" href="https://www.law.go.kr/법령/행정사법시행령/제23조의8" target="_blank" rel="noopener">행정사법 시행령 §23의8</a>, 법 §25의12 · 조치를 하지 않으면 과태료 1차 250만원·2차 375만원·3차 이상 500만원(시행령 별표 4)</td></tr>
+  </tbody>
+</table></div>
+
+<div class="qhead"><span class="qb">9</span>
+  <h2>업무를 하면서 지킬 것</h2>
+</div>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:28%">의무</th><th>내용 · 근거</th></tr></thead>
+  <tbody>
+    <tr><td>법인 명의 · 담당행정사 지정</td><td>업무는 법인 명의로 하고 수임한 업무마다 담당행정사를 지정합니다. 소속행정사를 담당으로 지정할 때는 구성원과 <b>공동으로</b> 지정하고, 지정하지 않으면 구성원 모두가 담당입니다. 서면에는 법인 명의를 쓰고 담당행정사가 기명날인합니다(<a class="dl" href="https://www.law.go.kr/법령/행정사법/제25조의7" target="_blank" rel="noopener">행정사법 §25의7</a>).</td></tr>
+    <tr><td>변경신고 — <b>30일</b></td><td>구성원·소속행정사가 바뀌거나 정관이 바뀌면 변경일부터 30일 안에 별지 제9호서식 신고서에 법인업무신고확인증과 변경된 사람의 사진·회원증 사본(정관 변경이면 변경된 정관)을 붙여 신고합니다(시행규칙 §15의3②, 법 §25의6②).</td></tr>
+    <tr><td>사무소 이전신고 — <b>10일</b></td><td>이전한 날부터 10일 안에 이전 후 사무소 관할 시장등에게 신고합니다(법 §14③을 §25의13①로 준용). 하지 않으면 과태료 50만·75만·100만원.</td></tr>
+    <tr><td>명칭 표시</td><td>사무소 명칭에 「행정사법인」 글자, 분사무소에는 분사무소 표시. 어기면 과태료 50만·75만·100만원(법 §38②2호, 시행령 별표 4).</td></tr>
+    <tr><td>소속행정사 고용 제한</td><td>실무교육을 받지 않은 사람은 소속행정사로 고용하거나 구성원으로 할 수 없습니다(법 §25의6⑤).</td></tr>
+    <tr><td>업무처리부</td><td>업무처리부를 작성합니다(법 §24를 §25의13①로 준용). 작성하지 않거나 거짓으로 쓰면 과태료 대상입니다(법 §38②3호).</td></tr>
+    <tr><td>상근·별도 사무소 금지</td><td>사무소마다 구성원 1명 이상 상근, 구성원·소속행정사의 별도 사무소 금지를 어기면 6개월 범위의 업무정지 대상입니다(법 §32①).</td></tr>
+  </tbody>
+</table></div>
+
+<h3 class="fgrp">법령에 서식이 없는 서류 — 사무소 작성례</h3>
+<div class="formbox" id="fb_fHsArt">
+  <button class="fold-btn" type="button" onclick="toggleFold(this)">📄 정관 — 법 §25의3②의 8가지와 시행령 §23의3의 2가지를 담은 조항 (발췌 작성례) <span class="srcb own">사무소 작성례</span><span class="chev">▾</span></button>
+  <div class="fold-body">
+    <div class="srcline">출처 · 법령에 정해진 서식이 없어, 행정사법·시행령·시행규칙과 상법(합명회사 준용)이 요구하는 항목으로 만든 사무소 작성례입니다. 근거: 행정사법 §25의3②·§25의5·§25의7·§25의8①, 시행령 §23의3·§23의6, 상법 §179·§204.</div>
+<div class="form" id="fHsArt">                    행정사법인 ○○ 정관 (발췌)
+제1조(목적) 이 법인은 행정사법 제2조에 따른 행정사의 업무를 조직적이고
+        전문적으로 수행함을 목적으로 한다.
+제2조(명칭) 이 법인은 「행정사법인 ○○」이라 한다.
+제3조(사무소) ① 이 법인의 주사무소는 서울특별시 ○○구 ○○로 ○○에 둔다.
+        ② 분사무소는 두지 아니한다. 사무소의 수는 법인구성원의 수를
+        넘지 아니하며, 사무소마다 법인구성원 1명 이상이 상근한다.
+제4조(법인구성원) 이 법인의 법인구성원은 별표 1과 같다.
+        (별표 1: 법인구성원의 성명과 주소)
+제5조(출자) ① 법인구성원은 금전으로 출자하며, 각 법인구성원의 출자
+        가액은 별표 2와 같다.
+        ② 법인구성원은 설립인가 신청 전까지 출자를 전부 이행한다.
+제6조(총회) ① 이 법인에 법인구성원 전원으로 구성하는 총회를 둔다.
+        ② 정관 변경, 법인구성원의 가입, 해산과 합병은 법인구성원 전원의
+        동의로 한다.
+        ③ 그 밖의 사항은 법인구성원 과반수의 출석과 출석 구성원 과반수의
+        찬성으로 의결한다.
+제7조(대표) ① 이 법인을 대표하는 법인구성원 1명을 두며, 총회에서
+        선임한다.
+        ② 수임한 업무는 담당행정사가 그 업무에 관하여 이 법인을 대표한다.
+제8조(자산과 회계) ① 회계연도는 매년 1월 1일부터 12월 31일까지로 한다.
+        ② 이익과 손실은 각 법인구성원의 출자 가액의 비율에 따라 나눈다.
+제9조(존립시기와 해산사유) 존립시기는 정하지 아니하며, 해산사유는
+        행정사법 제25조의8제1항에 따른다.
+제10조(업무를 수행하는 행정사의 권리·의무 제한) 법인구성원과 소속행정사는
+        이 법인의 사무소 외에 따로 사무소를 두지 아니하며, 자기 또는 제3자를
+        위하여 이 법인의 업무범위에 속하는 업무를 수행하지 아니한다.
+제11조(가입과 탈퇴) ① 새 법인구성원의 가입은 총회에서 법인구성원 전원의
+        동의로 정한다.
+        ② 법인구성원의 탈퇴는 상법 제217조(사원의 퇴사권)에 따른다.
+        ③ 행정사 등록이 취소되거나 업무정지처분을 받은 법인구성원은
+        탈퇴한다.
+                              20○○년 ○월 ○일
+   법인구성원 행정사 ○○○ (인)   행정사 ○○○ (인)   행정사 ○○○ (인)</div>
+    <div class="howto">① 법 §25의3② 여덟 가지(목적·명칭·사무소 / 구성원의 성명과 주소 / 출자 / 구성원 회의 / 자산·회계 / 대표 / 존립시기·해산사유)에 시행령 §23의3의 두 가지(업무를 수행하는 행정사의 권리·의무 제한, 가입·탈퇴)를 더해 열 가지를 빠짐없이 적습니다.<br>② 구성원 회의를 「총회」라고 정하면 해산신고서에 붙이는 「해산에 관한 총회 회의록」(시행령 §23의6)과 용어가 맞습니다.<br>③ 대표를 「총회에서 선임」으로 두면 등기 때 대표 선임을 적은 총회 의사록(공증)을 붙입니다. 정관에 대표를 이름으로 적으면 의사록이 필요 없지만, 대표를 바꿀 때마다 정관변경 인가를 받아야 합니다.<br>④ 임의 탈퇴는 합명회사 사원의 퇴사 규정(상법 §217 — 법 §25의13②로 준용)을 따르게 했습니다. 등록취소·업무정지 같은 당연 탈퇴 사유는 정관으로 정해 둡니다.<br>⑤ 구성원 전원이 기명날인 또는 서명합니다(상법 §179 준용). 합명회사형이어서 공증은 받지 않습니다.</div>
+    <div class="form-tools">
+      <button type="button" onclick="copyForm('fHsArt')">📋 복사</button>
+      <button type="button" onclick="printForm('fHsArt')">🖨 인쇄</button>
+      <button type="button" onclick="downloadForm('fHsArt','정관_행정사법인_발췌_작성예시.txt')">⬇ 내려받기</button>
+    </div>
+  </div>
+</div>
+<div class="formbox" id="fb_fHsPlan">
+  <button class="fold-btn" type="button" onclick="toggleFold(this)">📄 업무계획서 및 예산서 — 설립인가 신청에 붙이는 서류 <span class="srcb own">사무소 작성례</span><span class="chev">▾</span></button>
+  <div class="fold-body">
+    <div class="srcline">출처 · 법령에 정해진 서식이 없어, 행정사법·시행령·시행규칙과 상법(합명회사 준용)이 요구하는 항목으로 만든 사무소 작성례입니다. 근거: 행정사법 시행령 §23의2①2호, 시행규칙 별지 제19호의3서식(첨부서류 2).</div>
+<div class="form" id="fHsPlan">                 행정사법인 ○○ 업무계획서 및 예산서
+1. 설립 목적
+   행정사 ○명이 함께 행정기관 제출 서류의 작성·제출 대행과 상담을
+   조직적으로 수행하여 의뢰인의 편의를 높이고자 합니다.
+2. 주요 업무 (행정사법 제2조 범위)
+   가. 인허가·등록·신고 서류의 작성 및 제출 대행
+   나. 권리·의무나 사실증명에 관한 서류의 작성
+   다. 외국어 번역 및 번역 확인 (외국어번역행정사 담당)
+   라. 위 업무에 관한 상담
+3. 조직과 인원
+   대표 법인구성원 행정사 ○○○ / 법인구성원 ○명 / 소속행정사 ○명
+   사무직원 ○명 / 사무소: 주사무소 1곳 (상근 법인구성원 ○○○)
+4. 업무 개시 일정
+   설립인가 → 인가증 수령 후 14일 안 설립등기 → 법인업무신고
+   → 신고 후 15일 안 손해배상 대비(보험 또는 공탁) → 업무 개시
+5. 첫 사업연도 예산 (20○○. ○. ○. ~ 20○○. 12. 31.)
+   수입: 업무 보수 수입 금 ○○○,○○○,○○○원
+   지출: 인건비 금 ○○,○○○,○○○원 / 사무소 임차료 금 ○○,○○○,○○○원
+         손해배상 대비(보험료) 금 ○,○○○,○○○원 / 운영비 금 ○○,○○○,○○○원
+   자본금: 금 ○○,○○○,○○○원 (법인구성원 출자, 납입 완료)
+                              20○○년 ○월 ○일
+          신청인 행정사법인 ○○ 구성원이 될 행정사 ○○○ 외 ○명</div>
+    <div class="howto">① 법령은 업무계획서와 예산서를 내라고만 할 뿐 양식을 정하지 않았습니다. 위 항목은 설립인가신청서의 기재란(사무소·구성원·상근 구성원)과 인가 심사에 필요한 내용을 맞춘 것입니다.<br>② 주요 업무는 행정사법 §2의 업무 범위 안에서 적습니다. 다른 법률이 다른 자격자에게 맡긴 업무(예: 등기신청 대리)는 적지 않습니다.<br>③ 예산서의 자본금은 인가 신청 때 함께 내는 납입 증명 금액과 같게 적습니다.</div>
+    <div class="form-tools">
+      <button type="button" onclick="copyForm('fHsPlan')">📋 복사</button>
+      <button type="button" onclick="printForm('fHsPlan')">🖨 인쇄</button>
+      <button type="button" onclick="downloadForm('fHsPlan','업무계획서및예산서_행정사법인_작성예시.txt')">⬇ 내려받기</button>
+    </div>
+  </div>
+</div>
+<div class="formbox" id="fb_fHsPay">
+  <button class="fold-btn" type="button" onclick="toggleFold(this)">📄 재산출자 이행 증명서 — 설립등기에 붙이는 서면 <span class="srcb own">사무소 작성례</span><span class="chev">▾</span></button>
+  <div class="fold-body">
+    <div class="srcline">출처 · 법령에 정해진 서식이 없어, 행정사법·시행령·시행규칙과 상법(합명회사 준용)이 요구하는 항목으로 만든 사무소 작성례입니다. 근거: 행정사법 시행령 §23의4②5호·③3호, 「민법법인 및 특수법인 등기규칙」 §5③.</div>
+<div class="form" id="fHsPay">                    재 산 출 자 이 행 증 명 서
+법인의 명칭 : 행정사법인 ○○
+주 사 무 소 : 서울특별시 ○○구 ○○로 ○○
+아래 법인구성원은 정관 제5조에 따른 출자를 다음과 같이 이행하였음을
+증명합니다.
+  법인구성원      종류   출자 가액            이행한 금액          이행일
+  행정사 ○○○     금전   금 ○○,○○○,○○○원   금 ○○,○○○,○○○원   20○○. ○. ○.
+  행정사 ○○○     금전   금 ○○,○○○,○○○원   금 ○○,○○○,○○○원   20○○. ○. ○.
+  행정사 ○○○     금전   금 ○○,○○○,○○○원   금 ○○,○○○,○○○원   20○○. ○. ○.
+  합계                   금 ○○,○○○,○○○원   금 ○○,○○○,○○○원
+붙임: 설립 준비 계좌의 구성원별 입금 내역 및 잔고증명서 1부
+                              20○○년 ○월 ○일
+          행정사법인 ○○ 대표 법인구성원 행정사 ○○○ (인)</div>
+    <div class="howto">① 「재산출자의 가격과 이행한 부분」이 등기사항이므로(시행령 §23의4②5호) 이 서면의 이행 금액과 신청서의 등기할 금액을 똑같이 맞춥니다.<br>② 설립인가 때 이미 「자본금 납입 증명」을 냈다면 같은 계좌의 내역을 그대로 쓰면 됩니다.<br>③ 입금 내역은 구성원별로 구분되게 붙입니다. 금액이 다르면 보정 사유가 됩니다.</div>
+    <div class="form-tools">
+      <button type="button" onclick="copyForm('fHsPay')">📋 복사</button>
+      <button type="button" onclick="printForm('fHsPay')">🖨 인쇄</button>
+      <button type="button" onclick="downloadForm('fHsPay','재산출자이행증명서_행정사법인_작성예시.txt')">⬇ 내려받기</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ 제4부 ══════════ -->
+<div class="part" id="part4">
+  <div class="pn">제4부</div>
+  <div class="pt2">바뀔 때 · 끝낼 때</div>
+  <div class="pw">정관에 적힌 사항이 바뀌면 <b>정관변경 인가 → 변경등기 → 시·군·구 변경신고</b> 순서입니다.</div>
+</div>
+
+<div class="qhead"><span class="qb">期</span>
+  <h2>네 개의 시계 — 기한을 이렇게 셉니다</h2>
+</div>
+<p>첫날은 세지 않고 다음 날부터 셉니다(민법 §157, 행정에 관한 기간은 행정기본법 §6①로 민법 준용). 월로 정한 기간은 마지막 달의 기산일에 해당하는 날의 전날에 끝납니다(§160). 끝날이 토요일·공휴일이면 그다음 날까지입니다(§161). 2027년 공휴일은 우주항공청 「2027년 월력요항」(2026. 6. 29.)으로 확인했습니다.</p>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:20%">절차</th><th style="width:20%">① 기산일</th><th style="width:22%">② 근거 조문</th><th style="width:12%">③ 말일 처리</th><th>④ 만료일(예)</th></tr></thead>
+  <tbody>
+    <tr><td><b>설립등기</b></td><td>설립인가증을 받은 날의 다음 날</td><td>시행령 §23의4① — 14일</td><td>§161</td><td>2027. 3. 10.(수) 수령 → <b>3. 24.(수)</b></td></tr>
+    <tr><td><b>손해배상 대비</b></td><td>법인업무신고를 한 날의 다음 날</td><td>시행령 §23의8① — 15일</td><td>§161</td><td>2027. 4. 7.(수) 신고 → <b>4. 22.(목)</b></td></tr>
+    <tr><td>변경신고</td><td>변경이 생긴 날의 다음 날</td><td>시행규칙 §15의3② — 30일</td><td>§161</td><td>2027. 5. 10.(월) 변경 → <b>6. 9.(수)</b></td></tr>
+    <tr><td>사무소 이전신고</td><td>이전한 날의 다음 날</td><td>법 §14③(§25의13① 준용) — 10일</td><td>§161</td><td>2027. 6. 7.(월) 이전 → <b>6. 17.(목)</b></td></tr>
+    <tr><td>변경등기</td><td>정관변경 인가를 받은 날의 다음 날</td><td>상법 §183(법 §25의13② 준용) — 2주</td><td>§161</td><td>2027. 4. 7.(수) 인가 → <b>4. 21.(수)</b></td></tr>
+    <tr><td><b>구성원 보충</b></td><td>요건에 못 미치게 된 날의 다음 날</td><td><a class="dl" href="https://www.law.go.kr/법령/행정사법/제25조의6" target="_blank" rel="noopener">행정사법 §25의6</a>⑥ — 6개월</td><td>§160·§161</td><td>2027. 4. 14.(수) 탈퇴 → <b>10. 14.(목)</b> — 넘기면 인가취소 사유(§25의10 2호)</td></tr>
+    <tr><td>해산 신고</td><td>해산한 때</td><td>법 §25의8②, 시행령 §23의6 — 지체 없이</td><td>—</td><td>별지 제19호의10서식(처리 4일)</td></tr>
+    <tr><td>해산등기</td><td>해산 사유가 생긴 날의 다음 날</td><td>상법 §228(준용) — 2주</td><td>§161</td><td>2027. 6. 9.(수) 전원 동의 → <b>6. 23.(수)</b></td></tr>
+  </tbody>
+</table></div>
+<div class="concept"><b>변경등기는 2주로 잡으십시오.</b> 행정사법령에는 변경등기 기한이 따로 없어, 법 §25의13②가 준용하는 상법 합명회사 규정(§183 변경등기, §181 분사무소, §182 본점 이전 — 모두 2주)에 따릅니다. 「민법법인 및 특수법인 등기규칙」 §6③이 특수법인에 준용하는 민법 §50~§52는 3주이지만, 짧은 쪽인 <b>2주</b>를 지키면 어느 기준으로 보아도 기한 안입니다. 정관변경 인가가 필요한 사항은 인가를 받아야 변경의 효력이 생기므로 인가일 다음 날부터 셉니다.</div>
+
+<div class="qhead"><span class="qb">10</span>
+  <h2>바뀔 때 무엇을 내나요?</h2>
+</div>
+<p>정관을 바꿀 때도 행정안전부장관의 인가를 받습니다(법 §25의3① 후단). 정관 변경에는 구성원 전원의 동의가 필요합니다(상법 §204 준용). 정관변경 인가 신청에는 시행령·시행규칙에 전용 서식이 없으므로, 처리기관인 행정안전부 행정제도과에 신청서 형식과 첨부서류를 먼저 물어 맞춥니다. <b>변경등기는 대표 구성원이 신청</b>합니다 — 전원 공동 신청은 시행령 문언상 설립등기에만 적용되고, 그 밖의 등기는 「민법법인 및 특수법인 등기규칙」 §6①이 준용하는 상업등기법 §23①(대표자 신청)을 따릅니다.</p>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:18%">바뀌는 것</th><th style="width:30%">먼저 할 일</th><th style="width:28%">등기(2주)</th><th>시·군·구</th></tr></thead>
+  <tbody>
+    <tr><td><b>구성원 가입·탈퇴</b></td><td>정관변경(성명·주소, 가입·탈퇴 조항) 인가. 3명 아래로 줄면 6개월 안 보충</td><td>변경정관 · 인가서 · 의사록 · (가입) 출자 이행 증명·초본</td><td>30일 안 변경신고(사진·회원증 사본·변경 정관)</td></tr>
+    <tr><td>소속행정사 고용·퇴직</td><td>—(정관·등기사항 아님)</td><td>없음</td><td>30일 안 변경신고</td></tr>
+    <tr><td><b>분사무소 설치</b></td><td>사무소 수 ≤ 구성원 수, 상근 구성원 지정, 정관변경 인가. 지역 제한은 없습니다</td><td>주사무소 소재지 등기소에 설치등기(상법 §181, 「법인의 등기사항 등에 관한 특례법」 §3①)</td><td>30일 안 변경신고(변경 정관)</td></tr>
+    <tr><td>주사무소 이전</td><td>정관변경 인가</td><td>이전등기(상법 §182)</td><td>이전한 날부터 10일 안 이전 후 관할 시장등에게 이전신고</td></tr>
+    <tr><td>목적·명칭·대표 변경</td><td>정관변경 인가(대표를 정관에 이름으로 적었을 때) 또는 총회 선임</td><td>변경정관 · 인가서 또는 공증 의사록 · (대표) 취임승낙서·인감신고</td><td>정관이 바뀌었으면 30일 안 변경신고</td></tr>
+  </tbody>
+</table></div>
+
+<div class="qhead"><span class="qb">11</span>
+  <h2>해산 · 합병 · 인가취소</h2>
+</div>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:16%">절차</th><th style="width:42%">요건 · 순서</th><th>신고 · 등기</th></tr></thead>
+  <tbody>
+    <tr><td><b>해산</b></td><td>정관에서 정한 사유, 구성원 <b>전원 동의</b>, 합병 또는 파산, 설립인가 취소(<a class="dl" href="https://www.law.go.kr/법령/행정사법/제25조의8" target="_blank" rel="noopener">행정사법 §25의8</a>①)</td><td>청산인이 지체 없이 행정안전부장관에게 해산신고서(별지 제19호의10서식, 처리 4일, 수수료 없음)에 <b>해산 이유서와 해산에 관한 총회 회의록 사본</b>을 붙여 신고(시행령 §23의6) · 2주 안 해산등기(상법 §228 준용), 청산인 등기·청산종결 등기(상법 §253·§264) · 업무를 마치면 시·군·구에 폐업신고(법 §16을 §25의13①로 준용)</td></tr>
+    <tr><td>합병</td><td>구성원 전원 동의로 다른 행정사법인과 합병(§25의9①) — 설립 절차(§25의3)를 준용하므로 정관 작성과 행정안전부장관 인가</td><td>합병등기(상법 §233 준용) · 구성원·정관이 바뀌면 30일 안 변경신고</td></tr>
+    <tr><td>인가취소</td><td>거짓·부정한 방법의 인가(반드시 취소), 6개월 안 구성원 미보충, 업무정지 기간 중 업무, 법령 위반 업무(<a class="dl" href="https://www.law.go.kr/법령/행정사법/제25조의10" target="_blank" rel="noopener">행정사법 §25의10</a>) · 취소 전 청문(시행령 §23의7)</td><td>인가취소는 해산 사유 — 청산 절차로 이어집니다</td></tr>
+  </tbody>
+</table></div>
+
+<div class="qhead"><span class="qb">補</span>
+  <h2>보정·보완이 나기 쉬운 곳 — 먼저 소명서로 풀리는지 봅니다</h2>
+</div>
+<p>등기소가 보정을 명하면 그 내용대로 고쳐 내면 됩니다. 행정안전부와 시·군·구는 기준에 못 미치면 보완을 요구하거나 수리를 거부합니다. 가능성은 사무소의 예측입니다.</p>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:10%">단계</th><th style="width:25%">예상 사유</th><th style="width:7%">가능성</th><th style="width:27%">예상 문구</th><th>대응(소명서로 되는지 먼저)</th></tr></thead>
+  <tbody>
+    <tr><td>인가</td><td>자본금 납입 증명 누락(인가 뒤 입금하려다 생김)</td><td>중</td><td>「자본금 납입을 증명하는 서류를 제출하십시오」</td><td>입금 후 잔고증명서 제출. 소명으로 대신할 수 없습니다</td></tr>
+    <tr><td>인가</td><td>사무소 수가 구성원 수보다 많거나 분사무소 상근 구성원 미기재</td><td>중</td><td>「사무소마다 상근하는 법인구성원을 적으십시오」</td><td>신청서 보완. 구성원보다 사무소가 많으면 소명 불가 — 사무소 축소</td></tr>
+    <tr><td>인가</td><td>정관에 시행령 §23의3의 두 가지(권리·의무 제한, 가입·탈퇴) 누락</td><td>중</td><td>「정관에 시행령 제23조의3의 사항을 적으십시오」</td><td>정관 보완(구성원 재날인)</td></tr>
+    <tr><td>등기소</td><td>구성원 일부만 신청인으로 적거나 위임장 일부 누락</td><td><b>상</b></td><td>「설립등기는 구성원이 될 행정사 전원이 공동으로 신청하여야 합니다」</td><td>소명 불가 — 빠진 구성원의 신청서 날인·위임장 추가</td></tr>
+    <tr><td>등기소</td><td>재산출자 이행 증명 서면 누락, 등기할 출자 이행 금액과 증명 금액 불일치</td><td>중</td><td>「재산출자에 관하여 이행한 부분을 증명하는 서면을 내십시오」</td><td>이행증명서·입금 내역 추가. 금액만 다르면 오기 <b>소명서</b>와 함께 신청서 보정</td></tr>
+    <tr><td>등기소</td><td>정관·신청서의 명칭·사무소가 인가증 사본과 다름</td><td>중</td><td>「설립인가증의 기재와 일치하게 보정하십시오」</td><td>단순 오탈자는 <b>소명서</b>로, 실질이 다르면 정관변경 인가 후 등기</td></tr>
+    <tr><td>등기소</td><td>등록면허세 부족(비영리 세율·중과 누락), 인감증명서·초본 3개월 경과</td><td>중</td><td>「등록면허세가 부족합니다」「발행 3개월 이내의 증명서를 내십시오」</td><td>추가 납부 · 재발급</td></tr>
+    <tr><td>시·군·구</td><td>구성원·소속행정사 중 실무교육 미이수 또는 행정사회 미가입</td><td><b>상</b></td><td>「업무신고 기준에 맞지 않아 수리할 수 없습니다」</td><td>소명 불가 — 교육 이수·회원 가입 후 다시 신고(시행령 §23의5①)</td></tr>
+    <tr><td>시·군·구</td><td>사진 규격·회원증 사본·정관 누락</td><td>하</td><td>「첨부서류를 보완하십시오」</td><td>추가 제출</td></tr>
+  </tbody>
+</table></div>
+
+<div class="qhead"><span class="qb">Q</span>
+  <h2>자주 묻는 질문</h2>
+</div>
+<div class="faq">
+  <details><summary>경력이 짧은 행정사들끼리도 행정사법인을 세울 수 있나요?</summary><div class="fa">세울 수 있습니다. 행정사법은 「3명 이상의 행정사」만 요구하고 경력 요건을 두지 않았습니다(법 §25의2). 다만 구성원 모두 실무교육을 이수하고 행정사회에 가입해 있어야 법인업무신고가 수리됩니다(시행령 §23의5①).</div></details>
+  <details><summary>일반행정사와 외국어번역행정사가 함께 구성원이 될 수 있나요?</summary><div class="fa">법은 구성원을 「행정사」라고만 정해 종류를 가리지 않습니다. 설립인가신청서에 구성원마다 행정사 종류를 적습니다(별지 제19호의3서식).</div></details>
+  <details><summary>제 개인 행정사사무소는 그대로 둘 수 있나요?</summary><div class="fa">둘 수 없습니다. 구성원과 소속행정사는 법인 사무소 밖에 따로 사무소를 둘 수 없고(법 §25의6④), 법인 업무 범위의 일을 자기나 남을 위해 할 수도 없습니다(§25의11①). 법인업무신고 시점에 맞추어 개인 사무소 폐업신고를 합니다.</div></details>
+  <details><summary>변경등기도 구성원 전원이 함께 신청해야 하나요?</summary><div class="fa">아닙니다. 전원 공동 신청은 시행령 §23의4③ 문언상 <b>설립등기</b>에만 적용됩니다. 노무법인은 「등기」 전체를 전원이 신청하게 되어 있는 것(공인노무사법 시행령 §19의5③)과 다릅니다. 변경등기는 대표 구성원이 신청합니다.</div></details>
+  <details><summary>등기에 왜 인가증 원본이 아니라 사본을 내나요?</summary><div class="fa">시행령이 「설립인가증 사본」으로 정했기 때문입니다(§23의4③2호). 원본은 법인이 보관합니다. 업무신고 때에는 인가증과 등기사항증명서를 담당 공무원이 직접 확인합니다.</div></details>
+  <details><summary>분사무소는 어느 지역에든 둘 수 있나요?</summary><div class="fa">지역 제한은 없습니다. 다만 주사무소와 분사무소를 합한 수가 구성원 수를 넘을 수 없고, 사무소마다 구성원 1명 이상이 상근해야 합니다(법 §25의5①). 3명 법인이면 사무소는 최대 3곳입니다.</div></details>
+  <details><summary>보험 대신 돈을 맡겨 둘 수 있나요?</summary><div class="fa">됩니다. 주사무소 관할 공탁기관에 현금이나 국공채를 공탁해도 됩니다(시행령 §23의8①2호). 금액은 보험과 같습니다.</div></details>
+  <details><summary>행정사인 사무소가 설립등기 신청도 해 줄 수 있나요?</summary><div class="fa">등기소에 내는 등기신청의 대리는 법무사·변호사의 업무입니다(법무사법 §2). 법제처는 시·군·구에 하는 농업회사법인 설립 <b>신고</b>의 대리는 행정사 업무라고 회신했지만(<a class="dl" href="https://www.law.go.kr/LSW/expcInfoP.do?expcSeq=341553" target="_blank" rel="noopener">법제처 25-0351</a>), 이는 등기소 신청과는 다른 일입니다. 본 사무소는 법무사·행정사 사무소여서 인가신청·업무신고는 행정사로서, 설립등기는 법무사로서 함께 맡을 수 있습니다.</div></details>
+  <details><summary>지배인을 등기할 수 있나요?</summary><div class="fa">하지 않습니다. 같은 합명회사형 전문직 법인인 법무법인에 대해 상인이 아니어서 지배인등기와 대리인등기를 신청할 수 없다는 선례가 있습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195765" target="_blank" rel="noopener">선례 제2-10호</a>).</div></details>
+</div>
+
+<div class="hire">
+  <div class="ht">고충은 덜어드리고, 끝까지 곁에서 돕겠습니다</div>
+  <p style="margin:0 0 8px;font-size:14.5px;line-height:1.85">함께 일하실 행정사님들의 구성과 사무소 계획을 먼저 살펴 인가·신고 기준에 맞는지 점검하고, 필요한 서류를 갖추어 드리겠습니다.</p>
+  <p style="margin:0;font-size:14.5px;line-height:1.85">설립인가 신청서·업무계획서·예산서와 법인업무신고서·변경신고서의 작성·제출은 <b>행정사</b>로서 대행합니다. 정관·의사록 작성과 설립등기 신청 대리, 등록면허세 신고·납부 대행은 <b>법무사</b>로서 돕습니다. 구성원 전원의 위임장 날인 일정도 함께 맞춰 드립니다. 법인설립신고·사업자등록과 세무 신고는 세무사의 업무입니다 — 세무사의 확인을 받으시기 바랍니다.</p>
+</div>
+
+<div class="cb-box" id="cbBox">
+<style>
+.cb-box{margin:20px auto;max-width:660px;background:#fbf6ec;border:1px solid #e3cfa8;border-radius:14px;padding:16px 16px 14px;box-sizing:border-box}
+.cb-box .cb-t{font-weight:800;font-size:16.5px;color:#5a3b1c;text-align:center;margin:0 0 10px}
+.cb-box .cb-l{display:block;font-size:13px;font-weight:700;color:#7a5230;margin:8px 0 4px}
+.cb-box .cb-l small{font-weight:400;color:#8a7a62}
+.cb-box textarea{width:100%;box-sizing:border-box;border:1px solid #d9c7a3;border-radius:10px;padding:9px 12px;font:14px/1.6 'Pretendard',-apple-system,'Malgun Gothic',sans-serif;color:#2a2118;background:#fff;resize:vertical}
+.cb-box #cbAuto{min-height:120px;background:#fffdf8}
+.cb-box #cbMsg{min-height:70px}
+.cb-box textarea:focus{outline:2px solid #c8862d;outline-offset:1px}
+.cb-box .cb-row{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:12px}
+.cb-box .cb-row a{display:flex;align-items:center;justify-content:center;gap:6px;flex:1 1 150px;text-align:center;border-radius:999px;padding:12px 14px;font-size:15px;font-weight:700;text-decoration:none;box-shadow:0 3px 10px rgba(0,0,0,.12)}
+.cb-box .cb-k{background:#FEE500;color:#3c1e1e}.cb-box .cb-p{background:#c8862d;color:#fff}.cb-box .cb-m{background:#3d5a80;color:#fff}
+.cb-box .cb-n{font-size:12px;color:#8a7a62;text-align:center;margin:8px 0 0;line-height:1.5}
+.cb-box .cb-row a{white-space:nowrap}
+@media(max-width:520px){.cb-box .cb-row a{flex-basis:100%;padding:11px 14px}.cb-box textarea{font-size:16px}}
+.cb-toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:99999;max-width:min(92vw,460px);background:#2a2118;color:#fbf8f1;border-radius:10px;padding:12px 16px;font-size:14px;line-height:1.6;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+@media print{.cb-box{display:none}}
+</style>
+<div class="cb-t">💬 이 내용으로 상담하기</div>
+<label class="cb-l" for="cbAuto">① 보고 계신 내용 <small>(자동으로 옮겨집니다 · 고쳐 쓰셔도 됩니다)</small></label>
+<textarea id="cbAuto"></textarea>
+<label class="cb-l" for="cbMsg">② 덧붙일 말씀 <small>(내 상황·궁금한 점)</small></label>
+<textarea id="cbMsg" placeholder="예) 제 경우에도 해당하는지, 언제까지 해야 하는지 궁금합니다."></textarea>
+<div class="cb-row">
+<a class="cb-k" id="cbKakao" href="https://pf.kakao.com/_znJqX/chat" target="_blank" rel="noopener">💬 카카오톡으로 보내기</a>
+<a class="cb-m" id="cbMail" href="mailto:rokfbi01@gmail.com">✉️ 이메일로 보내기</a>
+<a class="cb-p" href="tel:01037480825">📞 전화 010-3748-0825</a>
+</div>
+<p class="cb-n">카카오톡은 대화창이 열리면 <b>붙여넣기</b>만 하시면 됩니다 (PC: Ctrl+V · 휴대폰: 입력칸을 길게 눌러 붙여넣기).</p>
+<script>
+(function(){
+  var box=document.getElementById('cbBox'); if(!box) return;
+  var au=document.getElementById('cbAuto'), ta=document.getElementById('cbMsg'), dirty=false, last='';
+  if(box.getAttribute('data-msg') && !ta.value) ta.value=box.getAttribute('data-msg');
+  function clean(el){ if(!el) return ''; var c=el.cloneNode(true);
+    [].forEach.call(c.querySelectorAll('.bub,script,style,button,.cb-box,.tt'),function(x){x.parentNode.removeChild(x);});
+    [].forEach.call(c.querySelectorAll('br'),function(x){x.parentNode.replaceChild(document.createTextNode(' '),x);});
+    return (c.textContent||'').replace(/\s+/g,' ').trim(); }
+  function title(){ return clean(document.querySelector('h1'))||document.title; }
+  function generic(){
+    var s=clean(document.querySelector('.tldr')||document.querySelector('.lead')||document.querySelector('main p'));
+    s=s.replace(/^⭐?\s*30초 결론부터\s*/,'');
+    var parts=s.split(/(?<=[.?!])\s+/), sum='';
+    for(var i=0;i<parts.length && sum.length<170;i++){ sum+=(sum?' ':'')+parts[i]; }
+    if(sum.length>240) sum=sum.slice(0,238)+'…';
+    return '보신 페이지: '+title()+(sum?'\n요약: '+sum:'');
+  }
+  function build(){
+    var body=''; try{ body=(typeof window.cbSummary==='function')?window.cbSummary():generic(); }catch(e){ body=generic(); }
+    return '[홈페이지 상담 문의]\n'+body+'\n주소: '+location.href;
+  }
+  function refresh(){ if(dirty) return; var v=build(); if(v!==last){ au.value=v; last=v; } }
+  au.addEventListener('input',function(){ dirty=true; });
+  var tm; function later(){ clearTimeout(tm); tm=setTimeout(refresh,350); }
+  document.addEventListener('change',function(e){ if(!box.contains(e.target)) later(); });
+  document.addEventListener('click',function(e){ if(!box.contains(e.target)) later(); });
+  window.addEventListener('hashchange',later);
+  refresh(); setTimeout(refresh,1500);
+  function full(){ refresh(); var m=ta.value.trim(); return au.value+(m?'\n\n덧붙일 말씀: '+m:''); }
+  function toast(m){ var t=document.createElement('div'); t.className='cb-toast'; t.textContent=m; document.body.appendChild(t); setTimeout(function(){ if(t.parentNode) t.parentNode.removeChild(t); },6500); }
+  function copy(text){
+    var ok=false;
+    try{ var x=document.createElement('textarea'); x.value=text; x.setAttribute('readonly',''); x.style.position='fixed'; x.style.top='0'; x.style.opacity='0'; document.body.appendChild(x); x.select(); ok=document.execCommand('copy'); document.body.removeChild(x); }catch(e){}
+    if(!ok && navigator.clipboard && window.isSecureContext){ ok=true; navigator.clipboard.writeText(text).catch(function(){}); }
+    return ok;
+  }
+  document.getElementById('cbKakao').addEventListener('click',function(){
+    var ok=copy(full());
+    toast(ok?'상담 내용을 복사했습니다. 카카오톡 대화창에 붙여넣기 하시면 됩니다.':'카카오톡 창이 열리면 위 상담 내용을 복사해 붙여넣어 주세요.');
+  });
+  document.getElementById('cbMail').addEventListener('click',function(){
+    this.href='mailto:rokfbi01@gmail.com?subject='+encodeURIComponent('[홈페이지] '+title()+' 상담 문의')+'&body='+encodeURIComponent(full());
+  });
+})();
+</script>
+</div>
+
+<div class="src">
+근거(2026. 11. 23. 국가법령정보센터·사법정보공개포털 현행 확인) — 행정사법(법률 제19034호, 2022. 11. 15. 시행) §2· §14· §16· §24· §25의2~§25의13· §32· §36· §38 / 행정사법 시행령(대통령령 제35813호, 2026. 1. 1. 시행) §23의2~§23의8, 별표 4 / 행정사법 시행규칙(행정안전부령 제633호, 2026. 8. 30. 시행) §15의2~§15의4와 별지 제9호·제19호의3~제19호의10서식 / 민법법인 및 특수법인 등기규칙(대법원규칙 제3170호) §1· §5· §6 / 상법 §179· §181· §182· §183· §204· §217· §228· §233· §253· §264· §292· §543· §635 / 상업등기법 §23 / 상업등기규칙 §35 / 법인의 등기사항 등에 관한 특례법 §3 / 공인노무사법 시행령 §19의5 / 공증인법 §66의2 / 지방세법 §28①6호·②·④· §151①2호, 같은 법 시행령 §26①· §44 / 지방회계법 §55 / 등기사항증명서 등 수수료규칙 §5의3· §5의4· §5의5 / 행정기본법 §6 / 민법 §50~§52· §97· §157· §160· §161 / 법무사법 §2 / 등기예규 <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3334567" target="_blank" rel="noopener">예규 제1792호</a>(양식 제27호) / 상업등기선례 <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854856" target="_blank" rel="noopener">선례 제1-426호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195765" target="_blank" rel="noopener">선례 제2-10호</a> / <a class="dl" href="https://www.olta.re.kr/explainInfo/judgeDecisionDetail.do?num=40001408" target="_blank" rel="noopener">조세심판원 2011. 12. 20. 조심2011지0712 결정</a> / <a class="dl" href="https://www.law.go.kr/LSW/expcInfoP.do?expcSeq=341553" target="_blank" rel="noopener">법제처 25-0351</a> / 우주항공청 「2027년 월력요항」(2026. 6. 29.) / 『특수법인등기실무』(법원행정처, 2025) 66~67· 396· 403~406쪽. 행정사법인만을 다룬 등기예규·선례와 조세심판원 결정은 찾지 못해, 같은 합명회사형 전문직 법인(법무법인·노무법인)에 대한 선례·결정·교재 설명과 「민법법인 및 특수법인 등기규칙」의 준용 조문을 근거로 적고 그 사실을 본문에 밝혔습니다. 정관변경·합병 인가에는 전용 서식이 없어 처리기관(행정안전부 행정제도과)에 형식을 먼저 확인하도록 적었습니다. 발급처 링크는 각 기관 공식 사이트의 해당 화면으로 연결됩니다.
+</div>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+    t.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();t.classList.toggle('on');}if(e.key==='Escape'){t.classList.remove('on');t.blur();}});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){terms.forEach(function(x){x.classList.remove('on');});}});
+})();
+function toggleFold(b){var fb=b.parentElement;fb.classList.toggle('open');}
+function _openCall(id){var w=document.getElementById(id);var n=w&&w.nextElementSibling;if(n&&n.classList.contains('calltbl'))n.classList.add('open');}
+document.addEventListener('click',function(e){var a=e.target.closest?e.target.closest('a[href^="#call"]'):null;if(a)_openCall(a.getAttribute('href').slice(1));});
+if(location.hash.indexOf('#call')===0)_openCall(location.hash.slice(1));
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('양식이 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('양식이 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('양식을 내려받았습니다');}
+</script>
+<script>
+/* 2026-11-16 메일 단추 — PC에 메일 프로그램이 연결되어 있지 않으면 mailto 링크가 크롬 첫 화면만 여는 일이 많다.
+   그래서 PC에서는 Gmail 편지쓰기 화면을 받는 사람·제목·본문을 채워 새 탭으로 바로 열고, 내용은 복사해 둔다(네이버·다음 메일용).
+   휴대폰은 메일 앱이 그대로 열리므로 손대지 않는다. */
+(function(){
+  if(window.__sanMailFix) return; window.__sanMailFix=1;
+  if(/Android|iPhone|iPad|iPod|Mobile|Windows Phone/i.test(navigator.userAgent)) return;
+  function qp(s,k){ var m=s.match(new RegExp('(?:^|&)'+k+'=([^&]*)','i')); if(!m) return ''; try{ return decodeURIComponent(m[1]); }catch(e){ return m[1]; } }
+  function copy(t){ try{ var x=document.createElement('textarea'); x.value=t; x.setAttribute('readonly',''); x.style.position='fixed'; x.style.top='0'; x.style.opacity='0'; document.body.appendChild(x); x.select(); var ok=document.execCommand('copy'); document.body.removeChild(x); return ok; }catch(e){ return false; } }
+  function toast(m){ var t=document.createElement('div'); t.style.cssText='position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:100001;max-width:min(92vw,480px);background:#2a2118;color:#fbf8f1;border-radius:10px;padding:12px 16px;font-size:14px;line-height:1.6;box-shadow:0 8px 24px rgba(0,0,0,.35)'; t.textContent=m; document.body.appendChild(t); setTimeout(function(){ if(t.parentNode) t.parentNode.removeChild(t); },8000); }
+  document.addEventListener('click',function(e){
+    var a=(e.target&&e.target.closest)?e.target.closest('a[href^="mailto:"]'):null; if(!a||e.defaultPrevented) return;
+    var h=a.getAttribute('href').slice(7), i=h.indexOf('?'), to, q=i<0?'':h.slice(i+1);
+    try{ to=decodeURIComponent(i<0?h:h.slice(0,i)); }catch(x){ to=i<0?h:h.slice(0,i); }
+    var su=qp(q,'subject'), body=qp(q,'body'), keep=body.length, b, u, note='\n\n…(내용이 길어 일부만 담았습니다. 전체 내용은 복사되어 있으니 붙여넣어 주세요.)';
+    for(;;){ b=keep<body.length?body.slice(0,keep)+note:body;
+      u='https://mail.google.com/mail/?view=cm&fs=1&to='+encodeURIComponent(to)+(su?'&su='+encodeURIComponent(su):'')+(b?'&body='+encodeURIComponent(b):'');
+      if(u.length<7500||keep<300) break; keep=Math.floor(keep*0.75); }
+    e.preventDefault();
+    var copied=body?copy(body):false;
+    var w=window.open(u,'_blank'); if(w){ try{ w.opener=null; }catch(x){} } else { location.href=u; return; }
+    toast('Gmail 편지쓰기 창을 열었습니다. 받는 사람·제목·내용이 채워져 있으니 확인하고 보내기만 누르시면 됩니다.'+(copied?' 네이버·다음 메일을 쓰시면 내용이 복사되어 있으니 그 메일 본문에 붙여넣기(Ctrl+V) 하세요.':' 다른 메일을 쓰시면 받는 사람을 '+to+' 로 적어 보내 주세요.'));
+  });
+})();
+</script>
+</body>
+</html>
