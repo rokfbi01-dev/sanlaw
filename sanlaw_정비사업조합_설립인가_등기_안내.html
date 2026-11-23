@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[등기 안내] 정비사업조합(재개발·재건축) — 조합설립인가와 설립·임원 변경등기 | 산 법무사 김재섭</title>
+<meta name="description" content="도시정비법상 재개발·재건축 정비사업조합의 설립과 등기 안내. 재개발 4분의 3·재건축 70% 동의율, 동의서 검인과 철회, 창립총회 직접 출석 20%, 조합설립인가 후 30일 안 조합장 설립등기(성립요건)와 등기사항 7가지, 창립총회 의사록 공증, 재산목록 불요, 등록면허세 135,000원·대도시 중과 제외, 임원 변경 경미한 사항 신고와 수리 간주·중임, 직무대행자·임시조합장 등기 불가, 해산·청산 3주, 소규모주택정비 조합의 차이, 보정 대비.">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+ul{margin:8px 0 12px; padding-left:20px;} li{margin:6px 0;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(300px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.who{background:var(--box); border-radius:10px; padding:14px 16px; margin:12px 0; border-left:4px solid #b9a98c;}
+.who .wl{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;margin-left:3px;}
+.tag.free{background:#5a9a72;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.cta{display:block; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; text-decoration:none; font-weight:700; font-size:16px; padding:15px; border-radius:11px; margin:18px 0; box-shadow:0 3px 8px rgba(122,82,48,.25);}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:11px 15px;margin:10px 0;font-size:13.5px;line-height:1.7;}
+.lawbox .ll{display:inline-block;font-size:11.5px;font-weight:700;color:#fff;background:var(--gold-d);border-radius:5px;padding:2px 8px;margin-right:6px;}
+.lawbox a{color:var(--gold-d);font-weight:600;}
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:14.5px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:16px;margin:10px 0;font-family:'D2Coding','Courier New',monospace;font-size:12.5px;line-height:1.65;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:15px;letter-spacing:2px;margin-bottom:10px;color:#241a10;}
+.howto{font-size:13.5px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:12.5px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:6px 12px;cursor:pointer;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.concept{background:var(--box);border-radius:9px;padding:11px 15px;margin:8px 0 14px;font-size:14.5px;color:#5a4a36;border-left:3px solid #b9a98c;}
+.concept b{color:var(--gold-d);}
+.flow{background:linear-gradient(180deg,#fcf9f2,#f7f1e5);border:1.5px solid var(--gold);border-radius:14px;padding:18px 18px 14px;margin:14px 0 20px;}
+.flow .ft2{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:12px;}
+.flow ol{counter-reset:fl;list-style:none;margin:0;padding:0;}
+.flow li{position:relative;padding:8px 10px 8px 44px;margin:7px 0;background:#fff;border:1px solid var(--line);border-radius:10px;font-size:14.5px;line-height:1.6;}
+.flow li::before{counter-increment:fl;content:counter(fl);position:absolute;left:10px;top:8px;width:26px;height:26px;line-height:26px;text-align:center;background:var(--gold);color:#fff;border-radius:50%;font-weight:800;font-size:14px;}
+.flow li b{color:var(--gold-d);}
+.flow .arw{text-align:center;color:var(--gold);font-size:13px;margin:-2px 0;}
+.newlaw{background:#eef6f0;border:1px solid #cfe6d6;border-left:4px solid #5a9a72;border-radius:8px;padding:13px 16px;margin:14px 0;}
+.newlaw .nt{font-weight:700;color:#2f6a47;display:block;margin-bottom:4px;}
+.newlaw .badge{display:inline-block;font-size:11px;font-weight:800;color:#fff;background:#5a9a72;border-radius:5px;padding:2px 8px;margin-right:6px;vertical-align:middle;}
+.faq{margin:14px 0;}
+.faq details{border:1px solid var(--line);border-radius:10px;margin:9px 0;background:#fff;overflow:hidden;}
+.faq summary{list-style:none;cursor:pointer;padding:13px 44px 13px 38px;font-weight:700;font-size:15px;color:#241a10;background:#faf7f0;position:relative;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::before{content:"Q";position:absolute;left:15px;color:var(--gold-d);font-family:'Nanum Myeongjo',serif;font-weight:800;}
+.faq summary::after{content:"▾";position:absolute;right:16px;top:13px;color:var(--gold-d);transition:.2s;}
+.faq details[open] summary::after{transform:rotate(180deg);}
+.faq .fa{padding:13px 15px 15px 38px;font-size:14.5px;line-height:1.75;color:#3a3a3a;position:relative;border-top:1px solid var(--line);}
+.faq .fa::before{content:"A";position:absolute;left:15px;top:13px;color:#5a9a72;font-family:'Nanum Myeongjo',serif;font-weight:800;}
+.helm{background:linear-gradient(135deg,#2c3e50,#3a4a5c);color:#f4f0e8;border-radius:14px;padding:20px 22px;margin:0 0 24px;box-shadow:0 4px 14px rgba(44,62,80,.18);}
+.helm .ht2{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:17px;color:#f0d98c;margin-bottom:9px;}
+.helm p{margin:0;font-size:14.5px;line-height:1.9;color:#eae4d8;}
+.helm b{color:#f4e2a6;}
+.qhead{display:flex;gap:12px;align-items:flex-start;margin:8px 0 8px;}
+.qhead .qb{flex:none;width:34px;height:34px;border-radius:50%;background:var(--gold);color:#fff;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(176,141,87,.4);}
+.qhead h2{margin:0;border:0;padding:0;font-size:20px;line-height:1.45;}
+.lawrow{display:flex;flex-wrap:wrap;background:var(--box);border-radius:10px;overflow:hidden;margin:12px 0;border:1px solid var(--line);}
+.lawrow .lrl{flex:none;background:var(--gold);color:#fff;font-weight:700;font-size:13.5px;padding:11px 15px;display:flex;align-items:center;}
+.lawrow .lrc{flex:1;min-width:210px;padding:11px 15px;font-size:14px;line-height:1.75;}
+@media(max-width:520px){.lawrow .lrl{width:100%;}}
+.calc{display:block;background:linear-gradient(135deg,#fff7e8,#fdeecb);border:1.5px solid var(--gold);border-radius:14px;padding:16px 18px;margin:18px 0;text-decoration:none;color:var(--ink);transition:.15s;}
+.calc:hover{box-shadow:0 4px 14px rgba(176,141,87,.25);transform:translateY(-1px);}
+.calc .cah{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:4px;}
+.calc .cas{font-size:13.5px;color:var(--muted);}
+.ctabtn{display:block;text-align:center;background:var(--gold);color:#fff;font-weight:800;font-size:17px;padding:16px;border-radius:12px;text-decoration:none;margin:22px 0 6px;box-shadow:0 3px 10px rgba(176,141,87,.35);}
+.ctabtn:hover{background:var(--gold-d);}
+.doclabel{display:inline-block;font-size:12px;font-weight:800;color:#fff;border-radius:6px;padding:3px 11px;margin-bottom:6px;}
+.doclabel.give{background:#b0885a;}
+.doclabel.back{background:#5a9a72;}
+.dl{color:var(--gold-d);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--gold);}
+.dl:hover{background:#fbf5e8;}
+.ddl{display:flex;gap:2px 10px;flex-wrap:wrap;margin:8px 0 2px;padding:9px 12px;background:#fbf7ee;border-radius:8px;font-size:13px;}
+.ddl b{color:var(--gold-d);}
+.deadline{width:100%;border-collapse:collapse;margin:10px 0;font-size:13.5px;}
+.deadline th{background:#3a4a5c;color:#fff;padding:8px;font-weight:700;}
+.deadline td{border:1px solid var(--line);padding:8px 10px;background:#fff;}
+.bnote{color:#0b4a9c;font-weight:600;background:#eaf2fc;border-left:4px solid #2b7fff;border-radius:8px;padding:9px 13px;margin:8px 0;font-size:13.5px;line-height:1.7;}
+.bnote b{color:#0a3d82;}
+.capital th{background:#f0ebe1;text-align:center;font-size:13px;}
+.capital td{text-align:center;font-size:13.5px;}
+.capital td:first-child{text-align:left;font-weight:700;background:#faf7f0;}
+.capital .hi{background:#fdf6e3;font-weight:700;color:var(--gold-d);}
+.capital .bad{color:#9c3a22;font-weight:700;}
+.grp{border-radius:10px;padding:13px 16px;margin:12px 0;border:1px solid var(--line);border-left-width:5px;}
+.grp .gt{font-weight:800;font-size:15px;margin-bottom:5px;}
+.grp.a{background:#eef6f0;border-left-color:#5a9a72;} .grp.a .gt{color:#2f6a47;}
+.grp.b{background:#fdf9e8;border-left-color:#d4a72c;} .grp.b .gt{color:#8a6d10;}
+.grp.c{background:#fdf2ee;border-left-color:#d9694a;} .grp.c .gt{color:#9c3a22;}
+@media print{.term>.bub{display:inline !important;position:static;background:none;color:#555;box-shadow:none;padding:0;width:auto;font-size:12px;}.term>.bub::before{content:" (";}.term>.bub::after{content:")";border:0;position:static;}.formbox .fold-body{display:block !important;}}
+.part{margin:38px 0 14px;padding:16px 18px;border-radius:12px;background:linear-gradient(135deg,#2c3e50,#3a4a5c);color:#f4f0e8;box-shadow:0 4px 14px rgba(44,62,80,.18);}
+.part .pn{display:inline-block;font-size:12px;font-weight:800;color:#2c3e50;background:#f0d98c;border-radius:6px;padding:2px 10px;margin-bottom:6px;}
+.part .pt2{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:20px;color:#fff;margin-bottom:4px;}
+.part .pw{font-size:13.5px;line-height:1.7;color:#eae4d8;} .part .pw b{color:#f4e2a6;}
+.chk td:first-child{width:30px;text-align:center;color:var(--gold-d);font-size:16px;}
+.tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.srcb{display:inline-block;font-size:11px;font-weight:800;color:#fff;border-radius:5px;padding:1px 7px;margin-left:6px;vertical-align:middle;}
+.srcb.moe{background:#2f5b78;} .srcb.goe{background:#5a9a72;} .srcb.own{background:#9a8f7d;}
+.srcline{font-size:12.5px;color:var(--muted);background:#faf7f0;border-radius:7px;padding:7px 11px;margin:0 0 6px;}
+h3.fgrp{font-size:15px;color:var(--gold-d);margin:22px 0 6px;padding-bottom:5px;border-bottom:1px dashed var(--line);}
+.form{overflow-x:auto;}
+@media(max-width:560px){table{font-size:12.5px;} th,td{padding:7px 6px;overflow-wrap:anywhere;} .tblwrap table{min-width:560px;} .who{padding:12px 10px;}}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+<h1>정비사업조합(재개발·재건축) — 조합설립인가와 설립·임원 변경등기</h1>
+
+<div class="helm">
+  <div class="ht2">⚓ 이 안내를 준비한 마음</div>
+  <p>재개발·재건축조합은 조합원이 수백·수천 명이고 총회 한 번에 큰돈과 일정이 걸립니다. 그런데 등기는 <b>인가 후 30일</b>이라는 짧은 기한, <b>공증받은 의사록</b>, 임원 변경 때의 <b>신고 수리</b> 증명 같은 형식에서 자주 막힙니다. 2025년 동의율 완화·전자의결·온라인총회와 2023년 임원 자격 강화까지 현행 「도시 및 주거환경정비법」(법률 제21447호, 2026. 7. 1.)과 『특수법인등기실무』(법원행정처, 2025) 350~367쪽, 등기선례를 맞춰 보고 보정이 나지 않는 길로 정리했습니다.</p>
+</div>
+
+<div class="qhead"><span class="qb">Q</span>
+  <h2>무엇이 어떤 순서로 필요한가요?</h2>
+</div>
+
+<div class="tnote">밑줄 친 <span class="term">용어<span class="bub">밑줄 친 말에 마우스를 올리거나(휴대폰은 살짝 누르면) 쉬운 설명이 나옵니다.</span></span>에 마우스를 올리면 설명이 나옵니다. 파란 <b>링크</b>를 누르면 법령 원문으로 바로 이동합니다.</div>
+
+<div class="tldr">
+  <div class="tt">이런 상황입니다 — 동의 → 창립총회 → 인가 → 30일 안 등기</div>
+  <ul>
+    <li><b>설립</b> — 추진위원회가 동의서를 모아(재개발: 토지등소유자 <b>4분의 3</b>·토지면적 2분의 1 / 재건축: 동별 과반수와 전체 구분소유자 <b>70%</b>·토지면적 70%) 창립총회 → 시장·군수등의 <b>조합설립인가</b> → <b>인가를 받은 날부터 30일 안</b> 조합장이 설립등기(<a class="dl" href="https://www.law.go.kr/법령/도시및주거환경정비법/제35조" target="_blank" rel="noopener">도시정비법 §35</a>, <a class="dl" href="https://www.law.go.kr/법령/도시및주거환경정비법/제38조" target="_blank" rel="noopener">도시정비법 §38</a>②). 등기해야 법인으로 성립합니다.</li>
+    <li><b>임원 변경</b> — 총회(대의원회)에서 뽑은 임원 교체는 설립변경인가가 아니라 <b>경미한 사항 신고</b>로 하고, 20일 안에 통지가 없으면 수리한 것으로 봅니다(§35⑤~⑦, 시행령 §31 4호). 등기는 민법을 준용해 <b>3주</b>입니다(§49 → 민법 §52).</li>
+    <li><b>의사록은 공증인의 인증을 받습니다</b> — 정비사업조합은 인증 제외 법인이 아닙니다(공증인법 §66의2①, 교재 355쪽, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195878" target="_blank" rel="noopener">선례 제2-123호</a>).</li>
+  </ul>
+</div>
+
+<div class="warn">
+  <span class="wt">교재 이후 바뀐 다섯 가지</span>
+  ① 재건축 조합설립 동의율이 2025. 5. 1.부터 <b>70%·70%</b>로 낮아졌습니다(§35③). ② 2023. 7. 18. 이후 선출되는 임원은 <b>정비구역 안 소유자인 조합원</b>(공유면 가장 많은 지분을 가진 사람)이어야 합니다(§41①). ③ 2025. 6. 4.부터 정비구역 지정 전에도 추진위원회를 꾸릴 수 있고 전자적 의결이 일반화되었으며, 2025. 12. 4.부터 전자서명 동의서와 <b>온라인총회</b>가 가능합니다(§31·§36·§44의2·§45⑥). ④ 경미한 사항 신고와 정관변경 신고는 20일 안에 통지가 없으면 <b>수리한 것으로 봅니다</b>(§35⑦·§40⑥). ⑤ 분사무소 등기는 2025. 1. 31.부터 주사무소 소재지에서만 합니다. 재개발 동의율 70% 하향은 2026. 8. 정부 발표만 있었고 아직 법 개정 전입니다.
+</div>
+
+<div class="lawrow"><div class="lrl">관련 법령</div><div class="lrc">
+  <a class="dl" href="https://www.law.go.kr/법령/도시및주거환경정비법/제31조" target="_blank" rel="noopener">도시정비법 §31</a> 추진위원회 · <a class="dl" href="https://www.law.go.kr/법령/도시및주거환경정비법/제35조" target="_blank" rel="noopener">도시정비법 §35</a> 조합설립인가 · <a class="dl" href="https://www.law.go.kr/법령/도시및주거환경정비법/제36조" target="_blank" rel="noopener">도시정비법 §36</a> 동의 방법 · <a class="dl" href="https://www.law.go.kr/법령/도시및주거환경정비법/제38조" target="_blank" rel="noopener">도시정비법 §38</a> 법인격·등기 · <a class="dl" href="https://www.law.go.kr/법령/도시및주거환경정비법/제40조" target="_blank" rel="noopener">도시정비법 §40</a> 정관 · <a class="dl" href="https://www.law.go.kr/법령/도시및주거환경정비법/제41조" target="_blank" rel="noopener">도시정비법 §41</a> 임원 · <a class="dl" href="https://www.law.go.kr/법령/도시및주거환경정비법/제42조" target="_blank" rel="noopener">도시정비법 §42</a> 조합장 · <a class="dl" href="https://www.law.go.kr/법령/도시및주거환경정비법/제44조" target="_blank" rel="noopener">도시정비법 §44</a> 총회 · <a class="dl" href="https://www.law.go.kr/법령/도시및주거환경정비법/제45조" target="_blank" rel="noopener">도시정비법 §45</a> 의결 · <a class="dl" href="https://www.law.go.kr/법령/도시및주거환경정비법/제46조" target="_blank" rel="noopener">도시정비법 §46</a> 대의원회 · <a class="dl" href="https://www.law.go.kr/법령/도시및주거환경정비법/제49조" target="_blank" rel="noopener">도시정비법 §49</a> 민법 준용 · <a class="dl" href="https://www.law.go.kr/법령/도시및주거환경정비법/제86조의2" target="_blank" rel="noopener">도시정비법 §86의2</a> 해산 · <a class="dl" href="https://www.law.go.kr/법령/도시및주거환경정비법시행령/제31조" target="_blank" rel="noopener">도시정비법 시행령 §31</a> 경미한 변경 · <a class="dl" href="https://www.law.go.kr/법령/도시및주거환경정비법시행령/제36조" target="_blank" rel="noopener">도시정비법 시행령 §36</a> 등기사항 · <a class="dl" href="https://www.law.go.kr/법령/비송사건절차법/제63조" target="_blank" rel="noopener">비송사건절차법 §63</a>
+</div></div>
+
+<!-- ══════════ 제1부 ══════════ -->
+<div class="part" id="part1">
+  <div class="pn">제1부</div>
+  <div class="pt2">조합 세우기 — 동의와 창립총회, 조합설립인가</div>
+  <div class="pw">조합설립인가 신청서와 동의서 정리·제출은 <b>행정사 업무</b>, 정관·창립총회 의사록 등 등기에 쓰는 서류는 <b>법무사</b>가 함께 준비합니다.</div>
+</div>
+
+<div class="qhead"><span class="qb">1</span>
+  <h2>요건 점검표 — 창립총회를 열기 전에</h2>
+</div>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:20%">요건</th><th style="width:52%">내용</th><th>근거</th></tr></thead>
+  <tbody>
+    <tr><td><b>추진위원회</b></td><td>위원장 포함 5명 이상과 운영규정에 토지등소유자 <b>과반수</b> 동의 → 시장·군수등 승인(별지 제3·4호서식). 2025. 6. 4.부터 정비구역 지정 전에도 가능</td><td><a class="dl" href="https://www.law.go.kr/법령/도시및주거환경정비법/제31조" target="_blank" rel="noopener">도시정비법 §31</a></td></tr>
+    <tr><td><b>동의율</b></td><td>재개발: 토지등소유자 4분의 3 이상 + 토지면적 2분의 1 이상 / 재건축: 동별 구분소유자 과반수 + 전체 구분소유자 <b>70%</b> 이상 + 토지면적 <b>70%</b> 이상</td><td>§35②③</td></tr>
+    <tr><td><b>동의서</b></td><td>별지 제6호서식(설계 개요·정비사업비·분담기준·소유권 귀속·정관이 들어감)에 성명·<b>지장</b>·신분증 사본, 또는 전자서명동의서(2025. 12. 4.~). 시장·군수등의 <b>검인 또는 확인</b>을 받지 않은 동의서는 효력이 없습니다. 조합설립 동의는 최초 동의일부터 <b>30일까지만</b>, 그것도 창립총회 전까지만 철회할 수 있고, 철회서는 내용증명으로 추진위원회와 시장·군수등 모두에게 보냅니다</td><td>§36, 시행령 §30·§33·§34, 시행규칙 §8③</td></tr>
+    <tr><td><b>임원</b></td><td>조합장 1명, 이사 3명 이상(토지등소유자 100인 초과면 5명 이상), 감사 1~3명. <b>정비구역 안 소유자인 조합원</b>(공유면 최다 지분자)으로서 5년 이상 소유 또는 선임일 직전 3년 동안 1년 이상 거주. 조합장은 관리처분계획인가 때까지 거주. 임기는 3년 이하에서 정관으로</td><td>§41①④, 시행령 §40</td></tr>
+    <tr><td><b>정관</b></td><td>법 §40① 18개 사항 + 시행령 §38 17개 사항(임원 업무 분담·대행 등). 명칭에 반드시 「정비사업조합」</td><td>§38③·§40</td></tr>
+  </tbody>
+</table></div>
+
+<div class="qhead"><span class="qb">2</span>
+  <h2>창립총회 → 조합설립인가 신청</h2>
+</div>
+<p>인가 신청일 <b>60일 전</b>까지 동의 철회 방법과 동의서 내용을 추진위원회 동의자에게 등기우편으로 알리고(시행령 §29① 단서), 창립총회는 <b>14일 전</b>까지 목적·안건·일시·장소·참석자격을 인터넷 홈페이지에 공개하고 토지등소유자에게 <b>등기우편</b>으로 보낸 뒤 엽니다(시행령 §27②). 창립총회는 정관 확정, 조합임원·대의원 선임을 처리하며 토지등소유자(재건축은 조합설립 동의자) <b>과반수 출석과 출석자 과반수 찬성</b>으로 의결하고(시행령 §27④⑤), <b>조합원 20% 이상이 직접 출석</b>해야 합니다(§45⑩ 단서, 시행령 §42③1호). 서면으로 의결권을 행사하면 출석으로는 세지만 <b>직접 출석에는 들지 않고</b>, 대리인 출석은 직접 출석으로 봅니다(§45⑤⑩). 그래서 의사록에 직접 출석·대리인·서면 수를 따로 적어야 등기소가 정족수를 확인할 수 있습니다.</p>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:26%">서류</th><th style="width:28%">① 추진위원회가 준비</th><th style="width:22%">② 사무소가 작성</th><th>③ 제출처 · 근거</th></tr></thead>
+  <tbody>
+    <tr><td><b>조합설립인가 신청서</b>(시행규칙 별지 제5호서식)</td><td>추진위원장 서명 또는 날인</td><td>행정사</td><td>정비구역 관할 특별자치시장·특별자치도지사·시장·군수·구청장(§35②, 시행규칙 §8)</td></tr>
+    <tr><td>정관 · 창립총회 의사록</td><td>창립총회 자료</td><td>법무사 — 작성례</td><td>같은 곳 — 등기에도 씁니다(등기용은 <b>공증</b>)</td></tr>
+    <tr><td>조합원 명부와 자격 증명 · 조합설립동의서와 동의사항 증명</td><td>검인·확인 받은 동의서</td><td>행정사 — 동의율 계산표</td><td>같은 곳(시행규칙 §8②1호 가·나목)</td></tr>
+    <tr><td>창립총회 참석자 연명부 · 공유자 대표 선임 동의서</td><td>총회 자료</td><td>—</td><td>같은 곳(같은 호 다·라목)</td></tr>
+    <tr><td>선임된 임원·대의원의 자격 증명</td><td>등기사항증명서·건축물대장·주민등록표 등(소유 5년 또는 3년 중 1년 거주)</td><td>—</td><td>같은 곳(같은 호 마목)</td></tr>
+    <tr><td>사업계획서(건축계획·지번·지목·등기명의자·용도지역)</td><td>설계 자료</td><td>행정사</td><td>같은 곳(같은 호 바목)</td></tr>
+    <tr><td>시·도 조례가 정한 서류</td><td>조례 확인</td><td>—</td><td>같은 곳(§35②)</td></tr>
+  </tbody>
+</table></div>
+<div class="tip"><span class="pt">간주인가가 없으니 30일 준비를 미리 해 둡니다</span>조합설립인가에는 기한이 지나면 인가한 것으로 보는 규정이 없고, 처리기간도 법·시행령·시행규칙 본문에 정해져 있지 않습니다. 신청 때 담당 부서에 예상 처리일을 물어 두고, <b>인가를 받은 날부터 30일 안에 등기</b>할 수 있도록 창립총회 의사록 공증과 임원 서류를 인가 전에 갖춰 둡니다. 인가를 받으면 정관에 따라 토지등소유자에게 알리고 열람하게 하며(시행령 §30④), 추진위원회는 회계장부 등을 인가일부터 30일 안에 조합에 넘깁니다(§34④). 새로 뽑힌 임원은 선임일부터 <b>6개월 안</b>에 교육을 받아야 합니다(§115②).</div>
+
+<!-- ══════════ 제2부 ══════════ -->
+<div class="part" id="part2">
+  <div class="pn">제2부</div>
+  <div class="pt2">설립등기 — 인가 후 30일, 등기해야 조합이 생깁니다</div>
+  <div class="pw">설립등기 신청 대리와 신청서·첨부서면 작성은 <b>법무사 업무</b>입니다(법무사법 §2). 비용은 아래 [세금과 수수료]와 비용 계산기로 미리 보실 수 있습니다.</div>
+</div>
+
+<div class="qhead"><span class="qb">3</span>
+  <h2>언제까지, 어디에, 누가 신청하나요?</h2>
+</div>
+<p>조합은 <b>조합설립인가를 받은 날부터 30일 안에</b> 주된 사무소 소재지에서 등기하는 때에 성립합니다(<a class="dl" href="https://www.law.go.kr/법령/도시및주거환경정비법/제38조" target="_blank" rel="noopener">도시정비법 §38</a>②). 민법법인의 3주가 아니라 30일이고, 등기가 곧 <b>법인 성립 요건</b>입니다. 신청인은 <b>조합장</b>입니다(비송사건절차법 §67①·§63①, 교재 355쪽). 「도시 및 주거환경정비법」 제35조에 따라 인가를 받은 정비사업조합은 설립등기를 할 수 있는 법인으로 예규에 올라 있습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3336135" target="_blank" rel="noopener">예규 제1818호</a>).</p>
+<table class="deadline">
+  <thead><tr><th>기산일</th><th>근거 조문</th><th>말일 처리</th><th>만료일(예)</th></tr></thead>
+  <tbody>
+    <tr><td>조합설립인가를 받은 날의 <b>다음 날</b><br><small>첫날은 세지 않습니다(민법 §157)</small></td><td><a class="dl" href="https://www.law.go.kr/법령/도시및주거환경정비법/제38조" target="_blank" rel="noopener">도시정비법 §38</a>② — 30일 이내</td><td>말일이 토요일·공휴일이면 <b>그다음 날</b>(민법 §161)</td><td>2027. 6. 9.(수) 인가 → <b>7. 9.(금)</b><br>2027. 4. 5.(월) 인가 → 5. 5.(수·어린이날)이 말일 → <b>5. 6.(목)</b><br>2027. 4. 30.(금) 인가 → 5. 30.(일)이 말일 → <b>5. 31.(월)</b></td></tr>
+  </tbody>
+</table>
+<div class="warn">
+  <span class="wt">「인가를 받은 날」은 인가서 날짜로 잡습니다</span>
+  인가서 날짜와 인가 통지가 도착한 날 가운데 어느 쪽에서 세는지 법에 적혀 있지 않습니다. 등기사항인 「설립인가일」도 인가서 날짜로 적으므로 <b>앞선 날짜인 인가서 날짜부터</b> 세는 것이 안전합니다. 30일이 지나도 등기는 할 수 있지만, 그때까지는 법인이 성립하지 않고 등기를 게을리한 데 대해 민법 §97의 과태료(500만원 이하)가 준용되어 등기관이 법원에 통지합니다(§49, 교재 351쪽). 등기가 곧 성립 요건이므로 말일이 휴일이라 하루 늘어나는 것에 기대지 말고 며칠 앞서 접수합니다.
+</div>
+
+<div class="qhead"><span class="qb">4</span>
+  <h2>등기부에 무엇이 올라가나요?</h2>
+</div>
+<p>등기사항은 7가지입니다(<a class="dl" href="https://www.law.go.kr/법령/도시및주거환경정비법시행령/제36조" target="_blank" rel="noopener">도시정비법 시행령 §36</a>). ① 설립목적 ② 명칭 — 반드시 「<b>정비사업조합</b>」이라는 문자(§38③) ③ 주된 사무소의 소재지 ④ <b>설립인가일</b> ⑤ 임원의 성명과 주소 ⑥ 임원의 대표권을 제한하는 경우 그 내용 ⑦ <span class="term">전문조합관리인<span class="bub">임원이 6개월 넘게 비어 있거나 총회가 요청하면 시장·군수등이 변호사·법무사·행정사 등 경력자 가운데 선정해 임원 업무를 대신 맡기는 사람입니다.</span></span>을 선정한 경우 그 성명과 주소.</p>
+<ul>
+  <li><b>조합장·이사·감사 모두 등기</b>합니다. 감사도 임원이어서 등기할 수 있습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195882" target="_blank" rel="noopener">선례 제2-127호</a>). 주민등록번호는 모두 적고, 주소는 대표권이 있는 <b>조합장만</b> 적습니다(법인의 등기사항 등에 관한 특례법 §2).</li>
+  <li>대표권 제한은 정관에 조합장 대표권을 제한하는 규정이 있을 때만 적습니다.</li>
+  <li><b>존립 시기·자산 총액·출자 방법은 등기사항이 아닙니다</b>(교재 355쪽 주121). 민법 §49②을 그대로 옮겨 적으면 보정이 납니다.</li>
+  <li>2003. 7. 1. 전에 인가받은 조합은 인가받을 당시 명칭으로 등기할 수 있습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854680" target="_blank" rel="noopener">선례 제1-375호</a>). 정비사업조합을 「사단법인」으로 잘못 등기한 경우에는 조합장이 신청착오를 이유로 명칭과 등록번호를 경정합니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195875" target="_blank" rel="noopener">선례 제2-120호</a>).</li>
+</ul>
+<div class="concept"><b>같은 「조합」이라도 등기 여부가 다릅니다.</b> 정비사업조합, 「도시개발법」 조합, 「주택법」상 리모델링주택조합은 설립등기를 하지만, <b>지역주택조합·직장주택조합은 법률에 등기 근거가 없어 설립등기를 할 수 없습니다</b>(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3336135" target="_blank" rel="noopener">예규 제1818호</a>). 등기관은 인가서와 등기부 목적란의 근거 법률을 보고 판단하므로, 신청서 「등기의 목적」에 「도시 및 주거환경정비법에 따른 ○○재건축정비사업조합 설립」처럼 근거 법률을 밝혀 적습니다.</div>
+
+<div class="qhead"><span class="qb">5</span>
+  <h2>등기신청서 첨부서면 — 누가 준비하고, 누가 작성하나요?</h2>
+</div>
+<p>법이 정한 첨부서류는 <b>정관, 임원의 자격을 증명하는 서면, 조합설립인가서</b>입니다(비송사건절차법 §67①·§63②). 임원 자격 증명으로는 임원을 뽑은 <b>창립총회 의사록</b>을 내고, 이 의사록은 <b>공증인의 인증</b>을 받아야 합니다(공증인법 §66의2①, 교재 355쪽). 정비사업조합은 의사록 인증 제외 법인이 아니므로 임원 변경·해산·청산종결 의사록도 모두 같습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195878" target="_blank" rel="noopener">선례 제2-123호</a>, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3202869" target="_blank" rel="noopener">선례 제201802-1호</a>, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195876" target="_blank" rel="noopener">선례 제2-121호</a>). 자산 총액은 등기사항이 아니어서 <b>재산목록은 내지 않습니다</b>(교재 355~356쪽).</p>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:24%">서류</th><th style="width:25%">① 조합(임원)이 준비</th><th style="width:22%">② 사무소가 작성</th><th>③ 근거 · 발급처 · 확인할 점</th></tr></thead>
+  <tbody>
+    <tr><td><b>조합설립인가서</b></td><td>시장·군수등이 발급한 인가서(원본과 사본)</td><td>—</td><td>비송 §63②3호. 「설립인가일」은 인가서 날짜로 적습니다</td></tr>
+    <tr><td><b>정관</b></td><td>창립총회에서 확정하고 인가받은 정관</td><td>—</td><td>비송 §63②1호. 명칭에 「정비사업조합」이 들어 있는지 확인합니다(§38③)</td></tr>
+    <tr><td><b>창립총회 의사록</b>(공증인 인증)</td><td>정관이 정한 기명날인인 전원 날인 · 참석자 연명부 · 서면결의서 집계</td><td>법무사 — 아래 작성례, 인증 일정 조율</td><td>비송 §63②2호. 직접 출석(대리인 포함)·서면·전자 의결 수를 나누어 적고 <b>조합원 20% 직접 출석</b>을 드러냅니다(§45⑩)</td></tr>
+    <tr><td><b>취임승낙서</b>(조합장·이사·감사 전원)</td><td>인감 날인</td><td>법무사</td><td>의사록에 「그 자리에서 취임을 승낙함」이 있고 날인이 있어도 따로 받아 두면 안전합니다</td></tr>
+    <tr><td>인감증명서 또는 본인서명사실확인서(임원 전원)</td><td>발행 <b>3개월 이내</b> — 주민센터 방문 발급</td><td>—</td><td>취임승낙의 진정 확인</td></tr>
+    <tr><td>주민등록표 초본(임원 전원)</td><td>발행 3개월 이내 · <a class="dl" href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a></td><td>—</td><td>주민등록번호와 조합장 주소 증명. 외국인 임원은 외국인등록사실증명(또는 국내거소신고사실증명), 인감 대신 본국 관청의 서명증명(영사 확인 또는 아포스티유, 번역문)</td></tr>
+    <tr><td>인감신고서 + 조합장 인감증명서</td><td>조합장 개인인감</td><td>법무사 — 법인 인감 가로·세로 1cm 초과 2.4cm 이내</td><td>등기소에 인감을 내는 사람은 조합장입니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2026000038745" target="_blank" rel="noopener">예규 제1880호</a>)</td></tr>
+    <tr><td>등록면허세·지방교육세 영수필확인서</td><td>조합 명의 납부</td><td>세액 계산·신고·납부 대행(아래 6번)</td><td>주된 사무소 관할 시·군·구 · <a class="dl" href="https://www.wetax.go.kr" target="_blank" rel="noopener">위택스</a></td></tr>
+    <tr><td>등기신청수수료</td><td>—</td><td>납부</td><td>서면 35,000원 / 전자표준양식 28,000원 / 전자신청 20,000원. 전자신청은 대법원예규로 지정한 등기유형만 되므로 인터넷등기소 지정 목록을 확인합니다</td></tr>
+    <tr><td>위임장</td><td>조합장 — 법인 인감 날인</td><td>법무사</td><td>대리 신청 때</td></tr>
+  </tbody>
+</table></div>
+<p style="font-size:13.5px;color:var(--muted)">※ 인터넷등기소에는 정비사업조합 전용 신청서 양식이 없습니다(「정비」「재건축」 검색 결과 없음). <b>201-1 「사단법인 설립등기신청서」</b>의 칸을 빌려 「설립허가 연월일」을 「설립인가 연월일」로 고치고, 「자산의 총액」「출자의 방법」 칸은 지우며, 조합장·이사·감사를 구분해 씁니다 · <a class="dl" href="https://www.iros.go.kr" target="_blank" rel="noopener">인터넷등기소</a>.</p>
+
+<div class="qhead"><span class="qb">6</span>
+  <h2>세금과 수수료는 얼마인가요?</h2>
+</div>
+<p>정비사업조합은 설립 때 납입한 출자금이 없고 자산 총액도 등기하지 않으므로, 등록면허세는 법인 설립등기의 <b>최저세액 112,500원</b>, 지방교육세는 그 20%인 22,500원으로 <b>합계 135,000원</b>입니다(<a class="dl" href="https://www.law.go.kr/법령/지방세법/제28조" target="_blank" rel="noopener">지방세법 §28</a>①6호 가목·나목, §151①2호). 정비사업조합이 하는 정비사업은 <b>대도시 중과 제외 업종</b>이어서(지방세법 시행령 §26①28호·§44) 서울 등 과밀억제권역에서 설립하거나 들어와도 3배가 되지 않습니다. 다만 등기일부터 2년 안에 정당한 사유 없이 제외 업종 밖의 업종으로 바꾸거나 더하면 그 부분은 중과합니다(지방세법 §28③).</p>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:34%">등기</th><th style="width:30%">등록면허세 + 지방교육세</th><th>근거</th></tr></thead>
+  <tbody>
+    <tr><td><b>설립</b>(재개발·재건축, 소규모주택정비 조합 포함)</td><td>112,500원 + 22,500원 = <b>135,000원</b><br><small>대도시도 같음</small></td><td>지방세법 §28①6호 가·나목(최저세액)·②단서, 시행령 §26①28호·§44</td></tr>
+    <tr><td>임원 변경·명칭 변경·전문조합관리인·해산·청산인·청산종결</td><td>등기의 목적마다 40,200원 + 8,040원 = <b>48,240원</b>(중과 없음)</td><td>같은 호 바목·④</td></tr>
+    <tr><td>주된 사무소 이전</td><td>112,500원 + 22,500원 = 135,000원(새 소재지에 납부, 대도시 전입도 중과 제외)</td><td>같은 호 라목, 시행령 §43②</td></tr>
+    <tr><td>등기신청수수료</td><td>설립과 다른 등기소 관할로 옮기는 주된 사무소 이전: 서면 35,000원 · 전자표준양식 28,000원 · 전자신청 20,000원<br>그 밖의 등기: 등기의 목적마다 7,000원 · 5,000원 · 2,000원<br>법원 촉탁 등기(직무집행정지 가처분 등)는 수수료 없음</td><td>수수료규칙 §5의3·§5의4②·§5의5</td></tr>
+  </tbody>
+</table></div>
+<p style="font-size:13.5px;color:var(--muted)">※ 세액은 10원 미만을 버립니다(지방회계법 §55). 위 금액에서는 버릴 단수가 생기지 않습니다. 설립등기를 「그 밖의 등기」 40,200원으로 신고하면 세액이 모자라 보정이 납니다. 지방세특례제한법 §74의 재개발 감면은 부동산 <b>취득세</b>에 관한 것이어서 법인등기 등록면허세는 감면되지 않고, 법인등기 신청수수료를 면제하는 법률 규정도 없습니다. 재개발조합이 수용 사업을 위해 <b>등기사항증명서를 발급</b>받을 때의 수수료 면제(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2025000014045" target="_blank" rel="noopener">선례 제202506-3호</a>)는 신청수수료와 별개입니다. 세금 신고는 세무사의 업무입니다 — 세무사의 확인을 받으시기 바랍니다.</p>
+<a class="calc" href="https://sanlaw.co.kr/tools-calculator.html#s=%EB%B2%95%EC%9D%B8%EC%84%A4%EB%A6%BD&amp;e=renew" target="_blank" rel="noopener">
+  <div class="cah">🧮 설립등기 비용 미리 계산해 보기</div>
+  <div class="cas">누르시면 계산기 「법인설립」 화면이 <b>정비사업조합</b>으로 골라진 채 열립니다. 출자금은 0원 그대로 두시면 최저세액이 적용됩니다. 주된 사무소가 대도시여서 「대도시」를 고르셔도 「중과배제 적용」이 함께 체크되어 3배가 되지 않습니다. 등록면허세·신청수수료와 보수 예상액, 준비서류가 함께 나옵니다. (클릭 시 계산기로 이동)</div>
+</a>
+<div class="concept"><b>보수는 업무마다 기준이 다릅니다.</b> 등기 신청 대리와 등록면허세 신고·납부 대행 보수는 대한법무사협회 보수기준에 따라 계산기에서 미리 보실 수 있습니다. 조합설립인가·변경인가·변경신고 서류의 작성과 시·군·구 제출 대리는 <b>행정사 업무</b>로, 보수를 상담 때 미리 알려 드립니다. 법인설립신고·사업자등록과 세무 신고는 <b>세무사의 업무입니다 — 세무사의 확인을 받으시기 바랍니다</b>.</div>
+
+<!-- ══════════ 제3부 ══════════ -->
+<div class="part" id="part3">
+  <div class="pn">제3부</div>
+  <div class="pt2">임원·정관·사무소가 바뀔 때 — 신고 수리 뒤 3주</div>
+  <div class="pw">변경등기는 민법을 준용해 <b>3주 안</b>에 조합장이 신청합니다(§49 → 민법 §52). 임원 교체처럼 <b>신고가 수리되어야</b> 효력이 생기는 사항은 수리 증명이 있어야 등기할 수 있습니다.</div>
+</div>
+
+<div class="qhead"><span class="qb">7</span>
+  <h2>임원 선출 뒤 — 임원 변경등기</h2>
+</div>
+<p>임원 선임·해임은 <b>총회 의결사항</b>입니다(§45①7호). 이사·감사의 보궐선임은 정관에 따라 대의원회가 할 수 있지만 <b>조합장 보궐선임은 총회만</b> 할 수 있습니다(§46④, 시행령 §43 6호, 교재 357쪽). 임원 선출을 위한 총회는 <b>7일 전</b>까지 안건·일시·장소와 의결권 행사 방법을 알리고(§44④), 조합원 과반수 출석·출석 과반수 찬성, <b>조합원 10% 이상 직접 출석</b>으로 의결합니다(§45③⑩). 총회 의결을 거쳐 선거관리를 선거관리위원회에 맡길 수 있습니다(§41③).</p>
+<p>임원 교체는 조합설립인가 내용의 <b>경미한 변경</b>이어서 변경인가 대신 시장·군수등에게 <b>신고</b>합니다(§35⑤ 단서, 시행령 §31 4호). 시장·군수등은 20일 안에 수리 여부를 알려야 하고, 알리지 않으면 그 기간이 끝난 다음 날 수리한 것으로 봅니다(§35⑥⑦). 법제처는 조합설립인가 내용의 경미한 사항 변경신고를 <b>수리가 필요한 신고</b>로 보았고(<a class="dl" href="https://www.law.go.kr/LSW/expcInfoP.do?expcSeq=338253" target="_blank" rel="noopener">23-1093</a> — 조합원 교체 사안), 교재도 임원 변경신고를 같은 신고로 봅니다. 그래서 등기에는 총회 의사록과 함께 <b>신고수리를 증명하는 서면</b>을 붙입니다(교재 360쪽).</p>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:18%">변경 원인</th><th style="width:42%">붙일 서류</th><th>확인할 점</th></tr></thead>
+  <tbody>
+    <tr><td><b>새 조합장·이사·감사 취임</b></td><td><b>공증인 인증을 받은 총회 의사록</b>(보궐 이사·감사는 정관에 따른 대의원회 의사록) · <b>신고수리 통지 공문</b> · 정관 · 취임승낙서와 인감증명서 · 초본 · 새 조합장 인감신고서</td><td><a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195878" target="_blank" rel="noopener">선례 제2-123호</a>이 요구한 「변경인가서」는 임원 변경이 신고 사항이 된 현행법에서는 신고수리 증명서면으로 냅니다(교재 360쪽). 대의원회가 정관 절차로 뽑고 총회(조합원 2분의 1 이상 출석, 출석 3분의 2 이상 동의)가 인준했다면 총회 선임과 같게 보므로 <b>두 의사록을 모두</b> 냅니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854587" target="_blank" rel="noopener">선례 제1-374호</a>). 새 조합장은 종전 조합장과 다른 인감을 내도 됩니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854590" target="_blank" rel="noopener">선례 제1-369호</a>). 2023. 7. 18. 이후 선임·연임되는 임원은 <b>정비구역 안 소유자인 조합원</b>이어야 하므로(§41①) 자격 서류를 미리 맞춰 봅니다</td></tr>
+    <tr><td><b>중임(연임)</b></td><td>공증 총회 의사록 · 정관(임기 확인) · 취임승낙서와 인감증명서</td><td>조합장이 총회 의결로 중임하면 <b>변경인가서·신고수리 증명은 첨부정보가 아닙니다</b>(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3202871" target="_blank" rel="noopener">선례 제201804-3호</a>). 연임은 경미한 사항 신고 대상이 아니라는 국토교통부 질의회신이 있습니다(교재 360쪽)</td></tr>
+    <tr><td>임기만료 퇴임</td><td>정관(임기 3년 이하 — §41④)</td><td>최초 임원 임기는 설립등기일부터 진행합니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195880" target="_blank" rel="noopener">선례 제2-125호</a>). 다만 정관에 「조합설립인가를 받은 날부터」라고 정했으면 그 문언을 따르므로 정관부터 확인합니다</td></tr>
+    <tr><td>사임</td><td>사임서와 인감증명서</td><td>사임은 위임 계약의 해지여서 사임서가 조합에 도달한 때 효력이 생깁니다(교재 358쪽). 사임으로 법령·정관상 정수에 모자라게 되면 후임을 함께 뽑아 두는 것이 안전합니다</td></tr>
+    <tr><td>해임</td><td>공증 해임 총회 의사록 · 조합원 10분의 1 이상의 소집 요구서</td><td>조합원 10분의 1 이상 요구로 소집된 총회에서 과반수 출석·출석 과반수 동의로 해임하고, 요구자 대표가 소집·진행합니다(§43④). 교재는 이 총회에서 후임까지 뽑는 것을 부정적으로 소개하므로(359쪽) 후임은 별도 총회에서 뽑는 것이 안전합니다. 해임등기는 새 조합장을 뽑아 <b>해임과 취임을 함께</b> 신청하면 신청 권한 다툼이 없습니다</td></tr>
+    <tr><td>당연퇴임</td><td>결격·자격 상실을 증명하는 서면</td><td>결격 사유가 생기거나 §41① 자격요건을 갖추지 못하면 당연 퇴임합니다(§43②)</td></tr>
+    <tr><td><b>전문조합관리인 선정</b></td><td>시장·군수등의 선정 서면 · 취임승낙서와 인감증명서 · 초본</td><td>성명과 <b>주소</b>를 등기합니다(시행령 §36 7호). 임기 3년(시행령 §41④). 총회 요청으로 선정되면 업무를 대행받는 임원은 당연 퇴임하므로 그 퇴임등기도 함께 합니다(§43⑤). 첨부서면을 정한 선례가 없으니 등기소에 미리 확인합니다</td></tr>
+  </tbody>
+</table></div>
+<div class="warn">
+  <span class="wt">등기하지 않는 것 — 직무대행자와 임시조합장</span>
+  정관에 「조합장 유고 때 이사 중 연장자가 직무를 대행한다」고 정해도 그 <b>직무대행자는 등기할 수 없습니다</b>(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195881" target="_blank" rel="noopener">선례 제2-126호</a>). <b>임시조합장</b>도 등기사항이 아니고 법원이 촉탁할 근거도 없습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3261477" target="_blank" rel="noopener">선례 제202106-5호</a>). 등기할 수 있는 것은 법원의 <b>직무집행정지·직무대행자선임 가처분</b>으로, 법원이 촉탁합니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3336575" target="_blank" rel="noopener">예규 제1826호</a>). 조합장이 없으면 정관에 따라 직무대행자가 총회를 소집해(<a class="dl" href="https://www.law.go.kr/LSW/expcInfoP.do?expcSeq=334441" target="_blank" rel="noopener">법제처 22-0463</a>) 새 조합장을 뽑고 그 취임등기를 하는 것이 길이고, 임원이 6개월 이상 뽑히지 않으면 시장·군수등이 선출 총회를 소집할 수 있습니다(§44③). 부조합장이 직무대행자로서 해임등기를 신청할 수 있다는 옛 선례(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854589" target="_blank" rel="noopener">선례 제1-368호</a>)는 교재가 반대하므로 쓰지 않습니다.
+</div>
+<div class="tip"><span class="pt">수리 통지가 오지 않았을 때</span>20일이 지나도록 통지가 없으면 법상 수리한 것으로 보지만(§35⑦), 이 경우 등기소에 무엇을 내야 하는지 정한 선례는 아직 없습니다. 먼저 시·군·구에 <b>신고수리 공문</b>을 요청해 받는 것이 가장 확실하고, 받지 못하면 신고서 접수증과 아래 <b>수리 간주 소명서</b>를 갖추어 신청 전에 등기소에 받아 주는지 확인합니다. 20일을 민법처럼 셀지 민원 처리기간처럼(토요일·공휴일 제외) 셀지에 따라 간주일이 며칠, 추석 같은 연휴가 끼면 열흘까지 벌어집니다. 그래서 <b>늦은 쪽 간주일이 지난 뒤, 이른 쪽 기준의 3주 안에</b> 신청합니다. 수리가 있어야 효력이 생기므로 등기 기한(3주)은 수리일부터 세되, 신고는 총회 뒤 곧바로 냅니다.</div>
+
+<div class="qhead"><span class="qb">8</span>
+  <h2>정관 · 명칭 · 사무소가 바뀔 때</h2>
+</div>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:20%">바뀌는 것</th><th style="width:24%">절차</th><th>붙일 서류 · 확인할 점</th></tr></thead>
+  <tbody>
+    <tr><td><b>목적·대표권 제한 등 정관 사항</b></td><td>총회에서 <b>조합원 과반수</b>(조합원 자격·구역·비용부담 등은 3분의 2) 찬성 → 시장·군수등 <b>인가</b>(§40③)</td><td>공증 총회 의사록 + <b>정관변경 인가서</b> + 변경 정관. 「조합원 과반수」는 출석자가 아니라 <b>재적 조합원</b> 기준이므로 의사록에 재적수와 찬성수를 함께 적습니다. 인가를 받은 날부터 3주</td></tr>
+    <tr><td><b>명칭 · 주된 사무소</b>(경미한 정관 변경)</td><td>법·정관이 정한 방법(서울시 표준정관은 대의원회 의결 — 교재 357쪽)으로 바꾼 뒤 <b>신고</b> — 20일, 통지 없으면 수리 간주(§40④~⑥, 시행령 §39 1호·§31 2호)</td><td>정관 · <b>변경 전 정관</b>(정관 변경절차 확인용 — 교재 357쪽 주123) · 공증 대의원회(총회) 의사록 · 신고수리 증명서면</td></tr>
+    <tr><td>주된 사무소 이전</td><td>이전한 날부터 3주</td><td>2025. 1. 31.부터 <b>종전 또는 새 소재지 한 곳</b>에서 등기합니다(특례법 §3의2). 등록면허세는 새 소재지에 냅니다</td></tr>
+    <tr><td>분사무소 설치</td><td>3주(민법 §50)</td><td>등기는 <b>주된 사무소 소재지에서만</b> 합니다(특례법 §3)</td></tr>
+    <tr><td>조합장 성명·주소 변경</td><td>조합장이 바뀌지 않은 개명·이사는 경미한 사항 <b>신고</b>(시행령 §31 2호)</td><td>기본증명서 또는 주민등록표 초본 + 신고수리 증명서면(교재 361쪽)</td></tr>
+  </tbody>
+</table></div>
+
+<h3 class="fgrp">법령에 서식이 없는 서류 — 사무소 작성례</h3>
+<div class="formbox" id="fb_fRnFound">
+  <button class="fold-btn" type="button" onclick="toggleFold(this)">📄 창립총회 의사록 — 정관 확정·임원·대의원 선임(공증용) <span class="srcb own">사무소 작성례</span><span class="chev">▾</span></button>
+  <div class="fold-body">
+    <div class="srcline">출처 · 법령(도시 및 주거환경정비법·시행령)과 『특수법인등기실무』가 요구하는 항목으로 만든 사무소 작성례입니다. 시·도가 보급한 표준정관과 조합 정관의 의사록 조항이 있으면 그 항목을 먼저 따릅니다. 근거: 법 §32③·§45⑤⑩, 시행령 §27②④⑤·§42③1호, 교재 353~355쪽.</div>
+<div class="form" id="fRnFound">          ○○구역 주택재개발(재건축)정비사업조합 창립총회 의사록
+
+1. 공개·통지 : 20○○. ○. ○. 추진위원회 홈페이지 공개 및 토지등소유자 전원에게 등기우편 발송
+               (창립총회 14일 전까지 — 시행령 제27조제2항)
+2. 일시 : 20○○년 ○월 ○일(○요일) 오후 ○시
+3. 장소 : ○○시 ○○구 ○○로 ○○, ○○회관 대강당
+4. 토지등소유자 총수 : ○,○○○명 (재건축은 조합설립 동의자 ○,○○○명)
+   출석 : ○,○○○명(과반수 출석으로 성원)
+     - 직접 출석 ○○○명(대리인 출석 ○○명 포함)
+     - 서면결의서 제출 ○○○명 / 전자적 방법 ○○명
+   ※ 직접 출석 ○○○명은 조합원 ○,○○○명의 ○○.○%로 100분의 20 이상임
+     (법 제45조제10항, 시행령 제42조제3항제1호)
+   의장 : 추진위원장 ○○○
+
+5. 의사 진행
+가. 개회 : 의장이 성원(직접 출석·서면·전자 의결 수)을 보고하고 개회를 선언함.
+나. 제1호 의안 「조합 정관 확정의 건」
+    → 출석 ○,○○○명 중 찬성 ○,○○○명(직접 ○○○, 서면 ○○○, 전자 ○○), 반대 ○○명으로 가결함.
+다. 제2호 의안 「조합임원 선임의 건」(확정된 정관 제○조의 선출 방법에 따름)
+    조합장 ○○○(○,○○○표)
+    이사 ○○○, ○○○, ○○○, ○○○, ○○○(토지등소유자 100인 초과 — 5명 이상)
+    감사 ○○○, ○○○(1명 이상 3명 이하)
+    → 피선된 임원은 모두 정비구역 안 소유자인 조합원으로서 법 제41조제1항 요건을 갖추었고,
+      그 자리에서 취임을 승낙함.
+라. 제3호 의안 「대의원 선임의 건」 → 대의원 ○○○명 선임(조합원의 10분의 1 이상)
+마. 제4호 의안 「조합설립인가 신청 등 위임의 건」 → 가결함.
+6. 폐회 : 오후 ○시 ○분 폐회를 선언함.
+붙임 : 참석자 연명부, 서면결의서·전자의결 집계표
+
+위 의사의 경과와 결과를 명확히 하기 위하여 이 의사록을 작성하고
+의장과 정관이 정한 사람이 다음과 같이 기명날인한다.
+
+                              20○○년 ○월 ○일
+   ○○구역 주택재개발(재건축)정비사업조합 창립총회
+        의장(추진위원장)     ○○○ (인)
+        조합장               ○○○ (인)
+        이사·감사(또는 정관이 정한 기명날인인)  ○○○ (인)   ○○○ (인)</div>
+    <div class="howto">① 이 의사록은 설립등기의 「임원 자격을 증명하는 서면」이어서 <b>공증인의 인증</b>을 받습니다(공증인법 §66의2①, 교재 355쪽). 인증 뒤에 고치면 다시 인증받아야 하므로 숫자를 먼저 맞춥니다.<br>② 서면결의서는 출석으로는 세지만 <b>직접 출석에는 들지 않습니다</b>(§45⑤⑩). 직접 출석(대리인 포함)·서면·전자 수를 나누어 적어야 20% 요건이 드러납니다. 등기관은 의사록 기재로 판단하되 하자가 보이면 각하할 수 있습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195884" target="_blank" rel="noopener">선례 제2-129호</a>, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854823" target="_blank" rel="noopener">선례 제1-372호</a>).<br>③ 2023. 7. 18. 이후 선임되는 임원은 <b>정비구역 안 소유자인 조합원</b>(공유면 최다 지분자)이어야 합니다(§41①). 이사 수가 법령·정관상 정수에 모자라면 설립등기를 할 수 없습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195879" target="_blank" rel="noopener">선례 제2-124호</a>).</div>
+    <div class="form-tools">
+      <button type="button" onclick="copyForm('fRnFound')">📋 복사</button>
+      <button type="button" onclick="printForm('fRnFound')">🖨 인쇄</button>
+      <button type="button" onclick="downloadForm('fRnFound','창립총회_의사록_정비사업조합_작성예시.txt')">⬇ 내려받기</button>
+    </div>
+  </div>
+</div>
+<div class="formbox" id="fb_fRnGM">
+  <button class="fold-btn" type="button" onclick="toggleFold(this)">📄 총회 의사록 — 조합장·이사·감사 선출(신임·중임) <span class="srcb own">사무소 작성례</span><span class="chev">▾</span></button>
+  <div class="fold-body">
+    <div class="srcline">출처 · 법령(도시 및 주거환경정비법·시행령)과 『특수법인등기실무』가 요구하는 항목으로 만든 사무소 작성례입니다. 시·도가 보급한 표준정관과 조합 정관의 의사록 조항이 있으면 그 항목을 먼저 따릅니다. 근거: 법 §44④·§45①7호·③⑤⑩·§46④, 시행령 §43 6호.</div>
+<div class="form" id="fRnGM">          ○○구역 주택재건축정비사업조합 20○○년도 정기(임시)총회 의사록
+
+1. 소집 통지 : 20○○. ○. ○. 조합원 전원에게 안건·일시·장소와 서면·전자 의결권 행사기간 통지
+               (총회 7일 전까지 — 법 제44조제4항)
+2. 일시 : 20○○년 ○월 ○일(○요일) 오후 ○시
+3. 장소 : ○○시 ○○구 ○○로 ○○, ○○문화센터
+4. 조합원 총수 : ○,○○○명
+   출석 : ○,○○○명(과반수 출석으로 성원)
+     - 직접 출석 ○○○명(대리인 ○○명 포함) — 조합원의 100분의 10 이상
+     - 서면결의서 ○○○명 / 전자적 방법 ○○명
+   의장 : 조합장 ○○○ (임기만료 조합장이 의장인 경우 정관 제○조에 따름)
+
+5. 의사 진행
+가. 개회 : 의장이 성원을 보고하고 개회를 선언함.
+나. 제1호 의안 「조합임원 선출의 건」(정관 제○조 — 임기 ○년)
+    (선거관리를 ○○구선거관리위원회에 위탁한 경우 : 20○○. ○. ○. 총회 의결로 위탁하였고,
+     위원회의 개표 결과 통지에 따라 아래와 같이 확정함)
+    조합장 ○○○(○,○○○표) — [ 신임 / 중임 ]
+    이사 ○○○(○○○표), ○○○(○○○표) / 감사 ○○○(○○○표)
+    → 출석 ○,○○○명 중 찬성 ○,○○○명(직접 ○○○, 서면 ○○○, 전자 ○○)으로 가결함.
+    피선된 임원은 모두 그 자리에서 취임을 승낙함.
+6. 폐회 : 오후 ○시 ○분 폐회를 선언함.
+붙임 : 참석자 연명부, 서면결의서·전자의결 집계표
+
+위 의사의 경과와 결과를 명확히 하기 위하여 이 의사록을 작성하고
+의장과 정관이 정한 사람이 다음과 같이 기명날인한다.
+
+                              20○○년 ○월 ○일
+        ○○구역 주택재건축정비사업조합 총회
+        의장(조합장)   ○○○ (인)
+        이사           ○○○ (인)   ○○○ (인)
+        감사           ○○○ (인)</div>
+    <div class="howto">① <b>공증인 인증</b>을 받습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195878" target="_blank" rel="noopener">선례 제2-123호</a>). 조합장 보궐선임은 대의원회가 할 수 없으니 반드시 총회 의사록이어야 합니다(시행령 §43 6호).<br>② 신임 임원은 이 의사록으로 시·군·구에 <b>경미한 사항 변경신고</b>를 하고(시행령 §31 4호), 수리 공문을 받아 등기에 함께 냅니다. 조합장 <b>중임</b>은 수리 증명이 필요 없습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3202871" target="_blank" rel="noopener">선례 제201804-3호</a>).<br>③ 선관위 위탁 선거라도 선임을 확정한 총회 의사록을 내는 것이 안전합니다. 선관위 결과 통지서는 사본을 붙입니다.</div>
+    <div class="form-tools">
+      <button type="button" onclick="copyForm('fRnGM')">📋 복사</button>
+      <button type="button" onclick="printForm('fRnGM')">🖨 인쇄</button>
+      <button type="button" onclick="downloadForm('fRnGM','총회_의사록_임원선출_정비사업조합_작성예시.txt')">⬇ 내려받기</button>
+    </div>
+  </div>
+</div>
+<div class="formbox" id="fb_fRnDeem">
+  <button class="fold-btn" type="button" onclick="toggleFold(this)">📄 소명서 — 임원 변경신고 수리 간주(20일 경과) <span class="srcb own">사무소 작성례</span><span class="chev">▾</span></button>
+  <div class="fold-body">
+    <div class="srcline">출처 · 등기 첨부용 사무소 작성례 — 근거 법 §35⑥⑦, 법제처 23-1093. 이 경우를 다룬 등기선례가 없으므로 신청 전에 등기소에 받아 주는지 확인합니다.</div>
+<div class="form" id="fRnDeem">                         소   명   서
+
+사    건 : ○○구역 주택재개발정비사업조합 임원 변경등기
+신 청 인 : ○○구역 주택재개발정비사업조합 조합장 ○○○
+
+1. 조합은 20○○. ○. ○. 총회에서 이사 ○○○, 감사 ○○○을 새로 선임하고,
+   20○○. ○. ○. ○○구청장에게 「도시 및 주거환경정비법 시행령」 제31조제4호의
+   경미한 사항 변경신고를 하였습니다(붙임 1 접수증).
+2. ○○구청장은 같은 법 제35조제6항의 기간(20일) 안에 신고수리 여부나
+   처리기간 연장을 통지하지 않았습니다.
+3. 따라서 같은 조 제7항에 따라 20○○. ○. ○.에 신고를 수리한 것으로 보므로,
+   신고수리를 증명하는 서면에 갈음하여 이 소명서와 붙임 서류를 제출합니다.
+   조합은 수리 공문 발급도 함께 요청하였습니다(붙임 3).
+
+붙임 1. 경미한 사항 변경신고서 사본 및 접수증 1부
+     2. 공증인의 인증을 받은 총회 의사록 1부
+     3. 신고수리 공문 발급 요청서 사본 1부
+
+                              20○○년 ○월 ○일
+             위 신청인 ○○구역 주택재개발정비사업조합
+                        조합장 ○○○ (법인 인감)
+○○지방법원 ○○등기소 귀중</div>
+    <div class="howto">① 가장 확실한 방법은 시·군·구에서 <b>신고수리 공문</b>을 받는 것입니다. 이 소명서는 공문이 늦어질 때 쓰는 보완 수단입니다.<br>② 20일을 세는 방식(민원 처리기간 계산 여부)에 따라 수리 간주일이 달라질 수 있으니, 담당 부서가 알려 준 처리 예정일과 맞추어 적습니다.<br>③ 늦은 쪽 간주일이 지난 뒤, 이른 쪽 기준의 3주 안에 신청합니다.</div>
+    <div class="form-tools">
+      <button type="button" onclick="copyForm('fRnDeem')">📋 복사</button>
+      <button type="button" onclick="printForm('fRnDeem')">🖨 인쇄</button>
+      <button type="button" onclick="downloadForm('fRnDeem','소명서_신고수리간주_정비사업조합_작성예시.txt')">⬇ 내려받기</button>
+    </div>
+  </div>
+</div>
+<div class="formbox" id="fb_fRnAccept">
+  <button class="fold-btn" type="button" onclick="toggleFold(this)">📄 취임승낙서 — 조합장·이사·감사·대표청산인 <span class="srcb own">사무소 작성례</span><span class="chev">▾</span></button>
+  <div class="fold-body">
+    <div class="srcline">출처 · 등기 첨부용 사무소 작성례 — 인감 날인 + 인감증명서</div>
+<div class="form" id="fRnAccept">                         취 임 승 낙 서
+
+본인은 20○○년 ○월 ○일 ○○구역 주택재개발(재건축)정비사업조합
+[ 창립총회 / 정기총회 / 임시총회 / 대의원회 / 해산총회 ]에서
+[ 조합장 / 이사 / 감사 / 대표청산인 / 청산인 ](해당 직위만 남김)으로 선임되었으므로
+그 직에 취임할 것을 승낙합니다.
+본인은 정비구역 안 [ 건축물 / 토지 ](○○시 ○○구 ○○동 ○○번지)를 소유한 조합원으로서
+「도시 및 주거환경정비법」 제41조제1항 각 호의 요건을 갖추었습니다.(청산인은 지움)
+                              20○○년 ○월 ○일
+                    성명 ○○○ (인감 날인)
+                    주민등록번호 ○○○○○○-○○○○○○○
+                    주소 ○○시 ○○구 ○○로 ○○
+○○구역 주택재개발(재건축)정비사업조합 귀중
+붙임: 인감증명서(또는 본인서명사실확인서) 1통</div>
+    <div class="howto">① 감사도 등기하므로 감사의 승낙서도 냅니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195882" target="_blank" rel="noopener">선례 제2-127호</a>). 주소는 조합장만 등기하지만 승낙서에는 적어 둡니다.<br>② 대의원회는 이사·감사 보궐선임만 할 수 있습니다. 조합장은 「대의원회」를 고를 수 없습니다(시행령 §43 6호).<br>③ 인감증명서는 발행 3개월 이내의 것을 붙입니다.</div>
+    <div class="form-tools">
+      <button type="button" onclick="copyForm('fRnAccept')">📋 복사</button>
+      <button type="button" onclick="printForm('fRnAccept')">🖨 인쇄</button>
+      <button type="button" onclick="downloadForm('fRnAccept','취임승낙서_정비사업조합_작성예시.txt')">⬇ 내려받기</button>
+    </div>
+  </div>
+</div>
+<div class="formbox" id="fb_fRnDissolve">
+  <button class="fold-btn" type="button" onclick="toggleFold(this)">📄 해산총회 의사록 — 해산 결의·청산인 선임(공증용) <span class="srcb own">사무소 작성례</span><span class="chev">▾</span></button>
+  <div class="fold-body">
+    <div class="srcline">출처 · 법령(도시 및 주거환경정비법·시행령)과 『특수법인등기실무』가 요구하는 항목으로 만든 사무소 작성례입니다. 시·도가 보급한 표준정관과 조합 정관의 의사록 조항이 있으면 그 항목을 먼저 따릅니다. 근거: 법 §45①10의2·§86의2, 시행령 §43 10호, 민법 §82·§85, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3202869" target="_blank" rel="noopener">선례 제201802-1호</a>·<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195876" target="_blank" rel="noopener">선례 제2-121호</a>.</div>
+<div class="form" id="fRnDissolve">          ○○구역 주택재건축정비사업조합 해산총회 의사록
+
+1. 이전고시일 : 20○○. ○. ○.(○○시 공보 제○○호) — 1년 안 소집(법 제86조의2제1항)
+2. 소집 통지 : 20○○. ○. ○.(총회 7일 전까지)
+3. 일시 : 20○○년 ○월 ○일(○요일) 오후 ○시   장소 : ○○구 ○○로 ○○
+4. 조합원 총수 : ○,○○○명 / 출석 ○,○○○명
+   - 직접 출석 ○○○명(대리인 포함) / 서면결의서 ○○○명 / 전자적 방법 ○○명
+   의장 : 조합장 ○○○
+
+5. 의사 진행
+가. 제1호 의안 「조합 해산의 건」(사업 완료)
+    → 출석 ○,○○○명 중 찬성 ○,○○○명으로 가결함. 해산일 : 20○○. ○. ○.
+나. 제2호 의안 「청산인 선임의 건」(정관 제○조)
+    대표청산인 ○○○(해산 당시 조합장), 청산인 ○○○, ○○○
+    → 가결함. 피선된 청산인은 그 자리에서 취임을 승낙함.
+다. 제3호 의안 「해산 시 회계보고 승인 및 청산 결산보고 승인 방법의 건」
+    → 청산 종료 후 결산보고는 [ 총회 / 대의원회 ]의 승인을 받기로 가결함.
+6. 폐회 : 오후 ○시 ○분 폐회를 선언함.
+
+위 의사의 경과와 결과를 명확히 하기 위하여 이 의사록을 작성하고
+의장과 정관이 정한 사람이 다음과 같이 기명날인한다.
+
+                              20○○년 ○월 ○일
+        ○○구역 주택재건축정비사업조합 해산총회
+        의장(조합장)   ○○○ (인)
+        이사           ○○○ (인)   ○○○ (인)
+        감사           ○○○ (인)</div>
+    <div class="howto">① 해산은 <b>총회를 실제로 열어</b> 결의해야 하고 조합원 서면결의로 갈음할 수 없으며, 의사록은 원칙적으로 <b>공증</b>을 받습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3202869" target="_blank" rel="noopener">선례 제201802-1호</a>). 사업완료로 인한 해산은 대의원회로도 된다는 시행령 §43 10호가 있지만, 법 §86의2①이 해산총회를 정하므로 총회로 하는 것이 안전합니다.<br>② 청산인이 취임 후 <b>3주 안</b>에 해산등기와 청산인 취임등기를 동시에 신청합니다(민법 §85①, 교재 363쪽).<br>③ 청산종결 때는 결산보고서를 승인한 의사록(공증)을 내야 하므로, 승인 기관을 이 의사록에서 미리 정해 둡니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195876" target="_blank" rel="noopener">선례 제2-121호</a>).</div>
+    <div class="form-tools">
+      <button type="button" onclick="copyForm('fRnDissolve')">📋 복사</button>
+      <button type="button" onclick="printForm('fRnDissolve')">🖨 인쇄</button>
+      <button type="button" onclick="downloadForm('fRnDissolve','해산총회_의사록_정비사업조합_작성예시.txt')">⬇ 내려받기</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ 제4부 ══════════ -->
+<div class="part" id="part4">
+  <div class="pn">제4부</div>
+  <div class="pt2">해산 · 청산 · 인가취소</div>
+  <div class="pw">해산과 청산인 등기는 청산인 취임 후 <b>3주</b>, 청산종결도 <b>3주</b>입니다(§49 → 민법 §85①·§94). 정비사업조합끼리의 <b>합병은 등기할 수 없습니다</b>(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854792" target="_blank" rel="noopener">선례 제1-377호</a>, 교재 364쪽).</div>
+</div>
+
+<div class="qhead"><span class="qb">期</span>
+  <h2>시계는 모두 몇 개인가 — 60일·14일·30일·20일·3주·1년</h2>
+</div>
+<p>첫날은 세지 않고 다음 날부터 셉니다(민법 §157). 끝날이 토요일·공휴일이면 그다음 날까지입니다(§161). 총회일에서 거꾸로 세는 통지 기한은 통지일과 총회일 사이에 정한 날수가 온전히 있도록 앞당겨 잡습니다. 2027년 공휴일은 우주항공청 「2027년 월력요항」(2026. 6. 29.)으로 확인했습니다.</p>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:20%">절차</th><th style="width:20%">① 기산일</th><th style="width:22%">② 근거 조문</th><th style="width:12%">③ 말일 처리</th><th>④ 만료일(예)</th></tr></thead>
+  <tbody>
+    <tr><td>동의 철회 방법 등 통지</td><td>인가 신청일에서 거꾸로</td><td>시행령 §29① 단서 — 60일 전까지</td><td>앞당겨 잡음</td><td>2027. 5. 26.(수) 신청 예정 → <b>3. 26.(금)</b>까지 등기우편</td></tr>
+    <tr><td>창립총회 공개·통지</td><td>총회일에서 거꾸로</td><td>시행령 §27② — 14일 전까지</td><td>앞당겨 잡음</td><td>2027. 4. 28.(수) 총회 → <b>4. 13.(화)</b>까지 공개·등기우편</td></tr>
+    <tr><td><b>설립등기</b></td><td>조합설립인가를 받은 날의 다음 날</td><td>법 §38② — 30일</td><td>§161</td><td>2027. 6. 9.(수) 인가 → <b>7. 9.(금)</b></td></tr>
+    <tr><td>추진위원회 장부 인계</td><td>조합설립인가일의 다음 날</td><td>법 §34④ — 30일</td><td>§161</td><td>같은 예 → <b>7. 9.(금)</b></td></tr>
+    <tr><td>임원 선출 총회 통지</td><td>총회일에서 거꾸로</td><td>법 §44④ — 7일 전까지</td><td>앞당겨 잡음</td><td>2027. 3. 3.(수) 총회 → <b>2. 23.(화)</b>까지</td></tr>
+    <tr><td>임원 변경 신고 수리</td><td>신고를 받은 날</td><td>법 §35⑥⑦ — 20일, 통지 없으면 끝난 다음 날 수리 간주</td><td>—</td><td>처리 예정일을 담당 부서에 확인해 둡니다</td></tr>
+    <tr><td><b>임원 변경등기</b></td><td>신고 수리일(중임은 취임일)의 다음 날</td><td>법 §49 → 민법 §52 — 3주</td><td>§161</td><td>2027. 3. 24.(수) 수리 → <b>4. 14.(수)</b></td></tr>
+    <tr><td>정관 사항 변경등기</td><td>정관변경 인가일의 다음 날</td><td>같음 — 3주</td><td>§161</td><td>2027. 5. 12.(수) 인가 → <b>6. 2.(수)</b></td></tr>
+    <tr><td>해산총회 소집</td><td>이전고시일의 다음 날</td><td>법 §86의2① — 1년</td><td>§161</td><td>2027. 6. 15.(화) 고시 → <b>2028. 6. 15.(목)</b>까지 소집 — 소집인지 개최인지 법에 없으니 통지와 개최를 모두 이 안에 잡습니다</td></tr>
+    <tr><td><b>해산 · 청산인 등기</b></td><td>청산인 취임일의 다음 날</td><td>민법 §85① — 3주</td><td>§161</td><td>2027. 8. 4.(수) 취임 → <b>8. 25.(수)</b></td></tr>
+    <tr><td>청산종결 등기</td><td>청산 종결일의 다음 날</td><td>민법 §94 — 3주</td><td>§161</td><td>2027. 10. 6.(수) 종결 → <b>10. 27.(수)</b></td></tr>
+  </tbody>
+</table></div>
+
+<div class="qhead"><span class="qb">9</span>
+  <h2>해산 · 청산</h2>
+</div>
+<p>조합장은 소유권 <span class="term">이전고시<span class="bub">정비사업 공사가 끝난 뒤 새 건물과 대지의 소유권을 분양받은 사람에게 넘긴다는 내용을 지방자치단체 공보에 알리는 것입니다. 고시 다음 날 소유권이 넘어갑니다.</span></span>가 있은 날부터 <b>1년 안에</b> 해산총회를 소집해야 합니다. 소집하지 않으면 조합원 5분의 1 이상의 요구로 소집된 총회에서 과반수 출석·출석 과반수 동의로 해산을 의결할 수 있고, 정당한 사유 없이 해산을 의결하지 않으면 시장·군수등이 조합설립인가를 취소할 수 있습니다(§86의2①~③).</p>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:15%">절차</th><th style="width:43%">요건 · 순서</th><th>등기</th></tr></thead>
+  <tbody>
+    <tr><td><b>해산</b></td><td>총회 해산 의결(§45①10의2), 정관상 해산 사유, 인가 취소(민법 §77 준용). 사업완료로 인한 해산은 시행령 §43 10호와 <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3202869" target="_blank" rel="noopener">선례 제201802-1호</a>이 대의원회로도 할 수 있다고 보지만, 법 §86의2①이 해산<b>총회</b> 소집을 의무로 정하므로 총회 의사록을 갖추는 것이 안전합니다. 청산인은 정관이나 총회 결의로 정하지 않으면 이사가 되고(민법 §82), 표준정관은 해산 의결 당시 조합장을 <b>대표청산인</b>으로 둡니다(교재 363쪽). 청산인이 될 사람이 없으면 시장·군수등이 법원에 선임을 청구할 수 있습니다(§86의2④)</td><td>청산인이 <b>취임 후 3주 안</b>에 해산 사유·연월일, 청산인 성명·주소, 대표권 제한을 등기합니다(민법 §85①). 해산등기와 청산인 취임등기를 <b>동시에</b> 신청하고(교재 363쪽), <b>공증받은 해산 결의 총회(대의원회) 의사록</b>, 청산인 자격 증명·취임승낙서와 인감증명서를 붙입니다(비송 §65). <b>조합원 서면결의로 총회를 갈음할 수 없습니다</b>(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3202869" target="_blank" rel="noopener">선례 제201802-1호</a>). 같은 3주 안에 시장·군수등에게도 신고합니다(민법 §86)</td></tr>
+    <tr><td>청산종결</td><td>재산 정리·결산보고서 총회(대의원회) 승인. 대표청산인 직무대행자는 법원 허가나 가처분에서 따로 정한 바가 없으면 총회를 소집해 청산인을 뽑을 수 없습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195883" target="_blank" rel="noopener">선례 제2-128호</a>)</td><td>청산이 끝나면 <b>3주 안</b>에 청산종결등기(민법 §94). <b>결산보고서 승인 의사록(공증)</b>을 붙이고, 해산 결의 때 결산보고 승인을 받지 않기로 함께 의결했다면 그 의사록 사본으로 갈음합니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195876" target="_blank" rel="noopener">선례 제2-121호</a>). 청산 종결도 3주 안에 시장·군수등에게 신고합니다(민법 §94)</td></tr>
+  </tbody>
+</table></div>
+<div class="warn">
+  <span class="wt">정비구역이 해제되면 인가가 취소된 것으로 봅니다</span>
+  조합설립인가를 받은 날부터 <b>3년</b>이 되는 날까지 사업시행계획인가를 신청하지 않으면 정비구역을 해제해야 하고(연장 가능 — §20①2호라·⑥), 토지등소유자 과반수 요청 등으로 직권해제될 수도 있습니다(§21①). 정비구역이 해제·고시되면 <b>조합설립인가는 취소된 것으로 보고</b> 공보에 고시합니다(§22③). 정비법에는 이때 시장·군수등이 등기를 촉탁하는 규정이 없으므로, 청산인이 해제·취소 고시문이나 취소처분서를 해산 사유 증명으로 붙여 해산등기를 신청하는 구조입니다. 이 경로를 직접 다룬 선례가 없으니 <b>신청 전에 등기소에 첨부서면을 확인</b>합니다.
+</div>
+
+<div class="qhead"><span class="qb">10</span>
+  <h2>소규모주택정비 조합(가로주택·소규모재건축·소규모재개발)은 무엇이 다른가요?</h2>
+</div>
+<p>「빈집 및 소규모주택 정비에 관한 특례법」에 따른 조합도 법인격·정관·임원·총회·대의원회에 관해 도시정비법 §38·§40~§46을 준용하므로(소규모주택정비법 §56①), <b>인가 후 30일 안 설립등기, 「정비사업조합」 명칭, 등기사항, 공증 의사록, 세금(135,000원·중과 제외)은 같습니다</b>(교재 366~367쪽). 다른 점은 아래와 같습니다.</p>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:22%">항목</th><th style="width:44%">소규모주택정비법 조합</th><th>근거</th></tr></thead>
+  <tbody>
+    <tr><td>추진위원회</td><td>없이 토지등소유자가 동의를 받아 바로 창립총회(대표자 선임 → 14일 전 공개·등기우편)</td><td>소규모법 §23, 시행령 §20의2·§20의3</td></tr>
+    <tr><td>동의율</td><td>가로주택·소규모재개발: 토지등소유자 4분의 3 + 토지면적 3분의 2 / 소규모재건축: 동별 과반수 + 전체 구분소유자 10분의 7 + 토지면적 10분의 7(2025. 8. 26. 개정법 시행 뒤 인가를 신청하는 조합부터)</td><td>소규모법 §23①②④, 법률 제21040호 부칙 §3</td></tr>
+    <tr><td>인가 공람·고시</td><td>인가(변경 포함) 때 14일 이상 주민 공람 후 공보 고시. 경미한 사항인 임원 변경에도 공람이 필요합니다(<a class="dl" href="https://www.law.go.kr/LSW/expcInfoP.do?expcSeq=341929" target="_blank" rel="noopener">법제처 25-0540</a>)</td><td>소규모법 §23⑨</td></tr>
+    <tr><td>정관 변경</td><td>조합원 과반수 찬성 + 변경인가(<a class="dl" href="https://www.law.go.kr/LSW/expcInfoP.do?expcSeq=343649" target="_blank" rel="noopener">법제처 26-0466</a>)</td><td>소규모법 §56① → 정비법 §40③</td></tr>
+    <tr><td>설립등기 근거</td><td>예규 1818의 등기 가능 법인 목록에 따로 적혀 있지 않습니다. 등기소가 근거를 물으면 소규모주택정비법 §23⑧(법인·민법 준용)과 §56①(정비법 §38 준용)을 적은 소명서로 답합니다</td><td><a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3336135" target="_blank" rel="noopener">예규 제1818호</a>, 소규모법 §23⑧·§56①</td></tr>
+    <tr><td>해산 요청</td><td>사업시행계획인가 신청 전 조합원 과반수가 해산을 요청하면 시장·군수등은 <b>인가를 취소해야</b> 합니다. 정비법 §86의2(이전고시 후 1년 해산총회)는 준용하지 않습니다</td><td>소규모법 §23의2①</td></tr>
+  </tbody>
+</table></div>
+
+<div class="qhead"><span class="qb">補</span>
+  <h2>보정·보완이 나기 쉬운 곳 — 먼저 소명서로 풀리는지 봅니다</h2>
+</div>
+<p>등기소가 보정을 명하면 그 내용대로 고쳐 내면 됩니다. 정비사업조합은 의사록을 공증받으므로 의사록 자체를 고치면 <b>다시 인증</b>을 받아야 해 시간이 걸립니다. 그래서 공증 전에 정족수 기재를 맞추는 것이 가장 중요합니다. 가능성은 사무소의 예측입니다.</p>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:10%">단계</th><th style="width:25%">예상 사유</th><th style="width:7%">가능성</th><th style="width:27%">예상 문구</th><th>대응(소명서로 되는지 먼저)</th></tr></thead>
+  <tbody>
+    <tr><td>인가</td><td>검인·확인을 받지 않은 동의서를 동의율에 넣음</td><td><b>상</b></td><td>「검인되지 않은 동의서는 효력이 없습니다」</td><td>소명 불가 — 검인·확인을 받아 동의율을 다시 계산(§36③)</td></tr>
+    <tr><td>인가</td><td>창립총회 직접 출석이 조합원 20%에 못 미침</td><td><b>상</b></td><td>「창립총회 직접 출석 요건을 갖추지 못하였습니다」</td><td>소명 불가 — 창립총회를 다시 엶(§45⑩)</td></tr>
+    <tr><td>등기소</td><td>창립총회·임원 선출 의사록에 공증이 없음</td><td><b>상</b></td><td>「공증인의 인증을 받은 의사록을 제출하십시오」</td><td>소명 불가 — 인증을 받아 다시 냄(공증인법 §66의2①, 교재 355쪽)</td></tr>
+    <tr><td>등기소</td><td>의사록에 직접 출석·서면 수 구분이 없어 정족수를 알 수 없음</td><td>중</td><td>「의결정족수 충족 여부를 확인할 수 있는 자료를 제출하십시오」</td><td>참석자 연명부·서면결의서 집계표 사본으로 <b>소명</b>. 등기관은 의사록 기재로 판단하는 것이 원칙이지만(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195884" target="_blank" rel="noopener">선례 제2-129호</a>) 기재에서 하자가 보이면 각하할 수 있으니(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854823" target="_blank" rel="noopener">선례 제1-372호</a>) 공증 전에 숫자를 나누어 적습니다</td></tr>
+    <tr><td>등기소</td><td>인가 뒤 임원이 사임해 법령·정관상 정수에 모자람</td><td>중</td><td>「임원 정수를 갖추어 신청하십시오」</td><td>소명 불가 — 임원을 추가로 뽑아 변경인가를 받은 뒤 설립등기(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195879" target="_blank" rel="noopener">선례 제2-124호</a>)</td></tr>
+    <tr><td>등기소</td><td>명칭에 「정비사업조합」이 없음</td><td><b>상</b></td><td>「명칭에 정비사업조합이라는 문자를 사용하십시오」</td><td>소명 불가 — 정관 정비(§38③). 2003. 7. 1. 전 인가 조합은 예외(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854680" target="_blank" rel="noopener">선례 제1-375호</a>)</td></tr>
+    <tr><td>등기소</td><td>자산 총액·출자 방법을 적거나 재산목록을 붙임 / 이사·감사 주소를 적음</td><td>하</td><td>「등기할 수 없는 사항입니다」</td><td>신청서에서 삭제(시행령 §36, 특례법 §2)</td></tr>
+    <tr><td>등기소</td><td>새 임원 취임등기에 신고수리 증명이 없음</td><td><b>상</b></td><td>「신고수리를 증명하는 서면을 제출하십시오」</td><td>수리 공문 첨부. 20일이 지나 수리 간주된 경우 접수증 + <b>수리 간주 소명서</b>(등기소 사전 확인)</td></tr>
+    <tr><td>등기소</td><td>조합장 보궐을 대의원회가 선임</td><td><b>상</b></td><td>「조합장 선임은 총회의 의결을 거쳐야 합니다」</td><td>소명 불가 — 총회에서 다시 선임(시행령 §43 6호)</td></tr>
+    <tr><td>등기소</td><td>중임·임기만료 등기에 정관이 없음</td><td>중</td><td>「임기를 확인할 수 있는 정관을 제출하십시오」</td><td>정관 추가(교재 358쪽)</td></tr>
+    <tr><td>등기소</td><td>경미한 정관 변경(명칭·사무소)에 변경 전 정관이 없음</td><td>중</td><td>「변경 전 정관을 제출하십시오」</td><td>변경 전 정관 추가(교재 357쪽 주123)</td></tr>
+    <tr><td>등기소</td><td>정관상 직무대행자·임시조합장 등기 신청</td><td>하</td><td>「등기할 수 없는 사항입니다」</td><td>신청 취하(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195881" target="_blank" rel="noopener">선례 제2-126호</a>, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3261477" target="_blank" rel="noopener">선례 제202106-5호</a>)</td></tr>
+    <tr><td>등기소</td><td>대의원회 선출·총회 인준 방식인데 한쪽 의사록만 냄 / 선관위 결과 통지만 냄</td><td>중</td><td>「총회 선임 결의를 증명하는 의사록을 제출하십시오」</td><td>두 의사록(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854587" target="_blank" rel="noopener">선례 제1-374호</a>) 또는 선임을 확정한 공증 총회 의사록 추가</td></tr>
+    <tr><td>등기소</td><td>해임 요구로 소집된 총회에서 후임까지 뽑음</td><td>중</td><td>「후임 선임 결의의 소집 권한을 확인하십시오」</td><td>소명 불가 — 정당한 소집권자의 별도 총회에서 다시 선임(교재 359쪽)</td></tr>
+    <tr><td>등기소</td><td>조합장 중임등기에 신고수리 증명·변경인가서를 요구받음</td><td>하</td><td>「변경인가서(신고수리 증명)를 제출하십시오」</td><td><b>소명 가능</b> — <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3202871" target="_blank" rel="noopener">선례 제201804-3호</a>과 국토교통부 질의회신(교재 360쪽)을 적은 소명서</td></tr>
+    <tr><td>등기소</td><td>재산목록을 요구받음</td><td>하</td><td>「재산목록을 제출하십시오」</td><td><b>소명 가능</b> — 자산 총액이 등기사항이 아니라는 교재 355~356쪽을 적은 소명서</td></tr>
+    <tr><td>등기소</td><td>소규모주택정비 조합 설립등기의 근거를 물음</td><td>하</td><td>「설립등기를 할 수 있는 법인인지 소명하십시오」</td><td><b>소명 가능</b> — 소규모주택정비법 §23⑧·§56①</td></tr>
+    <tr><td>등기소</td><td>해산을 조합원 서면결의로 갈음</td><td><b>상</b></td><td>「해산 결의 총회 의사록을 제출하십시오」</td><td>소명 불가 — 총회를 실제로 열어 다시 결의하고 공증(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3202869" target="_blank" rel="noopener">선례 제201802-1호</a>)</td></tr>
+    <tr><td>등기소</td><td>설립등기 등록면허세를 40,200원으로 신고</td><td>중</td><td>「등록면허세가 부족합니다」</td><td>차액 추가 납부(위 6번 표)</td></tr>
+    <tr><td>등기소</td><td>설립·다른 관할로의 주사무소 이전 수수료를 7,000원으로 냄</td><td>중</td><td>「수수료가 부족합니다」</td><td>35,000원(서면)과의 차액 추가 납부</td></tr>
+    <tr><td>등기소</td><td>인감증명서·초본 3개월 경과</td><td>중</td><td>「발행 3개월 이내의 증명서를 내십시오」</td><td>재발급</td></tr>
+  </tbody>
+</table></div>
+
+<div class="qhead"><span class="qb">Q</span>
+  <h2>자주 묻는 질문</h2>
+</div>
+<div class="faq">
+  <details><summary>재개발 동의율도 70%로 내려갔나요?</summary><div class="fa">아직 아닙니다. 2026. 8. 정부 대책에서 재개발 동의율을 75%에서 70%로 낮추는 방안이 발표되었지만 2026. 11. 23. 현재 법은 바뀌지 않았습니다. 지금은 토지등소유자 4분의 3 이상과 토지면적 2분의 1 이상입니다(§35②). 70%로 낮아진 것은 재건축(2025. 5. 1. 시행)입니다.</div></details>
+  <details><summary>인가 후 30일을 넘기면 어떻게 되나요?</summary><div class="fa">등기는 그 뒤에도 할 수 있지만, 등기하기 전까지 조합은 법인으로 성립하지 않습니다(§38②). 등기를 게을리한 임원에게는 민법 §97의 과태료(500만원 이하)가 준용되어 등기관이 법원에 통지합니다. 인가 직후 공증과 서류를 한꺼번에 진행하도록 인가 전에 준비해 두십시오.</div></details>
+  <details><summary>조합장이 연임했는데 시·군·구에 신고하고 수리 공문을 받아야 하나요?</summary><div class="fa">등기에는 필요 없습니다. 조합장이 총회 의결로 중임하면 변경인가서(신고수리 증명)는 첨부정보가 아니고(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3202871" target="_blank" rel="noopener">선례 제201804-3호</a>), 연임은 경미한 사항 신고 대상이 아니라는 국토교통부 질의회신도 있습니다(교재 360쪽). 다만 2023. 7. 18. 이후의 연임에도 강화된 임원 자격(정비구역 안 소유자인 조합원)이 적용되므로 자격은 다시 확인합니다.</div></details>
+  <details><summary>조합장이 직무집행정지를 당했는데 직무대행자를 등기할 수 있나요?</summary><div class="fa">법원이 직무집행정지·직무대행자선임 가처분을 하면 법원이 촉탁해 등기합니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3336575" target="_blank" rel="noopener">예규 제1826호</a>). 정관에서 정한 직무대행자는 등기할 수 없습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195881" target="_blank" rel="noopener">선례 제2-126호</a>). 정관에 직무대행자의 총회 소집 규정이 있으면 그 총회에서 새 조합장을 뽑아 취임등기를 할 수 있습니다(<a class="dl" href="https://www.law.go.kr/LSW/expcInfoP.do?expcSeq=334441" target="_blank" rel="noopener">법제처 22-0463</a>).</div></details>
+  <details><summary>임원 선거를 선거관리위원회에 맡겼으면 선관위 결과만 내면 되나요?</summary><div class="fa">정비사업조합의 임원 선임은 총회 의결사항이고(§45①7호), 선관위 위탁도 총회 의결을 거쳐야 합니다(§41③). 선관위 위탁 선거 결과로 등기한 선례가 없으므로, 선관위 결과 통지와 함께 <b>선임을 의결(확정)한 총회 의사록을 공증받아</b> 내는 것이 안전합니다. 정관의 선출 방법 조항도 함께 확인합니다.</div></details>
+  <details><summary>지역주택조합도 같은 방법으로 등기하나요?</summary><div class="fa">아닙니다. 「주택법」상 지역주택조합과 직장주택조합은 법률에 등기 근거가 없어 설립등기를 할 수 없습니다. 리모델링주택조합은 주택법 §76⑤로 법인격을 받아 설립등기를 할 수 있습니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3336135" target="_blank" rel="noopener">예규 제1818호</a>).</div></details>
+  <details><summary>조합설립인가·신고 대리는 누가 하나요?</summary><div class="fa">시·군·구에 내는 조합설립인가·변경인가·변경신고 서류의 작성·제출 대리는 행정사의 업무이고, 등기 신청 대리는 법무사·변호사의 업무입니다. 본 사무소는 법무사·행정사 사무소여서 두 가지를 함께 맡을 수 있습니다.</div></details>
+</div>
+
+<div class="hire">
+  <div class="ht">고충은 덜어드리고, 끝까지 곁에서 돕겠습니다</div>
+  <p style="margin:0 0 8px;font-size:14.5px;line-height:1.85">수백 명이 모이는 창립총회와 임원 선출 총회는 한 번 어긋나면 다시 열기 어렵습니다. 본 사무소에서는 총회 전에 정관과 안건, 직접 출석·서면결의 집계 방식을 먼저 맞춰 보고, 공증과 인가 일정을 30일·3주 기한에 맞추어 한 번에 끝나도록 처음부터 함께 짜 드리겠습니다.</p>
+  <p style="margin:0;font-size:14.5px;line-height:1.85">조합설립인가·변경인가·변경신고 서류의 작성과 시·군·구 제출 대리는 <b>행정사</b>로서, 정관·창립총회와 총회 의사록·취임승낙서·소명서 작성과 설립·변경·해산·청산 등기 신청 대리, 등록면허세 신고·납부 대행은 <b>법무사</b>로서 돕습니다. 법인설립신고·사업자등록과 세무 신고는 세무사의 업무입니다 — 세무사의 확인을 받으시기 바랍니다.</p>
+</div>
+
+<div class="cb-box" id="cbBox">
+<style>
+.cb-box{margin:20px auto;max-width:660px;background:#fbf6ec;border:1px solid #e3cfa8;border-radius:14px;padding:16px 16px 14px;box-sizing:border-box}
+.cb-box .cb-t{font-weight:800;font-size:16.5px;color:#5a3b1c;text-align:center;margin:0 0 10px}
+.cb-box .cb-l{display:block;font-size:13px;font-weight:700;color:#7a5230;margin:8px 0 4px}
+.cb-box .cb-l small{font-weight:400;color:#8a7a62}
+.cb-box textarea{width:100%;box-sizing:border-box;border:1px solid #d9c7a3;border-radius:10px;padding:9px 12px;font:14px/1.6 'Pretendard',-apple-system,'Malgun Gothic',sans-serif;color:#2a2118;background:#fff;resize:vertical}
+.cb-box #cbAuto{min-height:120px;background:#fffdf8}
+.cb-box #cbMsg{min-height:70px}
+.cb-box textarea:focus{outline:2px solid #c8862d;outline-offset:1px}
+.cb-box .cb-row{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:12px}
+.cb-box .cb-row a{display:flex;align-items:center;justify-content:center;gap:6px;flex:1 1 150px;text-align:center;border-radius:999px;padding:12px 14px;font-size:15px;font-weight:700;text-decoration:none;box-shadow:0 3px 10px rgba(0,0,0,.12)}
+.cb-box .cb-k{background:#FEE500;color:#3c1e1e}.cb-box .cb-p{background:#c8862d;color:#fff}.cb-box .cb-m{background:#3d5a80;color:#fff}
+.cb-box .cb-n{font-size:12px;color:#8a7a62;text-align:center;margin:8px 0 0;line-height:1.5}
+.cb-box .cb-row a{white-space:nowrap}
+@media(max-width:520px){.cb-box .cb-row a{flex-basis:100%;padding:11px 14px}.cb-box textarea{font-size:16px}}
+.cb-toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:99999;max-width:min(92vw,460px);background:#2a2118;color:#fbf8f1;border-radius:10px;padding:12px 16px;font-size:14px;line-height:1.6;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+@media print{.cb-box{display:none}}
+</style>
+<div class="cb-t">💬 이 내용으로 상담하기</div>
+<label class="cb-l" for="cbAuto">① 보고 계신 내용 <small>(자동으로 옮겨집니다 · 고쳐 쓰셔도 됩니다)</small></label>
+<textarea id="cbAuto"></textarea>
+<label class="cb-l" for="cbMsg">② 덧붙일 말씀 <small>(내 상황·궁금한 점)</small></label>
+<textarea id="cbMsg" placeholder="예) 제 경우에도 해당하는지, 언제까지 해야 하는지 궁금합니다."></textarea>
+<div class="cb-row">
+<a class="cb-k" id="cbKakao" href="https://pf.kakao.com/_znJqX/chat" target="_blank" rel="noopener">💬 카카오톡으로 보내기</a>
+<a class="cb-m" id="cbMail" href="mailto:rokfbi01@gmail.com">✉️ 이메일로 보내기</a>
+<a class="cb-p" href="tel:01037480825">📞 전화 010-3748-0825</a>
+</div>
+<p class="cb-n">카카오톡은 대화창이 열리면 <b>붙여넣기</b>만 하시면 됩니다 (PC: Ctrl+V · 휴대폰: 입력칸을 길게 눌러 붙여넣기).</p>
+<script>
+(function(){
+  var box=document.getElementById('cbBox'); if(!box) return;
+  var au=document.getElementById('cbAuto'), ta=document.getElementById('cbMsg'), dirty=false, last='';
+  if(box.getAttribute('data-msg') && !ta.value) ta.value=box.getAttribute('data-msg');
+  function clean(el){ if(!el) return ''; var c=el.cloneNode(true);
+    [].forEach.call(c.querySelectorAll('.bub,script,style,button,.cb-box,.tt'),function(x){x.parentNode.removeChild(x);});
+    [].forEach.call(c.querySelectorAll('br'),function(x){x.parentNode.replaceChild(document.createTextNode(' '),x);});
+    return (c.textContent||'').replace(/\s+/g,' ').trim(); }
+  function title(){ return clean(document.querySelector('h1'))||document.title; }
+  function generic(){
+    var s=clean(document.querySelector('.tldr')||document.querySelector('.lead')||document.querySelector('main p'));
+    s=s.replace(/^⭐?\s*30초 결론부터\s*/,'');
+    var parts=s.split(/(?<=[.?!])\s+/), sum='';
+    for(var i=0;i<parts.length && sum.length<170;i++){ sum+=(sum?' ':'')+parts[i]; }
+    if(sum.length>240) sum=sum.slice(0,238)+'…';
+    return '보신 페이지: '+title()+(sum?'\n요약: '+sum:'');
+  }
+  function build(){
+    var body=''; try{ body=(typeof window.cbSummary==='function')?window.cbSummary():generic(); }catch(e){ body=generic(); }
+    return '[홈페이지 상담 문의]\n'+body+'\n주소: '+location.href;
+  }
+  function refresh(){ if(dirty) return; var v=build(); if(v!==last){ au.value=v; last=v; } }
+  au.addEventListener('input',function(){ dirty=true; });
+  var tm; function later(){ clearTimeout(tm); tm=setTimeout(refresh,350); }
+  document.addEventListener('change',function(e){ if(!box.contains(e.target)) later(); });
+  document.addEventListener('click',function(e){ if(!box.contains(e.target)) later(); });
+  window.addEventListener('hashchange',later);
+  refresh(); setTimeout(refresh,1500);
+  function full(){ refresh(); var m=ta.value.trim(); return au.value+(m?'\n\n덧붙일 말씀: '+m:''); }
+  function toast(m){ var t=document.createElement('div'); t.className='cb-toast'; t.textContent=m; document.body.appendChild(t); setTimeout(function(){ if(t.parentNode) t.parentNode.removeChild(t); },6500); }
+  function copy(text){
+    var ok=false;
+    try{ var x=document.createElement('textarea'); x.value=text; x.setAttribute('readonly',''); x.style.position='fixed'; x.style.top='0'; x.style.opacity='0'; document.body.appendChild(x); x.select(); ok=document.execCommand('copy'); document.body.removeChild(x); }catch(e){}
+    if(!ok && navigator.clipboard && window.isSecureContext){ ok=true; navigator.clipboard.writeText(text).catch(function(){}); }
+    return ok;
+  }
+  document.getElementById('cbKakao').addEventListener('click',function(){
+    var ok=copy(full());
+    toast(ok?'상담 내용을 복사했습니다. 카카오톡 대화창에 붙여넣기 하시면 됩니다.':'카카오톡 창이 열리면 위 상담 내용을 복사해 붙여넣어 주세요.');
+  });
+  document.getElementById('cbMail').addEventListener('click',function(){
+    this.href='mailto:rokfbi01@gmail.com?subject='+encodeURIComponent('[홈페이지] '+title()+' 상담 문의')+'&body='+encodeURIComponent(full());
+  });
+})();
+</script>
+</div>
+
+<div class="src">
+근거(2026. 11. 23. 국가법령정보센터·사법정보공개포털 현행 확인) — 도시 및 주거환경정비법(법률 제21447호, 2026. 7. 1. 시행) §20· §21· §22· §31· §32· §34· §35· §36· §38· §40· §41· §42· §43· §44· §44의2· §45· §46· §49· §86· §86의2· §115와 법률 제19560호·제20549호·제20759호 부칙 / 같은 법 시행령(대통령령 제36424호) §27· §29· §30· §31· §33· §34· §36· §38· §39· §40· §41· §42· §43 / 같은 법 시행규칙(국토교통부령 제1561호) §7· §8과 별지 제5·6호서식 / 빈집 및 소규모주택 정비에 관한 특례법 §17· §23· §23의2· §56, 같은 법 시행령 §20의2· §20의3, 법률 제21040호 부칙 / 민법 §49· §50· §52· §77· §82· §85· §94· §97· §157· §161 / 비송사건절차법 §63· §65· §67 / 법인의 등기사항 등에 관한 특례법 §2· §3· §3의2 / 공증인법 §66의2 / 지방세법 §28①6호·②·③·④· §151①2호, 같은 법 시행령 §26①28호· §43· §44 / 지방세특례제한법 §74 / 지방회계법 §55 / 등기사항증명서 등 수수료규칙 §5의3· §5의4· §5의5 / 법무사법 §2 · 행정사법 §2 / 등기예규 <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3336135" target="_blank" rel="noopener">예규 제1818호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3336575" target="_blank" rel="noopener">예규 제1826호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2026000038745" target="_blank" rel="noopener">예규 제1880호</a> / 상업등기선례 <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854589" target="_blank" rel="noopener">선례 제1-368호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854590" target="_blank" rel="noopener">선례 제1-369호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854823" target="_blank" rel="noopener">선례 제1-372호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854587" target="_blank" rel="noopener">선례 제1-374호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854680" target="_blank" rel="noopener">선례 제1-375호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854792" target="_blank" rel="noopener">선례 제1-377호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195875" target="_blank" rel="noopener">선례 제2-120호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195876" target="_blank" rel="noopener">선례 제2-121호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195878" target="_blank" rel="noopener">선례 제2-123호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195879" target="_blank" rel="noopener">선례 제2-124호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195880" target="_blank" rel="noopener">선례 제2-125호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195881" target="_blank" rel="noopener">선례 제2-126호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195882" target="_blank" rel="noopener">선례 제2-127호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195883" target="_blank" rel="noopener">선례 제2-128호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2195884" target="_blank" rel="noopener">선례 제2-129호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3202869" target="_blank" rel="noopener">선례 제201802-1호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3202871" target="_blank" rel="noopener">선례 제201804-3호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3261477" target="_blank" rel="noopener">선례 제202106-5호</a> / 부동산등기선례 <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=2025000014045" target="_blank" rel="noopener">선례 제202506-3호</a> / <a class="dl" href="https://www.law.go.kr/LSW/expcInfoP.do?expcSeq=338253" target="_blank" rel="noopener">법제처 23-1093</a>· <a class="dl" href="https://www.law.go.kr/LSW/expcInfoP.do?expcSeq=334441" target="_blank" rel="noopener">22-0463</a>· <a class="dl" href="https://www.law.go.kr/LSW/expcInfoP.do?expcSeq=341929" target="_blank" rel="noopener">25-0540</a>· <a class="dl" href="https://www.law.go.kr/LSW/expcInfoP.do?expcSeq=343649" target="_blank" rel="noopener">26-0466</a> / 우주항공청 「2027년 월력요항」(2026. 6. 29.) / 『특수법인등기실무』(법원행정처, 2025) 350~367쪽. 교재 이후의 개정(추진위원회 구성 시점, 임원 자격, 재건축 동의율, 전자의결·온라인총회, 신고 수리 간주, 분사무소 등기)은 현행 법령으로 바꾸어 적었고, 교재가 소개한 부조합장 해임등기 신청 선례(1-368)는 교재의 반대 의견에 따라 쓰지 않았습니다. 발급처 링크는 각 기관 공식 사이트의 해당 화면으로 연결됩니다.
+</div>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+    t.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();t.classList.toggle('on');}if(e.key==='Escape'){t.classList.remove('on');t.blur();}});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){terms.forEach(function(x){x.classList.remove('on');});}});
+})();
+function toggleFold(b){var fb=b.parentElement;fb.classList.toggle('open');}
+function _openCall(id){var w=document.getElementById(id);var n=w&&w.nextElementSibling;if(n&&n.classList.contains('calltbl'))n.classList.add('open');}
+document.addEventListener('click',function(e){var a=e.target.closest?e.target.closest('a[href^="#call"]'):null;if(a)_openCall(a.getAttribute('href').slice(1));});
+if(location.hash.indexOf('#call')===0)_openCall(location.hash.slice(1));
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('양식이 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('양식이 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('양식을 내려받았습니다');}
+</script>
+<script>
+/* 2026-11-16 메일 단추 — PC에 메일 프로그램이 연결되어 있지 않으면 mailto 링크가 크롬 첫 화면만 여는 일이 많다.
+   그래서 PC에서는 Gmail 편지쓰기 화면을 받는 사람·제목·본문을 채워 새 탭으로 바로 열고, 내용은 복사해 둔다(네이버·다음 메일용).
+   휴대폰은 메일 앱이 그대로 열리므로 손대지 않는다. */
+(function(){
+  if(window.__sanMailFix) return; window.__sanMailFix=1;
+  if(/Android|iPhone|iPad|iPod|Mobile|Windows Phone/i.test(navigator.userAgent)) return;
+  function qp(s,k){ var m=s.match(new RegExp('(?:^|&)'+k+'=([^&]*)','i')); if(!m) return ''; try{ return decodeURIComponent(m[1]); }catch(e){ return m[1]; } }
+  function copy(t){ try{ var x=document.createElement('textarea'); x.value=t; x.setAttribute('readonly',''); x.style.position='fixed'; x.style.top='0'; x.style.opacity='0'; document.body.appendChild(x); x.select(); var ok=document.execCommand('copy'); document.body.removeChild(x); return ok; }catch(e){ return false; } }
+  function toast(m){ var t=document.createElement('div'); t.style.cssText='position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:100001;max-width:min(92vw,480px);background:#2a2118;color:#fbf8f1;border-radius:10px;padding:12px 16px;font-size:14px;line-height:1.6;box-shadow:0 8px 24px rgba(0,0,0,.35)'; t.textContent=m; document.body.appendChild(t); setTimeout(function(){ if(t.parentNode) t.parentNode.removeChild(t); },8000); }
+  document.addEventListener('click',function(e){
+    var a=(e.target&&e.target.closest)?e.target.closest('a[href^="mailto:"]'):null; if(!a||e.defaultPrevented) return;
+    var h=a.getAttribute('href').slice(7), i=h.indexOf('?'), to, q=i<0?'':h.slice(i+1);
+    try{ to=decodeURIComponent(i<0?h:h.slice(0,i)); }catch(x){ to=i<0?h:h.slice(0,i); }
+    var su=qp(q,'subject'), body=qp(q,'body'), keep=body.length, b, u, note='\n\n…(내용이 길어 일부만 담았습니다. 전체 내용은 복사되어 있으니 붙여넣어 주세요.)';
+    for(;;){ b=keep<body.length?body.slice(0,keep)+note:body;
+      u='https://mail.google.com/mail/?view=cm&fs=1&to='+encodeURIComponent(to)+(su?'&su='+encodeURIComponent(su):'')+(b?'&body='+encodeURIComponent(b):'');
+      if(u.length<7500||keep<300) break; keep=Math.floor(keep*0.75); }
+    e.preventDefault();
+    var copied=body?copy(body):false;
+    var w=window.open(u,'_blank'); if(w){ try{ w.opener=null; }catch(x){} } else { location.href=u; return; }
+    toast('Gmail 편지쓰기 창을 열었습니다. 받는 사람·제목·내용이 채워져 있으니 확인하고 보내기만 누르시면 됩니다.'+(copied?' 네이버·다음 메일을 쓰시면 내용이 복사되어 있으니 그 메일 본문에 붙여넣기(Ctrl+V) 하세요.':' 다른 메일을 쓰시면 받는 사람을 '+to+' 로 적어 보내 주세요.'));
+  });
+})();
+</script>
+</body>
+</html>
