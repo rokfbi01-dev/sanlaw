@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[등기 안내] 부동산 중개법인 — 설립등기와 중개사무소 개설등록 | 산 법무사 김재섭</title>
+<meta name="description" content="부동산 중개법인(법인인 개업공인중개사) 설립 안내. 자본금 5천만원·목적은 공인중개사법 §14 업무만·대표자 공인중개사·대표자 외 임원 3분의 1·전원 실무교육 45시간 등 등록기준을 정관에 담는 법, 주식회사 설립등기 첨부서면과 서울 등록면허세 3배, 교재와 선례가 다른 등기관 심사, 구청 개설등록 서류(별지 제5호)와 보증 4억원·등록증, 사무소 건물 해석례, 임원 변경·이전·분사무소·해산 기한, 보정 대비, 외국인 임원.">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#2b2b2b; --muted:#6b6b6b; --line:#e7e0d4;
+  --gold:#a47148; --gold-d:#7a5230; --paper:#fffdf9; --box:#f8f5ee;
+  --warn-bg:#fdf2ee; --warn-line:#d9694a; --warn-ink:#9c3a22;
+  --tip-bg:#eef4f8; --tip-line:#5a8db0; --tip-ink:#2f5b78;
+  --ok-bg:#eef6f0; --ok-line:#5a9a72; --ok-ink:#2f6a47;
+}
+*{box-sizing:border-box}
+body{font-family:'Pretendard',sans-serif; color:var(--ink); line-height:1.85; max-width:820px; margin:0 auto; padding:28px 18px 80px; background:var(--paper); font-size:16px; word-break:keep-all;}
+h1{font-family:'Nanum Myeongjo',serif; font-size:25px; font-weight:800; line-height:1.65; color:#241a10; margin:6px 0 20px; padding-bottom:14px; border-bottom:2px solid var(--gold);}
+h2{font-family:'Nanum Myeongjo',serif; font-size:20px; font-weight:700; color:var(--gold-d); margin:34px 0 12px; padding-left:11px; border-left:4px solid var(--gold);}
+h3{font-size:16.5px; font-weight:700; color:#241a10; margin:20px 0 8px;}
+p{margin:9px 0;}
+b,strong{font-weight:700;}
+ul{margin:8px 0 12px; padding-left:20px;} li{margin:6px 0;}
+.term{position:relative; color:var(--gold-d); font-weight:600; border-bottom:1px dotted var(--gold-d); cursor:help; outline:none;}
+.term>.bub{display:none; position:absolute; left:0; bottom:155%; z-index:30; width:min(300px,82vw); background:#241a10; color:#fff; font-weight:400; font-size:13px; line-height:1.6; text-align:left; padding:10px 13px; border-radius:9px; box-shadow:0 8px 22px rgba(0,0,0,.28); white-space:normal;}
+.term>.bub::after{content:""; position:absolute; left:18px; top:100%; border:7px solid transparent; border-top-color:#241a10;}
+.term:hover>.bub, .term:focus>.bub, .term.on>.bub{display:block;}
+.tnote{font-size:12.5px; color:var(--tip-ink); background:#eef4f8; border-radius:7px; padding:8px 12px; margin:10px 0 16px;}
+.tnote::before{content:"👆 안내  "; font-weight:700;}
+.tldr{background:linear-gradient(180deg,#fcf6ea,#faf0dc); border:1.5px solid var(--gold); border-radius:14px; padding:18px 20px; margin:8px 0 26px;}
+.tldr .tt{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:17px; margin-bottom:8px;}
+.tldr ul{margin:8px 0 0; padding-left:4px; list-style:none;}
+.tldr li{margin:7px 0; padding-left:22px; position:relative;}
+.tldr li::before{content:"\25B8"; color:var(--gold); position:absolute; left:4px; font-weight:700;}
+.who{background:var(--box); border-radius:10px; padding:14px 16px; margin:12px 0; border-left:4px solid #b9a98c;}
+.who .wl{font-weight:700; color:var(--gold-d); display:block; margin-bottom:5px;}
+.warn{background:var(--warn-bg); border:1px solid #f0c9bd; border-left:4px solid var(--warn-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.warn .wt{font-weight:700; color:var(--warn-ink); display:block; margin-bottom:4px;}
+.tip{background:var(--tip-bg); border:1px solid #cfe0ea; border-left:4px solid var(--tip-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.tip .pt{font-weight:700; color:var(--tip-ink); display:block; margin-bottom:4px;}
+.cost{background:var(--ok-bg); border:1px solid #cfe6d6; border-left:4px solid var(--ok-line); border-radius:8px; padding:13px 16px; margin:14px 0;}
+.cost .ct{font-weight:700; color:var(--ok-ink); display:block; margin-bottom:4px;}
+.steps{counter-reset:st; margin:14px 0; padding:0; list-style:none;}
+.steps li{position:relative; padding:10px 12px 10px 46px; margin:8px 0; background:#faf7f0; border:1px solid var(--line); border-radius:9px;}
+.steps li::before{counter-increment:st; content:counter(st); position:absolute; left:12px; top:12px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--gold); color:#fff; border-radius:50%; font-weight:700; font-size:13px;}
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14px;}
+th,td{border:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+th{background:#f0ebe1; font-weight:700; color:#241a10;}
+td a{color:var(--gold-d); word-break:break-all;}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--gold);border-radius:5px;padding:2px 9px;margin-left:3px;}
+.tag.free{background:#5a9a72;}
+.hire{background:linear-gradient(180deg,#fcf6ea,#f6ecd8); border:1.5px solid var(--gold); border-radius:13px; padding:17px 20px; margin:22px 0;}
+.hire .ht{font-family:'Nanum Myeongjo',serif; font-weight:800; color:var(--gold-d); font-size:16px; margin-bottom:7px;}
+.cta{display:block; text-align:center; background:linear-gradient(145deg,#a47148,#7a5230); color:#fff; text-decoration:none; font-weight:700; font-size:16px; padding:15px; border-radius:11px; margin:18px 0; box-shadow:0 3px 8px rgba(122,82,48,.25);}
+.src{font-size:12.5px; color:#9a8f7d; margin-top:30px; border-top:1px solid var(--line); padding-top:12px;}
+.lawbox{background:#f0ebe1;border-radius:9px;padding:11px 15px;margin:10px 0;font-size:13.5px;line-height:1.7;}
+.lawbox .ll{display:inline-block;font-size:11.5px;font-weight:700;color:#fff;background:var(--gold-d);border-radius:5px;padding:2px 8px;margin-right:6px;}
+.lawbox a{color:var(--gold-d);font-weight:600;}
+.formbox{border:1px solid var(--line);border-radius:11px;margin:14px 0;overflow:hidden;background:#fff;}
+.fold-btn{width:100%;text-align:left;background:#f0ebe1;border:none;border-bottom:1px solid var(--line);padding:13px 15px;font-family:'Pretendard',sans-serif;font-size:14.5px;font-weight:700;color:#241a10;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.fold-btn:hover{background:#ebe4d6;}
+.fold-btn .chev{margin-left:auto;color:var(--gold-d);transition:.2s;}
+.formbox.open .fold-btn .chev{transform:rotate(180deg);}
+.fold-body{display:none;padding:13px 15px;}
+.formbox.open .fold-body{display:block;}
+.form{background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:16px;margin:10px 0;font-family:'D2Coding','Courier New',monospace;font-size:12.5px;line-height:1.65;white-space:pre-wrap;color:#1a1a1a;overflow-x:auto;}
+.ft{display:block;text-align:center;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:15px;letter-spacing:2px;margin-bottom:10px;color:#241a10;}
+.howto{font-size:13.5px;color:#4a5b66;background:#f3f6f8;border-radius:7px;padding:9px 13px;margin:6px 0;}
+.form-tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px;}
+.form-tools button{font-family:'Pretendard',sans-serif;font-size:12.5px;font-weight:700;color:var(--gold-d);background:#fff;border:1px solid var(--gold);border-radius:8px;padding:6px 12px;cursor:pointer;}
+.form-tools button:hover{background:var(--gold);color:#fff;}
+.concept{background:var(--box);border-radius:9px;padding:11px 15px;margin:8px 0 14px;font-size:14.5px;color:#5a4a36;border-left:3px solid #b9a98c;}
+.concept b{color:var(--gold-d);}
+.flow{background:linear-gradient(180deg,#fcf9f2,#f7f1e5);border:1.5px solid var(--gold);border-radius:14px;padding:18px 18px 14px;margin:14px 0 20px;}
+.flow .ft2{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:12px;}
+.flow ol{counter-reset:fl;list-style:none;margin:0;padding:0;}
+.flow li{position:relative;padding:8px 10px 8px 44px;margin:7px 0;background:#fff;border:1px solid var(--line);border-radius:10px;font-size:14.5px;line-height:1.6;}
+.flow li::before{counter-increment:fl;content:counter(fl);position:absolute;left:10px;top:8px;width:26px;height:26px;line-height:26px;text-align:center;background:var(--gold);color:#fff;border-radius:50%;font-weight:800;font-size:14px;}
+.flow li b{color:var(--gold-d);}
+.flow .arw{text-align:center;color:var(--gold);font-size:13px;margin:-2px 0;}
+.newlaw{background:#eef6f0;border:1px solid #cfe6d6;border-left:4px solid #5a9a72;border-radius:8px;padding:13px 16px;margin:14px 0;}
+.newlaw .nt{font-weight:700;color:#2f6a47;display:block;margin-bottom:4px;}
+.newlaw .badge{display:inline-block;font-size:11px;font-weight:800;color:#fff;background:#5a9a72;border-radius:5px;padding:2px 8px;margin-right:6px;vertical-align:middle;}
+.faq{margin:14px 0;}
+.faq details{border:1px solid var(--line);border-radius:10px;margin:9px 0;background:#fff;overflow:hidden;}
+.faq summary{list-style:none;cursor:pointer;padding:13px 44px 13px 38px;font-weight:700;font-size:15px;color:#241a10;background:#faf7f0;position:relative;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::before{content:"Q";position:absolute;left:15px;color:var(--gold-d);font-family:'Nanum Myeongjo',serif;font-weight:800;}
+.faq summary::after{content:"▾";position:absolute;right:16px;top:13px;color:var(--gold-d);transition:.2s;}
+.faq details[open] summary::after{transform:rotate(180deg);}
+.faq .fa{padding:13px 15px 15px 38px;font-size:14.5px;line-height:1.75;color:#3a3a3a;position:relative;border-top:1px solid var(--line);}
+.faq .fa::before{content:"A";position:absolute;left:15px;top:13px;color:#5a9a72;font-family:'Nanum Myeongjo',serif;font-weight:800;}
+.helm{background:linear-gradient(135deg,#2c3e50,#3a4a5c);color:#f4f0e8;border-radius:14px;padding:20px 22px;margin:0 0 24px;box-shadow:0 4px 14px rgba(44,62,80,.18);}
+.helm .ht2{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:17px;color:#f0d98c;margin-bottom:9px;}
+.helm p{margin:0;font-size:14.5px;line-height:1.9;color:#eae4d8;}
+.helm b{color:#f4e2a6;}
+.qhead{display:flex;gap:12px;align-items:flex-start;margin:8px 0 8px;}
+.qhead .qb{flex:none;width:34px;height:34px;border-radius:50%;background:var(--gold);color:#fff;font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(176,141,87,.4);}
+.qhead h2{margin:0;border:0;padding:0;font-size:20px;line-height:1.45;}
+.lawrow{display:flex;flex-wrap:wrap;background:var(--box);border-radius:10px;overflow:hidden;margin:12px 0;border:1px solid var(--line);}
+.lawrow .lrl{flex:none;background:var(--gold);color:#fff;font-weight:700;font-size:13.5px;padding:11px 15px;display:flex;align-items:center;}
+.lawrow .lrc{flex:1;min-width:210px;padding:11px 15px;font-size:14px;line-height:1.75;}
+@media(max-width:520px){.lawrow .lrl{width:100%;}}
+.calc{display:block;background:linear-gradient(135deg,#fff7e8,#fdeecb);border:1.5px solid var(--gold);border-radius:14px;padding:16px 18px;margin:18px 0;text-decoration:none;color:var(--ink);transition:.15s;}
+.calc:hover{box-shadow:0 4px 14px rgba(176,141,87,.25);transform:translateY(-1px);}
+.calc .cah{font-family:'Nanum Myeongjo',serif;font-weight:800;color:var(--gold-d);font-size:16px;margin-bottom:4px;}
+.calc .cas{font-size:13.5px;color:var(--muted);}
+.ctabtn{display:block;text-align:center;background:var(--gold);color:#fff;font-weight:800;font-size:17px;padding:16px;border-radius:12px;text-decoration:none;margin:22px 0 6px;box-shadow:0 3px 10px rgba(176,141,87,.35);}
+.ctabtn:hover{background:var(--gold-d);}
+.doclabel{display:inline-block;font-size:12px;font-weight:800;color:#fff;border-radius:6px;padding:3px 11px;margin-bottom:6px;}
+.doclabel.give{background:#b0885a;}
+.doclabel.back{background:#5a9a72;}
+.dl{color:var(--gold-d);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--gold);}
+.dl:hover{background:#fbf5e8;}
+.ddl{display:flex;gap:2px 10px;flex-wrap:wrap;margin:8px 0 2px;padding:9px 12px;background:#fbf7ee;border-radius:8px;font-size:13px;}
+.ddl b{color:var(--gold-d);}
+.deadline{width:100%;border-collapse:collapse;margin:10px 0;font-size:13.5px;}
+.deadline th{background:#3a4a5c;color:#fff;padding:8px;font-weight:700;}
+.deadline td{border:1px solid var(--line);padding:8px 10px;background:#fff;}
+.bnote{color:#0b4a9c;font-weight:600;background:#eaf2fc;border-left:4px solid #2b7fff;border-radius:8px;padding:9px 13px;margin:8px 0;font-size:13.5px;line-height:1.7;}
+.bnote b{color:#0a3d82;}
+.capital th{background:#f0ebe1;text-align:center;font-size:13px;}
+.capital td{text-align:center;font-size:13.5px;}
+.capital td:first-child{text-align:left;font-weight:700;background:#faf7f0;}
+.capital .hi{background:#fdf6e3;font-weight:700;color:var(--gold-d);}
+.capital .bad{color:#9c3a22;font-weight:700;}
+.grp{border-radius:10px;padding:13px 16px;margin:12px 0;border:1px solid var(--line);border-left-width:5px;}
+.grp .gt{font-weight:800;font-size:15px;margin-bottom:5px;}
+.grp.a{background:#eef6f0;border-left-color:#5a9a72;} .grp.a .gt{color:#2f6a47;}
+.grp.b{background:#fdf9e8;border-left-color:#d4a72c;} .grp.b .gt{color:#8a6d10;}
+.grp.c{background:#fdf2ee;border-left-color:#d9694a;} .grp.c .gt{color:#9c3a22;}
+@media print{.term>.bub{display:inline !important;position:static;background:none;color:#555;box-shadow:none;padding:0;width:auto;font-size:12px;}.term>.bub::before{content:" (";}.term>.bub::after{content:")";border:0;position:static;}.formbox .fold-body{display:block !important;}}
+.part{margin:38px 0 14px;padding:16px 18px;border-radius:12px;background:linear-gradient(135deg,#2c3e50,#3a4a5c);color:#f4f0e8;box-shadow:0 4px 14px rgba(44,62,80,.18);}
+.part .pn{display:inline-block;font-size:12px;font-weight:800;color:#2c3e50;background:#f0d98c;border-radius:6px;padding:2px 10px;margin-bottom:6px;}
+.part .pt2{font-family:'Nanum Myeongjo',serif;font-weight:800;font-size:20px;color:#fff;margin-bottom:4px;}
+.part .pw{font-size:13.5px;line-height:1.7;color:#eae4d8;} .part .pw b{color:#f4e2a6;}
+.chk td:first-child{width:30px;text-align:center;color:var(--gold-d);font-size:16px;}
+.tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.srcb{display:inline-block;font-size:11px;font-weight:800;color:#fff;border-radius:5px;padding:1px 7px;margin-left:6px;vertical-align:middle;}
+.srcb.moe{background:#2f5b78;} .srcb.goe{background:#5a9a72;} .srcb.own{background:#9a8f7d;}
+.srcline{font-size:12.5px;color:var(--muted);background:#faf7f0;border-radius:7px;padding:7px 11px;margin:0 0 6px;}
+h3.fgrp{font-size:15px;color:var(--gold-d);margin:22px 0 6px;padding-bottom:5px;border-bottom:1px dashed var(--line);}
+.form{overflow-x:auto;}
+@media(max-width:560px){table{font-size:12.5px;} th,td{padding:7px 6px;overflow-wrap:anywhere;} .tblwrap table{min-width:560px;} .who{padding:12px 10px;}}
+</style>
+</head>
+<body>
+<nav class="backbar" aria-label="페이지 이동" style="position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--paper,#fffdf9);border-bottom:1px solid var(--line,#e7e0d4);margin:-28px -18px 22px;padding:11px 18px">
+  <a href="index.html#practice" onclick="if(history.length>1){history.back();return false;}" style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-d,#7a5230);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px">← 뒤로</a>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">🏠 홈</a>
+  <a href="index.html#practice" style="display:inline-flex;align-items:center;gap:5px;background:var(--box,#f8f5ee);color:var(--gold-d,#7a5230);text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:8px;border:1px solid var(--line,#e7e0d4)">📋 업무 분야</a>
+</nav>
+<h1>부동산 중개법인 — 설립등기와 중개사무소 개설등록</h1>
+
+<div class="helm">
+  <div class="ht2">⚓ 이 안내를 준비한 마음</div>
+  <p>공인중개사가 법인으로 중개업을 하려면 <b>두 관문</b>을 차례로 넘어야 합니다. 먼저 등기소에서 회사(대부분 주식회사)를 세우고, 그다음 구청에서 <b>중개사무소 개설등록</b>을 해야 비로소 중개를 할 수 있습니다. 그런데 구청이 보는 등록기준 가운데 자본금·목적·임원 구성은 <b>정관을 짓는 순간 정해지므로</b>, 처음에 잘못 짜면 등기를 마친 뒤 목적 변경·증자·임원 변경등기를 다시 해야 합니다. 이 안내는 정관 단계에서 맞출 것, 등기소에 낼 것, 구청에 낼 것을 나누어 보정이 나기 쉬운 곳을 짚어 두었습니다.</p>
+</div>
+
+<div class="qhead"><span class="qb">Q</span>
+  <h2>중개법인을 세우려면, 무엇이 어떤 순서로 필요한가요?</h2>
+</div>
+
+<div class="tnote">밑줄 친 <span class="term">용어<span class="bub">밑줄 친 말에 마우스를 올리거나(휴대폰은 살짝 누르면) 쉬운 설명이 나옵니다.</span></span>에 마우스를 올리면 설명이 나옵니다. 파란 <b>발급처 링크</b>를 누르면 서류를 발급받거나 안내를 보는 화면으로 바로 이동합니다.</div>
+
+<div class="tldr">
+  <div class="tt">이런 상황입니다 — 등기로 회사가 생기고, 개설등록을 해야 중개할 수 있습니다</div>
+  <p style="margin:0 0 8px;font-size:14.5px">중개업을 하려는 법인은 「상법」상 회사 또는 「협동조합 기본법」의 협동조합(사회적협동조합 제외)으로 설립등기를 한 뒤, 주된 중개사무소를 두려는 곳의 시장·군수·구청장(<span class="term">등록관청<span class="bub">중개사무소 개설등록을 받는 시·군·구청입니다. 서울은 구청 부동산정보과 등 부동산 담당 부서가 맡습니다.</span></span>)에게 개설등록을 해야 합니다(<a class="dl" href="https://www.law.go.kr/법령/공인중개사법/제9조" target="_blank" rel="noopener">공인중개사법 §9</a>①, 『특수법인등기실무』 417쪽).</p>
+  <ul>
+    <li><b>① 정관 단계에서 맞출 다섯 가지</b> — 자본금 5천만원 이상, 목적은 법 §14 업무만, 대표자는 공인중개사, 대표자를 뺀 임원의 3분의 1 이상 공인중개사, 대표자·임원 <b>전원</b> 실무교육(45시간)(<a class="dl" href="https://www.law.go.kr/법령/공인중개사법시행령/제13조" target="_blank" rel="noopener">공인중개사법 시행령 §13</a>①2호).</li>
+    <li><b>② 설립등기(등기소)</b> — 발기설립이면 이사·감사의 조사보고가 끝난 날부터 <b>2주 안</b>에 본점 소재지 등기소에 신청합니다(<a class="dl" href="https://www.law.go.kr/법령/상법/제317조" target="_blank" rel="noopener">상법 §317</a>①). 서울 등 과밀억제권역은 등록면허세가 <b>3배</b>입니다.</li>
+    <li><b>③ 개설등록(구청)</b> — 별지 제5호서식으로 신청하면 <b>7일 안</b>에 서면으로 통지되고, 법인 <b>4억원</b>(분사무소마다 2억원 추가) 보증을 설정·신고한 뒤 등록증이 나옵니다(시행규칙 §4·§5, 시행령 §24).</li>
+  </ul>
+</div>
+
+<div class="warn">
+  <span class="wt">등기소가 등록기준을 볼지에 대해 교재와 선례가 다릅니다 — 처음부터 기준에 맞추십시오</span>
+  『특수법인등기실무』(법원행정처, 2025) 417쪽은 자본금 5천만원 미달, 대표자가 공인중개사가 아님, 대표자 외 임원의 3분의 1 미달처럼 <b>개설등록 기준에 명백히 못 미치면 등기관이 설립등기를 각하해야 한다</b>고 씁니다. 반면 <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854492" target="_blank" rel="noopener">선례 제1-92호</a>과 <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3202862" target="_blank" rel="noopener">선례 제201812-1호</a>, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1865131" target="_blank" rel="noopener">예규 제544호</a>·<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3334567" target="_blank" rel="noopener">예규 제1792호</a> 제3조②는 영업 인가·등록 요건은 회사가 법인격을 얻는 요건이 아니어서 <b>설립등기 단계에서 따지지 않는다</b>는 취지입니다. 현행 법령 체계는 선례 쪽에 가깝지만, 교재가 더 최근의 법원행정처 발간물이라 등기관이 이를 따라 보정을 명할 수 있습니다. <b>어느 쪽이든 구청에서는 반드시 요구되므로</b>, 정관 단계에서 다섯 가지를 맞추는 것이 가장 빠른 길입니다. 이 안내와 본 사무소의 도움은 요건을 미리 점검하고 서류를 갖추는 데까지이며, 등록 결과를 약속하지 않습니다.
+</div>
+
+<div class="lawrow"><div class="lrl">관련 법령</div><div class="lrc">
+  <a class="dl" href="https://www.law.go.kr/법령/공인중개사법/제9조" target="_blank" rel="noopener">공인중개사법 §9</a> 개설등록 · <a class="dl" href="https://www.law.go.kr/법령/공인중개사법/제10조" target="_blank" rel="noopener">공인중개사법 §10</a> 결격 · <a class="dl" href="https://www.law.go.kr/법령/공인중개사법/제13조" target="_blank" rel="noopener">공인중개사법 §13</a> 사무소·분사무소 · <a class="dl" href="https://www.law.go.kr/법령/공인중개사법/제14조" target="_blank" rel="noopener">공인중개사법 §14</a> 법인의 업무범위 · <a class="dl" href="https://www.law.go.kr/법령/공인중개사법/제18조" target="_blank" rel="noopener">공인중개사법 §18</a> 명칭 · <a class="dl" href="https://www.law.go.kr/법령/공인중개사법/제30조" target="_blank" rel="noopener">공인중개사법 §30</a> 보증 · <a class="dl" href="https://www.law.go.kr/법령/공인중개사법/제34조" target="_blank" rel="noopener">공인중개사법 §34</a> 교육 · <a class="dl" href="https://www.law.go.kr/법령/공인중개사법/제38조" target="_blank" rel="noopener">공인중개사법 §38</a> 등록취소 · <a class="dl" href="https://www.law.go.kr/법령/공인중개사법시행령/제13조" target="_blank" rel="noopener">공인중개사법 시행령 §13</a> 등록기준 · <a class="dl" href="https://www.law.go.kr/법령/공인중개사법시행령/제24조" target="_blank" rel="noopener">공인중개사법 시행령 §24</a> 보증금액 · <a class="dl" href="https://www.law.go.kr/법령/공인중개사법시행규칙/제4조" target="_blank" rel="noopener">공인중개사법 시행규칙 §4</a> 신청서류 · <a class="dl" href="https://www.law.go.kr/법령/상법/제317조" target="_blank" rel="noopener">상법 §317</a> 설립등기 · <a class="dl" href="https://www.law.go.kr/법령/지방세법/제28조" target="_blank" rel="noopener">지방세법 §28</a> 등록면허세
+</div></div>
+
+<!-- ══════════ 제1부 ══════════ -->
+<div class="part" id="part1">
+  <div class="pn">제1부</div>
+  <div class="pt2">설립 전에 정할 것 — 등록기준을 정관에 담기</div>
+  <div class="pw">정관·의사록 작성과 등기 준비는 <b>법무사</b>, 등록 요건 점검과 구청 서류는 <b>행정사</b> 업무로 함께 살핍니다.</div>
+</div>
+
+<div class="qhead"><span class="qb">1</span>
+  <h2>요건 점검표 — 정관을 짓기 전에 확인하십시오</h2>
+</div>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:20%">요건</th><th style="width:44%">내용</th><th>근거 · 확인 방법</th></tr></thead>
+  <tbody>
+    <tr><td><b>법인 형태</b></td><td>「상법」상 회사(주식회사·유한회사·합명·합자·유한책임회사) 또는 일반 협동조합. <b>사회적협동조합은 안 됩니다</b>. 실무상 대부분 주식회사입니다</td><td>시행령 §13①2호 가목, 『특수법인등기실무』 4·396~397·418쪽</td></tr>
+    <tr><td><b>자본금</b></td><td><b>5천만원 이상</b>. 상법의 최저자본금은 2009년에 없어졌지만 이 기준은 그대로입니다. 협동조합은 납입한 출자금 총액으로 봅니다</td><td>시행령 §13①2호 가목, 같은 책 418쪽 · 국토교통부 정책Q&amp;A Q24 · 협동조합 기본법 §18④</td></tr>
+    <tr><td><b>목적</b></td><td>법 §14에 규정된 업무<b>만</b> — 아래 [목적] 표의 일곱 가지. 임대업·매매업·자기 분양업·직접 개발은 안 됩니다</td><td>시행령 §13①2호 나목, 법 §14①②, 시행령 §17②, 같은 책 418~419쪽</td></tr>
+    <tr><td><b>대표자</b></td><td><b>공인중개사</b>여야 합니다. 공동대표·각자대표를 두면 대표자 <b>모두</b> 공인중개사로 하는 것이 안전합니다</td><td>시행령 §13①2호 다목, 같은 책 419쪽</td></tr>
+    <tr><td><b>그 밖의 임원</b></td><td>대표자를 뺀 임원(합명·합자회사는 무한책임사원)의 <b>3분의 1 이상</b>이 공인중개사. 감사도 분모에 넣어 계산하는 것이 안전합니다(아래 계산표)</td><td>시행령 §13①2호 다목 · 국토교통부 정책Q&amp;A Q24</td></tr>
+    <tr><td><b>실무교육</b></td><td>대표자·임원·사원 <b>전원</b>(공인중개사가 아닌 임원 포함)이 등록신청일 전 <b>1년 안</b>에 시·도지사가 실시하는 실무교육을 받아야 합니다. 2026. 1. 1.부터 <b>45시간</b>입니다</td><td>법 §34①, 시행령 §13①2호 라목·§28①2호(대통령령 제35824호)</td></tr>
+    <tr><td><b>사무소</b></td><td><b>건축물대장에 기재된 건물</b>(가설건축물 제외)에 소유·전세·임대차·사용대차 등으로 사용권을 확보. 용도가 맞지 않거나 위반건축물로 표시된 건물은 안 됩니다(아래 [사무소 건물] 표)</td><td>시행령 §13①2호 마목 · 법제처 해석례 06-0055·18-0780 등 · <a class="dl" href="https://www.eais.go.kr" target="_blank" rel="noopener">세움터(건축물대장 열람)</a></td></tr>
+    <tr><td><b>결격·이중소속</b></td><td>임원 <b>한 명이라도</b> 결격(미성년자·피성년후견인·파산 미복권·금고 이상 실형 종료 후 3년 등)이면 법인이 등록할 수 없습니다. 다른 중개사무소의 소속공인중개사·중개보조원이나 다른 중개법인의 임원은 먼저 고용관계 종료 신고를 해야 합니다</td><td><a class="dl" href="https://www.law.go.kr/법령/공인중개사법/제10조" target="_blank" rel="noopener">공인중개사법 §10</a>①12호, <a class="dl" href="https://www.law.go.kr/법령/공인중개사법/제12조" target="_blank" rel="noopener">공인중개사법 §12</a>②</td></tr>
+  </tbody>
+</table></div>
+
+<div class="qhead"><span class="qb">2</span>
+  <h2>대표자 외 임원의 「3분의 1 이상」은 이렇게 셉니다</h2>
+</div>
+<p>감사·사외이사가 「임원」에 들어가는지 정면으로 다룬 법제처 해석례는 없습니다. 다만 국토교통부는 감사를 임원으로 세어 온 실무를 전제로, 자본금 10억원 미만 회사가 감사를 두지 않으면(상법 §409④) <b>공인중개사 대표자 1명만으로도</b> 중개법인을 세울 수 있다고 회신했습니다(<a class="dl" href="https://www.molit.go.kr/USR/policyTarget/dtl.jsp?idx=414" target="_blank" rel="noopener">국토교통부 정책Q&amp;A Q24</a>, 2012 게시). 그래서 감사·사외이사·기타비상무이사까지 분모에 넣어 계산합니다.</p>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:44%">임원 구성(예)</th><th style="width:20%">대표자 외 임원</th><th>필요한 공인중개사(대표자 제외)</th></tr></thead>
+  <tbody>
+    <tr><td>대표이사 1명(공인중개사)만, 감사 없음</td><td>0명</td><td>0명 — 1인 법인 가능</td></tr>
+    <tr><td>대표이사 + 이사 1명</td><td>1명</td><td><b>1명</b> — 그 이사는 반드시 공인중개사(같은 책 419쪽)</td></tr>
+    <tr><td>대표이사 + 사내이사 2명 + 감사 1명</td><td>3명</td><td><b>1명</b> 이상</td></tr>
+    <tr><td>대표이사 + 이사 3명 + 감사 1명</td><td>4명</td><td><b>2명</b> 이상 — 「3분의 1 이상」이므로 올림으로 보는 것이 안전</td></tr>
+  </tbody>
+</table></div>
+<div class="tip"><span class="pt">임원이 바뀔 때마다 다시 셉니다</span>비공인중개사 이사를 새로 뽑아 3분의 1이 깨지면 그날부터 「등록기준에 미달하게 된 경우」가 되고, <b>법에 정한 유예기간이 없습니다</b>(<a class="dl" href="https://www.law.go.kr/법령/공인중개사법/제38조" target="_blank" rel="noopener">공인중개사법 §38</a>②1호, 임의적 등록취소). 결격 임원은 2개월 안에 해소하면 취소를 면하는 단서가 있지만(같은 조 ①3호 단서), 비율 미달에는 그런 단서가 없습니다. 퇴임과 취임을 같은 날 결의해 한 신청서로 변경등기하면 미달 기간이 생기지 않습니다.</div>
+
+<div class="qhead"><span class="qb">3</span>
+  <h2>목적 — 법 §14 문언 그대로 일곱 줄만 적습니다</h2>
+</div>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:8%">순번</th><th>정관·등기 목적(조문 문언 그대로)</th><th style="width:26%">근거</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>부동산 중개업</td><td>법 §14① 본문</td></tr>
+    <tr><td>2</td><td>상업용 건축물 및 주택의 임대관리 등 부동산의 관리대행</td><td>법 §14①1호</td></tr>
+    <tr><td>3</td><td>부동산의 이용·개발 및 거래에 관한 상담</td><td>법 §14①2호</td></tr>
+    <tr><td>4</td><td>개업공인중개사를 대상으로 한 중개업의 경영기법 및 경영정보의 제공</td><td>법 §14①3호</td></tr>
+    <tr><td>5</td><td>상업용 건축물 및 주택의 분양대행</td><td>법 §14①4호</td></tr>
+    <tr><td>6</td><td>중개의뢰인의 의뢰에 따른 도배·이사업체의 소개 등 주거이전에 부수되는 용역의 알선</td><td>법 §14①5호, <a class="dl" href="https://www.law.go.kr/법령/공인중개사법시행령/제17조" target="_blank" rel="noopener">공인중개사법 시행령 §17</a>②</td></tr>
+    <tr><td>7</td><td>「민사집행법」에 의한 경매 및 「국세징수법」 그 밖의 법령에 의한 공매대상 부동산에 대한 권리분석 및 취득의 알선과 매수신청 또는 입찰신청의 대리</td><td>법 §14②</td></tr>
+  </tbody>
+</table></div>
+<div class="concept"><b>관리대행은 되지만 임대업은 안 되고, 분양대행은 되지만 분양업은 안 됩니다.</b> 중개대상물의 매매를 업으로 하는 것은 금지행위입니다(『특수법인등기실무』 418~419쪽, <a class="dl" href="https://www.law.go.kr/법령/공인중개사법/제33조" target="_blank" rel="noopener">공인중개사법 §33</a>①1호). 「부동산 컨설팅」「부동산 개발」「건설」「인테리어 시공」처럼 §14를 넘거나 경계가 모호한 문구, 흔히 붙이는 「위 각 호에 부대되는 일체의 사업」은 구청이 받아 줄지 근거가 없어 빼는 것이 안전합니다. 겸업은 임의적 등록취소·업무정지 사유이고(법 §38②4호·§39①), 매매업은 1년 이하 징역 또는 1천만원 이하 벌금 대상입니다(법 §49①). 7번 경매 매수신청 대리를 실제로 하려면 별도로 <b>지방법원장에게 매수신청대리인 등록</b>을 해야 합니다(공인중개사의 매수신청대리인 등록 등에 관한 규칙 — 대표자 경매 실무교육, 보증 4억원 별도).</div>
+
+<div class="qhead"><span class="qb">名</span>
+  <h2>이름 — 상호와 사무소 명칭은 다릅니다</h2>
+</div>
+<p>법 §18①은 <b>사무소의 명칭</b>에 「공인중개사사무소」 또는 「부동산중개」라는 문자를 쓰라고 정하고, 개업공인중개사가 아닌 자는 이런 명칭을 쓸 수 없습니다(같은 조 ②). 옥외광고물에는 법인 대표자(분사무소는 책임자) 성명을 알아볼 수 있게 표기합니다(같은 조 ③, 시행규칙 §10의2). 등기 <b>상호</b>에 이 문자를 넣으라는 조문은 없습니다. 국토교통부는 중개법인 상호 질의에 §18을 들어 넣으라는 취지로 회신했지만(정책Q&amp;A Q23), 개설등록 전 회사가 상호에 「부동산중개」를 쓰면 등기소가 문제 삼을 여지도 있어 <b>사무소 명칭·간판에는 반드시, 상호에는 선택</b>으로 정리합니다. 상호에 넣으실 때는 접수 전에 관할 등기소에 확인하겠습니다.</p>
+
+<div class="qhead"><span class="qb">比</span>
+  <h2>주식회사로 할까, 협동조합으로 할까 — 한눈에 비교</h2>
+</div>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:18%">구분</th><th style="width:41%">주식회사 (대부분)</th><th>협동조합 (사회적협동조합 제외)</th></tr></thead>
+  <tbody>
+    <tr><td><b>설립 전 절차</b></td><td>없음 — 정관 작성, 주식 인수·납입, 임원 선임·조사보고</td><td>발기인 5명 이상, 창립총회 → <b>시·도지사 설립신고</b>(20일 안 수리 통지, 통지 없으면 수리 간주)</td></tr>
+    <tr><td><b>설립등기 기한</b></td><td>조사보고가 끝난 날부터 <b>2주</b>(상법 §317①)</td><td>출자금 납입이 끝난 날부터 <b>14일</b>(협동조합 기본법 §61①)</td></tr>
+    <tr><td><b>대표자</b></td><td>대표이사 = 공인중개사</td><td>이사장 = 공인중개사로 보는 것이 자연스럽습니다(해석 자료 없음)</td></tr>
+    <tr><td><b>자본금 5천만원</b></td><td>발행주식 액면총액(잔고증명서로 확인)</td><td>납입한 출자금 총액(§18④)</td></tr>
+    <tr><td><b>등록면허세</b></td><td>자본금의 1천분의 4(최저 112,500원), 대도시 3배</td><td>출자총액의 1천분의 4(최저 112,500원)(『특수법인등기실무』 188·196쪽)</td></tr>
+    <tr><td><b>변경등기 기한</b></td><td>2주(상법 §317④·§183)</td><td>21일(§62·§63·§64), 해산 14일(§66)</td></tr>
+  </tbody>
+</table></div>
+
+<!-- ══════════ 제2부 ══════════ -->
+<div class="part" id="part2">
+  <div class="pn">제2부</div>
+  <div class="pt2">설립등기 — 등기소에 내는 서류</div>
+  <div class="pw">설립등기 신청 대리와 신청서·첨부서면 작성은 <b>법무사 업무</b>입니다(법무사법 §2). 비용은 아래 [세금과 수수료]와 비용 계산기로 미리 보실 수 있습니다.</div>
+</div>
+
+<div class="qhead"><span class="qb">4</span>
+  <h2>언제까지, 어디에 신청하나요?</h2>
+</div>
+<p>주식회사는 본점 소재지에서 설립등기를 해야 성립합니다(상법 §172). 발기설립이면 이사·감사가 설립경과를 조사해 발기인에게 보고한 날(이사·감사 전원이 발기인이면 공증인의 보고일)부터, 모집설립이면 창립총회가 끝난 날 등부터 <b>2주 안</b>에 대표이사가 신청합니다(상법 §317①, 『상업등기실무』(법원공무원교육원, 2026) 318~319쪽). 기간을 넘겨도 등기는 할 수 있지만 과태료 대상입니다(상법 §635①1호).</p>
+<table class="deadline">
+  <thead><tr><th>기산일</th><th>근거 조문</th><th>말일 처리</th><th>만료일(예)</th></tr></thead>
+  <tbody>
+    <tr><td>조사보고(모집설립은 창립총회 종결)가 끝난 날의 <b>다음 날</b><br><small>첫날은 세지 않습니다(민법 §157)</small></td><td><a class="dl" href="https://www.law.go.kr/법령/상법/제317조" target="_blank" rel="noopener">상법 §317</a>① — 2주간 내</td><td>말일이 토요일·공휴일이면 <b>그다음 날</b>(민법 §161)</td><td>2027. 3. 10.(수) 조사보고 → <b>3. 24.(수)</b><br>2027. 4. 21.(수) 조사보고 → 5. 5.(수·어린이날)이 말일 → <b>5. 6.(목)</b></td></tr>
+    <tr><td>(협동조합) 출자금 납입이 끝난 날의 다음 날</td><td>협동조합 기본법 §61① — 14일 이내</td><td>같음</td><td>2027. 3. 10.(수) 납입 완료 → <b>3. 24.(수)</b></td></tr>
+  </tbody>
+</table>
+<div class="tip"><span class="pt">실무교육 1년을 함께 세십시오</span>실무교육 수료는 <b>개설등록 신청일 전 1년 안</b>의 것만 인정됩니다(법 §34①). 임원들이 먼저 교육을 받았다면 설립등기 → 사무소 계약 → 개설등록을 짧게 묶어 진행해야 다시 수강하지 않아도 됩니다.</div>
+
+<div class="qhead"><span class="qb">5</span>
+  <h2>등기신청서 첨부서면 — 누가 준비하고, 누가 작성하나요?</h2>
+</div>
+<p>자본금 10억원 미만 회사를 발기설립하는 경우입니다. 정관은 발기인이 기명날인(또는 서명)하면 효력이 생겨 <b>공증이 필요 없고</b>(상법 §292 단서), 주금 납입은 은행 잔고증명서로 갈음합니다(상법 §318③). 아래 목록은 『상업등기실무』(2026) 320~326쪽의 첨부서면 목록(상업등기규칙 §129 각 호 등)에 따른 것입니다.</p>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:24%">서류</th><th style="width:25%">① 법인(발기인·임원)이 준비</th><th style="width:25%">② 사무소가 작성</th><th>③ 제출처 · 근거 · 발급처</th></tr></thead>
+  <tbody>
+    <tr><td><b>정관</b></td><td>발기인 기명날인·서명</td><td>법무사 — 목적 일곱 줄, 자본금 5천만원 이상(아래 작성례)</td><td>등기소 · 상업등기규칙 §129 1호, 상법 §292</td></tr>
+    <tr><td>주식인수증 · 주식발행사항동의서</td><td>발기인 날인</td><td>법무사</td><td>등기소 · §129 2·4호, 상법 §291</td></tr>
+    <tr><td>이사·감사 조사보고서</td><td>이사·감사 날인</td><td>법무사 — <b>보고일이 2주의 기산일</b></td><td>등기소 · §129 5호</td></tr>
+    <tr><td>발기인회의사록 · 이사회의사록(또는 이사결정서)</td><td>날인</td><td>법무사 — 임원 선임, 대표이사(공인중개사) 선정, 본점 소재 장소. 소규모 발기설립은 공증 면제(공증인법 §66의2① 단서)</td><td>등기소 · §129 8호</td></tr>
+    <tr><td>취임승낙서</td><td>임원 인감 날인(또는 서명 공증)</td><td>법무사</td><td>등기소 · §129 10호</td></tr>
+    <tr><td>인감증명서(발행 <b>3개월 이내</b>) · 주민등록초본</td><td>임원 본인 발급 — 인감증명서는 주민센터, 주민등록초본은 주민센터·<a class="dl" href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a></td><td>—</td><td>등기소 · 상업등기규칙 §52④·§154②·§104①</td></tr>
+    <tr><td>잔고증명서</td><td>발기인(대표) 명의 계좌에 자본금 입금 후 은행 발급</td><td>명의가 대표이사이거나 미결제타점이 있으면 소명서(법무사)</td><td>등기소 · §129 12호 단서, 상법 §318③</td></tr>
+    <tr><td>인감신고서 · 위임장</td><td>대표이사 인감</td><td>법무사 — 신청 전 인감 제출</td><td>등기소 · 상업등기법 §25, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854257" target="_blank" rel="noopener">선례 제1-16호</a></td></tr>
+    <tr><td>설립등기신청서</td><td>—</td><td>법무사 — 등록면허세액·과세표준 기재</td><td>등기소 · 상업등기규칙 §51① · <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3334567" target="_blank" rel="noopener">예규 제1792호</a> 양식 제65-1호(발기설립)·제65-2호(모집설립) · <a class="dl" href="https://www.iros.go.kr" target="_blank" rel="noopener">인터넷등기소 등기신청양식</a></td></tr>
+    <tr><td>등록면허세·지방교육세 영수필확인서 · 신청수수료</td><td>법인 명의 납부</td><td>세액 계산·안내(세금 신고는 세무사의 업무입니다)</td><td>등기소 · 지방세법 §28 · <a class="dl" href="https://www.wetax.go.kr" target="_blank" rel="noopener">위택스</a></td></tr>
+    <tr><td>(참고) 공인중개사 자격증 사본 · 소명서</td><td>자격증 사본</td><td>법무사 — 아래 [소명서] 작성례</td><td>등기소 · <b>법정 첨부정보 아님</b>. 『특수법인등기실무』 417쪽 견해에 대비한 선택 첨부</td></tr>
+  </tbody>
+</table></div>
+<p style="font-size:13.5px;color:var(--muted)">※ 관청 허가서는 허가가 설립의 효력요건일 때만 붙입니다(<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1865131" target="_blank" rel="noopener">예규 제544호</a>, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3334567" target="_blank" rel="noopener">예규 제1792호</a> 제3조②). 중개사무소 개설등록은 설립등기 <b>뒤</b>에 하는 절차여서 설립등기에 붙일 허가서가 없습니다. 모집설립이면 창립총회의사록(공증 필요)·주식청약서·납입금 보관증명서(잔고증명 대체 불가)가 더 필요합니다(같은 책 320~326쪽).</p>
+
+<div class="qhead"><span class="qb">6</span>
+  <h2>세금과 수수료는 얼마인가요?</h2>
+</div>
+<p>설립 등록면허세는 납입한 주식금액의 <b>1천분의 4</b>(112,500원 미만이면 112,500원)이고 지방교육세는 그 20%입니다(<a class="dl" href="https://www.law.go.kr/법령/지방세법/제28조" target="_blank" rel="noopener">지방세법 §28</a>①6호 가목, §151①2호). 서울 전역 등 <b>과밀억제권역에서 설립하면 3배</b>이고, 설립 뒤 5년 안 증자, 대도시 밖 법인의 대도시 전입(설립으로 봄)도 3배입니다(같은 조 ②). <b>부동산중개업은 중과를 빼 주는 업종이 아닙니다</b> — 지방세법 시행령 §26①(§44가 가리키는 목록)에 중개업이 없습니다.</p>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:34%">항목 (자본금 5천만원 예)</th><th style="width:22%">대도시 밖</th><th style="width:22%">서울 등 과밀억제권역</th><th>근거</th></tr></thead>
+  <tbody>
+    <tr><td>설립 등록면허세</td><td>200,000원</td><td><b>600,000원</b></td><td>지방세법 §28①6호 가목·②</td></tr>
+    <tr><td>지방교육세(20%)</td><td>40,000원</td><td><b>120,000원</b></td><td>지방세법 §151①2호</td></tr>
+    <tr><td><b>세금 소계</b></td><td><b>240,000원</b></td><td><b>720,000원</b></td><td>(계산)</td></tr>
+    <tr><td>설립등기 신청수수료</td><td colspan="2">서면 35,000원 · 전자표준양식 28,000원 · 전자신청 20,000원</td><td>수수료규칙 §5의3①·§5의5⑤</td></tr>
+    <tr><td>목적·임원 등 변경등기</td><td colspan="2">등기의 목적마다 등록면허세 40,200원 + 지방교육세 8,040원(대도시 중과 없음), 수수료 7,000원(전자 2,000원)</td><td>지방세법 §28①6호 바목·④, 수수료규칙 §5의3②</td></tr>
+    <tr><td>지점(분사무소) 설치등기</td><td>40,200원 + 8,040원</td><td>120,600원 + 24,120원</td><td>지방세법 §28①6호 마목·②, 『상업등기실무』 341~342쪽</td></tr>
+  </tbody>
+</table></div>
+<p style="font-size:13.5px;color:var(--muted)">※ 세액은 10원 미만을 버립니다(지방회계법 §55). 위 금액에서는 버릴 단수가 생기지 않습니다. 지방교육세는 조례로 가감될 수 있어 표준세율로 적었습니다. 세금 신고는 세무사의 업무입니다 — 세무사의 확인을 받으시기 바랍니다.</p>
+<a class="calc" href="https://sanlaw.co.kr/tools-calculator.html#s=%EB%B2%95%EC%9D%B8%EC%84%A4%EB%A6%BD&amp;e=stock" target="_blank" rel="noopener">
+  <div class="cah">🧮 설립등기 비용 미리 계산해 보기</div>
+  <div class="cas">누르시면 계산기 「법인설립」 화면이 <b>주식회사</b>로 골라진 채 열립니다. 자본금(5천만원 이상)을 넣고 본점이 서울 등 과밀억제권역이면 대도시 중과를 고르십시오. 등록면허세·신청수수료와 보수 예상액, 준비서류가 함께 나옵니다. (클릭 시 계산기로 이동)</div>
+</a>
+<div class="concept"><b>보수는 갈래가 나뉩니다.</b> 설립등기 신청 대리와 등록면허세 신고·납부 대행 보수는 대한법무사협회 보수기준에 따라 계산기에서 미리 보실 수 있습니다. 구청 개설등록·보증 신고·고용 신고 서류의 작성·제출 대행은 <b>행정사 업무</b>로 상담 때 미리 알려 드립니다. 사업자등록과 세무 신고는 <b>세무사의 업무입니다 — 세무사의 확인을 받으시기 바랍니다</b>.</div>
+
+<!-- ══════════ 제3부 ══════════ -->
+<div class="part" id="part3">
+  <div class="pn">제3부</div>
+  <div class="pt2">중개사무소 개설등록 — 구청에</div>
+  <div class="pw">개설등록신청서와 인장등록·보증·고용 신고서의 작성·제출 대행은 <b>행정사 업무</b>입니다(행정사법 §2). 정부24 온라인 신청은 대리인이 할 수 없어, 대행은 방문 제출로 합니다.</div>
+</div>
+
+<div class="qhead"><span class="qb">7</span>
+  <h2>착수부터 업무 개시까지 — 순서대로</h2>
+</div>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:6%">단계</th><th style="width:44%">할 일</th><th style="width:18%">누가</th><th>근거</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>임원 결격·이중소속, 3분의 1 비율, 사무소 건물의 대장 용도·위반 표시 점검</td><td>법인 · 사무소</td><td>법 §10·§12, 시행령 §13</td></tr>
+    <tr><td>2</td><td>대표자·임원 <b>전원</b> 실무교육 45시간 수료(신청일 전 1년 안)</td><td>임원 본인</td><td>법 §34①</td></tr>
+    <tr><td>3</td><td>설립등기 — 목적 일곱 줄, 자본금 5천만원 이상, 법인 인감 제출</td><td>법무사</td><td>상법 §317</td></tr>
+    <tr><td>4</td><td>사무소 계약 — <b>법인 명의</b> 임대차 등</td><td>법인(사무소 검토)</td><td>시행령 §13①2호 마목</td></tr>
+    <tr><td>5</td><td>개설등록·인장등록 신청(별지 제5호서식, 법인 인감증명서)</td><td>행정사(방문 제출)</td><td>시행규칙 §4·§9</td></tr>
+    <tr><td>6</td><td>등록 통지 — 신청일부터 <b>7일 안</b> 서면</td><td>구청</td><td>시행규칙 §4②</td></tr>
+    <tr><td>7</td><td>보증 설정·신고 — 법인 <b>4억원</b> 이상(보증보험·공제·공탁), 별지 제25호서식(보증기관이 직접 통보하면 생략)</td><td>법인(가입) · 행정사(신고서)</td><td>시행령 §24, 시행규칙 §18</td></tr>
+    <tr><td>8</td><td>등록증 교부 — 보증을 확인한 뒤 지체 없이</td><td>구청</td><td>시행규칙 §5①</td></tr>
+    <tr><td>9</td><td>사업자등록, 등록증·보수표·보증서류·사업자등록증 게시</td><td>법인 · 세무사</td><td>시행규칙 §10</td></tr>
+    <tr><td>10</td><td>소속공인중개사(공인중개사인 임원 포함)·중개보조원 교육 확인 후 <b>업무 개시 전</b> 고용신고·인장등록</td><td>행정사</td><td>시행규칙 §8·§9</td></tr>
+    <tr><td>11</td><td>(경매 대리를 하려면) 지방법원장에게 매수신청대리인 등록 — 대표자 경매 실무교육, 보증 4억원 별도</td><td>법인</td><td>매수신청대리인 등록 규칙</td></tr>
+  </tbody>
+</table></div>
+
+<div class="qhead"><span class="qb">8</span>
+  <h2>개설등록 서류 — 법령상 신청인이 내는 것은 넷뿐입니다</h2>
+</div>
+<p>신청은 <b>별지 제5호서식</b>(개설등록신청서와 인장등록 신고서가 한 서식)으로 주된 중개사무소 관할 구청에 합니다. 법인 등기사항증명서와 건축물대장은 <b>담당 공무원이 행정정보 공동이용으로 확인</b>하고, 대표자를 포함한 공인중개사인 임원의 자격은 구청이 시·도지사에게 확인을 요청합니다(<a class="dl" href="https://www.law.go.kr/법령/공인중개사법시행규칙/제4조" target="_blank" rel="noopener">공인중개사법 시행규칙 §4</a>①). 공동이용에 동의하지 않으면 직접 냅니다.</p>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:26%">서류</th><th style="width:25%">① 법인이 준비</th><th style="width:22%">② 사무소가 작성</th><th>③ 제출처 · 근거</th></tr></thead>
+  <tbody>
+    <tr><td><b>개설등록신청서 · 인장등록 신고서</b>(별지 제5호)</td><td>대표자 서명·날인</td><td>행정사</td><td>구청 · 시행규칙 §4·§9</td></tr>
+    <tr><td>실무교육 수료확인증 사본</td><td>대표자·임원 <b>전원</b>(신청일 전 1년 안)</td><td>—</td><td>구청 · §4①3호(위탁기관이 전자 확인을 해 두었으면 생략)</td></tr>
+    <tr><td>여권용 사진 1매</td><td>대표자</td><td>—</td><td>구청 · §4①4호</td></tr>
+    <tr><td>사무소 사용권 증명(임대차계약서 등)</td><td><b>법인 명의</b> 계약</td><td>계약 전 검토 · 사용승낙서(아래 작성례)</td><td>구청 · §4①5호(대장 미기재 건물이면 지연 사유서 추가)</td></tr>
+    <tr><td>법인 인감증명서</td><td>법인 발급 — <a class="dl" href="https://www.iros.go.kr" target="_blank" rel="noopener">인터넷등기소·등기소</a></td><td>—</td><td>구청 · 인장등록을 갈음(§9④)</td></tr>
+    <tr><td>공동사용 승낙서</td><td>사용 권리가 있는 다른 개업공인중개사 날인</td><td>행정사</td><td>구청 · 공동사용 때만(시행령 §16)</td></tr>
+    <tr><td>(외국인·외국법인) 결격 비해당 증명 · 상법 §614 영업소 등기 증명</td><td>본국 발급 + 영사확인 또는 아포스티유</td><td>번역문</td><td>구청 · §4①6호</td></tr>
+    <tr><td>(지참 권장) 공인중개사 자격증 사본 · 법인 등기사항증명서</td><td>사본·발급</td><td>—</td><td>법령상 필요 없음 — 일부 구청 안내가 요구</td></tr>
+    <tr><td>수수료</td><td>납부</td><td>—</td><td>구청 · 법 §47, 관할 조례 금액</td></tr>
+  </tbody>
+</table></div>
+
+<h3 class="fgrp">법정 서식 — 국가법령정보센터 원문(공인중개사법 시행규칙, 국토교통부령 제1611호)</h3>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:12%">별지</th><th>서식</th><th style="width:26%">내려받기</th></tr></thead>
+  <tbody>
+    <tr><td>제5호</td><td>부동산중개사무소 개설등록신청서 · 개업공인중개사 인장등록 신고서</td><td><a class="dl" href="https://www.law.go.kr/LSW/flDownload.do?gubun=&amp;flSeq=168170345&amp;bylClsCd=110202" target="_blank" rel="noopener">HWP</a> · <a class="dl" href="https://www.law.go.kr/LSW/flDownload.do?gubun=&amp;flSeq=168170347&amp;bylClsCd=110202" target="_blank" rel="noopener">PDF</a></td></tr>
+    <tr><td>제25호</td><td>손해배상책임보증(설정, 변경)신고서</td><td><a class="dl" href="https://www.law.go.kr/LSW/flDownload.do?gubun=&amp;flSeq=168170581&amp;bylClsCd=110202" target="_blank" rel="noopener">HWP</a> · <a class="dl" href="https://www.law.go.kr/LSW/flDownload.do?gubun=&amp;flSeq=168170583&amp;bylClsCd=110202" target="_blank" rel="noopener">PDF</a></td></tr>
+    <tr><td>제11호</td><td>소속공인중개사·중개보조원 고용(종료)·인장등록 신고서</td><td><a class="dl" href="https://www.law.go.kr/LSW/flDownload.do?gubun=&amp;flSeq=168170389&amp;bylClsCd=110202" target="_blank" rel="noopener">HWP</a> · <a class="dl" href="https://www.law.go.kr/LSW/flDownload.do?gubun=&amp;flSeq=168170391&amp;bylClsCd=110202" target="_blank" rel="noopener">PDF</a></td></tr>
+    <tr><td>제11호의2</td><td>개업공인중개사·소속공인중개사 인장등록·등록인장 변경 신고서</td><td><a class="dl" href="https://www.law.go.kr/LSW/flDownload.do?gubun=&amp;flSeq=168170395&amp;bylClsCd=110202" target="_blank" rel="noopener">HWP</a> · <a class="dl" href="https://www.law.go.kr/LSW/flDownload.do?gubun=&amp;flSeq=168170397&amp;bylClsCd=110202" target="_blank" rel="noopener">PDF</a></td></tr>
+    <tr><td>제9호</td><td>분사무소 설치신고서</td><td><a class="dl" href="https://www.law.go.kr/LSW/flDownload.do?gubun=&amp;flSeq=168170377&amp;bylClsCd=110202" target="_blank" rel="noopener">HWP</a> · <a class="dl" href="https://www.law.go.kr/LSW/flDownload.do?gubun=&amp;flSeq=168170379&amp;bylClsCd=110202" target="_blank" rel="noopener">PDF</a></td></tr>
+    <tr><td>제12호</td><td>중개사무소 이전신고서</td><td><a class="dl" href="https://www.law.go.kr/LSW/flDownload.do?gubun=&amp;flSeq=168170401&amp;bylClsCd=110202" target="_blank" rel="noopener">HWP</a> · <a class="dl" href="https://www.law.go.kr/LSW/flDownload.do?gubun=&amp;flSeq=168170403&amp;bylClsCd=110202" target="_blank" rel="noopener">PDF</a></td></tr>
+    <tr><td>제13호</td><td>휴업·폐업·재개·휴업기간 변경 신고서</td><td><a class="dl" href="https://www.law.go.kr/LSW/flDownload.do?gubun=&amp;flSeq=168170407&amp;bylClsCd=110202" target="_blank" rel="noopener">HWP</a> · <a class="dl" href="https://www.law.go.kr/LSW/flDownload.do?gubun=&amp;flSeq=168170409&amp;bylClsCd=110202" target="_blank" rel="noopener">PDF</a></td></tr>
+    <tr><td>제4호</td><td>등록증·분사무소설치신고확인서 재교부신청서(대표자 변경 등)</td><td><a class="dl" href="https://www.law.go.kr/LSW/flDownload.do?gubun=&amp;flSeq=168170339&amp;bylClsCd=110202" target="_blank" rel="noopener">HWP</a> · <a class="dl" href="https://www.law.go.kr/LSW/flDownload.do?gubun=&amp;flSeq=168170341&amp;bylClsCd=110202" target="_blank" rel="noopener">PDF</a></td></tr>
+  </tbody>
+</table></div>
+<p style="font-size:13.5px;color:var(--muted)">※ 서식 파일 번호는 시행규칙이 개정되면 바뀝니다. 링크가 열리지 않으면 <a class="dl" href="https://www.law.go.kr/법령/공인중개사법시행규칙" target="_blank" rel="noopener">공인중개사법 시행규칙 원문</a> 아래 서식 목록에서 받으십시오.</p>
+
+<div class="warn" id="callgun">
+  <span class="wt">개설등록 신청 전에 구청에 먼저 확인하십시오</span>
+  개설등록은 주된 중개사무소를 둘 곳의 <b>시·군·구청 부동산 담당 부서</b>에 냅니다. 다음을 미리 물어 두면 보완 요구를 줄일 수 있습니다.
+  <ol style="margin:8px 0 0 20px;padding:0;line-height:1.75">
+    <li>개설등록 수수료(조례 금액)와 납부 방법 — 예: 서울 금천구 안내는 법인 30,000원, 분사무소 10,000원</li>
+    <li>법령상 내지 않아도 되는 공인중개사 자격증 사본·법인 등기사항증명서를 따로 받는지</li>
+    <li>사무소 건물의 용도(제2종 근린생활시설·업무시설 등)와 위반건축물 표시 여부를 구청이 어떻게 확인하는지, 대표자 개인 명의 임대차면 사용승낙서로 되는지</li>
+    <li>감사·사외이사를 「대표자를 제외한 임원」의 분모에 넣어 계산하는지, 공인중개사가 아닌 임원의 실무교육 수료증까지 받는지</li>
+    <li>보증(4억원) 설정을 등록 통지 뒤에 해도 되는지, 보증기관이 구청에 직접 통보하는지</li>
+  </ol>
+  <div style="margin-top:8px"><b>참고</b> — <a class="dl" href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=15000000032&amp;tp_seq=01" target="_blank" rel="noopener">정부24 「부동산중개사무소 개설등록 신청」 안내</a> · <a class="dl" href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=15000000036&amp;tp_seq=01" target="_blank" rel="noopener">정부24 「보증 설정(변경)신고」 안내</a> — 일부 문구가 현행 법령과 다릅니다(아래 표).</div>
+</div>
+
+
+<div class="qhead"><span class="qb">9</span>
+  <h2>정부24·구청 안내와 현행 법령이 다른 곳</h2>
+</div>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:22%">항목</th><th style="width:30%">안내문</th><th style="width:28%">현행 법령</th><th>이렇게 하십시오</th></tr></thead>
+  <tbody>
+    <tr><td>보증 설정 시기</td><td>정부24: 개설등록 후 「10일 이내」</td><td>「업무를 시작하기 전에」(시행령 §24②) — 10일 조문은 없습니다</td><td><b>업무 개시 전</b>. 등록증은 보증 확인 뒤 나옵니다</td></tr>
+    <tr><td>자격증 사본</td><td>정부24(분사무소)·일부 구청이 요구</td><td>2012년 삭제 — 구청이 시·도지사에게 확인(시행규칙 §4①, 시행령 §15③)</td><td>법령상 필요 없음. 지참하면 무난</td></tr>
+    <tr><td>법인 등기사항증명서</td><td>일부 구청이 요구</td><td>행정정보 공동이용으로 공무원이 확인</td><td>지참하면 무난</td></tr>
+    <tr><td>법령 이름</td><td>정부24 일부 항목에 옛 이름</td><td>「공인중개사법」</td><td>현행 이름으로</td></tr>
+    <tr><td>온라인 신청</td><td>정부24: 온라인은 대리인 신청 불가</td><td>—</td><td>대행은 방문, 온라인은 대표자 본인</td></tr>
+  </tbody>
+</table></div>
+
+<div class="qhead"><span class="qb">10</span>
+  <h2>사무소 건물 — 대장에 있어도 안 되는 경우가 있습니다</h2>
+</div>
+<p>사무소 요건은 「대장에 있는 건물」이 아니라 <b>「건축법상 용도에 맞고 위반이 없는 건물로서 대장에 있는 건물」</b>로 해석됩니다. 등록 뒤에 다른 부분의 위반으로 「위반건축물」이 표시되어도 취소 사유가 될 수 있으니 계약 전에 반드시 건축물대장을 열람하십시오.</p>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:26%">법제처 해석례</th><th>요지</th><th style="width:22%">결론</th></tr></thead>
+  <tbody>
+    <tr><td><a class="dl" href="https://www.law.go.kr/LSW/expcInfoP.do?expcSeq=312309" target="_blank" rel="noopener">06-0055</a> (2006. 6. 9.)</td><td>용도에 맞지 않거나 건축법 위반 건물은 대장에 있어도 기준 미충족. 중개사무소는 제2종 근린생활시설</td><td>용도 확인 필수</td></tr>
+    <tr><td><a class="dl" href="https://www.law.go.kr/LSW/expcInfoP.do?expcSeq=312327" target="_blank" rel="noopener">07-0293</a> (2007. 11. 2.)</td><td>일반업무시설도 기준 충족</td><td>업무시설 가능</td></tr>
+    <tr><td><a class="dl" href="https://www.law.go.kr/LSW/expcInfoP.do?expcSeq=329005" target="_blank" rel="noopener">18-0780</a> (2019. 4. 3.)</td><td>주택(단독·공동) 용도는 용도변경 등을 거치지 않으면 불가</td><td>주택 불가</td></tr>
+    <tr><td>09-0023 (2009. 3. 12.)</td><td>사용승인된 가설건축물도 불가 — 지금은 시행령 괄호(「가설건축물대장은 제외」)에 명문화</td><td>가설건축물 불가</td></tr>
+    <tr><td><a class="dl" href="https://www.law.go.kr/LSW/expcInfoP.do?expcSeq=325097" target="_blank" rel="noopener">14-0332</a> (2014. 6. 17.)</td><td>일반건축물에 「위반건축물」 표시면 위반 없는 부분도 불가. 집합건물은 다른 전유부분 위반이면 가능, 공용부분 위반이면 불가</td><td>위반 표시 확인</td></tr>
+    <tr><td><a class="dl" href="https://www.law.go.kr/LSW/expcInfoP.do?expcSeq=325103" target="_blank" rel="noopener">14-0415</a> (2014. 7. 10.)</td><td>등록 뒤 다른 부분 위반으로 「위반건축물」이 기재되면 등록기준 미달로 취소 사유</td><td>등록 후에도 관리</td></tr>
+    <tr><td><a class="dl" href="https://www.law.go.kr/LSW/expcInfoP.do?expcSeq=324431" target="_blank" rel="noopener">13-0318</a> · <a class="dl" href="https://www.law.go.kr/LSW/expcInfoP.do?expcSeq=324899" target="_blank" rel="noopener">13-0380</a> (2013. 9.)</td><td>주택법상 비내력벽 무단 철거는 원칙상 해당 없음. 다만 안전에 중대한 위험이 있으면 등록 거부 가능</td><td>예외</td></tr>
+  </tbody>
+</table></div>
+<p style="font-size:13.5px;color:var(--muted)">※ 공유오피스·비상주 사무실·전대차를 정면으로 다룬 해석례는 찾지 못했습니다. 시행령이 「사용대차 등」을 인정하므로 원칙상 가능하다고 보지만, 전대 동의(민법 §629)와 독립 구획을 구청이 확인할 수 있으니 미리 문의하십시오.</p>
+
+<div class="qhead"><span class="qb">11</span>
+  <h2>등록 뒤 업무 개시 전까지 — 놓치기 쉬운 의무</h2>
+</div>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:26%">할 일</th><th style="width:25%">① 법인이 준비</th><th style="width:20%">② 사무소가 작성</th><th>③ 제출처 · 근거</th></tr></thead>
+  <tbody>
+    <tr><td><b>보증 설정·신고</b>(별지 제25호)</td><td>보증보험·공제 가입 또는 공탁 — 법인 <b>4억원</b>, 분사무소마다 2억원 추가</td><td>행정사</td><td>구청(보증기관 직접 통보 시 생략) · 시행령 §24, 시행규칙 §18 · <a class="dl" href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=15000000036&amp;tp_seq=01" target="_blank" rel="noopener">정부24 안내</a></td></tr>
+    <tr><td>고용신고(별지 제11호)</td><td>소속공인중개사(공인중개사인 임원 포함) 실무교육, 중개보조원 직무교육</td><td>행정사</td><td>구청 · <b>업무 개시 전까지</b>, 종료는 10일 안(시행규칙 §8)</td></tr>
+    <tr><td>인장등록</td><td>법인은 등기소에 신고한 법인 인감(분사무소는 대표자가 보증한 인장 가능)</td><td>행정사</td><td>구청 · 업무 개시 전, 변경 7일 안(시행규칙 §9)</td></tr>
+    <tr><td>게시</td><td>등록증 원본, 중개보수·실비 요율표, 자격증 원본, 보증 증명서류, 사업자등록증</td><td>—</td><td>사무소 안 · 시행규칙 §10(위반 시 100만원 이하 과태료)</td></tr>
+    <tr><td>간판·광고</td><td>사무소 명칭에 「공인중개사사무소」·「부동산중개」, 옥외광고물에 대표자 성명</td><td>—</td><td>법 §18·§18의2</td></tr>
+  </tbody>
+</table></div>
+<div class="tip"><span class="pt">중개보조원은 5배까지</span>중개보조원은 개업공인중개사와 소속공인중개사를 합한 수의 <b>5배</b>를 넘을 수 없고, 넘으면 반드시 등록이 취소됩니다(법 §15③·§38①5호의2). 법인의 중개보조원은 위임을 받아도 확인·설명을 할 수 없습니다(<a class="dl" href="https://www.law.go.kr/LSW/expcInfoP.do?expcSeq=328871" target="_blank" rel="noopener">법제처 21-0173</a>). 현장 안내 때는 보조원임을 먼저 알려야 합니다(법 §18의4).</div>
+
+<h3 class="fgrp">법령에 서식이 없는 서류 — 사무소 작성례</h3>
+<div class="formbox" id="fb_fBrArt">
+  <button class="fold-btn" type="button" onclick="toggleFold(this)">📄 정관 — 중개법인 등록기준에 맞춘 조항 (발췌 작성례) <span class="srcb own">사무소 작성례</span><span class="chev">▾</span></button>
+  <div class="fold-body">
+    <div class="srcline">출처 · 법령에 정해진 서식이 없어, 공인중개사법·시행령과 상법, 『특수법인등기실무』·『상업등기실무』가 요구하는 항목으로 만든 사무소 작성례입니다. 근거: 공인중개사법 §14①②, 시행령 §13①2호 가~다목·§17②, 상법 §289①.</div>
+<div class="form" id="fBrArt">                    주식회사 ○○ 정관 (발췌)
+제1조(상호) 이 회사는 「주식회사 ○○」라 한다.
+        (상호에 「부동산중개」를 넣을지는 아래 ③ 참고)
+제2조(목적) 이 회사는 다음의 사업을 목적으로 한다.
+  1. 부동산 중개업
+  2. 상업용 건축물 및 주택의 임대관리 등 부동산의 관리대행
+  3. 부동산의 이용·개발 및 거래에 관한 상담
+  4. 개업공인중개사를 대상으로 한 중개업의 경영기법 및 경영정보의 제공
+  5. 상업용 건축물 및 주택의 분양대행
+  6. 중개의뢰인의 의뢰에 따른 도배·이사업체의 소개 등 주거이전에 부수되는
+     용역의 알선
+  7. 「민사집행법」에 의한 경매 및 「국세징수법」 그 밖의 법령에 의한
+     공매대상 부동산에 대한 권리분석 및 취득의 알선과 매수신청 또는
+     입찰신청의 대리
+제3조(본점) 이 회사의 본점은 서울특별시 ○○구에 둔다.
+제5조(발행예정주식총수) 이 회사가 발행할 주식의 총수는 ○○○,○○○주로 한다.
+제6조(1주의 금액) 이 회사가 발행하는 주식 1주의 금액은 금 ○○,○○○원으로 한다.
+제7조(설립 시 발행하는 주식) 이 회사가 설립 시에 발행하는 주식의 총수는
+        ○○,○○○주로 한다. (1주 금액 × 주식 수 = 자본금 5천만원 이상)
+제○조(이사·감사의 수) 이 회사의 이사는 1명 이상, 감사는 두지 않을 수 있다.
+        (대표이사 외 이사·감사를 두면 그 3분의 1 이상은 공인중개사)
+제○조(대표이사) 대표이사는 공인중개사인 이사 중에서 선정한다.
+제○조(겸업 금지) 이 회사는 「공인중개사법」 제14조에 규정된 업무 외의
+        업무를 하지 아니하며, 중개대상물의 매매를 업으로 하지 아니한다.
+                              20○○년 ○월 ○일
+   발기인 ○○○ (인)   발기인 ○○○ (인)</div>
+    <div class="howto">① 목적은 <b>조문 문언 그대로 일곱 줄</b>만 적습니다. 「부동산 컨설팅」「부동산 개발」「임대업」「매매업」「분양」「건설」, 「위 각 호에 부대되는 일체의 사업」은 빼는 것이 안전합니다(시행령 §13①2호 나목은 「법 제14조에 규정된 업무만을 영위할 목적」을 요구합니다).<br>② 자본금 1천만원 단위로 맞추어도 되지만 <b>설립 때 5천만원 이상</b>이어야 합니다. 서울 등 과밀억제권역은 설립 뒤 5년 안 증자에도 등록면허세가 3배입니다.<br>③ 법 §18①은 「사무소의 명칭」에 「공인중개사사무소」 또는 「부동산중개」를 쓰라는 규정입니다. 상호에 넣어야 한다는 조문은 없고, 개설등록 전 상호에 넣으면 등기소가 문제 삼을 여지도 있어 넣을지는 상담 때 정합니다.<br>④ 자본금 10억원 미만 발기설립은 공증이 필요 없습니다(상법 §292 단서).</div>
+    <div class="form-tools">
+      <button type="button" onclick="copyForm('fBrArt')">📋 복사</button>
+      <button type="button" onclick="printForm('fBrArt')">🖨 인쇄</button>
+      <button type="button" onclick="downloadForm('fBrArt','정관_부동산중개법인_발췌_작성예시.txt')">⬇ 내려받기</button>
+    </div>
+  </div>
+</div>
+<div class="formbox" id="fb_fBrMemo">
+  <button class="fold-btn" type="button" onclick="toggleFold(this)">📄 등기소 소명서 — 중개법인 등록기준을 갖추었음을 알리는 참고자료 <span class="srcb own">사무소 작성례</span><span class="chev">▾</span></button>
+  <div class="fold-body">
+    <div class="srcline">출처 · 법령에 정해진 서식이 없어, 공인중개사법·시행령과 상법, 『특수법인등기실무』·『상업등기실무』가 요구하는 항목으로 만든 사무소 작성례입니다. 근거: 상업등기법 §26 단서(보정), 『특수법인등기실무』 417쪽, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854492" target="_blank" rel="noopener">선례 제1-92호</a>·<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3202862" target="_blank" rel="noopener">선례 제201812-1호</a>, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1865131" target="_blank" rel="noopener">예규 제544호</a>·<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3334567" target="_blank" rel="noopener">예규 제1792호</a> 제3조②.</div>
+<div class="form" id="fBrMemo">                          소 명 서
+사    건 : 주식회사 ○○ 설립등기 (접수번호 제○○○○호)
+신 청 인 : 주식회사 ○○ 대표이사 ○○○
+1. 이 회사는 설립등기 뒤 「공인중개사법」 제9조에 따라 ○○구청장에게
+   중개사무소 개설등록을 할 예정인 회사입니다.
+2. 같은 법 시행령 제13조제1항제2호의 등록기준과 관련하여 다음과 같이
+   갖추었음을 알려 드립니다.
+   가. 자본금: 금 ○○,○○○,○○○원 (5천만원 이상, 잔고증명서 첨부)
+   나. 목적: 같은 법 제14조제1항·제2항, 시행령 제17조제2항의 업무만
+       정관 제2조에 적었습니다.
+   다. 대표이사 ○○○: 공인중개사 (자격증 번호 ○○○○-○○○○○ — 사본 첨부)
+   라. 대표이사를 제외한 임원 ○명 중 공인중개사 ○명
+       (이사 ○○○ 공인중개사, 감사 ○○○)
+3. 공인중개사 자격증 사본은 법정 첨부정보가 아니나, 심사에 참고하시도록
+   함께 제출합니다.
+                              20○○년 ○월 ○일
+              신청인 주식회사 ○○ 대표이사 ○○○ (법인인감)
+              위 대리인 법무사 ○○○ (인)
+○○지방법원 ○○등기소 귀중</div>
+    <div class="howto">① 『특수법인등기실무』 417쪽은 등록기준(자본금·대표자·임원 3분의 1)에 명백히 못 미치면 등기관이 각하해야 한다는 견해이고, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854492" target="_blank" rel="noopener">선례 제1-92호</a>·<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3202862" target="_blank" rel="noopener">선례 제201812-1호</a>과 <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1865131" target="_blank" rel="noopener">예규 제544호</a>·<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3334567" target="_blank" rel="noopener">예규 제1792호</a>는 영업 등록 요건을 설립등기에서 따지지 않는다는 취지입니다. 어느 쪽 등기관을 만나도 되도록 <b>처음부터 기준을 갖추고</b>, 필요하면 이 소명서를 붙입니다.<br>② 보정명령을 받았을 때도 재작성 전에 이 소명서로 풀리는지 먼저 봅니다(보정은 보정명령 다음 날까지 — 상업등기법 §26 단서).<br>③ 목적에 §14 밖의 업무가 들어 있으면 소명으로 풀리지 않으니 정관과 의사록을 고칩니다.</div>
+    <div class="form-tools">
+      <button type="button" onclick="copyForm('fBrMemo')">📋 복사</button>
+      <button type="button" onclick="printForm('fBrMemo')">🖨 인쇄</button>
+      <button type="button" onclick="downloadForm('fBrMemo','소명서_중개법인_설립등기_작성예시.txt')">⬇ 내려받기</button>
+    </div>
+  </div>
+</div>
+<div class="formbox" id="fb_fBrUse">
+  <button class="fold-btn" type="button" onclick="toggleFold(this)">📄 사무소 사용승낙서 — 법인이 사무소 사용권을 확보했음을 보이는 서면 <span class="srcb own">사무소 작성례</span><span class="chev">▾</span></button>
+  <div class="fold-body">
+    <div class="srcline">출처 · 법령에 정해진 서식이 없어, 공인중개사법·시행령과 상법, 『특수법인등기실무』·『상업등기실무』가 요구하는 항목으로 만든 사무소 작성례입니다. 근거: 공인중개사법 시행령 §13①2호 마목(소유·전세·임대차 또는 사용대차 등), 시행규칙 §4①5호.</div>
+<div class="form" id="fBrUse">                       사 무 소 사 용 승 낙 서
+사용 장소 : 서울특별시 ○○구 ○○로 ○○, ○층 ○○○호 (○○㎡)
+           (건축물대장상 용도: 제2종 근린생활시설(사무소))
+승 낙 자 : ○○○ (위 장소의 [소유자 / 임차인])
+사 용 자 : 주식회사 ○○ (대표이사 ○○○)
+승낙자는 사용자가 위 장소를 중개사무소로 사용하는 것을 승낙합니다.
+  1. 사용 기간 : 20○○. ○. ○.부터 20○○. ○. ○.까지
+  2. 사용 대가 : [무상 / 월 금 ○○○원]
+  3. (승낙자가 임차인인 경우) 소유자 ○○○의 전대·사용 동의서를 붙입니다.
+                              20○○년 ○월 ○일
+                    승낙자 ○○○ (인)
+붙임: 1. 승낙자의 소유를 증명하는 서류 또는 임대차계약서 사본
+      2. (임차인이 승낙하는 경우) 소유자 동의서 및 인감증명서</div>
+    <div class="howto">① 가장 좋은 방법은 처음부터 <b>법인 명의로 임대차계약</b>을 하는 것입니다. 설립 전에 대표자 개인 명의로 계약했다면 이 승낙서로 법인의 사용권을 보입니다(시행령은 「사용대차 등」도 인정합니다).<br>② 승낙자가 임차인이면 소유자의 동의가 없을 때 전대가 문제 됩니다(민법 §629). 공유오피스·비상주 사무실은 이를 정면으로 다룬 해석례가 없어 구청에 미리 확인합니다.<br>③ 계약 전에 건축물대장을 열람해 <b>용도(제2종 근린생활시설·업무시설 등)</b>와 <b>위반건축물 표시</b>를 확인합니다. 주택·가설건축물·위반건축물 표시가 있는 일반건축물은 등록되지 않습니다.</div>
+    <div class="form-tools">
+      <button type="button" onclick="copyForm('fBrUse')">📋 복사</button>
+      <button type="button" onclick="printForm('fBrUse')">🖨 인쇄</button>
+      <button type="button" onclick="downloadForm('fBrUse','사무소사용승낙서_중개법인_작성예시.txt')">⬇ 내려받기</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ 제4부 ══════════ -->
+<div class="part" id="part4">
+  <div class="pn">제4부</div>
+  <div class="pt2">운영 중 — 임원·사무소가 바뀔 때, 분사무소, 해산</div>
+  <div class="pw">변경·해산등기는 <b>법무사</b>, 구청 신고는 <b>행정사</b> 업무입니다. 등기 기한(2주)과 공인중개사법 기한(10일·7일·2개월)이 따로 돌아갑니다.</div>
+</div>
+
+<div class="qhead"><span class="qb">期</span>
+  <h2>두 개의 시계 — 기한을 이렇게 셉니다</h2>
+</div>
+<p>첫날은 세지 않고 다음 날부터 셉니다(민법 §157, 행정에 관한 기간은 행정기본법 §6①로 민법 준용). 끝날이 토요일·공휴일이면 그다음 날까지입니다(민법 §161). 2027년 공휴일은 우주항공청 「2027년 월력요항」(2026. 6. 29.)으로 확인했습니다.</p>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:20%">절차</th><th style="width:20%">① 기산일</th><th style="width:20%">② 근거 조문</th><th style="width:16%">③ 말일 처리</th><th>④ 만료일(예)</th></tr></thead>
+  <tbody>
+    <tr><td>임원·목적 변경등기</td><td>변경일의 다음 날</td><td>상법 §317④·§183</td><td>§161</td><td>2027. 3. 10.(수) 취임 → <b>3. 24.(수)</b></td></tr>
+    <tr><td>본점 이전등기</td><td>이전일의 다음 날</td><td>상법 §182①</td><td>§161</td><td>2027. 6. 7.(월) 이전 → <b>6. 21.(월)</b></td></tr>
+    <tr><td><b>중개사무소 이전신고</b></td><td>이전한 날의 다음 날</td><td><a class="dl" href="https://www.law.go.kr/법령/공인중개사법/제20조" target="_blank" rel="noopener">공인중개사법 §20</a>① — 10일 이내</td><td>§161</td><td>2027. 6. 7.(월) 이전 → <b>6. 17.(목)</b></td></tr>
+    <tr><td>지점(분사무소) 설치등기</td><td>설치일의 다음 날</td><td>상법 §181 — 본점 소재지에서만(2025. 1. 31. 시행)</td><td>§161</td><td>2027. 6. 7.(월) 설치 → <b>6. 21.(월)</b></td></tr>
+    <tr><td><b>결격 임원 해소</b></td><td>결격 사유가 생긴 날의 다음 날</td><td><a class="dl" href="https://www.law.go.kr/법령/공인중개사법/제38조" target="_blank" rel="noopener">공인중개사법 §38</a>①3호 단서 — 2개월</td><td>§160·§161</td><td>2027. 3. 10.(수) 발생 → <b>5. 10.(월)</b> — 넘기면 <b>반드시 등록취소</b></td></tr>
+    <tr><td><b>공인중개사 비율·실무교육 미달</b></td><td>미달된 날</td><td>법 §38②1호</td><td>—</td><td><b>유예기간 없음</b> — 같은 날 퇴임·취임으로 막기</td></tr>
+    <tr><td>등록인장 변경</td><td>변경일의 다음 날</td><td>시행규칙 §9② — 7일</td><td>§161</td><td>2027. 3. 10.(수) 변경 → <b>3. 17.(수)</b></td></tr>
+    <tr><td>고용관계 종료 신고</td><td>종료일의 다음 날</td><td>시행규칙 §8④ — 10일</td><td>§161</td><td>2027. 3. 10.(수) 종료 → 3. 20.(토) → <b>3. 22.(월)</b></td></tr>
+    <tr><td>휴업(3개월 초과)·폐업</td><td>—</td><td>법 §21①, 시행령 §18 — <b>미리</b> 신고</td><td>—</td><td>휴업은 6개월을 넘을 수 없음(질병 등 예외)</td></tr>
+    <tr><td>해산등기 · 등록증 반납</td><td>해산일 / 취소처분일의 다음 날</td><td>상법 §521의2·§228(2주) / 시행규칙 §24②(7일)</td><td>§161</td><td>2027. 3. 10.(수) 해산 → 3. 24.(수) · 처분 3. 10. → 3. 17.(수)</td></tr>
+  </tbody>
+</table></div>
+
+<div class="qhead"><span class="qb">12</span>
+  <h2>바뀔 때 무엇을 내나요?</h2>
+</div>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:22%">사건</th><th style="width:28%">① 법인이 준비</th><th style="width:22%">② 사무소가 작성</th><th>③ 제출처 · 기한</th></tr></thead>
+  <tbody>
+    <tr><td><b>임원 변경</b></td><td>주주총회·이사회 의사록, 취임승낙서, 인감증명서 — <b>먼저 3분의 1 재계산·결격·실무교육 확인</b></td><td>법무사(변경등기, <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3334567" target="_blank" rel="noopener">예규 제1792호</a> 양식 제72호)</td><td>본점 소재지 등기소 · 2주</td></tr>
+    <tr><td>대표자 변경</td><td>종전 등록증, 변경 증명 서류 / 새 법인 인감증명서</td><td>행정사(등록증 재교부 별지 제4호, 변경 인장 등록)</td><td>구청 · 인장은 7일 안(시행규칙 §5④·§9②④)</td></tr>
+    <tr><td>목적 변경</td><td>주주총회 특별결의</td><td>법무사(양식 제71호)</td><td>등기소 · 2주 — §14 밖 목적을 넣으면 등록기준 미달</td></tr>
+    <tr><td>본점·중개사무소 이전</td><td>의사록 / 등록증, 새 사무소 사용권 증명</td><td>법무사(본점 이전등기) · 행정사(이전신고 별지 제12호)</td><td>등기소 한 곳 1건, 2주 / 이전 후 관할 구청, <b>10일</b></td></tr>
+    <tr><td>분사무소 설치</td><td>책임자(공인중개사) 실무교육 수료증, <b>추가 보증 2억원</b> 증명, 건물 확보 증명 / 이사회의사록</td><td>행정사(설치신고 별지 제9호) · 법무사(지점 설치등기 양식 제67호)</td><td>주된 사무소 관할 구청(처리 7일) / 본점 소재지 등기소, 2주</td></tr>
+    <tr><td>휴업·폐업·재개</td><td>등록증(휴업·폐업)</td><td>행정사(별지 제13호)</td><td>구청 · 미리</td></tr>
+    <tr><td>해산</td><td>주주총회 의사록 등 / 등록증</td><td>법무사(해산·청산인 등기 양식 제85호) · 행정사(등록증 반납)</td><td>등기소 2주 / 구청 7일 — 해산은 반드시 등록취소 사유(법 §38①1호)</td></tr>
+  </tbody>
+</table></div>
+<div class="concept"><b>분사무소는 주된 사무소가 있는 시·군·구 밖에, 시·군·구마다 1개까지</b> 둘 수 있습니다. 예를 들어 주된 사무소가 구로구면 구로구 안에는 둘 수 없고, 다른 구마다 1개씩 둘 수 있습니다. 책임자는 공인중개사여야 하고, 신고서에 보증 설정 증명을 붙이므로 <b>추가 보증 2억원은 신고 전에</b> 설정합니다(<a class="dl" href="https://www.law.go.kr/법령/공인중개사법시행령/제15조" target="_blank" rel="noopener">공인중개사법 시행령 §15</a>). 중개법인 임원인 공인중개사가 분사무소 책임자가 되는 것을 막는 규정은 없습니다(국토교통부 정책Q&amp;A Q8).</div>
+<div class="tip"><span class="pt">이미 있는 회사를 중개법인으로 바꾸려면</span>목적을 §14 업무만으로 줄이는 정관 변경(주주총회 특별결의)과 목적 변경등기, 자본금이 5천만원 미만이면 증자등기, 대표이사를 공인중개사로 하고 임원 구성을 맞춘 뒤 개설등록을 신청합니다. 임대업·매매업·시행·건설업 같은 목적을 남기면 등기는 되더라도 구청에서 기준 미달이 됩니다. 결격 임원이 있으면 퇴임등기를 먼저 합니다. 목적·임원 변경을 한 신청서로 하면 등록면허세 40,200원×2, 지방교육세 8,040원×2, 수수료 7,000원×2로 <b>110,480원</b>(증자 제외)입니다. 서울 법인이 설립 뒤 5년 안에 증자하면 증자분 등록면허세는 3배입니다.</div>
+
+<!-- ══════════ 보정 ══════════ -->
+<div class="qhead"><span class="qb">補</span>
+  <h2>보정·보완이 나기 쉬운 곳 — 먼저 소명서로 풀리는지 봅니다</h2>
+</div>
+<p>등기소는 보정할 수 있는 흠이면 보정명령 다음 날까지 고치면 각하하지 않습니다(상업등기법 §26 단서). 구청은 기준에 맞지 않으면 등록하지 않으므로(시행령 §13②) 보완 단계에서 막아야 합니다. 가능성은 사무소의 예측입니다.</p>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:9%">단계</th><th style="width:25%">예상 사유</th><th style="width:7%">가능성</th><th style="width:27%">예상 문구</th><th>대응(소명서로 되는지 먼저)</th></tr></thead>
+  <tbody>
+    <tr><td>등기소</td><td>목적에 임대·매매·분양업, 「부동산 컨설팅」 등</td><td><b>상</b></td><td>「목적 중 ○○는 공인중개사법 제14조의 업무가 아니므로 정리하십시오」</td><td>소명으로 풀리지 않습니다 — 정관·의사록 수정. 등기되더라도 구청에서 막힙니다</td></tr>
+    <tr><td>등기소</td><td>자본금 5천만원 미달</td><td>중</td><td>「부동산중개법인의 자본금 기준에 미달합니다」</td><td><a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854492" target="_blank" rel="noopener">선례 제1-92호</a> 취지로 소명할 여지는 있으나, 개설등록 전에 결국 증자해야 하고 서울은 3배 — 처음부터 5천만원 이상</td></tr>
+    <tr><td>등기소</td><td>대표이사·임원의 공인중개사 자격 확인 요구</td><td>하</td><td>「공인중개사 자격을 확인할 자료를 내십시오」</td><td><b>소명서 + 자격증 사본</b>으로 풀립니다(법정 첨부정보 아님)</td></tr>
+    <tr><td>등기소</td><td>잔고증명 명의가 대표이사 / 미결제타점</td><td>중</td><td>「잔고증명서의 명의(미결제타점 결제)를 소명하십시오」</td><td><b>소명서</b>로 풀립니다. 금액 부족은 안 됩니다</td></tr>
+    <tr><td>등기소</td><td>인감증명서 3개월 경과·인감 불일치</td><td>중</td><td>「발행 3개월 이내 인감증명서를 내십시오」</td><td>재발급·재날인</td></tr>
+    <tr><td>구청</td><td>대표자 외 임원 3분의 1 미달(감사 포함)</td><td><b>상</b></td><td>「대표자를 제외한 임원의 3분의 1 이상이 공인중개사여야 합니다」</td><td>감사를 두지 않은 회사의 분모 문제면 소명(상법 §409④, 국토부 Q24). 실제 미달이면 임원 변경등기</td></tr>
+    <tr><td>구청</td><td>임원 전원 실무교육 수료증 누락·1년 경과</td><td><b>상</b></td><td>「대표자·임원 전원의 실무교육 수료확인증을 내십시오」</td><td>소명 불가 — 수강(45시간)</td></tr>
+    <tr><td>구청</td><td>건축물대장 용도·위반건축물·가설건축물</td><td><b>상</b></td><td>「건축물대장상 용도로 등록기준에 맞지 않습니다」</td><td>소명 불가 — 용도변경·시정 또는 다른 사무소</td></tr>
+    <tr><td>구청</td><td>임대차 임차인이 대표자 개인</td><td>중</td><td>「법인이 사용권을 확보했음을 증명하십시오」</td><td><b>사용승낙서</b>(작성례)로 소명 — 처음부터 법인 명의가 안전</td></tr>
+    <tr><td>구청</td><td>법인 인감증명서·공동사용 승낙서 누락</td><td>중</td><td>「인장등록을 위해 법인 인감증명서를 내십시오」</td><td>추가 제출</td></tr>
+    <tr><td>구청</td><td>임원 중 결격자·다른 사무소 소속자</td><td><b>상</b></td><td>「임원 중 결격사유 해당자가 있어 등록할 수 없습니다」</td><td>소명 불가 — 퇴임등기·고용관계 종료 신고를 먼저</td></tr>
+  </tbody>
+</table></div>
+<p style="font-size:13.5px;color:var(--muted)">※ 허위·위조 임대차계약서는 보정 대상이 아니라 부정등록으로 반드시 등록이 취소되고 형사처벌 대상입니다(법 §38①2호·§48).</p>
+
+<!-- ══════════ 외국인 ══════════ -->
+<div class="qhead"><span class="qb">外</span>
+  <h2>외국인이 임원이나 출자자라면 — 착수 전에 정할 다섯 가지</h2>
+</div>
+<p>공인중개사 자격과 개설등록에는 국적 요건이 없습니다. 다만 외국인이나 외국에 주된 영업소를 둔 법인이 신청할 때는 결격사유에 해당하지 않음을 증명하는 본국 서류(재외공관 영사 확인 또는 아포스티유)와 상법 §614의 영업소 등기 증명을 냅니다(시행규칙 §4①6호). 국내 법인의 임원이 외국인인 경우에도 법인 결격은 임원 전원을 기준으로 하므로 구청이 그 임원의 본국 서류를 요구할 가능성이 높습니다. 외국회사가 직접 중개법인이 되는 것은 「상법상 회사」·「§14 업무만」 요건 때문에 사실상 어렵고, 국내에 주식회사를 따로 세우는 쪽이 현실적입니다.</p>
+<div class="tblwrap"><table>
+  <thead><tr><th style="width:24%">착수 전 정할 것</th><th style="width:38%">설립등기(법무사)</th><th>개설등록(행정사)</th></tr></thead>
+  <tbody>
+    <tr><td>① 동일인·인적사항 증명</td><td>임원 인적사항 증명 서면(외국인은 외국인등록사실증명 등 — <a class="dl" href="sanlaw_외국인_법인설립_안내.html">외국인 법인설립 안내</a> 참고)</td><td>구청은 외국인등록번호로 처리(시행령 §37의2)</td></tr>
+    <tr><td>② 번역·공증·아포스티유</td><td>외국어 서류 번역문</td><td>결격 비해당 증명 — 영사 확인 또는 아포스티유</td></tr>
+    <tr><td>③ 재외공관 확인</td><td>해외 체류 임원의 서명 공증 장소</td><td>아포스티유 비협약국은 영사 확인</td></tr>
+    <tr><td>④ 외환·외국인투자 신고</td><td>외국인 출자 시 외국인투자촉진법·외국환거래법 신고 여부</td><td>—</td></tr>
+    <tr><td>⑤ 인감 대체</td><td>취임승낙서 서명 공증(상업등기규칙 §154②·§104①)</td><td>법인 인장등록은 법인 인감증명서로</td></tr>
+  </tbody>
+</table></div>
+<p style="font-size:13.5px;color:var(--muted)">※ 외국인 임원에게 요구하는 결격 서류의 범위를 정한 해석례·구청 안내는 찾지 못했습니다. 신청 전에 관할 구청에 확인하십시오. 재외국민(대한민국 국적)과 외국인은 서류 체계가 다르므로 국적부터 확인합니다.</p>
+
+<div class="qhead"><span class="qb">Q</span>
+  <h2>자주 묻는 질문</h2>
+</div>
+<div class="faq">
+  <details><summary>공인중개사 한 명만으로도 중개법인을 세울 수 있나요?</summary><div class="fa">자본금 10억원 미만 주식회사가 감사를 두지 않고(상법 §409④) 이사를 대표이사 1명만 두면, 대표자를 뺀 임원이 없어 공인중개사 대표자 1명만으로 등록기준을 갖출 수 있다는 것이 국토교통부 회신입니다(정책Q&amp;A Q24). 자본금 5천만원 이상과 목적 제한은 그대로 지켜야 합니다.</div></details>
+  <details><summary>설립등기만 하면 바로 중개할 수 있나요?</summary><div class="fa">아닙니다. 구청에 개설등록을 하고, 보증을 설정·신고해 등록증을 받은 뒤에야 중개할 수 있습니다(법 §9①, 시행령 §24②, 시행규칙 §5①). 등록 없이 중개하면 3년 이하 징역 또는 3천만원 이하 벌금 대상입니다(법 §48).</div></details>
+  <details><summary>공인중개사가 아닌 이사도 실무교육을 받아야 하나요?</summary><div class="fa">네. 등록기준은 대표자·임원·사원 <b>전원</b>의 실무교육 수료입니다(시행령 §13①2호 라목, 법 §34①). 감사도 임원으로 보는 실무에 따라 받아 두는 것이 안전합니다. 등록신청일 전 1년 안에 받은 것만 인정됩니다.</div></details>
+  <details><summary>목적에 「부동산 임대업」을 넣어도 되나요?</summary><div class="fa">안 됩니다. 중개법인은 법 §14의 업무만 할 수 있어 임대관리 대행은 되지만 직접 임대업은 할 수 없습니다(『특수법인등기실무』 419쪽). 목적에 넣으면 개설등록 기준(시행령 §13①2호 나목)에 맞지 않습니다.</div></details>
+  <details><summary>상호에 꼭 「부동산중개」를 넣어야 하나요?</summary><div class="fa">법 §18은 <b>사무소의 명칭</b>(간판 등)에 「공인중개사사무소」 또는 「부동산중개」를 쓰라는 규정입니다. 등기 상호에 넣으라는 조문은 없어 선택입니다. 넣으실 때는 접수 전에 관할 등기소에 확인하겠습니다.</div></details>
+  <details><summary>서울이 아닌 곳에서 세운 뒤 서울로 옮기면 등록면허세를 아낄 수 있나요?</summary><div class="fa">아닙니다. 대도시 밖 법인이 대도시로 본점을 옮기면 설립으로 보아 3배로 과세합니다(지방세법 §28②). 세금 문제는 세무사의 확인을 받으시기 바랍니다.</div></details>
+  <details><summary>임원이 바뀌면 구청에도 신고하나요?</summary><div class="fa">대표자 외 임원 변경에는 공인중개사법상 따로 정한 「변경신고」 조문이 없습니다. 대표자가 바뀌면 등록증 재교부(별지 제4호)와, 인감을 새로 신고했다면 7일 안 변경 인장 등록을 합니다(시행규칙 §5④·§9②). 다만 3분의 1 비율과 전원 실무교육은 계속 유지해야 하므로 임원 변경 전에 함께 점검해 드립니다.</div></details>
+  <details><summary>사무소를 구로구에서 영등포구로 옮기면 어디에 신고하나요?</summary><div class="fa">이전한 날부터 10일 안에 <b>이전 후 사무소를 관할하는 구청</b>에 등록증과 새 사무소 사용권 증명을 붙여 이전신고를 합니다(법 §20①, 시행규칙 §11). 본점도 옮겼다면 2주 안에 본점 이전등기를 합니다.</div></details>
+  <details><summary>법인이 해산하면 대표자도 3년간 개설등록을 못 하나요?</summary><div class="fa">법제처는 법인 등록이 취소되어도 대표자였던 공인중개사가 그 이유만으로 결격(법 §10①8호)에 해당하지 않는다고 보았습니다(<a class="dl" href="https://www.law.go.kr/LSW/expcInfoP.do?expcSeq=327397" target="_blank" rel="noopener">법제처 20-0559</a>). 개별 사정은 상담 때 확인하겠습니다.</div></details>
+</div>
+
+<div class="hire">
+  <div class="ht">고충은 덜어드리고, 끝까지 곁에서 돕겠습니다</div>
+  <p style="margin:0 0 8px;font-size:14.5px;line-height:1.85">본 사무소에서는 사실관계와 자료를 꼼꼼히 살펴 필요한 서류를 갖추어 드리고, 절차를 마치실 때까지 성심껏 돕겠습니다.</p>
+  <p style="margin:0;font-size:14.5px;line-height:1.85">설립등기는 <b>법무사</b>로서 신청을 대리합니다. 정관 단계에서 자본금·목적·임원 구성을 등록기준에 맞추어 짜고, 발기인회의사록·조사보고서·취임승낙서·위임장 작성, 인감 제출, 등록면허세 신고·납부 대행까지 함께 도와드립니다. 개설등록신청서와 보증·고용·인장 신고, 이전·분사무소 신고 서류의 작성·제출을 맡기실 때는 <b>행정사</b>로서 대행합니다. 사업자등록과 세무 신고는 세무사의 업무입니다 — 세무사의 확인을 받으시기 바랍니다.</p>
+</div>
+
+<div class="cb-box" id="cbBox">
+<style>
+.cb-box{margin:20px auto;max-width:660px;background:#fbf6ec;border:1px solid #e3cfa8;border-radius:14px;padding:16px 16px 14px;box-sizing:border-box}
+.cb-box .cb-t{font-weight:800;font-size:16.5px;color:#5a3b1c;text-align:center;margin:0 0 10px}
+.cb-box .cb-l{display:block;font-size:13px;font-weight:700;color:#7a5230;margin:8px 0 4px}
+.cb-box .cb-l small{font-weight:400;color:#8a7a62}
+.cb-box textarea{width:100%;box-sizing:border-box;border:1px solid #d9c7a3;border-radius:10px;padding:9px 12px;font:14px/1.6 'Pretendard',-apple-system,'Malgun Gothic',sans-serif;color:#2a2118;background:#fff;resize:vertical}
+.cb-box #cbAuto{min-height:120px;background:#fffdf8}
+.cb-box #cbMsg{min-height:70px}
+.cb-box textarea:focus{outline:2px solid #c8862d;outline-offset:1px}
+.cb-box .cb-row{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:12px}
+.cb-box .cb-row a{display:flex;align-items:center;justify-content:center;gap:6px;flex:1 1 150px;text-align:center;border-radius:999px;padding:12px 14px;font-size:15px;font-weight:700;text-decoration:none;box-shadow:0 3px 10px rgba(0,0,0,.12)}
+.cb-box .cb-k{background:#FEE500;color:#3c1e1e}.cb-box .cb-p{background:#c8862d;color:#fff}.cb-box .cb-m{background:#3d5a80;color:#fff}
+.cb-box .cb-n{font-size:12px;color:#8a7a62;text-align:center;margin:8px 0 0;line-height:1.5}
+.cb-box .cb-row a{white-space:nowrap}
+@media(max-width:520px){.cb-box .cb-row a{flex-basis:100%;padding:11px 14px}.cb-box textarea{font-size:16px}}
+.cb-toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:99999;max-width:min(92vw,460px);background:#2a2118;color:#fbf8f1;border-radius:10px;padding:12px 16px;font-size:14px;line-height:1.6;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+@media print{.cb-box{display:none}}
+</style>
+<div class="cb-t">💬 이 내용으로 상담하기</div>
+<label class="cb-l" for="cbAuto">① 보고 계신 내용 <small>(자동으로 옮겨집니다 · 고쳐 쓰셔도 됩니다)</small></label>
+<textarea id="cbAuto"></textarea>
+<label class="cb-l" for="cbMsg">② 덧붙일 말씀 <small>(내 상황·궁금한 점)</small></label>
+<textarea id="cbMsg" placeholder="예) 제 경우에도 해당하는지, 언제까지 해야 하는지 궁금합니다."></textarea>
+<div class="cb-row">
+<a class="cb-k" id="cbKakao" href="https://pf.kakao.com/_znJqX/chat" target="_blank" rel="noopener">💬 카카오톡으로 보내기</a>
+<a class="cb-m" id="cbMail" href="mailto:rokfbi01@gmail.com">✉️ 이메일로 보내기</a>
+<a class="cb-p" href="tel:01037480825">📞 전화 010-3748-0825</a>
+</div>
+<p class="cb-n">카카오톡은 대화창이 열리면 <b>붙여넣기</b>만 하시면 됩니다 (PC: Ctrl+V · 휴대폰: 입력칸을 길게 눌러 붙여넣기).</p>
+<script>
+(function(){
+  var box=document.getElementById('cbBox'); if(!box) return;
+  var au=document.getElementById('cbAuto'), ta=document.getElementById('cbMsg'), dirty=false, last='';
+  if(box.getAttribute('data-msg') && !ta.value) ta.value=box.getAttribute('data-msg');
+  function clean(el){ if(!el) return ''; var c=el.cloneNode(true);
+    [].forEach.call(c.querySelectorAll('.bub,script,style,button,.cb-box,.tt'),function(x){x.parentNode.removeChild(x);});
+    [].forEach.call(c.querySelectorAll('br'),function(x){x.parentNode.replaceChild(document.createTextNode(' '),x);});
+    return (c.textContent||'').replace(/\s+/g,' ').trim(); }
+  function title(){ return clean(document.querySelector('h1'))||document.title; }
+  function generic(){
+    var s=clean(document.querySelector('.tldr')||document.querySelector('.lead')||document.querySelector('main p'));
+    s=s.replace(/^⭐?\s*30초 결론부터\s*/,'');
+    var parts=s.split(/(?<=[.?!])\s+/), sum='';
+    for(var i=0;i<parts.length && sum.length<170;i++){ sum+=(sum?' ':'')+parts[i]; }
+    if(sum.length>240) sum=sum.slice(0,238)+'…';
+    return '보신 페이지: '+title()+(sum?'\n요약: '+sum:'');
+  }
+  function build(){
+    var body=''; try{ body=(typeof window.cbSummary==='function')?window.cbSummary():generic(); }catch(e){ body=generic(); }
+    return '[홈페이지 상담 문의]\n'+body+'\n주소: '+location.href;
+  }
+  function refresh(){ if(dirty) return; var v=build(); if(v!==last){ au.value=v; last=v; } }
+  au.addEventListener('input',function(){ dirty=true; });
+  var tm; function later(){ clearTimeout(tm); tm=setTimeout(refresh,350); }
+  document.addEventListener('change',function(e){ if(!box.contains(e.target)) later(); });
+  document.addEventListener('click',function(e){ if(!box.contains(e.target)) later(); });
+  window.addEventListener('hashchange',later);
+  refresh(); setTimeout(refresh,1500);
+  function full(){ refresh(); var m=ta.value.trim(); return au.value+(m?'\n\n덧붙일 말씀: '+m:''); }
+  function toast(m){ var t=document.createElement('div'); t.className='cb-toast'; t.textContent=m; document.body.appendChild(t); setTimeout(function(){ if(t.parentNode) t.parentNode.removeChild(t); },6500); }
+  function copy(text){
+    var ok=false;
+    try{ var x=document.createElement('textarea'); x.value=text; x.setAttribute('readonly',''); x.style.position='fixed'; x.style.top='0'; x.style.opacity='0'; document.body.appendChild(x); x.select(); ok=document.execCommand('copy'); document.body.removeChild(x); }catch(e){}
+    if(!ok && navigator.clipboard && window.isSecureContext){ ok=true; navigator.clipboard.writeText(text).catch(function(){}); }
+    return ok;
+  }
+  document.getElementById('cbKakao').addEventListener('click',function(){
+    var ok=copy(full());
+    toast(ok?'상담 내용을 복사했습니다. 카카오톡 대화창에 붙여넣기 하시면 됩니다.':'카카오톡 창이 열리면 위 상담 내용을 복사해 붙여넣어 주세요.');
+  });
+  document.getElementById('cbMail').addEventListener('click',function(){
+    this.href='mailto:rokfbi01@gmail.com?subject='+encodeURIComponent('[홈페이지] '+title()+' 상담 문의')+'&body='+encodeURIComponent(full());
+  });
+})();
+</script>
+</div>
+
+<div class="src">
+근거(2026. 11. 23. 국가법령정보센터·사법정보공개포털 현행 확인) — 공인중개사법(법률 제21409호, 2026. 8. 28. 시행) §2· §9· §10· §12· §13· §14· §15· §16· §17· §18· §18의2· §18의4· §20· §21· §30· §33· §34· §38· §39· §47· §48· §49 / 같은 법 시행령(대통령령 제36590호, 2026. 8. 28. 시행) §13· §15· §16· §17· §18· §24· §25· §28· §37의2, 부칙(대통령령 제35824호 — 실무교육 45시간, 2026. 1. 1. 시행) / 같은 법 시행규칙(국토교통부령 제1611호, 2026. 8. 28. 시행) §4· §5· §7· §8· §9· §10· §10의2· §11· §12· §18· §19· §24와 별지 제4호·제5호·제9호·제11호·제11호의2·제12호·제13호·제25호서식 / 공인중개사의 매수신청대리인 등록 등에 관한 규칙(대법원규칙 제3067호) / 상법(법률 제21044호, 2026. 9. 10. 시행) §172· §181· §182· §183· §228· §291· §292· §317· §318· §409· §521의2· §614· §635 / 상업등기법(법률 제20437호) §25· §26 / 상업등기규칙 §51· §52· §104· §129· §154 / 공증인법 §66의2 / 협동조합 기본법 §15· §18· §61~§66 / 지방세법 §28①6호·②·④· §151①2호, 같은 법 시행령 §26①· §44 / 지방회계법 §55 / 등기사항증명서 등 수수료규칙 §5의3· §5의5 / 행정기본법 §6 / 민법 §157· §160· §161· §629 / 법무사법 §2 · 행정사법 §2 / 등기예규 <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1865131" target="_blank" rel="noopener">예규 제544호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3334567" target="_blank" rel="noopener">예규 제1792호</a>(양식 제65-1호·제65-2호·제67호·제71호·제72호·제85호) / 상업등기선례 <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854492" target="_blank" rel="noopener">선례 제1-92호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3202862" target="_blank" rel="noopener">선례 제201812-1호</a>· <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854257" target="_blank" rel="noopener">선례 제1-16호</a> / 법제처 법령해석 06-0055· 07-0293· 09-0023· 13-0318· 13-0380· 14-0332· 14-0415· 18-0780· 20-0559· 21-0173 / <a class="dl" href="https://www.molit.go.kr/USR/policyTarget/dtl.jsp?idx=414" target="_blank" rel="noopener">국토교통부 정책Q&amp;A(개설등록 기준, 2012 게시 — 구법 시기 회신이므로 현행 조문과 대조해 인용)</a> / <a class="dl" href="https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=15000000032&amp;tp_seq=01" target="_blank" rel="noopener">정부24 개설등록 안내</a> · 서울 금천구 중개업 등록 안내(수수료 예시) / 우주항공청 「2027년 월력요항」(2026. 6. 29.) / 『특수법인등기실무』(법원행정처, 2025) 4· 81· 188· 196· 396~397· 417~419쪽 / 『상업등기실무』(법원공무원교육원, 2026) 318~342쪽. 교재 417쪽의 「등기관 각하」 견해와 <a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=1854492" target="_blank" rel="noopener">선례 제1-92호</a>·<a class="dl" href="https://portal.scourt.go.kr/pgp/main.on?w2xPath=PGP1051M04&amp;c=900&amp;jisCntntsSrno=3202862" target="_blank" rel="noopener">선례 제201812-1호</a>의 취지가 다른 점은 본문에 함께 적었습니다. 감사가 「임원」에 들어가는지, 상호에 「부동산중개」를 넣을 수 있는지, 공유오피스 사용권, 외국인 임원 서류 범위는 이를 정한 해석례가 없어 「안전한 방법」으로 안내하고 구청·등기소 사전 확인을 권했습니다. 구청 수수료는 조례로 정해 구마다 다를 수 있습니다. 발급처 링크는 각 기관 공식 사이트의 해당 화면으로 연결됩니다.
+</div>
+
+<script>
+(function(){
+  var terms=document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    t.setAttribute('tabindex','0');
+    t.addEventListener('click',function(e){e.stopPropagation();var w=t.classList.contains('on');terms.forEach(function(x){x.classList.remove('on');});if(!w)t.classList.add('on');});
+    t.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();t.classList.toggle('on');}if(e.key==='Escape'){t.classList.remove('on');t.blur();}});
+  });
+  document.addEventListener('click',function(){terms.forEach(function(x){x.classList.remove('on');});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){terms.forEach(function(x){x.classList.remove('on');});}});
+})();
+function toggleFold(b){var fb=b.parentElement;fb.classList.toggle('open');}
+function _openCall(id){var w=document.getElementById(id);var n=w&&w.nextElementSibling;if(n&&n.classList.contains('calltbl'))n.classList.add('open');}
+document.addEventListener('click',function(e){var a=e.target.closest?e.target.closest('a[href^="#call"]'):null;if(a)_openCall(a.getAttribute('href').slice(1));});
+if(location.hash.indexOf('#call')===0)_openCall(location.hash.slice(1));
+function _ft(id){var e=document.getElementById(id);return e?e.innerText.replace(/\n{3,}/g,'\n\n').trim():'';}
+function _toast(m){var d=document.createElement('div');d.textContent=m;d.style.cssText='position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#241a10;color:#fff;padding:10px 18px;border-radius:20px;font-size:14px;z-index:200;opacity:0;transition:.2s';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity='1';});setTimeout(function(){d.style.opacity='0';setTimeout(function(){d.remove();},200);},1600);}
+function copyForm(id){var t=_ft(id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){_toast('양식이 복사되었습니다');},function(){_fb(t);});}else{_fb(t);}}
+function _fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');_toast('양식이 복사되었습니다');}catch(e){_toast('복사 실패 — 직접 선택해 주세요');}document.body.removeChild(a);}
+function printForm(id){var t=_ft(id).replace(/</g,'&lt;');var w=window.open('','_blank');w.document.write('<pre style="font-family:Nanum Myeongjo,serif;font-size:14px;white-space:pre-wrap;padding:24px;line-height:1.6">'+t+'</pre>');w.document.close();w.focus();w.print();}
+function downloadForm(id,fn){var t=_ft(id);var b=new Blob(['\ufeff'+t],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a);},120);_toast('양식을 내려받았습니다');}
+</script>
+<script>
+/* 2026-11-16 메일 단추 — PC에 메일 프로그램이 연결되어 있지 않으면 mailto 링크가 크롬 첫 화면만 여는 일이 많다.
+   그래서 PC에서는 Gmail 편지쓰기 화면을 받는 사람·제목·본문을 채워 새 탭으로 바로 열고, 내용은 복사해 둔다(네이버·다음 메일용).
+   휴대폰은 메일 앱이 그대로 열리므로 손대지 않는다. */
+(function(){
+  if(window.__sanMailFix) return; window.__sanMailFix=1;
+  if(/Android|iPhone|iPad|iPod|Mobile|Windows Phone/i.test(navigator.userAgent)) return;
+  function qp(s,k){ var m=s.match(new RegExp('(?:^|&)'+k+'=([^&]*)','i')); if(!m) return ''; try{ return decodeURIComponent(m[1]); }catch(e){ return m[1]; } }
+  function copy(t){ try{ var x=document.createElement('textarea'); x.value=t; x.setAttribute('readonly',''); x.style.position='fixed'; x.style.top='0'; x.style.opacity='0'; document.body.appendChild(x); x.select(); var ok=document.execCommand('copy'); document.body.removeChild(x); return ok; }catch(e){ return false; } }
+  function toast(m){ var t=document.createElement('div'); t.style.cssText='position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:100001;max-width:min(92vw,480px);background:#2a2118;color:#fbf8f1;border-radius:10px;padding:12px 16px;font-size:14px;line-height:1.6;box-shadow:0 8px 24px rgba(0,0,0,.35)'; t.textContent=m; document.body.appendChild(t); setTimeout(function(){ if(t.parentNode) t.parentNode.removeChild(t); },8000); }
+  document.addEventListener('click',function(e){
+    var a=(e.target&&e.target.closest)?e.target.closest('a[href^="mailto:"]'):null; if(!a||e.defaultPrevented) return;
+    var h=a.getAttribute('href').slice(7), i=h.indexOf('?'), to, q=i<0?'':h.slice(i+1);
+    try{ to=decodeURIComponent(i<0?h:h.slice(0,i)); }catch(x){ to=i<0?h:h.slice(0,i); }
+    var su=qp(q,'subject'), body=qp(q,'body'), keep=body.length, b, u, note='\n\n…(내용이 길어 일부만 담았습니다. 전체 내용은 복사되어 있으니 붙여넣어 주세요.)';
+    for(;;){ b=keep<body.length?body.slice(0,keep)+note:body;
+      u='https://mail.google.com/mail/?view=cm&fs=1&to='+encodeURIComponent(to)+(su?'&su='+encodeURIComponent(su):'')+(b?'&body='+encodeURIComponent(b):'');
+      if(u.length<7500||keep<300) break; keep=Math.floor(keep*0.75); }
+    e.preventDefault();
+    var copied=body?copy(body):false;
+    var w=window.open(u,'_blank'); if(w){ try{ w.opener=null; }catch(x){} } else { location.href=u; return; }
+    toast('Gmail 편지쓰기 창을 열었습니다. 받는 사람·제목·내용이 채워져 있으니 확인하고 보내기만 누르시면 됩니다.'+(copied?' 네이버·다음 메일을 쓰시면 내용이 복사되어 있으니 그 메일 본문에 붙여넣기(Ctrl+V) 하세요.':' 다른 메일을 쓰시면 받는 사람을 '+to+' 로 적어 보내 주세요.'));
+  });
+})();
+</script>
+</body>
+</html>
